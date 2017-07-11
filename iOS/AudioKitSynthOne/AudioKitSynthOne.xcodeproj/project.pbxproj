@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C41F29D51F1332A500909D45 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46DE1001F13301D0060DD79 /* AudioKit.framework */; };
+		C41F29D61F1332A500909D45 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C46DE1001F13301D0060DD79 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C41F29D91F1332A900909D45 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46DE1001F13301D0060DD79 /* AudioKit.framework */; };
+		C474D9511F13172B00946035 /* AudioUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C474D9501F13172B00946035 /* AudioUnitViewController.swift */; };
+		C474D9541F13172B00946035 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C474D9521F13172B00946035 /* MainInterface.storyboard */; };
+		C474D9591F13172B00946035 /* SynthOne.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C474D94B1F13172B00946035 /* SynthOne.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
+		C4D193CA1F1187B500FF4FE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* ViewController.swift */; };
+		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
+		C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */; };
+		C4D193D21F1187B500FF4FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193D01F1187B500FF4FE4 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C41F29D71F1332A500909D45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C42F34FF1C057E03000E937C;
+			remoteInfo = AudioKit;
+		};
+		C46DE0FF1F13301D0060DD79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C42F35001C057E03000E937C;
+			remoteInfo = AudioKit;
+		};
+		C474D9571F13172B00946035 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4D193BC1F1187B500FF4FE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C474D94A1F13172B00946035;
+			remoteInfo = SynthOne;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C474D95D1F13172B00946035 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C474D9591F13172B00946035 /* SynthOne.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C474D97D1F1325D700946035 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C41F29D61F1332A500909D45 /* AudioKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AudioKit For iOS.xcodeproj"; path = "../../../AudioKit/AudioKit/iOS/AudioKit For iOS.xcodeproj"; sourceTree = "<group>"; };
+		C474D94B1F13172B00946035 /* SynthOne.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SynthOne.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C474D9501F13172B00946035 /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
+		C474D9531F13172B00946035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C474D9551F13172B00946035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioKitSynthOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C4D193C91F1187B500FF4FE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C4D193CC1F1187B500FF4FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4D193D11F1187B500FF4FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C4D193D31F1187B500FF4FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C474D9481F13172B00946035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C41F29D91F1332A900909D45 /* AudioKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4D193C11F1187B500FF4FE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C41F29D51F1332A500909D45 /* AudioKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C46DE0FC1F13301C0060DD79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C46DE1001F13301D0060DD79 /* AudioKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C474D94C1F13172B00946035 /* SynthOne */ = {
+			isa = PBXGroup;
+			children = (
+				C474D9501F13172B00946035 /* AudioUnitViewController.swift */,
+				C474D9521F13172B00946035 /* MainInterface.storyboard */,
+				C474D9551F13172B00946035 /* Info.plist */,
+			);
+			path = SynthOne;
+			sourceTree = "<group>";
+		};
+		C4D193BB1F1187B500FF4FE4 = {
+			isa = PBXGroup;
+			children = (
+				C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */,
+				C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */,
+				C474D94C1F13172B00946035 /* SynthOne */,
+				C4D193C51F1187B500FF4FE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C4D193C51F1187B500FF4FE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */,
+				C474D94B1F13172B00946035 /* SynthOne.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */ = {
+			isa = PBXGroup;
+			children = (
+				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
+				C4D193C91F1187B500FF4FE4 /* ViewController.swift */,
+				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
+				C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */,
+				C4D193D01F1187B500FF4FE4 /* LaunchScreen.storyboard */,
+				C4D193D31F1187B500FF4FE4 /* Info.plist */,
+			);
+			path = AudioKitSynthOne;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C474D94A1F13172B00946035 /* SynthOne */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C474D95C1F13172B00946035 /* Build configuration list for PBXNativeTarget "SynthOne" */;
+			buildPhases = (
+				C474D9471F13172B00946035 /* Sources */,
+				C474D9481F13172B00946035 /* Frameworks */,
+				C474D9491F13172B00946035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SynthOne;
+			productName = SynthOne;
+			productReference = C474D94B1F13172B00946035 /* SynthOne.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		C4D193C31F1187B500FF4FE4 /* AudioKitSynthOne */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4D193D61F1187B500FF4FE4 /* Build configuration list for PBXNativeTarget "AudioKitSynthOne" */;
+			buildPhases = (
+				C4D193C01F1187B500FF4FE4 /* Sources */,
+				C4D193C11F1187B500FF4FE4 /* Frameworks */,
+				C4D193C21F1187B500FF4FE4 /* Resources */,
+				C474D95D1F13172B00946035 /* Embed App Extensions */,
+				C474D97D1F1325D700946035 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C474D9581F13172B00946035 /* PBXTargetDependency */,
+				C41F29D81F1332A500909D45 /* PBXTargetDependency */,
+			);
+			name = AudioKitSynthOne;
+			productName = AudioKitSynthOne;
+			productReference = C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4D193BC1F1187B500FF4FE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = AudioKit;
+				TargetAttributes = {
+					C474D94A1F13172B00946035 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = W22K9JG3J6;
+						ProvisioningStyle = Automatic;
+					};
+					C4D193C31F1187B500FF4FE4 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = W22K9JG3J6;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C4D193BF1F1187B500FF4FE4 /* Build configuration list for PBXProject "AudioKitSynthOne" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C4D193BB1F1187B500FF4FE4;
+			productRefGroup = C4D193C51F1187B500FF4FE4 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C46DE0FC1F13301C0060DD79 /* Products */;
+					ProjectRef = C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				C4D193C31F1187B500FF4FE4 /* AudioKitSynthOne */,
+				C474D94A1F13172B00946035 /* SynthOne */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C46DE1001F13301D0060DD79 /* AudioKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AudioKit.framework;
+			remoteRef = C46DE0FF1F13301D0060DD79 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C474D9491F13172B00946035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C474D9541F13172B00946035 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4D193C21F1187B500FF4FE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4D193D21F1187B500FF4FE4 /* LaunchScreen.storyboard in Resources */,
+				C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */,
+				C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C474D9471F13172B00946035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C474D9511F13172B00946035 /* AudioUnitViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4D193C01F1187B500FF4FE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4D193CA1F1187B500FF4FE4 /* ViewController.swift in Sources */,
+				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C41F29D81F1332A500909D45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AudioKit;
+			targetProxy = C41F29D71F1332A500909D45 /* PBXContainerItemProxy */;
+		};
+		C474D9581F13172B00946035 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C474D94A1F13172B00946035 /* SynthOne */;
+			targetProxy = C474D9571F13172B00946035 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C474D9521F13172B00946035 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C474D9531F13172B00946035 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		C4D193CB1F1187B500FF4FE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4D193CC1F1187B500FF4FE4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C4D193D01F1187B500FF4FE4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4D193D11F1187B500FF4FE4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C474D95A1F13172B00946035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = W22K9JG3J6;
+				INFOPLIST_FILE = SynthOne/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.AudioKitSynthOne.SynthOne;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C474D95B1F13172B00946035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = W22K9JG3J6;
+				INFOPLIST_FILE = SynthOne/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.AudioKitSynthOne.SynthOne;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		C4D193D41F1187B500FF4FE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4D193D51F1187B500FF4FE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C4D193D71F1187B500FF4FE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = W22K9JG3J6;
+				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.AudioKitSynthOne;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4D193D81F1187B500FF4FE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = W22K9JG3J6;
+				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.AudioKitSynthOne;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C474D95C1F13172B00946035 /* Build configuration list for PBXNativeTarget "SynthOne" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C474D95A1F13172B00946035 /* Debug */,
+				C474D95B1F13172B00946035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4D193BF1F1187B500FF4FE4 /* Build configuration list for PBXProject "AudioKitSynthOne" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4D193D41F1187B500FF4FE4 /* Debug */,
+				C4D193D51F1187B500FF4FE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4D193D61F1187B500FF4FE4 /* Build configuration list for PBXNativeTarget "AudioKitSynthOne" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4D193D71F1187B500FF4FE4 /* Debug */,
+				C4D193D81F1187B500FF4FE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C4D193BC1F1187B500FF4FE4 /* Project object */;
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="landscape">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Js1-He-DFz">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,49 +9,217 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Papyrus.ttc">
-            <string>Papyrus</string>
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
         </array>
     </customFonts>
     <scenes>
         <!--Audio Unit View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="1xQ-9x-NN6">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AudioUnitViewController" customModule="SynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Js1-He-DFz" customClass="AudioUnitViewController" customModule="SynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="svv-OB-5I2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Trx-rW-lkh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                    <view key="view" contentMode="scaleToFill" id="lvJ-DH-rzh">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AudioKit's AU Interfaces Go Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5c-MY-xUb">
-                                <rect key="frame" x="122.5" y="20" width="423" height="43.5"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="28"/>
-                                <color key="textColor" red="0.98591893909999995" green="0.77569293979999998" blue="0.47012448309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="au_main" translatesAutoresizingMaskIntoConstraints="NO" id="Jem-1T-kIr">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="337"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="337" id="b2L-Qp-DVm"/>
+                                    <constraint firstAttribute="width" constant="1024" id="q94-Gw-ZOI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Knob Value: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkB-Mq-Erw">
+                                <rect key="frame" x="394" y="8" width="215" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="m2b-mC-Nge">
-                                <rect key="frame" x="18" y="85" width="631" height="31"/>
-                                <connections>
-                                    <action selector="change:" destination="BYZ-38-t0r" eventType="valueChanged" id="xea-94-i0Z"/>
-                                </connections>
-                            </slider>
+                            <view tag="101" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBQ-vh-tnG" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="20" y="127" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minimum">
+                                        <real key="value" value="-12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maximum">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="onlyIntegers" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="Osc1: %0.0f Semitones"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="103" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5MU-Da-q5C" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="360" y="127" width="65" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="Detune: %0.3fX"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maximum">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minimum">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="114" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ISd-tJ-KeL" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="454" y="43" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hnd-M9-2GQ" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="214" y="127" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="onlyIntegers" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="Osc1: %0.0f Semitones"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minimum">
+                                        <real key="value" value="-12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maximum">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2u-Rx-dug" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="460" y="241" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="FM: %0.3f"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="106" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8G-Rp-OzM" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="274" y="241" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="DCO2: %0.3f"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="105" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4H-ub-yIw" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="200" y="241" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="DCO1: %0.3f"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="109" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJA-Jn-i2U" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="20" y="241" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="SubOsc: %0.3f"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="112" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oXT-4k-QxQ" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="623" y="241" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="Noise: %0.3f"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="107" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gA3-wc-CBY" customClass="CutoffKnob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="623" y="81" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="111" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="70u-3T-TIw" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="534" y="241" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="FM Mod: %0.3f"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="104" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5P-Mi-jcI" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="365" y="241" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="DCO Mix: %0.3f"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="103" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ld4-iB-dfg" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="885" y="44" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="108" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c7d-Uh-kQP" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="740" y="74" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="116" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lxd-nj-RUI" customClass="ToggleButton" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="95" y="274" width="34" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="115" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOu-Q1-wKc" customClass="ToggleButton" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="130" y="235" width="34" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q0p-kG-zIz" customClass="ToggleButton" customModule="SynthOne" customModuleProvider="target">
+                                <rect key="frame" x="853" y="129" width="34" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="m2b-mC-Nge" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="BYz-Hp-c4p"/>
-                            <constraint firstItem="j5c-MY-xUb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GEu-gu-ROi"/>
-                            <constraint firstAttribute="trailing" secondItem="m2b-mC-Nge" secondAttribute="trailing" constant="20" id="pEQ-he-hrz"/>
-                            <constraint firstItem="m2b-mC-Nge" firstAttribute="top" secondItem="j5c-MY-xUb" secondAttribute="bottom" constant="21.5" id="rzQ-mD-EuT"/>
-                            <constraint firstItem="j5c-MY-xUb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="sbA-2i-4eA"/>
+                            <constraint firstItem="Jem-1T-kIr" firstAttribute="leading" secondItem="lvJ-DH-rzh" secondAttribute="leading" id="LyM-IO-yie"/>
+                            <constraint firstAttribute="trailing" secondItem="Jem-1T-kIr" secondAttribute="trailing" id="cb4-6b-oY2"/>
+                            <constraint firstItem="Jem-1T-kIr" firstAttribute="top" secondItem="lvJ-DH-rzh" secondAttribute="top" id="vWS-O7-Jdc"/>
                         </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="337"/>
+                    <connections>
+                        <outlet property="cutoffKnob" destination="gA3-wc-CBY" id="qsy-h6-NSY"/>
+                        <outlet property="displayLabel" destination="UkB-Mq-Erw" id="wmH-gm-yIU"/>
+                        <outlet property="fmMixKnob" destination="v2u-Rx-dug" id="Mnz-SB-vjj"/>
+                        <outlet property="fmModKnob" destination="70u-3T-TIw" id="clc-jB-7IF"/>
+                        <outlet property="masterVolKnob" destination="ISd-tJ-KeL" id="EvG-mI-Rk9"/>
+                        <outlet property="noiseMixKnob" destination="oXT-4k-QxQ" id="lii-js-Ua0"/>
+                        <outlet property="osc1SemiKnob" destination="qBQ-vh-tnG" id="tFF-Kj-vzZ"/>
+                        <outlet property="osc1VolKnob" destination="x4H-ub-yIw" id="Doe-9T-n0s"/>
+                        <outlet property="osc2DetuneKnob" destination="5MU-Da-q5C" id="LVW-A5-9mk"/>
+                        <outlet property="osc2SemiKnob" destination="hnd-M9-2GQ" id="shw-r8-itL"/>
+                        <outlet property="osc2VolKnob" destination="V8G-Rp-OzM" id="DiN-p3-k2d"/>
+                        <outlet property="oscMixKnob" destination="J5P-Mi-jcI" id="uhL-2H-Wox"/>
+                        <outlet property="rezKnob" destination="c7d-Uh-kQP" id="7XI-pe-SF7"/>
+                        <outlet property="sub24Toggle" destination="oOu-Q1-wKc" id="xiX-Ch-8qz"/>
+                        <outlet property="subMixKnob" destination="xJA-Jn-i2U" id="6rY-cq-Xio"/>
+                        <outlet property="subSqrToggle" destination="lxd-nj-RUI" id="9k1-bI-Y4w"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zvw-qb-aYm" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116.49175412293854" y="111.2"/>
+            <point key="canvasLocation" x="23" y="429"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="au_main" width="1024" height="337"/>
+    </resources>
 </document>

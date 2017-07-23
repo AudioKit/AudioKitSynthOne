@@ -9,10 +9,10 @@
 import UIKit
 import AudioKit
 
-public class ViewController: UIViewController, AKKeyboardDelegate {
+public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     @IBOutlet weak var keyboardView: AKKeyboardView?
 
-    var synth: AKSynthOne!
+    var conductor = Conductor.sharedInstance
 
     @IBOutlet weak var displayLabel: UILabel?
     @IBOutlet weak var sub24Toggle: ToggleButton?
@@ -40,7 +40,8 @@ public class ViewController: UIViewController, AKKeyboardDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         keyboardView?.delegate = self
         keyboardView?.polyphonicMode = true
-        synth = AKSynthOne(viewController: self)
+
+//        osc1SemiKnob?.callback = { return changeParameter(.morph1PitchOffset) }
 
         if let t = osc1SemiKnob {t.callback = changeParameter(.morph1PitchOffset) }
         if let t = osc2SemiKnob {t.callback = changeParameter(.morph2PitchOffset) }
@@ -54,14 +55,13 @@ public class ViewController: UIViewController, AKKeyboardDelegate {
         if let t = fmModKnob {t.callback = changeParameter(.fmMod) }
         if let t = noiseMixKnob {t.callback = changeParameter(.noiseMix) }
 
-        AudioKit.output = synth
-        AudioKit.start()
+        conductor.synth.viewControllers.insert(self)
 
     }
 
     func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
         return { value in
-            self.synth.parameters[param.rawValue] = value
+            self.conductor.synth.parameters[param.rawValue] = value
         }
     }
     
@@ -73,9 +73,9 @@ public class ViewController: UIViewController, AKKeyboardDelegate {
     
     public func noteOn(note: MIDINoteNumber) {
         print("NOTE ON: \(note)")
-        synth.play(noteNumber: note, velocity: 127)
+        conductor.synth.play(noteNumber: note, velocity: 127)
     }
     public func noteOff(note: MIDINoteNumber) {
-        synth.stop(noteNumber: note)
+        conductor.synth.stop(noteNumber: note)
     }
 }

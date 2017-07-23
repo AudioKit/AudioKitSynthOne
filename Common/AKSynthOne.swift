@@ -19,7 +19,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
 
     public var internalAU: AKAudioUnitType?
     public var token: AUParameterObserverToken?
-    public var viewController: ViewController?
+    public var viewControllers: Set<SynthOneViewController> = []
 
     fileprivate var waveformArray = [AKTable]()
 
@@ -41,7 +41,11 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
             if internalAU?.isSetUp() ?? false {
                     if let existingToken = token {
                         for (index, parameter) in auParameters.enumerated() {
-                            parameter.setValue(Float(newValue[index]), originator: existingToken)
+                            if Double(parameter.value) != newValue[index] {
+                                internalAU?.parameterTree?.parameter(withAddress:UInt64(index))?.value = Float(newValue[index])
+                                parameter.setValue(Float(newValue[index]), originator: existingToken)
+                                internalAU?.parameters[index] = Float(newValue[index])
+                            }
                         }
                     }
                 } else {
@@ -67,8 +71,8 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
     // MARK: - Initialization
 
     /// Initialize the synth with defaults
-    public convenience init(viewController: ViewController? = nil) {
-        self.init(waveformArray: [AKTable(.triangle), AKTable(.square), AKTable(.sine), AKTable(.sawtooth)], viewController: viewController)
+    public convenience override init() {
+        self.init(waveformArray: [AKTable(.triangle), AKTable(.square), AKTable(.sine), AKTable(.sawtooth)])
     }
 
     /// Initialize this synth
@@ -76,10 +80,9 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
     /// - Parameters:
     ///   - waveformArray:      An array of 4 waveforms
     ///
-    public init(waveformArray: [AKTable], viewController: ViewController?) {
+    public init(waveformArray: [AKTable]) {
         
         self.waveformArray = waveformArray
-        self.viewController = viewController
         _Self.register()
 
         super.init()
@@ -109,43 +112,45 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
             }
 
             DispatchQueue.main.async {
+                for vc in self!.viewControllers {
                 switch param {
                 case .morph1PitchOffset:
-                    self?.viewController?.osc1SemiKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.osc1SemiKnob?.statusText
+                    vc.osc1SemiKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.osc1SemiKnob?.statusText
                 case .morph2PitchOffset:
-                    self?.viewController?.osc2SemiKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.osc2SemiKnob?.statusText
+                    vc.osc2SemiKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.osc2SemiKnob?.statusText
                 case .detuningMultiplier:
-                    self?.viewController?.osc2DetuneKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.osc2DetuneKnob?.statusText
+                    vc.osc2DetuneKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.osc2DetuneKnob?.statusText
                 case .morphBalance:
-                    self?.viewController?.oscMixKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.oscMixKnob?.statusText
+                    vc.oscMixKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.oscMixKnob?.statusText
                 case .morph1Mix:
-                    self?.viewController?.osc1VolKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.osc1VolKnob?.statusText
+                    vc.osc1VolKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.osc1VolKnob?.statusText
                 case .morph2Mix:
-                    self?.viewController?.osc2VolKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.osc2VolKnob?.statusText
+                    vc.osc2VolKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.osc2VolKnob?.statusText
                 case .resonance:
-                    self?.viewController?.rezKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.rezKnob?.statusText
+                    vc.rezKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.rezKnob?.statusText
                 case .subOscMix:
-                    self?.viewController?.subMixKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.subMixKnob?.statusText
+                    vc.subMixKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.subMixKnob?.statusText
                 case .fmMix:
-                    self?.viewController?.fmMixKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.fmMixKnob?.statusText
+                    vc.fmMixKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.fmMixKnob?.statusText
                 case .fmMod:
-                    self?.viewController?.fmModKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.fmModKnob?.statusText
+                    vc.fmModKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.fmModKnob?.statusText
                 case .noiseMix:
-                    self?.viewController?.noiseMixKnob?.value = Double(value)
-                    self?.viewController?.displayLabel?.text = self?.viewController?.noiseMixKnob?.statusText
+                    vc.noiseMixKnob?.value = Double(value)
+                    vc.displayLabel?.text = vc.noiseMixKnob?.statusText
                 default:
                     _ = 0
                     // do nothing
+                }
                 }
             }
         })
@@ -156,6 +161,11 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
 //        internalAU?.index1 = Float(index1)
 // ...
 //        internalAU?.detuningMultiplier = Float(detuningMultiplier)
+    }
+
+    /// stops all notes
+    open func reset() {
+        internalAU?.reset()
     }
 
     // MARK: - AKPolyphonic

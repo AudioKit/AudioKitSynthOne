@@ -26,6 +26,8 @@
 		C4CD8DDF1F2482FF0011066A /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */; };
 		C4CD8DE41F248C570011066A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* ViewController.swift */; };
 		C4CD8DE81F2497850011066A /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */; };
+		C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DE91F24A77C0011066A /* Conductor.swift */; };
+		C4CD8DEB1F24A9CE0011066A /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DE91F24A77C0011066A /* Conductor.swift */; };
 		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
 		C4D193CA1F1187B500FF4FE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* ViewController.swift */; };
 		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
@@ -98,6 +100,7 @@
 		C474D9531F13172B00946035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C474D9551F13172B00946035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKSynthOne.swift; path = ../../../Common/AKSynthOne.swift; sourceTree = "<group>"; };
+		C4CD8DE91F24A77C0011066A /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioKitSynthOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4D193C91F1187B500FF4FE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
 				C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */,
 				C4D193C91F1187B500FF4FE4 /* ViewController.swift */,
+				C4CD8DE91F24A77C0011066A /* Conductor.swift */,
 				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
 				C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */,
 				C4D193D01F1187B500FF4FE4 /* LaunchScreen.storyboard */,
@@ -348,6 +352,7 @@
 				C4060ABE1F24561A00BB8882 /* ButtonStyleKit.swift in Sources */,
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
 				C4060AC41F24568600BB8882 /* CGFloat+Extensions.swift in Sources */,
+				C4CD8DEB1F24A9CE0011066A /* Conductor.swift in Sources */,
 				C474D9511F13172B00946035 /* AudioUnitViewController.swift in Sources */,
 				C4CD8DE81F2497850011066A /* AKSynthOne.swift in Sources */,
 			);
@@ -367,6 +372,7 @@
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
+				C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */,
 				C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
 			);

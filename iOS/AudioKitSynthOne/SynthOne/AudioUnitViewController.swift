@@ -62,6 +62,49 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory {
         }
     }
 
+    func updateUI(_ param: AKSynthOneParameter, value: Double) {
+        let vc = self
+        switch param {
+        case .morph1PitchOffset:
+            vc.osc1SemiKnob?.value = Double(value)
+            vc.displayLabel?.text = "DCO1: \(value) semitones"
+        case .morph2PitchOffset:
+            vc.osc2SemiKnob?.value = Double(value)
+            vc.displayLabel?.text = "DCO2: \(value) semitones"
+        case .detuningMultiplier:
+            vc.osc2DetuneKnob?.value = Double(value)
+            vc.displayLabel?.text = "DCO2: \(value)X"
+        case .morphBalance:
+            vc.oscMixKnob?.value = Double(value)
+            vc.displayLabel?.text = "OSC MIX: \(value)"
+        case .morph1Mix:
+            vc.osc1VolKnob?.value = Double(value)
+            vc.displayLabel?.text = "OSC1: \(value)"
+        case .morph2Mix:
+            vc.osc2VolKnob?.value = Double(value)
+            vc.displayLabel?.text = "OSC2: \(value)"
+        case .resonance:
+            vc.rezKnob?.value = Double(value)
+            vc.displayLabel?.text = "Resonance: \(value)"
+        case .subOscMix:
+            vc.subMixKnob?.value = Double(value)
+            vc.displayLabel?.text = "Sub Mix: \(value)"
+        case .fmMix:
+            vc.fmMixKnob?.value = Double(value)
+            vc.displayLabel?.text = "FM Mix: \(value)"
+        case .fmMod:
+            vc.fmModKnob?.value = Double(value)
+            vc.displayLabel?.text = "FM Mod \(value)"
+        case .noiseMix:
+            vc.noiseMixKnob?.value = Double(value)
+            vc.displayLabel?.text = "Noise Mix: \(value)"
+        default:
+            _ = 0
+            // do nothing
+        }
+
+    }
+
     public func createAudioUnit(with componentDescription: AudioComponentDescription) throws -> AUAudioUnit {
         audioUnit = try AKSynthOneAudioUnit(componentDescription: componentDescription, options: [])
         
@@ -84,44 +127,7 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory {
             }
 
             DispatchQueue.main.async {
-                switch param {
-                case .morph1PitchOffset:
-                    self?.osc1SemiKnob.value = Double(value)
-                    self?.displayLabel.text = self?.osc1SemiKnob.statusText
-                case .morph2PitchOffset:
-                    self?.osc2SemiKnob.value = Double(value)
-                    self?.displayLabel.text = self?.osc2SemiKnob.statusText
-                case .detuningMultiplier:
-                    self?.osc2DetuneKnob.value = Double(value)
-                    self?.displayLabel.text = self?.osc2DetuneKnob.statusText
-                case .morphBalance:
-                    self?.oscMixKnob.value = Double(value)
-                    self?.displayLabel.text = self?.oscMixKnob.statusText
-                case .morph1Mix:
-                    self?.osc1VolKnob.value = Double(value)
-                    self?.displayLabel.text = self?.osc1VolKnob.statusText
-                case .morph2Mix:
-                    self?.osc2VolKnob.value = Double(value)
-                    self?.displayLabel.text = self?.osc2VolKnob.statusText
-                case .resonance:
-                    self?.rezKnob.value = Double(value)
-                    self?.displayLabel.text = self?.rezKnob.statusText
-                case .subOscMix:
-                    self?.subMixKnob.value = Double(value)
-                    self?.displayLabel.text = self?.subMixKnob.statusText
-                case .fmMix:
-                    self?.fmMixKnob.value = Double(value)
-                    self?.displayLabel.text = self?.fmMixKnob.statusText
-                case .fmMod:
-                    self?.fmModKnob.value = Double(value)
-                    self?.displayLabel.text = self?.fmModKnob.statusText
-                case .noiseMix:
-                    self?.noiseMixKnob.value = Double(value)
-                    self?.displayLabel.text = self?.noiseMixKnob.statusText
-                default:
-                    _ = 0
-                    // do nothing
-                }
+                self?.updateUI(param, value: Double(value))
             }
         })
 

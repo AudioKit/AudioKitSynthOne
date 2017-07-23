@@ -73,4 +73,46 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     public func noteOff(note: MIDINoteNumber) {
         conductor.synth.stop(noteNumber: note)
     }
+
+    func updateUI(_ param: AKSynthOneParameter, value: Double) {
+        let vc = self
+        switch param {
+        case .morph1PitchOffset:
+            vc.osc1SemiKnob?.value = Double(value)
+            vc.displayLabel?.text = "DCO1: \(value) semitones"
+        case .morph2PitchOffset:
+            vc.osc2SemiKnob?.value = Double(value)
+            vc.displayLabel?.text = "DCO2: \(value) semitones"
+        case .detuningMultiplier:
+            vc.osc2DetuneKnob?.value = Double(value)
+            vc.displayLabel?.text = "DCO2: \(value)X"
+        case .morphBalance:
+            vc.oscMixKnob?.value = Double(value)
+            vc.displayLabel?.text = "OSC MIX: \(value)"
+        case .morph1Mix:
+            vc.osc1VolKnob?.value = Double(value)
+            vc.displayLabel?.text = "OSC1: \(value)"
+        case .morph2Mix:
+            vc.osc2VolKnob?.value = Double(value)
+            vc.displayLabel?.text = "OSC2: \(value)"
+        case .resonance:
+            vc.rezKnob?.value = Double(value)
+            vc.displayLabel?.text = "Resonance: \(value)"
+        case .subOscMix:
+            vc.subMixKnob?.value = Double(value)
+            vc.displayLabel?.text = "Sub Mix: \(value)"
+        case .fmMix:
+            vc.fmMixKnob?.value = Double(value)
+            vc.displayLabel?.text = "FM Mix: \(value)"
+        case .fmMod:
+            vc.fmModKnob?.value = Double(value)
+            vc.displayLabel?.text = "FM Mod \(value)"
+        case .noiseMix:
+            vc.noiseMixKnob?.value = Double(value)
+            vc.displayLabel?.text = "Noise Mix: \(value)"
+        default:
+            _ = 0
+            // do nothing
+        }
+    }
 }

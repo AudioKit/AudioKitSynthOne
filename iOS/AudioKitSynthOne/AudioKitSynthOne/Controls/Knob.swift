@@ -9,22 +9,16 @@
 import UIKit
 
 protocol AKSynthOneControl {
-    var statusText: String { get }
     var value: Double { get set }
 }
 
 @IBDesignable
 public class Knob: UIView, AKSynthOneControl {
 
-    @IBInspectable var statusFormat: String = "Value: %0.3f"
     @IBInspectable var logarithmic: Bool = false
     @IBInspectable var onlyIntegers: Bool = false
 
     public var callback: (Double)->Void = { _ in }
-
-    var statusText: String {
-        return String(format: statusFormat, value)
-    }
 
     @IBInspectable var minimum: Double = 0.0 {
         didSet {

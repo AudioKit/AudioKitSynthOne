@@ -9,7 +9,7 @@
 import UIKit
 import AudioKit
 
-public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
+public class SynthOneViewController: AUViewController, AKKeyboardDelegate {
     @IBOutlet weak var keyboardView: AKKeyboardView?
 
     var conductor = Conductor.sharedInstance

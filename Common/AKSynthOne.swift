@@ -42,9 +42,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
                     if let existingToken = token {
                         for (index, parameter) in auParameters.enumerated() {
                             if Double(parameter.value) != newValue[index] {
-                                internalAU?.parameterTree?.parameter(withAddress:UInt64(index))?.value = Float(newValue[index])
                                 parameter.setValue(Float(newValue[index]), originator: existingToken)
-                                internalAU?.parameters[index] = Float(newValue[index])
                             }
                         }
                     }

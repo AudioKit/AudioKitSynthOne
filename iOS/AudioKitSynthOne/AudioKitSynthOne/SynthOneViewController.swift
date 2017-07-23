@@ -31,9 +31,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     @IBOutlet weak var fmModKnob: Knob?
     @IBOutlet weak var noiseMixKnob: Knob?
     @IBOutlet weak var masterVolKnob: Knob?
-    
-//    var conductor = Conductor()
-    
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,22 +39,19 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         keyboardView?.delegate = self
         keyboardView?.polyphonicMode = true
 
-//        osc1SemiKnob?.callback = { return changeParameter(.morph1PitchOffset) }
-
-        if let t = osc1SemiKnob {t.callback = changeParameter(.morph1PitchOffset) }
-        if let t = osc2SemiKnob {t.callback = changeParameter(.morph2PitchOffset) }
-        if let t = osc2DetuneKnob {t.callback = changeParameter(.detuningMultiplier) }
-        if let t = oscMixKnob {t.callback = changeParameter(.morphBalance) }
-        if let t = osc1VolKnob {t.callback = changeParameter(.morph1Mix) }
-        if let t = osc2VolKnob {t.callback = changeParameter(.morph2Mix) }
-        if let t = rezKnob {t.callback = changeParameter(.resonance) }
-        if let t = subMixKnob {t.callback = changeParameter(.subOscMix) }
-        if let t = fmMixKnob {t.callback = changeParameter(.fmMix) }
-        if let t = fmModKnob {t.callback = changeParameter(.fmMod) }
-        if let t = noiseMixKnob {t.callback = changeParameter(.noiseMix) }
+        if let t = osc1SemiKnob   { t.callback = changeParameter(.morph1PitchOffset) }
+        if let t = osc2SemiKnob   { t.callback = changeParameter(.morph2PitchOffset) }
+        if let t = osc2DetuneKnob { t.callback = changeParameter(.detuningMultiplier) }
+        if let t = oscMixKnob     { t.callback = changeParameter(.morphBalance) }
+        if let t = osc1VolKnob    { t.callback = changeParameter(.morph1Mix) }
+        if let t = osc2VolKnob    { t.callback = changeParameter(.morph2Mix) }
+        if let t = rezKnob        { t.callback = changeParameter(.resonance) }
+        if let t = subMixKnob     { t.callback = changeParameter(.subOscMix) }
+        if let t = fmMixKnob      { t.callback = changeParameter(.fmMix) }
+        if let t = fmModKnob      { t.callback = changeParameter(.fmMod) }
+        if let t = noiseMixKnob   { t.callback = changeParameter(.noiseMix) }
 
         conductor.synth.viewControllers.insert(self)
-
     }
 
     func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {

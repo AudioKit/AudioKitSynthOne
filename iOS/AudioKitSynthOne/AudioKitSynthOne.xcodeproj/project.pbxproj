@@ -24,12 +24,13 @@
 		C474D9541F13172B00946035 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C474D9521F13172B00946035 /* MainInterface.storyboard */; };
 		C474D9591F13172B00946035 /* SynthOne.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C474D94B1F13172B00946035 /* SynthOne.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C4CD8DDF1F2482FF0011066A /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */; };
-		C4CD8DE41F248C570011066A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* ViewController.swift */; };
+		C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */; };
 		C4CD8DE81F2497850011066A /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */; };
 		C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DE91F24A77C0011066A /* Conductor.swift */; };
 		C4CD8DEB1F24A9CE0011066A /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DE91F24A77C0011066A /* Conductor.swift */; };
+		C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */; };
 		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
-		C4D193CA1F1187B500FF4FE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* ViewController.swift */; };
+		C4D193CA1F1187B500FF4FE4 /* SynthOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */; };
 		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
 		C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */; };
 		C4D193D21F1187B500FF4FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193D01F1187B500FF4FE4 /* LaunchScreen.storyboard */; };
@@ -101,9 +102,10 @@
 		C474D9551F13172B00946035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKSynthOne.swift; path = ../../../Common/AKSynthOne.swift; sourceTree = "<group>"; };
 		C4CD8DE91F24A77C0011066A /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
+		C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewContoller.swift; sourceTree = "<group>"; };
 		C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioKitSynthOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C4D193C91F1187B500FF4FE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthOneViewController.swift; sourceTree = "<group>"; };
 		C4D193CC1F1187B500FF4FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4D193D11F1187B500FF4FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -183,7 +185,8 @@
 				C4F7ECA51F2446960011B119 /* Controls */,
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
 				C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */,
-				C4D193C91F1187B500FF4FE4 /* ViewController.swift */,
+				C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */,
+				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
 				C4CD8DE91F24A77C0011066A /* Conductor.swift */,
 				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
 				C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */,
@@ -347,7 +350,7 @@
 				C4060AC61F24568600BB8882 /* ViewController+DisplayAlert.swift in Sources */,
 				C4060AC01F24561A00BB8882 /* Knob+Touches.swift in Sources */,
 				C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */,
-				C4CD8DE41F248C570011066A /* ViewController.swift in Sources */,
+				C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */,
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ButtonStyleKit.swift in Sources */,
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
@@ -365,7 +368,7 @@
 				C4CD8DDF1F2482FF0011066A /* AKSynthOne.swift in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ButtonStyleKit.swift in Sources */,
-				C4D193CA1F1187B500FF4FE4 /* ViewController.swift in Sources */,
+				C4D193CA1F1187B500FF4FE4 /* SynthOneViewController.swift in Sources */,
 				C4F7ECB41F244A510011B119 /* CutoffKnob.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
@@ -374,6 +377,7 @@
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
 				C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */,
 				C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */,
+				C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

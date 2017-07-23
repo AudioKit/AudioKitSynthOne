@@ -35,9 +35,6 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
             return result
         }
         set {
-//            internalAU?.parameters = newValue
-            // for each parameter, check if it has changed and then see about changing via parameter tree
-//            if parameters != newValue {
             if internalAU?.isSetUp() ?? false {
                     if let existingToken = token {
                         for (index, parameter) in auParameters.enumerated() {
@@ -50,7 +47,6 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
                     AKLog("Setting directly")
                     internalAU?.parameters = newValue
                 }
-//            }
         }
     }
 
@@ -114,37 +110,37 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
                 switch param {
                 case .morph1PitchOffset:
                     vc.osc1SemiKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.osc1SemiKnob?.statusText
+                    vc.displayLabel?.text = "DCO1: \(value) semitones"
                 case .morph2PitchOffset:
                     vc.osc2SemiKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.osc2SemiKnob?.statusText
+                    vc.displayLabel?.text = "DCO2: \(value) semitones"
                 case .detuningMultiplier:
                     vc.osc2DetuneKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.osc2DetuneKnob?.statusText
+                    vc.displayLabel?.text = "DCO2: \(value)X"
                 case .morphBalance:
                     vc.oscMixKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.oscMixKnob?.statusText
+                    vc.displayLabel?.text = "OSC MIX: \(value)"
                 case .morph1Mix:
                     vc.osc1VolKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.osc1VolKnob?.statusText
+                    vc.displayLabel?.text = "OSC1: \(value)"
                 case .morph2Mix:
                     vc.osc2VolKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.osc2VolKnob?.statusText
+                    vc.displayLabel?.text = "OSC2: \(value)"
                 case .resonance:
                     vc.rezKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.rezKnob?.statusText
+                    vc.displayLabel?.text = "Resonance: \(value)"
                 case .subOscMix:
                     vc.subMixKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.subMixKnob?.statusText
+                    vc.displayLabel?.text = "Sub Mix: \(value)"
                 case .fmMix:
                     vc.fmMixKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.fmMixKnob?.statusText
+                    vc.displayLabel?.text = "FM Mix: \(value)"
                 case .fmMod:
                     vc.fmModKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.fmModKnob?.statusText
-                case .noiseMix:
+                    vc.displayLabel?.text = "FM Mod \(value)"
+                case .noiseMix: 
                     vc.noiseMixKnob?.value = Double(value)
-                    vc.displayLabel?.text = vc.noiseMixKnob?.statusText
+                    vc.displayLabel?.text = "Noise Mix: \(value)"
                 default:
                     _ = 0
                     // do nothing
@@ -152,13 +148,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
                 }
             }
         })
-        for index in 0 ..< parameters.count {
-//            parameters[index] = Double(auParameters[index].value)
-        }
         internalAU?.parameters = parameters
-//        internalAU?.index1 = Float(index1)
-// ...
-//        internalAU?.detuningMultiplier = Float(detuningMultiplier)
     }
 
     /// stops all notes

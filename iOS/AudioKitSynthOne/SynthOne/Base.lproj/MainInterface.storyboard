@@ -48,7 +48,6 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="onlyIntegers" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="Osc1: %0.0f Semitones"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="103" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5MU-Da-q5C" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
@@ -56,7 +55,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="Detune: %0.3fX"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maximum">
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
@@ -79,7 +77,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="onlyIntegers" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="Osc1: %0.0f Semitones"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minimum">
                                         <real key="value" value="-12"/>
                                     </userDefinedRuntimeAttribute>
@@ -95,41 +92,26 @@
                                 <rect key="frame" x="460" y="241" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="FM: %0.3f"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="106" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8G-Rp-OzM" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
                                 <rect key="frame" x="274" y="241" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="DCO2: %0.3f"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="105" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4H-ub-yIw" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
                                 <rect key="frame" x="200" y="241" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="DCO1: %0.3f"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="109" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJA-Jn-i2U" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
                                 <rect key="frame" x="20" y="241" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="SubOsc: %0.3f"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="112" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oXT-4k-QxQ" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
                                 <rect key="frame" x="623" y="241" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="Noise: %0.3f"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="107" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gA3-wc-CBY" customClass="CutoffKnob" customModule="SynthOne" customModuleProvider="target">
                                 <rect key="frame" x="623" y="81" width="100" height="100"/>
@@ -140,17 +122,11 @@
                                 <rect key="frame" x="534" y="241" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="FM Mod: %0.3f"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="104" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5P-Mi-jcI" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
                                 <rect key="frame" x="365" y="241" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="statusFormat" value="DCO Mix: %0.3f"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="103" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ld4-iB-dfg" customClass="Knob" customModule="SynthOne" customModuleProvider="target">
                                 <rect key="frame" x="885" y="44" width="60" height="60"/>
@@ -224,7 +200,7 @@
         <!--Header Synth One View Controller-->
         <scene sceneID="fi1-pV-a0g">
             <objects>
-                <viewController id="Pbg-aO-Kdu" userLabel="Header Synth One View Controller" customClass="HeaderViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pbg-aO-Kdu" userLabel="Header Synth One View Controller" customClass="HeaderViewController" customModule="SynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Yy-nA-t1V"/>
                         <viewControllerLayoutGuide type="bottom" id="tOX-tk-bqQ"/>
@@ -253,19 +229,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f42-3O-XaK" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="23" y="290"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="lnU-R5-VFV">
-            <objects>
-                <viewController id="qDb-GH-423" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="988-OU-F9M">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DNf-4V-Tvw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

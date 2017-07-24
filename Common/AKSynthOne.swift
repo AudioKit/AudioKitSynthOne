@@ -19,7 +19,6 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
 
     public var internalAU: AKAudioUnitType?
     public var token: AUParameterObserverToken?
-    public var viewControllers: Set<SynthOneViewController> = []
 
     fileprivate var waveformArray = [AKTable]()
 
@@ -99,14 +98,14 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
         }
         auParameters = tree.allParameters
 
-        token = tree.token(byAddingParameterObserver: { [weak self] address, value in
+        token = tree.token(byAddingParameterObserver: { address, value in
 
             guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int(address)) else {
                 return
             }
 
             DispatchQueue.main.async {
-                for vc in self!.viewControllers {
+                for vc in Conductor.sharedInstance.viewControllers {
                     vc.updateUI(param, value: Double(value))
                 }
             }

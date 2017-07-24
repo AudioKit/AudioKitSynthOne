@@ -14,10 +14,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Synth One View Controller-->
+        <!--Synth One-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SynthOneViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Synth One" customClass="SynthOneViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -72,12 +72,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84.9609375" y="188.28125"/>
+            <point key="canvasLocation" x="-585" y="-371"/>
         </scene>
-        <!--Main Synth One View Controller-->
+        <!--Source Mixer-->
         <scene sceneID="h0Y-DX-cbn">
             <objects>
-                <viewController id="MNO-vG-clO" userLabel="Main Synth One View Controller" customClass="MainViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MNO-vG-clO" userLabel="Source Mixer" customClass="SourceMixerViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bwW-24-SnQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rtq-zb-Exf"/>
@@ -195,31 +195,31 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="337"/>
                     <connections>
-                        <outlet property="cutoffKnob" destination="sPn-F6-EfJ" id="XyO-N0-SEr"/>
-                        <outlet property="fmMixKnob" destination="eeh-g3-XJ2" id="qya-ON-d42"/>
-                        <outlet property="fmModKnob" destination="PlS-FK-Xk4" id="7eM-ln-oyn"/>
-                        <outlet property="masterVolKnob" destination="la2-0e-izH" id="byc-Ti-WBz"/>
-                        <outlet property="noiseMixKnob" destination="WwC-VK-0Xz" id="dbe-6r-HMv"/>
-                        <outlet property="osc1SemiKnob" destination="RfB-Xj-aPn" id="3EB-rn-Cxs"/>
-                        <outlet property="osc1VolKnob" destination="IIH-cw-b0Y" id="ybA-7N-mQJ"/>
-                        <outlet property="osc2DetuneKnob" destination="BlJ-MK-rm3" id="dY5-1e-CSE"/>
-                        <outlet property="osc2SemiKnob" destination="0QL-6p-40g" id="1YS-ia-Z9y"/>
-                        <outlet property="osc2VolKnob" destination="BDO-o7-fva" id="u8z-D6-XEH"/>
-                        <outlet property="oscMixKnob" destination="u1G-nz-9jM" id="JIh-WY-USO"/>
-                        <outlet property="rezKnob" destination="8bG-Oy-PkM" id="4DR-8i-WyD"/>
-                        <outlet property="sub24Toggle" destination="RfN-pt-vLT" id="Wlr-pX-SpY"/>
-                        <outlet property="subMixKnob" destination="HbA-YN-8uf" id="DEg-R0-gng"/>
-                        <outlet property="subSqrToggle" destination="d9F-Dn-rDa" id="I6V-Eo-ZxA"/>
+                        <outlet property="cutoff" destination="sPn-F6-EfJ" id="WLh-d9-LNh"/>
+                        <outlet property="fmAmount" destination="PlS-FK-Xk4" id="Y2W-Db-GO4"/>
+                        <outlet property="fmVolume" destination="eeh-g3-XJ2" id="NHR-Ny-zAj"/>
+                        <outlet property="masterVolume" destination="la2-0e-izH" id="54u-fs-IBa"/>
+                        <outlet property="morph1SemitoneOffset" destination="RfB-Xj-aPn" id="f65-hg-Hfs"/>
+                        <outlet property="morph1Volume" destination="IIH-cw-b0Y" id="SHH-hj-SxW"/>
+                        <outlet property="morph2Detuning" destination="BlJ-MK-rm3" id="gAq-Ss-rSH"/>
+                        <outlet property="morph2SemitoneOffset" destination="0QL-6p-40g" id="sP7-H8-chN"/>
+                        <outlet property="morph2Volume" destination="BDO-o7-fva" id="P1t-JW-0Tu"/>
+                        <outlet property="morphBalance" destination="u1G-nz-9jM" id="Nvc-gS-ml9"/>
+                        <outlet property="noiseVolume" destination="WwC-VK-0Xz" id="mJZ-0W-rfG"/>
+                        <outlet property="resonance" destination="8bG-Oy-PkM" id="p13-cW-gjw"/>
+                        <outlet property="subIsSquare" destination="d9F-Dn-rDa" id="sPc-IJ-65e"/>
+                        <outlet property="subOctaveDown" destination="RfN-pt-vLT" id="E4J-Wj-UH3"/>
+                        <outlet property="subVolume" destination="HbA-YN-8uf" id="2zM-al-Xtv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1Q-CL-vib" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="85" y="-349"/>
         </scene>
-        <!--Header Synth One View Controller-->
+        <!--Header-->
         <scene sceneID="uWT-k1-pAc">
             <objects>
-                <viewController id="1VX-El-kEm" userLabel="Header Synth One View Controller" customClass="HeaderViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1VX-El-kEm" userLabel="Header" customClass="HeaderViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tZf-SG-JN3"/>
                         <viewControllerLayoutGuide type="bottom" id="28u-ax-JmL"/>

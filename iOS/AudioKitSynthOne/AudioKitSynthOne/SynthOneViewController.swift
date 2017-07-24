@@ -9,7 +9,25 @@
 import UIKit
 import AudioKit
 
-public class SynthOneViewController: AUViewController, AKKeyboardDelegate {
+public class UpdatableViewController: UIViewController {
+
+    let conductor = Conductor.sharedInstance
+
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        conductor.viewControllers.insert(self)
+    }
+
+    func updateUI(_ param: AKSynthOneParameter, value: Double) {
+        // override in subclasses
+    }
+    
+    func updateCallbacks() {
+        
+    }
+}
+
+public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     @IBOutlet weak var keyboardView: AKKeyboardView?
 
     var conductor = Conductor.sharedInstance
@@ -21,30 +39,28 @@ public class SynthOneViewController: AUViewController, AKKeyboardDelegate {
         keyboardView?.delegate = self
         keyboardView?.polyphonicMode = true
 
-        conductor.synth.viewControllers.insert(self)
+        print("Trying to change conductor change parameter")
+
+        conductor.changeParameter = { param in
+            return { value in
+                self.conductor.synth.parameters[param.rawValue] = value
+            }
+        }
+
+        conductor.start()
     }
 
-    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
-        return { value in
-            self.conductor.synth.parameters[param.rawValue] = value
-        }
-    }
-    
-    override public func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
+//    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
+//        return { value in
+//            self.conductor.synth.parameters[param.rawValue] = value
+//        }
+//    }
+
     public func noteOn(note: MIDINoteNumber) {
         print("NOTE ON: \(note)")
         conductor.synth.play(noteNumber: note, velocity: 127)
     }
     public func noteOff(note: MIDINoteNumber) {
         conductor.synth.stop(noteNumber: note)
-    }
-
-    func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        // override in subclasses
     }
 }

@@ -9,16 +9,32 @@
 import CoreAudioKit
 import AudioKit
 
-public class AudioUnitViewController: MainViewController, AUAudioUnitFactory {
-    var audioUnit: AKSynthOneAudioUnit?
+public class AudioUnitViewController: AUViewController, AUAudioUnitFactory {
+    var conductor = Conductor.sharedInstance
 
-    override func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
-        return { value in
-            guard let au = self.audioUnit,
-                let parameter = au.parameterTree?.parameter(withAddress: AUParameterAddress(param.rawValue))
-                else { return }
-            parameter.value = Float(value)
+    var audioUnit: AKSynthOneAudioUnit? {
+        didSet {
+            DispatchQueue.main.async {
+                if self.isViewLoaded {
+                    self.connectViewWithAU()
+                }
+            }
         }
+    }
+
+//    override func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
+//        return { value in
+//            guard let au = self.audioUnit,
+//                let parameter = au.parameterTree?.parameter(withAddress: AUParameterAddress(param.rawValue))
+//                else { return }
+//            parameter.value = Float(value)
+//        }
+//    }
+
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        guard audioUnit != nil else { return }
+        connectViewWithAU()
     }
 
     public func createAudioUnit(with componentDescription: AudioComponentDescription) throws -> AUAudioUnit {
@@ -43,13 +59,24 @@ public class AudioUnitViewController: MainViewController, AUAudioUnitFactory {
             }
 
             DispatchQueue.main.async {
-                for vc in (self?.conductor.synth.viewControllers)! {
+                for vc in (self?.conductor.viewControllers)! {
                     vc.updateUI(param, value: Double(value))
                 }
             }
         })
-
         return audioUnit!
     }
-    
+
+    func connectViewWithAU() {
+        conductor.changeParameter = { param in
+            return { value in
+                guard let au = self.audioUnit,
+                    let parameter = au.parameterTree?.parameter(withAddress: AUParameterAddress(param.rawValue))
+                    else { return }
+                parameter.value = Float(value)
+            }
+        }
+        conductor.updateAllCallbacks()
+    }
+
 }

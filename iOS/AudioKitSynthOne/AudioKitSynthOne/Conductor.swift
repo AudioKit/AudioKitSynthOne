@@ -11,10 +11,30 @@ import AudioKit
 class Conductor {
     static var sharedInstance = Conductor()
 
-    var synth = AKSynthOne()
+    var synth: AKSynthOne!
 
-    init() {
+    var changeParameter: (AKSynthOneParameter)->((_: Double) -> Void)  = { _ in
+        print("Not implemented properly")
+        return { _ in
+            print("I said, not implemented properly!")
+            }
+        } {
+                didSet {
+                    updateAllCallbacks()
+                }
+    }
+
+    public var viewControllers: Set<UpdatableViewController> = []
+
+    func start() {
+        synth = AKSynthOne()
         AudioKit.output = synth
         AudioKit.start()
+    }
+
+    func updateAllCallbacks() {
+        for vc in viewControllers {
+            vc.updateCallbacks()
+        }
     }
 }

@@ -17,6 +17,9 @@
 		C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */; };
 		C4060AC61F24568600BB8882 /* ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */; };
 		C4060AC71F2457CB00BB8882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */; };
+		C40770EC1F2569C8007F2C77 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40770EB1F2569C8007F2C77 /* MainViewController.swift */; };
+		C40770ED1F25703B007F2C77 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40770EB1F2569C8007F2C77 /* MainViewController.swift */; };
+		C40770EE1F257124007F2C77 /* HeaderViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */; };
 		C41F29D51F1332A500909D45 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46DE1001F13301D0060DD79 /* AudioKit.framework */; };
 		C41F29D61F1332A500909D45 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C46DE1001F13301D0060DD79 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C41F29D91F1332A900909D45 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46DE1001F13301D0060DD79 /* AudioKit.framework */; };
@@ -95,6 +98,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C40770EB1F2569C8007F2C77 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AudioKit For iOS.xcodeproj"; path = "../../../AudioKit/AudioKit/iOS/AudioKit For iOS.xcodeproj"; sourceTree = "<group>"; };
 		C474D94B1F13172B00946035 /* SynthOne.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SynthOne.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C474D9501F13172B00946035 /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
 				C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */,
 				C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */,
+				C40770EB1F2569C8007F2C77 /* MainViewController.swift */,
 				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
 				C4CD8DE91F24A77C0011066A /* Conductor.swift */,
 				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
@@ -350,8 +355,10 @@
 				C4060AC61F24568600BB8882 /* ViewController+DisplayAlert.swift in Sources */,
 				C4060AC01F24561A00BB8882 /* Knob+Touches.swift in Sources */,
 				C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */,
+				C40770EE1F257124007F2C77 /* HeaderViewContoller.swift in Sources */,
 				C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */,
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
+				C40770ED1F25703B007F2C77 /* MainViewController.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ButtonStyleKit.swift in Sources */,
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
 				C4060AC41F24568600BB8882 /* CGFloat+Extensions.swift in Sources */,
@@ -374,6 +381,7 @@
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
+				C40770EC1F2569C8007F2C77 /* MainViewController.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
 				C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */,
 				C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */,

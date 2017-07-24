@@ -9,17 +9,9 @@
 import CoreAudioKit
 import AudioKit
 
-public class AudioUnitViewController: SynthOneViewController, AUAudioUnitFactory {
+public class AudioUnitViewController: MainViewController, AUAudioUnitFactory {
     var audioUnit: AKSynthOneAudioUnit?
-    public var token: AUParameterObserverToken?
-
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-
-        if audioUnit == nil {
-            return
-        }
-    }
+    public var token: AUParameterObserverToken? 
 
     override func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
         return { value in
@@ -52,11 +44,12 @@ public class AudioUnitViewController: SynthOneViewController, AUAudioUnitFactory
             }
 
             DispatchQueue.main.async {
-                self?.updateUI(param, value: Double(value))
+                for vc in (self?.conductor.synth.viewControllers)! {
+                    vc.updateUI(param, value: Double(value))
+                }
             }
         })
 
-        
         return audioUnit!
     }
     

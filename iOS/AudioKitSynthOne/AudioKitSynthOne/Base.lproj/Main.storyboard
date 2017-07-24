@@ -14,10 +14,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Main Synth One View Controller-->
+        <!--Synth One View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Main Synth One View Controller" customClass="SynthOneViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SynthOneViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,18 +26,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RnT-Kx-qNG" userLabel="Header View Container">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RnT-Kx-qNG" userLabel="Header View Container">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="35"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="ijg-uC-H1T"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="1VX-El-kEm" kind="embed" id="RfJ-3X-bgy"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-Ld-MF5" userLabel="Panel View Container">
-                                <rect key="frame" x="0.0" y="28" width="1024" height="337"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="MNO-vG-clO" kind="embed" id="Uae-zU-ywH"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
@@ -50,8 +45,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-Ld-MF5" userLabel="Panel View Container">
+                                <rect key="frame" x="0.0" y="34" width="1024" height="337"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="337" id="J8F-1u-f9I"/>
+                                    <constraint firstAttribute="width" constant="1024" id="yce-FG-oiD"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="MNO-vG-clO" kind="embed" id="Uae-zU-ywH"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RnT-Kx-qNG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="At1-3J-e34"/>
+                            <constraint firstAttribute="trailing" secondItem="RnT-Kx-qNG" secondAttribute="trailing" id="JlS-SC-0h1"/>
+                            <constraint firstItem="RnT-Kx-qNG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KsK-tj-0KF"/>
+                            <constraint firstItem="FVi-Ld-MF5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QpL-jk-N2m"/>
+                            <constraint firstAttribute="trailing" secondItem="FVi-Ld-MF5" secondAttribute="trailing" id="Ygl-V9-xXe"/>
+                            <constraint firstItem="FVi-Ld-MF5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="34" id="ick-5s-CwM"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="keyboardView" destination="kQD-gK-cOc" id="w3W-qi-8XQ"/>
@@ -61,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="84.9609375" y="188.28125"/>
         </scene>
-        <!--Panel Synth One View Controller-->
+        <!--Main Synth One View Controller-->
         <scene sceneID="h0Y-DX-cbn">
             <objects>
-                <viewController id="MNO-vG-clO" userLabel="Panel Synth One View Controller" customClass="SynthOneViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MNO-vG-clO" userLabel="Main Synth One View Controller" customClass="MainViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bwW-24-SnQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rtq-zb-Exf"/>

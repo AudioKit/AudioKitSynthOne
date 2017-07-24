@@ -8,22 +8,26 @@
 
 import UIKit
 
-protocol ToggleButtonDelegate {
-    func updateToggleState(_ isToggled: Bool, tag: Int)
-}
-
 @IBDesignable
-class ToggleButton: UIView {
+class ToggleButton: UIView, AKSynthOneControl {
     
     // *********************************************************
     // MARK: - ToggleButton
     // *********************************************************
 
-    var isToggled = false
-    var delegate: ToggleButtonDelegate?
-    
+    private var isOn = false
+    var value: Double {
+        get {
+            return isOn ? 1 : 0
+        }
+        set {
+            isOn = value == 1.0
+        }
+    }
+    public var callback: (Double)->Void = { _ in }
+
     override func draw(_ rect: CGRect) {
-        ButtonStyleKit.drawRoundButton(isToggled: isToggled)
+        ButtonStyleKit.drawRoundButton(isToggled: isOn)
     }
     
     // *********************************************************
@@ -32,9 +36,10 @@ class ToggleButton: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            isToggled = !isToggled
+            isOn = !isOn
             setNeedsDisplay()
-            delegate?.updateToggleState(isToggled, tag: self.tag)
+            print("calling back")
+            callback(value)
         }
     }
  

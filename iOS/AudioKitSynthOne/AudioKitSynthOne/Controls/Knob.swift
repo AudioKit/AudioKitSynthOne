@@ -10,28 +10,29 @@ import UIKit
 
 protocol AKSynthOneControl {
     var value: Double { get set }
+    var callback: (Double)->Void { get set }
 }
 
 @IBDesignable
 public class Knob: UIView, AKSynthOneControl {
 
-    @IBInspectable var logarithmic: Bool = false
-    @IBInspectable var onlyIntegers: Bool = false
+    var logarithmic: Bool = false
+    var onlyIntegers: Bool = false
 
     public var callback: (Double)->Void = { _ in }
 
-    @IBInspectable var minimum: Double = 0.0 {
+    var minimum: Double = 0.0 {
         didSet {
             self.knobValue = CGFloat((value - minimum) / (maximum - minimum))
         }
     }
-    @IBInspectable var maximum: Double = 1 {
+    var maximum: Double = 1 {
         didSet {
             self.knobValue = CGFloat((value - minimum) / (maximum - minimum))
         }
     }
 
-    @IBInspectable var value: Double = 0.5 {
+    var value: Double = 0 {
         didSet {
             if value > maximum {
                 value = maximum
@@ -39,11 +40,12 @@ public class Knob: UIView, AKSynthOneControl {
             if value < minimum {
                 value = minimum
             }
-            if onlyIntegers {
-                self.knobValue = CGFloat((round(value) - minimum) / (maximum - minimum))
-            } else {
-                self.knobValue = CGFloat((value - minimum) / (maximum - minimum))
-            }
+
+            value = onlyIntegers ? round(value) : value
+
+            knobValue = CGFloat((value - minimum) / (maximum - minimum))
+
+            callback(value)
         }
     }
     
@@ -98,8 +100,6 @@ public class Knob: UIView, AKSynthOneControl {
 
         lastX = touchPoint.x
         lastY = touchPoint.y
-        
-        onlyIntegers ? callback(round(value)) : callback(value)
     }
     
 }

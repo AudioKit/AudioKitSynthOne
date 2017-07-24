@@ -20,23 +20,25 @@ public class HeaderViewController: UpdatableViewController {
         case .morph2SemitoneOffset:
             displayLabel.text = "DCO2: \(value) semitones"
         case .morph2Detuning:
-            displayLabel.text = "DCO2: \(value)X"
+            displayLabel.text = "DCO2: \(value.decimalString) Hz"
         case .morphBalance:
-            displayLabel.text = "OSC MIX: \(value)"
+            displayLabel.text = "OSC Mix: \(value.decimalString)"
         case .morph1Volume:
-            displayLabel.text = "OSC1: \(value)"
+            displayLabel.text = "OSC1 Vol: \(value.percentageString)"
         case .morph2Volume:
-            displayLabel.text = "OSC2: \(value)"
+            displayLabel.text = "OSC2 Vol: \(value.percentageString)"
         case .resonance:
             displayLabel.text = "Resonance: \(value)"
         case .subVolume:
-            displayLabel.text = "Sub Mix: \(value)"
+            displayLabel.text = "Sub Mix: \(value.percentageString)"
         case .fmVolume:
-            displayLabel.text = "FM Mix: \(value)"
+            displayLabel.text = "FM Mix: \(value.percentageString)"
         case .fmAmount:
-            displayLabel.text = "FM Mod \(value)"
+            displayLabel.text = "FM Mod \(value.percentageString)"
         case .noiseVolume:
-            displayLabel.text = "Noise Mix: \(value)"
+            displayLabel.text = "Noise Mix: \(value.percentageString)"
+        //case .masterVolume:
+        //    displayLabel.text = "Master Vol: \(value.percentageString)"
         default:
             _ = 0
             // do nothing

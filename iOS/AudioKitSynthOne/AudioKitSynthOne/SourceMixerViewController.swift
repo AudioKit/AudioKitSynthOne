@@ -71,6 +71,7 @@ public class SourceMixerViewController: UpdatableViewController {
         fmVolume.callback             = conductor.changeParameter(.fmVolume)
         fmAmount.callback             = conductor.changeParameter(.fmAmount)
         noiseVolume.callback          = conductor.changeParameter(.noiseVolume)
+        // masterVolume.callback         = conductor.changeParameter()
     }
 
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
@@ -102,6 +103,8 @@ public class SourceMixerViewController: UpdatableViewController {
             fmAmount.value = value
         case .noiseVolume:
             noiseVolume.value = value
+        //case .masterVolume:
+        //    masterVolume.value = value
         default:
             _ = 0
             // do nothing

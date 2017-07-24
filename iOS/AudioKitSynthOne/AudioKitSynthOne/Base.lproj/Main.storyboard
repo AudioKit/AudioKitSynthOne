@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -36,15 +37,6 @@
                                     <segue destination="1VX-El-kEm" kind="embed" id="RfJ-3X-bgy"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
-                                <rect key="frame" x="0.0" y="335" width="1024" height="433"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="octaveCount">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-Ld-MF5" userLabel="Panel View Container">
                                 <rect key="frame" x="0.0" y="36" width="1024" height="299"/>
                                 <constraints>
@@ -55,20 +47,32 @@
                                     <segue destination="MNO-vG-clO" kind="embed" id="Uae-zU-ywH"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
+                                <rect key="frame" x="0.0" y="469" width="1024" height="299"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1024" id="PEP-Pk-pqa"/>
+                                    <constraint firstAttribute="height" constant="299" id="aQf-rS-iND"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="octaveCount">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="RnT-Kx-qNG" secondAttribute="trailing" id="3Lo-qO-BtL"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="top" secondItem="RnT-Kx-qNG" secondAttribute="bottom" id="4mP-L3-8Up"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ps-Uq-68M"/>
-                            <constraint firstAttribute="trailing" secondItem="kQD-gK-cOc" secondAttribute="trailing" id="8AI-6g-Zn3"/>
-                            <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="FVi-Ld-MF5" secondAttribute="bottom" id="8ga-ob-J6Q"/>
+                            <constraint firstAttribute="trailing" secondItem="kQD-gK-cOc" secondAttribute="trailing" id="5uq-5m-9sH"/>
+                            <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IJI-hH-maK"/>
                             <constraint firstItem="RnT-Kx-qNG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U2m-cp-QYv"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="top" secondItem="RnT-Kx-qNG" secondAttribute="bottom" id="hT0-7c-nJX"/>
                             <constraint firstAttribute="trailing" secondItem="FVi-Ld-MF5" secondAttribute="trailing" id="iYc-5k-z6U"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="oP7-Bj-tpJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="uhu-dN-uYX"/>
                             <constraint firstItem="RnT-Kx-qNG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uyo-mL-gwX"/>
-                            <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zfd-3C-ifV"/>
                         </constraints>
                     </view>
                     <connections>
@@ -232,9 +236,8 @@
                                     <constraint firstAttribute="height" constant="36" id="exb-x7-IBk"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Knob Value: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I96-P8-9zu">
-                                <rect key="frame" x="394" y="8" width="215" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Knob Value: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I96-P8-9zu">
+                                <rect key="frame" x="469.5" y="8" width="85" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -243,7 +246,10 @@
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eFt-un-9BY" secondAttribute="trailing" id="HbM-6z-XMG"/>
+                            <constraint firstItem="I96-P8-9zu" firstAttribute="centerX" secondItem="B0l-jj-fC6" secondAttribute="centerX" id="Tae-qg-hWa"/>
+                            <constraint firstItem="28u-ax-JmL" firstAttribute="top" secondItem="I96-P8-9zu" secondAttribute="bottom" constant="7" id="ZoI-24-AUb"/>
                             <constraint firstItem="28u-ax-JmL" firstAttribute="top" secondItem="eFt-un-9BY" secondAttribute="bottom" id="dWt-79-Y7L"/>
+                            <constraint firstItem="I96-P8-9zu" firstAttribute="top" secondItem="B0l-jj-fC6" secondAttribute="topMargin" constant="8" id="nSO-vt-YNL"/>
                             <constraint firstItem="eFt-un-9BY" firstAttribute="leading" secondItem="B0l-jj-fC6" secondAttribute="leading" id="p94-cw-XUQ"/>
                             <constraint firstItem="eFt-un-9BY" firstAttribute="top" secondItem="B0l-jj-fC6" secondAttribute="top" id="xVT-d5-IR7"/>
                         </constraints>

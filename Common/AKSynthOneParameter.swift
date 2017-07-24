@@ -39,5 +39,6 @@ public enum AKSynthOneParameter: Int {
     releaseDuration = 29,
     morph2Detuning = 30,
     detuningMultiplier = 31
+   
 }
 

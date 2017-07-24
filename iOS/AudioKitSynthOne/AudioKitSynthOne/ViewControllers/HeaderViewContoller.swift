@@ -38,8 +38,8 @@ public class HeaderViewController: UpdatableViewController {
             print(value)
         case .noiseVolume:
             displayLabel.text = "Noise Mix: \(value.percentageString)"
-        //case .masterVolume:
-        //    displayLabel.text = "Master Vol: \(value.percentageString)"
+        case .masterVolume:
+            displayLabel.text = "Master Vol: \(value.percentageString)"
         default:
             _ = 0
             // do nothing

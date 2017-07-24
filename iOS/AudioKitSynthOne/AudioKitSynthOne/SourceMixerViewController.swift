@@ -104,6 +104,7 @@ public class SourceMixerViewController: UpdatableViewController {
             fmVolume.value = value
         case .fmAmount:
             fmAmount.value = value
+            //displayLabel.text = "FM Mod \(fmAmount.knobValue.percentageString)"
         case .noiseVolume:
             noiseVolume.value = value
         //case .masterVolume:

@@ -28,9 +28,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RnT-Kx-qNG" userLabel="Header View Container">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="36"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="F87-vg-HNl"/>
+                                    <constraint firstAttribute="height" constant="38" id="F87-vg-HNl"/>
                                     <constraint firstAttribute="width" constant="1024" id="XTM-iX-Krx"/>
                                 </constraints>
                                 <connections>
@@ -38,7 +38,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-Ld-MF5" userLabel="Panel View Container">
-                                <rect key="frame" x="0.0" y="36" width="1024" height="299"/>
+                                <rect key="frame" x="0.0" y="38" width="1024" height="299"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="299" id="065-6c-Sa4"/>
                                     <constraint firstAttribute="width" constant="1024" id="S6i-gk-s21"/>
@@ -226,18 +226,18 @@
                         <viewControllerLayoutGuide type="bottom" id="28u-ax-JmL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="B0l-jj-fC6">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="36"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerback" translatesAutoresizingMaskIntoConstraints="NO" id="eFt-un-9BY">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="36"/>
+                                <rect key="frame" x="0.0" y="2" width="1024" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1024" id="6YH-uC-4o4"/>
-                                    <constraint firstAttribute="height" constant="36" id="exb-x7-IBk"/>
+                                    <constraint firstAttribute="height" constant="38" id="exb-x7-IBk"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Knob Value: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I96-P8-9zu">
-                                <rect key="frame" x="469.5" y="8" width="85" height="21"/>
+                                <rect key="frame" x="469.5" y="8" width="85" height="23"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -248,15 +248,15 @@
                             <constraint firstAttribute="trailing" secondItem="eFt-un-9BY" secondAttribute="trailing" id="HbM-6z-XMG"/>
                             <constraint firstItem="I96-P8-9zu" firstAttribute="centerX" secondItem="B0l-jj-fC6" secondAttribute="centerX" id="Tae-qg-hWa"/>
                             <constraint firstItem="28u-ax-JmL" firstAttribute="top" secondItem="I96-P8-9zu" secondAttribute="bottom" constant="7" id="ZoI-24-AUb"/>
-                            <constraint firstItem="28u-ax-JmL" firstAttribute="top" secondItem="eFt-un-9BY" secondAttribute="bottom" id="dWt-79-Y7L"/>
+                            <constraint firstItem="28u-ax-JmL" firstAttribute="top" secondItem="eFt-un-9BY" secondAttribute="bottom" constant="-2" id="dWt-79-Y7L"/>
                             <constraint firstItem="I96-P8-9zu" firstAttribute="top" secondItem="B0l-jj-fC6" secondAttribute="topMargin" constant="8" id="nSO-vt-YNL"/>
                             <constraint firstItem="eFt-un-9BY" firstAttribute="leading" secondItem="B0l-jj-fC6" secondAttribute="leading" id="p94-cw-XUQ"/>
-                            <constraint firstItem="eFt-un-9BY" firstAttribute="top" secondItem="B0l-jj-fC6" secondAttribute="top" id="xVT-d5-IR7"/>
+                            <constraint firstItem="eFt-un-9BY" firstAttribute="top" secondItem="B0l-jj-fC6" secondAttribute="top" constant="2" id="xVT-d5-IR7"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="36"/>
+                    <size key="freeformSize" width="1024" height="38"/>
                     <connections>
                         <outlet property="displayLabel" destination="I96-P8-9zu" id="2Eq-3h-Hme"/>
                     </connections>

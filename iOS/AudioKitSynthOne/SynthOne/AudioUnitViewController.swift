@@ -11,7 +11,6 @@ import AudioKit
 
 public class AudioUnitViewController: MainViewController, AUAudioUnitFactory {
     var audioUnit: AKSynthOneAudioUnit?
-    public var token: AUParameterObserverToken? 
 
     override func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
         return { value in
@@ -37,7 +36,7 @@ public class AudioUnitViewController: MainViewController, AUAudioUnitFactory {
             return audioUnit!
         }
 
-        token = tree.token (byAddingParameterObserver: { [weak self] address, value in
+        _ = tree.token(byAddingParameterObserver: { [weak self] address, value in
 
             guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int(address)) else {
                 return

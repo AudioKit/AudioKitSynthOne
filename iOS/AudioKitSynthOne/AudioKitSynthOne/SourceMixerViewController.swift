@@ -11,6 +11,9 @@ import AudioKit
 
 public class SourceMixerViewController: UpdatableViewController {
 
+    @IBOutlet weak var morph1Selector: MorphSelector!
+    @IBOutlet weak var morph2Selector: MorphSelector!
+
     @IBOutlet weak var morph1SemitoneOffset: Knob!
     @IBOutlet weak var morph2SemitoneOffset: Knob!
     @IBOutlet weak var morph2Detuning: Knob!
@@ -58,6 +61,8 @@ public class SourceMixerViewController: UpdatableViewController {
     }
 
     override func updateCallbacks() {
+        morph1Selector.callback = conductor.changeParameter(.index1)
+        morph2Selector.callback = conductor.changeParameter(.index2)
         morph1SemitoneOffset.callback = conductor.changeParameter(.morph1SemitoneOffset)
         morph2SemitoneOffset.callback = conductor.changeParameter(.morph2SemitoneOffset)
         morph2Detuning.callback       = conductor.changeParameter(.morph2Detuning)
@@ -76,6 +81,10 @@ public class SourceMixerViewController: UpdatableViewController {
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
 
         switch param {
+        case .index1:
+            morph1Selector.value = value
+        case .index2:
+            morph2Selector.value = value
         case .morph1SemitoneOffset:
             morph1SemitoneOffset.value = value
         case .morph2SemitoneOffset:

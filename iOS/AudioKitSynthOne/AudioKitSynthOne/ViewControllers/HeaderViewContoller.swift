@@ -12,6 +12,11 @@ import AudioKit
 public class HeaderViewController: UpdatableViewController {
 
     @IBOutlet weak var displayLabel: UILabel!
+    var delegate: EmbeddedViewsDelegate?
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        
+    }
 
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
         switch param {
@@ -53,6 +58,18 @@ public class HeaderViewController: UpdatableViewController {
         }
         displayLabel.setNeedsDisplay()
     }
+    // ********************************************************
+    // MARK: - IBActions
+    // ********************************************************
+    
+    @IBAction func mainPressed(_ sender: UIButton) {
+        delegate?.switchToChildView(.oscView)
+    }
+    
+    @IBAction func adsrPressed(_ sender: UIButton) {
+        delegate?.switchToChildView(.adsrView)
+    }
+    
 
 
 }

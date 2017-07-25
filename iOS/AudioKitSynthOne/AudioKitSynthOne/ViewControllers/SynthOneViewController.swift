@@ -9,31 +9,28 @@
 import UIKit
 import AudioKit
 
-protocol updateEmbeddedViews {
+protocol EmbeddedViewsDelegate {
     func switchToChildView(_ newView: ChildView)
 }
 
 enum ChildView: String {
     case oscView = "SourceMixerViewController"
     case adsrView = "ADSRViewController"
-    
-    
 }
 
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var keyboardView: AKKeyboardView?
-    @IBOutlet weak var oscViewButton: UIButton!
-    @IBOutlet weak var adsrViewButton: UIButton!
     
     var conductor = Conductor.sharedInstance
+    var embeddedViewsDelegate: EmbeddedViewsDelegate?
     
-    // **********************************************************
+    // ********************************************************
     // MARK: - Define view controllers
-    // **********************************************************
+    // ********************************************************
     
-    private lazy var adsrViewController: ADSRViewController = {
+    fileprivate lazy var adsrViewController: ADSRViewController = {
         // Load Storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
@@ -46,7 +43,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         return viewController
     }()
     
-    private lazy var mixerViewController: SourceMixerViewController = {
+    fileprivate lazy var mixerViewController: SourceMixerViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "SourceMixerViewController") as! SourceMixerViewController
         self.add(asChildViewController: viewController)
@@ -54,9 +51,9 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     }()
     
     
-    // **********************************************************
+    // ********************************************************
     // MARK: - viewDidLoad
-    // **********************************************************
+    // ********************************************************
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +72,13 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         conductor.start()
         
         // Set initial subviews
-        // oscViewPressed(oscViewButton)
-        // adsrViewPressed(adsrViewButton)
+        // switchToChildView(.adsrView)
+        
+        // Set delegates
+        if let childVC = self.childViewControllers.first as? HeaderViewController {
+            childVC.delegate = self
+        }
+      
     }
     
     //    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
@@ -85,25 +87,17 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     //        }
     //    }
     
-    // **********************************************************
+    // ********************************************************
     // MARK: - IBActions
-    // **********************************************************
-    
-    @IBAction func oscViewPressed(_ sender: UIButton) {
-        removeAllChildViews()
-        add(asChildViewController: mixerViewController)
-    }
-    @IBAction func adsrViewPressed(_ sender: UIButton) {
-        removeAllChildViews()
-        add(asChildViewController: adsrViewController)
-    }
+    // ********************************************************
+
     
     // **********************************************************
     // MARK: - Note on/off
     // **********************************************************
     
     public func noteOn(note: MIDINoteNumber) {
-        print("NOTE ON: \(note)")
+        // print("NOTE ON: \(note)")
         conductor.synth.play(noteNumber: note, velocity: 127)
     }
     public func noteOff(note: MIDINoteNumber) {
@@ -114,7 +108,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     // MARK: - View Navigation/Embed Helper Methods
     // **********************************************************
     
-    private func add(asChildViewController viewController: UIViewController) {
+    fileprivate func add(asChildViewController viewController: UIViewController) {
         // Add Child View Controller
         addChildViewController(viewController)
         
@@ -129,7 +123,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         viewController.didMove(toParentViewController: self)
     }
     
-    private func remove(asChildViewController viewController: UIViewController) {
+    fileprivate func remove(asChildViewController viewController: UIViewController) {
         // Notify Child View Controller
         viewController.willMove(toParentViewController: nil)
         
@@ -140,13 +134,28 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         viewController.removeFromParentViewController()
     }
     
-    private func removeAllChildViews() {
-        remove(asChildViewController: adsrViewController)
+    fileprivate func removeAllChildViews() {
         remove(asChildViewController: mixerViewController)
     }
 }
 
 // **********************************************************
-// MARK: - View Switch Delegate
+// MARK: - Embedded Views Delegate
 // **********************************************************
 
+extension SynthOneViewController: EmbeddedViewsDelegate {
+
+    func switchToChildView(_ newView: ChildView) {
+        
+        // remove all child views
+        removeAllChildViews()
+        
+        switch newView {
+        case .adsrView:
+            // ADSR is always here
+            break;
+        case .oscView:
+           add(asChildViewController: mixerViewController)
+        }
+    }
+}

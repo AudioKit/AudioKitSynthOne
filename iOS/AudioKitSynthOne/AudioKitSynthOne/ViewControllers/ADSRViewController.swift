@@ -38,7 +38,6 @@ class ADSRViewController: UpdatableViewController {
             self.conductor.synth.parameters[AKSynthOneParameter.filterReleaseDuration.rawValue] = rel
         }
 
-
         attackKnob.callback = conductor.changeParameter(.attackDuration)
         decayKnob.callback = conductor.changeParameter(.decayDuration)
         sustainKnob.callback = conductor.changeParameter(.sustainLevel)

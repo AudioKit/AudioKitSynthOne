@@ -43,6 +43,9 @@
                                     <constraint firstAttribute="height" constant="299" id="065-6c-Sa4"/>
                                     <constraint firstAttribute="width" constant="1024" id="S6i-gk-s21"/>
                                 </constraints>
+                                <connections>
+                                    <segue destination="kXR-JJ-XpL" kind="embed" id="Jyh-cC-NxI"/>
+                                </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
                                 <rect key="frame" x="0.0" y="469" width="1024" height="299"/>
@@ -57,22 +60,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oc-i7-38v">
-                                <rect key="frame" x="32" y="345" width="74" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="OSC"/>
-                                <connections>
-                                    <action selector="oscViewPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ddq-RK-SAK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjW-tg-GLM">
-                                <rect key="frame" x="126" y="345" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="ADSR"/>
-                                <connections>
-                                    <action selector="adsrViewPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d16-6k-TQg"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -89,9 +76,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="adsrViewButton" destination="mjW-tg-GLM" id="fXm-JI-j5y"/>
                         <outlet property="keyboardView" destination="kQD-gK-cOc" id="w3W-qi-8XQ"/>
-                        <outlet property="oscViewButton" destination="6oc-i7-38v" id="DuB-jc-Smm"/>
                         <outlet property="topContainerView" destination="FVi-Ld-MF5" id="hUr-7n-IQP"/>
                     </connections>
                 </viewController>
@@ -277,6 +262,26 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCV-UJ-nIV">
+                                <rect key="frame" x="90" y="4" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ADSR">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="adsrPressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="elJ-8B-Z20"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o5-nm-Blf">
+                                <rect key="frame" x="28" y="4" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="MAIN">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mainPressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="DLR-VK-qYi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>

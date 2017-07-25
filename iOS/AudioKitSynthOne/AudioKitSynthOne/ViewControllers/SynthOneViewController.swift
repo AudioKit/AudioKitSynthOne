@@ -9,6 +9,17 @@
 import UIKit
 import AudioKit
 
+protocol updateEmbeddedViews {
+    func switchToChildView(_ newView: ChildView)
+}
+
+enum ChildView: String {
+    case oscView = "SourceMixerViewController"
+    case adsrView = "ADSRViewController"
+    
+    
+}
+
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     @IBOutlet weak var topContainerView: UIView!
@@ -52,38 +63,38 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         
         keyboardView?.delegate = self
         keyboardView?.polyphonicMode = true
-
+        
         print("Trying to change conductor change parameter")
-
+        
         conductor.changeParameter = { param in
             return { value in
                 self.conductor.synth.parameters[param.rawValue] = value
             }
         }
-
+        
         conductor.start()
         
         // Set initial subviews
         // oscViewPressed(oscViewButton)
-        adsrViewPressed(adsrViewButton)
+        // adsrViewPressed(adsrViewButton)
     }
-
-//    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
-//        return { value in
-//            self.conductor.synth.parameters[param.rawValue] = value
-//        }
-//    }
+    
+    //    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
+    //        return { value in
+    //            self.conductor.synth.parameters[param.rawValue] = value
+    //        }
+    //    }
     
     // **********************************************************
     // MARK: - IBActions
     // **********************************************************
     
     @IBAction func oscViewPressed(_ sender: UIButton) {
-        remove(asChildViewController: adsrViewController)
+        removeAllChildViews()
         add(asChildViewController: mixerViewController)
     }
     @IBAction func adsrViewPressed(_ sender: UIButton) {
-        remove(asChildViewController: mixerViewController)
+        removeAllChildViews()
         add(asChildViewController: adsrViewController)
     }
     
@@ -128,4 +139,14 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         // Notify Child View Controller
         viewController.removeFromParentViewController()
     }
+    
+    private func removeAllChildViews() {
+        remove(asChildViewController: adsrViewController)
+        remove(asChildViewController: mixerViewController)
+    }
 }
+
+// **********************************************************
+// MARK: - View Switch Delegate
+// **********************************************************
+

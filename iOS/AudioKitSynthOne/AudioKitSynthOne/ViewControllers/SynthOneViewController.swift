@@ -14,6 +14,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var keyboardView: AKKeyboardView?
     @IBOutlet weak var oscViewButton: UIButton!
+    @IBOutlet weak var adsrViewButton: UIButton!
     
     var conductor = Conductor.sharedInstance
     
@@ -42,8 +43,6 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     }()
     
     
-   
-    
     // **********************************************************
     // MARK: - viewDidLoad
     // **********************************************************
@@ -65,7 +64,8 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         conductor.start()
         
         // Set initial subviews
-        oscViewPressed(oscViewButton)
+        // oscViewPressed(oscViewButton)
+        adsrViewPressed(adsrViewButton)
     }
 
 //    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {

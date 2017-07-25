@@ -21,7 +21,7 @@ public class SourceMixerViewController: UpdatableViewController {
     @IBOutlet weak var morph1Volume: Knob!
     @IBOutlet weak var morph2Volume: Knob!
 
-    @IBOutlet weak var cutoff: CutoffKnob!
+    @IBOutlet weak var cutoff: Knob!
     @IBOutlet weak var resonance: Knob!
 
     @IBOutlet weak var subVolume: Knob!
@@ -39,6 +39,11 @@ public class SourceMixerViewController: UpdatableViewController {
         super.viewDidLoad()
 
         // Defaults, limits
+
+        cutoff.minimum = 120
+        cutoff.maximum = 28000
+        cutoff.taper = 4.04
+
         morph1SemitoneOffset.onlyIntegers = true
         morph1SemitoneOffset.minimum = -12 // semitones
         morph1SemitoneOffset.maximum = 12  // semitones
@@ -72,6 +77,7 @@ public class SourceMixerViewController: UpdatableViewController {
         morphBalance.callback         = conductor.changeParameter(.morphBalance)
         morph1Volume.callback         = conductor.changeParameter(.morph1Volume)
         morph2Volume.callback         = conductor.changeParameter(.morph2Volume)
+        cutoff.callback               = conductor.changeParameter(.cutoff)
         resonance.callback            = conductor.changeParameter(.resonance)
         subVolume.callback            = conductor.changeParameter(.subVolume)
         subOctaveDown.callback        = conductor.changeParameter(.subOctaveDown)
@@ -107,13 +113,14 @@ public class SourceMixerViewController: UpdatableViewController {
             subIsSquare.value = value
         case .subOctaveDown:
             subOctaveDown.value = value
+        case .cutoff:
+            cutoff.value = value
         case .resonance:
             resonance.value = value
         case .fmVolume:
             fmVolume.value = value
         case .fmAmount:
             fmAmount.value = value
-            //displayLabel.text = "FM Mod \(fmAmount.knobValue.percentageString)"
         case .noiseVolume:
             noiseVolume.value = value
         case .masterVolume:

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioKit
 
 protocol AKSynthOneControl {
     var value: Double { get set }
@@ -16,19 +17,20 @@ protocol AKSynthOneControl {
 @IBDesignable
 public class Knob: UIView, AKSynthOneControl {
 
-    var logarithmic: Bool = false
     var onlyIntegers: Bool = false
 
     public var callback: (Double)->Void = { _ in }
 
+    public var taper: Double = 1.0 // Linear by default
+
     var minimum: Double = 0.0 {
         didSet {
-            self.knobValue = CGFloat((value - minimum) / (maximum - minimum))
+            self.knobValue = CGFloat(value.normalized(minimum: minimum, maximum: maximum, taper: taper))
         }
     }
     var maximum: Double = 1 {
         didSet {
-            self.knobValue = CGFloat((value - minimum) / (maximum - minimum))
+            self.knobValue = CGFloat(value.normalized(minimum: minimum, maximum: maximum, taper: taper))
         }
     }
 
@@ -42,8 +44,7 @@ public class Knob: UIView, AKSynthOneControl {
             }
 
             value = onlyIntegers ? round(value) : value
-
-            knobValue = CGFloat((value - minimum) / (maximum - minimum))
+            knobValue = CGFloat(value.normalized(minimum: minimum, maximum: maximum, taper: taper))
         }
     }
     
@@ -54,7 +55,7 @@ public class Knob: UIView, AKSynthOneControl {
         }
     }
     var knobFill: CGFloat = 0
-    var knobSensitivity = 0.005
+    var knobSensitivity: CGFloat = 0.005
     var lastX: CGFloat = 0
     var lastY: CGFloat = 0
     
@@ -89,12 +90,18 @@ public class Knob: UIView, AKSynthOneControl {
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
         // Knobs assume up or right is increasing, and down or left is decreasing
         
-        let horizontalChange = Double(touchPoint.x - lastX) * knobSensitivity
-        value += horizontalChange * (maximum - minimum)
-        
-        let verticalChange = Double(touchPoint.y - lastY) * knobSensitivity
-        value -= verticalChange * (maximum - minimum)
+        knobValue += (touchPoint.x - lastX) * knobSensitivity
+        knobValue -= (touchPoint.y - lastY) * knobSensitivity
 
+        if knobValue > 1.0 {
+            knobValue = 1.0
+        }
+        if knobValue < 0.0 {
+            knobValue = 0.0
+        }
+
+        value = Double(knobValue).denormalized(minimum: minimum, maximum: maximum, taper: taper)
+        
         callback(value)
         lastX = touchPoint.x
         lastY = touchPoint.y

@@ -32,6 +32,8 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "OSC1 Vol: \(value.percentageString)"
         case .morph2Volume:
             displayLabel.text = "OSC2 Vol: \(value.percentageString)"
+        case .cutoff:
+            displayLabel.text = "Cutoff: \(value.decimalString) Hz"
         case .resonance:
             displayLabel.text = "Resonance: \(value.decimalString)"
         case .subVolume:

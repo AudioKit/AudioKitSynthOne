@@ -40,15 +40,13 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Noise Mix: \(value.percentageString)"
         case .masterVolume:
             displayLabel.text = "Master Vol: \(value.percentageString)"
-        case .attackDuration:
-            displayLabel.text = "Attack: \(value.decimalString)"
-        case .decayDuration:
-            displayLabel.text = "Decay: \(value.decimalString)"
-        case .sustainLevel:
-            displayLabel.text = "Sustain: \(value.percentageString)"
-        case .releaseDuration:
-            displayLabel.text = "Release: \(value.decimalString)"
-                
+        case .attackDuration, .decayDuration, .sustainLevel, .releaseDuration:
+            displayLabel.text = "A: \(conductor.synth.parameters[AKSynthOneParameter.attackDuration.rawValue].decimalString) D: \(conductor.synth.parameters[AKSynthOneParameter.decayDuration.rawValue].decimalString) S: \(conductor.synth.parameters[AKSynthOneParameter.sustainLevel.rawValue].percentageString) R: \(conductor.synth.parameters[AKSynthOneParameter.releaseDuration.rawValue].decimalString) "
+        case .filterAttackDuration, .filterDecayDuration, .filterSustainLevel, .filterReleaseDuration:
+            displayLabel.text = "F A: \(conductor.synth.parameters[AKSynthOneParameter.filterAttackDuration.rawValue].decimalString) D: \(conductor.synth.parameters[AKSynthOneParameter.filterDecayDuration.rawValue].decimalString) S: \(conductor.synth.parameters[AKSynthOneParameter.filterSustainLevel.rawValue].percentageString) R: \(conductor.synth.parameters[AKSynthOneParameter.filterReleaseDuration.rawValue].decimalString) "
+            case .filterADSRMix:
+                displayLabel.text = "Filter Mix \(value.percentageString)"
+
         default:
             _ = 0
             // do nothing

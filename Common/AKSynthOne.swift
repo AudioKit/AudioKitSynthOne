@@ -55,7 +55,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
 
 
     /// Ramp Time represents the speed at which parameters are allowed to change
-    open dynamic var rampTime: Double = AKSettings.rampTime {
+    open dynamic var rampTime: Double = 0.0 {
         willSet {
             internalAU?.rampTime = newValue
         }

@@ -44,8 +44,6 @@ public class Knob: UIView, AKSynthOneControl {
             value = onlyIntegers ? round(value) : value
 
             knobValue = CGFloat((value - minimum) / (maximum - minimum))
-
-            callback(value)
         }
     }
     
@@ -97,6 +95,7 @@ public class Knob: UIView, AKSynthOneControl {
         let verticalChange = Double(touchPoint.y - lastY) * knobSensitivity
         value -= verticalChange * (maximum - minimum)
 
+        callback(value)
         lastX = touchPoint.x
         lastY = touchPoint.y
     }

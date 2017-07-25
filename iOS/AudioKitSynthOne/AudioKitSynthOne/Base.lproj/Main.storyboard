@@ -320,6 +320,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view tag="105" contentMode="center" fixedFrame="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zG6-hN-Cmg" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="584" y="231" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="105" contentMode="center" fixedFrame="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1UI-YK-6S9" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="493" y="231" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="105" contentMode="center" fixedFrame="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hff-Gi-ggJ" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="678" y="231" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="105" contentMode="center" fixedFrame="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jFf-Ek-uea" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="762" y="231" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhq-pK-tLB">
                                 <rect key="frame" x="969" y="106" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -327,6 +347,31 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="je1-h7-FfI" customClass="AKADSRView" customModule="AudioKit">
+                                <rect key="frame" x="466" y="37" width="363" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixs-dv-3Ny" customClass="AKADSRView" customModule="AudioKit">
+                                <rect key="frame" x="32" y="39" width="363" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="103" contentMode="center" fixedFrame="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8mW-Ll-ydC" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="837" y="39" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -334,15 +379,22 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
+                        <outlet property="adsrView" destination="ixs-dv-3Ny" id="52h-sw-WCp"/>
                         <outlet property="attackKnob" destination="Id6-1g-dKM" id="0rD-A2-Z2G"/>
                         <outlet property="decayKnob" destination="Bzs-A0-rWQ" id="ihY-GW-xCK"/>
+                        <outlet property="filterADSRMixKnob" destination="8mW-Ll-ydC" id="9JH-VM-wSS"/>
+                        <outlet property="filterADSRView" destination="je1-h7-FfI" id="ZoT-rS-LRL"/>
+                        <outlet property="filterAttackKnob" destination="1UI-YK-6S9" id="NhG-HR-DxK"/>
+                        <outlet property="filterDecayKnob" destination="zG6-hN-Cmg" id="cEz-c7-cYj"/>
+                        <outlet property="filterReleaseKnob" destination="jFf-Ek-uea" id="q5B-L4-N1v"/>
+                        <outlet property="filterSustainKnob" destination="hff-Gi-ggJ" id="gFX-71-JiH"/>
                         <outlet property="releaseKnob" destination="Vv9-HY-oLB" id="P3x-u2-abD"/>
                         <outlet property="sustainKnob" destination="iNU-FW-fQV" id="Udh-sr-lZ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8q-3b-bAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="-346"/>
+            <point key="canvasLocation" x="119.53124999999999" y="-346.484375"/>
         </scene>
     </scenes>
     <resources>

@@ -17,17 +17,18 @@ class Conductor {
         print("Not implemented properly")
         return { _ in
             print("I said, not implemented properly!")
-            }
-        } {
-                didSet {
-                    updateAllCallbacks()
-                }
+        }
+    } {
+        didSet {
+            updateAllCallbacks()
+        }
     }
 
     public var viewControllers: Set<UpdatableViewController> = []
 
     func start() {
         synth = AKSynthOne()
+        synth.rampTime = 0.0 // Handle ramping internally instead of the ramper hack
         AudioKit.output = synth
         AudioKit.start()
     }

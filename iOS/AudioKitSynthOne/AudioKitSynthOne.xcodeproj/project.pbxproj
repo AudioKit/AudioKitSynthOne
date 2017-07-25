@@ -39,6 +39,8 @@
 		C4D193CA1F1187B500FF4FE4 /* SynthOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */; };
 		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
 		C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */; };
+		C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */; };
+		C4EDB6C31F26DFEA006B828C /* MorphSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */; };
 		C4F7ECAF1F244A4B0011B119 /* ButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ButtonStyleKit.swift */; };
 		C4F7ECB41F244A510011B119 /* CutoffKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA71F2446960011B119 /* CutoffKnob.swift */; };
 		C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA81F2446960011B119 /* Knob+Touches.swift */; };
@@ -117,6 +119,7 @@
 		C4D193CC1F1187B500FF4FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4D193D31F1187B500FF4FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorphSelector.swift; sourceTree = "<group>"; };
 		C4F7ECA61F2446960011B119 /* ButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleKit.swift; sourceTree = "<group>"; };
 		C4F7ECA71F2446960011B119 /* CutoffKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutoffKnob.swift; sourceTree = "<group>"; };
 		C4F7ECA81F2446960011B119 /* Knob+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Knob+Touches.swift"; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 				C4F7ECA81F2446960011B119 /* Knob+Touches.swift */,
 				C4F7ECA91F2446960011B119 /* Knob.swift */,
 				C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */,
+				C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */,
 				C4F7ECAB1F2446960011B119 /* ToggleButton.swift */,
 			);
 			path = Controls;
@@ -371,6 +375,7 @@
 			files = (
 				C4060AC31F24561A00BB8882 /* ToggleButton.swift in Sources */,
 				C4060ABF1F24561A00BB8882 /* CutoffKnob.swift in Sources */,
+				C4EDB6C31F26DFEA006B828C /* MorphSelector.swift in Sources */,
 				C4060AC61F24568600BB8882 /* ViewController+DisplayAlert.swift in Sources */,
 				C4060AC01F24561A00BB8882 /* Knob+Touches.swift in Sources */,
 				C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */,
@@ -399,6 +404,7 @@
 				C4D193CA1F1187B500FF4FE4 /* SynthOneViewController.swift in Sources */,
 				C4F7ECB41F244A510011B119 /* CutoffKnob.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
+				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,

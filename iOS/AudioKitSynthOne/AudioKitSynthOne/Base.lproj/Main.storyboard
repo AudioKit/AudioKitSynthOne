@@ -196,6 +196,16 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tns-nV-cO1" customClass="MorphSelector" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="229" y="24" width="196" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wN7-K8-wB0" customClass="MorphSelector" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="6" y="24" width="196" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -207,9 +217,11 @@
                         <outlet property="fmAmount" destination="PlS-FK-Xk4" id="Y2W-Db-GO4"/>
                         <outlet property="fmVolume" destination="eeh-g3-XJ2" id="NHR-Ny-zAj"/>
                         <outlet property="masterVolume" destination="la2-0e-izH" id="54u-fs-IBa"/>
+                        <outlet property="morph1Selector" destination="wN7-K8-wB0" id="kRL-Ii-Q0K"/>
                         <outlet property="morph1SemitoneOffset" destination="RfB-Xj-aPn" id="f65-hg-Hfs"/>
                         <outlet property="morph1Volume" destination="IIH-cw-b0Y" id="SHH-hj-SxW"/>
                         <outlet property="morph2Detuning" destination="BlJ-MK-rm3" id="gAq-Ss-rSH"/>
+                        <outlet property="morph2Selector" destination="Tns-nV-cO1" id="wcZ-a1-2er"/>
                         <outlet property="morph2SemitoneOffset" destination="0QL-6p-40g" id="sP7-H8-chN"/>
                         <outlet property="morph2Volume" destination="BDO-o7-fva" id="P1t-JW-0Tu"/>
                         <outlet property="morphBalance" destination="u1G-nz-9jM" id="Nvc-gS-ml9"/>
@@ -222,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1Q-CL-vib" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="-46"/>
+            <point key="canvasLocation" x="119.53124999999999" y="-46.484375"/>
         </scene>
         <!--Header-->
         <scene sceneID="uWT-k1-pAc">

@@ -71,7 +71,7 @@ extension Double {
     
     // Linear Scale any range to 0.0-1.0 for Knob/Slider position
     public static func scaleRangeZeroToOne(_ value: Double, rangeMin: Double, rangeMax: Double) -> Double {
-        return abs( (value - rangeMin) / (rangeMin - rangeMax))
+        return Swift.abs((value - rangeMin) / (rangeMin - rangeMax))
     }
     
     // Logarithmically scale 0.0 to 1.0 to any range

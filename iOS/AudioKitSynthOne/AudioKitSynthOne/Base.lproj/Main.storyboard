@@ -44,15 +44,15 @@
                                     <constraint firstAttribute="width" constant="1024" id="S6i-gk-s21"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="kXR-JJ-XpL" kind="embed" id="Jyh-cC-NxI"/>
+                                    <segue destination="kXR-JJ-XpL" kind="embed" id="Qbh-Cu-wMO"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
                                 <rect key="frame" x="0.0" y="469" width="1024" height="299"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="1024" id="PEP-Pk-pqa"/>
-                                    <constraint firstAttribute="height" constant="299" id="aQf-rS-iND"/>
+                                    <constraint firstAttribute="height" constant="299" id="pmc-Ic-dDl"/>
+                                    <constraint firstAttribute="width" constant="1024" id="qE7-Wi-suM"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="octaveCount">
@@ -66,12 +66,11 @@
                             <constraint firstAttribute="trailing" secondItem="RnT-Kx-qNG" secondAttribute="trailing" id="3Lo-qO-BtL"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="top" secondItem="RnT-Kx-qNG" secondAttribute="bottom" id="4mP-L3-8Up"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ps-Uq-68M"/>
-                            <constraint firstAttribute="trailing" secondItem="kQD-gK-cOc" secondAttribute="trailing" id="5uq-5m-9sH"/>
-                            <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IJI-hH-maK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="M2C-PZ-ZbZ"/>
                             <constraint firstItem="RnT-Kx-qNG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U2m-cp-QYv"/>
+                            <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZGm-Lc-cpD"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="top" secondItem="RnT-Kx-qNG" secondAttribute="bottom" id="hT0-7c-nJX"/>
                             <constraint firstAttribute="trailing" secondItem="FVi-Ld-MF5" secondAttribute="trailing" id="iYc-5k-z6U"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="uhu-dN-uYX"/>
                             <constraint firstItem="RnT-Kx-qNG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uyo-mL-gwX"/>
                         </constraints>
                     </view>

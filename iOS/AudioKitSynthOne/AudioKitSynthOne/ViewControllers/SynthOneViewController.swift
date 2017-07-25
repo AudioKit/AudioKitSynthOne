@@ -27,7 +27,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
     
     // ********************************************************
-    // MARK: - Define view controllers
+    // MARK: - Define child view controllers
     // ********************************************************
     
     fileprivate lazy var adsrViewController: ADSRViewController = {
@@ -87,6 +87,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     //        }
     //    }
     
+
     // ********************************************************
     // MARK: - IBActions
     // ********************************************************

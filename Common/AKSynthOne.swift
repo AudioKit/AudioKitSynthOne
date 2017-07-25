@@ -34,6 +34,8 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
             return result
         }
         set {
+            internalAU?.parameters = newValue
+
             if internalAU?.isSetUp() ?? false {
                     if let existingToken = token {
                         for (index, parameter) in auParameters.enumerated() {

@@ -64,8 +64,8 @@ public class SourceMixerViewController: UpdatableViewController {
     }
 
     override func updateCallbacks() {
-        morph1Selector.callback = conductor.changeParameter(.index1)
-        morph2Selector.callback = conductor.changeParameter(.index2)
+        morph1Selector.callback       = conductor.changeParameter(.index1)
+        morph2Selector.callback       = conductor.changeParameter(.index2)
         morph1SemitoneOffset.callback = conductor.changeParameter(.morph1SemitoneOffset)
         morph2SemitoneOffset.callback = conductor.changeParameter(.morph2SemitoneOffset)
         morph2Detuning.callback       = conductor.changeParameter(.morph2Detuning)

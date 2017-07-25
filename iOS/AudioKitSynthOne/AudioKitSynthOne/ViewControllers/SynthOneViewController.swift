@@ -87,6 +87,10 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     //        }
     //    }
     
+    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+ 
 
     // ********************************************************
     // MARK: - IBActions

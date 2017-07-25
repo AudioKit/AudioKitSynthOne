@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
 		941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */; };
+		94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
+		94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
+		94CA7BAF1F27BD1F00253C09 /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
 		C4060ABE1F24561A00BB8882 /* ButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ButtonStyleKit.swift */; };
 		C4060ABF1F24561A00BB8882 /* CutoffKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA71F2446960011B119 /* CutoffKnob.swift */; };
 		C4060AC01F24561A00BB8882 /* Knob+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA81F2446960011B119 /* Knob+Touches.swift */; };
@@ -103,6 +106,7 @@
 
 /* Begin PBXFileReference section */
 		9410659E1F26AA55002777AB /* ADSRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
+		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
 		C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceMixerViewController.swift; sourceTree = "<group>"; };
 		C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AudioKit For iOS.xcodeproj"; path = "../../../AudioKit/AudioKit/iOS/AudioKit For iOS.xcodeproj"; sourceTree = "<group>"; };
 		C474D94B1F13172B00946035 /* SynthOne.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SynthOne.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,19 +158,13 @@
 		941065A01F26AA60002777AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */,
 				9410659E1F26AA55002777AB /* ADSRViewController.swift */,
 				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
 				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
+				94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		941065A11F26AA88002777AB /* AUViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */,
-			);
-			path = AUViewController;
 			sourceTree = "<group>";
 		};
 		C46DE0FC1F13301C0060DD79 /* Products */ = {
@@ -215,7 +213,6 @@
 				C4CD8DE91F24A77C0011066A /* Conductor.swift */,
 				C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */,
 				C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */,
-				941065A11F26AA88002777AB /* AUViewController */,
 				941065A01F26AA60002777AB /* ViewControllers */,
 				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
 				C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */,
@@ -376,8 +373,10 @@
 				C4060AC31F24561A00BB8882 /* ToggleButton.swift in Sources */,
 				C4060ABF1F24561A00BB8882 /* CutoffKnob.swift in Sources */,
 				C4EDB6C31F26DFEA006B828C /* MorphSelector.swift in Sources */,
+				94CA7BAF1F27BD1F00253C09 /* ADSRViewController.swift in Sources */,
 				C4060AC61F24568600BB8882 /* ViewController+DisplayAlert.swift in Sources */,
 				C4060AC01F24561A00BB8882 /* Knob+Touches.swift in Sources */,
+				94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */,
 				C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */,
 				C40770EE1F257124007F2C77 /* HeaderViewContoller.swift in Sources */,
 				C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */,
@@ -409,6 +408,7 @@
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				C47BE1441F26822F003501FF /* AKSynthOneParameter.swift in Sources */,
+				94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */,
 				C40770EC1F2569C8007F2C77 /* SourceMixerViewController.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
 				C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */,

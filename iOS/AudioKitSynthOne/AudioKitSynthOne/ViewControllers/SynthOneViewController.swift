@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SynthOneViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by Aurelius Prochazka on 7/8/17.
@@ -8,24 +8,6 @@
 
 import UIKit
 import AudioKit
-
-public class UpdatableViewController: UIViewController {
-
-    let conductor = Conductor.sharedInstance
-
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        conductor.viewControllers.insert(self)
-    }
-
-    func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        // override in subclasses
-    }
-    
-    func updateCallbacks() {
-        
-    }
-}
 
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     @IBOutlet weak var keyboardView: AKKeyboardView?

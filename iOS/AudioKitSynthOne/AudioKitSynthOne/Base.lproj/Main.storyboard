@@ -221,10 +221,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_adsr" translatesAutoresizingMaskIntoConstraints="NO" id="ROV-LA-z4c">
-                                <rect key="frame" x="0.0" y="-269" width="1024" height="299"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -315,6 +311,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_adsr" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-DM-W3q">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view tag="105" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bzs-A0-rWQ" customClass="Knob" customModule="AudioKitSynthOne">
                                 <rect key="frame" x="134" y="231" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

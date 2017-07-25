@@ -78,6 +78,7 @@ class ADSRViewController: UpdatableViewController {
         case .filterReleaseDuration:
             filterReleaseKnob.value = value
             filterADSRView.releaseDuration = value
+
         case .filterADSRMix:
             filterADSRMixKnob.value = value
 
@@ -86,6 +87,7 @@ class ADSRViewController: UpdatableViewController {
             // do nothing
         }
         adsrView.setNeedsDisplay()
+        filterADSRView.setNeedsDisplay()
     }
  
 

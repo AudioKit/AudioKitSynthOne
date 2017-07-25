@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
+		941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */; };
 		C4060ABE1F24561A00BB8882 /* ButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ButtonStyleKit.swift */; };
 		C4060ABF1F24561A00BB8882 /* CutoffKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA71F2446960011B119 /* CutoffKnob.swift */; };
 		C4060AC01F24561A00BB8882 /* Knob+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA81F2446960011B119 /* Knob+Touches.swift */; };
@@ -377,6 +378,7 @@
 				C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */,
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
 				C40770ED1F25703B007F2C77 /* SourceMixerViewController.swift in Sources */,
+				941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ButtonStyleKit.swift in Sources */,
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
 				C4060AC41F24568600BB8882 /* CGFloat+Extensions.swift in Sources */,

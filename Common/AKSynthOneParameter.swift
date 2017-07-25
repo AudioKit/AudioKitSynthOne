@@ -8,7 +8,8 @@
 
 /// Parameter lookup
 public enum AKSynthOneParameter: Int {
-    case index1 = 0, index2 = 1,
+    case index1 = 0,
+    index2 = 1,
     morphBalance = 2,
     morph1SemitoneOffset = 3,
     morph2SemitoneOffset = 4,
@@ -38,7 +39,7 @@ public enum AKSynthOneParameter: Int {
     sustainLevel = 28,
     releaseDuration = 29,
     morph2Detuning = 30,
-    detuningMultiplier = 31
-   
+    detuningMultiplier = 31,
+    masterVolume = 32
 }
 

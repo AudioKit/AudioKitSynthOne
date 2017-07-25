@@ -40,6 +40,15 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Noise Mix: \(value.percentageString)"
         case .masterVolume:
             displayLabel.text = "Master Vol: \(value.percentageString)"
+        case .attackDuration:
+            displayLabel.text = "Attack: \(value.decimalString)"
+        case .decayDuration:
+            displayLabel.text = "Decay: \(value.decimalString)"
+        case .sustainLevel:
+            displayLabel.text = "Sustain: \(value.percentageString)"
+        case .releaseDuration:
+            displayLabel.text = "Release: \(value.decimalString)"
+                
         default:
             _ = 0
             // do nothing

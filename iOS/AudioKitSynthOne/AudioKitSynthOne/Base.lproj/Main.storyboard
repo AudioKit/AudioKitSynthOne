@@ -44,7 +44,7 @@
                                     <constraint firstAttribute="width" constant="1024" id="S6i-gk-s21"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="MNO-vG-clO" kind="embed" id="Uae-zU-ywH"/>
+                                    <segue destination="kXR-JJ-XpL" kind="embed" id="Uln-cJ-aJ4"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
@@ -195,9 +195,6 @@
                                 <state key="normal" title="ADSR">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="kXR-JJ-XpL" kind="show" id="ou4-zH-kR8"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -225,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1Q-CL-vib" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="91" y="-42"/>
+            <point key="canvasLocation" x="120" y="-46"/>
         </scene>
         <!--Header-->
         <scene sceneID="uWT-k1-pAc">
@@ -324,10 +321,16 @@
                     <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
+                    <connections>
+                        <outlet property="attackKnob" destination="Id6-1g-dKM" id="0rD-A2-Z2G"/>
+                        <outlet property="decayKnob" destination="Bzs-A0-rWQ" id="ihY-GW-xCK"/>
+                        <outlet property="releaseKnob" destination="Vv9-HY-oLB" id="P3x-u2-abD"/>
+                        <outlet property="sustainKnob" destination="iNU-FW-fQV" id="Udh-sr-lZ8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8q-3b-bAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="91" y="-354"/>
+            <point key="canvasLocation" x="120" y="-346"/>
         </scene>
     </scenes>
     <resources>

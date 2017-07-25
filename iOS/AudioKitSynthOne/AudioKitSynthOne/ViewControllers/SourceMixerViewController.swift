@@ -47,14 +47,17 @@ public class SourceMixerViewController: UpdatableViewController {
         morph2SemitoneOffset.minimum = -12 // semitones
         morph2SemitoneOffset.maximum = 12  // semitones
 
-        morph2Detuning.minimum = -3 // Hz
-        morph2Detuning.maximum = 3  // Hz
+        morph2Detuning.minimum = -4 // Hz
+        morph2Detuning.maximum = 4  // Hz
 
         morph1Volume.value = 0.5
         morph1Volume.value = 0.5
 
         morphBalance.value = 0.5
 
+        noiseVolume.maximum = 0.3
+        fmAmount.maximum = 15
+        
         resonance.maximum = 0.99
 
         updateCallbacks()
@@ -76,6 +79,7 @@ public class SourceMixerViewController: UpdatableViewController {
         fmVolume.callback             = conductor.changeParameter(.fmVolume)
         fmAmount.callback             = conductor.changeParameter(.fmAmount)
         noiseVolume.callback          = conductor.changeParameter(.noiseVolume)
+        masterVolume.callback         = conductor.changeParameter(.masterVolume)
     }
 
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
@@ -109,8 +113,11 @@ public class SourceMixerViewController: UpdatableViewController {
             fmVolume.value = value
         case .fmAmount:
             fmAmount.value = value
+            //displayLabel.text = "FM Mod \(fmAmount.knobValue.percentageString)"
         case .noiseVolume:
             noiseVolume.value = value
+        case .masterVolume:
+            masterVolume.value = value
         default:
             _ = 0
             // do nothing

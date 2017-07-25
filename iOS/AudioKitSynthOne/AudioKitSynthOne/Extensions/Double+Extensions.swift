@@ -33,7 +33,7 @@ extension Double {
     
     // Formatted percentage string e.g. 0.55 -> 55%
     var percentageString: String {
-        return "\(Int(100 * self))%"
+        return "\(Int(100 * self ))%"
     }
     
     // *********************************************************

@@ -65,7 +65,7 @@ class TouchPadView: UIView {
         super.init(coder: aDecoder)
         
         // Setup Touch Visual Indicators
-        touchImageView = UIImageView(frame: CGRect(x: -200, y: -200, width: 107, height: 107))
+        touchImageView = UIImageView(frame: CGRect(x: -200, y: -200, width: 84, height: 84))
         touchImageView.image = UIImage(named: "touchpoint2")
         touchImageView.center = CGPoint(x: self.bounds.size.width/2, y: self.bounds.size.height/2)
         

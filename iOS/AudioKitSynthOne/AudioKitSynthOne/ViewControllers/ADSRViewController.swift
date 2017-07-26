@@ -25,7 +25,10 @@ class ADSRViewController: UpdatableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        filterADSRMixKnob.maximum = 1.5
+        filterADSRMixKnob.maximum = 1.2
+        attackKnob.minimum = 0.002
+        releaseKnob.minimum = 0.004
+        releaseKnob.maximum = 2.0
     }
 
     override func updateCallbacks() {

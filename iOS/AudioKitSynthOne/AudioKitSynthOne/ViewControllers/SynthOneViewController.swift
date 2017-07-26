@@ -17,6 +17,7 @@ enum ChildView: String {
     case oscView = "SourceMixerViewController"
     case adsrView = "ADSRViewController"
     case devView = "DevViewController"
+    case padView = "PadViewController"
 }
 
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
@@ -54,6 +55,13 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     fileprivate lazy var devViewController: DevViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "DevViewController") as! DevViewController
+        self.add(asChildViewController: viewController)
+        return viewController
+    }()
+    
+    fileprivate lazy var padViewController: TouchPadViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "TouchPadViewController") as! TouchPadViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
@@ -150,6 +158,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     fileprivate func removeAllChildViews() {
         remove(asChildViewController: mixerViewController)
         remove(asChildViewController: devViewController)
+        remove(asChildViewController: padViewController)
     }
 }
 
@@ -172,6 +181,8 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
            add(asChildViewController: mixerViewController)
         case .devView:
            add(asChildViewController: devViewController)
+        case .padView:
+           add(asChildViewController: padViewController)
         }
     }
 }

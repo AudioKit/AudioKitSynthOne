@@ -291,6 +291,16 @@
                                     <action selector="devPressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="ow9-79-9ql"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7KF-kv-pxD">
+                                <rect key="frame" x="230" y="4" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PAD">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="padPressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="9Wd-Rs-vzQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -462,10 +472,10 @@
             </objects>
             <point key="canvasLocation" x="119" y="-454"/>
         </scene>
-        <!--ADSR-->
+        <!--DEV-->
         <scene sceneID="JRs-Mi-uc0">
             <objects>
-                <viewController storyboardIdentifier="DevViewController" id="gE5-Cr-9iI" userLabel="ADSR" customClass="DevViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DevViewController" id="gE5-Cr-9iI" userLabel="DEV" customClass="DevViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8BW-oX-hHo"/>
                         <viewControllerLayoutGuide type="bottom" id="aHz-u4-6p6"/>
@@ -481,7 +491,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91R-2p-bBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125" y="187"/>
+            <point key="canvasLocation" x="-536" y="189"/>
+        </scene>
+        <!--TouchPad-->
+        <scene sceneID="dsG-FG-foi">
+            <objects>
+                <viewController storyboardIdentifier="TouchPadViewController" id="ds7-ID-bFm" userLabel="TouchPad" customClass="TouchPadViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qg0-qM-l0Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="p3W-RI-iPP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="97v-i7-Wps">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_adsr" translatesAutoresizingMaskIntoConstraints="NO" id="eNY-fp-oXJ">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="299"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zRA-I0-37X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="151"/>
         </scene>
     </scenes>
     <resources>

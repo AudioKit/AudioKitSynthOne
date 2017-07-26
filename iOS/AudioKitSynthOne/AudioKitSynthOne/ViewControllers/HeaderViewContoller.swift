@@ -76,5 +76,8 @@ public class HeaderViewController: UpdatableViewController {
         delegate?.switchToChildView(.devView)
     }
     
-
+    @IBAction func padPressed(_ sender: UIButton) {
+        delegate?.switchToChildView(.padView)
+    }
+    
 }

@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
 		941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */; };
-		945261391F2918A60037662C /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945261381F2918A60037662C /* TouchPadViewController.swift */; };
-		9452613A1F291A580037662C /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945261381F2918A60037662C /* TouchPadViewController.swift */; };
+		945261401F2925610037662C /* TouchPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9452613E1F2925600037662C /* TouchPadView.swift */; };
+		945261411F2925610037662C /* TouchPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9452613E1F2925600037662C /* TouchPadView.swift */; };
+		945261481F2928870037662C /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945261381F2918A60037662C /* TouchPadViewController.swift */; };
+		945261491F2928880037662C /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945261381F2918A60037662C /* TouchPadViewController.swift */; };
 		9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* DevViewController.swift */; };
 		94BDBD661F282956007BB7BD /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* DevViewController.swift */; };
 		94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
@@ -109,6 +111,9 @@
 /* Begin PBXFileReference section */
 		9410659E1F26AA55002777AB /* ADSRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
 		945261381F2918A60037662C /* TouchPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPadViewController.swift; sourceTree = "<group>"; };
+		9452613E1F2925600037662C /* TouchPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPadView.swift; sourceTree = "<group>"; };
+		9452613F1F2925600037662C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		945261451F2928700037662C /* TouchPadExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TouchPadExample.swift; path = "../../../../../../../UltraAwesome/Synth X2/AnalogSynthX2/AudioKitSynthOne/Controllers/TouchPadExample.swift"; sourceTree = "<group>"; };
 		9468E2791F2827AC00C60B1B /* DevViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevViewController.swift; sourceTree = "<group>"; };
 		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
 		C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceMixerViewController.swift; sourceTree = "<group>"; };
@@ -168,9 +173,38 @@
 				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
 				94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */,
 				9468E2791F2827AC00C60B1B /* DevViewController.swift */,
+				945261451F2928700037662C /* TouchPadExample.swift */,
 				945261381F2918A60037662C /* TouchPadViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		945261421F2925650037662C /* TouchPad */ = {
+			isa = PBXGroup;
+			children = (
+				9452613F1F2925600037662C /* spark.png */,
+				9452613E1F2925600037662C /* TouchPadView.swift */,
+			);
+			path = TouchPad;
+			sourceTree = "<group>";
+		};
+		945261431F29256F0037662C /* Knobs */ = {
+			isa = PBXGroup;
+			children = (
+				C4F7ECA81F2446960011B119 /* Knob+Touches.swift */,
+				C4F7ECA91F2446960011B119 /* Knob.swift */,
+				C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */,
+			);
+			path = Knobs;
+			sourceTree = "<group>";
+		};
+		945261441F2925860037662C /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				C4F7ECA61F2446960011B119 /* ButtonStyleKit.swift */,
+				C4F7ECAB1F2446960011B119 /* ToggleButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		C46DE0FC1F13301C0060DD79 /* Products */ = {
@@ -231,12 +265,10 @@
 		C4F7ECA51F2446960011B119 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				C4F7ECA61F2446960011B119 /* ButtonStyleKit.swift */,
-				C4F7ECA81F2446960011B119 /* Knob+Touches.swift */,
-				C4F7ECA91F2446960011B119 /* Knob.swift */,
-				C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */,
+				945261441F2925860037662C /* Button */,
+				945261431F29256F0037662C /* Knobs */,
+				945261421F2925650037662C /* TouchPad */,
 				C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */,
-				C4F7ECAB1F2446960011B119 /* ToggleButton.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -383,6 +415,7 @@
 				C4060AC01F24561A00BB8882 /* Knob+Touches.swift in Sources */,
 				94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */,
 				C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */,
+				945261401F2925610037662C /* TouchPadView.swift in Sources */,
 				C40770EE1F257124007F2C77 /* HeaderViewContoller.swift in Sources */,
 				C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */,
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
@@ -390,7 +423,7 @@
 				94BDBD661F282956007BB7BD /* DevViewController.swift in Sources */,
 				941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ButtonStyleKit.swift in Sources */,
-				9452613A1F291A580037662C /* TouchPadViewController.swift in Sources */,
+				945261491F2928880037662C /* TouchPadViewController.swift in Sources */,
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
 				C4060AC41F24568600BB8882 /* CGFloat+Extensions.swift in Sources */,
 				C4CD8DEB1F24A9CE0011066A /* Conductor.swift in Sources */,
@@ -410,6 +443,7 @@
 				C4D193CA1F1187B500FF4FE4 /* SynthOneViewController.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
+				945261411F2925610037662C /* TouchPadView.swift in Sources */,
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
@@ -417,7 +451,7 @@
 				9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */,
 				94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */,
 				C40770EC1F2569C8007F2C77 /* SourceMixerViewController.swift in Sources */,
-				945261391F2918A60037662C /* TouchPadViewController.swift in Sources */,
+				945261481F2928870037662C /* TouchPadViewController.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
 				C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */,
 				C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */,

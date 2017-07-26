@@ -10,6 +10,9 @@ import UIKit
 
 class TouchPadViewController: UpdatableViewController {
     
+    @IBOutlet weak var touchPadOne: TouchPadView!
+    @IBOutlet weak var touchPadTwo: TouchPadView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,13 +21,18 @@ class TouchPadViewController: UpdatableViewController {
     
     
     override func updateCallbacks() {
+      /*  touchPadTwo.callback = { touchX, touchY
+            
+        }
+      */
+         // resonance.callback            = conductor.changeParameter(.resonance)
         
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
         
-        
-    }
+        }
+    
     
 }
 

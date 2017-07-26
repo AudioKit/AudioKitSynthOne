@@ -505,25 +505,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_adsr" translatesAutoresizingMaskIntoConstraints="NO" id="eNY-fp-oXJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_touchpad" translatesAutoresizingMaskIntoConstraints="NO" id="eNY-fp-oXJ">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sQS-9Y-DsE" customClass="TouchPadView" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="41" y="25" width="425" height="252"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NHY-LR-7vV" customClass="TouchPadView" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="510" y="25" width="425" height="252"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
+                    <connections>
+                        <outlet property="touchPadOne" destination="sQS-9Y-DsE" id="4Av-Yx-Dam"/>
+                        <outlet property="touchPadTwo" destination="NHY-LR-7vV" id="CkX-eo-UhD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRA-I0-37X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="151"/>
+            <point key="canvasLocation" x="118.94531249999999" y="167.578125"/>
         </scene>
     </scenes>
     <resources>
         <image name="au_adsr" width="1024" height="299"/>
         <image name="au_main" width="1024" height="299"/>
+        <image name="au_touchpad" width="1024" height="299"/>
         <image name="headerback" width="1024" height="38"/>
     </resources>
 </document>

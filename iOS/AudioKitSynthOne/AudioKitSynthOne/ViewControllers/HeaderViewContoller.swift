@@ -72,6 +72,9 @@ public class HeaderViewController: UpdatableViewController {
         delegate?.switchToChildView(.adsrView)
     }
     
-
+    @IBAction func devPressed(_ sender: UIButton) {
+        delegate?.switchToChildView(.devView)
+    }
+    
 
 }

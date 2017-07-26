@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
 		941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */; };
+		9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* DevViewController.swift */; };
+		94BDBD661F282956007BB7BD /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* DevViewController.swift */; };
 		94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
 		94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
 		94CA7BAF1F27BD1F00253C09 /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
@@ -104,6 +106,7 @@
 
 /* Begin PBXFileReference section */
 		9410659E1F26AA55002777AB /* ADSRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
+		9468E2791F2827AC00C60B1B /* DevViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevViewController.swift; sourceTree = "<group>"; };
 		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
 		C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceMixerViewController.swift; sourceTree = "<group>"; };
 		C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AudioKit For iOS.xcodeproj"; path = "../../../AudioKit/AudioKit/iOS/AudioKit For iOS.xcodeproj"; sourceTree = "<group>"; };
@@ -161,6 +164,7 @@
 				9410659E1F26AA55002777AB /* ADSRViewController.swift */,
 				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
 				94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */,
+				9468E2791F2827AC00C60B1B /* DevViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -379,6 +383,7 @@
 				C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */,
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
 				C40770ED1F25703B007F2C77 /* SourceMixerViewController.swift in Sources */,
+				94BDBD661F282956007BB7BD /* DevViewController.swift in Sources */,
 				941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ButtonStyleKit.swift in Sources */,
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
@@ -404,6 +409,7 @@
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				C47BE1441F26822F003501FF /* AKSynthOneParameter.swift in Sources */,
+				9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */,
 				94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */,
 				C40770EC1F2569C8007F2C77 /* SourceMixerViewController.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
@@ -593,12 +599,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G24WJ3XCZ3;
 				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.AudioKitSynthOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -613,12 +623,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G24WJ3XCZ3;
 				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.AudioKitSynthOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

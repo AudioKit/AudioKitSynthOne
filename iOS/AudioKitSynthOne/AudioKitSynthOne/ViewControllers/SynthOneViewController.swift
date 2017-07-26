@@ -16,6 +16,7 @@ protocol EmbeddedViewsDelegate {
 enum ChildView: String {
     case oscView = "SourceMixerViewController"
     case adsrView = "ADSRViewController"
+    case devView = "DevViewController"
 }
 
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
@@ -46,6 +47,13 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     fileprivate lazy var mixerViewController: SourceMixerViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "SourceMixerViewController") as! SourceMixerViewController
+        self.add(asChildViewController: viewController)
+        return viewController
+    }()
+    
+    fileprivate lazy var devViewController: DevViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "DevViewController") as! DevViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
@@ -141,6 +149,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     fileprivate func removeAllChildViews() {
         remove(asChildViewController: mixerViewController)
+        remove(asChildViewController: devViewController)
     }
 }
 
@@ -161,6 +170,8 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
             break;
         case .oscView:
            add(asChildViewController: mixerViewController)
+        case .devView:
+           add(asChildViewController: devViewController)
         }
     }
 }

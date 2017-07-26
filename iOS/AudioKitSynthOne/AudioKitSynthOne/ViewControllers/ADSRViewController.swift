@@ -22,6 +22,11 @@ class ADSRViewController: UpdatableViewController {
     @IBOutlet weak var filterSustainKnob: Knob!
     @IBOutlet weak var filterReleaseKnob: Knob!
     @IBOutlet weak var filterADSRMixKnob: Knob!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        filterADSRMixKnob.maximum = 1.5
+    }
 
     override func updateCallbacks() {
         adsrView.callback = { att, dec, sus, rel in

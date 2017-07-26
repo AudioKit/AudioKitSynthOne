@@ -63,7 +63,7 @@ public class SourceMixerViewController: UpdatableViewController {
         noiseVolume.maximum = 0.3
         fmAmount.maximum = 15
         
-        resonance.maximum = 0.99
+        resonance.maximum = 0.97
 
         updateCallbacks()
     }

@@ -509,12 +509,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sQS-9Y-DsE" customClass="TouchPadView" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sQS-9Y-DsE" customClass="AKTouchPadView" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="41" y="25" width="425" height="252"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NHY-LR-7vV" customClass="TouchPadView" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NHY-LR-7vV" customClass="AKTouchPadView" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="510" y="25" width="425" height="252"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -526,8 +526,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
-                        <outlet property="touchPadOne" destination="sQS-9Y-DsE" id="4Av-Yx-Dam"/>
-                        <outlet property="touchPadTwo" destination="NHY-LR-7vV" id="CkX-eo-UhD"/>
+                        <outlet property="touchPad1" destination="sQS-9Y-DsE" id="Bjj-Mt-KXd"/>
+                        <outlet property="touchPad2" destination="NHY-LR-7vV" id="I5A-yM-r3d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRA-I0-37X" userLabel="First Responder" sceneMemberID="firstResponder"/>

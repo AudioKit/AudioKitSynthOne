@@ -13,7 +13,7 @@ protocol AKSynthOneControl {
     var value: Double { get set }
     var callback: (Double)->Void { get set }
 }
-
+ 
 @IBDesignable
 public class Knob: UIView, AKSynthOneControl {
 
@@ -23,28 +23,18 @@ public class Knob: UIView, AKSynthOneControl {
 
     public var taper: Double = 1.0 // Linear by default
 
-    var minimum: Double = 0.0 {
+    var range: ClosedRange = 0.0...1.0 {
         didSet {
-            self.knobValue = CGFloat(value.normalized(minimum: minimum, maximum: maximum, taper: taper))
-        }
-    }
-    var maximum: Double = 1 {
-        didSet {
-            self.knobValue = CGFloat(value.normalized(minimum: minimum, maximum: maximum, taper: taper))
+            knobValue = CGFloat(Double(knobValue).normalized(range: range, taper: taper))
         }
     }
 
     var value: Double = 0 {
         didSet {
-            if value > maximum {
-                value = maximum
-            }
-            if value < minimum {
-                value = minimum
-            }
+            value = range.clamp(value)
 
             value = onlyIntegers ? round(value) : value
-            knobValue = CGFloat(value.normalized(minimum: minimum, maximum: maximum, taper: taper))
+            knobValue = CGFloat(value.normalized(range: range, taper: taper))
         }
     }
     
@@ -100,7 +90,7 @@ public class Knob: UIView, AKSynthOneControl {
             knobValue = 0.0
         }
 
-        value = Double(knobValue).denormalized(minimum: minimum, maximum: maximum, taper: taper)
+        value = Double(knobValue).denormalized(range: range, taper: taper)
         
         callback(value)
         lastX = touchPoint.x

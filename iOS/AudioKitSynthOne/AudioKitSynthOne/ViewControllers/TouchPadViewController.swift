@@ -10,28 +10,38 @@ import UIKit
 
 class TouchPadViewController: UpdatableViewController {
     
-    @IBOutlet weak var touchPadOne: TouchPadView!
-    @IBOutlet weak var touchPadTwo: TouchPadView!
+    @IBOutlet weak var touchPad1: AKTouchPadView!
+    @IBOutlet weak var touchPad2: AKTouchPadView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        touchPad1.verticalRange = 0.5 ... 2
+        touchPad1.verticalTaper = log(3) / log(2)
+
+        touchPad2.verticalRange = 120 ... 28000
+        touchPad2.verticalTaper = 4.04
+
+
         // Do any additional setup after loading the view.
+        updateCallbacks()
     }
     
     
     override func updateCallbacks() {
-      /*  touchPadTwo.callback = { touchX, touchY
-            
+        touchPad1.callback = { horizontal, vertical in
+            self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = horizontal
+            self.conductor.synth.parameters[AKSynthOneParameter.detuningMultiplier.rawValue] = vertical
         }
-      */
-         // resonance.callback            = conductor.changeParameter(.resonance)
-        
+        touchPad2.callback = { horizontal, vertical in
+            self.conductor.synth.parameters[AKSynthOneParameter.resonance.rawValue] = horizontal
+            self.conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue] = vertical
+        }
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
         
-        }
+    }
     
     
 }

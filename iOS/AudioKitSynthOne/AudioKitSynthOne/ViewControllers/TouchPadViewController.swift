@@ -22,8 +22,6 @@ class TouchPadViewController: UpdatableViewController {
         touchPad2.verticalRange = 120 ... 28000
         touchPad2.verticalTaper = 4.04
 
-
-        // Do any additional setup after loading the view.
         updateCallbacks()
     }
     

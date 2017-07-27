@@ -108,8 +108,9 @@ public class AKTouchPadView: UIView {
     }
     
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
-        x = CGFloat(touchPoint.x / self.bounds.size.width)
-        y = CGFloat(1 - touchPoint.y / self.bounds.size.height)
+        x = CGFloat((0.0 ... 1.0).clamp(touchPoint.x / self.bounds.size.width))
+        y = CGFloat((0.0 ... 1.0).clamp(1 - touchPoint.y / self.bounds.size.height))
+
         touchImageView.center = CGPoint(x: touchPoint.x, y: touchPoint.y)
         horizontalValue = Double(x).denormalized(range: horizontalRange, taper: horizontalTaper)
         verticalValue = Double(y).denormalized(range: verticalRange, taper: verticalTaper)

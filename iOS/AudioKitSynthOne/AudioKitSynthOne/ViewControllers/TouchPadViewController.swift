@@ -16,6 +16,9 @@ class TouchPadViewController: UpdatableViewController {
     @IBOutlet weak var touchPad1Label: UILabel!
     @IBOutlet weak var touchPad2Label: UILabel!
     
+    // let particleEmitter1 = CAEmitterLayer()
+    // let particleEmitter2 = CAEmitterLayer()
+    
     var cutoff: Double = 0.0
     var rez: Double = 0.0
     var oscBalance: Double = 0.0
@@ -34,14 +37,17 @@ class TouchPadViewController: UpdatableViewController {
     }
     
     override func updateCallbacks() {
-        touchPad1.callback = { horizontal, vertical in
-            self.conductor.synth.parameters[AKSynthOneParameter.detuningMultiplier.rawValue] = vertical
+        touchPad1.callback = { horizontal, vertical, touchesEnded in
             self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = horizontal
+            self.conductor.synth.parameters[AKSynthOneParameter.detuningMultiplier.rawValue] = vertical
+  
+            if touchesEnded {
+                self.touchPad1.resetToPosition(self.oscBalance, 0.5)
+            }
         }
-        touchPad2.callback = { horizontal, vertical in
-            self.conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue] = vertical
+        touchPad2.callback = { horizontal, vertical, _ in
             self.conductor.synth.parameters[AKSynthOneParameter.resonance.rawValue] = horizontal
-            
+            self.conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue] = vertical
         }
     }
     
@@ -68,6 +74,7 @@ class TouchPadViewController: UpdatableViewController {
         touchPad1Label.text = "Pitch Bend: \(detuningMultiplier.decimalString), DCO Balance: \(oscBalance.decimalString)"
         touchPad2Label.text = "Cutoff: \(cutoff.decimalString) Hz, Rez: \(rez.decimalString)"
     }
+    
     
     
 }

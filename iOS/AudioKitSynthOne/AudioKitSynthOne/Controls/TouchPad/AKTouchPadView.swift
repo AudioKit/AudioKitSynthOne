@@ -13,8 +13,8 @@ public class AKTouchPadView: UIView {
     // touch properties
     var firstTouch: UITouch?
 
-    public typealias AKTouchPadCallback = (Double, Double) -> Void
-    var callback:AKTouchPadCallback = { _, _ in }
+    public typealias AKTouchPadCallback = (Double, Double, Bool) -> Void
+    var callback: AKTouchPadCallback = { _, _, _ in }
 
     private var x: CGFloat = 0
     private var y: CGFloat = 0
@@ -83,6 +83,11 @@ public class AKTouchPadView: UIView {
             setPercentagesWithTouchPoint(touchPoint)
         }
     }
+    
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // return indicator to center of view
+        callback(horizontalValue, verticalValue, true)
+    }
 
     func resetToCenter() {
         resetToPosition(0.5, 0.5)
@@ -103,7 +108,7 @@ public class AKTouchPadView: UIView {
 
                 self.horizontalValue = Double(self.x).denormalized(range: self.horizontalRange, taper: self.horizontalTaper)
                 self.verticalValue = Double(self.y).denormalized(range: self.verticalRange, taper: self.verticalTaper)
-                self.callback(self.horizontalValue, self.verticalValue)
+                self.callback(self.horizontalValue, self.verticalValue, false)
         })
     }
     
@@ -114,7 +119,7 @@ public class AKTouchPadView: UIView {
         touchImageView.center = CGPoint(x: touchPoint.x, y: touchPoint.y)
         horizontalValue = Double(x).denormalized(range: horizontalRange, taper: horizontalTaper)
         verticalValue = Double(y).denormalized(range: verticalRange, taper: verticalTaper)
-        callback(horizontalValue, verticalValue)
+        callback(horizontalValue, verticalValue, false)
     }
     
 }

@@ -563,28 +563,63 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvG-Pl-PWp" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvG-Pl-PWp" customClass="Knob" customModule="AudioKitSynthOne">
                                 <rect key="frame" x="253" y="77" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2o-5u-jpE" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2o-5u-jpE" customClass="Knob" customModule="AudioKitSynthOne">
                                 <rect key="frame" x="29" y="77" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GiI-jY-k8h" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GiI-jY-k8h" customClass="Knob" customModule="AudioKitSynthOne">
                                 <rect key="frame" x="358" y="77" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="leq-7R-MNb" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
+                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="leq-7R-MNb" customClass="Knob" customModule="AudioKitSynthOne">
                                 <rect key="frame" x="469" y="20" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2OJ-Aw-oQg" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
+                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2OJ-Aw-oQg" customClass="Knob" customModule="AudioKitSynthOne">
                                 <rect key="frame" x="534" y="82" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eln-Mr-bHW" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="524" y="185" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Muy-Nf-8VP" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="849" y="28" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfj-OE-v6r" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="760" y="28" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-40-D7B" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="645" y="202" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xlx-03-xVb" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="734" y="202" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="107" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPQ-yr-Oh3" userLabel="Knob" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="625" y="36" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Llm-Od-P25" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="819" y="202" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -593,48 +628,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eln-Mr-bHW" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
-                                <rect key="frame" x="524" y="185" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Muy-Nf-8VP" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
-                                <rect key="frame" x="849" y="28" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfj-OE-v6r" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
-                                <rect key="frame" x="760" y="28" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lZX-P1-5MQ" customClass="ToggleButton" customModule="SynthUISpike" customModuleProvider="target">
                                 <rect key="frame" x="915" y="121" width="34" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-40-D7B" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
-                                <rect key="frame" x="645" y="202" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xlx-03-xVb" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
-                                <rect key="frame" x="734" y="202" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Llm-Od-P25" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
-                                <rect key="frame" x="819" y="202" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dNU-Q8-hfi" customClass="ToggleButton" customModule="SynthUISpike" customModuleProvider="target">
                                 <rect key="frame" x="904" y="214" width="34" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="107" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPQ-yr-Oh3" customClass="CutoffKnob" customModule="SynthUISpike" customModuleProvider="target">
-                                <rect key="frame" x="625" y="42" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -794,8 +794,8 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mn7-Xc-1Zo" customClass="Knob" customModule="SynthUISpike" customModuleProvider="target">
-                                <rect key="frame" x="137" y="77" width="70" height="70"/>
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mn7-Xc-1Zo" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="125" y="72" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>

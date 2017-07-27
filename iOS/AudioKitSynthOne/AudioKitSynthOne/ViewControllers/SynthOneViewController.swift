@@ -18,6 +18,7 @@ enum ChildView: String {
     case adsrView = "ADSRViewController"
     case devView = "DevViewController"
     case padView = "PadViewController"
+    case fxView = "FXViewController"
 }
 
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
@@ -37,7 +38,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         // Instantiate View Controller
-        var viewController = storyboard.instantiateViewController(withIdentifier: "ADSRViewController") as! ADSRViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.adsrView.rawValue) as! ADSRViewController
         
         // Add View Controller as Child View Controller
         self.add(asChildViewController: viewController)
@@ -47,21 +48,28 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     fileprivate lazy var mixerViewController: SourceMixerViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "SourceMixerViewController") as! SourceMixerViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.oscView.rawValue) as! SourceMixerViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var devViewController: DevViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "DevViewController") as! DevViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.devView.rawValue) as! DevViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var padViewController: TouchPadViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "TouchPadViewController") as! TouchPadViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.padView.rawValue) as! TouchPadViewController
+        self.add(asChildViewController: viewController)
+        return viewController
+    }()
+    
+    fileprivate lazy var fxViewController: FXViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.fxView.rawValue) as! FXViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
@@ -94,7 +102,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         if let childVC = self.childViewControllers.first as? HeaderViewController {
             childVC.delegate = self
         }
-      
+        
     }
     
     //    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
@@ -106,12 +114,12 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.landscape
     }
- 
-
+    
+    
     // ********************************************************
     // MARK: - IBActions
     // ********************************************************
-
+    
     
     // **********************************************************
     // MARK: - Note on/off
@@ -159,6 +167,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         remove(asChildViewController: mixerViewController)
         remove(asChildViewController: devViewController)
         remove(asChildViewController: padViewController)
+        remove(asChildViewController: fxViewController)
     }
 }
 
@@ -167,7 +176,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
 // **********************************************************
 
 extension SynthOneViewController: EmbeddedViewsDelegate {
-
+    
     func switchToChildView(_ newView: ChildView) {
         
         // remove all child views
@@ -178,11 +187,13 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
             // ADSR is always here
             break;
         case .oscView:
-           add(asChildViewController: mixerViewController)
+            add(asChildViewController: mixerViewController)
         case .devView:
-           add(asChildViewController: devViewController)
+            add(asChildViewController: devViewController)
         case .padView:
-           add(asChildViewController: padViewController)
+            add(asChildViewController: padViewController)
+        case .fxView:
+            add(asChildViewController: fxViewController)
         }
     }
 }

@@ -80,4 +80,8 @@ public class HeaderViewController: UpdatableViewController {
         delegate?.switchToChildView(.padView)
     }
     
+    @IBAction func fxPressed(_ sender: UIButton) {
+        delegate?.switchToChildView(.fxView)
+    }
+    
 }

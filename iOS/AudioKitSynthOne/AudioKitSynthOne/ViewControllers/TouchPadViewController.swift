@@ -1,5 +1,5 @@
 //
-//  DevViewController.swift
+//  TouchPadViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by Matthew Fecher on 7/25/17.

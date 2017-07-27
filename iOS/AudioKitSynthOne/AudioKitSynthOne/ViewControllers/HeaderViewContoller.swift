@@ -19,6 +19,7 @@ public class HeaderViewController: UpdatableViewController {
     }
 
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
+        
         switch param {
         case .morph1SemitoneOffset:
             displayLabel.text = "DCO1: \(value) semitones"
@@ -27,11 +28,11 @@ public class HeaderViewController: UpdatableViewController {
         case .morph2Detuning:
             displayLabel.text = "DCO2: \(value.decimalString) Hz"
         case .morphBalance:
-            displayLabel.text = "OSC Mix: \(value.decimalString)"
+            displayLabel.text = "DCO Mix: \(value.decimalString)"
         case .morph1Volume:
-            displayLabel.text = "OSC1 Vol: \(value.percentageString)"
+            displayLabel.text = "DCO1 Vol: \(value.percentageString)"
         case .morph2Volume:
-            displayLabel.text = "OSC2 Vol: \(value.percentageString)"
+            displayLabel.text = "DCO2 Vol: \(value.percentageString)"
         case .cutoff:
             displayLabel.text = "Cutoff: \(value.decimalString) Hz"
         case .resonance:
@@ -53,7 +54,6 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "F A: \(conductor.synth.parameters[AKSynthOneParameter.filterAttackDuration.rawValue].decimalString) D: \(conductor.synth.parameters[AKSynthOneParameter.filterDecayDuration.rawValue].decimalString) S: \(conductor.synth.parameters[AKSynthOneParameter.filterSustainLevel.rawValue].percentageString) R: \(conductor.synth.parameters[AKSynthOneParameter.filterReleaseDuration.rawValue].decimalString) "
             case .filterADSRMix:
                 displayLabel.text = "Filter Mix \(value.percentageString)"
-
         default:
             _ = 0
             // do nothing

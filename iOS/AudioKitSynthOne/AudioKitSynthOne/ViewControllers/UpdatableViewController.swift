@@ -23,6 +23,6 @@ public class UpdatableViewController: UIViewController {
     }
     
     func updateCallbacks() {
-        
+        // override in subclasses
     }
 }

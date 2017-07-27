@@ -23,9 +23,7 @@ class RadioButton: UIButton {
             alternateButton.forEach {
                 $0.isSelected = false
             }
-        } /* else{
-            toggleButton()
-        } */
+        } 
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

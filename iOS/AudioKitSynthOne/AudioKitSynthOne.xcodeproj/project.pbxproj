@@ -172,14 +172,14 @@
 		941065A01F26AA60002777AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */,
-				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
 				9410659E1F26AA55002777AB /* ADSRViewController.swift */,
-				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
-				94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */,
 				9468E2791F2827AC00C60B1B /* DevViewController.swift */,
-				945261381F2918A60037662C /* TouchPadViewController.swift */,
 				94B69C3A1F297E2800191C87 /* FXViewController.swift */,
+				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
+				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
+				C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */,
+				945261381F2918A60037662C /* TouchPadViewController.swift */,
+				94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

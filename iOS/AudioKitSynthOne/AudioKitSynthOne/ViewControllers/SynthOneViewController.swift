@@ -17,7 +17,7 @@ enum ChildView: String {
     case oscView = "SourceMixerViewController"
     case adsrView = "ADSRViewController"
     case devView = "DevViewController"
-    case padView = "PadViewController"
+    case padView = "TouchPadViewController"
     case fxView = "FXViewController"
 }
 

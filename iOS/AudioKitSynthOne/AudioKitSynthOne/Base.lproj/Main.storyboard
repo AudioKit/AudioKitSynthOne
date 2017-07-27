@@ -309,7 +309,6 @@
                                 </state>
                                 <connections>
                                     <action selector="fxPressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="Jza-eK-cu4"/>
-                                    <action selector="padPressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="kGo-l6-cJg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -507,7 +506,7 @@
         <!--TouchPad-->
         <scene sceneID="dsG-FG-foi">
             <objects>
-                <viewController storyboardIdentifier="FXViewController" id="ds7-ID-bFm" userLabel="TouchPad" customClass="FXViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TouchPadViewController" id="ds7-ID-bFm" userLabel="TouchPad" customClass="TouchPadViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qg0-qM-l0Q"/>
                         <viewControllerLayoutGuide type="bottom" id="p3W-RI-iPP"/>
@@ -516,7 +515,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_efx" translatesAutoresizingMaskIntoConstraints="NO" id="eNY-fp-oXJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_touchpad" translatesAutoresizingMaskIntoConstraints="NO" id="eNY-fp-oXJ">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -543,12 +542,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRA-I0-37X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="289"/>
+            <point key="canvasLocation" x="102" y="-107"/>
         </scene>
         <!--FX-->
         <scene sceneID="TxK-nq-214">
             <objects>
-                <viewController storyboardIdentifier="TouchPadViewController" id="zeF-yQ-b2q" userLabel="FX" customClass="TouchPadViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FXViewController" id="zeF-yQ-b2q" userLabel="FX" customClass="FXViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9E2-4I-omv"/>
                         <viewControllerLayoutGuide type="bottom" id="ZKt-Ws-XXI"/>
@@ -557,7 +556,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_touchpad" translatesAutoresizingMaskIntoConstraints="NO" id="2TU-O5-Wgk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_efx" translatesAutoresizingMaskIntoConstraints="NO" id="2TU-O5-Wgk">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -570,7 +569,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rqJ-ek-k2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="119" y="-79"/>
+            <point key="canvasLocation" x="93" y="197"/>
         </scene>
     </scenes>
     <resources>

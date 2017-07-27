@@ -37,7 +37,7 @@ class ToggleButton: UIView, AKSynthOneControl {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             isOn = !isOn
-            setNeedsDisplay()
+            self.setNeedsDisplay()
             print("calling back")
             callback(value)
         }

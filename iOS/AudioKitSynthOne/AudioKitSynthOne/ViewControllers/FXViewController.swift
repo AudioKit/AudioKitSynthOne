@@ -24,11 +24,31 @@ class FXViewController: UpdatableViewController {
     @IBOutlet weak var lfo2Detune: RadioButton!
     @IBOutlet weak var lfo2FmMod: RadioButton!
     
+    @IBOutlet weak var lfo1Amp: Knob!
+    @IBOutlet weak var lfo1Rate: Knob!
+    
+    @IBOutlet weak var lfo2Amp: Knob!
+    @IBOutlet weak var lfo2Rate: Knob!
+    
+    @IBOutlet weak var bitCrush: Knob!
+    @IBOutlet weak var sampleRate: Knob!
+    
+    @IBOutlet weak var autoPanToggle: ToggleButton!
+    @IBOutlet weak var autoPanRate: Knob!
+    
+    @IBOutlet weak var reverbSize: Knob!
+    @IBOutlet weak var reverbLowCut: Knob!
+    @IBOutlet weak var reverbMix: Knob!
+    @IBOutlet weak var reverbToggle: ToggleButton!
+    
+    @IBOutlet weak var delayTime: Knob!
+    @IBOutlet weak var delayFeedback: Knob!
+    @IBOutlet weak var delayMix: Knob!
+    @IBOutlet weak var delayToggle: ToggleButton!
     
     var lfo1Group : [RadioButton] = []
     var lfo2Group : [RadioButton] = []
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +63,77 @@ class FXViewController: UpdatableViewController {
         lfo1Cutoff.isSelected = true
         lfo2OscMorph.isSelected = true
     }
+    
+    override func updateCallbacks() {
+        /*
+        lfo1Amp.callback  = conductor.changeParameter()
+        lfo1Rate.callback = conductor.changeParameter()
+        lfo2Amp.callback = conductor.changeParameter()
+        lfo2Rate.callback = conductor.changeParameter()
+        
+        bitCrush.callback = conductor.changeParameter()
+        sampleRate.callback = conductor.changeParameter()
+        
+        autoPanToggle.callback = conductor.changeParameter()
+        autoPanRate.callback = conductor.changeParameter()
+        
+        reverbSize.callback = conductor.changeParameter()
+        reverbLowCut.callback = conductor.changeParameter()
+        reverbMix.callback = conductor.changeParameter()
+        reverbToggle.callback = conductor.changeParameter()
+        
+        delayTime.callback = conductor.changeParameter()
+        delayFeedback.callback = conductor.changeParameter()
+        delayMix.callback = conductor.changeParameter()
+        delayToggle.callback = conductor.changeParameter()
+       */
+    }
+    
+    override func updateUI(_ param: AKSynthOneParameter, value: Double) {
+    /*
+        switch param {
+        case :
+            lfo1Amp.value = value
+        case :
+            lfo1Rate.value = value
+        case :
+            lfo2Amp.value = value
+        case :
+            lfo2Rate.value = value
+        case :
+            bitCrush.value = value
+        case :
+            sampleRate.value = value
+        case
+            autoPanToggle.value = value
+        case :
+            autoPanRate.value = value
+        case :
+            reverbSize.value = value
+        case :
+            reverbLowCut.value = value
+        case :
+            reverbMix.value = value
+        case :
+            reverbToggle.value = value
+        case :
+            delayTime.value = value
+        case :
+            delayFeedback.value = value
+        case :
+            delayMix.value = value
+        case :
+            delayToggle.value = value
+        case :
+            masterVolume.value = value
+        default:
+            _ = 0
+            // do nothing
+        }
+     */
+    }
+    
+    
 
 
 

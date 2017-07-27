@@ -10,6 +10,7 @@ import UIKit
 
 class RadioButton: UIButton {
     var alternateButton:Array<RadioButton>?
+    public var callback: (Bool)->Void = { _ in }
     
     override func awakeFromNib() {
         self.layer.cornerRadius = 5
@@ -40,12 +41,13 @@ class RadioButton: UIButton {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                self.backgroundColor = #colorLiteral(red: 0.3882352941, green: 0.3882352941, blue: 0.4117647059, alpha: 1)
+                self.backgroundColor = #colorLiteral(red: 0.4352941176, green: 0.4352941176, blue: 0.4588235294, alpha: 1)
             } else {
-                self.titleLabel?.textColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
+                self.titleLabel?.textColor = #colorLiteral(red: 0.7921568627, green: 0.7921568627, blue: 0.7921568627, alpha: 1)
                 self.backgroundColor = #colorLiteral(red: 0.3098039216, green: 0.3098039216, blue: 0.3333333333, alpha: 1)
             }
             self.setNeedsDisplay()
+            callback(isSelected)
         }
     }
 }

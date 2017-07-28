@@ -76,6 +76,8 @@ class FXViewController: UpdatableViewController {
         reverbLowCut.range = 200 ... 20000
         reverbLowCut.taper = 4
 
+        delayFeedback.range = 0 ... 0.9
+
         updateCallbacks()
     }
     
@@ -87,7 +89,7 @@ class FXViewController: UpdatableViewController {
         autoPanRate.callback = conductor.changeParameter(.autoPanFrequency)
 
         reverbSize.callback = conductor.changeParameter(.reverbFeedback)
-        reverbLowCut.callback = conductor.changeParameter(.reverbCutoff)
+        reverbLowCut.callback = conductor.changeParameter(.reverbHighPass)
         reverbMix.callback = conductor.changeParameter(.reverbMix)
         reverbToggle.callback = conductor.changeParameter(.reverbOn)
 
@@ -119,7 +121,7 @@ class FXViewController: UpdatableViewController {
             autoPanRate.value =  value
         case .reverbFeedback:
             reverbSize.value = value
-        case .reverbCutoff:
+        case .reverbHighPass:
             reverbLowCut.value = value
         case .reverbMix:
             reverbMix.value = value

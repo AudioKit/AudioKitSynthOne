@@ -72,7 +72,7 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = value == 1 ? "Reverb On" : "Reverb Off"
         case .reverbFeedback:
             displayLabel.text = "Reverb Size: \(value.percentageString)"
-        case .reverbCutoff:
+        case .reverbHighPass:
             displayLabel.text = "Reverb Cutoff: \(value.decimalString) Hz"
         case .reverbMix:
             displayLabel.text = "Reverb Mix: \(value.percentageString)"

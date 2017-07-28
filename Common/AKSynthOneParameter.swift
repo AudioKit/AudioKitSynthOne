@@ -47,7 +47,7 @@ public enum AKSynthOneParameter: Int {
     autoPanFrequency = 36,
     reverbOn = 37,
     reverbFeedback = 38,
-    reverbCutoff = 39,
+    reverbHighPass = 39,
     reverbMix = 40,
     delayOn = 41,
     delayFeedback = 42,

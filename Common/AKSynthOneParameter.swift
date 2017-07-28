@@ -42,6 +42,8 @@ public enum AKSynthOneParameter: Int {
     detuningMultiplier = 31,
     masterVolume = 32,
     bitCrushDepth = 33,
-    bitCrushSampleRate = 34
+    bitCrushSampleRate = 34,
+    autoPanOn = 35,
+    autoPanFrequency = 36
 }
 

@@ -68,6 +68,8 @@ class FXViewController: UpdatableViewController {
         sampleRate.range = 400 ... 44100
         sampleRate.taper = 5
 
+        autoPanRate.range = 0 ... 10
+        
         updateCallbacks()
     }
     
@@ -75,6 +77,8 @@ class FXViewController: UpdatableViewController {
 
         bitCrush.callback = conductor.changeParameter(.bitCrushDepth)
         sampleRate.callback = conductor.changeParameter(.bitCrushSampleRate)
+        autoPanToggle.callback = conductor.changeParameter(.autoPanOn)
+        autoPanRate.callback = conductor.changeParameter(.autoPanFrequency)
 
 
         /*
@@ -83,9 +87,7 @@ class FXViewController: UpdatableViewController {
         lfo2Amp.callback = conductor.changeParameter()
         lfo2Rate.callback = conductor.changeParameter()
 
-        autoPanToggle.callback = conductor.changeParameter()
-        autoPanRate.callback = conductor.changeParameter()
-        
+
         reverbSize.callback = conductor.changeParameter()
         reverbLowCut.callback = conductor.changeParameter()
         reverbMix.callback = conductor.changeParameter()
@@ -105,6 +107,10 @@ class FXViewController: UpdatableViewController {
             bitCrush.value = value
         case .bitCrushSampleRate:
             sampleRate.value = value
+        case .autoPanOn:
+            autoPanToggle.value = value
+        case .autoPanFrequency:
+            autoPanRate.value =  value
         default:
             _ = 0 // do nothing
         }

@@ -17,7 +17,12 @@ public class UpdatableViewController: UIViewController {
         super.viewDidLoad()
         conductor.viewControllers.insert(self)
     }
-    
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        conductor.updateAllUI()
+    }
+
     func updateUI(_ param: AKSynthOneParameter, value: Double) {
         // override in subclasses
     }

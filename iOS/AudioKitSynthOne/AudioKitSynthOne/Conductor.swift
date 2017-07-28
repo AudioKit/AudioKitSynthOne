@@ -38,4 +38,19 @@ class Conductor {
             vc.updateCallbacks()
         }
     }
+
+    func updateAllUI() {
+        for address in 0...synth.parameters.count {
+            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int(address))
+                else {
+                    return
+
+            }
+            for vc in viewControllers {
+                if !vc.isKind(of: HeaderViewController.self) {
+                    vc.updateUI(param, value: synth.parameters[address])
+                }
+            }
+        }
+    }
 }

@@ -63,8 +63,11 @@ class FXViewController: UpdatableViewController {
         lfo1Cutoff.isSelected = true
         lfo2OscMorph.isSelected = true
 
+        bitCrush.value = 24
         bitCrush.range = 1 ... 24
         bitCrush.taper = 2
+
+        sampleRate.value = 44100
         sampleRate.range = 400 ... 44100
         sampleRate.taper = 5
 

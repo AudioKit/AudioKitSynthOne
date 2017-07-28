@@ -62,6 +62,14 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = value == 1 ? "Auto Pan On" : "Auto Pan Off"
         case .autoPanFrequency:
             displayLabel.text = "Auto Pan: \(value.decimalString) Hz"
+        case .reverbOn:
+            displayLabel.text = value == 1 ? "Reverb On" : "Reverb Off"
+        case .reverbFeedback:
+            displayLabel.text = "Reverb Size: \(value.percentageString)"
+        case .reverbCutoff:
+            displayLabel.text = "Reverb Cutoff: \(value.decimalString) Hz"
+        case .reverbMix:
+            displayLabel.text = "Reverb Mix: \(value.percentageString)"
 
         default:
             _ = 0

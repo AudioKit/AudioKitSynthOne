@@ -1,6 +1,6 @@
 //
 //  ButtonStyleKit.swift
-//  UISynthSpike
+//  AudioKit Synth One
 //
 //  Created by Matthew Fecher on 7/22/17.
 //  Copyright © 2017 AudioKit. All rights reserved.

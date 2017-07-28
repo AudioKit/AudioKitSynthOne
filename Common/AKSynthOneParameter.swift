@@ -40,6 +40,8 @@ public enum AKSynthOneParameter: Int {
     releaseDuration = 29,
     morph2Detuning = 30,
     detuningMultiplier = 31,
-    masterVolume = 32
+    masterVolume = 32,
+    bitCrushDepth = 33,
+    bitCrushSampleRate = 34
 }
 

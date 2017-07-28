@@ -62,18 +62,27 @@ class FXViewController: UpdatableViewController {
         // Set Default LFO routing
         lfo1Cutoff.isSelected = true
         lfo2OscMorph.isSelected = true
+
+        bitCrush.range = 1 ... 24
+        bitCrush.taper = 2
+        sampleRate.range = 400 ... 44100
+        sampleRate.taper = 5
+
+        updateCallbacks()
     }
     
     override func updateCallbacks() {
+
+        bitCrush.callback = conductor.changeParameter(.bitCrushDepth)
+        sampleRate.callback = conductor.changeParameter(.bitCrushSampleRate)
+
+
         /*
         lfo1Amp.callback  = conductor.changeParameter()
         lfo1Rate.callback = conductor.changeParameter()
         lfo2Amp.callback = conductor.changeParameter()
         lfo2Rate.callback = conductor.changeParameter()
-        
-        bitCrush.callback = conductor.changeParameter()
-        sampleRate.callback = conductor.changeParameter()
-        
+
         autoPanToggle.callback = conductor.changeParameter()
         autoPanRate.callback = conductor.changeParameter()
         
@@ -90,6 +99,15 @@ class FXViewController: UpdatableViewController {
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
+
+        switch param {
+        case .bitCrushDepth:
+            bitCrush.value = value
+        case .bitCrushSampleRate:
+            sampleRate.value = value
+        default:
+            _ = 0 // do nothing
+        }
     /*
         switch param {
         case :

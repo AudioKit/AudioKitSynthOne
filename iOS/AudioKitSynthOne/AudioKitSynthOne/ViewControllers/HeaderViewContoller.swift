@@ -52,8 +52,13 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "A: \(conductor.synth.parameters[AKSynthOneParameter.attackDuration.rawValue].decimalString) D: \(conductor.synth.parameters[AKSynthOneParameter.decayDuration.rawValue].decimalString) S: \(conductor.synth.parameters[AKSynthOneParameter.sustainLevel.rawValue].percentageString) R: \(conductor.synth.parameters[AKSynthOneParameter.releaseDuration.rawValue].decimalString) "
         case .filterAttackDuration, .filterDecayDuration, .filterSustainLevel, .filterReleaseDuration:
             displayLabel.text = "F A: \(conductor.synth.parameters[AKSynthOneParameter.filterAttackDuration.rawValue].decimalString) D: \(conductor.synth.parameters[AKSynthOneParameter.filterDecayDuration.rawValue].decimalString) S: \(conductor.synth.parameters[AKSynthOneParameter.filterSustainLevel.rawValue].percentageString) R: \(conductor.synth.parameters[AKSynthOneParameter.filterReleaseDuration.rawValue].decimalString) "
-            case .filterADSRMix:
+        case .filterADSRMix:
                 displayLabel.text = "Filter Mix \(value.percentageString)"
+        case .bitCrushDepth:
+            displayLabel.text = "Bit Crush Depth: \(value.decimalString)"
+        case .bitCrushSampleRate:
+            displayLabel.text = "Downsample Rate: \(value.decimalString)"
+
         default:
             _ = 0
             // do nothing

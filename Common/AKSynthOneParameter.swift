@@ -48,6 +48,10 @@ public enum AKSynthOneParameter: Int {
     reverbOn = 37,
     reverbFeedback = 38,
     reverbCutoff = 39,
-    reverbMix = 40
+    reverbMix = 40,
+    delayOn = 41,
+    delayFeedback = 42,
+    delayTime = 43,
+    delayMix = 44
 }
 

@@ -91,6 +91,11 @@ class FXViewController: UpdatableViewController {
         reverbMix.callback = conductor.changeParameter(.reverbMix)
         reverbToggle.callback = conductor.changeParameter(.reverbOn)
 
+        delayTime.callback = conductor.changeParameter(.delayTime)
+        delayFeedback.callback = conductor.changeParameter(.delayFeedback)
+        delayMix.callback = conductor.changeParameter(.delayMix)
+        delayToggle.callback = conductor.changeParameter(.delayOn)
+
 
         /*
         lfo1Amp.callback  = conductor.changeParameter()
@@ -98,10 +103,6 @@ class FXViewController: UpdatableViewController {
         lfo2Amp.callback = conductor.changeParameter()
         lfo2Rate.callback = conductor.changeParameter()
 
-        delayTime.callback = conductor.changeParameter()
-        delayFeedback.callback = conductor.changeParameter()
-        delayMix.callback = conductor.changeParameter()
-        delayToggle.callback = conductor.changeParameter()
        */
     }
     
@@ -124,6 +125,14 @@ class FXViewController: UpdatableViewController {
             reverbMix.value = value
         case .reverbOn:
             reverbToggle.value = value
+        case .delayTime:
+            delayTime.value = value
+        case .delayFeedback:
+            delayFeedback.value = value
+        case .delayMix:
+            delayMix.value = value
+        case .delayOn:
+            delayToggle.value = value
 
         default:
             _ = 0 // do nothing
@@ -138,22 +147,6 @@ class FXViewController: UpdatableViewController {
             lfo2Amp.value = value
         case :
             lfo2Rate.value = value
-        case :
-            bitCrush.value = value
-        case :
-            sampleRate.value = value
-        case
-            autoPanToggle.value = value
-        case :
-            autoPanRate.value = value
-        case :
-            delayTime.value = value
-        case :
-            delayFeedback.value = value
-        case :
-            delayMix.value = value
-        case :
-            delayToggle.value = value
         case :
             masterVolume.value = value
         default:

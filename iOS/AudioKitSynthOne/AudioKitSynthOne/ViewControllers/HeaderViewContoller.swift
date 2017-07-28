@@ -76,6 +76,14 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Reverb Cutoff: \(value.decimalString) Hz"
         case .reverbMix:
             displayLabel.text = "Reverb Mix: \(value.percentageString)"
+        case .delayOn:
+            displayLabel.text = value == 1 ? "Delay On" : "Delay Off"
+        case .delayFeedback:
+            displayLabel.text = "Delay Taps: \(value.percentageString)"
+        case .delayTime:
+            displayLabel.text = "Delay Time: \(value.decimalString) s"
+        case .delayMix:
+            displayLabel.text = "Delay Mix: \(value.percentageString)"
 
         default:
             _ = 0

@@ -26,7 +26,7 @@ class ADSRViewController: UpdatableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filterADSRMixKnob.range = 0.0 ... 1.2
-        attackKnob.range = 0.000001 ... 0.002
+        attackKnob.range = 0.000001 ... 1
         releaseKnob.range = 0.004 ... 2.0
     }
 

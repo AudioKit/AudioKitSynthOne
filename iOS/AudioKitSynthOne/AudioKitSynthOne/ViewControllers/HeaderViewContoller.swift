@@ -14,8 +14,14 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var displayLabel: UILabel!
     var delegate: EmbeddedViewsDelegate?
 
-    func ADSRString(_ a: AKSynthOneParameter, _ d: AKSynthOneParameter, _ s: AKSynthOneParameter, _ r : AKSynthOneParameter) -> String {
-        return "A: \(conductor.synth.parameters[a.rawValue].decimalString) D: \(conductor.synth.parameters[d.rawValue].decimalString) S: \(conductor.synth.parameters[s.rawValue].percentageString) R: \(conductor.synth.parameters[r.rawValue].decimalString) "
+    func ADSRString(_ a: AKSynthOneParameter,
+                    _ d: AKSynthOneParameter,
+                    _ s: AKSynthOneParameter,
+                    _ r: AKSynthOneParameter) -> String {
+        return  "A: \(conductor.synth.parameters[a.rawValue].decimalString) " +
+                "D: \(conductor.synth.parameters[d.rawValue].decimalString) " +
+                "S: \(conductor.synth.parameters[s.rawValue].percentageString) " +
+                "R: \(conductor.synth.parameters[r.rawValue].decimalString) "
     }
 
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {

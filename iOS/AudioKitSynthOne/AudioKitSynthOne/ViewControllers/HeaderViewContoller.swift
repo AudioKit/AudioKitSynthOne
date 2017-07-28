@@ -13,9 +13,9 @@ public class HeaderViewController: UpdatableViewController {
 
     @IBOutlet weak var displayLabel: UILabel!
     var delegate: EmbeddedViewsDelegate?
-    
-    public override func viewDidAppear(_ animated: Bool) {
-        
+
+    func ADSRString(_ a: AKSynthOneParameter, _ d: AKSynthOneParameter, _ s: AKSynthOneParameter, _ r : AKSynthOneParameter) -> String {
+        return "A: \(conductor.synth.parameters[a.rawValue].decimalString) D: \(conductor.synth.parameters[d.rawValue].decimalString) S: \(conductor.synth.parameters[s.rawValue].percentageString) R: \(conductor.synth.parameters[r.rawValue].decimalString) "
     }
 
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
@@ -42,16 +42,16 @@ public class HeaderViewController: UpdatableViewController {
         case .fmVolume:
             displayLabel.text = "FM Mix: \(value.percentageString)"
         case .fmAmount:
-            //displayLabel.text = "FM Mod \(fmAmount.knobValue.percentageString)"
-            print(value)
+            displayLabel.text = "FM Mod \(value.percentageString)" // FIX ME
         case .noiseVolume:
             displayLabel.text = "Noise Mix: \(value.percentageString)"
         case .masterVolume:
             displayLabel.text = "Master Vol: \(value.percentageString)"
         case .attackDuration, .decayDuration, .sustainLevel, .releaseDuration:
-            displayLabel.text = "A: \(conductor.synth.parameters[AKSynthOneParameter.attackDuration.rawValue].decimalString) D: \(conductor.synth.parameters[AKSynthOneParameter.decayDuration.rawValue].decimalString) S: \(conductor.synth.parameters[AKSynthOneParameter.sustainLevel.rawValue].percentageString) R: \(conductor.synth.parameters[AKSynthOneParameter.releaseDuration.rawValue].decimalString) "
+            displayLabel.text = ADSRString(.attackDuration, .decayDuration, .sustainLevel, .releaseDuration)
         case .filterAttackDuration, .filterDecayDuration, .filterSustainLevel, .filterReleaseDuration:
-            displayLabel.text = "F A: \(conductor.synth.parameters[AKSynthOneParameter.filterAttackDuration.rawValue].decimalString) D: \(conductor.synth.parameters[AKSynthOneParameter.filterDecayDuration.rawValue].decimalString) S: \(conductor.synth.parameters[AKSynthOneParameter.filterSustainLevel.rawValue].percentageString) R: \(conductor.synth.parameters[AKSynthOneParameter.filterReleaseDuration.rawValue].decimalString) "
+            displayLabel.text = "F " +
+                ADSRString(.filterAttackDuration, .filterDecayDuration, .filterSustainLevel, .filterReleaseDuration)
         case .filterADSRMix:
                 displayLabel.text = "Filter Mix \(value.percentageString)"
         case .bitCrushDepth:

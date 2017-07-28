@@ -44,6 +44,10 @@ public enum AKSynthOneParameter: Int {
     bitCrushDepth = 33,
     bitCrushSampleRate = 34,
     autoPanOn = 35,
-    autoPanFrequency = 36
+    autoPanFrequency = 36,
+    reverbOn = 37,
+    reverbFeedback = 38,
+    reverbCutoff = 39,
+    reverbMix = 40
 }
 

@@ -72,7 +72,10 @@ class FXViewController: UpdatableViewController {
         sampleRate.taper = 5
 
         autoPanRate.range = 0 ... 10
-        
+
+        reverbLowCut.range = 200 ... 20000
+        reverbLowCut.taper = 4
+
         updateCallbacks()
     }
     
@@ -83,6 +86,11 @@ class FXViewController: UpdatableViewController {
         autoPanToggle.callback = conductor.changeParameter(.autoPanOn)
         autoPanRate.callback = conductor.changeParameter(.autoPanFrequency)
 
+        reverbSize.callback = conductor.changeParameter(.reverbFeedback)
+        reverbLowCut.callback = conductor.changeParameter(.reverbCutoff)
+        reverbMix.callback = conductor.changeParameter(.reverbMix)
+        reverbToggle.callback = conductor.changeParameter(.reverbOn)
+
 
         /*
         lfo1Amp.callback  = conductor.changeParameter()
@@ -90,12 +98,6 @@ class FXViewController: UpdatableViewController {
         lfo2Amp.callback = conductor.changeParameter()
         lfo2Rate.callback = conductor.changeParameter()
 
-
-        reverbSize.callback = conductor.changeParameter()
-        reverbLowCut.callback = conductor.changeParameter()
-        reverbMix.callback = conductor.changeParameter()
-        reverbToggle.callback = conductor.changeParameter()
-        
         delayTime.callback = conductor.changeParameter()
         delayFeedback.callback = conductor.changeParameter()
         delayMix.callback = conductor.changeParameter()
@@ -114,6 +116,15 @@ class FXViewController: UpdatableViewController {
             autoPanToggle.value = value
         case .autoPanFrequency:
             autoPanRate.value =  value
+        case .reverbFeedback:
+            reverbSize.value = value
+        case .reverbCutoff:
+            reverbLowCut.value = value
+        case .reverbMix:
+            reverbMix.value = value
+        case .reverbOn:
+            reverbToggle.value = value
+
         default:
             _ = 0 // do nothing
         }
@@ -135,14 +146,6 @@ class FXViewController: UpdatableViewController {
             autoPanToggle.value = value
         case :
             autoPanRate.value = value
-        case :
-            reverbSize.value = value
-        case :
-            reverbLowCut.value = value
-        case :
-            reverbMix.value = value
-        case :
-            reverbToggle.value = value
         case :
             delayTime.value = value
         case :

@@ -80,10 +80,10 @@ class FXViewController: UpdatableViewController {
     
     override func updateCallbacks() {
 
-        bitCrush.callback = conductor.changeParameter(.bitCrushDepth)
-        sampleRate.callback = conductor.changeParameter(.bitCrushSampleRate)
+        bitCrush.callback      = conductor.changeParameter(.bitCrushDepth)
+        sampleRate.callback    = conductor.changeParameter(.bitCrushSampleRate)
         autoPanToggle.callback = conductor.changeParameter(.autoPanOn)
-        autoPanRate.callback = conductor.changeParameter(.autoPanFrequency)
+        autoPanRate.callback   = conductor.changeParameter(.autoPanFrequency)
 
         reverbSize.callback = conductor.changeParameter(.reverbFeedback)
         reverbLowCut.callback = conductor.changeParameter(.reverbHighPass)
@@ -112,7 +112,6 @@ class FXViewController: UpdatableViewController {
         lfoPitchToggle.callback = conductor.changeParameter(.pitchLFO)
         lfoBitcrushToggle.callback = conductor.changeParameter(.bitcrushLFO)
         lfoAutoPanToggle.callback = conductor.changeParameter(.autopanLFO)
-
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {

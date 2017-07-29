@@ -13,8 +13,11 @@ public class AKTouchPadView: UIView {
     // touch properties
     var firstTouch: UITouch?
 
-    public typealias AKTouchPadCallback = (Double, Double, Bool, Bool) -> Void
-    var callback: AKTouchPadCallback = { _, _, _, _ in }
+    public typealias AKTouchPadCallback = (Double, Double) -> Void
+    var callback: AKTouchPadCallback = { _, _ in }
+
+    public typealias AKTouchPadCompletionHandler = (Double, Double, Bool, Bool) -> Void
+    var completionHandler: AKTouchPadCompletionHandler = { _, _, _, _ in }
 
     private var x: CGFloat = 0
     private var y: CGFloat = 0
@@ -86,14 +89,15 @@ public class AKTouchPadView: UIView {
     
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // return indicator to center of view
-        callback(horizontalValue, verticalValue, true, false)
+        callback(horizontalValue, verticalValue)
+        completionHandler(horizontalValue, verticalValue, true, false)
     }
 
     func resetToCenter() {
         resetToPosition(0.5, 0.5)
         self.horizontalValue = Double(self.x).denormalized(range: self.horizontalRange, taper: self.horizontalTaper)
         self.verticalValue = Double(self.y).denormalized(range: self.verticalRange, taper: self.verticalTaper)
-        self.callback(self.horizontalValue, self.verticalValue, false, true)
+        self.callback(self.horizontalValue, self.verticalValue)
     }
     
     func resetToPosition(_ newPercentX: Double, _ newPercentY: Double) {
@@ -111,7 +115,7 @@ public class AKTouchPadView: UIView {
 
                 self.horizontalValue = Double(self.x).denormalized(range: self.horizontalRange, taper: self.horizontalTaper)
                 self.verticalValue = Double(self.y).denormalized(range: self.verticalRange, taper: self.verticalTaper)
-                self.callback(self.horizontalValue, self.verticalValue, false, true)
+                self.callback(self.horizontalValue, self.verticalValue)
         })
     }
     
@@ -122,7 +126,7 @@ public class AKTouchPadView: UIView {
         touchImageView.center = CGPoint(x: touchPoint.x, y: touchPoint.y)
         horizontalValue = Double(x).denormalized(range: horizontalRange, taper: horizontalTaper)
         verticalValue = Double(y).denormalized(range: verticalRange, taper: verticalTaper)
-        callback(horizontalValue, verticalValue, false, false)
+        callback(horizontalValue, verticalValue)
     }
     
 }

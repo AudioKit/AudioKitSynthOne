@@ -56,6 +56,17 @@ public enum AKSynthOneParameter: Int {
     lfo2Index = 45,
     lfo2Amplitude = 46,
     lfo2Rate = 47,
-    cutoffLFO = 48
+    cutoffLFO = 48,
+    resonanceLFO = 49,
+    oscMixLFO = 50,
+    sustainLFO = 51,
+    index1LFO = 52,
+    index2LFO = 53,
+    fmLFO = 54,
+    detuneLFO = 55,
+    filterEnvLFO = 56,
+    pitchLFO = 57,
+    bitcrushLFO = 58,
+    autopanLFO = 59
 }
 

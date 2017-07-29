@@ -94,6 +94,28 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "LFO 2: \(value.percentageString)"
         case .cutoffLFO:
             displayLabel.text = "Cutoff LFO: \(value.decimalString)"
+        case .resonanceLFO:
+            displayLabel.text = "Resonance LFO: \(value.decimalString)"
+        case .oscMixLFO:
+            displayLabel.text = "Osc Mix LFO: \(value.decimalString)"
+        case .sustainLFO:
+            displayLabel.text = "Sustain LFO: \(value.decimalString)"
+        case .index1LFO:
+            displayLabel.text = "Index1 LFO: \(value.decimalString)"
+        case .index2LFO:
+            displayLabel.text = "Index2 LFO: \(value.decimalString)"
+        case .fmLFO:
+            displayLabel.text = "FM LFO: \(value.decimalString)"
+        case .detuneLFO:
+            displayLabel.text = "Detune LFO: \(value.decimalString)"
+        case .filterEnvLFO:
+            displayLabel.text = "Filter Env LFO: \(value.decimalString)"
+        case .pitchLFO:
+            displayLabel.text = "Pitch LFO: \(value.decimalString)"
+        case .bitcrushLFO:
+            displayLabel.text = "Bitcrush LFO: \(value.decimalString)"
+        case .autopanLFO:
+            displayLabel.text = "AutoPan LFO: \(value.decimalString)"
 
         default:
             _ = 0

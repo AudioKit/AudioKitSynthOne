@@ -101,6 +101,17 @@ class FXViewController: UpdatableViewController {
         lfo2Rate.callback = conductor.changeParameter(.lfo2Rate)
 
         lfoCutoffToggle.callback = conductor.changeParameter(.cutoffLFO)
+        lfoRezToggle.callback = conductor.changeParameter(.resonanceLFO)
+        lfoOscMixToggle.callback = conductor.changeParameter(.oscMixLFO)
+        lfoSustainToggle.callback = conductor.changeParameter(.sustainLFO)
+        lfoMorph1Toggle.callback = conductor.changeParameter(.index1LFO)
+        lfoMorph2Toggle.callback = conductor.changeParameter(.index2LFO)
+        lfoFMModToggle.callback = conductor.changeParameter(.fmLFO)
+        lfoDetuneToggle.callback = conductor.changeParameter(.detuneLFO)
+        lfoFilterEnvToggle.callback = conductor.changeParameter(.filterEnvLFO)
+        lfoPitchToggle.callback = conductor.changeParameter(.pitchLFO)
+        lfoBitcrushToggle.callback = conductor.changeParameter(.bitcrushLFO)
+        lfoAutoPanToggle.callback = conductor.changeParameter(.autopanLFO)
 
     }
     
@@ -133,31 +144,19 @@ class FXViewController: UpdatableViewController {
             delayToggle.value = value
         case .cutoffLFO:
             lfoCutoffToggle.value = value
+        case .lfo1Amplitude:
+            lfo1Amp.value = value
+        case .lfo1Rate:
+            lfo1Rate.value = value
+        case .lfo2Amplitude:
+            lfo2Amp.value = value
+        case .lfo2Rate:
+            lfo2Rate.value = value
 
         default:
             _ = 0 // do nothing
         }
-    /*
-        switch param {
-        case :
-            lfo1Amp.value = value
-        case :
-            lfo1Rate.value = value
-        case :
-            lfo2Amp.value = value
-        case :
-            lfo2Rate.value = value
-        case :
-            masterVolume.value = value
-        default:
-            _ = 0
-            // do nothing
-        }
-     */
+
     }
-    
-    
-
-
 
 }

@@ -51,10 +51,9 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
-                                <rect key="frame" x="0.0" y="469" width="1024" height="299"/>
+                                <rect key="frame" x="0.0" y="337" width="1024" height="431"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="299" id="pmc-Ic-dDl"/>
                                     <constraint firstAttribute="width" constant="1024" id="qE7-Wi-suM"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -72,6 +71,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="M2C-PZ-ZbZ"/>
                             <constraint firstItem="RnT-Kx-qNG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U2m-cp-QYv"/>
                             <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZGm-Lc-cpD"/>
+                            <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="FVi-Ld-MF5" secondAttribute="bottom" id="cfe-bD-oxt"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="top" secondItem="RnT-Kx-qNG" secondAttribute="bottom" id="hT0-7c-nJX"/>
                             <constraint firstAttribute="trailing" secondItem="FVi-Ld-MF5" secondAttribute="trailing" id="iYc-5k-z6U"/>
                             <constraint firstItem="RnT-Kx-qNG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uyo-mL-gwX"/>
@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1198" y="-514"/>
+            <point key="canvasLocation" x="-1198.2421875" y="-514.0625"/>
         </scene>
         <!--Source Mixer-->
         <scene sceneID="h0Y-DX-cbn">

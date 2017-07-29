@@ -10,19 +10,20 @@ import UIKit
 
 class FXViewController: UpdatableViewController {
     
-    @IBOutlet weak var lfo1Cutoff: RadioButton!
-    @IBOutlet weak var lfo1OscMorph: RadioButton!
-    @IBOutlet weak var lfo1OscMix: RadioButton!
-    @IBOutlet weak var lfo1Pitch: RadioButton!
-    @IBOutlet weak var lfo1Detune: RadioButton!
-    @IBOutlet weak var lfo1FmMod: RadioButton!
+
+    @IBOutlet weak var lfoCutoffToggle: LfoButton!
+    @IBOutlet weak var lfoRezToggle: LfoButton!
+    @IBOutlet weak var lfoOscMixToggle: LfoButton!
+    @IBOutlet weak var lfoSustainToggle: LfoButton!
+    @IBOutlet weak var lfoMorph1Toggle: LfoButton!
+    @IBOutlet weak var lfoMorph2Toggle: LfoButton!
+    @IBOutlet weak var lfoFMModToggle: LfoButton!
+    @IBOutlet weak var lfoDetuneToggle: LfoButton!
+    @IBOutlet weak var lfoFilterEnvToggle: LfoButton!
+    @IBOutlet weak var lfoPitchToggle: LfoButton!
+    @IBOutlet weak var lfoBitcrushToggle: LfoButton!
+    @IBOutlet weak var lfoAutoPanToggle: LfoButton!
     
-    @IBOutlet weak var lfo2Rez: RadioButton!
-    @IBOutlet weak var lfo2OscMorph: RadioButton!
-    @IBOutlet weak var lfo2OscMix: RadioButton!
-    @IBOutlet weak var lfo2Pitch: RadioButton!
-    @IBOutlet weak var lfo2Detune: RadioButton!
-    @IBOutlet weak var lfo2FmMod: RadioButton!
     
     @IBOutlet weak var lfo1Amp: Knob!
     @IBOutlet weak var lfo1Rate: Knob!
@@ -46,23 +47,14 @@ class FXViewController: UpdatableViewController {
     @IBOutlet weak var delayMix: Knob!
     @IBOutlet weak var delayToggle: ToggleButton!
     
-    var lfo1Group : [RadioButton] = []
-    var lfo2Group : [RadioButton] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setup LFO Radio Buttons
-        lfo1Group = [lfo1Cutoff, lfo1OscMorph, lfo1OscMix, lfo1Pitch, lfo1Detune, lfo1FmMod]
-        lfo1Group.forEach { $0.alternateButton = lfo1Group }
-        
-        lfo2Group = [lfo2Rez, lfo2OscMorph, lfo2OscMix, lfo2Pitch, lfo2Detune, lfo2FmMod]
-        lfo2Group.forEach { $0.alternateButton = lfo2Group }
-        
         // Set Default LFO routing
-        lfo1Cutoff.isSelected = true
-        lfo2OscMorph.isSelected = true
-
+       
+ 
         bitCrush.value = 24
         bitCrush.range = 1 ... 24
         bitCrush.taper = 2

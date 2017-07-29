@@ -14,8 +14,10 @@
 		945261481F2928870037662C /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945261381F2918A60037662C /* TouchPadViewController.swift */; };
 		945261491F2928880037662C /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945261381F2918A60037662C /* TouchPadViewController.swift */; };
 		9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* DevViewController.swift */; };
-		94872BF31F2A4D6300623750 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94872BF21F2A4D6300623750 /* RadioButton.swift */; };
-		94872BF41F2A4D6300623750 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94872BF21F2A4D6300623750 /* RadioButton.swift */; };
+		949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */; };
+		949D93B81F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */; };
+		949D93B91F2C188C007E657B /* LfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LfoButton.swift */; };
+		949D93BA1F2C188C007E657B /* LfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LfoButton.swift */; };
 		94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B69C3A1F297E2800191C87 /* FXViewController.swift */; };
 		94B69C3C1F297E9F00191C87 /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B69C3A1F297E2800191C87 /* FXViewController.swift */; };
 		94BDBD661F282956007BB7BD /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* DevViewController.swift */; };
@@ -117,7 +119,8 @@
 		945261381F2918A60037662C /* TouchPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPadViewController.swift; sourceTree = "<group>"; };
 		9452613E1F2925600037662C /* AKTouchPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKTouchPadView.swift; sourceTree = "<group>"; };
 		9468E2791F2827AC00C60B1B /* DevViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevViewController.swift; sourceTree = "<group>"; };
-		94872BF21F2A4D6300623750 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		949D93B51F2C188B007E657B /* LfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoButton.swift; sourceTree = "<group>"; };
+		949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoBtnStyleKit.swift; sourceTree = "<group>"; };
 		94B69C3A1F297E2800191C87 /* FXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
 		C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceMixerViewController.swift; sourceTree = "<group>"; };
@@ -204,8 +207,9 @@
 		945261441F2925860037662C /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */,
+				949D93B51F2C188B007E657B /* LfoButton.swift */,
 				C4F7ECA61F2446960011B119 /* ButtonStyleKit.swift */,
-				94872BF21F2A4D6300623750 /* RadioButton.swift */,
 				C4F7ECAB1F2446960011B119 /* ToggleButton.swift */,
 			);
 			path = Button;
@@ -422,6 +426,7 @@
 				C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */,
 				945261401F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C40770EE1F257124007F2C77 /* HeaderViewContoller.swift in Sources */,
+				949D93BA1F2C188C007E657B /* LfoButton.swift in Sources */,
 				C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */,
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
 				C40770ED1F25703B007F2C77 /* SourceMixerViewController.swift in Sources */,
@@ -429,10 +434,10 @@
 				941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ButtonStyleKit.swift in Sources */,
 				945261491F2928880037662C /* TouchPadViewController.swift in Sources */,
-				94872BF31F2A4D6300623750 /* RadioButton.swift in Sources */,
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
 				C4060AC41F24568600BB8882 /* CGFloat+Extensions.swift in Sources */,
 				C4CD8DEB1F24A9CE0011066A /* Conductor.swift in Sources */,
+				949D93B81F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
 				C474D9511F13172B00946035 /* AudioUnitViewController.swift in Sources */,
 				C4CD8DE81F2497850011066A /* AKSynthOne.swift in Sources */,
 			);
@@ -452,6 +457,7 @@
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
 				945261411F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
+				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				C47BE1441F26822F003501FF /* AKSynthOneParameter.swift in Sources */,
@@ -459,10 +465,10 @@
 				94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */,
 				C40770EC1F2569C8007F2C77 /* SourceMixerViewController.swift in Sources */,
 				945261481F2928870037662C /* TouchPadViewController.swift in Sources */,
-				94872BF41F2A4D6300623750 /* RadioButton.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
 				C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */,
 				C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */,
+				949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
 				C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
 			);

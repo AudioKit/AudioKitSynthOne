@@ -65,12 +65,14 @@ class FXViewController: UpdatableViewController {
 
         autoPanRate.range = 0 ... 10
 
-        reverbLowCut.range = 200 ... 20000
-        reverbLowCut.taper = 4
+        reverbLowCut.range = 10 ... 1000
+        reverbLowCut.taper = 1
 
-        delayFeedback.range = 0 ... 0.9
+        delayFeedback.range = 0 ... 0.6
+        delayTime.range = 0.01 ... 1.5
 
         lfo1Rate.range = 0 ... 10
+        lfo1Rate.taper = 4
         lfo2Rate.range = 0 ... 10
 
         updateCallbacks()

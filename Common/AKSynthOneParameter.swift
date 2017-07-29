@@ -21,9 +21,9 @@ public enum AKSynthOneParameter: Int {
     fmVolume = 10,
     fmAmount = 11,
     noiseVolume = 12,
-    lfoIndex = 13,
-    lfoAmplitude = 14,
-    lfoRate = 15,
+    lfo1Index = 13,
+    lfo1Amplitude = 14,
+    lfo1Rate = 15,
     cutoff = 16,
     resonance = 17,
     filterMix = 18,
@@ -52,6 +52,10 @@ public enum AKSynthOneParameter: Int {
     delayOn = 41,
     delayFeedback = 42,
     delayTime = 43,
-    delayMix = 44
+    delayMix = 44,
+    lfo2Index = 45,
+    lfo2Amplitude = 46,
+    lfo2Rate = 47,
+    cutoffLFO = 48
 }
 

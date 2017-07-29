@@ -78,6 +78,8 @@ class FXViewController: UpdatableViewController {
 
         delayFeedback.range = 0 ... 0.9
 
+        lfo1Rate.range = 0 ... 10
+
         updateCallbacks()
     }
     
@@ -98,14 +100,11 @@ class FXViewController: UpdatableViewController {
         delayMix.callback = conductor.changeParameter(.delayMix)
         delayToggle.callback = conductor.changeParameter(.delayOn)
 
+        lfo1Amp.callback  = conductor.changeParameter(.lfo1Amplitude)
+        lfo1Rate.callback = conductor.changeParameter(.lfo1Rate)
+        lfo2Amp.callback = conductor.changeParameter(.lfo2Amplitude)
+        lfo2Rate.callback = conductor.changeParameter(.lfo2Rate)
 
-        /*
-        lfo1Amp.callback  = conductor.changeParameter()
-        lfo1Rate.callback = conductor.changeParameter()
-        lfo2Amp.callback = conductor.changeParameter()
-        lfo2Rate.callback = conductor.changeParameter()
-
-       */
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {

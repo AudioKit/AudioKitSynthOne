@@ -84,6 +84,16 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Delay Time: \(value.decimalString) s"
         case .delayMix:
             displayLabel.text = "Delay Mix: \(value.percentageString)"
+        case .lfo1Rate:
+            displayLabel.text = "LFO 1 Rate: \(value.decimalString) Hz"
+        case .lfo2Rate:
+            displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"
+        case .lfo1Amplitude:
+            displayLabel.text = "LFO 1: \(value.percentageString)"
+        case .lfo2Amplitude:
+            displayLabel.text = "LFO 2: \(value.percentageString)"
+        case .cutoffLFO:
+            displayLabel.text = "Cutoff LFO: \(value.decimalString)"
 
         default:
             _ = 0

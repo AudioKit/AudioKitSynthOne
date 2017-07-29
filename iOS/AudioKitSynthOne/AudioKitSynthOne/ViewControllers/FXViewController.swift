@@ -71,6 +71,7 @@ class FXViewController: UpdatableViewController {
         delayFeedback.range = 0 ... 0.9
 
         lfo1Rate.range = 0 ... 10
+        lfo2Rate.range = 0 ... 10
 
         updateCallbacks()
     }
@@ -96,6 +97,8 @@ class FXViewController: UpdatableViewController {
         lfo1Rate.callback = conductor.changeParameter(.lfo1Rate)
         lfo2Amp.callback = conductor.changeParameter(.lfo2Amplitude)
         lfo2Rate.callback = conductor.changeParameter(.lfo2Rate)
+
+        lfoCutoffToggle.callback = conductor.changeParameter(.cutoffLFO)
 
     }
     
@@ -126,6 +129,8 @@ class FXViewController: UpdatableViewController {
             delayMix.value = value
         case .delayOn:
             delayToggle.value = value
+        case .cutoffLFO:
+            lfoCutoffToggle.value = value
 
         default:
             _ = 0 // do nothing

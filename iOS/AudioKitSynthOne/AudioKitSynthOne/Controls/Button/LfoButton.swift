@@ -9,22 +9,22 @@
 import UIKit
 
 @IBDesignable
-class LfoButton: UIView {
+class LfoButton: UIView, AKSynthOneControl {
     
     // *********************************************************
     // MARK: - LFO Button
     // *********************************************************
     
-    var lfoSelected: Int = 0
+    var value: Double = 0
     
-    public var callback: (Int)->Void = { _ in }
+    public var callback: (Double)->Void = { _ in }
     
     // Make Button Text Editable in IB
     @IBInspectable open var buttonText: String = "Hello"
     
     // Draw Button
     override func draw(_ rect: CGRect) {
-        LfoBtnStyleKit.drawLfoButton(lfoSelected: CGFloat(lfoSelected), buttonText: buttonText)
+        LfoBtnStyleKit.drawLfoButton(lfoSelected: CGFloat(value), buttonText: buttonText)
     }
     
     // *********************************************************
@@ -33,10 +33,10 @@ class LfoButton: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            lfoSelected += 1
-            if lfoSelected == 3 { lfoSelected = 0 }
+            value += 1
+            if value == 3 { value = 0 }
             setNeedsDisplay()
-            callback(lfoSelected)
+            callback(value)
         }
     }
     

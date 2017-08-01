@@ -19,6 +19,7 @@ enum ChildView: String {
     case devView = "DevViewController"
     case padView = "TouchPadViewController"
     case fxView = "FXViewController"
+    case seqView = "SeqViewController"
 }
 
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
@@ -70,6 +71,13 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     fileprivate lazy var fxViewController: FXViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.fxView.rawValue) as! FXViewController
+        self.add(asChildViewController: viewController)
+        return viewController
+    }()
+    
+    fileprivate lazy var seqViewController: SeqViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.seqView.rawValue) as! SeqViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
@@ -168,6 +176,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         remove(asChildViewController: devViewController)
         remove(asChildViewController: padViewController)
         remove(asChildViewController: fxViewController)
+        remove(asChildViewController: seqViewController)
     }
 }
 
@@ -194,6 +203,8 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
             add(asChildViewController: padViewController)
         case .fxView:
             add(asChildViewController: fxViewController)
+        case .seqView:
+            add(asChildViewController: seqViewController)
         }
     }
 }

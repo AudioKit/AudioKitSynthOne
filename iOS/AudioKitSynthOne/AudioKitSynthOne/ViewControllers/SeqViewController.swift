@@ -15,7 +15,7 @@ class SeqViewController: UpdatableViewController {
     
     let sliderTags = 400 ... 415
     let sliderToggleTags = 500 ... 515
-    let sliderIndicatorTags = 550 ... 565
+    let sliderLabelTags = 550 ... 565
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,10 +95,9 @@ class SeqViewController: UpdatableViewController {
     //*****************************************************************
     
     func updateTransposeBtn(notePosition: Int, transposeAmt: Int) {
-        let btnTag = notePosition + sliderIndicatorTags.lowerBound
-        if let button = view.viewWithTag(btnTag) as? UIButton {
-            button.setTitle("\(transposeAmt)",for: .normal)
-            button.titleLabel?.text = "\(transposeAmt)"
+        let labelTag = notePosition + sliderLabelTags.lowerBound
+        if let label = view.viewWithTag(labelTag) as? UILabel {
+            label.text = "\(transposeAmt)"
         }
     }
     

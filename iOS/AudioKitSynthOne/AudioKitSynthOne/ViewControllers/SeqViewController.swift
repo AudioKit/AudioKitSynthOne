@@ -89,14 +89,30 @@ class SeqViewController: UpdatableViewController {
             }
         }
         
+        // Slider Transpose Label on/off
+        for tag in sliderLabelTags {
+            if let label = view.viewWithTag(tag) as? TransposeButton {
+                
+                label.callback = { value in
+                    let notePosition = Int(tag) - self.sliderToggleTags.lowerBound
+                    if value == 1.0 {
+                        // add +12 to transposeAmt if positive, -12 if negative
+                    } else {
+                        // add -12 to transposeAmt if positive, +12 if negative
+                    }
+                }
+            }
+        }
+        
     }
     //*****************************************************************
     // MARK: - Helpers
     //*****************************************************************
     
     func updateTransposeBtn(notePosition: Int, transposeAmt: Int) {
+        
         let labelTag = notePosition + sliderLabelTags.lowerBound
-        if let label = view.viewWithTag(labelTag) as? UILabel {
+        if let label = view.viewWithTag(labelTag) as? TransposeButton {
             label.text = "\(transposeAmt)"
         }
     }

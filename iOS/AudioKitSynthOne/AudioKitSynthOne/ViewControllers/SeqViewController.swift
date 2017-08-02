@@ -12,6 +12,9 @@ import UIKit
 class SeqViewController: UpdatableViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
+    @IBOutlet weak var seqStepsStepper: Stepper!
+    @IBOutlet weak var octaveStepper: Stepper!
+    @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
     
     let sliderTags = 400 ... 415
     let sliderToggleTags = 500 ... 515
@@ -24,7 +27,7 @@ class SeqViewController: UpdatableViewController {
         setDelegates()
         
         // Update Knob & Slider UI Values
-        setupSliderValues()
+        setupValues()
         
         updateCallbacks()
     }
@@ -37,7 +40,11 @@ class SeqViewController: UpdatableViewController {
         
     }
     
-    func setupSliderValues() {
+    func setupValues() {
+        
+        seqStepsStepper.minValue = 1
+        seqStepsStepper.maxValue = 16
+        seqStepsStepper.value = 8
         
         // Setup slider values & step labels
         for tag in sliderTags {
@@ -58,6 +65,21 @@ class SeqViewController: UpdatableViewController {
     //*****************************************************************
     
     override func updateCallbacks() {
+        
+        // Arp Direction Button
+        arpDirectionButton.callback = { value in
+            print("Arp Direction Update: \(value)")
+        }
+        
+        // Seq Stepper
+        seqStepsStepper.callback = { value in
+            print("Seq Stepper Update: \(value)")
+        }
+        
+        // Octave Stepper
+        octaveStepper.callback = { value in
+            print("Oct Stepper Update: \(value)")
+        }
         
         // Slider
         for tag in sliderTags {

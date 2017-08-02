@@ -20,6 +20,14 @@
 		945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0F1F3143A00086D58B /* SeqViewController.swift */; };
 		945C3A111F31450B0086D58B /* SeqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0F1F3143A00086D58B /* SeqViewController.swift */; };
 		9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* DevViewController.swift */; };
+		947956A91F329AB200FE5D9B /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A81F329AB100FE5D9B /* Stepper.swift */; };
+		947956AA1F329AB200FE5D9B /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A81F329AB100FE5D9B /* Stepper.swift */; };
+		947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A61F329AB100FE5D9B /* ArpDirectionButton.swift */; };
+		947956AC1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A61F329AB100FE5D9B /* ArpDirectionButton.swift */; };
+		947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A51F329AB100FE5D9B /* StepperStyleKit.swift */; };
+		947956AE1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A51F329AB100FE5D9B /* StepperStyleKit.swift */; };
+		947956AF1F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A71F329AB100FE5D9B /* ArpDirectionStyleKit.swift */; };
+		947956B01F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A71F329AB100FE5D9B /* ArpDirectionStyleKit.swift */; };
 		9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
 		9489EF641F3145EE00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
 		9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */; };
@@ -137,6 +145,10 @@
 		945C3A0E1F31428B0086D58B /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
 		945C3A0F1F3143A00086D58B /* SeqViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeqViewController.swift; sourceTree = "<group>"; };
 		9468E2791F2827AC00C60B1B /* DevViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevViewController.swift; sourceTree = "<group>"; };
+		947956A51F329AB100FE5D9B /* StepperStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperStyleKit.swift; sourceTree = "<group>"; };
+		947956A61F329AB100FE5D9B /* ArpDirectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpDirectionButton.swift; sourceTree = "<group>"; };
+		947956A71F329AB100FE5D9B /* ArpDirectionStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpDirectionStyleKit.swift; sourceTree = "<group>"; };
+		947956A81F329AB100FE5D9B /* Stepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
 		949D93B51F2C188B007E657B /* LfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoButton.swift; sourceTree = "<group>"; };
 		949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoBtnStyleKit.swift; sourceTree = "<group>"; };
 		94B69C3A1F297E2800191C87 /* FXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +239,8 @@
 		945261441F2925860037662C /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				947956A61F329AB100FE5D9B /* ArpDirectionButton.swift */,
+				947956A71F329AB100FE5D9B /* ArpDirectionStyleKit.swift */,
 				945C3A031F3141F50086D58B /* ArpButton.swift */,
 				945C3A021F3141F50086D58B /* ArpButtonStyleKit.swift */,
 				949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */,
@@ -253,6 +267,15 @@
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		947956B11F329AB500FE5D9B /* Stepper */ = {
+			isa = PBXGroup;
+			children = (
+				947956A81F329AB100FE5D9B /* Stepper.swift */,
+				947956A51F329AB100FE5D9B /* StepperStyleKit.swift */,
+			);
+			path = Stepper;
 			sourceTree = "<group>";
 		};
 		C46DE0FC1F13301C0060DD79 /* Products */ = {
@@ -314,6 +337,7 @@
 		C4F7ECA51F2446960011B119 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				947956B11F329AB500FE5D9B /* Stepper */,
 				945C3A081F3142050086D58B /* Sliders */,
 				945261441F2925860037662C /* Buttons */,
 				945261431F29256F0037662C /* Knobs */,
@@ -459,12 +483,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4060AC31F24561A00BB8882 /* ToggleButton.swift in Sources */,
+				947956AE1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4EDB6C31F26DFEA006B828C /* MorphSelector.swift in Sources */,
 				945C3A111F31450B0086D58B /* SeqViewController.swift in Sources */,
 				94CA7BAF1F27BD1F00253C09 /* ADSRViewController.swift in Sources */,
 				C4060AC61F24568600BB8882 /* ViewController+DisplayAlert.swift in Sources */,
 				94B69C3C1F297E9F00191C87 /* FXViewController.swift in Sources */,
 				C4060AC01F24561A00BB8882 /* Knob+Touches.swift in Sources */,
+				947956B01F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */,
 				9489EF661F3145F200416F26 /* SliderStyleKit.swift in Sources */,
 				94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */,
 				9489EF641F3145EE00416F26 /* VerticalSlider.swift in Sources */,
@@ -477,10 +503,12 @@
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
 				C40770ED1F25703B007F2C77 /* SourceMixerViewController.swift in Sources */,
 				94BDBD661F282956007BB7BD /* DevViewController.swift in Sources */,
+				947956AC1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A051F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
 				941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ButtonStyleKit.swift in Sources */,
 				945261491F2928880037662C /* TouchPadViewController.swift in Sources */,
+				947956AA1F329AB200FE5D9B /* Stepper.swift in Sources */,
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
 				C4060AC41F24568600BB8882 /* CGFloat+Extensions.swift in Sources */,
 				C4CD8DEB1F24A9CE0011066A /* Conductor.swift in Sources */,
@@ -496,12 +524,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */,
+				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4CD8DDF1F2482FF0011066A /* AKSynthOne.swift in Sources */,
 				945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ButtonStyleKit.swift in Sources */,
 				94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */,
 				C4D193CA1F1187B500FF4FE4 /* SynthOneViewController.swift in Sources */,
+				947956AF1F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */,
 				9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
@@ -514,10 +544,12 @@
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				C47BE1441F26822F003501FF /* AKSynthOneParameter.swift in Sources */,
 				9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */,
+				947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A041F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
 				94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */,
 				C40770EC1F2569C8007F2C77 /* SourceMixerViewController.swift in Sources */,
 				945261481F2928870037662C /* TouchPadViewController.swift in Sources */,
+				947956A91F329AB200FE5D9B /* Stepper.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
 				C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */,
 				C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */,

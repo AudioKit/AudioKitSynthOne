@@ -29,12 +29,12 @@ class ADSRViewController: UpdatableViewController {
         attackKnob.range = 0.000001 ... 1
         releaseKnob.range = 0.004 ... 2.0
 
-        conductor.bind(attackKnob, to: .attackDuration)
-        conductor.bind(decayKnob, to: .decayDuration)
-        conductor.bind(sustainKnob, to: .sustainLevel)
-        conductor.bind(releaseKnob, to: .releaseDuration)
-        conductor.bind(filterAttackKnob, to: .filterAttackDuration)
-        conductor.bind(filterDecayKnob, to: .filterDecayDuration)
+        conductor.bind(attackKnob,        to: .attackDuration)
+        conductor.bind(decayKnob,         to: .decayDuration)
+        conductor.bind(sustainKnob,       to: .sustainLevel)
+        conductor.bind(releaseKnob,       to: .releaseDuration)
+        conductor.bind(filterAttackKnob,  to: .filterAttackDuration)
+        conductor.bind(filterDecayKnob,   to: .filterDecayDuration)
         conductor.bind(filterSustainKnob, to: .filterSustainLevel)
         conductor.bind(filterReleaseKnob, to: .filterReleaseDuration)
         conductor.bind(filterADSRMixKnob, to: .filterADSRMix)

@@ -17,16 +17,16 @@ public class ToggleSwitchStyleKit : NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawToggleSwitch(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 50, height: 29), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = true) {
+    @objc dynamic public class func drawToggleSwitch(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 60, height: 31), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
         //// Resize to Target Frame
         context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 50, height: 29), target: targetFrame)
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 60, height: 31), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 50, y: resizedFrame.height / 29)
-        let resizedShadowScale: CGFloat = min(resizedFrame.width / 50, resizedFrame.height / 29)
+        context.scaleBy(x: resizedFrame.width / 60, y: resizedFrame.height / 31)
+        let resizedShadowScale: CGFloat = min(resizedFrame.width / 60, resizedFrame.height / 31)
 
 
         //// Color Declarations
@@ -40,22 +40,22 @@ public class ToggleSwitchStyleKit : NSObject {
         shadow.shadowBlurRadius = 8
 
         //// Variable Declarations
-        let expression: CGFloat = isToggled ? 28 : 12
+        let expression: CGFloat = isToggled ? 32 : 12
 
         //// track Drawing
-        let trackPath = UIBezierPath(roundedRect: CGRect(x: 8, y: 6, width: 30, height: 17), cornerRadius: 6)
+        let trackPath = UIBezierPath(roundedRect: CGRect(x: 8, y: 6, width: 36, height: 17), cornerRadius: 6)
         _222.setFill()
         trackPath.fill()
 
 
         //// button
         context.saveGState()
-        context.translateBy(x: (expression - 9), y: 3)
+        context.translateBy(x: (expression - 9), y: 2)
 
 
 
         //// buttonBackground 2 Drawing
-        let buttonBackground2Path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 24, height: 24))
+        let buttonBackground2Path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 26, height: 26))
         gray.setFill()
         buttonBackground2Path.fill()
 

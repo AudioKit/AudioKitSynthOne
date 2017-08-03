@@ -9,7 +9,7 @@
 import UIKit
 import AudioKit
 
-protocol AKSynthOneControl {
+public protocol AKSynthOneControl {
     var value: Double { get set }
     var callback: (Double)->Void { get set }
 }
@@ -29,7 +29,7 @@ public class Knob: UIView, AKSynthOneControl {
         }
     }
 
-    var value: Double = 0 {
+    public var value: Double = 0 {
         didSet {
             value = range.clamp(value)
 

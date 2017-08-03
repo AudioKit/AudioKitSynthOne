@@ -11,10 +11,10 @@ import UIKit
 
 class SeqViewController: UpdatableViewController {
     
-    @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var seqStepsStepper: Stepper!
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
+    @IBOutlet weak var arpSeqToggle: ToggleSwitch!
     
     let sliderTags = 400 ... 415
     let sliderToggleTags = 500 ... 515
@@ -80,6 +80,12 @@ class SeqViewController: UpdatableViewController {
         octaveStepper.callback = { value in
             print("Oct Stepper Update: \(value)")
         }
+        
+        // Arp/Seq Toggle
+        arpSeqToggle.callback = { value in
+            print("Arp/Seq Toggle: \(value)")
+        }
+        
         
         // Slider
         for tag in sliderTags {

@@ -28,6 +28,10 @@
 		947956AE1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A51F329AB100FE5D9B /* StepperStyleKit.swift */; };
 		947956AF1F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A71F329AB100FE5D9B /* ArpDirectionStyleKit.swift */; };
 		947956B01F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A71F329AB100FE5D9B /* ArpDirectionStyleKit.swift */; };
+		947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */; };
+		947956B41F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */; };
+		947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B51F32A72400FE5D9B /* ToggleSwitch.swift */; };
+		947956B71F32A72400FE5D9B /* ToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B51F32A72400FE5D9B /* ToggleSwitch.swift */; };
 		9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
 		9489EF641F3145EE00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
 		9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */; };
@@ -149,6 +153,8 @@
 		947956A61F329AB100FE5D9B /* ArpDirectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpDirectionButton.swift; sourceTree = "<group>"; };
 		947956A71F329AB100FE5D9B /* ArpDirectionStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpDirectionStyleKit.swift; sourceTree = "<group>"; };
 		947956A81F329AB100FE5D9B /* Stepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
+		947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitchStyleKit.swift; sourceTree = "<group>"; };
+		947956B51F32A72400FE5D9B /* ToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitch.swift; sourceTree = "<group>"; };
 		949D93B51F2C188B007E657B /* LfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoButton.swift; sourceTree = "<group>"; };
 		949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoBtnStyleKit.swift; sourceTree = "<group>"; };
 		94B69C3A1F297E2800191C87 /* FXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +253,8 @@
 				949D93B51F2C188B007E657B /* LfoButton.swift */,
 				C4F7ECA61F2446960011B119 /* ButtonStyleKit.swift */,
 				C4F7ECAB1F2446960011B119 /* ToggleButton.swift */,
+				947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */,
+				947956B51F32A72400FE5D9B /* ToggleSwitch.swift */,
 				94FEFEC71F3150D00064EC09 /* TransposeButton.swift */,
 			);
 			path = Buttons;
@@ -495,11 +503,13 @@
 				94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */,
 				9489EF641F3145EE00416F26 /* VerticalSlider.swift in Sources */,
 				C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */,
+				947956B71F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				945261401F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C40770EE1F257124007F2C77 /* HeaderViewContoller.swift in Sources */,
 				94FEFEC81F3150D00064EC09 /* TransposeButton.swift in Sources */,
 				949D93BA1F2C188C007E657B /* LfoButton.swift in Sources */,
 				C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */,
+				947956B41F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
 				C40770ED1F25703B007F2C77 /* SourceMixerViewController.swift in Sources */,
 				94BDBD661F282956007BB7BD /* DevViewController.swift in Sources */,
@@ -536,11 +546,13 @@
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
+				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				945261411F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
 				94FEFEC91F3150D00064EC09 /* TransposeButton.swift in Sources */,
 				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
+				947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				C47BE1441F26822F003501FF /* AKSynthOneParameter.swift in Sources */,
 				9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */,

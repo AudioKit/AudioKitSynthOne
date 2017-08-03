@@ -816,6 +816,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38E-i2-QVe" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="84" y="1" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <view tag="400" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5vC-UF-8eO" customClass="VerticalSlider" customModule="AudioKitSynthOne">
                                 <rect key="frame" x="29" y="100" width="44" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1119,8 +1124,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38E-i2-QVe" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="84" y="1" width="60" height="60"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KG-7D-uLS" customClass="ToggleSwitch" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="591" y="18" width="49" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1132,6 +1137,7 @@
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
                         <outlet property="arpDirectionButton" destination="S6H-Sb-2ZV" id="YoG-pp-xOz"/>
+                        <outlet property="arpSeqToggle" destination="1KG-7D-uLS" id="DRN-Kb-MN1"/>
                         <outlet property="octaveStepper" destination="EU0-WN-5ya" id="9yz-L2-biO"/>
                         <outlet property="seqStepsStepper" destination="NFb-PZ-ajP" id="rQ3-fm-gDn"/>
                     </connections>

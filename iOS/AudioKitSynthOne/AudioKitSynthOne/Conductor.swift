@@ -13,6 +13,12 @@ class Conductor {
 
     var synth: AKSynthOne!
 
+    var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
+
+    func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter) {
+        bindings.append(param, control)
+    }
+
     var changeParameter: (AKSynthOneParameter)->((_: Double) -> Void)  = { _ in
         print("Not implemented properly")
         return { _ in

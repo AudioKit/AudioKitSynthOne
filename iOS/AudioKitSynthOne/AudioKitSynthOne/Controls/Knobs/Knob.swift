@@ -9,17 +9,15 @@
 import UIKit
 import AudioKit
 
-public protocol AKSynthOneControl {
-    var value: Double { get set }
-    var callback: (Double)->Void { get set }
+open class AKSynthOneControl: UIView {
+    open var value: Double = 0
+    open var callback: (Double)->Void = { _ in }
 }
  
 @IBDesignable
-public class Knob: UIView, AKSynthOneControl {
+public class Knob: AKSynthOneControl {
 
     var onlyIntegers: Bool = false
-
-    public var callback: (Double)->Void = { _ in }
 
     public var taper: Double = 1.0 // Linear by default
 
@@ -29,12 +27,17 @@ public class Knob: UIView, AKSynthOneControl {
         }
     }
 
-    public var value: Double = 0 {
-        didSet {
-            value = range.clamp(value)
+    private var _value: Double = 0
 
-            value = onlyIntegers ? round(value) : value
-            knobValue = CGFloat(value.normalized(range: range, taper: taper))
+    override public var value: Double {
+        get {
+            return _value
+        }
+        set(newValue) {
+            _value = range.clamp(newValue)
+
+            _value = onlyIntegers ? round(_value) : _value
+            knobValue = CGFloat(newValue.normalized(range: range, taper: taper))
         }
     }
     

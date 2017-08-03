@@ -9,14 +9,14 @@
 import UIKit
 
 @IBDesignable
-class ToggleButton: UIView, AKSynthOneControl {
+class ToggleButton: AKSynthOneControl {
     
     // *********************************************************
     // MARK: - ToggleButton
     // *********************************************************
 
     private var isOn = false
-    var value: Double {
+    override var value: Double {
         get {
             return isOn ? 1 : 0
         }
@@ -24,7 +24,6 @@ class ToggleButton: UIView, AKSynthOneControl {
             isOn = value == 1.0
         }
     }
-    public var callback: (Double)->Void = { _ in }
 
     override func draw(_ rect: CGRect) {
         ButtonStyleKit.drawRoundButton(isToggled: isOn)

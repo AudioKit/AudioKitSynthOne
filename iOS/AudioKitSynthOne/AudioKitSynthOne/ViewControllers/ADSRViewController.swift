@@ -28,9 +28,22 @@ class ADSRViewController: UpdatableViewController {
         filterADSRMixKnob.range = 0.0 ... 1.2
         attackKnob.range = 0.000001 ... 1
         releaseKnob.range = 0.004 ... 2.0
+
+        conductor.bind(attackKnob, to: .attackDuration)
+        conductor.bind(decayKnob, to: .decayDuration)
+        conductor.bind(sustainKnob, to: .sustainLevel)
+        conductor.bind(releaseKnob, to: .releaseDuration)
+        conductor.bind(filterAttackKnob, to: .filterAttackDuration)
+        conductor.bind(filterDecayKnob, to: .filterDecayDuration)
+        conductor.bind(filterSustainKnob, to: .filterSustainLevel)
+        conductor.bind(filterReleaseKnob, to: .filterReleaseDuration)
+        conductor.bind(filterADSRMixKnob, to: .filterADSRMix)
     }
 
     override func updateCallbacks() {
+
+        super.updateCallbacks()
+
         adsrView.callback = { att, dec, sus, rel in
             self.conductor.synth.parameters[AKSynthOneParameter.attackDuration.rawValue] = att
             self.conductor.synth.parameters[AKSynthOneParameter.decayDuration.rawValue] = dec
@@ -44,50 +57,29 @@ class ADSRViewController: UpdatableViewController {
             self.conductor.synth.parameters[AKSynthOneParameter.filterSustainLevel.rawValue] = sus
             self.conductor.synth.parameters[AKSynthOneParameter.filterReleaseDuration.rawValue] = rel
         }
-
-        attackKnob.callback = conductor.changeParameter(.attackDuration)
-        decayKnob.callback = conductor.changeParameter(.decayDuration)
-        sustainKnob.callback = conductor.changeParameter(.sustainLevel)
-        releaseKnob.callback = conductor.changeParameter(.releaseDuration)
-
-        filterAttackKnob.callback = conductor.changeParameter(.filterAttackDuration)
-        filterDecayKnob.callback = conductor.changeParameter(.filterDecayDuration)
-        filterSustainKnob.callback = conductor.changeParameter(.filterSustainLevel)
-        filterReleaseKnob.callback = conductor.changeParameter(.filterReleaseDuration)
-
-        filterADSRMixKnob.callback = conductor.changeParameter(.filterADSRMix)
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        
+
+        super.updateUI(param, value: value)
+
         switch param {
         case .attackDuration:
-            attackKnob.value = value
             adsrView.attackDuration = value
         case .decayDuration:
-            decayKnob.value = value
             adsrView.decayDuration = value
         case .sustainLevel:
-            sustainKnob.value = value
             adsrView.sustainLevel = value
         case .releaseDuration:
-            releaseKnob.value = value
             adsrView.releaseDuration = value
         case .filterAttackDuration:
-            filterAttackKnob.value = value
             filterADSRView.attackDuration = value
         case .filterDecayDuration:
-            filterDecayKnob.value = value
             filterADSRView.decayDuration = value
         case .filterSustainLevel:
-            filterSustainKnob.value = value
             filterADSRView.sustainLevel = value
         case .filterReleaseDuration:
-            filterReleaseKnob.value = value
             filterADSRView.releaseDuration = value
-
-        case .filterADSRMix:
-            filterADSRMixKnob.value = value
 
         default:
             _ = 0

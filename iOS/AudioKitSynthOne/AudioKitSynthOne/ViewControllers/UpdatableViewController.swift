@@ -24,10 +24,16 @@ public class UpdatableViewController: UIViewController {
     }
 
     func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        // override in subclasses
+        for binding in conductor.bindings {
+            if param == binding.0 {
+                (binding.1).value = value
+            }
+        }
     }
     
     func updateCallbacks() {
-        // override in subclasses
+        for binding in conductor.bindings {
+            (binding.1).callback = conductor.changeParameter(binding.0)
+        }
     }
 }

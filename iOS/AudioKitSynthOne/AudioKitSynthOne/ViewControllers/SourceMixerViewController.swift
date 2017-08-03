@@ -60,70 +60,25 @@ public class SourceMixerViewController: UpdatableViewController {
         fmAmount.range = 0.0 ... 15
         resonance.range = 0.0 ... 0.97
 
+        conductor.bind(morph1Selector,       to: .index1)
+        conductor.bind(morph2Selector,       to: .index2)
+        conductor.bind(morph1SemitoneOffset, to: .morph1SemitoneOffset)
+        conductor.bind(morph2SemitoneOffset, to: .morph2SemitoneOffset)
+        conductor.bind(morph2Detuning,       to: .morph2Detuning)
+        conductor.bind(morphBalance,         to: .morphBalance)
+        conductor.bind(morph1Volume,         to: .morph1Volume)
+        conductor.bind(morph2Volume,         to: .morph2Volume)
+        conductor.bind(cutoff,               to: .cutoff)
+        conductor.bind(resonance,            to: .resonance)
+        conductor.bind(subVolume,            to: .subVolume)
+        conductor.bind(subOctaveDown,        to: .subOctaveDown)
+        conductor.bind(subIsSquare,          to: .subIsSquare)
+        conductor.bind(fmVolume,             to: .fmVolume)
+        conductor.bind(fmAmount,             to: .fmAmount)
+        conductor.bind(noiseVolume,          to: .noiseVolume)
+        conductor.bind(masterVolume,         to: .masterVolume)
+
         updateCallbacks()
-    }
-
-    override func updateCallbacks() {
-        morph1Selector.callback       = conductor.changeParameter(.index1)
-        morph2Selector.callback       = conductor.changeParameter(.index2)
-        morph1SemitoneOffset.callback = conductor.changeParameter(.morph1SemitoneOffset)
-        morph2SemitoneOffset.callback = conductor.changeParameter(.morph2SemitoneOffset)
-        morph2Detuning.callback       = conductor.changeParameter(.morph2Detuning)
-        morphBalance.callback         = conductor.changeParameter(.morphBalance)
-        morph1Volume.callback         = conductor.changeParameter(.morph1Volume)
-        morph2Volume.callback         = conductor.changeParameter(.morph2Volume)
-        cutoff.callback               = conductor.changeParameter(.cutoff)
-        resonance.callback            = conductor.changeParameter(.resonance)
-        subVolume.callback            = conductor.changeParameter(.subVolume)
-        subOctaveDown.callback        = conductor.changeParameter(.subOctaveDown)
-        subIsSquare.callback          = conductor.changeParameter(.subIsSquare)
-        fmVolume.callback             = conductor.changeParameter(.fmVolume)
-        fmAmount.callback             = conductor.changeParameter(.fmAmount)
-        noiseVolume.callback          = conductor.changeParameter(.noiseVolume)
-        masterVolume.callback         = conductor.changeParameter(.masterVolume)
-    }
-
-    override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-
-        switch param {
-        case .index1:
-            morph1Selector.value = value
-        case .index2:
-            morph2Selector.value = value
-        case .morph1SemitoneOffset:
-            morph1SemitoneOffset.value = value
-        case .morph2SemitoneOffset:
-            morph2SemitoneOffset.value = value
-        case .morph2Detuning:
-            morph2Detuning.value = value
-        case .morphBalance:
-            morphBalance.value = value
-        case .morph1Volume:
-            morph1Volume.value = value
-        case .morph2Volume:
-            morph2Volume.value = value
-        case .subVolume:
-            subVolume.value = value
-        case .subIsSquare:
-            subIsSquare.value = value
-        case .subOctaveDown:
-            subOctaveDown.value = value
-        case .cutoff:
-            cutoff.value = value
-        case .resonance:
-            resonance.value = value
-        case .fmVolume:
-            fmVolume.value = value
-        case .fmAmount:
-            fmAmount.value = value
-        case .noiseVolume:
-            noiseVolume.value = value
-        case .masterVolume:
-            masterVolume.value = value
-        default:
-            _ = 0
-            // do nothing
-        }
     }
 }
 

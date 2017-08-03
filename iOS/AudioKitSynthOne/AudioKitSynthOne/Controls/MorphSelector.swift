@@ -10,15 +10,14 @@ import Foundation
 import UIKit
 
 @IBDesignable
-open class MorphSelector: UIView, AKSynthOneControl {
+class MorphSelector: AKSynthOneControl {
     
-    open var value: Double = 0.0 {
+    override var value: Double {
         didSet {
             if value < 0.0 { value = 0.0 }
             if value > 1.0 { value = 1.0 }
         }
     }
-    open var callback: (Double)->Void = { _ in }
     
     //// Color Declarations
     @IBInspectable open var color: UIColor      = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)

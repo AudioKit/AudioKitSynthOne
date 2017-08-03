@@ -9,16 +9,12 @@
 import UIKit
 
 @IBDesignable
-class LfoButton: UIView, AKSynthOneControl {
+class LfoButton: AKSynthOneControl {
     
     // *********************************************************
     // MARK: - LFO Button
     // *********************************************************
-    
-    var value: Double = 0
-    
-    public var callback: (Double)->Void = { _ in }
-    
+        
     // Make Button Text Editable in IB
     @IBInspectable open var buttonText: String = "Hello"
     

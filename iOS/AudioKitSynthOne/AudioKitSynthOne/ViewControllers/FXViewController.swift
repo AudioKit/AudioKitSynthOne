@@ -75,87 +75,36 @@ class FXViewController: UpdatableViewController {
         lfo1Rate.taper = 4
         lfo2Rate.range = 0 ... 10
 
+        conductor.bind(bitCrush, to: .bitCrushDepth)
+        conductor.bind(sampleRate, to: .bitCrushSampleRate)
+        conductor.bind(autoPanToggle, to: .autoPanOn)
+        conductor.bind(autoPanRate, to: .autoPanFrequency)
+        conductor.bind(reverbSize, to: .reverbFeedback)
+        conductor.bind(reverbLowCut, to: .reverbHighPass)
+        conductor.bind(reverbMix, to: .reverbMix)
+        conductor.bind(reverbToggle, to: .reverbOn)
+        conductor.bind(delayTime, to: .delayTime)
+        conductor.bind(delayFeedback, to: .delayFeedback)
+        conductor.bind(delayMix, to: .delayMix)
+        conductor.bind(delayToggle, to: .delayOn)
+        conductor.bind(lfo1Amp, to: .lfo1Amplitude)
+        conductor.bind(lfo1Rate, to: .lfo1Rate)
+        conductor.bind(lfo2Amp, to: .lfo2Amplitude)
+        conductor.bind(lfo2Rate, to: .lfo2Rate)
+        conductor.bind(lfoCutoffToggle, to: .cutoffLFO)
+        conductor.bind(lfoRezToggle, to: .resonanceLFO)
+        conductor.bind(lfoOscMixToggle, to: .oscMixLFO)
+        conductor.bind(lfoSustainToggle, to: .sustainLFO)
+        conductor.bind(lfoMorph1Toggle, to: .index1LFO)
+        conductor.bind(lfoMorph2Toggle, to: .index2LFO)
+        conductor.bind(lfoFMModToggle, to: .fmLFO)
+        conductor.bind(lfoDetuneToggle, to: .detuneLFO)
+        conductor.bind(lfoFilterEnvToggle, to: .filterEnvLFO)
+        conductor.bind(lfoPitchToggle, to: .pitchLFO)
+        conductor.bind(lfoBitcrushToggle, to: .bitcrushLFO)
+        conductor.bind(lfoAutoPanToggle, to: .autopanLFO)
+
         updateCallbacks()
-    }
-    
-    override func updateCallbacks() {
-
-        bitCrush.callback      = conductor.changeParameter(.bitCrushDepth)
-        sampleRate.callback    = conductor.changeParameter(.bitCrushSampleRate)
-        autoPanToggle.callback = conductor.changeParameter(.autoPanOn)
-        autoPanRate.callback   = conductor.changeParameter(.autoPanFrequency)
-
-        reverbSize.callback = conductor.changeParameter(.reverbFeedback)
-        reverbLowCut.callback = conductor.changeParameter(.reverbHighPass)
-        reverbMix.callback = conductor.changeParameter(.reverbMix)
-        reverbToggle.callback = conductor.changeParameter(.reverbOn)
-
-        delayTime.callback = conductor.changeParameter(.delayTime)
-        delayFeedback.callback = conductor.changeParameter(.delayFeedback)
-        delayMix.callback = conductor.changeParameter(.delayMix)
-        delayToggle.callback = conductor.changeParameter(.delayOn)
-
-        lfo1Amp.callback  = conductor.changeParameter(.lfo1Amplitude)
-        lfo1Rate.callback = conductor.changeParameter(.lfo1Rate)
-        lfo2Amp.callback = conductor.changeParameter(.lfo2Amplitude)
-        lfo2Rate.callback = conductor.changeParameter(.lfo2Rate)
-
-        lfoCutoffToggle.callback = conductor.changeParameter(.cutoffLFO)
-        lfoRezToggle.callback = conductor.changeParameter(.resonanceLFO)
-        lfoOscMixToggle.callback = conductor.changeParameter(.oscMixLFO)
-        lfoSustainToggle.callback = conductor.changeParameter(.sustainLFO)
-        lfoMorph1Toggle.callback = conductor.changeParameter(.index1LFO)
-        lfoMorph2Toggle.callback = conductor.changeParameter(.index2LFO)
-        lfoFMModToggle.callback = conductor.changeParameter(.fmLFO)
-        lfoDetuneToggle.callback = conductor.changeParameter(.detuneLFO)
-        lfoFilterEnvToggle.callback = conductor.changeParameter(.filterEnvLFO)
-        lfoPitchToggle.callback = conductor.changeParameter(.pitchLFO)
-        lfoBitcrushToggle.callback = conductor.changeParameter(.bitcrushLFO)
-        lfoAutoPanToggle.callback = conductor.changeParameter(.autopanLFO)
-    }
-    
-    override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-
-        switch param {
-        case .bitCrushDepth:
-            bitCrush.value = value
-        case .bitCrushSampleRate:
-            sampleRate.value = value
-        case .autoPanOn:
-            autoPanToggle.value = value
-        case .autoPanFrequency:
-            autoPanRate.value =  value
-        case .reverbFeedback:
-            reverbSize.value = value
-        case .reverbHighPass:
-            reverbLowCut.value = value
-        case .reverbMix:
-            reverbMix.value = value
-        case .reverbOn:
-            reverbToggle.value = value
-        case .delayTime:
-            delayTime.value = value
-        case .delayFeedback:
-            delayFeedback.value = value
-        case .delayMix:
-            delayMix.value = value
-        case .delayOn:
-            delayToggle.value = value
-        case .cutoffLFO:
-            lfoCutoffToggle.value = value
-        case .lfo1Amplitude:
-            lfo1Amp.value = value
-        case .lfo1Rate:
-            lfo1Rate.value = value
-        case .lfo2Amplitude:
-            lfo2Amp.value = value
-        case .lfo2Rate:
-            lfo2Rate.value = value
-
-        default:
-            _ = 0 // do nothing
-        }
-
     }
 
 }

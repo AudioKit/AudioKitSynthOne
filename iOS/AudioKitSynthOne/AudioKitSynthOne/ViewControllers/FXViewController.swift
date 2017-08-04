@@ -105,6 +105,8 @@ class FXViewController: UpdatableViewController {
         conductor.bind(lfoBitcrushToggle,  to: .bitcrushLFO)
         conductor.bind(lfoAutoPanToggle,   to: .autopanLFO)
 
+        conductor.bind(lfo1WavePicker, to: .lfo1Index)
+        conductor.bind(lfo2WavePicker, to: .lfo2Index)
 
         updateCallbacks()
     }

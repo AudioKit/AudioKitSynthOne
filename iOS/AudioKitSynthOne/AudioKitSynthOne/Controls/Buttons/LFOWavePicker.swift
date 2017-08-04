@@ -9,19 +9,15 @@
 import UIKit
 
 @IBDesignable
-class LFOWavePicker: UIView {
+class LFOWavePicker: AKSynthOneControl {
     
     // *********************************************************
     // MARK: - LFO Button
     // *********************************************************
     
-    public var callback: (Double)->Void = { _ in }
-    
-    var waveform = 0.0
-    
     // Draw Button
     override func draw(_ rect: CGRect) {
-        LFOPickerStyleKit.drawLFOWaveformPicker(fraction: CGFloat(waveform/3.0))
+        LFOPickerStyleKit.drawLFOWaveformPicker(fraction: CGFloat(value/3.0))
     }
     
     // *********************************************************
@@ -34,18 +30,18 @@ class LFOWavePicker: UIView {
             let w = self.bounds.width
          
             switch touchPoint.x {
-            case 0..<w*0.25:
-                waveform = 0
-            case w*0.25..<w*0.50:
-                waveform = 1
-            case w*0.50..<w*0.75:
-                waveform = 2
+            case 0 ..< w * 0.25:
+                value = 0
+            case w * 0.25 ..< w * 0.50:
+                value = 1
+            case w * 0.50 ..< w * 0.75:
+                value = 2
             default:
-                waveform = 3
+                value = 3
             }
             
             self.setNeedsDisplay()
-            callback(waveform)
+            callback(value)
         }
     }
 }

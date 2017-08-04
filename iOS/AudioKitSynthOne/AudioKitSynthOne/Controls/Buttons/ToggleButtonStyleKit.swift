@@ -13,7 +13,7 @@
 
 import UIKit
 
-public class ButtonStyleKit : NSObject {
+public class ToggleButtonStyleKit : NSObject {
 
     //// Drawing Methods
 

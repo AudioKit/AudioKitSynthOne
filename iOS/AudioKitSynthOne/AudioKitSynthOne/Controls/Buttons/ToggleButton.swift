@@ -26,7 +26,7 @@ class ToggleButton: AKSynthOneControl {
     }
 
     override func draw(_ rect: CGRect) {
-        ButtonStyleKit.drawRoundButton(isToggled: isOn)
+        ToggleButtonStyleKit.drawRoundButton(isToggled: isOn)
     }
     
     // *********************************************************

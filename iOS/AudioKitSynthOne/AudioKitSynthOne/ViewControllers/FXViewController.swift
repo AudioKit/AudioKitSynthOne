@@ -47,7 +47,8 @@ class FXViewController: UpdatableViewController {
     @IBOutlet weak var delayMix: Knob!
     @IBOutlet weak var delayToggle: ToggleButton!
     
-
+    @IBOutlet weak var lfo1WavePicker: LFOWavePicker!
+    @IBOutlet weak var lfo2WavePicker: LFOWavePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()

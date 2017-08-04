@@ -759,6 +759,16 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Pitch"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaK-QY-gw2" customClass="LFOWavePicker" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="13" y="23" width="210" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xKa-3e-MJQ" customClass="LFOWavePicker" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="240" y="23" width="210" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -775,8 +785,10 @@
                         <outlet property="delayToggle" destination="dNU-Q8-hfi" id="o0T-2o-3gK"/>
                         <outlet property="lfo1Amp" destination="i2o-5u-jpE" id="ppX-wr-aBs"/>
                         <outlet property="lfo1Rate" destination="mn7-Xc-1Zo" id="yaS-MZ-WhG"/>
+                        <outlet property="lfo1WavePicker" destination="yaK-QY-gw2" id="BBl-0M-Xhd"/>
                         <outlet property="lfo2Amp" destination="yvG-Pl-PWp" id="Vv6-HH-Lyg"/>
                         <outlet property="lfo2Rate" destination="GiI-jY-k8h" id="rF9-PW-wCW"/>
+                        <outlet property="lfo2WavePicker" destination="xKa-3e-MJQ" id="GRY-0D-cfA"/>
                         <outlet property="lfoAutoPanToggle" destination="Pda-Ea-Gzs" id="tuk-P1-aNl"/>
                         <outlet property="lfoBitcrushToggle" destination="v1h-So-avW" id="0U9-L1-Wnb"/>
                         <outlet property="lfoCutoffToggle" destination="IAH-Z9-Sao" id="9ie-ol-fVs"/>
@@ -798,7 +810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7V-hT-z83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-544" y="-441"/>
+            <point key="canvasLocation" x="-544.3359375" y="-441.015625"/>
         </scene>
         <!--Seq View Controller-->
         <scene sceneID="VRP-IS-XGW">

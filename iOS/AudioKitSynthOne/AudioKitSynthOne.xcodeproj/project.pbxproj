@@ -165,6 +165,7 @@
 		949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoBtnStyleKit.swift; sourceTree = "<group>"; };
 		94B69C3A1F297E2800191C87 /* FXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
+		94E951331F3641D8009A8B00 /* Tempo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tempo.swift; sourceTree = "<group>"; };
 		94FEFEC71F3150D00064EC09 /* TransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposeButton.swift; sourceTree = "<group>"; };
 		C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceMixerViewController.swift; sourceTree = "<group>"; };
 		C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AudioKit For iOS.xcodeproj"; path = "../../../AudioKit/AudioKit/iOS/AudioKit For iOS.xcodeproj"; sourceTree = "<group>"; };
@@ -280,6 +281,7 @@
 		945C3A0B1F3142310086D58B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				94E951331F3641D8009A8B00 /* Tempo.swift */,
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
 			);
 			path = Model;

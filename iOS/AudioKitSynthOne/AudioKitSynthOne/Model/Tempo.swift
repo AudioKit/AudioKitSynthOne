@@ -1,6 +1,6 @@
 //
 //  Tempo.swift
-//  SynthUISpike
+//  AudioKit Synth One
 //
 //  Created by Matthew Fecher on 8/5/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
@@ -9,40 +9,40 @@
 struct Tempo {
     var bpm: Double
     
-    func seconds(duration: Double = 0.25) -> Double {
+    func seconds(bars: Double = 1.0) -> Double {
         return 1.0 / self.bpm * 60.0 * 4.0 * duration
     }
     
     func eightBars() -> Double {
-        return seconds(duration: 8)
+        return seconds(bars: 8)
     }
     
     func fourBars() -> Double {
-        return seconds(duration: 4)
+        return seconds(bars: 4)
     }
     
     func threeBars() -> Double {
-        return seconds(duration: 3)
+        return seconds(bars: 3)
     }
     
     func twoBars() -> Double {
-        return seconds(duration: 2)
+        return seconds(bars: 2)
     }
     
     func bar() -> Double {
-        return seconds(duration: 1)
+        return seconds(bars: 1)
     }
     
     func half() -> Double {
-        return seconds(duration: 0.5)
+        return seconds(bars: 1/2)
     }
     
     func halfTriplet() -> Double {
-        return quarter() * 1.5
+        return half() / 1.5
     }
     
     func quarter() -> Double {
-        return seconds(duration: 0.25)
+        return seconds(bars: 1/4)
     }
     
     func quarterTriplet() -> Double {
@@ -50,26 +50,26 @@ struct Tempo {
     }
     
     func eighth() -> Double {
-        return quarter() / 2
+        return seconds(bars: 1/8)
     }
     
     func eighthTriplet() -> Double {
-        return quarter() / 3
+        return eighth() / 1.5
     }
     
     func sixteenth() -> Double {
-        return quarter() / 4
+        return seconds(bars: 1/16)
     }
     
     func sixteenthTriplet() -> Double {
-        return quarter() / 6
+        return sixteenth() / 1.5
     }
     
     func thirtysecondth() -> Double {
-        return quarter() / 8
+        return seconds(bars: 1/32)
     }
     
     func sixtyFourth() -> Double {
-        return quarter() / 16
+        return seconds(bars: 1/64)
     }
 }

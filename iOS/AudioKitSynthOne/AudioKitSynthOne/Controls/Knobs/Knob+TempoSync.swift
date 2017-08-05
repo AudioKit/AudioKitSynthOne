@@ -70,36 +70,40 @@ public enum Rate: Int {
     func rateTime() -> Double {
         switch self {
         case .eightBars:
-            return tempo.eightBars()
+            return seconds(bars: 8)
         case .fourBars:
-            return tempo.fourBars()
+            return seconds(bars: 4)
         case .twoBars:
-            return tempo.twoBars()
+            return seconds(bars: 2)
         case .bar:
-            return tempo.bar()
+            return seconds(bars: 1)
         case .half:
-            return tempo.half()
+            return seconds(bars: 1/2)
         case .halfTriplet:
-            return tempo.halfTriplet()
+            return seconds(bars: 1/2, triplet: true)
         case .quarter:
-            return tempo.quarter()
+            return seconds(bars: 1/4)
         case .quarterTriplet:
-            return tempo.quarterTriplet()
+            return seconds(bars: 1/4, triplet: true)
         case .eighth:
-            return tempo.eighth()
+            return seconds(bars: 1/8)
         case .eighthTriplet:
-            return tempo.eighthTriplet()
+            return seconds(bars: 1/8, triplet: true)
         case .sixteenth:
-            return tempo.sixteenth()
+            return seconds(bars: 1/16)
         case .sixteenthTriplet:
-            return tempo.sixteenthTriplet()
+            return seconds(bars: 1/16, triplet: true)
         case .thirtySecondth:
-            return tempo.thirtysecondth()
+            return seconds(bars: 1/32)
         case .sixtyFourth:
-            return tempo.sixtyFourth()
+            return seconds(bars: 1/64)
         default:
             return 1.0
         }
+    }
+    
+    func seconds(bars: Double = 1.0, triplet: Bool = false) -> Double {
+        return 1.0 / self.bpm * 60.0 * 4.0 * duration / (triplet ? 1.5 : 1)
     }
     
 }

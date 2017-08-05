@@ -9,8 +9,8 @@
 struct Tempo {
     var bpm: Double
     
-    func seconds(bars: Double = 1.0) -> Double {
-        return 1.0 / self.bpm * 60.0 * 4.0 * duration
+    func seconds(bars: Double = 1.0, triplet: Bool = false) -> Double {
+        return 1.0 / self.bpm * 60.0 * 4.0 * duration / (triplet ? 1.5 : 1)
     }
     
     func eightBars() -> Double {

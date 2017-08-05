@@ -1,5 +1,5 @@
 //
-//  Knob+TempoSync.swift
+//  Rate.swift
 //  AudioKitSynthOne
 //
 //  Created by Matthew Fecher on 8/5/17.
@@ -8,9 +8,7 @@
 
 import UIKit
 
-var tempo = Tempo(bpm: 80)
-
-public enum Rate: Int {
+public enum Rate: Int, CustomStringConvertible {
     
     case eightBars = 0
     case fourBars
@@ -27,7 +25,7 @@ public enum Rate: Int {
     case thirtySecondth
     case sixtyFourth
     
-    func rateString() -> String {
+    public var description: String {
         switch self {
         case .eightBars:
             return "8 bars"
@@ -57,17 +55,15 @@ public enum Rate: Int {
             return "1/32 note"
         case .sixtyFourth:
             return "1/64 note"
-        default:
-            return "unknown"
         }
     }
     
-    func rateFreq() -> Double {
+    var frequency: Double {
         // code to caculate Freq Tempo
-        return 0.0
+        return 1.0 / time
     }
     
-    func rateTime() -> Double {
+     var time: Double {
         switch self {
         case .eightBars:
             return seconds(bars: 8)
@@ -97,13 +93,14 @@ public enum Rate: Int {
             return seconds(bars: 1/32)
         case .sixtyFourth:
             return seconds(bars: 1/64)
-        default:
-            return 1.0
         }
     }
-    
+
+
     func seconds(bars: Double = 1.0, triplet: Bool = false) -> Double {
-        return 1.0 / self.bpm * 60.0 * 4.0 * duration / (triplet ? 1.5 : 1)
+        let minutesPerSecond = 1.0 / 60.0
+        let beatsPerBar = 4.0
+        return (beatsPerBar * bars) / (Conductor.sharedInstance.tempo * minutesPerSecond) / (triplet ? 1.5 : 1)
     }
     
 }

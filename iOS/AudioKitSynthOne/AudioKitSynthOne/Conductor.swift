@@ -11,6 +11,9 @@ import AudioKit
 class Conductor {
     static var sharedInstance = Conductor()
 
+    var tempo: BPM = 80
+    var syncRatesToTempo = false
+
     var synth: AKSynthOne!
 
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []

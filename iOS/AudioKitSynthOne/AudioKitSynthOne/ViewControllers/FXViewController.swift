@@ -26,16 +26,16 @@ class FXViewController: UpdatableViewController {
     
     
     @IBOutlet weak var lfo1Amp: Knob!
-    @IBOutlet weak var lfo1Rate: Knob!
+    @IBOutlet weak var lfo1Rate: RateKnob!
     
     @IBOutlet weak var lfo2Amp: Knob!
-    @IBOutlet weak var lfo2Rate: Knob!
+    @IBOutlet weak var lfo2Rate: RateKnob!
     
     @IBOutlet weak var bitCrush: Knob!
     @IBOutlet weak var sampleRate: Knob!
     
     @IBOutlet weak var autoPanToggle: ToggleButton!
-    @IBOutlet weak var autoPanRate: Knob!
+    @IBOutlet weak var autoPanRate: RateKnob!
     
     @IBOutlet weak var reverbSize: Knob!
     @IBOutlet weak var reverbLowCut: Knob!
@@ -56,8 +56,7 @@ class FXViewController: UpdatableViewController {
         super.viewDidLoad()
         
         // Set Default LFO routing
-       
- 
+
         bitCrush.value = 24
         bitCrush.range = 1 ... 24
         bitCrush.taper = 2
@@ -75,10 +74,7 @@ class FXViewController: UpdatableViewController {
         delayTime.range = 0.01 ... 1.5
 
         lfo1Rate.range = 0 ... 10
-        lfo1Rate.taper = 4
         lfo2Rate.range = 0 ... 10
-        
-    
 
         conductor.bind(bitCrush,           to: .bitCrushDepth)
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)
@@ -111,6 +107,16 @@ class FXViewController: UpdatableViewController {
 
         conductor.bind(lfo1WavePicker, to: .lfo1Index)
         conductor.bind(lfo2WavePicker, to: .lfo2Index)
+
+
+        tempoSyncToggle.callback = { value in
+            print( value )
+            self.conductor.syncRatesToTempo = value == 1 ? true : false
+            self.lfo1Rate.update()
+            self.lfo2Rate.update()
+            self.autoPanRate.update()
+
+        }
 
         updateCallbacks()
     }

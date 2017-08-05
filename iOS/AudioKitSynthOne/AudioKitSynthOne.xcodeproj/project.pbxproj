@@ -50,9 +50,7 @@
 		94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
 		94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
 		94CA7BAF1F27BD1F00253C09 /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
-		94E951351F3644E5009A8B00 /* Knob+TempoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951341F3644E5009A8B00 /* Knob+TempoSync.swift */; };
-		94E951361F3652E7009A8B00 /* Tempo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951331F3641D8009A8B00 /* Tempo.swift */; };
-		94E951371F3652E7009A8B00 /* Tempo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951331F3641D8009A8B00 /* Tempo.swift */; };
+		94E951351F3644E5009A8B00 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951341F3644E5009A8B00 /* Rate.swift */; };
 		94FEFEC81F3150D00064EC09 /* TransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* TransposeButton.swift */; };
 		94FEFEC91F3150D00064EC09 /* TransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* TransposeButton.swift */; };
 		C4060ABE1F24561A00BB8882 /* ToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */; };
@@ -74,6 +72,9 @@
 		C474D9541F13172B00946035 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C474D9521F13172B00946035 /* MainInterface.storyboard */; };
 		C474D9591F13172B00946035 /* SynthOne.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C474D94B1F13172B00946035 /* SynthOne.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C47BE1441F26822F003501FF /* AKSynthOneParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */; };
+		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
+		C47FB3C41F366BBD00EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
+		C47FB3C51F366D6400EF2F01 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951341F3644E5009A8B00 /* Rate.swift */; };
 		C4CD8DDF1F2482FF0011066A /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */; };
 		C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */; };
 		C4CD8DE81F2497850011066A /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */; };
@@ -168,8 +169,7 @@
 		949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoBtnStyleKit.swift; sourceTree = "<group>"; };
 		94B69C3A1F297E2800191C87 /* FXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
-		94E951331F3641D8009A8B00 /* Tempo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tempo.swift; sourceTree = "<group>"; };
-		94E951341F3644E5009A8B00 /* Knob+TempoSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Knob+TempoSync.swift"; sourceTree = "<group>"; };
+		94E951341F3644E5009A8B00 /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		94FEFEC71F3150D00064EC09 /* TransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposeButton.swift; sourceTree = "<group>"; };
 		C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceMixerViewController.swift; sourceTree = "<group>"; };
 		C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AudioKit For iOS.xcodeproj"; path = "../../../AudioKit/AudioKit/iOS/AudioKit For iOS.xcodeproj"; sourceTree = "<group>"; };
@@ -179,6 +179,7 @@
 		C474D9531F13172B00946035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C474D9551F13172B00946035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKSynthOneParameter.swift; path = ../../../Common/AKSynthOneParameter.swift; sourceTree = "<group>"; };
+		C47FB3C21F36694300EF2F01 /* RateKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateKnob.swift; sourceTree = "<group>"; };
 		C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKSynthOne.swift; path = ../../../Common/AKSynthOne.swift; sourceTree = "<group>"; };
 		C4CD8DE91F24A77C0011066A /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewContoller.swift; sourceTree = "<group>"; };
@@ -246,10 +247,11 @@
 		945261431F29256F0037662C /* Knobs */ = {
 			isa = PBXGroup;
 			children = (
+				C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */,
 				C4F7ECA81F2446960011B119 /* Knob+Touches.swift */,
 				C4F7ECA91F2446960011B119 /* Knob.swift */,
-				C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */,
-				94E951341F3644E5009A8B00 /* Knob+TempoSync.swift */,
+				C47FB3C21F36694300EF2F01 /* RateKnob.swift */,
+				94E951341F3644E5009A8B00 /* Rate.swift */,
 			);
 			path = Knobs;
 			sourceTree = "<group>";
@@ -286,7 +288,6 @@
 		945C3A0B1F3142310086D58B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				94E951331F3641D8009A8B00 /* Tempo.swift */,
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
 			);
 			path = Model;
@@ -519,6 +520,7 @@
 				94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */,
 				9489EF641F3145EE00416F26 /* VerticalSlider.swift in Sources */,
 				C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */,
+				C47FB3C51F366D6400EF2F01 /* Rate.swift in Sources */,
 				947956B71F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				945261401F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C40770EE1F257124007F2C77 /* HeaderViewContoller.swift in Sources */,
@@ -538,9 +540,9 @@
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
 				C4060AC41F24568600BB8882 /* CGFloat+Extensions.swift in Sources */,
 				C4CD8DEB1F24A9CE0011066A /* Conductor.swift in Sources */,
-				94E951371F3652E7009A8B00 /* Tempo.swift in Sources */,
 				949D93B81F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
 				949D09371F34F6FB000FB6E0 /* LFOPickerStyleKit.swift in Sources */,
+				C47FB3C41F366BBD00EF2F01 /* RateKnob.swift in Sources */,
 				945C3A071F3141F60086D58B /* ArpButton.swift in Sources */,
 				C474D9511F13172B00946035 /* AudioUnitViewController.swift in Sources */,
 				C4CD8DE81F2497850011066A /* AKSynthOne.swift in Sources */,
@@ -570,11 +572,11 @@
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
 				94FEFEC91F3150D00064EC09 /* TransposeButton.swift in Sources */,
 				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
-				94E951361F3652E7009A8B00 /* Tempo.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				C47BE1441F26822F003501FF /* AKSynthOneParameter.swift in Sources */,
+				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
 				9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */,
 				947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A041F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
@@ -589,7 +591,7 @@
 				949D09361F34F6FB000FB6E0 /* LFOPickerStyleKit.swift in Sources */,
 				945C3A061F3141F60086D58B /* ArpButton.swift in Sources */,
 				C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */,
-				94E951351F3644E5009A8B00 /* Knob+TempoSync.swift in Sources */,
+				94E951351F3644E5009A8B00 /* Rate.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,6 +50,8 @@ class FXViewController: UpdatableViewController {
     @IBOutlet weak var lfo1WavePicker: LFOWavePicker!
     @IBOutlet weak var lfo2WavePicker: LFOWavePicker!
     
+    @IBOutlet weak var tempoSyncToggle: ToggleButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,6 +77,8 @@ class FXViewController: UpdatableViewController {
         lfo1Rate.range = 0 ... 10
         lfo1Rate.taper = 4
         lfo2Rate.range = 0 ... 10
+        
+    
 
         conductor.bind(bitCrush,           to: .bitCrushDepth)
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)

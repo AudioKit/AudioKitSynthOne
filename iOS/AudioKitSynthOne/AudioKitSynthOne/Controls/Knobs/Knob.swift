@@ -13,13 +13,23 @@ open class AKSynthOneControl: UIView {
     open var value: Double = 0
     open var callback: (Double)->Void = { _ in }
 }
+
+public enum KnobType {
+    case generic, time, rate
+}
  
 @IBDesignable
 public class Knob: AKSynthOneControl {
 
     var onlyIntegers: Bool = false
-    var tempoSync: Bool = false
+    var tempoSync: Bool = false {
+        didSet {
+             // set Knob Value - Rounding Solution!
+        }
+    }
 
+    var type: KnobType = .generic
+    
     public var taper: Double = 1.0 // Linear by default
 
     var range: ClosedRange = 0.0...1.0 {
@@ -38,8 +48,10 @@ public class Knob: AKSynthOneControl {
     override public var value: Double {
         get {
             return _value
+            // TODO: TempoSync
         }
         set(newValue) {
+            // TODO: TempoSync
             _value = range.clamp(newValue)
 
             _value = onlyIntegers ? round(_value) : _value

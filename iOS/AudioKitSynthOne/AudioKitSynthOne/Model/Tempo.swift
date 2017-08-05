@@ -8,7 +8,6 @@
 
 struct Tempo {
     var bpm: Double
-    var knobSync: Bool
     
     func seconds(duration: Double = 0.25) -> Double {
         return 1.0 / self.bpm * 60.0 * 4.0 * duration
@@ -70,7 +69,7 @@ struct Tempo {
         return quarter() / 8
     }
     
-    func sixtyfourth() -> Double {
+    func sixtyFourth() -> Double {
         return quarter() / 16
     }
 }

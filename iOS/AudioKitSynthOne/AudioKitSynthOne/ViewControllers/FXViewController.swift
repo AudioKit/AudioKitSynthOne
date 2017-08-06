@@ -52,6 +52,9 @@ class FXViewController: UpdatableViewController {
     
     @IBOutlet weak var tempoSyncToggle: ToggleButton!
     
+    @IBOutlet weak var nav1Button: NavButton!
+    @IBOutlet weak var nav2Button: NavButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

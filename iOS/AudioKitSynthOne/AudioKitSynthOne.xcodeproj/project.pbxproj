@@ -51,6 +51,10 @@
 		94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
 		94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
 		94CA7BAF1F27BD1F00253C09 /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
+		94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */; };
+		94DB18D01F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */; };
+		94DB18D21F37D879008368AE /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB18D11F37D879008368AE /* NavButton.swift */; };
+		94DB18D31F37DD4B008368AE /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB18D11F37D879008368AE /* NavButton.swift */; };
 		94E951351F3644E5009A8B00 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951341F3644E5009A8B00 /* Rate.swift */; };
 		94FEFEC81F3150D00064EC09 /* TransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* TransposeButton.swift */; };
 		94FEFEC91F3150D00064EC09 /* TransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* TransposeButton.swift */; };
@@ -171,6 +175,8 @@
 		949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoBtnStyleKit.swift; sourceTree = "<group>"; };
 		94B69C3A1F297E2800191C87 /* FXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
+		94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonStyleKit.swift; sourceTree = "<group>"; };
+		94DB18D11F37D879008368AE /* NavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButton.swift; sourceTree = "<group>"; };
 		94E951341F3644E5009A8B00 /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		94FEFEC71F3150D00064EC09 /* TransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposeButton.swift; sourceTree = "<group>"; };
 		C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceMixerViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +276,8 @@
 				949D93B51F2C188B007E657B /* LfoButton.swift */,
 				949D09321F34F6FA000FB6E0 /* LFOPickerStyleKit.swift */,
 				949D09331F34F6FA000FB6E0 /* LFOWavePicker.swift */,
+				94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */,
+				94DB18D11F37D879008368AE /* NavButton.swift */,
 				C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */,
 				C4F7ECAB1F2446960011B119 /* ToggleButton.swift */,
 				947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */,
@@ -536,11 +544,13 @@
 				94BDBD661F282956007BB7BD /* DevViewController.swift in Sources */,
 				947956AC1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A051F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
+				94DB18D31F37DD4B008368AE /* NavButton.swift in Sources */,
 				941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ToggleButtonStyleKit.swift in Sources */,
 				945261491F2928880037662C /* TouchPadViewController.swift in Sources */,
 				947956AA1F329AB200FE5D9B /* Stepper.swift in Sources */,
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
+				94DB18D01F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
 				C4060AC41F24568600BB8882 /* CGFloat+Extensions.swift in Sources */,
 				C4CD8DEB1F24A9CE0011066A /* Conductor.swift in Sources */,
 				949D93B81F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
@@ -564,6 +574,7 @@
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */,
 				94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */,
+				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
 				C4D193CA1F1187B500FF4FE4 /* SynthOneViewController.swift in Sources */,
 				947956AF1F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */,
 				9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */,
@@ -576,6 +587,7 @@
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
 				94FEFEC91F3150D00064EC09 /* TransposeButton.swift in Sources */,
 				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
+				94DB18D21F37D879008368AE /* NavButton.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,

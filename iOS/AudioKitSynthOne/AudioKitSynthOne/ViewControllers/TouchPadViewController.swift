@@ -63,8 +63,7 @@ class TouchPadViewController: UpdatableViewController {
             
             let y = CGFloat(vertical.normalized(range: self.touchPad2.verticalRange,
                                                 taper: self.touchPad2.verticalTaper))
-            self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width * CGFloat(horizontal)) + self.touchPad2.bounds.minX,
-                                                            y: self.touchPad2.bounds.height * CGFloat(1-y))
+            self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width * CGFloat(horizontal)) + self.touchPad2.bounds.minX, y: self.touchPad2.bounds.height * CGFloat(1-y))
             
             self.particleEmitter2.birthRate = 1
             self.touchPad2Label.textColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)

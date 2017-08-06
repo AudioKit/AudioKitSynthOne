@@ -74,6 +74,7 @@ class FXViewController: UpdatableViewController {
         delayTime.range = 0.01 ... 1.5
 
         lfo1Rate.range = 0 ... 10
+        lfo1Rate.taper = 3
         lfo2Rate.range = 0 ... 10
 
         conductor.bind(bitCrush,           to: .bitCrushDepth)
@@ -110,7 +111,6 @@ class FXViewController: UpdatableViewController {
 
 
         tempoSyncToggle.callback = { value in
-            print( value )
             self.conductor.syncRatesToTempo = value == 1 ? true : false
             self.lfo1Rate.update()
             self.lfo2Rate.update()

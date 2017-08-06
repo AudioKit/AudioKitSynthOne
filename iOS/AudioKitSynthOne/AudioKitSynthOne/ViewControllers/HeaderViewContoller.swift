@@ -10,20 +10,20 @@ import UIKit
 import AudioKit
 
 public class HeaderViewController: UpdatableViewController {
-
+    
     @IBOutlet weak var displayLabel: UILabel!
     var delegate: EmbeddedViewsDelegate?
-
+    
     func ADSRString(_ a: AKSynthOneParameter,
                     _ d: AKSynthOneParameter,
                     _ s: AKSynthOneParameter,
                     _ r: AKSynthOneParameter) -> String {
         return  "A: \(conductor.synth.parameters[a.rawValue].decimalString) " +
-                "D: \(conductor.synth.parameters[d.rawValue].decimalString) " +
-                "S: \(conductor.synth.parameters[s.rawValue].percentageString) " +
-                "R: \(conductor.synth.parameters[r.rawValue].decimalString) "
+            "D: \(conductor.synth.parameters[d.rawValue].decimalString) " +
+            "S: \(conductor.synth.parameters[s.rawValue].percentageString) " +
+        "R: \(conductor.synth.parameters[r.rawValue].decimalString) "
     }
-
+    
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
         
         switch param {
@@ -39,10 +39,8 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "DCO1 Vol: \(value.percentageString)"
         case .morph2Volume:
             displayLabel.text = "DCO2 Vol: \(value.percentageString)"
-        case .cutoff:
-            displayLabel.text = "Cutoff: \(value.decimalString) Hz"
-        case .resonance:
-            displayLabel.text = "Resonance: \(value.decimalString)"
+        case .cutoff, .resonance:
+            displayLabel.text = "Cutoff: \(conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue].decimalString) Hz, Rez: \(conductor.synth.parameters[AKSynthOneParameter.resonance.rawValue].decimalString)"
         case .subVolume:
             displayLabel.text = "Sub Mix: \(value.percentageString)"
         case .fmVolume:
@@ -59,7 +57,7 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "F " +
                 ADSRString(.filterAttackDuration, .filterDecayDuration, .filterSustainLevel, .filterReleaseDuration)
         case .filterADSRMix:
-                displayLabel.text = "Filter Mix \(value.percentageString)"
+            displayLabel.text = "Filter Mix \(value.percentageString)"
         case .bitCrushDepth:
             displayLabel.text = "Bit Crush Depth: \(value.decimalString)"
         case .bitCrushSampleRate:
@@ -67,7 +65,11 @@ public class HeaderViewController: UpdatableViewController {
         case .autoPanOn:
             displayLabel.text = value == 1 ? "Auto Pan On" : "Auto Pan Off"
         case .autoPanFrequency:
-            displayLabel.text = "Auto Pan: \(value.decimalString) Hz"
+            if conductor.syncRatesToTempo {
+                displayLabel.text = "AutoPan Rate: \(Rate.fromFrequency(value))"
+            } else {
+                displayLabel.text = "AutoPan Rate: \(value.decimalString) Hz"
+            }
         case .reverbOn:
             displayLabel.text = value == 1 ? "Reverb On" : "Reverb Off"
         case .reverbFeedback:
@@ -81,13 +83,26 @@ public class HeaderViewController: UpdatableViewController {
         case .delayFeedback:
             displayLabel.text = "Delay Taps: \(value.percentageString)"
         case .delayTime:
-            displayLabel.text = "Delay Time: \(value.decimalString) s"
+            if conductor.syncRatesToTempo {
+                displayLabel.text = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s"
+            } else {
+               displayLabel.text = "Delay Time: \(value.decimalString) s"
+            }
+         
         case .delayMix:
             displayLabel.text = "Delay Mix: \(value.percentageString)"
         case .lfo1Rate:
-            displayLabel.text = "LFO 1 Rate: \(value.decimalString) Hz"
+            if conductor.syncRatesToTempo {
+                displayLabel.text = "LFO 1 Rate: \(Rate.fromFrequency(value))"
+            } else {
+                displayLabel.text = "LFO 1 Rate: \(value.decimalString) Hz"
+            }
         case .lfo2Rate:
-            displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"
+            if conductor.syncRatesToTempo {
+                displayLabel.text = "LFO 2 Rate: \(Rate.fromFrequency(value))"
+            } else {
+                displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"
+            }
         case .lfo1Amplitude:
             displayLabel.text = "LFO 1: \(value.percentageString)"
         case .lfo2Amplitude:
@@ -116,7 +131,7 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Bitcrush LFO: \(value.decimalString)"
         case .autopanLFO:
             displayLabel.text = "AutoPan LFO: \(value.decimalString)"
-
+            
         default:
             _ = 0
             // do nothing

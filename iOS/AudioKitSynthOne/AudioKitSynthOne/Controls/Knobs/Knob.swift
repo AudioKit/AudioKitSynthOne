@@ -86,12 +86,7 @@ public class Knob: AKSynthOneControl {
         knobValue += (touchPoint.x - lastX) * knobSensitivity
         knobValue -= (touchPoint.y - lastY) * knobSensitivity
 
-        if knobValue > 1.0 {
-            knobValue = 1.0
-        }
-        if knobValue < 0.0 {
-            knobValue = 0.0
-        }
+        knobValue = (0.0 ... 1.0).clamp(knobValue)
 
         value = Double(knobValue).denormalized(range: range, taper: taper)
         

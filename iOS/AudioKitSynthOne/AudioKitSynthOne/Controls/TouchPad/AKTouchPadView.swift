@@ -89,7 +89,7 @@ public class AKTouchPadView: UIView {
     
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // return indicator to center of view
-        callback(horizontalValue, verticalValue)
+        //callback(horizontalValue, verticalValue)
         completionHandler(horizontalValue, verticalValue, true, false)
     }
 
@@ -115,7 +115,7 @@ public class AKTouchPadView: UIView {
 
                 self.horizontalValue = Double(self.x).denormalized(range: self.horizontalRange, taper: self.horizontalTaper)
                 self.verticalValue = Double(self.y).denormalized(range: self.verticalRange, taper: self.verticalTaper)
-                self.callback(self.horizontalValue, self.verticalValue)
+                self.completionHandler(self.horizontalValue, self.verticalValue, true, false)
         })
     }
     

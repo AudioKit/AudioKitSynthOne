@@ -107,12 +107,56 @@ public enum Rate: Int, CustomStringConvertible {
         }
     }
 
-
     func seconds(bars: Double = 1.0, triplet: Bool = false) -> Double {
         let minutesPerSecond = 1.0 / 60.0
         let beatsPerBar = 4.0
         return (beatsPerBar * bars) / (Conductor.sharedInstance.tempo * minutesPerSecond) / (triplet ? 1.5 : 1)
     }
     
+    private static func findMinimum(_ value: Double, comparator: (Int)->Double) -> Rate {
+        var closestRate = Rate(rawValue: 0)
+        var smallestDifference = 1000000000.0
+        for i in 0 ..< Rate.count {
+            let difference: Double = abs(comparator(i) - value)
+            if  difference < smallestDifference {
+                smallestDifference = difference
+                closestRate = Rate(rawValue: i)
+            }
+        }
+        return closestRate!
+    }
+    
+    static func fromFrequency(_ frequency: Double) -> Rate {
+
+        return(Rate.findMinimum(frequency, comparator: { (i) -> Double in
+            Rate(rawValue: i)!.frequency
+        }))
+//        var closestRate = Rate(rawValue: 0)
+//        var smallestDifference = 1000000000.0
+//        for i in 0 ..< Rate.count {
+//            let difference: Double = abs(Rate(rawValue: i)!.frequency - frequency)
+//            if  difference < smallestDifference {
+//                smallestDifference = difference
+//                closestRate = Rate(rawValue: i)
+//            }
+//        }
+//        return closestRate!
+    }
+    
+    static func fromTime(_ time: Double) -> Rate {
+        return(Rate.findMinimum(time, comparator: { (i) -> Double in
+            Rate(rawValue: i)!.time
+        }))
+//        var closestRate = Rate(rawValue: 0)
+//        var smallestDifference = 1000000000.0
+//        for i in 0 ..< Rate.count {
+//            let difference: Double = abs(Rate(rawValue: i)!.time - time)
+//            if  difference < smallestDifference {
+//                smallestDifference = difference
+//                closestRate = Rate(rawValue: i)
+//            }
+//        }
+//        return closestRate!
+    }
 }
 

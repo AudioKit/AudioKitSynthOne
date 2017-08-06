@@ -12,6 +12,7 @@ public enum Rate: Int, CustomStringConvertible {
     
     case eightBars = 0
     case fourBars
+    case threeBars
     case twoBars
     case bar
     case half
@@ -25,12 +26,20 @@ public enum Rate: Int, CustomStringConvertible {
     case thirtySecondth
     case sixtyFourth
     
+    static let count: Int = {
+        var max: Int = 0
+        while let _ = Rate(rawValue: max) { max += 1 }
+        return max
+    }()
+    
     public var description: String {
         switch self {
         case .eightBars:
             return "8 bars"
         case .fourBars:
             return "4 bars"
+        case .threeBars:
+            return "3 bars"
         case .twoBars:
             return "2 bars"
         case .bar:
@@ -69,6 +78,8 @@ public enum Rate: Int, CustomStringConvertible {
             return seconds(bars: 8)
         case .fourBars:
             return seconds(bars: 4)
+        case .threeBars:
+            return seconds(bars: 3)
         case .twoBars:
             return seconds(bars: 2)
         case .bar:

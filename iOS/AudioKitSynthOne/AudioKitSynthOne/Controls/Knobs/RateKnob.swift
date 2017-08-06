@@ -12,9 +12,10 @@ import AudioKit
 public class RateKnob: Knob {
 
     var conductor = Conductor.sharedInstance
-
+    
     var rate: Rate {
-        return Rate(rawValue: Int(knobValue * 14)) ?? Rate.eightBars
+        return Rate(rawValue: Int(knobValue * CGFloat(Rate.count))) ?? Rate.eightBars
+  
     }
 
     func update() {
@@ -42,14 +43,14 @@ public class RateKnob: Knob {
             if conductor.syncRatesToTempo {
                 var closestKnobValue: Int = 0
                 var smallestDifference = 1000000000.0
-                for i in 0 ... 14 {
+                for i in 0 ... Rate.count {
                     let difference: Double = abs(rate.frequency - newValue)
                     if  difference < smallestDifference {
                         smallestDifference = difference
                         closestKnobValue = i
                     }
                 }
-                //knobValue = CGFloat(closestKnobValue) / 14.0
+                //knobValue = CGFloat(closestKnobValue) / numValues
             } else {
                 _value = range.clamp(newValue)
 

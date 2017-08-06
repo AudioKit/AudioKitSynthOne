@@ -41,16 +41,14 @@ class TouchPadViewController: UpdatableViewController {
         touchPad1.callback = { horizontal, vertical in
             self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = horizontal
             self.conductor.synth.parameters[AKSynthOneParameter.detuningMultiplier.rawValue] = vertical
+            
+            self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width * CGFloat(horizontal)), y: self.touchPad2.bounds.height/2)
+            self.particleEmitter1.birthRate = 1
+            self.touchPad1Label.textColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
         }
 
         touchPad1.completionHandler = { horizontal, _, touchesEnded, reset in
-            if !reset {
-                self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width * CGFloat(horizontal)), y: self.touchPad2.bounds.height/2)
-                self.particleEmitter1.birthRate = 1
-                self.touchPad1Label.textColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
-            }
-
-            if touchesEnded {
+            if touchesEnded && !reset {
                 self.touchPad1.resetToPosition(self.oscBalance, 0.5)
                 self.particleEmitter1.birthRate = 0
                 self.touchPad1Label.textColor = #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 1)

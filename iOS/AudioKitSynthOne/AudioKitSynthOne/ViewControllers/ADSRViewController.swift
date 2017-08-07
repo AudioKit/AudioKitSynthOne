@@ -23,6 +23,11 @@ class ADSRViewController: UpdatableViewController {
     @IBOutlet weak var filterReleaseKnob: Knob!
     @IBOutlet weak var filterADSRMixKnob: Knob!
     
+    @IBOutlet weak var nav1Button: NavButton!
+    @IBOutlet weak var nav2Button: NavButton!
+    
+    var navDelegate: EmbeddedViewsDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         filterADSRMixKnob.range = 0.0 ... 1.2
@@ -38,6 +43,20 @@ class ADSRViewController: UpdatableViewController {
         conductor.bind(filterSustainKnob, to: .filterSustainLevel)
         conductor.bind(filterReleaseKnob, to: .filterReleaseDuration)
         conductor.bind(filterADSRMixKnob, to: .filterADSRMix)
+        
+        navButtonsSetup()
+    }
+    
+    func navButtonsSetup() {
+        // Nav Button Callbacks
+        nav1Button.callback = { _ in
+            self.navDelegate?.switchToChildView(.oscView)
+        }
+        
+        nav2Button.callback = { _ in
+            self.navDelegate?.switchToChildView(.fxView)
+        }
+        
     }
 
     override func updateCallbacks() {

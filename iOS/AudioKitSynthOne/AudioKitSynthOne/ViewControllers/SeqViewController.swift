@@ -16,9 +16,14 @@ class SeqViewController: UpdatableViewController {
     @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
     @IBOutlet weak var arpSeqToggle: ToggleSwitch!
     
+    @IBOutlet weak var nav1Button: NavButton!
+    @IBOutlet weak var nav2Button: NavButton!
+    
     let sliderTags = 400 ... 415
     let sliderToggleTags = 500 ... 515
     let sliderLabelTags = 550 ... 565
+    
+    var navDelegate: EmbeddedViewsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,8 @@ class SeqViewController: UpdatableViewController {
         setupValues()
         
         updateCallbacks()
+        
+        navButtonsSetup()
     }
     
     // *********************************************************
@@ -58,6 +65,16 @@ class SeqViewController: UpdatableViewController {
             }
         }
         
+    }
+    
+    func navButtonsSetup() {
+        nav1Button.callback = { _ in
+            self.navDelegate?.switchToChildView(.padView)
+        }
+        
+        nav2Button.callback = { _ in
+            self.navDelegate?.switchToChildView(.oscView)
+        }
     }
     
     //*****************************************************************

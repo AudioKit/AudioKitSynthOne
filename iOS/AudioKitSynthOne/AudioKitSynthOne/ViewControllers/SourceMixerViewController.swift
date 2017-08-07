@@ -34,7 +34,12 @@ public class SourceMixerViewController: UpdatableViewController {
     @IBOutlet weak var noiseVolume: Knob!
 
     @IBOutlet weak var masterVolume: Knob!
-
+    
+    @IBOutlet weak var nav1Button: NavButton!
+    @IBOutlet weak var nav2Button: NavButton!
+    
+    var navDelegate: EmbeddedViewsDelegate?
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,6 +84,17 @@ public class SourceMixerViewController: UpdatableViewController {
         conductor.bind(masterVolume,         to: .masterVolume)
 
         updateCallbacks()
+        navButtonsSetup()
+    }
+    
+    func navButtonsSetup() {
+        nav1Button.callback = { _ in
+            self.navDelegate?.switchToChildView(.seqView)
+        }
+        
+        nav2Button.callback = { _ in
+            self.navDelegate?.switchToChildView(.adsrView)
+        }
     }
 }
 

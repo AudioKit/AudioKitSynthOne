@@ -178,6 +178,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         remove(asChildViewController: fxViewController)
         remove(asChildViewController: seqViewController)
     }
+    
 }
 
 // **********************************************************
@@ -187,24 +188,28 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
 extension SynthOneViewController: EmbeddedViewsDelegate {
     
     func switchToChildView(_ newView: ChildView) {
-        
         // remove all child views
         removeAllChildViews()
         
         switch newView {
         case .adsrView:
             // ADSR is always here
+            adsrViewController.navDelegate = self
             break;
         case .oscView:
             add(asChildViewController: mixerViewController)
+            mixerViewController.navDelegate = self
         case .devView:
             add(asChildViewController: devViewController)
         case .padView:
             add(asChildViewController: padViewController)
+            padViewController.navDelegate = self
         case .fxView:
             add(asChildViewController: fxViewController)
+            fxViewController.navDelegate = self
         case .seqView:
             add(asChildViewController: seqViewController)
+            seqViewController.navDelegate = self
         }
     }
 }

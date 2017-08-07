@@ -16,6 +16,9 @@ class TouchPadViewController: UpdatableViewController {
     @IBOutlet weak var touchPad1Label: UILabel!
     @IBOutlet weak var snapToggle: ToggleButton!
     
+    @IBOutlet weak var nav1Button: NavButton!
+    @IBOutlet weak var nav2Button: NavButton!
+    
     let particleEmitter1 = CAEmitterLayer()
     let particleEmitter2 = CAEmitterLayer()
     
@@ -23,6 +26,8 @@ class TouchPadViewController: UpdatableViewController {
     var rez: Double = 0.0
     var oscBalance: Double = 0.0
     var detuningMultiplier: Double = 0.0
+    
+    var navDelegate: EmbeddedViewsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,19 @@ class TouchPadViewController: UpdatableViewController {
         updateCallbacks()
         createParticles()
         
+        navButtonsSetup()
+    }
+    
+    func navButtonsSetup() {
+        // Nav Button Callbacks
+        nav1Button.callback = { _ in
+            self.navDelegate?.switchToChildView(.fxView)
+        }
+        
+        nav2Button.callback = { _ in
+            self.navDelegate?.switchToChildView(.seqView)
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,9 +67,9 @@ class TouchPadViewController: UpdatableViewController {
         cutoff = conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue]
         
         let y = cutoff.normalized(range: touchPad2.verticalRange,
-                                            taper: touchPad2.verticalTaper)
+                                  taper: touchPad2.verticalTaper)
         touchPad2.resetToPosition(rez, y)
-   
+        
     }
     
     override func updateCallbacks() {
@@ -83,7 +101,7 @@ class TouchPadViewController: UpdatableViewController {
                 self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = self.oscBalance
                 self.touchPad1.resetToPosition(self.oscBalance, 0.5)
             }
-    
+            
         }
         
         touchPad2.callback = { horizontal, vertical, touchesBegan in
@@ -94,7 +112,7 @@ class TouchPadViewController: UpdatableViewController {
                 
                 // start particles
                 let y = CGFloat(self.cutoff.normalized(range: self.touchPad2.verticalRange,
-                                                    taper: self.touchPad2.verticalTaper))
+                                                       taper: self.touchPad2.verticalTaper))
                 
                 self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width * CGFloat(self.rez)) + self.touchPad2.bounds.minX, y: self.touchPad2.bounds.height * CGFloat(1-y))
                 
@@ -117,10 +135,12 @@ class TouchPadViewController: UpdatableViewController {
                 self.conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue] = self.cutoff
                 
                 let y = self.cutoff.normalized(range: self.touchPad2.verticalRange,
-                                                  taper: self.touchPad2.verticalTaper)
+                                               taper: self.touchPad2.verticalTaper)
                 self.touchPad2.resetToPosition(self.rez, y)
             }
         }
+        
+  
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
@@ -140,6 +160,8 @@ class TouchPadViewController: UpdatableViewController {
         // touchPad1Label.text = "Bend: \(detuningMultiplier.decimalString)x octave"
         
     }
+    
+    
     
     // *********************************************************
     // MARK: - Particles

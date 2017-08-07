@@ -14,6 +14,7 @@ class TouchPadViewController: UpdatableViewController {
     @IBOutlet weak var touchPad2: AKTouchPadView!
     
     @IBOutlet weak var touchPad1Label: UILabel!
+    @IBOutlet weak var snapToggle: ToggleButton!
     
     let particleEmitter1 = CAEmitterLayer()
     let particleEmitter2 = CAEmitterLayer()
@@ -22,8 +23,6 @@ class TouchPadViewController: UpdatableViewController {
     var rez: Double = 0.0
     var oscBalance: Double = 0.0
     var detuningMultiplier: Double = 0.0
-    
-    @IBOutlet weak var snapToggle: ToggleButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +33,18 @@ class TouchPadViewController: UpdatableViewController {
         touchPad2.verticalRange = 120 ... 28000
         touchPad2.verticalTaper = 4.04
         
+        snapToggle.isOn = true
+        
         updateCallbacks()
         createParticles()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        oscBalance = conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue]
+        touchPad1.resetToPosition(oscBalance, 0.5)
+        
         rez = conductor.synth.parameters[AKSynthOneParameter.resonance.rawValue]
         cutoff = conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue]
         
@@ -52,26 +57,33 @@ class TouchPadViewController: UpdatableViewController {
     override func updateCallbacks() {
         
         touchPad1.callback = { horizontal, vertical, touchesBegan in
-            self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = horizontal
-            self.conductor.synth.parameters[AKSynthOneParameter.detuningMultiplier.rawValue] = vertical
-            
             if touchesBegan {
+                // record values before touched
+                self.oscBalance = self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue]
+                
+                // start particles
                 self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width * CGFloat(horizontal)), y: self.touchPad2.bounds.height/2)
                 self.particleEmitter1.birthRate = 1
-                self.touchPad1Label.textColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
+                // self.touchPad1Label.textColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
             }
+            
+            // Affect parameters based on touch position
+            self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = horizontal
+            self.conductor.synth.parameters[AKSynthOneParameter.detuningMultiplier.rawValue] = vertical
         }
         
         touchPad1.completionHandler = { horizontal, vertical, touchesEnded, reset in
             
             if touchesEnded {
                 self.particleEmitter1.birthRate = 0
-                self.touchPad1Label.textColor = #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 1)
+                self.touchPad1Label.textColor = #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 0)
             }
             
             if self.snapToggle.isOn && touchesEnded && !reset {
+                self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = self.oscBalance
                 self.touchPad1.resetToPosition(self.oscBalance, 0.5)
             }
+    
         }
         
         touchPad2.callback = { horizontal, vertical, touchesBegan in
@@ -107,7 +119,6 @@ class TouchPadViewController: UpdatableViewController {
                 let y = self.cutoff.normalized(range: self.touchPad2.verticalRange,
                                                   taper: self.touchPad2.verticalTaper)
                 self.touchPad2.resetToPosition(self.rez, y)
-                print("reset: r: \(self.rez), c: \(self.cutoff), \(y)")
             }
         }
     }
@@ -126,7 +137,7 @@ class TouchPadViewController: UpdatableViewController {
     }
     
     func updateLabels() {
-        touchPad1Label.text = "Pitch Bend: \(detuningMultiplier.decimalString)"
+        // touchPad1Label.text = "Bend: \(detuningMultiplier.decimalString)x octave"
         
     }
     
@@ -154,7 +165,7 @@ class TouchPadViewController: UpdatableViewController {
     func makeEmitterCellWithColor(_ color: UIColor) -> CAEmitterCell {
         let cell = CAEmitterCell()
         cell.birthRate = 100
-        cell.lifetime = 1.20
+        cell.lifetime = 1.60
         cell.alphaSpeed = 1.0
         cell.lifetimeRange = 0
         cell.color = color.cgColor

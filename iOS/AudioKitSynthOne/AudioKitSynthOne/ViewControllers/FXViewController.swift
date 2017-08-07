@@ -9,7 +9,6 @@
 import UIKit
 
 class FXViewController: UpdatableViewController {
-    
 
     @IBOutlet weak var lfoCutoffToggle: LfoButton!
     @IBOutlet weak var lfoRezToggle: LfoButton!

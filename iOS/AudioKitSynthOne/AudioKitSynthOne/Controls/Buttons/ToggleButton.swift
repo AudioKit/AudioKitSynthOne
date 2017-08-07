@@ -15,7 +15,7 @@ class ToggleButton: AKSynthOneControl {
     // MARK: - ToggleButton
     // *********************************************************
 
-    private var isOn = false
+    var isOn = false
     override var value: Double {
         get {
             return isOn ? 1 : 0
@@ -37,7 +37,6 @@ class ToggleButton: AKSynthOneControl {
         for _ in touches {
             isOn = !isOn
             self.setNeedsDisplay()
-            print("calling back")
             callback(value)
         }
     }

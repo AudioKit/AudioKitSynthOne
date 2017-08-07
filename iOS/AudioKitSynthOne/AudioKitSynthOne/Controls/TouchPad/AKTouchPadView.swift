@@ -13,8 +13,8 @@ public class AKTouchPadView: UIView {
     // touch properties
     var firstTouch: UITouch?
 
-    public typealias AKTouchPadCallback = (Double, Double) -> Void
-    var callback: AKTouchPadCallback = { _, _ in }
+    public typealias AKTouchPadCallback = (Double, Double, Bool) -> Void
+    var callback: AKTouchPadCallback = { _, _, _ in }
 
     public typealias AKTouchPadCompletionHandler = (Double, Double, Bool, Bool) -> Void
     var completionHandler: AKTouchPadCompletionHandler = { _, _, _, _ in }
@@ -76,7 +76,8 @@ public class AKTouchPadView: UIView {
             let touchPoint = touch.location(in: self)
             lastX = touchPoint.x
             lastY = touchPoint.y
-            setPercentagesWithTouchPoint(touchPoint)
+            let began = true
+            setPercentagesWithTouchPoint(touchPoint, began: began)
         }
     }
     
@@ -94,9 +95,8 @@ public class AKTouchPadView: UIView {
 
     func resetToCenter() {
         resetToPosition(0.5, 0.5)
-        self.horizontalValue = Double(self.x).denormalized(range: self.horizontalRange, taper: self.horizontalTaper)
-        self.verticalValue = Double(self.y).denormalized(range: self.verticalRange, taper: self.verticalTaper)
-        self.callback(self.horizontalValue, self.verticalValue)
+        /*self.horizontalValue = Double(self.x).denormalized(range: self.horizontalRange, taper: self.horizontalTaper)
+        self.verticalValue = Double(self.y).denormalized(range: self.verticalRange, taper: self.verticalTaper) */
     }
     
     func resetToPosition(_ newPercentX: Double, _ newPercentY: Double) {
@@ -118,14 +118,14 @@ public class AKTouchPadView: UIView {
         })
     }
     
-    func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
+    func setPercentagesWithTouchPoint(_ touchPoint: CGPoint, began: Bool = false) {
         x = CGFloat((0.0 ... 1.0).clamp(touchPoint.x / self.bounds.size.width))
         y = CGFloat((0.0 ... 1.0).clamp(1 - touchPoint.y / self.bounds.size.height))
 
         touchImageView.center = CGPoint(x: touchPoint.x, y: touchPoint.y)
         horizontalValue = Double(x).denormalized(range: horizontalRange, taper: horizontalTaper)
         verticalValue = Double(y).denormalized(range: verticalRange, taper: verticalTaper)
-        callback(horizontalValue, verticalValue)
+        callback(horizontalValue, verticalValue, began)
     }
     
 }

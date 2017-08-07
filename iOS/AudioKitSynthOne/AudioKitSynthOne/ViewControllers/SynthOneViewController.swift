@@ -104,7 +104,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         conductor.start()
         
         // Set initial subviews
-        switchToChildView(.fxView)
+        switchToChildView(.padView)
         
         // Set delegates
         if let childVC = self.childViewControllers.first as? HeaderViewController {

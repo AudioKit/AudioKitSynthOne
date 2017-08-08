@@ -62,8 +62,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uw2-JG-GSz" userLabel="KeyboardContainer">
                                 <rect key="frame" x="0.0" y="498" width="1024" height="270"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyboard_top" translatesAutoresizingMaskIntoConstraints="NO" id="oOK-6u-M58">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1024" id="4gh-fo-AQm"/>
+                                            <constraint firstAttribute="height" constant="47" id="nak-IJ-Hzc"/>
+                                        </constraints>
+                                    </imageView>
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
-                                        <rect key="frame" x="7" y="45" width="1010" height="225"/>
+                                        <rect key="frame" x="7" y="46" width="1010" height="224"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="octaveCount">
@@ -72,10 +79,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39J-5A-Jtm" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="74" y="6" width="50" height="32"/>
+                                        <rect key="frame" x="74" y="7" width="50" height="32"/>
                                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="KRv-Uo-TgU"/>
+                                            <constraint firstAttribute="width" constant="50" id="Ajd-oh-NWU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -87,10 +94,10 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTi-x2-zwk" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="132" y="6" width="50" height="32"/>
+                                        <rect key="frame" x="132" y="7" width="50" height="32"/>
                                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="540-dz-VXQ"/>
+                                            <constraint firstAttribute="width" constant="50" id="Val-Zi-13d"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -102,10 +109,10 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9j-zW-Pky" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="6" width="50" height="32"/>
+                                        <rect key="frame" x="16" y="7" width="50" height="32"/>
                                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="avA-rJ-7tn"/>
+                                            <constraint firstAttribute="width" constant="50" id="zTa-VF-B5h"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -117,11 +124,10 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-tw-s2d" userLabel="Keyboard Toggle" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="934" y="6" width="75" height="32"/>
+                                        <rect key="frame" x="934" y="7" width="75" height="32"/>
                                         <color key="backgroundColor" red="0.24313725490196078" green="0.24313725490196078" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="7hw-t4-prE"/>
-                                            <constraint firstAttribute="height" constant="32" id="Jnx-AM-c4B"/>
+                                            <constraint firstAttribute="width" constant="75" id="XZt-ST-gGH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -132,42 +138,53 @@
                                             <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Octave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-Ri-7nN">
-                                        <rect key="frame" x="758" y="11" width="42" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Octave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-Ri-7nN">
+                                        <rect key="frame" x="758" y="12" width="42" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="42" id="hfs-JQ-anm"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ3-lz-BGf" customClass="Stepper" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="808" y="4" width="108" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ3-lz-BGf" customClass="Stepper" customModule="AudioKitSynthOne">
+                                        <rect key="frame" x="808" y="6" width="108" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="top" secondItem="39J-5A-Jtm" secondAttribute="top" id="5Zb-9J-ejn"/>
-                                    <constraint firstAttribute="bottom" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="6G0-qn-iLo"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="centerX" secondItem="uw2-JG-GSz" secondAttribute="centerX" id="8M3-fn-YKT"/>
-                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="baseline" id="9Yo-iq-GLz"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="16" id="Czo-2W-b7U"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="baseline" id="EKJ-BU-AtC"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="firstBaseline" id="FpU-j6-kl7"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="firstBaseline" id="0G2-Jn-2ac"/>
+                                    <constraint firstAttribute="trailing" secondItem="O7h-tw-s2d" secondAttribute="trailing" constant="15" id="7An-fc-DE2"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="C9j-zW-Pky" secondAttribute="firstBaseline" id="A2Q-Qh-JoS"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="7" id="BV3-1X-fgE"/>
+                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="baseline" secondItem="ACV-Ri-7nN" secondAttribute="baseline" id="CdS-4W-O6F"/>
+                                    <constraint firstItem="oOK-6u-M58" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" id="H0A-aZ-tgH"/>
+                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="leading" secondItem="39J-5A-Jtm" secondAttribute="trailing" constant="8" symbolic="YES" id="HJY-u8-bjV"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="baseline" id="Hw5-L4-bhp"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="baseline" id="IQn-EE-dkJ"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="ZJ3-lz-BGf" secondAttribute="bottom" constant="5" id="J2F-vH-KS9"/>
                                     <constraint firstAttribute="height" constant="270" id="Lu3-cu-71Z"/>
-                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="top" secondItem="FTi-x2-zwk" secondAttribute="top" id="aYG-m1-T83"/>
-                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="leading" secondItem="39J-5A-Jtm" secondAttribute="trailing" constant="8" symbolic="YES" id="af0-8Y-zzf"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="top" secondItem="FTi-x2-zwk" secondAttribute="top" id="b8p-Xi-iOH"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="O7h-tw-s2d" secondAttribute="bottom" constant="7" id="cOD-oV-A1a"/>
-                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" constant="6" id="glr-Mu-lUT"/>
-                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="firstBaseline" secondItem="FTi-x2-zwk" secondAttribute="baseline" id="gyR-1r-fPO"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="7" id="i2L-Fz-UyW"/>
+                                    <constraint firstAttribute="trailing" secondItem="oOK-6u-M58" secondAttribute="trailing" id="Ofs-di-XSY"/>
+                                    <constraint firstItem="ZJ3-lz-BGf" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="808" id="S3p-PQ-0N1"/>
+                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="leading" secondItem="ZJ3-lz-BGf" secondAttribute="trailing" constant="18" id="T6R-Ow-5js"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="leading" secondItem="C9j-zW-Pky" secondAttribute="trailing" constant="8" symbolic="YES" id="Uwh-Wi-C4J"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" constant="46" id="Xyy-gK-2AQ"/>
+                                    <constraint firstItem="ACV-Ri-7nN" firstAttribute="baseline" secondItem="O7h-tw-s2d" secondAttribute="baseline" id="aAz-YD-Dsx"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="top" secondItem="FTi-x2-zwk" secondAttribute="top" id="aWu-Jh-ypG"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="16" id="bAm-5n-Acs"/>
+                                    <constraint firstAttribute="bottom" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="dbH-gS-2dL"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="centerX" secondItem="oOK-6u-M58" secondAttribute="centerX" id="ebA-Tp-8ss"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="ACV-Ri-7nN" secondAttribute="bottom" constant="12" id="ecp-nO-W7o"/>
                                     <constraint firstAttribute="width" constant="1024" id="i8R-Mx-RnE"/>
-                                    <constraint firstAttribute="trailing" secondItem="O7h-tw-s2d" secondAttribute="trailing" constant="15" id="kkn-WR-MKR"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="firstBaseline" id="r8t-sF-ads"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="leading" secondItem="C9j-zW-Pky" secondAttribute="trailing" constant="8" symbolic="YES" id="tdq-hf-0oc"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="baseline" id="wXR-YP-96y"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="C9j-zW-Pky" secondAttribute="firstBaseline" id="xTr-q2-3hl"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="top" secondItem="39J-5A-Jtm" secondAttribute="top" id="igr-ay-g5Z"/>
+                                    <constraint firstItem="ACV-Ri-7nN" firstAttribute="baseline" secondItem="O7h-tw-s2d" secondAttribute="firstBaseline" id="nmE-WX-sP4"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="C9j-zW-Pky" secondAttribute="bottom" constant="7" id="pCd-IC-Qg1"/>
+                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="top" secondItem="O7h-tw-s2d" secondAttribute="top" id="rbx-lS-bZd"/>
+                                    <constraint firstItem="ZJ3-lz-BGf" firstAttribute="leading" secondItem="ACV-Ri-7nN" secondAttribute="trailing" constant="8" symbolic="YES" id="rqW-DB-TcP"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="firstBaseline" id="udM-yv-YQi"/>
+                                    <constraint firstItem="oOK-6u-M58" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" id="vWD-jg-FLD"/>
+                                    <constraint firstItem="ACV-Ri-7nN" firstAttribute="centerY" secondItem="ZJ3-lz-BGf" secondAttribute="centerY" id="yX3-1Z-mjP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1390,5 +1407,6 @@
         <image name="au_main" width="1024" height="299"/>
         <image name="au_touchpad" width="1024" height="299"/>
         <image name="headerback" width="1024" height="38"/>
+        <image name="keyboard_top" width="1023" height="47"/>
     </resources>
 </document>

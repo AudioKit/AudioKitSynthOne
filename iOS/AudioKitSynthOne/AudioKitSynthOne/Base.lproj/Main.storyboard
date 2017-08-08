@@ -116,7 +116,7 @@
                                             <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-tw-s2d" userLabel="Keyboard Toggle">
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-tw-s2d" userLabel="Keyboard Toggle" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                         <rect key="frame" x="934" y="6" width="75" height="32"/>
                                         <color key="backgroundColor" red="0.24313725490196078" green="0.24313725490196078" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -131,9 +131,6 @@
                                         <state key="selected">
                                             <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="keyboardToggled:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9oI-zj-8XO"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Octave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-Ri-7nN">
                                         <rect key="frame" x="758" y="11" width="42" height="22"/>
@@ -192,8 +189,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="holdButton" destination="39J-5A-Jtm" id="jKu-XJ-QBn"/>
                         <outlet property="keyboardBottomConstraint" destination="PEn-Gy-uTb" id="DR1-2q-zLe"/>
+                        <outlet property="keyboardToggle" destination="O7h-tw-s2d" id="4MG-Tz-Df0"/>
                         <outlet property="keyboardView" destination="kQD-gK-cOc" id="w3W-qi-8XQ"/>
+                        <outlet property="midiButton" destination="C9j-zW-Pky" id="Xwb-TL-joD"/>
+                        <outlet property="monoButton" destination="FTi-x2-zwk" id="6K7-cc-Waz"/>
+                        <outlet property="octaveStepper" destination="ZJ3-lz-BGf" id="3yD-ED-e4v"/>
                         <outlet property="topContainerView" destination="FVi-Ld-MF5" id="hUr-7n-IQP"/>
                     </connections>
                 </viewController>

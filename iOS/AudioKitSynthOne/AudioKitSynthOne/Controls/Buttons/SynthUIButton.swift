@@ -16,7 +16,6 @@ class SynthUIButton: UIButton {
         didSet {
             isOn = isSelected
             self.backgroundColor = isOn ? #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1) : #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 1)
-            print ("isOn \(isOn)")
         }
     }
     
@@ -30,17 +29,13 @@ class SynthUIButton: UIButton {
     }
     public var callback: (Double)->Void = { _ in }
     
-    /*
-    override func draw(_ rect: CGRect) {
-        ToggleSwitchStyleKit.drawToggleSwitch(isToggled: isOn)
-    }
-    */
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         clipsToBounds = true
-        layer.cornerRadius = 1
+        layer.cornerRadius = 2
+        layer.borderWidth = 2
+        layer.borderColor = #colorLiteral(red: 0.09803921569, green: 0.09803921569, blue: 0.09803921569, alpha: 1)
     }
     
     // *********************************************************

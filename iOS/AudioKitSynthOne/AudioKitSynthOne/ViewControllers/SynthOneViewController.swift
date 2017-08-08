@@ -28,6 +28,11 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     @IBOutlet weak var keyboardView: AKKeyboardView?
     @IBOutlet weak var keyboardBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var midiButton: SynthUIButton!
+    @IBOutlet weak var holdButton: SynthUIButton!
+    @IBOutlet weak var monoButton: SynthUIButton!
+    @IBOutlet weak var keyboardToggle: SynthUIButton!
+    @IBOutlet weak var octaveStepper: Stepper!
     
     var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
@@ -113,6 +118,10 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
             childVC.delegate = self
         }
         
+        buttonCallbacks()
+        
+        octaveStepper.minValue = -2
+        octaveStepper.maxValue = 2
     }
     
     //    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
@@ -127,26 +136,20 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     
     // ********************************************************
-    // MARK: - IBActions
+    // MARK: - Callbacks
     // ********************************************************
     
-    @IBAction func keyboardToggled(_ sender: UIButton) {
+    func buttonCallbacks() {
         
-        sender.isSelected = !sender.isSelected
-        
-        var newConstraintValue: CGFloat
-        if sender.isSelected {
-            newConstraintValue = 0
-            sender.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
-        } else {
-            newConstraintValue = -138
-            sender.backgroundColor = #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 1)
+        keyboardToggle.callback = { value in
+            
+            let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -138
+            
+            UIView.animate(withDuration: Double(0.4), animations: {
+                self.keyboardBottomConstraint.constant = newConstraintValue
+                self.view.layoutIfNeeded()
+            })
         }
-        
-        UIView.animate(withDuration: Double(0.4), animations: {
-            self.keyboardBottomConstraint.constant = newConstraintValue
-            self.view.layoutIfNeeded()
-        })
     }
     
     // **********************************************************

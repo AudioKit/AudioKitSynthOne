@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,41 +50,84 @@
                                     <segue destination="kXR-JJ-XpL" kind="embed" id="Qbh-Cu-wMO"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
-                                <rect key="frame" x="0.0" y="337" width="1024" height="431"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3C-71-5ce">
+                                <rect key="frame" x="0.0" y="337" width="1024" height="299"/>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="1024" id="qE7-Wi-suM"/>
+                                    <constraint firstAttribute="height" constant="299" id="EwK-D6-SeG"/>
+                                    <constraint firstAttribute="width" constant="1024" id="LFW-n6-Wa7"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="octaveCount">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uw2-JG-GSz" userLabel="KeyboardContainer">
+                                <rect key="frame" x="0.0" y="498" width="1024" height="270"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
+                                        <rect key="frame" x="0.0" y="45" width="1024" height="225"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="octaveCount">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-tw-s2d">
+                                        <rect key="frame" x="931" y="6" width="83" height="32"/>
+                                        <color key="backgroundColor" red="0.24313725490196078" green="0.24313725490196078" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="83" id="bQy-Tc-jSM"/>
+                                            <constraint firstAttribute="height" constant="32" id="mPc-Ti-UIV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Keyboard">
+                                            <color key="titleColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="keyboardToggled:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9oI-zj-8XO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="O7h-tw-s2d" secondAttribute="bottom" constant="7" id="Cv9-DS-N4r"/>
+                                    <constraint firstAttribute="height" constant="270" id="Lu3-cu-71Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="O7h-tw-s2d" secondAttribute="trailing" constant="10" id="NVg-Sy-6PK"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" id="VXc-U9-35d"/>
+                                    <constraint firstAttribute="bottom" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="ae4-3h-z4S"/>
+                                    <constraint firstAttribute="width" constant="1024" id="i8R-Mx-RnE"/>
+                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" constant="6" id="zmc-4D-Jxx"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uw2-JG-GSz" secondAttribute="trailing" id="1ZR-vm-Ffp"/>
                             <constraint firstAttribute="trailing" secondItem="RnT-Kx-qNG" secondAttribute="trailing" id="3Lo-qO-BtL"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="top" secondItem="RnT-Kx-qNG" secondAttribute="bottom" id="4mP-L3-8Up"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ps-Uq-68M"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="M2C-PZ-ZbZ"/>
+                            <constraint firstItem="uw2-JG-GSz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Euv-3m-1zD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="bottom" id="PEn-Gy-uTb"/>
                             <constraint firstItem="RnT-Kx-qNG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U2m-cp-QYv"/>
-                            <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZGm-Lc-cpD"/>
-                            <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="FVi-Ld-MF5" secondAttribute="bottom" id="cfe-bD-oxt"/>
+                            <constraint firstAttribute="trailing" secondItem="B3C-71-5ce" secondAttribute="trailing" id="WKF-2m-U1a"/>
+                            <constraint firstItem="B3C-71-5ce" firstAttribute="top" secondItem="FVi-Ld-MF5" secondAttribute="bottom" id="apV-TI-uEJ"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="top" secondItem="RnT-Kx-qNG" secondAttribute="bottom" id="hT0-7c-nJX"/>
                             <constraint firstAttribute="trailing" secondItem="FVi-Ld-MF5" secondAttribute="trailing" id="iYc-5k-z6U"/>
+                            <constraint firstItem="B3C-71-5ce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rKM-Cz-kj5"/>
                             <constraint firstItem="RnT-Kx-qNG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uyo-mL-gwX"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="keyboardBottomConstraint" destination="PEn-Gy-uTb" id="DR1-2q-zLe"/>
                         <outlet property="keyboardView" destination="kQD-gK-cOc" id="w3W-qi-8XQ"/>
                         <outlet property="topContainerView" destination="FVi-Ld-MF5" id="hUr-7n-IQP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1198.2421875" y="-514.0625"/>
+            <point key="canvasLocation" x="-1354" y="-477"/>
         </scene>
         <!--Source Mixer-->
         <scene sceneID="h0Y-DX-cbn">
@@ -251,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1Q-CL-vib" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="89" y="-441"/>
+            <point key="canvasLocation" x="546" y="-442"/>
         </scene>
         <!--Header-->
         <scene sceneID="uWT-k1-pAc">
@@ -349,7 +392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFg-69-Hlo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-544" y="-939"/>
+            <point key="canvasLocation" x="-583" y="-1064"/>
         </scene>
         <!--ADSR-->
         <scene sceneID="crk-4V-XLk">
@@ -511,7 +554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8q-3b-bAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-544" y="-745"/>
+            <point key="canvasLocation" x="-557" y="-825"/>
         </scene>
         <!--DEV-->
         <scene sceneID="JRs-Mi-uc0">
@@ -532,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91R-2p-bBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1206" y="-5"/>
+            <point key="canvasLocation" x="-1720" y="456"/>
         </scene>
         <!--TouchPad-->
         <scene sceneID="dsG-FG-foi">
@@ -617,7 +660,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRA-I0-37X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98" y="-126"/>
+            <point key="canvasLocation" x="546" y="-54"/>
         </scene>
         <!--FX-->
         <scene sceneID="axr-IY-d6c">
@@ -1263,7 +1306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQk-sd-9z1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-544.3359375" y="-126.171875"/>
+            <point key="canvasLocation" x="-545" y="-38"/>
         </scene>
     </scenes>
     <resources>

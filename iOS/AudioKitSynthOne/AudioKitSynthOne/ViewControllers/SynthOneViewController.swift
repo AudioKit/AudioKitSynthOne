@@ -26,6 +26,8 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var keyboardView: AKKeyboardView?
+    @IBOutlet weak var keyboardBottomConstraint: NSLayoutConstraint!
+    
     
     var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
@@ -104,7 +106,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         conductor.start()
         
         // Set initial subviews
-        switchToChildView(.padView)
+        switchToChildView(.fxView)
         
         // Set delegates
         if let childVC = self.childViewControllers.first as? HeaderViewController {
@@ -128,6 +130,24 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     // MARK: - IBActions
     // ********************************************************
     
+    @IBAction func keyboardToggled(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+        
+        var newConstraintValue: CGFloat
+        if sender.isSelected {
+            newConstraintValue = 0
+            sender.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
+        } else {
+            newConstraintValue = -138
+            sender.backgroundColor = #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 1)
+        }
+        
+        UIView.animate(withDuration: Double(0.4), animations: {
+            self.keyboardBottomConstraint.constant = newConstraintValue
+            self.view.layoutIfNeeded()
+        })
+    }
     
     // **********************************************************
     // MARK: - Note on/off

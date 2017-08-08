@@ -37,6 +37,8 @@
 		9489EF641F3145EE00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
 		9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */; };
 		9489EF661F3145F200416F26 /* SliderStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */; };
+		948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C54C21F3A57C600DA6081 /* SynthUIButton.swift */; };
+		948C54C41F3A59F000DA6081 /* SynthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C54C21F3A57C600DA6081 /* SynthUIButton.swift */; };
 		949D09341F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D09331F34F6FA000FB6E0 /* LFOWavePicker.swift */; };
 		949D09351F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D09331F34F6FA000FB6E0 /* LFOWavePicker.swift */; };
 		949D09361F34F6FB000FB6E0 /* LFOPickerStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D09321F34F6FA000FB6E0 /* LFOPickerStyleKit.swift */; };
@@ -169,6 +171,7 @@
 		947956A81F329AB100FE5D9B /* Stepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
 		947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitchStyleKit.swift; sourceTree = "<group>"; };
 		947956B51F32A72400FE5D9B /* ToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitch.swift; sourceTree = "<group>"; };
+		948C54C21F3A57C600DA6081 /* SynthUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthUIButton.swift; sourceTree = "<group>"; };
 		949D09321F34F6FA000FB6E0 /* LFOPickerStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOPickerStyleKit.swift; sourceTree = "<group>"; };
 		949D09331F34F6FA000FB6E0 /* LFOWavePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOWavePicker.swift; sourceTree = "<group>"; };
 		949D93B51F2C188B007E657B /* LfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoButton.swift; sourceTree = "<group>"; };
@@ -283,6 +286,7 @@
 				947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */,
 				947956B51F32A72400FE5D9B /* ToggleSwitch.swift */,
 				94FEFEC71F3150D00064EC09 /* TransposeButton.swift */,
+				948C54C21F3A57C600DA6081 /* SynthUIButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -532,6 +536,7 @@
 				9489EF641F3145EE00416F26 /* VerticalSlider.swift in Sources */,
 				C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */,
 				C47FB3C51F366D6400EF2F01 /* Rate.swift in Sources */,
+				948C54C41F3A59F000DA6081 /* SynthUIButton.swift in Sources */,
 				947956B71F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				945261401F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C40770EE1F257124007F2C77 /* HeaderViewContoller.swift in Sources */,
@@ -608,6 +613,7 @@
 				945C3A061F3141F60086D58B /* ArpButton.swift in Sources */,
 				C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */,
 				94E951351F3644E5009A8B00 /* Rate.swift in Sources */,
+				948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

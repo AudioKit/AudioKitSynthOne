@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,7 +63,7 @@
                                 <rect key="frame" x="0.0" y="498" width="1024" height="270"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="AKKeyboardView" customModule="AudioKit">
-                                        <rect key="frame" x="0.0" y="45" width="1024" height="225"/>
+                                        <rect key="frame" x="7" y="45" width="1010" height="225"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="octaveCount">
@@ -70,14 +71,59 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-tw-s2d">
-                                        <rect key="frame" x="931" y="6" width="83" height="32"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39J-5A-Jtm" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="74" y="6" width="50" height="32"/>
+                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="KRv-Uo-TgU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Hold">
+                                            <color key="titleColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTi-x2-zwk" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="132" y="6" width="50" height="32"/>
+                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="540-dz-VXQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Mono">
+                                            <color key="titleColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9j-zW-Pky" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="6" width="50" height="32"/>
+                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="avA-rJ-7tn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="MIDI">
+                                            <color key="titleColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-tw-s2d" userLabel="Keyboard Toggle">
+                                        <rect key="frame" x="934" y="6" width="75" height="32"/>
                                         <color key="backgroundColor" red="0.24313725490196078" green="0.24313725490196078" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="83" id="bQy-Tc-jSM"/>
-                                            <constraint firstAttribute="height" constant="32" id="mPc-Ti-UIV"/>
+                                            <constraint firstAttribute="width" constant="75" id="7hw-t4-prE"/>
+                                            <constraint firstAttribute="height" constant="32" id="Jnx-AM-c4B"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Keyboard">
                                             <color key="titleColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,16 +135,42 @@
                                             <action selector="keyboardToggled:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9oI-zj-8XO"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Octave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-Ri-7nN">
+                                        <rect key="frame" x="758" y="11" width="42" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                        <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ3-lz-BGf" customClass="Stepper" customModule="AudioKitSynthOne">
+                                        <rect key="frame" x="808" y="4" width="108" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="O7h-tw-s2d" secondAttribute="bottom" constant="7" id="Cv9-DS-N4r"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="top" secondItem="39J-5A-Jtm" secondAttribute="top" id="5Zb-9J-ejn"/>
+                                    <constraint firstAttribute="bottom" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="6G0-qn-iLo"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="centerX" secondItem="uw2-JG-GSz" secondAttribute="centerX" id="8M3-fn-YKT"/>
+                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="baseline" id="9Yo-iq-GLz"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="16" id="Czo-2W-b7U"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="baseline" id="EKJ-BU-AtC"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="firstBaseline" id="FpU-j6-kl7"/>
                                     <constraint firstAttribute="height" constant="270" id="Lu3-cu-71Z"/>
-                                    <constraint firstAttribute="trailing" secondItem="O7h-tw-s2d" secondAttribute="trailing" constant="10" id="NVg-Sy-6PK"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" id="VXc-U9-35d"/>
-                                    <constraint firstAttribute="bottom" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="ae4-3h-z4S"/>
+                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="top" secondItem="FTi-x2-zwk" secondAttribute="top" id="aYG-m1-T83"/>
+                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="leading" secondItem="39J-5A-Jtm" secondAttribute="trailing" constant="8" symbolic="YES" id="af0-8Y-zzf"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="top" secondItem="FTi-x2-zwk" secondAttribute="top" id="b8p-Xi-iOH"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="O7h-tw-s2d" secondAttribute="bottom" constant="7" id="cOD-oV-A1a"/>
+                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" constant="6" id="glr-Mu-lUT"/>
+                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="firstBaseline" secondItem="FTi-x2-zwk" secondAttribute="baseline" id="gyR-1r-fPO"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="7" id="i2L-Fz-UyW"/>
                                     <constraint firstAttribute="width" constant="1024" id="i8R-Mx-RnE"/>
-                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" constant="6" id="zmc-4D-Jxx"/>
+                                    <constraint firstAttribute="trailing" secondItem="O7h-tw-s2d" secondAttribute="trailing" constant="15" id="kkn-WR-MKR"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="firstBaseline" id="r8t-sF-ads"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="leading" secondItem="C9j-zW-Pky" secondAttribute="trailing" constant="8" symbolic="YES" id="tdq-hf-0oc"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="baseline" id="wXR-YP-96y"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="C9j-zW-Pky" secondAttribute="firstBaseline" id="xTr-q2-3hl"/>
                                 </constraints>
                             </view>
                         </subviews>

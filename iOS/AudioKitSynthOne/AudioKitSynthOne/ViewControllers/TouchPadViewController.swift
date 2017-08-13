@@ -139,8 +139,6 @@ class TouchPadViewController: UpdatableViewController {
                 self.touchPad2.resetToPosition(self.rez, y)
             }
         }
-        
-  
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {

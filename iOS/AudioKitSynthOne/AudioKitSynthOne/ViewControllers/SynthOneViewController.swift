@@ -217,7 +217,7 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
         switch newView {
         case .adsrView:
             // ADSR is always here
-            adsrViewController.navDelegate = self
+            //adsrViewController.navDelegate = self
             break;
         case .oscView:
             add(asChildViewController: mixerViewController)

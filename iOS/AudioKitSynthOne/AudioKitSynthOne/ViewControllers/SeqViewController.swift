@@ -18,6 +18,7 @@ class SeqViewController: UpdatableViewController {
     
     @IBOutlet weak var nav1Button: NavButton!
     @IBOutlet weak var nav2Button: NavButton!
+    @IBOutlet weak var arpToggle: ToggleButton!
     
     let sliderTags = 400 ... 415
     let sliderToggleTags = 500 ... 515

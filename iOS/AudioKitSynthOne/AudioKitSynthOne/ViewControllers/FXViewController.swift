@@ -30,7 +30,6 @@ class FXViewController: UpdatableViewController {
     @IBOutlet weak var lfo2Amp: Knob!
     @IBOutlet weak var lfo2Rate: RateKnob!
     
-    @IBOutlet weak var bitCrush: Knob!
     @IBOutlet weak var sampleRate: Knob!
     
     @IBOutlet weak var autoPanToggle: ToggleButton!
@@ -60,11 +59,11 @@ class FXViewController: UpdatableViewController {
         super.viewDidLoad()
         
         // Set Default LFO routing
-
+/*
         bitCrush.value = 24
         bitCrush.range = 1 ... 24
         bitCrush.taper = 2
-
+*/
         sampleRate.value = 44100
         sampleRate.range = 400 ... 44100
         sampleRate.taper = 5
@@ -81,7 +80,7 @@ class FXViewController: UpdatableViewController {
         lfo1Rate.taper = 3
         lfo2Rate.range = 0 ... 10
 
-        conductor.bind(bitCrush,           to: .bitCrushDepth)
+      //  conductor.bind(bitCrush,           to: .bitCrushDepth)
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)
         conductor.bind(autoPanToggle,      to: .autoPanOn)
         conductor.bind(autoPanRate,        to: .autoPanFrequency)

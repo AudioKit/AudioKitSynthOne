@@ -20,7 +20,7 @@
 		945C3A071F3141F60086D58B /* ArpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A031F3141F50086D58B /* ArpButton.swift */; };
 		945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0F1F3143A00086D58B /* SeqViewController.swift */; };
 		945C3A111F31450B0086D58B /* SeqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0F1F3143A00086D58B /* SeqViewController.swift */; };
-		9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* DevViewController.swift */; };
+		9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* SettingsViewController.swift */; };
 		947956A91F329AB200FE5D9B /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A81F329AB100FE5D9B /* Stepper.swift */; };
 		947956AA1F329AB200FE5D9B /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A81F329AB100FE5D9B /* Stepper.swift */; };
 		947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A61F329AB100FE5D9B /* ArpDirectionButton.swift */; };
@@ -49,7 +49,7 @@
 		949D93BA1F2C188C007E657B /* LfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LfoButton.swift */; };
 		94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B69C3A1F297E2800191C87 /* FXViewController.swift */; };
 		94B69C3C1F297E9F00191C87 /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B69C3A1F297E2800191C87 /* FXViewController.swift */; };
-		94BDBD661F282956007BB7BD /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* DevViewController.swift */; };
+		94BDBD661F282956007BB7BD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* SettingsViewController.swift */; };
 		94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
 		94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
 		94CA7BAF1F27BD1F00253C09 /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
@@ -164,7 +164,7 @@
 		945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStyleKit.swift; sourceTree = "<group>"; };
 		945C3A0E1F31428B0086D58B /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
 		945C3A0F1F3143A00086D58B /* SeqViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeqViewController.swift; sourceTree = "<group>"; };
-		9468E2791F2827AC00C60B1B /* DevViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevViewController.swift; sourceTree = "<group>"; };
+		9468E2791F2827AC00C60B1B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		947956A51F329AB100FE5D9B /* StepperStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperStyleKit.swift; sourceTree = "<group>"; };
 		947956A61F329AB100FE5D9B /* ArpDirectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpDirectionButton.swift; sourceTree = "<group>"; };
 		947956A71F329AB100FE5D9B /* ArpDirectionStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpDirectionStyleKit.swift; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				9410659E1F26AA55002777AB /* ADSRViewController.swift */,
-				9468E2791F2827AC00C60B1B /* DevViewController.swift */,
+				9468E2791F2827AC00C60B1B /* SettingsViewController.swift */,
 				94B69C3A1F297E2800191C87 /* FXViewController.swift */,
 				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
 				945C3A0F1F3143A00086D58B /* SeqViewController.swift */,
@@ -546,7 +546,7 @@
 				947956B41F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
 				C40770ED1F25703B007F2C77 /* SourceMixerViewController.swift in Sources */,
-				94BDBD661F282956007BB7BD /* DevViewController.swift in Sources */,
+				94BDBD661F282956007BB7BD /* SettingsViewController.swift in Sources */,
 				947956AC1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A051F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
 				94DB18D31F37DD4B008368AE /* NavButton.swift in Sources */,
@@ -598,7 +598,7 @@
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				C47BE1441F26822F003501FF /* AKSynthOneParameter.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
-				9468E27A1F2827AC00C60B1B /* DevViewController.swift in Sources */,
+				9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */,
 				947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A041F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
 				94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  DevViewController.swift
+//  SettingsViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by Matthew Fecher on 7/25/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DevViewController: UpdatableViewController {
+class SettingsViewController: UpdatableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

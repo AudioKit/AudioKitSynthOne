@@ -218,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1354" y="-477"/>
+            <point key="canvasLocation" x="-1329" y="-525"/>
         </scene>
         <!--Source Mixer-->
         <scene sceneID="h0Y-DX-cbn">
@@ -650,7 +650,7 @@
         <!--DEV-->
         <scene sceneID="JRs-Mi-uc0">
             <objects>
-                <viewController storyboardIdentifier="DevViewController" id="gE5-Cr-9iI" userLabel="DEV" customClass="DevViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DevViewController" id="gE5-Cr-9iI" userLabel="DEV" customClass="SettingsViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8BW-oX-hHo"/>
                         <viewControllerLayoutGuide type="bottom" id="aHz-u4-6p6"/>
@@ -666,7 +666,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91R-2p-bBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1720" y="456"/>
+            <point key="canvasLocation" x="-1329" y="-12"/>
         </scene>
         <!--TouchPad-->
         <scene sceneID="dsG-FG-foi">

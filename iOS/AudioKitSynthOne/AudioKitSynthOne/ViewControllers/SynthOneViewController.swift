@@ -61,9 +61,9 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         return viewController
     }()
     
-    fileprivate lazy var devViewController: DevViewController = {
+    fileprivate lazy var devViewController: SettingsViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.devView.rawValue) as! DevViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.devView.rawValue) as! SettingsViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()

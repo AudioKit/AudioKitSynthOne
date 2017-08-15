@@ -9,14 +9,17 @@
 import UIKit
 
 @IBDesignable
-class ToggleButton: AKSynthOneControl {
+class ToggleButton: UIView, AKSynthOneControl {
     
     // *********************************************************
     // MARK: - ToggleButton
     // *********************************************************
 
     var isOn = false
-    override var value: Double {
+
+    var callback: (Double)->Void = { _ in }
+
+    var value: Double {
         get {
             return isOn ? 1 : 0
         }

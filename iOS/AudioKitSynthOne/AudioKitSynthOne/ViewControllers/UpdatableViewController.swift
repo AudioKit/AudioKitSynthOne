@@ -26,14 +26,16 @@ public class UpdatableViewController: UIViewController {
     func updateUI(_ param: AKSynthOneParameter, value: Double) {
         for binding in conductor.bindings {
             if param == binding.0 {
-                (binding.1).value = value
+                var control = binding.1
+                control.value = value
             }
         }
     }
     
     func updateCallbacks() {
         for binding in conductor.bindings {
-            (binding.1).callback = conductor.changeParameter(binding.0)
+            var control = binding.1
+            control.callback = conductor.changeParameter(binding.0)
         }
     }
 }

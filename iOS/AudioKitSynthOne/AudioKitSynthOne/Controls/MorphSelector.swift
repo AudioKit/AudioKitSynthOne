@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class MorphSelector: AKSynthOneControl {
-    
-    override var value: Double {
+class MorphSelector: UIView, AKSynthOneControl {
+
+    var callback: (Double)->Void = { _ in }
+
+    var value: Double = 0 {
         didSet {
             if value < 0.0 { value = 0.0 }
             if value > 1.0 { value = 1.0 }

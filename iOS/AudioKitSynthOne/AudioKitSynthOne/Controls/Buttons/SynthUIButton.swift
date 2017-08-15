@@ -8,8 +8,10 @@
 
 import UIKit
 
-class SynthUIButton: UIButton {
-        
+class SynthUIButton: UIButton, AKSynthOneControl {
+
+    var callback: (Double)->Void = { _ in }
+
     private var isOn = false
     
     override var isSelected: Bool {
@@ -27,15 +29,14 @@ class SynthUIButton: UIButton {
             isOn = value == 1.0
         }
     }
-    public var callback: (Double)->Void = { _ in }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         clipsToBounds = true
         layer.cornerRadius = 2
         layer.borderWidth = 2
-        layer.borderColor = #colorLiteral(red: 0.09803921569, green: 0.09803921569, blue: 0.09803921569, alpha: 1)
+//        layer.borderColor = #colorLiteral(red: 0.09803921569, green: 0.09803921569, blue: 0.09803921569, alpha: 1) as! CGColor
     }
     
     // *********************************************************

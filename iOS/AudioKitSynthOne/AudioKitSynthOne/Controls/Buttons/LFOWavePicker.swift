@@ -9,11 +9,10 @@
 import UIKit
 
 @IBDesignable
-class LFOWavePicker: AKSynthOneControl {
+class LFOWavePicker: UIView, AKSynthOneControl {
     
-    // *********************************************************
-    // MARK: - LFO Button
-    // *********************************************************
+    var callback: (Double)->Void = { _ in }
+    var value: Double = 0
     
     // Draw Button
     override func draw(_ rect: CGRect) {

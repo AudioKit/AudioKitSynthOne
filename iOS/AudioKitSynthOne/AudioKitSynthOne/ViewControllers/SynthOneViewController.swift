@@ -25,7 +25,8 @@ enum ChildView: String {
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     @IBOutlet weak var topContainerView: UIView!
-    @IBOutlet weak var keyboardView: AKKeyboardView?
+
+    @IBOutlet weak var keyboardView: SynthKeyboard!
     @IBOutlet weak var keyboardBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var midiButton: SynthUIButton!

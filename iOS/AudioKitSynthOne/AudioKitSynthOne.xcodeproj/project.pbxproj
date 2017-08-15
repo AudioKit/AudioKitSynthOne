@@ -60,6 +60,10 @@
 		94E951351F3644E5009A8B00 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951341F3644E5009A8B00 /* Rate.swift */; };
 		94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */; };
 		94FBAFE01F42873F0071235B /* SynthKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */; };
+		94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFE11F42A94E0071235B /* TempoStyleKit.swift */; };
+		94FBAFE31F42A94E0071235B /* TempoStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFE11F42A94E0071235B /* TempoStyleKit.swift */; };
+		94FBAFE51F42A9630071235B /* TempoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFE41F42A9630071235B /* TempoStepper.swift */; };
+		94FBAFE61F42A97B0071235B /* TempoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFE41F42A9630071235B /* TempoStepper.swift */; };
 		94FEFEC81F3150D00064EC09 /* TransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* TransposeButton.swift */; };
 		94FEFEC91F3150D00064EC09 /* TransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* TransposeButton.swift */; };
 		C4060ABE1F24561A00BB8882 /* ToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */; };
@@ -184,6 +188,8 @@
 		94DB18D11F37D879008368AE /* NavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButton.swift; sourceTree = "<group>"; };
 		94E951341F3644E5009A8B00 /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthKeyboard.swift; sourceTree = "<group>"; };
+		94FBAFE11F42A94E0071235B /* TempoStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempoStyleKit.swift; sourceTree = "<group>"; };
+		94FBAFE41F42A9630071235B /* TempoStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempoStepper.swift; sourceTree = "<group>"; };
 		94FEFEC71F3150D00064EC09 /* TransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposeButton.swift; sourceTree = "<group>"; };
 		C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceMixerViewController.swift; sourceTree = "<group>"; };
 		C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AudioKit For iOS.xcodeproj"; path = "../../../AudioKit/AudioKit/iOS/AudioKit For iOS.xcodeproj"; sourceTree = "<group>"; };
@@ -316,6 +322,8 @@
 			children = (
 				947956A81F329AB100FE5D9B /* Stepper.swift */,
 				947956A51F329AB100FE5D9B /* StepperStyleKit.swift */,
+				94FBAFE41F42A9630071235B /* TempoStepper.swift */,
+				94FBAFE11F42A94E0071235B /* TempoStyleKit.swift */,
 			);
 			path = Stepper;
 			sourceTree = "<group>";
@@ -526,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4060AC31F24561A00BB8882 /* ToggleButton.swift in Sources */,
+				94FBAFE31F42A94E0071235B /* TempoStyleKit.swift in Sources */,
 				947956AE1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4EDB6C31F26DFEA006B828C /* MorphSelector.swift in Sources */,
 				945C3A111F31450B0086D58B /* SeqViewController.swift in Sources */,
@@ -537,6 +546,7 @@
 				9489EF661F3145F200416F26 /* SliderStyleKit.swift in Sources */,
 				949D09351F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */,
 				94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */,
+				94FBAFE61F42A97B0071235B /* TempoStepper.swift in Sources */,
 				9489EF641F3145EE00416F26 /* VerticalSlider.swift in Sources */,
 				C4060AC51F24568600BB8882 /* Double+Extensions.swift in Sources */,
 				C47FB3C51F366D6400EF2F01 /* Rate.swift in Sources */,
@@ -584,10 +594,12 @@
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */,
 				94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */,
+				94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */,
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
 				C4D193CA1F1187B500FF4FE4 /* SynthOneViewController.swift in Sources */,
 				947956AF1F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */,
 				9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */,
+				94FBAFE51F42A9630071235B /* TempoStepper.swift in Sources */,
 				949D09341F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,

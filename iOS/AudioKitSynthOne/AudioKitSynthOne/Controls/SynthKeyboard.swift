@@ -163,7 +163,6 @@ public protocol AKKeyboardDelegate: class {
         lastC.fill()
         
         addLabels(i: 0, octaveNumber: octaveCount, whiteKeysRect: lastCRect)
-        
     }
     
     /// Draw one octave

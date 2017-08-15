@@ -21,7 +21,7 @@ class Stepper: UIView {
     
     var value = 0
     
-    private var valuePressed: CGFloat = 0
+    var valuePressed: CGFloat = 0
     
     /// Text / label to display
     open var text = "0"
@@ -65,6 +65,5 @@ class Stepper: UIView {
          self.setNeedsDisplay()
         }
     }
-    
     
 }

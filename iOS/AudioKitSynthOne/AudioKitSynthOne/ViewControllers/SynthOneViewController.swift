@@ -111,18 +111,18 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         
         conductor.start()
         
-        // Set initial subviews
-        switchToChildView(.fxView)
-        
         // Set delegates
         if let childVC = self.childViewControllers.first as? HeaderViewController {
             childVC.delegate = self
         }
         
-        buttonCallbacks()
+        setupCallbacks()
         
         octaveStepper.minValue = -3
         octaveStepper.maxValue = 4
+        
+        // Set initial subviews
+        switchToChildView(.fxView)
     }
     
     //    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
@@ -140,7 +140,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     // MARK: - Callbacks
     // ********************************************************
     
-    func buttonCallbacks() {
+    func setupCallbacks() {
         
         conductor.bind(monoButton, to: AKSynthOneParameter.isMono)
         

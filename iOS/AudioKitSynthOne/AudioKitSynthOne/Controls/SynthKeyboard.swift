@@ -173,16 +173,28 @@ public protocol AKKeyboardDelegate: class {
         var whiteKeysPaths = [UIBezierPath]()
         
         for i in 0 ..< 7 {
-            whiteKeysPaths.append(
-                UIBezierPath(roundedRect: CGRect(x: whiteKeyX(i, octaveNumber: octaveNumber),
-                                             y: 1,
-                                             width: whiteKeySize.width - 1,
-                                             height: whiteKeySize.height),
-                             byRoundingCorners: [.bottomLeft, .bottomRight],
-                             cornerRadii: CGSize(width: 5, height: 5)))
+           
+            let whiteKeysRect = CGRect(x: whiteKeyX(i, octaveNumber: octaveNumber), y: 1, width:  whiteKeySize.width - 1, height: whiteKeySize.height)
+            whiteKeysPaths.append(UIBezierPath(roundedRect: whiteKeysRect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 5, height: 5)))
             
             whiteKeyColor(i, octaveNumber: octaveNumber).setFill()
             whiteKeysPaths[i].fill()
+           
+          let context = UIGraphicsGetCurrentContext()!
+            let whiteKeysTextContent = "C3"
+            let whiteKeysStyle = NSMutableParagraphStyle()
+            whiteKeysStyle.alignment = .center
+            let whiteKeysFontAttributes = [
+                NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 14)!,
+                NSForegroundColorAttributeName: UIColor.lightGray,
+                NSParagraphStyleAttributeName: whiteKeysStyle,
+                ]
+            
+            let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: whiteKeysFontAttributes, context: nil).height
+            context.saveGState()
+            context.clip(to: whiteKeysRect)
+            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes)
+            context.restoreGState()
         }
         
         var topKeyPaths = [UIBezierPath]()

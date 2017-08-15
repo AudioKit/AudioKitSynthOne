@@ -45,7 +45,7 @@ public class Knob: UIView, AKSynthOneControl {
     // Knob properties
     var knobValue: CGFloat = 0.0 {
         didSet {
-            setNeedsDisplay()
+            self.setNeedsDisplay()
         }
     }
     var knobFill: CGFloat = 0

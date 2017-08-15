@@ -24,7 +24,11 @@ public protocol AKKeyboardDelegate: class {
     @IBInspectable open var octaveCount: Int = 2
     
     /// Lowest octave dispayed
-    @IBInspectable open var firstOctave: Int = 4
+    @IBInspectable open var firstOctave: Int = 3 {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
     
     /// Relative measure of the height of the black keys
     @IBInspectable open var topKeyHeightRatio: CGFloat = 0.55
@@ -69,6 +73,10 @@ public protocol AKKeyboardDelegate: class {
     func getNoteName(_ note: Int) -> String {
         let keyInOctave = note % 12
         return notesWithSharps[keyInOctave]
+    }
+    
+    func getWhiteNoteName(_ keyIndex: Int) -> String {
+         return naturalNotes[keyIndex]
     }
     
     // MARK: - Initialization
@@ -185,7 +193,7 @@ public protocol AKKeyboardDelegate: class {
             if labelMode == 1 && i == 0 || labelMode == 2 {
                 // Add Label
                 let context = UIGraphicsGetCurrentContext()!
-                let whiteKeysTextContent = "C3"
+                let whiteKeysTextContent = getWhiteNoteName(i) + String(firstOctave + octaveNumber)
                 let whiteKeysStyle = NSMutableParagraphStyle()
                 whiteKeysStyle.alignment = .center
                 let whiteKeysFontAttributes = [

@@ -121,8 +121,8 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         
         buttonCallbacks()
         
-        octaveStepper.minValue = -2
-        octaveStepper.maxValue = 2
+        octaveStepper.minValue = -3
+        octaveStepper.maxValue = 4
     }
     
     //    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
@@ -141,9 +141,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     // ********************************************************
     
     func buttonCallbacks() {
-
-        conductor.bind(monoButton, to: AKSynthOneParameter.isMono)
-
+        
         keyboardToggle.callback = { value in
             
             let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -138
@@ -153,7 +151,10 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
                 self.view.layoutIfNeeded()
             })
         }
-
+        
+        octaveStepper.callback = { value in
+            self.keyboardView.firstOctave = Int(value) + 3
+        }
     }
     
     // **********************************************************

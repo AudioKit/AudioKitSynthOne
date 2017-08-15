@@ -48,6 +48,7 @@ public protocol AKKeyboardDelegate: class {
     var xOffset: CGFloat = 1
     var onKeys = Set<MIDINoteNumber>()
     var topKeyWidthIncrease: CGFloat = 4
+    var labelMode = 2 // 0 = don't display, 1 = every C, 2 = every note
     
     /// Allows multiple notes to play concurrently
     open var polyphonicMode = false {
@@ -144,11 +145,11 @@ public protocol AKKeyboardDelegate: class {
         backgroundPath.fill()
         
         let lastC = UIBezierPath(roundedRect: CGRect(x: whiteKeyX(0, octaveNumber: octaveCount),
-                                         y: 1,
-                                         width: tempWidth/2,
-                                         height: whiteKeySize.height),
-                     byRoundingCorners: [.bottomLeft, .bottomRight],
-                     cornerRadii: CGSize(width: 5, height: 5))
+                                                     y: 1,
+                                                     width: tempWidth/2,
+                                                     height: whiteKeySize.height),
+                                 byRoundingCorners: [.bottomLeft, .bottomRight],
+                                 cornerRadii: CGSize(width: 5, height: 5))
         whiteKeyColor(0, octaveNumber: octaveCount).setFill()
         lastC.fill()
         
@@ -173,28 +174,32 @@ public protocol AKKeyboardDelegate: class {
         var whiteKeysPaths = [UIBezierPath]()
         
         for i in 0 ..< 7 {
-           
+            
             let whiteKeysRect = CGRect(x: whiteKeyX(i, octaveNumber: octaveNumber), y: 1, width:  whiteKeySize.width - 1, height: whiteKeySize.height)
             whiteKeysPaths.append(UIBezierPath(roundedRect: whiteKeysRect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 5, height: 5)))
             
             whiteKeyColor(i, octaveNumber: octaveNumber).setFill()
             whiteKeysPaths[i].fill()
-           
-          let context = UIGraphicsGetCurrentContext()!
-            let whiteKeysTextContent = "C3"
-            let whiteKeysStyle = NSMutableParagraphStyle()
-            whiteKeysStyle.alignment = .center
-            let whiteKeysFontAttributes = [
-                NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 14)!,
-                NSForegroundColorAttributeName: UIColor.lightGray,
-                NSParagraphStyleAttributeName: whiteKeysStyle,
-                ]
             
-            let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: whiteKeysFontAttributes, context: nil).height
-            context.saveGState()
-            context.clip(to: whiteKeysRect)
-            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes)
-            context.restoreGState()
+            // labelMode == 1, Only C, labelMode == 2, All notes
+            if labelMode == 1 && i == 0 || labelMode == 2 {
+                // Add Label
+                let context = UIGraphicsGetCurrentContext()!
+                let whiteKeysTextContent = "C3"
+                let whiteKeysStyle = NSMutableParagraphStyle()
+                whiteKeysStyle.alignment = .center
+                let whiteKeysFontAttributes = [
+                    NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 14)!,
+                    NSForegroundColorAttributeName: UIColor.lightGray,
+                    NSParagraphStyleAttributeName: whiteKeysStyle,
+                    ]
+                
+                let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: whiteKeysFontAttributes, context: nil).height
+                context.saveGState()
+                context.clip(to: whiteKeysRect)
+                whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes)
+                context.restoreGState()
+            }
         }
         
         var topKeyPaths = [UIBezierPath]()
@@ -202,9 +207,9 @@ public protocol AKKeyboardDelegate: class {
         for i in 0 ..< 28 {
             topKeyPaths.append(
                 UIBezierPath(roundedRect: CGRect(x: topKeyX(i, octaveNumber: octaveNumber),
-                                          y: 1,
-                                          width: topKeySize.width + topKeyWidthIncrease,
-                                          height: topKeySize.height),
+                                                 y: 1,
+                                                 width: topKeySize.width + topKeyWidthIncrease,
+                                                 height: topKeySize.height),
                              byRoundingCorners: [.bottomLeft, .bottomRight],
                              cornerRadii: CGSize(width: 3, height: 3)))
             topKeyColor(i, octaveNumber: octaveNumber).setFill()

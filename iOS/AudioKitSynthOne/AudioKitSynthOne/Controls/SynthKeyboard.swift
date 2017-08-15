@@ -33,6 +33,9 @@ public protocol AKKeyboardDelegate: class {
     /// Relative measure of the height of the black keys
     @IBInspectable open var topKeyHeightRatio: CGFloat = 0.55
     
+    // Key Labels: 0 = don't display, 1 = every C note, 2 = every note
+    @IBInspectable open var  labelMode: Int = 2
+    
     /// Color of the polyphonic toggle button
     @IBInspectable open var polyphonicButton: UIColor = #colorLiteral(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
     
@@ -52,7 +55,6 @@ public protocol AKKeyboardDelegate: class {
     var xOffset: CGFloat = 1
     var onKeys = Set<MIDINoteNumber>()
     var topKeyWidthIncrease: CGFloat = 4
-    var labelMode = 2 // 0 = don't display, 1 = every C, 2 = every note
     
     /// Allows multiple notes to play concurrently
     open var polyphonicMode = false {

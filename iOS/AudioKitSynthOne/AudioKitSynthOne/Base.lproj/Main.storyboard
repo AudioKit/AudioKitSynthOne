@@ -76,6 +76,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="octaveCount">
                                                 <integer key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelMode">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39J-5A-Jtm" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">

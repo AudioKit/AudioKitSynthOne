@@ -17,7 +17,7 @@ class Stepper: UIView {
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)
     
     var minValue = 0
-    var maxValue = 4
+    var maxValue = 3
     
     var value = 0
     

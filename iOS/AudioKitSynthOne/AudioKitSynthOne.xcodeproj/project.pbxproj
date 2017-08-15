@@ -58,6 +58,8 @@
 		94DB18D21F37D879008368AE /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB18D11F37D879008368AE /* NavButton.swift */; };
 		94DB18D31F37DD4B008368AE /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB18D11F37D879008368AE /* NavButton.swift */; };
 		94E951351F3644E5009A8B00 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951341F3644E5009A8B00 /* Rate.swift */; };
+		94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */; };
+		94FBAFE01F42873F0071235B /* SynthKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */; };
 		94FEFEC81F3150D00064EC09 /* TransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* TransposeButton.swift */; };
 		94FEFEC91F3150D00064EC09 /* TransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* TransposeButton.swift */; };
 		C4060ABE1F24561A00BB8882 /* ToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */; };
@@ -181,6 +183,7 @@
 		94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonStyleKit.swift; sourceTree = "<group>"; };
 		94DB18D11F37D879008368AE /* NavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButton.swift; sourceTree = "<group>"; };
 		94E951341F3644E5009A8B00 /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthKeyboard.swift; sourceTree = "<group>"; };
 		94FEFEC71F3150D00064EC09 /* TransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposeButton.swift; sourceTree = "<group>"; };
 		C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceMixerViewController.swift; sourceTree = "<group>"; };
 		C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AudioKit For iOS.xcodeproj"; path = "../../../AudioKit/AudioKit/iOS/AudioKit For iOS.xcodeproj"; sourceTree = "<group>"; };
@@ -382,6 +385,7 @@
 				945261431F29256F0037662C /* Knobs */,
 				945261421F2925650037662C /* TouchPad */,
 				C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */,
+				94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -546,6 +550,7 @@
 				947956B41F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
 				C40770ED1F25703B007F2C77 /* SourceMixerViewController.swift in Sources */,
+				94FBAFE01F42873F0071235B /* SynthKeyboard.swift in Sources */,
 				94BDBD661F282956007BB7BD /* SettingsViewController.swift in Sources */,
 				947956AC1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A051F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
@@ -587,6 +592,7 @@
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
+				94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				945261411F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,

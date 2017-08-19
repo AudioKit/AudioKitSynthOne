@@ -57,7 +57,7 @@ class SeqViewController: UpdatableViewController {
         // Setup slider values & step labels
         for tag in sliderTags {
             if let slider = view.viewWithTag(tag) as? VerticalSlider {
-                let notePosition = tag - sliderTags.lowerBound
+                // let notePosition = tag - sliderTags.lowerBound
                 // let transposeAmt = arpeggiator!.seqPattern[notePosition]
                 // set existing value = slider.currentValue = CGFloat(Double.scaleRangeZeroToOne(Double(transposeAmt), rangeMin: -12, rangeMax: 12))
                 // updateStepDisplay(notePosition, transposeAmt: transposeAmt)
@@ -140,7 +140,7 @@ class SeqViewController: UpdatableViewController {
             if let label = view.viewWithTag(tag) as? TransposeButton {
                 
                 label.callback = { value in
-                    let notePosition = Int(tag) - self.sliderToggleTags.lowerBound
+                    //let notePosition = Int(tag) - self.sliderToggleTags.lowerBound
                     if value == 1.0 {
                         // add +12 to transposeAmt if positive, -12 if negative
                     } else {

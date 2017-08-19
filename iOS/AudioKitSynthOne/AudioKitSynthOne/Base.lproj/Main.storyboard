@@ -81,41 +81,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39J-5A-Jtm" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="74" y="7" width="50" height="32"/>
-                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="Ajd-oh-NWU"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Hold">
-                                            <color key="titleColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTi-x2-zwk" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="132" y="7" width="50" height="32"/>
-                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="Val-Zi-13d"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Mono">
-                                            <color key="titleColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9j-zW-Pky" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="7" width="50" height="32"/>
+                                        <rect key="frame" x="16" y="4" width="50" height="34"/>
                                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="zTa-VF-B5h"/>
+                                            <constraint firstAttribute="width" constant="50" id="5bd-oY-u1q"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -127,10 +97,10 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-tw-s2d" userLabel="Keyboard Toggle" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="934" y="7" width="75" height="32"/>
+                                        <rect key="frame" x="934" y="4" width="75" height="34"/>
                                         <color key="backgroundColor" red="0.24313725490196078" green="0.24313725490196078" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="XZt-ST-gGH"/>
+                                            <constraint firstAttribute="width" constant="75" id="8Cn-a2-c7U"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -144,50 +114,103 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Octave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-Ri-7nN">
                                         <rect key="frame" x="758" y="12" width="42" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="42" id="hfs-JQ-anm"/>
+                                            <constraint firstAttribute="width" constant="42" id="xdc-fZ-pPs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ3-lz-BGf" customClass="Stepper" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="808" y="6" width="108" height="35"/>
+                                        <rect key="frame" x="808" y="4" width="108" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4W-Gh-RiQ" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="73" y="4" width="50" height="34"/>
+                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="fXu-5E-yKQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Keys">
+                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="9qI-Vs-eLW" kind="popoverPresentation" identifier="SegueToKeyboardPopOver" animates="NO" popoverAnchorView="Z4W-Gh-RiQ" id="OFW-mz-IhX">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39J-5A-Jtm" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="130" y="4" width="50" height="34"/>
+                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="KdT-uw-D8x"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Hold">
+                                            <color key="titleColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTi-x2-zwk" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="187" y="4" width="50" height="34"/>
+                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="MFx-NG-g4j"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Mono">
+                                            <color key="titleColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="firstBaseline" id="0G2-Jn-2ac"/>
-                                    <constraint firstAttribute="trailing" secondItem="O7h-tw-s2d" secondAttribute="trailing" constant="15" id="7An-fc-DE2"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="C9j-zW-Pky" secondAttribute="firstBaseline" id="A2Q-Qh-JoS"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="firstBaseline" id="0kw-ag-BH7"/>
+                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="baseline" secondItem="O7h-tw-s2d" secondAttribute="firstBaseline" id="2Mw-7j-3Gc"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="top" secondItem="FTi-x2-zwk" secondAttribute="top" id="2at-yU-7RL"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="ZJ3-lz-BGf" secondAttribute="bottom" constant="7" id="46V-Bt-kBH"/>
+                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="leading" secondItem="ZJ3-lz-BGf" secondAttribute="trailing" constant="18" id="4h8-Yf-Ugj"/>
+                                    <constraint firstItem="Z4W-Gh-RiQ" firstAttribute="baseline" secondItem="C9j-zW-Pky" secondAttribute="firstBaseline" id="6Fr-hp-8Vc"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="Z4W-Gh-RiQ" secondAttribute="baseline" id="8Je-un-x46"/>
                                     <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="7" id="BV3-1X-fgE"/>
-                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="baseline" secondItem="ACV-Ri-7nN" secondAttribute="baseline" id="CdS-4W-O6F"/>
+                                    <constraint firstItem="Z4W-Gh-RiQ" firstAttribute="top" secondItem="39J-5A-Jtm" secondAttribute="top" id="CCf-X0-42q"/>
+                                    <constraint firstItem="Z4W-Gh-RiQ" firstAttribute="leading" secondItem="C9j-zW-Pky" secondAttribute="trailing" constant="7" id="D6u-1C-3jA"/>
+                                    <constraint firstItem="ACV-Ri-7nN" firstAttribute="centerY" secondItem="oOK-6u-M58" secondAttribute="centerY" id="FiV-bG-C97"/>
+                                    <constraint firstItem="ZJ3-lz-BGf" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" constant="4" id="Fk8-uZ-bWE"/>
                                     <constraint firstItem="oOK-6u-M58" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" id="H0A-aZ-tgH"/>
-                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="leading" secondItem="39J-5A-Jtm" secondAttribute="trailing" constant="8" symbolic="YES" id="HJY-u8-bjV"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="baseline" id="Hw5-L4-bhp"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="baseline" id="IQn-EE-dkJ"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="ZJ3-lz-BGf" secondAttribute="bottom" constant="5" id="J2F-vH-KS9"/>
+                                    <constraint firstItem="Z4W-Gh-RiQ" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="firstBaseline" id="HJ7-Cm-Q9w"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="leading" secondItem="Z4W-Gh-RiQ" secondAttribute="trailing" constant="7" id="JYF-wZ-w62"/>
                                     <constraint firstAttribute="height" constant="270" id="Lu3-cu-71Z"/>
+                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="top" secondItem="O7h-tw-s2d" secondAttribute="top" id="Oap-re-8co"/>
                                     <constraint firstAttribute="trailing" secondItem="oOK-6u-M58" secondAttribute="trailing" id="Ofs-di-XSY"/>
-                                    <constraint firstItem="ZJ3-lz-BGf" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="808" id="S3p-PQ-0N1"/>
-                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="leading" secondItem="ZJ3-lz-BGf" secondAttribute="trailing" constant="18" id="T6R-Ow-5js"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="leading" secondItem="C9j-zW-Pky" secondAttribute="trailing" constant="8" symbolic="YES" id="Uwh-Wi-C4J"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="top" secondItem="Z4W-Gh-RiQ" secondAttribute="top" id="Say-Vw-H8p"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="Z4W-Gh-RiQ" secondAttribute="firstBaseline" id="TVP-5I-MXu"/>
                                     <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" constant="46" id="Xyy-gK-2AQ"/>
-                                    <constraint firstItem="ACV-Ri-7nN" firstAttribute="baseline" secondItem="O7h-tw-s2d" secondAttribute="baseline" id="aAz-YD-Dsx"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="top" secondItem="FTi-x2-zwk" secondAttribute="top" id="aWu-Jh-ypG"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="16" id="bAm-5n-Acs"/>
+                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="leading" secondItem="39J-5A-Jtm" secondAttribute="trailing" constant="7" id="bE3-cw-xNS"/>
                                     <constraint firstAttribute="bottom" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="dbH-gS-2dL"/>
                                     <constraint firstItem="kQD-gK-cOc" firstAttribute="centerX" secondItem="oOK-6u-M58" secondAttribute="centerX" id="ebA-Tp-8ss"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="ACV-Ri-7nN" secondAttribute="bottom" constant="12" id="ecp-nO-W7o"/>
+                                    <constraint firstItem="ZJ3-lz-BGf" firstAttribute="leading" secondItem="ACV-Ri-7nN" secondAttribute="trailing" constant="8" symbolic="YES" id="hYb-Ai-Nc5"/>
+                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="baseline" secondItem="O7h-tw-s2d" secondAttribute="baseline" id="hhb-rW-BWc"/>
                                     <constraint firstAttribute="width" constant="1024" id="i8R-Mx-RnE"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="top" secondItem="39J-5A-Jtm" secondAttribute="top" id="igr-ay-g5Z"/>
-                                    <constraint firstItem="ACV-Ri-7nN" firstAttribute="baseline" secondItem="O7h-tw-s2d" secondAttribute="firstBaseline" id="nmE-WX-sP4"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="C9j-zW-Pky" secondAttribute="bottom" constant="7" id="pCd-IC-Qg1"/>
-                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="top" secondItem="O7h-tw-s2d" secondAttribute="top" id="rbx-lS-bZd"/>
-                                    <constraint firstItem="ZJ3-lz-BGf" firstAttribute="leading" secondItem="ACV-Ri-7nN" secondAttribute="trailing" constant="8" symbolic="YES" id="rqW-DB-TcP"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="firstBaseline" id="udM-yv-YQi"/>
+                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="16" id="n1J-2z-yk3"/>
+                                    <constraint firstAttribute="trailing" secondItem="O7h-tw-s2d" secondAttribute="trailing" constant="15" id="our-Oo-CEI"/>
+                                    <constraint firstItem="Z4W-Gh-RiQ" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="baseline" id="pKE-3Q-Deb"/>
+                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="baseline" id="rQy-Il-6UA"/>
+                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="C9j-zW-Pky" secondAttribute="bottom" constant="8" symbolic="YES" id="vLU-Zb-FsP"/>
                                     <constraint firstItem="oOK-6u-M58" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" id="vWD-jg-FLD"/>
-                                    <constraint firstItem="ACV-Ri-7nN" firstAttribute="centerY" secondItem="ZJ3-lz-BGf" secondAttribute="centerY" id="yX3-1Z-mjP"/>
+                                    <constraint firstItem="ZJ3-lz-BGf" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="808" id="wyb-FF-8GW"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -209,6 +232,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="configKeyboardButton" destination="Z4W-Gh-RiQ" id="oed-gQ-ajB"/>
                         <outlet property="holdButton" destination="39J-5A-Jtm" id="jKu-XJ-QBn"/>
                         <outlet property="keyboardBottomConstraint" destination="PEn-Gy-uTb" id="DR1-2q-zLe"/>
                         <outlet property="keyboardToggle" destination="O7h-tw-s2d" id="4MG-Tz-Df0"/>
@@ -1470,6 +1494,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQk-sd-9z1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-536.1328125" y="-23.046875"/>
+        </scene>
+        <!--Pop Up Keyboard Controller-->
+        <scene sceneID="nVT-JB-zlP">
+            <objects>
+                <viewController id="9qI-Vs-eLW" customClass="PopUpKeyboardController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Jm-dk-ghz"/>
+                        <viewControllerLayoutGuide type="bottom" id="nli-Me-Dhp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v2e-Sw-8cj">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNP-KG-OgZ">
+                                <rect key="frame" x="247" y="1" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="close">
+                                    <color key="titleColor" red="0.90196078430000004" green="0.53333333329999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButton:" destination="9qI-Vs-eLW" eventType="touchUpInside" id="zSA-Xy-cuW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Octaves:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icQ-Ei-YHr">
+                                <rect key="frame" x="15" y="67" width="78" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ai9-6v-51K">
+                                <rect key="frame" x="113" y="63" width="162" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                </segments>
+                                <color key="tintColor" red="0.68235294117647061" green="0.68235294117647061" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="octaveRangeDidChange:" destination="9qI-Vs-eLW" eventType="valueChanged" id="gH5-od-8iO"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kgu-qC-jCb">
+                                <rect key="frame" x="113" y="128" width="162" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="None"/>
+                                    <segment title="Oct"/>
+                                    <segment title="All"/>
+                                </segments>
+                                <color key="tintColor" red="0.68235294117647061" green="0.68235294117647061" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="keyLabelDidChange:" destination="9qI-Vs-eLW" eventType="valueChanged" id="CyH-Oq-NE5"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Key Labels:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmL-Ud-aaA">
+                                <rect key="frame" x="15" y="132" width="80" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KEYBOARD SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUb-c8-F17">
+                                <rect key="frame" x="16" y="13" width="124" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="textColor" red="0.30588235289999999" green="0.30588235289999999" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="200"/>
+                    <connections>
+                        <outlet property="labelModeSegment" destination="kgu-qC-jCb" id="Qda-gl-naF"/>
+                        <outlet property="octaveRangeSegment" destination="Ai9-6v-51K" id="VIQ-Eg-JVA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCz-Ja-PHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1812.3046874999998" y="-251.5625"/>
         </scene>
     </scenes>
     <resources>

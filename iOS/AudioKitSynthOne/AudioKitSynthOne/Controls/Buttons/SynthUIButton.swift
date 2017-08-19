@@ -35,7 +35,7 @@ class SynthUIButton: UIButton, AKSynthOneControl {
         
         clipsToBounds = true
         layer.cornerRadius = 2
-        layer.borderWidth = 2
+        layer.borderWidth = 1
 //        layer.borderColor = #colorLiteral(red: 0.09803921569, green: 0.09803921569, blue: 0.09803921569, alpha: 1) as! CGColor
     }
     

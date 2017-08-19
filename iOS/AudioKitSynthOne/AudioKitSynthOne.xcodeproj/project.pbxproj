@@ -10,6 +10,8 @@
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
 		941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */; };
 		943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B59601F36B4F200E5FBE6 /* TimeKnob.swift */; };
+		9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
+		9442BBDC1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
 		945261401F2925610037662C /* AKTouchPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9452613E1F2925600037662C /* AKTouchPadView.swift */; };
 		945261411F2925610037662C /* AKTouchPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9452613E1F2925600037662C /* AKTouchPadView.swift */; };
 		945261481F2928870037662C /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945261381F2918A60037662C /* TouchPadViewController.swift */; };
@@ -162,6 +164,7 @@
 /* Begin PBXFileReference section */
 		9410659E1F26AA55002777AB /* ADSRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
 		943B59601F36B4F200E5FBE6 /* TimeKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeKnob.swift; sourceTree = "<group>"; };
+		9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpKeyboardController.swift; sourceTree = "<group>"; };
 		945261381F2918A60037662C /* TouchPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPadViewController.swift; sourceTree = "<group>"; };
 		9452613E1F2925600037662C /* AKTouchPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKTouchPadView.swift; sourceTree = "<group>"; };
 		945C3A021F3141F50086D58B /* ArpButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpButtonStyleKit.swift; sourceTree = "<group>"; };
@@ -247,6 +250,7 @@
 				9468E2791F2827AC00C60B1B /* SettingsViewController.swift */,
 				94B69C3A1F297E2800191C87 /* FXViewController.swift */,
 				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
+				9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */,
 				945C3A0F1F3143A00086D58B /* SeqViewController.swift */,
 				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
 				C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */,
@@ -566,6 +570,7 @@
 				945C3A051F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
 				94DB18D31F37DD4B008368AE /* NavButton.swift in Sources */,
 				941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */,
+				9442BBDC1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ToggleButtonStyleKit.swift in Sources */,
 				945261491F2928880037662C /* TouchPadViewController.swift in Sources */,
 				947956AA1F329AB200FE5D9B /* Stepper.swift in Sources */,
@@ -603,6 +608,7 @@
 				949D09341F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
+				9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
 				94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,

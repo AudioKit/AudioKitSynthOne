@@ -25,7 +25,7 @@ enum ChildView: String {
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     @IBOutlet weak var topContainerView: UIView!
-
+    
     @IBOutlet weak var keyboardView: SynthKeyboard!
     @IBOutlet weak var keyboardBottomConstraint: NSLayoutConstraint!
     
@@ -34,6 +34,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     @IBOutlet weak var monoButton: SynthUIButton!
     @IBOutlet weak var keyboardToggle: SynthUIButton!
     @IBOutlet weak var octaveStepper: Stepper!
+    @IBOutlet weak var configKeyboardButton: SynthUIButton!
     
     var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
@@ -125,7 +126,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         switchToChildView(.fxView)
     }
     
-
+    
     
     // ********************************************************
     // MARK: - Callbacks
@@ -135,6 +136,15 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         
         conductor.bind(monoButton, to: AKSynthOneParameter.isMono)
         
+        octaveStepper.callback = { value in
+            self.keyboardView.firstOctave = Int(value) + 3
+        }
+        
+        configKeyboardButton.callback = { _ in
+            self.performSegue(withIdentifier: "SegueToKeyboardPopOver", sender: self)
+            self.configKeyboardButton.isSelected = false
+        }
+        
         keyboardToggle.callback = { value in
             
             let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -138
@@ -143,10 +153,6 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
                 self.keyboardBottomConstraint.constant = newConstraintValue
                 self.view.layoutIfNeeded()
             })
-        }
-        
-        octaveStepper.callback = { value in
-            self.keyboardView.firstOctave = Int(value) + 3
         }
     }
     
@@ -165,6 +171,19 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     // **********************************************************
     // MARK: - View Navigation/Embed Helper Methods
     // **********************************************************
+    
+    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SegueToKeyboardPopOver" {
+            let popOverController = segue.destination as! PopUpKeyboardController
+            popOverController.delegate = self
+            popOverController.octaveRange = keyboardView.octaveCount
+            popOverController.labelMode = keyboardView.labelMode
+            popOverController.preferredContentSize = CGSize(width: 300, height: 200)
+            if let presentation = popOverController.popoverPresentationController {
+                presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+            }
+        }
+    }
     
     fileprivate func add(asChildViewController viewController: UIViewController) {
         // Add Child View Controller
@@ -232,5 +251,18 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
             add(asChildViewController: seqViewController)
             seqViewController.navDelegate = self
         }
+    }
+}
+
+// **********************************************************
+// MARK: - Keyboard Pop Over Delegate
+// **********************************************************
+
+extension SynthOneViewController: KeyboardPopOverDelegate {
+    
+    func didFinishSelecting(octaveRange: Int, labelMode: Int) {
+        keyboardView.octaveCount = octaveRange
+        keyboardView.labelMode = labelMode
+        keyboardView.setNeedsDisplay()
     }
 }

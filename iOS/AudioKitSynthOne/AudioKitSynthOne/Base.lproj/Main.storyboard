@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,15 +61,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uw2-JG-GSz" userLabel="KeyboardContainer">
                                 <rect key="frame" x="0.0" y="498" width="1024" height="270"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyboard_top" translatesAutoresizingMaskIntoConstraints="NO" id="oOK-6u-M58">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="keyboard_top" translatesAutoresizingMaskIntoConstraints="NO" id="oOK-6u-M58">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="47"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="1024" id="4gh-fo-AQm"/>
-                                            <constraint firstAttribute="height" constant="47" id="nak-IJ-Hzc"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="SynthKeyboard" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="7" y="46" width="1010" height="224"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-gK-cOc" customClass="SynthKeyboard" customModule="AudioKitSynthOne">
+                                        <rect key="frame" x="7" y="45" width="1010" height="225"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="octaveCount">
@@ -81,12 +78,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9j-zW-Pky" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9j-zW-Pky" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                         <rect key="frame" x="16" y="4" width="50" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="5bd-oY-u1q"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="MIDI">
@@ -96,12 +91,10 @@
                                             <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-tw-s2d" userLabel="Keyboard Toggle" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-tw-s2d" userLabel="Keyboard Toggle" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                         <rect key="frame" x="934" y="4" width="75" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.24313725490196078" green="0.24313725490196078" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="8Cn-a2-c7U"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Keyboard">
@@ -111,25 +104,22 @@
                                             <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Octave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-Ri-7nN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Octave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-Ri-7nN">
                                         <rect key="frame" x="758" y="12" width="42" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="42" id="xdc-fZ-pPs"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ3-lz-BGf" customClass="Stepper" customModule="AudioKitSynthOne">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ3-lz-BGf" customClass="Stepper" customModule="AudioKitSynthOne">
                                         <rect key="frame" x="808" y="4" width="108" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4W-Gh-RiQ" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4W-Gh-RiQ" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                         <rect key="frame" x="73" y="4" width="50" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="fXu-5E-yKQ"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Keys">
@@ -144,12 +134,10 @@
                                             </segue>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39J-5A-Jtm" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39J-5A-Jtm" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                         <rect key="frame" x="130" y="4" width="50" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="KdT-uw-D8x"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Hold">
@@ -159,12 +147,10 @@
                                             <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTi-x2-zwk" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTi-x2-zwk" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                         <rect key="frame" x="187" y="4" width="50" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="MFx-NG-g4j"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Mono">
@@ -177,51 +163,18 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="firstBaseline" id="0kw-ag-BH7"/>
-                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="baseline" secondItem="O7h-tw-s2d" secondAttribute="firstBaseline" id="2Mw-7j-3Gc"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="top" secondItem="FTi-x2-zwk" secondAttribute="top" id="2at-yU-7RL"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="ZJ3-lz-BGf" secondAttribute="bottom" constant="7" id="46V-Bt-kBH"/>
-                                    <constraint firstItem="O7h-tw-s2d" firstAttribute="leading" secondItem="ZJ3-lz-BGf" secondAttribute="trailing" constant="18" id="4h8-Yf-Ugj"/>
-                                    <constraint firstItem="Z4W-Gh-RiQ" firstAttribute="baseline" secondItem="C9j-zW-Pky" secondAttribute="firstBaseline" id="6Fr-hp-8Vc"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="Z4W-Gh-RiQ" secondAttribute="baseline" id="8Je-un-x46"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="7" id="BV3-1X-fgE"/>
-                                    <constraint firstItem="Z4W-Gh-RiQ" firstAttribute="top" secondItem="39J-5A-Jtm" secondAttribute="top" id="CCf-X0-42q"/>
-                                    <constraint firstItem="Z4W-Gh-RiQ" firstAttribute="leading" secondItem="C9j-zW-Pky" secondAttribute="trailing" constant="7" id="D6u-1C-3jA"/>
-                                    <constraint firstItem="ACV-Ri-7nN" firstAttribute="centerY" secondItem="oOK-6u-M58" secondAttribute="centerY" id="FiV-bG-C97"/>
-                                    <constraint firstItem="ZJ3-lz-BGf" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" constant="4" id="Fk8-uZ-bWE"/>
-                                    <constraint firstItem="oOK-6u-M58" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" id="H0A-aZ-tgH"/>
-                                    <constraint firstItem="Z4W-Gh-RiQ" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="firstBaseline" id="HJ7-Cm-Q9w"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="leading" secondItem="Z4W-Gh-RiQ" secondAttribute="trailing" constant="7" id="JYF-wZ-w62"/>
-                                    <constraint firstAttribute="height" constant="270" id="Lu3-cu-71Z"/>
-                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="top" secondItem="O7h-tw-s2d" secondAttribute="top" id="Oap-re-8co"/>
-                                    <constraint firstAttribute="trailing" secondItem="oOK-6u-M58" secondAttribute="trailing" id="Ofs-di-XSY"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="top" secondItem="Z4W-Gh-RiQ" secondAttribute="top" id="Say-Vw-H8p"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="baseline" secondItem="Z4W-Gh-RiQ" secondAttribute="firstBaseline" id="TVP-5I-MXu"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" constant="46" id="Xyy-gK-2AQ"/>
-                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="leading" secondItem="39J-5A-Jtm" secondAttribute="trailing" constant="7" id="bE3-cw-xNS"/>
-                                    <constraint firstAttribute="bottom" secondItem="kQD-gK-cOc" secondAttribute="bottom" id="dbH-gS-2dL"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="centerX" secondItem="oOK-6u-M58" secondAttribute="centerX" id="ebA-Tp-8ss"/>
-                                    <constraint firstItem="ZJ3-lz-BGf" firstAttribute="leading" secondItem="ACV-Ri-7nN" secondAttribute="trailing" constant="8" symbolic="YES" id="hYb-Ai-Nc5"/>
-                                    <constraint firstItem="FTi-x2-zwk" firstAttribute="baseline" secondItem="O7h-tw-s2d" secondAttribute="baseline" id="hhb-rW-BWc"/>
-                                    <constraint firstAttribute="width" constant="1024" id="i8R-Mx-RnE"/>
-                                    <constraint firstItem="C9j-zW-Pky" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="16" id="n1J-2z-yk3"/>
-                                    <constraint firstAttribute="trailing" secondItem="O7h-tw-s2d" secondAttribute="trailing" constant="15" id="our-Oo-CEI"/>
-                                    <constraint firstItem="Z4W-Gh-RiQ" firstAttribute="baseline" secondItem="39J-5A-Jtm" secondAttribute="baseline" id="pKE-3Q-Deb"/>
-                                    <constraint firstItem="39J-5A-Jtm" firstAttribute="baseline" secondItem="FTi-x2-zwk" secondAttribute="baseline" id="rQy-Il-6UA"/>
-                                    <constraint firstItem="kQD-gK-cOc" firstAttribute="top" secondItem="C9j-zW-Pky" secondAttribute="bottom" constant="8" symbolic="YES" id="vLU-Zb-FsP"/>
-                                    <constraint firstItem="oOK-6u-M58" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="top" id="vWD-jg-FLD"/>
-                                    <constraint firstItem="ZJ3-lz-BGf" firstAttribute="leading" secondItem="uw2-JG-GSz" secondAttribute="leading" constant="808" id="wyb-FF-8GW"/>
+                                    <constraint firstAttribute="height" constant="270" id="IyF-k0-ybl"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="uw2-JG-GSz" secondAttribute="trailing" id="1ZR-vm-Ffp"/>
                             <constraint firstAttribute="trailing" secondItem="RnT-Kx-qNG" secondAttribute="trailing" id="3Lo-qO-BtL"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="top" secondItem="RnT-Kx-qNG" secondAttribute="bottom" id="4mP-L3-8Up"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ps-Uq-68M"/>
-                            <constraint firstItem="uw2-JG-GSz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Euv-3m-1zD"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="bottom" id="PEn-Gy-uTb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="bottom" id="ChZ-wF-sPF"/>
+                            <constraint firstItem="uw2-JG-GSz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FKN-cN-JL9"/>
+                            <constraint firstAttribute="trailing" secondItem="uw2-JG-GSz" secondAttribute="trailing" id="ON3-m1-RXe"/>
                             <constraint firstItem="RnT-Kx-qNG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U2m-cp-QYv"/>
                             <constraint firstAttribute="trailing" secondItem="B3C-71-5ce" secondAttribute="trailing" id="WKF-2m-U1a"/>
                             <constraint firstItem="B3C-71-5ce" firstAttribute="top" secondItem="FVi-Ld-MF5" secondAttribute="bottom" id="apV-TI-uEJ"/>
@@ -234,7 +187,7 @@
                     <connections>
                         <outlet property="configKeyboardButton" destination="Z4W-Gh-RiQ" id="oed-gQ-ajB"/>
                         <outlet property="holdButton" destination="39J-5A-Jtm" id="jKu-XJ-QBn"/>
-                        <outlet property="keyboardBottomConstraint" destination="PEn-Gy-uTb" id="DR1-2q-zLe"/>
+                        <outlet property="keyboardBottomConstraint" destination="ChZ-wF-sPF" id="i5l-NZ-wLj"/>
                         <outlet property="keyboardToggle" destination="O7h-tw-s2d" id="4MG-Tz-Df0"/>
                         <outlet property="keyboardView" destination="kQD-gK-cOc" id="qex-X3-Wi8"/>
                         <outlet property="midiButton" destination="C9j-zW-Pky" id="Xwb-TL-joD"/>
@@ -713,7 +666,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91R-2p-bBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1733" y="-12"/>
+            <point key="canvasLocation" x="-1736" y="40"/>
         </scene>
         <!--TouchPad-->
         <scene sceneID="dsG-FG-foi">
@@ -1576,7 +1529,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCz-Ja-PHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1812.3046874999998" y="-251.5625"/>
+            <point key="canvasLocation" x="-1819" y="-198"/>
         </scene>
     </scenes>
     <resources>

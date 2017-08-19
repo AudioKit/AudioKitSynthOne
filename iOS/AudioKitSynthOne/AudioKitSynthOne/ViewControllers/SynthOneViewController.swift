@@ -125,16 +125,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         switchToChildView(.fxView)
     }
     
-    //    func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
-    //        return { value in
-    //            self.conductor.synth.parameters[param.rawValue] = value
-    //        }
-    //    }
-    
-    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscape
-    }
-    
+
     
     // ********************************************************
     // MARK: - Callbacks

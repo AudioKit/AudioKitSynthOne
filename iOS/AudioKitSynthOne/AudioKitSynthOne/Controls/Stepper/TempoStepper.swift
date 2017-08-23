@@ -71,7 +71,7 @@ class TempoStepper: Stepper {
     // *********************************************************
     
     override func draw(_ rect: CGRect) {
-        TempoStyleKit.drawTempoStepper(valuePressed: valuePressed, text: "\(tempoValue) bpm")
+        TempoStyleKit.drawTempoStepper(valuePressed: valuePressed, text: "\(Int(tempoValue)) bpm")
     }
     
     // *********************************************************

@@ -87,7 +87,7 @@ public class TempoStyleKit : NSObject {
 
 
         //// tempoBackground Drawing
-        let tempoBackgroundRect = CGRect(x: 3.5, y: 0.5, width: 75, height: 32)
+        let tempoBackgroundRect = CGRect(x: 3.5, y: 0.5, width: 75, height: 33)
         let tempoBackgroundPath = UIBezierPath(roundedRect: tempoBackgroundRect, cornerRadius: 1)
         btnBack.setFill()
         tempoBackgroundPath.fill()
@@ -97,7 +97,7 @@ public class TempoStyleKit : NSObject {
         let tempoBackgroundStyle = NSMutableParagraphStyle()
         tempoBackgroundStyle.alignment = .center
         let tempoBackgroundFontAttributes = [
-            NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: UIFont.systemFontSize)!,
+            NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 15)!,
             NSForegroundColorAttributeName: textColor,
             NSParagraphStyleAttributeName: tempoBackgroundStyle,
         ]

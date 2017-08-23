@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -341,19 +340,24 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLR-Kv-nmn" customClass="ToggleButton" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="794" y="217" width="34" height="36"/>
+                                <rect key="frame" x="795" y="217" width="34" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM3-9F-WMh">
-                                <rect key="frame" x="732" y="217" width="34" height="36"/>
+                            <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM3-9F-WMh">
+                                <rect key="frame" x="734" y="220" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="info"/>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eYJ-vb-EwS" customClass="TempoStepper" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="858" y="208" width="85" height="74"/>
+                                <rect key="frame" x="859" y="210" width="85" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKR-Ic-gz4" customClass="AKOutputWaveformPlot" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="441" y="78" width="168" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -362,6 +366,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
+                        <outlet property="audioPlot" destination="HKR-Ic-gz4" id="cOI-ah-4sg"/>
                         <outlet property="cutoff" destination="sPn-F6-EfJ" id="WLh-d9-LNh"/>
                         <outlet property="fmAmount" destination="PlS-FK-Xk4" id="Y2W-Db-GO4"/>
                         <outlet property="fmVolume" destination="eeh-g3-XJ2" id="NHR-Ny-zAj"/>
@@ -385,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1Q-CL-vib" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565.4296875" y="-442.578125"/>
+            <point key="canvasLocation" x="140.625" y="-621.484375"/>
         </scene>
         <!--Header-->
         <scene sceneID="uWT-k1-pAc">
@@ -406,12 +411,6 @@
                                     <constraint firstAttribute="height" constant="38" id="exb-x7-IBk"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Knob Value: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I96-P8-9zu">
-                                <rect key="frame" x="469.5" y="28" width="85" height="3"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
-                                <color key="textColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCV-UJ-nIV">
                                 <rect key="frame" x="90" y="4" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -462,14 +461,18 @@
                                     <action selector="fxPressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="Jza-eK-cu4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I96-P8-9zu">
+                                <rect key="frame" x="460" y="11" width="85" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <color key="textColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eFt-un-9BY" secondAttribute="trailing" id="HbM-6z-XMG"/>
-                            <constraint firstItem="I96-P8-9zu" firstAttribute="centerX" secondItem="B0l-jj-fC6" secondAttribute="centerX" id="Tae-qg-hWa"/>
-                            <constraint firstItem="28u-ax-JmL" firstAttribute="top" secondItem="I96-P8-9zu" secondAttribute="bottom" constant="7" id="ZoI-24-AUb"/>
                             <constraint firstItem="28u-ax-JmL" firstAttribute="top" secondItem="eFt-un-9BY" secondAttribute="bottom" constant="-2" id="dWt-79-Y7L"/>
-                            <constraint firstItem="I96-P8-9zu" firstAttribute="top" secondItem="B0l-jj-fC6" secondAttribute="topMargin" constant="8" id="nSO-vt-YNL"/>
                             <constraint firstItem="eFt-un-9BY" firstAttribute="leading" secondItem="B0l-jj-fC6" secondAttribute="leading" id="p94-cw-XUQ"/>
                             <constraint firstItem="eFt-un-9BY" firstAttribute="top" secondItem="B0l-jj-fC6" secondAttribute="top" constant="2" id="xVT-d5-IR7"/>
                         </constraints>
@@ -483,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFg-69-Hlo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-583" y="-1064"/>
+            <point key="canvasLocation" x="-587" y="-1147"/>
         </scene>
         <!--ADSR-->
         <scene sceneID="crk-4V-XLk">
@@ -751,7 +754,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRA-I0-37X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="553" y="-23"/>
+            <point key="canvasLocation" x="128" y="-201"/>
         </scene>
         <!--FX-->
         <scene sceneID="axr-IY-d6c">
@@ -1446,7 +1449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQk-sd-9z1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-536.1328125" y="-23.046875"/>
+            <point key="canvasLocation" x="-544" y="-120"/>
         </scene>
         <!--Pop Up Keyboard Controller-->
         <scene sceneID="nVT-JB-zlP">
@@ -1546,7 +1549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCz-Ja-PHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1819.3359374999998" y="-198.4375"/>
+            <point key="canvasLocation" x="-1796" y="-135"/>
         </scene>
     </scenes>
     <resources>
@@ -1556,6 +1559,7 @@
         <image name="au_main" width="1024" height="299"/>
         <image name="au_touchpad" width="1024" height="299"/>
         <image name="headerback" width="1024" height="38"/>
+        <image name="info" width="30" height="30"/>
         <image name="keyboard_top" width="1023" height="47"/>
     </resources>
 </document>

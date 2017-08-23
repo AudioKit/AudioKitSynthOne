@@ -17,7 +17,7 @@ public class ToggleSwitchStyleKit : NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawToggleSwitch(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 60, height: 31), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false) {
+    @objc dynamic public class func drawToggleSwitch(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 60, height: 31), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false ) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         

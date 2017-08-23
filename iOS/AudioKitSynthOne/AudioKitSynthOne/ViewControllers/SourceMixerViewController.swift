@@ -87,6 +87,7 @@ public class SourceMixerViewController: UpdatableViewController {
 
         updateCallbacks()
         navButtonsSetup()
+        
     }
     
     func navButtonsSetup() {

@@ -17,7 +17,7 @@ public class ToggleButtonStyleKit : NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 34, height: 34), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false) {
+    @objc dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 34, height: 34), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false, backgroundColor: UIColor = UIColor(red: 0.306, green: 0.306, blue: 0.325, alpha: 1.000)) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
@@ -43,7 +43,7 @@ public class ToggleButtonStyleKit : NSObject {
         //// buttonOff
         //// buttonBackground 2 Drawing
         let buttonBackground2Path = UIBezierPath(ovalIn: CGRect(x: 2, y: 2, width: 30, height: 30))
-        gray.setFill()
+        backgroundColor.setFill()
         buttonBackground2Path.fill()
 
 
@@ -59,7 +59,7 @@ public class ToggleButtonStyleKit : NSObject {
             //// buttonOn
             //// buttonBackground Drawing
             let buttonBackgroundPath = UIBezierPath(ovalIn: CGRect(x: 2, y: 2, width: 30, height: 30))
-            gray.setFill()
+            backgroundColor.setFill()
             buttonBackgroundPath.fill()
 
 

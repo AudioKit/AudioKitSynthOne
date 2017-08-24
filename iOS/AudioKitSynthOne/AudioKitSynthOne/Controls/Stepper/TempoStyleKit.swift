@@ -60,7 +60,7 @@ public class TempoStyleKit : NSObject {
         //// Rectangle Drawing
         context.saveGState()
         context.translateBy(x: 61.5, y: 54.5)
-        context.rotate(by: -180 * CGFloat.pi/180)
+        context.rotate(by: -270 * CGFloat.pi/180)
 
         let rectanglePath = UIBezierPath()
         rectanglePath.move(to: CGPoint(x: 3.5, y: -5.5))
@@ -74,7 +74,8 @@ public class TempoStyleKit : NSObject {
 
         //// Rectangle 4 Drawing
         context.saveGState()
-        context.translateBy(x: 18.5, y: 54.5)
+        context.translateBy(x: 20.5, y: 55.5)
+        context.rotate(by: -90 * CGFloat.pi/180)
 
         let rectangle4Path = UIBezierPath()
         rectangle4Path.move(to: CGPoint(x: 3.5, y: -5.5))

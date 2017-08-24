@@ -591,6 +591,7 @@
                     <connections>
                         <outlet property="audioPlot" destination="HKR-Ic-gz4" id="cOI-ah-4sg"/>
                         <outlet property="cutoff" destination="sPn-F6-EfJ" id="WLh-d9-LNh"/>
+                        <outlet property="filterTypeToggle" destination="svc-Dm-tS3" id="prX-lr-HvU"/>
                         <outlet property="fmAmount" destination="PlS-FK-Xk4" id="Y2W-Db-GO4"/>
                         <outlet property="fmVolume" destination="eeh-g3-XJ2" id="NHR-Ny-zAj"/>
                         <outlet property="masterVolume" destination="la2-0e-izH" id="54u-fs-IBa"/>

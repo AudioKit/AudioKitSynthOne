@@ -39,6 +39,7 @@ public class SourceMixerViewController: UpdatableViewController {
     @IBOutlet weak var nav2Button: NavButton!
     
     @IBOutlet weak var audioPlot: AKOutputWaveformPlot!
+    @IBOutlet weak var filterTypeToggle: FilterTypeButton!
     
     var navDelegate: EmbeddedViewsDelegate?
     
@@ -85,6 +86,10 @@ public class SourceMixerViewController: UpdatableViewController {
         conductor.bind(noiseVolume,          to: .noiseVolume)
         conductor.bind(masterVolume,         to: .masterVolume)
 
+        filterTypeToggle.callback = { value in
+            print("Filter type changed \(value)")
+        }
+        
         updateCallbacks()
         navButtonsSetup()
         

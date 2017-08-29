@@ -54,7 +54,7 @@ public class AKTouchPadView: UIView {
         }
     }
 
-    var touchImageView: UIImageView!
+    var touchPointView: TouchPoint!
 
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -64,12 +64,12 @@ public class AKTouchPadView: UIView {
         super.init(coder: aDecoder)
 
         // Setup Touch Visual Indicators
-        touchImageView = UIImageView(frame: CGRect(x: -200, y: -200, width: 85, height: 85))
-        touchImageView.image = UIImage(named: "touchpoint2")
-        touchImageView.center = CGPoint(x: self.bounds.size.width/2, y: self.bounds.size.height/2)
-
-        self.addSubview(touchImageView)
+        touchPointView = TouchPoint(frame: CGRect(x: -200, y: -200, width: 63, height: 63))
+        touchPointView.center = CGPoint(x: self.bounds.size.width/2, y: self.bounds.size.height/2)
+        touchPointView.isOpaque = false
+        self.addSubview(touchPointView)
     }
+    
     
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
@@ -107,7 +107,7 @@ public class AKTouchPadView: UIView {
             withDuration: 0.2,
             delay: 0.0,
             options: UIViewAnimationOptions(),
-            animations: { self.touchImageView.center = CGPoint(x: centerPointX, y: centerPointY) },
+            animations: { self.touchPointView.center = CGPoint(x: centerPointX, y: centerPointY) },
             completion: { finished in
                 self.x = CGFloat(newPercentX)
                 self.y = CGFloat(newPercentY)
@@ -122,7 +122,7 @@ public class AKTouchPadView: UIView {
         x = CGFloat((0.0 ... 1.0).clamp(touchPoint.x / self.bounds.size.width))
         y = CGFloat((0.0 ... 1.0).clamp(1 - touchPoint.y / self.bounds.size.height))
 
-        touchImageView.center = CGPoint(x: touchPoint.x, y: touchPoint.y)
+        touchPointView.center = CGPoint(x: touchPoint.x, y: touchPoint.y)
         horizontalValue = Double(x).denormalized(range: horizontalRange, taper: horizontalTaper)
         verticalValue = Double(y).denormalized(range: verticalRange, taper: verticalTaper)
         callback(horizontalValue, verticalValue, began)

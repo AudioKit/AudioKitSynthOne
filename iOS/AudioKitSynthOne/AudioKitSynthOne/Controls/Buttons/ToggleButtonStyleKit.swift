@@ -31,7 +31,7 @@ public class ToggleButtonStyleKit : NSObject {
 
         //// Color Declarations
         let orange = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)
-        let gray = UIColor(red: 0.306, green: 0.306, blue: 0.325, alpha: 1.000)
+        // let gray = UIColor(red: 0.306, green: 0.306, blue: 0.325, alpha: 1.000)
         let darkerGray = UIColor(red: 0.243, green: 0.243, blue: 0.263, alpha: 1.000)
 
         //// Shadow Declarations

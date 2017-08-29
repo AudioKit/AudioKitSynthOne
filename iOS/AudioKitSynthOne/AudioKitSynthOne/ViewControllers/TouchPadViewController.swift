@@ -14,7 +14,7 @@ class TouchPadViewController: UpdatableViewController {
     @IBOutlet weak var touchPad2: AKTouchPadView!
     
     @IBOutlet weak var touchPad1Label: UILabel!
-    @IBOutlet weak var snapToggle: ToggleButton!
+    @IBOutlet weak var snapToggle: SynthUIButton!
     
     @IBOutlet weak var nav1Button: NavButton!
     @IBOutlet weak var nav2Button: NavButton!
@@ -38,7 +38,7 @@ class TouchPadViewController: UpdatableViewController {
         touchPad2.verticalRange = 120 ... 28000
         touchPad2.verticalTaper = 4.04
         
-        snapToggle.isOn = true
+        // snapToggle.isSelected = true
         
         updateCallbacks()
         createParticles()
@@ -73,6 +73,14 @@ class TouchPadViewController: UpdatableViewController {
     }
     
     override func updateCallbacks() {
+        
+        snapToggle.callback = { value in
+            if value == 1 {
+                // Snapback TouchPad1
+                self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = self.oscBalance
+                self.touchPad1.resetToPosition(self.oscBalance, 0.5)
+            }
+        }
         
         touchPad1.callback = { horizontal, vertical, touchesBegan in
             if touchesBegan {
@@ -184,13 +192,13 @@ class TouchPadViewController: UpdatableViewController {
     
     func makeEmitterCellWithColor(_ color: UIColor) -> CAEmitterCell {
         let cell = CAEmitterCell()
-        cell.birthRate = 100
-        cell.lifetime = 1.60
+        cell.birthRate = 80
+        cell.lifetime = 1.70
         cell.alphaSpeed = 1.0
         cell.lifetimeRange = 0
         cell.color = color.cgColor
-        cell.velocity = 200
-        cell.velocityRange = 50
+        cell.velocity = 190
+        cell.velocityRange = 60
         cell.emissionRange = CGFloat(Double.pi) * 2.0
         cell.spin = 15
         cell.spinRange = 3

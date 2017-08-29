@@ -12,7 +12,7 @@ class SynthUIButton: UIButton, AKSynthOneControl {
 
     var callback: (Double)->Void = { _ in }
 
-    private var isOn = false
+    var isOn = false
     
     override var isSelected: Bool {
         didSet {

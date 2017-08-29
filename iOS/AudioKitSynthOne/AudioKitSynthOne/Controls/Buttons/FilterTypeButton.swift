@@ -16,13 +16,13 @@ class FilterTypeButton: UIButton {
             switch value {
             case 0:
                 // cutoff
-                self.setTitle("low pass", for: .normal)
+                self.setTitle("Low Pass", for: .normal)
             case 1:
                 // highpass
-                   self.setTitle("high pass", for: .normal)
+                   self.setTitle("High Pass", for: .normal)
             case 2:
                 // bandpass
-                 self.setTitle("band pass", for: .normal)
+                 self.setTitle("Band Pass", for: .normal)
             default:
                 break
             }

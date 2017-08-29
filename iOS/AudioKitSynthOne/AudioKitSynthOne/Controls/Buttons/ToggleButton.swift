@@ -27,11 +27,9 @@ class ToggleButton: UIView, AKSynthOneControl {
             isOn = value == 1.0
         }
     }
-    
-    @IBInspectable open var buttonColor: UIColor = UIColor(red: 0.306, green: 0.306, blue: 0.325, alpha: 1.000)
 
     override func draw(_ rect: CGRect) {
-        ToggleButtonStyleKit.drawRoundButton(isToggled: isOn, backgroundColor: buttonColor)
+        ToggleButtonStyleKit.drawRoundButton(isToggled: isOn)
     }
     
     // *********************************************************

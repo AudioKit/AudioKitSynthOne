@@ -123,7 +123,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         octaveStepper.maxValue = 4
         
         // Set initial subviews
-        switchToChildView(.padView)
+        switchToChildView(.oscView)
     }
     
     

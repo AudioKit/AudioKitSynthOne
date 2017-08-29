@@ -1,5 +1,5 @@
 //
-//  ToggleButtonStyleKit.swift
+//  FlatToggleButtonStyleKit.swift
 //  AudioKitSynth
 //
 //  Created by Matthew Fecher on 8/28/17.
@@ -13,7 +13,7 @@
 
 import UIKit
 
-public class ToggleButtonStyleKit : NSObject {
+public class FlatToggleButtonStyleKit : NSObject {
 
     //// Drawing Methods
 
@@ -32,42 +32,43 @@ public class ToggleButtonStyleKit : NSObject {
         //// Color Declarations
         let orange = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)
         let gray = UIColor(red: 0.306, green: 0.306, blue: 0.325, alpha: 1.000)
-        let darkerGray = UIColor(red: 0.243, green: 0.243, blue: 0.263, alpha: 1.000)
-        let gradientColor = UIColor(red: 0.235, green: 0.235, blue: 0.252, alpha: 1.000)
-        let gradientColor3 = UIColor(red: 0.282, green: 0.282, blue: 0.303, alpha: 1.000)
-        let gradientColor4 = UIColor(red: 0.459, green: 0.459, blue: 0.488, alpha: 1.000)
-        let gradientColor2 = UIColor(red: 0.388, green: 0.388, blue: 0.409, alpha: 1.000)
-
-        //// Gradient Declarations
-        let gradient = CGGradient(colorsSpace: nil, colors: [gradientColor.cgColor, gradientColor.blended(withFraction: 0.5, of: gradientColor3).cgColor, gradientColor3.cgColor, gradientColor4.cgColor, gradientColor2.cgColor] as CFArray, locations: [0.1, 0.1, 0.19, 0.61, 1])!
+        let darkerGray = UIColor(red: 0.180, green: 0.180, blue: 0.200, alpha: 1.000)
+        let shadow2Color = UIColor(red: 0.180, green: 0.180, blue: 0.200, alpha: 1.000)
 
         //// Shadow Declarations
         let shadow = NSShadow()
         shadow.shadowColor = orange
         shadow.shadowOffset = CGSize(width: 0, height: 0)
         shadow.shadowBlurRadius = 8
-        let shadow3 = NSShadow()
-        shadow3.shadowColor = UIColor.black.withAlphaComponent(0.31)
-        shadow3.shadowOffset = CGSize(width: 0, height: 3)
-        shadow3.shadowBlurRadius = 3
+        let shadow2 = NSShadow()
+        shadow2.shadowColor = shadow2Color
+        shadow2.shadowOffset = CGSize(width: 0, height: -12)
+        shadow2.shadowBlurRadius = 10
 
         //// buttonOff
-        //// Rectangle 3 Drawing
-        let rectangle3Path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 34, height: 34), cornerRadius: 4)
-        context.saveGState()
-        context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale, height: shadow3.shadowOffset.height * resizedShadowScale), blur: shadow3.shadowBlurRadius * resizedShadowScale, color: (shadow3.shadowColor as! UIColor).cgColor)
-        context.beginTransparencyLayer(auxiliaryInfo: nil)
-        rectangle3Path.addClip()
-        context.drawLinearGradient(gradient, start: CGPoint(x: 17, y: 34), end: CGPoint(x: 17, y: 0), options: [])
-        context.endTransparencyLayer()
-        context.restoreGState()
-
-
-
         //// buttonBackground 2 Drawing
         let buttonBackground2Path = UIBezierPath(ovalIn: CGRect(x: 2, y: 2, width: 30, height: 30))
         gray.setFill()
         buttonBackground2Path.fill()
+
+        ////// buttonBackground 2 Inner Shadow
+        context.saveGState()
+        context.clip(to: buttonBackground2Path.bounds)
+        context.setShadow(offset: CGSize.zero, blur: 0)
+        context.setAlpha((shadow2.shadowColor as! UIColor).cgColor.alpha)
+        context.beginTransparencyLayer(auxiliaryInfo: nil)
+        let buttonBackground2OpaqueShadow = (shadow2.shadowColor as! UIColor).withAlphaComponent(1)
+        context.setShadow(offset: CGSize(width: shadow2.shadowOffset.width * resizedShadowScale, height: shadow2.shadowOffset.height * resizedShadowScale), blur: shadow2.shadowBlurRadius * resizedShadowScale, color: buttonBackground2OpaqueShadow.cgColor)
+        context.setBlendMode(.sourceOut)
+        context.beginTransparencyLayer(auxiliaryInfo: nil)
+
+        buttonBackground2OpaqueShadow.setFill()
+        buttonBackground2Path.fill()
+
+        context.endTransparencyLayer()
+        context.endTransparencyLayer()
+        context.restoreGState()
+
 
 
         //// Rectangle 2 Drawing
@@ -99,7 +100,7 @@ public class ToggleButtonStyleKit : NSObject {
 
 
 
-    @objc(ToggleButtonStyleKitResizingBehavior)
+    @objc(FlatToggleButtonStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.
@@ -136,22 +137,5 @@ public class ToggleButtonStyleKit : NSObject {
             result.origin.y = target.minY + (target.height - result.height) / 2
             return result
         }
-    }
-}
-
-
-
-private extension UIColor {
-    func blended(withFraction fraction: CGFloat, of color: UIColor) -> UIColor {
-        var r1: CGFloat = 1, g1: CGFloat = 1, b1: CGFloat = 1, a1: CGFloat = 1
-        var r2: CGFloat = 1, g2: CGFloat = 1, b2: CGFloat = 1, a2: CGFloat = 1
-
-        self.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
-        color.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
-
-        return UIColor(red: r1 * (1 - fraction) + r2 * fraction,
-            green: g1 * (1 - fraction) + g2 * fraction,
-            blue: b1 * (1 - fraction) + b2 * fraction,
-            alpha: a1 * (1 - fraction) + a2 * fraction);
     }
 }

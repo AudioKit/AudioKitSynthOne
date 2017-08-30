@@ -178,7 +178,8 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
             popOverController.delegate = self
             popOverController.octaveRange = keyboardView.octaveCount
             popOverController.labelMode = keyboardView.labelMode
-            popOverController.preferredContentSize = CGSize(width: 300, height: 260)
+            popOverController.darkMode = keyboardView.darkMode
+            popOverController.preferredContentSize = CGSize(width: 300, height: 320)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
             }
@@ -260,9 +261,10 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
 
 extension SynthOneViewController: KeyboardPopOverDelegate {
     
-    func didFinishSelecting(octaveRange: Int, labelMode: Int) {
+    func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool) {
         keyboardView.octaveCount = octaveRange
         keyboardView.labelMode = labelMode
+        keyboardView.darkMode = darkMode
         keyboardView.setNeedsDisplay()
     }
 }

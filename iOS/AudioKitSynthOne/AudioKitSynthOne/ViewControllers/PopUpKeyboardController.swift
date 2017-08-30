@@ -9,7 +9,7 @@
 import UIKit
 
 protocol KeyboardPopOverDelegate {
-    func didFinishSelecting(octaveRange: Int, labelMode: Int)
+    func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool)
 }
 
 class PopUpKeyboardController: UIViewController {
@@ -17,11 +17,13 @@ class PopUpKeyboardController: UIViewController {
     
     @IBOutlet weak var octaveRangeSegment: UISegmentedControl!
     @IBOutlet weak var labelModeSegment: UISegmentedControl!
+    @IBOutlet weak var keyboardModeSegment: UISegmentedControl!
     
     var delegate: KeyboardPopOverDelegate?
     
     var labelMode: Int = 1
     var octaveRange: Int = 2
+    var darkMode: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +31,33 @@ class PopUpKeyboardController: UIViewController {
         // set currently selected scale picks
         octaveRangeSegment.selectedSegmentIndex = octaveRange - 1
         labelModeSegment.selectedSegmentIndex = labelMode
+        keyboardModeSegment.selectedSegmentIndex = darkMode ? 1 : 0
     }
     
     @IBAction func octaveRangeDidChange(_ sender: UISegmentedControl) {
         
         octaveRange = sender.selectedSegmentIndex + 1
        
-        delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode)
+        delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
     }
     
     @IBAction func keyLabelDidChange(_ sender: UISegmentedControl) {
         
            labelMode = sender.selectedSegmentIndex
         
-           delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode)
+           delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
+    }
+    
+    
+    @IBAction func keyboardModeDidChange(_ sender: UISegmentedControl) {
+        
+        if sender.selectedSegmentIndex == 1 {
+            darkMode = true
+        } else {
+            darkMode = false
+        }
+        
+        delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
     }
     
     

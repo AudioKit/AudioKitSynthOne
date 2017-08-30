@@ -213,7 +213,7 @@ public protocol AKKeyboardDelegate: class {
                              cornerRadii: CGSize(width: 3, height: 3)))
             topKeyColor(i, octaveNumber: octaveNumber).setFill()
             topKeyPaths[i].fill()
-           
+           /*
             // Setup Touch Visual Indicators
             blackKey = BlackKey(frame: CGRect(x: topKeyX(i, octaveNumber: octaveNumber) + 23,
                                               y: 0,
@@ -221,7 +221,7 @@ public protocol AKKeyboardDelegate: class {
                                               height: topKeySize.height))
             blackKey.isOpaque = false
             self.addSubview(blackKey)
-            
+            */
         }
     }
     
@@ -399,7 +399,7 @@ public protocol AKKeyboardDelegate: class {
     
     func whiteKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
         if darkMode {
-            whiteKeyOff = #colorLiteral(red: 0.1882352941, green: 0.1882352941, blue: 0.1882352941, alpha: 1)
+            whiteKeyOff = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
         } else {
             whiteKeyOff = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
@@ -410,7 +410,7 @@ public protocol AKKeyboardDelegate: class {
     
     func topKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
         if darkMode {
-            blackKeyOff = #colorLiteral(red: 0.05490196078, green: 0.05490196078, blue: 0.07450980392, alpha: 1)
+            blackKeyOff = #colorLiteral(red: 0.2370533347, green: 0.237835288, blue: 0.2605919242, alpha: 1)
         } else {
             blackKeyOff = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
         }

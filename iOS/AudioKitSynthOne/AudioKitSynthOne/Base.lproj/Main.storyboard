@@ -75,7 +75,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelMode">
                                                 <integer key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="darkMode" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="darkMode" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9j-zW-Pky" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -1907,7 +1907,7 @@
                         <viewControllerLayoutGuide type="bottom" id="nli-Me-Dhp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v2e-Sw-8cj">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="260"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNP-KG-OgZ">
@@ -1920,8 +1920,8 @@
                                     <action selector="closeButton:" destination="9qI-Vs-eLW" eventType="touchUpInside" id="zSA-Xy-cuW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Octaves:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icQ-Ei-YHr">
-                                <rect key="frame" x="15" y="64" width="78" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oct Range:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icQ-Ei-YHr">
+                                <rect key="frame" x="12" y="64" width="81" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1967,15 +1967,8 @@
                                 <color key="textColor" red="0.30588235289999999" green="0.30588235289999999" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MOD WHEEL ROUTING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4E-QI-xWG">
-                                <rect key="frame" x="16" y="169" width="142" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
-                                <color key="textColor" red="0.30588235289999999" green="0.30588235289999999" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZHp-HJ-dWs">
-                                <rect key="frame" x="23" y="207" width="252" height="29"/>
+                                <rect key="frame" x="21" y="264" width="252" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Cutoff"/>
@@ -1984,12 +1977,40 @@
                                 </segments>
                                 <color key="tintColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Nq-KG-x1Y">
+                                <rect key="frame" x="112" y="172" width="162" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Light"/>
+                                    <segment title="Dark"/>
+                                </segments>
+                                <color key="tintColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="keyLabelDidChange:" destination="9qI-Vs-eLW" eventType="valueChanged" id="37R-ZY-aaT"/>
+                                    <action selector="keyboardModeDidChange:" destination="9qI-Vs-eLW" eventType="valueChanged" id="ePM-4J-ESC"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mode:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMU-nM-0hz">
+                                <rect key="frame" x="12" y="176" width="80" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MOD WHEEL ROUTING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4E-QI-xWG">
+                                <rect key="frame" x="16" y="221" width="142" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="textColor" red="0.30588235289999999" green="0.30588235289999999" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="300" height="260"/>
+                    <size key="freeformSize" width="300" height="320"/>
                     <connections>
+                        <outlet property="keyboardModeSegment" destination="9Nq-KG-x1Y" id="qV2-N2-vgV"/>
                         <outlet property="labelModeSegment" destination="kgu-qC-jCb" id="Qda-gl-naF"/>
                         <outlet property="octaveRangeSegment" destination="Ai9-6v-51K" id="VIQ-Eg-JVA"/>
                     </connections>

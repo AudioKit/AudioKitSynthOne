@@ -25,6 +25,8 @@ class SeqViewController: UpdatableViewController {
     let sliderLabelTags = 550 ... 565
     
     var navDelegate: EmbeddedViewsDelegate?
+    var navDelegateBottom: BottomEmbeddedViewsDelegate?
+    var isTopContainer: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,11 +72,19 @@ class SeqViewController: UpdatableViewController {
     
     func navButtonsSetup() {
         nav1Button.callback = { _ in
+             if self.isTopContainer {
             self.navDelegate?.switchToChildView(.padView)
+             } else {
+            self.navDelegateBottom?.switchToBottomChildView(.padView)
+            }
         }
         
         nav2Button.callback = { _ in
+             if self.isTopContainer {
             self.navDelegate?.switchToChildView(.oscView)
+             } else {
+            self.navDelegateBottom?.switchToBottomChildView(.oscView)
+            }
         }
     }
     

@@ -28,6 +28,8 @@ class TouchPadViewController: UpdatableViewController {
     var detuningMultiplier: Double = 1.0
     
     var navDelegate: EmbeddedViewsDelegate?
+    var navDelegateBottom: BottomEmbeddedViewsDelegate?
+    var isTopContainer: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +51,19 @@ class TouchPadViewController: UpdatableViewController {
     func navButtonsSetup() {
         // Nav Button Callbacks
         nav1Button.callback = { _ in
+             if self.isTopContainer {
             self.navDelegate?.switchToChildView(.fxView)
+             } else {
+            self.navDelegateBottom?.switchToBottomChildView(.fxView)
+            }
         }
         
         nav2Button.callback = { _ in
+             if self.isTopContainer {
             self.navDelegate?.switchToChildView(.seqView)
+             } else {
+            self.navDelegateBottom?.switchToBottomChildView(.seqView)
+            }
         }
         
     }

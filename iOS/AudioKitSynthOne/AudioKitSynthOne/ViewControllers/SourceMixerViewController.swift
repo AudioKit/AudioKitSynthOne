@@ -41,6 +41,8 @@ public class SourceMixerViewController: UpdatableViewController {
     @IBOutlet weak var filterTypeToggle: FilterTypeButton!
     
     var navDelegate: EmbeddedViewsDelegate?
+    var navDelegateBottom: BottomEmbeddedViewsDelegate?
+    var isTopContainer: Bool = true
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,11 +98,22 @@ public class SourceMixerViewController: UpdatableViewController {
     
     func navButtonsSetup() {
         nav1Button.callback = { _ in
+             if self.isTopContainer {
             self.navDelegate?.switchToChildView(.seqView)
+             } else {
+            self.navDelegateBottom?.switchToBottomChildView(.seqView)
+            }
         }
         
+        
         nav2Button.callback = { _ in
+            
+             if self.isTopContainer {
             self.navDelegate?.switchToChildView(.adsrView)
+             } else {
+            self.navDelegateBottom?.switchToBottomChildView(.adsrView)
+            }
+       
         }
     }
 }

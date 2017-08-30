@@ -56,9 +56,6 @@
                                     <constraint firstAttribute="height" constant="299" id="EwK-D6-SeG"/>
                                     <constraint firstAttribute="width" constant="1024" id="LFW-n6-Wa7"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="KGI-jP-Zha" kind="embed" id="m4W-Lr-9CD"/>
-                                </connections>
                             </containerView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uw2-JG-GSz" userLabel="KeyboardContainer">
                                 <rect key="frame" x="0.0" y="497" width="1024" height="261"/>
@@ -100,7 +97,7 @@
                                         <color key="backgroundColor" red="0.24313725490196078" green="0.24313725490196078" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Keyboard">
+                                        <state key="normal" title="Hide">
                                             <color key="titleColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <state key="selected">
@@ -188,6 +185,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomContainerView" destination="B3C-71-5ce" id="tpQ-EA-Ba9"/>
                         <outlet property="configKeyboardButton" destination="Z4W-Gh-RiQ" id="oed-gQ-ajB"/>
                         <outlet property="holdButton" destination="39J-5A-Jtm" id="jKu-XJ-QBn"/>
                         <outlet property="keyboardBottomConstraint" destination="ChZ-wF-sPF" id="i5l-NZ-wLj"/>

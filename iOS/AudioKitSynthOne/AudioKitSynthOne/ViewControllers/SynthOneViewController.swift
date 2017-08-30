@@ -14,7 +14,7 @@ protocol EmbeddedViewsDelegate {
 }
 
 protocol BottomEmbeddedViewsDelegate {
-    func switchToChildView(_ newView: ChildView)
+    func switchToBottomChildView(_ newView: ChildView)
 }
 
 enum ChildView: String {
@@ -29,6 +29,7 @@ enum ChildView: String {
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     @IBOutlet weak var topContainerView: UIView!
+    @IBOutlet weak var bottomContainerView: UIView!
     
     @IBOutlet weak var keyboardView: SynthKeyboard!
     @IBOutlet weak var keyboardBottomConstraint: NSLayoutConstraint!
@@ -116,7 +117,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         
         conductor.start()
         
-        // Set delegates
+        // Set Header as Delegate
         if let childVC = self.childViewControllers.first as? HeaderViewController {
             childVC.delegate = self
         }
@@ -128,6 +129,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         
         // Set initial subviews
         switchToChildView(.oscView)
+        switchToBottomChildView(.padView)
     }
     
     
@@ -150,8 +152,14 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         
         keyboardToggle.callback = { value in
             
-            let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -129
+            if value == 1 {
+                self.keyboardToggle.setTitle("Hide", for: .normal)
+            } else {
+                self.keyboardToggle.setTitle("Show", for: .normal)
+            }
             
+            // Animate Keyboard
+            let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -129
             UIView.animate(withDuration: Double(0.4), animations: {
                 self.keyboardBottomConstraint.constant = newConstraintValue
                 self.view.layoutIfNeeded()
@@ -189,40 +197,37 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         }
     }
     
-    fileprivate func add(asChildViewController viewController: UIViewController) {
+    fileprivate func add(asChildViewController viewController: UIViewController, isTopContainer: Bool = true) {
         // Add Child View Controller
         addChildViewController(viewController)
         
         // Add Child View as Subview
-        topContainerView.addSubview(viewController.view)
+        if isTopContainer {
+            topContainerView.addSubview(viewController.view)
+            viewController.view.frame = topContainerView.bounds
+        } else {
+            bottomContainerView.addSubview(viewController.view)
+            viewController.view.frame = bottomContainerView.bounds
+        }
         
         // Configure Child View
-        viewController.view.frame = topContainerView.bounds
+        
         viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // Notify Child View Controller
         viewController.didMove(toParentViewController: self)
     }
-    
-    fileprivate func remove(asChildViewController viewController: UIViewController) {
-        // Notify Child View Controller
-        viewController.willMove(toParentViewController: nil)
-        
-        // Remove Child View From Superview
-        viewController.view.removeFromSuperview()
-        
-        // Notify Child View Controller
-        viewController.removeFromParentViewController()
-    }
-    
-    fileprivate func removeAllChildViews() {
-        remove(asChildViewController: mixerViewController)
-        remove(asChildViewController: devViewController)
-        remove(asChildViewController: padViewController)
-        remove(asChildViewController: fxViewController)
-        remove(asChildViewController: seqViewController)
-    }
-    
+    /*
+     fileprivate func remove(asChildViewController viewController: UIViewController) {
+     // Notify Child View Controller
+     viewController.willMove(toParentViewController: nil)
+     
+     // Remove Child View From Superview
+     viewController.view.removeFromSuperview()
+     
+     // Notify Child View Controller
+     viewController.removeFromParentViewController()
+     } */
 }
 
 // **********************************************************
@@ -233,27 +238,69 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
     
     func switchToChildView(_ newView: ChildView) {
         // remove all child views
-        removeAllChildViews()
+        topContainerView.subviews.forEach({ $0.removeFromSuperview() })
+        
+        print("TOP Delegate \(newView)")
         
         switch newView {
         case .adsrView:
-            // ADSR is always here
-            //adsrViewController.navDelegate = self
-            break;
+            add(asChildViewController: adsrViewController)
+            adsrViewController.navDelegate = self
+            adsrViewController.isTopContainer = true
         case .oscView:
             add(asChildViewController: mixerViewController)
             mixerViewController.navDelegate = self
+            mixerViewController.isTopContainer = true
         case .devView:
             add(asChildViewController: devViewController)
         case .padView:
             add(asChildViewController: padViewController)
             padViewController.navDelegate = self
+            padViewController.isTopContainer = true
         case .fxView:
             add(asChildViewController: fxViewController)
             fxViewController.navDelegate = self
+            fxViewController.isTopContainer = true
         case .seqView:
             add(asChildViewController: seqViewController)
             seqViewController.navDelegate = self
+            seqViewController.isTopContainer = true
+        }
+    }
+}
+
+extension SynthOneViewController: BottomEmbeddedViewsDelegate {
+    
+    func switchToBottomChildView(_ newView: ChildView) {
+        // remove all child views
+        bottomContainerView.subviews.forEach({ $0.removeFromSuperview() }) // this gets things done
+        
+        print("Bottom Delegate \(newView)")
+        
+        switch newView {
+        case .adsrView:
+            add(asChildViewController: adsrViewController, isTopContainer: false)
+            adsrViewController.navDelegateBottom = self
+            adsrViewController.isTopContainer = false
+        case .oscView:
+            add(asChildViewController: mixerViewController, isTopContainer: false)
+            mixerViewController.navDelegateBottom = self
+            mixerViewController.isTopContainer = false
+        case .devView:
+            
+            break
+        case .padView:
+            add(asChildViewController: padViewController, isTopContainer: false)
+            padViewController.navDelegateBottom = self
+            padViewController.isTopContainer = false
+        case .fxView:
+            add(asChildViewController: fxViewController, isTopContainer: false)
+            fxViewController.navDelegateBottom = self
+            fxViewController.isTopContainer = false
+        case .seqView:
+            add(asChildViewController: seqViewController, isTopContainer: false)
+            seqViewController.navDelegateBottom = self
+            seqViewController.isTopContainer = false
         }
     }
 }

@@ -54,6 +54,8 @@ class FXViewController: UpdatableViewController {
     @IBOutlet weak var nav2Button: NavButton!
     
     var navDelegate: EmbeddedViewsDelegate?
+    var navDelegateBottom: BottomEmbeddedViewsDelegate?
+    var isTopContainer: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,11 +129,19 @@ class FXViewController: UpdatableViewController {
     
     func navButtonsSetup() {
         nav1Button.callback = { _ in
+             if self.isTopContainer {
             self.navDelegate?.switchToChildView(.adsrView)
+             } else {
+            self.navDelegateBottom?.switchToBottomChildView(.adsrView)
+            }
         }
         
         nav2Button.callback = { _ in
+             if self.isTopContainer {
             self.navDelegate?.switchToChildView(.padView)
+             }   else {
+            self.navDelegateBottom?.switchToBottomChildView(.padView)
+            }
         }
     }
 

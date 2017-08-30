@@ -10,7 +10,7 @@ import UIKit
 import AudioKit
 
 class ADSRViewController: UpdatableViewController {
-
+    
     @IBOutlet var adsrView: AKADSRView!
     @IBOutlet var filterADSRView: AKADSRView!
     @IBOutlet weak var attackKnob: Knob!
@@ -27,13 +27,15 @@ class ADSRViewController: UpdatableViewController {
     @IBOutlet weak var nav2Button: NavButton!
     
     var navDelegate: EmbeddedViewsDelegate?
+    var navDelegateBottom: BottomEmbeddedViewsDelegate?
+    var isTopContainer: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         filterADSRMixKnob.range = 0.0 ... 1.2
         attackKnob.range = 0.000001 ... 1
         releaseKnob.range = 0.004 ... 2.0
-
+        
         conductor.bind(attackKnob,        to: .attackDuration)
         conductor.bind(decayKnob,         to: .decayDuration)
         conductor.bind(sustainKnob,       to: .sustainLevel)
@@ -50,26 +52,34 @@ class ADSRViewController: UpdatableViewController {
     func navButtonsSetup() {
         // Nav Button Callbacks
         nav1Button.callback = { _ in
-            self.navDelegate?.switchToChildView(.oscView)
+            if self.isTopContainer {
+                self.navDelegate?.switchToChildView(.oscView)
+            } else {
+                self.navDelegateBottom?.switchToBottomChildView(.oscView)
+            }
         }
         
         nav2Button.callback = { _ in
-            self.navDelegate?.switchToChildView(.fxView)
+            if self.isTopContainer {
+                self.navDelegate?.switchToChildView(.fxView)
+            } else {
+                self.navDelegateBottom?.switchToBottomChildView(.fxView)
+            }
         }
         
     }
-
+    
     override func updateCallbacks() {
-
+        
         super.updateCallbacks()
-
+        
         adsrView.callback = { att, dec, sus, rel in
             self.conductor.synth.parameters[AKSynthOneParameter.attackDuration.rawValue] = att
             self.conductor.synth.parameters[AKSynthOneParameter.decayDuration.rawValue] = dec
             self.conductor.synth.parameters[AKSynthOneParameter.sustainLevel.rawValue] = sus
             self.conductor.synth.parameters[AKSynthOneParameter.releaseDuration.rawValue] = rel
         }
-
+        
         filterADSRView.callback = { att, dec, sus, rel in
             self.conductor.synth.parameters[AKSynthOneParameter.filterAttackDuration.rawValue] = att
             self.conductor.synth.parameters[AKSynthOneParameter.filterDecayDuration.rawValue] = dec
@@ -79,9 +89,9 @@ class ADSRViewController: UpdatableViewController {
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-
+        
         super.updateUI(param, value: value)
-
+        
         switch param {
         case .attackDuration:
             adsrView.attackDuration = value
@@ -99,7 +109,7 @@ class ADSRViewController: UpdatableViewController {
             filterADSRView.sustainLevel = value
         case .filterReleaseDuration:
             filterADSRView.releaseDuration = value
-
+            
         default:
             _ = 0
             // do nothing
@@ -107,6 +117,6 @@ class ADSRViewController: UpdatableViewController {
         adsrView.setNeedsDisplay()
         filterADSRView.setNeedsDisplay()
     }
- 
-
+    
+    
 }

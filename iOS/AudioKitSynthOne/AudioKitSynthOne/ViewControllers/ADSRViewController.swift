@@ -11,8 +11,8 @@ import AudioKit
 
 class ADSRViewController: UpdatableViewController {
 
-    @IBOutlet weak var adsrView: AKADSRView!
-    @IBOutlet weak var filterADSRView: AKADSRView!
+    @IBOutlet var adsrView: AKADSRView!
+    @IBOutlet var filterADSRView: AKADSRView!
     @IBOutlet weak var attackKnob: Knob!
     @IBOutlet weak var decayKnob: Knob!
     @IBOutlet weak var sustainKnob: Knob!

@@ -20,7 +20,7 @@ class TempoStepper: Stepper {
     
     var range: ClosedRange = 0.0...1.0 {
         didSet {
-            knobValue = CGFloat(Double(knobValue).normalized(range: range, taper: taper))
+            knobValue = CGFloat(Double(knobValue).normalized(from: range, taper: taper))
         }
     }
     
@@ -41,7 +41,7 @@ class TempoStepper: Stepper {
             _value = range.clamp(newValue)
             
             _value = round(_value)
-            knobValue = CGFloat(newValue.normalized(range: range, taper: taper))
+            knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
         }
     }
     
@@ -128,7 +128,7 @@ class TempoStepper: Stepper {
         
         knobValue = (0.0 ... 1.0).clamp(knobValue)
         
-        tempoValue = Double(knobValue).denormalized(range: range, taper: taper)
+        tempoValue = Double(knobValue).denormalized(to: range, taper: taper)
         
         callback(tempoValue)
         lastX = touchPoint.x

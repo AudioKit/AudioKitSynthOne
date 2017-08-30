@@ -24,7 +24,7 @@ public class TimeKnob: Knob {
             knobValue = CGFloat(Rate.fromTime(_value).time) / CGFloat(limitedRate)
         } else {
             _value = range.clamp(rate.time)
-            knobValue = CGFloat(_value.normalized(range: range, taper: taper))
+            knobValue = CGFloat(_value.normalized(from: range, taper: taper))
         }
     }
     
@@ -43,7 +43,7 @@ public class TimeKnob: Knob {
             _value = onlyIntegers ? round(_value) : _value
             
             if !conductor.syncRatesToTempo {
-                knobValue = CGFloat(_value.normalized(range: range, taper: taper))
+                knobValue = CGFloat(_value.normalized(from: range, taper: taper))
             }
         }
     }
@@ -71,7 +71,7 @@ public class TimeKnob: Knob {
         if conductor.syncRatesToTempo {
             value = rate.time
         } else {
-            value = Double(knobValue).denormalized(range: range, taper: taper)
+            value = Double(knobValue).denormalized(to: range, taper: taper)
         }
         
         callback(value)

@@ -28,14 +28,14 @@ public class AKTouchPadView: UIView {
 
     public var horizontalRange: ClosedRange = 0.0...1.0 {
         didSet {
-            x = CGFloat(horizontalValue.normalized(range: horizontalRange, taper: horizontalTaper))
+            x = CGFloat(horizontalValue.normalized(from: horizontalRange, taper: horizontalTaper))
         }
     }
 
     public var horizontalValue: Double = 0 {
         didSet {
             horizontalValue = horizontalRange.clamp(horizontalValue)
-            x = CGFloat(horizontalValue.normalized(range: horizontalRange, taper: horizontalTaper))
+            x = CGFloat(horizontalValue.normalized(from: horizontalRange, taper: horizontalTaper))
         }
     }
 
@@ -43,14 +43,14 @@ public class AKTouchPadView: UIView {
 
     public var verticalRange: ClosedRange = 0.0...1.0 {
         didSet {
-            x = CGFloat(verticalValue.normalized(range: verticalRange, taper: verticalTaper))
+            x = CGFloat(verticalValue.normalized(from: verticalRange, taper: verticalTaper))
         }
     }
 
     public var verticalValue: Double = 0 {
         didSet {
             verticalValue = verticalRange.clamp(verticalValue)
-            x = CGFloat(verticalValue.normalized(range: verticalRange, taper: verticalTaper))
+            x = CGFloat(verticalValue.normalized(from: verticalRange, taper: verticalTaper))
         }
     }
 
@@ -112,8 +112,8 @@ public class AKTouchPadView: UIView {
                 self.x = CGFloat(newPercentX)
                 self.y = CGFloat(newPercentY)
 
-                self.horizontalValue = Double(self.x).denormalized(range: self.horizontalRange, taper: self.horizontalTaper)
-                self.verticalValue = Double(self.y).denormalized(range: self.verticalRange, taper: self.verticalTaper)
+                self.horizontalValue = Double(self.x).denormalized(to: self.horizontalRange, taper: self.horizontalTaper)
+                self.verticalValue = Double(self.y).denormalized(to: self.verticalRange, taper: self.verticalTaper)
                 self.completionHandler(self.horizontalValue, self.verticalValue, true, true)
         })
     }
@@ -123,8 +123,8 @@ public class AKTouchPadView: UIView {
         y = CGFloat((0.0 ... 1.0).clamp(1 - touchPoint.y / self.bounds.size.height))
 
         touchPointView.center = CGPoint(x: touchPoint.x, y: touchPoint.y)
-        horizontalValue = Double(x).denormalized(range: horizontalRange, taper: horizontalTaper)
-        verticalValue = Double(y).denormalized(range: verticalRange, taper: verticalTaper)
+        horizontalValue = Double(x).denormalized(to: horizontalRange, taper: horizontalTaper)
+        verticalValue = Double(y).denormalized(to: verticalRange, taper: verticalTaper)
         callback(horizontalValue, verticalValue, began)
     }
     

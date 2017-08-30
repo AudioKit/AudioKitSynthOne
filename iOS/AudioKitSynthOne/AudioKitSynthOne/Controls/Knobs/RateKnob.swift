@@ -22,7 +22,7 @@ public class RateKnob: Knob {
             knobValue = CGFloat(Rate.fromFrequency(_value).frequency) / CGFloat(Rate.count)
         } else {
             _value = range.clamp(rate.frequency)
-            knobValue = CGFloat(_value.normalized(range: range, taper: taper))
+            knobValue = CGFloat(_value.normalized(from: range, taper: taper))
         }
     }
 
@@ -41,7 +41,7 @@ public class RateKnob: Knob {
             _value = onlyIntegers ? round(_value) : _value
 
             if !conductor.syncRatesToTempo {
-                knobValue = CGFloat(_value.normalized(range: range, taper: taper))
+                knobValue = CGFloat(_value.normalized(from: range, taper: taper))
             }
         }
     }
@@ -69,7 +69,7 @@ public class RateKnob: Knob {
         if conductor.syncRatesToTempo {
             value = rate.frequency
         } else {
-            value = Double(knobValue).denormalized(range: range, taper: taper)
+            value = Double(knobValue).denormalized(to: range, taper: taper)
         }
 
         callback(value)

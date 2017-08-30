@@ -66,7 +66,7 @@ class TouchPadViewController: UpdatableViewController {
         rez = conductor.synth.parameters[AKSynthOneParameter.resonance.rawValue]
         cutoff = conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue]
         
-        let y = cutoff.normalized(range: touchPad2.verticalRange,
+        let y = cutoff.normalized(from: touchPad2.verticalRange,
                                   taper: touchPad2.verticalTaper)
         touchPad2.resetToPosition(rez, y)
         
@@ -119,7 +119,7 @@ class TouchPadViewController: UpdatableViewController {
                 self.cutoff = self.conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue]
                 
                 // start particles
-                let y = CGFloat(self.cutoff.normalized(range: self.touchPad2.verticalRange,
+                let y = CGFloat(self.cutoff.normalized(from: self.touchPad2.verticalRange,
                                                        taper: self.touchPad2.verticalTaper))
                 
                 self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width * CGFloat(self.rez)) + self.touchPad2.bounds.minX, y: self.touchPad2.bounds.height * CGFloat(1-y))
@@ -142,7 +142,7 @@ class TouchPadViewController: UpdatableViewController {
                 self.conductor.synth.parameters[AKSynthOneParameter.resonance.rawValue] = self.rez
                 self.conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue] = self.cutoff
                 
-                let y = self.cutoff.normalized(range: self.touchPad2.verticalRange,
+                let y = self.cutoff.normalized(from: self.touchPad2.verticalRange,
                                                taper: self.touchPad2.verticalTaper)
                 self.touchPad2.resetToPosition(self.rez, y)
             }

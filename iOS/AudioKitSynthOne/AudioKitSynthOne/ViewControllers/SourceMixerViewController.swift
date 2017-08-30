@@ -38,7 +38,6 @@ public class SourceMixerViewController: UpdatableViewController {
     @IBOutlet weak var nav1Button: NavButton!
     @IBOutlet weak var nav2Button: NavButton!
     
-    @IBOutlet weak var audioPlot: AKOutputWaveformPlot!
     @IBOutlet weak var filterTypeToggle: FilterTypeButton!
     
     var navDelegate: EmbeddedViewsDelegate?

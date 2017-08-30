@@ -13,6 +13,10 @@ protocol EmbeddedViewsDelegate {
     func switchToChildView(_ newView: ChildView)
 }
 
+protocol BottomEmbeddedViewsDelegate {
+    func switchToChildView(_ newView: ChildView)
+}
+
 enum ChildView: String {
     case oscView = "SourceMixerViewController"
     case adsrView = "ADSRViewController"

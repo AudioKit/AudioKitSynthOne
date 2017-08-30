@@ -127,7 +127,6 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     }
     
     
-    
     // ********************************************************
     // MARK: - Callbacks
     // ********************************************************

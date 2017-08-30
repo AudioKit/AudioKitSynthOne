@@ -75,7 +75,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelMode">
                                                 <integer key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="darkMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="darkMode" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9j-zW-Pky" customClass="SynthUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -1986,7 +1986,6 @@
                                 </segments>
                                 <color key="tintColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="keyLabelDidChange:" destination="9qI-Vs-eLW" eventType="valueChanged" id="37R-ZY-aaT"/>
                                     <action selector="keyboardModeDidChange:" destination="9qI-Vs-eLW" eventType="valueChanged" id="ePM-4J-ESC"/>
                                 </connections>
                             </segmentedControl>

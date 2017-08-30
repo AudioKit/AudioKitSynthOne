@@ -59,8 +59,6 @@ public protocol AKKeyboardDelegate: class {
     var onKeys = Set<MIDINoteNumber>()
     var topKeyWidthIncrease: CGFloat = 4
     
-    var blackKey: BlackKey!
-    
     /// Allows multiple notes to play concurrently
     open var polyphonicMode = false {
         didSet {
@@ -213,15 +211,8 @@ public protocol AKKeyboardDelegate: class {
                              cornerRadii: CGSize(width: 3, height: 3)))
             topKeyColor(i, octaveNumber: octaveNumber).setFill()
             topKeyPaths[i].fill()
-           /*
-            // Setup Touch Visual Indicators
-            blackKey = BlackKey(frame: CGRect(x: topKeyX(i, octaveNumber: octaveNumber) + 23,
-                                              y: 0,
-                                              width: topKeySize.width + topKeyWidthIncrease + 23,
-                                              height: topKeySize.height))
-            blackKey.isOpaque = false
-            self.addSubview(blackKey)
-            */
+            
+            // Add fancy paintcode blackkey code
         }
     }
     

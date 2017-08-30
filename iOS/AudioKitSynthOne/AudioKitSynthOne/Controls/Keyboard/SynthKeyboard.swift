@@ -391,8 +391,10 @@ public protocol AKKeyboardDelegate: class {
     func whiteKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
         if darkMode {
             whiteKeyOff = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
+            keyOnColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4509803922, alpha: 1)
         } else {
             whiteKeyOff = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            keyOnColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
         }
         return onKeys.contains(
             MIDINoteNumber((firstOctave + octaveNumber) * 12 + whiteKeyNotes[n])
@@ -402,8 +404,10 @@ public protocol AKKeyboardDelegate: class {
     func topKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
         if darkMode {
             blackKeyOff = #colorLiteral(red: 0.2370533347, green: 0.237835288, blue: 0.2605919242, alpha: 1)
+            keyOnColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4509803922, alpha: 1)
         } else {
             blackKeyOff = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
+            keyOnColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
         }
         if notesWithSharps[topKeyNotes[n]].range(of: "#") != nil {
             return onKeys.contains(

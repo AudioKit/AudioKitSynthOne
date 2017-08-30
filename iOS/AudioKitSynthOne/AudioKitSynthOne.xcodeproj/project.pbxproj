@@ -55,6 +55,10 @@
 		94AF74001F55FAAF00ED8B51 /* TouchPointStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF73FE1F55FAAE00ED8B51 /* TouchPointStyleKit.swift */; };
 		94AF74021F55FF9700ED8B51 /* TouchPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF74011F55FF9700ED8B51 /* TouchPoint.swift */; };
 		94AF74031F56008700ED8B51 /* TouchPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF74011F55FF9700ED8B51 /* TouchPoint.swift */; };
+		94AF74061F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF74051F56339B00ED8B51 /* BlackKeyStyleKit.swift */; };
+		94AF74071F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF74051F56339B00ED8B51 /* BlackKeyStyleKit.swift */; };
+		94AF74091F563E7C00ED8B51 /* BlackKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF74081F563E7C00ED8B51 /* BlackKey.swift */; };
+		94AF740B1F565CAB00ED8B51 /* BlackKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF74081F563E7C00ED8B51 /* BlackKey.swift */; };
 		94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B69C3A1F297E2800191C87 /* FXViewController.swift */; };
 		94B69C3C1F297E9F00191C87 /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B69C3A1F297E2800191C87 /* FXViewController.swift */; };
 		94BDBD661F282956007BB7BD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* SettingsViewController.swift */; };
@@ -198,6 +202,8 @@
 		949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoBtnStyleKit.swift; sourceTree = "<group>"; };
 		94AF73FE1F55FAAE00ED8B51 /* TouchPointStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPointStyleKit.swift; sourceTree = "<group>"; };
 		94AF74011F55FF9700ED8B51 /* TouchPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPoint.swift; sourceTree = "<group>"; };
+		94AF74051F56339B00ED8B51 /* BlackKeyStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackKeyStyleKit.swift; sourceTree = "<group>"; };
+		94AF74081F563E7C00ED8B51 /* BlackKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackKey.swift; sourceTree = "<group>"; };
 		94B69C3A1F297E2800191C87 /* FXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
 		94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatToggleButtonStyleKit.swift; sourceTree = "<group>"; };
@@ -352,6 +358,16 @@
 			path = Stepper;
 			sourceTree = "<group>";
 		};
+		94AF74041F56336900ED8B51 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */,
+				94AF74051F56339B00ED8B51 /* BlackKeyStyleKit.swift */,
+				94AF74081F563E7C00ED8B51 /* BlackKey.swift */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
 		C46DE0FC1F13301C0060DD79 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,8 +432,8 @@
 				945261441F2925860037662C /* Buttons */,
 				945261431F29256F0037662C /* Knobs */,
 				945261421F2925650037662C /* TouchPad */,
+				94AF74041F56336900ED8B51 /* Keyboard */,
 				C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */,
-				94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -587,6 +603,7 @@
 				94D917B01F550D28006ACB4E /* FlatToggleButton.swift in Sources */,
 				949D93BA1F2C188C007E657B /* LfoButton.swift in Sources */,
 				C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */,
+				94AF740B1F565CAB00ED8B51 /* BlackKey.swift in Sources */,
 				947956B41F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4060AC11F24561A00BB8882 /* Knob.swift in Sources */,
 				C40770ED1F25703B007F2C77 /* SourceMixerViewController.swift in Sources */,
@@ -600,6 +617,7 @@
 				C4060ABE1F24561A00BB8882 /* ToggleButtonStyleKit.swift in Sources */,
 				945261491F2928880037662C /* TouchPadViewController.swift in Sources */,
 				947956AA1F329AB200FE5D9B /* Stepper.swift in Sources */,
+				94AF74061F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */,
 				C4060AC21F24561A00BB8882 /* KnobStyleKit.swift in Sources */,
 				94DB18D01F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
 				C4060AC41F24568600BB8882 /* CGFloat+Extensions.swift in Sources */,
@@ -622,9 +640,11 @@
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4CD8DDF1F2482FF0011066A /* AKSynthOne.swift in Sources */,
 				945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */,
+				94AF74091F563E7C00ED8B51 /* BlackKey.swift in Sources */,
 				943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */,
+				94AF74071F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */,
 				94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */,
 				94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */,
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,

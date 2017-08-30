@@ -40,13 +40,16 @@ public protocol AKKeyboardDelegate: class {
     @IBInspectable open var polyphonicButton: UIColor = #colorLiteral(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
     
     /// White key color
-    @IBInspectable open var  whiteKeyOff: UIColor = #colorLiteral(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+    @IBInspectable open var  whiteKeyOff: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
     /// Black key color
     @IBInspectable open var  blackKeyOff: UIColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
     
     /// Activated key color
     @IBInspectable open var  keyOnColor: UIColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
+    
+    /// Keyboard Mode, white or dark
+    @IBInspectable open var  darkMode: Bool = false
     
     /// Class to handle user actions
     open weak var delegate: AKKeyboardDelegate?
@@ -55,6 +58,8 @@ public protocol AKKeyboardDelegate: class {
     var xOffset: CGFloat = 1
     var onKeys = Set<MIDINoteNumber>()
     var topKeyWidthIncrease: CGFloat = 4
+    
+    var blackKey: BlackKey!
     
     /// Allows multiple notes to play concurrently
     open var polyphonicMode = false {
@@ -199,19 +204,33 @@ public protocol AKKeyboardDelegate: class {
         var topKeyPaths = [UIBezierPath]()
         
         for i in 0 ..< 28 {
-            topKeyPaths.append(
-                UIBezierPath(roundedRect: CGRect(x: topKeyX(i, octaveNumber: octaveNumber),
-                                                 y: 1,
-                                                 width: topKeySize.width + topKeyWidthIncrease,
-                                                 height: topKeySize.height),
+            let topKeysRect = CGRect(x: topKeyX(i, octaveNumber: octaveNumber),
+                                     y: 1,
+                                     width: topKeySize.width + topKeyWidthIncrease,
+                                     height: topKeySize.height)
+            topKeyPaths.append(UIBezierPath(roundedRect: topKeysRect,
                              byRoundingCorners: [.bottomLeft, .bottomRight],
                              cornerRadii: CGSize(width: 3, height: 3)))
             topKeyColor(i, octaveNumber: octaveNumber).setFill()
             topKeyPaths[i].fill()
+           
+            // Setup Touch Visual Indicators
+            blackKey = BlackKey(frame: CGRect(x: topKeyX(i, octaveNumber: octaveNumber) + 23,
+                                              y: 0,
+                                              width: topKeySize.width + topKeyWidthIncrease + 23,
+                                              height: topKeySize.height))
+            blackKey.isOpaque = false
+            self.addSubview(blackKey)
+            
         }
     }
     
     func addLabels(i: Int, octaveNumber: Int, whiteKeysRect: CGRect) {
+        var textColor: UIColor =  #colorLiteral(red: 0.6941176471, green: 0.7137254902, blue: 0.7411764706, alpha: 1)
+        if darkMode {
+            textColor = #colorLiteral(red: 0.3803921569, green: 0.4, blue: 0.4274509804, alpha: 1)
+        }
+        
         // labelMode == 1, Only C, labelMode == 2, All notes
         if labelMode == 1 && i == 0 || labelMode == 2 {
             // Add Label
@@ -221,9 +240,9 @@ public protocol AKKeyboardDelegate: class {
             whiteKeysStyle.alignment = .center
             let whiteKeysFontAttributes = [
                 NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 14)!,
-                NSForegroundColorAttributeName: UIColor.lightGray,
+                NSForegroundColorAttributeName: textColor,
                 NSParagraphStyleAttributeName: whiteKeysStyle,
-                ]
+                ] as [String : Any]
             
             let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: whiteKeysFontAttributes, context: nil).height
             context.saveGState()
@@ -379,12 +398,22 @@ public protocol AKKeyboardDelegate: class {
     }
     
     func whiteKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
+        if darkMode {
+            whiteKeyOff = #colorLiteral(red: 0.1882352941, green: 0.1882352941, blue: 0.1882352941, alpha: 1)
+        } else {
+            whiteKeyOff = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
         return onKeys.contains(
             MIDINoteNumber((firstOctave + octaveNumber) * 12 + whiteKeyNotes[n])
             ) ? keyOnColor : whiteKeyOff
     }
     
     func topKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
+        if darkMode {
+            blackKeyOff = #colorLiteral(red: 0.05490196078, green: 0.05490196078, blue: 0.07450980392, alpha: 1)
+        } else {
+            blackKeyOff = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
+        }
         if notesWithSharps[topKeyNotes[n]].range(of: "#") != nil {
             return onKeys.contains(
                 MIDINoteNumber((firstOctave + octaveNumber) * 12 + topKeyNotes[n])
@@ -393,4 +422,5 @@ public protocol AKKeyboardDelegate: class {
         return #colorLiteral(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.000)
         
     }
+    
 }

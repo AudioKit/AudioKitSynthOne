@@ -25,7 +25,7 @@ class TouchPadViewController: UpdatableViewController {
     var cutoff: Double = 0.0
     var rez: Double = 0.0
     var oscBalance: Double = 0.0
-    var detuningMultiplier: Double = 0.0
+    var detuningMultiplier: Double = 1.0
     
     var navDelegate: EmbeddedViewsDelegate?
     
@@ -76,9 +76,8 @@ class TouchPadViewController: UpdatableViewController {
         
         snapToggle.callback = { value in
             if value == 1 {
-                // Snapback TouchPad1
-                self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = self.oscBalance
-                self.touchPad1.resetToPosition(self.oscBalance, 0.5)
+               // Snapback TouchPad1
+               self.resetTouchPad1()
             }
         }
         
@@ -106,8 +105,7 @@ class TouchPadViewController: UpdatableViewController {
             }
             
             if self.snapToggle.isOn && touchesEnded && !reset {
-                self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = self.oscBalance
-                self.touchPad1.resetToPosition(self.oscBalance, 0.5)
+                self.resetTouchPad1()
             }
             
         }
@@ -145,15 +143,23 @@ class TouchPadViewController: UpdatableViewController {
                 let y = self.cutoff.normalized(from: self.touchPad2.verticalRange,
                                                taper: self.touchPad2.verticalTaper)
                 self.touchPad2.resetToPosition(self.rez, y)
+           
             }
         }
+    }
+    
+    func resetTouchPad1() {
+        self.conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue] = self.oscBalance
+        self.conductor.synth.parameters[AKSynthOneParameter.detuningMultiplier.rawValue] = 1.0
+        self.touchPad1.resetToPosition(self.oscBalance, 0.5)
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
         
         switch param {
         case .detuningMultiplier:
-            detuningMultiplier = value
+            // detuningMultiplier = value
+            break
         default:
             _ = 0
             // do nothin
@@ -166,8 +172,6 @@ class TouchPadViewController: UpdatableViewController {
         // touchPad1Label.text = "Bend: \(detuningMultiplier.decimalString)x octave"
         
     }
-    
-    
     
     // *********************************************************
     // MARK: - Particles

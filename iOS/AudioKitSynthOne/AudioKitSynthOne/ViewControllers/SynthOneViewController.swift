@@ -150,7 +150,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         
         keyboardToggle.callback = { value in
             
-            let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -138
+            let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -129
             
             UIView.animate(withDuration: Double(0.4), animations: {
                 self.keyboardBottomConstraint.constant = newConstraintValue

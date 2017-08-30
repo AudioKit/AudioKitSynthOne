@@ -219,7 +219,7 @@ public protocol AKKeyboardDelegate: class {
     func addLabels(i: Int, octaveNumber: Int, whiteKeysRect: CGRect) {
         var textColor: UIColor =  #colorLiteral(red: 0.6941176471, green: 0.7137254902, blue: 0.7411764706, alpha: 1)
         if darkMode {
-            textColor = #colorLiteral(red: 0.3803921569, green: 0.4, blue: 0.4274509804, alpha: 1)
+            textColor = #colorLiteral(red: 0.3176470588, green: 0.337254902, blue: 0.3647058824, alpha: 1)
         }
         
         // labelMode == 1, Only C, labelMode == 2, All notes
@@ -391,7 +391,7 @@ public protocol AKKeyboardDelegate: class {
     func whiteKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
         if darkMode {
             whiteKeyOff = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
-            keyOnColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4509803922, alpha: 1)
+            keyOnColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         } else {
             whiteKeyOff = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             keyOnColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)

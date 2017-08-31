@@ -28,33 +28,6 @@ class SynthPanelController: UpdatableViewController {
         rightView = self.viewType.rightView()
         
         navButtonsSetup()
-        setupChildViewCallbacks()
-    }
-    
-    func setupChildViewCallbacks() {
-        
-        // Check to see if a duplicate view is adjacent
-        guard let parentController = self.parent as? SynthOneViewController else { return }
-        
-        parentController.childViewDidChangeCallback = { value in
-         
-            self.viewType = value
-            self.leftView = self.viewType.leftView()
-            self.rightView = self.viewType.rightView()
-            
-            print ("callback \(self.viewType.identifier())")
-            
-            if self.leftView == parentController.topChildView || self.leftView == parentController.bottomChildView {
-                self.leftView = self.leftView.leftView()
-            }
-            
-            if self.rightView == parentController.topChildView || self.rightView == parentController.bottomChildView {
-                self.rightView = self.rightView.rightView()
-            }
-            
-            self.updateNavButtons()
-        }
-        
     }
     
     func navButtonsSetup() {
@@ -79,6 +52,20 @@ class SynthPanelController: UpdatableViewController {
     }
     
     func updateNavButtons() {
+        
+        leftView = viewType.leftView()
+        rightView = viewType.rightView()
+        
+        guard let parentController = self.parent as? SynthOneViewController else { return }
+        
+        if leftView == parentController.topChildView || leftView == parentController.bottomChildView {
+            leftView = leftView.leftView()
+        }
+        
+        if rightView == parentController.topChildView || rightView == parentController.bottomChildView {
+            rightView = rightView.rightView()
+        }
+        
         nav1Button.buttonText = leftView.btnText()
         nav2Button.buttonText = rightView.btnText()
         nav1Button.setNeedsDisplay()

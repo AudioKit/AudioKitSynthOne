@@ -35,18 +35,8 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
     
-    public var childViewDidChangeCallback: (ChildView)->Void = { _ in }
-    
-    var topChildView: ChildView? {
-        didSet {
-            childViewDidChangeCallback(topChildView!)
-        }
-    }
-    var bottomChildView: ChildView? {
-        didSet {
-            childViewDidChangeCallback(bottomChildView!)
-        }
-    }
+    var topChildView: ChildView?
+    var bottomChildView: ChildView?
     
     // ********************************************************
     // MARK: - Define child view controllers
@@ -139,9 +129,9 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     public override func viewDidAppear(_ animated: Bool) {
         keyboardToggle.isSelected = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-           self.keyboardToggle.callback(0.0)
+            self.keyboardToggle.callback(0.0)
         }
-      
+        
     }
     
     // ********************************************************
@@ -268,6 +258,9 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
             seqViewController.isTopContainer = true
             topChildView = .seqView
         }
+        
+        // Update panel navigation
+        updatePanelNav()
     }
 }
 
@@ -277,51 +270,55 @@ extension SynthOneViewController: BottomEmbeddedViewsDelegate {
         // remove all child views
         bottomContainerView.subviews.forEach({ $0.removeFromSuperview() }) // this gets things done
         
-        var topPanels = [SynthPanelController]()
-        var bottomPanels = [SynthPanelController]()
-        childViewControllers.forEach({
-        
-            if let vc = $0 as? SynthPanelController {
-                if vc.isTopContainer {
-                    topPanels.append(vc)
-                } else {
-                    bottomPanels.append(vc)
-                }
-            }
-            
-            // bottomPanels.last()
-            // topPanels.last()
-        })
-        print("****")
-        
         switch newView {
         case .adsrView:
             add(asChildViewController: adsrViewController, isTopContainer: false)
             adsrViewController.navDelegateBottom = self
             adsrViewController.isTopContainer = false
-            bottomChildView = .adsrView
+            adsrViewController.viewType = .adsrView
         case .oscView:
             add(asChildViewController: mixerViewController, isTopContainer: false)
             mixerViewController.navDelegateBottom = self
             mixerViewController.isTopContainer = false
-            bottomChildView = .oscView
+            mixerViewController.viewType = .oscView
         case .padView:
             add(asChildViewController: padViewController, isTopContainer: false)
             padViewController.navDelegateBottom = self
             padViewController.isTopContainer = false
-            bottomChildView = .padView
+            padViewController.viewType = .padView
         case .fxView:
             add(asChildViewController: fxViewController, isTopContainer: false)
             fxViewController.navDelegateBottom = self
             fxViewController.isTopContainer = false
-            bottomChildView = .fxView
+            fxViewController.viewType = .fxView
+            
         case .seqView:
             add(asChildViewController: seqViewController, isTopContainer: false)
             seqViewController.navDelegateBottom = self
             seqViewController.isTopContainer = false
-            bottomChildView = .seqView
+            seqViewController.viewType = .seqView
         }
+        
+        // Update panel navigation
+        updatePanelNav()
     }
+    
+    func updatePanelNav() {
+        // Update NavButtons
+        
+        // Get all Child Synth Panels
+        let synthPanels: [SynthPanelController] = childViewControllers.filter({ $0 is SynthPanelController }) as! [SynthPanelController]
+        // Get current Top and Bottom Panels
+        let topPanel = synthPanels.filter { $0.isTopContainer }.last
+        let bottomPanel = synthPanels.filter { !$0.isTopContainer}.last
+        
+        // Update NavButtons
+        topChildView = topPanel?.viewType
+        bottomChildView = bottomPanel?.viewType
+        bottomPanel?.updateNavButtons()
+        topPanel?.updateNavButtons()
+    }
+    
 }
 
 // **********************************************************

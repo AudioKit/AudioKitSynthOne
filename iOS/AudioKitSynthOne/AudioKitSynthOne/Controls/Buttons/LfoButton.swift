@@ -13,6 +13,7 @@ class LfoButton: UIView, AKSynthOneControl {
     
     var callback: (Double)->Void = { _ in }
     var value: Double = 0
+    let btnWidth: CGFloat = 100
 
     // Make Button Text Editable in IB
     @IBInspectable open var buttonText: String = "Hello"
@@ -27,9 +28,26 @@ class LfoButton: UIView, AKSynthOneControl {
     // *********************************************************
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for _ in touches {
-            value += 1
-            if value == 3 { value = 0 }
+        for touch in touches {
+            let touchPoint = touch.location(in: self)
+            
+            var newValue = 0.00
+            if touchPoint.x < btnWidth/2 {
+                if value == 1 {
+                    newValue = 0
+                } else {
+                    newValue = 1
+                }
+            } else {
+                if value == 2 {
+                    newValue = 0
+                } else {
+                   newValue = 2
+                }
+            }
+            
+            value = newValue
+            
             setNeedsDisplay()
             callback(value)
         }

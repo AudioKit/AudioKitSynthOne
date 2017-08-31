@@ -128,7 +128,9 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     public override func viewDidAppear(_ animated: Bool) {
         keyboardToggle.isSelected = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.keyboardToggle.callback(0.0)
         }
         
@@ -268,7 +270,7 @@ extension SynthOneViewController: BottomEmbeddedViewsDelegate {
     
     func switchToBottomChildView(_ newView: ChildView) {
         // remove all child views
-        bottomContainerView.subviews.forEach({ $0.removeFromSuperview() }) // this gets things done
+        bottomContainerView.subviews.forEach({ $0.removeFromSuperview() }) 
         
         switch newView {
         case .adsrView:

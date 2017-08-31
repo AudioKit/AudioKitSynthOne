@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
 		941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */; };
+		943524561F57945500BDA789 /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943524551F57945500BDA789 /* ChildView.swift */; };
+		9435245A1F5794FA00BDA789 /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943524551F57945500BDA789 /* ChildView.swift */; };
+		9435245C1F57A6F100BDA789 /* SynthPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435245B1F57A6F100BDA789 /* SynthPanelController.swift */; };
+		9435245D1F57A6F100BDA789 /* SynthPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435245B1F57A6F100BDA789 /* SynthPanelController.swift */; };
 		943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B59601F36B4F200E5FBE6 /* TimeKnob.swift */; };
 		9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
 		9442BBDC1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
@@ -125,6 +129,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		943524581F57945500BDA789 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EA7D07011F4E63C200707706;
+			remoteInfo = AudioKitUI;
+		};
 		C41F29D71F1332A500909D45 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */;
@@ -175,6 +186,8 @@
 
 /* Begin PBXFileReference section */
 		9410659E1F26AA55002777AB /* ADSRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
+		943524551F57945500BDA789 /* ChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
+		9435245B1F57A6F100BDA789 /* SynthPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthPanelController.swift; sourceTree = "<group>"; };
 		943B59601F36B4F200E5FBE6 /* TimeKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeKnob.swift; sourceTree = "<group>"; };
 		9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpKeyboardController.swift; sourceTree = "<group>"; };
 		945261381F2918A60037662C /* TouchPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPadViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +287,7 @@
 				C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */,
 				945261381F2918A60037662C /* TouchPadViewController.swift */,
 				94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */,
+				9435245B1F57A6F100BDA789 /* SynthPanelController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -340,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
+				943524551F57945500BDA789 /* ChildView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				C46DE1001F13301D0060DD79 /* AudioKit.framework */,
+				943524591F57945500BDA789 /* AudioKitUI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -535,6 +551,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		943524591F57945500BDA789 /* AudioKitUI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AudioKitUI.framework;
+			remoteRef = 943524581F57945500BDA789 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C46DE1001F13301D0060DD79 /* AudioKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -593,6 +616,7 @@
 				C47FB3C51F366D6400EF2F01 /* Rate.swift in Sources */,
 				948C54C41F3A59F000DA6081 /* SynthUIButton.swift in Sources */,
 				947956B71F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
+				9435245A1F5794FA00BDA789 /* ChildView.swift in Sources */,
 				945261401F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C40770EE1F257124007F2C77 /* HeaderViewContoller.swift in Sources */,
 				94FEFEC81F3150D00064EC09 /* TransposeButton.swift in Sources */,
@@ -607,6 +631,7 @@
 				947956AC1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A051F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
 				94DB18D31F37DD4B008368AE /* NavButton.swift in Sources */,
+				9435245D1F57A6F100BDA789 /* SynthPanelController.swift in Sources */,
 				941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */,
 				9442BBDC1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ToggleButtonStyleKit.swift in Sources */,
@@ -647,6 +672,7 @@
 				9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */,
 				94FBAFE51F42A9630071235B /* TempoStepper.swift in Sources */,
 				949D09341F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */,
+				9435245C1F57A6F100BDA789 /* SynthPanelController.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
@@ -664,6 +690,7 @@
 				947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				C47BE1441F26822F003501FF /* AKSynthOneParameter.swift in Sources */,
+				943524561F57945500BDA789 /* ChildView.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
 				9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */,
 				947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,

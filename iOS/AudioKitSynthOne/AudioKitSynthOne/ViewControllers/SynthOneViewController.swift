@@ -17,15 +17,6 @@ protocol BottomEmbeddedViewsDelegate {
     func switchToBottomChildView(_ newView: ChildView)
 }
 
-enum ChildView: String {
-    case oscView = "SourceMixerViewController"
-    case adsrView = "ADSRViewController"
-    case devView = "DevViewController"
-    case padView = "TouchPadViewController"
-    case fxView = "FXViewController"
-    case seqView = "SeqViewController"
-}
-
 public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     @IBOutlet weak var topContainerView: UIView!
@@ -44,6 +35,19 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
     
+    public var childViewDidChangeCallback: (ChildView)->Void = { _ in }
+    
+    var topChildView: ChildView? {
+        didSet {
+            childViewDidChangeCallback(topChildView!)
+        }
+    }
+    var bottomChildView: ChildView? {
+        didSet {
+            childViewDidChangeCallback(bottomChildView!)
+        }
+    }
+    
     // ********************************************************
     // MARK: - Define child view controllers
     // ********************************************************
@@ -53,7 +57,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         // Instantiate View Controller
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.adsrView.rawValue) as! ADSRViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier()) as! ADSRViewController
         
         // Add View Controller as Child View Controller
         self.add(asChildViewController: viewController)
@@ -63,35 +67,35 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     fileprivate lazy var mixerViewController: SourceMixerViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.oscView.rawValue) as! SourceMixerViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier()) as! SourceMixerViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var devViewController: SettingsViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.devView.rawValue) as! SettingsViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: "DevViewController") as! SettingsViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var padViewController: TouchPadViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.padView.rawValue) as! TouchPadViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.padView.identifier()) as! TouchPadViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var fxViewController: FXViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.fxView.rawValue) as! FXViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier()) as! FXViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var seqViewController: SeqViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.seqView.rawValue) as! SeqViewController
+        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier()) as! SeqViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
@@ -132,6 +136,13 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         switchToBottomChildView(.padView)
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        keyboardToggle.isSelected = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+           self.keyboardToggle.callback(0.0)
+        }
+      
+    }
     
     // ********************************************************
     // MARK: - Callbacks
@@ -217,17 +228,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         // Notify Child View Controller
         viewController.didMove(toParentViewController: self)
     }
-    /*
-     fileprivate func remove(asChildViewController viewController: UIViewController) {
-     // Notify Child View Controller
-     viewController.willMove(toParentViewController: nil)
-     
-     // Remove Child View From Superview
-     viewController.view.removeFromSuperview()
-     
-     // Notify Child View Controller
-     viewController.removeFromParentViewController()
-     } */
+    
 }
 
 // **********************************************************
@@ -240,31 +241,32 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
         // remove all child views
         topContainerView.subviews.forEach({ $0.removeFromSuperview() })
         
-        print("TOP Delegate \(newView)")
-        
         switch newView {
         case .adsrView:
             add(asChildViewController: adsrViewController)
             adsrViewController.navDelegate = self
             adsrViewController.isTopContainer = true
+            topChildView = .adsrView
         case .oscView:
             add(asChildViewController: mixerViewController)
             mixerViewController.navDelegate = self
             mixerViewController.isTopContainer = true
-        case .devView:
-            add(asChildViewController: devViewController)
+            topChildView = .oscView
         case .padView:
             add(asChildViewController: padViewController)
             padViewController.navDelegate = self
             padViewController.isTopContainer = true
+            topChildView = .padView
         case .fxView:
             add(asChildViewController: fxViewController)
             fxViewController.navDelegate = self
             fxViewController.isTopContainer = true
+            topChildView = .fxView
         case .seqView:
             add(asChildViewController: seqViewController)
             seqViewController.navDelegate = self
             seqViewController.isTopContainer = true
+            topChildView = .seqView
         }
     }
 }
@@ -275,32 +277,49 @@ extension SynthOneViewController: BottomEmbeddedViewsDelegate {
         // remove all child views
         bottomContainerView.subviews.forEach({ $0.removeFromSuperview() }) // this gets things done
         
-        print("Bottom Delegate \(newView)")
+        var topPanels = [SynthPanelController]()
+        var bottomPanels = [SynthPanelController]()
+        childViewControllers.forEach({
+        
+            if let vc = $0 as? SynthPanelController {
+                if vc.isTopContainer {
+                    topPanels.append(vc)
+                } else {
+                    bottomPanels.append(vc)
+                }
+            }
+            
+            // bottomPanels.last()
+            // topPanels.last()
+        })
+        print("****")
         
         switch newView {
         case .adsrView:
             add(asChildViewController: adsrViewController, isTopContainer: false)
             adsrViewController.navDelegateBottom = self
             adsrViewController.isTopContainer = false
+            bottomChildView = .adsrView
         case .oscView:
             add(asChildViewController: mixerViewController, isTopContainer: false)
             mixerViewController.navDelegateBottom = self
             mixerViewController.isTopContainer = false
-        case .devView:
-            
-            break
+            bottomChildView = .oscView
         case .padView:
             add(asChildViewController: padViewController, isTopContainer: false)
             padViewController.navDelegateBottom = self
             padViewController.isTopContainer = false
+            bottomChildView = .padView
         case .fxView:
             add(asChildViewController: fxViewController, isTopContainer: false)
             fxViewController.navDelegateBottom = self
             fxViewController.isTopContainer = false
+            bottomChildView = .fxView
         case .seqView:
             add(asChildViewController: seqViewController, isTopContainer: false)
             seqViewController.navDelegateBottom = self
             seqViewController.isTopContainer = false
+            bottomChildView = .seqView
         }
     }
 }

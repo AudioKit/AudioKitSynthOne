@@ -9,7 +9,7 @@
 import UIKit
 import AudioKit
 
-class ADSRViewController: UpdatableViewController {
+class ADSRViewController: SynthPanelController {
     
     @IBOutlet var adsrView: AKADSRView!
     @IBOutlet var filterADSRView: AKADSRView!
@@ -22,14 +22,7 @@ class ADSRViewController: UpdatableViewController {
     @IBOutlet weak var filterSustainKnob: Knob!
     @IBOutlet weak var filterReleaseKnob: Knob!
     @IBOutlet weak var filterADSRMixKnob: Knob!
-    
-    @IBOutlet weak var nav1Button: NavButton!
-    @IBOutlet weak var nav2Button: NavButton!
-    
-    var navDelegate: EmbeddedViewsDelegate?
-    var navDelegateBottom: BottomEmbeddedViewsDelegate?
-    var isTopContainer: Bool = true
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         filterADSRMixKnob.range = 0.0 ... 1.2
@@ -46,31 +39,10 @@ class ADSRViewController: UpdatableViewController {
         conductor.bind(filterReleaseKnob, to: .filterReleaseDuration)
         conductor.bind(filterADSRMixKnob, to: .filterADSRMix)
         
-        navButtonsSetup()
-    }
-    
-    func navButtonsSetup() {
-        // Nav Button Callbacks
-        nav1Button.callback = { _ in
-            if self.isTopContainer {
-                self.navDelegate?.switchToChildView(.oscView)
-            } else {
-                self.navDelegateBottom?.switchToBottomChildView(.oscView)
-            }
-        }
-        
-        nav2Button.callback = { _ in
-            if self.isTopContainer {
-                self.navDelegate?.switchToChildView(.fxView)
-            } else {
-                self.navDelegateBottom?.switchToBottomChildView(.fxView)
-            }
-        }
-        
+        updateCallbacks()
     }
     
     override func updateCallbacks() {
-        
         super.updateCallbacks()
         
         adsrView.callback = { att, dec, sus, rel in

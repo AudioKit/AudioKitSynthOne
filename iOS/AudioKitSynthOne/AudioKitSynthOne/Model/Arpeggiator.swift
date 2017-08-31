@@ -6,7 +6,6 @@
 //  Copyright © 2016 AudioKit. All rights reserved.
 //
 
-
 class Arpeggiator {
     var baseNote: Int = 0
     var beatCounter = 0

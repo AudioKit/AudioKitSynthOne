@@ -9,24 +9,17 @@
 
 import UIKit
 
-class SeqViewController: UpdatableViewController {
+class SeqViewController: SynthPanelController {
     
     @IBOutlet weak var seqStepsStepper: Stepper!
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
     @IBOutlet weak var arpSeqToggle: ToggleSwitch!
-    
-    @IBOutlet weak var nav1Button: NavButton!
-    @IBOutlet weak var nav2Button: NavButton!
     @IBOutlet weak var arpToggle: ToggleButton!
     
     let sliderTags = 400 ... 415
     let sliderToggleTags = 500 ... 515
     let sliderLabelTags = 550 ... 565
-    
-    var navDelegate: EmbeddedViewsDelegate?
-    var navDelegateBottom: BottomEmbeddedViewsDelegate?
-    var isTopContainer: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +31,6 @@ class SeqViewController: UpdatableViewController {
         setupValues()
         
         updateCallbacks()
-        
-        navButtonsSetup()
     }
     
     // *********************************************************
@@ -70,23 +61,6 @@ class SeqViewController: UpdatableViewController {
         
     }
     
-    func navButtonsSetup() {
-        nav1Button.callback = { _ in
-             if self.isTopContainer {
-            self.navDelegate?.switchToChildView(.padView)
-             } else {
-            self.navDelegateBottom?.switchToBottomChildView(.padView)
-            }
-        }
-        
-        nav2Button.callback = { _ in
-             if self.isTopContainer {
-            self.navDelegate?.switchToChildView(.oscView)
-             } else {
-            self.navDelegateBottom?.switchToBottomChildView(.oscView)
-            }
-        }
-    }
     
     //*****************************************************************
     // MARK: - Callbacks

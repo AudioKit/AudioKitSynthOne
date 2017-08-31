@@ -8,16 +8,13 @@
 
 import UIKit
 
-class TouchPadViewController: UpdatableViewController {
+class TouchPadViewController: SynthPanelController {
     
     @IBOutlet weak var touchPad1: AKTouchPadView!
     @IBOutlet weak var touchPad2: AKTouchPadView!
     
     @IBOutlet weak var touchPad1Label: UILabel!
     @IBOutlet weak var snapToggle: SynthUIButton!
-    
-    @IBOutlet weak var nav1Button: NavButton!
-    @IBOutlet weak var nav2Button: NavButton!
     
     let particleEmitter1 = CAEmitterLayer()
     let particleEmitter2 = CAEmitterLayer()
@@ -26,10 +23,6 @@ class TouchPadViewController: UpdatableViewController {
     var rez: Double = 0.0
     var oscBalance: Double = 0.0
     var detuningMultiplier: Double = 1.0
-    
-    var navDelegate: EmbeddedViewsDelegate?
-    var navDelegateBottom: BottomEmbeddedViewsDelegate?
-    var isTopContainer: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,27 +37,6 @@ class TouchPadViewController: UpdatableViewController {
         
         updateCallbacks()
         createParticles()
-        
-        navButtonsSetup()
-    }
-    
-    func navButtonsSetup() {
-        // Nav Button Callbacks
-        nav1Button.callback = { _ in
-             if self.isTopContainer {
-            self.navDelegate?.switchToChildView(.fxView)
-             } else {
-            self.navDelegateBottom?.switchToBottomChildView(.fxView)
-            }
-        }
-        
-        nav2Button.callback = { _ in
-             if self.isTopContainer {
-            self.navDelegate?.switchToChildView(.seqView)
-             } else {
-            self.navDelegateBottom?.switchToBottomChildView(.seqView)
-            }
-        }
         
     }
     

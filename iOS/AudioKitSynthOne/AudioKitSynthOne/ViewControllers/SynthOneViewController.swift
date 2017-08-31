@@ -236,27 +236,27 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
             add(asChildViewController: adsrViewController)
             adsrViewController.navDelegate = self
             adsrViewController.isTopContainer = true
-            topChildView = .adsrView
+            adsrViewController.viewType = .adsrView
         case .oscView:
             add(asChildViewController: mixerViewController)
             mixerViewController.navDelegate = self
             mixerViewController.isTopContainer = true
-            topChildView = .oscView
+            mixerViewController.viewType = .oscView
         case .padView:
             add(asChildViewController: padViewController)
             padViewController.navDelegate = self
             padViewController.isTopContainer = true
-            topChildView = .padView
+            padViewController.viewType = .padView
         case .fxView:
             add(asChildViewController: fxViewController)
             fxViewController.navDelegate = self
             fxViewController.isTopContainer = true
-            topChildView = .fxView
+            fxViewController.viewType = .fxView
         case .seqView:
             add(asChildViewController: seqViewController)
             seqViewController.navDelegate = self
             seqViewController.isTopContainer = true
-            topChildView = .seqView
+            seqViewController.viewType = .seqView
         }
         
         // Update panel navigation

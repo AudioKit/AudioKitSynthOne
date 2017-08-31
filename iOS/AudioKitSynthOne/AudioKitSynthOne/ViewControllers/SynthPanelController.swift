@@ -32,6 +32,7 @@ class SynthPanelController: UpdatableViewController {
     
     func navButtonsSetup() {
         
+        // Left Nav Button
         nav1Button.callback = { _ in
             if self.isTopContainer {
                 self.navDelegate?.switchToChildView(self.leftView)
@@ -40,6 +41,7 @@ class SynthPanelController: UpdatableViewController {
             }
         }
         
+        // Right Nav Button
         nav2Button.callback = { _ in
             
             if self.isTopContainer {

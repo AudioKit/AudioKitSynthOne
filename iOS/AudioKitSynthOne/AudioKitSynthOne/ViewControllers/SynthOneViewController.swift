@@ -232,7 +232,7 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
     func switchToChildView(_ newView: ChildView) {
         // remove all child views
         topContainerView.subviews.forEach({ $0.removeFromSuperview() })
-        
+
         switch newView {
         case .adsrView:
             add(asChildViewController: adsrViewController)
@@ -271,6 +271,8 @@ extension SynthOneViewController: BottomEmbeddedViewsDelegate {
     func switchToBottomChildView(_ newView: ChildView) {
         // remove all child views
         bottomContainerView.subviews.forEach({ $0.removeFromSuperview() }) 
+        
+       
         
         switch newView {
         case .adsrView:
@@ -319,6 +321,11 @@ extension SynthOneViewController: BottomEmbeddedViewsDelegate {
         bottomChildView = bottomPanel?.viewType
         bottomPanel?.updateNavButtons()
         topPanel?.updateNavButtons()
+        
+        // unwrap header
+        guard let headerVC = self.childViewControllers.first as? HeaderViewController else { return }
+        headerVC.updateNavButtons()
+       
     }
     
 }

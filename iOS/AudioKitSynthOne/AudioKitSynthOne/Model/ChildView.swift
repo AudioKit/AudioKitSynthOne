@@ -32,7 +32,7 @@ public enum ChildView: Int {
         case .oscView: return "MAIN"
         case .adsrView: return "ADSR"
         case .padView: return "PAD"
-        case .fxView: return "EFX"
+        case .fxView: return "FX"
         case .seqView: return "SEQ"
         }
     }

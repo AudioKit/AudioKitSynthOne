@@ -16,6 +16,8 @@
 		943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B59601F36B4F200E5FBE6 /* TimeKnob.swift */; };
 		9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
 		9442BBDC1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
+		9451E2FE1F58C20B008181F9 /* HeaderNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */; };
+		9451E2FF1F58C20B008181F9 /* HeaderNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */; };
 		945261401F2925610037662C /* AKTouchPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9452613E1F2925600037662C /* AKTouchPadView.swift */; };
 		945261411F2925610037662C /* AKTouchPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9452613E1F2925600037662C /* AKTouchPadView.swift */; };
 		945261481F2928870037662C /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945261381F2918A60037662C /* TouchPadViewController.swift */; };
@@ -190,6 +192,7 @@
 		9435245B1F57A6F100BDA789 /* SynthPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthPanelController.swift; sourceTree = "<group>"; };
 		943B59601F36B4F200E5FBE6 /* TimeKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeKnob.swift; sourceTree = "<group>"; };
 		9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpKeyboardController.swift; sourceTree = "<group>"; };
+		9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderNavButton.swift; sourceTree = "<group>"; };
 		945261381F2918A60037662C /* TouchPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPadViewController.swift; sourceTree = "<group>"; };
 		9452613E1F2925600037662C /* AKTouchPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKTouchPadView.swift; sourceTree = "<group>"; };
 		945C3A021F3141F50086D58B /* ArpButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpButtonStyleKit.swift; sourceTree = "<group>"; };
@@ -284,10 +287,10 @@
 				9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */,
 				945C3A0F1F3143A00086D58B /* SeqViewController.swift */,
 				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
+				9435245B1F57A6F100BDA789 /* SynthPanelController.swift */,
 				C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */,
 				945261381F2918A60037662C /* TouchPadViewController.swift */,
 				94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */,
-				9435245B1F57A6F100BDA789 /* SynthPanelController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */,
 				94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */,
 				948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */,
+				9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */,
 				949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */,
 				949D93B51F2C188B007E657B /* LfoButton.swift */,
 				949D09321F34F6FA000FB6E0 /* LFOPickerStyleKit.swift */,
@@ -619,6 +623,7 @@
 				9435245A1F5794FA00BDA789 /* ChildView.swift in Sources */,
 				945261401F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C40770EE1F257124007F2C77 /* HeaderViewContoller.swift in Sources */,
+				9451E2FF1F58C20B008181F9 /* HeaderNavButton.swift in Sources */,
 				94FEFEC81F3150D00064EC09 /* TransposeButton.swift in Sources */,
 				94D917B01F550D28006ACB4E /* FlatToggleButton.swift in Sources */,
 				949D93BA1F2C188C007E657B /* LfoButton.swift in Sources */,
@@ -663,6 +668,7 @@
 				943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */,
+				9451E2FE1F58C20B008181F9 /* HeaderNavButton.swift in Sources */,
 				94AF74071F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */,
 				94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */,
 				94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */,

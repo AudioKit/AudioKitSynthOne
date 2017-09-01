@@ -10,8 +10,17 @@ import UIKit
 import AudioKit
 
 public class HeaderViewController: UpdatableViewController {
+
+    
+    @IBOutlet weak var mainBtn: HeaderNavButton!
+    @IBOutlet weak var adsrBtn: HeaderNavButton!
+    @IBOutlet weak var seqBtn: HeaderNavButton!
+    @IBOutlet weak var padBtn: HeaderNavButton!
+    @IBOutlet weak var fxBtn: HeaderNavButton!
     
     @IBOutlet weak var displayLabel: UILabel!
+    var navBtns = [HeaderNavButton]()
+    
     var delegate: EmbeddedViewsDelegate?
     
     func ADSRString(_ a: AKSynthOneParameter,
@@ -22,6 +31,11 @@ public class HeaderViewController: UpdatableViewController {
             "D: \(conductor.synth.parameters[d.rawValue].decimalString) " +
             "S: \(conductor.synth.parameters[s.rawValue].percentageString) " +
         "R: \(conductor.synth.parameters[r.rawValue].decimalString) "
+    }
+    
+    public override func viewDidLoad() {
+        navBtns = [mainBtn, adsrBtn, padBtn, fxBtn, seqBtn]
+        setupBtnCallbacks()
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
@@ -142,24 +156,44 @@ public class HeaderViewController: UpdatableViewController {
     // MARK: - IBActions
     // ********************************************************
     
-    @IBAction func mainPressed(_ sender: UIButton) {
-        delegate?.switchToChildView(.oscView)
+    func setupBtnCallbacks() {
+        
+        mainBtn.callback = { _ in
+            self.delegate?.switchToChildView(.oscView)
+            self.updateNavButtons()
+        }
+        
+        adsrBtn.callback = { _ in
+            self.delegate?.switchToChildView(.adsrView)
+            self.updateNavButtons()
+        }
+        
+        seqBtn.callback = { _ in
+            self.delegate?.switchToChildView(.seqView)
+             self.updateNavButtons()
+        }
+        
+        padBtn.callback = { _ in
+            self.delegate?.switchToChildView(.padView)
+             self.updateNavButtons()
+        }
+        
+        fxBtn.callback = { _ in
+            self.delegate?.switchToChildView(.fxView)
+             self.updateNavButtons()
+        }
     }
+
+    func updateNavButtons() {
+        guard let parentController = self.parent as? SynthOneViewController else { return }
+        guard let topView = parentController.topChildView else { return }
+        guard let bottomView = parentController.bottomChildView else { return }
+        
+        navBtns.forEach { $0.isSelected = false }
+        navBtns.forEach { $0.isEnabled = true }
+        
+        navBtns[topView.rawValue].isSelected = true
+        navBtns[bottomView.rawValue].isEnabled = false
     
-    @IBAction func adsrPressed(_ sender: UIButton) {
-        delegate?.switchToChildView(.adsrView)
     }
-    
-    @IBAction func devPressed(_ sender: UIButton) {
-        delegate?.switchToChildView(.seqView)
-    }
-    
-    @IBAction func padPressed(_ sender: UIButton) {
-        delegate?.switchToChildView(.padView)
-    }
-    
-    @IBAction func fxPressed(_ sender: UIButton) {
-        delegate?.switchToChildView(.fxView)
-    }
-    
 }

@@ -36,6 +36,8 @@ public class LfoBtnStyleKit : NSObject {
         let offColor = UIColor(red: 0.180, green: 0.180, blue: 0.200, alpha: 1.000)
         let textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1.000)
         let downColor = UIColor(red: 0.294, green: 0.294, blue: 0.314, alpha: 1.000)
+        let dividerColor = UIColor(red: 0.227, green: 0.227, blue: 0.247, alpha: 1.000)
+        let color = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1.000)
 
         //// Shadow Declarations
         let shadow = NSShadow()
@@ -46,13 +48,14 @@ public class LfoBtnStyleKit : NSObject {
         //// Variable Declarations
         let indicator1On = lfoSelected == 1
         let indicator2On = lfoSelected == 2
+        let greaterThanOne = lfoSelected > 0
 
         //// Button
         //// btnBackground Drawing
         let btnBackgroundPath = UIBezierPath(roundedRect: CGRect(x: 2.5, y: 2.5, width: 100, height: 32), cornerRadius: 2)
         btnBack.setFill()
         btnBackgroundPath.fill()
-        UIColor.black.setStroke()
+        color.setStroke()
         btnBackgroundPath.lineWidth = 1
         btnBackgroundPath.stroke()
 
@@ -67,11 +70,11 @@ public class LfoBtnStyleKit : NSObject {
 
 
         if (indicator2On) {
-            //// leftPress 2 Drawing
-            let leftPress2Path = UIBezierPath(roundedRect: CGRect(x: 52.5, y: 3, width: 49, height: 31), byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: 3, height: 3))
-            leftPress2Path.close()
+            //// rightPress Drawing
+            let rightPressPath = UIBezierPath(roundedRect: CGRect(x: 53, y: 3, width: 49, height: 31), byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: 3, height: 3))
+            rightPressPath.close()
             downColor.setFill()
-            leftPress2Path.fill()
+            rightPressPath.fill()
         }
 
 
@@ -108,6 +111,17 @@ public class LfoBtnStyleKit : NSObject {
             lfo2SelectedPath.fill()
             context.restoreGState()
 
+        }
+
+
+        if (greaterThanOne) {
+            //// dividerTop 2 Drawing
+            let dividerTop2Path = UIBezierPath(rect: CGRect(x: 53.5, y: 3.5, width: 1, height: 30))
+            btnBack.setFill()
+            dividerTop2Path.fill()
+            dividerColor.setStroke()
+            dividerTop2Path.lineWidth = 1
+            dividerTop2Path.stroke()
         }
 
 

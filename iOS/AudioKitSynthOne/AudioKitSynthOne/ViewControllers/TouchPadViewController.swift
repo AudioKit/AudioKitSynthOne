@@ -51,7 +51,6 @@ class TouchPadViewController: SynthPanelController {
         let y = cutoff.normalized(from: touchPad2.verticalRange,
                                   taper: touchPad2.verticalTaper)
         touchPad2.resetToPosition(rez, y)
-        
     }
     
     override func updateCallbacks() {

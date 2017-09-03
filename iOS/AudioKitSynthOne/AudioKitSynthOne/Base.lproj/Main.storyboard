@@ -45,9 +45,6 @@
                                     <constraint firstAttribute="height" constant="299" id="065-6c-Sa4"/>
                                     <constraint firstAttribute="width" constant="1024" id="S6i-gk-s21"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="kXR-JJ-XpL" kind="embed" id="Qbh-Cu-wMO"/>
-                                </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3C-71-5ce">
                                 <rect key="frame" x="0.0" y="337" width="1024" height="299"/>
@@ -770,7 +767,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="je1-h7-FfI" customClass="AKADSRView" customModule="AudioKit">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="je1-h7-FfI" customClass="AKADSRView" customModule="AudioKitUI">
                                 <rect key="frame" x="466" y="39" width="363" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -798,7 +795,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixs-dv-3Ny" customClass="AKADSRView" customModule="AudioKit">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixs-dv-3Ny" customClass="AKADSRView" customModule="AudioKitUI">
                                 <rect key="frame" x="32" y="39" width="363" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

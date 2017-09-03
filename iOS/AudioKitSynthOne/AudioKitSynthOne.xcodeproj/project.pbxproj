@@ -28,6 +28,7 @@
 		945C3A071F3141F60086D58B /* ArpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A031F3141F50086D58B /* ArpButton.swift */; };
 		945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0F1F3143A00086D58B /* SeqViewController.swift */; };
 		945C3A111F31450B0086D58B /* SeqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0F1F3143A00086D58B /* SeqViewController.swift */; };
+		9461F0391F5CAAE600EE226E /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943524591F57945500BDA789 /* AudioKitUI.framework */; };
 		9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* SettingsViewController.swift */; };
 		947956A91F329AB200FE5D9B /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A81F329AB100FE5D9B /* Stepper.swift */; };
 		947956AA1F329AB200FE5D9B /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A81F329AB100FE5D9B /* Stepper.swift */; };
@@ -279,6 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9461F0391F5CAAE600EE226E /* AudioKitUI.framework in Frameworks */,
 				C41F29D91F1332A900909D45 /* AudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +383,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9461F0371F5CAAE600EE226E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		947956B11F329AB500FE5D9B /* Stepper */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +437,7 @@
 				C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */,
 				C474D94C1F13172B00946035 /* SynthOne */,
 				C4D193C51F1187B500FF4FE4 /* Products */,
+				9461F0371F5CAAE600EE226E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

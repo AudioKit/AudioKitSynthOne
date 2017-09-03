@@ -108,6 +108,8 @@
 		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
 		C47FB3C41F366BBD00EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
 		C47FB3C51F366D6400EF2F01 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951341F3644E5009A8B00 /* Rate.swift */; };
+		C4A4086A1F5CA1F500F472C8 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943524591F57945500BDA789 /* AudioKitUI.framework */; };
+		C4A4086B1F5CA1F500F472C8 /* AudioKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 943524591F57945500BDA789 /* AudioKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C4CD8DDF1F2482FF0011066A /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */; };
 		C4CD8DE41F248C570011066A /* SynthOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* SynthOneViewController.swift */; };
 		C4CD8DE81F2497850011066A /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */; };
@@ -159,6 +161,20 @@
 			remoteGlobalIDString = C474D94A1F13172B00946035;
 			remoteInfo = SynthOne;
 		};
+		C4A408681F5CA1F500F472C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EAC4FBE61F5645BA003B692B;
+			remoteInfo = AudioKitDocs;
+		};
+		C4A4086C1F5CA1F500F472C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C46DE0FB1F13301C0060DD79 /* AudioKit For iOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EA7D07001F4E63C200707706;
+			remoteInfo = AudioKitUI;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -179,6 +195,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C4A4086B1F5CA1F500F472C8 /* AudioKitUI.framework in Embed Frameworks */,
 				C41F29D61F1332A500909D45 /* AudioKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -270,6 +287,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A4086A1F5CA1F500F472C8 /* AudioKitUI.framework in Frameworks */,
 				C41F29D51F1332A500909D45 /* AudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +406,7 @@
 			children = (
 				C46DE1001F13301D0060DD79 /* AudioKit.framework */,
 				943524591F57945500BDA789 /* AudioKitUI.framework */,
+				C4A408691F5CA1F500F472C8 /* AudioKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -499,6 +518,7 @@
 			dependencies = (
 				C474D9581F13172B00946035 /* PBXTargetDependency */,
 				C41F29D81F1332A500909D45 /* PBXTargetDependency */,
+				C4A4086D1F5CA1F500F472C8 /* PBXTargetDependency */,
 			);
 			name = AudioKitSynthOne;
 			productName = AudioKitSynthOne;
@@ -567,6 +587,13 @@
 			fileType = wrapper.framework;
 			path = AudioKit.framework;
 			remoteRef = C46DE0FF1F13301D0060DD79 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C4A408691F5CA1F500F472C8 /* AudioKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AudioKit.framework;
+			remoteRef = C4A408681F5CA1F500F472C8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -732,6 +759,11 @@
 			isa = PBXTargetDependency;
 			target = C474D94A1F13172B00946035 /* SynthOne */;
 			targetProxy = C474D9571F13172B00946035 /* PBXContainerItemProxy */;
+		};
+		C4A4086D1F5CA1F500F472C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AudioKitUI;
+			targetProxy = C4A4086C1F5CA1F500F472C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

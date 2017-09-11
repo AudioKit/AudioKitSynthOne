@@ -9,10 +9,13 @@
 import UIKit
 
 protocol PresetCellDelegate {
-    func renamePressed(preset: Preset)
-    func duplicatePressed(preset: Preset)
-    func sharePressed(preset: Preset)
+    func editPressed()
+    func presetDidChange(preset: Preset)
+    func duplicatePressed()
+    func sharePressed()
+    func favoritePressed()
 }
+
 
 class PresetCell: UITableViewCell {
     
@@ -21,9 +24,10 @@ class PresetCell: UITableViewCell {
     // *********************************************************
 
     @IBOutlet weak var presetNameLabel: UILabel!
-    @IBOutlet weak var renameButton: RoundedButton!
-    @IBOutlet weak var shareButton: RoundedButton!
-    @IBOutlet weak var duplicateButton: RoundedButton!
+    @IBOutlet weak var renameButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var duplicateButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     var delegate: PresetCellDelegate?
     var currentPreset: Preset?
@@ -52,9 +56,26 @@ class PresetCell: UITableViewCell {
 
         // Configure the view for the selected state
         if selected {
-            presetNameLabel.textColor = UIColor.green
-        } else {
             presetNameLabel.textColor = UIColor.white
+            backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
+            
+            duplicateButton.isHidden = false
+            renameButton.isHidden = false
+            shareButton.isHidden = false
+            favoriteButton.isHidden = false
+            
+            if let preset = currentPreset {
+                 delegate?.presetDidChange(preset: preset)
+            }
+           
+        } else {
+            presetNameLabel.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
+            backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0)
+            
+            duplicateButton.isHidden = true
+            renameButton.isHidden = true
+            shareButton.isHidden = true
+            favoriteButton.isHidden = true
         }
     }
     
@@ -65,27 +86,32 @@ class PresetCell: UITableViewCell {
     func configureCell(preset: Preset) {
         currentPreset = preset
         presetNameLabel.text = "\(preset.position): \(preset.name)"
+        
+        if preset.isFavorite {
+            favoriteButton.setImage(UIImage(named: "ak_favfilled"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(named: "ak_fav"), for: .normal)
+        }
+        
     }
     
     // *********************************************************
     // MARK: - IBAction
     // *********************************************************
-    @IBAction func duplicatePressed(_ sender: RoundedButton) {
-        if let preset = currentPreset {
-            delegate?.duplicatePressed(preset: preset)
-        }
+    @IBAction func duplicatePressed(_ sender: UIButton) {
+        delegate?.duplicatePressed()
     }
     
-    @IBAction func renamePressed(_ sender: RoundedButton) {
-        if let preset = currentPreset {
-            delegate?.renamePressed(preset: preset)
-        }
+    @IBAction func editPressed(_ sender: UIButton) {
+            delegate?.editPressed()
     }
 
-    @IBAction func sharePressed(_ sender: RoundedButton) {
-        if let preset = currentPreset {
-            delegate?.sharePressed(preset: preset)
+    @IBAction func sharePressed(_ sender: UIButton) {
+            delegate?.sharePressed()
         }
+ 
+    @IBAction func favoritePressed(_ sender: UIButton) {
+        delegate?.favoritePressed()
     }
     
     

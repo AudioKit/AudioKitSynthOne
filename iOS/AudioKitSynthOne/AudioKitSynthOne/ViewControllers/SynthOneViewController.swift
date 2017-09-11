@@ -90,6 +90,13 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         return viewController
     }()
     
+    fileprivate lazy var presetsViewController: PresetsViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
+        self.add(asChildViewController: viewController)
+        return viewController
+    }()
+    
     
     // ********************************************************
     // MARK: - viewDidLoad
@@ -124,6 +131,8 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         // Set initial subviews
         switchToChildView(.oscView)
         switchToBottomChildView(.padView)
+        
+        displayPresetsController()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -214,11 +223,15 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         }
         
         // Configure Child View
-        
         viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // Notify Child View Controller
         viewController.didMove(toParentViewController: self)
+    }
+    
+    func displayPresetsController() {
+       add(asChildViewController: presetsViewController)
+       // clear top containers? presetsViewController.isTopContainer = true
     }
     
 }
@@ -272,8 +285,6 @@ extension SynthOneViewController: BottomEmbeddedViewsDelegate {
         // remove all child views
         bottomContainerView.subviews.forEach({ $0.removeFromSuperview() }) 
         
-       
-        
         switch newView {
         case .adsrView:
             add(asChildViewController: adsrViewController, isTopContainer: false)
@@ -325,7 +336,6 @@ extension SynthOneViewController: BottomEmbeddedViewsDelegate {
         // unwrap header
         guard let headerVC = self.childViewControllers.first as? HeaderViewController else { return }
         headerVC.updateNavButtons()
-       
     }
     
 }

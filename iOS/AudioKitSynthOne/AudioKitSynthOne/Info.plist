@@ -44,5 +44,26 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+    <key>UTExportedTypeDeclarations</key>
+    <array>
+        <dict>
+            <key>UTTypeConformsTo</key>
+            <array>
+                <string>public.text</string>
+                <string>public.data</string>
+            </array>
+            <key>UTTypeDescription</key>
+            <string>AudioKit Synth One Presest</string>
+            <key>UTTypeIdentifier</key>
+            <string>com.audiokitpro.SynthUISpike.synth1</string>
+            <key>UTTypeTagSpecification</key>
+            <dict>
+                <key>public.filename-extension</key>
+                <string>synth1</string>
+                <key>public.mime-type</key>
+                <string>application/SynthUISpike</string>
+            </dict>
+        </dict>
+    </array>
 </dict>
 </plist>

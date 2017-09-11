@@ -1,0 +1,14 @@
+platform :ios, '9.0'
+use_frameworks!
+
+def available_pods
+    pod 'Disk', '~> 0.2.3'
+end
+
+target 'AudioKitSynthOne' do
+    available_pods 
+end
+
+target 'SynthOne' do
+    available_pods 
+end

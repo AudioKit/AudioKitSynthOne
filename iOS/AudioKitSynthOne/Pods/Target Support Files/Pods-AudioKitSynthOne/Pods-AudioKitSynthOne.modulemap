@@ -1,0 +1,6 @@
+framework module Pods_AudioKitSynthOne {
+  umbrella header "Pods-AudioKitSynthOne-umbrella.h"
+
+  export *
+  module * { export * }
+}

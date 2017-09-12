@@ -6,6 +6,25 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>Synth One</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>icon_320</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>AudioKit Synth1 Preset</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>io.audiokit.AudioKitSynthOne</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -44,26 +63,34 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-    <key>UTExportedTypeDeclarations</key>
-    <array>
-        <dict>
-            <key>UTTypeConformsTo</key>
-            <array>
-                <string>public.text</string>
-                <string>public.data</string>
-            </array>
-            <key>UTTypeDescription</key>
-            <string>AudioKit Synth One Presest</string>
-            <key>UTTypeIdentifier</key>
-            <string>com.audiokitpro.SynthUISpike.synth1</string>
-            <key>UTTypeTagSpecification</key>
-            <dict>
-                <key>public.filename-extension</key>
-                <string>synth1</string>
-                <key>public.mime-type</key>
-                <string>application/SynthUISpike</string>
-            </dict>
-        </dict>
-    </array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.text</string>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>AudioKit Synth One Presest</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.audiokitpro.SynthUISpike.synth1</string>
+			<key>UTTypeSize320IconFile</key>
+			<string>icon_320</string>
+			<key>UTTypeSize64IconFile</key>
+			<string>icon_64</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>synth1</string>
+				<key>public.mime-type</key>
+				<string>application/SynthUISpike</string>
+			</dict>
+		</dict>
+	</array>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict/>
+	</array>
 </dict>
 </plist>

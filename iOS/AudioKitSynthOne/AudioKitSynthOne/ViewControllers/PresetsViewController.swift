@@ -177,6 +177,12 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    func deselectCurrentRow() {
+        if let index = sortedPresets.index(where: {$0 === currentPreset}) {
+            tableView.deselectRow(at: IndexPath(row: index, section: 0), animated: false)
+        }
+    }
+    
     // *****************************************************************
     // MARK: - IBActions
     // *****************************************************************
@@ -222,6 +228,7 @@ class PresetsViewController: UIViewController {
     
     func nextPreset() {
         if currentPreset.position < presets.count - 1 {
+            deselectCurrentRow()
             currentPreset = presets[currentPreset.position + 1]
             selectCurrentPreset()
         }
@@ -229,6 +236,7 @@ class PresetsViewController: UIViewController {
     
     func prevPreset() {
         if currentPreset.position > 0 {
+            deselectCurrentRow()
             currentPreset = presets[currentPreset.position + -1 ]
             selectCurrentPreset()
         }
@@ -334,11 +342,6 @@ extension PresetsViewController: UITableViewDelegate {
             
             // Save presets
             saveAllPresets()
-            
-            /*
-             presetsDelegate?.presetDidChange(0)
-             presetsDelegate?.updateDisplay("Preset deleted!")
-             */
         }
     }
     
@@ -360,11 +363,6 @@ extension PresetsViewController: UITableViewDelegate {
             preset.position = i
         }
         saveAllPresets()
-        
-        /*
-         presetsDelegate?.presetDidChange(0)
-         presetsDelegate?.updateDisplay("Presets reordered!")
-         */
     }
     
     // Override to support conditional rearranging of the table view.

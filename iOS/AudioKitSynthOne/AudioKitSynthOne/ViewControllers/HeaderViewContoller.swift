@@ -192,15 +192,6 @@ public class HeaderViewController: UpdatableViewController {
     
     func displayLabelTapped() {
         delegate?.displayLabelTapped()
-        
-        // reset header nav buttons
-        headerNavBtns.forEach { $0.isSelected = false }
-        guard let parentController = self.parent as? SynthOneViewController else { return }
-        guard let bottomView = parentController.bottomChildView else { return }
-        headerNavBtns[bottomView.rawValue].isEnabled = false
-        
-        // Set top view so that all bottom views are accessible via left/righ nav
-       
     }
 
     func updateHeaderNavButtons() {

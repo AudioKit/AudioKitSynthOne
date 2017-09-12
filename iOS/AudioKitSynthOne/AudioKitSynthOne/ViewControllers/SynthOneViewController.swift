@@ -38,6 +38,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     
     var topChildView: ChildView?
     var bottomChildView: ChildView?
+    var isPresetsDisplayed: Bool = false
     
     // ********************************************************
     // MARK: - Define child view controllers
@@ -133,7 +134,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         switchToChildView(.oscView)
         switchToBottomChildView(.padView)
         
-        displayPresetsController()
+        //displayPresetsController()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -230,11 +231,11 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     }
     
     func displayPresetsController() {
-       // remove all child views
-       topContainerView.subviews.forEach({ $0.removeFromSuperview() })
-       add(asChildViewController: presetsViewController)
-       // presetsViewController.isTopContainer = true
-       presetsViewController.presetsDelegate = self
+        // Display Presets View
+        topContainerView.subviews.forEach({ $0.removeFromSuperview() })
+        add(asChildViewController: presetsViewController)
+        presetsViewController.presetsDelegate = self
+        isPresetsDisplayed = true
     }
     
 }
@@ -248,7 +249,7 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
     func switchToChildView(_ newView: ChildView) {
         // remove all child views
         topContainerView.subviews.forEach({ $0.removeFromSuperview() })
-
+        
         switch newView {
         case .adsrView:
             add(asChildViewController: adsrViewController)
@@ -278,12 +279,18 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
         }
         
         // Update panel navigation
+        isPresetsDisplayed = false
         updatePanelNav()
     }
     
     func displayLabelTapped() {
-        displayPresetsController()
+        if !isPresetsDisplayed {
+            displayPresetsController()
+        } else {
+            switchToChildView(topChildView!)
+        }
     }
+    
 }
 
 extension SynthOneViewController: BottomEmbeddedViewsDelegate {

@@ -12,7 +12,7 @@ import Disk
 import CloudKit
 
 protocol PresetsDelegate {
-    func presetDidChange(_ position: Int)
+    func presetDidChange(_ activePreset: Preset)
     func updateDisplay(_ message: String)
 }
 
@@ -33,7 +33,13 @@ class PresetsViewController: UIViewController {
         }
     }
     
-    var currentPreset = Preset()
+    var currentPreset = Preset() {
+        didSet {
+            createActivePreset()
+        }
+    }
+    
+    var tempPreset = Preset()
     
     var categoryIndex: Int = 0 {
         didSet {
@@ -143,6 +149,17 @@ class PresetsViewController: UIViewController {
         categoriesVC.categoryTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
     }
     
+    func createActivePreset() {
+        do {
+            try Disk.save(currentPreset, to: .caches, as: "currentPreset.json")
+            if let activePreset = try? Disk.retrieve("currentPreset.json", from: .caches, as: Preset.self) {
+                presetsDelegate?.presetDidChange(activePreset)
+            }
+        } catch {
+            print("error saving")
+        }
+    }
+    
     func selectCurrentPreset() {
         
         // No preset is selected
@@ -166,13 +183,6 @@ class PresetsViewController: UIViewController {
     
     @IBAction func savePreset(_ sender: UIButton) {
         
-        // save preset
-        let preset = presets[0]
-        do {
-            try Disk.save(preset, to: .documents, as: "Factory/mypreset.json")
-        } catch {
-            print("error saving")
-        }
         
     }
     
@@ -206,6 +216,20 @@ class PresetsViewController: UIViewController {
             sender.setTitle("Reorder Presets", for: UIControlState())
             sender.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
             categoryEmbeddedView.isUserInteractionEnabled = true
+            selectCurrentPreset()
+        }
+    }
+    
+    func nextPreset() {
+        if currentPreset.position < presets.count - 1 {
+            currentPreset = presets[currentPreset.position + 1]
+            selectCurrentPreset()
+        }
+    }
+    
+    func prevPreset() {
+        if currentPreset.position > 0 {
+            currentPreset = presets[currentPreset.position + -1 ]
             selectCurrentPreset()
         }
     }
@@ -278,11 +302,10 @@ extension PresetsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // Update Cell
-        let newPresetPosition = (indexPath as NSIndexPath).row
-        
-        // Update preset
-        presetsDelegate?.presetDidChange(newPresetPosition)
+        // Get cell
+        let cell = tableView.cellForRow(at: indexPath) as? PresetCell
+        guard let newPreset = cell?.currentPreset else { return }
+        currentPreset = newPreset
     }
     
     // Editing the table view.

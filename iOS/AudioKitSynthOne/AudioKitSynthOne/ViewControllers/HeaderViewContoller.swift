@@ -9,6 +9,13 @@
 import UIKit
 import AudioKit
 
+protocol HeaderDelegate {
+    func displayLabelTapped()
+    func prevPresetPressed()
+    func nextPresetPressed()
+    func savePresetPressed()
+}
+
 public class HeaderViewController: UpdatableViewController {
 
     @IBOutlet weak var mainBtn: HeaderNavButton!
@@ -21,6 +28,7 @@ public class HeaderViewController: UpdatableViewController {
     var headerNavBtns = [HeaderNavButton]()
     
     var delegate: EmbeddedViewsDelegate?
+    var headerDelegate: HeaderDelegate?
     
     func ADSRString(_ a: AKSynthOneParameter,
                     _ d: AKSynthOneParameter,
@@ -158,6 +166,7 @@ public class HeaderViewController: UpdatableViewController {
         }
         displayLabel.setNeedsDisplay()
     }
+   
     // ********************************************************
     // MARK: - IBActions
     // ********************************************************
@@ -190,10 +199,28 @@ public class HeaderViewController: UpdatableViewController {
         }
     }
     
+  
     func displayLabelTapped() {
-        delegate?.displayLabelTapped()
+        headerDelegate?.displayLabelTapped()
     }
-
+    
+    @IBAction func prevPresetPressed(_ sender: UIButton) {
+         headerDelegate?.prevPresetPressed()
+    }
+    
+   
+    @IBAction func nextPresetPressed(_ sender: UIButton) {
+         headerDelegate?.nextPresetPressed()
+    }
+    
+    @IBAction func savePressed(_ sender: UIButton) {
+         headerDelegate?.savePresetPressed()
+    }
+    
+    // ********************************************************
+    // MARK: - Helper
+    // ********************************************************
+    
     func updateHeaderNavButtons() {
         guard let parentController = self.parent as? SynthOneViewController else { return }
         guard let topView = parentController.topChildView else { return }
@@ -204,6 +231,7 @@ public class HeaderViewController: UpdatableViewController {
         
         headerNavBtns[topView.rawValue].isSelected = true
         headerNavBtns[bottomView.rawValue].isEnabled = false
-
     }
+    
+    
 }

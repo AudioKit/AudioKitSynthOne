@@ -95,6 +95,7 @@
 		94DB18D21F37D879008368AE /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB18D11F37D879008368AE /* NavButton.swift */; };
 		94DB18D31F37DD4B008368AE /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB18D11F37D879008368AE /* NavButton.swift */; };
 		94E951351F3644E5009A8B00 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951341F3644E5009A8B00 /* Rate.swift */; };
+		94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F694C51F683D5D0061DA5E /* CallbackButton.swift */; };
 		94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */; };
 		94FBAFE01F42873F0071235B /* SynthKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */; };
 		94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFE11F42A94E0071235B /* TempoStyleKit.swift */; };
@@ -262,6 +263,7 @@
 		94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonStyleKit.swift; sourceTree = "<group>"; };
 		94DB18D11F37D879008368AE /* NavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButton.swift; sourceTree = "<group>"; };
 		94E951341F3644E5009A8B00 /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		94F694C51F683D5D0061DA5E /* CallbackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackButton.swift; sourceTree = "<group>"; };
 		94FBAFDE1F42870B0071235B /* SynthKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthKeyboard.swift; sourceTree = "<group>"; };
 		94FBAFE11F42A94E0071235B /* TempoStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempoStyleKit.swift; sourceTree = "<group>"; };
 		94FBAFE41F42A9630071235B /* TempoStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempoStepper.swift; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 				947956B51F32A72400FE5D9B /* ToggleSwitch.swift */,
 				947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */,
 				94FEFEC71F3150D00064EC09 /* TransposeButton.swift */,
+				94F694C51F683D5D0061DA5E /* CallbackButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -914,6 +917,7 @@
 				C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */,
 				C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */,
 				949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
+				94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */,
 				949D09361F34F6FB000FB6E0 /* LFOPickerStyleKit.swift in Sources */,
 				945C3A061F3141F60086D58B /* ArpButton.swift in Sources */,
 				C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */,

@@ -11,7 +11,6 @@ import AudioKit
 
 protocol EmbeddedViewsDelegate {
     func switchToChildView(_ newView: ChildView)
-    func displayLabelTapped()
 }
 
 protocol BottomEmbeddedViewsDelegate {
@@ -39,6 +38,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     var topChildView: ChildView?
     var bottomChildView: ChildView?
     var isPresetsDisplayed: Bool = false
+    var activePreset = Preset()
     
     // ********************************************************
     // MARK: - Define child view controllers
@@ -121,8 +121,9 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         conductor.start()
         
         // Set Header as Delegate
-        if let childVC = self.childViewControllers.first as? HeaderViewController {
-            childVC.delegate = self
+        if let headerVC = self.childViewControllers.first as? HeaderViewController {
+            headerVC.delegate = self
+            headerVC.headerDelegate = self
         }
         
         setupCallbacks()
@@ -244,6 +245,33 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
 // MARK: - Embedded Views Delegate
 // **********************************************************
 
+extension SynthOneViewController: HeaderDelegate {
+
+    func displayLabelTapped() {
+        if !isPresetsDisplayed {
+            displayPresetsController()
+        } else {
+            switchToChildView(topChildView!)
+        }
+    }
+    
+    func prevPresetPressed() {
+        presetsViewController.prevPreset()
+    }
+    
+    func nextPresetPressed() {
+        presetsViewController.nextPreset()
+    }
+    
+    func savePresetPressed() {
+        // copy temp preset to currentPreset and save
+    }
+}
+
+// **********************************************************
+// MARK: - Embedded Views Delegate
+// **********************************************************
+
 extension SynthOneViewController: EmbeddedViewsDelegate {
     
     func switchToChildView(_ newView: ChildView) {
@@ -281,14 +309,6 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
         // Update panel navigation
         isPresetsDisplayed = false
         updatePanelNav()
-    }
-    
-    func displayLabelTapped() {
-        if !isPresetsDisplayed {
-            displayPresetsController()
-        } else {
-            switchToChildView(topChildView!)
-        }
     }
     
 }
@@ -374,11 +394,16 @@ extension SynthOneViewController: KeyboardPopOverDelegate {
 
 extension SynthOneViewController: PresetsDelegate {
     
-    func presetDidChange(_ position: Int) {
-        // loadPreset()
+    func presetDidChange(_ newActivePreset: Preset) {
+        activePreset = newActivePreset
+        updateDisplay("")
+        // Set parameters from preset
     }
     
     func updateDisplay(_ message: String) {
-        // update display
+        if let headerVC = self.childViewControllers.first as? HeaderViewController {
+            headerVC.displayLabel.text = "\(activePreset.position): \(activePreset.name)"
+        }
+        
     }
 }

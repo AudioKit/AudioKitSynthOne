@@ -11,7 +11,6 @@ import AudioKit
 
 public class HeaderViewController: UpdatableViewController {
 
-    
     @IBOutlet weak var mainBtn: HeaderNavButton!
     @IBOutlet weak var adsrBtn: HeaderNavButton!
     @IBOutlet weak var seqBtn: HeaderNavButton!
@@ -19,7 +18,7 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var fxBtn: HeaderNavButton!
     
     @IBOutlet weak var displayLabel: UILabel!
-    var navBtns = [HeaderNavButton]()
+    var headerNavBtns = [HeaderNavButton]()
     
     var delegate: EmbeddedViewsDelegate?
     
@@ -34,8 +33,15 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     public override func viewDidLoad() {
-        navBtns = [mainBtn, adsrBtn, padBtn, fxBtn, seqBtn]
+        headerNavBtns = [mainBtn, adsrBtn, padBtn, fxBtn, seqBtn]
         setupBtnCallbacks()
+        
+        // Add Gesture Recognizer to Display Label
+        let tap = UITapGestureRecognizer(target: self, action: #selector(HeaderViewController.displayLabelTapped))
+        tap.numberOfTapsRequired = 1
+        displayLabel.addGestureRecognizer(tap)
+        displayLabel.isUserInteractionEnabled = true
+
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
@@ -160,40 +166,53 @@ public class HeaderViewController: UpdatableViewController {
         
         mainBtn.callback = { _ in
             self.delegate?.switchToChildView(.oscView)
-            self.updateNavButtons()
+            self.updateHeaderNavButtons()
         }
         
         adsrBtn.callback = { _ in
             self.delegate?.switchToChildView(.adsrView)
-            self.updateNavButtons()
+            self.updateHeaderNavButtons()
         }
         
         seqBtn.callback = { _ in
             self.delegate?.switchToChildView(.seqView)
-             self.updateNavButtons()
+             self.updateHeaderNavButtons()
         }
         
         padBtn.callback = { _ in
             self.delegate?.switchToChildView(.padView)
-             self.updateNavButtons()
+            self.updateHeaderNavButtons()
         }
         
         fxBtn.callback = { _ in
             self.delegate?.switchToChildView(.fxView)
-             self.updateNavButtons()
+            self.updateHeaderNavButtons()
         }
     }
+    
+    func displayLabelTapped() {
+        delegate?.displayLabelTapped()
+        
+        // reset header nav buttons
+        headerNavBtns.forEach { $0.isSelected = false }
+        guard let parentController = self.parent as? SynthOneViewController else { return }
+        guard let bottomView = parentController.bottomChildView else { return }
+        headerNavBtns[bottomView.rawValue].isEnabled = false
+        
+        // Set top view so that all bottom views are accessible via left/righ nav
+       
+    }
 
-    func updateNavButtons() {
+    func updateHeaderNavButtons() {
         guard let parentController = self.parent as? SynthOneViewController else { return }
         guard let topView = parentController.topChildView else { return }
         guard let bottomView = parentController.bottomChildView else { return }
         
-        navBtns.forEach { $0.isSelected = false }
-        navBtns.forEach { $0.isEnabled = true }
+        headerNavBtns.forEach { $0.isSelected = false }
+        headerNavBtns.forEach { $0.isEnabled = true }
         
-        navBtns[topView.rawValue].isSelected = true
-        navBtns[bottomView.rawValue].isEnabled = false
-    
+        headerNavBtns[topView.rawValue].isSelected = true
+        headerNavBtns[bottomView.rawValue].isEnabled = false
+
     }
 }

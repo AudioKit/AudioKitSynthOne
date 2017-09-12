@@ -115,7 +115,7 @@ extension PresetsCategoriesController: UITableViewDataSource {
             return cell
             
         } else {
-            return CategoryCell()
+            return CategoryCell() 
         }
     }
     

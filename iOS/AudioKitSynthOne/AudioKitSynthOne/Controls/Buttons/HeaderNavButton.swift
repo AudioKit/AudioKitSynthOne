@@ -25,10 +25,10 @@ class HeaderNavButton: UIButton {
         didSet {
             if isSelected {
                  backgroundColor =  #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.2, alpha: 1)
-                 setTitleColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1), for: .normal)
+                 //setTitleColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1), for: .normal)
             } else {
-                setTitleColor(#colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1), for: .normal)
                 backgroundColor =   #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
+                //setTitleColor(#colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1), for: .normal)
             }
           
         }
@@ -37,10 +37,10 @@ class HeaderNavButton: UIButton {
     override var isEnabled: Bool {
         didSet {
             if isEnabled {
-                setTitleColor(#colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1), for: .normal)
+                setTitleColor(#colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1), for: .normal)
                 layer.borderWidth = 0
             } else {
-                setTitleColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1), for: .normal)
+                setTitleColor(#colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1), for: .normal)
                 layer.borderWidth = 0
             }
         }

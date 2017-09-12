@@ -11,8 +11,16 @@ import MobileCoreServices
 import Disk
 import CloudKit
 
+protocol PresetsDelegate {
+    func presetDidChange(_ position: Int)
+    func updateDisplay(_ message: String)
+}
+
 class PresetsViewController: UIViewController {
     
+    @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var importButton: UIButton!
+    @IBOutlet weak var reorderButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryEmbeddedView: UIView!
     
@@ -33,6 +41,8 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    var presetsDelegate: PresetsDelegate?
+    
     // *****************************************************************
     // MARK: - Lifecycle
     // *****************************************************************
@@ -43,15 +53,25 @@ class PresetsViewController: UIViewController {
         // set color for lines between rows
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         
+        // Load presets
         if Disk.exists("presets.json", in: .documents) {
             loadPresetsFromDevice()
         } else {
             loadDefaultPresets()
             saveAllPresets()
         }
-      
+        
+        // Set Cateogry to all presets
         resetCategoryToAll()
         // presets.forEach { $0.isUser = false }
+        
+        // Make buttons pretty
+        // newButton.layer.borderWidth = 1
+        //newButton.layer.cornerRadius = 6
+        //importButton.layer.borderWidth = 1
+        //importButton.layer.cornerRadius = 6
+        //reorderButton.layer.borderWidth = 1
+        //reorderButton.layer.cornerRadius = 6
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -124,13 +144,13 @@ class PresetsViewController: UIViewController {
     }
     
     func selectCurrentPreset() {
-        /*
+        
         // No preset is selected
         guard presets.index(where: {$0 === currentPreset}) != nil else {
             currentPreset = presets[0]
             tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
             return
-        } */
+        }
         
         // Find the preset in the current view
         if let index = sortedPresets.index(where: {$0 === currentPreset}) {
@@ -159,6 +179,7 @@ class PresetsViewController: UIViewController {
     @IBAction func newPresetPressed(_ sender: UIButton) {
         let initPreset = Preset(position: presets.count)
         presets.append(initPreset)
+        currentPreset = initPreset
         saveAllPresets()
     }
     
@@ -258,11 +279,10 @@ extension PresetsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Update Cell
-        // let newPresetPosition = (indexPath as NSIndexPath).row
+        let newPresetPosition = (indexPath as NSIndexPath).row
         
         // Update preset
-        // presetsDelegate?.presetDidChange(newPresetPosition)
-        
+        presetsDelegate?.presetDidChange(newPresetPosition)
     }
     
     // Editing the table view.

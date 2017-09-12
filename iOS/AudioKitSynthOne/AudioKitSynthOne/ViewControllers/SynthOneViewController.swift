@@ -11,6 +11,7 @@ import AudioKit
 
 protocol EmbeddedViewsDelegate {
     func switchToChildView(_ newView: ChildView)
+    func displayLabelTapped()
 }
 
 protocol BottomEmbeddedViewsDelegate {
@@ -138,7 +139,6 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     public override func viewDidAppear(_ animated: Bool) {
         keyboardToggle.isSelected = false
         
-       
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.keyboardToggle.callback(0.0)
         }
@@ -230,8 +230,11 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     }
     
     func displayPresetsController() {
+       // remove all child views
+       topContainerView.subviews.forEach({ $0.removeFromSuperview() })
        add(asChildViewController: presetsViewController)
-       // clear top containers? presetsViewController.isTopContainer = true
+       // presetsViewController.isTopContainer = true
+       presetsViewController.presetsDelegate = self
     }
     
 }
@@ -276,6 +279,10 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
         
         // Update panel navigation
         updatePanelNav()
+    }
+    
+    func displayLabelTapped() {
+        displayPresetsController()
     }
 }
 
@@ -335,7 +342,7 @@ extension SynthOneViewController: BottomEmbeddedViewsDelegate {
         
         // unwrap header
         guard let headerVC = self.childViewControllers.first as? HeaderViewController else { return }
-        headerVC.updateNavButtons()
+        headerVC.updateHeaderNavButtons()
     }
     
 }
@@ -351,5 +358,20 @@ extension SynthOneViewController: KeyboardPopOverDelegate {
         keyboardView.labelMode = labelMode
         keyboardView.darkMode = darkMode
         keyboardView.setNeedsDisplay()
+    }
+}
+
+// **************************************************
+// MARK: - Presets Delegate
+// **************************************************
+
+extension SynthOneViewController: PresetsDelegate {
+    
+    func presetDidChange(_ position: Int) {
+        // loadPreset()
+    }
+    
+    func updateDisplay(_ message: String) {
+        // update display
     }
 }

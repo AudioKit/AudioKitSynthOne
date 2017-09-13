@@ -22,6 +22,7 @@ class ToggleSwitch: UIView {
         }
         set {
             isOn = value == 1.0
+            setNeedsDisplay()
         }
     }
     public var callback: (Double)->Void = { _ in }

@@ -101,6 +101,20 @@ class Preset: Codable {
     var isUser = true
     var isFavorite = false
     
+    // LFO Routings
+    var cutoffLFO = 1.0
+    var resonanceLFO = 0.0
+    var oscMixLFO = 0.0
+    var sustainLFO = 0.0
+    var index1LFO = 0.0
+    var index2LFO = 0.0
+    var fmLFO = 0.0
+    var detuneLFO = 0.0
+    var filterEnvLFO = 0.0
+    var pitchLFO = 0.0
+    var bitcrushLFO = 0.0
+    var autopanLFO = 0.0
+    
     // ******************************************************
     // MARK: - Init
     // ******************************************************
@@ -134,7 +148,7 @@ class Preset: Codable {
     // MARK: - Class Function to Return array of Presets
     //*****************************************************************
     
-    // Return Single Preset
+    // Return Array of Presets
     class public func parseDataToPresets(jsonArray: [Any]) -> [Preset] {
         var presets = [Preset]()
         for presetJSON in jsonArray {
@@ -242,49 +256,23 @@ class Preset: Codable {
         isUser = dictionary["isUser"] as? Bool ?? isUser
         isFavorite = dictionary["isFavorite"] as? Bool ?? isFavorite
         
-        // *** ToDo ***
         // LFO Routings
-        // Tempo Sync
-        // Filter Routing
+        cutoffLFO = dictionary["cutoffLFO"] as? Double ?? cutoffLFO
+        resonanceLFO = dictionary["resonanceLFO"] as? Double ?? resonanceLFO
+        oscMixLFO = dictionary["oscMixLFO"] as? Double ?? oscMixLFO
+        sustainLFO = dictionary["sustainLFO"] as? Double ?? sustainLFO
+        index1LFO = dictionary["index1LFO"] as? Double ?? index1LFO
+        index2LFO = dictionary["index2LFO"] as? Double ?? index2LFO
+        fmLFO = dictionary["fmLFO"] as? Double ?? fmLFO
+        detuneLFO = dictionary["detuneLFO"] as? Double ?? detuneLFO
+        filterEnvLFO = dictionary["filterEnvLFO"] as? Double ?? filterEnvLFO
+        pitchLFO = dictionary["pitchLFO"] as? Double ?? pitchLFO
+        bitcrushLFO = dictionary["bitcrushLFO"] as? Double ?? bitcrushLFO
+        autopanLFO = dictionary["autopanLFO"] as? Double ?? autopanLFO
         
-        // *******************************
-        // IMPORT
-        // *******************************
-        /*
-        // Toggle Presets
-        let delayToggledBool = dictionary["delayToggled"] as? Bool ?? false
-        let reverbToggledBool = dictionary["reverbToggled"] as? Bool ?? true
-        let autoPanToggledBool = dictionary["autoPanToggled"] as? Bool ?? false
-        let subOsc24ToggledBool = dictionary["subOsc24Toggled"] as? Bool ?? false
-        let subOscSquareToggledBool = dictionary["subOscSquareToggled"] as? Bool ?? false
-        
-        let vco1Toggled = dictionary["vco1Toggled"] as? Bool ?? true
-        let vco2Toggled = dictionary["vco2Toggled"] as? Bool ?? true
-        
-        let verbHighPassToggledBool = dictionary["verbHighPassToggled"] as? Bool ?? false
-       
-        delayToggled = delayToggledBool ? 1.0 : 0.0
-        reverbToggled = reverbToggledBool ? 1.0 : 0.0
-        autoPanToggled = autoPanToggledBool ? 1.0 : 0.0
-        subOsc24Toggled = subOsc24ToggledBool ? 1.0 : 0.0
-        subOscSquareToggled = subOscSquareToggledBool ? 1.0 : 0.0
-        vco1Volume = vco1Toggled ? 0.8 : 0.0
-        vco2Volume = vco2Toggled ? 0.8 : 0.0
-        reverbHighPass = verbHighPassToggledBool ? 700.0 : 10.0
-        isMono = monoToggled ? 1.0 : 0.0
-        isHoldMode = holdToggled ? 1.0 : 0.0
-        isArpMode = arpToggled ? 1.0 : 0.0
-        
-        // Filter
-        // Logarithmic scale: knobvalue to frequency
-        cutoff = scaleRangeLog(cutoff, rangeMin: 30, rangeMax: 7000)
-        */
-        
+        // *** ToDo ***
+        // Filter > Routing 0, 1, 2
         
     }
     
-    func scaleRangeLog(_ value: Double, rangeMin: Double, rangeMax: Double) -> Double {
-        let scale = (log(rangeMax) - log(rangeMin))
-        return exp(log(rangeMin) + (scale * value))
-    }
 }

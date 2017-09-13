@@ -49,11 +49,11 @@ public class HeaderViewController: UpdatableViewController {
         tap.numberOfTapsRequired = 1
         displayLabel.addGestureRecognizer(tap)
         displayLabel.isUserInteractionEnabled = true
-
+        
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        
+       
         switch param {
         case .morph1SemitoneOffset:
             displayLabel.text = "DCO1: \(value) semitones"

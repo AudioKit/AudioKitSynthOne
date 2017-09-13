@@ -64,15 +64,16 @@ class FXViewController: SynthPanelController {
 
         autoPanRate.range = 0 ... 10
 
-        reverbLowCut.range = 10 ... 1000
+        reverbLowCut.range = 10 ... 800
         reverbLowCut.taper = 1
 
-        delayFeedback.range = 0 ... 0.6
+        delayFeedback.range = 0 ... 0.4
         delayTime.range = 0.01 ... 1.5
 
         lfo1Rate.range = 0 ... 10
         lfo1Rate.taper = 3
         lfo2Rate.range = 0 ... 10
+        lfo2Rate.taper = 3
 
       //  conductor.bind(bitCrush,           to: .bitCrushDepth)
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)

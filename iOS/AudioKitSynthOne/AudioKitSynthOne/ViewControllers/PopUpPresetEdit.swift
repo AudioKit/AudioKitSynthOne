@@ -52,6 +52,7 @@ class PopUpPresetEdit: UIViewController {
     
     @IBAction func savePressed(_ sender: UIButton) {
         delegate?.didFinishEditing(name: nameTextField.text!, category: categoryIndex)
+        dismiss(animated: true, completion: nil)
     }
 }
 

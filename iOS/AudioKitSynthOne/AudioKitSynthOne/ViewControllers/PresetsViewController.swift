@@ -14,6 +14,7 @@ import CloudKit
 protocol PresetsDelegate {
     func presetDidChange(_ activePreset: Preset)
     func updateDisplay(_ message: String)
+    func saveEditedPreset(name: String, category: Int)
 }
 
 class PresetsViewController: UIViewController {
@@ -66,9 +67,11 @@ class PresetsViewController: UIViewController {
             loadDefaultPresets()
             saveAllPresets()
         }
-        
+
         // Set Cateogry to all presets
         resetCategoryToAll()
+        
+        
         // presets.forEach { $0.isUser = false }
         
         // Make buttons pretty
@@ -144,6 +147,17 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    func savePreset(_ activePreset: Preset) {
+        // Save preset
+        presets.remove(at: currentPreset.position)
+        presets.insert(activePreset, at: activePreset.position)
+        currentPreset = activePreset
+        saveAllPresets()
+        
+        // Create new active preset
+        createActivePreset()
+    }
+    
     func resetCategoryToAll() {
         guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesController else { return }
         categoriesVC.categoryTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
@@ -186,11 +200,6 @@ class PresetsViewController: UIViewController {
     // *****************************************************************
     // MARK: - IBActions
     // *****************************************************************
-    
-    @IBAction func savePreset(_ sender: UIButton) {
-        
-        
-    }
     
     @IBAction func newPresetPressed(_ sender: UIButton) {
         let initPreset = Preset(position: presets.count)
@@ -463,10 +472,7 @@ extension PresetsViewController: CategoryDelegate {
 extension PresetsViewController: PresetPopOverDelegate {
     func didFinishEditing(name: String, category: Int) {
         // save preset
-        currentPreset.name = name
-        currentPreset.category = category
-        currentPreset.isUser = true
-        saveAllPresets()
+        presetsDelegate?.saveEditedPreset(name: name, category: category)
     }
 }
 

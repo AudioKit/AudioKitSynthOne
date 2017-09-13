@@ -2223,18 +2223,6 @@
                                     <action selector="reorderPressed:" destination="XCa-VY-Ka7" eventType="touchUpInside" id="I71-ej-qYS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4Q-TM-gnz">
-                                <rect key="frame" x="951" y="116" width="53" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="savePreset:" destination="XCa-VY-Ka7" eventType="touchUpInside" id="KxN-CH-lce"/>
-                                </connections>
-                            </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shO-wj-m9b">
                                 <rect key="frame" x="17" y="89" width="228" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>

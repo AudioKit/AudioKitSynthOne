@@ -71,8 +71,11 @@ class PresetsViewController: UIViewController {
         // Set Cateogry to all presets
         resetCategoryToAll()
         
-        
-        // presets.forEach { $0.isUser = false }
+        /*
+        presets.forEach {
+            $0.fmVolume = $0.fmVolume > 1.0 ? 1.0 : $0.fmVolume
+        }
+        */
         
         // Make buttons pretty
         // newButton.layer.borderWidth = 1

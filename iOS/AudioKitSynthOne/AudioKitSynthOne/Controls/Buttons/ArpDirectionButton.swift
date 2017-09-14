@@ -15,11 +15,21 @@ class ArpDirectionButton: UIView {
     // MARK: - LFO Button
     // *********************************************************
     
-    var arpDirectionSelected: Int = 0
+    var arpDirectionSelected: Double = 0 {
+        didSet {
+            value = arpDirectionSelected
+        }
+    }
     
-    public var callback: (Int)->Void = { _ in }
+    public var callback: (Double)->Void = { _ in }
     
     private var btnWidth: CGFloat = 35.0
+    
+    var value = 0.0 {
+        didSet {
+           setNeedsDisplay()
+        }
+    }
     
     // Draw Button
     override func draw(_ rect: CGRect) {

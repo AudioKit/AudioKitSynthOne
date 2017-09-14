@@ -9,6 +9,10 @@
 
 import UIKit
 
+protocol SeqControllerDelegate {
+    func arpValueDidChange(_ arpeggiator: Arpeggiator)
+}
+
 class SeqViewController: SynthPanelController {
     
     @IBOutlet weak var seqStepsStepper: Stepper!
@@ -16,10 +20,19 @@ class SeqViewController: SynthPanelController {
     @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
     @IBOutlet weak var arpSeqToggle: ToggleSwitch!
     @IBOutlet weak var arpToggle: ToggleButton!
+    @IBOutlet weak var arpInterval: Knob!
     
     let sliderTags = 400 ... 415
     let sliderToggleTags = 500 ... 515
     let sliderLabelTags = 550 ... 565
+    
+    var arpDelegate: SeqControllerDelegate?
+    var arpeggiator = Arpeggiator()
+    var prevLedTag: Int = 0
+    
+    // *********************************************************
+    // MARK: - Lifecycle
+    // *********************************************************
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +44,9 @@ class SeqViewController: SynthPanelController {
         setupValues()
         
         updateCallbacks()
+        
+        // Replace with Binding
+        setupControlValues()
     }
     
     // *********************************************************
@@ -47,18 +63,48 @@ class SeqViewController: SynthPanelController {
         seqStepsStepper.maxValue = 16
         seqStepsStepper.value = 8
         
-        // Setup slider values & step labels
+        arpInterval.range = 0 ... 12
+    }
+    
+    // This function replaced by callbacks
+    func setupControlValues() {
+        
+        // Slider values
         for tag in sliderTags {
             if let slider = view.viewWithTag(tag) as? VerticalSlider {
-                // let notePosition = tag - sliderTags.lowerBound
-                // let transposeAmt = arpeggiator!.seqPattern[notePosition]
-                // set existing value = slider.currentValue = CGFloat(Double.scaleRangeZeroToOne(Double(transposeAmt), rangeMin: -12, rangeMax: 12))
-                // updateStepDisplay(notePosition, transposeAmt: transposeAmt)
-                slider.currentValue = 0.5
+                let notePosition = tag - sliderTags.lowerBound
+                let transposeAmt = arpeggiator.seqPattern[notePosition]
+            
+                slider.actualValue = Double(transposeAmt)
+                updateTransposeBtn(notePosition: notePosition, transposeAmt: transposeAmt)
                 slider.setNeedsDisplay()
             }
         }
         
+        // ArpButton Note on/off
+        for tag in sliderToggleTags {
+            if let toggle = view.viewWithTag(tag) as? ArpButton {
+                let notePosition = Int(tag) - sliderToggleTags.lowerBound
+                toggle.isOn = arpeggiator.seqNoteOn[notePosition]
+            }
+        }
+        
+        /*
+        // Slider Transpose Label / +12/-12
+        for tag in sliderLabelTags {
+            if let label = view.viewWithTag(tag) as? TransposeButton {
+                let notePosition = Int(tag) - sliderLabelTags.lowerBound
+                //label.text = String(arpeggiator.seqPattern[notePosition])
+            }
+        }
+        */
+        
+        seqStepsStepper.value = arpeggiator.totalSteps
+        octaveStepper.value = arpeggiator.octave
+        arpDirectionButton.arpDirectionSelected = arpeggiator.direction
+        arpSeqToggle.isOn = arpeggiator.isSequencer
+        arpToggle.value = arpeggiator.isOn
+        arpInterval.value = arpeggiator.interval
     }
     
     
@@ -73,7 +119,7 @@ class SeqViewController: SynthPanelController {
             print("Arp Direction Update: \(value)")
         }
         
-        // Seq Stepper
+        // Total Seq Steps
         seqStepsStepper.callback = { value in
             print("Seq Stepper Update: \(value)")
         }
@@ -88,6 +134,10 @@ class SeqViewController: SynthPanelController {
             print("Arp/Seq Toggle: \(value)")
         }
         
+        // Arp Interval
+        arpInterval.callback = { value in
+            print("Arp Interval: \(value)")
+        }
         
         // Slider
         for tag in sliderTags {
@@ -109,11 +159,7 @@ class SeqViewController: SynthPanelController {
                 
                 toggle.callback = { value in
                     let notePosition = Int(tag) - self.sliderToggleTags.lowerBound
-                    if value == 1.0 {
-                        // arpeggiator!.seqNoteOn[notePosition] = true
-                    } else {
-                        // arpeggiator!.seqNoteOn[notePosition] = true
-                    }
+                    self.arpeggiator.seqNoteOn[notePosition] = value == 1.0 ? true : false
                     print("notePosition \(notePosition), value \(value)")
                 }
             }
@@ -133,8 +179,8 @@ class SeqViewController: SynthPanelController {
                 }
             }
         }
-        
     }
+    
     //*****************************************************************
     // MARK: - Helpers
     //*****************************************************************

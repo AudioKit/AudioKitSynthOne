@@ -15,7 +15,11 @@ class ToggleSwitch: UIView {
     // MARK: - ToggleButton
     // *********************************************************
     
-    private var isOn = false
+    var isOn = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     var value: Double {
         get {
             return isOn ? 1 : 0

@@ -218,6 +218,14 @@ public class HeaderViewController: UpdatableViewController {
          headerDelegate?.savePresetPressed()
     }
     
+    @IBAction func panicPressed(_ sender: UIButton) {
+        for note in 0...127 {
+            conductor.synth.stop(noteNumber: MIDINoteNumber(note))
+        }
+        
+        // TODO: Update Keyboard, release keys
+
+    }
     // ********************************************************
     // MARK: - Helper
     // ********************************************************

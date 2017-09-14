@@ -220,13 +220,15 @@ class PresetsViewController: UIViewController {
         
         if tableView.isEditing {
             sender.setTitle("I'M DONE!", for: UIControlState())
+            sender.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
             sender.backgroundColor = UIColor(red: 230/255, green: 136/255, blue: 2/255, alpha: 1.0)
             categoryIndex = 0
             categoryEmbeddedView.isUserInteractionEnabled = false
             
         } else {
-            sender.setTitle("Reorder Presets", for: UIControlState())
-            sender.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
+            sender.setTitle("Reorder", for: UIControlState())
+            sender.setTitleColor(#colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1), for: .normal)
+            sender.backgroundColor = #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2941176471, alpha: 1)
             categoryEmbeddedView.isUserInteractionEnabled = true
             selectCurrentPreset()
         }

@@ -7,16 +7,16 @@
 //
 
 class Arpeggiator {
-    var baseNote: Int = 0
-    var beatCounter = 0
-    var direction: Int = 0
-    var interval: Int = 12
-    var isOn = true
+    var baseNote = 0.0
+    var beatCounter = 0.0
+    var direction = 0.0
+    var interval = 12.0
+    var isOn = 0.0
     var lastNotes = [0]
-    var octave: Int = 1
-    var rate: Double = 120.0
+    var octave = 1.0
+    var rate = 120.0
     var isSequencer = false
-    var totalSteps: Int = 7
+    var totalSteps = 8.0
     var seqPattern = [0, 7, -2, 0, 0, 7, -2, 0, 0, 7, -2, 0, 0, 7, -2, 0]
     var seqNoteOn = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
 }

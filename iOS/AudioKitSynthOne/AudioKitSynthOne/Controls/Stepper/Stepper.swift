@@ -16,10 +16,14 @@ class Stepper: UIView {
     var minusPath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 2, width: 35, height: 32), cornerRadius: 1)
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)
     
-    var minValue = 0
-    var maxValue = 3
+    var minValue = 0.0
+    var maxValue = 3.0
     
-    var value = 0
+    var value = 0.0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     var valuePressed: CGFloat = 0
     
@@ -31,7 +35,7 @@ class Stepper: UIView {
     // *********************************************************
     
     override func draw(_ rect: CGRect) {
-        StepperStyleKit.drawStepper(valuePressed: valuePressed, text: "\(value)")
+        StepperStyleKit.drawStepper(valuePressed: valuePressed, text: "\(Int(value))")
     }
     
     // *********************************************************

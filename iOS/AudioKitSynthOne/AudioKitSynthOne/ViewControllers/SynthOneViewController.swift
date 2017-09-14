@@ -39,6 +39,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     var bottomChildView: ChildView?
     var isPresetsDisplayed: Bool = false
     var activePreset = Preset()
+    var activeArp = Arpeggiator()
     
     // ********************************************************
     // MARK: - Define child view controllers
@@ -139,8 +140,8 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         keyboardToggle.isSelected = false
         
         // Set initial subviews
-        switchToChildView(.adsrView)
-        switchToBottomChildView(.oscView)
+        switchToChildView(.oscView)
+        switchToBottomChildView(.seqView)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.keyboardToggle.callback(0.0)
@@ -315,6 +316,25 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         conductor.synth.parameters[AKSynthOneParameter.pitchLFO.rawValue] = activePreset.pitchLFO
         conductor.synth.parameters[AKSynthOneParameter.bitcrushLFO.rawValue] = activePreset.bitcrushLFO
         conductor.synth.parameters[AKSynthOneParameter.autopanLFO.rawValue] = activePreset.autopanLFO
+        
+        // Arp
+        activeArp.beatCounter = 0
+        activeArp.direction = activePreset.arpDirection
+        activeArp.interval = activePreset.arpInterval
+        activeArp.octave = activePreset.arpOctave
+        activeArp.rate = activePreset.arpRate
+        activeArp.isSequencer = activePreset.arpIsSequencer
+        activeArp.totalSteps = activePreset.arpTotalSteps
+        activeArp.seqPattern = activePreset.seqPatternNote
+        activeArp.seqNoteOn = activePreset.seqNoteOn
+        activeArp.isOn = activePreset.isArpMode
+        
+        // Update arpVC
+        seqViewController.arpeggiator = activeArp
+        seqViewController.setupControlValues()
+        
+        // Arp Toggle
+        //arpToggle.isSelected = !preset.arpToggled
         
         // filterMix = 18,
         // tempoSync

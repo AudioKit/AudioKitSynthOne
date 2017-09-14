@@ -53,6 +53,8 @@
 		947956B41F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */; };
 		947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B51F32A72400FE5D9B /* ToggleSwitch.swift */; };
 		947956B71F32A72400FE5D9B /* ToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B51F32A72400FE5D9B /* ToggleSwitch.swift */; };
+		947B8E171F6AEADD00E08D4B /* Arpeggiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0C1F31425D0086D58B /* Arpeggiator.swift */; };
+		947B8E181F6AEADE00E08D4B /* Arpeggiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0C1F31425D0086D58B /* Arpeggiator.swift */; };
 		9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
 		9489EF641F3145EE00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
 		9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */; };
@@ -853,6 +855,7 @@
 				9435245D1F57A6F100BDA789 /* SynthPanelController.swift in Sources */,
 				941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */,
 				9442BBDC1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
+				947B8E181F6AEADE00E08D4B /* Arpeggiator.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ToggleButtonStyleKit.swift in Sources */,
 				945261491F2928880037662C /* TouchPadViewController.swift in Sources */,
 				947956AA1F329AB200FE5D9B /* Stepper.swift in Sources */,
@@ -907,6 +910,7 @@
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				945261411F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
+				947B8E171F6AEADD00E08D4B /* Arpeggiator.swift in Sources */,
 				948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */,
 				9403F2981F671A4900320FCC /* PresetsViewController.swift in Sources */,
 				94FEFEC91F3150D00064EC09 /* TransposeButton.swift in Sources */,

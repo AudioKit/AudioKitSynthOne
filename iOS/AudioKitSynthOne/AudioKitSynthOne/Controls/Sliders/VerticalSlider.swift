@@ -41,6 +41,15 @@ class VerticalSlider: UIControl {
         }
     }
     
+    var actualValue: Double {
+        get {
+            return currentToActualValue(currentValue)
+        }
+        set {
+            currentValue = actualToInternalValue(newValue)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentMode = .redraw
@@ -93,9 +102,14 @@ extension VerticalSlider {
         return offsetY
     }
     
-    func transposeAmt(_ value: CGFloat) -> Double {
+    func currentToActualValue(_ value: CGFloat) -> Double {
         return Double.scaleRange(Double(value), rangeMin: -12, rangeMax: 12)
     }
+    
+    func actualToInternalValue(_ actualValue: Double) -> CGFloat {
+        return CGFloat(Double.scaleRangeZeroToOne(actualValue, rangeMin: -12, rangeMax: 12))
+    }
+    
 }
 
 // MARK: - Control Touch Handling
@@ -113,7 +127,7 @@ extension VerticalSlider {
         if isSliding {
             let value = convertYToValue(rawY)
             currentValue = value
-            callback(transposeAmt(currentValue))
+            callback(actualValue)
             self.setNeedsDisplay()
         }
         return true

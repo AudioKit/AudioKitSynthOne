@@ -63,6 +63,8 @@
 		948C54C41F3A59F000DA6081 /* SynthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C54C21F3A57C600DA6081 /* SynthUIButton.swift */; };
 		948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */; };
 		948D33AA1F4DFC08006E8276 /* FilterTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */; };
+		9491E2941F6B41D9004DDB84 /* PopUpMIDIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491E2931F6B41D9004DDB84 /* PopUpMIDIController.swift */; };
+		9491E2951F6B4626004DDB84 /* PopUpMIDIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491E2931F6B41D9004DDB84 /* PopUpMIDIController.swift */; };
 		949D09341F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D09331F34F6FA000FB6E0 /* LFOWavePicker.swift */; };
 		949D09351F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D09331F34F6FA000FB6E0 /* LFOWavePicker.swift */; };
 		949D09361F34F6FB000FB6E0 /* LFOPickerStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D09321F34F6FA000FB6E0 /* LFOPickerStyleKit.swift */; };
@@ -251,6 +253,7 @@
 		947956B51F32A72400FE5D9B /* ToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitch.swift; sourceTree = "<group>"; };
 		948C54C21F3A57C600DA6081 /* SynthUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthUIButton.swift; sourceTree = "<group>"; };
 		948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeButton.swift; sourceTree = "<group>"; };
+		9491E2931F6B41D9004DDB84 /* PopUpMIDIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpMIDIController.swift; sourceTree = "<group>"; };
 		949D09321F34F6FA000FB6E0 /* LFOPickerStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOPickerStyleKit.swift; sourceTree = "<group>"; };
 		949D09331F34F6FA000FB6E0 /* LFOWavePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOWavePicker.swift; sourceTree = "<group>"; };
 		949D93B51F2C188B007E657B /* LfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoButton.swift; sourceTree = "<group>"; };
@@ -371,6 +374,7 @@
 				9403F2921F671A4900320FCC /* PresetsCategoriesController.swift */,
 				9403F2931F671A4900320FCC /* PresetsViewController.swift */,
 				9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */,
+				9491E2931F6B41D9004DDB84 /* PopUpMIDIController.swift */,
 				9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */,
 				945C3A0F1F3143A00086D58B /* SeqViewController.swift */,
 				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
@@ -856,6 +860,7 @@
 				941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */,
 				9442BBDC1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
 				947B8E181F6AEADE00E08D4B /* Arpeggiator.swift in Sources */,
+				9491E2951F6B4626004DDB84 /* PopUpMIDIController.swift in Sources */,
 				C4060ABE1F24561A00BB8882 /* ToggleButtonStyleKit.swift in Sources */,
 				945261491F2928880037662C /* TouchPadViewController.swift in Sources */,
 				947956AA1F329AB200FE5D9B /* Stepper.swift in Sources */,
@@ -914,6 +919,7 @@
 				948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */,
 				9403F2981F671A4900320FCC /* PresetsViewController.swift in Sources */,
 				94FEFEC91F3150D00064EC09 /* TransposeButton.swift in Sources */,
+				9491E2941F6B41D9004DDB84 /* PopUpMIDIController.swift in Sources */,
 				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
 				94AE8DCE1F671E6D00F2A992 /* PresetCell.swift in Sources */,
 				9403F29A1F671A4900320FCC /* PopUpPresetEdit.swift in Sources */,

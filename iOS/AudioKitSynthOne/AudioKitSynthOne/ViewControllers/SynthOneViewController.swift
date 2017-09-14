@@ -161,8 +161,14 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         }
         
         configKeyboardButton.callback = { _ in
-            self.performSegue(withIdentifier: "SegueToKeyboardPopOver", sender: self)
             self.configKeyboardButton.isSelected = false
+            self.performSegue(withIdentifier: "SegueToKeyboardPopOver", sender: self)
+        }
+        
+        midiButton.callback = { _ in
+            self.midiButton.isSelected = false
+            self.performSegue(withIdentifier: "SegueToMIDIPopOver", sender: self)
+            
         }
         
         keyboardToggle.callback = { value in
@@ -205,6 +211,17 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
             popOverController.octaveRange = keyboardView.octaveCount
             popOverController.labelMode = keyboardView.labelMode
             popOverController.darkMode = keyboardView.darkMode
+            
+            popOverController.preferredContentSize = CGSize(width: 300, height: 240)
+            if let presentation = popOverController.popoverPresentationController {
+                presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+            }
+        }
+        
+        if segue.identifier == "SegueToMIDIPopOver" {
+            let popOverController = segue.destination as! PopUpMIDIController
+            // popOverController.delegate = self
+            // popOverController.modWheelDestination = ??
             popOverController.preferredContentSize = CGSize(width: 300, height: 320)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)

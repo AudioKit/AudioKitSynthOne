@@ -70,8 +70,7 @@ class PresetsViewController: UIViewController {
 
         // Set Initial Cateogry & Preset
         resetCategoryToAll()
-        // currentPreset = presets[0]
-        
+      
         // Make buttons pretty
         // newButton.layer.borderWidth = 1
         //newButton.layer.cornerRadius = 6
@@ -174,7 +173,7 @@ class PresetsViewController: UIViewController {
     
     func selectCurrentPreset() {
         
-        // No preset is selected
+        // No preset is selected, select first one
         guard presets.index(where: {$0 === currentPreset}) != nil else {
             currentPreset = presets[0]
             tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
@@ -231,6 +230,16 @@ class PresetsViewController: UIViewController {
             categoryEmbeddedView.isUserInteractionEnabled = true
             selectCurrentPreset()
         }
+    }
+    
+    @IBAction func resetPresetsPressed(_ sender: UIButton) {
+        
+        // prompt user if they want to do it, suggest they export user presets first
+        
+        // reset to factory defaults
+        loadDefaultPresets()
+        saveAllPresets()
+      
     }
     
     func nextPreset() {

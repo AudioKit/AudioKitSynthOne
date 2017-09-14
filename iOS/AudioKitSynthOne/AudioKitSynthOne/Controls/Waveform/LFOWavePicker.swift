@@ -12,7 +12,11 @@ import UIKit
 class LFOWavePicker: UIView, AKSynthOneControl {
     
     var callback: (Double)->Void = { _ in }
-    var value: Double = 0
+    var value: Double = 0 {
+        didSet {
+           setNeedsDisplay()
+        }
+    }
     
     // Draw Button
     override func draw(_ rect: CGRect) {

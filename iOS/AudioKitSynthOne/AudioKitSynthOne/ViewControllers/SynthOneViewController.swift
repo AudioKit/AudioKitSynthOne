@@ -131,20 +131,20 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         octaveStepper.minValue = -3
         octaveStepper.maxValue = 4
         
-        // Set initial subviews
-        switchToChildView(.adsrView)
-        switchToBottomChildView(.oscView)
-        
-        //displayPresetsController()
+        // Load Presets
+        displayPresetsController()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         keyboardToggle.isSelected = false
         
+        // Set initial subviews
+        switchToChildView(.adsrView)
+        switchToBottomChildView(.oscView)
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.keyboardToggle.callback(0.0)
         }
-        
     }
     
     // ********************************************************

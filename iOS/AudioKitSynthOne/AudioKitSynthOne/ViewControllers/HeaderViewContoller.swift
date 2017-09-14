@@ -53,7 +53,8 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-       
+        super.updateUI(param, value: value)
+        
         switch param {
         case .morph1SemitoneOffset:
             displayLabel.text = "DCO1: \(value) semitones"

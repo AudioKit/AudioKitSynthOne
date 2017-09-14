@@ -27,6 +27,7 @@ class SourceMixerViewController: SynthPanelController {
     @IBOutlet weak var subVolume: Knob!
     @IBOutlet weak var subOctaveDown: ToggleButton!
     @IBOutlet weak var subIsSquare: ToggleButton!
+    @IBOutlet weak var isMonoToggle: ToggleButton!
     
     @IBOutlet weak var fmVolume: Knob!
     @IBOutlet weak var fmAmount: Knob!
@@ -79,6 +80,7 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(fmAmount,             to: .fmAmount)
         conductor.bind(noiseVolume,          to: .noiseVolume)
         conductor.bind(masterVolume,         to: .masterVolume)
+        conductor.bind(isMonoToggle,               to: .isMono)
         
         filterTypeToggle.callback = { value in
             print("Filter type changed \(value)")

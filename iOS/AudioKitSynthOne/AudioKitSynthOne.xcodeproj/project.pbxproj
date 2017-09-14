@@ -15,6 +15,7 @@
 		9403F29A1F671A4900320FCC /* PopUpPresetEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */; };
 		9403F29C1F671A6000320FCC /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F29B1F671A6000320FCC /* Preset.swift */; };
 		9403F29D1F671A6000320FCC /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F29B1F671A6000320FCC /* Preset.swift */; };
+		940CAB381F69FC2100FB81C8 /* PresetToConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940CAB371F69FC2100FB81C8 /* PresetToConductor.swift */; };
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
 		941065A21F26B038002777AB /* AKSynthOneParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */; };
 		943524561F57945500BDA789 /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943524551F57945500BDA789 /* ChildView.swift */; };
@@ -224,6 +225,7 @@
 		9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpPresetEdit.swift; sourceTree = "<group>"; };
 		9403F29B1F671A6000320FCC /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		9403F29F1F671ABA00320FCC /* presets1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = presets1.json; path = AudioKitSynthOne/Model/presets1.json; sourceTree = SOURCE_ROOT; };
+		940CAB371F69FC2100FB81C8 /* PresetToConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetToConductor.swift; sourceTree = "<group>"; };
 		9410659E1F26AA55002777AB /* ADSRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
 		943524551F57945500BDA789 /* ChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
 		9435245B1F57A6F100BDA789 /* SynthPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthPanelController.swift; sourceTree = "<group>"; };
@@ -347,6 +349,16 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		940CAB391F69FE1E00FB81C8 /* Waveform */ = {
+			isa = PBXGroup;
+			children = (
+				C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */,
+				949D09321F34F6FA000FB6E0 /* LFOPickerStyleKit.swift */,
+				949D09331F34F6FA000FB6E0 /* LFOWavePicker.swift */,
+			);
+			path = Waveform;
+			sourceTree = "<group>";
+		};
 		941065A01F26AA60002777AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,8 +416,6 @@
 				9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */,
 				949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */,
 				949D93B51F2C188B007E657B /* LfoButton.swift */,
-				949D09321F34F6FA000FB6E0 /* LFOPickerStyleKit.swift */,
-				949D09331F34F6FA000FB6E0 /* LFOWavePicker.swift */,
 				94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */,
 				94DB18D11F37D879008368AE /* NavButton.swift */,
 				948C54C21F3A57C600DA6081 /* SynthUIButton.swift */,
@@ -434,6 +444,7 @@
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
 				943524551F57945500BDA789 /* ChildView.swift */,
 				9403F29B1F671A6000320FCC /* Preset.swift */,
+				940CAB371F69FC2100FB81C8 /* PresetToConductor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -542,13 +553,13 @@
 		C4F7ECA51F2446960011B119 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				947956B11F329AB500FE5D9B /* Stepper */,
-				945C3A081F3142050086D58B /* Sliders */,
 				945261441F2925860037662C /* Buttons */,
 				945261431F29256F0037662C /* Knobs */,
+				945C3A081F3142050086D58B /* Sliders */,
+				947956B11F329AB500FE5D9B /* Stepper */,
 				945261421F2925650037662C /* TouchPad */,
+				940CAB391F69FE1E00FB81C8 /* Waveform */,
 				94AF74041F56336900ED8B51 /* Keyboard */,
-				C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -867,6 +878,7 @@
 			files = (
 				9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */,
 				94AF74001F55FAAF00ED8B51 /* TouchPointStyleKit.swift in Sources */,
+				940CAB381F69FC2100FB81C8 /* PresetToConductor.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4CD8DDF1F2482FF0011066A /* AKSynthOne.swift in Sources */,
 				945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */,

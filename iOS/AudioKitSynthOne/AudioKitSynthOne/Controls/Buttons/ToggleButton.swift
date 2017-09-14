@@ -15,16 +15,14 @@ class ToggleButton: UIView, AKSynthOneControl {
     // MARK: - ToggleButton
     // *********************************************************
 
-    var isOn = false
+    var isOn: Bool {
+        return value == 1
+    }
 
     var callback: (Double)->Void = { _ in }
 
-    var value: Double {
-        get {
-            return isOn ? 1 : 0
-        }
-        set {
-            isOn = value == 1.0 ? true : false
+    var value: Double = 0.0 {
+        didSet {
             setNeedsDisplay()
         }
     }
@@ -39,7 +37,7 @@ class ToggleButton: UIView, AKSynthOneControl {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            isOn = !isOn
+            value = isOn ? 0 : 1
             setNeedsDisplay()
             callback(value)
         }

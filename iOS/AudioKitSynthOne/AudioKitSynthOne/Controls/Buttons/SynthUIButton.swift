@@ -12,21 +12,20 @@ class SynthUIButton: UIButton, AKSynthOneControl {
 
     var callback: (Double)->Void = { _ in }
 
-    var isOn = false
+    var isOn: Bool {
+        return value == 1
+    }
     
     override var isSelected: Bool {
         didSet {
-            isOn = isSelected
             self.backgroundColor = isOn ? #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1) : #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 1)
         }
     }
     
-    var value: Double {
-        get {
-            return isOn ? 1 : 0
-        }
-        set {
-            isOn = value == 1.0
+    var value: Double = 0.0 {
+        didSet {
+            setNeedsDisplay()
+            isSelected = value == 1.0
         }
     }
 
@@ -46,7 +45,7 @@ class SynthUIButton: UIButton, AKSynthOneControl {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            isSelected = !isSelected
+            value = isOn ? 0 : 1
             self.setNeedsDisplay()
             callback(value)
         }

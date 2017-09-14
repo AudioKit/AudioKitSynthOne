@@ -14,7 +14,7 @@ class TransposeButton: UILabel {
     // MARK: - Make Label ToggleButton
     // *********************************************************
     
-    private var isOn = false {
+    var isOn = false {
         didSet {
             if isOn {
                 self.backgroundColor = #colorLiteral(red: 0.2745098039, green: 0.2705882353, blue: 0.2784313725, alpha: 1)

@@ -327,6 +327,7 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         activeArp.totalSteps = activePreset.arpTotalSteps
         activeArp.seqPattern = activePreset.seqPatternNote
         activeArp.seqNoteOn = activePreset.seqNoteOn
+        activeArp.seqOctBoost = activePreset.seqOctBoost
         activeArp.isOn = activePreset.isArpMode
         
         // Update arpVC

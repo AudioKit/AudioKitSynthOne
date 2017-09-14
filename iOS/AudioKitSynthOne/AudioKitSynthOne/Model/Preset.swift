@@ -28,10 +28,6 @@ class Preset: Codable {
     
     // Controls VC
     var masterVolume = 0.5 // Master Volume
-    
-    // Seq Pattern
-    var seqPatternNote = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    var seqNoteOn = [true, true, true, true,true, true, true, true,true, true, true, true,true, true, true, true]
    
     var vco1Volume = 0.6
     var vco2Volume = 0.6
@@ -86,6 +82,11 @@ class Preset: Codable {
     var lfo2Waveform = 0.0
     var lfo2Amplitude = 0.0
     var lfo2Rate = 0.0
+    
+    // Seq Pattern
+    var seqPatternNote = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var seqOctBoost = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    var seqNoteOn = [true, true, true, true,true, true, true, true,true, true, true, true,true, true, true, true]
     
     // Arp
     var arpDirection = 0.0
@@ -187,8 +188,6 @@ class Preset: Codable {
         
         // Controls VC
         masterVolume = dictionary["masterVolume"] as? Double ?? masterVolume
-        seqPatternNote = dictionary["seqPatternNote"] as? [Int] ?? seqPatternNote
-        seqNoteOn = dictionary["seqNoteOn"] as? [Bool] ?? seqNoteOn
         
         vco1Volume = dictionary["vco1Volume"] as? Double ?? vco1Volume
         vco2Volume = dictionary["vco2Volume"] as? Double ?? vco2Volume
@@ -242,6 +241,11 @@ class Preset: Codable {
         lfo2Waveform = dictionary["lfo2Waveform"] as? Double ?? lfo2Waveform
         lfo2Amplitude = dictionary["lfo2Amplitude"] as? Double ?? lfo2Amplitude
         lfo2Rate = dictionary["lfo2Rate"] as? Double ?? lfo2Rate
+        
+        // Seq
+        seqPatternNote = dictionary["seqPatternNote"] as? [Int] ?? seqPatternNote
+        seqNoteOn = dictionary["seqNoteOn"] as? [Bool] ?? seqNoteOn
+        seqOctBoost = dictionary["seqOctBoost"] as? [Bool] ?? seqOctBoost
         
         // Arp
         arpDirection = dictionary["arpDirection"] as? Double ?? arpDirection

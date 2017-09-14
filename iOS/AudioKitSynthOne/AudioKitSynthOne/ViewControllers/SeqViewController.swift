@@ -76,7 +76,7 @@ class SeqViewController: SynthPanelController {
                 let transposeAmt = arpeggiator.seqPattern[notePosition]
             
                 slider.actualValue = Double(transposeAmt)
-                updateTransposeBtn(notePosition: notePosition, transposeAmt: transposeAmt)
+                updateTransposeBtn(notePosition: notePosition)
                 slider.setNeedsDisplay()
             }
         }
@@ -146,9 +146,9 @@ class SeqViewController: SynthPanelController {
                 slider.callback = { value in
                     let notePosition = Int(tag) - self.sliderTags.lowerBound
                     
-                    print("Slider changed, \(notePosition): \(value)")
-                    self.updateTransposeBtn(notePosition: notePosition, transposeAmt: Int(value))
-                    // setSequencerNote(notePosition, transposeAmt: transposeAmt)
+                    // print("Slider changed, \(notePosition): \(value)")
+                    self.setSequencerNote(notePosition, transposeAmt: Int(value))
+                    self.updateTransposeBtn(notePosition: notePosition)
                 }
             }
         }
@@ -170,12 +170,10 @@ class SeqViewController: SynthPanelController {
             if let label = view.viewWithTag(tag) as? TransposeButton {
                 
                 label.callback = { value in
-                    //let notePosition = Int(tag) - self.sliderToggleTags.lowerBound
-                    if value == 1.0 {
-                        // add +12 to transposeAmt if positive, -12 if negative
-                    } else {
-                        // add -12 to transposeAmt if positive, +12 if negative
-                    }
+                    let notePosition = Int(tag) - self.sliderLabelTags.lowerBound
+                    self.arpeggiator.seqOctBoost[notePosition] = !self.arpeggiator.seqOctBoost[notePosition]
+                    
+                    self.updateTransposeBtn(notePosition: notePosition)
                 }
             }
         }
@@ -185,19 +183,32 @@ class SeqViewController: SynthPanelController {
     // MARK: - Helpers
     //*****************************************************************
     
-    func updateTransposeBtn(notePosition: Int, transposeAmt: Int) {
+    func updateTransposeBtn(notePosition: Int) {
         
         let labelTag = notePosition + sliderLabelTags.lowerBound
         if let label = view.viewWithTag(labelTag) as? TransposeButton {
+        
+            var transposeAmt = arpeggiator.seqPattern[notePosition]
+            
+            if arpeggiator.seqOctBoost[notePosition] {
+                label.isOn = true
+                if transposeAmt >= 0 {
+                    transposeAmt = transposeAmt + 12
+                } else {
+                    transposeAmt = transposeAmt - 12
+                }
+            } else {
+                label.isOn = false
+            }
+            
             label.text = "\(transposeAmt)"
         }
     }
     
-    //*****************************************************************
-    // MARK: - IBActions
-    //*****************************************************************
-    
-    
+    func setSequencerNote(_ notePosition: Int, transposeAmt: Int) {
+        arpeggiator.seqPattern[notePosition] = transposeAmt
+        arpDelegate?.arpValueDidChange(arpeggiator)
+    }
 }
 
 

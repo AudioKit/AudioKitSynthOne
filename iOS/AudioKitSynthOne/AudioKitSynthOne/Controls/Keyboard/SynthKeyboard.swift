@@ -59,6 +59,8 @@ public protocol AKKeyboardDelegate: class {
     var onKeys = Set<MIDINoteNumber>()
     var topKeyWidthIncrease: CGFloat = 4
     
+     let baseMIDINote = 24 // MIDINote 24 is C0
+    
     /// Allows multiple notes to play concurrently
     open var polyphonicMode = false {
         didSet {
@@ -268,11 +270,11 @@ public protocol AKKeyboardDelegate: class {
         if y > oneOctaveSize.height * topKeyHeightRatio {
             let octNum = Int(x / oneOctaveSize.width)
             let scaledX = x - CGFloat(octNum) * oneOctaveSize.width
-            note = (firstOctave + octNum) * 12 + whiteKeyNotes[max(0, Int(scaledX / whiteKeySize.width))]
+            note = (firstOctave + octNum) * 12 + whiteKeyNotes[max(0, Int(scaledX / whiteKeySize.width))] + baseMIDINote
         } else {
             let octNum = Int(x / oneOctaveSize.width)
             let scaledX = x - CGFloat(octNum) * oneOctaveSize.width
-            note = (firstOctave + octNum) * 12 + topKeyNotes[max(0, Int(scaledX / topKeySize.width))]
+            note = (firstOctave + octNum) * 12 + topKeyNotes[max(0, Int(scaledX / topKeySize.width))] + baseMIDINote
         }
         if note >= 0 {
             return MIDINoteNumber(note)
@@ -397,8 +399,7 @@ public protocol AKKeyboardDelegate: class {
             keyOnColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
         }
         return onKeys.contains(
-            MIDINoteNumber((firstOctave + octaveNumber) * 12 + whiteKeyNotes[n])
-            ) ? keyOnColor : whiteKeyOff
+            MIDINoteNumber((firstOctave + octaveNumber) * 12 + whiteKeyNotes[n] + baseMIDINote ))  ? keyOnColor : whiteKeyOff
     }
     
     func topKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
@@ -411,8 +412,8 @@ public protocol AKKeyboardDelegate: class {
         }
         if notesWithSharps[topKeyNotes[n]].range(of: "#") != nil {
             return onKeys.contains(
-                MIDINoteNumber((firstOctave + octaveNumber) * 12 + topKeyNotes[n])
-                ) ? keyOnColor : blackKeyOff
+                MIDINoteNumber((firstOctave + octaveNumber) * 12 + topKeyNotes[n] + baseMIDINote)
+                )  ? keyOnColor : blackKeyOff
         }
         return #colorLiteral(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.000)
         

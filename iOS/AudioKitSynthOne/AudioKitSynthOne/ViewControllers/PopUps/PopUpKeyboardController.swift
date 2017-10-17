@@ -14,7 +14,6 @@ protocol KeyboardPopOverDelegate {
 
 class PopUpKeyboardController: UIViewController {
     
-    
     @IBOutlet weak var octaveRangeSegment: UISegmentedControl!
     @IBOutlet weak var labelModeSegment: UISegmentedControl!
     @IBOutlet weak var keyboardModeSegment: UISegmentedControl!
@@ -32,6 +31,15 @@ class PopUpKeyboardController: UIViewController {
         octaveRangeSegment.selectedSegmentIndex = octaveRange - 1
         labelModeSegment.selectedSegmentIndex = labelMode
         keyboardModeSegment.selectedSegmentIndex = darkMode ? 1 : 0
+        
+    }
+    
+    // Set fonts for UISegmentedControls
+    override func viewDidLayoutSubviews() {
+        let attr = NSDictionary(object: UIFont(name: "Avenir Next Condensed", size: 16.0)!, forKey: NSFontAttributeName as NSCopying)
+        labelModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject] , for: .normal)
+        keyboardModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject] , for: .normal)
+        octaveRangeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject] , for: .normal)
     }
     
     @IBAction func octaveRangeDidChange(_ sender: UISegmentedControl) {

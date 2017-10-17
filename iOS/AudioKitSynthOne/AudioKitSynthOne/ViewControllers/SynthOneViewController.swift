@@ -137,15 +137,17 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     }
     
     public override func viewDidAppear(_ animated: Bool) {
-        keyboardToggle.isSelected = false
-        
+       
         // Set initial subviews
-        switchToChildView(.oscView)
-        switchToBottomChildView(.seqView)
+        switchToChildView(.seqView)
+        switchToBottomChildView(.oscView)
         
+        /*
+        keyboardToggle.isSelected = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.keyboardToggle.callback(0.0)
         }
+        */
     }
     
     // ********************************************************
@@ -193,7 +195,6 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     // **********************************************************
     
     public func noteOn(note: MIDINoteNumber) {
-        // print("NOTE ON: \(note)")
         conductor.synth.play(noteNumber: note, velocity: 127)
     }
     public func noteOff(note: MIDINoteNumber) {

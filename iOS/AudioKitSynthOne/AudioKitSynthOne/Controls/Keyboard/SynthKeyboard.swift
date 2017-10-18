@@ -24,7 +24,7 @@ public protocol AKKeyboardDelegate: class {
     @IBInspectable open var octaveCount: Int = 2
     
     /// Lowest octave dispayed
-    @IBInspectable open var firstOctave: Int = 3 {
+    @IBInspectable open var firstOctave: Int = 2 {
         didSet {
             self.setNeedsDisplay()
         }
@@ -46,7 +46,7 @@ public protocol AKKeyboardDelegate: class {
     @IBInspectable open var  blackKeyOff: UIColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
     
     /// Activated key color
-    @IBInspectable open var  keyOnUserColor: UIColor = #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.7254901961, alpha: 1)
+    @IBInspectable open var  keyOnUserColor: UIColor = #colorLiteral(red: 0.9611048102, green: 0.509832561, blue: 0, alpha: 1)
     
     var keyOnColor: UIColor = #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.7254901961, alpha: 1)
     
@@ -367,7 +367,7 @@ public protocol AKKeyboardDelegate: class {
         guard onKeys.contains(note) else {
             return
         }
-         print("Key is already on")
+     
         onKeys.remove(note)
         delegate?.noteOff(note: note) 
         if ❗️polyphonicMode {

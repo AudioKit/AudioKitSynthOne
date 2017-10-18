@@ -43,6 +43,9 @@ public class SynthOneViewController: UIViewController {
     var midiChannelIn: MIDIChannel = 0
     
     
+    let midi = AKMIDI()  // TODO: REMOVE
+  
+    
     // ********************************************************
     // MARK: - Define child view controllers
     // ********************************************************
@@ -124,26 +127,31 @@ public class SynthOneViewController: UIViewController {
         
         setupCallbacks()
         
+        // Set AKKeyboard octave range
         octaveStepper.minValue = -3
         octaveStepper.maxValue = 4
         
         // Load Presets
         displayPresetsController()
+        
+        // Temporary MIDI IN
+        // TODO: Remove
+        midi.createVirtualPorts()
+        midi.openInput("Session 1")
+        midi.addListener(self)
     }
     
     public override func viewDidAppear(_ animated: Bool) {
        
         // Set initial subviews
-        switchToChildView(.seqView)
-        switchToBottomChildView(.oscView)
+        switchToChildView(.oscView)
+        switchToBottomChildView(.adsrView)
         
-        keyboardToggle.value = 1.0
-        /*
+        // Hide Keyboard on load
         keyboardToggle.isSelected = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.keyboardToggle.callback(0.0)
         }
-        */
     }
     
     // ********************************************************
@@ -155,7 +163,7 @@ public class SynthOneViewController: UIViewController {
         conductor.bind(monoButton, to: AKSynthOneParameter.isMono)
         
         octaveStepper.callback = { value in
-            self.keyboardView.firstOctave = Int(value) + 3
+            self.keyboardView.firstOctave = Int(value) + 2
         }
         
         configKeyboardButton.callback = { _ in
@@ -526,13 +534,33 @@ extension SynthOneViewController: AKKeyboardDelegate {
     public func noteOff(note: MIDINoteNumber) {
         DispatchQueue.main.async {
             self.conductor.synth.stop(noteNumber: note)
-            //if self.holdButton.value == 0 {
-            //
-            //}
         }
     }
 }
 
+// **********************************************************
+// MARK: - AKMIDIListener protocol functions
+// **********************************************************
+
+extension SynthOneViewController: AKMIDIListener  {
+    
+    public func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
+        // currentNoteNumber = noteNumber
+        //guard channel == midiChannelIn else { return }
+        
+        DispatchQueue.main.async {
+            self.keyboardView.pressAdded(noteNumber, velocity: velocity)
+        }
+    }
+    
+    public func receivedMIDINoteOff(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
+        guard !keyboardView.holdMode else { return }
+        
+        DispatchQueue.main.async {
+            self.keyboardView.pressRemoved(noteNumber)
+        }
+    }
+}
 
 // **************************************************
 // MARK: - Presets Delegate

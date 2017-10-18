@@ -17,7 +17,7 @@ protocol BottomEmbeddedViewsDelegate {
     func switchToBottomChildView(_ newView: ChildView)
 }
 
-public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
+public class SynthOneViewController: UIViewController {
     
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var bottomContainerView: UIView!
@@ -40,66 +40,61 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
     var isPresetsDisplayed: Bool = false
     var activePreset = Preset()
     var activeArp = Arpeggiator()
+    var midiChannelIn: MIDIChannel = 0
+    
     
     // ********************************************************
     // MARK: - Define child view controllers
     // ********************************************************
     
     fileprivate lazy var adsrViewController: ADSRViewController = {
-        // Load Storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        // Instantiate View Controller
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier()) as! ADSRViewController
-        
-        // Add View Controller as Child View Controller
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier()) as! ADSRViewController
         self.add(asChildViewController: viewController)
-        
         return viewController
     }()
     
     fileprivate lazy var mixerViewController: SourceMixerViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier()) as! SourceMixerViewController
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier()) as! SourceMixerViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var devViewController: SettingsViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "DevViewController") as! SettingsViewController
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: "DevViewController") as! SettingsViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var padViewController: TouchPadViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.padView.identifier()) as! TouchPadViewController
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.padView.identifier()) as! TouchPadViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var fxViewController: FXViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier()) as! FXViewController
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier()) as! FXViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var seqViewController: SeqViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier()) as! SeqViewController
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier()) as! SeqViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var presetsViewController: PresetsViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
         self.add(asChildViewController: viewController)
         return viewController
     }()
-    
     
     // ********************************************************
     // MARK: - viewDidLoad
@@ -173,8 +168,14 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
             
         }
         
+        holdButton.callback = { value in
+            self.keyboardView.holdMode = !self.keyboardView.holdMode
+            if value == 0.0 {
+                self.stopAllNotes()
+            }
+        }
+        
         keyboardToggle.callback = { value in
-            
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
             } else {
@@ -190,15 +191,11 @@ public class SynthOneViewController: UIViewController, AKKeyboardDelegate {
         }
     }
     
-    // **********************************************************
-    // MARK: - Note on/off
-    // **********************************************************
-    
-    public func noteOn(note: MIDINoteNumber) {
-        conductor.synth.play(noteNumber: note, velocity: 127)
-    }
-    public func noteOff(note: MIDINoteNumber) {
-        conductor.synth.stop(noteNumber: note)
+    func stopAllNotes() {
+        self.keyboardView.allNotesOff()
+        for note in 0...127 {
+            conductor.synth.stop(noteNumber: MIDINoteNumber(note))
+        }
     }
     
     // **********************************************************
@@ -514,6 +511,26 @@ extension SynthOneViewController: KeyboardPopOverDelegate {
         keyboardView.setNeedsDisplay()
     }
 }
+
+// **********************************************************
+// MARK: - Keyboard Delegate Note on/off
+// **********************************************************
+
+extension SynthOneViewController: AKKeyboardDelegate {
+    
+    public func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity = 127) {
+        conductor.synth.play(noteNumber: note, velocity: velocity)
+    }
+    
+    public func noteOff(note: MIDINoteNumber) {
+        DispatchQueue.main.async {
+            if (!self.holdButton.isSelected) {
+                self.conductor.synth.stop(noteNumber: note)
+            }
+        }
+    }
+}
+
 
 // **************************************************
 // MARK: - Presets Delegate

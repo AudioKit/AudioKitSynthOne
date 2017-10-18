@@ -12,7 +12,7 @@ import AudioKit
 /// Delegate for keyboard events
 public protocol AKKeyboardDelegate: class {
     /// Note on evenets
-    func noteOn(note: MIDINoteNumber)
+    func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity)
     /// Note off events
     func noteOff(note: MIDINoteNumber)
 }
@@ -46,7 +46,9 @@ public protocol AKKeyboardDelegate: class {
     @IBInspectable open var  blackKeyOff: UIColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
     
     /// Activated key color
-    @IBInspectable open var  keyOnColor: UIColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
+    @IBInspectable open var  keyOnUserColor: UIColor = #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.7254901961, alpha: 1)
+    
+    var keyOnColor: UIColor = #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.7254901961, alpha: 1)
     
     /// Keyboard Mode, white or dark
     @IBInspectable open var  darkMode: Bool = false
@@ -58,17 +60,20 @@ public protocol AKKeyboardDelegate: class {
     var xOffset: CGFloat = 1
     var onKeys = Set<MIDINoteNumber>()
     var topKeyWidthIncrease: CGFloat = 4
+    var holdMode = false {
+        didSet {
+            if !holdMode {
+                allNotesOff()
+            }
+        }
+    }
     
      let baseMIDINote = 24 // MIDINote 24 is C0
     
     /// Allows multiple notes to play concurrently
     open var polyphonicMode = false {
         didSet {
-            for note in onKeys {
-                delegate?.noteOff(note: note)
-            }
-            onKeys.removeAll()
-            setNeedsDisplay()
+            allNotesOff()
         }
     }
     
@@ -219,7 +224,7 @@ public protocol AKKeyboardDelegate: class {
     }
     
     func addLabels(i: Int, octaveNumber: Int, whiteKeysRect: CGRect) {
-        var textColor: UIColor =  #colorLiteral(red: 0.6941176471, green: 0.7137254902, blue: 0.7411764706, alpha: 1)
+        var textColor: UIColor =  #colorLiteral(red: 0.5098039216, green: 0.5098039216, blue: 0.5294117647, alpha: 1)
         if darkMode {
             textColor = #colorLiteral(red: 0.3176470588, green: 0.337254902, blue: 0.3647058824, alpha: 1)
         }
@@ -231,16 +236,16 @@ public protocol AKKeyboardDelegate: class {
             let whiteKeysTextContent = getWhiteNoteName(i) + String(firstOctave + octaveNumber)
             let whiteKeysStyle = NSMutableParagraphStyle()
             whiteKeysStyle.alignment = .center
-            let whiteKeysFontAttributes = [
+            let whiteKeysFontAttributes  = [
                 NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 14)!,
                 NSForegroundColorAttributeName: textColor,
                 NSParagraphStyleAttributeName: whiteKeysStyle,
-                ] as [String : Any]
+                ] as [NSAttributedStringKey: Any]
             
-            let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: whiteKeysFontAttributes, context: nil).height
+            let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: whiteKeysFontAttributes as [String : Any], context: nil).height
             context.saveGState()
             context.clip(to: whiteKeysRect)
-            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes)
+            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes as [String : Any])
             context.restoreGState()
         }
     }
@@ -287,15 +292,17 @@ public protocol AKKeyboardDelegate: class {
     /// Handle new touches
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let notes = notesFromTouches(touches)
+        
         for note in notes {
             pressAdded(note)
         }
-        verifyTouches(event?.allTouches)
+        if !holdMode { verifyTouches(event?.allTouches) }
         setNeedsDisplay()
     }
     
     /// Handle touches completed
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard !holdMode else { return }
         for touch in touches {
             if let note = noteFromTouchLocation(touch.location(in: self)) {
                 // verify that there isn't still a touch remaining on same key from another finger
@@ -313,12 +320,14 @@ public protocol AKKeyboardDelegate: class {
     
     /// Handle moved touches
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard !holdMode else { return }
         for touch in touches {
             if let key = noteFromTouchLocation(touch.location(in: self)),
                 key != noteFromTouchLocation(touch.previousLocation(in: self)) {
                 pressAdded(key)
                 setNeedsDisplay()
             }
+            
         }
         verifyTouches(event?.allTouches)
     }
@@ -330,26 +339,36 @@ public protocol AKKeyboardDelegate: class {
     
     // MARK: - Executing Key Presses
     
-    private func pressAdded(_ newNote: MIDINoteNumber) {
+    func pressAdded(_ newNote: MIDINoteNumber, velocity: MIDIVelocity = 127) {
+        
+        var noteIsAlreadyOn = false
+        if holdMode {
+            for key in onKeys where key == newNote {
+               noteIsAlreadyOn = true
+                pressRemoved(key)
+            }
+        }
+
         if ❗️polyphonicMode {
             for key in onKeys where key != newNote {
                 pressRemoved(key)
             }
         }
         
-        if ❗️onKeys.contains(newNote) {
+        if ❗️onKeys.contains(newNote) && !noteIsAlreadyOn {
             onKeys.insert(newNote)
-            delegate?.noteOn(note: newNote)
+            delegate?.noteOn(note: newNote, velocity: velocity)
         }
-        
+        setNeedsDisplay()
     }
     
-    private func pressRemoved(_ note: MIDINoteNumber, touches: Set<UITouch>? = nil) {
+    
+    func pressRemoved(_ note: MIDINoteNumber, touches: Set<UITouch>? = nil) {
         guard onKeys.contains(note) else {
             return
         }
         onKeys.remove(note)
-        delegate?.noteOff(note: note)
+        delegate?.noteOff(note: note) 
         if ❗️polyphonicMode {
             // in mono mode, replace with note from highest remaining touch, if it exists
             var remainingNotes = notesFromTouches(touches ?? Set<UITouch>())
@@ -358,6 +377,15 @@ public protocol AKKeyboardDelegate: class {
                 pressAdded(highest)
             }
         }
+        setNeedsDisplay()
+    }
+    
+    func allNotesOff() {
+        for note in onKeys {
+            delegate?.noteOff(note: note)
+        }
+        onKeys.removeAll()
+        setNeedsDisplay()
     }
     
     private func verifyTouches(_ touches: Set<UITouch>?) {
@@ -396,7 +424,7 @@ public protocol AKKeyboardDelegate: class {
             keyOnColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         } else {
             whiteKeyOff = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            keyOnColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
+            keyOnColor = keyOnUserColor
         }
         return onKeys.contains(
             MIDINoteNumber((firstOctave + octaveNumber) * 12 + whiteKeyNotes[n] + baseMIDINote ))  ? keyOnColor : whiteKeyOff
@@ -408,7 +436,7 @@ public protocol AKKeyboardDelegate: class {
             keyOnColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4509803922, alpha: 1)
         } else {
             blackKeyOff = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
-            keyOnColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
+            keyOnColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4509803922, alpha: 1)
         }
         if notesWithSharps[topKeyNotes[n]].range(of: "#") != nil {
             return onKeys.contains(

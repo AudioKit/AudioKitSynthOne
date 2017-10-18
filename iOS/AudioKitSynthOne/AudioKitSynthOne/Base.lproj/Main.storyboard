@@ -580,7 +580,7 @@
                                 </state>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nt4-z7-5HN">
-                                <rect key="frame" x="438" y="78" width="171" height="93"/>
+                                <rect key="frame" x="440" y="78" width="169" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>

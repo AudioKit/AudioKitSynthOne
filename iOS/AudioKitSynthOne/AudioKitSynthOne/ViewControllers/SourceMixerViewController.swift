@@ -104,7 +104,8 @@ class SourceMixerViewController: SynthPanelController {
         let plot = AKNodeOutputPlot(conductor.synth, frame: CGRect(x: 0, y: 0, width: 172, height: 93))
         plot.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 0)
         plot.color = #colorLiteral(red: 0.9611048102, green: 0.509832561, blue: 0, alpha: 1)
-        plot.gain = 3
+        plot.gain = 2
+        plot.shouldFill = true
         displayContainer.addSubview(plot)
     }
     

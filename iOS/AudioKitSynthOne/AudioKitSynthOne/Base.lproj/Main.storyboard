@@ -76,7 +76,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="octaveCount">
-                                                <integer key="value" value="2"/>
+                                                <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelMode">
                                                 <integer key="value" value="1"/>
@@ -579,6 +579,11 @@
                                     <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nt4-z7-5HN">
+                                <rect key="frame" x="438" y="78" width="171" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -587,6 +592,7 @@
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
                         <outlet property="cutoff" destination="sPn-F6-EfJ" id="WLh-d9-LNh"/>
+                        <outlet property="displayContainer" destination="Nt4-z7-5HN" id="0zt-qF-Owp"/>
                         <outlet property="filterTypeToggle" destination="svc-Dm-tS3" id="prX-lr-HvU"/>
                         <outlet property="fmAmount" destination="PlS-FK-Xk4" id="Y2W-Db-GO4"/>
                         <outlet property="fmVolume" destination="eeh-g3-XJ2" id="NHR-Ny-zAj"/>
@@ -2058,7 +2064,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="240"/>

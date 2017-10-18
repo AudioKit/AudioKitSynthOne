@@ -46,7 +46,7 @@ public protocol AKKeyboardDelegate: class {
     @IBInspectable open var  blackKeyOff: UIColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
     
     /// Activated key color
-    @IBInspectable open var  keyOnUserColor: UIColor = #colorLiteral(red: 0.9611048102, green: 0.509832561, blue: 0, alpha: 1)
+    @IBInspectable open var  keyOnUserColor: UIColor = #colorLiteral(red: 0.9607843137, green: 0.5098039216, blue: 0, alpha: 1)
     
     var keyOnColor: UIColor = #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.7254901961, alpha: 1)
     
@@ -434,10 +434,10 @@ public protocol AKKeyboardDelegate: class {
     func topKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
         if darkMode {
             blackKeyOff = #colorLiteral(red: 0.2370533347, green: 0.237835288, blue: 0.2605919242, alpha: 1)
-            keyOnColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4509803922, alpha: 1)
+            keyOnColor = #colorLiteral(red: 0.9607843137, green: 0.5098039216, blue: 0, alpha: 1)
         } else {
             blackKeyOff = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
-            keyOnColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4509803922, alpha: 1)
+            keyOnColor = #colorLiteral(red: 0.9607843137, green: 0.5098039216, blue: 0, alpha: 1)
         }
         if notesWithSharps[topKeyNotes[n]].range(of: "#") != nil {
             return onKeys.contains(

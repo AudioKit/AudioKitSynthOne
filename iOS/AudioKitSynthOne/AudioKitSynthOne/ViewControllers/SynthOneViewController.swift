@@ -128,7 +128,7 @@ public class SynthOneViewController: UIViewController {
         setupCallbacks()
         
         // Set AKKeyboard octave range
-        octaveStepper.minValue = -3
+        octaveStepper.minValue = -2
         octaveStepper.maxValue = 4
         
         // Load Presets

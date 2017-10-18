@@ -137,6 +137,7 @@ public class SynthOneViewController: UIViewController {
         switchToChildView(.seqView)
         switchToBottomChildView(.oscView)
         
+        keyboardToggle.value = 1.0
         /*
         keyboardToggle.isSelected = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -524,9 +525,10 @@ extension SynthOneViewController: AKKeyboardDelegate {
     
     public func noteOff(note: MIDINoteNumber) {
         DispatchQueue.main.async {
-            if (!self.holdButton.isSelected) {
-                self.conductor.synth.stop(noteNumber: note)
-            }
+            self.conductor.synth.stop(noteNumber: note)
+            //if self.holdButton.value == 0 {
+            //
+            //}
         }
     }
 }

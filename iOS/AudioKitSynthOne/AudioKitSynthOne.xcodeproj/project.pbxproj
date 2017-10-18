@@ -367,15 +367,13 @@
 		941065A01F26AA60002777AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				94A5BF051F96A4E10032C743 /* PopUps */,
 				9410659E1F26AA55002777AB /* ADSRViewController.swift */,
 				9468E2791F2827AC00C60B1B /* SettingsViewController.swift */,
 				94B69C3A1F297E2800191C87 /* FXViewController.swift */,
 				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
 				9403F2921F671A4900320FCC /* PresetsCategoriesController.swift */,
 				9403F2931F671A4900320FCC /* PresetsViewController.swift */,
-				9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */,
-				9491E2931F6B41D9004DDB84 /* PopUpMIDIController.swift */,
-				9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */,
 				945C3A0F1F3143A00086D58B /* SeqViewController.swift */,
 				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
 				9435245B1F57A6F100BDA789 /* SynthPanelController.swift */,
@@ -473,6 +471,16 @@
 				94FBAFE11F42A94E0071235B /* TempoStyleKit.swift */,
 			);
 			path = Stepper;
+			sourceTree = "<group>";
+		};
+		94A5BF051F96A4E10032C743 /* PopUps */ = {
+			isa = PBXGroup;
+			children = (
+				9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */,
+				9491E2931F6B41D9004DDB84 /* PopUpMIDIController.swift */,
+				9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */,
+			);
+			path = PopUps;
 			sourceTree = "<group>";
 		};
 		94AE8DC91F671DA200F2A992 /* Cells */ = {

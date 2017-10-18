@@ -367,6 +367,7 @@ public protocol AKKeyboardDelegate: class {
         guard onKeys.contains(note) else {
             return
         }
+         print("Key is already on")
         onKeys.remove(note)
         delegate?.noteOff(note: note) 
         if ❗️polyphonicMode {

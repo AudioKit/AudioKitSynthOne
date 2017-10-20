@@ -23,6 +23,8 @@
 		9435245C1F57A6F100BDA789 /* SynthPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435245B1F57A6F100BDA789 /* SynthPanelController.swift */; };
 		9435245D1F57A6F100BDA789 /* SynthPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435245B1F57A6F100BDA789 /* SynthPanelController.swift */; };
 		943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B59601F36B4F200E5FBE6 /* TimeKnob.swift */; };
+		943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B99DB1F99C95600E09C93 /* MorphSelectorStyleKit.swift */; };
+		943B99DD1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B99DB1F99C95600E09C93 /* MorphSelectorStyleKit.swift */; };
 		9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
 		9442BBDC1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
 		9449EE1B1F6729010025CC4B /* presets1.json in Resources */ = {isa = PBXBuildFile; fileRef = 9403F29F1F671ABA00320FCC /* presets1.json */; };
@@ -234,6 +236,7 @@
 		943524551F57945500BDA789 /* ChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
 		9435245B1F57A6F100BDA789 /* SynthPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthPanelController.swift; sourceTree = "<group>"; };
 		943B59601F36B4F200E5FBE6 /* TimeKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeKnob.swift; sourceTree = "<group>"; };
+		943B99DB1F99C95600E09C93 /* MorphSelectorStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphSelectorStyleKit.swift; sourceTree = "<group>"; };
 		9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpKeyboardController.swift; sourceTree = "<group>"; };
 		9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderNavButton.swift; sourceTree = "<group>"; };
 		945261381F2918A60037662C /* TouchPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPadViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */,
+				943B99DB1F99C95600E09C93 /* MorphSelectorStyleKit.swift */,
 				949D09321F34F6FA000FB6E0 /* LFOPickerStyleKit.swift */,
 				949D09331F34F6FA000FB6E0 /* LFOWavePicker.swift */,
 			);
@@ -845,6 +849,7 @@
 				C47FB3C51F366D6400EF2F01 /* Rate.swift in Sources */,
 				9403F29C1F671A6000320FCC /* Preset.swift in Sources */,
 				948C54C41F3A59F000DA6081 /* SynthUIButton.swift in Sources */,
+				943B99DD1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */,
 				947956B71F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				9435245A1F5794FA00BDA789 /* ChildView.swift in Sources */,
 				945261401F2925610037662C /* AKTouchPadView.swift in Sources */,
@@ -894,6 +899,7 @@
 			files = (
 				9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */,
 				94AF74001F55FAAF00ED8B51 /* TouchPointStyleKit.swift in Sources */,
+				943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */,
 				940CAB381F69FC2100FB81C8 /* PresetToConductor.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4CD8DDF1F2482FF0011066A /* AKSynthOne.swift in Sources */,
@@ -1164,7 +1170,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -1188,7 +1194,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "AudioKit Synth One New";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

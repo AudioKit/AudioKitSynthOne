@@ -18,9 +18,6 @@
             <string>AvenirNextCondensed-Medium</string>
             <string>AvenirNextCondensed-Regular</string>
         </array>
-        <array key="Helvetica.ttc">
-            <string>Helvetica</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Synth One-->
@@ -352,6 +349,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="selected">
                                         <color key="value" red="0.90196078430000004" green="0.53333333329999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedBG">
+                                        <color key="value" red="0.1803921568627451" green="0.1803921568627451" blue="0.20000000000000001" alpha="0.5" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wN7-K8-wB0" customClass="MorphSelector" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -361,6 +361,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selected">
                                         <color key="value" red="0.90196078430000004" green="0.53333333329999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedBG">
+                                        <color key="value" red="0.1803921568627451" green="0.1803921568627451" blue="0.20000000000000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -419,13 +422,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detune" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jH6-cr-gtP">
                                 <rect key="frame" x="311" y="122" width="42" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
-                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MASTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy1-aZ-hLF">
-                                <rect key="frame" x="534" y="23" width="46" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -539,63 +535,63 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sub" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S1-SN-2fz">
                                 <rect key="frame" x="9" y="172" width="40" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-S0-Sjy">
                                 <rect key="frame" x="373" y="172" width="40" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DCO 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHS-gI-IR6">
                                 <rect key="frame" x="83" y="1" width="41" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
-                                <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DCO 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouO-nz-acF">
                                 <rect key="frame" x="303" y="1" width="41" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
-                                <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2f-9d-XkL">
                                 <rect key="frame" x="504" y="172" width="40" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Noise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5x-B0-abg">
                                 <rect key="frame" x="632" y="172" width="40" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpb-Eg-cyb">
                                 <rect key="frame" x="708" y="171" width="40" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mG-Gc-0v0">
                                 <rect key="frame" x="616" y="1" width="40" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
-                                <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfh-Pt-NOy">
                                 <rect key="frame" x="186" y="172" width="40" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -612,6 +608,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Master Volume" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy1-aZ-hLF">
+                                <rect key="frame" x="534" y="17" width="60" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -645,7 +648,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1Q-CL-vib" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="142.96875" y="-547.265625"/>
+            <point key="canvasLocation" x="455" y="-713.5"/>
         </scene>
         <!--Header-->
         <scene sceneID="uWT-k1-pAc">
@@ -660,14 +663,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerback" translatesAutoresizingMaskIntoConstraints="NO" id="eFt-un-9BY">
-                                <rect key="frame" x="0.0" y="2" width="1024" height="38"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1024" id="6YH-uC-4o4"/>
                                     <constraint firstAttribute="height" constant="38" id="exb-x7-IBk"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCV-UJ-nIV" customClass="HeaderNavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="81" y="6" width="46" height="26"/>
+                                <rect key="frame" x="870" y="6" width="46" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -678,20 +681,8 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o5-nm-Blf" customClass="HeaderNavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="20" y="6" width="46" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="MAIN">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILC-jx-2xh" customClass="HeaderNavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="264" y="6" width="46" height="26"/>
+                                <rect key="frame" x="977" y="6" width="40" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -703,7 +694,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7KF-kv-pxD" customClass="HeaderNavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="142" y="6" width="46" height="26"/>
+                                <rect key="frame" x="911" y="6" width="46" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -715,14 +706,14 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I96-P8-9zu">
-                                <rect key="frame" x="389" y="7" width="235" height="27"/>
+                                <rect key="frame" x="389" y="6" width="240" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpO-lv-FGF" customClass="HeaderNavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="203" y="6" width="46" height="26"/>
+                                <rect key="frame" x="945" y="6" width="36" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -734,7 +725,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USJ-9s-ewO">
-                                <rect key="frame" x="355" y="7" width="32" height="26"/>
+                                <rect key="frame" x="358" y="6" width="33" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="left-arrow">
@@ -745,7 +736,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckV-td-v5W">
-                                <rect key="frame" x="627" y="7" width="32" height="26"/>
+                                <rect key="frame" x="637" y="6" width="32" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="right-arrow">
@@ -756,7 +747,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESR-ZN-P6Y">
-                                <rect key="frame" x="671" y="8" width="46" height="26"/>
+                                <rect key="frame" x="675" y="6" width="40" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="saveDisk">
@@ -767,7 +758,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwk-oi-nBb">
-                                <rect key="frame" x="725" y="8" width="46" height="26"/>
+                                <rect key="frame" x="725" y="6" width="46" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -781,13 +772,25 @@
                                     <action selector="panicPressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="YS1-EM-SC1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o5-nm-Blf" customClass="HeaderNavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="827" y="6" width="46" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="MAIN">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eFt-un-9BY" secondAttribute="trailing" id="HbM-6z-XMG"/>
-                            <constraint firstItem="28u-ax-JmL" firstAttribute="top" secondItem="eFt-un-9BY" secondAttribute="bottom" constant="-2" id="dWt-79-Y7L"/>
+                            <constraint firstItem="28u-ax-JmL" firstAttribute="top" secondItem="eFt-un-9BY" secondAttribute="bottom" id="dWt-79-Y7L"/>
                             <constraint firstItem="eFt-un-9BY" firstAttribute="leading" secondItem="B0l-jj-fC6" secondAttribute="leading" id="p94-cw-XUQ"/>
-                            <constraint firstItem="eFt-un-9BY" firstAttribute="top" secondItem="B0l-jj-fC6" secondAttribute="top" constant="2" id="xVT-d5-IR7"/>
+                            <constraint firstItem="eFt-un-9BY" firstAttribute="top" secondItem="B0l-jj-fC6" secondAttribute="top" id="xVT-d5-IR7"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
@@ -2000,7 +2003,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQk-sd-9z1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="143" y="-181"/>
+            <point key="canvasLocation" x="527" y="-250"/>
         </scene>
         <!--Pop Up Keyboard Controller-->
         <scene sceneID="nVT-JB-zlP">

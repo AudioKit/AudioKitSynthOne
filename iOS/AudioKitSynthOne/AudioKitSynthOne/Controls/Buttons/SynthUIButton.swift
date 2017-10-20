@@ -18,7 +18,7 @@ class SynthUIButton: UIButton, AKSynthOneControl {
     
     override var isSelected: Bool {
         didSet {
-            self.backgroundColor = isOn ? #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1) : #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+            self.backgroundColor = isOn ? #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 1) : #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         }
     }
     

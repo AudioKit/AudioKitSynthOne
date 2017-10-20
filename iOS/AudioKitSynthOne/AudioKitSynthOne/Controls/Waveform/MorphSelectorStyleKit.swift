@@ -17,11 +17,11 @@ public class MorphSelectorStyleKit : NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawMorphSelector(value: CGFloat = 0.02, width: CGFloat = 250, height: CGFloat = 53) {
+    @objc dynamic public class func drawMorphSelector(value: CGFloat = 0, width: CGFloat = 250, height: CGFloat = 53) {
         //// Color Declarations
         let selected = UIColor(red: 0.929, green: 0.533, blue: 0.000, alpha: 1.000)
         let unselected = UIColor(red: 0.533, green: 0.533, blue: 0.533, alpha: 1.000)
-        let selectedBG = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.181)
+        let selectedBG = UIColor(red: 0.243, green: 0.243, blue: 0.263, alpha: 0.250)
 
         //// Variable Declarations
         let color1 = value <= 0.25 ? selected : unselected
@@ -93,7 +93,7 @@ public class MorphSelectorStyleKit : NSObject {
 
 
         //// Chosen Area Drawing
-        let chosenAreaPath = UIBezierPath(rect: CGRect(x: xValue, y: 4.5, width: (width - 209.5), height: (height - 10)))
+        let chosenAreaPath = UIBezierPath(rect: CGRect(x: xValue, y: 4.5, width: 40.5, height: (height - 10)))
         selectedBG.setFill()
         chosenAreaPath.fill()
     }

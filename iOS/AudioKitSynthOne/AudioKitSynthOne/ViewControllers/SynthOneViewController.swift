@@ -31,6 +31,7 @@ public class SynthOneViewController: UIViewController {
     @IBOutlet weak var keyboardToggle: SynthUIButton!
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var configKeyboardButton: SynthUIButton!
+    @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
     
     var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
@@ -42,10 +43,8 @@ public class SynthOneViewController: UIViewController {
     var activeArp = Arpeggiator()
     var midiChannelIn: MIDIChannel = 0
     
-    
     let midi = AKMIDI()  // TODO: REMOVE
   
-    
     // ********************************************************
     // MARK: - Define child view controllers
     // ********************************************************
@@ -125,14 +124,19 @@ public class SynthOneViewController: UIViewController {
             headerVC.headerDelegate = self
         }
         
-        setupCallbacks()
-        
         // Set AKKeyboard octave range
         octaveStepper.minValue = -2
         octaveStepper.maxValue = 4
         
+        // Make bluetooth button look pretty
+        bluetoothButton.layer.cornerRadius = 2
+        bluetoothButton.layer.borderWidth = 1
+        
         // Load Presets
         displayPresetsController()
+        
+        // Setup Callbacks
+        setupCallbacks()
         
         // Temporary MIDI IN
         // TODO: Remove
@@ -167,12 +171,12 @@ public class SynthOneViewController: UIViewController {
         }
         
         configKeyboardButton.callback = { _ in
-            self.configKeyboardButton.isSelected = false
+            self.configKeyboardButton.value = 0
             self.performSegue(withIdentifier: "SegueToKeyboardPopOver", sender: self)
         }
         
         midiButton.callback = { _ in
-            self.midiButton.isSelected = false
+            self.midiButton.value = 0
             self.performSegue(withIdentifier: "SegueToMIDIPopOver", sender: self)
             
         }
@@ -183,7 +187,11 @@ public class SynthOneViewController: UIViewController {
                 self.stopAllNotes()
             }
         }
-        
+        /*
+        monoToggle.callback = { value in
+            self.keyboardView.polyphonicMode = !self.monoToggle.isSelected
+        }
+        */
         keyboardToggle.callback = { value in
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)

@@ -30,7 +30,7 @@ public class NavButtonStyleKit : NSObject {
 
         //// Color Declarations
         let selectedColor = UIColor(red: 0.341, green: 0.349, blue: 0.345, alpha: 1.000)
-        let offColor = UIColor(red: 0.243, green: 0.243, blue: 0.263, alpha: 1.000)
+        let offColor = UIColor(red: 0.278, green: 0.286, blue: 0.282, alpha: 1.000)
         let labelColor = UIColor(red: 0.667, green: 0.667, blue: 0.667, alpha: 1.000)
         let triangle = UIColor(red: 0.400, green: 0.400, blue: 0.400, alpha: 1.000)
 

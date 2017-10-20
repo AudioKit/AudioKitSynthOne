@@ -21,7 +21,7 @@ public class MorphSelectorStyleKit : NSObject {
         //// Color Declarations
         let selected = UIColor(red: 0.929, green: 0.533, blue: 0.000, alpha: 1.000)
         let unselected = UIColor(red: 0.533, green: 0.533, blue: 0.533, alpha: 1.000)
-        let selectedBG = UIColor(red: 0.243, green: 0.243, blue: 0.263, alpha: 0.250)
+        let selectedBG = UIColor(red: 0.243, green: 0.243, blue: 0.263, alpha: 0.350)
 
         //// Variable Declarations
         let color1 = value <= 0.25 ? selected : unselected
@@ -35,6 +35,12 @@ public class MorphSelectorStyleKit : NSObject {
 
 
         //// background Drawing
+
+
+        //// Chosen Area Drawing
+        let chosenAreaPath = UIBezierPath(rect: CGRect(x: xValue, y: 4.5, width: 40.5, height: (height - 10)))
+        selectedBG.setFill()
+        chosenAreaPath.fill()
 
 
         //// Triangle Drawing
@@ -90,12 +96,6 @@ public class MorphSelectorStyleKit : NSObject {
         color4.setStroke()
         sawtoothPath.lineWidth = 2
         sawtoothPath.stroke()
-
-
-        //// Chosen Area Drawing
-        let chosenAreaPath = UIBezierPath(rect: CGRect(x: xValue, y: 4.5, width: 40.5, height: (height - 10)))
-        selectedBG.setFill()
-        chosenAreaPath.fill()
     }
 
 }

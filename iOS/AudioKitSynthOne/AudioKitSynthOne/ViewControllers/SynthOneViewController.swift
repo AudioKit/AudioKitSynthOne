@@ -129,6 +129,7 @@ public class SynthOneViewController: UIViewController {
         octaveStepper.maxValue = 4
         
         // Make bluetooth button look pretty
+        bluetoothButton.centerPopupIn(view: view)
         bluetoothButton.layer.cornerRadius = 2
         bluetoothButton.layer.borderWidth = 1
         

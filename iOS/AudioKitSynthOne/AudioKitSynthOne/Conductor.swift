@@ -53,7 +53,7 @@ class Conductor {
             guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int(address))
                 else {
                     return
-
+                    
             }
             for vc in viewControllers {
                 if !vc.isKind(of: HeaderViewController.self) {

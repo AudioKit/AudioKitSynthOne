@@ -248,6 +248,7 @@
 		945C3A0E1F31428B0086D58B /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
 		945C3A0F1F3143A00086D58B /* SeqViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeqViewController.swift; sourceTree = "<group>"; };
 		9468E2791F2827AC00C60B1B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		94780FEF1F9B0108006D3710 /* AudioKitSynthOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudioKitSynthOne.entitlements; sourceTree = "<group>"; };
 		947956A51F329AB100FE5D9B /* StepperStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperStyleKit.swift; sourceTree = "<group>"; };
 		947956A61F329AB100FE5D9B /* ArpDirectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpDirectionButton.swift; sourceTree = "<group>"; };
 		947956A71F329AB100FE5D9B /* ArpDirectionStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpDirectionStyleKit.swift; sourceTree = "<group>"; };
@@ -550,6 +551,7 @@
 		C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */ = {
 			isa = PBXGroup;
 			children = (
+				94780FEF1F9B0108006D3710 /* AudioKitSynthOne.entitlements */,
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
 				9403F29E1F671AAD00320FCC /* Data */,
 				C4F7ECB91F244AD40011B119 /* Extensions */,
@@ -665,6 +667,14 @@
 						DevelopmentTeam = K3JX989Q2W;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

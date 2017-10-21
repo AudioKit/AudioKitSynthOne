@@ -34,7 +34,7 @@ public class HeaderViewController: UpdatableViewController {
                     _ d: AKSynthOneParameter,
                     _ s: AKSynthOneParameter,
                     _ r: AKSynthOneParameter) -> String {
-        return  "A: \(conductor.synth.parameters[a.rawValue].decimalString) " +
+        return "A: \(conductor.synth.parameters[a.rawValue].decimalString) " +
             "D: \(conductor.synth.parameters[d.rawValue].decimalString) " +
             "S: \(conductor.synth.parameters[s.rawValue].percentageString) " +
         "R: \(conductor.synth.parameters[r.rawValue].decimalString) "
@@ -49,12 +49,12 @@ public class HeaderViewController: UpdatableViewController {
         tap.numberOfTapsRequired = 1
         displayLabel.addGestureRecognizer(tap)
         displayLabel.isUserInteractionEnabled = true
-        
+        super.viewDidLoad()
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
         super.updateUI(param, value: value)
-        
+      
         switch param {
         case .morph1SemitoneOffset:
             displayLabel.text = "DCO1: \(value) semitones"

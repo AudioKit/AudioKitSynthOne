@@ -164,7 +164,8 @@ public class SynthOneViewController: UIViewController {
     
     func setupCallbacks() {
         
-        conductor.bind(monoButton, to: AKSynthOneParameter.isMono)
+//
+        //conductor.bind(monoButton, to: AKSynthOneParameter.isMono)
         
         octaveStepper.callback = { value in
             self.keyboardView.firstOctave = Int(value) + 2
@@ -174,11 +175,10 @@ public class SynthOneViewController: UIViewController {
             self.configKeyboardButton.value = 0
             self.performSegue(withIdentifier: "SegueToKeyboardPopOver", sender: self)
         }
-        
+       
         midiButton.callback = { _ in
             self.midiButton.value = 0
             self.performSegue(withIdentifier: "SegueToMIDIPopOver", sender: self)
-            
         }
         
         holdButton.callback = { value in
@@ -187,11 +187,12 @@ public class SynthOneViewController: UIViewController {
                 self.stopAllNotes()
             }
         }
-        /*
-        monoToggle.callback = { value in
-            self.keyboardView.polyphonicMode = !self.monoToggle.isSelected
+     
+        monoButton.callback = { value in
+            self.keyboardView.polyphonicMode = !self.monoButton.isSelected
+            self.conductor.synth.parameters[AKSynthOneParameter.isMono.rawValue] = value
         }
-        */
+      
         keyboardToggle.callback = { value in
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
@@ -497,7 +498,7 @@ extension SynthOneViewController: BottomEmbeddedViewsDelegate {
         // Update NavButtons
         
         // Get all Child Synth Panels
-        let synthPanels: [SynthPanelController] = childViewControllers.filter({ $0 is SynthPanelController }) as! [SynthPanelController]
+        let synthPanels = childViewControllers.filter { $0 is SynthPanelController } as! [SynthPanelController]
         // Get current Top and Bottom Panels
         let topPanel = synthPanels.filter { $0.isTopContainer }.last
         let bottomPanel = synthPanels.filter { !$0.isTopContainer}.last

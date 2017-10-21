@@ -19,7 +19,6 @@ public class LFOPickerStyleKit : NSObject {
 
     @objc dynamic public class func drawLFOWaveformPicker(fraction: CGFloat = 0) {
         //// Color Declarations
-        let color = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
         let selected = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)
         let unselected = UIColor(red: 0.533, green: 0.533, blue: 0.533, alpha: 1.000)
 
@@ -30,10 +29,9 @@ public class LFOPickerStyleKit : NSObject {
         let color4 = fraction > 0.85 && fraction <= 1 ? selected : unselected
 
         //// background Drawing
-        let backgroundPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 215, height: 42))
-        color.setFill()
-        backgroundPath.fill()
-
+        //let backgroundPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 215, height: 42))
+        //color.setFill()
+        //backgroundPath.fill()
 
         //// Square Drawing
         let squarePath = UIBezierPath()

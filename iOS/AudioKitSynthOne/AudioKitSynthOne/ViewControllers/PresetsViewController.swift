@@ -71,13 +71,6 @@ class PresetsViewController: UIViewController {
         // Set Initial Cateogry & Preset
         resetCategoryToAll()
       
-        // Make buttons pretty
-        // newButton.layer.borderWidth = 1
-        //newButton.layer.cornerRadius = 6
-        //importButton.layer.borderWidth = 1
-        //importButton.layer.cornerRadius = 6
-        //reorderButton.layer.borderWidth = 1
-        //reorderButton.layer.cornerRadius = 6
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -90,20 +83,21 @@ class PresetsViewController: UIViewController {
     
     func sortPresets() {
         switch categoryIndex {
+        
+        // all presets, sort by preset #
         case 0:
-            // all presets
             sortedPresets = presets.sorted { $0.position < $1.position }
-            
+        
+        // Sort by Categories
         case 1...PresetCategory.numCategories:
-            // Sort by category
             sortedPresets = presets.filter { $0.category == categoryIndex }
             
+        // Sort by Favorites
         case PresetCategory.numCategories + 1:
-            // Favorites
             sortedPresets = presets.filter { $0.isFavorite }
-            
+        
+        // Sorty by User created/modified presets
         case PresetCategory.numCategories + 2:
-            // User created/modified presets
             sortedPresets = presets.filter { $0.isUser }
             
         default:
@@ -122,7 +116,7 @@ class PresetsViewController: UIViewController {
     
     func loadDefaultPresets() {
         if let filePath = Bundle.main.path(forResource: "presets1", ofType:"json") {
-            let data = try? NSData(contentsOfFile:filePath, options: NSData.ReadingOptions.uncached) as Data
+            let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
             parsePresetsFromData(data: data!)
         }
     }
@@ -172,7 +166,6 @@ class PresetsViewController: UIViewController {
     }
     
     func selectCurrentPreset() {
-        
         // No preset is selected, select first one
         guard presets.index(where: {$0 === currentPreset}) != nil else {
             currentPreset = presets[0]
@@ -211,7 +204,6 @@ class PresetsViewController: UIViewController {
         present(documentPicker, animated: true, completion: nil)
     }
     
-    
     @IBAction func reorderPressed(_ sender: UIButton) {
         tableView.isEditing = !tableView.isEditing
         
@@ -237,7 +229,6 @@ class PresetsViewController: UIViewController {
     @IBAction func resetPresetsPressed(_ sender: UIButton) {
         
         // prompt user if they want to do it, suggest they export user presets first
-        
         // reset to factory defaults
         loadDefaultPresets()
         saveAllPresets()

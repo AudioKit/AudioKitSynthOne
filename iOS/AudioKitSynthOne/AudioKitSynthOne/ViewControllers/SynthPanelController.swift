@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Handles the Left/Right Navigation between Synth Panels
+
 class SynthPanelController: UpdatableViewController {
     
     @IBOutlet weak var nav1Button: NavButton!

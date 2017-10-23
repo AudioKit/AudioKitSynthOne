@@ -149,8 +149,8 @@ public class SynthOneViewController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
        
         // Set initial subviews
-        switchToChildView(.oscView)
-        switchToBottomChildView(.adsrView)
+        switchToChildView(.oscView, isTopView: true)
+        switchToChildView(.adsrView, isTopView: false)
         
         // Hide Keyboard on load
         keyboardToggle.isSelected = false
@@ -320,72 +320,26 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
             add(asChildViewController: adsrViewController, isTopContainer: isTopView)
             adsrViewController.navDelegate = self
             adsrViewController.isTopContainer = isTopView
-            adsrViewController.viewType = .adsrView
         case .oscView:
             add(asChildViewController: mixerViewController, isTopContainer: isTopView)
             mixerViewController.navDelegate = self
             mixerViewController.isTopContainer = isTopView
-            mixerViewController.viewType = .oscView
         case .padView:
             add(asChildViewController: padViewController, isTopContainer: isTopView)
             padViewController.navDelegate = self
             padViewController.isTopContainer = isTopView
-            padViewController.viewType = .padView
         case .fxView:
             add(asChildViewController: fxViewController, isTopContainer: isTopView)
             fxViewController.navDelegate = self
             fxViewController.isTopContainer = isTopView
-            fxViewController.viewType = .fxView
         case .seqView:
             add(asChildViewController: seqViewController, isTopContainer: isTopView)
             seqViewController.navDelegate = self
             seqViewController.isTopContainer = isTopView
-            seqViewController.viewType = .seqView
         }
         
         // Update panel navigation
         if isTopView { isPresetsDisplayed = false }
-        updatePanelNav()
-    }
-    
-}
-
-extension SynthOneViewController: BottomEmbeddedViewsDelegate {
-    
-    func switchToBottomChildView(_ newView: ChildView) {
-        // remove all child views
-        bottomContainerView.subviews.forEach({ $0.removeFromSuperview() }) 
-        
-        switch newView {
-        case .adsrView:
-            add(asChildViewController: adsrViewController, isTopContainer: false)
-            adsrViewController.navDelegateBottom = self
-            adsrViewController.isTopContainer = false
-            adsrViewController.viewType = .adsrView
-        case .oscView:
-            add(asChildViewController: mixerViewController, isTopContainer: false)
-            mixerViewController.navDelegateBottom = self
-            mixerViewController.isTopContainer = false
-            mixerViewController.viewType = .oscView
-        case .padView:
-            add(asChildViewController: padViewController, isTopContainer: false)
-            padViewController.navDelegateBottom = self
-            padViewController.isTopContainer = false
-            padViewController.viewType = .padView
-        case .fxView:
-            add(asChildViewController: fxViewController, isTopContainer: false)
-            fxViewController.navDelegateBottom = self
-            fxViewController.isTopContainer = false
-            fxViewController.viewType = .fxView
-            
-        case .seqView:
-            add(asChildViewController: seqViewController, isTopContainer: false)
-            seqViewController.navDelegateBottom = self
-            seqViewController.isTopContainer = false
-            seqViewController.viewType = .seqView
-        }
-        
-        // Update panel navigation
         updatePanelNav()
     }
     
@@ -403,12 +357,7 @@ extension SynthOneViewController: BottomEmbeddedViewsDelegate {
         bottomChildView = bottomPanel?.viewType
         bottomPanel?.updateNavButtons()
         topPanel?.updateNavButtons()
-        
-        // unwrap header
-        guard let headerVC = self.childViewControllers.first as? HeaderViewController else { return }
-        headerVC.updateHeaderNavButtons()
     }
-    
 }
 
 // **********************************************************

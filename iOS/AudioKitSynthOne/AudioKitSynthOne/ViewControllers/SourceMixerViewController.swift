@@ -43,8 +43,9 @@ class SourceMixerViewController: SynthPanelController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Defaults, limits
+        viewType = .oscView
         
+        // Defaults, limits
         cutoff.range = 120 ... 28000
         cutoff.taper = 4.04
         
@@ -90,17 +91,6 @@ class SourceMixerViewController: SynthPanelController {
         
         updateCallbacks()
         
-        // Visualization
-        /*
-        let plot = AKNodeFFTPlot(conductor.synth, frame: CGRect(x: 0, y: 0, width: 3000, height: 93))
-        plot.shouldFill = true
-        plot.shouldMirror = true
-        plot.shouldCenterYAxis = true
-        plot.color = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
-        
-        plot.gain = 20
-        displayContainer.addSubview(plot)
-        */
         let plot = AKNodeOutputPlot(conductor.synth, frame: CGRect(x: 0, y: 0, width: 172, height: 93))
         plot.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 0)
         plot.color = #colorLiteral(red: 0.9611048102, green: 0.509832561, blue: 0, alpha: 1)

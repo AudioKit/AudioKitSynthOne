@@ -27,16 +27,18 @@ class TouchPadViewController: SynthPanelController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewType = .padView
+        
         touchPad1.verticalRange = 0.5 ... 2
         touchPad1.verticalTaper = log(3) / log(2)
         
         touchPad2.verticalRange = 120 ... 28000
         touchPad2.verticalTaper = 4.04
-        
-        // snapToggle.isSelected = true
-        
+       
         updateCallbacks()
         createParticles()
+        
+        // snapToggle.isSelected = true
         
     }
     

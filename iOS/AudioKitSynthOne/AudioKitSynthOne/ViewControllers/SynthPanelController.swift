@@ -36,22 +36,12 @@ class SynthPanelController: UpdatableViewController {
         
         // Left Nav Button
         nav1Button.callback = { _ in
-            if self.isTopContainer {
-                self.navDelegate?.switchToChildView(self.leftView)
-            } else {
-                self.navDelegateBottom?.switchToBottomChildView(self.leftView)
-            }
+           self.navDelegate?.switchToChildView(self.leftView, isTopView: self.isTopContainer)
         }
         
         // Right Nav Button
         nav2Button.callback = { _ in
-            
-            if self.isTopContainer {
-                self.navDelegate?.switchToChildView(self.rightView)
-            } else {
-                self.navDelegateBottom?.switchToBottomChildView(self.rightView)
-            }
-            
+           self.navDelegate?.switchToChildView(self.rightView, isTopView: self.isTopContainer)
         }
     }
     

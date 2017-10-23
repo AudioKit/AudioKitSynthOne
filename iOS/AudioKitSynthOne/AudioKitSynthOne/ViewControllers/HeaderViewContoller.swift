@@ -17,12 +17,6 @@ protocol HeaderDelegate {
 }
 
 public class HeaderViewController: UpdatableViewController {
-
-    @IBOutlet weak var mainBtn: HeaderNavButton!
-    @IBOutlet weak var adsrBtn: HeaderNavButton!
-    @IBOutlet weak var seqBtn: HeaderNavButton!
-    @IBOutlet weak var padBtn: HeaderNavButton!
-    @IBOutlet weak var fxBtn: HeaderNavButton!
     
     @IBOutlet weak var displayLabel: UILabel!
     var headerNavBtns = [HeaderNavButton]()
@@ -41,9 +35,7 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     public override func viewDidLoad() {
-        headerNavBtns = [mainBtn, adsrBtn, padBtn, fxBtn, seqBtn]
-        setupBtnCallbacks()
-        
+       
         // Add Gesture Recognizer to Display Label
         let tap = UITapGestureRecognizer(target: self, action: #selector(HeaderViewController.displayLabelTapped))
         tap.numberOfTapsRequired = 1

@@ -37,6 +37,8 @@ class SeqViewController: SynthPanelController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewType = .seqView
+        
         // Set Knob Delegates
         setDelegates()
         

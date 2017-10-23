@@ -52,8 +52,10 @@ class FXViewController: SynthPanelController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        viewType = .fxView
+
+        /*
         // Set Default LFO routing
-/*
         bitCrush.value = 24
         bitCrush.range = 1 ... 24
         bitCrush.taper = 2

@@ -27,10 +27,10 @@ class ADSRViewController: SynthPanelController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
         filterADSRMixKnob.range = 0.0 ... 1.2
         attackKnob.range = 0.000001 ... 1
         releaseKnob.range = 0.004 ... 2.0
+        viewType = .adsrView
         
         conductor.bind(attackKnob,        to: .attackDuration)
         conductor.bind(decayKnob,         to: .decayDuration)

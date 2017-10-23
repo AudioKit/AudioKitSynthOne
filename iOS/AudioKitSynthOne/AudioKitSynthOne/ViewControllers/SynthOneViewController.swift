@@ -10,7 +10,7 @@ import UIKit
 import AudioKit
 
 protocol EmbeddedViewsDelegate {
-    func switchToChildView(_ newView: ChildView)
+    func switchToChildView(_ newView: ChildView, isTopView: Bool)
 }
 
 protocol BottomEmbeddedViewsDelegate {
@@ -306,40 +306,45 @@ extension SynthOneViewController: HeaderDelegate {
 
 extension SynthOneViewController: EmbeddedViewsDelegate {
     
-    func switchToChildView(_ newView: ChildView) {
+    func switchToChildView(_ newView: ChildView, isTopView: Bool = true) {
+        
         // remove all child views
-        topContainerView.subviews.forEach({ $0.removeFromSuperview() })
+        if isTopView {
+            topContainerView.subviews.forEach({ $0.removeFromSuperview() })
+        } else {
+            bottomContainerView.subviews.forEach({ $0.removeFromSuperview() })
+        }
         
         switch newView {
         case .adsrView:
-            add(asChildViewController: adsrViewController)
+            add(asChildViewController: adsrViewController, isTopContainer: isTopView)
             adsrViewController.navDelegate = self
-            adsrViewController.isTopContainer = true
+            adsrViewController.isTopContainer = isTopView
             adsrViewController.viewType = .adsrView
         case .oscView:
-            add(asChildViewController: mixerViewController)
+            add(asChildViewController: mixerViewController, isTopContainer: isTopView)
             mixerViewController.navDelegate = self
-            mixerViewController.isTopContainer = true
+            mixerViewController.isTopContainer = isTopView
             mixerViewController.viewType = .oscView
         case .padView:
-            add(asChildViewController: padViewController)
+            add(asChildViewController: padViewController, isTopContainer: isTopView)
             padViewController.navDelegate = self
-            padViewController.isTopContainer = true
+            padViewController.isTopContainer = isTopView
             padViewController.viewType = .padView
         case .fxView:
-            add(asChildViewController: fxViewController)
+            add(asChildViewController: fxViewController, isTopContainer: isTopView)
             fxViewController.navDelegate = self
-            fxViewController.isTopContainer = true
+            fxViewController.isTopContainer = isTopView
             fxViewController.viewType = .fxView
         case .seqView:
-            add(asChildViewController: seqViewController)
+            add(asChildViewController: seqViewController, isTopContainer: isTopView)
             seqViewController.navDelegate = self
-            seqViewController.isTopContainer = true
+            seqViewController.isTopContainer = isTopView
             seqViewController.viewType = .seqView
         }
         
         // Update panel navigation
-        isPresetsDisplayed = false
+        if isTopView { isPresetsDisplayed = false }
         updatePanelNav()
     }
     

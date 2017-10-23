@@ -16,7 +16,6 @@ protocol PresetCellDelegate {
     func favoritePressed()
 }
 
-
 class PresetCell: UITableViewCell {
     
     // *********************************************************

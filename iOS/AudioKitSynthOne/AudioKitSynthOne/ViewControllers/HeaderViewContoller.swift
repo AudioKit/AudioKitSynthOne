@@ -167,40 +167,7 @@ public class HeaderViewController: UpdatableViewController {
         }
         displayLabel.setNeedsDisplay()
     }
-   
-    // ********************************************************
-    // MARK: - IBActions
-    // ********************************************************
     
-    func setupBtnCallbacks() {
-        
-        mainBtn.callback = { _ in
-            self.delegate?.switchToChildView(.oscView)
-            self.updateHeaderNavButtons()
-        }
-        
-        adsrBtn.callback = { _ in
-            self.delegate?.switchToChildView(.adsrView)
-            self.updateHeaderNavButtons()
-        }
-        
-        seqBtn.callback = { _ in
-            self.delegate?.switchToChildView(.seqView)
-             self.updateHeaderNavButtons()
-        }
-        
-        padBtn.callback = { _ in
-            self.delegate?.switchToChildView(.padView)
-            self.updateHeaderNavButtons()
-        }
-        
-        fxBtn.callback = { _ in
-            self.delegate?.switchToChildView(.fxView)
-            self.updateHeaderNavButtons()
-        }
-    }
-    
-  
     func displayLabelTapped() {
         headerDelegate?.displayLabelTapped()
     }
@@ -222,15 +189,16 @@ public class HeaderViewController: UpdatableViewController {
         for note in 0...127 {
             conductor.synth.stop(noteNumber: MIDINoteNumber(note))
         }
-        
-        // TODO: Update Keyboard, release keys
 
     }
+    
     // ********************************************************
     // MARK: - Helper
     // ********************************************************
-    
+    /*
+    // Header nav buttons
     func updateHeaderNavButtons() {
+     
         guard let parentController = self.parent as? SynthOneViewController else { return }
         guard let topView = parentController.topChildView else { return }
         guard let bottomView = parentController.bottomChildView else { return }
@@ -240,7 +208,9 @@ public class HeaderViewController: UpdatableViewController {
         
         headerNavBtns[topView.rawValue].isSelected = true
         headerNavBtns[bottomView.rawValue].isEnabled = false
+       
     }
+    */
     
     
 }

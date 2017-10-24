@@ -228,7 +228,8 @@ public class SynthOneViewController: UIViewController {
             
             popOverController.preferredContentSize = CGSize(width: 300, height: 240)
             if let presentation = popOverController.popoverPresentationController {
-                presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+                presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
+                presentation.sourceRect = configKeyboardButton.bounds
             }
         }
         
@@ -238,7 +239,8 @@ public class SynthOneViewController: UIViewController {
             // popOverController.modWheelDestination = ??
             popOverController.preferredContentSize = CGSize(width: 300, height: 320)
             if let presentation = popOverController.popoverPresentationController {
-                presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+                presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
+                presentation.sourceRect = midiButton.bounds
             }
         }
     }
@@ -256,10 +258,7 @@ public class SynthOneViewController: UIViewController {
             viewController.view.frame = bottomContainerView.bounds
         }
         
-        // Configure Child View
         viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        // Notify Child View Controller
         viewController.didMove(toParentViewController: self)
     }
     

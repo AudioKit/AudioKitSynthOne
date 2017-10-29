@@ -57,7 +57,9 @@ extension SynthOneViewController {
         
         conductor.synth.parameters[AKSynthOneParameter.reverbOn.rawValue] = activePreset.reverbToggled
         conductor.synth.parameters[AKSynthOneParameter.reverbFeedback.rawValue] = activePreset.reverbFeedback
-        conductor.synth.parameters[AKSynthOneParameter.reverbHighPass.rawValue] = activePreset.reverbFeedback
+        
+        conductor.synth.parameters[AKSynthOneParameter.reverbHighPass.rawValue] = activePreset.reverbHighPass
+        
         conductor.synth.parameters[AKSynthOneParameter.reverbMix.rawValue] = activePreset.reverbMix
         
         conductor.synth.parameters[AKSynthOneParameter.delayOn.rawValue] = activePreset.delayToggled
@@ -115,6 +117,7 @@ extension SynthOneViewController {
         activePreset.vcoBalance = conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue]
         activePreset.rez = conductor.synth.parameters[AKSynthOneParameter.resonance.rawValue]
         activePreset.cutoff = conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue]
+        ///TODO:Why is savePreset commented out?  Because this method is not fleshed out?
         //presetsViewController.savePreset(activePreset)
     }
 }

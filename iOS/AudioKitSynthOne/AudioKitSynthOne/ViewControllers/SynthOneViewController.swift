@@ -52,49 +52,42 @@ public class SynthOneViewController: UIViewController {
     lazy var adsrViewController: ADSRViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier()) as! ADSRViewController
-        self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var mixerViewController: SourceMixerViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier()) as! SourceMixerViewController
-        self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var devViewController: SettingsViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: "DevViewController") as! SettingsViewController
-        self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var padViewController: TouchPadViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.padView.identifier()) as! TouchPadViewController
-        self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var fxViewController: FXViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier()) as! FXViewController
-        self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var seqViewController: SeqViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier()) as! SeqViewController
-        self.add(asChildViewController: viewController)
         return viewController
     }()
     
     fileprivate lazy var presetsViewController: PresetsViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
-        self.add(asChildViewController: viewController)
         return viewController
     }()
     

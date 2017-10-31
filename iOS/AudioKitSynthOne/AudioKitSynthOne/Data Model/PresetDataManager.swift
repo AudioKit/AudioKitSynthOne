@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AudioKit
 
 extension SynthOneViewController {
     // **********************************************************
@@ -87,6 +88,14 @@ extension SynthOneViewController {
         conductor.synth.parameters[AKSynthOneParameter.pitchLFO.rawValue] = activePreset.pitchLFO
         conductor.synth.parameters[AKSynthOneParameter.bitcrushLFO.rawValue] = activePreset.bitcrushLFO
         conductor.synth.parameters[AKSynthOneParameter.autopanLFO.rawValue] = activePreset.autopanLFO
+        
+        ///TODO:Remove this logging after validating Preset
+        AKLog("----------------------------------------------------------------------")
+        AKLog("Preset #\(activePreset.position) \(activePreset.name)")
+        for i in 0..<60 {
+            let sd = AKSynthOneParameter(rawValue: i)?.simpleDescription() ?? ""
+            AKLog("conductor.synth.parameters[\(i)] = \(sd) = \(conductor.synth.parameters[i])")
+        }
         
         // Arp
         activeArp.beatCounter = 0

@@ -19,7 +19,7 @@ class Conductor {
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
 
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter) {
-        bindings.append(param, control)
+        bindings.append((param, control))
     }
 
     var changeParameter: (AKSynthOneParameter)->((_: Double) -> Void)  = { _ in
@@ -38,6 +38,8 @@ class Conductor {
     func start() {
         synth = AKSynthOne()
         synth.rampTime = 0.0 // Handle ramping internally instead of the ramper hack
+        _ = AKPolyphonicNode.tuningTable.defaultTuning() // this is the place to change the default tuning.
+        //_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav()
         AudioKit.output = synth
         AudioKit.start()
     }

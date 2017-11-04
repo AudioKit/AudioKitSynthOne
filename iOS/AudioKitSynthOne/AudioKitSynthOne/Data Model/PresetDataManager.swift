@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AudioKit
 
 extension SynthOneViewController {
     // **********************************************************
@@ -57,7 +58,9 @@ extension SynthOneViewController {
         
         conductor.synth.parameters[AKSynthOneParameter.reverbOn.rawValue] = activePreset.reverbToggled
         conductor.synth.parameters[AKSynthOneParameter.reverbFeedback.rawValue] = activePreset.reverbFeedback
-        conductor.synth.parameters[AKSynthOneParameter.reverbHighPass.rawValue] = activePreset.reverbFeedback
+        
+        conductor.synth.parameters[AKSynthOneParameter.reverbHighPass.rawValue] = activePreset.reverbHighPass
+        
         conductor.synth.parameters[AKSynthOneParameter.reverbMix.rawValue] = activePreset.reverbMix
         
         conductor.synth.parameters[AKSynthOneParameter.delayOn.rawValue] = activePreset.delayToggled
@@ -85,6 +88,14 @@ extension SynthOneViewController {
         conductor.synth.parameters[AKSynthOneParameter.pitchLFO.rawValue] = activePreset.pitchLFO
         conductor.synth.parameters[AKSynthOneParameter.bitcrushLFO.rawValue] = activePreset.bitcrushLFO
         conductor.synth.parameters[AKSynthOneParameter.autopanLFO.rawValue] = activePreset.autopanLFO
+        
+        ///TODO:Remove this logging after validating Preset
+        AKLog("----------------------------------------------------------------------")
+        AKLog("Preset #\(activePreset.position) \(activePreset.name)")
+        for i in 0..<60 {
+            let sd = AKSynthOneParameter(rawValue: i)?.simpleDescription() ?? ""
+            AKLog("conductor.synth.parameters[\(i)] = \(sd) = \(conductor.synth.parameters[i])")
+        }
         
         // Arp
         activeArp.beatCounter = 0
@@ -115,6 +126,7 @@ extension SynthOneViewController {
         activePreset.vcoBalance = conductor.synth.parameters[AKSynthOneParameter.morphBalance.rawValue]
         activePreset.rez = conductor.synth.parameters[AKSynthOneParameter.resonance.rawValue]
         activePreset.cutoff = conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue]
+        ///TODO:Why is savePreset commented out?  Because this method is not fleshed out?
         //presetsViewController.savePreset(activePreset)
     }
 }

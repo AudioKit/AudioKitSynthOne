@@ -17,7 +17,7 @@ protocol BottomEmbeddedViewsDelegate {
     func switchToBottomChildView(_ newView: ChildView)
 }
 
-public class SynthOneViewController: UIViewController {
+public class ParentViewController: UIViewController {
     
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var bottomContainerView: UIView!
@@ -147,7 +147,7 @@ public class SynthOneViewController: UIViewController {
         
         // Hide Keyboard on load
         keyboardToggle.isSelected = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             self.keyboardToggle.callback(0.0)
         }
     }
@@ -269,7 +269,7 @@ public class SynthOneViewController: UIViewController {
 // MARK: - Embedded Views Delegate
 // **********************************************************
 
-extension SynthOneViewController: HeaderDelegate {
+extension ParentViewController: HeaderDelegate {
     
     func displayLabelTapped() {
         if !isPresetsDisplayed {
@@ -296,7 +296,7 @@ extension SynthOneViewController: HeaderDelegate {
 // MARK: - Embedded Views Delegate
 // **********************************************************
 
-extension SynthOneViewController: EmbeddedViewsDelegate {
+extension ParentViewController: EmbeddedViewsDelegate {
     
     func switchToChildView(_ newView: ChildView, isTopView: Bool = true) {
         
@@ -356,7 +356,7 @@ extension SynthOneViewController: EmbeddedViewsDelegate {
 // MARK: - Keyboard Pop Over Delegate
 // **********************************************************
 
-extension SynthOneViewController: KeyboardPopOverDelegate {
+extension ParentViewController: KeyboardPopOverDelegate {
     
     func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool) {
         keyboardView.octaveCount = octaveRange
@@ -370,7 +370,7 @@ extension SynthOneViewController: KeyboardPopOverDelegate {
 // MARK: - Keyboard Delegate Note on/off
 // **********************************************************
 
-extension SynthOneViewController: AKKeyboardDelegate {
+extension ParentViewController: AKKeyboardDelegate {
     
     public func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity = 127) {
         conductor.synth.play(noteNumber: note, velocity: velocity)
@@ -387,7 +387,7 @@ extension SynthOneViewController: AKKeyboardDelegate {
 // MARK: - AKMIDIListener protocol functions
 // **********************************************************
 
-extension SynthOneViewController: AKMIDIListener  {
+extension ParentViewController: AKMIDIListener  {
     
     public func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
         

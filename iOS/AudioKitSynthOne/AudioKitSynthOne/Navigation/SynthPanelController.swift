@@ -50,7 +50,7 @@ class SynthPanelController: UpdatableViewController {
         leftView = viewType.leftView()
         rightView = viewType.rightView()
         
-        guard let parentController = self.parent as? SynthOneViewController else { return }
+        guard let parentController = self.parent as? ParentViewController else { return }
         
         if leftView == parentController.topChildView || leftView == parentController.bottomChildView {
             leftView = leftView.leftView()

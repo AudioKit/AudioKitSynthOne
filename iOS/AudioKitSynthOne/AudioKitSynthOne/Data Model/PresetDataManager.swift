@@ -9,7 +9,7 @@
 import Foundation
 import AudioKit
 
-extension SynthOneViewController {
+extension ParentViewController {
     // **********************************************************
     // MARK: - Preset Load/Save
     // **********************************************************
@@ -136,7 +136,7 @@ extension SynthOneViewController {
 // MARK: - Presets Delegate
 // **************************************************
 
-extension SynthOneViewController: PresetsDelegate {
+extension ParentViewController: PresetsDelegate {
     
     func presetDidChange(_ newActivePreset: Preset) {
         activePreset = newActivePreset

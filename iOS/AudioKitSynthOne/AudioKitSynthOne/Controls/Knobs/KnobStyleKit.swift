@@ -115,7 +115,7 @@ public class KnobStyleKit : NSObject {
         context.translateBy(x: 59, y: 59)
         context.rotate(by: -(knobAngle - 240) * CGFloat.pi/180)
 
-        let indicatorPath = UIBezierPath(rect: CGRect(x: -3, y: -45, width: 6, height: 20))
+        let indicatorPath = UIBezierPath(rect: CGRect(x: -3, y: -45, width: 6, height: 30))
         context.saveGState()
         context.setShadow(offset: CGSize(width: shadow4.shadowOffset.width * resizedShadowScale, height: shadow4.shadowOffset.height * resizedShadowScale), blur: shadow4.shadowBlurRadius * resizedShadowScale, color: (shadow4.shadowColor as! UIColor).cgColor)
         orange2.setFill()

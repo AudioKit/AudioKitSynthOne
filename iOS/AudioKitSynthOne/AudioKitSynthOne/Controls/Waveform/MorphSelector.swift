@@ -42,7 +42,7 @@ class MorphSelector: UIView, AKSynthOneControl {
             let touchLocation = touch.location(in: self)
             value = Double(touchLocation.x / self.frame.width)
             callback(value)
-            print("Morph \(value.decimalString)")
+            //print("Morph \(value.decimalString)")
         }
         setNeedsDisplay()
     }

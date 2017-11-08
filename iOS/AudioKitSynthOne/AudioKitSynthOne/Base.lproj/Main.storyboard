@@ -616,11 +616,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1an-zb-3lC" customClass="FlatToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="732" y="218" width="36" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -1999,7 +1994,7 @@
                                     <segment title="2"/>
                                     <segment title="3"/>
                                 </segments>
-                                <color key="tintColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="octaveRangeDidChange:" destination="9qI-Vs-eLW" eventType="valueChanged" id="gH5-od-8iO"/>
                                 </connections>
@@ -2012,7 +2007,7 @@
                                     <segment title="Oct"/>
                                     <segment title="All"/>
                                 </segments>
-                                <color key="tintColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="keyLabelDidChange:" destination="9qI-Vs-eLW" eventType="valueChanged" id="CyH-Oq-NE5"/>
                                 </connections>
@@ -2031,7 +2026,7 @@
                                     <segment title="White"/>
                                     <segment title="Dark"/>
                                 </segments>
-                                <color key="tintColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="keyboardModeDidChange:" destination="9qI-Vs-eLW" eventType="valueChanged" id="ePM-4J-ESC"/>
                                 </connections>

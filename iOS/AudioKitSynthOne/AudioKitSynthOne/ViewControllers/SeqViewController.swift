@@ -8,6 +8,7 @@
 
 
 import UIKit
+import AudioKit
 
 protocol SeqControllerDelegate {
     func arpValueDidChange(_ arpeggiator: Arpeggiator)
@@ -118,27 +119,27 @@ class SeqViewController: SynthPanelController {
         
         // Arp Direction Button
         arpDirectionButton.callback = { value in
-            print("Arp Direction Update: \(value)")
+            AKLog("Arp Direction Update: \(value)")
         }
         
         // Total Seq Steps
         seqStepsStepper.callback = { value in
-            print("Seq Stepper Update: \(value)")
+            AKLog("Seq Stepper Update: \(value)")
         }
         
         // Octave Stepper
         octaveStepper.callback = { value in
-            print("Oct Stepper Update: \(value)")
+            AKLog("Oct Stepper Update: \(value)")
         }
         
         // Arp/Seq Toggle
         arpSeqToggle.callback = { value in
-            print("Arp/Seq Toggle: \(value)")
+            AKLog("Arp/Seq Toggle: \(value)")
         }
         
         // Arp Interval
         arpInterval.callback = { value in
-            print("Arp Interval: \(value)")
+            AKLog("Arp Interval: \(value)")
         }
         
         // Slider
@@ -148,7 +149,7 @@ class SeqViewController: SynthPanelController {
                 slider.callback = { value in
                     let notePosition = Int(tag) - self.sliderTags.lowerBound
                     
-                    // print("Slider changed, \(notePosition): \(value)")
+                    // AKLog("Slider changed, \(notePosition): \(value)")
                     self.setSequencerNote(notePosition, transposeAmt: Int(value))
                     self.updateTransposeBtn(notePosition: notePosition)
                 }
@@ -162,7 +163,7 @@ class SeqViewController: SynthPanelController {
                 toggle.callback = { value in
                     let notePosition = Int(tag) - self.sliderToggleTags.lowerBound
                     self.arpeggiator.seqNoteOn[notePosition] = value == 1.0 ? true : false
-                    print("notePosition \(notePosition), value \(value)")
+                    AKLog("notePosition \(notePosition), value \(value)")
                 }
             }
         }

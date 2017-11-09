@@ -103,7 +103,7 @@ class Preset: Codable {
     var isFavorite = false
     
     // LFO Routings
-    var cutoffLFO = 1.0
+    var cutoffLFO = 0.0
     var resonanceLFO = 0.0
     var oscMixLFO = 0.0
     var sustainLFO = 0.0

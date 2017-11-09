@@ -131,7 +131,6 @@ public enum AKSynthOneParameter: Int {
         case .pitchLFO: return "pitchLFO"
         case .bitcrushLFO: return "bitcrushLFO"
         case .autopanLFO: return "autopanLFO"
-//        default: return String(self.rawValue)
         }
     }
     

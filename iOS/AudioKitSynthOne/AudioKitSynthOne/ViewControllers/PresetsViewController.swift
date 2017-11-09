@@ -10,6 +10,7 @@ import UIKit
 import MobileCoreServices
 import Disk
 import CloudKit
+import AudioKit
 
 protocol PresetsDelegate {
     func presetDidChange(_ activePreset: Preset)
@@ -110,7 +111,7 @@ class PresetsViewController: UIViewController {
             let retrievedPresetData = try Disk.retrieve("presets.json", from: .documents, as: Data.self)
             parsePresetsFromData(data: retrievedPresetData)
         } catch {
-            print("*** error loading")
+            AKLog("*** error loading")
         }
     }
     
@@ -134,7 +135,7 @@ class PresetsViewController: UIViewController {
             try Disk.save(presets, to: .documents, as: "presets.json")
             sortPresets()
         } catch {
-            print("error saving")
+            AKLog("error saving")
         }
     }
     
@@ -161,7 +162,7 @@ class PresetsViewController: UIViewController {
                 presetsDelegate?.presetDidChange(activePreset)
             }
         } catch {
-            print("error saving")
+            AKLog("error saving")
         }
     }
     
@@ -413,7 +414,7 @@ extension PresetsViewController: PresetCellDelegate {
             saveAllPresets()
             
         } catch {
-            print("error duplicating")
+            AKLog("error duplicating")
         }
     }
     
@@ -479,8 +480,8 @@ extension PresetsViewController: PresetPopOverDelegate {
 extension PresetsViewController: UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-        print("****")
-        print(url)
+        AKLog("****")
+        AKLog("\(url)")
         do {
             let retrievedPresetData = try Data(contentsOf: url)
             
@@ -491,13 +492,13 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                 presets.append(importedPreset)
                 currentPreset = importedPreset
                 saveAllPresets()
-                print("*** preset loaded")
+                AKLog("*** preset loaded")
             } else {
-                print("*** error parsing preset")
+                AKLog("*** error parsing preset")
             }
             
         } catch {
-            print("*** error loading")
+            AKLog("*** error loading")
         }
     }
 }

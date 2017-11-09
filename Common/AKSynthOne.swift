@@ -8,8 +8,7 @@
 
 import AudioKit
 
-/// Pulse-Width Modulating Oscillator Bank
-///
+///AKSynthOne
 open class AKSynthOne: AKPolyphonicNode, AKComponent {
     public typealias AKAudioUnitType = AKSynthOneAudioUnit
     /// Four letter unique description of the node
@@ -27,6 +26,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
         get {
             var result: [Double] = []
             if let floatParameters = internalAU?.parameters as? [NSNumber] {
+                //AKLog("getter recreates array of 60 params")
                 for number in floatParameters {
                     result.append(number.doubleValue)
                 }
@@ -35,19 +35,26 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
         }
         set {
             internalAU?.parameters = newValue
-
+            
             if internalAU?.isSetUp() ?? false {
-                    if let existingToken = token {
-                        for (index, parameter) in auParameters.enumerated() {
-                            if Double(parameter.value) != newValue[index] {
-                                parameter.setValue(Float(newValue[index]), originator: existingToken)
-                            }
+                if let existingToken = token {
+//                    var numChanged = 0
+                    for (index, parameter) in auParameters.enumerated() {
+                        if Double(parameter.value) != newValue[index] {
+                            parameter.setValue( Float( newValue[index]), originator: existingToken)
+//                            numChanged += 1
+//                            let desc = AKSynthOneParameter.desc(forRawValue: index)
+//                            AKLog(" #\(index): \(desc): *\(newValue[index])")
                         }
                     }
-                } else {
-                    AKLog("Setting directly")
-                    internalAU?.parameters = newValue
+//                    if numChanged > 1 {
+//                        AKLog("\(numChanged) of \(auParameters.count) changed--------------------------------------\n")
+//                    }
                 }
+            } else {
+//                AKLog("Setting directly")
+                internalAU?.parameters = newValue
+            }
         }
     }
 

@@ -39,7 +39,7 @@ class Conductor {
         synth = AKSynthOne()
         synth.rampTime = 0.0 // Handle ramping internally instead of the ramper hack
         _ = AKPolyphonicNode.tuningTable.defaultTuning() // this is the place to change the default tuning.
-        //_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav()
+        //_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav() //uncomment to hear a microtonal scale
         AudioKit.output = synth
         AudioKit.start()
     }

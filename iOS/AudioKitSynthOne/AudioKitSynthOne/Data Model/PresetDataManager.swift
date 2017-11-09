@@ -15,12 +15,19 @@ extension ParentViewController {
     // **********************************************************
     
     func loadPreset() {
+//        #if true
+//            AKLog("BEGIN----------------------------------------------------------------------")
+//            AKLog("Preset #\(activePreset.position) \(activePreset.name)")
+//        #endif
+        
+
         conductor.synth.parameters[AKSynthOneParameter.masterVolume.rawValue] = activePreset.masterVolume
         conductor.synth.parameters[AKSynthOneParameter.isMono.rawValue] = activePreset.isMono
         conductor.synth.parameters[AKSynthOneParameter.glide.rawValue] = activePreset.glide
         
-        conductor.synth.parameters[AKSynthOneParameter.index1.rawValue] = activePreset.waveform1
-        conductor.synth.parameters[AKSynthOneParameter.index2.rawValue] = activePreset.waveform2
+        ///TODO: NEED TO VALIDATE RANGE OF index1, index2 VS. waveform1, waveform2
+        conductor.synth.parameters[AKSynthOneParameter.index1.rawValue] = activePreset.waveform1/4.0
+        conductor.synth.parameters[AKSynthOneParameter.index2.rawValue] = activePreset.waveform2/4.0
         
         conductor.synth.parameters[AKSynthOneParameter.morph1SemitoneOffset.rawValue] = activePreset.vco1Semitone
         conductor.synth.parameters[AKSynthOneParameter.morph2SemitoneOffset.rawValue] = activePreset.vco2Semitone
@@ -89,13 +96,12 @@ extension ParentViewController {
         conductor.synth.parameters[AKSynthOneParameter.bitcrushLFO.rawValue] = activePreset.bitcrushLFO
         conductor.synth.parameters[AKSynthOneParameter.autopanLFO.rawValue] = activePreset.autopanLFO
         
-        ///TODO:Remove this logging after validating Preset
-        AKLog("----------------------------------------------------------------------")
-        AKLog("Preset #\(activePreset.position) \(activePreset.name)")
-        for i in 0..<60 {
-            let sd = AKSynthOneParameter(rawValue: i)?.simpleDescription() ?? ""
-            AKLog("conductor.synth.parameters[\(i)] = \(sd) = \(conductor.synth.parameters[i])")
-        }
+//        AKLog("----------------------------------------------------------------------")
+//        AKLog("Preset #\(activePreset.position) \(activePreset.name)")
+//        for i in 0..<60 {
+//            let sd = AKSynthOneParameter(rawValue: i)?.simpleDescription() ?? ""
+//            AKLog("conductor.synth.parameters[\(i)] = \(sd) = \(conductor.synth.parameters[i])")
+//        }
         
         // Arp
         activeArp.beatCounter = 0
@@ -120,6 +126,8 @@ extension ParentViewController {
         // filterMix = 18,
         // tempoSync
         // octave position
+        
+//        AKLog("END----------------------------------------------------------------------")
     }
     
     func saveValuesToPreset() {

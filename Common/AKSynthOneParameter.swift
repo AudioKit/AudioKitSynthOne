@@ -67,7 +67,63 @@ public enum AKSynthOneParameter: Int {
     filterEnvLFO = 56,
     pitchLFO = 57,
     bitcrushLFO = 58,
-    autopanLFO = 59
+    autopanLFO = 59,
+    arpDirection = 60,
+    arpInterval = 61,
+    arpIsOn = 62,
+    arpOctave = 63,
+    arpRate = 64,
+    arpIsSequencer = 65,
+    arpTotalSteps = 66,
+    arpSeqPattern00 = 67,
+    arpSeqPattern01 = 68,
+    arpSeqPattern02 = 69,
+    arpSeqPattern03 = 70,
+    arpSeqPattern04 = 71,
+    arpSeqPattern05 = 72,
+    arpSeqPattern06 = 73,
+    arpSeqPattern07 = 74,
+    arpSeqPattern08 = 75,
+    arpSeqPattern09 = 76,
+    arpSeqPattern10 = 77,
+    arpSeqPattern11 = 78,
+    arpSeqPattern12 = 79,
+    arpSeqPattern13 = 80,
+    arpSeqPattern14 = 81,
+    arpSeqPattern15 = 82,
+    arpSeqOctBoost00 = 83,
+    arpSeqOctBoost01 = 84,
+    arpSeqOctBoost02 = 85,
+    arpSeqOctBoost03 = 86,
+    arpSeqOctBoost04 = 87,
+    arpSeqOctBoost05 = 88,
+    arpSeqOctBoost06 = 89,
+    arpSeqOctBoost07 = 90,
+    arpSeqOctBoost08 = 91,
+    arpSeqOctBoost09 = 92,
+    arpSeqOctBoost10 = 93,
+    arpSeqOctBoost11 = 94,
+    arpSeqOctBoost12 = 95,
+    arpSeqOctBoost13 = 96,
+    arpSeqOctBoost14 = 97,
+    arpSeqOctBoost15 = 98,
+    arpSeqNoteOn00 = 99,
+    arpSeqNoteOn01 = 100,
+    arpSeqNoteOn02 = 101,
+    arpSeqNoteOn03 = 102,
+    arpSeqNoteOn04 = 103,
+    arpSeqNoteOn05 = 104,
+    arpSeqNoteOn06 = 105,
+    arpSeqNoteOn07 = 106,
+    arpSeqNoteOn08 = 107,
+    arpSeqNoteOn09 = 108,
+    arpSeqNoteOn10 = 109,
+    arpSeqNoteOn11 = 110,
+    arpSeqNoteOn12 = 111,
+    arpSeqNoteOn13 = 112,
+    arpSeqNoteOn14 = 113,
+    arpSeqNoteOn15 = 114
+
     
     public func simpleDescription() -> String {
         switch self {
@@ -131,6 +187,61 @@ public enum AKSynthOneParameter: Int {
         case .pitchLFO: return "pitchLFO"
         case .bitcrushLFO: return "bitcrushLFO"
         case .autopanLFO: return "autopanLFO"
+        case .arpDirection: return "arpDirection"
+        case .arpInterval: return "arpInterval"
+        case .arpIsOn: return "arpIsOn"
+        case .arpOctave: return "arpOctave"
+        case .arpRate: return "arpRate"
+        case .arpIsSequencer: return "arpIsSequencer"
+        case .arpTotalSteps: return "arpTotalSteps"
+        case .arpSeqPattern00: return "arpSeqPattern00"
+        case .arpSeqPattern01: return "arpSeqPattern01"
+        case .arpSeqPattern02: return "arpSeqPattern02"
+        case .arpSeqPattern03: return "arpSeqPattern03"
+        case .arpSeqPattern04: return "arpSeqPattern04"
+        case .arpSeqPattern05: return "arpSeqPattern05"
+        case .arpSeqPattern06: return "arpSeqPattern06"
+        case .arpSeqPattern07: return "arpSeqPattern07"
+        case .arpSeqPattern08: return "arpSeqPattern08"
+        case .arpSeqPattern09: return "arpSeqPattern09"
+        case .arpSeqPattern10: return "arpSeqPattern10"
+        case .arpSeqPattern11: return "arpSeqPattern11"
+        case .arpSeqPattern12: return "arpSeqPattern12"
+        case .arpSeqPattern13: return "arpSeqPattern13"
+        case .arpSeqPattern14: return "arpSeqPattern14"
+        case .arpSeqPattern15: return "arpSeqPattern15"
+        case .arpSeqOctBoost00: return "arpSeqOctBoost00"
+        case .arpSeqOctBoost01: return "arpSeqOctBoost01"
+        case .arpSeqOctBoost02: return "arpSeqOctBoost02"
+        case .arpSeqOctBoost03: return "arpSeqOctBoost03"
+        case .arpSeqOctBoost04: return "arpSeqOctBoost04"
+        case .arpSeqOctBoost05: return "arpSeqOctBoost05"
+        case .arpSeqOctBoost06: return "arpSeqOctBoost06"
+        case .arpSeqOctBoost07: return "arpSeqOctBoost07"
+        case .arpSeqOctBoost08: return "arpSeqOctBoost08"
+        case .arpSeqOctBoost09: return "arpSeqOctBoost09"
+        case .arpSeqOctBoost10: return "arpSeqOctBoost10"
+        case .arpSeqOctBoost11: return "arpSeqOctBoost11"
+        case .arpSeqOctBoost12: return "arpSeqOctBoost12"
+        case .arpSeqOctBoost13: return "arpSeqOctBoost13"
+        case .arpSeqOctBoost14: return "arpSeqOctBoost14"
+        case .arpSeqOctBoost15: return "arpSeqOctBoost15"
+        case .arpSeqNoteOn00: return "arpSeqNoteOn00"
+        case .arpSeqNoteOn01: return "arpSeqNoteOn01"
+        case .arpSeqNoteOn02: return "arpSeqNoteOn02"
+        case .arpSeqNoteOn03: return "arpSeqNoteOn03"
+        case .arpSeqNoteOn04: return "arpSeqNoteOn04"
+        case .arpSeqNoteOn05: return "arpSeqNoteOn05"
+        case .arpSeqNoteOn06: return "arpSeqNoteOn06"
+        case .arpSeqNoteOn07: return "arpSeqNoteOn07"
+        case .arpSeqNoteOn08: return "arpSeqNoteOn08"
+        case .arpSeqNoteOn09: return "arpSeqNoteOn09"
+        case .arpSeqNoteOn10: return "arpSeqNoteOn10"
+        case .arpSeqNoteOn11: return "arpSeqNoteOn11"
+        case .arpSeqNoteOn12: return "arpSeqNoteOn12"
+        case .arpSeqNoteOn13: return "arpSeqNoteOn13"
+        case .arpSeqNoteOn14: return "arpSeqNoteOn14"
+        case .arpSeqNoteOn15: return "arpSeqNoteOn15"
         }
     }
     
@@ -141,5 +252,12 @@ public enum AKSynthOneParameter: Int {
         }
         return retVal
     }
+    
+    public static let count: Int = {
+        var max: Int = 0
+        while let _ = AKSynthOneParameter(rawValue: max) { max += 1 }
+        return max
+    }()
+
 }
 

@@ -22,11 +22,16 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
     fileprivate var waveformArray = [AKTable]()
 
     fileprivate var auParameters: [AUParameter] = []
+    
+    open func resetSequencer() {
+        internalAU?.resetSequencer()
+    }
+    
     open var parameters: [Double] {
         get {
             var result: [Double] = []
             if let floatParameters = internalAU?.parameters as? [NSNumber] {
-                //AKLog("getter recreates array of 60 params")
+                //AKLog("getter recreates array of 115 params")
                 for number in floatParameters {
                     result.append(number.doubleValue)
                 }

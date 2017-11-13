@@ -60,6 +60,8 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "DCO1 Vol: \(value.percentageString)"
         case .morph2Volume:
             displayLabel.text = "DCO2 Vol: \(value.percentageString)"
+        case .glide:
+            displayLabel.text = "Glide: \(value.decimalString)"
         case .cutoff, .resonance:
             displayLabel.text = "Cutoff: \(conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue].decimalString) Hz, Rez: \(conductor.synth.parameters[AKSynthOneParameter.resonance.rawValue].decimalString)"
         case .subVolume:

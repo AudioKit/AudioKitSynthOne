@@ -628,6 +628,7 @@
                         <outlet property="filterTypeToggle" destination="svc-Dm-tS3" id="prX-lr-HvU"/>
                         <outlet property="fmAmount" destination="PlS-FK-Xk4" id="Y2W-Db-GO4"/>
                         <outlet property="fmVolume" destination="eeh-g3-XJ2" id="NHR-Ny-zAj"/>
+                        <outlet property="glideKnob" destination="bR1-kC-uYy" id="Z2X-MZ-yqk"/>
                         <outlet property="isMonoToggle" destination="c6c-jK-I3M" id="AsH-Ji-dTQ"/>
                         <outlet property="masterVolume" destination="la2-0e-izH" id="54u-fs-IBa"/>
                         <outlet property="morph1Selector" destination="wN7-K8-wB0" id="kRL-Ii-Q0K"/>

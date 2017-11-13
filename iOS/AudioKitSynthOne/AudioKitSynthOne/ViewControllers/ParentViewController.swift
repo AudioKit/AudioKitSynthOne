@@ -303,6 +303,10 @@ extension ParentViewController: PresetsDelegate {
         
         // Set parameters from preset
         loadPreset()
+        
+        // Display new preset name in header
+        let message = "\(activePreset.position): \(activePreset.name)"
+        updateDisplay(message)
     }
     
     func updateDisplay(_ message: String) {

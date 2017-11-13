@@ -353,8 +353,6 @@
 			isa = PBXGroup;
 			children = (
 				94FA2DC41F9E82BB00DED735 /* presets1.json */,
-				94A6F30B1F687F3E007B083C /* icon_64.png */,
-				94A6F30C1F687F3E007B083C /* icon_320.png */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -484,6 +482,16 @@
 			path = Stepper;
 			sourceTree = "<group>";
 		};
+		947BADE71FB92D0000579BE6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */,
+				94A6F30B1F687F3E007B083C /* icon_64.png */,
+				94A6F30C1F687F3E007B083C /* icon_320.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		94A5BF051F96A4E10032C743 /* PopUps */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,20 +568,20 @@
 			children = (
 				94780FEF1F9B0108006D3710 /* AudioKitSynthOne.entitlements */,
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
-				9403F29E1F671AAD00320FCC /* Data */,
 				C4F7ECB91F244AD40011B119 /* Extensions */,
 				94FA2DCA1F9E836700DED735 /* Cells */,
 				C4F7ECA51F2446960011B119 /* Controls */,
 				C4CD8DE91F24A77C0011066A /* Conductor.swift */,
 				C4CD8DDE1F2482FF0011066A /* AKSynthOne.swift */,
 				C47BE1431F26822E003501FF /* AKSynthOneParameter.swift */,
+				9403F29E1F671AAD00320FCC /* Data */,
 				945C3A0B1F3142310086D58B /* Data Model */,
 				941065A01F26AA60002777AB /* ViewControllers */,
 				9447EE3C1FAD7F73005444D3 /* Navigation */,
 				94A5BF051F96A4E10032C743 /* PopUps */,
+				947BADE71FB92D0000579BE6 /* Assets */,
 				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
 				C46E16071F27FF9C00A518F5 /* Testing.playground */,
-				C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */,
 				C4D193D31F1187B500FF4FE4 /* Info.plist */,
 			);
 			path = AudioKitSynthOne;

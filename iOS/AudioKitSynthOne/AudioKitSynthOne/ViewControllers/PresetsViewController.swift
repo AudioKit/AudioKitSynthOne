@@ -68,6 +68,13 @@ class PresetsViewController: UIViewController {
             loadDefaultPresets()
             saveAllPresets()
         }
+        
+//        // Scale presets
+//        loadDefaultPresets()
+//        presets.forEach { preset in
+//            preset.delayMix = preset.delayMix/2
+//        }
+//        saveAllPresets()
 
         // Set Initial Cateogry & Preset
         resetCategoryToAll()

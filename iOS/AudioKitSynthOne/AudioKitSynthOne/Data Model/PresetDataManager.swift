@@ -170,9 +170,7 @@ extension ParentViewController {
         // tempoSync
         // octave position
         
-        // Display new preset name in header
-        let message = "\(activePreset.position): \(activePreset.name)"
-        updateDisplay(message)
+        
         
     }
     

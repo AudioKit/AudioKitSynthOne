@@ -7,24 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2911545E2308D5A6C19868B5B9274471 /* Disk.h in Headers */ = {isa = PBXBuildFile; fileRef = ACDCAC9469155124D4EBAF54E4299B83 /* Disk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		155278697DE95FE85991CE469BE2935B /* Disk+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6021E80C8470F0C4E28225CF9D82CE /* Disk+Codable.swift */; };
 		2E986E64923E16E2370B625A4038E2A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		4225865293408EBA35DAF6BCC28AE25F /* Disk+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE66C42B9FEC3E86E8C26794336FEAFC /* Disk+Helpers.swift */; };
-		559E34584D4F2EC195CE7424A9FE788B /* Disk+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C21B42B5C7A8DD1D54BAB22734120B /* Disk+Errors.swift */; };
-		5DA86B63BB22879024606CCD2EFD6CF7 /* Disk+[Data].swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CEA162EBC5BD828FBD62BD705CD08B /* Disk+[Data].swift */; };
+		54B4D9D1D7107638B4E79C329028CC10 /* Disk+[UIImage].swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F5B08062179972F8DB524192688A9 /* Disk+[UIImage].swift */; };
+		57F5F0E4502788A2CA95F2B30D4AFCE3 /* Disk+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECCBB0736A70E18322C705748CFC43 /* Disk+Helpers.swift */; };
 		695E746B6BA4F6E65F57D7052437851E /* Pods-SynthOne-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD8C906CEBE6CC2FC8DBD0682B5152 /* Pods-SynthOne-dummy.m */; };
-		8917E2094130AA050FF69C33CFDA46BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		6F0B2BE8EB0273B15DD59ADA5CE3912B /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057F5042E1F63E0EBA82609AE403E31 /* Disk.swift */; };
+		87CF22D207D6D38A8FEA9F8C12975BCA /* Disk+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A6E13B96B74E004FD045E2334942E /* Disk+UIImage.swift */; };
 		8A228D6F7A4F702DDD8DC837D951173C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		A191D7C8C0662099FBBEDD9A44BB516C /* Disk+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B1132F6FDED2FC09870D6C3343E5D /* Disk+Codable.swift */; };
-		A6140DD2F25D2FF1FABB0089D0C8D6D8 /* Disk+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622BFBA998632B557E0592B1E4BCB88C /* Disk+UIImage.swift */; };
-		A88857E91CCC5BE41C7836CA9D4AE260 /* Disk+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C181841CB64C48824F5992D0990F5084 /* Disk+Data.swift */; };
+		A8F909B39333B28D10A25EFC8F6206AF /* Disk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 626525D4A308B00FFC018D67F592A5F3 /* Disk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A95E12AA4AA12FA54D69FD38D797C64F /* Pods-AudioKitSynthOne-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC704E34B9CF4FFDC245AA65C03E3E /* Pods-AudioKitSynthOne-dummy.m */; };
+		AFB5DF952786BEE60F3F6FE3EFD2CF32 /* Disk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89AF781A76A9841234F2209CF8785E78 /* Disk-dummy.m */; };
 		B1376CFE7CF584E923234566BFED9991 /* Pods-SynthOne-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D30AC34A6A5720839A0DED825E5F7BA /* Pods-SynthOne-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B4EE0ADD500B5369802E35E1E68329DF /* Disk+[UIImage].swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DA1749874851FEA359865D78E93318 /* Disk+[UIImage].swift */; };
-		C83E1EF9ED4BF152083036AC7EA95C4D /* Disk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8022EB287DF268C02342EB8563C2659D /* Disk-dummy.m */; };
+		B389F193C856F168B09FF64C805EAD4D /* Disk+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D567112740D1C7E99558C0A87982AAA /* Disk+Errors.swift */; };
+		C90319AD1CBE6A1562D75FCDBEBBA5E0 /* Disk+InternalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDEAF4DCDE02630811084F08019940E /* Disk+InternalHelpers.swift */; };
 		CD1D1CA049743CCC22302A91F98AA09C /* Pods-AudioKitSynthOne-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF4B519766D55523C69AC2777B0FA8AA /* Pods-AudioKitSynthOne-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D05CFAC812B9D54725653243577E70B4 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C2E5AD7DC6B2099FD22CAD10F4FCAA /* Disk.swift */; };
-		FE92C1FB183FAFAD7FBBBC115B534BFC /* Disk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AE3EAAF68549417A3F852E7B5DBD62CB /* Disk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2CC2D6DAD0F3D1426794BFA9DF3318B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		D5426D24FACD6E34D5B83FC867EF7EAD /* Disk+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC7A16BD513E6FE9F239B28A0B3BD6 /* Disk+Data.swift */; };
+		EEC58E9F92789CE9F44909BFA6592BF4 /* Disk+[Data].swift in Sources */ = {isa = PBXBuildFile; fileRef = 91289A7C18BFB31FD1DEE7342FB464F1 /* Disk+[Data].swift */; };
+		EEF0930DC9A866CA97209104C3BDE95D /* Disk.h in Headers */ = {isa = PBXBuildFile; fileRef = D2E621187DBB191581606F31737E34D6 /* Disk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F138D47E78EB875A53715B233BB93CDD /* Disk+VolumeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF1A0A945FCD494A4A91F29D8682A23 /* Disk+VolumeInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,74 +34,76 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B800B1D69C7B8BCABBD5844BD9F69A80;
+			remoteGlobalIDString = 1691E754022217B52671D98A23731A08;
 			remoteInfo = Disk;
 		};
 		BFA512F18A888846BC6B975BD96B6724 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B800B1D69C7B8BCABBD5844BD9F69A80;
+			remoteGlobalIDString = 1691E754022217B52671D98A23731A08;
 			remoteInfo = Disk;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0057F5042E1F63E0EBA82609AE403E31 /* Disk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disk.swift; path = Sources/Disk.swift; sourceTree = "<group>"; };
 		060157304E3AA47A43CF7959272ABCF5 /* Pods-SynthOne-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SynthOne-resources.sh"; sourceTree = "<group>"; };
+		0D567112740D1C7E99558C0A87982AAA /* Disk+Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Errors.swift"; path = "Sources/Disk+Errors.swift"; sourceTree = "<group>"; };
 		0DF3A294A32EF4D45E80FCCDC728783F /* Pods-AudioKitSynthOne.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AudioKitSynthOne.modulemap"; sourceTree = "<group>"; };
 		121315C3CEB71D6AEBD54C7C73E32F25 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12B9D00F2CC7F625B3CDAA5F0D27EBA8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2527800BA89CDEBFEF0F6932AE07A9B3 /* Pods-SynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SynthOne.release.xcconfig"; sourceTree = "<group>"; };
+		2BDEAF4DCDE02630811084F08019940E /* Disk+InternalHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+InternalHelpers.swift"; path = "Sources/Disk+InternalHelpers.swift"; sourceTree = "<group>"; };
 		2FFD8C906CEBE6CC2FC8DBD0682B5152 /* Pods-SynthOne-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SynthOne-dummy.m"; sourceTree = "<group>"; };
-		30E0A170919566906B2CC0EC1927AC4D /* Disk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-prefix.pch"; sourceTree = "<group>"; };
 		35B51AE302B35CD14BC7E4FCC51C8B7D /* Pods-AudioKitSynthOne-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AudioKitSynthOne-acknowledgements.markdown"; sourceTree = "<group>"; };
-		36DA1749874851FEA359865D78E93318 /* Disk+[UIImage].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[UIImage].swift"; path = "Sources/Disk+[UIImage].swift"; sourceTree = "<group>"; };
-		41C2E5AD7DC6B2099FD22CAD10F4FCAA /* Disk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disk.swift; path = Sources/Disk.swift; sourceTree = "<group>"; };
+		42DC7A16BD513E6FE9F239B28A0B3BD6 /* Disk+Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Data.swift"; path = "Sources/Disk+Data.swift"; sourceTree = "<group>"; };
 		451D1E5C3FCFD4DA0BB946E86018FA1F /* Pods-SynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		4D30AC34A6A5720839A0DED825E5F7BA /* Pods-SynthOne-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SynthOne-umbrella.h"; sourceTree = "<group>"; };
 		4FBC704E34B9CF4FFDC245AA65C03E3E /* Pods-AudioKitSynthOne-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AudioKitSynthOne-dummy.m"; sourceTree = "<group>"; };
 		54C94F6D9CB90FCE8F76607C34E0216A /* Pods-SynthOne.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SynthOne.modulemap"; sourceTree = "<group>"; };
-		5A9A80EFF1824D8720D0F76EC91FB8A5 /* Disk.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Disk.xcconfig; sourceTree = "<group>"; };
-		622BFBA998632B557E0592B1E4BCB88C /* Disk+UIImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+UIImage.swift"; path = "Sources/Disk+UIImage.swift"; sourceTree = "<group>"; };
-		62CEA162EBC5BD828FBD62BD705CD08B /* Disk+[Data].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[Data].swift"; path = "Sources/Disk+[Data].swift"; sourceTree = "<group>"; };
+		5D6021E80C8470F0C4E28225CF9D82CE /* Disk+Codable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Codable.swift"; path = "Sources/Disk+Codable.swift"; sourceTree = "<group>"; };
+		626525D4A308B00FFC018D67F592A5F3 /* Disk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-umbrella.h"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6FECCBB0736A70E18322C705748CFC43 /* Disk+Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Helpers.swift"; path = "Sources/Disk+Helpers.swift"; sourceTree = "<group>"; };
 		7259A819585B70AF9C88DC216FA34597 /* Pods-AudioKitSynthOne-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AudioKitSynthOne-acknowledgements.plist"; sourceTree = "<group>"; };
+		727D1BB7CEAEA5F8AD631F5FA5E2D585 /* Disk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-prefix.pch"; sourceTree = "<group>"; };
 		74533381220622BEBED85A84CF419C19 /* Pods-AudioKitSynthOne-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AudioKitSynthOne-resources.sh"; sourceTree = "<group>"; };
-		76C21B42B5C7A8DD1D54BAB22734120B /* Disk+Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Errors.swift"; path = "Sources/Disk+Errors.swift"; sourceTree = "<group>"; };
-		8022EB287DF268C02342EB8563C2659D /* Disk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Disk-dummy.m"; sourceTree = "<group>"; };
+		7E4A6E13B96B74E004FD045E2334942E /* Disk+UIImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+UIImage.swift"; path = "Sources/Disk+UIImage.swift"; sourceTree = "<group>"; };
+		89AF781A76A9841234F2209CF8785E78 /* Disk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Disk-dummy.m"; sourceTree = "<group>"; };
+		91289A7C18BFB31FD1DEE7342FB464F1 /* Disk+[Data].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[Data].swift"; path = "Sources/Disk+[Data].swift"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9BEC293455A1CBC551765DD86FCBB2B9 /* Pods-SynthOne-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SynthOne-acknowledgements.plist"; sourceTree = "<group>"; };
 		AA1B58DAC43D4AD4547A393272BE6083 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
-		ACDCAC9469155124D4EBAF54E4299B83 /* Disk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Disk.h; path = Sources/Disk.h; sourceTree = "<group>"; };
-		AE3EAAF68549417A3F852E7B5DBD62CB /* Disk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-umbrella.h"; sourceTree = "<group>"; };
-		C181841CB64C48824F5992D0990F5084 /* Disk+Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Data.swift"; path = "Sources/Disk+Data.swift"; sourceTree = "<group>"; };
+		ABF1A0A945FCD494A4A91F29D8682A23 /* Disk+VolumeInformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+VolumeInformation.swift"; path = "Sources/Disk+VolumeInformation.swift"; sourceTree = "<group>"; };
+		B9D0F309995BDBB9163D1A777C932EDC /* Disk.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Disk.xcconfig; sourceTree = "<group>"; };
+		C493A3BB622450A866AD6FA0DD5367C7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6180C56AE04DDA491A57FB0D1B00131 /* Pods_SynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SynthOne.framework; path = "Pods-SynthOne.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CA9BD1448222FA00C722371CBE9879 /* Pods-AudioKitSynthOne-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AudioKitSynthOne-frameworks.sh"; sourceTree = "<group>"; };
-		D5143BD93EC3272C98C3A2726C764212 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D68B1132F6FDED2FC09870D6C3343E5D /* Disk+Codable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Codable.swift"; path = "Sources/Disk+Codable.swift"; sourceTree = "<group>"; };
+		D2E621187DBB191581606F31737E34D6 /* Disk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Disk.h; path = Sources/Disk.h; sourceTree = "<group>"; };
 		D89B85292B7FEC1F1F8FA432F12DA61C /* Pods_AudioKitSynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AudioKitSynthOne.framework; path = "Pods-AudioKitSynthOne.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE66C42B9FEC3E86E8C26794336FEAFC /* Disk+Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Helpers.swift"; path = "Sources/Disk+Helpers.swift"; sourceTree = "<group>"; };
-		F3665A4B35DA8BACE821BC6F847FF794 /* Disk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Disk.modulemap; sourceTree = "<group>"; };
+		E68E60FCF8025AACFAF1961CB4BF4531 /* Disk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Disk.modulemap; sourceTree = "<group>"; };
 		F62866B4F761E004E5D9DD03E6A9D54C /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C6027CBEC7CC17607118DFCDF8A625 /* Pods-SynthOne-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SynthOne-acknowledgements.markdown"; sourceTree = "<group>"; };
 		FE828D100E157761E3ED6D869D48CDCF /* Disk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Disk.framework; path = Disk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE8F5B08062179972F8DB524192688A9 /* Disk+[UIImage].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[UIImage].swift"; path = "Sources/Disk+[UIImage].swift"; sourceTree = "<group>"; };
 		FF4B519766D55523C69AC2777B0FA8AA /* Pods-AudioKitSynthOne-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AudioKitSynthOne-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		101DD059EA06C65CBFAA55616FA36E3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2CC2D6DAD0F3D1426794BFA9DF3318B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9E87DA7219F4E46E3A9106841B7C273A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2E986E64923E16E2370B625A4038E2A5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F416299FFC91A52D73A361981BDA1741 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8917E2094130AA050FF69C33CFDA46BC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +118,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4113E599B9716465B5AC5A422FF86F16 /* Disk */ = {
+			isa = PBXGroup;
+			children = (
+				D2E621187DBB191581606F31737E34D6 /* Disk.h */,
+				0057F5042E1F63E0EBA82609AE403E31 /* Disk.swift */,
+				91289A7C18BFB31FD1DEE7342FB464F1 /* Disk+[Data].swift */,
+				FE8F5B08062179972F8DB524192688A9 /* Disk+[UIImage].swift */,
+				5D6021E80C8470F0C4E28225CF9D82CE /* Disk+Codable.swift */,
+				42DC7A16BD513E6FE9F239B28A0B3BD6 /* Disk+Data.swift */,
+				0D567112740D1C7E99558C0A87982AAA /* Disk+Errors.swift */,
+				6FECCBB0736A70E18322C705748CFC43 /* Disk+Helpers.swift */,
+				2BDEAF4DCDE02630811084F08019940E /* Disk+InternalHelpers.swift */,
+				7E4A6E13B96B74E004FD045E2334942E /* Disk+UIImage.swift */,
+				ABF1A0A945FCD494A4A91F29D8682A23 /* Disk+VolumeInformation.swift */,
+				5EF6088058C38457F2C931CCBAEE1120 /* Support Files */,
+			);
+			name = Disk;
+			path = Disk;
+			sourceTree = "<group>";
+		};
 		4755514C326DF647C43004BC6A3C349C /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,18 +147,26 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		66744FC34705B69BE93953D9884B133F /* Support Files */ = {
+		5EF6088058C38457F2C931CCBAEE1120 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F3665A4B35DA8BACE821BC6F847FF794 /* Disk.modulemap */,
-				5A9A80EFF1824D8720D0F76EC91FB8A5 /* Disk.xcconfig */,
-				8022EB287DF268C02342EB8563C2659D /* Disk-dummy.m */,
-				30E0A170919566906B2CC0EC1927AC4D /* Disk-prefix.pch */,
-				AE3EAAF68549417A3F852E7B5DBD62CB /* Disk-umbrella.h */,
-				D5143BD93EC3272C98C3A2726C764212 /* Info.plist */,
+				E68E60FCF8025AACFAF1961CB4BF4531 /* Disk.modulemap */,
+				B9D0F309995BDBB9163D1A777C932EDC /* Disk.xcconfig */,
+				89AF781A76A9841234F2209CF8785E78 /* Disk-dummy.m */,
+				727D1BB7CEAEA5F8AD631F5FA5E2D585 /* Disk-prefix.pch */,
+				626525D4A308B00FFC018D67F592A5F3 /* Disk-umbrella.h */,
+				C493A3BB622450A866AD6FA0DD5367C7 /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Disk";
+			sourceTree = "<group>";
+		};
+		6DEEF0ADCF6E579B75DC7062EBE41939 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4113E599B9716465B5AC5A422FF86F16 /* Disk */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -142,7 +174,7 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				FCAD8F4007815BDCD73C060DA3037200 /* Pods */,
+				6DEEF0ADCF6E579B75DC7062EBE41939 /* Pods */,
 				917DB5F8D0C4AF048B08DF043B2A887B /* Products */,
 				4755514C326DF647C43004BC6A3C349C /* Targets Support Files */,
 			);
@@ -173,24 +205,6 @@
 				C6180C56AE04DDA491A57FB0D1B00131 /* Pods_SynthOne.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A159D00216356307D5D12E25B11EA345 /* Disk */ = {
-			isa = PBXGroup;
-			children = (
-				ACDCAC9469155124D4EBAF54E4299B83 /* Disk.h */,
-				41C2E5AD7DC6B2099FD22CAD10F4FCAA /* Disk.swift */,
-				62CEA162EBC5BD828FBD62BD705CD08B /* Disk+[Data].swift */,
-				36DA1749874851FEA359865D78E93318 /* Disk+[UIImage].swift */,
-				D68B1132F6FDED2FC09870D6C3343E5D /* Disk+Codable.swift */,
-				C181841CB64C48824F5992D0990F5084 /* Disk+Data.swift */,
-				76C21B42B5C7A8DD1D54BAB22734120B /* Disk+Errors.swift */,
-				DE66C42B9FEC3E86E8C26794336FEAFC /* Disk+Helpers.swift */,
-				622BFBA998632B557E0592B1E4BCB88C /* Disk+UIImage.swift */,
-				66744FC34705B69BE93953D9884B133F /* Support Files */,
-			);
-			name = Disk;
-			path = Disk;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -227,31 +241,23 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		FCAD8F4007815BDCD73C060DA3037200 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A159D00216356307D5D12E25B11EA345 /* Disk */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3504E2387196D63BB97790835C5B379F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FE92C1FB183FAFAD7FBBBC115B534BFC /* Disk-umbrella.h in Headers */,
-				2911545E2308D5A6C19868B5B9274471 /* Disk.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		661963B5D67D744EEA04E3423D8D88A0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CD1D1CA049743CCC22302A91F98AA09C /* Pods-AudioKitSynthOne-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C28D7C793A07EBD55DFBFB585E9C1D9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8F909B39333B28D10A25EFC8F6206AF /* Disk-umbrella.h in Headers */,
+				EEF0930DC9A866CA97209104C3BDE95D /* Disk.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +272,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1691E754022217B52671D98A23731A08 /* Disk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBD9A2E3065E5BD8E663E08B81AE10F3 /* Build configuration list for PBXNativeTarget "Disk" */;
+			buildPhases = (
+				EB0563531EEEB613A542AE2A71D99286 /* Sources */,
+				101DD059EA06C65CBFAA55616FA36E3B /* Frameworks */,
+				9C28D7C793A07EBD55DFBFB585E9C1D9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Disk;
+			productName = Disk;
+			productReference = FE828D100E157761E3ED6D869D48CDCF /* Disk.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		736F3C217311D13C21E37DE3ABAB73FA /* Pods-AudioKitSynthOne */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5893B10BF5B9BBCDC1BB715104E56AA9 /* Build configuration list for PBXNativeTarget "Pods-AudioKitSynthOne" */;
@@ -282,23 +305,6 @@
 			name = "Pods-AudioKitSynthOne";
 			productName = "Pods-AudioKitSynthOne";
 			productReference = D89B85292B7FEC1F1F8FA432F12DA61C /* Pods_AudioKitSynthOne.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B800B1D69C7B8BCABBD5844BD9F69A80 /* Disk */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 76B751DFCF308E106C12FABB787F39AC /* Build configuration list for PBXNativeTarget "Disk" */;
-			buildPhases = (
-				A67C96CC451E46317924E3F21E8ADAA2 /* Sources */,
-				F416299FFC91A52D73A361981BDA1741 /* Frameworks */,
-				3504E2387196D63BB97790835C5B379F /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Disk;
-			productName = Disk;
-			productReference = FE828D100E157761E3ED6D869D48CDCF /* Disk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		CE1BEFEBB9EEA6FF810D995D1716CC22 /* Pods-SynthOne */ = {
@@ -340,7 +346,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B800B1D69C7B8BCABBD5844BD9F69A80 /* Disk */,
+				1691E754022217B52671D98A23731A08 /* Disk */,
 				736F3C217311D13C21E37DE3ABAB73FA /* Pods-AudioKitSynthOne */,
 				CE1BEFEBB9EEA6FF810D995D1716CC22 /* Pods-SynthOne */,
 			);
@@ -356,27 +362,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A67C96CC451E46317924E3F21E8ADAA2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5DA86B63BB22879024606CCD2EFD6CF7 /* Disk+[Data].swift in Sources */,
-				B4EE0ADD500B5369802E35E1E68329DF /* Disk+[UIImage].swift in Sources */,
-				A191D7C8C0662099FBBEDD9A44BB516C /* Disk+Codable.swift in Sources */,
-				A88857E91CCC5BE41C7836CA9D4AE260 /* Disk+Data.swift in Sources */,
-				559E34584D4F2EC195CE7424A9FE788B /* Disk+Errors.swift in Sources */,
-				4225865293408EBA35DAF6BCC28AE25F /* Disk+Helpers.swift in Sources */,
-				A6140DD2F25D2FF1FABB0089D0C8D6D8 /* Disk+UIImage.swift in Sources */,
-				C83E1EF9ED4BF152083036AC7EA95C4D /* Disk-dummy.m in Sources */,
-				D05CFAC812B9D54725653243577E70B4 /* Disk.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E8390208B182A686782ED176565F87CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A95E12AA4AA12FA54D69FD38D797C64F /* Pods-AudioKitSynthOne-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB0563531EEEB613A542AE2A71D99286 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC58E9F92789CE9F44909BFA6592BF4 /* Disk+[Data].swift in Sources */,
+				54B4D9D1D7107638B4E79C329028CC10 /* Disk+[UIImage].swift in Sources */,
+				155278697DE95FE85991CE469BE2935B /* Disk+Codable.swift in Sources */,
+				D5426D24FACD6E34D5B83FC867EF7EAD /* Disk+Data.swift in Sources */,
+				B389F193C856F168B09FF64C805EAD4D /* Disk+Errors.swift in Sources */,
+				57F5F0E4502788A2CA95F2B30D4AFCE3 /* Disk+Helpers.swift in Sources */,
+				C90319AD1CBE6A1562D75FCDBEBBA5E0 /* Disk+InternalHelpers.swift in Sources */,
+				87CF22D207D6D38A8FEA9F8C12975BCA /* Disk+UIImage.swift in Sources */,
+				F138D47E78EB875A53715B233BB93CDD /* Disk+VolumeInformation.swift in Sources */,
+				AFB5DF952786BEE60F3F6FE3EFD2CF32 /* Disk-dummy.m in Sources */,
+				6F0B2BE8EB0273B15DD59ADA5CE3912B /* Disk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,19 +394,53 @@
 		52B2640C2762887FAC509F99A84B293E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Disk;
-			target = B800B1D69C7B8BCABBD5844BD9F69A80 /* Disk */;
+			target = 1691E754022217B52671D98A23731A08 /* Disk */;
 			targetProxy = BFA512F18A888846BC6B975BD96B6724 /* PBXContainerItemProxy */;
 		};
 		70AE9E5EC5EE5363A00321F67AC3B217 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Disk;
-			target = B800B1D69C7B8BCABBD5844BD9F69A80 /* Disk */;
+			target = 1691E754022217B52671D98A23731A08 /* Disk */;
 			targetProxy = 13AA87CB38D252448A2390848DD25D0E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2AF56B4CA729723628AE07A17570FDAF /* Debug */ = {
+		242A611F25CE1351629220808AB42BDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA1B58DAC43D4AD4547A393272BE6083 /* Pods-AudioKitSynthOne.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AudioKitSynthOne/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AudioKitSynthOne;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		258AD590154906B7B11C78B48A24DAC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 451D1E5C3FCFD4DA0BB946E86018FA1F /* Pods-SynthOne.debug.xcconfig */;
 			buildSettings = {
@@ -408,20 +450,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SynthOne/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SynthOne/Pods-SynthOne.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -431,16 +469,15 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		59C8E8508AA591057771DE56B3F666EB /* Debug */ = {
+		2D0A87EEA1A66F222F6072CD0900F439 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A9A80EFF1824D8720D0F76EC91FB8A5 /* Disk.xcconfig */;
+			baseConfigurationReference = B9D0F309995BDBB9163D1A777C932EDC /* Disk.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -448,20 +485,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Disk/Disk-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Disk/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Disk/Disk.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = Disk;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -474,48 +507,148 @@
 			};
 			name = Debug;
 		};
-		97803B46811A9BDB5E70FA1303AFBFFE /* Debug */ = {
+		6F9224530522DD3C735EC96CF142642E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		800CBC441726EA639D4BC2E8AF2A0842 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F62866B4F761E004E5D9DD03E6A9D54C /* Pods-AudioKitSynthOne.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AudioKitSynthOne/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AudioKitSynthOne;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B57951D085A1B98A97F8A1062A5E5C5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -523,51 +656,7 @@
 			};
 			name = Debug;
 		};
-		BDD0139D6EB93FA375F887ABD62DAB2E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		C197557BD9AD03559B9BCC7702EF66D9 /* Release */ = {
+		C809DF6C2C7DBDCB98B733AD7D42ED32 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2527800BA89CDEBFEF0F6932AE07A9B3 /* Pods-SynthOne.release.xcconfig */;
 			buildSettings = {
@@ -577,20 +666,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SynthOne/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SynthOne/Pods-SynthOne.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -599,54 +684,16 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		EAAB7B91FD140C1C551109FABD11FAFF /* Release */ = {
+		E660F809A1140A6D02503E9F5F2BF74A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA1B58DAC43D4AD4547A393272BE6083 /* Pods-AudioKitSynthOne.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AudioKitSynthOne/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_AudioKitSynthOne;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		F3661776B19F66061693E4A2881C4A74 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A9A80EFF1824D8720D0F76EC91FB8A5 /* Disk.xcconfig */;
+			baseConfigurationReference = B9D0F309995BDBB9163D1A777C932EDC /* Disk.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -654,20 +701,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Disk/Disk-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Disk/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Disk/Disk.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = Disk;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -675,49 +718,11 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		FA2E8201A6FCA9C29C18D96AF9093302 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F62866B4F761E004E5D9DD03E6A9D54C /* Pods-AudioKitSynthOne.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AudioKitSynthOne/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_AudioKitSynthOne;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -725,8 +730,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				97803B46811A9BDB5E70FA1303AFBFFE /* Debug */,
-				BDD0139D6EB93FA375F887ABD62DAB2E /* Release */,
+				B57951D085A1B98A97F8A1062A5E5C5B /* Debug */,
+				6F9224530522DD3C735EC96CF142642E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -734,17 +739,8 @@
 		5893B10BF5B9BBCDC1BB715104E56AA9 /* Build configuration list for PBXNativeTarget "Pods-AudioKitSynthOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA2E8201A6FCA9C29C18D96AF9093302 /* Debug */,
-				EAAB7B91FD140C1C551109FABD11FAFF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		76B751DFCF308E106C12FABB787F39AC /* Build configuration list for PBXNativeTarget "Disk" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				59C8E8508AA591057771DE56B3F666EB /* Debug */,
-				F3661776B19F66061693E4A2881C4A74 /* Release */,
+				800CBC441726EA639D4BC2E8AF2A0842 /* Debug */,
+				242A611F25CE1351629220808AB42BDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -752,8 +748,17 @@
 		9B55F7CD8BF63FA3BD7FF65BBAD517D9 /* Build configuration list for PBXNativeTarget "Pods-SynthOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2AF56B4CA729723628AE07A17570FDAF /* Debug */,
-				C197557BD9AD03559B9BCC7702EF66D9 /* Release */,
+				258AD590154906B7B11C78B48A24DAC9 /* Debug */,
+				C809DF6C2C7DBDCB98B733AD7D42ED32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBD9A2E3065E5BD8E663E08B81AE10F3 /* Build configuration list for PBXNativeTarget "Disk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D0A87EEA1A66F222F6072CD0900F439 /* Debug */,
+				E660F809A1140A6D02503E9F5F2BF74A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

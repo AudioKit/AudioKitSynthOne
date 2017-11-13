@@ -170,6 +170,10 @@ extension ParentViewController {
         // tempoSync
         // octave position
         
+        // Display new preset name in header
+        let message = "\(activePreset.position): \(activePreset.name)"
+        updateDisplay(message)
+        
     }
     
     func saveValuesToPreset() {
@@ -180,32 +184,3 @@ extension ParentViewController {
         //presetsViewController.savePreset(activePreset)
     }
 }
-
-
-// **************************************************
-// MARK: - Presets Delegate
-// **************************************************
-
-extension ParentViewController: PresetsDelegate {
-    
-    func presetDidChange(_ newActivePreset: Preset) {
-        activePreset = newActivePreset
-        updateDisplay("")
-        // Set parameters from preset
-        loadPreset()
-    }
-    
-    func updateDisplay(_ message: String) {
-        if let headerVC = self.childViewControllers.first as? HeaderViewController {
-            headerVC.displayLabel.text = "\(activePreset.position): \(activePreset.name)"
-        }
-    }
-    
-    func saveEditedPreset(name: String, category: Int) {
-        activePreset.name = name
-        activePreset.category = category
-        activePreset.isUser = true
-        saveValuesToPreset()
-    }
-}
-

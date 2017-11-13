@@ -662,7 +662,7 @@
 				TargetAttributes = {
 					C474D94A1F13172B00946035 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = K3JX989Q2W;
+						DevelopmentTeam = 9W69ZP8S5F;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -673,7 +673,7 @@
 					};
 					C4D193C31F1187B500FF4FE4 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = K3JX989Q2W;
+						DevelopmentTeam = 9W69ZP8S5F;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -1033,11 +1033,11 @@
 			baseConfigurationReference = 5017AD512810265360A12BE7 /* Pods-SynthOne.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SynthOne/SynthOne.entitlements;
-				DEVELOPMENT_TEAM = K3JX989Q2W;
+				DEVELOPMENT_TEAM = 9W69ZP8S5F;
 				INFOPLIST_FILE = SynthOne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.AudioKitSynthOne.SynthOne;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.Synth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -1050,11 +1050,11 @@
 			baseConfigurationReference = C75EC33F7DB5853B42F6D569 /* Pods-SynthOne.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SynthOne/SynthOne.entitlements;
-				DEVELOPMENT_TEAM = K3JX989Q2W;
+				DEVELOPMENT_TEAM = 9W69ZP8S5F;
 				INFOPLIST_FILE = SynthOne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.AudioKitSynthOne.SynthOne;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.Synth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -1179,14 +1179,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = K3JX989Q2W;
+				DEVELOPMENT_TEAM = 9W69ZP8S5F;
 				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.AudioKitSynthOne;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5be24b92-5a65-4911-a29d-beec928d013f";
-				PROVISIONING_PROFILE_SPECIFIER = "AudioKit Synth One New";
+				PROVISIONING_PROFILE = "f7ba4987-25d3-46d6-a4dc-9aed0c5f9672";
+				PROVISIONING_PROFILE_SPECIFIER = "Synth One - Dev Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1204,14 +1204,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = K3JX989Q2W;
+				DEVELOPMENT_TEAM = 9W69ZP8S5F;
 				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.AudioKitSynthOne;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5be24b92-5a65-4911-a29d-beec928d013f";
-				PROVISIONING_PROFILE_SPECIFIER = "AudioKit Synth One New";
+				PROVISIONING_PROFILE = "f7ba4987-25d3-46d6-a4dc-9aed0c5f9672";
+				PROVISIONING_PROFILE_SPECIFIER = "Synth One - Dev Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;

@@ -292,6 +292,33 @@ extension ParentViewController: HeaderDelegate {
     }
 }
 
+// **************************************************
+// MARK: - Presets Delegate
+// **************************************************
+
+extension ParentViewController: PresetsDelegate {
+    
+    func presetDidChange(_ newActivePreset: Preset) {
+        activePreset = newActivePreset
+        
+        // Set parameters from preset
+        loadPreset()
+    }
+    
+    func updateDisplay(_ message: String) {
+        if let headerVC = self.childViewControllers.first as? HeaderViewController {
+            headerVC.displayLabel.text = message
+        }
+    }
+    
+    func saveEditedPreset(name: String, category: Int) {
+        activePreset.name = name
+        activePreset.category = category
+        activePreset.isUser = true
+        saveValuesToPreset()
+    }
+}
+
 // **********************************************************
 // MARK: - Embedded Views Delegate
 // **********************************************************

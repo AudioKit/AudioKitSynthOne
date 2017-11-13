@@ -23,6 +23,7 @@ public class HeaderViewController: UpdatableViewController {
     
     var delegate: EmbeddedViewsDelegate?
     var headerDelegate: HeaderDelegate?
+    var activePreset = Preset()
     
     func ADSRString(_ a: AKSynthOneParameter,
                     _ d: AKSynthOneParameter,
@@ -164,6 +165,10 @@ public class HeaderViewController: UpdatableViewController {
             // do nothing
         }
         displayLabel.setNeedsDisplay()
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+//            self.displayLabel.text = "\(self.activePreset.position): \(self.activePreset.name)"
+//        }
     }
     
     func displayLabelTapped() {

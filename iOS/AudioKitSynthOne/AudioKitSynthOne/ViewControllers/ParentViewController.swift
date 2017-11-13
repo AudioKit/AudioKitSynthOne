@@ -301,12 +301,19 @@ extension ParentViewController: PresetsDelegate {
     func presetDidChange(_ newActivePreset: Preset) {
         activePreset = newActivePreset
         
+        if let headerVC = self.childViewControllers.first as? HeaderViewController {
+            headerVC.activePreset = activePreset
+        }
+      
         // Set parameters from preset
-        loadPreset()
+        self.loadPreset()
         
         // Display new preset name in header
-        let message = "\(activePreset.position): \(activePreset.name)"
-        updateDisplay(message)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            let message = "\(self.activePreset.position): \(self.activePreset.name)"
+            self.updateDisplay(message)
+        }
+
     }
     
     func updateDisplay(_ message: String) {

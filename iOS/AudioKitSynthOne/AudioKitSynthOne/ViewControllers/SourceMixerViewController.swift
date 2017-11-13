@@ -63,6 +63,8 @@ class SourceMixerViewController: SynthPanelController {
         
         morphBalance.value = 0.5
         
+        glideKnob.range = 0.0 ... 0.2
+        
         noiseVolume.range = 0.0 ... 0.3
         fmAmount.range = 0.0 ... 15
         resonance.range = 0.0 ... 0.97

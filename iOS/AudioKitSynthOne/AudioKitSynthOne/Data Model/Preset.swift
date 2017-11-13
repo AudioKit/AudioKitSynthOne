@@ -84,7 +84,7 @@ class Preset: Codable {
     var lfo2Rate = 0.0
     
     // Seq Pattern
-    var seqPatternNote = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var seqPatternNote = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     var seqOctBoost = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
     var seqNoteOn = [true, true, true, true,true, true, true, true,true, true, true, true,true, true, true, true]
     

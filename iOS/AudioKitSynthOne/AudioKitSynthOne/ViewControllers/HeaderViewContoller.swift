@@ -48,6 +48,10 @@ public class HeaderViewController: UpdatableViewController {
         super.updateUI(param, value: value)
       
         switch param {
+        case .index1:
+            displayLabel.text = "OSC1 Morph: \(value.decimalString)"
+        case .index2:
+            displayLabel.text = "OSC2 Morph: \(value.decimalString)"
         case .morph1SemitoneOffset:
             displayLabel.text = "DCO1: \(value) semitones"
         case .morph2SemitoneOffset:

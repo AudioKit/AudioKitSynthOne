@@ -20,9 +20,8 @@ extension ParentViewController {
         conductor.synth.parameters[AKSynthOneParameter.glide.rawValue] = activePreset.glide
         
         ///TODO: NEED TO VALIDATE RANGE OF index1, index2 VS. waveform1, waveform2
-        ///TODO: index1 is on [0,1], waveform1 is on [0,4).
-        conductor.synth.parameters[AKSynthOneParameter.index1.rawValue] = activePreset.waveform1/4.0
-        conductor.synth.parameters[AKSynthOneParameter.index2.rawValue] = activePreset.waveform2/4.0
+        conductor.synth.parameters[AKSynthOneParameter.index1.rawValue] = activePreset.waveform1
+        conductor.synth.parameters[AKSynthOneParameter.index2.rawValue] = activePreset.waveform2
         ///////////////////
         
         conductor.synth.parameters[AKSynthOneParameter.morph1SemitoneOffset.rawValue] = activePreset.vco1Semitone

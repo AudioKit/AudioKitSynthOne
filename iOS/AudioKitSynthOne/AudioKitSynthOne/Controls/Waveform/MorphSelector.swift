@@ -27,25 +27,6 @@ class MorphSelector: UIView, AKSynthOneControl {
     @IBInspectable open var selected: UIColor   = UIColor(red: 0.929, green: 0.533, blue: 0.000, alpha: 1.000)
     @IBInspectable open var unselected: UIColor = UIColor(red: 0.533, green: 0.533, blue: 0.533, alpha: 1.000)
     @IBInspectable open var selectedBG: UIColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.181)
-        
-    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let touchLocation = touch.location(in: self)
-            value = Double(touchLocation.x / self.frame.width)
-            callback(value)
-        }
-        setNeedsDisplay()
-    }
-    
-    override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let touchLocation = touch.location(in: self)
-            value = Double(touchLocation.x / self.frame.width)
-            callback(value)
-            //print("Morph \(value.decimalString)")
-        }
-        setNeedsDisplay()
-    }
     
     override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
@@ -70,6 +51,25 @@ class MorphSelector: UIView, AKSynthOneControl {
     
     override open func draw(_ rect: CGRect) {
         MorphSelectorStyleKit.drawMorphSelector(value: CGFloat(value), width: self.bounds.width, height: self.bounds.height)
+    }
+    
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let touchLocation = touch.location(in: self)
+            value = Double(touchLocation.x / self.frame.width)
+            callback(value)
+        }
+        setNeedsDisplay()
+    }
+    
+    override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let touchLocation = touch.location(in: self)
+            value = Double(touchLocation.x / self.frame.width)
+            callback(value)
+            //print("Morph \(value.decimalString)")
+        }
+        setNeedsDisplay()
     }
 }
 

@@ -350,7 +350,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wN7-K8-wB0" customClass="MorphSelector" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="7" y="24" width="193" height="52"/>
+                                <rect key="frame" x="6" y="24" width="192" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>

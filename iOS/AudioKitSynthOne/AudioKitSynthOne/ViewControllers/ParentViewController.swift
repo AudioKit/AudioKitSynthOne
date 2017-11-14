@@ -313,6 +313,10 @@ extension ParentViewController: PresetsDelegate {
             let message = "\(self.activePreset.position): \(self.activePreset.name)"
             self.updateDisplay(message)
         }
+        
+        // TODO: Remove slider manual updating
+        seqViewController.arpeggiator = activeArp
+        seqViewController.setupControlValues()
 
     }
     

@@ -47,7 +47,7 @@ class SourceMixerViewController: SynthPanelController {
         viewType = .oscView
         
         // Defaults, limits
-        cutoff.range = 120 ... 28000
+        cutoff.range = 120 ... 22000
         cutoff.taper = 4.04
         
         morph1SemitoneOffset.onlyIntegers = true

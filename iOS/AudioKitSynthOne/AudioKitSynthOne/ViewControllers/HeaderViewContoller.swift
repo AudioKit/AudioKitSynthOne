@@ -29,10 +29,10 @@ public class HeaderViewController: UpdatableViewController {
                     _ d: AKSynthOneParameter,
                     _ s: AKSynthOneParameter,
                     _ r: AKSynthOneParameter) -> String {
-        return "A: \(conductor.synth.parameters[a.rawValue].decimalString) " +
-            "D: \(conductor.synth.parameters[d.rawValue].decimalString) " +
-            "S: \(conductor.synth.parameters[s.rawValue].percentageString) " +
-        "R: \(conductor.synth.parameters[r.rawValue].decimalString) "
+        return "A: \(conductor.synth.getAK1Parameter(a).decimalString) " +
+            "D: \(conductor.synth.getAK1Parameter(d).decimalString) " +
+            "S: \(conductor.synth.getAK1Parameter(s).percentageString) " +
+            "R: \(conductor.synth.getAK1Parameter(r).decimalString) "
     }
     
     public override func viewDidLoad() {
@@ -68,7 +68,7 @@ public class HeaderViewController: UpdatableViewController {
         case .glide:
             displayLabel.text = "Glide: \(value.decimalString)"
         case .cutoff, .resonance:
-            displayLabel.text = "Cutoff: \(conductor.synth.parameters[AKSynthOneParameter.cutoff.rawValue].decimalString) Hz, Rez: \(conductor.synth.parameters[AKSynthOneParameter.resonance.rawValue].decimalString)"
+            displayLabel.text = "Cutoff: \(conductor.synth.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(conductor.synth.getAK1Parameter(.resonance).decimalString)"
         case .subVolume:
             displayLabel.text = "Sub Mix: \(value.percentageString)"
         case .fmVolume:
@@ -189,10 +189,7 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     @IBAction func panicPressed(_ sender: UIButton) {
-        for note in 0...127 {
-            conductor.synth.stop(noteNumber: MIDINoteNumber(note))
-        }
-
+        conductor.synth.stopAllNotes()
     }
     
     // ********************************************************

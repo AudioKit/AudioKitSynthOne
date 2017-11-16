@@ -236,6 +236,17 @@ extension ParentViewController {
         activePreset.bitcrushLFO = conductor.synth.parameters[AKSynthOneParameter.bitcrushLFO.rawValue]
         activePreset.autopanLFO = conductor.synth.parameters[AKSynthOneParameter.autopanLFO.rawValue]
         
+        activePreset.arpDirection = activeArp.direction
+        activePreset.arpInterval = activeArp.interval
+        activePreset.arpOctave = activeArp.octave
+        activePreset.arpRate = activeArp.rate
+        activePreset.arpIsSequencer = activeArp.isSequencer
+        activePreset.arpTotalSteps = activeArp.totalSteps
+        activePreset.seqPatternNote = activeArp.seqPattern
+        activePreset.seqNoteOn = activeArp.seqNoteOn
+        activePreset.seqOctBoost = activeArp.seqOctBoost
+        activePreset.isArpMode = activeArp.isOn
+        
         presetsViewController.savePreset(activePreset)
     }
 }

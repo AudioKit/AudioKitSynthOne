@@ -241,6 +241,7 @@ class PresetsViewController: UIViewController {
             deselectCurrentRow()
             currentPreset = presets[currentPreset.position + 1]
             selectCurrentPreset()
+            Conductor.sharedInstance.updateAllUI()
         }
     }
     
@@ -249,6 +250,7 @@ class PresetsViewController: UIViewController {
             deselectCurrentRow()
             currentPreset = presets[currentPreset.position + -1 ]
             selectCurrentPreset()
+            Conductor.sharedInstance.updateAllUI()
         }
     }
     

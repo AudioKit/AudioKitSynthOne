@@ -82,10 +82,10 @@ public class HeaderViewController: UpdatableViewController {
         case .attackDuration, .decayDuration, .sustainLevel, .releaseDuration:
             displayLabel.text = ADSRString(.attackDuration, .decayDuration, .sustainLevel, .releaseDuration)
         case .filterAttackDuration, .filterDecayDuration, .filterSustainLevel, .filterReleaseDuration:
-            displayLabel.text = "F " +
+            displayLabel.text = "" +
                 ADSRString(.filterAttackDuration, .filterDecayDuration, .filterSustainLevel, .filterReleaseDuration)
         case .filterADSRMix:
-            displayLabel.text = "Filter Mix \(value.percentageString)"
+            displayLabel.text = "Filter Envelope Amt: \(value.percentageString)"
         case .bitCrushDepth:
             displayLabel.text = "Bit Crush Depth: \(value.decimalString)"
         case .bitCrushSampleRate:

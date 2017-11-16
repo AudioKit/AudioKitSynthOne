@@ -84,7 +84,7 @@ public class ParentViewController: UIViewController {
         return viewController
     }()
     
-    fileprivate lazy var presetsViewController: PresetsViewController = {
+    lazy var presetsViewController: PresetsViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
         return viewController

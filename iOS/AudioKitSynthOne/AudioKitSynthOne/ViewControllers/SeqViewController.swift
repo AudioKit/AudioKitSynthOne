@@ -76,7 +76,7 @@ class SeqViewController: SynthPanelController {
                 slider.actualValue = Double(transposeAmt)
                 updateTransposeBtn(notePosition: notePosition)
                 slider.setNeedsDisplay()
-                AKLog("Slider: \(notePosition): \(transposeAmt)")
+                //AKLog("Slider: \(notePosition): \(transposeAmt)")
             }
         }
         

@@ -49,17 +49,17 @@ class ADSRViewController: SynthPanelController {
         super.updateCallbacks()
         
         adsrView.callback = { att, dec, sus, rel in
-            self.conductor.synth.parameters[AKSynthOneParameter.attackDuration.rawValue] = att
-            self.conductor.synth.parameters[AKSynthOneParameter.decayDuration.rawValue] = dec
-            self.conductor.synth.parameters[AKSynthOneParameter.sustainLevel.rawValue] = sus
-            self.conductor.synth.parameters[AKSynthOneParameter.releaseDuration.rawValue] = rel
+            self.conductor.synth.setAK1Parameter(.attackDuration, att)
+            self.conductor.synth.setAK1Parameter(.decayDuration, dec)
+            self.conductor.synth.setAK1Parameter(.sustainLevel, sus)
+            self.conductor.synth.setAK1Parameter(.releaseDuration, rel)
         }
         
         filterADSRView.callback = { att, dec, sus, rel in
-            self.conductor.synth.parameters[AKSynthOneParameter.filterAttackDuration.rawValue] = att
-            self.conductor.synth.parameters[AKSynthOneParameter.filterDecayDuration.rawValue] = dec
-            self.conductor.synth.parameters[AKSynthOneParameter.filterSustainLevel.rawValue] = sus
-            self.conductor.synth.parameters[AKSynthOneParameter.filterReleaseDuration.rawValue] = rel
+            self.conductor.synth.setAK1Parameter(.filterAttackDuration, att)
+            self.conductor.synth.setAK1Parameter(.filterDecayDuration, dec)
+            self.conductor.synth.setAK1Parameter(.filterSustainLevel, sus)
+            self.conductor.synth.setAK1Parameter(.filterReleaseDuration, rel)
         }
     }
     

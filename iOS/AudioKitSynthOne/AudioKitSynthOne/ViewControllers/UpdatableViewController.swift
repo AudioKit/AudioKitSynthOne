@@ -28,6 +28,7 @@ public class UpdatableViewController: UIViewController {
             if param == binding.0 {
                 var control = binding.1
                 control.value = value
+                break
             }
         }
     }

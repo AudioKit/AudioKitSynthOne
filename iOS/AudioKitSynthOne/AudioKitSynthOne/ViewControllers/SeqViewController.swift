@@ -10,9 +10,6 @@
 import UIKit
 import AudioKit
 
-protocol SeqControllerDelegate {
-    func arpValueDidChange(_ arpeggiator: Arpeggiator)
-}
 
 class SeqViewController: SynthPanelController {
     
@@ -27,8 +24,6 @@ class SeqViewController: SynthPanelController {
     let sliderToggleTags = 500 ... 515
     let sliderLabelTags = 550 ... 565
     
-    var arpDelegate: SeqControllerDelegate?
-    var arpeggiator = Arpeggiator()
     var prevLedTag: Int = 0
     
     // *********************************************************
@@ -57,7 +52,6 @@ class SeqViewController: SynthPanelController {
     // *********************************************************
     
     func setDelegates() {
-        
     }
     
     func setupValues() {
@@ -76,8 +70,9 @@ class SeqViewController: SynthPanelController {
         for tag in sliderTags {
             if let slider = view.viewWithTag(tag) as? VerticalSlider {
                 let notePosition = tag - sliderTags.lowerBound
-                let transposeAmt = arpeggiator.seqPattern[notePosition]
-            
+                let ii = AKSynthOneParameter.arpSeqPattern00.rawValue + notePosition
+                let aksp = AKSynthOneParameter(rawValue: ii) ?? AKSynthOneParameter.arpSeqPattern00
+                let transposeAmt = conductor.synth.getAK1Parameter(aksp)
                 slider.actualValue = Double(transposeAmt)
                 updateTransposeBtn(notePosition: notePosition)
                 slider.setNeedsDisplay()
@@ -89,7 +84,10 @@ class SeqViewController: SynthPanelController {
         for tag in sliderToggleTags {
             if let toggle = view.viewWithTag(tag) as? ArpButton {
                 let notePosition = Int(tag) - sliderToggleTags.lowerBound
-                toggle.isOn = arpeggiator.seqNoteOn[notePosition]
+                let ii = AKSynthOneParameter.arpSeqNoteOn00.rawValue + notePosition
+                let aksp = AKSynthOneParameter(rawValue: ii) ?? AKSynthOneParameter.arpSeqNoteOn00
+                let isOn = conductor.synth.getAK1Parameter(aksp)
+                toggle.isOn = (isOn > 0) ? true : false
             }
         }
         
@@ -103,12 +101,12 @@ class SeqViewController: SynthPanelController {
         }
         */
         
-        seqStepsStepper.value = arpeggiator.totalSteps
-        octaveStepper.value = arpeggiator.octave
-        arpDirectionButton.arpDirectionSelected = arpeggiator.direction
-        arpSeqToggle.isOn = arpeggiator.isSequencer
-        arpToggle.value = arpeggiator.isOn
-        arpInterval.value = arpeggiator.interval
+        seqStepsStepper.value = conductor.synth.getAK1Parameter(.arpTotalSteps)
+        octaveStepper.value = conductor.synth.getAK1Parameter(.arpOctave)
+        arpDirectionButton.arpDirectionSelected = conductor.synth.getAK1Parameter(.arpDirection)
+        arpSeqToggle.isOn = ( conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ) ? true : false
+        arpToggle.value = conductor.synth.getAK1Parameter(.arpIsOn)
+        arpInterval.value = conductor.synth.getAK1Parameter(.arpInterval)
     }
     
     
@@ -149,8 +147,6 @@ class SeqViewController: SynthPanelController {
                 
                 slider.callback = { value in
                     let notePosition = Int(tag) - self.sliderTags.lowerBound
-                    
-                    // AKLog("Slider changed, \(notePosition): \(value)")
                     self.setSequencerNote(notePosition, transposeAmt: Int(value))
                     self.updateTransposeBtn(notePosition: notePosition)
                 }
@@ -163,7 +159,9 @@ class SeqViewController: SynthPanelController {
                 
                 toggle.callback = { value in
                     let notePosition = Int(tag) - self.sliderToggleTags.lowerBound
-                    self.arpeggiator.seqNoteOn[notePosition] = value == 1.0 ? true : false
+                    let ii = AKSynthOneParameter.arpSeqNoteOn00.rawValue + notePosition
+                    let aksp = AKSynthOneParameter(rawValue: ii) ?? AKSynthOneParameter.arpSeqNoteOn00
+                    self.conductor.synth.setAK1Parameter(aksp, value)
                     AKLog("notePosition \(notePosition), value \(value)")
                 }
             }
@@ -175,8 +173,9 @@ class SeqViewController: SynthPanelController {
                 
                 label.callback = { value in
                     let notePosition = Int(tag) - self.sliderLabelTags.lowerBound
-                    self.arpeggiator.seqOctBoost[notePosition] = !self.arpeggiator.seqOctBoost[notePosition]
-                    
+                    let ii = AKSynthOneParameter.arpSeqOctBoost00.rawValue + notePosition
+                    let aksp = AKSynthOneParameter(rawValue: ii) ?? AKSynthOneParameter.arpSeqOctBoost00
+                    self.conductor.synth.setAK1Parameter(aksp, 1-value)
                     self.updateTransposeBtn(notePosition: notePosition)
                 }
             }
@@ -192,9 +191,16 @@ class SeqViewController: SynthPanelController {
         let labelTag = notePosition + sliderLabelTags.lowerBound
         if let label = view.viewWithTag(labelTag) as? TransposeButton {
         
-            var transposeAmt = arpeggiator.seqPattern[notePosition]
+            let ii = AKSynthOneParameter.arpSeqPattern00.rawValue + notePosition
+            let aksp = AKSynthOneParameter(rawValue: ii) ?? AKSynthOneParameter.arpSeqPattern00
+            var transposeAmt = self.conductor.synth.getAK1Parameter(aksp)
             
-            if arpeggiator.seqOctBoost[notePosition] {
+            let iib = AKSynthOneParameter.arpSeqOctBoost00.rawValue + notePosition
+            let akspb = AKSynthOneParameter(rawValue: iib) ?? AKSynthOneParameter.arpSeqOctBoost00
+            let akspbb = self.conductor.synth.getAK1Parameter(akspb)
+            let octBoost = akspbb > 0 ? true : false
+            
+            if octBoost {
                 label.isOn = true
                 if transposeAmt >= 0 {
                     transposeAmt = transposeAmt + 12
@@ -210,8 +216,10 @@ class SeqViewController: SynthPanelController {
     }
     
     func setSequencerNote(_ notePosition: Int, transposeAmt: Int) {
-        arpeggiator.seqPattern[notePosition] = transposeAmt
-        arpDelegate?.arpValueDidChange(arpeggiator)
+        
+        let ii = AKSynthOneParameter.arpSeqPattern00.rawValue + notePosition
+        let ssn = AKSynthOneParameter(rawValue: ii) ?? AKSynthOneParameter.arpSeqPattern00
+        conductor.synth.setAK1Parameter(ssn, Double(transposeAmt))
     }
 }
 

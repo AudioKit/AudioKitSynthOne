@@ -40,7 +40,6 @@ public class ParentViewController: UIViewController {
     var bottomChildView: ChildView?
     var isPresetsDisplayed: Bool = false
     var activePreset = Preset()
-    var activeArp = Arpeggiator()
     var midiChannelIn: MIDIChannel = 0
     
     let midi = AKMIDI()  // TODO: REMOVE
@@ -79,7 +78,7 @@ public class ParentViewController: UIViewController {
         return viewController
     }()
     
-    fileprivate lazy var seqViewController: SeqViewController = {
+    lazy var seqViewController: SeqViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier()) as! SeqViewController
         return viewController
@@ -101,11 +100,10 @@ public class ParentViewController: UIViewController {
         keyboardView?.delegate = self
         keyboardView?.polyphonicMode = true
         
-        print("Trying to change conductor change parameter")
-        
         conductor.changeParameter = { param in
             return { value in
-                self.conductor.synth.parameters[param.rawValue] = value
+                //AKLog("changing \(param.rawValue) \(param.simpleDescription()) to: \(value)")
+                self.conductor.synth.setAK1Parameter(param, value)
             }
         }
         
@@ -181,7 +179,7 @@ public class ParentViewController: UIViewController {
      
         monoButton.callback = { value in
             self.keyboardView.polyphonicMode = !self.monoButton.isSelected
-            self.conductor.synth.parameters[AKSynthOneParameter.isMono.rawValue] = value
+            self.conductor.synth.setAK1Parameter(.isMono, value)
         }
       
         keyboardToggle.callback = { value in
@@ -315,9 +313,7 @@ extension ParentViewController: PresetsDelegate {
         }
         
         // TODO: Remove slider manual updating
-        seqViewController.arpeggiator = activeArp
         seqViewController.setupControlValues()
-
     }
     
     func updateDisplay(_ message: String) {

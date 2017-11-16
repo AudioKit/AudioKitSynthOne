@@ -43,11 +43,13 @@ class Conductor {
         _ = AKPolyphonicNode.tuningTable.defaultTuning()
         //_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav() //uncomment to hear a microtonal scale
         //_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 15, 19)
-        
+        //_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111)
+        //_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23)
+
         AudioKit.output = synth
         AudioKit.start()
     }
-
+    
     func updateAllCallbacks() {
         for vc in viewControllers {
             vc.updateCallbacks()
@@ -55,14 +57,15 @@ class Conductor {
     }
     
     func updateAllUI() {
-        for address in 0...synth.parameters.count {
+        for address in 0..<AKSynthOneParameter.count {
             guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int(address))
                 else {
+                    AKLog("ERROR: AKSynthOneParameter enum out of range: \(address)")
                     return
                 }
             for vc in viewControllers {
                 if !vc.isKind(of: HeaderViewController.self) {
-                    vc.updateUI(param, value: synth.parameters[address])
+                    vc.updateUI(param, value: synth.getAK1Parameter(param) )
                 }
             }
         }

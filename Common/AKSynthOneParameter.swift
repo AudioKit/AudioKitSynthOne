@@ -75,7 +75,7 @@ public enum AKSynthOneParameter: Int {
     arpRate = 64,
     arpIsSequencer = 65,
     arpTotalSteps = 66,
-    arpSeqPattern00 = 67,
+    arpSeqPattern00 = 67, // arpSeqPattern* must be sequential 16 enums
     arpSeqPattern01 = 68,
     arpSeqPattern02 = 69,
     arpSeqPattern03 = 70,
@@ -91,7 +91,7 @@ public enum AKSynthOneParameter: Int {
     arpSeqPattern13 = 80,
     arpSeqPattern14 = 81,
     arpSeqPattern15 = 82,
-    arpSeqOctBoost00 = 83,
+    arpSeqOctBoost00 = 83,  // arpSeqOctBoost* must be sequential 16 enums
     arpSeqOctBoost01 = 84,
     arpSeqOctBoost02 = 85,
     arpSeqOctBoost03 = 86,
@@ -107,7 +107,7 @@ public enum AKSynthOneParameter: Int {
     arpSeqOctBoost13 = 96,
     arpSeqOctBoost14 = 97,
     arpSeqOctBoost15 = 98,
-    arpSeqNoteOn00 = 99,
+    arpSeqNoteOn00 = 99,   // arpSeqNoteOn* must be sequential 16 enums
     arpSeqNoteOn01 = 100,
     arpSeqNoteOn02 = 101,
     arpSeqNoteOn03 = 102,

@@ -27,6 +27,11 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
         internalAU?.resetSequencer()
     }
     
+    open func stopAllNotes() {
+        internalAU?.stopAllNotes()
+    }
+    
+    ///Inefficient...see below
     open var parameters: [Double] {
         get {
             var result: [Double] = []
@@ -43,26 +48,31 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
             
             if internalAU?.isSetUp() ?? false {
                 if let existingToken = token {
-//                    var numChanged = 0
                     for (index, parameter) in auParameters.enumerated() {
                         if Double(parameter.value) != newValue[index] {
                             parameter.setValue( Float( newValue[index]), originator: existingToken)
-//                            numChanged += 1
-//                            let desc = AKSynthOneParameter.desc(forRawValue: index)
-//                            AKLog(" #\(index): \(desc): *\(newValue[index])")
                         }
                     }
-//                    if numChanged > 1 {
-//                        AKLog("\(numChanged) of \(auParameters.count) changed--------------------------------------\n")
-//                    }
                 }
             } else {
-//                AKLog("Setting directly")
                 internalAU?.parameters = newValue
             }
         }
     }
 
+    
+    ///This is more efficient than using [] syntax on "parameters"
+    open func setAK1Parameter(_ inAKSynthOneParameterEnum : AKSynthOneParameter, _ value : Double) {
+        let aks1p : Int32 = Int32(inAKSynthOneParameterEnum.rawValue)
+        let f = Float(value)
+        internalAU?.setAK1Parameter(aks1p, value: f)
+    }
+    
+    ///This is more efficient than using [] syntax on "parameters"
+    open func getAK1Parameter(_ inAKSynthOneParameterEnum : AKSynthOneParameter) -> Double {
+        let aks1p : Int32 = Int32(inAKSynthOneParameterEnum.rawValue)
+        return Double(internalAU?.getAK1Parameter(aks1p) ?? 0)
+    }
 
     
 //    open var parameterValues: [Double] = []

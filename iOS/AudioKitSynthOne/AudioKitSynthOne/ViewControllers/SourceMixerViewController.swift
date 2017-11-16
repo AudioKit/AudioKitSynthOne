@@ -85,7 +85,11 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(fmVolume,             to: .fmVolume)
         conductor.bind(fmAmount,             to: .fmAmount)
         conductor.bind(noiseVolume,          to: .noiseVolume)
+        
+        ///TODO:changed range of masterVolume for GAIN
+        masterVolume.range = 0.0...4.0
         conductor.bind(masterVolume,         to: .masterVolume)
+        
         conductor.bind(isMonoToggle,         to: .isMono)
         conductor.bind(glideKnob,            to: .glide)
         

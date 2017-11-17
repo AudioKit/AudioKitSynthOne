@@ -466,6 +466,31 @@ extension PresetsViewController: CategoryDelegate {
         categoryIndex = newCategoryIndex
     }
     
+    func userPresetsShare() {
+        
+        let userPresets = presets.filter { $0.isUser }
+        
+        // Save preset to temp directory to be shared
+        let presetLocation = "temp/userpresets.bank"
+        try? Disk.save(userPresets, to: .caches, as: presetLocation)
+        let path: URL =  try! Disk.getURL(for: presetLocation, in: .caches)
+        
+        // Share
+        let activityViewController = UIActivityViewController(
+            activityItems: [path],
+            applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [
+            UIActivityType.copyToPasteboard
+        ]
+        
+        if let popoverPresentationController = activityViewController.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverPresentationController.permittedArrowDirections = []
+        }
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
 }
 
 //*****************************************************************

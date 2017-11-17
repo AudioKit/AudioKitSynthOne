@@ -11,6 +11,7 @@ import AudioKit
 
 protocol HeaderDelegate {
     func displayLabelTapped()
+    func homePressed()
     func prevPresetPressed()
     func nextPresetPressed()
     func savePresetPressed()
@@ -173,6 +174,10 @@ public class HeaderViewController: UpdatableViewController {
     
     func displayLabelTapped() {
         headerDelegate?.displayLabelTapped()
+    }
+    
+    @IBAction func homePressed(_ sender: UIButton) {
+        headerDelegate?.homePressed()
     }
     
     @IBAction func prevPresetPressed(_ sender: UIButton) {

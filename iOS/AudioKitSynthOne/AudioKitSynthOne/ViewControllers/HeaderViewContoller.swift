@@ -184,7 +184,6 @@ public class HeaderViewController: UpdatableViewController {
          headerDelegate?.prevPresetPressed()
     }
     
-   
     @IBAction func nextPresetPressed(_ sender: UIButton) {
          headerDelegate?.nextPresetPressed()
     }

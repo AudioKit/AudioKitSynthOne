@@ -79,6 +79,7 @@ extension ParentViewController {
         conductor.synth.setAK1Parameter(.arpRate, activePreset.arpRate)
         conductor.synth.setAK1Parameter(.arpIsSequencer, activePreset.arpIsSequencer ? 1 : 0 )
         conductor.synth.setAK1Parameter(.arpTotalSteps, activePreset.arpTotalSteps )
+        
         for i in 0..<16 {
             conductor.synth.setAK1ArpSeqPattern(forIndex: i, activePreset.seqPatternNote[i])
             conductor.synth.setAK1SeqOctBoost(forIndex: i, activePreset.seqOctBoost[i])
@@ -88,7 +89,6 @@ extension ParentViewController {
         conductor.synth.resetSequencer()
         
         #if false
-        ///TODO:REMOVE DEBUG LOGGING
         AKLog("----------------------------------------------------------------------")
         AKLog("Preset #\(activePreset.position) \(activePreset.name)")
         for i in 0..<AKSynthOneParameter.count {
@@ -169,6 +169,7 @@ extension ParentViewController {
         activePreset.arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         activePreset.arpTotalSteps = conductor.synth.getAK1Parameter(.arpTotalSteps)
         activePreset.isArpMode = conductor.synth.getAK1Parameter(.arpIsOn)
+        
         for i in 0..<16 {
             activePreset.seqPatternNote[i] = conductor.synth.getAK1ArpSeqPattern(forIndex: i)
             activePreset.seqOctBoost[i] = conductor.synth.getAK1SeqOctBoost(forIndex: i)

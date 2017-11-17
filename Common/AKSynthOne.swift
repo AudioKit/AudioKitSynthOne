@@ -10,7 +10,9 @@ import AudioKit
 
 ///AKSynthOne
 open class AKSynthOne: AKPolyphonicNode, AKComponent {
+    
     public typealias AKAudioUnitType = AKSynthOneAudioUnit
+    
     /// Four letter unique description of the node
     public static let ComponentDescription = AudioComponentDescription(instrument: "aks1")
 
@@ -20,7 +22,6 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
     public var token: AUParameterObserverToken?
 
     fileprivate var waveformArray = [AKTable]()
-
     fileprivate var auParameters: [AUParameter] = []
     
     open func resetSequencer() {
@@ -31,7 +32,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
         internalAU?.stopAllNotes()
     }
     
-    ///Inefficient...see below
+    /// "parameter[i]" syntax is inefficient...use getter/setters below
     open var parameters: [Double] {
         get {
             var result: [Double] = []
@@ -60,24 +61,55 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
         }
     }
 
-    
-    ///This is more efficient than using [] syntax on "parameters"
+    ///These getter/setters are more efficient than using "parameter[i]"
     open func setAK1Parameter(_ inAKSynthOneParameterEnum : AKSynthOneParameter, _ value : Double) {
         let aks1p : Int32 = Int32(inAKSynthOneParameterEnum.rawValue)
         let f = Float(value)
         internalAU?.setAK1Parameter(aks1p, value: f)
     }
-    
-    ///This is more efficient than using [] syntax on "parameters"
     open func getAK1Parameter(_ inAKSynthOneParameterEnum : AKSynthOneParameter) -> Double {
         let aks1p : Int32 = Int32(inAKSynthOneParameterEnum.rawValue)
         return Double(internalAU?.getAK1Parameter(aks1p) ?? 0)
     }
 
     
-//    open var parameterValues: [Double] = []
+    open func getAK1ArpSeqPattern(forIndex inputIndex : Int) -> Int {
+        let index = (0...15).clamp(inputIndex)
+        let aspi = AKSynthOneParameter.arpSeqPattern00.rawValue + index
+        let aspp = AKSynthOneParameter(rawValue: aspi)!
+        return Int( getAK1Parameter(aspp) )
+    }
+    open func setAK1ArpSeqPattern(forIndex inputIndex : Int, _ value: Int) {
+        let index = (0...15).clamp(inputIndex)
+        let aspi = Int32(AKSynthOneParameter.arpSeqPattern00.rawValue + index)
+        internalAU?.setAK1Parameter(aspi, value: Float(value) )
+    }
 
+    open func getAK1SeqOctBoost(forIndex inputIndex : Int) -> Bool {
+        let index = (0...15).clamp(inputIndex)
+        let asni = AKSynthOneParameter.arpSeqOctBoost00.rawValue + index
+        let asnp = AKSynthOneParameter(rawValue: asni)!
+        return ( getAK1Parameter(asnp) > 0 ) ? true : false
+    }
+    open func setAK1SeqOctBoost(forIndex inputIndex : Int, _ value: Bool) {
+        let index = (0...15).clamp(inputIndex)
+        let aspi = Int32(AKSynthOneParameter.arpSeqOctBoost00.rawValue + index)
+        internalAU?.setAK1Parameter(aspi, value: Float(value == true ? 1 : 0) )
+    }
 
+    open func getAK1ArpSeqNoteOn(forIndex inputIndex : Int) -> Bool {
+        let index = (0...15).clamp(inputIndex)
+        let asoi = AKSynthOneParameter.arpSeqNoteOn00.rawValue + index
+        let asop = AKSynthOneParameter(rawValue: asoi)!
+        return ( getAK1Parameter(asop) > 0 ) ? true : false
+    }
+    open func setAK1ArpSeqNoteOn(forIndex inputIndex : Int, _ value: Bool) {
+        let index = (0...15).clamp(inputIndex)
+        let aspi = Int32(AKSynthOneParameter.arpSeqNoteOn00.rawValue + index)
+        internalAU?.setAK1Parameter(aspi, value: Float(value == true ? 1 : 0) )
+    }
+
+    
     /// Ramp Time represents the speed at which parameters are allowed to change
     open dynamic var rampTime: Double = 0.0 {
         willSet {

@@ -79,54 +79,11 @@ extension ParentViewController {
         conductor.synth.setAK1Parameter(.arpRate, activePreset.arpRate)
         conductor.synth.setAK1Parameter(.arpIsSequencer, activePreset.arpIsSequencer ? 1 : 0 )
         conductor.synth.setAK1Parameter(.arpTotalSteps, activePreset.arpTotalSteps )
-        conductor.synth.setAK1Parameter(.arpSeqPattern00, Double(activePreset.seqPatternNote[0]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern01, Double(activePreset.seqPatternNote[1]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern02, Double(activePreset.seqPatternNote[2]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern03, Double(activePreset.seqPatternNote[3]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern04, Double(activePreset.seqPatternNote[4]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern05, Double(activePreset.seqPatternNote[5]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern06, Double(activePreset.seqPatternNote[6]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern07, Double(activePreset.seqPatternNote[7]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern08, Double(activePreset.seqPatternNote[8]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern09, Double(activePreset.seqPatternNote[9]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern10, Double(activePreset.seqPatternNote[10]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern11, Double(activePreset.seqPatternNote[11]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern12, Double(activePreset.seqPatternNote[12]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern13, Double(activePreset.seqPatternNote[13]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern14, Double(activePreset.seqPatternNote[14]) )
-        conductor.synth.setAK1Parameter(.arpSeqPattern15, Double(activePreset.seqPatternNote[15]) )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost00, activePreset.seqOctBoost[0] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost01, activePreset.seqOctBoost[1] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost02, activePreset.seqOctBoost[2] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost03, activePreset.seqOctBoost[3] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost04, activePreset.seqOctBoost[4] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost05, activePreset.seqOctBoost[5] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost06, activePreset.seqOctBoost[6] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost07, activePreset.seqOctBoost[7] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost08, activePreset.seqOctBoost[8] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost09, activePreset.seqOctBoost[9] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost10, activePreset.seqOctBoost[10] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost11, activePreset.seqOctBoost[11] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost12, activePreset.seqOctBoost[12] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost13, activePreset.seqOctBoost[13] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost14, activePreset.seqOctBoost[14] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqOctBoost15, activePreset.seqOctBoost[15] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn00, activePreset.seqNoteOn[0] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn01, activePreset.seqNoteOn[1] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn02, activePreset.seqNoteOn[2] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn03, activePreset.seqNoteOn[3] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn04, activePreset.seqNoteOn[4] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn05, activePreset.seqNoteOn[5] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn06, activePreset.seqNoteOn[6] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn07, activePreset.seqNoteOn[7] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn08, activePreset.seqNoteOn[8] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn09, activePreset.seqNoteOn[9] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn10, activePreset.seqNoteOn[10] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn11, activePreset.seqNoteOn[11] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn12, activePreset.seqNoteOn[12] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn13, activePreset.seqNoteOn[13] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn14, activePreset.seqNoteOn[14] ? 1 : 0 )
-        conductor.synth.setAK1Parameter(.arpSeqNoteOn15, activePreset.seqNoteOn[15] ? 1 : 0 )
+        for i in 0..<16 {
+            conductor.synth.setAK1ArpSeqPattern(forIndex: i, activePreset.seqPatternNote[i])
+            conductor.synth.setAK1SeqOctBoost(forIndex: i, activePreset.seqOctBoost[i])
+            conductor.synth.setAK1ArpSeqNoteOn(forIndex: i, activePreset.seqNoteOn[i])
+        }
 
         conductor.synth.resetSequencer()
         
@@ -213,17 +170,9 @@ extension ParentViewController {
         activePreset.arpTotalSteps = conductor.synth.getAK1Parameter(.arpTotalSteps)
         activePreset.isArpMode = conductor.synth.getAK1Parameter(.arpIsOn)
         for i in 0..<16 {
-            let aspi = AKSynthOneParameter.arpSeqPattern00.rawValue + i
-            let aspp = AKSynthOneParameter(rawValue: aspi) ?? AKSynthOneParameter.arpSeqPattern00
-            activePreset.seqPatternNote[i] = Int(conductor.synth.getAK1Parameter(aspp))
-            
-            let asni = AKSynthOneParameter.arpSeqOctBoost00.rawValue + i
-            let asnp = AKSynthOneParameter(rawValue: asni) ?? AKSynthOneParameter.arpSeqOctBoost00
-            activePreset.seqOctBoost[i] = conductor.synth.getAK1Parameter(asnp) > 0 ? true : false
-
-            let asoi = AKSynthOneParameter.arpSeqNoteOn00.rawValue + i
-            let asop = AKSynthOneParameter(rawValue: asoi) ?? AKSynthOneParameter.arpSeqNoteOn00
-            activePreset.seqNoteOn[i] = conductor.synth.getAK1Parameter(asop) > 0 ? true : false
+            activePreset.seqPatternNote[i] = conductor.synth.getAK1ArpSeqPattern(forIndex: i)
+            activePreset.seqOctBoost[i] = conductor.synth.getAK1SeqOctBoost(forIndex: i)
+            activePreset.seqNoteOn[i] = conductor.synth.getAK1ArpSeqNoteOn(forIndex: i)
         }
         
         presetsViewController.savePreset(activePreset)

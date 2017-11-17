@@ -277,6 +277,10 @@ extension ParentViewController: HeaderDelegate {
         }
     }
     
+    func homePressed() {
+        displayLabelTapped()
+    }
+    
     func prevPresetPressed() {
         presetsViewController.prevPreset()
     }

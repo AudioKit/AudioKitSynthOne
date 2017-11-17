@@ -39,6 +39,7 @@ enum PresetCategory: Int {
 
 protocol CategoryDelegate {
     func categoryDidChange(_ newCategoryIndex: Int)
+    func userPresetsShare()
 }
 
 // ******************************************************
@@ -111,6 +112,7 @@ extension PresetsCategoriesController: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as? CategoryCell {
             
             // Cell updated in CategoryCell.swift
+            cell.delegate = self
             cell.configureCell(category: category)
             return cell
             
@@ -135,3 +137,9 @@ extension PresetsCategoriesController: UITableViewDelegate {
     
 }
 
+// Pass the share button call up to PresetsView Controller
+extension PresetsCategoriesController: CategoryCellDelegate {
+    func userPresetsShare() {
+        categoryDelegate?.userPresetsShare()
+    }
+}

@@ -17,6 +17,10 @@ import Foundation
 
 import UIKit
 
+protocol CategoryCellDelegate {
+    func userPresetsShare()
+}
+
 class CategoryCell: UITableViewCell {
     
     // *********************************************************
@@ -27,8 +31,7 @@ class CategoryCell: UITableViewCell {
     @IBOutlet weak var shareButton: UIButton!
     var currentCategory: String = ""
     
-    // var delegate: CategoryCellDelegate?
-    // var currentPreset: Preset?
+    var delegate: CategoryCellDelegate?
     
     // *********************************************************
     // MARK: - Lifecycle
@@ -81,12 +84,9 @@ class CategoryCell: UITableViewCell {
     // *********************************************************
     // MARK: - IBAction
     // *********************************************************
-    @IBAction func editPressed(_ sender: UIButton) {
-        /*
-         if let preset = currentPreset {
-         delegate?.duplicatePressed(preset: preset)
-         }
-         */
+    
+    @IBAction func sharePressed(_ sender: UIButton) {
+         delegate?.userPresetsShare()
     }
     
 }

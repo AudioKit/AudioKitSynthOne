@@ -102,8 +102,9 @@ public class ParentViewController: UIViewController {
         
         conductor.changeParameter = { param in
             return { value in
-                //AKLog("changing \(param.rawValue) \(param.simpleDescription()) to: \(value)")
+                AKLog("changing \(param.rawValue) \(param.simpleDescription()) to: \(value)")
                 self.conductor.synth.setAK1Parameter(param, value)
+                Conductor.sharedInstance.updateAllUI()
             }
         }
         
@@ -200,9 +201,7 @@ public class ParentViewController: UIViewController {
     
     func stopAllNotes() {
         self.keyboardView.allNotesOff()
-        for note in 0...127 {
-            conductor.synth.stop(noteNumber: MIDINoteNumber(note))
-        }
+        conductor.synth.stopAllNotes()
     }
     
     // **********************************************************

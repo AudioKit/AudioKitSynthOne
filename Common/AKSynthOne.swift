@@ -72,7 +72,27 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
         return Double(internalAU?.getAK1Parameter(aks1p) ?? 0)
     }
 
-    
+    open var filterCutoffMin : Double {
+        get {
+            return Double( internalAU?.filterCutoffMin() ?? 0.001)
+        }
+    }
+    open var filterCutoffMax : Double {
+        get {
+            return Double( internalAU?.filterCutoffMax() ?? 44100/2)
+        }
+    }
+    open var filterResonanceMin : Double {
+        get {
+            return Double( internalAU?.filterResonanceMin() ?? 0)
+        }
+    }
+    open var filterResonanceMax : Double {
+        get {
+            return Double( internalAU?.filterResonanceMax() ?? 1)
+        }
+    }
+
     open func getAK1ArpSeqPattern(forIndex inputIndex : Int) -> Int {
         let index = (0...15).clamp(inputIndex)
         let aspi = AKSynthOneParameter.arpSeqPattern00.rawValue + index

@@ -32,14 +32,14 @@ class TouchPadViewController: SynthPanelController {
         touchPad1.verticalRange = 0.5 ... 2
         touchPad1.verticalTaper = log(3) / log(2)
         
-        touchPad2.verticalRange = 120 ... 28000
+        let s = Conductor.sharedInstance.synth!
+        touchPad2.verticalRange = s.filterCutoffMin ... s.filterCutoffMax
         touchPad2.verticalTaper = 4.04
        
         updateCallbacks()
         createParticles()
         
         // snapToggle.isSelected = true
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,22 +63,25 @@ class TouchPadViewController: SynthPanelController {
         }
         
         touchPad1.callback = { horizontal, vertical, touchesBegan in
+            
+            self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width * CGFloat(horizontal)), y: self.touchPad2.bounds.height/2)
+
             if touchesBegan {
                 // record values before touched
                 self.oscBalance = self.conductor.synth.getAK1Parameter(.morphBalance)
                 
                 // start particles
-                self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width * CGFloat(horizontal)), y: self.touchPad2.bounds.height/2)
                 self.particleEmitter1.birthRate = 1
             }
             
             // Affect parameters based on touch position
             self.conductor.synth.setAK1Parameter(.morphBalance, horizontal)
             self.conductor.synth.setAK1Parameter(.detuningMultiplier, vertical)
+            
+            self.conductor.updateAllUI()
         }
         
         touchPad1.completionHandler = { horizontal, vertical, touchesEnded, reset in
-            
             if touchesEnded {
                 self.particleEmitter1.birthRate = 0
                 self.touchPad1Label.textColor = #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 0)
@@ -88,30 +91,32 @@ class TouchPadViewController: SynthPanelController {
                 self.resetTouchPad1()
             }
             
+            self.conductor.updateAllUI()
         }
         
+        
         touchPad2.callback = { horizontal, vertical, touchesBegan in
+            
+            // record values before touched
+            self.rez = self.conductor.synth.getAK1Parameter(.resonance)
+            self.cutoff = self.conductor.synth.getAK1Parameter(.cutoff)
+
+            let y = CGFloat(self.cutoff.normalized(from: self.touchPad2.verticalRange, taper: self.touchPad2.verticalTaper))
+            self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width * CGFloat(self.rez)) + self.touchPad2.bounds.minX, y: self.touchPad2.bounds.height * CGFloat(1-y))
+
             if touchesBegan {
-                // record values before touched
-                self.rez = self.conductor.synth.getAK1Parameter(.resonance)
-                self.cutoff = self.conductor.synth.getAK1Parameter(.cutoff)
-                
-                // start particles
-                let y = CGFloat(self.cutoff.normalized(from: self.touchPad2.verticalRange,
-                                                       taper: self.touchPad2.verticalTaper))
-                
-                self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width * CGFloat(self.rez)) + self.touchPad2.bounds.minX, y: self.touchPad2.bounds.height * CGFloat(1-y))
-                
                 self.particleEmitter2.birthRate = 1
             }
             
             // Affect parameters based on touch position
             self.conductor.synth.setAK1Parameter(.resonance, horizontal)
             self.conductor.synth.setAK1Parameter(.cutoff, vertical)
+            
+            self.conductor.updateAllUI()
         }
         
+        
         touchPad2.completionHandler = { horizontal, vertical, touchesEnded, reset in
-            
             if touchesEnded {
                 self.particleEmitter2.birthRate = 0
             }
@@ -125,20 +130,31 @@ class TouchPadViewController: SynthPanelController {
                 self.touchPad2.resetToPosition(self.rez, y)
            
             }
+            self.conductor.updateAllUI()
         }
     }
     
     func resetTouchPad1() {
         self.conductor.synth.setAK1Parameter(.morphBalance, self.oscBalance)
-        self.conductor.synth.setAK1Parameter(.detuningMultiplier, 1)
+        self.conductor.synth.setAK1Parameter(.detuningMultiplier, 0.5)
         self.touchPad1.resetToPosition(self.oscBalance, 0.5)
     }
     
+    
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        
+        ///TODO: update UI
         switch param {
+        case .cutoff:
+            cutoff = conductor.synth.getAK1Parameter(.cutoff)
+            break
+        case .resonance:
+            rez = conductor.synth.getAK1Parameter(.resonance)
+            break
+        case .morphBalance:
+            oscBalance = conductor.synth.getAK1Parameter(.morphBalance)
+            break
         case .detuningMultiplier:
-            // detuningMultiplier = value
+            detuningMultiplier = conductor.synth.getAK1Parameter(.detuningMultiplier)
             break
         default:
             _ = 0
@@ -150,8 +166,8 @@ class TouchPadViewController: SynthPanelController {
     
     func updateLabels() {
         // touchPad1Label.text = "Bend: \(detuningMultiplier.decimalString)x octave"
-        
     }
+    
     
     // *********************************************************
     // MARK: - Particles

@@ -76,15 +76,14 @@ public class AKTouchPadView: UIView {
             let touchPoint = touch.location(in: self)
             lastX = touchPoint.x
             lastY = touchPoint.y
-            let began = true
-            setPercentagesWithTouchPoint(touchPoint, began: began)
+            setPercentagesWithTouchPoint(touchPoint, began: true)
         }
     }
     
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let touchPoint = touch.location(in: self)
-            setPercentagesWithTouchPoint(touchPoint)
+            setPercentagesWithTouchPoint(touchPoint, began: false)
         }
     }
     

@@ -53,6 +53,7 @@ class ADSRViewController: SynthPanelController {
             self.conductor.synth.setAK1Parameter(.decayDuration, dec)
             self.conductor.synth.setAK1Parameter(.sustainLevel, sus)
             self.conductor.synth.setAK1Parameter(.releaseDuration, rel)
+            self.conductor.updateAllUI()
         }
         
         filterADSRView.callback = { att, dec, sus, rel in
@@ -60,6 +61,7 @@ class ADSRViewController: SynthPanelController {
             self.conductor.synth.setAK1Parameter(.filterDecayDuration, dec)
             self.conductor.synth.setAK1Parameter(.filterSustainLevel, sus)
             self.conductor.synth.setAK1Parameter(.filterReleaseDuration, rel)
+            self.conductor.updateAllUI()
         }
     }
     

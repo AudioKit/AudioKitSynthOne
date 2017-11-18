@@ -19,7 +19,7 @@ class Conductor {
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
 
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter) {
-        bindings.append((param, control))
+        bindings.append(param, control)
     }
 
     var changeParameter: (AKSynthOneParameter)->((_: Double) -> Void)  = { _ in

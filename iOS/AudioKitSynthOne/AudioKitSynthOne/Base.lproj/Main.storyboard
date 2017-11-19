@@ -623,6 +623,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
+                        <outlet property="arpSeqToggle" destination="hLR-Kv-nmn" id="Xwl-cd-mhr"/>
                         <outlet property="cutoff" destination="sPn-F6-EfJ" id="WLh-d9-LNh"/>
                         <outlet property="displayContainer" destination="Nt4-z7-5HN" id="0zt-qF-Owp"/>
                         <outlet property="filterTypeToggle" destination="svc-Dm-tS3" id="prX-lr-HvU"/>
@@ -646,6 +647,7 @@
                         <outlet property="subIsSquare" destination="d9F-Dn-rDa" id="sPc-IJ-65e"/>
                         <outlet property="subOctaveDown" destination="RfN-pt-vLT" id="E4J-Wj-UH3"/>
                         <outlet property="subVolume" destination="HbA-YN-8uf" id="2zM-al-Xtv"/>
+                        <outlet property="tempoStepper" destination="eYJ-vb-EwS" id="QT7-uH-SWA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1Q-CL-vib" sceneMemberID="firstResponder"/>

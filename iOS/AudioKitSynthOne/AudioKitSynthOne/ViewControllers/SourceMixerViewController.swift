@@ -41,6 +41,9 @@ class SourceMixerViewController: SynthPanelController {
     @IBOutlet weak var filterTypeToggle: FilterTypeButton!
     @IBOutlet weak var displayContainer: UIView!
     
+    @IBOutlet weak var arpSeqToggle: FlatToggleButton!
+    @IBOutlet weak var tempoStepper: TempoStepper!
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,7 +97,16 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(glideKnob,            to: .glide)
         
         filterTypeToggle.callback = { value in
-            print("Filter type changed \(value)")
+            print("TODO:Filter type changed \(value)")
+        }
+        
+        arpSeqToggle.callback = { value in
+            self.conductor.synth.setAK1Parameter(.arpIsOn, value)
+        }
+        
+        tempoStepper.maxValue = 360
+        tempoStepper.callback = { value in
+            self.conductor.synth.setAK1Parameter(.arpRate, value)
         }
         
         updateCallbacks()

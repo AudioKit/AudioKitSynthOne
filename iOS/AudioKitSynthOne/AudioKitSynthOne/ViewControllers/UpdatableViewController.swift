@@ -32,6 +32,7 @@ public class UpdatableViewController: UIViewController {
         }
     }
     
+    ///Subclasses should call super and call it LAST, AFTER bindings are set.
     func updateCallbacks() {
         for binding in conductor.bindings {
             var control = binding.1

@@ -104,7 +104,7 @@ public class ParentViewController: UIViewController {
             return { value in
                 AKLog("changing \(param.rawValue) \(param.simpleDescription()) to: \(value)")
                 self.conductor.synth.setAK1Parameter(param, value)
-                Conductor.sharedInstance.updateAllUI()
+                self.conductor.updateAllUI()
             }
         }
         
@@ -314,9 +314,6 @@ extension ParentViewController: PresetsDelegate {
             let message = "\(self.activePreset.position): \(self.activePreset.name)"
             self.updateDisplay(message)
         }
-        
-        // TODO: Remove slider manual updating
-        seqViewController.setupControlValues()
     }
     
     func updateDisplay(_ message: String) {

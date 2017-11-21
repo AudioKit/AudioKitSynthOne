@@ -147,17 +147,17 @@ class SeqViewController: SynthPanelController {
             }
         }
         
-        ///TODO:Is arp octave boost implemented?
+        ///TODO:Matthew: Do you want to implement seqOctBoost?
         
         /*
-        // Slider Transpose Label / +12/-12
-        for tag in sliderLabelTags {
-            if let label = view.viewWithTag(tag) as? TransposeButton {
-                let notePosition = Int(tag) - sliderLabelTags.lowerBound
-                //label.text = String(arpeggiator.seqPattern[notePosition])
-            }
-        }
-        */
+         // Slider Transpose Label / +12/-12
+         for tag in sliderLabelTags {
+         if let label = view.viewWithTag(tag) as? TransposeButton {
+         let notePosition = Int(tag) - sliderLabelTags.lowerBound
+         //label.text = String(arpeggiator.seqPattern[notePosition])
+         }
+         }
+         */
     }
     
     

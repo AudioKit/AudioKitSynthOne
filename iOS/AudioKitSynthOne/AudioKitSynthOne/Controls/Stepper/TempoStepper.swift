@@ -57,7 +57,7 @@ class TempoStepper: Stepper {
         plusPath = UIBezierPath(roundedRect: CGRect(x: 43.5, y: 38.5, width: 35, height: 32), cornerRadius: 1)
         
         minValue = 60
-        maxValue = 180
+        maxValue = 360
         
         range = (Double(minValue) ... Double(maxValue))
         

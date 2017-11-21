@@ -96,13 +96,12 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(isMonoToggle,         to: .isMono)
         conductor.bind(glideKnob,            to: .glide)
         
+        ///TODO:Implement Filter Type
         filterTypeToggle.callback = { value in
-            print("TODO:Filter type changed \(value)")
+            AKLog("TODO:Implement Filter Type changed \(value)")
         }
         
-        arpSeqToggle.callback = { value in
-            self.conductor.synth.setAK1Parameter(.arpIsOn, value)
-        }
+        conductor.bind(arpSeqToggle,         to: .arpIsOn)
         
         tempoStepper.maxValue = 360
         tempoStepper.callback = { value in

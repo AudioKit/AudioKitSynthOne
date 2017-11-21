@@ -44,7 +44,6 @@ class ArpButton: UIView {
         for _ in touches {
             isOn = !isOn
             self.setNeedsDisplay()
-            print("calling back")
             callback(value)
         }
     }

@@ -97,10 +97,7 @@ extension ParentViewController {
             AKLog("\(i) = \(sd) = \(conductor.synth.getAK1Parameter(param))")
         }
         AKLog("END----------------------------------------------------------------------")
-            #endif
-        
-        // Update arpVC AFTER DSP params are set
-        seqViewController.setupControlValues()
+            #endif        
     }
     
     

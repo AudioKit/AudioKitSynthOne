@@ -8,24 +8,37 @@
 
 import UIKit
 
-class FilterTypeButton: UIButton {
-
+class FilterTypeButton: UIButton, AKSynthOneControl {
+    
     var callback: (Double)->Void = { _ in }
     
-    var value: Double = 0 {
-        didSet {
-            switch value {
-            case 0:
-                // cutoff
-                self.setTitle("Low Pass", for: .normal)
-            case 1:
-                // highpass
-                   self.setTitle("Band Pass", for: .normal)
-            case 2:
-                // bandpass
-                 self.setTitle("High Pass", for: .normal)
-            default:
-                break
+    private var _value: Double = 0
+    var value: Double {
+        get {
+            return _value
+        }
+        
+        set {
+            _value = (0 ... 3).clamp(newValue)
+            DispatchQueue.main.async {
+                switch self._value {
+                case 0:
+                    // low pass
+                    self.setTitle("Low Pass", for: .normal)
+                case 1:
+                    // band pass
+                    self.setTitle("Band Pass", for: .normal)
+                case 2:
+                    // high pass
+                    self.setTitle("High Pass", for: .normal)
+                case 3:
+                    // reset to low pass
+                    fallthrough
+                default:
+                    // low pass
+                    self._value = 0
+                    self.setTitle("Low Pass", for: .normal)
+                }
             }
         }
     }

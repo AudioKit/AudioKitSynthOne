@@ -52,26 +52,19 @@ class SourceMixerViewController: SynthPanelController {
         // Defaults, limits
         cutoff.range = conductor.synth.filterCutoffMin ... conductor.synth.filterCutoffMax
         cutoff.taper = 4.04
-        
         morph1SemitoneOffset.onlyIntegers = true
         morph1SemitoneOffset.range = -12 ... 12 // semitones
-        
         morph2SemitoneOffset.onlyIntegers = true
         morph2SemitoneOffset.range = -12 ... 12  // semitones
-        
         morph2Detuning.range = -4 ... 4  // Hz
-        
         morph1Volume.value = 0.5
         morph1Volume.value = 0.5
-        
         morphBalance.value = 0.5
-        
         glideKnob.range = 0.0 ... 0.2
-        
         noiseVolume.range = 0.0 ... 0.3
         fmAmount.range = 0.0 ... 15
         resonance.range = 0.0 ... 0.97
-        
+
         conductor.bind(morph1Selector,       to: .index1)
         conductor.bind(morph2Selector,       to: .index2)
         conductor.bind(morph1SemitoneOffset, to: .morph1SemitoneOffset)
@@ -91,17 +84,13 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(arpSeqToggle,         to: .arpIsOn)
         conductor.bind(isMonoToggle,         to: .isMono)
         conductor.bind(glideKnob,            to: .glide)
+        conductor.bind(filterTypeToggle,     to: .filterType)
 
         //Changed range of masterVolume
         masterVolume.range = 0.0...4.0
         conductor.bind(masterVolume,         to: .masterVolume)
         
-        //Filter Type
-        ///TODO:This will update the DSP when the UI is changed, but not the other way around...still need to update this control's state when the preset changes
-        filterTypeToggle.callback = { value in
-            self.conductor.synth.setAK1Parameter(.filterType, value)
-        }
-        
+        ///TODO:Convert to AKSynthOneParameter
         //tempoStepper
         tempoStepper.maxValue = 360
         tempoStepper.callback = { value in

@@ -34,7 +34,6 @@ extension ParentViewController {
         conductor.synth.setAK1Parameter(.noiseVolume, activePreset.noiseVolume)
         conductor.synth.setAK1Parameter(.cutoff, activePreset.cutoff)
         conductor.synth.setAK1Parameter(.resonance, activePreset.rez)
-        conductor.synth.setAK1Parameter(.filterType, activePreset.filterType)
         conductor.synth.setAK1Parameter(.filterADSRMix, activePreset.filterADSRMix)
         conductor.synth.setAK1Parameter(.filterAttackDuration, activePreset.filterAttack)
         conductor.synth.setAK1Parameter(.filterDecayDuration, activePreset.filterDecay)
@@ -87,6 +86,8 @@ extension ParentViewController {
             conductor.synth.setAK1ArpSeqNoteOn(forIndex: i, activePreset.seqNoteOn[i])
         }
 
+        conductor.synth.setAK1Parameter(.filterType, activePreset.filterType)
+
         conductor.synth.resetSequencer()
         
         #if false
@@ -100,7 +101,6 @@ extension ParentViewController {
         AKLog("END----------------------------------------------------------------------")
             #endif        
     }
-    
     
     func saveValuesToPreset() {
         activePreset.masterVolume = conductor.synth.getAK1Parameter(.masterVolume)
@@ -122,7 +122,6 @@ extension ParentViewController {
         activePreset.noiseVolume = conductor.synth.getAK1Parameter(.noiseVolume)
         activePreset.cutoff = conductor.synth.getAK1Parameter(.cutoff)
         activePreset.rez = conductor.synth.getAK1Parameter(.resonance)
-        activePreset.filterType = conductor.synth.getAK1Parameter(.filterType)
         activePreset.filterADSRMix = conductor.synth.getAK1Parameter(.filterADSRMix)
         activePreset.filterAttack = conductor.synth.getAK1Parameter(.filterAttackDuration)
         activePreset.filterDecay = conductor.synth.getAK1Parameter(.filterDecayDuration)
@@ -174,7 +173,9 @@ extension ParentViewController {
             activePreset.seqOctBoost[i] = conductor.synth.getAK1SeqOctBoost(forIndex: i)
             activePreset.seqNoteOn[i] = conductor.synth.getAK1ArpSeqNoteOn(forIndex: i)
         }
-        
+
+        activePreset.filterType = conductor.synth.getAK1Parameter(.filterType)
+
         presetsViewController.savePreset(activePreset)
     }
 }

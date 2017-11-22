@@ -24,10 +24,16 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
     fileprivate var waveformArray = [AKTable]()
     fileprivate var auParameters: [AUParameter] = []
     
+    ///Hard-reset of DSP...for PANIC
+    open func resetDSP() {
+        internalAU?.resetDSP()
+    }
+    
     open func resetSequencer() {
         internalAU?.resetSequencer()
     }
     
+    ///Puts all playing notes into release mode.
     open func stopAllNotes() {
         internalAU?.stopAllNotes()
     }

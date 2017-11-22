@@ -193,7 +193,8 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     @IBAction func panicPressed(_ sender: UIButton) {
-        conductor.synth.stopAllNotes()
+        //conductor.synth.reset() // kinder, gentler panic
+        conductor.synth.resetDSP() // nuclear panic option
     }
     
     // ********************************************************

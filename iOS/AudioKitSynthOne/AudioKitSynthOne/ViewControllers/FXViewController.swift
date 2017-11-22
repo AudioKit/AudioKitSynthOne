@@ -64,12 +64,12 @@ class FXViewController: SynthPanelController {
         sampleRate.range = 400 ... 44100
         sampleRate.taper = 5
 
-        autoPanRate.range = 0 ... 10
+        autoPanRate.range = 0 ... 16
 
         reverbLowCut.range = 10 ... 800
         reverbLowCut.taper = 1
 
-        delayFeedback.range = 0 ... 0.4
+        delayFeedback.range = 0 ... 0.5
         delayTime.range = 0.01 ... 1.5
 
         lfo1Rate.range = 0 ... 10
@@ -105,20 +105,16 @@ class FXViewController: SynthPanelController {
         conductor.bind(lfoPitchToggle,     to: .pitchLFO)
         conductor.bind(lfoBitcrushToggle,  to: .bitcrushLFO)
         conductor.bind(lfoAutoPanToggle,   to: .autopanLFO)
-
-        conductor.bind(lfo1WavePicker, to: .lfo1Index)
-        conductor.bind(lfo2WavePicker, to: .lfo2Index)
-
+        conductor.bind(lfo1WavePicker,     to: .lfo1Index)
+        conductor.bind(lfo2WavePicker,     to: .lfo2Index)
 
         tempoSyncToggle.callback = { value in
             self.conductor.syncRatesToTempo = value == 1 ? true : false
             self.lfo1Rate.update()
             self.lfo2Rate.update()
             self.autoPanRate.update()
-
         }
 
         updateCallbacks()
     }
-
 }

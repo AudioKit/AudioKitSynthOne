@@ -88,21 +88,21 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(fmVolume,             to: .fmVolume)
         conductor.bind(fmAmount,             to: .fmAmount)
         conductor.bind(noiseVolume,          to: .noiseVolume)
-        
-        ///TODO:changed range of masterVolume for GAIN
+        conductor.bind(arpSeqToggle,         to: .arpIsOn)
+        conductor.bind(isMonoToggle,         to: .isMono)
+        conductor.bind(glideKnob,            to: .glide)
+
+        //Changed range of masterVolume
         masterVolume.range = 0.0...4.0
         conductor.bind(masterVolume,         to: .masterVolume)
         
-        conductor.bind(isMonoToggle,         to: .isMono)
-        conductor.bind(glideKnob,            to: .glide)
-        
-        ///TODO:Implement Filter Type
+        //Filter Type
+        ///TODO:This will update the DSP when the UI is changed, but not the other way around...still need to update this control's state when the preset changes
         filterTypeToggle.callback = { value in
-            AKLog("TODO:Implement Filter Type changed \(value)")
+            self.conductor.synth.setAK1Parameter(.filterType, value)
         }
         
-        conductor.bind(arpSeqToggle,         to: .arpIsOn)
-        
+        //tempoStepper
         tempoStepper.maxValue = 360
         tempoStepper.callback = { value in
             self.conductor.synth.setAK1Parameter(.arpRate, value)

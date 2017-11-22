@@ -42,6 +42,7 @@ class Preset: Codable {
  
     var cutoff = 2000.0 // Cutoff Knob Position
     var rez = 0.1 // Filter Q/Rez
+    var filterType = 0.0 // 0 = lopass, 1=bandpass, 2=hipassh.s
     var delayTime = 0.5 // Delay (seconds)
     var delayMix = 0.5 // Dry/Wet
     var delayFeedback = 0.1
@@ -202,6 +203,7 @@ class Preset: Codable {
        
         cutoff = dictionary["cutoff"] as? Double ?? cutoff
         rez = dictionary["rez"] as? Double ?? rez
+        filterType = dictionary["filterType"] as? Double ?? filterType
         delayTime = dictionary["delayTime"] as? Double ?? delayTime
         delayFeedback = dictionary["delayFeedback"] as? Double ?? delayFeedback
         delayMix = dictionary["delayMix"] as? Double ?? delayMix

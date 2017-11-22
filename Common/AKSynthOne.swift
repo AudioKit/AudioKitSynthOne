@@ -43,7 +43,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
         get {
             var result: [Double] = []
             if let floatParameters = internalAU?.parameters as? [NSNumber] {
-                //AKLog("getter recreates array of 115 params")
+                //AKLog("getter recreates array of 116 params")
                 for number in floatParameters {
                     result.append(number.doubleValue)
                 }

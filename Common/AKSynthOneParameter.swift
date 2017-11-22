@@ -122,7 +122,8 @@ public enum AKSynthOneParameter: Int {
     arpSeqNoteOn12 = 111,
     arpSeqNoteOn13 = 112,
     arpSeqNoteOn14 = 113,
-    arpSeqNoteOn15 = 114
+    arpSeqNoteOn15 = 114,
+    filterType = 115 // 0 = lowpass, 1 = bandpass, 2 = hipass
 
     
     public func simpleDescription() -> String {
@@ -242,6 +243,7 @@ public enum AKSynthOneParameter: Int {
         case .arpSeqNoteOn13: return "arpSeqNoteOn13"
         case .arpSeqNoteOn14: return "arpSeqNoteOn14"
         case .arpSeqNoteOn15: return "arpSeqNoteOn15"
+        case .filterType: return "filterType"
         }
     }
     

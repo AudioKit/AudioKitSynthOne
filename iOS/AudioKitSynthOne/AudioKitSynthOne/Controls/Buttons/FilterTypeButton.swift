@@ -11,6 +11,7 @@ import UIKit
 class FilterTypeButton: UIButton {
 
     var callback: (Double)->Void = { _ in }
+    
     var value: Double = 0 {
         didSet {
             switch value {
@@ -19,10 +20,10 @@ class FilterTypeButton: UIButton {
                 self.setTitle("Low Pass", for: .normal)
             case 1:
                 // highpass
-                   self.setTitle("High Pass", for: .normal)
+                   self.setTitle("Band Pass", for: .normal)
             case 2:
                 // bandpass
-                 self.setTitle("Band Pass", for: .normal)
+                 self.setTitle("High Pass", for: .normal)
             default:
                 break
             }
@@ -42,5 +43,4 @@ class FilterTypeButton: UIButton {
             callback(value)
         }
     }
-
 }

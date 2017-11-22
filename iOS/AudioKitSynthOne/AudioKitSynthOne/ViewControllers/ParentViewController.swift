@@ -102,7 +102,7 @@ public class ParentViewController: UIViewController {
         
         conductor.changeParameter = { param in
             return { value in
-                AKLog("changing \(param.rawValue) \(param.simpleDescription()) to: \(value)")
+                //AKLog("changing \(param.rawValue) \(param.simpleDescription()) to: \(value)")
                 self.conductor.synth.setAK1Parameter(param, value)
                 self.conductor.updateAllUI()
             }

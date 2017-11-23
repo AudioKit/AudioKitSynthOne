@@ -9,21 +9,4 @@
 import UIKit
 
 class SettingsViewController: UpdatableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-   
-    override func updateCallbacks() {
-
-    }
-    
-    override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        
-       
-    }
-
 }

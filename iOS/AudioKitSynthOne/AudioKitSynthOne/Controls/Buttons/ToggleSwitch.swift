@@ -9,30 +9,21 @@
 import UIKit
 
 @IBDesignable
-class ToggleSwitch: UIView {
+class ToggleSwitch: UIView, AKSynthOneControl {
     
     // *********************************************************
     // MARK: - ToggleButton
     // *********************************************************
     
-    var isOn = false {
+    var value: Double = 0 {
         didSet {
-            setNeedsDisplay()
-        }
-    }
-    var value: Double {
-        get {
-            return isOn ? 1 : 0
-        }
-        set {
-            isOn = value == 1.0
             setNeedsDisplay()
         }
     }
     public var callback: (Double)->Void = { _ in }
     
     override func draw(_ rect: CGRect) {
-        ToggleSwitchStyleKit.drawToggleSwitch(isToggled: isOn)
+        ToggleSwitchStyleKit.drawToggleSwitch(isToggled: value == 0 ? false : true )
     }
     
     // *********************************************************
@@ -41,10 +32,9 @@ class ToggleSwitch: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            isOn = !isOn
+            value = 1-value
             self.setNeedsDisplay()
             callback(value)
         }
     }
-    
 }

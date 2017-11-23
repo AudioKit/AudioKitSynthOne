@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class Stepper: UIView {
+class Stepper: UIView, AKSynthOneControl {
     
     public var callback: (Double)->Void = { _ in }
     
@@ -19,12 +19,21 @@ class Stepper: UIView {
     var minValue = 0.0
     var maxValue = 3.0
     
-    var value = 0.0 {
-        didSet {
-            setNeedsDisplay()
+    internal var _value: Double = 0
+    
+    public internal(set) var value: Double {
+        get {
+            return _value;
+        }
+        set {
+            _value = round(_value)
+            range = (Double(minValue) ... Double(maxValue))
+            _value = range.clamp(newValue)
         }
     }
     
+    var range: ClosedRange = 0.0...1.0
+
     var valuePressed: CGFloat = 0
     
     /// Text / label to display
@@ -58,7 +67,7 @@ class Stepper: UIView {
                     valuePressed = 2
                 }
             }
-            self.callback(Double(value))
+            self.callback(value)
             self.setNeedsDisplay()
         }
     }
@@ -69,5 +78,4 @@ class Stepper: UIView {
          self.setNeedsDisplay()
         }
     }
-    
 }

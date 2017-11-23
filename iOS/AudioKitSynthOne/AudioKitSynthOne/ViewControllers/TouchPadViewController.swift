@@ -38,8 +38,6 @@ class TouchPadViewController: SynthPanelController {
        
         updateCallbacks()
         createParticles()
-        
-        // snapToggle.isSelected = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -160,6 +158,9 @@ class TouchPadViewController: SynthPanelController {
             _ = 0
             // do nothin
         }
+        
+        touchPad1.setNeedsDisplay()
+        touchPad2.setNeedsDisplay()
         
         updateLabels()
     }

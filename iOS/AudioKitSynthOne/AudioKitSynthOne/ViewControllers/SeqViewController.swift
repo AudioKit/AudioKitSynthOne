@@ -13,13 +13,10 @@ import AudioKit
 
 class SeqViewController: SynthPanelController {
     
-    // these UI classes do NOT conform to AKSynthOneControl protocol
     @IBOutlet weak var seqStepsStepper: Stepper!
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
     @IBOutlet weak var arpSeqToggle: ToggleSwitch!
-    
-    // these UI classes DO conform to the AKSynthOneControl protocol
     @IBOutlet weak var arpToggle: ToggleButton!
     @IBOutlet weak var arpInterval: Knob!
     
@@ -38,60 +35,34 @@ class SeqViewController: SynthPanelController {
         
         viewType = .seqView
         
-        // Bindings
-        conductor.bind(arpToggle,   to: .arpIsOn)
-        conductor.bind(arpInterval, to: .arpInterval)
-        
-        ///TODO:Replace with Binding:
-        // Stepper, ArpDirectionButton, and ToggleSwitch do not conform to AKSynthOneControl
         seqStepsStepper.minValue = 1
         seqStepsStepper.maxValue = 16
-        seqStepsStepper.value = 8
         arpInterval.range = 0 ... 12
-        
-        seqStepsStepper.value = conductor.synth.getAK1Parameter(.arpTotalSteps)
-        octaveStepper.value = conductor.synth.getAK1Parameter(.arpOctave)
-        arpDirectionButton.arpDirectionSelected = conductor.synth.getAK1Parameter(.arpDirection)
-        arpSeqToggle.isOn = ( conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ) ? true : false
+
         arpToggle.value = conductor.synth.getAK1Parameter(.arpIsOn)
         arpInterval.value = conductor.synth.getAK1Parameter(.arpInterval)
+        octaveStepper.value = conductor.synth.getAK1Parameter(.arpOctave)
+        arpDirectionButton.value = conductor.synth.getAK1Parameter(.arpDirection)
+        arpSeqToggle.value = conductor.synth.getAK1Parameter(.arpIsSequencer)
+        seqStepsStepper.value = conductor.synth.getAK1Parameter(.arpTotalSteps)
+
+        // Bindings
+        conductor.bind(arpToggle,          to: .arpIsOn)
+        conductor.bind(arpInterval,        to: .arpInterval)
+        conductor.bind(octaveStepper,      to: .arpOctave)
+        conductor.bind(arpDirectionButton, to: .arpDirection)
+        conductor.bind(arpSeqToggle,       to: .arpIsSequencer)
+        conductor.bind(seqStepsStepper,    to: .arpTotalSteps)
         
         updateCallbacks()
 
         setupControlValues()
     }
     
-    ///TODO:Replace with Binding:
-    ///But Stepper, ArpDirectionButton, and ToggleSwitch do not conform to AKSynthOneControl
     func setupControlValues() {
 
         // these UI classes do NOT conform to AKSynthOneControl protocol
 
-        // Arp Direction Button
-        arpDirectionButton.callback = { value in
-            self.conductor.synth.setAK1Parameter(.arpDirection, value)
-        }
-        
-        // Total Seq Steps
-        seqStepsStepper.callback = { value in
-            self.conductor.synth.setAK1Parameter(.arpTotalSteps, value)
-        }
-        
-        // Octave Stepper
-        octaveStepper.callback = { value in
-            self.conductor.synth.setAK1Parameter(.arpOctave, value)
-        }
-        
-        // Arp/Seq Toggle
-        arpSeqToggle.callback = { value in
-            self.conductor.synth.setAK1Parameter(.arpIsSequencer, value)
-        }
-        
-        // Arp Interval
-        arpInterval.callback = { value in
-            self.conductor.synth.setAK1Parameter(.arpInterval, value)
-        }
-        
         // Slider
         for tag in sliderTags {
             if let slider = view.viewWithTag(tag) as? VerticalSlider {
@@ -148,7 +119,6 @@ class SeqViewController: SynthPanelController {
         }
         
         ///TODO:Matthew: Do you want to implement seqOctBoost?
-        
         /*
          // Slider Transpose Label / +12/-12
          for tag in sliderLabelTags {
@@ -166,7 +136,6 @@ class SeqViewController: SynthPanelController {
     //*****************************************************************
     
     override func updateCallbacks() {
-        
         
         // must call last
         super.updateCallbacks()
@@ -201,5 +170,4 @@ class SeqViewController: SynthPanelController {
         conductor.synth.setAK1ArpSeqPattern(forIndex: notePosition, transposeAmt)
     }
 }
-
 

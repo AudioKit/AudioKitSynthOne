@@ -18,30 +18,22 @@ class TempoStepper: Stepper {
     
     public var taper: Double = 1.0 // Linear by default
     
-    var range: ClosedRange = 0.0...1.0 {
-        didSet {
-            knobValue = CGFloat(Double(knobValue).normalized(from: range, taper: taper))
+    public override var value: Double {
+        get {
+            return _value;
+        }
+        set {
+            _value = round(newValue)
+            range = (Double(minValue) ... Double(maxValue))
+            _value = range.clamp(newValue)
+            knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
         }
     }
-    
+
     // Knob properties
     var knobValue: CGFloat = 0.5 {
         didSet {
             self.setNeedsDisplay()
-        }
-    }
-    
-    private var _value: Double = 0
-    
-    var tempoValue: Double {
-        get {
-            return _value
-        }
-        set(newValue) {
-            _value = range.clamp(newValue)
-            
-            _value = round(_value)
-            knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
         }
     }
     
@@ -58,10 +50,10 @@ class TempoStepper: Stepper {
         
         minValue = 60
         maxValue = 360
-        
+        _value = 120
+
         range = (Double(minValue) ... Double(maxValue))
         
-        tempoValue = 120 // BPM
         
         text = "120"
     }
@@ -71,7 +63,7 @@ class TempoStepper: Stepper {
     // *********************************************************
     
     override func draw(_ rect: CGRect) {
-        TempoStyleKit.drawTempoStepper(valuePressed: valuePressed, text: "\(Int(tempoValue)) bpm")
+        TempoStyleKit.drawTempoStepper(valuePressed: valuePressed, text: "\(Int(value)) bpm")
     }
     
     // *********************************************************
@@ -87,15 +79,15 @@ class TempoStepper: Stepper {
             let touchLocation = touch.location(in: self)
             
             if minusPath.contains(touchLocation) {
-                if tempoValue > Double(minValue) {
-                    tempoValue -= 1
+                if value > Double(minValue) {
+                    value -= 1
                     valuePressed = 1
                 }
             }
             
             if plusPath.contains(touchLocation) {
-                if tempoValue < Double(maxValue) {
-                    tempoValue += 1
+                if value < Double(maxValue) {
+                    value += 1
                     valuePressed = 2
                 }
             }
@@ -106,7 +98,7 @@ class TempoStepper: Stepper {
                 lastY = touchPoint.y
             }
             
-            self.callback(tempoValue)
+            self.callback(value)
             self.setNeedsDisplay()
         }
     }
@@ -122,15 +114,15 @@ class TempoStepper: Stepper {
     
     // Helper
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
+        
         // Knobs assume up or right is increasing, and down or left is decreasing
         knobValue += (touchPoint.x - lastX) * knobSensitivity
         knobValue -= (touchPoint.y - lastY) * knobSensitivity
-        
         knobValue = (0.0 ... 1.0).clamp(knobValue)
         
-        tempoValue = Double(knobValue).denormalized(to: range, taper: taper)
+        value = Double(knobValue).denormalized(to: range, taper: taper)
+        callback(value)
         
-        callback(tempoValue)
         lastX = touchPoint.x
         lastY = touchPoint.y
     }
@@ -141,5 +133,4 @@ class TempoStepper: Stepper {
             self.setNeedsDisplay()
         }
     }
-    
 }

@@ -64,6 +64,8 @@ class SourceMixerViewController: SynthPanelController {
         noiseVolume.range = 0.0 ... 0.3
         fmAmount.range = 0.0 ... 15
         resonance.range = 0.0 ... 0.97
+        tempoStepper.maxValue = 360
+        masterVolume.range = 0.0...4.0
 
         conductor.bind(morph1Selector,       to: .index1)
         conductor.bind(morph2Selector,       to: .index2)
@@ -85,17 +87,8 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(isMonoToggle,         to: .isMono)
         conductor.bind(glideKnob,            to: .glide)
         conductor.bind(filterTypeToggle,     to: .filterType)
-
-        //Changed range of masterVolume
-        masterVolume.range = 0.0...4.0
         conductor.bind(masterVolume,         to: .masterVolume)
-        
-        ///TODO:Convert to AKSynthOneParameter
-        //tempoStepper
-        tempoStepper.maxValue = 360
-        tempoStepper.callback = { value in
-            self.conductor.synth.setAK1Parameter(.arpRate, value)
-        }
+        conductor.bind(tempoStepper,         to: .arpRate)
         
         updateCallbacks()
         

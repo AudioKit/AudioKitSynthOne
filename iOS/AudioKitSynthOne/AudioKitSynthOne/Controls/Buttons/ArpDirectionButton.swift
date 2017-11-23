@@ -9,17 +9,11 @@
 import UIKit
 
 @IBDesignable
-class ArpDirectionButton: UIView {
+class ArpDirectionButton: UIView, AKSynthOneControl {
     
     // *********************************************************
     // MARK: - LFO Button
     // *********************************************************
-    
-    var arpDirectionSelected: Double = 0 {
-        didSet {
-            value = arpDirectionSelected
-        }
-    }
     
     public var callback: (Double)->Void = { _ in }
     
@@ -33,7 +27,7 @@ class ArpDirectionButton: UIView {
     
     // Draw Button
     override func draw(_ rect: CGRect) {
-        ArpDirectionStyleKit.drawArpDirectionButton(directionSelected: CGFloat(arpDirectionSelected))
+        ArpDirectionStyleKit.drawArpDirectionButton(directionSelected: CGFloat(value))
     }
     
     // *********************************************************
@@ -46,17 +40,14 @@ class ArpDirectionButton: UIView {
             
             switch touchPoint.x {
             case 0..<btnWidth:
-                arpDirectionSelected = 0
+                value = 0
             case btnWidth...btnWidth*2:
-                arpDirectionSelected = 1
+                value = 1
             default:
-                arpDirectionSelected = 2
-            }
-   
-            setNeedsDisplay()
-            callback(arpDirectionSelected)
+                value = 2
+            }   
+            callback(value)
         }
     }
-    
 }
 

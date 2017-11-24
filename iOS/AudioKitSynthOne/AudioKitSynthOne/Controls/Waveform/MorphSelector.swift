@@ -50,7 +50,7 @@ class MorphSelector: UIView, AKSynthOneControl {
     
     
     override open func draw(_ rect: CGRect) {
-        MorphSelectorStyleKit.drawMorphSelector(value: CGFloat(value), width: self.bounds.width, height: self.bounds.height)
+        MorphSelectorStyleKit.drawMorphSelector(value: CGFloat(value), width: self.bounds.width, height: self.bounds.height, selected: #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1))//selected)
     }
     
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

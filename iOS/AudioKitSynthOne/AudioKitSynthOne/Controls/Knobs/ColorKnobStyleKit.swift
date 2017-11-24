@@ -37,7 +37,7 @@ public class ColorKnobStyleKit : NSObject {
         let knobBottom = UIColor(red: 0.180, green: 0.180, blue: 0.192, alpha: 1.000)
         let knobLight = UIColor(red: 0.498, green: 0.498, blue: 0.510, alpha: 1.000)
         let knobTop2 = UIColor(red: 0.141, green: 0.141, blue: 0.161, alpha: 1.000)
-        let knobTopColor = UIColor(red: 0.557, green: 0.557, blue: 0.576, alpha: 1.000)
+        let knobTopColor = UIColor(red: 0.620, green: 0.620, blue: 0.639, alpha: 1.000)
 
         //// Gradient Declarations
         let edge2 = CGGradient(colorsSpace: nil, colors: [knobBottom.cgColor, knobBottom.blended(withFraction: 0.5, of: knobTop2).cgColor, knobTop2.cgColor, knobTop2.blended(withFraction: 0.5, of: knobLight).cgColor, knobLight.cgColor] as CFArray, locations: [0, 0.23, 0.41, 0.73, 1])!
@@ -58,7 +58,7 @@ public class ColorKnobStyleKit : NSObject {
         shadow.shadowBlurRadius = 8
         let shadow6 = NSShadow()
         shadow6.shadowColor = dark
-        shadow6.shadowOffset = CGSize(width: 0, height: -1)
+        shadow6.shadowOffset = CGSize(width: 0, height: -2)
         shadow6.shadowBlurRadius = 12
 
         //// Variable Declarations

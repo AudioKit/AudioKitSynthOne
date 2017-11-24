@@ -42,7 +42,7 @@ public class ParentViewController: UIViewController {
     var activePreset = Preset()
     var midiChannelIn: MIDIChannel = 0
     
-    let midi = AKMIDI()  // TODO: REMOVE
+    let midi = AKMIDI()  ///TODO:REMOVE
   
     // ********************************************************
     // MARK: - Define child view controllers
@@ -99,14 +99,6 @@ public class ParentViewController: UIViewController {
         
         keyboardView?.delegate = self
         keyboardView?.polyphonicMode = true
-        
-        conductor.changeParameter = { param in
-            return { value in
-                //AKLog("changing \(param.rawValue) \(param.simpleDescription()) to: \(value)")
-                self.conductor.synth.setAK1Parameter(param, value)
-                self.conductor.updateAllUI()
-            }
-        }
         
         conductor.start()
         

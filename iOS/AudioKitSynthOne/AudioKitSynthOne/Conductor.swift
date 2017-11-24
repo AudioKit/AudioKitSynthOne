@@ -21,20 +21,22 @@ class Conductor {
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter) {
         bindings.append(param, control)
     }
-
-    var changeParameter: (AKSynthOneParameter)->((_: Double) -> Void)  = { _ in
-        AKLog("Not implemented properly")
-        return { _ in
-            AKLog("I said, not implemented properly!")
+    
+    var changeParameter: (AKSynthOneParameter)->((_: Double) -> Void)  = { param in
+        return { value in
+            //AKLog("changing \(param.rawValue) \(param.simpleDescription()) to: \(value)")
+            sharedInstance.synth.setAK1Parameter(param, value)
+            sharedInstance.updateAllUI()
         }
-    } {
+        } {
         didSet {
+            //AKLog("inspect changeParameter")
             updateAllCallbacks()
         }
     }
-
+    
     public var viewControllers: Set<UpdatableViewController> = []
-
+    
     func start() {
         synth = AKSynthOne()
         synth.rampTime = 0.0 // Handle ramping internally instead of the ramper hack

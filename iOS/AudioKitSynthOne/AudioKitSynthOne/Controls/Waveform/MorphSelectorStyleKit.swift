@@ -38,18 +38,18 @@ public class MorphSelectorStyleKit : NSObject {
 
 
         //// Chosen Area Drawing
-        let chosenAreaPath = UIBezierPath(rect: CGRect(x: xValue, y: 9, width: 40.5, height: 34))
+        let chosenAreaPath = UIBezierPath(rect: CGRect(x: xValue, y: 9, width: 39, height: 33))
         selectedBG.setFill()
         chosenAreaPath.fill()
 
 
         //// Triangle Drawing
         let trianglePath = UIBezierPath()
-        trianglePath.move(to: CGPoint(x: frame.minX + 0.03892 * frame.width, y: frame.minY + 0.49057 * frame.height))
-        trianglePath.addLine(to: CGPoint(x: frame.minX + 0.06209 * frame.width, y: frame.minY + 0.33962 * frame.height))
-        trianglePath.addLine(to: CGPoint(x: frame.minX + 0.10842 * frame.width, y: frame.minY + 0.64151 * frame.height))
-        trianglePath.addLine(to: CGPoint(x: frame.minX + 0.14703 * frame.width, y: frame.minY + 0.33962 * frame.height))
-        trianglePath.addLine(to: CGPoint(x: frame.minX + 0.17406 * frame.width, y: frame.minY + 0.49057 * frame.height))
+        trianglePath.move(to: CGPoint(x: frame.minX + 0.04309 * frame.width, y: frame.minY + 0.49057 * frame.height))
+        trianglePath.addLine(to: CGPoint(x: frame.minX + 0.06625 * frame.width, y: frame.minY + 0.33962 * frame.height))
+        trianglePath.addLine(to: CGPoint(x: frame.minX + 0.11258 * frame.width, y: frame.minY + 0.64151 * frame.height))
+        trianglePath.addLine(to: CGPoint(x: frame.minX + 0.15120 * frame.width, y: frame.minY + 0.33962 * frame.height))
+        trianglePath.addLine(to: CGPoint(x: frame.minX + 0.17822 * frame.width, y: frame.minY + 0.49057 * frame.height))
         color1.setStroke()
         trianglePath.lineWidth = 2
         trianglePath.stroke()
@@ -57,14 +57,14 @@ public class MorphSelectorStyleKit : NSObject {
 
         //// Square Drawing
         let squarePath = UIBezierPath()
-        squarePath.move(to: CGPoint(x: frame.minX + 0.30829 * frame.width, y: frame.minY + 0.49057 * frame.height))
-        squarePath.addLine(to: CGPoint(x: frame.minX + 0.30829 * frame.width, y: frame.minY + 0.33962 * frame.height))
-        squarePath.addLine(to: CGPoint(x: frame.minX + 0.35076 * frame.width, y: frame.minY + 0.33962 * frame.height))
-        squarePath.addLine(to: CGPoint(x: frame.minX + 0.35076 * frame.width, y: frame.minY + 0.64151 * frame.height))
-        squarePath.addLine(to: CGPoint(x: frame.minX + 0.39323 * frame.width, y: frame.minY + 0.64151 * frame.height))
-        squarePath.addLine(to: CGPoint(x: frame.minX + 0.39323 * frame.width, y: frame.minY + 0.33962 * frame.height))
-        squarePath.addLine(to: CGPoint(x: frame.minX + 0.43570 * frame.width, y: frame.minY + 0.33962 * frame.height))
-        squarePath.addLine(to: CGPoint(x: frame.minX + 0.43570 * frame.width, y: frame.minY + 0.49057 * frame.height))
+        squarePath.move(to: CGPoint(x: frame.minX + 0.31246 * frame.width, y: frame.minY + 0.49057 * frame.height))
+        squarePath.addLine(to: CGPoint(x: frame.minX + 0.31246 * frame.width, y: frame.minY + 0.33962 * frame.height))
+        squarePath.addLine(to: CGPoint(x: frame.minX + 0.35493 * frame.width, y: frame.minY + 0.33962 * frame.height))
+        squarePath.addLine(to: CGPoint(x: frame.minX + 0.35493 * frame.width, y: frame.minY + 0.64151 * frame.height))
+        squarePath.addLine(to: CGPoint(x: frame.minX + 0.39740 * frame.width, y: frame.minY + 0.64151 * frame.height))
+        squarePath.addLine(to: CGPoint(x: frame.minX + 0.39740 * frame.width, y: frame.minY + 0.33962 * frame.height))
+        squarePath.addLine(to: CGPoint(x: frame.minX + 0.43987 * frame.width, y: frame.minY + 0.33962 * frame.height))
+        squarePath.addLine(to: CGPoint(x: frame.minX + 0.43987 * frame.width, y: frame.minY + 0.49057 * frame.height))
         color2.setStroke()
         squarePath.lineWidth = 2
         squarePath.stroke()

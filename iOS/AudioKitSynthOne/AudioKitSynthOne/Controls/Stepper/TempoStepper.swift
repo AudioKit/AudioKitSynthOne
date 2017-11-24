@@ -48,14 +48,11 @@ class TempoStepper: Stepper {
         minusPath = UIBezierPath(roundedRect: CGRect(x: 3.5, y: 38.5, width: 35, height: 32), cornerRadius: 1)
         plusPath = UIBezierPath(roundedRect: CGRect(x: 43.5, y: 38.5, width: 35, height: 32), cornerRadius: 1)
         
-        minValue = 60
         maxValue = 360
-        _value = 120
-
+        minValue = 60
         range = (Double(minValue) ... Double(maxValue))
-        
-        
-        text = "120"
+        _value = 120
+        text = String(_value)
     }
     
     // *********************************************************
@@ -73,8 +70,6 @@ class TempoStepper: Stepper {
     /// Handle new touches
     
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
         if let touch = touches.first {
             let touchLocation = touch.location(in: self)
             

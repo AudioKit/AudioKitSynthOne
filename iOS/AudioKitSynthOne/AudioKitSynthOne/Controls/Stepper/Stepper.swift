@@ -16,8 +16,18 @@ class Stepper: UIView, AKSynthOneControl {
     var minusPath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 2, width: 35, height: 32), cornerRadius: 1)
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)
     
-    var minValue = 0.0
-    var maxValue = 3.0
+    var minValue = 0.0 {
+        didSet {
+            range = (Double(minValue) ... Double(maxValue))
+            _value = range.clamp(_value)
+        }
+    }
+    var maxValue = 3.0 {
+        didSet {
+            range = (Double(minValue) ... Double(maxValue))
+            _value = range.clamp(_value)
+        }
+    }
     
     internal var _value: Double = 0
     
@@ -27,17 +37,29 @@ class Stepper: UIView, AKSynthOneControl {
         }
         set {
             _value = round(_value)
-            range = (Double(minValue) ... Double(maxValue))
             _value = range.clamp(newValue)
+            setNeedsDisplay()
         }
     }
     
     var range: ClosedRange = 0.0...1.0
-
+    
     var valuePressed: CGFloat = 0
     
     /// Text / label to display
     open var text = "0"
+    
+    // Init / Lifecycle
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)        
+        range = (Double(minValue) ... Double(maxValue))
+        _value = 1
+        text = "1"
+    }
     
     // *********************************************************
     // MARK: - Draw
@@ -72,10 +94,16 @@ class Stepper: UIView, AKSynthOneControl {
         }
     }
     
+    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let _ = touch.location(in: self)
+        }
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             valuePressed = 0
-         self.setNeedsDisplay()
+            self.setNeedsDisplay()
         }
     }
 }

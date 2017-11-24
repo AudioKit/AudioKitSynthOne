@@ -529,5 +529,3 @@ extension PresetsViewController: UIDocumentPickerDelegate {
         }
     }
 }
-
-

@@ -24,8 +24,8 @@ class SynthUIButton: UIButton, AKSynthOneControl {
     
     var value: Double = 0.0 {
         didSet {
-            setNeedsDisplay()
             isSelected = value == 1.0
+            setNeedsDisplay()
         }
     }
 
@@ -50,6 +50,5 @@ class SynthUIButton: UIButton, AKSynthOneControl {
             callback(value)
         }
     }
-    
 }
 

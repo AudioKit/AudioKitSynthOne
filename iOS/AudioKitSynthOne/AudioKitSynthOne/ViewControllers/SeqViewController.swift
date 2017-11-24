@@ -39,13 +39,6 @@ class SeqViewController: SynthPanelController {
         seqStepsStepper.maxValue = 16
         arpInterval.range = 0 ... 12
 
-        arpToggle.value = conductor.synth.getAK1Parameter(.arpIsOn)
-        arpInterval.value = conductor.synth.getAK1Parameter(.arpInterval)
-        octaveStepper.value = conductor.synth.getAK1Parameter(.arpOctave)
-        arpDirectionButton.value = conductor.synth.getAK1Parameter(.arpDirection)
-        arpSeqToggle.value = conductor.synth.getAK1Parameter(.arpIsSequencer)
-        seqStepsStepper.value = conductor.synth.getAK1Parameter(.arpTotalSteps)
-
         // Bindings
         conductor.bind(arpToggle,          to: .arpIsOn)
         conductor.bind(arpInterval,        to: .arpInterval)

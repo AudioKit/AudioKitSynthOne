@@ -31,7 +31,7 @@ public class ColorKnobStyleKit : NSObject {
 
         //// Color Declarations
         let black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-        let indicatorColor = knobTopColor
+        let indicatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         let medium = UIColor(red: 0.314, green: 0.314, blue: 0.314, alpha: 1.000)
         let knobBottom = UIColor(red: 0.180, green: 0.180, blue: 0.192, alpha: 1.000)
         let knobLight = UIColor(red: 0.498, green: 0.498, blue: 0.510, alpha: 1.000)

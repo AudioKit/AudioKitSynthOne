@@ -44,6 +44,11 @@ class FXViewController: SynthPanelController {
     @IBOutlet weak var delayMix: Knob!
     @IBOutlet weak var delayToggle: ToggleButton!
     
+    @IBOutlet weak var phaserToggle: ToggleButton!
+    @IBOutlet weak var phaserRate: Knob!
+    @IBOutlet weak var phaserFeedback: Knob!
+    @IBOutlet weak var phaserNotchWidth: Knob!
+    
     @IBOutlet weak var lfo1WavePicker: LFOWavePicker!
     @IBOutlet weak var lfo2WavePicker: LFOWavePicker!
     

@@ -20,7 +20,7 @@ protocol HeaderDelegate {
 public class HeaderViewController: UpdatableViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
-    var headerNavBtns = [HeaderNavButton]()
+    @IBOutlet weak var panicButton: PresetUIButton!
     
     var delegate: EmbeddedViewsDelegate?
     var headerDelegate: HeaderDelegate?
@@ -37,13 +37,16 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     public override func viewDidLoad() {
-       
+        super.viewDidLoad()
+        
         // Add Gesture Recognizer to Display Label
         let tap = UITapGestureRecognizer(target: self, action: #selector(HeaderViewController.displayLabelTapped))
         tap.numberOfTapsRequired = 1
         displayLabel.addGestureRecognizer(tap)
         displayLabel.isUserInteractionEnabled = true
-        super.viewDidLoad()
+        
+        setupCallbacks()
+       
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
@@ -192,9 +195,13 @@ public class HeaderViewController: UpdatableViewController {
          headerDelegate?.savePresetPressed()
     }
     
-    @IBAction func panicPressed(_ sender: UIButton) {
-        //conductor.synth.reset() // kinder, gentler panic
-        conductor.synth.resetDSP() // nuclear panic option
+    func setupCallbacks() {
+        panicButton.callback = { _ in
+            //conductor.synth.reset() // kinder, gentler panic
+            self.conductor.synth.resetDSP() // nuclear panic option
+            
+            // TODO: turn off held notes on keybaord
+        }
     }
     
     // ********************************************************

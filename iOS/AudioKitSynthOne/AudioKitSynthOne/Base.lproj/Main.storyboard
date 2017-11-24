@@ -1551,32 +1551,32 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="404" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZB-5E-F5s" customClass="VerticalSlider" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="259" y="100" width="48" height="160"/>
+                                <rect key="frame" x="260" y="100" width="48" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="405" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9A-xJ-NEY" customClass="VerticalSlider" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="313" y="100" width="48" height="160"/>
+                                <rect key="frame" x="314" y="100" width="48" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="406" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SiW-kQ-4TT" customClass="VerticalSlider" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="367" y="100" width="48" height="160"/>
+                                <rect key="frame" x="368" y="100" width="48" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="407" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9WH-oe-f0o" customClass="VerticalSlider" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="422" y="100" width="48" height="160"/>
+                                <rect key="frame" x="423" y="100" width="48" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="408" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-vp-hgR" customClass="VerticalSlider" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="490" y="100" width="48" height="160"/>
+                                <rect key="frame" x="491" y="100" width="48" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="409" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YYl-xq-doo" customClass="VerticalSlider" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="545" y="100" width="48" height="160"/>
+                                <rect key="frame" x="546" y="100" width="48" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1591,12 +1591,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="412" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f1q-cQ-yAX" customClass="VerticalSlider" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="726" y="100" width="48" height="160"/>
+                                <rect key="frame" x="728" y="100" width="48" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="413" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGM-LI-Yp8" customClass="VerticalSlider" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="783" y="100" width="48" height="160"/>
+                                <rect key="frame" x="785" y="100" width="48" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1611,12 +1611,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="500" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pvc-V6-8ME" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="33" y="259" width="35" height="25"/>
+                                <rect key="frame" x="32" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="502" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1oK-M4-tRs" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="141" y="259" width="35" height="25"/>
+                                <rect key="frame" x="140" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1626,7 +1626,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="501" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APr-t3-GDx" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="87" y="259" width="35" height="25"/>
+                                <rect key="frame" x="86" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1636,17 +1636,17 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="506" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rTa-3x-pM7" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="372" y="259" width="35" height="25"/>
+                                <rect key="frame" x="371" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="507" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sPr-ax-hBc" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="426" y="259" width="35" height="25"/>
+                                <rect key="frame" x="425" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="505" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mjr-rb-45c" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="318" y="259" width="35" height="25"/>
+                                <rect key="frame" x="317" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1666,12 +1666,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="509" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brk-r8-nlQ" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="548" y="259" width="35" height="25"/>
+                                <rect key="frame" x="549" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="512" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yQJ-Aa-jwi" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="729" y="259" width="35" height="25"/>
+                                <rect key="frame" x="731" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1686,7 +1686,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="513" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QCt-4Z-O1W" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="786" y="259" width="35" height="25"/>
+                                <rect key="frame" x="788" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1723,7 +1723,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="554" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzc-cr-kZd" customClass="TransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="259" y="72" width="41" height="21"/>
+                                <rect key="frame" x="260" y="72" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
@@ -1731,7 +1731,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="555" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LD5-LQ-Hxb" customClass="TransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="312" y="72" width="41" height="21"/>
+                                <rect key="frame" x="315" y="72" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
@@ -1739,7 +1739,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="556" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gW-wJ-J63" customClass="TransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="366" y="72" width="41" height="21"/>
+                                <rect key="frame" x="369" y="72" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
@@ -1747,7 +1747,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="557" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVx-nM-ahZ" customClass="TransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="421" y="72" width="41" height="21"/>
+                                <rect key="frame" x="423" y="72" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
@@ -1755,7 +1755,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="558" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lko-yl-Wg8" customClass="TransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="489" y="72" width="41" height="21"/>
+                                <rect key="frame" x="490" y="72" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
@@ -1763,7 +1763,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="559" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOT-69-giS" customClass="TransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="545" y="72" width="41" height="21"/>
+                                <rect key="frame" x="546" y="72" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
@@ -1779,7 +1779,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="561" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gli-ch-cWk" customClass="TransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="659" y="72" width="41" height="21"/>
+                                <rect key="frame" x="660" y="72" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
@@ -1787,7 +1787,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="562" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGh-eV-4eA" customClass="TransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="726" y="72" width="41" height="21"/>
+                                <rect key="frame" x="728" y="72" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
@@ -1795,7 +1795,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="563" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA2-UV-r8y" customClass="TransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="783" y="72" width="41" height="21"/>
+                                <rect key="frame" x="785" y="72" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
@@ -1811,7 +1811,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="565" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoW-hs-VcS" customClass="TransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="899" y="72" width="41" height="21"/>
+                                <rect key="frame" x="898" y="72" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>

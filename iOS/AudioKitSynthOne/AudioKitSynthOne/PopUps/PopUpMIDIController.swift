@@ -22,7 +22,6 @@ protocol MIDIPopOverDelegate {
 
 class PopUpMIDIController: UIViewController {
     
-
     @IBOutlet weak var modWheelRouting: UISegmentedControl!
     
     var delegate: MIDIPopOverDelegate?

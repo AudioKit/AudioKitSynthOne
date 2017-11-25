@@ -15,12 +15,14 @@ protocol HeaderDelegate {
     func prevPresetPressed()
     func nextPresetPressed()
     func savePresetPressed()
+    func randomPresetPressed()
 }
 
 public class HeaderViewController: UpdatableViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var panicButton: PresetUIButton!
+    @IBOutlet weak var diceButton: UIButton!
     
     var delegate: EmbeddedViewsDelegate?
     var headerDelegate: HeaderDelegate?
@@ -193,6 +195,17 @@ public class HeaderViewController: UpdatableViewController {
     
     @IBAction func savePressed(_ sender: UIButton) {
          headerDelegate?.savePresetPressed()
+    }
+    
+    @IBAction func randomPressed(_ sender: UIButton) {
+        // Animate Dice
+        UIView.animate(withDuration: 0.4, animations: {
+            for _ in 0 ... 1 {
+                self.diceButton.transform = self.diceButton.transform.rotated(by: CGFloat(Double.pi))
+            }
+        })
+        
+        headerDelegate?.randomPresetPressed()
     }
     
     func setupCallbacks() {

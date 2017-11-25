@@ -11,6 +11,7 @@ import MobileCoreServices
 import Disk
 import CloudKit
 import AudioKit
+import GameplayKit
 
 protocol PresetsDelegate {
     func presetDidChange(_ activePreset: Preset)
@@ -27,7 +28,11 @@ class PresetsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryEmbeddedView: UIView!
     
-    var presets = [Preset]()
+    var presets = [Preset]() {
+        didSet {
+            randomizePresets()
+        }
+    }
     
     var sortedPresets = [Preset]() {
         didSet {
@@ -49,6 +54,8 @@ class PresetsViewController: UIViewController {
             sortPresets()
         }
     }
+    
+    var randomNumbers: GKRandomDistribution!
     
     var presetsDelegate: PresetsDelegate?
     
@@ -110,6 +117,11 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    func randomizePresets() {
+        // Generate random presets 🎲
+        randomNumbers = GKShuffledDistribution(lowestValue: 0, highestValue: presets.count-1)
+    }
+    
     func loadPresetsFromDevice() {
         do {
             let retrievedPresetData = try Disk.retrieve("presets.json", from: .documents, as: Data.self)
@@ -125,6 +137,7 @@ class PresetsViewController: UIViewController {
             parsePresetsFromData(data: data!)
         }
     }
+    
     
     func parsePresetsFromData(data: Data) {
         let presetsJSON = try? JSONSerialization.jsonObject(with: data, options: [])
@@ -258,6 +271,16 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    func randomPreset() {
+        deselectCurrentRow()
+        
+        // Pick random Preset
+        var newIndex = randomNumbers.nextInt()
+        if newIndex == currentPreset.position { newIndex = randomNumbers.nextInt() }
+        currentPreset = presets[newIndex]
+        selectCurrentPreset()
+        Conductor.sharedInstance.updateAllUI()
+    }
     
     // *****************************************************************
     // MARK: - Segue

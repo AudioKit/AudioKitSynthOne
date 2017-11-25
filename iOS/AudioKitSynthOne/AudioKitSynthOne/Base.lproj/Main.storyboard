@@ -673,6 +673,17 @@
                                     <constraint firstAttribute="height" constant="38" id="exb-x7-IBk"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ake-qE-FFb" userLabel="random">
+                                <rect key="frame" x="677" y="6" width="30" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="dice">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="randomPressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="Vo3-RJ-bkn"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I96-P8-9zu">
                                 <rect key="frame" x="389" y="6" width="240" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -700,17 +711,6 @@
                                 </state>
                                 <connections>
                                     <action selector="nextPresetPressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="F5B-8Y-1MS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESR-ZN-P6Y">
-                                <rect key="frame" x="675" y="6" width="40" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="saveDisk">
-                                    <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="savePressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="d8a-LG-BeK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afu-gf-YPa">
@@ -746,6 +746,17 @@
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESR-ZN-P6Y">
+                                <rect key="frame" x="711" y="6" width="33" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="saveDisk">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePressed:" destination="1VX-El-kEm" eventType="touchUpInside" id="d8a-LG-BeK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -759,6 +770,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="38"/>
                     <connections>
+                        <outlet property="diceButton" destination="Ake-qE-FFb" id="0DA-UA-1Pa"/>
                         <outlet property="displayLabel" destination="I96-P8-9zu" id="2Eq-3h-Hme"/>
                         <outlet property="panicButton" destination="fwk-oi-nBb" id="7Pe-IO-ly0"/>
                     </connections>
@@ -2530,6 +2542,7 @@
         <image name="au_touchpad" width="1024" height="299"/>
         <image name="back" width="22" height="22"/>
         <image name="bluetooth" width="13" height="18"/>
+        <image name="dice" width="19" height="18"/>
         <image name="headerback" width="1024" height="38"/>
         <image name="info" width="30" height="30"/>
         <image name="keyboard_top" width="1023" height="47"/>

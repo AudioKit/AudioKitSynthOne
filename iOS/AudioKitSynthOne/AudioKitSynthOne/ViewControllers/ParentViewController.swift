@@ -280,6 +280,10 @@ extension ParentViewController: HeaderDelegate {
         displayLabelTapped()
     }
     
+    func randomPresetPressed() {
+        presetsViewController.randomPreset()
+    }
+    
     func prevPresetPressed() {
         presetsViewController.prevPreset()
     }

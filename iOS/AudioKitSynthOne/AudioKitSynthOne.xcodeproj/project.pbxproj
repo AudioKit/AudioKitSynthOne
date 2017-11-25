@@ -76,6 +76,10 @@
 		949D93B81F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */; };
 		949D93B91F2C188C007E657B /* LfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LfoButton.swift */; };
 		949D93BA1F2C188C007E657B /* LfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LfoButton.swift */; };
+		94A8807E1FC8F9F100DADC66 /* AKVerticalPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A8807D1FC8F9F000DADC66 /* AKVerticalPad.swift */; };
+		94A8807F1FC8F9F100DADC66 /* AKVerticalPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A8807D1FC8F9F000DADC66 /* AKVerticalPad.swift */; };
+		94A880811FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A880801FC8FB4F00DADC66 /* ModWheelStyleKit.swift */; };
+		94A880821FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A880801FC8FB4F00DADC66 /* ModWheelStyleKit.swift */; };
 		94AE8DD01F671FBE00F2A992 /* PresetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F2931F671A4900320FCC /* PresetsViewController.swift */; };
 		94AE8DD11F671FC000F2A992 /* PresetsCategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F2921F671A4900320FCC /* PresetsCategoriesController.swift */; };
 		94AF73FF1F55FAAF00ED8B51 /* TouchPointStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF73FE1F55FAAE00ED8B51 /* TouchPointStyleKit.swift */; };
@@ -271,6 +275,8 @@
 		949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoBtnStyleKit.swift; sourceTree = "<group>"; };
 		94A6F30B1F687F3E007B083C /* icon_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_64.png; sourceTree = "<group>"; };
 		94A6F30C1F687F3E007B083C /* icon_320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_320.png; sourceTree = "<group>"; };
+		94A8807D1FC8F9F000DADC66 /* AKVerticalPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKVerticalPad.swift; sourceTree = "<group>"; };
+		94A880801FC8FB4F00DADC66 /* ModWheelStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModWheelStyleKit.swift; sourceTree = "<group>"; };
 		94AF73FE1F55FAAE00ED8B51 /* TouchPointStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPointStyleKit.swift; sourceTree = "<group>"; };
 		94AF74011F55FF9700ED8B51 /* TouchPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPoint.swift; sourceTree = "<group>"; };
 		94AF74051F56339B00ED8B51 /* BlackKeyStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackKeyStyleKit.swift; sourceTree = "<group>"; };
@@ -406,6 +412,8 @@
 			isa = PBXGroup;
 			children = (
 				9452613E1F2925600037662C /* AKTouchPadView.swift */,
+				94A8807D1FC8F9F000DADC66 /* AKVerticalPad.swift */,
+				94A880801FC8FB4F00DADC66 /* ModWheelStyleKit.swift */,
 				94AF73FE1F55FAAE00ED8B51 /* TouchPointStyleKit.swift */,
 				94AF74011F55FF9700ED8B51 /* TouchPoint.swift */,
 			);
@@ -876,6 +884,7 @@
 				94B69C3C1F297E9F00191C87 /* FXViewController.swift in Sources */,
 				C4060AC01F24561A00BB8882 /* Knob+Touches.swift in Sources */,
 				947956B01F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */,
+				94A880821FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,
 				9489EF661F3145F200416F26 /* SliderStyleKit.swift in Sources */,
 				949D09351F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */,
 				94AF73FF1F55FAAF00ED8B51 /* TouchPointStyleKit.swift in Sources */,
@@ -931,6 +940,7 @@
 				C47FB3C41F366BBD00EF2F01 /* RateKnob.swift in Sources */,
 				945C3A071F3141F60086D58B /* ArpButton.swift in Sources */,
 				C474D9511F13172B00946035 /* AudioUnitViewController.swift in Sources */,
+				94A8807F1FC8F9F100DADC66 /* AKVerticalPad.swift in Sources */,
 				C4CD8DE81F2497850011066A /* AKSynthOne.swift in Sources */,
 				94FA2DD01F9E837700DED735 /* CategoryCell.swift in Sources */,
 			);
@@ -949,6 +959,7 @@
 				943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */,
+				94A8807E1FC8F9F100DADC66 /* AKVerticalPad.swift in Sources */,
 				9451E2FE1F58C20B008181F9 /* HeaderNavButton.swift in Sources */,
 				94AF74071F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */,
 				9403F29D1F671A6000320FCC /* Preset.swift in Sources */,
@@ -965,6 +976,7 @@
 				9435245C1F57A6F100BDA789 /* SynthPanelController.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
+				94A880811FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
 				9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,

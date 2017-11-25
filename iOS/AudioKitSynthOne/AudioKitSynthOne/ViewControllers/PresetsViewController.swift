@@ -11,6 +11,7 @@ import MobileCoreServices
 import Disk
 import CloudKit
 import AudioKit
+import GameplayKit
 
 protocol PresetsDelegate {
     func presetDidChange(_ activePreset: Preset)
@@ -20,13 +21,18 @@ protocol PresetsDelegate {
 
 class PresetsViewController: UIViewController {
     
-    @IBOutlet weak var newButton: UIButton!
-    @IBOutlet weak var importButton: UIButton!
-    @IBOutlet weak var reorderButton: UIButton!
+    @IBOutlet weak var newButton: SynthUIButton!
+    @IBOutlet weak var importButton: SynthUIButton!
+    @IBOutlet weak var reorderButton: SynthUIButton!
+    @IBOutlet weak var resetButton: PresetUIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryEmbeddedView: UIView!
     
-    var presets = [Preset]()
+    var presets = [Preset]() {
+        didSet {
+            randomizePresets()
+        }
+    }
     
     var sortedPresets = [Preset]() {
         didSet {
@@ -48,6 +54,8 @@ class PresetsViewController: UIViewController {
             sortPresets()
         }
     }
+    
+    var randomNumbers: GKRandomDistribution!
     
     var presetsDelegate: PresetsDelegate?
     
@@ -71,6 +79,9 @@ class PresetsViewController: UIViewController {
         
         // Set Initial Cateogry & Preset
         resetCategoryToAll()
+        
+        // Setup button callbacks
+        setupCallbacks()
       
     }
     
@@ -106,6 +117,11 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    func randomizePresets() {
+        // Generate random presets 🎲
+        randomNumbers = GKShuffledDistribution(lowestValue: 0, highestValue: presets.count-1)
+    }
+    
     func loadPresetsFromDevice() {
         do {
             let retrievedPresetData = try Disk.retrieve("presets.json", from: .documents, as: Data.self)
@@ -121,6 +137,7 @@ class PresetsViewController: UIViewController {
             parsePresetsFromData(data: data!)
         }
     }
+    
     
     func parsePresetsFromData(data: Data) {
         let presetsJSON = try? JSONSerialization.jsonObject(with: data, options: [])
@@ -189,51 +206,51 @@ class PresetsViewController: UIViewController {
     }
     
     // *****************************************************************
-    // MARK: - IBActions
+    // MARK: - IBActions / Callbacks
     // *****************************************************************
     
-    @IBAction func newPresetPressed(_ sender: UIButton) {
-        let initPreset = Preset(position: presets.count)
-        presets.append(initPreset)
-        currentPreset = initPreset
-        saveAllPresets()
-    }
-    
-    @IBAction func importPresetPressed(_ sender: UIButton) {
-        let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
-        documentPicker.delegate = self
-        present(documentPicker, animated: true, completion: nil)
-    }
-    
-    @IBAction func reorderPressed(_ sender: UIButton) {
-        tableView.isEditing = !tableView.isEditing
-        
-        // Set Categories table to "all"
-        resetCategoryToAll()
-        
-        if tableView.isEditing {
-            sender.setTitle("I'M DONE!", for: UIControlState())
-            sender.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-            sender.backgroundColor = UIColor(red: 230/255, green: 136/255, blue: 2/255, alpha: 1.0)
-            categoryIndex = 0
-            categoryEmbeddedView.isUserInteractionEnabled = false
-            
-        } else {
-            sender.setTitle("Reorder", for: UIControlState())
-            sender.setTitleColor(#colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1), for: .normal)
-            sender.backgroundColor = #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2941176471, alpha: 1)
-            categoryEmbeddedView.isUserInteractionEnabled = true
-            selectCurrentPreset()
+    func setupCallbacks() {
+        newButton.callback = { _ in
+            let initPreset = Preset(position: self.presets.count)
+            self.presets.append(initPreset)
+            self.currentPreset = initPreset
+            self.saveAllPresets()
         }
-    }
-    
-    @IBAction func resetPresetsPressed(_ sender: UIButton) {
         
-        // prompt user if they want to do it, suggest they export user presets first
-        // reset to factory defaults
-        loadDefaultPresets()
-        saveAllPresets()
-      
+        importButton.callback = { _ in
+            let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
+            documentPicker.delegate = self
+            self.present(documentPicker, animated: true, completion: nil)
+        }
+        
+        reorderButton.callback = { _ in
+            self.tableView.isEditing = !self.tableView.isEditing
+            
+            // Set Categories table to "all"
+            self.resetCategoryToAll()
+            
+            if self.tableView.isEditing {
+                self.reorderButton.setTitle("I'M DONE!", for: UIControlState())
+                self.reorderButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+                self.reorderButton.backgroundColor = UIColor(red: 230/255, green: 136/255, blue: 2/255, alpha: 1.0)
+                self.categoryIndex = 0
+                self.categoryEmbeddedView.isUserInteractionEnabled = false
+                
+            } else {
+                self.reorderButton.setTitle("Reorder", for: UIControlState())
+                self.reorderButton.setTitleColor(#colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1), for: .normal)
+                self.reorderButton.backgroundColor = #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2941176471, alpha: 1)
+                self.categoryEmbeddedView.isUserInteractionEnabled = true
+                self.selectCurrentPreset()
+            }
+        }
+        
+        resetButton.callback = { _ in
+            // prompt user if they want to do it, suggest they export user presets first
+            // reset to factory defaults
+            self.loadDefaultPresets()
+            self.saveAllPresets()
+        }
     }
     
     func nextPreset() {
@@ -254,6 +271,16 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    func randomPreset() {
+        deselectCurrentRow()
+        
+        // Pick random Preset
+        var newIndex = randomNumbers.nextInt()
+        if newIndex == currentPreset.position { newIndex = randomNumbers.nextInt() }
+        currentPreset = presets[newIndex]
+        selectCurrentPreset()
+        Conductor.sharedInstance.updateAllUI()
+    }
     
     // *****************************************************************
     // MARK: - Segue

@@ -35,6 +35,15 @@ class TransposeButton: UILabel {
     
     public var callback: (Double)->Void = { _ in }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        clipsToBounds = true
+        layer.cornerRadius = 2
+        layer.borderWidth = 1
+        layer.borderColor = #colorLiteral(red: 0.09411764706, green: 0.09411764706, blue: 0.09411764706, alpha: 1)
+    }
+    
     // *********************************************************
     // MARK: - Handle Touches
     // *********************************************************

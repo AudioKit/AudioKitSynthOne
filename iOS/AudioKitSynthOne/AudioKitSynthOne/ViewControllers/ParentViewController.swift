@@ -32,6 +32,8 @@ public class ParentViewController: UIViewController {
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var configKeyboardButton: SynthUIButton!
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
+    @IBOutlet weak var modWheelPad: AKVerticalPad!
+    @IBOutlet weak var pitchPad: AKVerticalPad!
     
     var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
@@ -136,11 +138,17 @@ public class ParentViewController: UIViewController {
         switchToChildView(.oscView, isTopView: true)
         switchToChildView(.adsrView, isTopView: false)
         
+        // ModWheel
+        modWheelPad.resetToPosition(0.5, 0.0)
+        
+        keyboardToggle.isSelected = true
+        keyboardToggle.value = 1.0
+        
         // Hide Keyboard on load
-        keyboardToggle.isSelected = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.keyboardToggle.callback(0.0)
-        }
+//        keyboardToggle.isSelected = false
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            self.keyboardToggle.callback(0.0)
+//        }
     }
     
     // ********************************************************
@@ -188,6 +196,24 @@ public class ParentViewController: UIViewController {
                 self.keyboardBottomConstraint.constant = newConstraintValue
                 self.view.layoutIfNeeded()
             })
+        }
+        
+        modWheelPad.callback = { value in
+            // Modify Vibrato?
+        }
+        
+        pitchPad.callback = { value in
+            // Change Pitch
+           
+        }
+        
+        pitchPad.completionHandler = {  _, touchesEnded, reset in
+            if touchesEnded && !reset {
+                self.pitchPad.resetToCenter()
+            }
+            if reset {
+                // self.conductor.core.globalbend = 0.0
+            }
         }
     }
     

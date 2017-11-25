@@ -123,7 +123,12 @@ public enum AKSynthOneParameter: Int {
     arpSeqNoteOn13 = 112,
     arpSeqNoteOn14 = 113,
     arpSeqNoteOn15 = 114,
-    filterType = 115 // 0 = lowpass, 1 = bandpass, 2 = hipass
+    filterType = 115, // 0 = lowpass, 1 = bandpass, 2 = hipass
+    phaserToggle = 116,
+    phaserRate = 117,
+    phaserFeedback = 118,
+    phaserNotchWidth = 119
+
 
     
     public func simpleDescription() -> String {
@@ -244,6 +249,10 @@ public enum AKSynthOneParameter: Int {
         case .arpSeqNoteOn14: return "arpSeqNoteOn14"
         case .arpSeqNoteOn15: return "arpSeqNoteOn15"
         case .filterType: return "filterType"
+        case .phaserToggle: return "phaseToggle"
+        case .phaserRate: return "phaserRate"
+        case .phaserFeedback: return "phaserFeedback"
+        case .phaserNotchWidth: return "phaserNotchWidth"
         }
     }
     
@@ -255,11 +264,11 @@ public enum AKSynthOneParameter: Int {
         return retVal
     }
     
+    ///return count of elements in enum
     public static let count: Int = {
         var max: Int = 0
         while let _ = AKSynthOneParameter(rawValue: max) { max += 1 }
         return max
     }()
-
 }
 

@@ -82,7 +82,6 @@ class FXViewController: SynthPanelController {
         lfo2Rate.range = 0 ... 10
         lfo2Rate.taper = 3
 
-      //  conductor.bind(bitCrush,           to: .bitCrushDepth)
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)
         conductor.bind(autoPanToggle,      to: .autoPanOn)
         conductor.bind(autoPanRate,        to: .autoPanFrequency)
@@ -112,6 +111,10 @@ class FXViewController: SynthPanelController {
         conductor.bind(lfoAutoPanToggle,   to: .autopanLFO)
         conductor.bind(lfo1WavePicker,     to: .lfo1Index)
         conductor.bind(lfo2WavePicker,     to: .lfo2Index)
+        conductor.bind(phaserToggle,       to: .phaserToggle)
+        conductor.bind(phaserRate,         to: .phaserRate)
+        conductor.bind(phaserFeedback,     to: .phaserFeedback)
+        conductor.bind(phaserNotchWidth,   to: .phaserNotchWidth)
 
         tempoSyncToggle.callback = { value in
             self.conductor.syncRatesToTempo = value == 1 ? true : false

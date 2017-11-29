@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioKit
+import Disk
 
 protocol EmbeddedViewsDelegate {
     func switchToChildView(_ newView: ChildView, isTopView: Bool)
@@ -43,6 +44,7 @@ public class ParentViewController: UIViewController {
     var isPresetsDisplayed: Bool = false
     var activePreset = Preset()
     var midiChannelIn: MIDIChannel = 0
+    var appSettings = AppSetting()
     
     let midi = AKMIDI()  ///TODO:REMOVE
   
@@ -119,6 +121,14 @@ public class ParentViewController: UIViewController {
         bluetoothButton.layer.cornerRadius = 2
         bluetoothButton.layer.borderWidth = 1
         
+        // Load App Settings
+        if Disk.exists("settings.json", in: .documents) {
+            loadSettingsFromDevice()
+        } else {
+            setDefaultsFromAppSettings()
+            saveAppSettings()
+        }
+        
         // Load Presets
         displayPresetsController()
         
@@ -140,6 +150,14 @@ public class ParentViewController: UIViewController {
         
         // ModWheel
         modWheelPad.resetToPosition(0.5, 0.0)
+        
+        // Increase number of launches
+        appSettings.launches = appSettings.launches + 1
+        saveAppSettingValues()
+        
+        // On four runs show dialog and request review
+        //        if appSettings.launches == 4 { reviewPopUp() }
+        //        if appSettings.launches % 8 == 0 { skRequestReview() }
         
         keyboardToggle.isSelected = true
         keyboardToggle.value = 1.0
@@ -431,6 +449,8 @@ extension ParentViewController: KeyboardPopOverDelegate {
         keyboardView.labelMode = labelMode
         keyboardView.darkMode = darkMode
         keyboardView.setNeedsDisplay()
+        
+        saveAppSettingValues()
     }
 }
 

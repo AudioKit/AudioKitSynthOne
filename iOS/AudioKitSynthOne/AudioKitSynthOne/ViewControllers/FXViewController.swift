@@ -81,6 +81,10 @@ class FXViewController: SynthPanelController {
         lfo1Rate.taper = 3
         lfo2Rate.range = 0 ... 10
         lfo2Rate.taper = 3
+        
+        phaserFeedback.range = 0.0 ... 0.8
+        phaserNotchWidth.range = 100 ... 3000
+        phaserRate.range = 24 ... 300
 
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)
         conductor.bind(autoPanToggle,      to: .autoPanOn)

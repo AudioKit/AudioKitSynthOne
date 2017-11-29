@@ -69,7 +69,7 @@ class PresetsViewController: UIViewController {
         // set color for lines between rows
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         
-//        // Load presets
+        // Load presets
         if Disk.exists("presets.json", in: .documents) {
             loadPresetsFromDevice()
         } else {

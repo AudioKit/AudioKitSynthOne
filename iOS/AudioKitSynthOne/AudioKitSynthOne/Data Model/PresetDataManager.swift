@@ -99,7 +99,9 @@ extension ParentViewController {
             AKLog("\(i) = \(sd) = \(conductor.synth.getAK1Parameter(param))")
         }
         AKLog("END----------------------------------------------------------------------")
-            #endif        
+            #endif
+        
+      
     }
     
     func saveValuesToPreset() {
@@ -175,6 +177,9 @@ extension ParentViewController {
         }
 
         activePreset.filterType = conductor.synth.getAK1Parameter(.filterType)
+        
+        // octave position
+        activePreset.octavePosition = keyboardView.firstOctave - 2
 
         presetsViewController.savePreset(activePreset)
     }

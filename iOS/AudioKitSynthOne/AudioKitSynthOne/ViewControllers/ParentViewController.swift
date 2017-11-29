@@ -312,6 +312,7 @@ extension ParentViewController: HeaderDelegate {
     
     func savePresetPressed() {
         saveValuesToPreset()
+        displayAlertController("Preset Saved", message: "Preset \(activePreset.name) saved.")
     }
 }
 
@@ -335,6 +336,13 @@ extension ParentViewController: PresetsDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             let message = "\(self.activePreset.position): \(self.activePreset.name)"
             self.updateDisplay(message)
+        }
+        
+        // UI Updates for non-kernal stuff
+        DispatchQueue.main.async {
+            // Octave position
+            self.keyboardView.firstOctave = self.activePreset.octavePosition + 2
+            self.octaveStepper.value = Double(self.activePreset.octavePosition)
         }
     }
     

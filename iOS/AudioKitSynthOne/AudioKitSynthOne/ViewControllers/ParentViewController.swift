@@ -359,7 +359,7 @@ extension ParentViewController: PresetsDelegate {
             self.updateDisplay(message)
         }
         
-        // UI Updates for non-kernal stuff
+        // UI Updates for non-bound controls
         DispatchQueue.main.async {
             // Octave position
             self.keyboardView.firstOctave = self.activePreset.octavePosition + 2

@@ -51,7 +51,8 @@ class AppSetting: Codable {
     var labelMode = 1
     var octaveRange = 2
     var darkMode = true
-
+    var showKeyboard = 1.0 // 1 show, 0 hide
+    
     var velocitySensitive = true
     
     // ******************************************************
@@ -100,6 +101,7 @@ class AppSetting: Codable {
         labelMode = dictionary["labelMode"] as? Int ?? labelMode
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
         darkMode = dictionary["darkMode"] as? Bool ?? darkMode
+        showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
         
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
     }

@@ -151,22 +151,23 @@ public class ParentViewController: UIViewController {
         // ModWheel
         modWheelPad.resetToPosition(0.5, 0.0)
         
-        // Increase number of launches
-        appSettings.launches = appSettings.launches + 1
-        saveAppSettingValues()
-        
         // On four runs show dialog and request review
         //        if appSettings.launches == 4 { reviewPopUp() }
         //        if appSettings.launches % 8 == 0 { skRequestReview() }
         
-        keyboardToggle.isSelected = true
-        keyboardToggle.value = 1.0
+        // Keyboard show or hide on launch
+        keyboardToggle.value = appSettings.showKeyboard
+      
+        if !keyboardToggle.isOn {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+               self.keyboardToggle.callback(0.0)
+            }
+        }
         
-        // Hide Keyboard on load
-//        keyboardToggle.isSelected = false
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//            self.keyboardToggle.callback(0.0)
-//        }
+        // Increase number of launches
+        appSettings.launches = appSettings.launches + 1
+        saveAppSettingValues()
+        
     }
     
     // ********************************************************
@@ -214,6 +215,8 @@ public class ParentViewController: UIViewController {
                 self.keyboardBottomConstraint.constant = newConstraintValue
                 self.view.layoutIfNeeded()
             })
+            
+            self.saveAppSettingValues()
         }
         
         modWheelPad.callback = { value in

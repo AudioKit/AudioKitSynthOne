@@ -38,7 +38,7 @@ public class MorphSelectorStyleKit : NSObject {
 
 
         //// Chosen Area Drawing
-        let chosenAreaPath = UIBezierPath(rect: CGRect(x: xValue, y: 7, width: 39, height: 37))
+        let chosenAreaPath = UIBezierPath(rect: CGRect(x: (xValue - 0.138461538462), y: 7, width: 39, height: 36))
         selectedBG.setFill()
         chosenAreaPath.fill()
 

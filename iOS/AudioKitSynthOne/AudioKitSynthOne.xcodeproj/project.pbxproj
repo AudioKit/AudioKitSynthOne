@@ -392,10 +392,10 @@
 		941065A01F26AA60002777AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C4D193C91F1187B500FF4FE4 /* ParentViewController.swift */,
 				9410659E1F26AA55002777AB /* ADSRViewController.swift */,
 				94B69C3A1F297E2800191C87 /* FXViewController.swift */,
 				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
-				C4D193C91F1187B500FF4FE4 /* ParentViewController.swift */,
 				9403F2931F671A4900320FCC /* PresetsViewController.swift */,
 				945C3A0F1F3143A00086D58B /* SeqViewController.swift */,
 				9468E2791F2827AC00C60B1B /* SettingsViewController.swift */,

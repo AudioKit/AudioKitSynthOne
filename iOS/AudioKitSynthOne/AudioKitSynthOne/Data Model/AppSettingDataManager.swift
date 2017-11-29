@@ -77,6 +77,7 @@ extension ParentViewController {
         appSettings.labelMode = keyboardView.labelMode
         appSettings.octaveRange = keyboardView.octaveCount
         appSettings.darkMode = keyboardView.darkMode
+        appSettings.showKeyboard = keyboardToggle.value
         
         saveAppSettings()
     }

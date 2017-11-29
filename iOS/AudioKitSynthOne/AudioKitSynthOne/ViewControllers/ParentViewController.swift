@@ -333,7 +333,7 @@ extension ParentViewController: HeaderDelegate {
     
     func savePresetPressed() {
         saveValuesToPreset()
-        displayAlertController("Preset Saved", message: "Preset \(activePreset.name) saved.")
+        displayAlertController("Preset Saved", message: "'\(activePreset.name)' saved.")
     }
 }
 

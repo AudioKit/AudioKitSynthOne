@@ -29,8 +29,8 @@ class Preset: Codable {
     // Controls VC
     var masterVolume = 0.5 // Master Volume
    
-    var vco1Volume = 0.6
-    var vco2Volume = 0.6
+    var vco1Volume = 0.75
+    var vco2Volume = 0.75
     var vco1Semitone = 0.0 // VCO1 Semitones
     var vco2Semitone = 0.0 // VCO2 Semitones
     var vco2Detuning = 0.0 // VCO2 Detune (Hz)

@@ -45,6 +45,7 @@ public class ParentViewController: UIViewController {
     var activePreset = Preset()
     var midiChannelIn: MIDIChannel = 0
     var appSettings = AppSetting()
+    var isDevView = false
     
     let midi = AKMIDI()  ///TODO:REMOVE
   
@@ -320,8 +321,14 @@ extension ParentViewController: HeaderDelegate {
     }
     
     func devPressed() {
-        topContainerView.subviews.forEach({ $0.removeFromSuperview() })
-        add(asChildViewController: devViewController)
+        isDevView = !isDevView
+        
+        if !isDevView {
+            topContainerView.subviews.forEach({ $0.removeFromSuperview() })
+            add(asChildViewController: devViewController)
+        } else {
+            switchToChildView(topChildView!)
+        }
 
     }
     

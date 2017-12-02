@@ -64,9 +64,9 @@ public class ParentViewController: UIViewController {
         return viewController
     }()
     
-    fileprivate lazy var devViewController: SettingsViewController = {
+    fileprivate lazy var devViewController: DevViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = mainStoryboard.instantiateViewController(withIdentifier: "DevViewController") as! SettingsViewController
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: "DevViewController") as! DevViewController
         return viewController
     }()
     
@@ -317,6 +317,12 @@ extension ParentViewController: HeaderDelegate {
     
     func homePressed() {
         displayLabelTapped()
+    }
+    
+    func devPressed() {
+        topContainerView.subviews.forEach({ $0.removeFromSuperview() })
+        add(asChildViewController: devViewController)
+
     }
     
     func randomPresetPressed() {

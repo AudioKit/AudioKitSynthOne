@@ -16,6 +16,7 @@ protocol HeaderDelegate {
     func nextPresetPressed()
     func savePresetPressed()
     func randomPresetPressed()
+    func devPressed()
 }
 
 public class HeaderViewController: UpdatableViewController {
@@ -206,6 +207,10 @@ public class HeaderViewController: UpdatableViewController {
         })
         
         headerDelegate?.randomPresetPressed()
+    }
+    
+    @IBAction func devPressed(_ sender: Any) {
+         headerDelegate?.devPressed()
     }
     
     func setupCallbacks() {

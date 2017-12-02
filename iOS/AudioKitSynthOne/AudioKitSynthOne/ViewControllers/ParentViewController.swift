@@ -323,13 +323,12 @@ extension ParentViewController: HeaderDelegate {
     func devPressed() {
         isDevView = !isDevView
         
-        if !isDevView {
+        if isDevView {
             topContainerView.subviews.forEach({ $0.removeFromSuperview() })
             add(asChildViewController: devViewController)
         } else {
             switchToChildView(topChildView!)
         }
-
     }
     
     func randomPresetPressed() {

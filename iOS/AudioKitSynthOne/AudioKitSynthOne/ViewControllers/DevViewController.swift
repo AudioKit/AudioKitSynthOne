@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DevViewController: UIViewController {
+class DevViewController: UpdatableViewController {
     
     // *****************************************************************
     // MARK: - Lifecycle

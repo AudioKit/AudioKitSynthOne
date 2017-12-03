@@ -74,6 +74,9 @@ class PresetsViewController: UIViewController {
             loadPresetsFromDevice()
         } else {
             loadDefaultPresets()
+            presets.forEach {
+                $0.masterVolume = $0.masterVolume - 2
+            }
             saveAllPresets()
         }
         

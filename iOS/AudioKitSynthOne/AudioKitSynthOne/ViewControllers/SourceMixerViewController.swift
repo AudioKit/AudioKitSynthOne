@@ -51,7 +51,7 @@ class SourceMixerViewController: SynthPanelController {
         
         // Defaults, limits
         cutoff.range = conductor.synth.filterCutoffMin ... conductor.synth.filterCutoffMax
-        cutoff.taper = 4.04
+        cutoff.taper = 3 //4.04
         morph1SemitoneOffset.onlyIntegers = true
         morph1SemitoneOffset.range = -12 ... 12 // semitones
         morph2SemitoneOffset.onlyIntegers = true

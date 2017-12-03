@@ -50,7 +50,7 @@ class Preset: Codable {
     var reverbMix = 0.5 // Dry/Wet
     var reverbHighPass = 10.0 // Highpass filter freq for Filter
     var midiBendRange = 2.0 // MIDI bend range in +/- semitones
-    var crushFreq = 44000.0 // Crusher Frequency
+    var crushFreq = 44100.0 // Crusher Frequency
     var autoPanRate = 2.0 // AutoPan Rate
     var filterADSRMix = 0.0 // Filter Envelope depth
     var glide = 0.0 // Mono glide amount

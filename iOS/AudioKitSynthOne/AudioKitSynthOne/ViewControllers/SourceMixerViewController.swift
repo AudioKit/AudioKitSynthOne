@@ -62,7 +62,7 @@ class SourceMixerViewController: SynthPanelController {
         fmAmount.range = 0.0 ... 15
         resonance.range = 0.0 ... 0.97
         tempoStepper.maxValue = 360
-        masterVolume.range = 0.0...5.0
+        masterVolume.range = 0.0...1.5
 
         conductor.bind(morph1Selector,       to: .index1)
         conductor.bind(morph2Selector,       to: .index2)

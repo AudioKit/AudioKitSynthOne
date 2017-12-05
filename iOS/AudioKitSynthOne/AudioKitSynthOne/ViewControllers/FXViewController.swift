@@ -44,10 +44,10 @@ class FXViewController: SynthPanelController {
     @IBOutlet weak var delayMix: Knob!
     @IBOutlet weak var delayToggle: ToggleButton!
     
-    @IBOutlet weak var phaserToggle: ToggleButton!
+    @IBOutlet weak var phaserMix: Knob!
     @IBOutlet weak var phaserRate: Knob!
     @IBOutlet weak var phaserFeedback: Knob!
-    @IBOutlet weak var phaserMix: Knob!
+    @IBOutlet weak var phaserNotchWidth: Knob!
     
     @IBOutlet weak var lfo1WavePicker: LFOWavePicker!
     @IBOutlet weak var lfo2WavePicker: LFOWavePicker!
@@ -71,10 +71,10 @@ class FXViewController: SynthPanelController {
 
         autoPanRate.range = 0 ... 16
 
-        reverbLowCut.range = 10 ... 800
+        reverbLowCut.range = 10 ... 900
         reverbLowCut.taper = 1
 
-        delayFeedback.range = 0 ... 0.5
+        delayFeedback.range = 0 ... 0.9
         delayTime.range = 0.01 ... 1.5
 
         lfo1Rate.range = 0 ... 10
@@ -82,8 +82,10 @@ class FXViewController: SynthPanelController {
         lfo2Rate.range = 0 ... 10
         lfo2Rate.taper = 3
         
+        phaserMix.range = 0.0 ... 1.0
+        phaserRate.range = 12 ... 300
         phaserFeedback.range = 0.0 ... 0.8
-        phaserRate.range = 24 ... 300
+        phaserNotchWidth.range = 100 ... 1000
 
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)
         conductor.bind(autoPanToggle,      to: .autoPanOn)
@@ -114,9 +116,10 @@ class FXViewController: SynthPanelController {
         conductor.bind(lfoAutoPanToggle,   to: .autopanLFO)
         conductor.bind(lfo1WavePicker,     to: .lfo1Index)
         conductor.bind(lfo2WavePicker,     to: .lfo2Index)
-        conductor.bind(phaserToggle,       to: .phaserToggle)
+        conductor.bind(phaserMix,          to: .phaserMix)
         conductor.bind(phaserRate,         to: .phaserRate)
         conductor.bind(phaserFeedback,     to: .phaserFeedback)
+        conductor.bind(phaserNotchWidth,   to: .phaserNotchWidth)
 
         tempoSyncToggle.callback = { value in
             self.conductor.syncRatesToTempo = value == 1 ? true : false

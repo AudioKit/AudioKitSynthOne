@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1474,28 +1474,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OG9-jw-6vI" customClass="Knob" customModule="AudioKitSynthOne">
+                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OG9-jw-6vI" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="811" y="230" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lPR-OD-6eO" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="895" y="230" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBp-Dk-q8k" customClass="ToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="634" y="233" width="36" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phaser" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tM4-UC-TqV">
-                                <rect key="frame" x="625" y="269" width="52" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reverb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6J-Uz-u2I">
                                 <rect key="frame" x="627" y="77" width="49" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1529,6 +1512,16 @@
                                 <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Nj-Pf-hOI" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="895" y="230" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lPR-OD-6eO" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="622" y="230" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -1564,8 +1557,8 @@
                         <outlet property="nav2Button" destination="8Wt-Tf-MdV" id="AbF-3S-Pte"/>
                         <outlet property="phaserFeedback" destination="OG9-jw-6vI" id="cAp-2D-keT"/>
                         <outlet property="phaserMix" destination="lPR-OD-6eO" id="xjd-d7-0rU"/>
+                        <outlet property="phaserNotchWidth" destination="3Nj-Pf-hOI" id="qdL-ZU-wBu"/>
                         <outlet property="phaserRate" destination="iAK-8S-H7J" id="hrd-XV-FgC"/>
-                        <outlet property="phaserToggle" destination="vBp-Dk-q8k" id="Bru-gQ-MGI"/>
                         <outlet property="reverbLowCut" destination="bfj-OE-v6r" id="UDl-GH-1bc"/>
                         <outlet property="reverbMix" destination="Muy-Nf-8VP" id="mDk-cx-EaD"/>
                         <outlet property="reverbSize" destination="QPQ-yr-Oh3" id="xLh-46-Jo1"/>

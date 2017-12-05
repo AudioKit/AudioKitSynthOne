@@ -124,13 +124,11 @@ public enum AKSynthOneParameter: Int {
     arpSeqNoteOn14 = 113,
     arpSeqNoteOn15 = 114,
     filterType = 115, // 0 = lowpass, 1 = bandpass, 2 = hipass
-    phaserToggle = 116,
+    phaserMix = 116,
     phaserRate = 117,
     phaserFeedback = 118,
     phaserNotchWidth = 119
 
-
-    
     public func simpleDescription() -> String {
         switch self {
         case .index1: return "index1"
@@ -249,7 +247,7 @@ public enum AKSynthOneParameter: Int {
         case .arpSeqNoteOn14: return "arpSeqNoteOn14"
         case .arpSeqNoteOn15: return "arpSeqNoteOn15"
         case .filterType: return "filterType"
-        case .phaserToggle: return "phaseToggle"
+        case .phaserMix: return "phaserMix"
         case .phaserRate: return "phaserRate"
         case .phaserFeedback: return "phaserFeedback"
         case .phaserNotchWidth: return "phaserNotchWidth"

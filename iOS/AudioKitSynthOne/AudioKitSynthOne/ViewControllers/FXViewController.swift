@@ -47,7 +47,7 @@ class FXViewController: SynthPanelController {
     @IBOutlet weak var phaserToggle: ToggleButton!
     @IBOutlet weak var phaserRate: Knob!
     @IBOutlet weak var phaserFeedback: Knob!
-    @IBOutlet weak var phaserNotchWidth: Knob!
+    @IBOutlet weak var phaserMix: Knob!
     
     @IBOutlet weak var lfo1WavePicker: LFOWavePicker!
     @IBOutlet weak var lfo2WavePicker: LFOWavePicker!
@@ -83,7 +83,6 @@ class FXViewController: SynthPanelController {
         lfo2Rate.taper = 3
         
         phaserFeedback.range = 0.0 ... 0.8
-        phaserNotchWidth.range = 100 ... 3000
         phaserRate.range = 24 ... 300
 
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)
@@ -118,7 +117,6 @@ class FXViewController: SynthPanelController {
         conductor.bind(phaserToggle,       to: .phaserToggle)
         conductor.bind(phaserRate,         to: .phaserRate)
         conductor.bind(phaserFeedback,     to: .phaserFeedback)
-        conductor.bind(phaserNotchWidth,   to: .phaserNotchWidth)
 
         tempoSyncToggle.callback = { value in
             self.conductor.syncRatesToTempo = value == 1 ? true : false

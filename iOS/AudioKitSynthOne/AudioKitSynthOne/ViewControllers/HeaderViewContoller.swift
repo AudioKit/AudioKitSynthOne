@@ -166,7 +166,17 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Bitcrush LFO: \(value.decimalString)"
         case .autopanLFO:
             displayLabel.text = "AutoPan LFO: \(value.decimalString)"
-            
+        case .filterType:
+            displayLabel.text = "Filter Type: \(value.decimalString)"
+        case .phaserMix:
+            displayLabel.text = "Phaser Mix: \(value.decimalString)"
+        case .phaserRate:
+            displayLabel.text = "Phaser Rate: \(value.decimalString)"
+        case .phaserFeedback:
+            displayLabel.text = "Phaser Feedback: \(value.decimalString)"
+        case .phaserNotchWidth:
+            displayLabel.text = "Phaser Notch Width: \(value.decimalString)"
+
         default:
             _ = 0
             // do nothing

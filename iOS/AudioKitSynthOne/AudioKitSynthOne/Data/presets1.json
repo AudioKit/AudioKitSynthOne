@@ -471,7 +471,7 @@
 		"waveform1": 0.9458763003349304,
 		"delayFeedback": 0.10000000149011612,
 		"reverbFeedback": 0.7103750109672546,
-		"cutoff": 14000,
+		"cutoff": 16501,
 		"author": "",
 		"waveform2": 1,
 		"glide": 0,
@@ -500,7 +500,7 @@
 		"lfo2Rate": 0,
 		"vco2Detuning": 1.6800000667572021,
 		"arpRate": 120,
-		"reverbMix": 0.5049999952316284,
+		"reverbMix": 0.285,
 		"isMono": 0,
 		"seqNoteOn": [
 			true,

@@ -147,7 +147,16 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
 
     /// Initialize the synth with defaults
     public convenience override init() {
-        self.init(waveformArray: [AKTable(.triangle), AKTable(.square), AKTable(.sine), AKTable(.sawtooth)])
+        let squareWithHighPWM = AKTable()
+        let size = squareWithHighPWM.count
+        for i in 0..<size {
+            if i < size / 8 {
+                squareWithHighPWM[i] = -1.0
+            } else {
+                squareWithHighPWM[i] = 1.0
+            }
+        }
+        self.init(waveformArray: [AKTable(.triangle), AKTable(.square), squareWithHighPWM, AKTable(.sawtooth)])
     }
 
     /// Initialize this synth

@@ -237,15 +237,15 @@ public protocol AKKeyboardDelegate: class {
             let whiteKeysStyle = NSMutableParagraphStyle()
             whiteKeysStyle.alignment = .center
             let whiteKeysFontAttributes  = [
-                NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 14)!,
-                NSForegroundColorAttributeName: textColor,
-                NSParagraphStyleAttributeName: whiteKeysStyle,
-                ] as [NSAttributedStringKey: Any]
+                NSAttributedStringKey.font: UIFont(name: "AvenirNextCondensed-Regular", size: 14)!,
+                NSAttributedStringKey.foregroundColor: textColor,
+                NSAttributedStringKey.paragraphStyle: whiteKeysStyle,
+                ] as [NSAttributedStringKey : Any]
             
-            let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: whiteKeysFontAttributes as [String : Any], context: nil).height
+            let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: whiteKeysFontAttributes, context: nil).height
             context.saveGState()
             context.clip(to: whiteKeysRect)
-            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes as [String : Any])
+            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes)
             context.restoreGState()
         }
     }

@@ -19,7 +19,7 @@ class Conductor {
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
 
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter) {
-        bindings.append(param, control)
+        bindings.append((param, control))
     }
     
     var changeParameter: (AKSynthOneParameter)->((_: Double) -> Void)  = { param in
@@ -47,7 +47,8 @@ class Conductor {
         //_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 15, 19)
         //_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111)
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23)
-
+        //_ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes()
+        
         AudioKit.output = synth
         AudioKit.start()
     }

@@ -130,9 +130,9 @@ public class LfoBtnStyleKit : NSObject {
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .center
         let textFontAttributes = [
-            NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 16)!,
-            NSForegroundColorAttributeName: textColor,
-            NSParagraphStyleAttributeName: textStyle,
+            NSAttributedStringKey.font: UIFont(name: "AvenirNextCondensed-Regular", size: 16)!,
+            NSAttributedStringKey.foregroundColor: textColor,
+            NSAttributedStringKey.paragraphStyle: textStyle,
         ]
 
         let textTextHeight: CGFloat = buttonText.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height

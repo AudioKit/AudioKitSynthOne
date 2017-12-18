@@ -98,9 +98,9 @@ public class TempoStyleKit : NSObject {
         let tempoBackgroundStyle = NSMutableParagraphStyle()
         tempoBackgroundStyle.alignment = .center
         let tempoBackgroundFontAttributes = [
-            NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 15)!,
-            NSForegroundColorAttributeName: textColor,
-            NSParagraphStyleAttributeName: tempoBackgroundStyle,
+            NSAttributedStringKey.font: UIFont(name: "AvenirNextCondensed-Regular", size: 15)!,
+            NSAttributedStringKey.foregroundColor: textColor,
+            NSAttributedStringKey.paragraphStyle: tempoBackgroundStyle,
         ]
 
         let tempoBackgroundTextHeight: CGFloat = text.boundingRect(with: CGSize(width: tempoBackgroundRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: tempoBackgroundFontAttributes, context: nil).height

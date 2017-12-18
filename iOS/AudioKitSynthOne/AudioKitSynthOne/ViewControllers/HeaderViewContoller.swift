@@ -188,7 +188,7 @@ public class HeaderViewController: UpdatableViewController {
 //        }
     }
     
-    func displayLabelTapped() {
+    @objc func displayLabelTapped() {
         headerDelegate?.displayLabelTapped()
     }
     
@@ -251,6 +251,4 @@ public class HeaderViewController: UpdatableViewController {
        
     }
     */
-    
-    
 }

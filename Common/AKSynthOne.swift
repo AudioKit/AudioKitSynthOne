@@ -6,10 +6,12 @@
 //  Copyright © 2017 Aurelius Prochazka. All rights reserved.
 //
 
+///TODO:This file should be moved from the application layer to AudioKit--with AKSynthOneAudioUnit.* and AKSynthOneDSPKernel
+
 import AudioKit
 
 ///AKSynthOne
-open class AKSynthOne: AKPolyphonicNode, AKComponent {
+@objc open class AKSynthOne: AKPolyphonicNode, AKComponent {
     
     public typealias AKAudioUnitType = AKSynthOneAudioUnit
     
@@ -137,14 +139,14 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
 
     
     /// Ramp Time represents the speed at which parameters are allowed to change
-    open dynamic var rampTime: Double = 0.0 {
+    @objc open dynamic var rampTime: Double = 0.0 {
         willSet {
             internalAU?.rampTime = newValue
         }
     }
 
     // MARK: - Initialization
-
+    
     /// Initialize the synth with defaults
     public convenience override init() {
         let squareWithHighPWM = AKTable()

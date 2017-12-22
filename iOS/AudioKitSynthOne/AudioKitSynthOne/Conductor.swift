@@ -8,16 +8,16 @@
 
 import AudioKit
 
-class Conductor {
+class Conductor: AKSynthOneProtocol {
     static var sharedInstance = Conductor()
 
     var tempo: BPM = 120
     var syncRatesToTempo = false
-
+    
     var synth: AKSynthOne!
-
+    
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
-
+    
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter) {
         bindings.append((param, control))
     }
@@ -39,6 +39,7 @@ class Conductor {
     
     func start() {
         synth = AKSynthOne()
+        synth.delegate = self
         synth.rampTime = 0.0 // Handle ramping internally instead of the ramper hack
         
         ///DEFAULT TUNING
@@ -48,7 +49,8 @@ class Conductor {
         //_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111)
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23)
         //_ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes()
-        
+        //AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147])
+
         AudioKit.output = synth
         AudioKit.start()
     }
@@ -72,5 +74,24 @@ class Conductor {
                 }
             }
         }
+    }
+    
+    ///MARK- AKSynthOneProtocol
+    func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
+        AKLog("param:\(param), value:\(value)")
+        DispatchQueue.main.async {
+            for vc in Conductor.sharedInstance.viewControllers {
+                vc.updateUI(param, value: Double(value))
+            }
+        }
+    }
+    func arpBeatCounterDidChange() {
+        AKLog("")
+    }
+    func heldNotesDidChange() {
+        
+    }
+    func playingNotesDidChange() {
+        
     }
 }

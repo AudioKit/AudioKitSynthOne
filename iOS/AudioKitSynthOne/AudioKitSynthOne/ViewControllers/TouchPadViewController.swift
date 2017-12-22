@@ -6,6 +6,7 @@
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 
+import AudioKit
 import UIKit
 
 class TouchPadViewController: SynthPanelController {

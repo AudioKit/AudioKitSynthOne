@@ -6,6 +6,7 @@
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 
+///TODO:This file should be moved from the application layer to AudioKit--with AKSynthOneAudioUnit.* and AKSynthOneDSPKernel
 /// Parameter lookup
 public enum AKSynthOneParameter: Int {
     case index1 = 0,

@@ -124,6 +124,11 @@ class PresetsViewController: UIViewController {
     
     func loadPresetsFromDevice() {
         do {
+            // debug logging
+            // "save" goes to this file.  You can copy this file back to the app bundle as defaults.
+            //AKLog(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last ?? "nil");
+            ///Users/marcushobbs/Library/Developer/CoreSimulator/Devices/870E7755-75B7-4037-9B08-4C8A066057CD/data/Containers/Data/Application/5901161D-1A6E-407B-8137-5CF4B4864091/Documents/presets.json
+            
             let retrievedPresetData = try Disk.retrieve("presets.json", from: .documents, as: Data.self)
             parsePresetsFromData(data: retrievedPresetData)
         } catch {

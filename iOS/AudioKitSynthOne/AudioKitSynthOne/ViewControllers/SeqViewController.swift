@@ -37,6 +37,8 @@ class SeqViewController: SynthPanelController {
         
         seqStepsStepper.minValue = 1
         seqStepsStepper.maxValue = 16
+        octaveStepper.minValue = 1
+        octaveStepper.maxValue = 4
         arpInterval.range = 0 ... 12
 
         // Bindings

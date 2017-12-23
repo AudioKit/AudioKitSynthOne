@@ -30,7 +30,7 @@ class SourceMixerViewController: SynthPanelController {
     @IBOutlet weak var subOctaveDown: ToggleButton!
     @IBOutlet weak var subIsSquare: ToggleButton!
     @IBOutlet weak var isMonoToggle: ToggleButton!
-    
+  
     @IBOutlet weak var fmVolume: Knob!
     @IBOutlet weak var fmAmount: Knob!
     
@@ -43,6 +43,10 @@ class SourceMixerViewController: SynthPanelController {
     
     @IBOutlet weak var arpSeqToggle: FlatToggleButton!
     @IBOutlet weak var tempoStepper: TempoStepper!
+    
+    @IBOutlet weak var retriggerModeToggle: ToggleButton!
+    @IBOutlet weak var widenToggle: FlatToggleButton!
+    
     
     public override func viewDidLoad() {
         super.viewDidLoad()

@@ -24,6 +24,7 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var panicButton: PresetUIButton!
     @IBOutlet weak var diceButton: UIButton!
+    @IBOutlet weak var saveButton: PresetUIButton!
     
     var delegate: EmbeddedViewsDelegate?
     var headerDelegate: HeaderDelegate?
@@ -205,7 +206,7 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     @IBAction func savePressed(_ sender: UIButton) {
-         headerDelegate?.savePresetPressed()
+        
     }
     
     @IBAction func randomPressed(_ sender: UIButton) {
@@ -229,6 +230,10 @@ public class HeaderViewController: UpdatableViewController {
             self.conductor.synth.resetDSP() // nuclear panic option
             
             // TODO: turn off held notes on keybaord
+        }
+        
+        saveButton.callback = { _ in
+             self.headerDelegate?.savePresetPressed()
         }
     }
     

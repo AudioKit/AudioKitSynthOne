@@ -102,16 +102,14 @@ class PresetCell: UITableViewCell {
     }
     
     @IBAction func editPressed(_ sender: UIButton) {
-            delegate?.editPressed()
+        delegate?.editPressed()
     }
-
+    
     @IBAction func sharePressed(_ sender: UIButton) {
-            delegate?.sharePressed()
-        }
- 
+        delegate?.sharePressed()
+    }
+    
     @IBAction func favoritePressed(_ sender: UIButton) {
         delegate?.favoritePressed()
     }
-    
-    
 }

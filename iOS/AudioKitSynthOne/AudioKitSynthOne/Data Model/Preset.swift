@@ -102,6 +102,7 @@ class Preset: Codable {
     var category = 0
     var isUser = true
     var isFavorite = false
+    var userText = "AudioKit Synth One preset. Created by YOUR NAME HERE."
     
     // LFO Routings
     var cutoffLFO = 0.0
@@ -261,6 +262,7 @@ class Preset: Codable {
         category = dictionary["category"] as? Int ?? category
         isUser = dictionary["isUser"] as? Bool ?? isUser
         isFavorite = dictionary["isFavorite"] as? Bool ?? isFavorite
+        userText = dictionary["userText"] as? String ?? userText
         
         // LFO Routings
         cutoffLFO = dictionary["cutoffLFO"] as? Double ?? cutoffLFO

@@ -27,6 +27,7 @@ class PresetsViewController: UIViewController {
     @IBOutlet weak var resetButton: PresetUIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryEmbeddedView: UIView!
+    @IBOutlet weak var presetDescriptionField: UITextView!
     
     var presets = [Preset]() {
         didSet {
@@ -44,6 +45,7 @@ class PresetsViewController: UIViewController {
     var currentPreset = Preset() {
         didSet {
             createActivePreset()
+            presetDescriptionField.text = currentPreset.userText
         }
     }
     
@@ -65,6 +67,8 @@ class PresetsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presetDescriptionField.delegate = self
         
         // set color for lines between rows
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
@@ -302,6 +306,21 @@ class PresetsViewController: UIViewController {
             }
         }
     }
+    
+    // *****************************************************************
+    // MARK: - TextView
+    // *****************************************************************
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
+    }
+}
+
+extension PresetsViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        currentPreset.userText = presetDescriptionField.text
+    }
 }
 
 // *****************************************************************
@@ -353,6 +372,7 @@ extension PresetsViewController: UITableViewDataSource {
 extension PresetsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.view.endEditing(true)
         
         // Get cell
         let cell = tableView.cellForRow(at: indexPath) as? PresetCell

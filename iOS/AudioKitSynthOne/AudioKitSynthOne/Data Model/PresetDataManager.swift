@@ -180,7 +180,10 @@ extension ParentViewController {
         
         // octave position
         activePreset.octavePosition = keyboardView.firstOctave - 2
-
+        
+        // metadata
+        activePreset.userText = presetsViewController.currentPreset.userText
+        
         presetsViewController.savePreset(activePreset)
     }
 }

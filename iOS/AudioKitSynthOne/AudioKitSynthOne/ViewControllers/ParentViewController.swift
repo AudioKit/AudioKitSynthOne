@@ -34,8 +34,6 @@ public class ParentViewController: UIViewController {
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var configKeyboardButton: SynthUIButton!
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
-    @IBOutlet weak var modWheelPad: AKVerticalPad!
-    @IBOutlet weak var pitchPad: AKVerticalPad!
     
     var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
@@ -48,7 +46,7 @@ public class ParentViewController: UIViewController {
     var appSettings = AppSetting()
     var isDevView = false
     
-    let midi = AKMIDI()  ///TODO:REMOVE
+    let midi = AKMIDI()  ///TODO: REMOVE
   
     // ********************************************************
     // MARK: - Define child view controllers
@@ -155,12 +153,9 @@ public class ParentViewController: UIViewController {
         switchToChildView(.oscView, isTopView: true)
         switchToChildView(.adsrView, isTopView: false)
         
-        // ModWheel
-        modWheelPad.resetToPosition(0.5, 0.0)
-        
         // On four runs show dialog and request review
         //        if appSettings.launches == 4 { reviewPopUp() }
-        //        if appSettings.launches % 8 == 0 { skRequestReview() }
+        //        if appSettings.launches % 10 == 0 { skRequestReview() }
         
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard
@@ -230,23 +225,6 @@ public class ParentViewController: UIViewController {
             self.saveAppSettingValues()
         }
         
-        modWheelPad.callback = { value in
-            // Modify Vibrato?
-        }
-        
-        pitchPad.callback = { value in
-            // Change Pitch
-           
-        }
-        
-        pitchPad.completionHandler = {  _, touchesEnded, reset in
-            if touchesEnded && !reset {
-                self.pitchPad.resetToCenter()
-            }
-            if reset {
-                // self.conductor.core.globalbend = 0.0
-            }
-        }
     }
     
     func stopAllNotes() {

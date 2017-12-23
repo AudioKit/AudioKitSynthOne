@@ -332,8 +332,9 @@ extension ParentViewController: HeaderDelegate {
     }
     
     func savePresetPressed() {
-        saveValuesToPreset()
-        displayAlertController("Preset Saved", message: "'\(activePreset.name)' saved.")
+       presetsViewController.editPressed()
+        // saveValuesToPreset()
+       // displayAlertController("Preset Saved", message: "'\(activePreset.name)' saved.")
     }
 }
 

@@ -9,6 +9,7 @@
 import AudioKit
 
 class Conductor: AKSynthOneProtocol {
+    
     static var sharedInstance = Conductor()
 
     var tempo: BPM = 120
@@ -85,13 +86,19 @@ class Conductor: AKSynthOneProtocol {
             }
         }
     }
-    func arpBeatCounterDidChange() {
+    
+    func arpBeatCounterDidChange(_ beat: Int) {
+        ///TODO:Route this to SeqViewController
+        AKLog("beat:\(beat)")
+    }
+    
+    func heldNotesDidChange() {
+        ///TODO:Route this to keyboard view controller (I'll change this so it returns the current array of held notes)
         AKLog("")
     }
-    func heldNotesDidChange() {
-        
-    }
+    
     func playingNotesDidChange() {
-        
+        ///TODO:Route this to keyboard view controller (I'll change this to return the current array of playing notes)
+        AKLog("")
     }
 }

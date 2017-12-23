@@ -8,6 +8,11 @@
 
 import AudioKit
 
+protocol AKSynthOneControl {
+    var value: Double { get set }
+    var callback: (Double)->Void { get set }
+}
+
 class Conductor: AKSynthOneProtocol {
     
     static var sharedInstance = Conductor()
@@ -70,6 +75,7 @@ class Conductor: AKSynthOneProtocol {
                     return
                 }
             for vc in viewControllers {
+                vc.updateUI(param, value: synth.getAK1Parameter(param) )
                 if !vc.isKind(of: HeaderViewController.self) {
                     vc.updateUI(param, value: synth.getAK1Parameter(param) )
                 }
@@ -77,7 +83,7 @@ class Conductor: AKSynthOneProtocol {
         }
     }
     
-    ///MARK- AKSynthOneProtocol
+    //MARK: - AKSynthOneProtocol
     func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
         AKLog("param:\(param), value:\(value)")
         DispatchQueue.main.async {
@@ -88,8 +94,15 @@ class Conductor: AKSynthOneProtocol {
     }
     
     func arpBeatCounterDidChange(_ beat: Int) {
-        ///TODO:Route this to SeqViewController
-        AKLog("beat:\(beat)")
+        DispatchQueue.main.async {
+            for vc in Conductor.sharedInstance.viewControllers {
+                if vc.isKind(of: SeqViewController.self) {
+                    if let vc2 = vc as? SeqViewController {
+                        vc2.updateLED(beatCounter: beat)
+                    }
+                }
+            }
+        }
     }
     
     func heldNotesDidChange() {

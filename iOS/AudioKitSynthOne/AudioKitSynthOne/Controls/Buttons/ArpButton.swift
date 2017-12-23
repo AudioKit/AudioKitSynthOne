@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class ArpButton: UIView {
+class ArpButton: UIView, AKSynthOneControl {
     
     // *********************************************************
     // MARK: - ToggleButton

@@ -8,11 +8,6 @@
 
 import UIKit
 import AudioKit
-
-protocol AKSynthOneControl {
-    var value: Double { get set }
-    var callback: (Double)->Void { get set }
-}
  
 @IBDesignable
 public class Knob: UIView, AKSynthOneControl {

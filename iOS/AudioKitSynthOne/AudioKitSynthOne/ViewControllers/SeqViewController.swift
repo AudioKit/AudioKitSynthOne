@@ -49,14 +49,12 @@ class SeqViewController: SynthPanelController {
         conductor.bind(arpSeqToggle,       to: .arpIsSequencer)
         conductor.bind(seqStepsStepper,    to: .arpTotalSteps)
         
-        updateCallbacks()
-
         setupControlValues()
+
+        updateCallbacks()
     }
     
     func setupControlValues() {
-
-        // these UI classes do NOT conform to AKSynthOneControl protocol
 
         // Slider
         for tag in sliderTags {
@@ -65,8 +63,14 @@ class SeqViewController: SynthPanelController {
                 slider.callback = { value in
                     let notePosition = Int(tag) - self.sliderTags.lowerBound
                     self.setSequencerNote(notePosition, transposeAmt: Int(value))
-                    self.conductor.synth.setAK1ArpSeqPattern(forIndex: notePosition, Int(value) )
                     self.updateTransposeBtn(notePosition: notePosition)
+                }
+                let notePosition = Int(tag) - self.sliderTags.lowerBound
+                let asp = AKSynthOneParameter.arpSeqPattern00.rawValue + notePosition
+                if let aspe = AKSynthOneParameter(rawValue: asp) {
+                    conductor.bind(slider, to:aspe)
+                } else {
+                    AKLog("error binding slider to conductor:\(slider), notePosition:\(notePosition)")
                 }
             }
         }
@@ -99,7 +103,7 @@ class SeqViewController: SynthPanelController {
             if let slider = view.viewWithTag(tag) as? VerticalSlider {
                 let notePosition = tag - sliderTags.lowerBound
                 let transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
-                slider.actualValue = Double(transposeAmt)
+                slider.value = Double(transposeAmt)
                 updateTransposeBtn(notePosition: notePosition)
                 slider.setNeedsDisplay()
             }
@@ -140,8 +144,29 @@ class SeqViewController: SynthPanelController {
     // MARK: - Helpers
     //*****************************************************************
     
+    @objc public func updateLED(beatCounter: Int) {
+        let arpIsOn = conductor.synth.getAK1Parameter(.arpIsOn) > 0 ? true : false
+        let arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
+        let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
+        if arpIsOn && arpIsSequencer && seqNum > 0 {
+            let notePosition = beatCounter % seqNum
+            AKLog("notePosition:\(notePosition)")
+            for sliderLabelTag in sliderLabelTags {
+                if let label = view.viewWithTag(sliderLabelTag) as? TransposeButton {
+                    let labelTag = notePosition + sliderLabelTags.lowerBound
+                    if labelTag == sliderLabelTag {
+                        label.layer.borderColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+                        label.layer.borderWidth = 2
+                    } else {
+                        label.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                        label.layer.borderWidth = 1
+                    }
+                }
+            }
+        }
+    }
+    
     func updateTransposeBtn(notePosition: Int) {
-        
         let labelTag = notePosition + sliderLabelTags.lowerBound
         if let label = view.viewWithTag(labelTag) as? TransposeButton {
             var transposeAmt = self.conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)

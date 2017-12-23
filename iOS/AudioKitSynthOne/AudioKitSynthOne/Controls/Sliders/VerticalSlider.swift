@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class VerticalSlider: UIControl {
+class VerticalSlider: UIControl, AKSynthOneControl {
     
     public typealias VerticalSliderCallback = (Double) -> Void
     var callback: VerticalSliderCallback = { _ in }
@@ -41,7 +41,7 @@ class VerticalSlider: UIControl {
         }
     }
     
-    var actualValue: Double {
+    var value: Double {
         get {
             return currentToActualValue(currentValue)
         }
@@ -127,7 +127,7 @@ extension VerticalSlider {
         if isSliding {
             let value = convertYToValue(rawY)
             currentValue = value
-            callback(actualValue)
+            callback( Double(value) )
             self.setNeedsDisplay()
         }
         return true

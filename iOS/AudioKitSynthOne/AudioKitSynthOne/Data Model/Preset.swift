@@ -55,6 +55,11 @@ class Preset: Codable {
     var filterADSRMix = 0.0 // Filter Envelope depth
     var glide = 0.0 // Mono glide amount
     
+    var phaserMix = 0.0
+    var phaserRate = 12.0
+    var phaserFeedback = 0.0
+    var phaserNotchWidth = 800.00
+    
     // ADSR
     var attackDuration = 0.05
     var decayDuration = 0.05
@@ -277,6 +282,12 @@ class Preset: Codable {
         pitchLFO = dictionary["pitchLFO"] as? Double ?? pitchLFO
         bitcrushLFO = dictionary["bitcrushLFO"] as? Double ?? bitcrushLFO
         autopanLFO = dictionary["autopanLFO"] as? Double ?? autopanLFO
+        
+        // FX
+        phaserFeedback = dictionary["phaserFeedback"] as? Double ?? phaserFeedback
+        phaserMix = dictionary["phaserMix"] as? Double ?? phaserMix
+        phaserRate = dictionary["phaserRate"] as? Double ?? phaserRate
+        phaserNotchWidth = dictionary["phaserNotchWidth"] as? Double ?? phaserNotchWidth
         
         // *** ToDo ***
         // Filter > Routing 0, 1, 2

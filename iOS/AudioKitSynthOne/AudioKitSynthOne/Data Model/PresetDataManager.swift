@@ -80,6 +80,11 @@ extension ParentViewController {
         conductor.synth.setAK1Parameter(.arpIsSequencer, activePreset.arpIsSequencer ? 1 : 0 )
         conductor.synth.setAK1Parameter(.arpTotalSteps, activePreset.arpTotalSteps )
         
+        conductor.synth.setAK1Parameter(.phaserMix, activePreset.phaserMix)
+        conductor.synth.setAK1Parameter(.phaserRate, activePreset.phaserRate)
+        conductor.synth.setAK1Parameter(.phaserFeedback, activePreset.phaserFeedback)
+        conductor.synth.setAK1Parameter(.phaserNotchWidth, activePreset.phaserNotchWidth)
+        
         for i in 0..<16 {
             conductor.synth.setAK1ArpSeqPattern(forIndex: i, activePreset.seqPatternNote[i])
             conductor.synth.setAK1SeqOctBoost(forIndex: i, activePreset.seqOctBoost[i])
@@ -169,6 +174,11 @@ extension ParentViewController {
         activePreset.arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         activePreset.arpTotalSteps = conductor.synth.getAK1Parameter(.arpTotalSteps)
         activePreset.isArpMode = conductor.synth.getAK1Parameter(.arpIsOn)
+        
+        activePreset.phaserMix = conductor.synth.getAK1Parameter(.phaserMix)
+        activePreset.phaserRate = conductor.synth.getAK1Parameter(.phaserRate)
+        activePreset.phaserFeedback = conductor.synth.getAK1Parameter(.phaserFeedback)
+        activePreset.phaserNotchWidth = conductor.synth.getAK1Parameter(.phaserNotchWidth)
         
         for i in 0..<16 {
             activePreset.seqPatternNote[i] = conductor.synth.getAK1ArpSeqPattern(forIndex: i)

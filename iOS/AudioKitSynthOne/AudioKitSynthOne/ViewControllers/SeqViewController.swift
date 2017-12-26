@@ -155,7 +155,7 @@ class SeqViewController: SynthPanelController {
                 if let label = view.viewWithTag(sliderLabelTag) as? TransposeButton {
                     let labelTag = notePosition + sliderLabelTags.lowerBound
                     if labelTag == sliderLabelTag {
-                        label.layer.borderColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+                        label.layer.borderColor = #colorLiteral(red: 0.8812435269, green: 0.4256765842, blue: 0, alpha: 1)
                         label.layer.borderWidth = 2
                     } else {
                         label.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)

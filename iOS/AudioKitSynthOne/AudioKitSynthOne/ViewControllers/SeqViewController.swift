@@ -65,8 +65,8 @@ class SeqViewController: SynthPanelController {
                     self.setSequencerNote(notePosition, transposeAmt: Int(value))
                     self.updateTransposeBtn(notePosition: notePosition)
                 }
-                let notePosition = Int(tag) - self.sliderTags.lowerBound
-                let asp = AKSynthOneParameter.arpSeqPattern00.rawValue + notePosition
+                let notePosition = Int(Int(tag) - self.sliderTags.lowerBound)
+                let asp = Int32(Int(AKSynthOneParameter.arpSeqPattern00.rawValue) + notePosition)
                 if let aspe = AKSynthOneParameter(rawValue: asp) {
                     conductor.bind(slider, to:aspe)
                 } else {
@@ -150,7 +150,7 @@ class SeqViewController: SynthPanelController {
         let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
         if arpIsOn && arpIsSequencer && seqNum > 0 {
             let notePosition = beatCounter % seqNum
-            AKLog("notePosition:\(notePosition)")
+            //AKLog("notePosition:\(notePosition)")
             for sliderLabelTag in sliderLabelTags {
                 if let label = view.viewWithTag(sliderLabelTag) as? TransposeButton {
                     let labelTag = notePosition + sliderLabelTags.lowerBound

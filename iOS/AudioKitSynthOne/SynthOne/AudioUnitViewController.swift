@@ -54,7 +54,7 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory {
 
         _ = tree.token(byAddingParameterObserver: { [weak self] address, value in
 
-            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int(address)) else {
+            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int32(address)) else {
                 return
             }
 

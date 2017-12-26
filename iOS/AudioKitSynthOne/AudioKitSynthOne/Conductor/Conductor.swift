@@ -69,8 +69,9 @@ class Conductor: AKSynthOneProtocol {
     }
     
     func updateAllUI() {
-        for address in 0..<AKSynthOneParameter.count {
-            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int(address))
+        //TODO:count params
+        for address in 0..<120 {
+            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int32(Int(address)))
                 else {
                     AKLog("ERROR: AKSynthOneParameter enum out of range: \(address)")
                     return
@@ -108,12 +109,12 @@ class Conductor: AKSynthOneProtocol {
     
     func heldNotesDidChange() {
         ///TODO:Route this to keyboard view controller (I'll change this so it returns the current array of held notes)
-        AKLog("")
+        //AKLog("")
     }
     
     func playingNotesDidChange() {
         ///TODO:Route this to keyboard view controller (I'll change this to return the current array of playing notes)
-        AKLog("")
+        //AKLog("")
     }
     
     // Start/Pause AK Engine (Conserve energy by turning background audio off)

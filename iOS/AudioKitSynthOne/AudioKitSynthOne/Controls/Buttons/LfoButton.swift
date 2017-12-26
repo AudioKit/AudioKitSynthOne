@@ -12,7 +12,12 @@ import UIKit
 class LfoButton: UIView, AKSynthOneControl {
     
     var callback: (Double)->Void = { _ in }
-    var value: Double = 0
+    var value: Double = 0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     let btnWidth: CGFloat = 100
 
     // Make Button Text Editable in IB

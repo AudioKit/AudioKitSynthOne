@@ -44,7 +44,7 @@ class SourceMixerViewController: SynthPanelController {
     @IBOutlet weak var arpSeqToggle: FlatToggleButton!
     @IBOutlet weak var tempoStepper: TempoStepper!
     
-    @IBOutlet weak var retriggerModeToggle: ToggleButton!
+    @IBOutlet weak var legatoModeToggle: ToggleButton!
     @IBOutlet weak var widenToggle: FlatToggleButton!
     
     

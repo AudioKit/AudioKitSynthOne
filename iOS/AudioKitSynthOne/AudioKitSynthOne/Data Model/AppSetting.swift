@@ -18,6 +18,9 @@ class AppSetting: Codable {
     var firstRun = true
     var isPreRelease = true
     var signedMailingList = true
+    var backgroundAudioOn = true
+    var midiChannel = 0
+    var omniMode = true
     
     var launches = 0
     
@@ -74,6 +77,9 @@ class AppSetting: Codable {
         firstRun = dictionary["firstRun"] as? Bool ?? firstRun
         isPreRelease = dictionary["isPreRelease"] as? Bool ?? isPreRelease
         signedMailingList = dictionary["signedMailingList"] as? Bool ?? signedMailingList
+        backgroundAudioOn = dictionary["backgroundAudioOn"] as? Bool ?? backgroundAudioOn
+        midiChannel = dictionary["midiChannel"] as? Int ?? midiChannel
+        omniMode = dictionary["omniMode"] as? Bool ?? omniMode
         
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
         banks = dictionary["banks"] as? [String] ?? banks

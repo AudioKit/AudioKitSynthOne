@@ -19,6 +19,7 @@ class Conductor: AKSynthOneProtocol {
 
     var tempo: BPM = 120
     var syncRatesToTempo = false
+    var backgroundAudioOn = true
     
     var synth: AKSynthOne!
     
@@ -113,5 +114,29 @@ class Conductor: AKSynthOneProtocol {
     func playingNotesDidChange() {
         ///TODO:Route this to keyboard view controller (I'll change this to return the current array of playing notes)
         AKLog("")
+    }
+    
+    // Start/Pause AK Engine (Conserve energy by turning background audio off)
+    // TODO: Add AUv3 requirements
+    func startEngine(completionHandler: AKCallback? = nil) {
+        AKLog("engine.isRunning: \(AudioKit.engine.isRunning)")
+        if !AudioKit.engine.isRunning {
+            do {
+                try AudioKit.engine.start()
+                AKLog("AudioKit: engine is started.")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    completionHandler?()
+                }
+            } catch {
+                AKLog("Unable to start the audio engine.", file: "Probably fatal error")
+            }
+            
+            return
+        }
+        completionHandler?()
+    }
+    
+    func stopEngine() {
+        AudioKit.engine.pause()
     }
 }

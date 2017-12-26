@@ -15,9 +15,16 @@ class ToggleSwitch: UIView, AKSynthOneControl {
     // MARK: - ToggleButton
     // *********************************************************
     
+    var isOn = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     var value: Double = 0 {
         didSet {
             setNeedsDisplay()
+            isOn = (value == 1)
         }
     }
     public var callback: (Double)->Void = { _ in }

@@ -34,6 +34,7 @@ public class ParentViewController: UIViewController {
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var configKeyboardButton: SynthUIButton!
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
+    @IBOutlet weak var modWheelSettings: SynthUIButton!
     
     var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
@@ -42,9 +43,15 @@ public class ParentViewController: UIViewController {
     var bottomChildView: ChildView?
     var isPresetsDisplayed: Bool = false
     var activePreset = Preset()
+    
     var midiChannelIn: MIDIChannel = 0
+    var midiInputs = [MIDIInput]()
+    var omniMode = true
+    
     var appSettings = AppSetting()
     var isDevView = false
+ 
+  
     
     let midi = AKMIDI()  ///TODO: REMOVE
   
@@ -188,12 +195,17 @@ public class ParentViewController: UIViewController {
         
         configKeyboardButton.callback = { _ in
             self.configKeyboardButton.value = 0
-            self.performSegue(withIdentifier: "SegueToKeyboardPopOver", sender: self)
+            self.performSegue(withIdentifier: "SegueToKeyboardSettings", sender: self)
         }
        
         midiButton.callback = { _ in
             self.midiButton.value = 0
-            self.performSegue(withIdentifier: "SegueToMIDIPopOver", sender: self)
+            self.performSegue(withIdentifier: "SegueToMIDI", sender: self)
+        }
+        
+        modWheelSettings.callback = { _ in
+            self.modWheelSettings.value = 0
+            self.performSegue(withIdentifier: "SegueToMOD", sender: self)
         }
         
         holdButton.callback = { value in
@@ -237,7 +249,7 @@ public class ParentViewController: UIViewController {
     // **********************************************************
     
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SegueToKeyboardPopOver" {
+        if segue.identifier == "SegueToKeyboardSettings" {
             let popOverController = segue.destination as! PopUpKeyboardController
             popOverController.delegate = self
             popOverController.octaveRange = keyboardView.octaveCount
@@ -251,11 +263,25 @@ public class ParentViewController: UIViewController {
             }
         }
         
-        if segue.identifier == "SegueToMIDIPopOver" {
-            let popOverController = segue.destination as! PopUpMIDIController
+        if segue.identifier == "SegueToMIDI" {
+            let popOverController = segue.destination as! PopUpMIDIViewController
+            popOverController.delegate = self
+            let userMIDIChannel = omniMode ? -1 : Int(midiChannelIn)
+            popOverController.userChannelIn = userMIDIChannel
+            popOverController.midiSources = midiInputs
+            
+            popOverController.preferredContentSize = CGSize(width: 300, height: 320)
+            if let presentation = popOverController.popoverPresentationController {
+                presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
+                presentation.sourceRect = midiButton.bounds
+            }
+        }
+        
+        if segue.identifier == "SegueToMOD" {
+            let popOverController = segue.destination as! PopUpMODController
             // popOverController.delegate = self
             // popOverController.modWheelDestination = ??
-            popOverController.preferredContentSize = CGSize(width: 300, height: 320)
+            popOverController.preferredContentSize = CGSize(width: 300, height: 170)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
                 presentation.sourceRect = midiButton.bounds
@@ -289,6 +315,34 @@ public class ParentViewController: UIViewController {
     }
     
 }
+
+// **********************************************************
+// MARK: - MIDI Settings Pop Over Delegate
+// **********************************************************
+
+extension ParentViewController: MIDISettingsPopOverDelegate {
+    
+    func resetMIDILearn() {
+        //auMainController.midiKnobs.forEach { $0.midiCC = 255 }
+        //saveAppSettingValues()
+    }
+    
+    func didSelectMIDIChannel(newChannel: Int) {
+        if newChannel > -1 {
+            midiChannelIn = MIDIByte(newChannel)
+            omniMode = false
+        } else {
+            midiChannelIn = 0
+            omniMode = true
+        }
+        saveAppSettingValues()
+    }
+    
+    func didSetBackgroundAudio() {
+        saveAppSettingValues()
+    }
+}
+
 
 // **********************************************************
 // MARK: - Embedded Views Delegate

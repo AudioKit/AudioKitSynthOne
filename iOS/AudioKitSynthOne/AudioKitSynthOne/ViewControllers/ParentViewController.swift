@@ -52,8 +52,6 @@ public class ParentViewController: UIViewController {
     var appSettings = AppSetting()
     var isDevView = false
  
-  
-    
     let midi = AKMIDI()  ///TODO: REMOVE
   
     // ********************************************************
@@ -210,18 +208,18 @@ public class ParentViewController: UIViewController {
         }
         
         midiLearnToggle.callback = { _ in
-         /*
+        
             // Toggle MIDI Learn Knobs in subview
-            self.auMainController.midiKnobs.forEach { $0.midiLearnMode = self.midiLearnToggle.isSelected }
+            //self.auMainController.midiKnobs.forEach { $0.midiLearnMode = self.midiLearnToggle.isSelected }
             
             // Update display label
             if self.midiLearnToggle.isSelected {
-                self.auMainController.outputLabel.text = "MIDI Learn: Touch a knob to assign"
+                self.updateDisplay("MIDI Learn: Touch a knob to assign")
             } else {
-                self.auMainController.outputLabel.text = "MIDI Learn Off"
+                self.updateDisplay("MIDI Learn Off")
                 self.saveAppSettingValues()
             }
-          */
+ 
         }
         
         holdButton.callback = { value in

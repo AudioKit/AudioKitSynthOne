@@ -33,7 +33,9 @@ class Conductor: AKSynthOneProtocol {
         return { value in
             //AKLog("changing \(param.rawValue) \(param.simpleDescription()) to: \(value)")
             sharedInstance.synth.setAK1Parameter(param, value)
-            sharedInstance.updateAllUI()
+            //sharedInstance.updateAllUI()
+            sharedInstance.updateSingleUI(param)
+           
         }
         } {
         didSet {
@@ -68,6 +70,15 @@ class Conductor: AKSynthOneProtocol {
         }
     }
     
+    func updateSingleUI(_ param: AKSynthOneParameter) {
+        for vc in self.viewControllers {
+            vc.updateUI(param, value: synth.getAK1Parameter(param) )
+            if !vc.isKind(of: HeaderViewController.self) {
+                vc.updateUI(param, value: synth.getAK1Parameter(param) )
+            }
+        }
+    }
+    
     func updateAllUI() {
         //TODO:count params
         for address in 0..<120 {
@@ -76,12 +87,7 @@ class Conductor: AKSynthOneProtocol {
                     AKLog("ERROR: AKSynthOneParameter enum out of range: \(address)")
                     return
                 }
-            for vc in viewControllers {
-                vc.updateUI(param, value: synth.getAK1Parameter(param) )
-                if !vc.isKind(of: HeaderViewController.self) {
-                    vc.updateUI(param, value: synth.getAK1Parameter(param) )
-                }
-            }
+            updateSingleUI(param)
         }
     }
     

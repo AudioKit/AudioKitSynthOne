@@ -22,6 +22,10 @@ class TouchPadViewController: SynthPanelController {
     
     var cutoff: Double = 0.0
     var rez: Double = 0.0
+    
+    var snapBackCutoff: Double = 0.0
+    var snapBackRez: Double = 0.0
+    
     var oscBalance: Double = 0.0
     var detuningMultiplier: Double = 1.0
     
@@ -36,6 +40,8 @@ class TouchPadViewController: SynthPanelController {
         let s = Conductor.sharedInstance.synth!
         touchPad2.verticalRange = s.filterCutoffMin ... s.filterCutoffMax
         touchPad2.verticalTaper = 4.04
+        
+        snapToggle.value = 1
        
         updateCallbacks()
         createParticles()
@@ -96,14 +102,16 @@ class TouchPadViewController: SynthPanelController {
         
         touchPad2.callback = { horizontal, vertical, touchesBegan in
             
-            // record values before touched
-            self.rez = self.conductor.synth.getAK1Parameter(.resonance)
-            self.cutoff = self.conductor.synth.getAK1Parameter(.cutoff)
-
             let y = CGFloat(self.cutoff.normalized(from: self.touchPad2.verticalRange, taper: self.touchPad2.verticalTaper))
             self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width * CGFloat(self.rez)) + self.touchPad2.bounds.minX, y: self.touchPad2.bounds.height * CGFloat(1-y))
 
             if touchesBegan {
+                // record values before touched
+                self.rez = self.conductor.synth.getAK1Parameter(.resonance)
+                self.cutoff = self.conductor.synth.getAK1Parameter(.cutoff)
+                self.snapBackCutoff = self.conductor.synth.getAK1Parameter(.cutoff)
+                self.snapBackRez = self.conductor.synth.getAK1Parameter(.resonance)
+                print ("**** BEFORE Cutoff: \(self.snapBackCutoff)")
                 self.particleEmitter2.birthRate = 1
             }
             
@@ -121,12 +129,13 @@ class TouchPadViewController: SynthPanelController {
             }
             
             if self.snapToggle.isOn && touchesEnded && !reset {
-                self.conductor.synth.setAK1Parameter(.resonance, self.rez)
-                self.conductor.synth.setAK1Parameter(.cutoff, self.cutoff)
+                self.conductor.synth.setAK1Parameter(.resonance, self.snapBackRez)
+                self.conductor.synth.setAK1Parameter(.cutoff, self.snapBackCutoff)
+                 print ("**** AFTER Cutoff: \(self.snapBackCutoff)")
                 
-                let y = self.cutoff.normalized(from: self.touchPad2.verticalRange,
+                let y = self.snapBackCutoff.normalized(from: self.touchPad2.verticalRange,
                                                taper: self.touchPad2.verticalTaper)
-                self.touchPad2.resetToPosition(self.rez, y)
+                self.touchPad2.resetToPosition(self.snapBackRez, y)
            
             }
             self.conductor.updateAllUI()

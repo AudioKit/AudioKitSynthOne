@@ -47,6 +47,8 @@ class SourceMixerViewController: SynthPanelController {
     @IBOutlet weak var legatoModeToggle: ToggleButton!
     @IBOutlet weak var widenToggle: FlatToggleButton!
     
+    var audioPlot: AKNodeOutputPlot!
+    var isAudioPlotFilled: Bool = true
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,12 +95,26 @@ class SourceMixerViewController: SynthPanelController {
         
         updateCallbacks()
         
-        let plot = AKNodeOutputPlot(conductor.synth, frame: CGRect(x: 0, y: 0, width: 172, height: 93))
-        plot.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 0)
-        plot.color = #colorLiteral(red: 0.9611048102, green: 0.509832561, blue: 0, alpha: 1)
-        plot.gain = 1
-        plot.shouldFill = true
-        displayContainer.addSubview(plot)
+        // Setup Audio Plot Display
+        setupAudioPlot()
+    }
+    
+    func setupAudioPlot() {
+        audioPlot = AKNodeOutputPlot(conductor.synth, frame: CGRect(x: 0, y: 0, width: 172, height: 93))
+        audioPlot.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 0)
+        audioPlot.color = #colorLiteral(red: 0.9611048102, green: 0.509832561, blue: 0, alpha: 1)
+        audioPlot.gain = 1
+        audioPlot.shouldFill = true
+        displayContainer.addSubview(audioPlot)
+       
+        // Add Tap Gesture Recognizer to AudioPlot
+        let audioPlotTap = UITapGestureRecognizer(target: self, action: #selector(SourceMixerViewController.audioPlotToggled))
+        audioPlot.addGestureRecognizer(audioPlotTap)
+    }
+    
+    @objc func audioPlotToggled() {
+        isAudioPlotFilled = !isAudioPlotFilled
+        audioPlot.shouldFill = isAudioPlotFilled
     }
 }
 

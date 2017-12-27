@@ -111,7 +111,7 @@ class TouchPadViewController: SynthPanelController {
                 self.cutoff = self.conductor.synth.getAK1Parameter(.cutoff)
                 self.snapBackCutoff = self.conductor.synth.getAK1Parameter(.cutoff)
                 self.snapBackRez = self.conductor.synth.getAK1Parameter(.resonance)
-                print ("**** BEFORE Cutoff: \(self.snapBackCutoff)")
+               
                 self.particleEmitter2.birthRate = 1
             }
             
@@ -131,7 +131,6 @@ class TouchPadViewController: SynthPanelController {
             if self.snapToggle.isOn && touchesEnded && !reset {
                 self.conductor.synth.setAK1Parameter(.resonance, self.snapBackRez)
                 self.conductor.synth.setAK1Parameter(.cutoff, self.snapBackCutoff)
-                 print ("**** AFTER Cutoff: \(self.snapBackCutoff)")
                 
                 let y = self.snapBackCutoff.normalized(from: self.touchPad2.verticalRange,
                                                taper: self.touchPad2.verticalTaper)

@@ -51,7 +51,8 @@ extension ParentViewController {
         keyboardView.labelMode = appSettings.labelMode
         keyboardView.octaveCount = appSettings.octaveRange
         keyboardView.darkMode = appSettings.darkMode
-        //keyboardView.currentVelocity = MIDIVelocity(appSettings.velocity)
+    
+        //TODO: Persist AudioPlot fill?
     }
     
     func saveAppSettingValues() {
@@ -89,6 +90,8 @@ extension ParentViewController {
         appSettings.octaveRange = keyboardView.octaveCount
         appSettings.darkMode = keyboardView.darkMode
         appSettings.showKeyboard = keyboardToggle.value
+        
+        appSettings.plotFilled = mixerViewController.isAudioPlotFilled
         
         saveAppSettings()
     }

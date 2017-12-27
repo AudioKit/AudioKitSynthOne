@@ -35,6 +35,7 @@ public class ParentViewController: UIViewController {
     @IBOutlet weak var configKeyboardButton: SynthUIButton!
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
     @IBOutlet weak var modWheelSettings: SynthUIButton!
+    @IBOutlet weak var midiLearnToggle: SynthUIButton!
     
     var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
@@ -65,7 +66,7 @@ public class ParentViewController: UIViewController {
         return viewController
     }()
     
-    fileprivate lazy var mixerViewController: SourceMixerViewController = {
+    lazy var mixerViewController: SourceMixerViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier()) as! SourceMixerViewController
         return viewController
@@ -206,6 +207,21 @@ public class ParentViewController: UIViewController {
         modWheelSettings.callback = { _ in
             self.modWheelSettings.value = 0
             self.performSegue(withIdentifier: "SegueToMOD", sender: self)
+        }
+        
+        midiLearnToggle.callback = { _ in
+         /*
+            // Toggle MIDI Learn Knobs in subview
+            self.auMainController.midiKnobs.forEach { $0.midiLearnMode = self.midiLearnToggle.isSelected }
+            
+            // Update display label
+            if self.midiLearnToggle.isSelected {
+                self.auMainController.outputLabel.text = "MIDI Learn: Touch a knob to assign"
+            } else {
+                self.auMainController.outputLabel.text = "MIDI Learn Off"
+                self.saveAppSettingValues()
+            }
+          */
         }
         
         holdButton.callback = { value in

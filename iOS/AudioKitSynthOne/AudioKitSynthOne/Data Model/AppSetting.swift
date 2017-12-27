@@ -21,6 +21,7 @@ class AppSetting: Codable {
     var backgroundAudioOn = true
     var midiChannel = 0
     var omniMode = true
+    var plotFilled = true
     
     var launches = 0
     
@@ -80,6 +81,7 @@ class AppSetting: Codable {
         backgroundAudioOn = dictionary["backgroundAudioOn"] as? Bool ?? backgroundAudioOn
         midiChannel = dictionary["midiChannel"] as? Int ?? midiChannel
         omniMode = dictionary["omniMode"] as? Bool ?? omniMode
+        plotFilled =  dictionary["plotFilled"] as? Bool ?? plotFilled
         
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
         banks = dictionary["banks"] as? [String] ?? banks

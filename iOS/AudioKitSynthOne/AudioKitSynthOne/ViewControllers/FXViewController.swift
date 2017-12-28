@@ -68,7 +68,8 @@ class FXViewController: SynthPanelController {
         sampleRate.range = 400 ... 44100
         sampleRate.taper = 5
 
-        autoPanRate.range = 0 ... 16
+        autoPanRate.range = 0 ... 10
+        autoPanRate.taper = 2
 
         reverbLowCut.range = 10 ... 900
         reverbLowCut.taper = 1

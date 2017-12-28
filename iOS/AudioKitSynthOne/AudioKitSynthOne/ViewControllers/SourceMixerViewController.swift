@@ -66,7 +66,7 @@ class SourceMixerViewController: SynthPanelController {
         glideKnob.range = 0.0 ... 0.2
         noiseVolume.range = 0.0 ... 0.3
         fmAmount.range = 0.0 ... 15
-        resonance.range = 0.0 ... 0.97
+        resonance.range = conductor.synth.filterResonanceMin ... conductor.synth.filterResonanceMax
         tempoStepper.maxValue = 360
         masterVolume.range = 0.0...2.0
 

@@ -67,7 +67,8 @@ class SourceMixerViewController: SynthPanelController {
         noiseVolume.range = 0.0 ... 0.3
         fmAmount.range = 0.0 ... 15
         resonance.range = conductor.synth.filterResonanceMin ... conductor.synth.filterResonanceMax
-        tempoStepper.maxValue = 360
+        tempoStepper.maxValue = 280
+        tempoStepper.minValue = 10
         masterVolume.range = 0.0...2.0
 
         conductor.bind(morph1Selector,       to: .index1)

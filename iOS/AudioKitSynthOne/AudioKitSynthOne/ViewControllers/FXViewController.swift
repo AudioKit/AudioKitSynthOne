@@ -14,8 +14,7 @@ class FXViewController: SynthPanelController {
     @IBOutlet weak var lfoRezToggle: LfoButton!
     @IBOutlet weak var lfoOscMixToggle: LfoButton!
     @IBOutlet weak var lfoSustainToggle: LfoButton!
-    @IBOutlet weak var lfoMorph1Toggle: LfoButton!
-    @IBOutlet weak var lfoMorph2Toggle: LfoButton!
+ 
     @IBOutlet weak var lfoFMModToggle: LfoButton!
     @IBOutlet weak var lfoDetuneToggle: LfoButton!
     @IBOutlet weak var lfoFilterEnvToggle: LfoButton!
@@ -106,8 +105,8 @@ class FXViewController: SynthPanelController {
         conductor.bind(lfoRezToggle,       to: .resonanceLFO)
         conductor.bind(lfoOscMixToggle,    to: .oscMixLFO)
         conductor.bind(lfoSustainToggle,   to: .sustainLFO)
-        conductor.bind(lfoMorph1Toggle,    to: .index1LFO)
-        conductor.bind(lfoMorph2Toggle,    to: .index2LFO)
+//        conductor.bind(lfoMorph1Toggle,    to: .index1LFO)
+//        conductor.bind(lfoMorph2Toggle,    to: .index2LFO)
         conductor.bind(lfoFMModToggle,     to: .fmLFO)
         conductor.bind(lfoDetuneToggle,    to: .detuneLFO)
         conductor.bind(lfoFilterEnvToggle, to: .filterEnvLFO)

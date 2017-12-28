@@ -225,6 +225,7 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     func setupCallbacks() {
+        
         panicButton.callback = { _ in
             //conductor.synth.reset() // kinder, gentler panic
             self.conductor.synth.resetDSP() // nuclear panic option

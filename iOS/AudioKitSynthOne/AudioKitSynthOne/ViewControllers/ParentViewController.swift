@@ -18,7 +18,7 @@ protocol BottomEmbeddedViewsDelegate {
     func switchToBottomChildView(_ newView: ChildView)
 }
 
-public class ParentViewController: UIViewController {
+public class ParentViewController: UpdatableViewController {
     
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var bottomContainerView: UIView!
@@ -37,7 +37,6 @@ public class ParentViewController: UIViewController {
     @IBOutlet weak var modWheelSettings: SynthUIButton!
     @IBOutlet weak var midiLearnToggle: SynthUIButton!
     
-    var conductor = Conductor.sharedInstance
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
     
     var topChildView: ChildView?

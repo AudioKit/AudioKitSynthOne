@@ -872,17 +872,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xIM-PA-0WR">
-                                <rect key="frame" x="381" y="205" width="98" height="96"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xIM-PA-0WR" userLabel="backgroundView">
+                                <rect key="frame" x="383" y="208" width="87" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view tag="103" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8mW-Ll-ydC" customClass="Knob" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="19" y="28" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Env Amt" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yah-hx-vF5">
-                                        <rect key="frame" x="16" y="3" width="63" height="22"/>
+                                        <rect key="frame" x="12" y="0.0" width="63" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                         <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1076,6 +1071,11 @@
                                 <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view tag="103" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8mW-Ll-ydC" customClass="Knob" customModule="AudioKitSynthOne">
+                                <rect key="frame" x="397" y="230" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -1086,6 +1086,7 @@
                         <outlet property="adsrView" destination="ixs-dv-3Ny" id="52h-sw-WCp"/>
                         <outlet property="attackKnob" destination="Id6-1g-dKM" id="0rD-A2-Z2G"/>
                         <outlet property="decayKnob" destination="Bzs-A0-rWQ" id="ihY-GW-xCK"/>
+                        <outlet property="envelopeLabelBackground" destination="xIM-PA-0WR" id="wZW-6o-YqX"/>
                         <outlet property="filterADSRMixKnob" destination="8mW-Ll-ydC" id="9JH-VM-wSS"/>
                         <outlet property="filterADSRView" destination="je1-h7-FfI" id="ZoT-rS-LRL"/>
                         <outlet property="filterAttackKnob" destination="1UI-YK-6S9" id="NhG-HR-DxK"/>
@@ -1100,7 +1101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8q-3b-bAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-587" y="-921"/>
+            <point key="canvasLocation" x="-587.109375" y="-921.484375"/>
         </scene>
         <!--DEV-->
         <scene sceneID="JRs-Mi-uc0">
@@ -1333,7 +1334,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Morph2"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="???"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OiO-GY-Ebf" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -1341,7 +1342,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Morph1"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Decay"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emL-eL-tqy" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -1594,8 +1595,6 @@
                         <outlet property="lfoDetuneToggle" destination="4fP-Q7-eqK" id="fGY-A8-NP2"/>
                         <outlet property="lfoFMModToggle" destination="Mbh-Az-jeK" id="5EK-eZ-aJA"/>
                         <outlet property="lfoFilterEnvToggle" destination="7EN-gq-WHB" id="qci-vq-wBj"/>
-                        <outlet property="lfoMorph1Toggle" destination="OiO-GY-Ebf" id="CVL-cn-fJv"/>
-                        <outlet property="lfoMorph2Toggle" destination="eZZ-WL-inO" id="PM3-h8-vcn"/>
                         <outlet property="lfoOscMixToggle" destination="yMC-Nf-cet" id="GXS-yJ-H9S"/>
                         <outlet property="lfoPitchToggle" destination="93V-FP-Ga6" id="v5H-FX-Rci"/>
                         <outlet property="lfoRezToggle" destination="Dd6-x5-m2h" id="h1j-xO-O7Q"/>

@@ -23,11 +23,14 @@ class ADSRViewController: SynthPanelController {
     @IBOutlet weak var filterSustainKnob: Knob!
     @IBOutlet weak var filterReleaseKnob: Knob!
     @IBOutlet weak var filterADSRMixKnob: Knob!
- 
+    @IBOutlet weak var envelopeLabelBackground: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        filterADSRMixKnob.range = 0.0 ... 1
+        envelopeLabelBackground.layer.cornerRadius = 8
+        
+        filterADSRMixKnob.range = 0.0 ... 1.2
         attackKnob.range = 0.000001 ... 1
         releaseKnob.range = 0.004 ... 2
         viewType = .adsrView

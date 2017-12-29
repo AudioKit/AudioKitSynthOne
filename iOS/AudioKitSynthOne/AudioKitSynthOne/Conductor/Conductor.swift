@@ -95,6 +95,15 @@ class Conductor: AKSynthOneProtocol {
                 }
             updateSingleUI(param)
         }
+        
+        // Display Preset Name again
+        for vc in Conductor.sharedInstance.viewControllers {
+            if vc.isKind(of: ParentViewController.self) {
+                if let vc2 = vc as? ParentViewController {
+                        vc2.updateDisplay("\(vc2.activePreset.position): \(vc2.activePreset.name)")
+                }
+            }
+        }
     }
     
     //MARK: - AKSynthOneProtocol

@@ -84,7 +84,7 @@ public class HeaderViewController: UpdatableViewController {
         case .fmAmount:
             displayLabel.text = "FM Mod \(value.percentageString)" // FIX ME
         case .noiseVolume:
-            displayLabel.text = "Noise Mix: \(value.percentageString)"
+            displayLabel.text = "Noise Mix: \((value*4).percentageString)"
         case .masterVolume:
             displayLabel.text = "Master Vol: \(value.percentageString)"
         case .attackDuration, .decayDuration, .sustainLevel, .releaseDuration:
@@ -225,6 +225,7 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     func setupCallbacks() {
+        
         panicButton.callback = { _ in
             //conductor.synth.reset() // kinder, gentler panic
             self.conductor.synth.resetDSP() // nuclear panic option

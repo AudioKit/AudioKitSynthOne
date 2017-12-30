@@ -236,12 +236,18 @@ public class ParentViewController: UpdatableViewController {
         keyboardToggle.callback = { value in
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
+                
             } else {
                 self.keyboardToggle.setTitle("Show", for: .normal)
+                
+                // Add panel to bottom
+                let synthPanels = self.childViewControllers.filter { $0 is SynthPanelController } as! [SynthPanelController]
+                let topPanel = synthPanels.filter { $0.isTopContainer }.last
+                self.switchToChildView((topPanel?.rightView)!, isTopView: false)
             }
             
             // Animate Keyboard
-            let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -129
+            let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -299
             UIView.animate(withDuration: Double(0.4), animations: {
                 self.keyboardBottomConstraint.constant = newConstraintValue
                 self.view.layoutIfNeeded()
@@ -400,8 +406,6 @@ extension ParentViewController: HeaderDelegate {
     
     func savePresetPressed() {
        presetsViewController.editPressed()
-        // saveValuesToPreset()
-       // displayAlertController("Preset Saved", message: "'\(activePreset.name)' saved.")
     }
 }
 
@@ -504,8 +508,11 @@ extension ParentViewController: EmbeddedViewsDelegate {
         // Update NavButtons
         topChildView = topPanel?.viewType
         bottomChildView = bottomPanel?.viewType
-        bottomPanel?.updateNavButtons()
-        topPanel?.updateNavButtons()
+        
+        DispatchQueue.main.async {
+           bottomPanel?.updateNavButtons()
+           topPanel?.updateNavButtons()
+        }
     }
 }
 

@@ -81,7 +81,7 @@ public class ParentViewController: UpdatableViewController {
         return viewController
     }()
     
-    fileprivate lazy var fxViewController: FXViewController = {
+    lazy var fxViewController: FXViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier()) as! FXViewController
         return viewController

@@ -18,7 +18,7 @@ class Conductor: AKSynthOneProtocol {
     static var sharedInstance = Conductor()
 
     var tempo: BPM = 120
-    var syncRatesToTempo = false
+    var syncRatesToTempo = true
     var backgroundAudioOn = true
     
     var synth: AKSynthOne!

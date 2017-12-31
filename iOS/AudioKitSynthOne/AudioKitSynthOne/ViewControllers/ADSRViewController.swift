@@ -31,7 +31,8 @@ class ADSRViewController: SynthPanelController {
         envelopeLabelBackground.layer.cornerRadius = 8
         
         filterADSRMixKnob.range = 0.0 ... 1.2
-        attackKnob.range = 0.000001 ... 1
+        attackKnob.range = 0.000001 ... 2.0
+        filterAttackKnob.range = 0.0 ... 2.0
         releaseKnob.range = 0.004 ... 2
         viewType = .adsrView
         

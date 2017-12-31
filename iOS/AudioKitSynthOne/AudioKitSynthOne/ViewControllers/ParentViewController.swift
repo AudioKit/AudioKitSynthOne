@@ -81,7 +81,7 @@ public class ParentViewController: UpdatableViewController {
         return viewController
     }()
     
-    fileprivate lazy var fxViewController: FXViewController = {
+    lazy var fxViewController: FXViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier()) as! FXViewController
         return viewController
@@ -236,12 +236,19 @@ public class ParentViewController: UpdatableViewController {
         keyboardToggle.callback = { value in
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
+                
             } else {
                 self.keyboardToggle.setTitle("Show", for: .normal)
+                
+                // Add panel to bottom
+                if self.bottomChildView == self.topChildView {
+                    self.bottomChildView = self.bottomChildView?.rightView()
+                }
+                self.switchToChildView(self.bottomChildView!, isTopView: false)
             }
             
             // Animate Keyboard
-            let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -129
+            let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -299
             UIView.animate(withDuration: Double(0.4), animations: {
                 self.keyboardBottomConstraint.constant = newConstraintValue
                 self.view.layoutIfNeeded()
@@ -400,8 +407,6 @@ extension ParentViewController: HeaderDelegate {
     
     func savePresetPressed() {
        presetsViewController.editPressed()
-        // saveValuesToPreset()
-       // displayAlertController("Preset Saved", message: "'\(activePreset.name)' saved.")
     }
 }
 
@@ -503,9 +508,17 @@ extension ParentViewController: EmbeddedViewsDelegate {
         
         // Update NavButtons
         topChildView = topPanel?.viewType
-        bottomChildView = bottomPanel?.viewType
-        bottomPanel?.updateNavButtons()
-        topPanel?.updateNavButtons()
+        
+        DispatchQueue.main.async {
+           topPanel?.updateNavButtons()
+        }
+        
+        if keyboardToggle.value == 0 {
+            bottomChildView = bottomPanel?.viewType
+            DispatchQueue.main.async {
+               bottomPanel?.updateNavButtons()
+            }
+        }
     }
 }
 

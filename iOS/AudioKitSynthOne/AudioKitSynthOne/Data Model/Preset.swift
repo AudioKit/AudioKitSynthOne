@@ -288,9 +288,6 @@ class Preset: Codable {
         phaserMix = dictionary["phaserMix"] as? Double ?? phaserMix
         phaserRate = dictionary["phaserRate"] as? Double ?? phaserRate
         phaserNotchWidth = dictionary["phaserNotchWidth"] as? Double ?? phaserNotchWidth
-        
-        // *** ToDo ***
-        // Filter > Routing 0, 1, 2
        
     }
     

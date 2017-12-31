@@ -25,6 +25,7 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var panicButton: PresetUIButton!
     @IBOutlet weak var diceButton: UIButton!
     @IBOutlet weak var saveButton: PresetUIButton!
+    @IBOutlet weak var devButton: PresetUIButton!
     
     var delegate: EmbeddedViewsDelegate?
     var headerDelegate: HeaderDelegate?
@@ -74,7 +75,7 @@ public class HeaderViewController: UpdatableViewController {
         case .morph2Volume:
             displayLabel.text = "DCO2 Vol: \(value.percentageString)"
         case .glide:
-            displayLabel.text = "Glide: \(value.decimalString)"
+            displayLabel.text = "Glide: \(value)"
         case .cutoff, .resonance:
             displayLabel.text = "Cutoff: \(conductor.synth.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(conductor.synth.getAK1Parameter(.resonance).decimalString)"
         case .subVolume:
@@ -82,7 +83,7 @@ public class HeaderViewController: UpdatableViewController {
         case .fmVolume:
             displayLabel.text = "FM Mix: \(value.percentageString)"
         case .fmAmount:
-            displayLabel.text = "FM Mod \(value.percentageString)" // FIX ME
+            displayLabel.text = "FM Mod: \(value.decimalString)" 
         case .noiseVolume:
             displayLabel.text = "Noise Mix: \((value*4).percentageString)"
         case .masterVolume:
@@ -184,9 +185,6 @@ public class HeaderViewController: UpdatableViewController {
         }
         displayLabel.setNeedsDisplay()
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-//            self.displayLabel.text = "\(self.activePreset.position): \(self.activePreset.name)"
-//        }
     }
     
     @objc func displayLabelTapped() {
@@ -205,9 +203,6 @@ public class HeaderViewController: UpdatableViewController {
          headerDelegate?.nextPresetPressed()
     }
     
-    @IBAction func savePressed(_ sender: UIButton) {
-        
-    }
     
     @IBAction func randomPressed(_ sender: UIButton) {
         // Animate Dice
@@ -220,10 +215,6 @@ public class HeaderViewController: UpdatableViewController {
         headerDelegate?.randomPresetPressed()
     }
     
-    @IBAction func devPressed(_ sender: Any) {
-         headerDelegate?.devPressed()
-    }
-    
     func setupCallbacks() {
         
         panicButton.callback = { _ in
@@ -234,7 +225,11 @@ public class HeaderViewController: UpdatableViewController {
         }
         
         saveButton.callback = { _ in
-             self.headerDelegate?.savePresetPressed()
+            self.headerDelegate?.savePresetPressed()
+        }
+        
+        devButton.callback = { _ in
+            self.headerDelegate?.devPressed()
         }
     }
     

@@ -48,7 +48,7 @@ class SourceMixerViewController: SynthPanelController {
     @IBOutlet weak var widenToggle: FlatToggleButton!
     
     var audioPlot: AKNodeOutputPlot!
-    var isAudioPlotFilled: Bool = true
+    var isAudioPlotFilled: Bool = false
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +64,7 @@ class SourceMixerViewController: SynthPanelController {
         morph2SemitoneOffset.range = -12 ... 12  // semitones
         morph2Detuning.range = -4 ... 4  // Hz
         glideKnob.range = 0.0 ... 0.2
+        glideKnob.taper = 2
         noiseVolume.range = 0.0 ... 0.25
         fmAmount.range = 0.0 ... 15
         resonance.range = conductor.synth.filterResonanceMin ... conductor.synth.filterResonanceMax
@@ -105,7 +106,7 @@ class SourceMixerViewController: SynthPanelController {
         audioPlot.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 0)
         audioPlot.color = #colorLiteral(red: 0.9611048102, green: 0.509832561, blue: 0, alpha: 1)
         audioPlot.gain = 1
-        audioPlot.shouldFill = true
+        audioPlot.shouldFill = false
         displayContainer.addSubview(audioPlot)
        
         // Add Tap Gesture Recognizer to AudioPlot

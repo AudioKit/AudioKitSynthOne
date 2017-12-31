@@ -64,6 +64,7 @@ class FXViewController: SynthPanelController {
         bitCrush.range = 1 ... 24
         bitCrush.taper = 2
 */
+        
         sampleRate.value = 44100
         sampleRate.range = 400 ... 44100
         sampleRate.taper = 5
@@ -84,6 +85,7 @@ class FXViewController: SynthPanelController {
         
         phaserMix.range = 0.0 ... 1.0
         phaserRate.range = 12 ... 300
+        phaserRate.taper = 2
         phaserFeedback.range = 0.0 ... 0.8
         phaserNotchWidth.range = 100 ... 1000
 
@@ -122,7 +124,8 @@ class FXViewController: SynthPanelController {
         conductor.bind(phaserNotchWidth,   to: .phaserNotchWidth)
 
         tempoSyncToggle.callback = { value in
-            self.conductor.syncRatesToTempo = value == 1 ? true : false
+            // conductor.bind(tempoSyncToggle, to: AKSynthOneParameter.isTempoSyncd)
+            self.conductor.syncRatesToTempo = (value == 1)
             self.lfo1Rate.update()
             self.lfo2Rate.update()
             self.autoPanRate.update()

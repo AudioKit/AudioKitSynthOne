@@ -52,14 +52,19 @@ class SynthPanelController: UpdatableViewController {
         
         guard let parentController = self.parent as? ParentViewController else { return }
         
-        if leftView == parentController.topChildView || leftView == parentController.bottomChildView {
-            leftView = leftView.leftView()
+        if parentController.keyboardToggle.value == 0 {
+            
+            // Make sure the same view doesn't appear twice on the screen
+            if leftView == parentController.topChildView || leftView == parentController.bottomChildView {
+                leftView = leftView.leftView()
+            }
+            
+            if rightView == parentController.topChildView || rightView == parentController.bottomChildView {
+                rightView = rightView.rightView()
+            }
         }
         
-        if rightView == parentController.topChildView || rightView == parentController.bottomChildView {
-            rightView = rightView.rightView()
-        }
-        
+        // Update button text
         nav1Button.buttonText = leftView.btnText()
         nav2Button.buttonText = rightView.btnText()
         nav1Button.setNeedsDisplay()

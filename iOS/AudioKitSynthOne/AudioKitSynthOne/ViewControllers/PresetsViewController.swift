@@ -28,6 +28,7 @@ class PresetsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryEmbeddedView: UIView!
     @IBOutlet weak var presetDescriptionField: UITextView!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     var presets = [Preset]() {
         didSet {
@@ -46,6 +47,7 @@ class PresetsViewController: UIViewController {
         didSet {
             createActivePreset()
             presetDescriptionField.text = currentPreset.userText
+            categoryLabel.text = PresetCategory(rawValue: currentPreset.category)?.description()
         }
     }
     
@@ -68,7 +70,12 @@ class PresetsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Preset Description TextField
         presetDescriptionField.delegate = self
+        //presetDescriptionField.layer.borderWidth = 2
+        // presetDescriptionField.layer.borderColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
+        presetDescriptionField.layer.cornerRadius = 4
+     
         
         // set color for lines between rows
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)

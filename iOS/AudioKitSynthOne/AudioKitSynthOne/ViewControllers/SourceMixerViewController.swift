@@ -48,7 +48,7 @@ class SourceMixerViewController: SynthPanelController {
     @IBOutlet weak var widenToggle: FlatToggleButton!
     
     var audioPlot: AKNodeOutputPlot!
-    var isAudioPlotFilled: Bool = true
+    var isAudioPlotFilled: Bool = false
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +106,7 @@ class SourceMixerViewController: SynthPanelController {
         audioPlot.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 0)
         audioPlot.color = #colorLiteral(red: 0.9611048102, green: 0.509832561, blue: 0, alpha: 1)
         audioPlot.gain = 1
-        audioPlot.shouldFill = true
+        audioPlot.shouldFill = false
         displayContainer.addSubview(audioPlot)
        
         // Add Tap Gesture Recognizer to AudioPlot

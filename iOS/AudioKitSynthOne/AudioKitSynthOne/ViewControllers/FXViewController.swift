@@ -85,6 +85,7 @@ class FXViewController: SynthPanelController {
         
         phaserMix.range = 0.0 ... 1.0
         phaserRate.range = 12 ... 300
+        phaserRate.taper = 2
         phaserFeedback.range = 0.0 ... 0.8
         phaserNotchWidth.range = 100 ... 1000
 

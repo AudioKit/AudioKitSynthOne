@@ -241,9 +241,10 @@ public class ParentViewController: UpdatableViewController {
                 self.keyboardToggle.setTitle("Show", for: .normal)
                 
                 // Add panel to bottom
-                let synthPanels = self.childViewControllers.filter { $0 is SynthPanelController } as! [SynthPanelController]
-                let topPanel = synthPanels.filter { $0.isTopContainer }.last
-                self.switchToChildView((topPanel?.rightView)!, isTopView: false)
+                if self.bottomChildView == self.topChildView {
+                    self.bottomChildView = self.bottomChildView?.rightView()
+                }
+                self.switchToChildView(self.bottomChildView!, isTopView: false)
             }
             
             // Animate Keyboard
@@ -507,11 +508,16 @@ extension ParentViewController: EmbeddedViewsDelegate {
         
         // Update NavButtons
         topChildView = topPanel?.viewType
-        bottomChildView = bottomPanel?.viewType
         
         DispatchQueue.main.async {
-           bottomPanel?.updateNavButtons()
            topPanel?.updateNavButtons()
+        }
+        
+        if keyboardToggle.value == 0 {
+            bottomChildView = bottomPanel?.viewType
+            DispatchQueue.main.async {
+               bottomPanel?.updateNavButtons()
+            }
         }
     }
 }

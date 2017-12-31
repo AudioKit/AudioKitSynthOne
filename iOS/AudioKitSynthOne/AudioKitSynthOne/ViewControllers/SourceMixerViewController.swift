@@ -64,6 +64,7 @@ class SourceMixerViewController: SynthPanelController {
         morph2SemitoneOffset.range = -12 ... 12  // semitones
         morph2Detuning.range = -4 ... 4  // Hz
         glideKnob.range = 0.0 ... 0.2
+        glideKnob.taper = 2
         noiseVolume.range = 0.0 ... 0.25
         fmAmount.range = 0.0 ... 15
         resonance.range = conductor.synth.filterResonanceMin ... conductor.synth.filterResonanceMax

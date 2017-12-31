@@ -64,6 +64,7 @@ class FXViewController: SynthPanelController {
         bitCrush.range = 1 ... 24
         bitCrush.taper = 2
 */
+        
         sampleRate.value = 44100
         sampleRate.range = 400 ... 44100
         sampleRate.taper = 5

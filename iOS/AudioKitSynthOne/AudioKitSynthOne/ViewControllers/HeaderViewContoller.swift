@@ -82,7 +82,7 @@ public class HeaderViewController: UpdatableViewController {
         case .fmVolume:
             displayLabel.text = "FM Mix: \(value.percentageString)"
         case .fmAmount:
-            displayLabel.text = "FM Mod \(value.percentageString)" // FIX ME
+            displayLabel.text = "FM Mod: \(value.decimalString)" 
         case .noiseVolume:
             displayLabel.text = "Noise Mix: \((value*4).percentageString)"
         case .masterVolume:

@@ -112,7 +112,7 @@ public class HeaderViewController: UpdatableViewController {
         case .reverbFeedback:
             displayLabel.text = "Reverb Size: \(value.percentageString)"
         case .reverbHighPass:
-            displayLabel.text = "Reverb Cutoff: \(value.decimalString) Hz"
+            displayLabel.text = "Reverb Low-cut: \(value.decimalString) Hz"
         case .reverbMix:
             displayLabel.text = "Reverb Mix: \(value.percentageString)"
         case .delayOn:

@@ -83,8 +83,14 @@ class PresetsViewController: UIViewController {
         // Load presets
         if Disk.exists("presets.json", in: .documents) {
             loadPresetsFromDevice()
+          
         } else {
             loadDefaultPresets()
+            presets.forEach {
+                if $0.reverbHighPass < 40 {
+                    $0.reverbHighPass = 40
+                }
+            }
             saveAllPresets()
         }
         

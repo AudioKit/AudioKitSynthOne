@@ -48,7 +48,7 @@ class Preset: Codable {
     var delayFeedback = 0.1
     var reverbFeedback = 0.5 // Amt
     var reverbMix = 0.5 // Dry/Wet
-    var reverbHighPass = 10.0 // Highpass filter freq for Filter
+    var reverbHighPass = 40.0 // Highpass filter freq for Filter
     var midiBendRange = 2.0 // MIDI bend range in +/- semitones
     var crushFreq = 44100.0 // Crusher Frequency
     var autoPanRate = 2.0 // AutoPan Rate

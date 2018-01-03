@@ -72,7 +72,7 @@ class FXViewController: SynthPanelController {
         autoPanRate.range = 0 ... 10
         autoPanRate.taper = 2
 
-        reverbLowCut.range = 10 ... 900
+        reverbLowCut.range = 40 ... 900
         reverbLowCut.taper = 1
 
         delayFeedback.range = 0 ... 0.9

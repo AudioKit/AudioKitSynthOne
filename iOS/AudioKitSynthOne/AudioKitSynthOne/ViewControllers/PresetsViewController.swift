@@ -75,7 +75,6 @@ class PresetsViewController: UIViewController {
         //presetDescriptionField.layer.borderWidth = 2
         // presetDescriptionField.layer.borderColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
         presetDescriptionField.layer.cornerRadius = 4
-     
         
         // set color for lines between rows
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
@@ -83,6 +82,12 @@ class PresetsViewController: UIViewController {
         // Load presets
         if Disk.exists("presets.json", in: .documents) {
             loadPresetsFromDevice()
+            presets.forEach {
+                if $0.reverbHighPass < 80 {
+                    $0.reverbHighPass = 80
+                }
+            }
+            saveAllPresets()
           
         } else {
             loadDefaultPresets()

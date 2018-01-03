@@ -86,11 +86,6 @@ class PresetsViewController: UIViewController {
           
         } else {
             loadDefaultPresets()
-            presets.forEach {
-                if $0.reverbHighPass < 40 {
-                    $0.reverbHighPass = 40
-                }
-            }
             saveAllPresets()
         }
         

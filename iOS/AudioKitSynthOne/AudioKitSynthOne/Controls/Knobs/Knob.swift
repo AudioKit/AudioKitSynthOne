@@ -11,24 +11,26 @@ import AudioKit
  
 @IBDesignable
 public class Knob: UIView, AKSynthOneControl {
-
+    
     var onlyIntegers: Bool = false
+    
     var callback: (Double)->Void = { _ in }
-
+    
     public var taper: Double = 1.0 // Linear by default
-
+    
     var range: ClosedRange = 0.0...1.0 {
         didSet {
             knobValue = CGFloat(Double(knobValue).normalized(from: range, taper: taper))
         }
     }
-
+    
     private var _value: Double = 0
-
+    
     var value: Double {
         get {
             return _value
         }
+        
         set(newValue) {
             _value = range.clamp(newValue)
 

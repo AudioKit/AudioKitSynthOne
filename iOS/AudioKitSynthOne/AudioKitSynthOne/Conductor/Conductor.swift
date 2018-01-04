@@ -10,8 +10,10 @@ import AudioKit
 
 protocol AKSynthOneControl {
     var value: Double { get set }
-    var callback: (Double)->Void { get set }
+    var callback: (Double) -> Void { get set }
 }
+
+public typealias AKSynthOneControlCallback = (AKSynthOneParameter) -> ((_: Double) -> Void)
 
 class Conductor: AKSynthOneProtocol {
     
@@ -25,22 +27,26 @@ class Conductor: AKSynthOneProtocol {
     
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
     
-    func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter) {
-        bindings.append((param, control))
+    func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
+        let binding = (param, control)
+        bindings.append(binding)
+        var control = binding.1
+        if let cb = closure {
+            control.callback = cb(param)
+        } else {
+            // default closure
+            control.callback = changeParameter(param)
+        }
     }
     
-    var changeParameter: (AKSynthOneParameter)->((_: Double) -> Void)  = { param in
+    var changeParameter: AKSynthOneControlCallback  = { param in
         return { value in
-            //AKLog("changing \(param.rawValue) \(param.simpleDescription()) to: \(value)")
             sharedInstance.synth.setAK1Parameter(param, value)
-            //sharedInstance.updateAllUI()
-            sharedInstance.updateSingleUI(param)
-           
         }
-        } {
+    }
+    {
         didSet {
-            //AKLog("inspect changeParameter")
-            updateAllCallbacks()
+            AKLog("WARNING: changeParameter callback changed")
         }
     }
     
@@ -58,7 +64,7 @@ class Conductor: AKSynthOneProtocol {
         //_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111)
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23)
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 15, 45, 75)
-        //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121)
+        //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45) // 071
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81)
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121)
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 45, 135, 225)
@@ -70,15 +76,8 @@ class Conductor: AKSynthOneProtocol {
         AudioKit.start()
     }
     
-    func updateAllCallbacks() {
-        for vc in viewControllers {
-            vc.updateCallbacks()
-        }
-    }
-    
     func updateSingleUI(_ param: AKSynthOneParameter) {
         for vc in self.viewControllers {
-            vc.updateUI(param, value: synth.getAK1Parameter(param) )
             if !vc.isKind(of: HeaderViewController.self) {
                 vc.updateUI(param, value: synth.getAK1Parameter(param) )
             }
@@ -86,9 +85,9 @@ class Conductor: AKSynthOneProtocol {
     }
     
     func updateAllUI() {
-        //TODO:count params
-        for address in 0..<120 {
-            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int32(Int(address)))
+        let parameterCount = AKSynthOneParameter.AKSynthOneParameterCount.rawValue
+        for address in 0..<parameterCount {
+            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: address)
                 else {
                     AKLog("ERROR: AKSynthOneParameter enum out of range: \(address)")
                     return
@@ -108,7 +107,6 @@ class Conductor: AKSynthOneProtocol {
     
     //MARK: - AKSynthOneProtocol
     func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
-        AKLog("param:\(param), value:\(value)")
         DispatchQueue.main.async {
             for vc in Conductor.sharedInstance.viewControllers {
                 vc.updateUI(param, value: Double(value))

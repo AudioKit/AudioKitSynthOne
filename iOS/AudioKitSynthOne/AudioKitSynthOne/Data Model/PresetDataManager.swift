@@ -90,7 +90,7 @@ extension ParentViewController {
         
         for i in 0..<16 {
             conductor.synth.setAK1ArpSeqPattern(forIndex: i, activePreset.seqPatternNote[i])
-            conductor.synth.setAK1SeqOctBoost(forIndex: i, activePreset.seqOctBoost[i])
+            conductor.synth.setAK1SeqOctBoost(forIndex: i, activePreset.seqOctBoost[i] ? 1 : 0)
             conductor.synth.setAK1ArpSeqNoteOn(forIndex: i, activePreset.seqNoteOn[i])
         }
 
@@ -187,7 +187,7 @@ extension ParentViewController {
         
         for i in 0..<16 {
             activePreset.seqPatternNote[i] = conductor.synth.getAK1ArpSeqPattern(forIndex: i)
-            activePreset.seqOctBoost[i] = conductor.synth.getAK1SeqOctBoost(forIndex: i)
+            activePreset.seqOctBoost[i] = conductor.synth.getAK1SeqOctBoost(forIndex: i) > 0 ? true : false
             activePreset.seqNoteOn[i] = conductor.synth.getAK1ArpSeqNoteOn(forIndex: i)
         }
 

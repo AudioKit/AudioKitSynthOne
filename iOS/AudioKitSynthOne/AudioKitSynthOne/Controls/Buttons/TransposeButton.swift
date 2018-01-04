@@ -7,29 +7,29 @@
 //
 
 import UIKit
+import AudioKit
 
-class TransposeButton: UILabel {
+class TransposeButton: UILabel, AKSynthOneControl {
     
     // *********************************************************
     // MARK: - Make Label ToggleButton
     // *********************************************************
     
-    var isOn = false {
-        didSet {
-            if isOn {
-                self.backgroundColor = #colorLiteral(red: 0.2745098039, green: 0.2705882353, blue: 0.2784313725, alpha: 1)
-            } else {
-                self.backgroundColor = #colorLiteral(red: 0.2117647059, green: 0.2078431373, blue: 0.2156862745, alpha: 1)
-            }
-        }
-    }
     
+    private var _value: Double = 0
     var value: Double {
         get {
-            return isOn ? 1 : 0
+            return _value
         }
         set {
-            isOn = value == 1.0
+            if newValue > 0 {
+                _value = 1
+                self.backgroundColor = #colorLiteral(red: 0.4961370826, green: 0.4989871979, blue: 0.5060116649, alpha: 1)
+            } else {
+                _value = 0
+                self.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            }
+            setNeedsDisplay()
         }
     }
     
@@ -50,8 +50,14 @@ class TransposeButton: UILabel {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            isOn = !isOn
-            self.setNeedsDisplay()
+            
+            // toggle
+            if value > 0 {
+                value = 0
+            } else {
+                value = 1
+            }
+            
             callback(value)
         }
     }

@@ -7,13 +7,12 @@
 
 
 import UIKit
+import AudioKit
 
 @IBDesignable
 class VerticalSlider: UIControl, AKSynthOneControl {
     
-    public typealias VerticalSliderCallback = (Double) -> Void
-    var callback: VerticalSliderCallback = { _ in }
-    
+    var callback: (Double) -> Void = { _ in }
     var minValue: CGFloat = 0.0
     var maxValue: CGFloat = 1.0
     var currentValue: CGFloat = 0.5 {
@@ -47,6 +46,7 @@ class VerticalSlider: UIControl, AKSynthOneControl {
         }
         set {
             currentValue = actualToInternalValue(newValue)
+            setNeedsDisplay()
         }
     }
     
@@ -125,9 +125,8 @@ extension VerticalSlider {
         let rawY = touch.location(in: self).y
         
         if isSliding {
-            let value = convertYToValue(rawY)
-            currentValue = value
-            callback( Double(value) )
+            currentValue = convertYToValue(rawY)
+            callback( Double(currentValue) )
             self.setNeedsDisplay()
         }
         return true

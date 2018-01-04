@@ -39,8 +39,7 @@ class ToggleSwitch: UIView, AKSynthOneControl {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            value = 1-value
-            self.setNeedsDisplay()
+            value = 1 - value
             callback(value)
         }
     }

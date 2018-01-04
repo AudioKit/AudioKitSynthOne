@@ -15,25 +15,25 @@ class ArpButton: UIView, AKSynthOneControl {
     // MARK: - ToggleButton
     // *********************************************************
     
-    var isOn = false {
-        didSet {
+    private var _value: Double = 0
+    var value: Double {
+        get {
+            return _value
+        }
+        set {
+            if newValue > 0 {
+                _value = 1
+            } else {
+                _value = 0
+            }
             setNeedsDisplay()
         }
     }
-    
-    var value: Double {
-        get {
-            return isOn ? 1 : 0
-        }
-        set {
-            isOn = value == 1.0
-        }
-    }
-    
+
     public var callback: (Double)->Void = { _ in }
     
     override func draw(_ rect: CGRect) {
-        ArpButtonStyleKit.drawArpButton(isToggled: isOn)
+        ArpButtonStyleKit.drawArpButton(isToggled: value > 0 ? true : false)
     }
     
     // *********************************************************
@@ -42,11 +42,8 @@ class ArpButton: UIView, AKSynthOneControl {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            isOn = !isOn
-            self.setNeedsDisplay()
+            value = 1 - value
             callback(value)
         }
     }
-    
-    
 }

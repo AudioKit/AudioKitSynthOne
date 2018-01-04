@@ -76,7 +76,7 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory {
                 parameter.value = Float(value)
             }
         }
-        conductor.updateAllCallbacks()
+        //TODO: need to deal with setting "changeParameter"...the "updateAllCallbacks" pattern was clobbering bindings that don't use "changeParameter"
     }
 
 }

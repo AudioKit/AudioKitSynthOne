@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioKit
 
 class FXViewController: SynthPanelController {
 
@@ -108,8 +109,6 @@ class FXViewController: SynthPanelController {
         conductor.bind(lfoRezToggle,       to: .resonanceLFO)
         conductor.bind(lfoOscMixToggle,    to: .oscMixLFO)
         conductor.bind(lfoSustainToggle,   to: .sustainLFO)
-//        conductor.bind(lfoMorph1Toggle,    to: .index1LFO)
-//        conductor.bind(lfoMorph2Toggle,    to: .index2LFO)
         conductor.bind(lfoFMModToggle,     to: .fmLFO)
         conductor.bind(lfoDetuneToggle,    to: .detuneLFO)
         conductor.bind(lfoFilterEnvToggle, to: .filterEnvLFO)
@@ -124,13 +123,10 @@ class FXViewController: SynthPanelController {
         conductor.bind(phaserNotchWidth,   to: .phaserNotchWidth)
 
         tempoSyncToggle.callback = { value in
-            // conductor.bind(tempoSyncToggle, to: AKSynthOneParameter.isTempoSyncd)
             self.conductor.syncRatesToTempo = (value == 1)
             self.lfo1Rate.update()
             self.lfo2Rate.update()
             self.autoPanRate.update()
         }
-
-        updateCallbacks()
     }
 }

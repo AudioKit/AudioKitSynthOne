@@ -46,10 +46,6 @@ class ADSRViewController: SynthPanelController {
         conductor.bind(filterReleaseKnob, to: .filterReleaseDuration)
         conductor.bind(filterADSRMixKnob, to: .filterADSRMix)
         
-        updateCallbacks()
-    }
-    
-    override func updateCallbacks() {
         adsrView.callback = { att, dec, sus, rel in
             self.conductor.synth.setAK1Parameter(.attackDuration, att)
             self.conductor.synth.setAK1Parameter(.decayDuration, dec)
@@ -65,8 +61,6 @@ class ADSRViewController: SynthPanelController {
             self.conductor.synth.setAK1Parameter(.filterReleaseDuration, rel)
             self.conductor.updateAllUI()
         }
-        
-        super.updateCallbacks()
     }
     
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {

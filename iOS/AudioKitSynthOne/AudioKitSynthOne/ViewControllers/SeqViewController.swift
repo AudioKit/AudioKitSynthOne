@@ -20,9 +20,9 @@ class SeqViewController: SynthPanelController {
     @IBOutlet weak var arpToggle: ToggleButton!
     @IBOutlet weak var arpInterval: Knob!
     
+    let sliderLabelTags = 550 ... 565
     let sliderTags = 400 ... 415
     let sliderToggleTags = 500 ... 515
-    let sliderLabelTags = 550 ... 565
     
     var prevLedTag: Int = 0
     
@@ -40,7 +40,7 @@ class SeqViewController: SynthPanelController {
         octaveStepper.minValue = 1
         octaveStepper.maxValue = 4
         arpInterval.range = 0 ... 12
-
+        
         // Bindings
         conductor.bind(arpToggle,          to: .arpIsOn)
         conductor.bind(arpInterval,        to: .arpInterval)
@@ -49,95 +49,70 @@ class SeqViewController: SynthPanelController {
         conductor.bind(arpSeqToggle,       to: .arpIsSequencer)
         conductor.bind(seqStepsStepper,    to: .arpTotalSteps)
         
-        setupControlValues()
+        // SeqOctBoost/Slider Transpose Label bindings
+        for tag in sliderLabelTags {
+            if let label = view.viewWithTag(tag) as? TransposeButton {
+                let notePosition = Int(tag) - self.sliderLabelTags.lowerBound
+                let asp = Int32(Int(AKSynthOneParameter.arpSeqOctBoost00.rawValue) + notePosition)
+                if let aspe = AKSynthOneParameter(rawValue: asp) {
+                    let labelCallback: AKSynthOneControlCallback = { param in
+                        return { value in
+                            self.conductor.synth.setAK1SeqOctBoost(forIndex: notePosition, value)
+                            self.conductor.updateSingleUI(param)
+                        }
+                    }
+                    conductor.bind(label, to: aspe, callback: labelCallback)
+                } else {
+                    AKLog("error binding label to conductor:\(label), notePosition:\(notePosition)")
+                }
+            }
+        }
 
-        updateCallbacks()
-    }
-    
-    func setupControlValues() {
-
-        // Slider
+        // Slider bindings
         for tag in sliderTags {
             if let slider = view.viewWithTag(tag) as? VerticalSlider {
-                
-                slider.callback = { value in
-                    let notePosition = Int(tag) - self.sliderTags.lowerBound
-                    self.setSequencerNote(notePosition, transposeAmt: Int(value))
-                    self.updateTransposeBtn(notePosition: notePosition)
-                }
                 let notePosition = Int(Int(tag) - self.sliderTags.lowerBound)
                 let asp = Int32(Int(AKSynthOneParameter.arpSeqPattern00.rawValue) + notePosition)
                 if let aspe = AKSynthOneParameter(rawValue: asp) {
-                    conductor.bind(slider, to:aspe)
+                    let sliderCallback: AKSynthOneControlCallback = { param in
+                        return { value in
+                            let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
+                            self.conductor.synth.setAK1ArpSeqPattern(forIndex: notePosition, tval )
+                            self.conductor.updateSingleUI(param)
+                        }
+                    }
+                    conductor.bind(slider, to: aspe, callback: sliderCallback)
                 } else {
                     AKLog("error binding slider to conductor:\(slider), notePosition:\(notePosition)")
                 }
             }
         }
         
-        // ArpButton Note on/off
+        // ArpButton Note on/off bindings
         for tag in sliderToggleTags {
             if let toggle = view.viewWithTag(tag) as? ArpButton {
-                
-                toggle.callback = { value in
-                    let notePosition = Int(tag) - self.sliderToggleTags.lowerBound
-                    self.conductor.synth.setAK1ArpSeqNoteOn(forIndex: notePosition, value>0 ?true :false )
+                let notePosition = Int(tag) - self.sliderToggleTags.lowerBound
+                let asp = Int32(Int(AKSynthOneParameter.arpSeqNoteOn00.rawValue) + notePosition)
+                if let aspe = AKSynthOneParameter(rawValue: asp) {
+                    let toggleCallback: AKSynthOneControlCallback = { param in
+                        return { value in
+                            self.conductor.synth.setAK1ArpSeqNoteOn(forIndex: notePosition, value >  0 ? true : false )
+                            self.conductor.updateSingleUI(param)
+                        }
+                    }
+                    conductor.bind(toggle, to: aspe, callback: toggleCallback)
+                } else {
+                    AKLog("error binding toggle to conductor:\(toggle), notePosition:\(notePosition)")
                 }
             }
         }
-        
-        // Slider Transpose Label on/off
-        for tag in sliderLabelTags {
-            if let label = view.viewWithTag(tag) as? TransposeButton {
-                
-                label.callback = { value in
-                    let notePosition = Int(tag) - self.sliderLabelTags.lowerBound
-                    self.conductor.synth.setAK1SeqOctBoost(forIndex: notePosition, (1-value)>0 ?true :false)
-                    self.updateTransposeBtn(notePosition: notePosition)
-                }
-            }
-        }
-
-        // Slider values
-        for tag in sliderTags {
-            if let slider = view.viewWithTag(tag) as? VerticalSlider {
-                let notePosition = tag - sliderTags.lowerBound
-                let transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
-                slider.value = Double(transposeAmt)
-                updateTransposeBtn(notePosition: notePosition)
-                slider.setNeedsDisplay()
-            }
-        }
-        
-        // ArpButton Note on/off
-        for tag in sliderToggleTags {
-            if let toggle = view.viewWithTag(tag) as? ArpButton {
-                let notePosition = Int(tag) - sliderToggleTags.lowerBound
-                toggle.isOn = conductor.synth.getAK1ArpSeqNoteOn(forIndex: notePosition)
-            }
-        }
-        
-        ///TODO:Matthew: Do you want to implement seqOctBoost?
-        /*
-         // Slider Transpose Label / +12/-12
-         for tag in sliderLabelTags {
-         if let label = view.viewWithTag(tag) as? TransposeButton {
-         let notePosition = Int(tag) - sliderLabelTags.lowerBound
-         //label.text = String(arpeggiator.seqPattern[notePosition])
-         }
-         }
-         */
     }
     
-    
-    //*****************************************************************
-    // MARK: - Callbacks
-    //*****************************************************************
-    
-    override func updateCallbacks() {
-        
-        // must call last
-        super.updateCallbacks()
+    override func updateUI(_ param: AKSynthOneParameter, value: Double) {
+        super.updateUI(param, value: value)
+        for i in 0...15 {
+            updateSliderLabel(notePosition: i)
+        }
     }
     
     //*****************************************************************
@@ -166,28 +141,26 @@ class SeqViewController: SynthPanelController {
         }
     }
     
-    func updateTransposeBtn(notePosition: Int) {
+    func updateSliderLabel(notePosition: Int) {
         let labelTag = notePosition + sliderLabelTags.lowerBound
         if let label = view.viewWithTag(labelTag) as? TransposeButton {
-            var transposeAmt = self.conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
-            let octBoost = self.conductor.synth.getAK1SeqOctBoost(forIndex: notePosition)
+            var transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
+            let octBoost = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition) > 0 ? true : false
             if octBoost {
-                label.isOn = true
+                label.value = 1
                 if transposeAmt >= 0 {
                     transposeAmt = transposeAmt + 12
                 } else {
                     transposeAmt = transposeAmt - 12
                 }
             } else {
-                label.isOn = false
+                label.value = 0
             }
             
             label.text = "\(transposeAmt)"
+            label.setNeedsDisplay()
         }
     }
     
-    func setSequencerNote(_ notePosition: Int, transposeAmt: Int) {
-        conductor.synth.setAK1ArpSeqPattern(forIndex: notePosition, transposeAmt)
-    }
 }
 

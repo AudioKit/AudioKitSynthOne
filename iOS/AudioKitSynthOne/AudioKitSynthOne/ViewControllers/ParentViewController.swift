@@ -426,6 +426,10 @@ extension ParentViewController: PresetsDelegate {
         // Set parameters from preset
         self.loadPreset()
         
+        DispatchQueue.main.async {
+            self.conductor.updateAllUI()
+        }
+        
         // Display new preset name in header
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             let message = "\(self.activePreset.position): \(self.activePreset.name)"

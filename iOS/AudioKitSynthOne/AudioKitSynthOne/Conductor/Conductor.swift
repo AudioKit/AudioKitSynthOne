@@ -148,7 +148,7 @@ class Conductor: AKSynthOneProtocol {
                     completionHandler?()
                 }
             } catch {
-                AKLog("Unable to start the audio engine.", file: "Probably fatal error")
+                AKLog("Unable to start the audio engine. Probably fatal error")
             }
             
             return

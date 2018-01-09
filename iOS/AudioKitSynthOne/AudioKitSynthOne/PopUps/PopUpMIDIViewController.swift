@@ -51,13 +51,14 @@ class PopUpMIDIViewController: UIViewController {
         
         // Setup Callbacks
         setupCallbacks()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         displayMIDIInputs()
         
-        // sleepToggle.isOn = UIApplication.shared.isIdleTimerDisabled
-        backgroundAudioToggle.isOn = self.conductor.backgroundAudioOn
+        sleepToggle.value = conductor.neverSleep ? 1:0
+        backgroundAudioToggle.value = conductor.backgroundAudioOn ? 1:0
         
         if sleepToggle.isOn {
             self.backgroundAudioToggle.alpha = 0.5
@@ -91,8 +92,9 @@ class PopUpMIDIViewController: UIViewController {
         }
         
         sleepToggle.callback = { value in
+          
             if value == 1 {
-                // UIApplication.shared.isIdleTimerDisabled = true
+                self.conductor.neverSleep = true
                 self.conductor.backgroundAudioOn = true
                 self.backgroundAudioToggle.alpha = 0.5
                 self.backgroundAudioToggle.isUserInteractionEnabled = false
@@ -100,7 +102,7 @@ class PopUpMIDIViewController: UIViewController {
                 
                 self.displayAlertController("Info", message: "This mode is great for playing live. Note: it will use more power and could drain your battery faster")
             } else {
-                // UIApplication.shared.isIdleTimerDisabled = false
+                self.conductor.neverSleep = false
                 self.backgroundAudioToggle.alpha = 1.0
                 self.backgroundAudioToggle.isUserInteractionEnabled = true
                 self.energyLabel.alpha = 1.0

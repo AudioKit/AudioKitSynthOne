@@ -23,8 +23,8 @@ class ToggleSwitch: UIView, AKSynthOneControl {
     
     var value: Double = 0 {
         didSet {
-            setNeedsDisplay()
             isOn = (value == 1)
+            setNeedsDisplay()
         }
     }
     public var callback: (Double)->Void = { _ in }

@@ -22,6 +22,7 @@ class Conductor: AKSynthOneProtocol {
     var tempo: BPM = 120
     var syncRatesToTempo = true
     var backgroundAudioOn = true
+    var neverSleep = false
     
     var synth: AKSynthOne!
     

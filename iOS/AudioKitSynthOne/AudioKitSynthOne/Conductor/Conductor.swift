@@ -54,6 +54,16 @@ class Conductor: AKSynthOneProtocol {
     public var viewControllers: Set<UpdatableViewController> = []
     
     func start() {
+        
+        // Allow audio to play while the iOS device is muted.
+        AKSettings.playbackWhileMuted = true
+        
+        do {
+            try AKSettings.setSession(category: .playAndRecord, with: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
+        } catch {
+            AKLog("Could not set session category.")
+        }
+        
         synth = AKSynthOne()
         synth.delegate = self
         synth.rampTime = 0.0 // Handle ramping internally instead of the ramper hack

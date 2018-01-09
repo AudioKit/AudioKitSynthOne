@@ -28,6 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         
         // Prevent app from sleeping if never sleep is toggled on
+        // Toggle back to sleep mode after 1 minutes
+        DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
+        
         UIApplication.shared.isIdleTimerDisabled = conductor.neverSleep
        
     }

@@ -262,8 +262,9 @@ public class ParentViewController: UpdatableViewController {
         }
         
         modWheelPad.callback = { value in
-            let scaledValue = Double.scaleRange(value, rangeMin: 80, rangeMax: 22050)
-            self.conductor.synth.setAK1Parameter(.cutoff, scaledValue)
+            let scaledValue = Double.scaleRangeLog(value, rangeMin: 30, rangeMax: 7000)
+            //let scaledValue = Double.scaleRangeLog(value, rangeMin: 80, rangeMax: 22050)
+            self.conductor.synth.setAK1Parameter(.cutoff, scaledValue*3)
             
 //            if self.activePreset.modWheel == 0 {
 //                self.auMainController.tremoloKnob.knobValue = CGFloat(value)

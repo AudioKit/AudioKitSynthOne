@@ -16,6 +16,10 @@
 		9403F29C1F671A6000320FCC /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F29B1F671A6000320FCC /* Preset.swift */; };
 		9403F29D1F671A6000320FCC /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F29B1F671A6000320FCC /* Preset.swift */; };
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
+		9416FC7220081F3A00A120AD /* MIDIKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC7120081F3A00A120AD /* MIDIKnob.swift */; };
+		9416FC7320081F3A00A120AD /* MIDIKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC7120081F3A00A120AD /* MIDIKnob.swift */; };
+		9416FC762008204300A120AD /* MIDILearnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC752008204300A120AD /* MIDILearnable.swift */; };
+		9416FC772008204300A120AD /* MIDILearnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC752008204300A120AD /* MIDILearnable.swift */; };
 		941DE3E11FCE3CD400A09C24 /* AppSettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */; };
 		941DE3E21FCE3CD400A09C24 /* AppSettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */; };
 		941DE3E31FCE3CD400A09C24 /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3E01FCE3CD400A09C24 /* AppSetting.swift */; };
@@ -252,6 +256,8 @@
 		9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpPresetEdit.swift; sourceTree = "<group>"; };
 		9403F29B1F671A6000320FCC /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		9410659E1F26AA55002777AB /* ADSRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
+		9416FC7120081F3A00A120AD /* MIDIKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIKnob.swift; sourceTree = "<group>"; };
+		9416FC752008204300A120AD /* MIDILearnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDILearnable.swift; sourceTree = "<group>"; };
 		941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingDataManager.swift; sourceTree = "<group>"; };
 		941DE3E01FCE3CD400A09C24 /* AppSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		94346F8E1FC7975C00434900 /* ColorKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorKnob.swift; sourceTree = "<group>"; };
@@ -417,6 +423,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		9416FC742008201C00A120AD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9416FC752008204300A120AD /* MIDILearnable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		9447EE3C1FAD7F73005444D3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +459,7 @@
 				C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */,
 				C4F7ECA81F2446960011B119 /* Knob+Touches.swift */,
 				C4F7ECA91F2446960011B119 /* Knob.swift */,
+				9416FC7120081F3A00A120AD /* MIDIKnob.swift */,
 				C47FB3C21F36694300EF2F01 /* RateKnob.swift */,
 				943B59601F36B4F200E5FBE6 /* TimeKnob.swift */,
 				94E951341F3644E5009A8B00 /* Rate.swift */,
@@ -637,6 +652,7 @@
 		C4F7ECA51F2446960011B119 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				9416FC742008201C00A120AD /* Protocols */,
 				945261441F2925860037662C /* Buttons */,
 				945261431F29256F0037662C /* Knobs */,
 				945C3A081F3142050086D58B /* Sliders */,
@@ -927,6 +943,7 @@
 				947956B01F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */,
 				94A880821FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,
 				9489EF661F3145F200416F26 /* SliderStyleKit.swift in Sources */,
+				9416FC7320081F3A00A120AD /* MIDIKnob.swift in Sources */,
 				949D09351F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */,
 				94AF73FF1F55FAAF00ED8B51 /* TouchPointStyleKit.swift in Sources */,
 				94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */,
@@ -949,6 +966,7 @@
 				94A5039E1FF2F6E30097D37C /* ChannelStepper.swift in Sources */,
 				949D93BA1F2C188C007E657B /* LfoButton.swift in Sources */,
 				94A5039A1FF2F3E10097D37C /* PopUpMODController.swift in Sources */,
+				9416FC772008204300A120AD /* MIDILearnable.swift in Sources */,
 				C4CD8DE41F248C570011066A /* ParentViewController.swift in Sources */,
 				94AE8DD01F671FBE00F2A992 /* PresetsViewController.swift in Sources */,
 				947956B41F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
@@ -1049,6 +1067,8 @@
 				947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A041F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
 				94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */,
+				9416FC762008204300A120AD /* MIDILearnable.swift in Sources */,
+				9416FC7220081F3A00A120AD /* MIDIKnob.swift in Sources */,
 				94AF74021F55FF9700ED8B51 /* TouchPoint.swift in Sources */,
 				94FA2DCD1F9E837700DED735 /* PresetCell.swift in Sources */,
 				94FA2DCF1F9E837700DED735 /* CategoryCell.swift in Sources */,

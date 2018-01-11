@@ -268,6 +268,8 @@ public class ParentViewController: UpdatableViewController {
                 // Cutoff
                 let scaledValue = Double.scaleRangeLog(value, rangeMin: 30, rangeMax: 7000)
                 self.conductor.synth.setAK1Parameter(.cutoff, scaledValue*3)
+                
+                //self.mixerViewController.cutoff.knobValue = CGFloat(value)
             case 1:
                 // Tremolo
                 // TODO: MH, do you want to add Tremolo here?

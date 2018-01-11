@@ -2584,7 +2584,7 @@
         <!--Pop UpMOD Controller-->
         <scene sceneID="2nO-a2-8tJ">
             <objects>
-                <viewController id="qsj-iI-Pz6" customClass="PopUpMODController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qsj-iI-Pz6" customClass="PopUpMODController" customModule="AudioKitSynthOne" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZDf-m7-snJ"/>
                         <viewControllerLayoutGuide type="bottom" id="06P-ho-gDh"/>
@@ -2597,8 +2597,8 @@
                                 <rect key="frame" x="24" y="94" width="252" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Vibrato"/>
                                     <segment title="Cutoff"/>
+                                    <segment title="Tremolo"/>
                                     <segment title="LFO2"/>
                                 </segments>
                                 <color key="tintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -2651,12 +2651,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="170"/>
                     <connections>
-                        <outlet property="modWheelSement" destination="iLo-Gv-XoX" id="uVc-qg-Ily"/>
+                        <outlet property="modWheelSegment" destination="iLo-Gv-XoX" id="og7-A9-VK8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oqg-EK-98k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1495" y="81"/>
+            <point key="canvasLocation" x="-1408" y="105"/>
         </scene>
         <!--Pop UpMIDI View Controller-->
         <scene sceneID="fqU-aQ-kCC">

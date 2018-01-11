@@ -8,18 +8,28 @@
 
 import UIKit
 
+protocol ModWheelDelegate {
+    func didSelectRouting(newDestination: Int)
+}
+
 class PopUpMODController: UIViewController {
 
-    @IBOutlet weak var modWheelSement: UISegmentedControl!
+    @IBOutlet weak var modWheelSegment: UISegmentedControl!
+    var delegate: ModWheelDelegate?
+    var modWheelDestination = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        modWheelSegment.selectedSegmentIndex = modWheelDestination
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       
     }
 
     @IBAction func routingValueDidChange(_ sender: UISegmentedControl) {
-        print("New Mod Wheel Routing: \(sender.selectedSegmentIndex)")
+        delegate?.didSelectRouting(newDestination: sender.selectedSegmentIndex)
     }
     
     @IBAction func closeButton(_ sender: UIButton) {

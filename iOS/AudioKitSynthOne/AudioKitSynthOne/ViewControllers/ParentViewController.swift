@@ -262,16 +262,23 @@ public class ParentViewController: UpdatableViewController {
         }
         
         modWheelPad.callback = { value in
-            let scaledValue = Double.scaleRangeLog(value, rangeMin: 30, rangeMax: 7000)
-            //let scaledValue = Double.scaleRangeLog(value, rangeMin: 80, rangeMax: 22050)
-            self.conductor.synth.setAK1Parameter(.cutoff, scaledValue*3)
-            
-//            if self.activePreset.modWheel == 0 {
-//                self.auMainController.tremoloKnob.knobValue = CGFloat(value)
-//            } else {
-//                self.conductor.core.oscBalancer.balance = value
-//                //self.auMainController.oscMixKnob.knobValue = CGFloat(value)
-//            }
+           
+            switch self.activePreset.modWheelRouting {
+            case 0:
+                // Cutoff
+                let scaledValue = Double.scaleRangeLog(value, rangeMin: 30, rangeMax: 7000)
+                self.conductor.synth.setAK1Parameter(.cutoff, scaledValue*3)
+            case 1:
+                // Tremolo
+                // TODO: MH, do you want to add Tremolo here?
+                break
+            case 2:
+                // LFO 2 Amt
+                self.conductor.synth.setAK1Parameter(.lfo2Amplitude, value)
+            default:
+                break
+                
+            }
         }
         
         pitchPad.callback = { value in
@@ -335,8 +342,8 @@ public class ParentViewController: UpdatableViewController {
         
         if segue.identifier == "SegueToMOD" {
             let popOverController = segue.destination as! PopUpMODController
-            // popOverController.delegate = self
-            // popOverController.modWheelDestination = ??
+            popOverController.delegate = self
+            popOverController.modWheelDestination = Int(activePreset.modWheelRouting)
             popOverController.preferredContentSize = CGSize(width: 300, height: 170)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
@@ -371,6 +378,18 @@ public class ParentViewController: UpdatableViewController {
     }
     
 }
+
+// **********************************************************
+// MARK: - Mod Wheel Settings Pop Over Delegate
+// **********************************************************
+
+extension ParentViewController: ModWheelDelegate {
+    
+    func didSelectRouting(newDestination: Int) {
+        activePreset.modWheelRouting = Double(newDestination)
+    }
+}
+
 
 // **********************************************************
 // MARK: - MIDI Settings Pop Over Delegate

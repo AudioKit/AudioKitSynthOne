@@ -123,6 +123,9 @@ class Preset: Codable {
     var bitcrushLFO = 0.0
     var autopanLFO = 0.0
     
+    // MOD Wheel Routings
+    var modWheelRouting = 0.0
+    
     // ******************************************************
     // MARK: - Init
     // ******************************************************
@@ -282,6 +285,9 @@ class Preset: Codable {
         pitchLFO = dictionary["pitchLFO"] as? Double ?? pitchLFO
         bitcrushLFO = dictionary["bitcrushLFO"] as? Double ?? bitcrushLFO
         autopanLFO = dictionary["autopanLFO"] as? Double ?? autopanLFO
+        
+        // MOD WHeel
+        modWheelRouting = dictionary["modWheelRouting"] as? Double ?? modWheelRouting
         
         // FX
         phaserFeedback = dictionary["phaserFeedback"] as? Double ?? phaserFeedback

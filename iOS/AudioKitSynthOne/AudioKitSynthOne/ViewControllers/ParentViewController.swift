@@ -36,6 +36,8 @@ public class ParentViewController: UpdatableViewController {
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
     @IBOutlet weak var modWheelSettings: SynthUIButton!
     @IBOutlet weak var midiLearnToggle: SynthUIButton!
+    @IBOutlet weak var pitchPad: AKVerticalPad!
+    @IBOutlet weak var modWheelPad: AKVerticalPad!
     
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
     
@@ -52,6 +54,7 @@ public class ParentViewController: UpdatableViewController {
     var isDevView = false
  
     let midi = AKMIDI()  ///TODO: REMOVE
+    var sustainMode = false
   
     // ********************************************************
     // MARK: - Define child view controllers
@@ -255,6 +258,36 @@ public class ParentViewController: UpdatableViewController {
             })
             
             self.saveAppSettingValues()
+        }
+        
+        modWheelPad.callback = { value in
+//            if self.activePreset.modWheel == 0 {
+//                self.auMainController.tremoloKnob.knobValue = CGFloat(value)
+//            } else {
+//                self.conductor.core.oscBalancer.balance = value
+//                //self.auMainController.oscMixKnob.knobValue = CGFloat(value)
+//            }
+        }
+        
+        pitchPad.callback = { value in
+//            var bendSemi = 0.0
+//            if value >= 0.5 {
+//                let scale1 = Double.scaleEntireRange(value, fromRangeMin: 0.5, fromRangeMax: 1.0, toRangeMin: 0, toRangeMax: 12.0)
+//                bendSemi = scale1
+//            } else {
+//                let scale1 = Double.scaleEntireRange(value, fromRangeMin: 0.5, fromRangeMax: 0.0, toRangeMin: 0, toRangeMax: 12.0)
+//                bendSemi = -scale1
+//            }
+//            self.conductor.core.globalbend = bendSemi
+        }
+        
+        pitchPad.completionHandler = {  _, touchesEnded, reset in
+            if touchesEnded && !reset {
+                self.pitchPad.resetToCenter()
+            }
+            if reset {
+                // self.conductor.core.globalbend = 0.0
+            }
         }
         
     }
@@ -566,6 +599,7 @@ extension ParentViewController: AKKeyboardDelegate {
 extension ParentViewController: AKMIDIListener  {
     
     public func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
+        guard channel == midiChannelIn || omniMode else { return }
         
         DispatchQueue.main.async {
             self.keyboardView.pressAdded(noteNumber, velocity: velocity)
@@ -573,12 +607,116 @@ extension ParentViewController: AKMIDIListener  {
     }
     
     public func receivedMIDINoteOff(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
-        guard !keyboardView.holdMode else { return }
+        guard (channel == midiChannelIn || omniMode) && !keyboardView.holdMode else { return }
         
         DispatchQueue.main.async {
             self.keyboardView.pressRemoved(noteNumber)
         }
     }
+   /*
+    // Assign MIDI CC to active MIDI Learn knobs
+    func assignMIDIControlToKnobs(cc: MIDIByte) {
+        let activeMIDILearnKnobs = auMainController.midiKnobs.filter { $0.isActive }
+        activeMIDILearnKnobs.forEach {
+            $0.midiCC = cc
+            $0.isActive = false
+        }
+    }
+    */
+    
+    // MIDI Controller input
+    public func receivedMIDIController(_ controller: MIDIByte, value: MIDIByte, channel: MIDIChannel) {
+        guard channel == midiChannelIn || omniMode else { return }
+        print("Channel: \(channel+1) controller: \(controller) value: \(value)")
+        
+        // If any MIDI Learn knobs are active, assign the CC
+//        DispatchQueue.main.async {
+//            if self.midiLearnToggle.isSelected { self.assignMIDIControlToKnobs(cc: controller) }
+//        }
+        
+        // Handle MIDI Control Messages
+        switch controller {
+        case AKMIDIControl.modulationWheel.rawValue:
+            DispatchQueue.main.async {
+                self.modWheelPad.setVerticalValueFrom(midiValue: value)
+            }
+            
+        // Sustain Pedal
+        case AKMIDIControl.damperOnOff.rawValue:
+            if value == 127 {
+                sustainMode = true
+            } else {
+                sustainMode = false
+                // stop all notes not being held by midi controller
+//                for note in 0 ... 127 {
+//                    if !notesFromMIDI.contains(MIDINoteNumber(note)) {
+//                        conductor.core.stop(note: MIDINoteNumber(note), channel: 0)
+//                    }
+//                }
+            }
+            
+        default:
+            break
+        }
+        
+        // Check for MIDI learn knobs that match controller
+        // let matchingKnobs = auMainController.midiKnobs.filter { $0.midiCC == controller }
+        
+        // Set new knob values from MIDI for matching knobs
+        /* matchingKnobs.forEach { midiKnob in
+            DispatchQueue.main.async {
+                midiKnob.setKnobValueFrom(midiValue: value)
+            }
+        }
+        */
+    }
+    
+    // MIDI Program/Patch Change
+    public func receivedMIDIProgramChange(_ program: MIDIByte, channel: MIDIChannel) {
+        guard channel == midiChannelIn || omniMode else { return }
+        
+        // Smoothly cycle through presets if MIDI input is greater than preset count
+        // currentPresetIndex = Int(program) % (totalPresets+1)
+        
+//        DispatchQueue.main.async {
+//            self.presetController.setCurrentPresetFrom(index: self.currentPresetIndex)
+//        }
+    }
+    
+    // MIDI Pitch Wheel
+    public func receivedMIDIPitchWheel(_ pitchWheelValue: MIDIWord, channel: MIDIChannel) {
+        guard channel == midiChannelIn || omniMode else { return }
+        
+        DispatchQueue.main.async {
+            self.pitchPad.setVerticalValueFromPitchWheel(midiValue: pitchWheelValue)
+        }
+    }
+    
+    // After touch
+    public func receivedMIDIAfterTouch(_ pressure: MIDIByte, channel: MIDIChannel) {
+        guard channel == midiChannelIn || omniMode else { return }
+        //         self.conductor.tremolo.frequency = Double(pressure)/20.0
+        // self.auMainController.tremoloKnob.setKnobValueFrom(midiValue: pressure)
+    }
+    
+    // MIDI Setup Change
+    public func receivedMIDISetupChange() {
+        print("midi setup change, midi.inputNames: \(midi.inputNames)")
+        
+        let midiInputNames = midi.inputNames
+        midiInputNames.forEach { inputName in
+            
+            // check to see if input exists
+            if let index = midiInputs.index(where: { $0.name == inputName }) {
+                midiInputs.remove(at: index)
+            }
+            
+            let newMIDI = MIDIInput(name: inputName, isOpen: true)
+            midiInputs.append(newMIDI)
+            midi.openInput(inputName)
+        }
+    }
+    
 }
 
 

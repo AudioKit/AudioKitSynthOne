@@ -94,6 +94,7 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(filterTypeToggle,     to: .filterType)
         conductor.bind(masterVolume,         to: .masterVolume)
         conductor.bind(tempoStepper,         to: .arpRate)
+        conductor.bind(legatoModeToggle,     to: .monoIsLegato)
         
         // Setup Audio Plot Display
         setupAudioPlot()

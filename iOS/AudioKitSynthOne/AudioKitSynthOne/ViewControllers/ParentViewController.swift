@@ -112,8 +112,7 @@ public class ParentViewController: UpdatableViewController {
         keyboardView?.delegate = self
         keyboardView?.polyphonicMode = true
         
-        pitchPad.verticalRange = 0.5 ... 2
-        
+        // Conductor start
         conductor.start()
         
         // Set Header as Delegate
@@ -263,6 +262,8 @@ public class ParentViewController: UpdatableViewController {
         }
         
         modWheelPad.callback = { value in
+            let scaledValue = Double.scaleRange(value, rangeMin: 80, rangeMax: 22050)
+            self.conductor.synth.setAK1Parameter(.cutoff, scaledValue)
             
 //            if self.activePreset.modWheel == 0 {
 //                self.auMainController.tremoloKnob.knobValue = CGFloat(value)
@@ -273,7 +274,13 @@ public class ParentViewController: UpdatableViewController {
         }
         
         pitchPad.callback = { value in
-            self.conductor.synth.setAK1Parameter(.detuningMultiplier, value)
+            var bendValue = 1.0
+            if value < 0.5 {
+                bendValue = Double.scaleEntireRange(value, fromRangeMin: 0.0, fromRangeMax: 0.5, toRangeMin: 0.5, toRangeMax: 1.0)
+            } else {
+                 bendValue = Double.scaleEntireRange(value, fromRangeMin: 0.5, fromRangeMax: 1.0, toRangeMin: 1.0, toRangeMax: 2.0)
+            }
+           self.conductor.synth.setAK1Parameter(.detuningMultiplier, bendValue)
         }
         
         pitchPad.completionHandler = {  _, touchesEnded, reset in

@@ -141,9 +141,9 @@ public class HeaderViewController: UpdatableViewController {
                 displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"
             }
         case .lfo1Amplitude:
-            displayLabel.text = "LFO 1: \(value.percentageString)"
+            displayLabel.text = "LFO 1 Amp: \(value.percentageString)"
         case .lfo2Amplitude:
-            displayLabel.text = "LFO 2: \(value.percentageString)"
+            displayLabel.text = "LFO 2 Amp: \(value.percentageString)"
         case .cutoffLFO:
             displayLabel.text = "Cutoff LFO: \(value.decimalString)"
         case .resonanceLFO:

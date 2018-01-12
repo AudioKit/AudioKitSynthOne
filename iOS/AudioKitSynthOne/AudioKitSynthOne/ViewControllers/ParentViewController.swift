@@ -242,10 +242,8 @@ public class ParentViewController: UpdatableViewController {
         keyboardToggle.callback = { value in
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
-                self.keyboardView.isRetracted = false
             } else {
                 self.keyboardToggle.setTitle("Show", for: .normal)
-                self.keyboardView.isRetracted = true
                 
                 // Add panel to bottom
                 if self.bottomChildView == self.topChildView {

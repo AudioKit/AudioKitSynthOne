@@ -72,13 +72,6 @@ public protocol AKKeyboardDelegate: class {
     
     var isShown = true // used to persist keyboard position when presets panel is displayed
     
-    // used to reposition note labels
-    var isRetracted = false {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
-    
     /// Allows multiple notes to play concurrently
     open var polyphonicMode = false {
         didSet {
@@ -256,9 +249,7 @@ public protocol AKKeyboardDelegate: class {
             context.clip(to: whiteKeysRect)
             
             // adjust for keyboard being hidden
-            var whiteKeysHeight = whiteKeysRect.height
-            if isRetracted { whiteKeysHeight = 80 }
-            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysHeight - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes)
+            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes)
             context.restoreGState()
         }
     }

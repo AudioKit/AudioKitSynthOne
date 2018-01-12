@@ -68,7 +68,9 @@ public protocol AKKeyboardDelegate: class {
         }
     }
     
-     let baseMIDINote = 24 // MIDINote 24 is C0
+    let baseMIDINote = 24 // MIDINote 24 is C0
+    
+    var isShown = true
     
     /// Allows multiple notes to play concurrently
     open var polyphonicMode = false {

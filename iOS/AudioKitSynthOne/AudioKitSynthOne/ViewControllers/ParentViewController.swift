@@ -431,8 +431,16 @@ extension ParentViewController: HeaderDelegate {
     
     func displayLabelTapped() {
         if !isPresetsDisplayed {
+            
+            // Hide Keyboard
+            keyboardView.isShown = keyboardToggle.isOn
+            self.keyboardToggle.callback(0.0)
+            self.keyboardToggle.value = 0.0
+            
+            // Save previous bottom panel
             prevBottomChildView = bottomChildView
            
+            // Animate
             self.topPanelheight.constant = 0
             self.view.layoutIfNeeded()
                 // Add Panel to Top
@@ -440,13 +448,21 @@ extension ParentViewController: HeaderDelegate {
                 self.switchToChildView(self.topChildView!, isTopView: false)
                 self.topChildView = nil
                 
-                // Animate Keyboard
+                // Animate panel
                 UIView.animate(withDuration: Double(0.2), animations: {
                     self.topPanelheight.constant = 299
                     self.view.layoutIfNeeded()
                 })
             
         } else {
+            
+            // Show Keyboard
+            if keyboardView.isShown {
+                self.keyboardToggle.value = 1.0
+                self.keyboardBottomConstraint.constant = 0
+                self.keyboardToggle.setTitle("Hide", for: .normal)
+            }
+            
             // Add Panel to Top
             self.switchToChildView(self.bottomChildView!)
 

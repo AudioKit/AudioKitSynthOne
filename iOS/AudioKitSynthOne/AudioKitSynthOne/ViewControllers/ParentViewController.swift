@@ -25,6 +25,7 @@ public class ParentViewController: UpdatableViewController {
     
     @IBOutlet weak var keyboardView: SynthKeyboard!
     @IBOutlet weak var keyboardBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topPanelheight: NSLayoutConstraint!
     
     @IBOutlet weak var midiButton: SynthUIButton!
     @IBOutlet weak var holdButton: SynthUIButton!
@@ -373,6 +374,7 @@ public class ParentViewController: UpdatableViewController {
     }
     
     func displayPresetsController() {
+        
         // Display Presets View
         topContainerView.subviews.forEach({ $0.removeFromSuperview() })
         add(asChildViewController: presetsViewController)
@@ -430,21 +432,32 @@ extension ParentViewController: HeaderDelegate {
     func displayLabelTapped() {
         if !isPresetsDisplayed {
             prevBottomChildView = bottomChildView
-            displayPresetsController()
-            switchToChildView(topChildView!, isTopView: false)
-            topChildView = nil
+           
+            self.topPanelheight.constant = 0
+            self.view.layoutIfNeeded()
+                // Add Panel to Top
+                self.displayPresetsController()
+                self.switchToChildView(self.topChildView!, isTopView: false)
+                self.topChildView = nil
+                
+                // Animate Keyboard
+                UIView.animate(withDuration: Double(0.2), animations: {
+                    self.topPanelheight.constant = 299
+                    self.view.layoutIfNeeded()
+                })
+            
         } else {
-            
             // Add Panel to Top
-            switchToChildView(bottomChildView!)
-            
+            self.switchToChildView(self.bottomChildView!)
+
             // Add Panel to bottom
-            isPresetsDisplayed = true
-            if prevBottomChildView == topChildView {
-                prevBottomChildView = prevBottomChildView?.rightView()
+            self.isPresetsDisplayed = true
+            if self.prevBottomChildView == self.topChildView {
+                self.prevBottomChildView = self.prevBottomChildView?.rightView()
             }
-            switchToChildView(prevBottomChildView!, isTopView: false)
-            isPresetsDisplayed = false
+            self.switchToChildView(self.prevBottomChildView!, isTopView: false)
+            self.isPresetsDisplayed = false
+
         }
     }
     

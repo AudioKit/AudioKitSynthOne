@@ -70,7 +70,14 @@ public protocol AKKeyboardDelegate: class {
     
     let baseMIDINote = 24 // MIDINote 24 is C0
     
-    var isShown = true
+    var isShown = true // used to persist keyboard position when presets panel is displayed
+    
+    // used to reposition note labels
+    var isRetracted = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     /// Allows multiple notes to play concurrently
     open var polyphonicMode = false {
@@ -247,7 +254,11 @@ public protocol AKKeyboardDelegate: class {
             let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: whiteKeysFontAttributes, context: nil).height
             context.saveGState()
             context.clip(to: whiteKeysRect)
-            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes)
+            
+            // adjust for keyboard being hidden
+            var whiteKeysHeight = whiteKeysRect.height
+            if isRetracted { whiteKeysHeight = 80 }
+            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysHeight - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes)
             context.restoreGState()
         }
     }

@@ -293,6 +293,17 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    func didSelectPreset(index: Int) {
+        deselectCurrentRow()
+        
+        // Smoothly cycle through presets if MIDI input is greater than preset count
+        let currentPresetIndex = Int(index) % (presets.count-1)
+        
+        currentPreset = presets[currentPresetIndex]
+        selectCurrentPreset()
+        Conductor.sharedInstance.updateAllUI()
+    }
+    
     func randomPreset() {
         deselectCurrentRow()
         

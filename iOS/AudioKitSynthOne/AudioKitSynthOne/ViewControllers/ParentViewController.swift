@@ -57,6 +57,7 @@ public class ParentViewController: UpdatableViewController {
  
     let midi = AKMIDI()  ///TODO: REMOVE
     var sustainMode = false
+    var pcJustTriggered = false
   
     // ********************************************************
     // MARK: - Define child view controllers
@@ -744,13 +745,18 @@ extension ParentViewController: AKMIDIListener  {
     // MIDI Program/Patch Change
     public func receivedMIDIProgramChange(_ program: MIDIByte, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
+        guard !pcJustTriggered else { return }
+    
+        print ("preset \(program)")
+        DispatchQueue.main.async {
+            self.presetsViewController.didSelectPreset(index: Int(program))
+        }
         
-        // Smoothly cycle through presets if MIDI input is greater than preset count
-        // currentPresetIndex = Int(program) % (totalPresets+1)
-        
-//        DispatchQueue.main.async {
-//            self.presetController.setCurrentPresetFrom(index: self.currentPresetIndex)
-//        }
+        // Prevent multiple triggers from multiple MIDI inputs
+        pcJustTriggered = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.pcJustTriggered = false
+        }
     }
     
     // MIDI Pitch Wheel

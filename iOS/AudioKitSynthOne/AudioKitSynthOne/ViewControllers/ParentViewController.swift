@@ -336,8 +336,9 @@ public class ParentViewController: UpdatableViewController {
             let userMIDIChannel = omniMode ? -1 : Int(midiChannelIn)
             popOverController.userChannelIn = userMIDIChannel
             popOverController.midiSources = midiInputs
+            popOverController.velocitySensitive = appSettings.velocitySensitive
             
-            popOverController.preferredContentSize = CGSize(width: 300, height: 280)
+            popOverController.preferredContentSize = CGSize(width: 300, height: 320)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
                 presentation.sourceRect = midiButton.bounds
@@ -418,7 +419,8 @@ extension ParentViewController: MIDISettingsPopOverDelegate {
         saveAppSettingValues()
     }
     
-    func didSetBackgroundAudio() {
+    func didToggleVelocity() {
+        appSettings.velocitySensitive = !appSettings.velocitySensitive
         saveAppSettingValues()
     }
 }
@@ -666,9 +668,11 @@ extension ParentViewController: AKMIDIListener  {
     
     public func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
+        var newVelocity = velocity
+        if !appSettings.velocitySensitive { newVelocity = 127 }
         
         DispatchQueue.main.async {
-            self.keyboardView.pressAdded(noteNumber, velocity: velocity)
+            self.keyboardView.pressAdded(noteNumber, velocity: newVelocity)
         }
     }
     

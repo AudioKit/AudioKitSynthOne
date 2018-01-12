@@ -22,6 +22,7 @@ class AppSetting: Codable {
     var midiChannel = 0
     var omniMode = true
     var plotFilled = true
+    var velocitySensitive = true
     
     var launches = 0
     
@@ -57,8 +58,6 @@ class AppSetting: Codable {
     var darkMode = true
     var showKeyboard = 1.0 // 1 show, 0 hide
     
-    var velocitySensitive = true
-    
     // ******************************************************
     // MARK: - Init
     // ******************************************************
@@ -82,6 +81,7 @@ class AppSetting: Codable {
         midiChannel = dictionary["midiChannel"] as? Int ?? midiChannel
         omniMode = dictionary["omniMode"] as? Bool ?? omniMode
         plotFilled =  dictionary["plotFilled"] as? Bool ?? plotFilled
+        velocitySensitive =  dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
         
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
         banks = dictionary["banks"] as? [String] ?? banks

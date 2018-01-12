@@ -12,7 +12,7 @@ import UIKit
 protocol MIDISettingsPopOverDelegate {
     func resetMIDILearn()
     func didSelectMIDIChannel(newChannel: Int)
-    func didSetBackgroundAudio()
+    func didToggleVelocity()
 }
 
 class PopUpMIDIViewController: UIViewController {
@@ -22,8 +22,7 @@ class PopUpMIDIViewController: UIViewController {
     @IBOutlet weak var resetButton: SynthUIButton!
     @IBOutlet weak var inputTable: UITableView!
     @IBOutlet weak var sleepToggle: ToggleSwitch!
-    @IBOutlet weak var energyLabel: UILabel!
-    @IBOutlet weak var backgroundAudioToggle: ToggleSwitch!
+    @IBOutlet weak var velocityToggle: ToggleSwitch!
     
     var delegate: MIDISettingsPopOverDelegate?
     
@@ -32,7 +31,9 @@ class PopUpMIDIViewController: UIViewController {
             displayMIDIInputs()
         }
     }
+    
     var userChannelIn: Int = 1
+    var velocitySensitive = true
     
     let conductor = Conductor.sharedInstance
     
@@ -52,18 +53,15 @@ class PopUpMIDIViewController: UIViewController {
         // Setup Callbacks
         setupCallbacks()
         
+        // Toggles
+        sleepToggle.value = conductor.neverSleep ? 1 : 0
+        velocityToggle.value = velocitySensitive ? 1 : 0
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         displayMIDIInputs()
-        
-        sleepToggle.value = conductor.neverSleep ? 1:0
-        backgroundAudioToggle.value = conductor.backgroundAudioOn ? 1:0
-        
-        if sleepToggle.isOn {
-            self.backgroundAudioToggle.alpha = 0.5
-            self.energyLabel.alpha = 0.5
-        }
+ 
     }
     
     func displayMIDIInputs() {
@@ -95,31 +93,16 @@ class PopUpMIDIViewController: UIViewController {
           
             if value == 1 {
                 self.conductor.neverSleep = true
-                self.conductor.backgroundAudioOn = true
-                self.backgroundAudioToggle.alpha = 0.5
-                self.backgroundAudioToggle.isUserInteractionEnabled = false
-                self.energyLabel.alpha = 0.5
-                
                 self.displayAlertController("Info", message: "This mode is great for playing live. Note: it will use more power and could drain your battery faster")
             } else {
                 self.conductor.neverSleep = false
-                self.backgroundAudioToggle.alpha = 1.0
-                self.backgroundAudioToggle.isUserInteractionEnabled = true
-                self.energyLabel.alpha = 1.0
-                
-                self.conductor.backgroundAudioOn = (self.backgroundAudioToggle.value == 1)
             }
         }
         
-        backgroundAudioToggle.callback = { value in
-            if value == 1 {
-                self.conductor.backgroundAudioOn = true
-            } else {
-                self.conductor.backgroundAudioOn = false
-                self.displayAlertController("Info", message: "Turning background audio off could cause this app to work improperly with other apps using IAA or Audiobus. You may need to restart AB3 after turning background audio back on")
-            }
-            self.delegate?.didSetBackgroundAudio()
+        velocityToggle.callback = { value in
+            self.delegate?.didToggleVelocity()
         }
+      
     }
     
     func updateChannelLabel() {

@@ -585,7 +585,7 @@ extension ParentViewController: EmbeddedViewsDelegate {
         }
         
         // Update Bottom Panel NavButtons
-        if keyboardToggle.value == 0 {
+        if keyboardToggle.value == 0 || isPresetsDisplayed {
             bottomChildView = bottomPanel?.viewType
             DispatchQueue.main.async {
                bottomPanel?.updateNavButtons()

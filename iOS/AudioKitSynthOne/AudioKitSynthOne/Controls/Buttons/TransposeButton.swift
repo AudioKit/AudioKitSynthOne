@@ -27,7 +27,7 @@ class TransposeButton: UILabel, AKSynthOneControl {
                 self.backgroundColor = #colorLiteral(red: 0.4961370826, green: 0.4989871979, blue: 0.5060116649, alpha: 1)
             } else {
                 _value = 0
-                self.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                self.backgroundColor = #colorLiteral(red: 0.2666666667, green: 0.2666666667, blue: 0.2666666667, alpha: 1)
             }
             setNeedsDisplay()
         }

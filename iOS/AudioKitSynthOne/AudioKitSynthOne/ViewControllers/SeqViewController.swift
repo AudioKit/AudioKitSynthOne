@@ -124,8 +124,7 @@ class SeqViewController: SynthPanelController {
         let arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
         if arpIsOn && arpIsSequencer && seqNum > 0 {
-            let notePosition = (beatCounter % seqNum) - 1
-            //AKLog("notePosition:\(notePosition)")
+            let notePosition = (beatCounter % seqNum)
             for sliderLabelTag in sliderLabelTags {
                 if let label = view.viewWithTag(sliderLabelTag) as? TransposeButton {
                     let labelTag = notePosition + sliderLabelTags.lowerBound
@@ -156,7 +155,6 @@ class SeqViewController: SynthPanelController {
             } else {
                 label.value = 0
             }
-            
             label.text = "\(transposeAmt)"
             label.setNeedsDisplay()
         }

@@ -43,6 +43,7 @@ public class ParentViewController: UpdatableViewController {
     
     var topChildView: ChildView?
     var bottomChildView: ChildView?
+    var prevBottomChildView: ChildView?
     var isPresetsDisplayed: Bool = false
     var activePreset = Preset()
     
@@ -420,7 +421,6 @@ extension ParentViewController: MIDISettingsPopOverDelegate {
     }
 }
 
-
 // **********************************************************
 // MARK: - Embedded Views Delegate
 // **********************************************************
@@ -429,9 +429,18 @@ extension ParentViewController: HeaderDelegate {
     
     func displayLabelTapped() {
         if !isPresetsDisplayed {
+            prevBottomChildView = bottomChildView
             displayPresetsController()
+            switchToChildView(topChildView!, isTopView: false)
         } else {
-            switchToChildView(topChildView!)
+            // Add Panel to Top
+            switchToChildView(bottomChildView!)
+            
+            // Add Panel to bottom
+            if prevBottomChildView == topChildView {
+                prevBottomChildView = prevBottomChildView?.rightView()
+            }
+            switchToChildView(prevBottomChildView!, isTopView: false)
         }
     }
     
@@ -567,13 +576,14 @@ extension ParentViewController: EmbeddedViewsDelegate {
         let topPanel = synthPanels.filter { $0.isTopContainer }.last
         let bottomPanel = synthPanels.filter { !$0.isTopContainer}.last
         
-        // Update NavButtons
+       
+       // Update Bottom Panel NavButtons
         topChildView = topPanel?.viewType
-        
         DispatchQueue.main.async {
            topPanel?.updateNavButtons()
         }
         
+        // Update Bottom Panel NavButtons
         if keyboardToggle.value == 0 {
             bottomChildView = bottomPanel?.viewType
             DispatchQueue.main.async {

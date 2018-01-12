@@ -434,14 +434,17 @@ extension ParentViewController: HeaderDelegate {
             switchToChildView(topChildView!, isTopView: false)
             topChildView = nil
         } else {
+            
             // Add Panel to Top
             switchToChildView(bottomChildView!)
             
             // Add Panel to bottom
+            isPresetsDisplayed = true
             if prevBottomChildView == topChildView {
                 prevBottomChildView = prevBottomChildView?.rightView()
             }
             switchToChildView(prevBottomChildView!, isTopView: false)
+            isPresetsDisplayed = false
         }
     }
     

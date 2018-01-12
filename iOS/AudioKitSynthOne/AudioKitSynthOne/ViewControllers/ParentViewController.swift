@@ -273,11 +273,12 @@ public class ParentViewController: UpdatableViewController {
                 //self.mixerViewController.cutoff.knobValue = CGFloat(value)
             case 1:
                 // Tremolo
-                // TODO: MH, do you want to add Tremolo here?
+                // TODO: Marcus, do you want to add Tremolo here?
                 break
             case 2:
-                // LFO 2 Amt
-                self.conductor.synth.setAK1Parameter(.lfo2Amplitude, value)
+                // LFO 2 Rate
+                let scaledValue = Double.scaleRangeLog(value, rangeMin: 0.01, rangeMax: 10.0)
+                self.conductor.synth.setAK1Parameter(.lfo2Rate, scaledValue)
             default:
                 break
                 
@@ -472,7 +473,6 @@ extension ParentViewController: HeaderDelegate {
             }
             self.switchToChildView(self.prevBottomChildView!, isTopView: false)
             self.isPresetsDisplayed = false
-
         }
     }
     

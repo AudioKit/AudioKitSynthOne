@@ -110,7 +110,8 @@ public enum Rate: Int, CustomStringConvertible {
     func seconds(bars: Double = 1.0, triplet: Bool = false) -> Double {
         let minutesPerSecond = 1.0 / 60.0
         let beatsPerBar = 4.0
-        return (beatsPerBar * bars) / (Conductor.sharedInstance.tempo * minutesPerSecond) / (triplet ? 1.5 : 1)
+        let s = Conductor.sharedInstance.synth!
+        return (beatsPerBar * bars) / (s.getAK1Parameter(.arpRate) * minutesPerSecond) / (triplet ? 1.5 : 1)
     }
     
     private static func findMinimum(_ value: Double, comparator: (Int)->Double) -> Rate {

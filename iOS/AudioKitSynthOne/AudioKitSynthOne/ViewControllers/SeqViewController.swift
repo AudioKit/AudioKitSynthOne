@@ -125,9 +125,16 @@ class SeqViewController: SynthPanelController {
         let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
         if arpIsOn && arpIsSequencer && seqNum > 0 {
             let notePosition = (beatCounter % seqNum)
+      
+            // clear out all labeltags
+            // change the outline of one / notePosition
+            
             for sliderLabelTag in sliderLabelTags {
+              
                 if let label = view.viewWithTag(sliderLabelTag) as? TransposeButton {
                     let labelTag = notePosition + sliderLabelTags.lowerBound
+                    print ("beat counter: \(beatCounter), notePosition: \(notePosition), seqNum: \(seqNum), labelTag: \(labelTag), SLTag: \(sliderLabelTag)")
+            
                     if labelTag == sliderLabelTag {
                         label.layer.borderColor = #colorLiteral(red: 0.8812435269, green: 0.4256765842, blue: 0, alpha: 1)
                         label.layer.borderWidth = 2

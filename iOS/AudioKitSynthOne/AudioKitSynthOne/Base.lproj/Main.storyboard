@@ -2604,8 +2604,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Cutoff"/>
-                                    <segment title="Tremolo"/>
-                                    <segment title="LFO2"/>
+                                    <segment title="LFO 1"/>
+                                    <segment title="LFO 2"/>
                                 </segments>
                                 <color key="tintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>

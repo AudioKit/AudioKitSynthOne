@@ -48,10 +48,6 @@ class PresetsViewController: UIViewController {
             createActivePreset()
             presetDescriptionField.text = currentPreset.userText
             categoryLabel.text = PresetCategory(rawValue: currentPreset.category)?.description()
-            
-            print (" *** ")
-            print (" Preset Loaded \(currentPreset.name) ")
-            print (" --- ")
         }
     }
     
@@ -86,11 +82,6 @@ class PresetsViewController: UIViewController {
         // Load presets
         if Disk.exists("presets.json", in: .documents) {
             loadPresetsFromDevice()
-            presets.forEach {
-                if $0.reverbHighPass < 80 {
-                    $0.reverbHighPass = 80
-                }
-            }
             saveAllPresets()
           
         } else {

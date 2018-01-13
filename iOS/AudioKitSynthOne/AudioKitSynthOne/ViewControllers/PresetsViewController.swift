@@ -48,6 +48,10 @@ class PresetsViewController: UIViewController {
             createActivePreset()
             presetDescriptionField.text = currentPreset.userText
             categoryLabel.text = PresetCategory(rawValue: currentPreset.category)?.description()
+            
+            print (" *** ")
+            print (" Preset Loaded \(currentPreset.name) ")
+            print (" --- ")
         }
     }
     
@@ -219,6 +223,9 @@ class PresetsViewController: UIViewController {
         } else {
             tableView.setContentOffset(CGPoint.zero, animated: false)
         }
+        
+        // Update all UI
+        Conductor.sharedInstance.updateAllUI()
     }
     
     func deselectCurrentRow() {
@@ -280,7 +287,6 @@ class PresetsViewController: UIViewController {
             deselectCurrentRow()
             currentPreset = presets[currentPreset.position + 1]
             selectCurrentPreset()
-            Conductor.sharedInstance.updateAllUI()
         }
     }
     
@@ -289,10 +295,11 @@ class PresetsViewController: UIViewController {
             deselectCurrentRow()
             currentPreset = presets[currentPreset.position + -1 ]
             selectCurrentPreset()
-            Conductor.sharedInstance.updateAllUI()
+         
         }
     }
     
+    // Used for Selecting Presets from Program Change
     func didSelectPreset(index: Int) {
         deselectCurrentRow()
         
@@ -301,7 +308,6 @@ class PresetsViewController: UIViewController {
         
         currentPreset = presets[currentPresetIndex]
         selectCurrentPreset()
-        Conductor.sharedInstance.updateAllUI()
     }
     
     func randomPreset() {
@@ -312,7 +318,7 @@ class PresetsViewController: UIViewController {
         if newIndex == currentPreset.position { newIndex = randomNumbers.nextInt() }
         currentPreset = presets[newIndex]
         selectCurrentPreset()
-        Conductor.sharedInstance.updateAllUI()
+     
     }
     
     // *****************************************************************
@@ -472,7 +478,7 @@ extension PresetsViewController: PresetCellDelegate {
     }
     
     func presetDidChange(preset: Preset) {
-        currentPreset = preset
+        // currentPreset = preset
     }
     
     func duplicatePressed() {

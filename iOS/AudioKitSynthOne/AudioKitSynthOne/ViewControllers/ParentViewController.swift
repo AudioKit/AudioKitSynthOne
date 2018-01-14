@@ -129,9 +129,9 @@ public class ParentViewController: UpdatableViewController {
         octaveStepper.maxValue = 4
         
         // Set transpose range and default value
-        transposeStepper.minValue = -24
-        transposeStepper.value = 0
-        transposeStepper.maxValue = 24
+//        transposeStepper.minValue = -24
+//        transposeStepper.value = 0
+//        transposeStepper.maxValue = 24
         
         // Make bluetooth button look pretty
         bluetoothButton.centerPopupIn(view: view)
@@ -182,6 +182,9 @@ public class ParentViewController: UpdatableViewController {
         appSettings.launches = appSettings.launches + 1
         saveAppSettingValues()
         
+        // Set initial preset
+        presetsViewController.didSelectPreset(index: 0)
+        
     }
     
     // ********************************************************
@@ -190,9 +193,9 @@ public class ParentViewController: UpdatableViewController {
     
     func setupCallbacks() {
         
-        transposeStepper.callback = { value in
-            AKLog("still need to hook up")
-        }
+//        transposeStepper.callback = { value in
+//            AKLog("still need to hook up")
+//        }
         
         octaveStepper.callback = { value in
             self.keyboardView.firstOctave = Int(value) + 2

@@ -94,8 +94,8 @@ class Conductor: AKSynthOneProtocol {
         // cannot access synth until it is initialized and started
         if !started {return}
         
-        viewControllers.forEach { vc in
-            vc.updateUI(param, value: synth.getAK1Parameter(param) )
+        viewControllers.forEach {
+            $0.updateUI(param, value: synth.getAK1Parameter(param) )
         }
     }
     
@@ -118,8 +118,8 @@ class Conductor: AKSynthOneProtocol {
     //MARK: - AKSynthOneProtocol
     func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
         DispatchQueue.main.async {
-            self.viewControllers.forEach { vc in
-                vc.updateUI(param, value: Double(value))
+            self.viewControllers.forEach {
+                $0.updateUI(param, value: Double(value))
             }
         }
     }

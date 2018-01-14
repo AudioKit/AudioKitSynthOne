@@ -184,9 +184,10 @@ public class ParentViewController: UpdatableViewController {
         saveAppSettingValues()
         
         // Get MIDI Knobs
-        childViewControllers.forEach {
-            midiKnobs += $0.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        }
+        midiKnobs += mixerViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+        midiKnobs += adsrViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+        midiKnobs += fxViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+        midiKnobs += seqViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
         
         // Set initial preset
         presetsViewController.didSelectPreset(index: 0)
@@ -712,9 +713,9 @@ extension ParentViewController: AKMIDIListener  {
         print("Channel: \(channel+1) controller: \(controller) value: \(value)")
         
         // If any MIDI Learn knobs are active, assign the CC
-//        DispatchQueue.main.async {
-//            if self.midiLearnToggle.isSelected { self.assignMIDIControlToKnobs(cc: controller) }
-//        }
+        DispatchQueue.main.async {
+            if self.midiLearnToggle.isSelected { self.assignMIDIControlToKnobs(cc: controller) }
+        }
         
         // Handle MIDI Control Messages
         switch controller {

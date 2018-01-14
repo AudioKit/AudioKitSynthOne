@@ -9,9 +9,7 @@
 import UIKit
 import AudioKit
 
-public class TimeKnob: Knob {
-    
-    var conductor = Conductor.sharedInstance
+public class TimeKnob: MIDIKnob {
     
     var limitedRate = Rate.count - 3
     

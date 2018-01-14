@@ -24,7 +24,7 @@ class SeqViewController: SynthPanelController {
     let sliderTags = 400 ... 415
     let sliderToggleTags = 500 ... 515
     
-    var prevLedTag: Int = 0
+    var sliderTransposeButtons = [SliderTransposeButton]()
     
     // *********************************************************
     // MARK: - Lifecycle
@@ -40,6 +40,9 @@ class SeqViewController: SynthPanelController {
         octaveStepper.minValue = 1
         octaveStepper.maxValue = 4
         arpInterval.range = 0 ... 12
+        
+        // Get all Slider Transpose Buttons
+        sliderTransposeButtons = self.view.subviews.filter { $0 is SliderTransposeButton } as! [SliderTransposeButton]
         
         // Bindings
         conductor.bind(arpToggle,          to: .arpIsOn)
@@ -126,24 +129,11 @@ class SeqViewController: SynthPanelController {
         if arpIsOn && arpIsSequencer && seqNum > 0 {
             let notePosition = (beatCounter % seqNum)
       
-            // clear out all labeltags
-            // change the outline of one / notePosition
+            // clear out all indicators
+            sliderTransposeButtons.forEach { $0.isActive = false }
             
-            for sliderLabelTag in sliderLabelTags {
-              
-                if let label = view.viewWithTag(sliderLabelTag) as? SliderTransposeButton {
-                    let labelTag = notePosition + sliderLabelTags.lowerBound
-                    print ("beat counter: \(beatCounter), notePosition: \(notePosition), seqNum: \(seqNum), labelTag: \(labelTag), SLTag: \(sliderLabelTag)")
-            
-                    if labelTag == sliderLabelTag {
-                        label.layer.borderColor = #colorLiteral(red: 0.8812435269, green: 0.4256765842, blue: 0, alpha: 1)
-                        label.layer.borderWidth = 2
-                    } else {
-                        label.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-                        label.layer.borderWidth = 1
-                    }
-                }
-            }
+            // change the outline current notePosition
+            sliderTransposeButtons[notePosition].isActive = true
         }
     }
     

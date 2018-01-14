@@ -35,6 +35,19 @@ class SliderTransposeButton: UILabel, AKSynthOneControl {
     
     public var callback: (Double)->Void = { _ in }
     
+    var isActive = false {
+        didSet {
+            if isActive {
+                layer.borderColor = #colorLiteral(red: 0.8812435269, green: 0.4256765842, blue: 0, alpha: 1)
+                layer.borderWidth = 2
+            } else {
+                layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                layer.borderWidth = 1
+            }
+            
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         

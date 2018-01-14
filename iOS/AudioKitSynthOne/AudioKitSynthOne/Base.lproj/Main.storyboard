@@ -23,7 +23,7 @@
         <!--Synth One-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Synth One" customClass="ParentViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ParentViewController" id="BYZ-38-t0r" userLabel="Synth One" customClass="ParentViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -2167,7 +2167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCz-Ja-PHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2075" y="-69"/>
+            <point key="canvasLocation" x="-1971" y="-5"/>
         </scene>
         <!--Presets-->
         <scene sceneID="BZU-iC-Bfv">
@@ -2649,7 +2649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oqg-EK-98k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1408" y="105"/>
+            <point key="canvasLocation" x="-1479" y="-33"/>
         </scene>
         <!--Pop UpMIDI View Controller-->
         <scene sceneID="fqU-aQ-kCC">
@@ -2811,7 +2811,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKD-rW-qhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1854" y="382"/>
+            <point key="canvasLocation" x="-1723" y="151"/>
         </scene>
     </scenes>
     <resources>

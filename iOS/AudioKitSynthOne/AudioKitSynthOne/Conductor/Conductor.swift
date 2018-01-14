@@ -24,7 +24,6 @@ class Conductor: AKSynthOneProtocol {
     var neverSleep = false
     
     var synth: AKSynthOne!
-    
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
     
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
@@ -54,6 +53,7 @@ class Conductor: AKSynthOneProtocol {
     public var viewControllers: Set<UpdatableViewController> = []
     
     fileprivate var started = false
+    
     func start() {
         
         // Allow audio to play while the iOS device is muted.
@@ -94,7 +94,7 @@ class Conductor: AKSynthOneProtocol {
         // cannot access synth until it is initialized and started
         if !started {return}
         
-        for vc in viewControllers {
+        viewControllers.forEach { vc in
             vc.updateUI(param, value: synth.getAK1Parameter(param) )
         }
     }
@@ -111,34 +111,26 @@ class Conductor: AKSynthOneProtocol {
         }
         
         // Display Preset Name again
-        for vc in Conductor.sharedInstance.viewControllers {
-            if vc.isKind(of: ParentViewController.self) {
-                if let vc2 = vc as? ParentViewController {
-                    vc2.updateDisplay("\(vc2.activePreset.position): \(vc2.activePreset.name)")
-                }
-            }
-        }
+        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
+        parentVC.updateDisplay("\(parentVC.activePreset.position): \(parentVC.activePreset.name)")
     }
     
     //MARK: - AKSynthOneProtocol
     func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
         DispatchQueue.main.async {
-            for vc in Conductor.sharedInstance.viewControllers {
+            self.viewControllers.forEach { vc in
                 vc.updateUI(param, value: Double(value))
             }
         }
     }
     
     func arpBeatCounterDidChange(_ beat: Int) {
+        
         DispatchQueue.main.async {
-            for vc in Conductor.sharedInstance.viewControllers {
-                if vc.isKind(of: SeqViewController.self) {
-                    if let vc2 = vc as? SeqViewController {
-                        vc2.updateLED(beatCounter: beat)
-                    }
-                }
-            }
+           let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
+           seqVC?.updateLED(beatCounter: beat)
         }
+        
     }
     
     func heldNotesDidChange() {

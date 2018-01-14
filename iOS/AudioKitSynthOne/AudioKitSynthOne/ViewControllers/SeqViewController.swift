@@ -51,7 +51,7 @@ class SeqViewController: SynthPanelController {
         
         // SeqOctBoost/Slider Transpose Label bindings
         for tag in sliderLabelTags {
-            if let label = view.viewWithTag(tag) as? TransposeButton {
+            if let label = view.viewWithTag(tag) as? SliderTransposeButton {
                 let notePosition = Int(tag) - self.sliderLabelTags.lowerBound
                 let asp = Int32(Int(AKSynthOneParameter.arpSeqOctBoost00.rawValue) + notePosition)
                 if let aspe = AKSynthOneParameter(rawValue: asp) {
@@ -131,7 +131,7 @@ class SeqViewController: SynthPanelController {
             
             for sliderLabelTag in sliderLabelTags {
               
-                if let label = view.viewWithTag(sliderLabelTag) as? TransposeButton {
+                if let label = view.viewWithTag(sliderLabelTag) as? SliderTransposeButton {
                     let labelTag = notePosition + sliderLabelTags.lowerBound
                     print ("beat counter: \(beatCounter), notePosition: \(notePosition), seqNum: \(seqNum), labelTag: \(labelTag), SLTag: \(sliderLabelTag)")
             
@@ -149,7 +149,7 @@ class SeqViewController: SynthPanelController {
     
     func updateSliderLabel(notePosition: Int) {
         let labelTag = notePosition + sliderLabelTags.lowerBound
-        if let label = view.viewWithTag(labelTag) as? TransposeButton {
+        if let label = view.viewWithTag(labelTag) as? SliderTransposeButton {
             var transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
             let octBoost = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition) > 0 ? true : false
             if octBoost {

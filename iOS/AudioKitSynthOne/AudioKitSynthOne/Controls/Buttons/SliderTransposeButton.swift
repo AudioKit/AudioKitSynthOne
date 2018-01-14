@@ -9,7 +9,7 @@
 import UIKit
 import AudioKit
 
-class TransposeButton: UILabel, AKSynthOneControl {
+class SliderTransposeButton: UILabel, AKSynthOneControl {
     
     // *********************************************************
     // MARK: - Make Label ToggleButton

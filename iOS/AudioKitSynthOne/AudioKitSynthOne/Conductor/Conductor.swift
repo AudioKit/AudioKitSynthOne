@@ -42,6 +42,7 @@ class Conductor: AKSynthOneProtocol {
     var changeParameter: AKSynthOneControlCallback  = { param in
         return { value in
             sharedInstance.synth.setAK1Parameter(param, value)
+            sharedInstance.updateSingleUI(param)
         }
     }
     {
@@ -52,6 +53,7 @@ class Conductor: AKSynthOneProtocol {
     
     public var viewControllers: Set<UpdatableViewController> = []
     
+    fileprivate var started = false
     func start() {
         
         // Allow audio to play while the iOS device is muted.
@@ -84,13 +86,16 @@ class Conductor: AKSynthOneProtocol {
 
         AudioKit.output = synth
         AudioKit.start()
+        started = true
     }
     
     func updateSingleUI(_ param: AKSynthOneParameter) {
-        for vc in self.viewControllers {
-            if !vc.isKind(of: HeaderViewController.self) {
-                vc.updateUI(param, value: synth.getAK1Parameter(param) )
-            }
+        
+        // cannot access synth until it is initialized and started
+        if !started {return}
+        
+        for vc in viewControllers {
+            vc.updateUI(param, value: synth.getAK1Parameter(param) )
         }
     }
     
@@ -109,7 +114,7 @@ class Conductor: AKSynthOneProtocol {
         for vc in Conductor.sharedInstance.viewControllers {
             if vc.isKind(of: ParentViewController.self) {
                 if let vc2 = vc as? ParentViewController {
-                        vc2.updateDisplay("\(vc2.activePreset.position): \(vc2.activePreset.name)")
+                    vc2.updateDisplay("\(vc2.activePreset.position): \(vc2.activePreset.name)")
                 }
             }
         }

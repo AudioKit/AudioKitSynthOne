@@ -11,8 +11,9 @@ import AudioKit
 @IBDesignable
 public class MIDIKnob: Knob, MIDILearnable {
     
-    var midiLearnCallback: ()->Void = { }
+    // var midiLearnCallback: ()->Void = { }
     var hotspotView = UIView()
+    var conductor = Conductor.sharedInstance
     
     var isActive = false {
         didSet {
@@ -49,9 +50,8 @@ public class MIDIKnob: Knob, MIDILearnable {
         if midiLearnMode {
             isActive = !isActive // Toggles knob to be active & ready to receive CC
             
-            // Callback to update display label in AUMainController
-            // MIDIKnob does not require a callback to work
-            if isActive { midiLearnCallback() }
+            // Update Display label
+            if isActive { conductor.updateDisplayLabel("Twist Knob on your MIDI Controller") }
         }
         
     }

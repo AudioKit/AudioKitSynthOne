@@ -99,10 +99,6 @@ class SourceMixerViewController: SynthPanelController {
         
         // Setup Audio Plot Display
         setupAudioPlot()
-        
-        // Create array of MIDIKnobs
-        midiKnobs = self.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        setupMIDILearnCallbacks()
     }
     
     func setupAudioPlot() {
@@ -123,16 +119,5 @@ class SourceMixerViewController: SynthPanelController {
         audioPlot.shouldFill = isAudioPlotFilled
     }
     
-    //*****************************************************************
-    // MARK: - Callbacks
-    //*****************************************************************
-    
-    func setupMIDILearnCallbacks() {
-        midiKnobs.forEach {
-            $0.midiLearnCallback = {
-                //self.outputLabel.text = "Twist Knob on your MIDI Controller"
-            }
-        }
-    }
 }
 

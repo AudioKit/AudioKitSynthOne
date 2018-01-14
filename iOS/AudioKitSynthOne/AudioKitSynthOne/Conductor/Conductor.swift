@@ -124,6 +124,11 @@ class Conductor: AKSynthOneProtocol {
         }
     }
     
+    func updateDisplayLabel(_ message: String) {
+        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
+        parentVC.updateDisplay(message)
+    }
+    
     func arpBeatCounterDidChange(_ beat: Int) {
         
         DispatchQueue.main.async {

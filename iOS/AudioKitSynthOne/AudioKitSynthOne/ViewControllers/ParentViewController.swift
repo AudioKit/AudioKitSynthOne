@@ -190,6 +190,8 @@ public class ParentViewController: UpdatableViewController {
     
     func setupCallbacks() {
         
+        let s = conductor.synth!
+        
         transposeStepper.callback = { value in
             AKLog("still need to hook up")
         }
@@ -237,7 +239,7 @@ public class ParentViewController: UpdatableViewController {
      
         monoButton.callback = { value in
             self.keyboardView.polyphonicMode = !self.monoButton.isSelected
-            self.conductor.synth.setAK1Parameter(.isMono, value)
+            s.setAK1Parameter(.isMono, value)
         }
       
         keyboardToggle.callback = { value in
@@ -269,18 +271,16 @@ public class ParentViewController: UpdatableViewController {
             case 0:
                 // Cutoff
                 let scaledValue = Double.scaleRangeLog(value, rangeMin: 30, rangeMax: 7000)
-                self.conductor.synth.setAK1Parameter(.cutoff, scaledValue*3)
-                
-                //self.mixerViewController.cutoff.knobValue = CGFloat(value)
+                s.setAK1Parameter(.cutoff, scaledValue*3)
             case 1:
                 // LFO 1 Rate
                 let scaledValue = Double.scaleRangeLog(value, rangeMin: 0.01, rangeMax: 10.0)
-                self.conductor.synth.setAK1Parameter(.lfo1Rate, scaledValue)
+                s.setAK1Parameter(.lfo1Rate, scaledValue)
                 break
             case 2:
                 // LFO 2 Rate
                 let scaledValue = Double.scaleRangeLog(value, rangeMin: 0.01, rangeMax: 10.0)
-                self.conductor.synth.setAK1Parameter(.lfo2Rate, scaledValue)
+                s.setAK1Parameter(.lfo2Rate, scaledValue)
             default:
                 break
                 
@@ -294,7 +294,7 @@ public class ParentViewController: UpdatableViewController {
             } else {
                  bendValue = Double.scaleEntireRange(value, fromRangeMin: 0.5, fromRangeMax: 1.0, toRangeMin: 1.0, toRangeMax: 2.0)
             }
-           self.conductor.synth.setAK1Parameter(.detuningMultiplier, bendValue)
+           s.setAK1Parameter(.detuningMultiplier, bendValue)
         }
         
         pitchPad.completionHandler = {  _, touchesEnded, reset in
@@ -302,7 +302,7 @@ public class ParentViewController: UpdatableViewController {
                 self.pitchPad.resetToCenter()
             }
             if reset {
-               self.conductor.synth.setAK1Parameter(.detuningMultiplier, 1.0)
+               s.setAK1Parameter(.detuningMultiplier, 1.0)
             }
         }
         

@@ -38,7 +38,7 @@ class TouchPadViewController: SynthPanelController {
         touchPad1.verticalTaper = log(3) / log(2)
         
         let s = Conductor.sharedInstance.synth!
-        touchPad2.verticalRange = s.filterCutoffMin ... s.filterCutoffMax
+        touchPad2.verticalRange = s.getParameterRange(.cutoff)
         touchPad2.verticalTaper = 4.04
         
         snapToggle.value = 1
@@ -76,7 +76,6 @@ class TouchPadViewController: SynthPanelController {
             self.conductor.updateSingleUI(.morphBalance)
             self.conductor.synth.setAK1Parameter(.detuningMultiplier, vertical)
             self.conductor.updateSingleUI(.detuningMultiplier)
-            //self.conductor.updateAllUI()
         }
         
         touchPad1.completionHandler = { horizontal, vertical, touchesEnded, reset in
@@ -88,8 +87,6 @@ class TouchPadViewController: SynthPanelController {
             if self.snapToggle.isOn && touchesEnded && !reset {
                 self.resetTouchPad1()
             }
-            
-            //self.conductor.updateAllUI()
         }
         
         
@@ -113,7 +110,6 @@ class TouchPadViewController: SynthPanelController {
             self.conductor.updateSingleUI(.resonance)
             self.conductor.synth.setAK1Parameter(.cutoff, vertical)
             self.conductor.updateSingleUI(.cutoff)
-            //self.conductor.updateAllUI()
         }
         
         

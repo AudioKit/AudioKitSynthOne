@@ -30,10 +30,20 @@ class ADSRViewController: SynthPanelController {
        
         envelopeLabelBackground.layer.cornerRadius = 8
         
-        filterADSRMixKnob.range = 0.0 ... 1.2
-        attackKnob.range = 0.000001 ... 2.0
-        filterAttackKnob.range = 0.0 ... 2.0
-        releaseKnob.range = 0.004 ... 2
+        let s = conductor.synth!
+        
+        attackKnob.range = s.getParameterRange(.attackDuration)
+        decayKnob.range = s.getParameterRange(.decayDuration)
+        sustainKnob.range = s.getParameterRange(.sustainLevel)
+        releaseKnob.range = s.getParameterRange(.releaseDuration)
+
+        filterAttackKnob.range = s.getParameterRange(.filterAttackDuration)
+        filterDecayKnob.range = s.getParameterRange(.filterDecayDuration)
+        filterSustainKnob.range = s.getParameterRange(.filterSustainLevel)
+        filterReleaseKnob.range = s.getParameterRange(.filterReleaseDuration)
+
+        filterADSRMixKnob.range = s.getParameterRange(.filterADSRMix)
+
         viewType = .adsrView
         
         conductor.bind(attackKnob,        to: .attackDuration)

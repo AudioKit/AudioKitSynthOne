@@ -56,21 +56,28 @@ class SourceMixerViewController: SynthPanelController {
         viewType = .oscView
         
         // Defaults, limits
-        cutoff.range = conductor.synth.filterCutoffMin ... conductor.synth.filterCutoffMax
-        cutoff.taper = 3
+        let s = conductor.synth!
+        
         morph1SemitoneOffset.onlyIntegers = true
-        morph1SemitoneOffset.range = -12 ... 12 // semitones
+        morph1SemitoneOffset.range = s.getParameterRange(.morph1SemitoneOffset)
         morph2SemitoneOffset.onlyIntegers = true
-        morph2SemitoneOffset.range = -12 ... 12  // semitones
-        morph2Detuning.range = -4 ... 4  // Hz
-        glideKnob.range = 0.0 ... 0.2
+        morph2SemitoneOffset.range = s.getParameterRange(.morph2SemitoneOffset)
+        morph2Detuning.range = s.getParameterRange(.morph2Detuning)
+        morphBalance.range = s.getParameterRange(.morphBalance)
+        morph1Volume.range = s.getParameterRange(.morph1Volume)
+        morph2Volume.range = s.getParameterRange(.morph2Volume)
+        glideKnob.range = s.getParameterRange(.glide)
         glideKnob.taper = 2
-        noiseVolume.range = 0.0 ... 0.25
-        fmAmount.range = 0.0 ... 15
-        resonance.range = conductor.synth.filterResonanceMin ... conductor.synth.filterResonanceMax
-        tempoStepper.maxValue = 280
-        tempoStepper.minValue = 10
-        masterVolume.range = 0.0...2.0
+        cutoff.range = s.getParameterRange(.cutoff)
+        cutoff.taper = 3
+        resonance.range = s.getParameterRange(.resonance)
+        subVolume.range = s.getParameterRange(.subVolume)
+        fmVolume.range = s.getParameterRange(.fmVolume)
+        fmAmount.range = s.getParameterRange(.fmAmount)
+        noiseVolume.range = s.getParameterRange(.noiseVolume)
+        masterVolume.range = s.getParameterRange(.masterVolume)
+        tempoStepper.maxValue = s.getParameterMax(.arpRate)
+        tempoStepper.minValue = s.getParameterMin(.arpRate)
 
         conductor.bind(morph1Selector,       to: .index1)
         conductor.bind(morph2Selector,       to: .index2)

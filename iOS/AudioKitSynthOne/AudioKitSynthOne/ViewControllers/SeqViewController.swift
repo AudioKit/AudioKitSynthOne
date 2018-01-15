@@ -130,7 +130,7 @@ class SeqViewController: SynthPanelController {
             let notePosition = (beatCounter % seqNum)
             
             // TODO: REMOVE - FOR DEBUGING
-            conductor.updateDisplayLabel("Sequencer position: \(notePosition)")
+            conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(beatCounter)")
             
             // clear out all indicators
             sliderTransposeButtons.forEach { $0.isActive = false }

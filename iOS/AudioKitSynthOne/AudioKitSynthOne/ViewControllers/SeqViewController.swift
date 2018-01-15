@@ -126,11 +126,14 @@ class SeqViewController: SynthPanelController {
         let arpIsOn = conductor.synth.getAK1Parameter(.arpIsOn) > 0 ? true : false
         let arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
-        if arpIsOn && arpIsSequencer && seqNum > 0 {
-            let notePosition = (beatCounter % seqNum)
+        if arpIsOn && arpIsSequencer && seqNum >= 0 {
+            
+            let fixedBeatCounter = beatCounter-1 // HACK TO FIX INCORRECT BEATCOUNTER INPUT
+            var notePosition = (fixedBeatCounter % seqNum)
+            if notePosition < 0 { notePosition = 0 } // HACK TO FIX INCORRECT BEATCOUNTER INPUT
             
             // TODO: REMOVE - FOR DEBUGING
-            conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(beatCounter)")
+            conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(fixedBeatCounter)")
             
             // clear out all indicators
             sliderTransposeButtons.forEach { $0.isActive = false }

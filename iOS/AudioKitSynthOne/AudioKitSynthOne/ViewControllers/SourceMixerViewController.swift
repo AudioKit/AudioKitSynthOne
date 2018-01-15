@@ -49,6 +49,7 @@ class SourceMixerViewController: SynthPanelController {
     
     var audioPlot: AKNodeOutputPlot!
     var isAudioPlotFilled: Bool = false
+    var midiKnobs = [MIDIKnob]()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,5 +125,6 @@ class SourceMixerViewController: SynthPanelController {
         isAudioPlotFilled = !isAudioPlotFilled
         audioPlot.shouldFill = isAudioPlotFilled
     }
+    
 }
 

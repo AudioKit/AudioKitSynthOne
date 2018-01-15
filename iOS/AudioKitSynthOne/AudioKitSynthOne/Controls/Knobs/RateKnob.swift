@@ -9,10 +9,8 @@
 import UIKit
 import AudioKit
 
-public class RateKnob: Knob {
+public class RateKnob: MIDIKnob {
 
-    var conductor = Conductor.sharedInstance
-    
     var rate: Rate {
         return Rate(rawValue: Int(knobValue * CGFloat(Rate.count))) ?? Rate.sixtyFourth
     }

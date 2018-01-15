@@ -24,7 +24,7 @@ class SeqViewController: SynthPanelController {
     let sliderTags = 400 ... 415
     let sliderToggleTags = 500 ... 515
     
-    var prevLedTag: Int = 0
+    var sliderTransposeButtons = [SliderTransposeButton]()
     
     // *********************************************************
     // MARK: - Lifecycle
@@ -42,6 +42,9 @@ class SeqViewController: SynthPanelController {
         octaveStepper.maxValue = s.getParameterMax(.arpOctave)
         arpInterval.range = s.getParameterRange(.arpInterval)
         
+        // Get all Slider Transpose Buttons
+        sliderTransposeButtons = self.view.subviews.filter { $0 is SliderTransposeButton } as! [SliderTransposeButton]
+        
         // Bindings
         conductor.bind(arpToggle,          to: .arpIsOn)
         conductor.bind(arpInterval,        to: .arpInterval)
@@ -52,7 +55,7 @@ class SeqViewController: SynthPanelController {
         
         // SeqOctBoost/Slider Transpose Label bindings
         for tag in sliderLabelTags {
-            if let label = view.viewWithTag(tag) as? TransposeButton {
+            if let label = view.viewWithTag(tag) as? SliderTransposeButton {
                 let notePosition = Int(tag) - self.sliderLabelTags.lowerBound
                 let asp = Int32(Int(AKSynthOneParameter.arpSeqOctBoost00.rawValue) + notePosition)
                 if let aspe = AKSynthOneParameter(rawValue: asp) {
@@ -116,56 +119,36 @@ class SeqViewController: SynthPanelController {
         }
     }
     
-    //*****************************************************************
+    // *****************************************************************
     // MARK: - Helpers
-    //*****************************************************************
+    // *****************************************************************
     
     @objc public func updateLED(beatCounter: Int) {
         let arpIsOn = conductor.synth.getAK1Parameter(.arpIsOn) > 0 ? true : false
         let arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
-        if arpIsOn && arpIsSequencer && seqNum > 0 {
-            let notePosition = (beatCounter % seqNum)
-      
-            // clear out all labeltags
-            // change the outline of one / notePosition
+        if arpIsOn && arpIsSequencer && seqNum >= 0 {
             
-            for sliderLabelTag in sliderLabelTags {
-              
-                if let label = view.viewWithTag(sliderLabelTag) as? TransposeButton {
-                    let labelTag = notePosition + sliderLabelTags.lowerBound
-                    print ("beat counter: \(beatCounter), notePosition: \(notePosition), seqNum: \(seqNum), labelTag: \(labelTag), SLTag: \(sliderLabelTag)")
+            let fixedBeatCounter = beatCounter-1 // HACK TO FIX INCORRECT BEATCOUNTER INPUT
+            var notePosition = (fixedBeatCounter % seqNum)
+            if notePosition < 0 { notePosition = 0 } // HACK TO FIX INCORRECT BEATCOUNTER INPUT
             
-                    if labelTag == sliderLabelTag {
-                        label.layer.borderColor = #colorLiteral(red: 0.8812435269, green: 0.4256765842, blue: 0, alpha: 1)
-                        label.layer.borderWidth = 2
-                    } else {
-                        label.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-                        label.layer.borderWidth = 1
-                    }
-                }
-            }
+            // TODO: REMOVE - FOR DEBUGING
+            conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(fixedBeatCounter)")
+            
+            // clear out all indicators
+            sliderTransposeButtons.forEach { $0.isActive = false }
+            
+            // change the outline current notePosition
+            sliderTransposeButtons[notePosition].isActive = true
         }
     }
     
     func updateSliderLabel(notePosition: Int) {
-        let labelTag = notePosition + sliderLabelTags.lowerBound
-        if let label = view.viewWithTag(labelTag) as? TransposeButton {
-            var transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
-            let octBoost = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition) > 0 ? true : false
-            if octBoost {
-                label.value = 1
-                if transposeAmt >= 0 {
-                    transposeAmt = transposeAmt + 12
-                } else {
-                    transposeAmt = transposeAmt - 12
-                }
-            } else {
-                label.value = 0
-            }
-            label.text = "\(transposeAmt)"
-            label.setNeedsDisplay()
-        }
+        let sliderTransposeButton = sliderTransposeButtons[notePosition]
+
+        sliderTransposeButton.transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
+        sliderTransposeButton.octBoost = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition) > 0 ? true : false
     }
     
 }

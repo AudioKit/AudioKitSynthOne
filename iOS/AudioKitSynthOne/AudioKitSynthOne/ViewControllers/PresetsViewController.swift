@@ -48,6 +48,8 @@ class PresetsViewController: UIViewController {
             createActivePreset()
             presetDescriptionField.text = currentPreset.userText
             categoryLabel.text = PresetCategory(rawValue: currentPreset.category)?.description()
+            
+            print ("preset: \(currentPreset.name)")
         }
     }
     
@@ -94,6 +96,8 @@ class PresetsViewController: UIViewController {
         
         // Setup button callbacks
         setupCallbacks()
+        
+      
       
     }
     
@@ -203,7 +207,7 @@ class PresetsViewController: UIViewController {
     func selectCurrentPreset() {
         // No preset is selected, select first one
         guard presets.index(where: {$0 === currentPreset}) != nil else {
-            currentPreset = presets[0]
+            // currentPreset = presets[0]
             tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
             return
         }

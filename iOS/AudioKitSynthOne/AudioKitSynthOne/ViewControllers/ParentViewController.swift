@@ -58,6 +58,7 @@ public class ParentViewController: UpdatableViewController {
     let midi = AKMIDI()  ///TODO: REMOVE
     var sustainMode = false
     var pcJustTriggered = false
+    var midiKnobs = [MIDIKnob]()
   
     // ********************************************************
     // MARK: - Define child view controllers
@@ -129,9 +130,9 @@ public class ParentViewController: UpdatableViewController {
         octaveStepper.maxValue = 4
         
         // Set transpose range and default value
-        transposeStepper.minValue = -24
-        transposeStepper.value = 0
-        transposeStepper.maxValue = 24
+//        transposeStepper.minValue = -24
+//        transposeStepper.value = 0
+//        transposeStepper.maxValue = 24
         
         // Make bluetooth button look pretty
         bluetoothButton.centerPopupIn(view: view)
@@ -182,6 +183,15 @@ public class ParentViewController: UpdatableViewController {
         appSettings.launches = appSettings.launches + 1
         saveAppSettingValues()
         
+        // Get MIDI Knobs
+        midiKnobs += mixerViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+        midiKnobs += adsrViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+        midiKnobs += fxViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+        midiKnobs += seqViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+        
+        // Set initial preset
+        presetsViewController.didSelectPreset(index: 0)
+        
     }
     
     // ********************************************************
@@ -195,6 +205,9 @@ public class ParentViewController: UpdatableViewController {
         transposeStepper.callback = { value in
             AKLog("still need to hook up")
         }
+//        transposeStepper.callback = { value in
+//            AKLog("still need to hook up")
+//        }
         
         octaveStepper.callback = { value in
             self.keyboardView.firstOctave = Int(value) + 2
@@ -218,7 +231,7 @@ public class ParentViewController: UpdatableViewController {
         midiLearnToggle.callback = { _ in
         
             // Toggle MIDI Learn Knobs in subview
-            //self.auMainController.midiKnobs.forEach { $0.midiLearnMode = self.midiLearnToggle.isSelected }
+            self.midiKnobs.forEach { $0.midiLearnMode = self.midiLearnToggle.isSelected }
             
             // Update display label
             if self.midiLearnToggle.isSelected {
@@ -305,6 +318,8 @@ public class ParentViewController: UpdatableViewController {
                s.setAK1Parameter(.detuningMultiplier, 1.0)
             }
         }
+        
+        
         
     }
     
@@ -406,8 +421,8 @@ extension ParentViewController: ModWheelDelegate {
 extension ParentViewController: MIDISettingsPopOverDelegate {
     
     func resetMIDILearn() {
-        //auMainController.midiKnobs.forEach { $0.midiCC = 255 }
-        //saveAppSettingValues()
+        midiKnobs.forEach { $0.midiCC = 255 }
+        saveAppSettingValues()
     }
     
     func didSelectMIDIChannel(newChannel: Int) {
@@ -685,16 +700,15 @@ extension ParentViewController: AKMIDIListener  {
             self.keyboardView.pressRemoved(noteNumber)
         }
     }
-   /*
+  
     // Assign MIDI CC to active MIDI Learn knobs
     func assignMIDIControlToKnobs(cc: MIDIByte) {
-        let activeMIDILearnKnobs = auMainController.midiKnobs.filter { $0.isActive }
+        let activeMIDILearnKnobs = midiKnobs.filter { $0.isActive }
         activeMIDILearnKnobs.forEach {
             $0.midiCC = cc
             $0.isActive = false
         }
     }
-    */
     
     // MIDI Controller input
     public func receivedMIDIController(_ controller: MIDIByte, value: MIDIByte, channel: MIDIChannel) {
@@ -702,9 +716,9 @@ extension ParentViewController: AKMIDIListener  {
         print("Channel: \(channel+1) controller: \(controller) value: \(value)")
         
         // If any MIDI Learn knobs are active, assign the CC
-//        DispatchQueue.main.async {
-//            if self.midiLearnToggle.isSelected { self.assignMIDIControlToKnobs(cc: controller) }
-//        }
+        DispatchQueue.main.async {
+            if self.midiLearnToggle.isSelected { self.assignMIDIControlToKnobs(cc: controller) }
+        }
         
         // Handle MIDI Control Messages
         switch controller {
@@ -732,15 +746,15 @@ extension ParentViewController: AKMIDIListener  {
         }
         
         // Check for MIDI learn knobs that match controller
-        // let matchingKnobs = auMainController.midiKnobs.filter { $0.midiCC == controller }
+        let matchingKnobs = midiKnobs.filter { $0.midiCC == controller }
         
         // Set new knob values from MIDI for matching knobs
-        /* matchingKnobs.forEach { midiKnob in
+        matchingKnobs.forEach { midiKnob in
             DispatchQueue.main.async {
                 midiKnob.setKnobValueFrom(midiValue: value)
             }
         }
-        */
+ 
     }
     
     // MIDI Program/Patch Change

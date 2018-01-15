@@ -9,7 +9,7 @@
 import UIKit
 import AudioKit
 
-class TransposeButton: UILabel, AKSynthOneControl {
+class SliderTransposeButton: UILabel, AKSynthOneControl {
     
     // *********************************************************
     // MARK: - Make Label ToggleButton
@@ -33,7 +33,40 @@ class TransposeButton: UILabel, AKSynthOneControl {
         }
     }
     
+    var octBoost = false {
+        didSet {
+            value = octBoost ? 1:0
+            
+            if octBoost {
+                if transposeAmt >= 0 {
+                    transposeAmt = transposeAmt + 12
+                } else {
+                    transposeAmt = transposeAmt - 12
+                }
+            } 
+        }
+    }
+    
+    var transposeAmt = 0 {
+        didSet {
+            self.text = String(transposeAmt)
+        }
+    }
+    
     public var callback: (Double)->Void = { _ in }
+    
+    var isActive = false {
+        didSet {
+            if isActive {
+                layer.borderColor = #colorLiteral(red: 0.8812435269, green: 0.4256765842, blue: 0, alpha: 1)
+                layer.borderWidth = 2
+            } else {
+                layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                layer.borderWidth = 1
+            }
+            
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

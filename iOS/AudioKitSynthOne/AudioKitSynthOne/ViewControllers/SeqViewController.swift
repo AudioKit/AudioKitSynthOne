@@ -20,7 +20,7 @@ class SeqViewController: SynthPanelController {
     @IBOutlet weak var arpToggle: ToggleButton!
     @IBOutlet weak var arpInterval: Knob!
     
-    let arpSeqOctBoostButtonTags = 550 ... 565
+    // let arpSeqOctBoostButtonTags = 550 ... 565
     var arpSeqOctBoostButtons = [SliderTransposeButton]()
 
     let arpSeqPatternSliderTags = 400 ... 415
@@ -58,8 +58,20 @@ class SeqViewController: SynthPanelController {
         ///////////////////////// ARP/SEQ TRANSPOSE //////////////////////////////////////////////////
         let arpSeqOctBoostArray: [AKSynthOneParameter] = [.arpSeqOctBoost00, .arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02, .arpSeqOctBoost03, .arpSeqOctBoost04, .arpSeqOctBoost05, .arpSeqOctBoost06, .arpSeqOctBoost07, .arpSeqOctBoost08, .arpSeqOctBoost09, .arpSeqOctBoost10, .arpSeqOctBoost11, .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14, .arpSeqOctBoost15]
         arpSeqOctBoostButtons = self.view.subviews.filter { $0 is SliderTransposeButton } as! [SliderTransposeButton]
-        arpSeqOctBoostButtons.forEach { slider in
-            let notePosition = slider.tag - self.arpSeqOctBoostButtonTags.lowerBound
+//        arpSeqOctBoostButtons.forEach { slider in
+//            let notePosition = slider.tag - self.arpSeqOctBoostButtonTags.lowerBound
+//            let arpSeqOctBoostParam = arpSeqOctBoostArray[notePosition]
+//            let sliderCallback: AKSynthOneControlCallback = { _ in
+//                return { value in
+//                    s.setAK1SeqOctBoost(forIndex: notePosition, value)
+//                    self.conductor.updateSingleUI(arpSeqOctBoostParam)
+//                }
+//            }
+//            conductor.bind(slider, to: arpSeqOctBoostParam, callback: sliderCallback)
+//        }
+        
+        // Example of this code without using tags
+        for (notePosition, octBoostButton) in arpSeqOctBoostButtons.enumerated() {
             let arpSeqOctBoostParam = arpSeqOctBoostArray[notePosition]
             let sliderCallback: AKSynthOneControlCallback = { _ in
                 return { value in
@@ -67,7 +79,7 @@ class SeqViewController: SynthPanelController {
                     self.conductor.updateSingleUI(arpSeqOctBoostParam)
                 }
             }
-            conductor.bind(slider, to: arpSeqOctBoostParam, callback: sliderCallback)
+            conductor.bind(octBoostButton, to: arpSeqOctBoostParam, callback: sliderCallback)
         }
         
         ///////////////////////// ARP/SEQ PATTERN //////////////////////////////////////////////////

@@ -31,7 +31,6 @@ public class ParentViewController: UpdatableViewController {
     @IBOutlet weak var holdButton: SynthUIButton!
     @IBOutlet weak var monoButton: SynthUIButton!
     @IBOutlet weak var keyboardToggle: SynthUIButton!
-    @IBOutlet weak var transposeStepper: Stepper!
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var configKeyboardButton: SynthUIButton!
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
@@ -129,11 +128,6 @@ public class ParentViewController: UpdatableViewController {
         octaveStepper.minValue = -2
         octaveStepper.maxValue = 4
         
-        // Set transpose range and default value
-//        transposeStepper.minValue = -24
-//        transposeStepper.value = 0
-//        transposeStepper.maxValue = 24
-        
         // Make bluetooth button look pretty
         bluetoothButton.centerPopupIn(view: view)
         bluetoothButton.layer.cornerRadius = 2
@@ -201,13 +195,6 @@ public class ParentViewController: UpdatableViewController {
     func setupCallbacks() {
         
         let s = conductor.synth!
-        
-        transposeStepper.callback = { value in
-            AKLog("still need to hook up")
-        }
-//        transposeStepper.callback = { value in
-//            AKLog("still need to hook up")
-//        }
         
         octaveStepper.callback = { value in
             self.keyboardView.firstOctave = Int(value) + 2

@@ -117,7 +117,7 @@ class SeqViewController: SynthPanelController {
     override func updateUI(_ param: AKSynthOneParameter, value: Double) {
         super.updateUI(param, value: value)
         for i in 0...15 {
-            updateSliderLabel(notePosition: i)
+            updateOctBoostButton(notePosition: i)
         }
     }
     
@@ -146,11 +146,11 @@ class SeqViewController: SynthPanelController {
         }
     }
     
-    func updateSliderLabel(notePosition: Int) {
-        let sliderTransposeButton = arpSeqOctBoostButtons[notePosition]
+    func updateOctBoostButton(notePosition: Int) {
+        let octBoostButton = arpSeqOctBoostButtons[notePosition]
 
-        sliderTransposeButton.transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
-        sliderTransposeButton.octBoost = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition) > 0 ? true : false
+        octBoostButton.transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
+        octBoostButton.octBoost = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition) > 0 ? true : false
     }
     
 }

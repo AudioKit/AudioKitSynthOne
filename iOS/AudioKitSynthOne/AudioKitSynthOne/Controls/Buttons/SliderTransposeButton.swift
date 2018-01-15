@@ -33,6 +33,26 @@ class SliderTransposeButton: UILabel, AKSynthOneControl {
         }
     }
     
+    var octBoost = false {
+        didSet {
+            value = octBoost ? 1:0
+            
+            if octBoost {
+                if transposeAmt >= 0 {
+                    transposeAmt = transposeAmt + 12
+                } else {
+                    transposeAmt = transposeAmt - 12
+                }
+            } 
+        }
+    }
+    
+    var transposeAmt = 0 {
+        didSet {
+            self.text = String(transposeAmt)
+        }
+    }
+    
     public var callback: (Double)->Void = { _ in }
     
     var isActive = false {

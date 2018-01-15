@@ -138,23 +138,10 @@ class SeqViewController: SynthPanelController {
     }
     
     func updateSliderLabel(notePosition: Int) {
-        let labelTag = notePosition + sliderLabelTags.lowerBound
-        if let label = view.viewWithTag(labelTag) as? SliderTransposeButton {
-            var transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
-            let octBoost = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition) > 0 ? true : false
-            if octBoost {
-                label.value = 1
-                if transposeAmt >= 0 {
-                    transposeAmt = transposeAmt + 12
-                } else {
-                    transposeAmt = transposeAmt - 12
-                }
-            } else {
-                label.value = 0
-            }
-            label.text = "\(transposeAmt)"
-            label.setNeedsDisplay()
-        }
+        let sliderTransposeButton = sliderTransposeButtons[notePosition]
+
+        sliderTransposeButton.transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
+        sliderTransposeButton.octBoost = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition) > 0 ? true : false
     }
     
 }

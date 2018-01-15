@@ -118,9 +118,9 @@ class SeqViewController: SynthPanelController {
         }
     }
     
-    //*****************************************************************
+    // *****************************************************************
     // MARK: - Helpers
-    //*****************************************************************
+    // *****************************************************************
     
     @objc public func updateLED(beatCounter: Int) {
         let arpIsOn = conductor.synth.getAK1Parameter(.arpIsOn) > 0 ? true : false
@@ -128,7 +128,10 @@ class SeqViewController: SynthPanelController {
         let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
         if arpIsOn && arpIsSequencer && seqNum > 0 {
             let notePosition = (beatCounter % seqNum)
-      
+            
+            // TODO: REMOVE - FOR DEBUGING
+            conductor.updateDisplayLabel("Sequencer position: \(notePosition)")
+            
             // clear out all indicators
             sliderTransposeButtons.forEach { $0.isActive = false }
             

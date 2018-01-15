@@ -15,8 +15,8 @@ class SliderTransposeButton: UILabel, AKSynthOneControl {
     // MARK: - Make Label ToggleButton
     // *********************************************************
     
-    
     private var _value: Double = 0
+    
     var value: Double {
         get {
             return _value
@@ -24,26 +24,17 @@ class SliderTransposeButton: UILabel, AKSynthOneControl {
         set {
             if newValue > 0 {
                 _value = 1
-                self.backgroundColor = #colorLiteral(red: 0.4961370826, green: 0.4989871979, blue: 0.5060116649, alpha: 1)
-            } else {
-                _value = 0
-                self.backgroundColor = #colorLiteral(red: 0.2666666667, green: 0.2666666667, blue: 0.2666666667, alpha: 1)
-            }
-            setNeedsDisplay()
-        }
-    }
-    
-    var octBoost = false {
-        didSet {
-            value = octBoost ? 1:0
-            
-            if octBoost {
+                self.backgroundColor = #colorLiteral(red: 0.4, green: 0.4, blue: 0.4078431373, alpha: 1)
                 if transposeAmt >= 0 {
                     transposeAmt = transposeAmt + 12
                 } else {
                     transposeAmt = transposeAmt - 12
                 }
-            } 
+            } else {
+                _value = 0
+                self.backgroundColor = #colorLiteral(red: 0.2666666667, green: 0.2666666667, blue: 0.2666666667, alpha: 1)
+            }
+            setNeedsDisplay()
         }
     }
     

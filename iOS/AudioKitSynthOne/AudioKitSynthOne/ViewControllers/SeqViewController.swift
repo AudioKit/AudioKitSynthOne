@@ -35,11 +35,12 @@ class SeqViewController: SynthPanelController {
         
         viewType = .seqView
         
-        seqStepsStepper.minValue = 1
-        seqStepsStepper.maxValue = 16
-        octaveStepper.minValue = 1
-        octaveStepper.maxValue = 4
-        arpInterval.range = 0 ... 12
+        let s = conductor.synth!
+        seqStepsStepper.minValue = s.getParameterMin(.arpTotalSteps)
+        seqStepsStepper.maxValue = s.getParameterMax(.arpTotalSteps)
+        octaveStepper.minValue = s.getParameterMin(.arpOctave)
+        octaveStepper.maxValue = s.getParameterMax(.arpOctave)
+        arpInterval.range = s.getParameterRange(.arpInterval)
         
         // Bindings
         conductor.bind(arpToggle,          to: .arpIsOn)
@@ -57,7 +58,7 @@ class SeqViewController: SynthPanelController {
                 if let aspe = AKSynthOneParameter(rawValue: asp) {
                     let labelCallback: AKSynthOneControlCallback = { param in
                         return { value in
-                            self.conductor.synth.setAK1SeqOctBoost(forIndex: notePosition, value)
+                            s.setAK1SeqOctBoost(forIndex: notePosition, value)
                             self.conductor.updateSingleUI(param)
                         }
                     }
@@ -77,7 +78,7 @@ class SeqViewController: SynthPanelController {
                     let sliderCallback: AKSynthOneControlCallback = { param in
                         return { value in
                             let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
-                            self.conductor.synth.setAK1ArpSeqPattern(forIndex: notePosition, tval )
+                            s.setAK1ArpSeqPattern(forIndex: notePosition, tval )
                             self.conductor.updateSingleUI(param)
                         }
                     }
@@ -96,7 +97,7 @@ class SeqViewController: SynthPanelController {
                 if let aspe = AKSynthOneParameter(rawValue: asp) {
                     let toggleCallback: AKSynthOneControlCallback = { param in
                         return { value in
-                            self.conductor.synth.setAK1ArpSeqNoteOn(forIndex: notePosition, value >  0 ? true : false )
+                            s.setAK1ArpSeqNoteOn(forIndex: notePosition, value >  0 ? true : false )
                             self.conductor.updateSingleUI(param)
                         }
                     }

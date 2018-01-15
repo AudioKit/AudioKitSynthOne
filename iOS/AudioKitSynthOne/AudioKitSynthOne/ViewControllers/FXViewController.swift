@@ -59,36 +59,32 @@ class FXViewController: SynthPanelController {
      
         viewType = .fxView
 
-        /*
-        // Set Default LFO routing
-        bitCrush.value = 24
-        bitCrush.range = 1 ... 24
-        bitCrush.taper = 2
-*/
+        let s = conductor.synth!
         
-        sampleRate.value = 44100
-        sampleRate.range = 400 ... 44100
+        sampleRate.value = s.getParameterDefault(.bitCrushSampleRate)
+        sampleRate.range = s.getParameterRange(.bitCrushSampleRate)
         sampleRate.taper = 5
 
-        autoPanRate.range = 0 ... 10
+        autoPanRate.range = s.getParameterRange(.autoPanFrequency)
         autoPanRate.taper = 2
 
-        reverbLowCut.range = 80 ... 900
+        //reverbLowCut.range = 80 ... 900
+        reverbLowCut.range = s.getParameterRange(.reverbHighPass)
         reverbLowCut.taper = 1
 
-        delayFeedback.range = 0 ... 0.9
-        delayTime.range = 0.01 ... 1.5
+        delayFeedback.range = s.getParameterRange(.delayFeedback)
+        delayTime.range = s.getParameterRange(.delayTime)
 
-        lfo1Rate.range = 0 ... 10
+        lfo1Rate.range = s.getParameterRange(.lfo1Rate)
         lfo1Rate.taper = 3
-        lfo2Rate.range = 0 ... 10
+        lfo2Rate.range = s.getParameterRange(.lfo2Rate)
         lfo2Rate.taper = 3
         
-        phaserMix.range = 0.0 ... 1.0
-        phaserRate.range = 12 ... 300
+        phaserMix.range = s.getParameterRange(.phaserMix)
+        phaserRate.range = s.getParameterRange(.phaserRate)
         phaserRate.taper = 2
-        phaserFeedback.range = 0.0 ... 0.8
-        phaserNotchWidth.range = 100 ... 1000
+        phaserFeedback.range = s.getParameterRange(.phaserFeedback)
+        phaserNotchWidth.range = s.getParameterRange(.phaserNotchWidth)
 
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)
         conductor.bind(autoPanToggle,      to: .autoPanOn)

@@ -149,7 +149,6 @@ class Conductor: AKSynthOneProtocol {
     }
     
     // Start/Pause AK Engine (Conserve energy by turning background audio off)
-    // TODO: Add AUv3 requirements
     func startEngine(completionHandler: AKCallback? = nil) {
         AKLog("engine.isRunning: \(AudioKit.engine.isRunning)")
         if !AudioKit.engine.isRunning {

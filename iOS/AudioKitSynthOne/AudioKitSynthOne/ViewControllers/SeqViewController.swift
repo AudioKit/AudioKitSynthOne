@@ -20,13 +20,8 @@ class SeqViewController: SynthPanelController {
     @IBOutlet weak var arpToggle: ToggleButton!
     @IBOutlet weak var arpInterval: Knob!
     
-    // let arpSeqOctBoostButtonTags = 550 ... 565
     var arpSeqOctBoostButtons = [SliderTransposeButton]()
-
-    let arpSeqPatternSliderTags = 400 ... 415
     var arpSeqPatternSliders = [VerticalSlider]()
-
-    let arpSeqNoteOnButtonTags = 500 ... 515
     var arpSeqNoteOnButtons = [ArpButton]()
     
     // *********************************************************
@@ -52,65 +47,51 @@ class SeqViewController: SynthPanelController {
         conductor.bind(arpDirectionButton, to: .arpDirection)
         conductor.bind(arpSeqToggle,       to: .arpIsSequencer)
         conductor.bind(seqStepsStepper,    to: .arpTotalSteps)
-
-        // Gather Arp/Seq UI components
         
-        ///////////////////////// ARP/SEQ TRANSPOSE //////////////////////////////////////////////////
+        // ARP/SEQ TRANSPOSE
         let arpSeqOctBoostArray: [AKSynthOneParameter] = [.arpSeqOctBoost00, .arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02, .arpSeqOctBoost03, .arpSeqOctBoost04, .arpSeqOctBoost05, .arpSeqOctBoost06, .arpSeqOctBoost07, .arpSeqOctBoost08, .arpSeqOctBoost09, .arpSeqOctBoost10, .arpSeqOctBoost11, .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14, .arpSeqOctBoost15]
-        arpSeqOctBoostButtons = self.view.subviews.filter { $0 is SliderTransposeButton } as! [SliderTransposeButton]
-//        arpSeqOctBoostButtons.forEach { slider in
-//            let notePosition = slider.tag - self.arpSeqOctBoostButtonTags.lowerBound
-//            let arpSeqOctBoostParam = arpSeqOctBoostArray[notePosition]
-//            let sliderCallback: AKSynthOneControlCallback = { _ in
-//                return { value in
-//                    s.setAK1SeqOctBoost(forIndex: notePosition, value)
-//                    self.conductor.updateSingleUI(arpSeqOctBoostParam)
-//                }
-//            }
-//            conductor.bind(slider, to: arpSeqOctBoostParam, callback: sliderCallback)
-//        }
         
-        // Example of this code without using tags
+        arpSeqOctBoostButtons = self.view.subviews.filter { $0 is SliderTransposeButton } as! [SliderTransposeButton]
+        
         for (notePosition, octBoostButton) in arpSeqOctBoostButtons.enumerated() {
             let arpSeqOctBoostParam = arpSeqOctBoostArray[notePosition]
-            let sliderCallback: AKSynthOneControlCallback = { _ in
+            conductor.bind(octBoostButton, to: arpSeqOctBoostParam) { _ in
                 return { value in
                     s.setAK1SeqOctBoost(forIndex: notePosition, value)
                     self.conductor.updateSingleUI(arpSeqOctBoostParam)
                 }
             }
-            conductor.bind(octBoostButton, to: arpSeqOctBoostParam, callback: sliderCallback)
         }
         
-        ///////////////////////// ARP/SEQ PATTERN //////////////////////////////////////////////////
+        // ARP/SEQ PATTERN
         let arpSeqPatternArray: [AKSynthOneParameter] = [.arpSeqPattern00, .arpSeqPattern01,  .arpSeqPattern02, .arpSeqPattern03, .arpSeqPattern04, .arpSeqPattern05, .arpSeqPattern06, .arpSeqPattern07, .arpSeqPattern08, .arpSeqPattern09, .arpSeqPattern10, .arpSeqPattern11, .arpSeqPattern12, .arpSeqPattern13, .arpSeqPattern14, .arpSeqPattern15]
+        
         arpSeqPatternSliders = self.view.subviews.filter { $0 is VerticalSlider } as! [VerticalSlider]
-        arpSeqPatternSliders.forEach { slider in
-            let notePosition = slider.tag - self.arpSeqPatternSliderTags.lowerBound
+        
+        for (notePosition, arpSeqPatternSlider) in arpSeqPatternSliders.enumerated() {
             let arpSeqPatternParam = arpSeqPatternArray[notePosition]
-            let sliderCallback: AKSynthOneControlCallback = { _ in
+            conductor.bind(arpSeqPatternSlider, to: arpSeqPatternParam) { _ in
                 return { value in
                     let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
                     s.setAK1ArpSeqPattern(forIndex: notePosition, tval )
                     self.conductor.updateSingleUI(arpSeqPatternParam)
                 }
             }
-            conductor.bind(slider, to: arpSeqPatternParam, callback: sliderCallback)
         }
-
-        ///////////////////////// ARP/SEQ NOTE ON/OFF //////////////////////////////////////////////////
+        
+        // ARP/SEQ NOTE ON/OFF
         let arpSeqNoteOnArray: [AKSynthOneParameter] = [.arpSeqNoteOn00, .arpSeqNoteOn01, .arpSeqNoteOn02, .arpSeqNoteOn03, .arpSeqNoteOn04, .arpSeqNoteOn05, .arpSeqNoteOn06, .arpSeqNoteOn07, .arpSeqNoteOn08, .arpSeqNoteOn09, .arpSeqNoteOn10, .arpSeqNoteOn11, .arpSeqNoteOn12, .arpSeqNoteOn13, .arpSeqNoteOn14, .arpSeqNoteOn15]
+        
         arpSeqNoteOnButtons = self.view.subviews.filter { $0 is ArpButton } as! [ArpButton]
-        arpSeqNoteOnButtons.forEach { button in
-            let notePosition = button.tag - self.arpSeqNoteOnButtonTags.lowerBound
+        
+        for (notePosition, arpSeqNoteOnButton) in arpSeqNoteOnButtons.enumerated() {
             let arpSeqPatternParam = arpSeqNoteOnArray[notePosition]
-            let sliderCallback: AKSynthOneControlCallback = { _ in
+            conductor.bind(arpSeqNoteOnButton, to: arpSeqPatternParam) { _ in
                 return { value in
                     s.setAK1ArpSeqNoteOn(forIndex: notePosition, value >  0 ? true : false )
                     self.conductor.updateSingleUI(arpSeqPatternParam)
                 }
             }
-            conductor.bind(button, to: arpSeqPatternParam, callback: sliderCallback)
         }
     }
     
@@ -130,13 +111,11 @@ class SeqViewController: SynthPanelController {
         let arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
         if arpIsOn && arpIsSequencer && seqNum >= 0 {
-            
-            let fixedBeatCounter = beatCounter-1 // HACK TO FIX INCORRECT BEATCOUNTER INPUT
-            var notePosition = (fixedBeatCounter % seqNum)
-            if notePosition < 0 { notePosition = 0 } // HACK TO FIX INCORRECT BEATCOUNTER INPUT
-            
+            //let notePosition = (beatCounter % seqNum)
+            let notePosition = (( beatCounter + seqNum - 1 ) % seqNum)
+
             // TODO: REMOVE - FOR DEBUGING
-            conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(fixedBeatCounter)")
+            //conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(beatCounter)")
             
             // clear out all indicators
             arpSeqOctBoostButtons.forEach { $0.isActive = false }
@@ -148,7 +127,6 @@ class SeqViewController: SynthPanelController {
     
     func updateOctBoostButton(notePosition: Int) {
         let octBoostButton = arpSeqOctBoostButtons[notePosition]
-
         octBoostButton.transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
         octBoostButton.value = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition)
     }

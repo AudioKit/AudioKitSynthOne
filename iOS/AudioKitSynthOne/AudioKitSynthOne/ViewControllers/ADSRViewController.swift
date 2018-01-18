@@ -14,15 +14,15 @@ class ADSRViewController: SynthPanelController {
     
     @IBOutlet var adsrView: AKADSRView!
     @IBOutlet var filterADSRView: AKADSRView!
-    @IBOutlet weak var attackKnob: Knob!
-    @IBOutlet weak var decayKnob: Knob!
-    @IBOutlet weak var sustainKnob: Knob!
-    @IBOutlet weak var releaseKnob: Knob!
-    @IBOutlet weak var filterAttackKnob: Knob!
-    @IBOutlet weak var filterDecayKnob: Knob!
-    @IBOutlet weak var filterSustainKnob: Knob!
-    @IBOutlet weak var filterReleaseKnob: Knob!
-    @IBOutlet weak var filterADSRMixKnob: Knob!
+    @IBOutlet weak var attackKnob: MIDIKnob!
+    @IBOutlet weak var decayKnob: MIDIKnob!
+    @IBOutlet weak var sustainKnob: MIDIKnob!
+    @IBOutlet weak var releaseKnob: MIDIKnob!
+    @IBOutlet weak var filterAttackKnob: MIDIKnob!
+    @IBOutlet weak var filterDecayKnob: MIDIKnob!
+    @IBOutlet weak var filterSustainKnob: MIDIKnob!
+    @IBOutlet weak var filterReleaseKnob: MIDIKnob!
+    @IBOutlet weak var filterADSRMixKnob: MIDIKnob!
     @IBOutlet weak var envelopeLabelBackground: UIView!
     
     override func viewDidLoad() {

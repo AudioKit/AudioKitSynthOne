@@ -11,7 +11,7 @@ import AudioKit
 import Disk
 
 extension ParentViewController {
- 
+    
     // **********************************************************
     // MARK: - Convert App Settings to Controls and vice-versa
     // **********************************************************
@@ -25,33 +25,55 @@ extension ParentViewController {
         
         
         // MIDI Learn
-        /*
-        auMainController.vol1Knob.midiCC = MIDIByte(appSettings.vol1_CC)
-        auMainController.masterVolume.midiCC = MIDIByte(appSettings.masterVolume_CC)
+        mixerViewController.masterVolume.midiCC = MIDIByte(appSettings.masterVolume_CC)
+        mixerViewController.morph1SemitoneOffset.midiCC = MIDIByte(appSettings.morph1SemitoneOffset_CC)
+        mixerViewController.morph2SemitoneOffset.midiCC = MIDIByte(appSettings.morph2SemitoneOffset_CC)
+        mixerViewController.morph2Detuning.midiCC = MIDIByte(appSettings.morph2Detuning_CC)
+        mixerViewController.morphBalance.midiCC = MIDIByte(appSettings.morphBalance_CC)
+        mixerViewController.morph1Volume.midiCC = MIDIByte(appSettings.morph1Volume_CC)
+        mixerViewController.morph2Volume.midiCC = MIDIByte(appSettings.morph2Volume_CC)
+        mixerViewController.subVolume.midiCC = MIDIByte(appSettings.subVolume_CC)
+        mixerViewController.fmVolume.midiCC = MIDIByte(appSettings.fmVolume_CC)
+        mixerViewController.fmAmount.midiCC = MIDIByte(appSettings.fmAmount_CC)
+        mixerViewController.noiseVolume.midiCC = MIDIByte(appSettings.noiseVolume_CC)
+        mixerViewController.glideKnob.midiCC = MIDIByte(appSettings.glideKnob_CC)
+        mixerViewController.cutoff.midiCC = MIDIByte(appSettings.cutoff_CC)
+        mixerViewController.resonance.midiCC = MIDIByte(appSettings.rez_CC)
         
-        auMainController.autoPanRateKnob.midiCC = MIDIByte(appSettings.autoPanRate_CC)
+        seqViewController.arpInterval.midiCC = MIDIByte(appSettings.arpInterval_CC)
         
-        auMainController.reverbAmtKnob.midiCC = MIDIByte(appSettings.reverbAmt_CC)
-        auMainController.reverbMixKnob.midiCC = MIDIByte(appSettings.reverbMix_CC)
+        adsrViewController.attackKnob.midiCC = MIDIByte(appSettings.attackKnob_CC)
+        adsrViewController.decayKnob.midiCC = MIDIByte(appSettings.decayKnob_CC)
+        adsrViewController.sustainKnob.midiCC = MIDIByte(appSettings.sustainKnob_CC)
+        adsrViewController.releaseKnob.midiCC = MIDIByte(appSettings.releaseKnob_CC)
+        adsrViewController.filterAttackKnob.midiCC = MIDIByte(appSettings.filterAttackKnob_CC)
+        adsrViewController.filterDecayKnob.midiCC = MIDIByte(appSettings.filterDecayKnob_CC)
+        adsrViewController.filterSustainKnob.midiCC = MIDIByte(appSettings.filterSustainKnob_CC)
+        adsrViewController.filterReleaseKnob.midiCC = MIDIByte(appSettings.filterReleaseKnob_CC)
+        adsrViewController.filterADSRMixKnob.midiCC = MIDIByte(appSettings.filterADSRMixKnob_CC)
         
-        auMainController.crushKnob.midiCC = MIDIByte(appSettings.crush_CC)
-        auMainController.tremoloKnob.midiCC = MIDIByte(appSettings.tremolo_CC)
-        
-        auMainController.delayTimeKnob.midiCC = MIDIByte(appSettings.delayTime_CC)
-        auMainController.delayFeedbackKnob.midiCC = MIDIByte(appSettings.delayFeedback_CC)
-        auMainController.delayMixKnob.midiCC = MIDIByte(appSettings.delayMix_CC)
-        
-        auMainController.freqKnob.midiCC = MIDIByte(appSettings.cutoff_CC)
-        auMainController.rezKnob.midiCC = MIDIByte(appSettings.rez_CC)
-        auMainController.lfoAmtKnob.midiCC = MIDIByte(appSettings.lfoAmt_CC)
-        auMainController.lfoRateKnob.midiCC = MIDIByte(appSettings.lfoRate_CC)
-        */
+        fxViewController.sampleRate.midiCC = MIDIByte(appSettings.sampleRate_CC)
+        fxViewController.autoPanRate.midiCC = MIDIByte(appSettings.autoPanRate_CC)
+        fxViewController.reverbSize.midiCC = MIDIByte(appSettings.reverbSize_CC)
+        fxViewController.reverbLowCut.midiCC = MIDIByte(appSettings.reverbLowCut_CC)
+        fxViewController.reverbMix.midiCC = MIDIByte(appSettings.reverbMix_CC)
+        fxViewController.delayTime.midiCC = MIDIByte(appSettings.delayTime_CC)
+        fxViewController.delayFeedback.midiCC = MIDIByte(appSettings.delayFeedback_CC)
+        fxViewController.delayMix.midiCC = MIDIByte(appSettings.delayMix_CC)
+        fxViewController.lfo1Amp.midiCC = MIDIByte(appSettings.lfo1Amp_CC)
+        fxViewController.lfo2Amp.midiCC = MIDIByte(appSettings.lfo2Amp_CC)
+        fxViewController.lfo1Rate.midiCC = MIDIByte(appSettings.lfo1Rate_CC)
+        fxViewController.lfo2Rate.midiCC = MIDIByte(appSettings.lfo2Rate_CC)
+        fxViewController.phaserMix.midiCC = MIDIByte(appSettings.phaserMix_CC)
+        fxViewController.phaserRate.midiCC = MIDIByte(appSettings.phaserRate_CC)
+        fxViewController.phaserFeedback.midiCC = MIDIByte(appSettings.phaserFeedback_CC)
+        fxViewController.phaserNotchWidth.midiCC = MIDIByte(appSettings.phaserNotchWidth_CC)
         
         // keyboard
         keyboardView.labelMode = appSettings.labelMode
         keyboardView.octaveCount = appSettings.octaveRange
         keyboardView.darkMode = appSettings.darkMode
-    
+        
         //TODO: Persist AudioPlot fill?
     }
     
@@ -63,28 +85,50 @@ extension ParentViewController {
         appSettings.omniMode = omniMode
         
         // MIDI Learn
-        /*
-        appSettings.vol1_CC = Int(auMainController.vol1Knob.midiCC)
-        appSettings.masterVolume_CC = Int(auMainController.masterVolume.midiCC)
+        appSettings.masterVolume_CC = Int(mixerViewController.masterVolume.midiCC)
+        appSettings.morph1SemitoneOffset_CC = Int(mixerViewController.morph1SemitoneOffset.midiCC)
+        appSettings.morph2SemitoneOffset_CC = Int(mixerViewController.morph2SemitoneOffset.midiCC)
+        appSettings.morph2Detuning_CC = Int(mixerViewController.morph2Detuning.midiCC)
+        appSettings.morphBalance_CC = Int(mixerViewController.morphBalance.midiCC)
+        appSettings.morph1Volume_CC = Int(mixerViewController.morph1Volume.midiCC)
+        appSettings.morph2Volume_CC = Int(mixerViewController.morph2Volume.midiCC)
+        appSettings.subVolume_CC = Int(mixerViewController.subVolume.midiCC)
+        appSettings.fmVolume_CC = Int(mixerViewController.fmVolume.midiCC)
+        appSettings.fmAmount_CC = Int(mixerViewController.fmAmount.midiCC)
+        appSettings.noiseVolume_CC = Int(mixerViewController.noiseVolume.midiCC)
+        appSettings.glideKnob_CC = Int(mixerViewController.glideKnob.midiCC)
+        appSettings.cutoff_CC = Int(mixerViewController.cutoff.midiCC)
+        appSettings.rez_CC = Int(mixerViewController.resonance.midiCC)
         
-        appSettings.autoPanRate_CC = Int(auMainController.autoPanRateKnob.midiCC)
+        appSettings.arpInterval_CC = Int(seqViewController.arpInterval.midiCC)
         
-        appSettings.reverbAmt_CC = Int(auMainController.reverbAmtKnob.midiCC)
-        appSettings.reverbMix_CC = Int(auMainController.reverbMixKnob.midiCC)
+        appSettings.attackKnob_CC = Int(adsrViewController.attackKnob.midiCC)
+        appSettings.decayKnob_CC = Int(adsrViewController.decayKnob.midiCC)
+        appSettings.sustainKnob_CC = Int(adsrViewController.sustainKnob.midiCC)
+        appSettings.releaseKnob_CC = Int(adsrViewController.releaseKnob.midiCC)
+        appSettings.filterAttackKnob_CC = Int(adsrViewController.filterAttackKnob.midiCC)
+        appSettings.filterDecayKnob_CC = Int(adsrViewController.filterDecayKnob.midiCC)
+        appSettings.filterSustainKnob_CC = Int(adsrViewController.filterSustainKnob.midiCC)
+        appSettings.filterReleaseKnob_CC = Int(adsrViewController.filterReleaseKnob.midiCC)
+        appSettings.filterADSRMixKnob_CC = Int(adsrViewController.filterADSRMixKnob.midiCC)
         
-        appSettings.crush_CC = Int(auMainController.crushKnob.midiCC)
-        appSettings.tremolo_CC = Int(auMainController.tremoloKnob.midiCC)
-        
-        appSettings.delayTime_CC = Int(auMainController.delayTimeKnob.midiCC)
-        appSettings.delayFeedback_CC = Int(auMainController.delayFeedbackKnob.midiCC)
-        appSettings.delayMix_CC = Int(auMainController.delayMixKnob.midiCC)
-        
-        appSettings.cutoff_CC = Int(auMainController.freqKnob.midiCC)
-        appSettings.rez_CC = Int(auMainController.rezKnob.midiCC)
-        appSettings.lfoAmt_CC = Int(auMainController.lfoAmtKnob.midiCC)
-        appSettings.lfoRate_CC = Int(auMainController.lfoRateKnob.midiCC)
-        */
-        
+        appSettings.sampleRate_CC = Int(fxViewController.sampleRate.midiCC)
+        appSettings.autoPanRate_CC = Int(fxViewController.autoPanRate.midiCC)
+        appSettings.reverbSize_CC = Int(fxViewController.reverbSize.midiCC)
+        appSettings.reverbLowCut_CC = Int(fxViewController.reverbLowCut.midiCC)
+        appSettings.reverbMix_CC = Int(fxViewController.reverbMix.midiCC)
+        appSettings.delayTime_CC = Int(fxViewController.delayTime.midiCC)
+        appSettings.delayFeedback_CC = Int(fxViewController.delayFeedback.midiCC)
+        appSettings.delayMix_CC = Int(fxViewController.delayMix.midiCC)
+        appSettings.lfo1Amp_CC = Int(fxViewController.lfo1Amp.midiCC)
+        appSettings.lfo2Amp_CC = Int(fxViewController.lfo2Amp.midiCC)
+        appSettings.lfo1Rate_CC = Int(fxViewController.lfo1Rate.midiCC)
+        appSettings.lfo2Rate_CC = Int(fxViewController.lfo2Rate.midiCC)
+        appSettings.phaserMix_CC = Int(fxViewController.phaserMix.midiCC)
+        appSettings.phaserRate_CC = Int(fxViewController.phaserRate.midiCC)
+        appSettings.phaserFeedback_CC = Int(fxViewController.phaserFeedback.midiCC)
+        appSettings.phaserNotchWidth_CC = Int(fxViewController.phaserNotchWidth.midiCC)
+       
         // keyboard
         appSettings.labelMode = keyboardView.labelMode
         appSettings.octaveRange = keyboardView.octaveCount
@@ -92,7 +136,6 @@ extension ParentViewController {
         appSettings.showKeyboard = keyboardToggle.value
         
         appSettings.plotFilled = mixerViewController.isAudioPlotFilled
-        
         saveAppSettings()
     }
     

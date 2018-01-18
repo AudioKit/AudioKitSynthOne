@@ -15,28 +15,28 @@ class SourceMixerViewController: SynthPanelController {
     @IBOutlet weak var morph1Selector: MorphSelector!
     @IBOutlet weak var morph2Selector: MorphSelector!
     
-    @IBOutlet weak var morph1SemitoneOffset: Knob!
-    @IBOutlet weak var morph2SemitoneOffset: Knob!
-    @IBOutlet weak var morph2Detuning: Knob!
-    @IBOutlet weak var morphBalance: Knob!
-    @IBOutlet weak var morph1Volume: Knob!
-    @IBOutlet weak var morph2Volume: Knob!
-    @IBOutlet weak var glideKnob: Knob!
+    @IBOutlet weak var morph1SemitoneOffset: MIDIKnob!
+    @IBOutlet weak var morph2SemitoneOffset: MIDIKnob!
+    @IBOutlet weak var morph2Detuning: MIDIKnob!
+    @IBOutlet weak var morphBalance: MIDIKnob!
+    @IBOutlet weak var morph1Volume: MIDIKnob!
+    @IBOutlet weak var morph2Volume: MIDIKnob!
+    @IBOutlet weak var glideKnob: MIDIKnob!
     
-    @IBOutlet weak var cutoff: Knob!
-    @IBOutlet weak var resonance: Knob!
+    @IBOutlet weak var cutoff: MIDIKnob!
+    @IBOutlet weak var resonance: MIDIKnob!
     
-    @IBOutlet weak var subVolume: Knob!
+    @IBOutlet weak var subVolume: MIDIKnob!
     @IBOutlet weak var subOctaveDown: ToggleButton!
     @IBOutlet weak var subIsSquare: ToggleButton!
     @IBOutlet weak var isMonoToggle: ToggleButton!
   
-    @IBOutlet weak var fmVolume: Knob!
-    @IBOutlet weak var fmAmount: Knob!
+    @IBOutlet weak var fmVolume: MIDIKnob!
+    @IBOutlet weak var fmAmount: MIDIKnob!
     
-    @IBOutlet weak var noiseVolume: Knob!
+    @IBOutlet weak var noiseVolume: MIDIKnob!
     
-    @IBOutlet weak var masterVolume: Knob!
+    @IBOutlet weak var masterVolume: MIDIKnob!
     
     @IBOutlet weak var filterTypeToggle: FilterTypeButton!
     @IBOutlet weak var displayContainer: UIView!

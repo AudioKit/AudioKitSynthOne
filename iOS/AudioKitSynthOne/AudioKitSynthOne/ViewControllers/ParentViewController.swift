@@ -133,6 +133,29 @@ public class ParentViewController: UpdatableViewController {
         bluetoothButton.layer.cornerRadius = 2
         bluetoothButton.layer.borderWidth = 1
         
+     
+        // Setup Callbacks
+        setupCallbacks()
+        
+        // Load Presets
+        displayPresetsController()
+        
+        // Temporary MIDI IN
+        // TODO: Remove
+        midi.createVirtualPorts()
+        midi.openInput("Session 1")
+        midi.addListener(self)
+        
+        // Pre-load views and Set initial subviews
+        switchToChildView(.seqView, isTopView: true)
+        switchToChildView(.fxView, isTopView: true)
+        switchToChildView(.oscView, isTopView: true) 
+        switchToChildView(.adsrView, isTopView: false)
+        
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        
         // Load App Settings
         if Disk.exists("settings.json", in: .documents) {
             loadSettingsFromDevice()
@@ -140,26 +163,7 @@ public class ParentViewController: UpdatableViewController {
             setDefaultsFromAppSettings()
             saveAppSettings()
         }
-        
-        // Load Presets
-        displayPresetsController()
-        
-        // Setup Callbacks
-        setupCallbacks()
-        
-        // Temporary MIDI IN
-        // TODO: Remove
-        midi.createVirtualPorts()
-        midi.openInput("Session 1")
-        midi.addListener(self)
-    }
-    
-    public override func viewDidAppear(_ animated: Bool) {
-       
-        // Set initial subviews
-        switchToChildView(.oscView, isTopView: true)
-        switchToChildView(.adsrView, isTopView: false)
-        
+      
         // On four runs show dialog and request review
         //        if appSettings.launches == 4 { reviewPopUp() }
         //        if appSettings.launches % 10 == 0 { skRequestReview() }

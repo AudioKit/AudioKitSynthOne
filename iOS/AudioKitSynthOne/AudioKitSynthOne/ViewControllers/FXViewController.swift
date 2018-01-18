@@ -23,31 +23,31 @@ class FXViewController: SynthPanelController {
     @IBOutlet weak var lfoBitcrushToggle: LfoButton!
     @IBOutlet weak var lfoAutoPanToggle: LfoButton!
     
-    @IBOutlet weak var lfo1Amp: Knob!
+    @IBOutlet weak var lfo1Amp: MIDIKnob!
     @IBOutlet weak var lfo1Rate: RateKnob!
     
-    @IBOutlet weak var lfo2Amp: Knob!
+    @IBOutlet weak var lfo2Amp: MIDIKnob!
     @IBOutlet weak var lfo2Rate: RateKnob!
     
-    @IBOutlet weak var sampleRate: Knob!
+    @IBOutlet weak var sampleRate: MIDIKnob!
     
     @IBOutlet weak var autoPanToggle: ToggleButton!
     @IBOutlet weak var autoPanRate: RateKnob!
     
-    @IBOutlet weak var reverbSize: Knob!
-    @IBOutlet weak var reverbLowCut: Knob!
-    @IBOutlet weak var reverbMix: Knob!
+    @IBOutlet weak var reverbSize: MIDIKnob!
+    @IBOutlet weak var reverbLowCut: MIDIKnob!
+    @IBOutlet weak var reverbMix: MIDIKnob!
     @IBOutlet weak var reverbToggle: ToggleButton!
     
-    @IBOutlet weak var delayTime: Knob!
-    @IBOutlet weak var delayFeedback: Knob!
-    @IBOutlet weak var delayMix: Knob!
+    @IBOutlet weak var delayTime: MIDIKnob!
+    @IBOutlet weak var delayFeedback: MIDIKnob!
+    @IBOutlet weak var delayMix: MIDIKnob!
     @IBOutlet weak var delayToggle: ToggleButton!
     
-    @IBOutlet weak var phaserMix: Knob!
-    @IBOutlet weak var phaserRate: Knob!
-    @IBOutlet weak var phaserFeedback: Knob!
-    @IBOutlet weak var phaserNotchWidth: Knob!
+    @IBOutlet weak var phaserMix: MIDIKnob!
+    @IBOutlet weak var phaserRate: MIDIKnob!
+    @IBOutlet weak var phaserFeedback: MIDIKnob!
+    @IBOutlet weak var phaserNotchWidth: MIDIKnob!
     
     @IBOutlet weak var lfo1WavePicker: LFOWavePicker!
     @IBOutlet weak var lfo2WavePicker: LFOWavePicker!

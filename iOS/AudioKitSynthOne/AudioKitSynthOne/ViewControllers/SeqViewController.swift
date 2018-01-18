@@ -18,7 +18,7 @@ class SeqViewController: SynthPanelController {
     @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
     @IBOutlet weak var arpSeqToggle: ToggleSwitch!
     @IBOutlet weak var arpToggle: ToggleButton!
-    @IBOutlet weak var arpInterval: Knob!
+    @IBOutlet weak var arpInterval: MIDIKnob!
     
     var arpSeqOctBoostButtons = [SliderTransposeButton]()
     var arpSeqPatternSliders = [VerticalSlider]()

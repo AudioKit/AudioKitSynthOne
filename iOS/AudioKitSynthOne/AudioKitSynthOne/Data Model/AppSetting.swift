@@ -33,24 +33,56 @@ class AppSetting: Codable {
     var banks = ["factory", "user"]
     
     // MIDI Learn Settings
-    var vol1_CC = 255
-    var masterVolume_CC = 255
-    var autoPanRate_CC = 255
-
-    var reverbAmt_CC = 255
-    var reverbMix_CC = 255
-  
-    var crush_CC = 255
-    var tremolo_CC = 255
     
+    // mixer controller
+    var masterVolume_CC = 255
+    var morph1Selector_CC = 255
+    var morph2Selector_CC = 255
+    var morph1SemitoneOffset_CC = 255
+    var morph2SemitoneOffset_CC = 255
+    var morph2Detuning_CC = 255
+    var morphBalance_CC = 255
+    var morph1Volume_CC = 255
+    var morph2Volume_CC = 255
+    var cutoff_CC = 74 // 74: MIDI Standard CC for filter cutoff
+    var rez_CC = 71 // 71: MIDI Standard CC for filter res
+    var subVolume_CC = 255
+    var fmVolume_CC = 255
+    var fmAmount_CC = 255
+    var noiseVolume_CC = 255
+    var glideKnob_CC = 255
+    
+    // seq controller
+    var arpInterval_CC = 255
+    
+    // adsr
+    var attackKnob_CC = 255
+    var decayKnob_CC = 255
+    var sustainKnob_CC = 255
+    var releaseKnob_CC = 255
+    var filterAttackKnob_CC = 255
+    var filterDecayKnob_CC = 255
+    var filterSustainKnob_CC = 255
+    var filterReleaseKnob_CC = 255
+    var filterADSRMixKnob_CC = 255
+    
+    // fxController
+    var sampleRate_CC = 255
+    var autoPanRate_CC = 255
+    var reverbSize_CC = 255
+    var reverbLowCut_CC = 255
+    var reverbMix_CC = 255
     var delayTime_CC = 255
     var delayFeedback_CC = 255
     var delayMix_CC = 255
-    
-    var cutoff_CC = 74 // 74: MIDI Standard CC for filter cutoff
-    var rez_CC = 71 // 71: MIDI Standard CC for filter res
-    var lfoAmt_CC = 255
-    var lfoRate_CC = 255
+    var lfo1Amp_CC = 255
+    var lfo2Amp_CC = 255
+    var lfo1Rate_CC = 255
+    var lfo2Rate_CC = 255
+    var phaserMix_CC = 255
+    var phaserRate_CC = 255
+    var phaserFeedback_CC = 255
+    var phaserNotchWidth_CC = 255
     
     // Keyboard
     var labelMode = 1
@@ -86,24 +118,50 @@ class AppSetting: Codable {
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
         banks = dictionary["banks"] as? [String] ?? banks
         
-        vol1_CC = dictionary["vol1_CC"] as? Int ?? vol1_CC
         masterVolume_CC = dictionary["masterVolume_CC"] as? Int ?? masterVolume_CC
-        autoPanRate_CC = dictionary["autoPanRate_CC"] as? Int ?? autoPanRate_CC
-        
-        reverbAmt_CC = dictionary["reverbAmt_CC"] as? Int ?? reverbAmt_CC
-        reverbMix_CC = dictionary["reverbMix_CC"] as? Int ?? reverbMix_CC
-        
-        crush_CC = dictionary["crush_CC"] as? Int ?? crush_CC
-        tremolo_CC = dictionary["tremolo_CC"] as? Int ?? tremolo_CC
-        
-        delayTime_CC = dictionary["delayTime_CC"] as? Int ?? delayTime_CC
-        delayFeedback_CC = dictionary["delayFeedback_CC"] as? Int ?? delayFeedback_CC
-        delayMix_CC = dictionary["delayMix_CC"] as? Int ?? delayMix_CC
+        morph1Selector_CC = dictionary["morph1Selector_CC"] as? Int ?? morph1Selector_CC
+        morph2Selector_CC = dictionary["morph2Selector_CC"] as? Int ?? morph2Selector_CC
+        morph1SemitoneOffset_CC = dictionary["morph1SemitoneOffset_CC"] as? Int ?? morph1SemitoneOffset_CC
+        morph2SemitoneOffset_CC = dictionary["morph2SemitoneOffset_CC"] as? Int ?? morph2SemitoneOffset_CC
+        morph2Detuning_CC = dictionary["morph2Detuning_CC"] as? Int ?? morph2Detuning_CC
+        morphBalance_CC = dictionary["morphBalance_CC"] as? Int ?? morphBalance_CC
+        morph1Volume_CC = dictionary["morph1Volume_CC"] as? Int ?? morph1Volume_CC
+        morph2Volume_CC = dictionary["morph2Volume_CC"] as? Int ?? morph2Volume_CC
         
         cutoff_CC = dictionary["cutoff_CC"] as? Int ?? cutoff_CC
         rez_CC = dictionary["rez_CC"] as? Int ?? rez_CC
-        lfoAmt_CC = dictionary["lfoAmt_CC"] as? Int ?? lfoAmt_CC
-        lfoRate_CC = dictionary["lfoRate_CC"] as? Int ?? lfoRate_CC
+        subVolume_CC = dictionary["subVolume_CC"] as? Int ?? subVolume_CC
+        fmVolume_CC = dictionary["fmVolume_CC"] as? Int ?? fmVolume_CC
+        noiseVolume_CC = dictionary["noiseVolume_CC"] as? Int ?? noiseVolume_CC
+        glideKnob_CC = dictionary["glideKnob_CC"] as? Int ?? glideKnob_CC
+        
+        arpInterval_CC = dictionary["arpInterval_CC"] as? Int ?? arpInterval_CC
+        
+        attackKnob_CC = dictionary["attackKnob_CC"] as? Int ?? attackKnob_CC
+        decayKnob_CC = dictionary["decayKnob_CC"] as? Int ?? decayKnob_CC
+        sustainKnob_CC = dictionary["sustainKnob_CC"] as? Int ?? sustainKnob_CC
+        releaseKnob_CC = dictionary["releaseKnob_CC"] as? Int ?? releaseKnob_CC
+        filterAttackKnob_CC = dictionary["filterAttackKnob_CC"] as? Int ?? filterAttackKnob_CC
+        filterDecayKnob_CC = dictionary["filterDecayKnob_CC"] as? Int ?? filterDecayKnob_CC
+        filterSustainKnob_CC = dictionary["filterSustainKnob_CC"] as? Int ?? filterSustainKnob_CC
+        filterReleaseKnob_CC = dictionary[" filterReleaseKnob_CC"] as? Int ?? filterReleaseKnob_CC
+        filterADSRMixKnob_CC = dictionary[" filterADSRMixKnob_CC"] as? Int ?? filterADSRMixKnob_CC
+        
+        sampleRate_CC = dictionary["sampleRate_CC"] as? Int ?? sampleRate_CC
+        delayTime_CC = dictionary["delayTime_CC"] as? Int ?? delayTime_CC
+        delayFeedback_CC = dictionary["delayFeedback_CC"] as? Int ?? delayFeedback_CC
+        delayMix_CC = dictionary["delayMix_CC"] as? Int ?? delayMix_CC
+        lfo1Amp_CC = dictionary["lfo1Amp_CC"] as? Int ?? lfo1Amp_CC
+        lfo2Amp_CC = dictionary["lfo2Amp_CC"] as? Int ?? lfo2Amp_CC
+        lfo1Rate_CC = dictionary["lfo1Rate_CC"] as? Int ?? lfo1Rate_CC
+        lfo2Rate_CC = dictionary["lfo2Rate_CC"] as? Int ?? lfo2Rate_CC
+        phaserMix_CC = dictionary["phaserMix_CC"] as? Int ?? phaserMix_CC
+        phaserRate_CC = dictionary["phaserRate_CC"] as? Int ?? phaserRate_CC
+        phaserFeedback_CC = dictionary["phaserFeedback_CC"] as? Int ?? phaserFeedback_CC
+        phaserNotchWidth_CC = dictionary["phaserNotchWidth_CC"] as? Int ?? phaserNotchWidth_CC
+        reverbSize_CC = dictionary["reverbSize_CC"] as? Int ?? reverbSize_CC
+        reverbLowCut_CC = dictionary["reverbLowCut_CC"] as? Int ?? reverbLowCut_CC
+        reverbMix_CC = dictionary["reverbMix_CC"] as? Int ?? reverbMix_CC
         
         // Keyboard
         labelMode = dictionary["labelMode"] as? Int ?? labelMode

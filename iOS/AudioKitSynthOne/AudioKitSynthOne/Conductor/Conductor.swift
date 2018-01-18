@@ -71,16 +71,15 @@ class Conductor: AKSynthOneProtocol {
         
         ///DEFAULT TUNING
         _ = AKPolyphonicNode.tuningTable.defaultTuning()
-        //_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav() //uncomment to hear a microtonal scale
+        //_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav()
         //_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 15, 19)
         //_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111)
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23)
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 15, 45, 75)
-        _ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45) // 071
+        //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45) // 071
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81)
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121)
         //_ = AKPolyphonicNode.tuningTable.hexany(1, 45, 135, 225)
-
         //_ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes()
         //AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147])
 

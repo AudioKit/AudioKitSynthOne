@@ -52,6 +52,7 @@ class SeqViewController: SynthPanelController {
         let arpSeqOctBoostArray: [AKSynthOneParameter] = [.arpSeqOctBoost00, .arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02, .arpSeqOctBoost03, .arpSeqOctBoost04, .arpSeqOctBoost05, .arpSeqOctBoost06, .arpSeqOctBoost07, .arpSeqOctBoost08, .arpSeqOctBoost09, .arpSeqOctBoost10, .arpSeqOctBoost11, .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14, .arpSeqOctBoost15]
         
         arpSeqOctBoostButtons = self.view.subviews.filter { $0 is SliderTransposeButton } as! [SliderTransposeButton]
+        arpSeqOctBoostButtons.sort { $0.tag < $1.tag }
         
         for (notePosition, octBoostButton) in arpSeqOctBoostButtons.enumerated() {
             let arpSeqOctBoostParam = arpSeqOctBoostArray[notePosition]
@@ -67,6 +68,7 @@ class SeqViewController: SynthPanelController {
         let arpSeqPatternArray: [AKSynthOneParameter] = [.arpSeqPattern00, .arpSeqPattern01,  .arpSeqPattern02, .arpSeqPattern03, .arpSeqPattern04, .arpSeqPattern05, .arpSeqPattern06, .arpSeqPattern07, .arpSeqPattern08, .arpSeqPattern09, .arpSeqPattern10, .arpSeqPattern11, .arpSeqPattern12, .arpSeqPattern13, .arpSeqPattern14, .arpSeqPattern15]
         
         arpSeqPatternSliders = self.view.subviews.filter { $0 is VerticalSlider } as! [VerticalSlider]
+        arpSeqPatternSliders.sort { $0.tag < $1.tag }
         
         for (notePosition, arpSeqPatternSlider) in arpSeqPatternSliders.enumerated() {
             let arpSeqPatternParam = arpSeqPatternArray[notePosition]
@@ -83,6 +85,7 @@ class SeqViewController: SynthPanelController {
         let arpSeqNoteOnArray: [AKSynthOneParameter] = [.arpSeqNoteOn00, .arpSeqNoteOn01, .arpSeqNoteOn02, .arpSeqNoteOn03, .arpSeqNoteOn04, .arpSeqNoteOn05, .arpSeqNoteOn06, .arpSeqNoteOn07, .arpSeqNoteOn08, .arpSeqNoteOn09, .arpSeqNoteOn10, .arpSeqNoteOn11, .arpSeqNoteOn12, .arpSeqNoteOn13, .arpSeqNoteOn14, .arpSeqNoteOn15]
         
         arpSeqNoteOnButtons = self.view.subviews.filter { $0 is ArpButton } as! [ArpButton]
+        arpSeqNoteOnButtons.sort { $0.tag < $1.tag }
         
         for (notePosition, arpSeqNoteOnButton) in arpSeqNoteOnButtons.enumerated() {
             let arpSeqPatternParam = arpSeqNoteOnArray[notePosition]

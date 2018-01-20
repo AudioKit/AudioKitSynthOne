@@ -32,22 +32,25 @@ class TouchPadViewController: SynthPanelController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let c = Conductor.sharedInstance
+        let s = c.synth!
+
         viewType = .padView
         
         touchPad1.verticalRange = 0.5 ... 2
         touchPad1.verticalTaper = log(3) / log(2)
         
-        let s = Conductor.sharedInstance.synth!
+        
         touchPad2.verticalRange = s.getParameterRange(.cutoff)
         touchPad2.verticalTaper = 4.04
         
         snapToggle.value = 1
        
-        oscBalance = conductor.synth.getAK1Parameter(.morphBalance)
+        oscBalance = s.getAK1Parameter(.morphBalance)
         touchPad1.resetToPosition(oscBalance, 0.5)
         
-        rez = conductor.synth.getAK1Parameter(.resonance)
-        cutoff = conductor.synth.getAK1Parameter(.cutoff)
+        rez = s.getAK1Parameter(.resonance)
+        cutoff = s.getAK1Parameter(.cutoff)
         let y = cutoff.normalized(from: touchPad2.verticalRange, taper: touchPad2.verticalTaper)
         touchPad2.resetToPosition(rez, y)
         
@@ -65,17 +68,17 @@ class TouchPadViewController: SynthPanelController {
             
             if touchesBegan {
                 // record values before touched
-                self.oscBalance = self.conductor.synth.getAK1Parameter(.morphBalance)
+                self.oscBalance = s.getAK1Parameter(.morphBalance)
                 
                 // start particles
                 self.particleEmitter1.birthRate = 1
             }
             
             // Affect parameters based on touch position
-            self.conductor.synth.setAK1Parameter(.morphBalance, horizontal)
-            self.conductor.updateSingleUI(.morphBalance)
-            self.conductor.synth.setAK1Parameter(.detuningMultiplier, vertical)
-            self.conductor.updateSingleUI(.detuningMultiplier)
+            s.setAK1Parameter(.morphBalance, horizontal)
+            c.updateSingleUI(.morphBalance)
+            s.setAK1Parameter(.detuningMultiplier, vertical)
+            c.updateSingleUI(.detuningMultiplier)
         }
         
         touchPad1.completionHandler = { horizontal, vertical, touchesEnded, reset in
@@ -97,19 +100,18 @@ class TouchPadViewController: SynthPanelController {
             
             if touchesBegan {
                 // record values before touched
-                self.rez = self.conductor.synth.getAK1Parameter(.resonance)
-                self.cutoff = self.conductor.synth.getAK1Parameter(.cutoff)
-                self.snapBackCutoff = self.conductor.synth.getAK1Parameter(.cutoff)
-                self.snapBackRez = self.conductor.synth.getAK1Parameter(.resonance)
-                
+                self.rez = s.getAK1Parameter(.resonance)
+                self.cutoff = s.getAK1Parameter(.cutoff)
+                self.snapBackCutoff = s.getAK1Parameter(.cutoff)
+                self.snapBackRez = s.getAK1Parameter(.resonance)
                 self.particleEmitter2.birthRate = 1
             }
             
             // Affect parameters based on touch position
-            self.conductor.synth.setAK1Parameter(.resonance, horizontal)
-            self.conductor.updateSingleUI(.resonance)
-            self.conductor.synth.setAK1Parameter(.cutoff, vertical)
-            self.conductor.updateSingleUI(.cutoff)
+            s.setAK1Parameter(.resonance, horizontal)
+            c.updateSingleUI(.resonance)
+            s.setAK1Parameter(.cutoff, vertical)
+            c.updateSingleUI(.cutoff)
         }
         
         
@@ -119,15 +121,13 @@ class TouchPadViewController: SynthPanelController {
             }
             
             if self.snapToggle.isOn && touchesEnded && !reset {
-                self.conductor.synth.setAK1Parameter(.resonance, self.snapBackRez)
-                self.conductor.synth.setAK1Parameter(.cutoff, self.snapBackCutoff)
-                
+                s.setAK1Parameter(.resonance, self.snapBackRez)
+                s.setAK1Parameter(.cutoff, self.snapBackCutoff)
                 let y = self.snapBackCutoff.normalized(from: self.touchPad2.verticalRange,
                                                        taper: self.touchPad2.verticalTaper)
                 self.touchPad2.resetToPosition(self.snapBackRez, y)
-                
             }
-            self.conductor.updateAllUI()
+            c.updateAllUI()
         }
 
         createParticles()

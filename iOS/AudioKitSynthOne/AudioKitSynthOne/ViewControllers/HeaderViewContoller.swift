@@ -67,7 +67,7 @@ public class HeaderViewController: UpdatableViewController {
         case .morph2SemitoneOffset:
             displayLabel.text = "DCO2: \(value) semitones"
         case .morph2Detuning:
-            displayLabel.text = "DCO2: \(value.decimalString) Hz"
+            displayLabel.text = "DCO2 Detune: \(value.decimalString) x Hz"
         case .morphBalance:
             displayLabel.text = "DCO Mix: \(value.decimalString)"
         case .morph1Volume:
@@ -152,10 +152,10 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Osc Mix LFO: \(value.decimalString)"
         case .sustainLFO:
             displayLabel.text = "Sustain LFO: \(value.decimalString)"
-        case .index1LFO:
-            displayLabel.text = "Index1 LFO: \(value.decimalString)"
-        case .index2LFO:
-            displayLabel.text = "Index2 LFO: \(value.decimalString)"
+        case .decayLFO:
+            displayLabel.text = "Decay LFO: \(value.decimalString)"
+        case .noiseLFO:
+            displayLabel.text = "Noise LFO: \(value.decimalString)"
         case .fmLFO:
             displayLabel.text = "FM LFO: \(value.decimalString)"
         case .detuneLFO:

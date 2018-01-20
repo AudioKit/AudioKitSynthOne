@@ -1610,9 +1610,11 @@
                         <outlet property="lfoAutoPanToggle" destination="Pda-Ea-Gzs" id="tuk-P1-aNl"/>
                         <outlet property="lfoBitcrushToggle" destination="v1h-So-avW" id="0U9-L1-Wnb"/>
                         <outlet property="lfoCutoffToggle" destination="IAH-Z9-Sao" id="9ie-ol-fVs"/>
+                        <outlet property="lfoDecayToggle" destination="OiO-GY-Ebf" id="JR7-1a-2ts"/>
                         <outlet property="lfoDetuneToggle" destination="4fP-Q7-eqK" id="fGY-A8-NP2"/>
                         <outlet property="lfoFMModToggle" destination="Mbh-Az-jeK" id="5EK-eZ-aJA"/>
                         <outlet property="lfoFilterEnvToggle" destination="7EN-gq-WHB" id="qci-vq-wBj"/>
+                        <outlet property="lfoNoiseToggle" destination="eZZ-WL-inO" id="ZhF-1d-65b"/>
                         <outlet property="lfoOscMixToggle" destination="yMC-Nf-cet" id="GXS-yJ-H9S"/>
                         <outlet property="lfoPitchToggle" destination="93V-FP-Ga6" id="v5H-FX-Rci"/>
                         <outlet property="lfoRezToggle" destination="Dd6-x5-m2h" id="h1j-xO-O7Q"/>

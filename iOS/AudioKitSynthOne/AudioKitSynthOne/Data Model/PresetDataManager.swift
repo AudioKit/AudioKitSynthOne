@@ -17,7 +17,7 @@ extension ParentViewController {
     
     func loadPreset() {
         // Non-kernel parameters
-        conductor.syncRatesToTempo = activePreset.isTempoSyncd == 1
+        conductor.syncRatesToTempo = (activePreset.isTempoSyncd == 1)
         fxViewController.tempoSyncToggle.value = activePreset.isTempoSyncd
         
         // Kernel Parameters
@@ -51,7 +51,7 @@ extension ParentViewController {
         s.setAK1Parameter(.sustainLevel, activePreset.sustainLevel)
         s.setAK1Parameter(.releaseDuration, activePreset.releaseDuration)
         s.setAK1Parameter(.bitCrushSampleRate, activePreset.crushFreq)
-        s.setAK1Parameter(.autoPanOn, activePreset.autoPanToggled)
+        s.setAK1Parameter(.autoPanAmount, activePreset.autoPanAmount)
         s.setAK1Parameter(.autoPanFrequency, activePreset.autoPanRate)
         s.setAK1Parameter(.reverbOn, activePreset.reverbToggled)
         s.setAK1Parameter(.reverbFeedback, activePreset.reverbFeedback)
@@ -149,7 +149,7 @@ extension ParentViewController {
         activePreset.sustainLevel = s.getAK1Parameter(.sustainLevel)
         activePreset.releaseDuration = s.getAK1Parameter(.releaseDuration)
         activePreset.crushFreq = s.getAK1Parameter(.bitCrushSampleRate)
-        activePreset.autoPanToggled = s.getAK1Parameter(.autoPanOn)
+        activePreset.autoPanAmount = s.getAK1Parameter(.autoPanAmount)
         activePreset.autoPanRate = s.getAK1Parameter(.autoPanFrequency)
         activePreset.reverbToggled = s.getAK1Parameter(.reverbOn)
         activePreset.reverbFeedback = s.getAK1Parameter(.reverbFeedback)

@@ -51,6 +51,7 @@ class Preset: Codable {
     var reverbHighPass = 80.0 // Highpass filter freq for Filter
     var midiBendRange = 2.0 // MIDI bend range in +/- semitones
     var crushFreq = 44100.0 // Crusher Frequency
+    var autoPanAmount = 0.0
     var autoPanRate = 2.0 // AutoPan Rate
     var filterADSRMix = 0.0 // Filter Envelope depth
     var glide = 0.0 // Mono glide amount
@@ -74,7 +75,6 @@ class Preset: Codable {
     // Toggle Presets
     var delayToggled = 0.0
     var reverbToggled = 1.0
-    var autoPanToggled = 0.0
     var subOsc24Toggled = 0.0
     var subOscSquareToggled = 0.0
     
@@ -239,7 +239,7 @@ class Preset: Codable {
         // Toggle Presets
         delayToggled = dictionary["delayToggled"] as? Double ?? delayToggled
         reverbToggled = dictionary["reverbToggled"] as? Double ?? reverbToggled
-        autoPanToggled = dictionary["autoPanToggled"] as? Double ?? autoPanToggled
+        autoPanAmount = dictionary["autoPanAmount"] as? Double ?? autoPanAmount
         subOsc24Toggled = dictionary["subOsc24Toggled"] as? Double ?? subOsc24Toggled
         subOscSquareToggled = dictionary["subOscSquareToggled"] as? Double ?? subOscSquareToggled
         

@@ -32,7 +32,7 @@ class FXViewController: SynthPanelController {
     
     @IBOutlet weak var sampleRate: MIDIKnob!
     
-    @IBOutlet weak var autoPanToggle: ToggleButton!
+    @IBOutlet weak var autoPanAmount: Knob!
     @IBOutlet weak var autoPanRate: RateKnob!
     
     @IBOutlet weak var reverbSize: MIDIKnob!
@@ -69,7 +69,6 @@ class FXViewController: SynthPanelController {
         autoPanRate.range = s.getParameterRange(.autoPanFrequency)
         autoPanRate.taper = 2
 
-        //reverbLowCut.range = 80 ... 900
         reverbLowCut.range = s.getParameterRange(.reverbHighPass)
         reverbLowCut.taper = 1
 
@@ -88,7 +87,7 @@ class FXViewController: SynthPanelController {
         phaserNotchWidth.range = s.getParameterRange(.phaserNotchWidth)
 
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)
-        conductor.bind(autoPanToggle,      to: .autoPanOn)
+        conductor.bind(autoPanAmount,      to: .autoPanAmount)
         conductor.bind(autoPanRate,        to: .autoPanFrequency)
         conductor.bind(reverbSize,         to: .reverbFeedback)
         conductor.bind(reverbLowCut,       to: .reverbHighPass)

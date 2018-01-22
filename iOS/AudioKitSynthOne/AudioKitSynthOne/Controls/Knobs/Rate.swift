@@ -11,6 +11,7 @@ import UIKit
 public enum Rate: Int, CustomStringConvertible {
     
     case eightBars = 0
+    case sixBars
     case fourBars
     case threeBars
     case twoBars
@@ -36,6 +37,8 @@ public enum Rate: Int, CustomStringConvertible {
         switch self {
         case .eightBars:
             return "8 bars"
+        case .sixBars:
+            return "6 bars"
         case .fourBars:
             return "4 bars"
         case .threeBars:
@@ -76,6 +79,8 @@ public enum Rate: Int, CustomStringConvertible {
         switch self {
         case .eightBars:
             return seconds(bars: 8)
+        case .sixBars:
+            return seconds(bars: 6)
         case .fourBars:
             return seconds(bars: 4)
         case .threeBars:

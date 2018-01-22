@@ -48,8 +48,8 @@ class SeqViewController: SynthPanelController {
         conductor.bind(arpSeqToggle,       to: .arpIsSequencer)
         conductor.bind(seqStepsStepper,    to: .arpTotalSteps)
         
-        // ARP/SEQ TRANSPOSE
-        let arpSeqOctBoostArray: [AKSynthOneParameter] = [.arpSeqOctBoost00, .arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02, .arpSeqOctBoost03, .arpSeqOctBoost04, .arpSeqOctBoost05, .arpSeqOctBoost06, .arpSeqOctBoost07, .arpSeqOctBoost08, .arpSeqOctBoost09, .arpSeqOctBoost10, .arpSeqOctBoost11, .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14, .arpSeqOctBoost15]
+        // ARP/SEQ OCTAVE BOOST
+        let arpSeqOctBoostArray: [AKSynthOneParameter] = [.arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02, .arpSeqOctBoost03, .arpSeqOctBoost04, .arpSeqOctBoost05, .arpSeqOctBoost06, .arpSeqOctBoost07, .arpSeqOctBoost08, .arpSeqOctBoost09, .arpSeqOctBoost10, .arpSeqOctBoost11, .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14, .arpSeqOctBoost15]
         
         arpSeqOctBoostButtons = self.view.subviews.filter { $0 is SliderTransposeButton }.sorted { $0.tag < $1.tag } as! [SliderTransposeButton]
         
@@ -64,7 +64,7 @@ class SeqViewController: SynthPanelController {
         }
         
         // ARP/SEQ PATTERN
-        let arpSeqPatternArray: [AKSynthOneParameter] = [.arpSeqPattern00, .arpSeqPattern01,  .arpSeqPattern02, .arpSeqPattern03, .arpSeqPattern04, .arpSeqPattern05, .arpSeqPattern06, .arpSeqPattern07, .arpSeqPattern08, .arpSeqPattern09, .arpSeqPattern10, .arpSeqPattern11, .arpSeqPattern12, .arpSeqPattern13, .arpSeqPattern14, .arpSeqPattern15]
+        let arpSeqPatternArray: [AKSynthOneParameter] = [.arpSeqPattern00, .arpSeqPattern01, .arpSeqPattern02, .arpSeqPattern03, .arpSeqPattern04, .arpSeqPattern05, .arpSeqPattern06, .arpSeqPattern07, .arpSeqPattern08, .arpSeqPattern09, .arpSeqPattern10, .arpSeqPattern11, .arpSeqPattern12, .arpSeqPattern13, .arpSeqPattern14, .arpSeqPattern15]
         
         arpSeqPatternSliders = self.view.subviews.filter { $0 is VerticalSlider }.sorted { $0.tag < $1.tag } as! [VerticalSlider]
         
@@ -112,7 +112,7 @@ class SeqViewController: SynthPanelController {
         let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
         if arpIsOn && arpIsSequencer && seqNum >= 0 {
             //let notePosition = (beatCounter % seqNum)
-            let notePosition = (( beatCounter + seqNum - 1 ) % seqNum)
+            let notePosition = (beatCounter + seqNum - 1) % seqNum
 
             // TODO: REMOVE - FOR DEBUGING
             //conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(beatCounter)")

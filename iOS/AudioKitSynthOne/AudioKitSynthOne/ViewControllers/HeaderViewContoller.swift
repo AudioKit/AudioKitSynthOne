@@ -102,7 +102,7 @@ public class HeaderViewController: UpdatableViewController {
         case .autoPanAmount:
             displayLabel.text = "Auto Pan Amount: \(value.decimalString)"
         case .autoPanFrequency:
-            if conductor.syncRatesToTempo {
+            if conductor.syncRateToTempo {
                 displayLabel.text = "AutoPan Rate: \(Rate.fromFrequency(value))"
             } else {
                 displayLabel.text = "AutoPan Rate: \(value.decimalString) Hz"
@@ -120,7 +120,7 @@ public class HeaderViewController: UpdatableViewController {
         case .delayFeedback:
             displayLabel.text = "Delay Taps: \(value.percentageString)"
         case .delayTime:
-            if conductor.syncRatesToTempo {
+            if conductor.syncRateToTempo {
                 displayLabel.text = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s"
             } else {
                displayLabel.text = "Delay Time: \(value.decimalString) s"
@@ -129,13 +129,13 @@ public class HeaderViewController: UpdatableViewController {
         case .delayMix:
             displayLabel.text = "Delay Mix: \(value.percentageString)"
         case .lfo1Rate:
-            if conductor.syncRatesToTempo {
+            if conductor.syncRateToTempo {
                 displayLabel.text = "LFO 1 Rate: \(Rate.fromFrequency(value))"
             } else {
                 displayLabel.text = "LFO 1 Rate: \(value.decimalString) Hz"
             }
         case .lfo2Rate:
-            if conductor.syncRatesToTempo {
+            if conductor.syncRateToTempo {
                 displayLabel.text = "LFO 2 Rate: \(Rate.fromFrequency(value))"
             } else {
                 displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"

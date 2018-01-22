@@ -17,8 +17,8 @@ extension ParentViewController {
     
     func loadPreset() {
         // Non-kernel parameters
-        conductor.syncRatesToTempo = (activePreset.isTempoSyncd == 1)
-        fxViewController.tempoSyncToggle.value = activePreset.isTempoSyncd
+        conductor.syncRateToTempo = (activePreset.syncRateToTempo == 1)
+        fxViewController.tempoSyncToggle.value = activePreset.syncRateToTempo
         
         // Kernel Parameters
         let s = conductor.synth!
@@ -92,7 +92,7 @@ extension ParentViewController {
         s.setAK1Parameter(.phaserFeedback, activePreset.phaserFeedback)
         s.setAK1Parameter(.phaserNotchWidth, activePreset.phaserNotchWidth)
         
-        conductor.syncRatesToTempo = (activePreset.isTempoSyncd == 1)
+        conductor.syncRateToTempo = (activePreset.syncRateToTempo == 1)
         
         for i in 0..<16 {
             s.setAK1ArpSeqPattern(forIndex: i, activePreset.seqPatternNote[i])
@@ -190,7 +190,7 @@ extension ParentViewController {
         activePreset.phaserFeedback = s.getAK1Parameter(.phaserFeedback)
         activePreset.phaserNotchWidth = s.getAK1Parameter(.phaserNotchWidth)
         
-        activePreset.isTempoSyncd = conductor.syncRatesToTempo ? 1:0
+        activePreset.syncRateToTempo = conductor.syncRateToTempo ? 1:0
         
         for i in 0..<16 {
             activePreset.seqPatternNote[i] = s.getAK1ArpSeqPattern(forIndex: i)

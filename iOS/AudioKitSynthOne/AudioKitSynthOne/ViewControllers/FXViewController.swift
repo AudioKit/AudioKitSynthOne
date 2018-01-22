@@ -121,7 +121,7 @@ class FXViewController: SynthPanelController {
         conductor.bind(phaserNotchWidth,   to: .phaserNotchWidth)
 
         tempoSyncToggle.callback = { value in
-            self.conductor.syncRatesToTempo = (value == 1)
+            self.conductor.syncRateToTempo = (value == 1)
             self.lfo1Rate.update()
             self.lfo2Rate.update()
             self.autoPanRate.update()

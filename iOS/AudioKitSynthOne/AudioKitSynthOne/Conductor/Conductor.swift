@@ -19,7 +19,7 @@ class Conductor: AKSynthOneProtocol {
     
     static var sharedInstance = Conductor()
 
-    var syncRatesToTempo = true
+    var syncRateToTempo = true
     var backgroundAudioOn = true
     var neverSleep = false
     
@@ -139,11 +139,13 @@ class Conductor: AKSynthOneProtocol {
     
     func heldNotesDidChange() {
         ///TODO:Route this to keyboard view controller (I'll change this so it returns the current array of held notes)
+        ///TODO:See https://trello.com/c/cainbbJJ
         //AKLog("")
     }
     
     func playingNotesDidChange() {
         ///TODO:Route this to keyboard view controller (I'll change this to return the current array of playing notes)
+        ///TODO:See https://trello.com/c/lQZMyF0V
         //AKLog("")
     }
     

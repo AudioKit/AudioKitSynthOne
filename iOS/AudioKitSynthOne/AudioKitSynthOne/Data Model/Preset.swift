@@ -24,7 +24,7 @@ class Preset: Codable {
     var isMono = 0.0
     var isHoldMode = 0.0
     var isArpMode = 0.0
-    var syncRateToTempo = 0.0
+    var syncRateToTempo = 1.0
     
     // Controls VC
     var masterVolume = 0.5 // Master Volume

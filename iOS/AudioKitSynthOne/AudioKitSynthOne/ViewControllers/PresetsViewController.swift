@@ -61,6 +61,8 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    var banks = ["bankA", "user"]
+    
     var randomNumbers: GKRandomDistribution!
     
     var presetsDelegate: PresetsDelegate?
@@ -74,22 +76,19 @@ class PresetsViewController: UIViewController {
         
         // Preset Description TextField
         presetDescriptionField.delegate = self
-        //presetDescriptionField.layer.borderWidth = 2
-        // presetDescriptionField.layer.borderColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
         presetDescriptionField.layer.cornerRadius = 4
         
         // set color for lines between rows
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         
-        // Load presets
-        if Disk.exists("presets.json", in: .documents) {
-            loadPresetsFromDevice()
-            saveAllPresets()
-          
-        } else {
-            loadDefaultPresets()
-            saveAllPresets()
-        }
+//        // Load presets
+//        if Disk.exists("bankA.json", in: .documents) {
+//            loadPresetsFromDevice()
+//            saveAllPresets()
+//        } else {
+//            loadFactoryPresets()
+//            saveAllPresets()
+//        }
         
         // Set Initial Cateogry & Preset
         resetCategoryToAll()
@@ -112,9 +111,9 @@ class PresetsViewController: UIViewController {
     func sortPresets() {
         switch categoryIndex {
         
-        // all presets, sort by preset #
+        // bankA, sort by preset #
         case 0:
-            sortedPresets = presets.sorted { $0.position < $1.position }
+            sortedPresets = presets.filter { $0.bank == "bankA" }.sorted { $0.position < $1.position }
         
         // Sort by Categories
         case 1...PresetCategory.numCategories:
@@ -124,11 +123,17 @@ class PresetsViewController: UIViewController {
         case PresetCategory.numCategories + 1:
             sortedPresets = presets.filter { $0.isFavorite }
         
-        // Sorty by User created/modified presets
+        // Sort by User created/modified presets
         case PresetCategory.numCategories + 2:
-            sortedPresets = presets.filter { $0.isUser }
+            sortedPresets = presets.filter { $0.bank == "user" }
+            
+        // Sort by Banks
+        case PresetCategory.numCategories+2 ... PresetCategory.numCategories+banks.count:
+            let bankIndex = PresetCategory.numCategories+banks.count - PresetCategory.numCategories+2
+            sortedPresets = presets.filter { $0.bank == banks[bankIndex] }
             
         default:
+            // All Presets
             sortedPresets = presets.sorted { $0.position < $1.position }
         }
     }
@@ -138,39 +143,55 @@ class PresetsViewController: UIViewController {
         randomNumbers = GKShuffledDistribution(lowestValue: 0, highestValue: presets.count-1)
     }
     
-    func loadPresetsFromDevice() {
-        do {
-            // debug logging
-            // "save" goes to this file.  You can copy this file back to the app bundle as defaults.
-            //AKLog(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last ?? "nil");
-            ///Users/marcushobbs/Library/Developer/CoreSimulator/Devices/870E7755-75B7-4037-9B08-4C8A066057CD/data/Containers/Data/Application/5901161D-1A6E-407B-8137-5CF4B4864091/Documents/presets.json
+    func loadBanks() {
+        presets.removeAll()
+        
+        banks.forEach { bank in
+            let fileName = bank + ".json"
+            print ("**** BANK: \(bank)")
             
-            let retrievedPresetData = try Disk.retrieve("presets.json", from: .documents, as: Data.self)
+            // Load presets
+            if Disk.exists(fileName, in: .documents) {
+                loadPresetsFromDevice(fileName)
+            } else {
+                loadFactoryPresets(bank)
+            }
+            
+            saveAllPresetsIn(bank)
+        }
+        
+       
+    }
+    
+    func loadPresetsFromDevice(_ fileName: String) {
+        do {
+            let retrievedPresetData = try Disk.retrieve(fileName, from: .documents, as: Data.self)
             parsePresetsFromData(data: retrievedPresetData)
         } catch {
             AKLog("*** error loading")
         }
     }
     
-    func loadDefaultPresets() {
-        if let filePath = Bundle.main.path(forResource: "presets1", ofType:"json") {
+    func loadFactoryPresets(_ bank: String) {
+        if let filePath = Bundle.main.path(forResource: bank, ofType:"json") {
             let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
             parsePresetsFromData(data: data!)
         }
     }
     
-    
     func parsePresetsFromData(data: Data) {
         let presetsJSON = try? JSONSerialization.jsonObject(with: data, options: [])
         guard let jsonArray = presetsJSON as? [Any] else { return }
         
-        presets = Preset.parseDataToPresets(jsonArray: jsonArray)
+        presets += Preset.parseDataToPresets(jsonArray: jsonArray)
+        print ("Presets count: \(presets.count)")
         sortPresets()
     }
     
-    func saveAllPresets() {
+    func saveAllPresetsIn(_ bank: String) {
+        let presetsToSave = presets.filter { $0.bank == bank }
         do {
-            try Disk.save(presets, to: .documents, as: "presets.json")
+            try Disk.save(presetsToSave, to: .documents, as: bank + ".json")
             sortPresets()
         } catch {
             AKLog("error saving")
@@ -182,7 +203,7 @@ class PresetsViewController: UIViewController {
         presets.remove(at: currentPreset.position)
         presets.insert(activePreset, at: activePreset.position)
         currentPreset = activePreset
-        saveAllPresets()
+        saveAllPresetsIn(currentPreset.bank)
         
         // Create new active preset
         createActivePreset()
@@ -238,7 +259,7 @@ class PresetsViewController: UIViewController {
             let initPreset = Preset(position: self.presets.count)
             self.presets.append(initPreset)
             self.currentPreset = initPreset
-            self.saveAllPresets()
+            self.saveAllPresetsIn(self.currentPreset.bank)
         }
         
         importButton.callback = { _ in
@@ -269,12 +290,6 @@ class PresetsViewController: UIViewController {
             }
         }
         
-        resetButton.callback = { _ in
-            // prompt user if they want to do it, suggest they export user presets first
-            // reset to factory defaults
-            self.loadDefaultPresets()
-            self.saveAllPresets()
-        }
     }
     
     func nextPreset() {
@@ -430,7 +445,7 @@ extension PresetsViewController: UITableViewDelegate {
             }
             
             // Save presets
-            saveAllPresets()
+            saveAllPresetsIn("bankA")
         }
     }
     
@@ -451,7 +466,7 @@ extension PresetsViewController: UITableViewDelegate {
         for (i, preset) in presets.enumerated() {
             preset.position = i
         }
-        saveAllPresets()
+        //saveAllPresets()
     }
     
     // Override to support conditional rearranging of the table view.
@@ -490,7 +505,8 @@ extension PresetsViewController: PresetCellDelegate {
             for (i, preset) in presets.enumerated() {
                 preset.position = i
             }
-            saveAllPresets()
+            // set bank to user for newly copied preset
+            //saveAllPresets()
             
         } catch {
             AKLog("error duplicating")
@@ -500,7 +516,7 @@ extension PresetsViewController: PresetCellDelegate {
     func favoritePressed() {
         // Toggle and save preset
         currentPreset.isFavorite = !currentPreset.isFavorite
-        saveAllPresets()
+        saveAllPresetsIn(currentPreset.bank)
         
         // Select current preset
         selectCurrentPreset()
@@ -595,7 +611,8 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                 importedPreset.isFavorite = false
                 presets.append(importedPreset)
                 currentPreset = importedPreset
-                saveAllPresets()
+                currentPreset.bank = "user"
+                saveAllPresetsIn(currentPreset.bank)
                 AKLog("*** preset loaded")
             } else {
                 AKLog("*** error parsing preset")

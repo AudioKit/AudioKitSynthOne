@@ -25,7 +25,7 @@ enum PresetCategory: Int {
  
     func description() -> String {
         switch self {
-        case .all: return "All"
+        case .all: return "all"
         case .arp: return "Arp/Seq"
         case .poly: return "Poly"
         case .pad: return "Pad"
@@ -71,7 +71,9 @@ class PresetsCategoriesController: UIViewController {
         // Add Favorites bank
         choices[PresetCategory.numCategories + 1] = "Favorites"
         // Add User bank
+        
         choices[PresetCategory.numCategories + 2] = "User"
+        // Add Additional Banks
        
     }
     

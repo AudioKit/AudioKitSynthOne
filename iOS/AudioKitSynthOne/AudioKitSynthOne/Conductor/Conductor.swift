@@ -89,7 +89,6 @@ class Conductor: AKSynthOneProtocol {
     }
     
     func updateSingleUI(_ param: AKSynthOneParameter) {
-        
         // cannot access synth until it is initialized and started
         if !started {return}
         

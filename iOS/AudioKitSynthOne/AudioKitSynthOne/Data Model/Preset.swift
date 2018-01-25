@@ -18,6 +18,7 @@ class Preset: Codable {
     var uid = UUID().uuidString
     var position = 0 // Preset #
     var name = "Init"
+    var bank = "user"
     
     // Synth VC
     var octavePosition = 0
@@ -188,6 +189,8 @@ class Preset: Codable {
         
         name = dictionary["name"] as? String ?? name
         position = dictionary["position"] as? Int ?? position
+        uid = dictionary["uid"] as? String ?? uid
+        bank = dictionary["bank"] as? String ?? bank
         
         // Synth VC
         octavePosition = dictionary["octavePosition"] as? Int ?? octavePosition

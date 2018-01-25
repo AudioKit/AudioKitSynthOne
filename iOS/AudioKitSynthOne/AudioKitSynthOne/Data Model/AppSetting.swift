@@ -30,7 +30,7 @@ class AppSetting: Codable {
     var presetsVersion = 1.00
     
     // Banks
-    var banks = ["factory", "user"]
+    var banks = ["bankA", "user"]
     
     // MIDI Learn Settings
     

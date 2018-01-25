@@ -497,7 +497,9 @@ extension ParentViewController: HeaderDelegate {
             topContainerView.subviews.forEach({ $0.removeFromSuperview() })
             add(asChildViewController: devViewController)
         } else {
-            switchToChildView(topChildView!)
+            if let cv = topChildView {
+                switchToChildView(cv)
+            }
         }
     }
     

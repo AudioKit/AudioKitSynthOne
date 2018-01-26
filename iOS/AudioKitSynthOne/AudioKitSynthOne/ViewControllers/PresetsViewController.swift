@@ -287,7 +287,7 @@ class PresetsViewController: UIViewController {
             } else {
                 self.reorderButton.setTitle("Reorder", for: UIControlState())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1), for: .normal)
-                self.reorderButton.backgroundColor = #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2941176471, alpha: 1)
+                self.reorderButton.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
                 self.categoryEmbeddedView.isUserInteractionEnabled = true
                 self.selectCurrentPreset()
             }

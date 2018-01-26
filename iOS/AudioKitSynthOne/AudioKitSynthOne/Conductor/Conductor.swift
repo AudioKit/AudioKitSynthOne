@@ -20,8 +20,8 @@ class Conductor: AKSynthOneProtocol {
     static var sharedInstance = Conductor()
 
     var syncRateToTempo = true
-    var backgroundAudioOn = true
     var neverSleep = false
+    var banks: [Int:String] = [0: "BankA", 1: "User"]
     
     var synth: AKSynthOne!
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []

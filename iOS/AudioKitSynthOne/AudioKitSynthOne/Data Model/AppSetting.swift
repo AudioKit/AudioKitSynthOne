@@ -30,7 +30,7 @@ class AppSetting: Codable {
     var presetsVersion = 1.00
     
     // Banks
-    var banks = ["bankA", "user"]
+    var banks: [Int:String] = [0: "BankA", 1: "User"]
     
     // MIDI Learn Settings
     
@@ -116,7 +116,7 @@ class AppSetting: Codable {
         velocitySensitive =  dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
         
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
-        banks = dictionary["banks"] as? [String] ?? banks
+        banks = dictionary["banks"] as? [Int:String] ?? banks
         
         masterVolume_CC = dictionary["masterVolume_CC"] as? Int ?? masterVolume_CC
         morph1Selector_CC = dictionary["morph1Selector_CC"] as? Int ?? morph1Selector_CC

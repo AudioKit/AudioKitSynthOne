@@ -19,7 +19,7 @@ extension ParentViewController {
     func setDefaultsFromAppSettings() {
         
         // MIDI
-        conductor.backgroundAudioOn = appSettings.backgroundAudioOn
+        //conductor.backgroundAudioOn = appSettings.backgroundAudioOn
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
         
@@ -80,7 +80,7 @@ extension ParentViewController {
     func saveAppSettingValues() {
         
         // MIDI
-        appSettings.backgroundAudioOn = conductor.backgroundAudioOn
+        // appSettings.backgroundAudioOn = conductor.backgroundAudioOn
         appSettings.midiChannel = Int(midiChannelIn)
         appSettings.omniMode = omniMode
         

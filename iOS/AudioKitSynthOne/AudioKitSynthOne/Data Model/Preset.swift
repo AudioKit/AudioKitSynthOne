@@ -18,7 +18,7 @@ class Preset: Codable {
     var uid = UUID().uuidString
     var position = 0 // Preset #
     var name = "Init"
-    var bank = "user"
+    var bank = "User"
     
     // Synth VC
     var octavePosition = 0
@@ -141,18 +141,6 @@ class Preset: Codable {
         // Preset Number/Position
         self.position = position
         
-        /*
-        // Populate Sequence pattern with 16 steps
-        for _ in 0...15 {
-            let seqPattern = SeqPatternNote()
-            seqPattern.seqNote = 0
-            seqPatterns.append(seqPattern)
-            
-            let seqNoteOn = SeqNoteOn()
-            seqNoteOn.noteOn = true
-            seqNotesOn.append(seqNoteOn)
-        }
-        */
     }
     
     

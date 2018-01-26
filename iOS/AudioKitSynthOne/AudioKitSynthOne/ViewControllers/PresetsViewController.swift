@@ -61,7 +61,7 @@ class PresetsViewController: UIViewController {
         }
     }
     
-    var banks = ["bankA", "user"]
+    let banks = Conductor.sharedInstance.banks
     
     var randomNumbers: GKRandomDistribution!
     
@@ -81,23 +81,12 @@ class PresetsViewController: UIViewController {
         // set color for lines between rows
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         
-//        // Load presets
-//        if Disk.exists("bankA.json", in: .documents) {
-//            loadPresetsFromDevice()
-//            saveAllPresets()
-//        } else {
-//            loadFactoryPresets()
-//            saveAllPresets()
-//        }
-        
         // Set Initial Cateogry & Preset
-        resetCategoryToAll()
+        selectCategory(0)
         
         // Setup button callbacks
         setupCallbacks()
         
-      
-      
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -108,59 +97,61 @@ class PresetsViewController: UIViewController {
     // MARK: - Load/Save/Manipulate Presets
     // *****************************************************************
     
-    func sortPresets() {
-        switch categoryIndex {
-        
-        // bankA, sort by preset #
-        case 0:
-            sortedPresets = presets.filter { $0.bank == "bankA" }.sorted { $0.position < $1.position }
-        
-        // Sort by Categories
-        case 1...PresetCategory.numCategories:
-            sortedPresets = presets.filter { $0.category == categoryIndex }
-            
-        // Sort by Favorites
-        case PresetCategory.numCategories + 1:
-            sortedPresets = presets.filter { $0.isFavorite }
-        
-        // Sort by User created/modified presets
-        case PresetCategory.numCategories + 2:
-            sortedPresets = presets.filter { $0.bank == "user" }
-            
-        // Sort by Banks
-        case PresetCategory.numCategories+2 ... PresetCategory.numCategories+banks.count:
-            let bankIndex = PresetCategory.numCategories+banks.count - PresetCategory.numCategories+2
-            sortedPresets = presets.filter { $0.bank == banks[bankIndex] }
-            
-        default:
-            // All Presets
-            sortedPresets = presets.sorted { $0.position < $1.position }
-        }
-    }
-    
-    func randomizePresets() {
-        // Generate random presets 🎲
-        randomNumbers = GKShuffledDistribution(lowestValue: 0, highestValue: presets.count-1)
-    }
-    
     func loadBanks() {
         presets.removeAll()
         
         banks.forEach { bank in
-            let fileName = bank + ".json"
+            let fileName = bank.value + ".json"
             print ("**** BANK: \(bank)")
             
             // Load presets
             if Disk.exists(fileName, in: .documents) {
                 loadPresetsFromDevice(fileName)
             } else {
-                loadFactoryPresets(bank)
+                loadFactoryPresets(bank.value)
             }
             
-            saveAllPresetsIn(bank)
+            saveAllPresetsIn(bank.value)
         }
+    }
+    
+    func sortPresets() {
         
-       
+        switch categoryIndex {
+   
+        // Display Categories
+        case 0:
+            // All Presets, by Bank
+            sortedPresets.removeAll()
+            banks.forEach { bank in
+                sortedPresets += presets.filter { $0.bank == bank.value }.sorted { $0.position < $1.position }
+            }
+        
+        // Sort by Categories
+        case 1...PresetCategory.categoryCount:
+            sortedPresets = presets.filter { $0.category == categoryIndex }
+            
+        // Sort by Favorites
+        case PresetCategory.categoryCount + 1:
+            sortedPresets = presets.filter { $0.isFavorite }
+        
+        // Display Banks
+        case PresetCategory.bankStartingIndex ... PresetCategory.bankStartingIndex+banks.count:
+            let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
+            sortedPresets = presets.filter { $0.bank == banks[bankIndex] }
+                .sorted { $0.position < $1.position }
+            
+            print ("bank \(bankIndex)")
+            
+        default:
+            // Display bankA
+            sortedPresets = presets.filter { $0.bank == "BankA" }.sorted { $0.position < $1.position }
+        }
+    }
+    
+    func randomizePresets() {
+        // Generate random presets 🎲
+        randomNumbers = GKShuffledDistribution(lowestValue: 0, highestValue: presets.count-1)
     }
     
     func loadPresetsFromDevice(_ fileName: String) {
@@ -200,8 +191,9 @@ class PresetsViewController: UIViewController {
     
     func savePreset(_ activePreset: Preset) {
         // Save preset
-        presets.remove(at: currentPreset.position)
-        presets.insert(activePreset, at: activePreset.position)
+        var presetBank = presets.filter { $0.bank == currentPreset.bank }
+        presetBank.remove(at: currentPreset.position)
+        presetBank.insert(activePreset, at: activePreset.position)
         currentPreset = activePreset
         saveAllPresetsIn(currentPreset.bank)
         
@@ -209,9 +201,9 @@ class PresetsViewController: UIViewController {
         createActivePreset()
     }
     
-    func resetCategoryToAll() {
+    func selectCategory(_ categoryIndex: Int) {
         guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesController else { return }
-        categoriesVC.categoryTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
+        categoriesVC.categoryTableView.selectRow(at: IndexPath(row: categoryIndex, section: 0), animated: false, scrollPosition: .top)
     }
     
     func createActivePreset() {
@@ -227,12 +219,12 @@ class PresetsViewController: UIViewController {
     
     func selectCurrentPreset() {
         // No preset is selected, select first one
-        guard presets.index(where: {$0 === currentPreset}) != nil else {
-            // currentPreset = presets[0]
-            tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
-            return
-        }
-        
+//        guard presets.index(where: {$0 === currentPreset}) != nil else {
+//            // currentPreset = presets[0]
+//            tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
+//            return
+//        }
+//        
         // Find the preset in the current view
         if let index = sortedPresets.index(where: {$0 === currentPreset}) {
             tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
@@ -272,7 +264,7 @@ class PresetsViewController: UIViewController {
             self.tableView.isEditing = !self.tableView.isEditing
             
             // Set Categories table to "all"
-            self.resetCategoryToAll()
+            self.selectCategory(0)
             
             if self.tableView.isEditing {
                 self.reorderButton.setTitle("I'M DONE!", for: UIControlState())
@@ -494,19 +486,31 @@ extension PresetsViewController: PresetCellDelegate {
     func duplicatePressed() {
         
         do {
+            // Make unique copy of preset
             try Disk.save(currentPreset, to: .caches, as: "tmp/presetcopy.json")
             guard let copy = try? Disk.retrieve("tmp/presetcopy.json", from: .caches, as: Preset.self) else { return }
             
+            // Set duplicate preset properties
             copy.name = copy.name + " [copy]"
             copy.isUser = true
-            presets.insert(copy, at: copy.position + 1)
+            copy.bank = banks[1]! // user
+          
+            // Append preset
+            presets.append(copy)
             
-            // Resave positions
-            for (i, preset) in presets.enumerated() {
+            // Resave positions in User Bank
+            let userBank = presets.filter { $0.bank == copy.bank }
+            for (i, preset) in userBank.enumerated() {
                 preset.position = i
             }
-            // set bank to user for newly copied preset
-            //saveAllPresets()
+            
+            // Save the User Bank
+            saveAllPresetsIn(copy.bank)
+            
+            // Set the currentPreset equal to the copy
+            selectCategory(PresetCategory.bankStartingIndex+1)
+            currentPreset = copy
+            selectCurrentPreset()
             
         } catch {
             AKLog("error duplicating")
@@ -611,7 +615,8 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                 importedPreset.isFavorite = false
                 presets.append(importedPreset)
                 currentPreset = importedPreset
-                currentPreset.bank = "user"
+                currentPreset.isUser = true
+                currentPreset.bank = banks[1]! // user
                 saveAllPresetsIn(currentPreset.bank)
                 AKLog("*** preset loaded")
             } else {

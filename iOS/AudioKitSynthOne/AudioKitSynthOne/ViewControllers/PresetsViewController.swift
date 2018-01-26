@@ -468,13 +468,13 @@ extension PresetsViewController: UITableViewDelegate {
         let cell = tableView.cellForRow(at: (fromIndexPath as IndexPath)) as? PresetCell
         guard let presetToMove = cell?.currentPreset else { return }
       
-         // Update new position in presets array
-        var presetBank = presets.filter { $0.bank == presetToMove.bank }
-        presetBank.remove(at: (fromIndexPath as NSIndexPath).row)
-        presetBank.insert(presetToMove, at: (toIndexPath as NSIndexPath).row)
+        // Update new position in sortedPresets array
+        // Rearranging is only allowed in "banks" views, so we can use sortedPresets
+        sortedPresets.remove(at: (fromIndexPath as NSIndexPath).row)
+        sortedPresets.insert(presetToMove, at: (toIndexPath as NSIndexPath).row)
         
         // Resave positions
-        for (i, preset) in presetBank.enumerated() {
+        for (i, preset) in sortedPresets.enumerated() {
             preset.position = i
         }
         saveAllPresetsIn(presetToMove.bank)

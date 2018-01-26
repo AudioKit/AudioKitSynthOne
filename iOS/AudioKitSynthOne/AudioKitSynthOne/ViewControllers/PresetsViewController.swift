@@ -62,6 +62,7 @@ class PresetsViewController: UIViewController {
     }
     
     let banks = Conductor.sharedInstance.banks
+    let userBankIndex = PresetCategory.bankStartingIndex + 1
     
     var randomNumbers: GKRandomDistribution!
     
@@ -144,7 +145,7 @@ class PresetsViewController: UIViewController {
             print ("bank \(bankIndex)")
             
         default:
-            // Display bankA
+            // Display BankA
             sortedPresets = presets.filter { $0.bank == "BankA" }.sorted { $0.position < $1.position }
         }
     }
@@ -201,9 +202,9 @@ class PresetsViewController: UIViewController {
         createActivePreset()
     }
     
-    func selectCategory(_ categoryIndex: Int) {
+    func selectCategory(_ newIndex: Int) {
         guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesController else { return }
-        categoriesVC.categoryTableView.selectRow(at: IndexPath(row: categoryIndex, section: 0), animated: false, scrollPosition: .top)
+        categoriesVC.categoryTableView.selectRow(at: IndexPath(row: newIndex, section: 0), animated: false, scrollPosition: .top)
     }
     
     func createActivePreset() {
@@ -263,14 +264,16 @@ class PresetsViewController: UIViewController {
         reorderButton.callback = { _ in
             self.tableView.isEditing = !self.tableView.isEditing
             
-            // Set Categories table to "all"
-            self.selectCategory(0)
+            // Set Categories table to a specific bank
+            if self.categoryIndex < PresetCategory.bankStartingIndex {
+                self.categoryIndex = PresetCategory.bankStartingIndex
+            }
+            self.selectCategory(self.categoryIndex)
             
             if self.tableView.isEditing {
                 self.reorderButton.setTitle("I'M DONE!", for: UIControlState())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
                 self.reorderButton.backgroundColor = UIColor(red: 230/255, green: 136/255, blue: 2/255, alpha: 1.0)
-                self.categoryIndex = 0
                 self.categoryEmbeddedView.isUserInteractionEnabled = false
                 
             } else {
@@ -423,11 +426,12 @@ extension PresetsViewController: UITableViewDelegate {
             let cell = tableView.cellForRow(at: indexPath) as? PresetCell
             guard let presetToDelete = cell?.currentPreset else { return }
             
-            // Delete the row from the data source
-            presets.remove(at: presetToDelete.position)
+            // Delete the preset from the data source
+            presets = presets.filter{$0.uid != presetToDelete.uid}
             
-            // Resave positions
-            for (i, preset) in presets.enumerated() {
+            // Resave Preset Positions in Bank
+            let presetBank = presets.filter { $0.bank == presetToDelete.bank }
+            for (i, preset) in presetBank.enumerated() {
                 preset.position = i
             }
             
@@ -437,7 +441,7 @@ extension PresetsViewController: UITableViewDelegate {
             }
             
             // Save presets
-            saveAllPresetsIn("bankA")
+            saveAllPresetsIn(currentPreset.bank)
         }
     }
     
@@ -449,16 +453,20 @@ extension PresetsViewController: UITableViewDelegate {
     // Override to support rearranging the table view.
     @objc(tableView:moveRowAtIndexPath:toIndexPath:) func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
         
-        // Update new position in presets array
-        let itemToMove = presets[(fromIndexPath as NSIndexPath).row]
-        presets.remove(at: (fromIndexPath as NSIndexPath).row)
-        presets.insert(itemToMove, at: (toIndexPath as NSIndexPath).row)
+        // Get cell
+        let cell = tableView.cellForRow(at: (fromIndexPath as IndexPath)) as? PresetCell
+        guard let presetToMove = cell?.currentPreset else { return }
+      
+         // Update new position in presets array
+        var presetBank = presets.filter { $0.bank == presetToMove.bank }
+        presetBank.remove(at: (fromIndexPath as NSIndexPath).row)
+        presetBank.insert(presetToMove, at: (toIndexPath as NSIndexPath).row)
         
         // Resave positions
-        for (i, preset) in presets.enumerated() {
+        for (i, preset) in presetBank.enumerated() {
             preset.position = i
         }
-        //saveAllPresets()
+        saveAllPresetsIn(presetToMove.bank)
     }
     
     // Override to support conditional rearranging of the table view.
@@ -492,8 +500,9 @@ extension PresetsViewController: PresetCellDelegate {
             
             // Set duplicate preset properties
             copy.name = copy.name + " [copy]"
+            copy.uid = UUID().uuidString
             copy.isUser = true
-            copy.bank = banks[1]! // user
+            copy.bank = banks[1]! // User Bank
           
             // Append preset
             presets.append(copy)
@@ -507,9 +516,12 @@ extension PresetsViewController: PresetCellDelegate {
             // Save the User Bank
             saveAllPresetsIn(copy.bank)
             
-            // Set the currentPreset equal to the copy
-            selectCategory(PresetCategory.bankStartingIndex+1)
+            // Select the new Preset
             currentPreset = copy
+            
+            // Display the User Bank
+            selectCategory(userBankIndex)
+            categoryIndex = userBankIndex
             selectCurrentPreset()
             
         } catch {

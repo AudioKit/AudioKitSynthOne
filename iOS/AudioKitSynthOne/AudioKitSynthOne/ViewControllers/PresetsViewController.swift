@@ -198,6 +198,7 @@ class PresetsViewController: UIViewController {
             presets.insert(activePreset, at: activePreset.position)
         }
         
+        activePreset.isUser = true
         currentPreset = activePreset
         saveAllPresetsIn(currentPreset.bank)
         
@@ -584,11 +585,14 @@ extension PresetsViewController: CategoryDelegate {
     
     func userPresetsShare() {
         
-        let userPresets = presets.filter { $0.isUser }
+        // Get Bank to Share
+        let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
+        let bankName = banks[bankIndex]!
+        let bankToShare = presets.filter { $0.bank == bankName }
         
         // Save preset to temp directory to be shared
-        let presetLocation = "temp/userpresets.bank"
-        try? Disk.save(userPresets, to: .caches, as: presetLocation)
+        let presetLocation = "temp/\(bankName).bank"
+        try? Disk.save(bankToShare, to: .caches, as: presetLocation)
         let path: URL =  try! Disk.getURL(for: presetLocation, in: .caches)
         
         // Share

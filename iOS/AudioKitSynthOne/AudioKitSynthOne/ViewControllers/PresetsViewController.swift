@@ -248,10 +248,18 @@ class PresetsViewController: UIViewController {
     // *****************************************************************
     
     func setupCallbacks() {
+        
         newButton.callback = { _ in
-            let initPreset = Preset(position: self.presets.count)
+            let userBankCount = self.presets.filter { $0.bank == self.banks[1]! }.count
+            let initPreset = Preset(position: userBankCount)
             self.presets.append(initPreset)
             self.currentPreset = initPreset
+            
+            // Show User Category
+            self.selectCategory(self.userBankIndex)
+            self.categoryIndex = self.userBankIndex
+            
+            // Save new preset in User Bank
             self.saveAllPresetsIn(self.currentPreset.bank)
         }
         

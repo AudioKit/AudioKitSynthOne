@@ -84,7 +84,11 @@ class Conductor: AKSynthOneProtocol {
         //AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147])
 
         AudioKit.output = synth
-        AudioKit.start()
+        do {
+            try AudioKit.start()
+        } catch {
+            AKLog("AudioKit did not start!")
+        }
         started = true
     }
     

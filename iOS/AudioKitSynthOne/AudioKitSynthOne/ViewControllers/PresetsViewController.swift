@@ -190,11 +190,14 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    // Save activePreset
     func savePreset(_ activePreset: Preset) {
-        // Save preset
-        var presetBank = presets.filter { $0.bank == currentPreset.bank }
-        presetBank.remove(at: currentPreset.position)
-        presetBank.insert(activePreset, at: activePreset.position)
+        // Remove currentPreset and replace it with activePreset
+        if let position = presets.index(where: { $0.uid == currentPreset.uid }) {
+            presets.remove(at: position)
+            presets.insert(activePreset, at: activePreset.position)
+        }
+        
         currentPreset = activePreset
         saveAllPresetsIn(currentPreset.bank)
         
@@ -276,7 +279,7 @@ class PresetsViewController: UIViewController {
             if self.categoryIndex < PresetCategory.bankStartingIndex {
                 self.categoryIndex = PresetCategory.bankStartingIndex
             }
-            self.selectCategory(self.categoryIndex)
+            self.selectCategory(self.categoryIndex) // select category in category table
             
             if self.tableView.isEditing {
                 self.reorderButton.setTitle("I'M DONE!", for: UIControlState())
@@ -493,10 +496,6 @@ extension PresetsViewController: PresetCellDelegate {
     
     func editPressed() {
         self.performSegue(withIdentifier: "SegueToEdit", sender: self)
-    }
-    
-    func presetDidChange(preset: Preset) {
-        // currentPreset = preset
     }
     
     func duplicatePressed() {

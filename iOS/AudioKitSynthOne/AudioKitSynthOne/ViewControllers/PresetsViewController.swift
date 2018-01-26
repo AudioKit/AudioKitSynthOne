@@ -630,17 +630,27 @@ extension PresetsViewController: UIDocumentPickerDelegate {
         AKLog("****")
         AKLog("\(url)")
         do {
+            // Parse JSON to Preset
             let retrievedPresetData = try Data(contentsOf: url)
-            
             if let presetJSON = try? JSONSerialization.jsonObject(with: retrievedPresetData, options: []) {
-                let importedPreset = Preset.parseDataToPreset(presetJSON: presetJSON)
-                importedPreset.position = presets.count
+               let importedPreset = Preset.parseDataToPreset(presetJSON: presetJSON)
+                
+                // Import preset to User Bank
+                let userBank = presets.filter { $0.bank == "User" }
+                importedPreset.position = userBank.count
                 importedPreset.isFavorite = false
+                importedPreset.isUser = true
                 presets.append(importedPreset)
+                
                 currentPreset = importedPreset
-                currentPreset.isUser = true
                 currentPreset.bank = banks[1]! // user
                 saveAllPresetsIn(currentPreset.bank)
+                
+                // Display the User Bank
+                selectCategory(userBankIndex)
+                categoryIndex = userBankIndex
+                selectCurrentPreset()
+                
                 AKLog("*** preset loaded")
             } else {
                 AKLog("*** error parsing preset")

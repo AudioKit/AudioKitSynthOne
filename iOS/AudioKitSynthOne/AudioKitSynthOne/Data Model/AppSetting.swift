@@ -30,7 +30,7 @@ class AppSetting: Codable {
     var presetsVersion = 1.00
     
     // Banks
-    var banks = ["factory", "user"]
+    var banks: [Int:String] = [0: "BankA", 1: "User"]
     
     // MIDI Learn Settings
     
@@ -103,7 +103,6 @@ class AppSetting: Codable {
     
     // Init from Dictionary/JSON
     init(dictionary: [String: Any]) {
-        
         settingID = dictionary["settingID"] as? String ?? settingID
         launches = dictionary["launches"] as? Int ?? launches
         firstRun = dictionary["firstRun"] as? Bool ?? firstRun
@@ -116,7 +115,6 @@ class AppSetting: Codable {
         velocitySensitive =  dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
         
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
-        banks = dictionary["banks"] as? [String] ?? banks
         
         masterVolume_CC = dictionary["masterVolume_CC"] as? Int ?? masterVolume_CC
         morph1Selector_CC = dictionary["morph1Selector_CC"] as? Int ?? morph1Selector_CC
@@ -170,6 +168,13 @@ class AppSetting: Codable {
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
         
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
+        
+        // Unwrap embedded Banks JSON
+        if let banksDictionary = dictionary["banks"] as? [String: Any] {
+            banksDictionary.forEach {
+                banks[Int($0.key)!] = String(describing: $0.value)
+            }
+        }
     }
     
 }

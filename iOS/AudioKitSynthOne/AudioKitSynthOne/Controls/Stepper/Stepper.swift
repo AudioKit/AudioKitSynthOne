@@ -1,6 +1,6 @@
 //
 //  ArrowButton.swift
-//  SynthUISpike
+//  AudioKit Synth One
 //
 //  Created by Matthew Fecher on 8/2/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.

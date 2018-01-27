@@ -21,7 +21,7 @@
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.audiokitpro.AudioKitSynthOne</string>
+				<string>com.audiokitpro.AudioKitSynthOne.synth1</string>
 			</array>
 		</dict>
 	</array>
@@ -76,7 +76,7 @@
 				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>AudioKit Synth One Presest</string>
+			<string>AudioKit Synth Presest</string>
 			<key>UTTypeIdentifier</key>
 			<string>com.audiokitpro.SynthUISpike.synth1</string>
 			<key>UTTypeSize320IconFile</key>
@@ -86,15 +86,13 @@
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
-				<string>synth1</string>
+				<array>
+					<string>synth1</string>
+				</array>
 				<key>public.mime-type</key>
-				<string>application/SynthUISpike</string>
+				<string>application/SynthOne</string>
 			</dict>
 		</dict>
-	</array>
-	<key>UTImportedTypeDeclarations</key>
-	<array>
-		<dict/>
 	</array>
 </dict>
 </plist>

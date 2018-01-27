@@ -1,6 +1,6 @@
 //
 //  ADSRViewController.swift
-//  SynthUISpike
+//  AudioKit Synth One
 //
 //  Created by Matthew Fecher on 7/24/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
@@ -17,6 +17,7 @@ protocol PresetsDelegate {
     func presetDidChange(_ activePreset: Preset)
     func updateDisplay(_ message: String)
     func saveEditedPreset(name: String, category: Int)
+    func banksDidUpdate()
 }
 
 class PresetsViewController: UIViewController {
@@ -24,7 +25,8 @@ class PresetsViewController: UIViewController {
     @IBOutlet weak var newButton: SynthUIButton!
     @IBOutlet weak var importButton: SynthUIButton!
     @IBOutlet weak var reorderButton: SynthUIButton!
-    @IBOutlet weak var resetButton: PresetUIButton!
+    @IBOutlet weak var importBankButton: PresetUIButton!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryEmbeddedView: UIView!
     @IBOutlet weak var presetDescriptionField: UITextView!
@@ -61,6 +63,9 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    let conductor = Conductor.sharedInstance
+    let userBankIndex = PresetCategory.bankStartingIndex + 1
+    
     var randomNumbers: GKRandomDistribution!
     
     var presetsDelegate: PresetsDelegate?
@@ -74,31 +79,17 @@ class PresetsViewController: UIViewController {
         
         // Preset Description TextField
         presetDescriptionField.delegate = self
-        //presetDescriptionField.layer.borderWidth = 2
-        // presetDescriptionField.layer.borderColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
         presetDescriptionField.layer.cornerRadius = 4
         
         // set color for lines between rows
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         
-        // Load presets
-        if Disk.exists("presets.json", in: .documents) {
-            loadPresetsFromDevice()
-            saveAllPresets()
-          
-        } else {
-            loadDefaultPresets()
-            saveAllPresets()
-        }
-        
         // Set Initial Cateogry & Preset
-        resetCategoryToAll()
+        selectCategory(0)
         
         // Setup button callbacks
         setupCallbacks()
         
-      
-      
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -109,27 +100,54 @@ class PresetsViewController: UIViewController {
     // MARK: - Load/Save/Manipulate Presets
     // *****************************************************************
     
-    func sortPresets() {
-        switch categoryIndex {
+    func loadBanks() {
+        presets.removeAll()
         
-        // all presets, sort by preset #
+        conductor.banks.forEach { bank in
+            let fileName = bank.value + ".json"
+            
+            // Load presets
+            if Disk.exists(fileName, in: .documents) {
+                loadPresetsFromDevice(fileName)
+            } else {
+                loadFactoryPresets(bank.value)
+            }
+            
+            saveAllPresetsIn(bank.value)
+        }
+        
+        updateCategoryTable()
+    }
+    
+    func sortPresets() {
+        
+        switch categoryIndex {
+   
+        // Display Categories
         case 0:
-            sortedPresets = presets.sorted { $0.position < $1.position }
+            // All Presets, by Bank
+            sortedPresets.removeAll()
+            conductor.banks.forEach { bank in
+                sortedPresets += presets.filter { $0.bank == bank.value }.sorted { $0.position < $1.position }
+            }
         
         // Sort by Categories
-        case 1...PresetCategory.numCategories:
+        case 1...PresetCategory.categoryCount:
             sortedPresets = presets.filter { $0.category == categoryIndex }
             
         // Sort by Favorites
-        case PresetCategory.numCategories + 1:
+        case PresetCategory.categoryCount + 1:
             sortedPresets = presets.filter { $0.isFavorite }
         
-        // Sorty by User created/modified presets
-        case PresetCategory.numCategories + 2:
-            sortedPresets = presets.filter { $0.isUser }
+        // Display Banks
+        case PresetCategory.bankStartingIndex ... PresetCategory.bankStartingIndex + conductor.banks.count:
+            let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
+            sortedPresets = presets.filter { $0.bank == conductor.banks[bankIndex] }
+                .sorted { $0.position < $1.position }
             
         default:
-            sortedPresets = presets.sorted { $0.position < $1.position }
+            // Display BankA
+            sortedPresets = presets.filter { $0.bank == "BankA" }.sorted { $0.position < $1.position }
         }
     }
     
@@ -138,59 +156,65 @@ class PresetsViewController: UIViewController {
         randomNumbers = GKShuffledDistribution(lowestValue: 0, highestValue: presets.count-1)
     }
     
-    func loadPresetsFromDevice() {
+    func loadPresetsFromDevice(_ fileName: String) {
         do {
-            // debug logging
-            // "save" goes to this file.  You can copy this file back to the app bundle as defaults.
-            //AKLog(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last ?? "nil");
-            ///Users/marcushobbs/Library/Developer/CoreSimulator/Devices/870E7755-75B7-4037-9B08-4C8A066057CD/data/Containers/Data/Application/5901161D-1A6E-407B-8137-5CF4B4864091/Documents/presets.json
-            
-            let retrievedPresetData = try Disk.retrieve("presets.json", from: .documents, as: Data.self)
+            let retrievedPresetData = try Disk.retrieve(fileName, from: .documents, as: Data.self)
             parsePresetsFromData(data: retrievedPresetData)
         } catch {
             AKLog("*** error loading")
         }
     }
     
-    func loadDefaultPresets() {
-        if let filePath = Bundle.main.path(forResource: "presets1", ofType:"json") {
+    func loadFactoryPresets(_ bank: String) {
+        if let filePath = Bundle.main.path(forResource: bank, ofType:"json") {
             let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
             parsePresetsFromData(data: data!)
         }
     }
     
-    
     func parsePresetsFromData(data: Data) {
         let presetsJSON = try? JSONSerialization.jsonObject(with: data, options: [])
         guard let jsonArray = presetsJSON as? [Any] else { return }
         
-        presets = Preset.parseDataToPresets(jsonArray: jsonArray)
+        presets += Preset.parseDataToPresets(jsonArray: jsonArray)
+        print ("Presets count: \(presets.count)")
         sortPresets()
     }
     
-    func saveAllPresets() {
+    func saveAllPresetsIn(_ bank: String) {
+        let presetsToSave = presets.filter { $0.bank == bank }
         do {
-            try Disk.save(presets, to: .documents, as: "presets.json")
+            try Disk.save(presetsToSave, to: .documents, as: bank + ".json")
             sortPresets()
         } catch {
             AKLog("error saving")
         }
     }
     
+    // Save activePreset
     func savePreset(_ activePreset: Preset) {
-        // Save preset
-        presets.remove(at: currentPreset.position)
-        presets.insert(activePreset, at: activePreset.position)
+        // Remove currentPreset and replace it with activePreset
+        if let position = presets.index(where: { $0.uid == currentPreset.uid }) {
+            presets.remove(at: position)
+            presets.insert(activePreset, at: activePreset.position)
+        }
+        
+        activePreset.isUser = true
         currentPreset = activePreset
-        saveAllPresets()
+        saveAllPresetsIn(currentPreset.bank)
         
         // Create new active preset
         createActivePreset()
     }
     
-    func resetCategoryToAll() {
+    func selectCategory(_ newIndex: Int) {
         guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesController else { return }
-        categoriesVC.categoryTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
+        categoriesVC.categoryTableView.selectRow(at: IndexPath(row: newIndex, section: 0), animated: false, scrollPosition: .top)
+    }
+    
+    func updateCategoryTable() {
+        guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesController else { return }
+        categoriesVC.updateChoices()
     }
     
     func createActivePreset() {
@@ -206,12 +230,12 @@ class PresetsViewController: UIViewController {
     
     func selectCurrentPreset() {
         // No preset is selected, select first one
-        guard presets.index(where: {$0 === currentPreset}) != nil else {
-            // currentPreset = presets[0]
-            tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
-            return
-        }
-        
+//        guard presets.index(where: {$0 === currentPreset}) != nil else {
+//            // currentPreset = presets[0]
+//            tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
+//            return
+//        }
+//        
         // Find the preset in the current view
         if let index = sortedPresets.index(where: {$0 === currentPreset}) {
             tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
@@ -234,11 +258,19 @@ class PresetsViewController: UIViewController {
     // *****************************************************************
     
     func setupCallbacks() {
+        
         newButton.callback = { _ in
-            let initPreset = Preset(position: self.presets.count)
+            let userBankCount = self.presets.filter { $0.bank == self.conductor.banks[1]! }.count
+            let initPreset = Preset(position: userBankCount)
             self.presets.append(initPreset)
             self.currentPreset = initPreset
-            self.saveAllPresets()
+            
+            // Show User Category
+            self.selectCategory(self.userBankIndex)
+            self.categoryIndex = self.userBankIndex
+            
+            // Save new preset in User Bank
+            self.saveAllPresetsIn(self.currentPreset.bank)
         }
         
         importButton.callback = { _ in
@@ -247,34 +279,36 @@ class PresetsViewController: UIViewController {
             self.present(documentPicker, animated: true, completion: nil)
         }
         
+        importBankButton.callback = { _ in
+            let documentPicker = UIDocumentPickerViewController(documentTypes: [String(kUTTypeText)], in: .import)
+            documentPicker.delegate = self
+            self.present(documentPicker, animated: true, completion: nil)
+        }
+        
         reorderButton.callback = { _ in
             self.tableView.isEditing = !self.tableView.isEditing
             
-            // Set Categories table to "all"
-            self.resetCategoryToAll()
+            // Set Categories table to a specific bank
+            if self.categoryIndex < PresetCategory.bankStartingIndex {
+                self.categoryIndex = PresetCategory.bankStartingIndex
+            }
+            self.selectCategory(self.categoryIndex) // select category in category table
             
             if self.tableView.isEditing {
                 self.reorderButton.setTitle("I'M DONE!", for: UIControlState())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
                 self.reorderButton.backgroundColor = UIColor(red: 230/255, green: 136/255, blue: 2/255, alpha: 1.0)
-                self.categoryIndex = 0
                 self.categoryEmbeddedView.isUserInteractionEnabled = false
                 
             } else {
                 self.reorderButton.setTitle("Reorder", for: UIControlState())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1), for: .normal)
-                self.reorderButton.backgroundColor = #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2941176471, alpha: 1)
+                self.reorderButton.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
                 self.categoryEmbeddedView.isUserInteractionEnabled = true
                 self.selectCurrentPreset()
             }
         }
         
-        resetButton.callback = { _ in
-            // prompt user if they want to do it, suggest they export user presets first
-            // reset to factory defaults
-            self.loadDefaultPresets()
-            self.saveAllPresets()
-        }
     }
     
     func nextPreset() {
@@ -416,11 +450,12 @@ extension PresetsViewController: UITableViewDelegate {
             let cell = tableView.cellForRow(at: indexPath) as? PresetCell
             guard let presetToDelete = cell?.currentPreset else { return }
             
-            // Delete the row from the data source
-            presets.remove(at: presetToDelete.position)
+            // Delete the preset from the data source
+            presets = presets.filter{$0.uid != presetToDelete.uid}
             
-            // Resave positions
-            for (i, preset) in presets.enumerated() {
+            // Resave Preset Positions in Bank
+            let presetBank = presets.filter { $0.bank == presetToDelete.bank }
+            for (i, preset) in presetBank.enumerated() {
                 preset.position = i
             }
             
@@ -430,7 +465,7 @@ extension PresetsViewController: UITableViewDelegate {
             }
             
             // Save presets
-            saveAllPresets()
+            saveAllPresetsIn(currentPreset.bank)
         }
     }
     
@@ -442,16 +477,20 @@ extension PresetsViewController: UITableViewDelegate {
     // Override to support rearranging the table view.
     @objc(tableView:moveRowAtIndexPath:toIndexPath:) func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
         
-        // Update new position in presets array
-        let itemToMove = presets[(fromIndexPath as NSIndexPath).row]
-        presets.remove(at: (fromIndexPath as NSIndexPath).row)
-        presets.insert(itemToMove, at: (toIndexPath as NSIndexPath).row)
+        // Get cell
+        let cell = tableView.cellForRow(at: (fromIndexPath as IndexPath)) as? PresetCell
+        guard let presetToMove = cell?.currentPreset else { return }
+      
+        // Update new position in sortedPresets array
+        // Rearranging is only allowed in "banks" views, so we can use sortedPresets
+        sortedPresets.remove(at: (fromIndexPath as NSIndexPath).row)
+        sortedPresets.insert(presetToMove, at: (toIndexPath as NSIndexPath).row)
         
         // Resave positions
-        for (i, preset) in presets.enumerated() {
+        for (i, preset) in sortedPresets.enumerated() {
             preset.position = i
         }
-        saveAllPresets()
+        saveAllPresetsIn(presetToMove.bank)
     }
     
     // Override to support conditional rearranging of the table view.
@@ -472,25 +511,38 @@ extension PresetsViewController: PresetCellDelegate {
         self.performSegue(withIdentifier: "SegueToEdit", sender: self)
     }
     
-    func presetDidChange(preset: Preset) {
-        // currentPreset = preset
-    }
-    
     func duplicatePressed() {
         
         do {
+            // Make unique copy of preset
             try Disk.save(currentPreset, to: .caches, as: "tmp/presetcopy.json")
             guard let copy = try? Disk.retrieve("tmp/presetcopy.json", from: .caches, as: Preset.self) else { return }
             
+            // Set duplicate preset properties
             copy.name = copy.name + " [copy]"
+            copy.uid = UUID().uuidString
             copy.isUser = true
-            presets.insert(copy, at: copy.position + 1)
+            copy.bank = conductor.banks[1]! // User Bank
+          
+            // Append preset
+            presets.append(copy)
             
-            // Resave positions
-            for (i, preset) in presets.enumerated() {
+            // Resave positions in User Bank
+            let userBank = presets.filter { $0.bank == copy.bank }
+            for (i, preset) in userBank.enumerated() {
                 preset.position = i
             }
-            saveAllPresets()
+            
+            // Save the User Bank
+            saveAllPresetsIn(copy.bank)
+            
+            // Select the new Preset
+            currentPreset = copy
+            
+            // Display the User Bank
+            selectCategory(userBankIndex)
+            categoryIndex = userBankIndex
+            selectCurrentPreset()
             
         } catch {
             AKLog("error duplicating")
@@ -500,7 +552,7 @@ extension PresetsViewController: PresetCellDelegate {
     func favoritePressed() {
         // Toggle and save preset
         currentPreset.isFavorite = !currentPreset.isFavorite
-        saveAllPresets()
+        saveAllPresetsIn(currentPreset.bank)
         
         // Select current preset
         selectCurrentPreset()
@@ -545,11 +597,14 @@ extension PresetsViewController: CategoryDelegate {
     
     func userPresetsShare() {
         
-        let userPresets = presets.filter { $0.isUser }
+        // Get Bank to Share
+        let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
+        let bankName = conductor.banks[bankIndex]!
+        let bankToShare = presets.filter { $0.bank == bankName }
         
         // Save preset to temp directory to be shared
-        let presetLocation = "temp/userpresets.bank"
-        try? Disk.save(userPresets, to: .caches, as: presetLocation)
+        let presetLocation = "temp/\(bankName).json"
+        try? Disk.save(bankToShare, to: .caches, as: presetLocation)
         let path: URL =  try! Disk.getURL(for: presetLocation, in: .caches)
         
         // Share
@@ -581,28 +636,93 @@ extension PresetsViewController: PresetPopOverDelegate {
     }
 }
 
+//*****************************************************************
+// MARK: - Import / UIDocumentPickerDelegate
+//*****************************************************************
+
 extension PresetsViewController: UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-        AKLog("****")
-        AKLog("\(url)")
+        AKLog("**** url: \(url) ")
+        
+        let fileName = String(describing: url.lastPathComponent)
+       
+        // import presets
         do {
+        // Parse Data to JSON
             let retrievedPresetData = try Data(contentsOf: url)
-            
             if let presetJSON = try? JSONSerialization.jsonObject(with: retrievedPresetData, options: []) {
-                let importedPreset = Preset.parseDataToPreset(presetJSON: presetJSON)
-                importedPreset.position = presets.count
-                importedPreset.isFavorite = false
-                presets.append(importedPreset)
-                currentPreset = importedPreset
-                saveAllPresets()
-                AKLog("*** preset loaded")
-            } else {
-                AKLog("*** error parsing preset")
-            }
             
-        } catch {
-            AKLog("*** error loading")
+            // Check if it is a bank or single preset
+            if fileName.hasSuffix("json") {
+                // import bank
+                guard let jsonArray = presetJSON as? [Any] else { return }
+                let importBank = Preset.parseDataToPresets(jsonArray: jsonArray)
+                
+                // Update imported presets with bankName
+                var bankName = String(fileName.dropLast(5))
+                
+                // check for duplicate bank name already in system
+                if conductor.banks.contains(where: { $0.value == bankName }) {
+                    // TODO: Ask User to select a new name
+                    bankName += " *"
+                }
+                
+                // Update presets
+                importBank.forEach { preset in
+                    preset.uid = UUID().uuidString
+                    preset.bank = bankName
+                }
+                
+                // Add new bank to presets
+                presets += importBank
+                
+                // Save to local disk
+                saveAllPresetsIn(bankName)
+                
+                // Save to AppSettings
+                let newKeyIndex = conductor.banks.count
+                conductor.banks.updateValue(bankName, forKey: newKeyIndex)
+                presetsDelegate?.banksDidUpdate()
+                
+                print (conductor.banks)
+                
+                // Add Bank to left category listing
+                updateCategoryTable()
+                selectCategory(PresetCategory.bankStartingIndex + newKeyIndex)
+                categoryIndex = PresetCategory.bankStartingIndex + newKeyIndex
+               
+                sortPresets()
+                
+            } else {
+                let importedPreset = Preset.parseDataToPreset(presetJSON: presetJSON)
+                
+                // Import preset to User Bank
+                let userBank = presets.filter { $0.bank == "User" }
+                importedPreset.position = userBank.count
+                importedPreset.isFavorite = false
+                importedPreset.isUser = true
+                presets.append(importedPreset)
+                
+                currentPreset = importedPreset
+                currentPreset.bank = conductor.banks[1]! // user
+                saveAllPresetsIn(currentPreset.bank)
+                
+                // Display the User Bank
+                selectCategory(userBankIndex)
+                categoryIndex = userBankIndex
+                selectCurrentPreset()
+                
+                AKLog("*** preset loaded")
+            }
+        } else {
+            AKLog("*** error parsing presets")
         }
+        
+    } catch {
+        AKLog("*** error loading")
     }
+        
+    }
+    
 }

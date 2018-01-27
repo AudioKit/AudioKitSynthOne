@@ -133,7 +133,6 @@ public class ParentViewController: UpdatableViewController {
         bluetoothButton.layer.cornerRadius = 2
         bluetoothButton.layer.borderWidth = 1
         
-     
         // Setup Callbacks
         setupCallbacks()
         
@@ -155,7 +154,7 @@ public class ParentViewController: UpdatableViewController {
     }
     
     public override func viewDidAppear(_ animated: Bool) {
-        
+      
         // Load App Settings
         if Disk.exists("settings.json", in: .documents) {
             loadSettingsFromDevice()
@@ -163,7 +162,11 @@ public class ParentViewController: UpdatableViewController {
             setDefaultsFromAppSettings()
             saveAppSettings()
         }
-      
+        
+        // Presets
+        conductor.banks = appSettings.banks
+        presetsViewController.loadBanks()
+        
         // On four runs show dialog and request review
         //        if appSettings.launches == 4 { reviewPopUp() }
         //        if appSettings.launches % 10 == 0 { skRequestReview() }
@@ -563,6 +566,10 @@ extension ParentViewController: PresetsDelegate {
         activePreset.category = category
         activePreset.isUser = true
         saveValuesToPreset()
+    }
+    
+    func banksDidUpdate() {
+        saveAppSettingValues()
     }
 }
 

@@ -1,6 +1,6 @@
 //
 //  PresetsCategoriesController.swift
-//  SynthUISpike
+//  AudioKit Synth One
 //
 //  Created by Matthew Fecher on 9/2/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
@@ -21,7 +21,8 @@ enum PresetCategory: Int {
     case bass
     case pluck
     
-    static let numCategories = 6
+    static let categoryCount = 6
+    static let bankStartingIndex = categoryCount + 2
  
     func description() -> String {
         switch self {
@@ -35,7 +36,6 @@ enum PresetCategory: Int {
         }
     }
 }
-
 
 protocol CategoryDelegate {
     func categoryDidChange(_ newCategoryIndex: Int)
@@ -57,29 +57,40 @@ class PresetsCategoriesController: UIViewController {
         }
     }
     
+    let conductor = Conductor.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         categoryTableView.separatorColor = #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 1)
         
-        // first add PresetCategories to table
-        for i in 0...PresetCategory.numCategories {
-            choices[i] = PresetCategory(rawValue: i)?.description()
-        }
-        
-        // Add Favorites bank
-        choices[PresetCategory.numCategories + 1] = "Favorites"
-        // Add User bank
-        choices[PresetCategory.numCategories + 2] = "User"
-       
+        // Create table data source
+        updateChoices()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         guard let presetsControler = parent! as? PresetsViewController else { return }
         categoryDelegate = presetsControler
+
     }
     
+    func updateChoices() {
+        choices.removeAll()
+        
+        // first add PresetCategories to table
+        for i in 0...PresetCategory.categoryCount {
+            choices[i] = PresetCategory(rawValue: i)?.description()
+        }
+        
+        // Add Favorites bank
+        choices[PresetCategory.categoryCount + 1] = "Favorites"
+        
+        // Add Banks to Table
+        conductor.banks.forEach { bank in
+            choices[PresetCategory.bankStartingIndex + bank.key] = "Bank \(bank.key): \(bank.value)"
+        }
+    }
 }
 
 // *****************************************************************

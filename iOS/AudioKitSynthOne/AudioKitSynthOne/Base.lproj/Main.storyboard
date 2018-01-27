@@ -1150,7 +1150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91R-2p-bBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="83" y="468.5"/>
+            <point key="canvasLocation" x="57" y="-84"/>
         </scene>
         <!--TouchPad-->
         <scene sceneID="dsG-FG-foi">
@@ -2068,7 +2068,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQk-sd-9z1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="-346"/>
+            <point key="canvasLocation" x="57" y="-415"/>
         </scene>
         <!--Pop Up Keyboard Controller-->
         <scene sceneID="nVT-JB-zlP">
@@ -2282,7 +2282,7 @@
                                 <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Import">
+                                <state key="normal" title="Import Preset">
                                     <color key="titleColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="selected">
@@ -2315,7 +2315,7 @@
                                 <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="New/Init">
+                                <state key="normal" title="New Preset">
                                     <color key="titleColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="selected">
@@ -2348,7 +2348,7 @@
                                 <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Reset">
+                                <state key="normal" title="Import Bank">
                                     <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="selected">
@@ -2393,11 +2393,11 @@
                     <connections>
                         <outlet property="categoryEmbeddedView" destination="shO-wj-m9b" id="ofo-nS-NA3"/>
                         <outlet property="categoryLabel" destination="1Zd-XU-k5N" id="9Ny-OJ-hs2"/>
+                        <outlet property="importBankButton" destination="1Tu-fq-8W6" id="VWm-tb-iMi"/>
                         <outlet property="importButton" destination="SSU-v3-oza" id="OH3-L7-LQS"/>
                         <outlet property="newButton" destination="nKH-68-wqU" id="YyD-fS-RE8"/>
                         <outlet property="presetDescriptionField" destination="fKo-jM-ZuK" id="SbF-zf-Vpl"/>
                         <outlet property="reorderButton" destination="TiP-uL-ddT" id="kpO-5g-hrN"/>
-                        <outlet property="resetButton" destination="1Tu-fq-8W6" id="8nZ-SG-ztk"/>
                         <outlet property="tableView" destination="LOE-yJ-vZ1" id="cF6-5U-cJp"/>
                         <segue destination="Jll-oz-p3Y" kind="presentation" identifier="SegueToEdit" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="7uL-fu-zcK"/>
                     </connections>
@@ -2430,17 +2430,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpD-vS-vgX">
-                                                    <rect key="frame" x="26" y="11" width="114" height="22"/>
+                                                    <rect key="frame" x="25" y="11" width="68" height="22"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                     <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8b-Fq-ekJ" userLabel="Share Button">
-                                                    <rect key="frame" x="173" y="10" width="40" height="24"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8b-Fq-ekJ" userLabel="Share Button">
+                                                    <rect key="frame" x="193" y="13" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="Jc6-Jk-ppN"/>
-                                                    </constraints>
                                                     <state key="normal" image="ak_share">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -2450,12 +2448,9 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="DpD-vS-vgX" firstAttribute="leading" secondItem="u7e-or-1Fo" secondAttribute="leadingMargin" constant="11" id="0JC-Rs-fYU"/>
-                                                <constraint firstItem="Z8b-Fq-ekJ" firstAttribute="centerY" secondItem="DpD-vS-vgX" secondAttribute="centerY" id="9Kx-bl-OlU"/>
-                                                <constraint firstItem="Z8b-Fq-ekJ" firstAttribute="trailing" secondItem="u7e-or-1Fo" secondAttribute="trailingMargin" id="F3p-Dy-8Yr"/>
-                                                <constraint firstItem="Z8b-Fq-ekJ" firstAttribute="top" secondItem="u7e-or-1Fo" secondAttribute="topMargin" constant="-1" id="NXj-IS-dxM"/>
-                                                <constraint firstItem="DpD-vS-vgX" firstAttribute="centerY" secondItem="u7e-or-1Fo" secondAttribute="centerY" id="eNh-Il-fbm"/>
-                                                <constraint firstItem="Z8b-Fq-ekJ" firstAttribute="leading" secondItem="DpD-vS-vgX" secondAttribute="trailing" constant="33" id="mwF-GA-Pjv"/>
+                                                <constraint firstItem="DpD-vS-vgX" firstAttribute="top" secondItem="u7e-or-1Fo" secondAttribute="topMargin" id="6XQ-2U-LRJ"/>
+                                                <constraint firstItem="DpD-vS-vgX" firstAttribute="bottom" secondItem="u7e-or-1Fo" secondAttribute="bottomMargin" id="lEq-bZ-IXN"/>
+                                                <constraint firstItem="DpD-vS-vgX" firstAttribute="leading" secondItem="u7e-or-1Fo" secondAttribute="leadingMargin" constant="10" id="lq5-v0-hgd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

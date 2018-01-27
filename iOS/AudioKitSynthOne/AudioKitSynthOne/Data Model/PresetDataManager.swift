@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import AudioKit
 
 extension ParentViewController {
     

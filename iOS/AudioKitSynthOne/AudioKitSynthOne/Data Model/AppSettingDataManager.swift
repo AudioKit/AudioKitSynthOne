@@ -6,8 +6,8 @@
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
 //
 
-import UIKit
 import AudioKit
+import UIKit
 import Disk
 
 extension ParentViewController {

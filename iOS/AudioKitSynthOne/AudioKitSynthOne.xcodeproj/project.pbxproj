@@ -115,6 +115,8 @@
 		94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
 		94CA7BAE1F27BCE200253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
 		94CA7BAF1F27BD1F00253C09 /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
+		94D706CC201D061400749880 /* PopUpBankEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D706CB201D061400749880 /* PopUpBankEdit.swift */; };
+		94D706CD201D074500749880 /* PopUpBankEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D706CB201D061400749880 /* PopUpBankEdit.swift */; };
 		94D917AC1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */; };
 		94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */; };
 		94D917AF1F550D28006ACB4E /* FlatToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */; };
@@ -311,6 +313,7 @@
 		94B69C3A1F297E2800191C87 /* FXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		94C50C3120195FC0008549DB /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
 		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
+		94D706CB201D061400749880 /* PopUpBankEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpBankEdit.swift; sourceTree = "<group>"; };
 		94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatToggleButtonStyleKit.swift; sourceTree = "<group>"; };
 		94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatToggleButton.swift; sourceTree = "<group>"; };
 		94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonStyleKit.swift; sourceTree = "<group>"; };
@@ -571,6 +574,7 @@
 				94A503901FF2E7680097D37C /* PopUpMIDIViewController.swift */,
 				9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */,
 				94A503981FF2F3E10097D37C /* PopUpMODController.swift */,
+				94D706CB201D061400749880 /* PopUpBankEdit.swift */,
 			);
 			path = PopUps;
 			sourceTree = "<group>";
@@ -989,6 +993,7 @@
 				947956AC1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				946D15A01FD26CF2006E7C97 /* DevViewController.swift in Sources */,
 				94AE8DD11F671FC000F2A992 /* PresetsCategoriesController.swift in Sources */,
+				94D706CD201D074500749880 /* PopUpBankEdit.swift in Sources */,
 				94346F921FC7977100434900 /* ColorKnobStyleKit.swift in Sources */,
 				945C3A051F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
 				94DB18D31F37DD4B008368AE /* NavButton.swift in Sources */,
@@ -1091,6 +1096,7 @@
 				94346F901FC7975C00434900 /* ColorKnob.swift in Sources */,
 				94A5039D1FF2F6E30097D37C /* ChannelStepper.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
+				94D706CC201D061400749880 /* PopUpBankEdit.swift in Sources */,
 				C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */,
 				94A503961FF2EB9E0097D37C /* MIDICell.swift in Sources */,
 				C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */,

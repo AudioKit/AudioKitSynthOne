@@ -595,7 +595,7 @@ extension PresetsViewController: CategoryDelegate {
         categoryIndex = newCategoryIndex
     }
     
-    func userPresetsShare() {
+    func bankShare() {
         
         // Get Bank to Share
         let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
@@ -622,6 +622,10 @@ extension PresetsViewController: CategoryDelegate {
         }
         
         self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    func bankEdit() {
+         self.performSegue(withIdentifier: "SegueToBankEdit", sender: self)
     }
 }
 

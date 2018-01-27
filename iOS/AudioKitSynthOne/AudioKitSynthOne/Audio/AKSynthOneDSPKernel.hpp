@@ -19,9 +19,6 @@
 #import <vector>
 #import <list>
 
-//#import "AKLinearParameterRamp.hpp"  // have to put this here to get it included in umbrella header
-
-
 #import <AudioToolbox/AudioToolbox.h>
 #import <AudioUnit/AudioUnit.h>
 #import <AVFoundation/AVFoundation.h>

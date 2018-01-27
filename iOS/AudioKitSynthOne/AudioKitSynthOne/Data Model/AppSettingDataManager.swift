@@ -6,8 +6,8 @@
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
 //
 
-import UIKit
 import AudioKit
+import UIKit
 import Disk
 
 extension ParentViewController {
@@ -19,7 +19,7 @@ extension ParentViewController {
     func setDefaultsFromAppSettings() {
         
         // MIDI
-        conductor.backgroundAudioOn = appSettings.backgroundAudioOn
+        //conductor.backgroundAudioOn = appSettings.backgroundAudioOn
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
         
@@ -80,9 +80,10 @@ extension ParentViewController {
     func saveAppSettingValues() {
         
         // MIDI
-        appSettings.backgroundAudioOn = conductor.backgroundAudioOn
+        // appSettings.backgroundAudioOn = conductor.backgroundAudioOn
         appSettings.midiChannel = Int(midiChannelIn)
         appSettings.omniMode = omniMode
+        appSettings.banks = conductor.banks
         
         // MIDI Learn
         appSettings.masterVolume_CC = Int(mixerViewController.masterVolume.midiCC)
@@ -134,6 +135,7 @@ extension ParentViewController {
         appSettings.octaveRange = keyboardView.octaveCount
         appSettings.darkMode = keyboardView.darkMode
         appSettings.showKeyboard = keyboardToggle.value
+        
         
         appSettings.plotFilled = mixerViewController.isAudioPlotFilled
         saveAppSettings()

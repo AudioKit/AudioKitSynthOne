@@ -1,13 +1,12 @@
 //
 //  TransposeButton.swift
-//  SynthUISpike
+//  AudioKit Synth One
 //
 //  Created by Matthew Fecher on 8/1/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
 //
 
 import UIKit
-import AudioKit
 
 class SliderTransposeButton: UILabel, AKSynthOneControl {
     

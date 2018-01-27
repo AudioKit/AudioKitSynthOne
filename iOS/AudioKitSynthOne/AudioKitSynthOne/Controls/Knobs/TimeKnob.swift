@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AudioKit
 
 public class TimeKnob: MIDIKnob {
     

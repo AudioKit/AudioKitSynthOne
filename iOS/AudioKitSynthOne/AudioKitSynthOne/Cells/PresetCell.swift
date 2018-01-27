@@ -10,7 +10,6 @@ import UIKit
 
 protocol PresetCellDelegate {
     func editPressed()
-    func presetDidChange(preset: Preset)
     func duplicatePressed()
     func sharePressed()
     func favoritePressed()
@@ -62,10 +61,6 @@ class PresetCell: UITableViewCell {
             renameButton.isHidden = false
             shareButton.isHidden = false
             favoriteButton.isHidden = false
-            
-//            if let preset = currentPreset {
-//                 delegate?.presetDidChange(preset: preset)
-//            }
            
         } else {
             presetNameLabel.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)

@@ -20,8 +20,8 @@ class Conductor: AKSynthOneProtocol {
     static var sharedInstance = Conductor()
 
     var syncRateToTempo = true
-    var backgroundAudioOn = true
     var neverSleep = false
+    var banks: [Int:String] = [0: "BankA", 1: "User"]
     
     var synth: AKSynthOne!
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
@@ -84,12 +84,15 @@ class Conductor: AKSynthOneProtocol {
         //AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147])
 
         AudioKit.output = synth
-        AudioKit.start()
+        do {
+            try AudioKit.start()
+        } catch {
+            AKLog("AudioKit did not start!")
+        }
         started = true
     }
     
     func updateSingleUI(_ param: AKSynthOneParameter) {
-        
         // cannot access synth until it is initialized and started
         if !started {return}
         

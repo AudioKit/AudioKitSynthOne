@@ -7,7 +7,6 @@
 
 
 import UIKit
-import AudioKit
 
 @IBDesignable
 class VerticalSlider: UIControl, AKSynthOneControl {

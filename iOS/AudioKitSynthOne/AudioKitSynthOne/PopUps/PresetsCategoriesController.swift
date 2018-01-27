@@ -1,6 +1,6 @@
 //
 //  PresetsCategoriesController.swift
-//  SynthUISpike
+//  AudioKit Synth One
 //
 //  Created by Matthew Fecher on 9/2/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
@@ -57,13 +57,26 @@ class PresetsCategoriesController: UIViewController {
         }
     }
     
-    let banks = Conductor.sharedInstance.banks
+    let conductor = Conductor.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         categoryTableView.separatorColor = #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3254901961, alpha: 1)
+        
+        // Create table data source
+        updateChoices()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        guard let presetsControler = parent! as? PresetsViewController else { return }
+        categoryDelegate = presetsControler
+
+    }
+    
+    func updateChoices() {
+        choices.removeAll()
         
         // first add PresetCategories to table
         for i in 0...PresetCategory.categoryCount {
@@ -74,17 +87,11 @@ class PresetsCategoriesController: UIViewController {
         choices[PresetCategory.categoryCount + 1] = "Favorites"
         
         // Add Banks to Table
-        banks.forEach{ bank in
+        print ("Categories table: \(conductor.banks)")
+        conductor.banks.forEach { bank in
             choices[PresetCategory.bankStartingIndex + bank.key] = "Bank \(bank.key): \(bank.value)"
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        guard let presetsControler = parent! as? PresetsViewController else { return }
-        categoryDelegate = presetsControler
-
-    }
-    
 }
 
 // *****************************************************************

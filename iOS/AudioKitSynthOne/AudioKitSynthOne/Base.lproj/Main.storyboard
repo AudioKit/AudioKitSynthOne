@@ -1150,7 +1150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91R-2p-bBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="83" y="468.5"/>
+            <point key="canvasLocation" x="57" y="-84"/>
         </scene>
         <!--TouchPad-->
         <scene sceneID="dsG-FG-foi">
@@ -2068,7 +2068,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQk-sd-9z1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="-346"/>
+            <point key="canvasLocation" x="57" y="-415"/>
         </scene>
         <!--Pop Up Keyboard Controller-->
         <scene sceneID="nVT-JB-zlP">
@@ -2393,11 +2393,11 @@
                     <connections>
                         <outlet property="categoryEmbeddedView" destination="shO-wj-m9b" id="ofo-nS-NA3"/>
                         <outlet property="categoryLabel" destination="1Zd-XU-k5N" id="9Ny-OJ-hs2"/>
+                        <outlet property="importBankButton" destination="1Tu-fq-8W6" id="VWm-tb-iMi"/>
                         <outlet property="importButton" destination="SSU-v3-oza" id="OH3-L7-LQS"/>
                         <outlet property="newButton" destination="nKH-68-wqU" id="YyD-fS-RE8"/>
                         <outlet property="presetDescriptionField" destination="fKo-jM-ZuK" id="SbF-zf-Vpl"/>
                         <outlet property="reorderButton" destination="TiP-uL-ddT" id="kpO-5g-hrN"/>
-                        <outlet property="resetButton" destination="1Tu-fq-8W6" id="8nZ-SG-ztk"/>
                         <outlet property="tableView" destination="LOE-yJ-vZ1" id="cF6-5U-cJp"/>
                         <segue destination="Jll-oz-p3Y" kind="presentation" identifier="SegueToEdit" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="7uL-fu-zcK"/>
                     </connections>

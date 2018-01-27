@@ -105,7 +105,6 @@ class PresetsViewController: UIViewController {
         
         conductor.banks.forEach { bank in
             let fileName = bank.value + ".json"
-            print ("**** BANK: \(bank)")
             
             // Load presets
             if Disk.exists(fileName, in: .documents) {
@@ -145,8 +144,6 @@ class PresetsViewController: UIViewController {
             let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
             sortedPresets = presets.filter { $0.bank == conductor.banks[bankIndex] }
                 .sorted { $0.position < $1.position }
-            
-            print ("bank \(bankIndex)")
             
         default:
             // Display BankA

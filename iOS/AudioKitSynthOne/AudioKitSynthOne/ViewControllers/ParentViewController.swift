@@ -165,10 +165,6 @@ public class ParentViewController: UpdatableViewController {
         
         // Presets
         conductor.banks = appSettings.banks
-        
-        print ("Conductor \(conductor.banks)")
-        print ("***")
-        print ("appSettings \(appSettings.banks)")
         presetsViewController.loadBanks()
         
         // On four runs show dialog and request review

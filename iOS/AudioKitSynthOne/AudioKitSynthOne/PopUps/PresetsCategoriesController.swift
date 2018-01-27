@@ -87,7 +87,6 @@ class PresetsCategoriesController: UIViewController {
         choices[PresetCategory.categoryCount + 1] = "Favorites"
         
         // Add Banks to Table
-        print ("Categories table: \(conductor.banks)")
         conductor.banks.forEach { bank in
             choices[PresetCategory.bankStartingIndex + bank.key] = "Bank \(bank.key): \(bank.value)"
         }

@@ -29,9 +29,6 @@ class AppSetting: Codable {
     // Presets version
     var presetsVersion = 1.00
     
-    // Banks
-    var banks: [Int:String] = [0: "BankA", 1: "User"]
-    
     // MIDI Learn Settings
     
     // mixer controller
@@ -168,13 +165,6 @@ class AppSetting: Codable {
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
         
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
-        
-        // Unwrap embedded Banks JSON
-        if let banksDictionary = dictionary["banks"] as? [String: Any] {
-            banksDictionary.forEach {
-                banks[Int($0.key)!] = String(describing: $0.value)
-            }
-        }
     }
     
 }

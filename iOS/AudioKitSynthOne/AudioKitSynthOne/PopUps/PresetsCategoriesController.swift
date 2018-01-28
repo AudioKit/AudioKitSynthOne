@@ -39,7 +39,8 @@ enum PresetCategory: Int {
 
 protocol CategoryDelegate {
     func categoryDidChange(_ newCategoryIndex: Int)
-    func userPresetsShare()
+    func bankShare()
+    func bankEdit()
 }
 
 // ******************************************************
@@ -88,7 +89,7 @@ class PresetsCategoriesController: UIViewController {
         
         // Add Banks to Table
         conductor.banks.forEach { bank in
-            choices[PresetCategory.bankStartingIndex + bank.key] = "Bank \(bank.key): \(bank.value)"
+            choices[PresetCategory.bankStartingIndex + bank.position] = "Bank \(bank.position): \(bank.name)"
         }
     }
 }
@@ -148,9 +149,18 @@ extension PresetsCategoriesController: UITableViewDelegate {
     
 }
 
-// Pass the share button call up to PresetsView Controller
+//*****************************************************************
+// MARK: - Cell Delegate
+//*****************************************************************
+
+// Pass the button calls up to PresetsView Controller
 extension PresetsCategoriesController: CategoryCellDelegate {
-    func userPresetsShare() {
-        categoryDelegate?.userPresetsShare()
+   
+    func bankShare() {
+        categoryDelegate?.bankShare()
+    }
+    
+    func bankEdit() {
+        categoryDelegate?.bankEdit()
     }
 }

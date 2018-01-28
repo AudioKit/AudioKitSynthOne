@@ -163,8 +163,13 @@ public class ParentViewController: UpdatableViewController {
             saveAppSettings()
         }
         
-        // Presets
-        conductor.banks = appSettings.banks
+        // Load Banks
+        if Disk.exists("banks.json", in: .documents) {
+            loadBankSettings() 
+        } else {
+            createInitBanks()
+        }
+        
         presetsViewController.loadBanks()
         
         // On four runs show dialog and request review
@@ -234,7 +239,6 @@ public class ParentViewController: UpdatableViewController {
                 self.updateDisplay("MIDI Learn Off")
                 self.saveAppSettingValues()
             }
- 
         }
         
         holdButton.callback = { value in
@@ -500,7 +504,9 @@ extension ParentViewController: HeaderDelegate {
             topContainerView.subviews.forEach({ $0.removeFromSuperview() })
             add(asChildViewController: devViewController)
         } else {
-            switchToChildView(topChildView!)
+            if let cv = topChildView {
+                switchToChildView(cv)
+            }
         }
     }
     
@@ -569,7 +575,7 @@ extension ParentViewController: PresetsDelegate {
     }
     
     func banksDidUpdate() {
-        saveAppSettingValues()
+        saveBankSettings()
     }
 }
 

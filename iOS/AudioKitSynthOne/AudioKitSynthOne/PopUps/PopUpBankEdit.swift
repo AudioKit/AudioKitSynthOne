@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BankPopOverDelegate {
-    func didFinishEditing(bankName: String)
+    func didFinishEditing(oldName: String, newName: String)
     func didDeleteBank(bankName: String)
 }
 
@@ -17,12 +17,9 @@ class PopUpBankEdit: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var warningText: UILabel!
-    
     @IBOutlet weak var cancelButton: SynthUIButton!
     @IBOutlet weak var saveButton: SynthUIButton!
     @IBOutlet weak var deleteButton: SynthUIButton!
-    
     
     var delegate: BankPopOverDelegate?
     
@@ -47,7 +44,7 @@ class PopUpBankEdit: UIViewController {
         }
         
         saveButton.callback = { _ in
-            self.delegate?.didFinishEditing(bankName: self.nameTextField.text!)
+            self.delegate?.didFinishEditing(oldName: self.bankName, newName: self.nameTextField.text!)
             self.dismiss(animated: true, completion: nil)
         }
         

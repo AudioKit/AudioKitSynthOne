@@ -29,6 +29,7 @@ class PresetCell: UITableViewCell {
     
     var delegate: PresetCellDelegate?
     var currentPreset: Preset?
+    let conductor = Conductor.sharedInstance
     
     // *********************************************************
     // MARK: - Lifecycle
@@ -79,7 +80,14 @@ class PresetCell: UITableViewCell {
     
     func configureCell(preset: Preset) {
         currentPreset = preset
-        presetNameLabel.text = "\(preset.position): \(preset.name)"
+       
+        let bank = conductor.banks.filter { $0.name == preset.bank }.first
+        
+        if preset.bank != "BankA" {
+            presetNameLabel.text = "[\(bank!.position)] \(preset.position): \(preset.name)"
+        } else {
+             presetNameLabel.text = "\(preset.position): \(preset.name)"
+        }
         
         if preset.isFavorite {
             favoriteButton.setImage(UIImage(named: "ak_favfilled"), for: .normal)

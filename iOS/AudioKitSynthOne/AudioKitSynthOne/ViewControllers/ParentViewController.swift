@@ -573,7 +573,7 @@ extension ParentViewController: PresetsDelegate {
     }
     
     func banksDidUpdate() {
-        saveAppSettingValues()
+        saveBankSettings()
     }
 }
 

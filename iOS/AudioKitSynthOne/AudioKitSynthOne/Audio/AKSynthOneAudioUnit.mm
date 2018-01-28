@@ -20,23 +20,23 @@
 
 @synthesize parameterTree = _parameterTree;
 
-- (void) setAK1Parameter:(AKSynthOneParameter)param value:(float)value {
+- (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value {
     _kernel.setAK1Parameter(param, value);
 }
 
-- (float) getAK1Parameter:(AKSynthOneParameter)inAKSynthOneParameterEnum {
+- (float)getAK1Parameter:(AKSynthOneParameter)inAKSynthOneParameterEnum {
     return _kernel.getAK1Parameter(inAKSynthOneParameterEnum);
 }
 
-- (float) getParameterMin:(AKSynthOneParameter)param {
+- (float)getParameterMin:(AKSynthOneParameter)param {
     return _kernel.parameterMin(param);
 }
 
-- (float) getParameterMax:(AKSynthOneParameter)param {
+- (float)getParameterMax:(AKSynthOneParameter)param {
     return _kernel.parameterMax(param);
 }
 
-- (float) getParameterDefault:(AKSynthOneParameter)param {
+- (float)getParameterDefault:(AKSynthOneParameter)param {
     return _kernel.parameterDefault(param);
 }
 
@@ -90,12 +90,12 @@
 }
 
 ///Puts all notes in Release...a kinder, gentler "reset".
-- (void) stopAllNotes {
+- (void)stopAllNotes {
     _kernel.stopAllNotes();
 }
 
 ///Resets DSP
--(void) resetDSP {
+- (void)resetDSP {
     _kernel.resetDSP();
 }
 
@@ -104,7 +104,7 @@
 
     _messageQueue = [[AEMessageQueue alloc] init];
 
-    standardGeneratorSetup(SynthOne)
+    //standardGeneratorSetup(SynthOne)
     self.rampTime = AKSettings.rampTime;
     self.defaultFormat = [[AVAudioFormat alloc] initStandardFormatWithSampleRate:AKSettings.sampleRate
                                                                         channels:AKSettings.numberOfChannels];
@@ -114,9 +114,26 @@
     self.outputBusArray = [[AUAudioUnitBusArray alloc] initWithAudioUnit:self
                                                                  busType:AUAudioUnitBusTypeOutput
                                                                   busses:@[self.outputBus]];
-    
     _kernel.audioUnit = self;
 
+    __block AKSynthOneDSPKernel *blockKernel = &_kernel;
+    
+    self.parameterTree.implementorValueObserver = ^(AUParameter *param, AUValue value) {
+        blockKernel->setParameter(param.address, value);
+        const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
+        blockKernel->setAK1Parameter(p, value);
+    };
+    
+    self.parameterTree.implementorValueProvider = ^(AUParameter *param) {
+        //?
+        return blockKernel->getParameter(param.address);
+        //?
+        const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
+        return blockKernel->getAK1Parameter(p);
+    };
+
+    
+    
     AUParameter *index1AU =                [AUParameter parameter:@"index1"                name:@"Index 1"                 address:index1                min:0.0 max:1.0   unit:kAudioUnitParameterUnit_Generic];
     AUParameter *index2AU =                [AUParameter parameter:@"index2"                name:@"Index 2"                 address:index2                min:0.0 max:1.0   unit:kAudioUnitParameterUnit_Generic];
     AUParameter *morphBalanceAU =          [AUParameter parameter:@"morphBalance"          name:@"Morph Balance"           address:morphBalance          min:0.0 max:1.0   unit:kAudioUnitParameterUnit_Generic];
@@ -571,14 +588,6 @@
         phaserFeedbackAU,        // 118
         phaserNotchWidthAU       // 119
     ]];
-
-    __block AKSynthOneDSPKernel *blockKernel = &_kernel;
-    self.parameterTree.implementorValueObserver = ^(AUParameter *param, AUValue value) {
-        blockKernel->setParameter(param.address, value);
-    };
-    self.parameterTree.implementorValueProvider = ^(AUParameter *param) {
-        return blockKernel->getParameter(param.address);
-    };
 }
 
 - (BOOL)allocateRenderResourcesAndReturnError:(NSError **)outError {
@@ -620,15 +629,22 @@
     };
 }
 
-//
-- (void) arpBeatCounterDidChange {
-//    [_delegate arpBeatCounterDidChange:_kernel.arpBeatCounter];
+// this breaks Conductor UI updates...see https://trello.com/c/BYJ81iI3
+// need to create delegate in AudioUnitViewController for extension, then we can uncomment
+- (void)paramDidChange:(AKSynthOneParameter)param value:(double)value {
+    //[_delegate paramDidChange:param value:value];
 }
-- (void) heldNotesDidChange {
-//    [_delegate heldNotesDidChange];
+
+- (void)arpBeatCounterDidChange {
+    //[_delegate arpBeatCounterDidChange:_kernel.arpBeatCounter];
 }
-- (void) playingNotesDidChange {
-//    [_delegate playingNotesDidChange];
+
+- (void)heldNotesDidChange {
+    //[_delegate heldNotesDidChange];
+}
+
+- (void)playingNotesDidChange {
+    //[_delegate playingNotesDidChange];
 }
 
 @end

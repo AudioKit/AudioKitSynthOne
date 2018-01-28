@@ -115,7 +115,7 @@ class SeqViewController: SynthPanelController {
             let notePosition = (beatCounter + seqNum - 1) % seqNum
 
             // TODO: REMOVE - FOR DEBUGING
-            //conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(beatCounter)")
+            conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(beatCounter)")
             
             // clear out all indicators
             arpSeqOctBoostButtons.forEach { $0.isActive = false }

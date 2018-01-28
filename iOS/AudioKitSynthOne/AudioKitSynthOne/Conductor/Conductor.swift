@@ -132,7 +132,7 @@ class Conductor: AKSynthOneProtocol {
     }
     
     func arpBeatCounterDidChange(_ beat: Int) {
-        
+        print ("arpBeatCounterDidChange")
         DispatchQueue.main.async {
            let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
            seqVC?.updateLED(beatCounter: beat)

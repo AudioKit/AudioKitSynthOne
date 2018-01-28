@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AudioKit
 
 protocol HeaderDelegate {
     func displayLabelTapped()

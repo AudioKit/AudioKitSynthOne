@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AudioKit
 
 class FXViewController: SynthPanelController {
 

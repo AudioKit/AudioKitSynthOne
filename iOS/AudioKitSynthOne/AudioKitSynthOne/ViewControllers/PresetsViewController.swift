@@ -6,11 +6,11 @@
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
 //
 
+import AudioKit
 import UIKit
 import MobileCoreServices
 import Disk
 import CloudKit
-import AudioKit
 import GameplayKit
 
 protocol PresetsDelegate {

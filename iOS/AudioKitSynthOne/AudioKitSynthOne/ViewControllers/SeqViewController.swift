@@ -6,10 +6,7 @@
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 
-
 import UIKit
-import AudioKit
-
 
 class SeqViewController: SynthPanelController {
     

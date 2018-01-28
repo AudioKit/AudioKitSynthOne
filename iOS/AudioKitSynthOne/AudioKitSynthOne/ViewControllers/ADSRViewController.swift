@@ -10,6 +10,7 @@ import UIKit
 import AudioKit
 import AudioKitUI
 
+
 class ADSRViewController: SynthPanelController {
     
     @IBOutlet var adsrView: AKADSRView!

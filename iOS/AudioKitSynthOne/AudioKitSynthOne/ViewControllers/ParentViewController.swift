@@ -6,8 +6,8 @@
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 
-import UIKit
 import AudioKit
+import UIKit
 import Disk
 
 protocol EmbeddedViewsDelegate {
@@ -504,7 +504,9 @@ extension ParentViewController: HeaderDelegate {
             topContainerView.subviews.forEach({ $0.removeFromSuperview() })
             add(asChildViewController: devViewController)
         } else {
-            switchToChildView(topChildView!)
+            if let cv = topChildView {
+                switchToChildView(cv)
+            }
         }
     }
     

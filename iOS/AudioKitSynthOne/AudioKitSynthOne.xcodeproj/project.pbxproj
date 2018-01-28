@@ -82,7 +82,6 @@
 		C47FDEF6201C5E3000A31D48 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF4201C5E3000A31D48 /* AudioKit.framework */; };
 		C4AC4AF12019BF0500D04C7F /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4AEC2019BF0500D04C7F /* AKSynthOne.swift */; };
 		C4AC4AF32019BF0500D04C7F /* AKSynthOneAudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4AEF2019BF0500D04C7F /* AKSynthOneAudioUnit.mm */; };
-		C4AC4AF52019BF0500D04C7F /* AKSynthOneParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4AF02019BF0500D04C7F /* AKSynthOneParameter.swift */; };
 		C4AC4B0B2019C63F00D04C7F /* AEWeakRetainingProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4AF92019C63F00D04C7F /* AEWeakRetainingProxy.m */; };
 		C4AC4B0D2019C63F00D04C7F /* AEMessageQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4AFA2019C63F00D04C7F /* AEMessageQueue.m */; };
 		C4AC4B0F2019C63F00D04C7F /* AEManagedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4AFB2019C63F00D04C7F /* AEManagedValue.m */; };
@@ -107,6 +106,7 @@
 		C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBA1F244AD40011B119 /* CGFloat+Extensions.swift */; };
 		C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */; };
 		C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */; };
+		F4EE8B7F201D2EAA00701D66 /* AKSynthOneDSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4EE8B7E201D2EAA00701D66 /* AKSynthOneDSPKernel.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -222,7 +222,6 @@
 		C4AC4AED2019BF0500D04C7F /* AKSynthOneAudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneAudioUnit.h; sourceTree = "<group>"; };
 		C4AC4AEE2019BF0500D04C7F /* AKSynthOneDSPKernel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKSynthOneDSPKernel.hpp; sourceTree = "<group>"; };
 		C4AC4AEF2019BF0500D04C7F /* AKSynthOneAudioUnit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKSynthOneAudioUnit.mm; sourceTree = "<group>"; };
-		C4AC4AF02019BF0500D04C7F /* AKSynthOneParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKSynthOneParameter.swift; sourceTree = "<group>"; };
 		C4AC4AF72019BF6A00D04C7F /* AudioKitSynthOne-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AudioKitSynthOne-Bridging-Header.h"; path = "AudioKitSynthOne/AudioKitSynthOne-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		C4AC4AF92019C63F00D04C7F /* AEWeakRetainingProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEWeakRetainingProxy.m; sourceTree = "<group>"; };
 		C4AC4AFA2019C63F00D04C7F /* AEMessageQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEMessageQueue.m; sourceTree = "<group>"; };
@@ -261,6 +260,7 @@
 		C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 		C75EC33F7DB5853B42F6D569 /* Pods-SynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynthOne/Pods-SynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
+		F4EE8B7E201D2EAA00701D66 /* AKSynthOneDSPKernel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AKSynthOneDSPKernel.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -507,13 +507,13 @@
 		C4AC4AEA2019BF0500D04C7F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				C4AC4AF82019C63F00D04C7F /* TAAE */,
-				C4AC4AEB2019BF0500D04C7F /* AKSynthOneParameter.h */,
 				C4AC4AEC2019BF0500D04C7F /* AKSynthOne.swift */,
 				C4AC4AED2019BF0500D04C7F /* AKSynthOneAudioUnit.h */,
-				C4AC4AEE2019BF0500D04C7F /* AKSynthOneDSPKernel.hpp */,
 				C4AC4AEF2019BF0500D04C7F /* AKSynthOneAudioUnit.mm */,
-				C4AC4AF02019BF0500D04C7F /* AKSynthOneParameter.swift */,
+				C4AC4AEE2019BF0500D04C7F /* AKSynthOneDSPKernel.hpp */,
+				F4EE8B7E201D2EAA00701D66 /* AKSynthOneDSPKernel.mm */,
+				C4AC4AEB2019BF0500D04C7F /* AKSynthOneParameter.h */,
+				C4AC4AF82019C63F00D04C7F /* TAAE */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -809,6 +809,7 @@
 				94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */,
 				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
 				9403F29A1F671A4900320FCC /* PopUpPresetEdit.swift in Sources */,
+				F4EE8B7F201D2EAA00701D66 /* AKSynthOneDSPKernel.mm in Sources */,
 				94DB18D21F37D879008368AE /* NavButton.swift in Sources */,
 				9422F92C201A9D2800FE2FAC /* Dictionary+Key.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
@@ -827,7 +828,6 @@
 				C4AC4B0B2019C63F00D04C7F /* AEWeakRetainingProxy.m in Sources */,
 				94AF74021F55FF9700ED8B51 /* TouchPoint.swift in Sources */,
 				94FA2DCD1F9E837700DED735 /* PresetCell.swift in Sources */,
-				C4AC4AF52019BF0500D04C7F /* AKSynthOneParameter.swift in Sources */,
 				C4AC4AF32019BF0500D04C7F /* AKSynthOneAudioUnit.mm in Sources */,
 				94FA2DCF1F9E837700DED735 /* CategoryCell.swift in Sources */,
 				C40770EC1F2569C8007F2C77 /* SourceMixerViewController.swift in Sources */,

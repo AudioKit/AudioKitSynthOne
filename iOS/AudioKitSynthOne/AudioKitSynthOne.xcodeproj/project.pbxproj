@@ -90,9 +90,9 @@
 		C42459DF201D6498004565AB /* AKSynthOneDSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C42459DE201D6498004565AB /* AKSynthOneDSPKernel.mm */; };
 		C42459E1201D64D4004565AB /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42459E0201D64D4004565AB /* Bank.swift */; };
 		C42459E3201D64DE004565AB /* PopUpBankEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42459E2201D64DE004565AB /* PopUpBankEdit.swift */; };
-		C42459E4201D651E004565AB /* AKSynthOneDSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C42459DE201D6498004565AB /* AKSynthOneDSPKernel.mm */; };
 		C4380E2C201D5734009F36D8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C474D9521F13172B00946035 /* MainInterface.storyboard */; };
 		C4380E2D201D575D009F36D8 /* AudioUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C474D9501F13172B00946035 /* AudioUnitViewController.swift */; };
+		C45F26A3201D6868004323F3 /* AKSynthOneDSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C42459DE201D6498004565AB /* AKSynthOneDSPKernel.mm */; };
 		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
 		C47FDEF5201C5E3000A31D48 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF3201C5E3000A31D48 /* AudioKitUI.framework */; };
 		C47FDEF6201C5E3000A31D48 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF4201C5E3000A31D48 /* AudioKit.framework */; };
@@ -237,7 +237,6 @@
 		C474D9501F13172B00946035 /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
 		C474D9531F13172B00946035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C474D9551F13172B00946035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C47AF11F201D527600DB4462 /* SynthOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SynthOne.entitlements; sourceTree = "<group>"; };
 		C47FB3C21F36694300EF2F01 /* RateKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateKnob.swift; sourceTree = "<group>"; };
 		C47FDEF3201C5E3000A31D48 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = "../../../AudioKit/Frameworks/AudioKit-iOS/AudioKitUI.framework"; sourceTree = "<group>"; };
 		C47FDEF4201C5E3000A31D48 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = "../../../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework"; sourceTree = "<group>"; };
@@ -533,7 +532,6 @@
 		C474D94C1F13172B00946035 /* SynthOne */ = {
 			isa = PBXGroup;
 			children = (
-				C47AF11F201D527600DB4462 /* SynthOne.entitlements */,
 				C474D9501F13172B00946035 /* AudioUnitViewController.swift */,
 				C474D9521F13172B00946035 /* MainInterface.storyboard */,
 				C474D9551F13172B00946035 /* Info.plist */,
@@ -833,13 +831,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C42459E4201D651E004565AB /* AKSynthOneDSPKernel.mm in Sources */,
 				C42459A8201D589F004565AB /* AEWeakRetainingProxy.m in Sources */,
 				C42459A9201D589F004565AB /* AEMessageQueue.m in Sources */,
 				C42459AA201D589F004565AB /* AEManagedValue.m in Sources */,
 				C42459AB201D589F004565AB /* AEArray.m in Sources */,
 				C42459AC201D589F004565AB /* AEUtilities.m in Sources */,
 				C42459AD201D589F004565AB /* AETime.m in Sources */,
+				C45F26A3201D6868004323F3 /* AKSynthOneDSPKernel.mm in Sources */,
 				C42459AE201D589F004565AB /* AETypes.m in Sources */,
 				C42459AF201D589F004565AB /* AEMainThreadEndpoint.m in Sources */,
 				C42459B0201D589F004565AB /* AEAudioThreadEndpoint.m in Sources */,

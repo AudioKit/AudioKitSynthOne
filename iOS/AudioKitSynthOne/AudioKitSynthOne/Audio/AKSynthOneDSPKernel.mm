@@ -462,7 +462,7 @@ void AKSynthOneDSPKernel::setAK1Parameter(AKSynthOneParameter param, float input
     }
 }
 
-float AKSynthOneDSPKernel::getAK1Parameter(int param) {
+float AKSynthOneDSPKernel::getAK1Parameter(AKSynthOneParameter param) {
     return p[param];
 }
 
@@ -490,8 +490,9 @@ void AKSynthOneDSPKernel::setParameter(AUParameterAddress address, AUValue value
     }
 }
 
+
 AUValue AKSynthOneDSPKernel::getParameter(AUParameterAddress address) {
-    int i = (int)address;
+    const int i = (int)address;
     return p[i];
 }
 

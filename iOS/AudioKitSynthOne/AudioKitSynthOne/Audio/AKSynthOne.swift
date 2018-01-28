@@ -189,6 +189,8 @@ import AudioKit
                     self?.internalAU?.setWaveform(UInt32(i), withValue: sample, at: UInt32(j))
                 }
             }
+            self?.internalAU?.parameters = self?.parameters
+            self?.internalAU?.delegate = self
         }
 
         guard let tree = internalAU?.parameterTree else {
@@ -203,8 +205,8 @@ import AudioKit
             self.notifyDelegateOfParamChange(param, Double(value) )
         })
         
-        internalAU?.parameters = parameters
-        internalAU?.delegate = self
+//        internalAU?.parameters = parameters
+//        internalAU?.delegate = self
     }
 
     @objc open var delegate: AKSynthOneProtocol?

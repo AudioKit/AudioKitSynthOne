@@ -9,7 +9,7 @@
 import CoreAudioKit
 import AudioKit
 
-public class AudioUnitViewController: AUViewController, AUAudioUnitFactory {
+public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSynthOneProtocol {
 //    var conductor = Conductor.sharedInstance
 
     var audioUnit: AKSynthOneAudioUnit? {
@@ -39,6 +39,8 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory {
 
     public func createAudioUnit(with componentDescription: AudioComponentDescription) throws -> AUAudioUnit {
         audioUnit = try AKSynthOneAudioUnit(componentDescription: componentDescription, options: [])
+        
+        audioUnit?.delegate = self
         
         let waveformArray = [AKTable(.triangle), AKTable(.square), AKTable(.sine), AKTable(.sawtooth)]
         for (i, waveform) in waveformArray.enumerated() {
@@ -76,7 +78,23 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory {
 //                parameter.value = Float(value)
 //            }
 //        }
-        //TODO: need to deal with setting "changeParameter"...the "updateAllCallbacks" pattern was clobbering bindings that don't use "changeParameter"
+    }
+
+    //MARK: - AKSynthOneProtocol passthroughs
+    @objc public func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
+        //delegate?.paramDidChange(param, value)
+    }
+    
+    @objc public func arpBeatCounterDidChange(_ beat: Int) {
+        //delegate?.arpBeatCounterDidChange(beat)
+    }
+    
+    @objc public func heldNotesDidChange() {
+        //delegate?.heldNotesDidChange()
+    }
+    
+    @objc public func playingNotesDidChange() {
+        //delegate?.playingNotesDidChange()
     }
 
 }

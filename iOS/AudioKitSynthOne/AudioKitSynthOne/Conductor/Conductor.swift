@@ -118,6 +118,11 @@ class Conductor: AKSynthOneProtocol {
         let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
         parentVC.updateDisplay("\(parentVC.activePreset.position): \(parentVC.activePreset.name)")
     }
+
+    func updateDisplayLabel(_ message: String) {
+        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
+        parentVC.updateDisplay(message)
+    }
     
     //MARK: - AKSynthOneProtocol
     func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
@@ -126,11 +131,6 @@ class Conductor: AKSynthOneProtocol {
                 $0.updateUI(param, value: Double(value))
             }
         }
-    }
-    
-    func updateDisplayLabel(_ message: String) {
-        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
-        parentVC.updateDisplay(message)
     }
     
     func arpBeatCounterDidChange(_ beat: Int) {

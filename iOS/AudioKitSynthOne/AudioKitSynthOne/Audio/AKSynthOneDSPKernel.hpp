@@ -37,7 +37,7 @@ public:
 
     void setAK1Parameter(AKSynthOneParameter param, float inputValue);
     
-    float getAK1Parameter(int param);
+    float getAK1Parameter(AKSynthOneParameter param);
 
     // AUParameter/AUValue
     void setParameters(float params[]);

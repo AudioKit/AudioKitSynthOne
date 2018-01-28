@@ -10,7 +10,7 @@ import CoreAudioKit
 import AudioKit
 
 public class AudioUnitViewController: AUViewController, AUAudioUnitFactory {
-    var conductor = Conductor.sharedInstance
+//    var conductor = Conductor.sharedInstance
 
     var audioUnit: AKSynthOneAudioUnit? {
         didSet {

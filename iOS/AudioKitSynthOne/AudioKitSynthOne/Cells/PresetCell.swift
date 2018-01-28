@@ -82,7 +82,6 @@ class PresetCell: UITableViewCell {
         currentPreset = preset
        
         let bank = conductor.banks.filter { $0.name == preset.bank }.first
-        
         if preset.bank != "BankA" {
             presetNameLabel.text = "[\(bank!.position)] \(preset.position): \(preset.name)"
         } else {

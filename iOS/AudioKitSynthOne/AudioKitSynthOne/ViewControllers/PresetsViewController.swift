@@ -677,9 +677,9 @@ extension PresetsViewController: BankPopOverDelegate {
         presetsDelegate?.banksDidUpdate()
         
         // Update Category Table
-        selectCategory(PresetCategory.bankStartingIndex)
-        categoryIndex = PresetCategory.bankStartingIndex
         updateCategoryTable()
+        selectCategory(PresetCategory.bankStartingIndex + bank!.position)
+        categoryIndex = PresetCategory.bankStartingIndex + bank!.position
         
         // Save new bank file
         saveAllPresetsIn(newName)

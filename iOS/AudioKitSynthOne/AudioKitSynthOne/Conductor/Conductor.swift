@@ -56,6 +56,8 @@ class Conductor: AKSynthOneProtocol {
     
     func start() {
         
+        AKSettings.enableLogging = false
+        
         // Allow audio to play while the iOS device is muted.
         AKSettings.playbackWhileMuted = true
         

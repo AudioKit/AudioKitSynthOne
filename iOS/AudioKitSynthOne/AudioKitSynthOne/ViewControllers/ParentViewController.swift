@@ -53,12 +53,12 @@ public class ParentViewController: UpdatableViewController {
     
     var appSettings = AppSetting()
     var isDevView = false
- 
+    
     let midi = AKMIDI()  ///TODO: REMOVE
     var sustainMode = false
     var pcJustTriggered = false
     var midiKnobs = [MIDIKnob]()
-  
+    
     // ********************************************************
     // MARK: - Define child view controllers
     // ********************************************************
@@ -154,7 +154,7 @@ public class ParentViewController: UpdatableViewController {
     }
     
     public override func viewDidAppear(_ animated: Bool) {
-      
+        
         // Load App Settings
         if Disk.exists("settings.json", in: .documents) {
             loadSettingsFromDevice()
@@ -178,10 +178,10 @@ public class ParentViewController: UpdatableViewController {
         
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard
-      
+        
         if !keyboardToggle.isOn {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-               self.keyboardToggle.callback(0.0)
+                self.keyboardToggle.callback(0.0)
             }
         }
         
@@ -216,7 +216,7 @@ public class ParentViewController: UpdatableViewController {
             self.configKeyboardButton.value = 0
             self.performSegue(withIdentifier: "SegueToKeyboardSettings", sender: self)
         }
-       
+        
         midiButton.callback = { _ in
             self.midiButton.value = 0
             self.performSegue(withIdentifier: "SegueToMIDI", sender: self)
@@ -228,7 +228,7 @@ public class ParentViewController: UpdatableViewController {
         }
         
         midiLearnToggle.callback = { _ in
-        
+            
             // Toggle MIDI Learn Knobs in subview
             self.midiKnobs.forEach { $0.midiLearnMode = self.midiLearnToggle.isSelected }
             
@@ -247,12 +247,12 @@ public class ParentViewController: UpdatableViewController {
                 self.stopAllNotes()
             }
         }
-     
+        
         monoButton.callback = { value in
             self.keyboardView.polyphonicMode = !self.monoButton.isSelected
             s.setAK1Parameter(.isMono, value)
         }
-      
+        
         keyboardToggle.callback = { value in
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
@@ -277,7 +277,7 @@ public class ParentViewController: UpdatableViewController {
         }
         
         modWheelPad.callback = { value in
-           
+            
             switch self.activePreset.modWheelRouting {
             case 0:
                 // Cutoff
@@ -303,9 +303,9 @@ public class ParentViewController: UpdatableViewController {
             if value < 0.5 {
                 bendValue = Double.scaleEntireRange(value, fromRangeMin: 0.0, fromRangeMax: 0.5, toRangeMin: 0.5, toRangeMax: 1.0)
             } else {
-                 bendValue = Double.scaleEntireRange(value, fromRangeMin: 0.5, fromRangeMax: 1.0, toRangeMin: 1.0, toRangeMax: 2.0)
+                bendValue = Double.scaleEntireRange(value, fromRangeMin: 0.5, fromRangeMax: 1.0, toRangeMin: 1.0, toRangeMax: 2.0)
             }
-           s.setAK1Parameter(.detuningMultiplier, bendValue)
+            s.setAK1Parameter(.detuningMultiplier, bendValue)
         }
         
         pitchPad.completionHandler = {  _, touchesEnded, reset in
@@ -313,7 +313,7 @@ public class ParentViewController: UpdatableViewController {
                 self.pitchPad.resetToCenter()
             }
             if reset {
-               s.setAK1Parameter(.detuningMultiplier, 1.0)
+                s.setAK1Parameter(.detuningMultiplier, 1.0)
             }
         }
         
@@ -456,20 +456,20 @@ extension ParentViewController: HeaderDelegate {
             
             // Save previous bottom panel
             prevBottomChildView = bottomChildView
-           
+            
             // Animate
             self.topPanelheight.constant = 0
             self.view.layoutIfNeeded()
-                // Add Panel to Top
-                self.displayPresetsController()
-                self.switchToChildView(self.topChildView!, isTopView: false)
-                self.topChildView = nil
-                
-                // Animate panel
-                UIView.animate(withDuration: Double(0.2), animations: {
-                    self.topPanelheight.constant = 299
-                    self.view.layoutIfNeeded()
-                })
+            // Add Panel to Top
+            self.displayPresetsController()
+            self.switchToChildView(self.topChildView!, isTopView: false)
+            self.topChildView = nil
+            
+            // Animate panel
+            UIView.animate(withDuration: Double(0.2), animations: {
+                self.topPanelheight.constant = 299
+                self.view.layoutIfNeeded()
+            })
             
         } else {
             
@@ -482,7 +482,7 @@ extension ParentViewController: HeaderDelegate {
             
             // Add Panel to Top
             self.switchToChildView(self.bottomChildView!)
-
+            
             // Add Panel to bottom
             self.isPresetsDisplayed = true
             if self.prevBottomChildView == self.topChildView {
@@ -523,7 +523,7 @@ extension ParentViewController: HeaderDelegate {
     }
     
     func savePresetPressed() {
-       presetsViewController.editPressed()
+        presetsViewController.editPressed()
     }
 }
 
@@ -539,7 +539,7 @@ extension ParentViewController: PresetsDelegate {
         if let headerVC = self.childViewControllers.first as? HeaderViewController {
             headerVC.activePreset = activePreset
         }
-      
+        
         // Set parameters from preset
         self.loadPreset()
         
@@ -631,18 +631,18 @@ extension ParentViewController: EmbeddedViewsDelegate {
         let topPanel = synthPanels.filter { $0.isTopContainer }.last
         let bottomPanel = synthPanels.filter { !$0.isTopContainer}.last
         
-       
-       // Update Bottom Panel NavButtons
+        
+        // Update Bottom Panel NavButtons
         topChildView = topPanel?.viewType
         DispatchQueue.main.async {
-           topPanel?.updateNavButtons()
+            topPanel?.updateNavButtons()
         }
         
         // Update Bottom Panel NavButtons
         if keyboardToggle.value == 0 || isPresetsDisplayed {
             bottomChildView = bottomPanel?.viewType
             DispatchQueue.main.async {
-               bottomPanel?.updateNavButtons()
+                bottomPanel?.updateNavButtons()
             }
         }
     }
@@ -704,7 +704,7 @@ extension ParentViewController: AKMIDIListener  {
             self.keyboardView.pressRemoved(noteNumber)
         }
     }
-  
+    
     // Assign MIDI CC to active MIDI Learn knobs
     func assignMIDIControlToKnobs(cc: MIDIByte) {
         let activeMIDILearnKnobs = midiKnobs.filter { $0.isActive }
@@ -717,7 +717,7 @@ extension ParentViewController: AKMIDIListener  {
     // MIDI Controller input
     public func receivedMIDIController(_ controller: MIDIByte, value: MIDIByte, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
-        print("Channel: \(channel+1) controller: \(controller) value: \(value)")
+        /// print("Channel: \(channel+1) controller: \(controller) value: \(value)")
         
         // If any MIDI Learn knobs are active, assign the CC
         DispatchQueue.main.async {
@@ -738,11 +738,23 @@ extension ParentViewController: AKMIDIListener  {
             } else {
                 sustainMode = false
                 // stop all notes not being held by midi controller
-//                for note in 0 ... 127 {
-//                    if !notesFromMIDI.contains(MIDINoteNumber(note)) {
-//                        conductor.core.stop(note: MIDINoteNumber(note), channel: 0)
-//                    }
-//                }
+                //                for note in 0 ... 127 {
+                //                    if !notesFromMIDI.contains(MIDINoteNumber(note)) {
+                //                        conductor.core.stop(note: MIDINoteNumber(note), channel: 0)
+                //                    }
+                //                }
+            }
+            
+        // Bank Change lsb/cc32 (sub bank in ableton)
+        case AKMIDIControl.lsb.rawValue:
+            guard channel == midiChannelIn || omniMode else { return }
+            let bankNumber = Int(value)-1
+            print ("LSB: \(bankNumber)")
+            if bankNumber != self.presetsViewController.bankIndex {
+                print ("DIFFERENT LSB")
+            }
+            DispatchQueue.main.async {
+                self.presetsViewController.didSelectBank(index: Int(value))
             }
             
         default:
@@ -758,16 +770,19 @@ extension ParentViewController: AKMIDIListener  {
                 midiKnob.setKnobValueFrom(midiValue: value)
             }
         }
- 
+        
     }
     
     // MIDI Program/Patch Change
     public func receivedMIDIProgramChange(_ program: MIDIByte, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
         guard !pcJustTriggered else { return }
-    
+
+       
         print ("preset \(program)")
+        print ("preset Int \(Int(program))")
         DispatchQueue.main.async {
+            print ("preset \(program)")
             self.presetsViewController.didSelectPreset(index: Int(program))
         }
         

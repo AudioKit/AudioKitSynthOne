@@ -63,6 +63,14 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    var bankIndex: Int {
+        get {
+           var newIndex = categoryIndex - PresetCategory.bankStartingIndex
+           if newIndex < 0 { newIndex = 0 }
+           return newIndex
+        }
+    }
+    
     let conductor = Conductor.sharedInstance
     let userBankIndex = PresetCategory.bankStartingIndex + 1
     let userBankName = "User"
@@ -144,7 +152,6 @@ class PresetsViewController: UIViewController {
             
         // Display Banks
         case PresetCategory.bankStartingIndex ... PresetCategory.bankStartingIndex + conductor.banks.count:
-            let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
             let bank = conductor.banks.filter{ $0.position == bankIndex }.first
             sortedPresets = presets.filter { $0.bank == bank!.name }
                 .sorted { $0.position < $1.position }
@@ -296,6 +303,7 @@ class PresetsViewController: UIViewController {
             if self.categoryIndex < PresetCategory.bankStartingIndex {
                 self.categoryIndex = PresetCategory.bankStartingIndex
             }
+            
             self.selectCategory(self.categoryIndex) // select category in category table
             
             if self.tableView.isEditing {
@@ -336,11 +344,33 @@ class PresetsViewController: UIViewController {
     func didSelectPreset(index: Int) {
         deselectCurrentRow()
         
-        // Smoothly cycle through presets if MIDI input is greater than preset count
-        let currentPresetIndex = Int(index) % (presets.count-1)
+        // Get current Bank
+        let currentBank = conductor.banks.filter{ $0.position == bankIndex }.first
+        let presetsInBank = presets.filter{ $0.bank == currentBank!.name }.sorted { $0.position < $1.position }
         
-        currentPreset = presets[currentPresetIndex]
+        // Smoothly cycle through presets if MIDI input is greater than preset count
+        let currentPresetIndex = index % (presetsInBank.count)
+        
+        print ("currentPresetIndex \(currentPresetIndex)")
+        
+        currentPreset = presetsInBank[currentPresetIndex]
         selectCurrentPreset()
+    }
+    
+    // Used for Selecting Bank from MIDI lsb/sub (cc32)
+    func didSelectBank(index: Int) {
+        
+        var newBankIndex = index
+        if newBankIndex < 0 {
+            newBankIndex = 0
+        }
+        if newBankIndex > conductor.banks.count {
+            newBankIndex = conductor.banks.count
+        }
+
+        // Update Category Table
+        selectCategory(PresetCategory.bankStartingIndex + newBankIndex)
+        categoryIndex = PresetCategory.bankStartingIndex + newBankIndex
     }
     
     func randomPreset() {
@@ -372,7 +402,6 @@ class PresetsViewController: UIViewController {
         if segue.identifier == "SegueToBankEdit" {
             let popOverController = segue.destination as! PopUpBankEdit
             popOverController.delegate = self
-            let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
             let bank = conductor.banks.filter{ $0.position == bankIndex }.first
             popOverController.bankName = bank!.name
             popOverController.preferredContentSize = CGSize(width: 300, height: 320)
@@ -613,7 +642,6 @@ extension PresetsViewController: CategoryDelegate {
     
     func bankShare() {
         // Get Bank to Share
-        let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
         let bank = conductor.banks.filter{ $0.position == bankIndex }.first
         let bankName = bank!.name
         let bankPresetsToShare = presets.filter { $0.bank == bankName }

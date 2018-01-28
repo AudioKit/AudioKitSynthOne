@@ -126,6 +126,7 @@
 		C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */; };
 		C4F8660E201D4DAA003BC5BF /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF4201C5E3000A31D48 /* AudioKit.framework */; };
 		C4F8660F201D4DAE003BC5BF /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF3201C5E3000A31D48 /* AudioKitUI.framework */; };
+		F4EE8B8A201D9EB900701D66 /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4AEC2019BF0500D04C7F /* AKSynthOne.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -831,6 +832,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4EE8B8A201D9EB900701D66 /* AKSynthOne.swift in Sources */,
 				C42459A8201D589F004565AB /* AEWeakRetainingProxy.m in Sources */,
 				C42459A9201D589F004565AB /* AEMessageQueue.m in Sources */,
 				C42459AA201D589F004565AB /* AEManagedValue.m in Sources */,

@@ -65,21 +65,21 @@ class CategoryCell: UITableViewCell {
  
             // Display Share & Edit Buttons
             if currentCategory.hasPrefix("Bank") {
-                shareButton.isHidden = false
+                shareButton?.isHidden = false
                 
                 // Banks 0 & 1 can not be edited
                 if currentCategory.hasPrefix("Bank 0") || currentCategory.hasPrefix("Bank 1") {
-                    editButton.isHidden = true
+                    editButton?.isHidden = true
                 } else {
-                    editButton.isHidden = false
+                    editButton?.isHidden = false
                 }
                 
             }
         } else {
              categoryLabel?.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
              backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0)
-             shareButton.isHidden = true
-             editButton.isHidden = true
+             shareButton?.isHidden = true
+             editButton?.isHidden = true
         }
     }
  
@@ -90,7 +90,7 @@ class CategoryCell: UITableViewCell {
     
     func configureCell(category: String) {
         currentCategory = category
-        categoryLabel.text = "\(category)"
+        categoryLabel?.text = "\(category)"
     }
     
     // *********************************************************

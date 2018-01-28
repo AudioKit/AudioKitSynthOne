@@ -23,7 +23,6 @@ extension ParentViewController {
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
         
-        
         // MIDI Learn
         mixerViewController.masterVolume.midiCC = MIDIByte(appSettings.masterVolume_CC)
         mixerViewController.morph1SemitoneOffset.midiCC = MIDIByte(appSettings.morph1SemitoneOffset_CC)
@@ -83,7 +82,6 @@ extension ParentViewController {
         // appSettings.backgroundAudioOn = conductor.backgroundAudioOn
         appSettings.midiChannel = Int(midiChannelIn)
         appSettings.omniMode = omniMode
-        appSettings.banks = conductor.banks
         
         // MIDI Learn
         appSettings.masterVolume_CC = Int(mixerViewController.masterVolume.midiCC)
@@ -170,6 +168,50 @@ extension ParentViewController {
         }
     }
     
+    // **********************************************************
+    // MARK: - Load / Save Bank Settings
+    // **********************************************************
+    
+    func saveBankSettings() {
+        do {
+            try Disk.save(conductor.banks, to: .documents, as: "banks.json")
+        } catch {
+            print("error saving")
+        }
+    }
+    
+    func loadBankSettings() {
+        do {
+            let retrievedSettingData = try Disk.retrieve("banks.json", from: .documents, as: Data.self)
+            let banksJSON = try? JSONSerialization.jsonObject(with: retrievedSettingData, options: [])
+            
+            guard let jsonArray = banksJSON as? [Any] else { return }
+            var banks = [Bank]()
+            for bankJSON in jsonArray {
+                if let bankDictionary = bankJSON as? [String: Any] {
+                    let retrievedBank = Bank(dictionary: bankDictionary)
+                    banks.append(retrievedBank)
+                }
+            }
+            conductor.banks = banks
+            print (conductor.banks)
+            
+        } catch {
+            print("*** error loading")
+        }
+    }
+    
+    func createInitBanks() {
+        let bankA = Bank(name: "BankA", position: 0)
+        let userBank = Bank(name: "User", position: 1)
+        conductor.banks.append(bankA)
+        conductor.banks.append(userBank)
+        
+        conductor.banks.forEach {
+            print($0.name)
+        }
+      
+        saveBankSettings()
+    }
+    
 }
-
-

@@ -65,6 +65,7 @@ class PresetsViewController: UIViewController {
     
     let conductor = Conductor.sharedInstance
     let userBankIndex = PresetCategory.bankStartingIndex + 1
+    let userBankName = "User"
     
     var randomNumbers: GKRandomDistribution!
     
@@ -103,17 +104,19 @@ class PresetsViewController: UIViewController {
     func loadBanks() {
         presets.removeAll()
         
+        print (conductor.banks)
+        
         conductor.banks.forEach { bank in
-            let fileName = bank.value + ".json"
+            let fileName = bank.name + ".json"
             
             // Load presets
             if Disk.exists(fileName, in: .documents) {
                 loadPresetsFromDevice(fileName)
             } else {
-                loadFactoryPresets(bank.value)
+                loadFactoryPresets(bank.name)
             }
             
-            saveAllPresetsIn(bank.value)
+            saveAllPresetsIn(bank.name)
         }
         
         updateCategoryTable()
@@ -128,7 +131,7 @@ class PresetsViewController: UIViewController {
             // All Presets, by Bank
             sortedPresets.removeAll()
             conductor.banks.forEach { bank in
-                sortedPresets += presets.filter { $0.bank == bank.value }.sorted { $0.position < $1.position }
+                sortedPresets += presets.filter { $0.bank == bank.name }.sorted { $0.position < $1.position }
             }
         
         // Sort by Categories
@@ -142,7 +145,8 @@ class PresetsViewController: UIViewController {
         // Display Banks
         case PresetCategory.bankStartingIndex ... PresetCategory.bankStartingIndex + conductor.banks.count:
             let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
-            sortedPresets = presets.filter { $0.bank == conductor.banks[bankIndex] }
+            let bank = conductor.banks.filter{ $0.position == bankIndex }.first
+            sortedPresets = presets.filter { $0.bank == bank!.name }
                 .sorted { $0.position < $1.position }
             
         default:
@@ -260,7 +264,7 @@ class PresetsViewController: UIViewController {
     func setupCallbacks() {
         
         newButton.callback = { _ in
-            let userBankCount = self.presets.filter { $0.bank == self.conductor.banks[1]! }.count
+            let userBankCount = self.presets.filter { $0.bank == self.userBankName }.count
             let initPreset = Preset(position: userBankCount)
             self.presets.append(initPreset)
             self.currentPreset = initPreset
@@ -359,6 +363,18 @@ class PresetsViewController: UIViewController {
             let popOverController = segue.destination as! PopUpPresetEdit
             popOverController.delegate = self
             popOverController.preset = currentPreset
+            popOverController.preferredContentSize = CGSize(width: 300, height: 320)
+            if let presentation = popOverController.popoverPresentationController {
+                presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+            }
+        }
+        
+        if segue.identifier == "SegueToBankEdit" {
+            let popOverController = segue.destination as! PopUpBankEdit
+            popOverController.delegate = self
+            let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
+            let bank = conductor.banks.filter{ $0.position == bankIndex }.first
+            popOverController.bankName = bank!.name
             popOverController.preferredContentSize = CGSize(width: 300, height: 320)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
@@ -522,7 +538,7 @@ extension PresetsViewController: PresetCellDelegate {
             copy.name = copy.name + " [copy]"
             copy.uid = UUID().uuidString
             copy.isUser = true
-            copy.bank = conductor.banks[1]! // User Bank
+            copy.bank = userBankName // User Bank
           
             // Append preset
             presets.append(copy)
@@ -599,13 +615,14 @@ extension PresetsViewController: CategoryDelegate {
         
         // Get Bank to Share
         let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
-        let bankName = conductor.banks[bankIndex]!
-        let bankToShare = presets.filter { $0.bank == bankName }
+        let bank = conductor.banks.filter{ $0.position == bankIndex }.first
+        let bankName = bank!.name
+        let bankPresetsToShare = presets.filter { $0.bank == bankName }
         
-        // Save preset to temp directory to be shared
-        let presetLocation = "temp/\(bankName).json"
-        try? Disk.save(bankToShare, to: .caches, as: presetLocation)
-        let path: URL =  try! Disk.getURL(for: presetLocation, in: .caches)
+        // Save bank presets to temp directory to be shared
+        let bankLocation = "temp/\(bankName).json"
+        try? Disk.save(bankPresetsToShare, to: .caches, as: bankLocation)
+        let path: URL =  try! Disk.getURL(for: bankLocation, in: .caches)
         
         // Share
         let activityViewController = UIActivityViewController(
@@ -641,6 +658,47 @@ extension PresetsViewController: PresetPopOverDelegate {
 }
 
 //*****************************************************************
+// MARK: - PopUpBankEdit
+//*****************************************************************
+
+extension PresetsViewController: BankPopOverDelegate {
+   
+    func didFinishEditing(bankName: String) {
+        // save bank
+       
+    }
+    
+    func didDeleteBank(bankName: String) {
+        
+        // Remove presets from main list
+        presets = presets.filter { $0.bank != bankName}
+        
+        // Remove from Conductor
+        conductor.banks = conductor.banks.filter{ $0.name != bankName }
+        
+        // Reorder Banks
+        for (i, bank) in conductor.banks.enumerated() {
+            bank.position = i
+        }
+   
+        // Remove from AppSettings
+        presetsDelegate?.banksDidUpdate()
+        
+        print (conductor.banks)
+        
+        self.updateCategoryTable()
+        self.selectCategory(PresetCategory.bankStartingIndex)
+        self.categoryIndex = PresetCategory.bankStartingIndex
+        self.selectCurrentPreset()
+        
+        // Delete bank json file
+        try? Disk.remove(bankName + ".json", from: .documents)
+        
+    }
+}
+
+
+//*****************************************************************
 // MARK: - Import / UIDocumentPickerDelegate
 //*****************************************************************
 
@@ -667,7 +725,7 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                 var bankName = String(fileName.dropLast(5))
                 
                 // check for duplicate bank name already in system
-                if conductor.banks.contains(where: { $0.value == bankName }) {
+                if conductor.banks.contains(where: { $0.name == bankName }) {
                     // TODO: Ask User to select a new name
                     bankName += " *"
                 }
@@ -685,16 +743,16 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                 saveAllPresetsIn(bankName)
                 
                 // Save to AppSettings
-                let newKeyIndex = conductor.banks.count
-                conductor.banks.updateValue(bankName, forKey: newKeyIndex)
-                presetsDelegate?.banksDidUpdate()
+                let newBankIndex = conductor.banks.count
+                let newBank = Bank(name: bankName, position: newBankIndex)
+                conductor.banks.append(newBank)
                 
-                print (conductor.banks)
+                presetsDelegate?.banksDidUpdate()
                 
                 // Add Bank to left category listing
                 updateCategoryTable()
-                selectCategory(PresetCategory.bankStartingIndex + newKeyIndex)
-                categoryIndex = PresetCategory.bankStartingIndex + newKeyIndex
+                selectCategory(PresetCategory.bankStartingIndex + newBankIndex)
+                categoryIndex = PresetCategory.bankStartingIndex + newBankIndex
                
                 sortPresets()
                 
@@ -702,14 +760,14 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                 let importedPreset = Preset.parseDataToPreset(presetJSON: presetJSON)
                 
                 // Import preset to User Bank
-                let userBank = presets.filter { $0.bank == "User" }
+                let userBank = presets.filter { $0.bank == userBankName }
                 importedPreset.position = userBank.count
                 importedPreset.isFavorite = false
                 importedPreset.isUser = true
                 presets.append(importedPreset)
                 
                 currentPreset = importedPreset
-                currentPreset.bank = conductor.banks[1]! // user
+                currentPreset.bank = userBankName
                 saveAllPresetsIn(currentPreset.bank)
                 
                 // Display the User Bank

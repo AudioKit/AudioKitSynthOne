@@ -21,7 +21,7 @@ class Conductor: AKSynthOneProtocol {
 
     var syncRateToTempo = true
     var neverSleep = false
-    var banks: [Int:String] = [0: "BankA", 1: "User"]
+    var banks: [Bank] = []
     
     var synth: AKSynthOne!
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []

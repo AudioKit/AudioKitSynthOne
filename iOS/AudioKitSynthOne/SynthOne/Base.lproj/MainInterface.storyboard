@@ -4,188 +4,10 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Helvetica.ttc">
-            <string>Helvetica</string>
-        </array>
-    </customFonts>
     <scenes>
-        <!--Header-->
-        <scene sceneID="fi1-pV-a0g">
-            <objects>
-                <viewController id="Pbg-aO-Kdu" userLabel="Header" customClass="HeaderViewController" customModule="SynthOne" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6Yy-nA-t1V"/>
-                        <viewControllerLayoutGuide type="bottom" id="tOX-tk-bqQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2En-T2-0zi">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Knob Value: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyU-kI-OOo">
-                                <rect key="frame" x="469.5" y="28" width="85" height="3"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="FyU-kI-OOo" firstAttribute="top" secondItem="2En-T2-0zi" secondAttribute="topMargin" constant="8" id="623-i2-IhA"/>
-                            <constraint firstItem="FyU-kI-OOo" firstAttribute="centerX" secondItem="2En-T2-0zi" secondAttribute="centerX" id="MJe-vq-uhd"/>
-                            <constraint firstItem="tOX-tk-bqQ" firstAttribute="top" secondItem="FyU-kI-OOo" secondAttribute="bottom" constant="7" id="jRD-YM-Lge"/>
-                        </constraints>
-                    </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="38"/>
-                    <connections>
-                        <outlet property="displayLabel" destination="FyU-kI-OOo" id="jzf-vJ-C2Y"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f42-3O-XaK" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="435" y="-49"/>
-        </scene>
-        <!--Source Mixer-->
-        <scene sceneID="NUj-yk-Qi3">
-            <objects>
-                <viewController id="cHo-um-pQ7" userLabel="Source Mixer" customClass="SourceMixerViewController" customModule="SynthOne" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xkZ-ER-gFd"/>
-                        <viewControllerLayoutGuide type="bottom" id="25t-er-LMb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cuC-3P-1Fl">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_main" translatesAutoresizingMaskIntoConstraints="NO" id="Ztv-Il-xL7">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view tag="101" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wnx-55-wLZ" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="20" y="84" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view tag="103" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tvo-eN-q5L" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="360" y="84" width="65" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="114" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdN-Dn-sWt" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="454" y="0.0" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iI3-Sy-OSp" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="214" y="84" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qke-qE-AOX" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="460" y="198" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="106" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hh8-4Q-F2y" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="274" y="198" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="105" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ryd-r2-wdR" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="200" y="198" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="109" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRj-Tf-AjE" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="20" y="198" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="112" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GJa-Xf-CB4" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="623" y="198" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="107" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TyC-jV-fFc" customClass="CutoffKnob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="623" y="38" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="111" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7rM-2Q-3B6" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="534" y="198" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="104" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21R-bc-CfF" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="365" y="198" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="103" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="411-Mh-T0s" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="885" y="1" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="108" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1m-g1-PAp" customClass="Knob" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="740" y="31" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="116" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAC-Qb-WGP" customClass="ToggleButton" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="95" y="231" width="34" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="115" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N2C-Lt-phb" customClass="ToggleButton" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="130" y="192" width="34" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgN-qa-Ac6" customClass="ToggleButton" customModule="AudioKitSynthOne">
-                                <rect key="frame" x="853" y="86" width="34" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="299"/>
-                    <connections>
-                        <outlet property="cutoff" destination="TyC-jV-fFc" id="fVj-CB-VgW"/>
-                        <outlet property="fmAmount" destination="7rM-2Q-3B6" id="od4-xr-ujH"/>
-                        <outlet property="fmVolume" destination="qke-qE-AOX" id="uJz-7G-Ntd"/>
-                        <outlet property="masterVolume" destination="jdN-Dn-sWt" id="PUk-Yl-gHK"/>
-                        <outlet property="morph1SemitoneOffset" destination="wnx-55-wLZ" id="HEg-72-foK"/>
-                        <outlet property="morph1Volume" destination="ryd-r2-wdR" id="0Ml-k0-vXI"/>
-                        <outlet property="morph2Detuning" destination="tvo-eN-q5L" id="vnB-8p-6sB"/>
-                        <outlet property="morph2SemitoneOffset" destination="iI3-Sy-OSp" id="d3U-4H-CBI"/>
-                        <outlet property="morph2Volume" destination="Hh8-4Q-F2y" id="VOT-fd-2MJ"/>
-                        <outlet property="morphBalance" destination="21R-bc-CfF" id="6tQ-Gb-3mE"/>
-                        <outlet property="noiseVolume" destination="GJa-Xf-CB4" id="WYx-xj-hQY"/>
-                        <outlet property="resonance" destination="Y1m-g1-PAp" id="xCM-TG-R6k"/>
-                        <outlet property="subIsSquare" destination="kAC-Qb-WGP" id="NrO-GF-Iba"/>
-                        <outlet property="subOctaveDown" destination="N2C-Lt-phb" id="gbK-U3-cke"/>
-                        <outlet property="subVolume" destination="SRj-Tf-AjE" id="6vC-XL-VcT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PmD-lS-WtH" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="231" y="303"/>
-        </scene>
         <!--Audio Unit-->
         <scene sceneID="ukk-DH-L2z">
             <objects>
@@ -198,37 +20,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lb4-yH-McX" userLabel="Header Container View">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="1024" id="3QH-kw-LCr"/>
-                                    <constraint firstAttribute="height" constant="38" id="Rqz-aW-g1a"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="Pbg-aO-Kdu" kind="embed" id="0bb-Qo-JXE"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ts2-Yl-7Kd" userLabel="Panel Container View">
-                                <rect key="frame" x="0.0" y="38" width="1024" height="299"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="299" id="Imc-NR-cK9"/>
-                                    <constraint firstAttribute="width" constant="1024" id="W2C-E5-FD2"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="cHo-um-pQ7" kind="embed" id="pkT-il-oSM"/>
-                                </connections>
-                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&quot;The Chainsmokers are my favorite band&quot; - Matthew Fecher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzX-s9-WRg">
+                                <rect key="frame" x="64" y="75" width="758" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.98780487800000005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ts2-Yl-7Kd" secondAttribute="trailing" id="7N7-vy-kJ3"/>
-                            <constraint firstItem="Ts2-Yl-7Kd" firstAttribute="leading" secondItem="ds5-Z4-SUw" secondAttribute="leading" id="7m3-9F-21p"/>
-                            <constraint firstItem="Lb4-yH-McX" firstAttribute="leading" secondItem="ds5-Z4-SUw" secondAttribute="leading" id="A5T-gR-oo3"/>
-                            <constraint firstAttribute="trailing" secondItem="Lb4-yH-McX" secondAttribute="trailing" id="LCu-Uw-cJD"/>
-                            <constraint firstItem="Ts2-Yl-7Kd" firstAttribute="top" secondItem="Lb4-yH-McX" secondAttribute="bottom" id="Xp8-sv-yNW"/>
-                            <constraint firstItem="Ts2-Yl-7Kd" firstAttribute="top" secondItem="Lb4-yH-McX" secondAttribute="bottom" id="ahC-Hz-Oed"/>
-                            <constraint firstItem="Lb4-yH-McX" firstAttribute="top" secondItem="ds5-Z4-SUw" secondAttribute="top" id="bBe-uv-Ai4"/>
-                        </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -236,10 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adc-8t-Pyx" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-912" y="-226"/>
+            <point key="canvasLocation" x="-912.5" y="-226.46484374999997"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="au_main" width="1024" height="299"/>
-    </resources>
 </document>

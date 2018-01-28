@@ -59,24 +59,25 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory {
             }
 
             DispatchQueue.main.async {
-                for vc in (self?.conductor.viewControllers)! {
-                    vc.updateUI(param, value: Double(value))
-                }
+//                for vc in (self?.conductor.viewControllers)! {
+//                    vc.updateUI(param, value: Double(value))
+//                }
             }
         })
         return audioUnit!
     }
 
     func connectViewWithAU() {
-        conductor.changeParameter = { param in
-            return { value in
-                guard let au = self.audioUnit,
-                    let parameter = au.parameterTree?.parameter(withAddress: AUParameterAddress(param.rawValue))
-                    else { return }
-                parameter.value = Float(value)
-            }
-        }
+//        conductor.changeParameter = { param in
+//            return { value in
+//                guard let au = self.audioUnit,
+//                    let parameter = au.parameterTree?.parameter(withAddress: AUParameterAddress(param.rawValue))
+//                    else { return }
+//                parameter.value = Float(value)
+//            }
+//        }
         //TODO: need to deal with setting "changeParameter"...the "updateAllCallbacks" pattern was clobbering bindings that don't use "changeParameter"
     }
 
 }
+

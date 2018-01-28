@@ -55,7 +55,10 @@ class SeqViewController: SynthPanelController {
             conductor.bind(octBoostButton, to: arpSeqOctBoostParam) { _ in
                 return { value in
                     s.setAK1SeqOctBoost(forIndex: notePosition, value)
-                    self.conductor.updateSingleUI(arpSeqOctBoostParam)
+                    // self.conductor.updateSingleUI(arpSeqOctBoostParam)
+                    for i in 0...15 {
+                        self.updateOctBoostButton(notePosition: i)
+                    }
                 }
             }
         }

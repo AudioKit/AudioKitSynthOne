@@ -99,7 +99,7 @@ public class HeaderViewController: UpdatableViewController {
         case .bitCrushSampleRate:
             displayLabel.text = "Downsample Rate: \(value.decimalString)"
         case .autoPanAmount:
-            displayLabel.text = "Auto Pan Amount: \(value.decimalString)"
+            displayLabel.text = "Auto Pan Amp: \(value.percentageString)"
         case .autoPanFrequency:
             if conductor.syncRateToTempo {
                 displayLabel.text = "AutoPan Rate: \(Rate.fromFrequency(value))"

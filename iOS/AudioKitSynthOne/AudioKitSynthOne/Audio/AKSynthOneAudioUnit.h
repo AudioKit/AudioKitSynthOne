@@ -23,27 +23,28 @@
 @property (nonatomic) NSArray *parameters;
 @property (nonatomic, weak) id<AKSynthOneProtocol> delegate;
 
-- (void) setAK1Parameter:(AKSynthOneParameter)param value:(float)value;
-- (float) getAK1Parameter:(AKSynthOneParameter)param;
-- (float) getParameterMin:(AKSynthOneParameter)param;
-- (float) getParameterMax:(AKSynthOneParameter)param;
-- (float) getParameterDefault:(AKSynthOneParameter)param;
+- (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value;
+- (float)getAK1Parameter:(AKSynthOneParameter)param;
+- (float)getParameterMin:(AKSynthOneParameter)param;
+- (float)getParameterMax:(AKSynthOneParameter)param;
+- (float)getParameterDefault:(AKSynthOneParameter)param;
 
-- (void) setupWaveform:(UInt32)waveform size:(int)size;
-- (void) setWaveform:(UInt32)waveform withValue:(float)value atIndex:(UInt32)index;
+- (void)setupWaveform:(UInt32)waveform size:(int)size;
+- (void)setWaveform:(UInt32)waveform withValue:(float)value atIndex:(UInt32)index;
 
-- (void) stopNote:(uint8_t)note;
-- (void) startNote:(uint8_t)note velocity:(uint8_t)velocity;
-- (void) startNote:(uint8_t)note velocity:(uint8_t)velocity frequency:(float)frequency;
+- (void)stopNote:(uint8_t)note;
+- (void)startNote:(uint8_t)note velocity:(uint8_t)velocity;
+- (void)startNote:(uint8_t)note velocity:(uint8_t)velocity frequency:(float)frequency;
 
-- (void) reset;
-- (void) stopAllNotes;
-- (void) resetDSP;
-- (void) resetSequencer;
+- (void)reset;
+- (void)stopAllNotes;
+- (void)resetDSP;
+- (void)resetSequencer;
 
-- (void) arpBeatCounterDidChange;
-- (void) heldNotesDidChange;
-- (void) playingNotesDidChange;
+- (void)paramDidChange:(AKSynthOneParameter)param value:(double)value;
+- (void)arpBeatCounterDidChange;
+- (void)heldNotesDidChange;
+- (void)playingNotesDidChange;
 
 @end
 

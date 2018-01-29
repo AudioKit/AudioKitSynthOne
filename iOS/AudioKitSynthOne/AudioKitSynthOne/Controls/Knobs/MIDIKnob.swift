@@ -85,4 +85,3 @@ public class MIDIKnob: Knob, MIDILearnable {
     }
     
 }
-

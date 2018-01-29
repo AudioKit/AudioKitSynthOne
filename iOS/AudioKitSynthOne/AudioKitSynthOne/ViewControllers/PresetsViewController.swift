@@ -16,7 +16,7 @@ import GameplayKit
 protocol PresetsDelegate {
     func presetDidChange(_ activePreset: Preset)
     func updateDisplay(_ message: String)
-    func saveEditedPreset(name: String, category: Int)
+    func saveEditedPreset(name: String, category: Int, bank: String)
     func banksDidUpdate()
 }
 
@@ -190,7 +190,11 @@ class PresetsViewController: UIViewController {
     }
     
     func saveAllPresetsIn(_ bank: String) {
-        let presetsToSave = presets.filter { $0.bank == bank }
+        let presetsToSave = presets.filter { $0.bank == bank }.sorted { $0.position < $1.position }
+        for (i, preset) in presetsToSave.enumerated() {
+            preset.position = i
+        }
+        
         do {
             try Disk.save(presetsToSave, to: .documents, as: bank + ".json")
             sortPresets()
@@ -390,7 +394,7 @@ class PresetsViewController: UIViewController {
             let popOverController = segue.destination as! PopUpPresetEdit
             popOverController.delegate = self
             popOverController.preset = currentPreset
-            popOverController.preferredContentSize = CGSize(width: 300, height: 320)
+            popOverController.preferredContentSize = CGSize(width: 528, height: 320)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
             }
@@ -675,9 +679,18 @@ extension PresetsViewController: CategoryDelegate {
 //*****************************************************************
 
 extension PresetsViewController: PresetPopOverDelegate {
-    func didFinishEditing(name: String, category: Int) {
+    func didFinishEditing(name: String, category: Int, newBank: String) {
+        
+        // Check for bank change
+        if currentPreset.bank != newBank {
+            // remove preset from its previous bank
+            let oldBank = currentPreset.bank
+            currentPreset.bank = newBank
+            saveAllPresetsIn(oldBank)
+        }
+        
         // save preset
-        presetsDelegate?.saveEditedPreset(name: name, category: category)
+        presetsDelegate?.saveEditedPreset(name: name, category: category, bank: newBank)
     }
 }
 

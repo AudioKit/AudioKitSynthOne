@@ -567,10 +567,11 @@ extension ParentViewController: PresetsDelegate {
         }
     }
     
-    func saveEditedPreset(name: String, category: Int) {
+    func saveEditedPreset(name: String, category: Int, bank: String) {
         activePreset.name = name
         activePreset.category = category
-        activePreset.isUser = true
+        activePreset.bank = bank
+        // activePreset.isUser = true
         saveValuesToPreset()
     }
     
@@ -771,20 +772,14 @@ extension ParentViewController: AKMIDIListener  {
                 midiKnob.setKnobValueFrom(midiValue: value)
             }
         }
-        
     }
-    
     
     // MIDI Program/Patch Change
     public func receivedMIDIProgramChange(_ program: MIDIByte, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
         guard !pcJustTriggered else { return }
-
        
-        print ("preset: \(program)")
-        print ("presetInt: \(Int(program))")
         DispatchQueue.main.async {
-            print ("preset \(program)")
             self.presetsViewController.didSelectPreset(index: Int(program))
         }
         

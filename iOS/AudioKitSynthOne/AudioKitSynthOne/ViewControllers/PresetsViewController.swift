@@ -111,9 +111,7 @@ class PresetsViewController: UIViewController {
     
     func loadBanks() {
         presets.removeAll()
-        
-        print (conductor.banks)
-        
+      
         conductor.banks.forEach { bank in
             let fileName = bank.name + ".json"
             
@@ -188,7 +186,6 @@ class PresetsViewController: UIViewController {
         guard let jsonArray = presetsJSON as? [Any] else { return }
         
         presets += Preset.parseDataToPresets(jsonArray: jsonArray)
-        print ("Presets count: \(presets.count)")
         sortPresets()
     }
     
@@ -357,17 +354,17 @@ class PresetsViewController: UIViewController {
         selectCurrentPreset()
     }
     
-    // Used for Selecting Bank from MIDI lsb/sub (cc32)
+    // Used for Selecting Bank from MIDI msb (cc0)
     func didSelectBank(index: Int) {
         
         var newBankIndex = index
         if newBankIndex < 0 {
             newBankIndex = 0
         }
-        if newBankIndex > conductor.banks.count {
-            newBankIndex = conductor.banks.count
+        if newBankIndex > conductor.banks.count - 1 {
+            newBankIndex = conductor.banks.count - 1
         }
-
+        
         // Update Category Table
         selectCategory(PresetCategory.bankStartingIndex + newBankIndex)
         categoryIndex = PresetCategory.bankStartingIndex + newBankIndex

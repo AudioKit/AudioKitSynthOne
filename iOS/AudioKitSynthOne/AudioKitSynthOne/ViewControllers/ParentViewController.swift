@@ -745,20 +745,21 @@ extension ParentViewController: AKMIDIListener  {
                 //                }
             }
             
-        // Bank Change lsb/cc32 (sub bank in ableton)
-        case AKMIDIControl.lsb.rawValue:
-            guard channel == midiChannelIn || omniMode else { return }
-            let bankNumber = Int(value)-1
-            print ("LSB: \(bankNumber)")
-            if bankNumber != self.presetsViewController.bankIndex {
-                print ("DIFFERENT LSB")
-            }
-            DispatchQueue.main.async {
-                self.presetsViewController.didSelectBank(index: Int(value))
-            }
-            
-        default:
+          default:
             break
+        }
+        
+        // Bank Change msb/cc0
+        if controller == 0 {
+            guard channel == midiChannelIn || omniMode else { return }
+            
+            if Int(value) != self.presetsViewController.bankIndex {
+                print ("DIFFERENT MSB")
+                DispatchQueue.main.async {
+                    self.presetsViewController.didSelectBank(index: Int(value))
+                }
+            }
+           
         }
         
         // Check for MIDI learn knobs that match controller
@@ -773,14 +774,15 @@ extension ParentViewController: AKMIDIListener  {
         
     }
     
+    
     // MIDI Program/Patch Change
     public func receivedMIDIProgramChange(_ program: MIDIByte, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
         guard !pcJustTriggered else { return }
 
        
-        print ("preset \(program)")
-        print ("preset Int \(Int(program))")
+        print ("preset: \(program)")
+        print ("presetInt: \(Int(program))")
         DispatchQueue.main.async {
             print ("preset \(program)")
             self.presetsViewController.didSelectPreset(index: Int(program))

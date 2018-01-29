@@ -80,6 +80,8 @@ public class MIDIKnob: Knob, MIDILearnable {
     // Linear Scale MIDI 0...127 to 0.0...1.0
     func setKnobValueFrom(midiValue: MIDIByte) {
         knobValue = CGFloat(Double.scaleRangeZeroToOne(Double(midiValue), rangeMin: 0, rangeMax: 127))
+        let newValue = Double(knobValue).denormalized(to: range, taper: taper)
+        callback(newValue)
     }
     
 }

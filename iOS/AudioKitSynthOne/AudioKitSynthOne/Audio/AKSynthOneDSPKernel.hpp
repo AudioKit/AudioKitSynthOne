@@ -240,8 +240,10 @@ private:
     AEArray* heldNoteNumbersAE;
     
     AKS1Param aks1p[AKSynthOneParameter::AKSynthOneParameterCount] = {
-        { index1,                0, 0, 1, "index1", "Index 1"},
-        { index2,                0, 0, 1, "index2", "Index 2"},
+//        { index1,                0, 0, 1, "index1", "Index 1"},
+//        { index2,                0, 0, 1, "index2", "Index 2"},
+        { index1,                0, 1, 1, "index1", "Index 1"},
+        { index2,                0, 1, 1, "index2", "Index 2"},
         { morphBalance,          0, 0.5, 1, "morphBalance", "morphBalance" },
         { morph1SemitoneOffset,  -12, 0, 12, "morph1SemitoneOffset", "morph1SemitoneOffset" },
         { morph2SemitoneOffset,  -12, 0, 12, "morph2SemitoneOffset", "morph2SemitoneOffset" },
@@ -256,7 +258,8 @@ private:
         { lfo1Index,             0, 0, 3, "lfo1Index", "lfo1Index" },
         { lfo1Amplitude,         0, 0, 1, "lfo1Amplitude", "lfo1Amplitude" },
         { lfo1Rate,              0, 0.25, 10, "lfo1Rate", "lfo1Rate" },
-        { cutoff,                256, 2000, 28000, "cutoff", "cutoff" },
+//        { cutoff,                256, 2000, 28000, "cutoff", "cutoff" },
+        { cutoff,                256, 20000, 28000, "cutoff", "cutoff" },
         { resonance,             0, 0.1, 0.75, "resonance", "resonance" },
         { filterMix,             0, 1, 1, "filterMix", "filterMix" },
         { filterADSRMix,         0, 0, 1.2, "filterADSRMix", "filterADSRMix" },
@@ -304,7 +307,6 @@ private:
         { arpInterval,           0, 12, 12, "arpInterval", "arpInterval" },
         { arpIsOn,               0, 0, 1, "arpIsOn", "arpIsOn" },
         { arpOctave,             0, 1, 3, "arpOctave", "arpOctave" },
-        //        { arpRate,               10, 60, 280, "arpRate", "arpRate" },
         { arpRate,               1, 64, 256, "arpRate", "arpRate" },
         { arpIsSequencer,        0, 0, 1, "arpIsSequencer", "arpIsSequencer" },
         { arpTotalSteps,         1, 4, 16, "arpTotalSteps", "arpTotalSteps" },

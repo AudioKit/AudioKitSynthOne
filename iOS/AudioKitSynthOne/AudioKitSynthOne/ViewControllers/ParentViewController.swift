@@ -316,9 +316,6 @@ public class ParentViewController: UpdatableViewController {
                 s.setAK1Parameter(.detuningMultiplier, 1.0)
             }
         }
-        
-        
-        
     }
     
     func stopAllNotes() {

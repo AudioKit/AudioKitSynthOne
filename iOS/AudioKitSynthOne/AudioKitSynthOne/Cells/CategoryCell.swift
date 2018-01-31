@@ -6,15 +6,6 @@
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
 //
 
-import Foundation
-//
-//  PresetCell.swift
-//  AudioKit Synth One
-//
-//  Created by Matthew Fecher on 7/28/16.
-//  Copyright © 2016 AudioKit. All rights reserved.
-//
-
 import UIKit
 
 protocol CategoryCellDelegate {

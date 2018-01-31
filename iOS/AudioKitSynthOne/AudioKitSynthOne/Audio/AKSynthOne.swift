@@ -119,7 +119,6 @@ import AudioKit
         get {
             var result: [Double] = []
             if let floatParameters = internalAU?.parameters as? [NSNumber] {
-                //AKLog("getter recreates array of 116 params")
                 for number in floatParameters {
                     result.append(number.doubleValue)
                 }

@@ -56,6 +56,7 @@ public class ParentViewController: UpdatableViewController {
     
     let midi = AKMIDI()  ///TODO: REMOVE
     var sustainMode = false
+    var sustainer: SDSustainer!
     var pcJustTriggered = false
     var midiKnobs = [MIDIKnob]()
     
@@ -117,7 +118,8 @@ public class ParentViewController: UpdatableViewController {
         
         // Conductor start
         conductor.start()
-        
+        sustainer = SDSustainer(conductor.synth)
+
         // Set Header as Delegate
         if let headerVC = self.childViewControllers.first as? HeaderViewController {
             headerVC.delegate = self
@@ -669,12 +671,14 @@ extension ParentViewController: KeyboardPopOverDelegate {
 extension ParentViewController: AKKeyboardDelegate {
     
     public func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity = 127) {
-        conductor.synth.play(noteNumber: note, velocity: velocity)
+        sustainer.play(noteNumber: note, velocity: velocity)
+        //conductor.synth.play(noteNumber: note, velocity: velocity)
     }
     
     public func noteOff(note: MIDINoteNumber) {
         DispatchQueue.main.async {
-            self.conductor.synth.stop(noteNumber: note)
+            self.sustainer.stop(noteNumber: note)
+            //self.conductor.synth.stop(noteNumber: note)
         }
     }
 }
@@ -731,9 +735,11 @@ extension ParentViewController: AKMIDIListener  {
             
         // Sustain Pedal
         case AKMIDIControl.damperOnOff.rawValue:
-            if value == 127 {
+            if value > 0 && !sustainMode {
+                sustainer.sustain(down: true)
                 sustainMode = true
-            } else {
+            } else if sustainMode {
+                sustainer.sustain(down: false)
                 sustainMode = false
                 // stop all notes not being held by midi controller
                 //                for note in 0 ... 127 {

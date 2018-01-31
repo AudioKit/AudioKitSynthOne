@@ -10,7 +10,31 @@ import CoreAudioKit
 import AudioKit
 
 public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSynthOneProtocol {
-//    var conductor = Conductor.sharedInstance
+
+    @IBOutlet weak var testSlider: UISlider!
+    
+    @IBAction func changeTestSlider(_ sender: UISlider) {
+        let v = sender.value
+        let p: AKSynthOneParameter = .cutoff
+        guard let au = self.audioUnit else {
+            printDebug("audio unit is nil")
+            return
+        }
+        if let param = au.parameterTree?.parameter(withAddress: AUParameterAddress(p.rawValue))! {
+            let min = param.minValue
+            let max = param.maxValue
+            let value = min + (max - min) * v
+            param.value = value
+            au.setAK1Parameter(p, value: value)
+            printDebug("slider: parameter:\(p.rawValue), value:\(value)")
+        }
+    }
+
+    @IBOutlet weak var debugLabel: UILabel!
+    
+    public func printDebug(_ text: String) {
+        debugLabel.text = text
+    }
 
     var audioUnit: AKSynthOneAudioUnit? {
         didSet {
@@ -21,6 +45,10 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
             }
         }
     }
+    
+    /// A token for our registration to observe parameter value changes.
+    var parameterObserverToken: AUParameterObserverToken!
+    
 
 //    override func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
 //        return { value in
@@ -39,7 +67,6 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
 
     public func createAudioUnit(with componentDescription: AudioComponentDescription) throws -> AUAudioUnit {
         audioUnit = try AKSynthOneAudioUnit(componentDescription: componentDescription, options: [])
-        
         audioUnit?.delegate = self
         
         let waveformArray = [AKTable(.triangle), AKTable(.square), AKTable(.sine), AKTable(.sawtooth)]
@@ -50,36 +77,37 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
             }
         }
 
-        guard let tree = audioUnit?.parameterTree else {
-            return audioUnit!
-        }
-
-        _ = tree.token(byAddingParameterObserver: { [weak self] address, value in
-
-            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int32(address)) else {
-                return
+        //
+        audioUnit?.createParameters()
+        
+        #if false
+            guard let tree = audioUnit?.parameterTree else {
+                printDebug("can't create parameterTree")
+                return audioUnit!
             }
-
-            DispatchQueue.main.async {
-//                for vc in (self?.conductor.viewControllers)! {
-//                    vc.updateUI(param, value: Double(value))
-//                }
-            }
-        })
+            
+            parameterObserverToken = tree.token(byAddingParameterObserver: { [weak self] address, value in
+                self?.printDebug("entering: address:\(address), value:\(value)")
+                guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int32(address)) else {
+                    self?.printDebug("can't create param from address:\(address), value:\(value)")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self?.printDebug("setting param:\(param), value:\(value)")
+                    self?.audioUnit?.setAK1Parameter(param, value: value)
+                }
+            })
+        #endif
+        
         return audioUnit!
     }
-
+    
     func connectViewWithAU() {
-//        conductor.changeParameter = { param in
-//            return { value in
-//                guard let au = self.audioUnit,
-//                    let parameter = au.parameterTree?.parameter(withAddress: AUParameterAddress(param.rawValue))
-//                    else { return }
-//                parameter.value = Float(value)
-//            }
-//        }
+        printDebug("Hook up connectViewWithAU()")
     }
 
+    
     //MARK: - AKSynthOneProtocol passthroughs
     @objc public func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
         //delegate?.paramDidChange(param, value)

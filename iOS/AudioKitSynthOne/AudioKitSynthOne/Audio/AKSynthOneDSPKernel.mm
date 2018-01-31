@@ -24,10 +24,12 @@ static inline double pow2(double x) {
     return x * x;
 }
 
+/*
 // Convert absolute 12ET note number to frequency
 static inline double etNNToHz(int noteNumber) {
     return 440.f * exp2((noteNumber - 69.f)/12.f);
 }
+ */
 
 // Relative note number to frequency
 static inline float nnToHz(float noteNumber) {
@@ -36,9 +38,9 @@ static inline float nnToHz(float noteNumber) {
 
 // Convert note number to [possibly] microtonal frequency.  12ET is the default.
 // Profiling shows this is ~0% of CPU on a device
-static inline double noteToHz(int noteNumber) {
+static inline double tuningTableNoteToHz(int noteNumber) {
     return [AKPolyphonicNode.tuningTable frequencyForNoteNumber:noteNumber];
-    // return etNNToHz(noteNumber);
+    // return noteToHz(noteNumber);
 }
 
 
@@ -477,7 +479,7 @@ void AKSynthOneDSPKernel::setParameters(float params[]) {
 }
 
 void AKSynthOneDSPKernel::setParameter(AUParameterAddress address, AUValue value) {
-    const int i = (int)address;
+    const int i = (AKSynthOneParameter)address;
     const float oldValue = p[i];
     const bool changed = (oldValue != value);
     if(changed) {
@@ -485,9 +487,8 @@ void AKSynthOneDSPKernel::setParameter(AUParameterAddress address, AUValue value
     }
 }
 
-
 AUValue AKSynthOneDSPKernel::getParameter(AUParameterAddress address) {
-    const int i = (int)address;
+    const int i = (AKSynthOneParameter)address;
     return p[i];
 }
 
@@ -969,7 +970,7 @@ void AKSynthOneDSPKernel::turnOnKey(int noteNumber, int velocity) {
     if(noteNumber < 0 || noteNumber >= NUM_MIDI_NOTES)
         return;
     
-    const float frequency = noteToHz(noteNumber);
+    const float frequency = tuningTableNoteToHz(noteNumber);
     turnOnKey(noteNumber, velocity, frequency);
 }
 
@@ -1057,9 +1058,9 @@ void AKSynthOneDSPKernel::turnOffKey(int noteNumber) {
             AEArrayToken token = AEArrayGetToken(heldNoteNumbersAE);
             struct NoteNumber* nn = (struct NoteNumber*)AEArrayGetItem(token, 0);
             const int headNN = nn->noteNumber;
-            monoFrequency = noteToHz(headNN);
+            monoFrequency = tuningTableNoteToHz(headNN);
             monoNote->rootNoteNumber = headNN;
-            monoFrequency = noteToHz(headNN);
+            monoFrequency = tuningTableNoteToHz(headNN);
             monoNote->oscmorph1->freq = monoFrequency;
             monoNote->oscmorph2->freq = monoFrequency;
             monoNote->subOsc->freq = monoFrequency;
@@ -1109,7 +1110,7 @@ void AKSynthOneDSPKernel::startNote(int noteNumber, int velocity) {
     if(noteNumber < 0 || noteNumber >= NUM_MIDI_NOTES)
         return;
     
-    const float frequency = noteToHz(noteNumber);
+    const float frequency = tuningTableNoteToHz(noteNumber);
     startNote(noteNumber, velocity, frequency);
 }
 

@@ -28,6 +28,9 @@
 - (float)getParameterMin:(AKSynthOneParameter)param;
 - (float)getParameterMax:(AKSynthOneParameter)param;
 - (float)getParameterDefault:(AKSynthOneParameter)param;
+- (void)setParameter:(AUParameterAddress)address value:(AUValue)value;
+- (AUValue)getParameter:(AUParameterAddress)address;
+
 
 - (void)setupWaveform:(UInt32)waveform size:(int)size;
 - (void)setWaveform:(UInt32)waveform withValue:(float)value atIndex:(UInt32)index;

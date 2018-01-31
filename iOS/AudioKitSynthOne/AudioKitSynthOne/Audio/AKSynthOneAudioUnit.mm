@@ -28,10 +28,12 @@
     return _kernel.getAK1Parameter(inAKSynthOneParameterEnum);
 }
 
+///auv3
 - (void)setParameter:(AUParameterAddress)address value:(AUValue)value {
     _kernel.setAK1Parameter((AKSynthOneParameter)address, value);
 }
 
+///auv3
 - (AUValue)getParameter:(AUParameterAddress)address {
     return _kernel.getAK1Parameter((AKSynthOneParameter)address);
 }
@@ -48,7 +50,7 @@
     return _kernel.parameterDefault(param);
 }
 
-///Note calling this method to access even a single element of this array results in creating the entire array
+///Deprecated:calling this method to access even a single element of this array results in creating the entire array
 - (NSArray<NSNumber*> *)parameters {
     NSMutableArray *temp = [NSMutableArray arrayWithCapacity:AKSynthOneParameter::AKSynthOneParameterCount];
     for (int i = 0; i < AKSynthOneParameter::AKSynthOneParameterCount; i++) {
@@ -57,6 +59,7 @@
     return [NSArray arrayWithArray:temp];
 }
 
+///deprecated
 - (void)setParameters:(NSArray<NSNumber*> *)parameters {
     float params[AKSynthOneParameter::AKSynthOneParameterCount];
     for (int i = 0; i < parameters.count; i++) {
@@ -122,7 +125,7 @@
                                                                  busType:AUAudioUnitBusTypeOutput
                                                                   busses:@[self.outputBus]];
     _kernel.audioUnit = self;
-
+    __block AKSynthOneDSPKernel *blockKernel = &_kernel;
     
     // Create parameter tree
     AudioUnitParameterOptions flags = kAudioUnitParameterFlag_IsWritable | kAudioUnitParameterFlag_IsReadable;
@@ -142,13 +145,10 @@
     
     _parameterTree = [AUParameterTree createTreeWithChildren:tree];
     
-    __block AKSynthOneDSPKernel *blockKernel = &_kernel;
-    
     _parameterTree.implementorValueObserver = ^(AUParameter *param, AUValue value) {
         const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
         blockKernel->setAK1Parameter(p, value);
     };
-    
     _parameterTree.implementorValueProvider = ^(AUParameter *param) {
         const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
         return blockKernel->getAK1Parameter(p);

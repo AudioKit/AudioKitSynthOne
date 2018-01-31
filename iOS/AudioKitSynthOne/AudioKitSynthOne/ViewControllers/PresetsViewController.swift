@@ -16,7 +16,7 @@ import GameplayKit
 protocol PresetsDelegate {
     func presetDidChange(_ activePreset: Preset)
     func updateDisplay(_ message: String)
-    func saveEditedPreset(name: String, category: Int)
+    func saveEditedPreset(name: String, category: Int, bank: String)
     func banksDidUpdate()
 }
 
@@ -63,6 +63,14 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    var bankIndex: Int {
+        get {
+           var newIndex = categoryIndex - PresetCategory.bankStartingIndex
+           if newIndex < 0 { newIndex = 0 }
+           return newIndex
+        }
+    }
+    
     let conductor = Conductor.sharedInstance
     let userBankIndex = PresetCategory.bankStartingIndex + 1
     let userBankName = "User"
@@ -103,9 +111,7 @@ class PresetsViewController: UIViewController {
     
     func loadBanks() {
         presets.removeAll()
-        
-        print (conductor.banks)
-        
+      
         conductor.banks.forEach { bank in
             let fileName = bank.name + ".json"
             
@@ -144,7 +150,6 @@ class PresetsViewController: UIViewController {
             
         // Display Banks
         case PresetCategory.bankStartingIndex ... PresetCategory.bankStartingIndex + conductor.banks.count:
-            let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
             let bank = conductor.banks.filter{ $0.position == bankIndex }.first
             sortedPresets = presets.filter { $0.bank == bank!.name }
                 .sorted { $0.position < $1.position }
@@ -181,12 +186,15 @@ class PresetsViewController: UIViewController {
         guard let jsonArray = presetsJSON as? [Any] else { return }
         
         presets += Preset.parseDataToPresets(jsonArray: jsonArray)
-        print ("Presets count: \(presets.count)")
         sortPresets()
     }
     
     func saveAllPresetsIn(_ bank: String) {
-        let presetsToSave = presets.filter { $0.bank == bank }
+        let presetsToSave = presets.filter { $0.bank == bank }.sorted { $0.position < $1.position }
+        for (i, preset) in presetsToSave.enumerated() {
+            preset.position = i
+        }
+        
         do {
             try Disk.save(presetsToSave, to: .documents, as: bank + ".json")
             sortPresets()
@@ -296,6 +304,7 @@ class PresetsViewController: UIViewController {
             if self.categoryIndex < PresetCategory.bankStartingIndex {
                 self.categoryIndex = PresetCategory.bankStartingIndex
             }
+            
             self.selectCategory(self.categoryIndex) // select category in category table
             
             if self.tableView.isEditing {
@@ -336,11 +345,33 @@ class PresetsViewController: UIViewController {
     func didSelectPreset(index: Int) {
         deselectCurrentRow()
         
-        // Smoothly cycle through presets if MIDI input is greater than preset count
-        let currentPresetIndex = Int(index) % (presets.count-1)
+        // Get current Bank
+        let currentBank = conductor.banks.filter{ $0.position == bankIndex }.first
+        let presetsInBank = presets.filter{ $0.bank == currentBank!.name }.sorted { $0.position < $1.position }
         
-        currentPreset = presets[currentPresetIndex]
+        // Smoothly cycle through presets if MIDI input is greater than preset count
+        let currentPresetIndex = index % (presetsInBank.count)
+        
+        print ("currentPresetIndex \(currentPresetIndex)")
+        
+        currentPreset = presetsInBank[currentPresetIndex]
         selectCurrentPreset()
+    }
+    
+    // Used for Selecting Bank from MIDI msb (cc0)
+    func didSelectBank(index: Int) {
+        
+        var newBankIndex = index
+        if newBankIndex < 0 {
+            newBankIndex = 0
+        }
+        if newBankIndex > conductor.banks.count - 1 {
+            newBankIndex = conductor.banks.count - 1
+        }
+        
+        // Update Category Table
+        selectCategory(PresetCategory.bankStartingIndex + newBankIndex)
+        categoryIndex = PresetCategory.bankStartingIndex + newBankIndex
     }
     
     func randomPreset() {
@@ -363,7 +394,7 @@ class PresetsViewController: UIViewController {
             let popOverController = segue.destination as! PopUpPresetEdit
             popOverController.delegate = self
             popOverController.preset = currentPreset
-            popOverController.preferredContentSize = CGSize(width: 300, height: 320)
+            popOverController.preferredContentSize = CGSize(width: 528, height: 320)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
             }
@@ -372,7 +403,6 @@ class PresetsViewController: UIViewController {
         if segue.identifier == "SegueToBankEdit" {
             let popOverController = segue.destination as! PopUpBankEdit
             popOverController.delegate = self
-            let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
             let bank = conductor.banks.filter{ $0.position == bankIndex }.first
             popOverController.bankName = bank!.name
             popOverController.preferredContentSize = CGSize(width: 300, height: 320)
@@ -613,7 +643,6 @@ extension PresetsViewController: CategoryDelegate {
     
     func bankShare() {
         // Get Bank to Share
-        let bankIndex = categoryIndex - PresetCategory.bankStartingIndex
         let bank = conductor.banks.filter{ $0.position == bankIndex }.first
         let bankName = bank!.name
         let bankPresetsToShare = presets.filter { $0.bank == bankName }
@@ -650,9 +679,18 @@ extension PresetsViewController: CategoryDelegate {
 //*****************************************************************
 
 extension PresetsViewController: PresetPopOverDelegate {
-    func didFinishEditing(name: String, category: Int) {
+    func didFinishEditing(name: String, category: Int, newBank: String) {
+        
+        // Check for bank change
+        if currentPreset.bank != newBank {
+            // remove preset from its previous bank
+            let oldBank = currentPreset.bank
+            currentPreset.bank = newBank
+            saveAllPresetsIn(oldBank)
+        }
+        
         // save preset
-        presetsDelegate?.saveEditedPreset(name: name, category: category)
+        presetsDelegate?.saveEditedPreset(name: name, category: category, bank: newBank)
     }
 }
 

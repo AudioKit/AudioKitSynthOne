@@ -194,7 +194,6 @@ extension ParentViewController {
                 }
             }
             conductor.banks = banks
-            print (conductor.banks)
             
         } catch {
             print("*** error loading")

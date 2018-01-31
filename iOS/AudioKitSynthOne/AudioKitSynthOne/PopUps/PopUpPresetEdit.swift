@@ -9,13 +9,14 @@
 import UIKit
 
 protocol PresetPopOverDelegate {
-    func didFinishEditing(name: String, category: Int)
+    func didFinishEditing(name: String, category: Int, newBank: String)
 }
 
 class PopUpPresetEdit: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var bankPicker: UIPickerView!
     
     var delegate: PresetPopOverDelegate?
     
@@ -23,6 +24,14 @@ class PopUpPresetEdit: UIViewController {
     var categories = ["none","arp/seq","poly","pad","lead","bass","pluck"]
     let cellReuseIdentifier = "PopUpCell"
     var categoryIndex = 0
+    
+    let conductor = Conductor.sharedInstance
+    var pickerBankNames = [String]()
+    var bankSelected = "BankA"
+    
+    // *****************************************************************
+    // MARK: - Lifecycle
+    // *****************************************************************
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +44,15 @@ class PopUpPresetEdit: UIViewController {
         popupView.layer.cornerRadius = 6
         
         nameTextField.text = preset.name
+        
+        // Setup Picker
+        //conductor.banks = conductor.banks.sorted { $0.position < $1.position }
+        pickerBankNames = conductor.banks.map { $0.name }
+        if let index = pickerBankNames.index(of: preset.bank) {
+            bankPicker.selectRow(index, inComponent: 0, animated: true)
+            bankSelected = preset.bank
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,12 +64,16 @@ class PopUpPresetEdit: UIViewController {
         categoryTableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
     }
     
+    // *****************************************************************
+    // MARK: - IBActions
+    // *****************************************************************
+    
     @IBAction func closePressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func savePressed(_ sender: UIButton) {
-        delegate?.didFinishEditing(name: nameTextField.text!, category: categoryIndex)
+        delegate?.didFinishEditing(name: nameTextField.text!, category: categoryIndex, newBank: bankSelected)
         dismiss(animated: true, completion: nil)
     }
 }
@@ -96,6 +118,52 @@ extension PopUpPresetEdit: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         categoryIndex = (indexPath as NSIndexPath).row
+    }
+    
+}
+
+// *****************************************************************
+// MARK: - PickerDataSource
+// *****************************************************************
+
+extension PopUpPresetEdit: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerBankNames.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerBankNames[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "Avenir Next Condensed", size: 18)
+            pickerLabel?.textAlignment = .center
+        }
+        pickerLabel?.text = pickerBankNames[row]
+        pickerLabel?.textColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        
+        return pickerLabel!
+    }
+}
+
+//*****************************************************************
+// MARK: - PickerViewDelegate
+//*****************************************************************
+
+extension PopUpPresetEdit: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        bankSelected = pickerBankNames[row]
     }
     
 }

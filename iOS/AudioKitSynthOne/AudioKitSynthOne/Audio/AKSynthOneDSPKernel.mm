@@ -213,8 +213,10 @@ struct AKSynthOneDSPKernel::NoteState {
         
         //LFO coefficients used throughout run function; range on [0, amplitude]
         const float lfo1_0_1 = 0.5f * (1.f + kernel->lfo1) * kernel->p[lfo1Amplitude];
+        const float lfo1_1_0 = 1.f - lfo1_0_1; // good for multiplicative
         const float lfo2_0_1 = 0.5f * (1.f + kernel->lfo2) * kernel->p[lfo2Amplitude];
-        
+        const float lfo2_1_0 = 1.f - lfo2_0_1; // good for multiplicative
+
         //pitchLFO common frequency coefficient
         float commonFrequencyCoefficient = 1.0;
         if (kernel->p[pitchLFO] == 1) {
@@ -273,9 +275,9 @@ struct AKSynthOneDSPKernel::NoteState {
         //FM LFO
         float fmOscIndx = kernel->p[fmAmount];
         if (kernel->p[fmLFO] == 1) {
-            fmOscIndx = kernel->p[fmAmount] * lfo1_0_1;
+            fmOscIndx = kernel->p[fmAmount] * lfo1_1_0;
         } else if (kernel->p[fmLFO] == 2) {
-            fmOscIndx = kernel->p[fmAmount] * lfo2_0_1;
+            fmOscIndx = kernel->p[fmAmount] * lfo2_1_0;
         }
         fmOscIndx = kernel->parameterClamp(fmAmount, fmOscIndx);
         fmOsc->indx = fmOscIndx;
@@ -287,9 +289,9 @@ struct AKSynthOneDSPKernel::NoteState {
         //ADSR decay LFO
         float dec = kernel->p[decayDuration];
         if (kernel->p[decayLFO] == 1) {
-            dec *= lfo1_0_1;
+            dec *= lfo1_1_0;
         } else if (kernel->p[decayLFO] == 2) {
-            dec *= lfo2_0_1;
+            dec *= lfo2_1_0;
         }
         dec = kernel->parameterClamp(decayDuration, dec);
         adsr->dec = dec;
@@ -297,9 +299,9 @@ struct AKSynthOneDSPKernel::NoteState {
         //ADSR sustain LFO
         float sus = kernel->p[sustainLevel];
         if (kernel->p[sustainLFO] == 1) {
-            sus *= lfo1_0_1;
+            sus *= lfo1_1_0;
         } else if (kernel->p[sustainLFO] == 2) {
-            sus *= lfo2_0_1;
+            sus *= lfo2_1_0;
         }
         sus = kernel->parameterClamp(sustainLevel, sus);
         adsr->sus = sus;
@@ -320,15 +322,15 @@ struct AKSynthOneDSPKernel::NoteState {
         crossFadePos = clamp(crossFadePos, 0.f, 1.f);
         morphCrossFade->pos = crossFadePos;
         
-        //filterMix is currently hard-coded to 1
+        //TODO:param filterMix is hard-coded to 1
         filterCrossFade->pos = kernel->p[filterMix];
         
         //FILTER RESONANCE LFO
         float filterResonance = kernel->resonanceSmooth;
         if (kernel->p[resonanceLFO] == 1) {
-            filterResonance *= lfo1_0_1;
+            filterResonance *= lfo1_1_0;
         } else if (kernel->p[resonanceLFO] == 2) {
-            filterResonance *= lfo2_0_1;
+            filterResonance *= lfo2_1_0;
         }
         filterResonance = kernel->parameterClamp(resonance, filterResonance);
         if(kernel->p[filterType] == 0) {
@@ -359,20 +361,22 @@ struct AKSynthOneDSPKernel::NoteState {
         // filter frequency cutoff calculation
         float filterCutoffFreq = kernel->cutoffSmooth;
         if (kernel->p[cutoffLFO] == 1) {
-            filterCutoffFreq *= lfo1_0_1;
+            filterCutoffFreq *= lfo1_1_0;
         } else if (kernel->p[cutoffLFO] == 2) {
-            filterCutoffFreq *= lfo2_0_1;
+            filterCutoffFreq *= lfo2_1_0;
         }
         
-        // filter env lfo crossfade
+        // filter frequency env lfo crossfade
         float filterEnvLFOMix = kernel->p[filterADSRMix];
         if (kernel->p[filterEnvLFO] == 1.f) {
-            filterEnvLFOMix *= lfo1_0_1;
+            filterEnvLFOMix *= lfo1_1_0;
         } else if (kernel->p[filterEnvLFO] == 2.f) {
-            filterEnvLFOMix *= lfo2_0_1;
+            filterEnvLFOMix *= lfo2_1_0;
         }
+        
+        // filter frequency mixer
         filterCutoffFreq -= filterCutoffFreq * filterEnvLFOMix * (1.f - filter);
-        filterCutoffFreq = kernel->parameterClamp(cutoff, filterCutoffFreq);
+        filterCutoffFreq = kernel->parameterClamp(cutoff, filterCutoffFreq);//TODO:this is still too low
         loPass->freq = filterCutoffFreq;
         bandPass->freq = filterCutoffFreq;
         hiPass->freq = filterCutoffFreq;
@@ -409,9 +413,9 @@ struct AKSynthOneDSPKernel::NoteState {
         sp_noise_compute(kernel->sp, noise, nil, &noise_out);
         noise_out *= kernel->p[noiseVolume];
         if (kernel->p[noiseLFO] == 1) {
-            noise_out *= lfo1_0_1;
+            noise_out *= lfo1_1_0;
         } else if (kernel->p[noiseLFO] == 2) {
-            noise_out *= lfo2_0_1;
+            noise_out *= lfo2_1_0;
         }
         
         //synthOut

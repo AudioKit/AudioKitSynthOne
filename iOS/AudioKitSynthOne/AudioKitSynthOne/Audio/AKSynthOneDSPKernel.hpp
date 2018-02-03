@@ -258,7 +258,6 @@ private:
         { lfo1Index,             0, 0, 3, "lfo1Index", "lfo1Index" },
         { lfo1Amplitude,         0, 0, 1, "lfo1Amplitude", "lfo1Amplitude" },
         { lfo1Rate,              0, 0.25, 10, "lfo1Rate", "lfo1Rate" },
-//        { cutoff,                256, 2000, 28000, "cutoff", "cutoff" },
         { cutoff,                256, 20000, 28000, "cutoff", "cutoff" },
         { resonance,             0, 0.1, 0.75, "resonance", "resonance" },
         { filterMix,             0, 1, 1, "filterMix", "filterMix" },

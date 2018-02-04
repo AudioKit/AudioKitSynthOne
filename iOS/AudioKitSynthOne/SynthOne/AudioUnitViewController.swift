@@ -79,27 +79,7 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
 
         //
         audioUnit?.createParameters()
-        
-        #if false
-            guard let tree = audioUnit?.parameterTree else {
-                printDebug("can't create parameterTree")
-                return audioUnit!
-            }
-            
-            parameterObserverToken = tree.token(byAddingParameterObserver: { [weak self] address, value in
-                self?.printDebug("entering: address:\(address), value:\(value)")
-                guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: Int32(address)) else {
-                    self?.printDebug("can't create param from address:\(address), value:\(value)")
-                    return
-                }
                 
-                DispatchQueue.main.async {
-                    self?.printDebug("setting param:\(param), value:\(value)")
-                    self?.audioUnit?.setAK1Parameter(param, value: value)
-                }
-            })
-        #endif
-        
         return audioUnit!
     }
     

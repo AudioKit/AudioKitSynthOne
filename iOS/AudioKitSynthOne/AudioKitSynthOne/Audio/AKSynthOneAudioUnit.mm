@@ -135,9 +135,10 @@
         const AUValue minValue = _kernel.parameterMin(p);
         const AUValue maxValue = _kernel.parameterMax(p);
         const AUValue defaultValue = _kernel.parameterDefault(p);
+        const AudioUnitParameterUnit unit = _kernel.parameterUnit(p);
         NSString* friendlyName = [NSString stringWithCString:_kernel.parameterCStr(p) encoding:[NSString defaultCStringEncoding]];
         NSString* keyName = [NSString stringWithCString:_kernel.parameterPresetKey(p).c_str() encoding:[NSString defaultCStringEncoding]];
-        AUParameter *param = [AUParameterTree createParameterWithIdentifier:keyName name:friendlyName address:p min:minValue max:maxValue unit:kAudioUnitParameterUnit_Seconds unitName:nil flags:flags valueStrings:nil dependentParameters:nil];
+        AUParameter *param = [AUParameterTree createParameterWithIdentifier:keyName name:friendlyName address:p min:minValue max:maxValue unit:unit unitName:nil flags:flags valueStrings:nil dependentParameters:nil];
         param.value = defaultValue;
         _kernel.setAK1Parameter(p, defaultValue);
         [tree addObject:param];

@@ -1374,6 +1374,10 @@ float AKSynthOneDSPKernel::parameterDefault(AKSynthOneParameter i) {
     return parameterClamp(i, aks1p[i].defaultValue);
 }
 
+AudioUnitParameterUnit AKSynthOneDSPKernel::parameterUnit(AKSynthOneParameter i) {
+    return aks1p[i].unit;
+}
+
 
 ///return clamped value
 float AKSynthOneDSPKernel::parameterClamp(AKSynthOneParameter i, float inputValue) {

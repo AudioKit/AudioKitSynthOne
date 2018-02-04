@@ -15,7 +15,6 @@ import GameplayKit
 
 protocol PresetsDelegate {
     func presetDidChange(_ activePreset: Preset)
-    func updateDisplay(_ message: String)
     func saveEditedPreset(name: String, category: Int, bank: String)
     func banksDidUpdate()
 }

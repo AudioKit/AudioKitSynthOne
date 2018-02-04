@@ -11,7 +11,9 @@
 
 #import <vector>
 #import <list>
-#import "AKSoundPipeKernel.hpp"
+#include <string>
+
+#import "AKSoundpipeKernel.hpp"
 #import "AKSynthOneAudioUnit.h"
 #import "AKSynthOneParameter.h"
 

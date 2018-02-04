@@ -6,7 +6,7 @@
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-
+#import <AudioKit/AudioKit-swift.h>
 #import "AKSynthOneDSPKernel.hpp"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AudioUnit/AudioUnit.h>
@@ -19,10 +19,6 @@
 #define DELAY_TIME_FLOOR (0.0001f)
 #define DEBUG_DSP_LOGGING (0)
 #define DEBUG_NOTE_STATE_LOGGING (0)
-
-static inline double pow2(double x) {
-    return x * x;
-}
 
 /*
 // Convert absolute 12ET note number to frequency

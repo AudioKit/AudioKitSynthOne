@@ -10,6 +10,7 @@
 #import "AKSynthOneDSPKernel.hpp"
 #import "BufferedAudioBus.hpp"
 #import "AEMessageQueue.h"
+#import <AudioKit/AudioKit-swift.h>
 
 @implementation AKSynthOneAudioUnit {
     // C++ members need to be ivars; they would be copied on access if they were properties.

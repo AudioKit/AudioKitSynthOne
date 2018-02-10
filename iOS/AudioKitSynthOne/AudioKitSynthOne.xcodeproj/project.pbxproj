@@ -287,6 +287,7 @@
 		C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 		C75EC33F7DB5853B42F6D569 /* Pods-SynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynthOne/Pods-SynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
+		F49B415B202F815000B24D17 /* AudioKitSynthOneExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = AudioKitSynthOneExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -606,6 +607,7 @@
 			isa = PBXGroup;
 			children = (
 				94780FEF1F9B0108006D3710 /* AudioKitSynthOne.entitlements */,
+				F49B415B202F815000B24D17 /* AudioKitSynthOneExtension.entitlements */,
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
 				C4AC4AF72019BF6A00D04C7F /* AudioKitSynthOne-Bridging-Header.h */,
 				C4AC4AEA2019BF0500D04C7F /* Audio */,
@@ -989,6 +991,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = AudioKitSynthOne/AudioKitSynthOneExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9W69ZP8S5F;
@@ -1010,6 +1013,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = AudioKitSynthOne/AudioKitSynthOneExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9W69ZP8S5F;

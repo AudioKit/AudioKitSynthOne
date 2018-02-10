@@ -62,6 +62,26 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
     public override func viewDidLoad() {
         super.viewDidLoad()
         guard audioUnit != nil else { return }
+        
+        #if false
+        let builtInPlugInsURL = Bundle.main.builtInPlugInsURL!
+        let pluginURL = builtInPlugInsURL.appendingPathComponent("AudioKitSynthOne.appex")
+        let appExtensionBundle = Bundle(url: pluginURL)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: appExtensionBundle)
+        let parentViewController = storyboard.instantiateInitialViewController() as! ParentViewController
+        
+        // Present the view controller's view.
+        if let view = parentViewController.view {
+            addChildViewController(parentViewController)
+            view.frame = auContainerView.bounds
+            
+            auContainerView.addSubview(view)
+            parentViewController.didMove(toParentViewController: self)
+        }
+        #endif
+        
+        
         connectViewWithAU()
     }
 

@@ -117,15 +117,11 @@
 
     _messageQueue = [[AEMessageQueue alloc] init];
 
+    // race condition: self.rampTime calls setUpParameterRamp, but parameter tree is not yet created.
+    // also, setUpParameterRamp clobbers _parameterTree.implementorValueObserver
     self.rampTime = AKSettings.rampTime;
-    self.defaultFormat = [[AVAudioFormat alloc] initStandardFormatWithSampleRate:AKSettings.sampleRate
-                                                                        channels:AKSettings.numberOfChannels];
+    
     _kernel.init(self.defaultFormat.channelCount, self.defaultFormat.sampleRate);
-    _outputBusBuffer.init(self.defaultFormat, 2);
-    self.outputBus = _outputBusBuffer.bus;
-    self.outputBusArray = [[AUAudioUnitBusArray alloc] initWithAudioUnit:self
-                                                                 busType:AUAudioUnitBusTypeOutput
-                                                                  busses:@[self.outputBus]];
     _kernel.audioUnit = self;
     __block AKSynthOneDSPKernel *blockKernel = &_kernel;
     
@@ -148,6 +144,7 @@
     
     _parameterTree = [AUParameterTree createTreeWithChildren:tree];
     
+    /*
     __weak AKSynthOneAudioUnit* weakSelf = self;
     _parameterObserverToken = [_parameterTree tokenByAddingParameterObserver:^(AUParameterAddress address, AUValue value) {
         __strong AKSynthOneAudioUnit *strongSelf = weakSelf;
@@ -155,12 +152,13 @@
             strongSelf->_kernel.setAK1Parameter((AKSynthOneParameter)address, value);
         });
     }];
-
+*/
+    
     _parameterTree.implementorValueObserver = ^(AUParameter *param, AUValue value) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+//        dispatch_async(dispatch_get_main_queue(), ^{
             const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
             blockKernel->setAK1Parameter(p, value);
-        });
+//        });
     };
     
     _parameterTree.implementorValueProvider = ^(AUParameter *param) {

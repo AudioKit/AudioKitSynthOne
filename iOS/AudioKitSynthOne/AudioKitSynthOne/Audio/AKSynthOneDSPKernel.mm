@@ -240,7 +240,7 @@ struct AKSynthOneDSPKernel::NoteState {
         
         
         //LFO DETUNE OSC2: original additive method, now with scaled range based on 4Hz at C3
-        const float magicDetune = cachedFrequencyOsc2/261.f;
+        const float magicDetune = cachedFrequencyOsc2/261.6255653006f;
         if (kernel->p[detuneLFO] == 1) {
             newFrequencyOsc2 += lfo1_0_1 * kernel->p[morph2Detuning] * magicDetune;
         } else if (kernel->p[detuneLFO] == 2) {

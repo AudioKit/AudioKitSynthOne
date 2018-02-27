@@ -224,7 +224,7 @@ private:
     sp_port *cutoffPort;
     sp_port *resonancePort;
     sp_port *monoFrequencyPort;
-    float monoFrequencySmooth = 261.f;
+    float monoFrequencySmooth = 261.6255653006f;
     float tempo = 120.f;
     float previousProcessMonoPolyStatus = 0.f;
     

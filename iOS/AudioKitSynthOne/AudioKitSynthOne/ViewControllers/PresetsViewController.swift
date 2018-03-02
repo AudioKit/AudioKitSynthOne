@@ -206,6 +206,8 @@ class PresetsViewController: UIViewController {
     // Save activePreset
     func savePreset(_ activePreset: Preset) {
         
+        activePreset.userText = presetDescriptionField.text
+    
         var updateExistingPreset = false
         
         // Check if preset name exists
@@ -443,7 +445,6 @@ class PresetsViewController: UIViewController {
 
 extension PresetsViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
-        // currentPreset.userText = presetDescriptionField.text
         doneEditingButton.isHidden = true
     }
     

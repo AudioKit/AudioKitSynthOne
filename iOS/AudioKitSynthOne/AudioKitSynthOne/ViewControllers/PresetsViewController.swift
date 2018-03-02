@@ -30,6 +30,7 @@ class PresetsViewController: UIViewController {
     @IBOutlet weak var categoryEmbeddedView: UIView!
     @IBOutlet weak var presetDescriptionField: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var doneEditingButton: UIButton!
     
     var presets = [Preset]() {
         didSet {
@@ -433,11 +434,21 @@ class PresetsViewController: UIViewController {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
     }
+    
+    @IBAction func doneEditingPressed(_ sender: UIButton) {
+        self.view.endEditing(true)
+    }
+    
 }
 
 extension PresetsViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
-        currentPreset.userText = presetDescriptionField.text
+        // currentPreset.userText = presetDescriptionField.text
+        doneEditingButton.isHidden = true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        doneEditingButton.isHidden = false
     }
 }
 

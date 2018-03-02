@@ -204,10 +204,24 @@ class PresetsViewController: UIViewController {
     
     // Save activePreset
     func savePreset(_ activePreset: Preset) {
-        // Remove currentPreset and replace it with activePreset
-        if let position = presets.index(where: { $0.uid == currentPreset.uid }) {
-            presets.remove(at: position)
-            presets.insert(activePreset, at: activePreset.position)
+        
+        var updateExistingPreset = false
+        
+        // Check if preset name exists
+        if presets.contains(where: { $0.name == activePreset.name }) {
+            updateExistingPreset = true
+        }
+        
+        if updateExistingPreset {
+            // Remove currentPreset and replace it with activePreset
+            if let position = presets.index(where: { $0.uid == currentPreset.uid }) {
+                presets.remove(at: position)
+                presets.insert(activePreset, at: activePreset.position)
+            }
+        } else {
+            // create new preset
+            activePreset.uid = UUID().uuidString
+            presets.append(activePreset)
         }
         
         activePreset.isUser = true

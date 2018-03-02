@@ -536,9 +536,8 @@ extension PresetsViewController: UITableViewDelegate {
     // Override to support rearranging the table view.
     @objc(tableView:moveRowAtIndexPath:toIndexPath:) func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
         
-        // Get cell
-        let cell = tableView.cellForRow(at: (fromIndexPath as IndexPath)) as? PresetCell
-        guard let presetToMove = cell?.currentPreset else { return }
+        // Get preset
+        let presetToMove = sortedPresets[Int(fromIndexPath.row)]
         
         // Update new position in sortedPresets array
         // Rearranging is only allowed in "banks" views, so we can use sortedPresets

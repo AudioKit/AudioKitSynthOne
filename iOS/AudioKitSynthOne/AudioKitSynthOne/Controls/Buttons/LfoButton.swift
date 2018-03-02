@@ -14,7 +14,6 @@ class LfoButton: UIView, AKSynthOneControl {
     var callback: (Double)->Void = { _ in }
     var value: Double = 0 {
         didSet {
-            print ("value: \(value)")
             setNeedsDisplay()
         }
     }
@@ -50,7 +49,6 @@ class LfoButton: UIView, AKSynthOneControl {
             if lfo1Active { newValue += 1 }
             if lfo2Active { newValue += 2 }
             
-            print ("newValue \(newValue)")
             value = newValue
             
             setNeedsDisplay()

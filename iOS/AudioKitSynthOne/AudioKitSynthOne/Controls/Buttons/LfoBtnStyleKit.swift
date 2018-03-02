@@ -36,7 +36,6 @@ public class LfoBtnStyleKit : NSObject {
         let offColor = UIColor(red: 0.157, green: 0.157, blue: 0.157, alpha: 1.000)
         let textColor = UIColor(red: 0.733, green: 0.733, blue: 0.733, alpha: 1.000)
         let downColor = UIColor(red: 0.259, green: 0.259, blue: 0.259, alpha: 1.000)
-        let dividerColor = UIColor(red: 0.227, green: 0.227, blue: 0.247, alpha: 1.000)
         let color = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1.000)
 
         //// Shadow Declarations
@@ -111,17 +110,6 @@ public class LfoBtnStyleKit : NSObject {
             lfo2SelectedPath.fill()
             context.restoreGState()
 
-        }
-
-
-        if (greaterThanOne) {
-            //// dividerTop 2 Drawing
-            let dividerTop2Path = UIBezierPath(rect: CGRect(x: 53.5, y: 3.5, width: 1, height: 30))
-            btnBack.setFill()
-            dividerTop2Path.fill()
-            dividerColor.setStroke()
-            dividerTop2Path.lineWidth = 1
-            dividerTop2Path.stroke()
         }
 
 

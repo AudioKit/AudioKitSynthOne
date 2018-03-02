@@ -17,7 +17,6 @@
     AKSynthOneDSPKernel _kernel;
     BufferedOutputBus _outputBusBuffer;
     AUHostMusicalContextBlock _musicalContext;
-    AUParameterObserverToken _parameterObserverToken;
 }
 
 @synthesize parameterTree = _parameterTree;
@@ -148,29 +147,13 @@
     
     _parameterTree = [AUParameterTree createTreeWithChildren:tree];
     
-    __weak AKSynthOneAudioUnit* weakSelf = self;
-    _parameterObserverToken = [_parameterTree tokenByAddingParameterObserver:^(AUParameterAddress address, AUValue value) {
-        __strong AKSynthOneAudioUnit *strongSelf = weakSelf;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            strongSelf->_kernel.setAK1Parameter((AKSynthOneParameter)address, value);
-        });
-    }];
-
     _parameterTree.implementorValueObserver = ^(AUParameter *param, AUValue value) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
-            blockKernel->setAK1Parameter(p, value);
-        });
+        const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
+        blockKernel->setAK1Parameter(p, value);
     };
-    
     _parameterTree.implementorValueProvider = ^(AUParameter *param) {
         const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
         return blockKernel->getAK1Parameter(p);
-    };
-    
-    _parameterTree.implementorStringFromValueCallback = ^(AUParameter *param, const AUValue *__nullable valuePtr) {
-        AUValue value = valuePtr == nil ? param.value : *valuePtr;
-        return [NSString stringWithFormat:@"%.4f", value];
     };
 }
 
@@ -188,13 +171,6 @@
 - (void)deallocateRenderResources {
     _outputBusBuffer.deallocateRenderResources();
     [super deallocateRenderResources];
-}
-
-- (void)dealloc {
-    if (_parameterObserverToken) {
-        [_parameterTree removeParameterObserver:_parameterObserverToken];
-        _parameterObserverToken = 0;
-    }
 }
 
 - (AUInternalRenderBlock)internalRenderBlock {

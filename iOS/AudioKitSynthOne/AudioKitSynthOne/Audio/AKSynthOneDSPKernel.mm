@@ -212,13 +212,18 @@ struct AKSynthOneDSPKernel::NoteState {
         const float lfo1_1_0 = 1.f - lfo1_0_1; // good for multiplicative
         const float lfo2_0_1 = 0.5f * (1.f + kernel->lfo2) * kernel->p[lfo2Amplitude];
         const float lfo2_1_0 = 1.f - lfo2_0_1; // good for multiplicative
+        const float lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
+        const float lfo3_1_0 = 1.f - lfo3_0_1; // good for multiplicative
 
+        
         //pitchLFO common frequency coefficient
         float commonFrequencyCoefficient = 1.0;
-        if (kernel->p[pitchLFO] == 1) {
+        if (kernel->p[pitchLFO] == 1.f) {
             commonFrequencyCoefficient = 1 + lfo1_0_1;
-        } else if (kernel->p[pitchLFO] == 2) {
+        } else if (kernel->p[pitchLFO] == 2.f) {
             commonFrequencyCoefficient = 1 + lfo2_0_1;
+        } else if (kernel->p[pitchLFO] == 3.f) {
+            commonFrequencyCoefficient = 1 + lfo3_0_1;
         }
         
         //OSC1 frequency
@@ -241,10 +246,12 @@ struct AKSynthOneDSPKernel::NoteState {
         
         //LFO DETUNE OSC2: original additive method, now with scaled range based on 4Hz at C3
         const float magicDetune = cachedFrequencyOsc2/261.6255653006f;
-        if (kernel->p[detuneLFO] == 1) {
+        if (kernel->p[detuneLFO] == 1.f) {
             newFrequencyOsc2 += lfo1_0_1 * kernel->p[morph2Detuning] * magicDetune;
-        } else if (kernel->p[detuneLFO] == 2) {
+        } else if (kernel->p[detuneLFO] == 2.f) {
             newFrequencyOsc2 += lfo2_0_1 * kernel->p[morph2Detuning] * magicDetune;
+        } else if (kernel->p[detuneLFO] == 3.f) {
+            newFrequencyOsc2 += lfo3_0_1 * kernel->p[morph2Detuning] * magicDetune;
         } else {
             newFrequencyOsc2 += kernel->p[morph2Detuning] * magicDetune;
         }
@@ -270,10 +277,12 @@ struct AKSynthOneDSPKernel::NoteState {
         
         //FM LFO
         float fmOscIndx = kernel->p[fmAmount];
-        if (kernel->p[fmLFO] == 1) {
+        if (kernel->p[fmLFO] == 1.f) {
             fmOscIndx = kernel->p[fmAmount] * lfo1_1_0;
-        } else if (kernel->p[fmLFO] == 2) {
+        } else if (kernel->p[fmLFO] == 2.f) {
             fmOscIndx = kernel->p[fmAmount] * lfo2_1_0;
+        } else if (kernel->p[fmLFO] == 3.f) {
+            fmOscIndx = kernel->p[fmAmount] * lfo3_1_0;
         }
         fmOscIndx = kernel->parameterClamp(fmAmount, fmOscIndx);
         fmOsc->indx = fmOscIndx;
@@ -284,20 +293,25 @@ struct AKSynthOneDSPKernel::NoteState {
         
         //ADSR decay LFO
         float dec = kernel->p[decayDuration];
-        if (kernel->p[decayLFO] == 1) {
+        if (kernel->p[decayLFO] == 1.f) {
             dec *= lfo1_1_0;
-        } else if (kernel->p[decayLFO] == 2) {
+        } else if (kernel->p[decayLFO] == 2.f) {
             dec *= lfo2_1_0;
+        } else if (kernel->p[decayLFO] == 3.f) {
+            dec *= lfo3_1_0;
         }
+
         dec = kernel->parameterClamp(decayDuration, dec);
         adsr->dec = dec;
         
         //ADSR sustain LFO
         float sus = kernel->p[sustainLevel];
-        if (kernel->p[sustainLFO] == 1) {
+        if (kernel->p[sustainLFO] == 1.f) {
             sus *= lfo1_1_0;
-        } else if (kernel->p[sustainLFO] == 2) {
+        } else if (kernel->p[sustainLFO] == 2.f) {
             sus *= lfo2_1_0;
+        } else if (kernel->p[sustainLFO] == 3.f) {
+            sus *= lfo3_1_0;
         }
         sus = kernel->parameterClamp(sustainLevel, sus);
         adsr->sus = sus;
@@ -314,6 +328,8 @@ struct AKSynthOneDSPKernel::NoteState {
             crossFadePos = kernel->morphBalanceSmooth + lfo1_0_1;
         } else if (kernel->p[oscMixLFO] == 2.f) {
             crossFadePos = kernel->morphBalanceSmooth + lfo2_0_1;
+        } else if (kernel->p[oscMixLFO] == 3.f) {
+            crossFadePos = kernel->morphBalanceSmooth + lfo3_0_1;
         }
         crossFadePos = clamp(crossFadePos, 0.f, 1.f);
         morphCrossFade->pos = crossFadePos;
@@ -327,6 +343,8 @@ struct AKSynthOneDSPKernel::NoteState {
             filterResonance *= lfo1_1_0;
         } else if (kernel->p[resonanceLFO] == 2) {
             filterResonance *= lfo2_1_0;
+        } else if (kernel->p[resonanceLFO] == 3) {
+            filterResonance *= lfo3_1_0;
         }
         filterResonance = kernel->parameterClamp(resonance, filterResonance);
         if(kernel->p[filterType] == 0) {
@@ -356,20 +374,24 @@ struct AKSynthOneDSPKernel::NoteState {
         
         // filter frequency cutoff calculation
         float filterCutoffFreq = kernel->cutoffSmooth;
-        if (kernel->p[cutoffLFO] == 1) {
+        if (kernel->p[cutoffLFO] == 1.f) {
             filterCutoffFreq *= lfo1_1_0;
-        } else if (kernel->p[cutoffLFO] == 2) {
+        } else if (kernel->p[cutoffLFO] == 2.f) {
             filterCutoffFreq *= lfo2_1_0;
+        } else if (kernel->p[cutoffLFO] == 3.f) {
+            filterCutoffFreq *= lfo3_1_0;
         }
-        
+
         // filter frequency env lfo crossfade
         float filterEnvLFOMix = kernel->p[filterADSRMix];
         if (kernel->p[filterEnvLFO] == 1.f) {
             filterEnvLFOMix *= lfo1_1_0;
         } else if (kernel->p[filterEnvLFO] == 2.f) {
             filterEnvLFOMix *= lfo2_1_0;
+        } else if (kernel->p[filterEnvLFO] == 3.f) {
+            filterEnvLFOMix *= lfo3_1_0;
         }
-        
+
         // filter frequency mixer
         filterCutoffFreq -= filterCutoffFreq * filterEnvLFOMix * (1.f - filter);
         filterCutoffFreq = kernel->parameterClamp(cutoff, filterCutoffFreq);//TODO:this is still too low
@@ -408,21 +430,23 @@ struct AKSynthOneDSPKernel::NoteState {
         //noise_out
         sp_noise_compute(kernel->sp, noise, nil, &noise_out);
         noise_out *= kernel->p[noiseVolume];
-        if (kernel->p[noiseLFO] == 1) {
+        if (kernel->p[noiseLFO] == 1.f) {
             noise_out *= lfo1_1_0;
-        } else if (kernel->p[noiseLFO] == 2) {
+        } else if (kernel->p[noiseLFO] == 2.f) {
             noise_out *= lfo2_1_0;
+        } else if (kernel->p[noiseLFO] == 3.f) {
+            noise_out *= lfo3_1_0;
         }
-        
+
         //synthOut
         float synthOut = amp * (osc_morph_out + subOsc_out + fmOsc_out + noise_out);
         
         //filterOut
-        if(kernel->p[filterType] == 0) {
+        if(kernel->p[filterType] == 0.f) {
             sp_moogladder_compute(kernel->sp, loPass, &synthOut, &filterOut);
-        } else if (kernel->p[filterType] == 1) {
+        } else if (kernel->p[filterType] == 1.f) {
             sp_butbp_compute(kernel->sp, bandPass, &synthOut, &filterOut);
-        } else if (kernel->p[filterType] == 2) {
+        } else if (kernel->p[filterType] == 2.f) {
             sp_buthp_compute(kernel->sp, hiPass, &synthOut, &filterOut);
         }
         
@@ -628,342 +652,346 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     }
     if (transitionedToOff)
         playingNotesDidChange();
+    
+    const float arpTempo = p[arpRate];
+    const double secPerBeat = 0.5f * 0.5f * 60.f / arpTempo;
+    
+    // RENDER LOOP: Render one audio frame at sample rate, i.e. 44100 HZ ////////////////
+    for (AUAudioFrameCount frameIndex = 0; frameIndex < frameCount; ++frameIndex) {
         
-        const float arpTempo = p[arpRate];
-        const double secPerBeat = 0.5f * 0.5f * 60.f / arpTempo;
+        // CLEAR BUFFER
+        outL[frameIndex] = outR[frameIndex] = 0.f;
         
-        // RENDER LOOP: Render one audio frame at sample rate, i.e. 44100 HZ ////////////////
-        for (AUAudioFrameCount frameIndex = 0; frameIndex < frameCount; ++frameIndex) {
-            
-            // CLEAR BUFFER
-            outL[frameIndex] = outR[frameIndex] = 0.f;
-            
-            // Clear all notes when changing Mono <==> Poly
-            if( p[isMono] != previousProcessMonoPolyStatus ) {
-                previousProcessMonoPolyStatus = p[isMono];
-                reset(); // clears all mono and poly notes
-                arpSeqLastNotes.clear();
-            }
-            
-            //MARK: ARP/SEQ
-            if( p[arpIsOn] == 1.f || !!arpSeqLastNotes.size() ) {
-                //TODO:here is where we are not sending beat zero to the delegate
-                const double oldArpTime = arpTime;
-                const double r0 = fmod(oldArpTime, secPerBeat);
-                arpTime = arpSampleCounter/SAMPLE_RATE;
-                const double r1 = fmod(arpTime, secPerBeat);
-                arpSampleCounter += 1.0;
-                if (r1 < r0 || oldArpTime >= arpTime) {
-                    
-                    // MARK: ARP+SEQ: NEW beatCounter: Create Arp/Seq array based on held notes and/or sequence parameters
-                    if (p[arpIsOn] == 1.f) {
-                        arpSeqNotes.clear();
-                        arpSeqNotes2.clear();
-                        
-                        // only update "notes per octave" when beat counter changes so arpSeqNotes and arpSeqLastNotes match
-                        
-                        notesPerOctave = (int)AKPolyphonicNode.tuningTable.npo; // Profiling shows this is ~0% of CPU on a device
-                        if(notesPerOctave <= 0) notesPerOctave = 12;
-                            const float npof = (float)notesPerOctave/12.f; // 12ET ==> npof = 1
-                            
-                            // SEQUENCER
-                            if(p[arpIsSequencer] == 1.f) {
-                                const int numSteps = p[arpTotalSteps] > 16 ? 16 : (int)p[arpTotalSteps];
-                                for(int i = 0; i < numSteps; i++) {
-                                    const float onOff = p[i + arpSeqNoteOn00];
-                                    const int octBoost = p[i + arpSeqOctBoost00];
-                                    const int nn = p[i + arpSeqPattern00] * npof;
-                                    const int nnob = (nn < 0) ? (nn - octBoost * notesPerOctave) : (nn + octBoost * notesPerOctave);
-                                    struct SeqNoteNumber snn;
-                                    snn.init(nnob, onOff);
-                                    arpSeqNotes.push_back(snn);
-                                }
-                            } else {
-                                
-                                // ARP state
-                                
-                                // reverse
-                                AEArrayEnumeratePointers(heldNoteNumbersAE, struct NoteNumber *, note) {
-                                    std::vector<NoteNumber>::iterator it = arpSeqNotes2.begin();
-                                    arpSeqNotes2.insert(it, *note);
-                                }
-                                const int heldNotesCount = (int)arpSeqNotes2.size();
-                                const int arpIntervalUp = p[arpInterval] * npof;
-                                const int onOff = 1;
-                                const int arpOctaves = (int)p[arpOctave] + 1;
-                                
-                                if (p[arpDirection] == 0.f) {
-                                    
-                                    // ARP Up
-                                    int index = 0;
-                                    for (int octave = 0; octave < arpOctaves; octave++) {
-                                        for (int i = 0; i < heldNotesCount; i++) {
-                                            struct NoteNumber& note = arpSeqNotes2[i];
-                                            const int nn = note.noteNumber + (octave * arpIntervalUp);
-                                            struct SeqNoteNumber snn;
-                                            snn.init(nn, onOff);
-                                            std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
-                                            arpSeqNotes.insert(it, snn);
-                                            ++index;
-                                        }
-                                    }
-                                    
-                                } else if (p[arpDirection] == 1.f) {
-                                    
-                                    ///ARP Up + Down
-                                    //up
-                                    int index = 0;
-                                    for (int octave = 0; octave < arpOctaves; octave++) {
-                                        for (int i = 0; i < heldNotesCount; i++) {
-                                            struct NoteNumber& note = arpSeqNotes2[i];
-                                            const int nn = note.noteNumber + (octave * arpIntervalUp);
-                                            struct SeqNoteNumber snn;
-                                            snn.init(nn, onOff);
-                                            std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
-                                            arpSeqNotes.insert(it, snn);
-                                            ++index;
-                                        }
-                                    }
-                                    //down, minus head and tail
-                                    for (int octave = arpOctaves - 1; octave >= 0; octave--) {
-                                        for (int i = heldNotesCount - 1; i >= 0; i--) {
-                                            const bool firstNote = (i == heldNotesCount - 1) && (octave == arpOctaves - 1);
-                                            const bool lastNote = (i == 0) && (octave == 0);
-                                            if (!firstNote && !lastNote) {
-                                                struct NoteNumber& note = arpSeqNotes2[i];
-                                                const int nn = note.noteNumber + (octave * arpIntervalUp);
-                                                struct SeqNoteNumber snn;
-                                                snn.init(nn, onOff);
-                                                std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
-                                                arpSeqNotes.insert(it, snn);
-                                                ++index;
-                                            }
-                                        }
-                                    }
-                                    
-                                } else if (p[arpDirection] == 2.f) {
-                                    
-                                    // ARP Down
-                                    int index = 0;
-                                    for (int octave = arpOctaves - 1; octave >= 0; octave--) {
-                                        for (int i = heldNotesCount - 1; i >= 0; i--) {
-                                            struct NoteNumber& note = arpSeqNotes2[i];
-                                            const int nn = note.noteNumber + (octave * arpIntervalUp);
-                                            struct SeqNoteNumber snn;
-                                            snn.init(nn, onOff);
-                                            std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
-                                            arpSeqNotes.insert(it, snn);
-                                            ++index;
-                                        }
-                                    }
-                                }
-                            }
-                    }
-                    
-                    // MARK: ARP+SEQ: turnOff previous beat's notes
-                    for (std::list<int>::iterator arpLastNotesIterator = arpSeqLastNotes.begin(); arpLastNotesIterator != arpSeqLastNotes.end(); ++arpLastNotesIterator) {
-                        turnOffKey(*arpLastNotesIterator);
-                    }
-                    
-                    // Remove last played notes
-                    arpSeqLastNotes.clear();
-                    
-                    // NOP: no midi input
-                    if(heldNoteNumbersAE.count == 0) {
-                        if(arpBeatCounter > 0) {
-                            arpBeatCounter = 0;
-                            beatCounterDidChange();
-                        }
-                        continue;
-                    }
-                    
-                    // NOP: the arp/seq sequence is null
-                    if(arpSeqNotes.size() == 0)
-                        continue;
-                    
-                    // Advance arp/seq beatCounter, notify delegates
-                    const int seqNotePosition = arpBeatCounter % arpSeqNotes.size();
-                    ++arpBeatCounter;
-                    beatCounterDidChange();
-                    
-                    // MARK: ARP+SEQ: turnOn the note of the sequence
-                    SeqNoteNumber& snn = arpSeqNotes[seqNotePosition];
-                    if (p[arpIsSequencer] == 1.f) {
-                        // SEQUENCER
-                        if(snn.onOff == 1) {
-                            AEArrayEnumeratePointers(heldNoteNumbersAE, struct NoteNumber *, noteStruct) {
-                                const int baseNote = noteStruct->noteNumber;
-                                const int note = baseNote + snn.noteNumber;
-                                if(note >= 0 && note < NUM_MIDI_NOTES) {
-                                    turnOnKey(note, 127);
-                                    arpSeqLastNotes.push_back(note);
-                                }
-                            }
-                        }
-                    } else {
-                        // ARPEGGIATOR
-                        const int note = snn.noteNumber;
-                        if(note >= 0 && note < NUM_MIDI_NOTES) {
-                            turnOnKey(note, 127);
-                            arpSeqLastNotes.push_back(note);
-                        }
-                    }
-                }
-            }
-            
-            //LFO1 on [-1, 1]
-            sp_phasor_compute(sp, lfo1Phasor, nil, &lfo1);
-            if (p[lfo1Index] == 0) { // Sine
-                lfo1 = sin(lfo1 * M_PI * 2.f);
-            } else if (p[lfo1Index] == 1) { // Square
-                if (lfo1 > 0.5f) {
-                    lfo1 = 1.f;
-                } else {
-                    lfo1 = -1.f;
-                }
-            } else if (p[lfo1Index] == 2) { // Saw
-                lfo1 = (lfo1 - 0.5f) * 2.f;
-            } else if (p[lfo1Index] == 3) { // Reversed Saw
-                lfo1 = (0.5f - lfo1) * 2.f;
-            }
-            
-            //LFO2 on [-1, 1]
-            sp_phasor_compute(sp, lfo2Phasor, nil, &lfo2);
-            if (p[lfo2Index] == 0) { // Sine
-                lfo2 = sin(lfo2 * M_PI * 2.0);
-            } else if (p[lfo2Index] == 1) { // Square
-                if (lfo2 > 0.5f) {
-                    lfo2 = 1.f;
-                } else {
-                    lfo2 = -1.f;
-                }
-            } else if (p[lfo2Index] == 2) { // Saw
-                lfo2 = (lfo2 - 0.5f) * 2.f;
-            } else if (p[lfo2Index] == 3) { // Reversed Saw
-                lfo2 = (0.5f - lfo2) * 2.f;
-            }
-            
-            //PORTAMENTO
-            sp_port_compute(sp, multiplierPort,    &(p[detuningMultiplier]), &detuningMultiplierSmooth);
-            sp_port_compute(sp, balancePort,       &(p[morphBalance]),       &morphBalanceSmooth);
-            sp_port_compute(sp, cutoffPort,        &(p[cutoff]),             &cutoffSmooth);
-            sp_port_compute(sp, resonancePort,     &(p[resonance]),          &resonanceSmooth);
-            sp_port_compute(sp, monoFrequencyPort, &monoFrequency,           &monoFrequencySmooth);
-            
-            // RENDER NoteState into (outL, outR)
-            if(p[isMono] == 1.f) {
-                if(monoNote->rootNoteNumber != -1 && monoNote->stage != NoteState::stageOff)
-                    monoNote->run(frameIndex, outL, outR);
-                    } else {
-                        for(int i=0; i<polyphony; i++) {
-                            NoteState& note = noteStates[i];
-                            if (note.rootNoteNumber != -1 && note.stage != NoteState::stageOff)
-                                note.run(frameIndex, outL, outR);
-                                }
-                    }
-            
-            ///TODO:still true?
-            // NoteState render output "synthOut" is mono
-            float synthOut = outL[frameIndex];
-            
-            //BITCRUSH
-            float bitcrushSrate = p[bitCrushSampleRate];
-            if(p[bitcrushLFO] == 1.f) {
-                bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]);
-            } else if (p[bitcrushLFO] == 2.f) {
-                bitcrushSrate *= (1.f + 0.5f * lfo2 * p[lfo2Amplitude]);
-            }
-            bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
-            float bitCrushOut = 0.f;
-            sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
-            
-            //AUTOPAN
-            float panValue = 0.f;
-            sp_osc_compute(sp, panOscillator, nil, &panValue);
-            panValue *= p[autoPanAmount];
-            if(p[autopanLFO] == 1.f) {
-                panValue *= 0.5f * (1.f + lfo1) * p[lfo1Amplitude];
-            } else if(p[autopanLFO] == 2.f) {
-                panValue *= 0.5f * (1.f + lfo2) * p[lfo2Amplitude];
-            }
-            pan->pan = panValue;
-            float panL = 0.f, panR = 0.f;
-            sp_pan2_compute(sp, pan, &bitCrushOut, &panL, &panR);
-            
-            //PHASER
-            float phaserOutL = panL;
-            float phaserOutR = panR;
-            float lPhaserMix = p[phaserMix];
-            
-            // crossfade phaser
-            if(lPhaserMix != 0.f) {
-                lPhaserMix = 1.f - lPhaserMix; // invert, baby
-                sp_phaser_compute(sp, phaser0, &panL, &panR, &phaserOutL, &phaserOutR);
-                phaserOutL = lPhaserMix * panL + (1.f - lPhaserMix) * phaserOutL;
-                phaserOutR = lPhaserMix * panR + (1.f - lPhaserMix) * phaserOutR;
-            }
-            
-            // delays
-            float delayOutL = 0.f;
-            float delayOutR = 0.f;
-            float delayOutRR = 0.f;
-            float delayFillInOut = 0.f;
-            sp_smoothdelay_compute(sp, delayL,      &phaserOutL, &delayOutL);
-            sp_smoothdelay_compute(sp, delayR,      &phaserOutR, &delayOutR);
-            sp_smoothdelay_compute(sp, delayFillIn, &phaserOutR, &delayFillInOut);
-            sp_smoothdelay_compute(sp, delayRR,     &delayOutR,  &delayOutRR);
-            delayOutRR += delayFillInOut;
-            
-            // delays mixer
-            float mixedDelayL = 0.f;
-            float mixedDelayR = 0.f;
-            delayCrossfadeL->pos = p[delayMix] * p[delayOn];
-            delayCrossfadeR->pos = p[delayMix] * p[delayOn];
-            sp_crossfade_compute(sp, delayCrossfadeL, &phaserOutL, &delayOutL, &mixedDelayL);
-            sp_crossfade_compute(sp, delayCrossfadeR, &phaserOutR, &delayOutRR, &mixedDelayR);
-            
-            // Butterworth hi-pass filter for reverb input
-            float butOutL = 0.f;
-            float butOutR = 0.f;
-            butterworthHipassL->freq = p[reverbHighPass];
-            butterworthHipassR->freq = p[reverbHighPass];
-            sp_buthp_compute(sp, butterworthHipassL, &mixedDelayL, &butOutL);
-            sp_buthp_compute(sp, butterworthHipassR, &mixedDelayR, &butOutR);
-            
-            // X2 has an AKPeakLimiter with "preGain" of 3db but we're just doing the gain here
-            butOutL *= 2.f;
-            butOutR *= 2.f;
-            
-            //TODO:Put dynamics compressor here to match X2 hipass peaklimiter input to reverb per https://trello.com/c/b20JqxTR
-            // reverb
-            float revOutL = 0.f;
-            float revOutR = 0.f;
-            reverbCostello->lpfreq = 0.5f * SAMPLE_RATE;
-            reverbCostello->feedback = p[reverbFeedback];
-            sp_revsc_compute(sp, reverbCostello, &butOutL, &butOutR, &revOutL, &revOutR);
-            
-            // reverb crossfade
-            float reverbCrossfadeOutL = 0.f;
-            float reverbCrossfadeOutR = 0.f;
-            const float reverbMixFactor = p[reverbMix] * p[reverbOn];
-            revCrossfadeL->pos = reverbMixFactor;
-            revCrossfadeR->pos = reverbMixFactor;
-            sp_crossfade_compute(sp, revCrossfadeL, &mixedDelayL, &revOutL, &reverbCrossfadeOutL);
-            sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &revOutR, &reverbCrossfadeOutR);
-            
-            // X2 AKPeakLimiter ==> AKDynamicsCompressor
-            // X2 has an AKPeakLimiter with preGain of 3db
-            reverbCrossfadeOutL *= 2.f;
-            reverbCrossfadeOutR *= 2.f;
-            float compressorOutL = 0.f;
-            float compressorOutR = 0.f;
-            sp_compressor_compute(sp, compressor0, &reverbCrossfadeOutL, &compressorOutL);
-            sp_compressor_compute(sp, compressor1, &reverbCrossfadeOutR, &compressorOutR);
-            
-            // MASTER
-            outL[frameIndex] = compressorOutL * p[masterVolume];
-            outR[frameIndex] = compressorOutR * p[masterVolume];
+        // Clear all notes when changing Mono <==> Poly
+        if( p[isMono] != previousProcessMonoPolyStatus ) {
+            previousProcessMonoPolyStatus = p[isMono];
+            reset(); // clears all mono and poly notes
+            arpSeqLastNotes.clear();
         }
+        
+        //MARK: ARP/SEQ
+        if( p[arpIsOn] == 1.f || !!arpSeqLastNotes.size() ) {
+            //TODO:here is where we are not sending beat zero to the delegate
+            const double oldArpTime = arpTime;
+            const double r0 = fmod(oldArpTime, secPerBeat);
+            arpTime = arpSampleCounter/SAMPLE_RATE;
+            const double r1 = fmod(arpTime, secPerBeat);
+            arpSampleCounter += 1.0;
+            if (r1 < r0 || oldArpTime >= arpTime) {
+                
+                // MARK: ARP+SEQ: NEW beatCounter: Create Arp/Seq array based on held notes and/or sequence parameters
+                if (p[arpIsOn] == 1.f) {
+                    arpSeqNotes.clear();
+                    arpSeqNotes2.clear();
+                    
+                    // only update "notes per octave" when beat counter changes so arpSeqNotes and arpSeqLastNotes match
+                    
+                    notesPerOctave = (int)AKPolyphonicNode.tuningTable.npo; // Profiling shows this is ~0% of CPU on a device
+                    if(notesPerOctave <= 0) notesPerOctave = 12;
+                    const float npof = (float)notesPerOctave/12.f; // 12ET ==> npof = 1
+                    
+                    // SEQUENCER
+                    if(p[arpIsSequencer] == 1.f) {
+                        const int numSteps = p[arpTotalSteps] > 16 ? 16 : (int)p[arpTotalSteps];
+                        for(int i = 0; i < numSteps; i++) {
+                            const float onOff = p[i + arpSeqNoteOn00];
+                            const int octBoost = p[i + arpSeqOctBoost00];
+                            const int nn = p[i + arpSeqPattern00] * npof;
+                            const int nnob = (nn < 0) ? (nn - octBoost * notesPerOctave) : (nn + octBoost * notesPerOctave);
+                            struct SeqNoteNumber snn;
+                            snn.init(nnob, onOff);
+                            arpSeqNotes.push_back(snn);
+                        }
+                    } else {
+                        
+                        // ARP state
+                        
+                        // reverse
+                        AEArrayEnumeratePointers(heldNoteNumbersAE, struct NoteNumber *, note) {
+                            std::vector<NoteNumber>::iterator it = arpSeqNotes2.begin();
+                            arpSeqNotes2.insert(it, *note);
+                        }
+                        const int heldNotesCount = (int)arpSeqNotes2.size();
+                        const int arpIntervalUp = p[arpInterval] * npof;
+                        const int onOff = 1;
+                        const int arpOctaves = (int)p[arpOctave] + 1;
+                        
+                        if (p[arpDirection] == 0.f) {
+                            
+                            // ARP Up
+                            int index = 0;
+                            for (int octave = 0; octave < arpOctaves; octave++) {
+                                for (int i = 0; i < heldNotesCount; i++) {
+                                    struct NoteNumber& note = arpSeqNotes2[i];
+                                    const int nn = note.noteNumber + (octave * arpIntervalUp);
+                                    struct SeqNoteNumber snn;
+                                    snn.init(nn, onOff);
+                                    std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
+                                    arpSeqNotes.insert(it, snn);
+                                    ++index;
+                                }
+                            }
+                            
+                        } else if (p[arpDirection] == 1.f) {
+                            
+                            ///ARP Up + Down
+                            //up
+                            int index = 0;
+                            for (int octave = 0; octave < arpOctaves; octave++) {
+                                for (int i = 0; i < heldNotesCount; i++) {
+                                    struct NoteNumber& note = arpSeqNotes2[i];
+                                    const int nn = note.noteNumber + (octave * arpIntervalUp);
+                                    struct SeqNoteNumber snn;
+                                    snn.init(nn, onOff);
+                                    std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
+                                    arpSeqNotes.insert(it, snn);
+                                    ++index;
+                                }
+                            }
+                            //down, minus head and tail
+                            for (int octave = arpOctaves - 1; octave >= 0; octave--) {
+                                for (int i = heldNotesCount - 1; i >= 0; i--) {
+                                    const bool firstNote = (i == heldNotesCount - 1) && (octave == arpOctaves - 1);
+                                    const bool lastNote = (i == 0) && (octave == 0);
+                                    if (!firstNote && !lastNote) {
+                                        struct NoteNumber& note = arpSeqNotes2[i];
+                                        const int nn = note.noteNumber + (octave * arpIntervalUp);
+                                        struct SeqNoteNumber snn;
+                                        snn.init(nn, onOff);
+                                        std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
+                                        arpSeqNotes.insert(it, snn);
+                                        ++index;
+                                    }
+                                }
+                            }
+                            
+                        } else if (p[arpDirection] == 2.f) {
+                            
+                            // ARP Down
+                            int index = 0;
+                            for (int octave = arpOctaves - 1; octave >= 0; octave--) {
+                                for (int i = heldNotesCount - 1; i >= 0; i--) {
+                                    struct NoteNumber& note = arpSeqNotes2[i];
+                                    const int nn = note.noteNumber + (octave * arpIntervalUp);
+                                    struct SeqNoteNumber snn;
+                                    snn.init(nn, onOff);
+                                    std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
+                                    arpSeqNotes.insert(it, snn);
+                                    ++index;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                // MARK: ARP+SEQ: turnOff previous beat's notes
+                for (std::list<int>::iterator arpLastNotesIterator = arpSeqLastNotes.begin(); arpLastNotesIterator != arpSeqLastNotes.end(); ++arpLastNotesIterator) {
+                    turnOffKey(*arpLastNotesIterator);
+                }
+                
+                // Remove last played notes
+                arpSeqLastNotes.clear();
+                
+                // NOP: no midi input
+                if(heldNoteNumbersAE.count == 0) {
+                    if(arpBeatCounter > 0) {
+                        arpBeatCounter = 0;
+                        beatCounterDidChange();
+                    }
+                    continue;
+                }
+                
+                // NOP: the arp/seq sequence is null
+                if(arpSeqNotes.size() == 0)
+                    continue;
+                
+                // Advance arp/seq beatCounter, notify delegates
+                const int seqNotePosition = arpBeatCounter % arpSeqNotes.size();
+                ++arpBeatCounter;
+                beatCounterDidChange();
+                
+                // MARK: ARP+SEQ: turnOn the note of the sequence
+                SeqNoteNumber& snn = arpSeqNotes[seqNotePosition];
+                if (p[arpIsSequencer] == 1.f) {
+                    // SEQUENCER
+                    if(snn.onOff == 1) {
+                        AEArrayEnumeratePointers(heldNoteNumbersAE, struct NoteNumber *, noteStruct) {
+                            const int baseNote = noteStruct->noteNumber;
+                            const int note = baseNote + snn.noteNumber;
+                            if(note >= 0 && note < NUM_MIDI_NOTES) {
+                                turnOnKey(note, 127);
+                                arpSeqLastNotes.push_back(note);
+                            }
+                        }
+                    }
+                } else {
+                    // ARPEGGIATOR
+                    const int note = snn.noteNumber;
+                    if(note >= 0 && note < NUM_MIDI_NOTES) {
+                        turnOnKey(note, 127);
+                        arpSeqLastNotes.push_back(note);
+                    }
+                }
+            }
+        }
+        
+        //LFO1 on [-1, 1]
+        sp_phasor_compute(sp, lfo1Phasor, nil, &lfo1);
+        if (p[lfo1Index] == 0) { // Sine
+            lfo1 = sin(lfo1 * M_PI * 2.f);
+        } else if (p[lfo1Index] == 1) { // Square
+            if (lfo1 > 0.5f) {
+                lfo1 = 1.f;
+            } else {
+                lfo1 = -1.f;
+            }
+        } else if (p[lfo1Index] == 2) { // Saw
+            lfo1 = (lfo1 - 0.5f) * 2.f;
+        } else if (p[lfo1Index] == 3) { // Reversed Saw
+            lfo1 = (0.5f - lfo1) * 2.f;
+        }
+        
+        //LFO2 on [-1, 1]
+        sp_phasor_compute(sp, lfo2Phasor, nil, &lfo2);
+        if (p[lfo2Index] == 0) { // Sine
+            lfo2 = sin(lfo2 * M_PI * 2.0);
+        } else if (p[lfo2Index] == 1) { // Square
+            if (lfo2 > 0.5f) {
+                lfo2 = 1.f;
+            } else {
+                lfo2 = -1.f;
+            }
+        } else if (p[lfo2Index] == 2) { // Saw
+            lfo2 = (lfo2 - 0.5f) * 2.f;
+        } else if (p[lfo2Index] == 3) { // Reversed Saw
+            lfo2 = (0.5f - lfo2) * 2.f;
+        }
+        
+        //PORTAMENTO
+        sp_port_compute(sp, multiplierPort,    &(p[detuningMultiplier]), &detuningMultiplierSmooth);
+        sp_port_compute(sp, balancePort,       &(p[morphBalance]),       &morphBalanceSmooth);
+        sp_port_compute(sp, cutoffPort,        &(p[cutoff]),             &cutoffSmooth);
+        sp_port_compute(sp, resonancePort,     &(p[resonance]),          &resonanceSmooth);
+        sp_port_compute(sp, monoFrequencyPort, &monoFrequency,           &monoFrequencySmooth);
+        
+        // RENDER NoteState into (outL, outR)
+        if(p[isMono] == 1.f) {
+            if(monoNote->rootNoteNumber != -1 && monoNote->stage != NoteState::stageOff)
+                monoNote->run(frameIndex, outL, outR);
+        } else {
+            for(int i=0; i<polyphony; i++) {
+                NoteState& note = noteStates[i];
+                if (note.rootNoteNumber != -1 && note.stage != NoteState::stageOff)
+                    note.run(frameIndex, outL, outR);
+            }
+        }
+        
+        ///TODO:still true?
+        // NoteState render output "synthOut" is mono
+        float synthOut = outL[frameIndex];
+        
+        //BITCRUSH
+        float bitcrushSrate = p[bitCrushSampleRate];
+        if(p[bitcrushLFO] == 1.f) {
+            bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]);
+        } else if (p[bitcrushLFO] == 2.f) {
+            bitcrushSrate *= (1.f + 0.5f * lfo2 * p[lfo2Amplitude]);
+        } else if (p[bitcrushLFO] == 3.f) {
+            bitcrushSrate *= (1.f + 0.25f * (lfo1 * p[lfo1Amplitude] + lfo2 * p[lfo2Amplitude]));
+        }
+        bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
+        float bitCrushOut = 0.f;
+        sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
+        
+        //AUTOPAN
+        float panValue = 0.f;
+        sp_osc_compute(sp, panOscillator, nil, &panValue);
+        panValue *= p[autoPanAmount];
+        if(p[autopanLFO] == 1.f) {
+            panValue *= 0.5f * (1.f + lfo1) * p[lfo1Amplitude];
+        } else if(p[autopanLFO] == 2.f) {
+            panValue *= 0.5f * (1.f + lfo2) * p[lfo2Amplitude];
+        } else if(p[autopanLFO] == 3.f) {
+            panValue *= 0.25f * (lfo1 * p[lfo1Amplitude] + lfo2 * p[lfo2Amplitude]);
+        }
+        pan->pan = panValue;
+        float panL = 0.f, panR = 0.f;
+        sp_pan2_compute(sp, pan, &bitCrushOut, &panL, &panR);
+        
+        //PHASER
+        float phaserOutL = panL;
+        float phaserOutR = panR;
+        float lPhaserMix = p[phaserMix];
+        
+        // crossfade phaser
+        if(lPhaserMix != 0.f) {
+            lPhaserMix = 1.f - lPhaserMix; // invert, baby
+            sp_phaser_compute(sp, phaser0, &panL, &panR, &phaserOutL, &phaserOutR);
+            phaserOutL = lPhaserMix * panL + (1.f - lPhaserMix) * phaserOutL;
+            phaserOutR = lPhaserMix * panR + (1.f - lPhaserMix) * phaserOutR;
+        }
+        
+        // delays
+        float delayOutL = 0.f;
+        float delayOutR = 0.f;
+        float delayOutRR = 0.f;
+        float delayFillInOut = 0.f;
+        sp_smoothdelay_compute(sp, delayL,      &phaserOutL, &delayOutL);
+        sp_smoothdelay_compute(sp, delayR,      &phaserOutR, &delayOutR);
+        sp_smoothdelay_compute(sp, delayFillIn, &phaserOutR, &delayFillInOut);
+        sp_smoothdelay_compute(sp, delayRR,     &delayOutR,  &delayOutRR);
+        delayOutRR += delayFillInOut;
+        
+        // delays mixer
+        float mixedDelayL = 0.f;
+        float mixedDelayR = 0.f;
+        delayCrossfadeL->pos = p[delayMix] * p[delayOn];
+        delayCrossfadeR->pos = p[delayMix] * p[delayOn];
+        sp_crossfade_compute(sp, delayCrossfadeL, &phaserOutL, &delayOutL, &mixedDelayL);
+        sp_crossfade_compute(sp, delayCrossfadeR, &phaserOutR, &delayOutRR, &mixedDelayR);
+        
+        // Butterworth hi-pass filter for reverb input
+        float butOutL = 0.f;
+        float butOutR = 0.f;
+        butterworthHipassL->freq = p[reverbHighPass];
+        butterworthHipassR->freq = p[reverbHighPass];
+        sp_buthp_compute(sp, butterworthHipassL, &mixedDelayL, &butOutL);
+        sp_buthp_compute(sp, butterworthHipassR, &mixedDelayR, &butOutR);
+        
+        // X2 has an AKPeakLimiter with "preGain" of 3db but we're just doing the gain here
+        butOutL *= 2.f;
+        butOutR *= 2.f;
+        
+        //TODO:Put dynamics compressor here to match X2 hipass peaklimiter input to reverb per https://trello.com/c/b20JqxTR
+        // reverb
+        float revOutL = 0.f;
+        float revOutR = 0.f;
+        reverbCostello->lpfreq = 0.5f * SAMPLE_RATE;
+        reverbCostello->feedback = p[reverbFeedback];
+        sp_revsc_compute(sp, reverbCostello, &butOutL, &butOutR, &revOutL, &revOutR);
+        
+        // reverb crossfade
+        float reverbCrossfadeOutL = 0.f;
+        float reverbCrossfadeOutR = 0.f;
+        const float reverbMixFactor = p[reverbMix] * p[reverbOn];
+        revCrossfadeL->pos = reverbMixFactor;
+        revCrossfadeR->pos = reverbMixFactor;
+        sp_crossfade_compute(sp, revCrossfadeL, &mixedDelayL, &revOutL, &reverbCrossfadeOutL);
+        sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &revOutR, &reverbCrossfadeOutR);
+        
+        // X2 AKPeakLimiter ==> AKDynamicsCompressor
+        // X2 has an AKPeakLimiter with preGain of 3db
+        reverbCrossfadeOutL *= 2.f;
+        reverbCrossfadeOutR *= 2.f;
+        float compressorOutL = 0.f;
+        float compressorOutR = 0.f;
+        sp_compressor_compute(sp, compressor0, &reverbCrossfadeOutL, &compressorOutL);
+        sp_compressor_compute(sp, compressor1, &reverbCrossfadeOutR, &compressorOutR);
+        
+        // MASTER
+        outL[frameIndex] = compressorOutL * p[masterVolume];
+        outR[frameIndex] = compressorOutR * p[masterVolume];
+    }
 }
 
 void AKSynthOneDSPKernel::turnOnKey(int noteNumber, int velocity) {

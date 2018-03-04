@@ -18,7 +18,7 @@ public class TimeKnob: MIDIKnob {
     
     func update() {
         if timeSyncMode {
-            knobValue = CGFloat(Rate.fromTime(_value).time) / CGFloat(limitedRate)
+            // knobValue = CGFloat(Rate.fromTime(_value).time) / CGFloat(limitedRate)
         } else {
             _value = range.clamp(rate.time)
             knobValue = CGFloat(_value.normalized(from: range, taper: taper))

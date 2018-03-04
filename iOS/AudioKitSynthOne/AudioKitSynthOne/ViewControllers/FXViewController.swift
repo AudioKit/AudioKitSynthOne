@@ -129,8 +129,8 @@ class FXViewController: SynthPanelController {
         tempoSyncToggle.callback = { value in
             self.conductor.syncRateToTempo = (value == 1)
             self.tempoKnobs.forEach { $0.timeSyncMode = (value == 1) }
-//            rateKnobs.forEach { $0.update() }
-//            timeKnobs.forEach { $0.update() }
+            rateKnobs.forEach { $0.update() }
+            timeKnobs.forEach { $0.update() }
         }
     }
 }

@@ -15,7 +15,8 @@ public class RateKnob: MIDIKnob {
     }
 
     func update() {
-        if conductor.syncRateToTempo {
+        print ("tempo sync isTrue \(timeSyncMode)")
+        if timeSyncMode {
             knobValue = CGFloat(Rate.fromFrequency(_value).frequency) / CGFloat(Rate.count)
         } else {
             _value = range.clamp(rate.frequency)
@@ -27,7 +28,7 @@ public class RateKnob: MIDIKnob {
 
     override public var value: Double {
         get {
-            if conductor.syncRateToTempo {
+            if timeSyncMode {
                 return rate.frequency
             } else {
                 return _value
@@ -37,7 +38,7 @@ public class RateKnob: MIDIKnob {
             _value = range.clamp(newValue)
             _value = onlyIntegers ? round(_value) : _value
 
-            if !conductor.syncRateToTempo {
+            if !timeSyncMode {
                 knobValue = CGFloat(_value.normalized(from: range, taper: taper))
             }
         }
@@ -63,7 +64,7 @@ public class RateKnob: MIDIKnob {
 
         knobValue = (0.0 ... 1.0).clamp(knobValue)
 
-        if conductor.syncRateToTempo {
+        if timeSyncMode {
             value = rate.frequency
         } else {
             value = Double(knobValue).denormalized(to: range, taper: taper)

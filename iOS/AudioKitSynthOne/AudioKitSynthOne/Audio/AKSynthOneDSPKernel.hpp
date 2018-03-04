@@ -294,7 +294,7 @@ private:
         { lfo1Index,             0, 0, 3, "lfo1Index", "lfo1Index", kAudioUnitParameterUnit_Generic},
         { lfo1Amplitude,         0, 0, 1, "lfo1Amplitude", "lfo1Amplitude", kAudioUnitParameterUnit_Generic},
         { lfo1Rate,              0, 0.25, 10, "lfo1Rate", "lfo1Rate", kAudioUnitParameterUnit_Rate},
-        { cutoff,                64, 20000, 22050, "cutoff", "cutoff", kAudioUnitParameterUnit_Hertz},
+        { cutoff,                80, 20000, 22050, "cutoff", "cutoff", kAudioUnitParameterUnit_Hertz},
         { resonance,             0, 0.1, 0.75, "resonance", "resonance", kAudioUnitParameterUnit_Generic},
         { filterMix,             0, 1, 1, "filterMix", "filterMix", kAudioUnitParameterUnit_Generic},
         { filterADSRMix,         0, 0, 1.2, "filterADSRMix", "filterADSRMix", kAudioUnitParameterUnit_Generic},

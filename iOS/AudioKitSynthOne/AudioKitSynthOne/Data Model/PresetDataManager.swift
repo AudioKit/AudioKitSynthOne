@@ -91,8 +91,6 @@ extension ParentViewController {
         s.setAK1Parameter(.phaserFeedback, activePreset.phaserFeedback)
         s.setAK1Parameter(.phaserNotchWidth, activePreset.phaserNotchWidth)
         
-        conductor.syncRateToTempo = (activePreset.syncRateToTempo == 1)
-        
         for i in 0..<16 {
             s.setAK1ArpSeqPattern(forIndex: i, activePreset.seqPatternNote[i])
             s.setAK1SeqOctBoost(forIndex: i, activePreset.seqOctBoost[i] ? 1 : 0)

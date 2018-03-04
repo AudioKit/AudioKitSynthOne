@@ -11,6 +11,8 @@ import AudioKit
 @IBDesignable
 public class MIDIKnob: Knob, MIDILearnable {
     
+    var timeSyncMode = false
+    
     // var midiLearnCallback: ()->Void = { }
     var hotspotView = UIView()
     var conductor = Conductor.sharedInstance

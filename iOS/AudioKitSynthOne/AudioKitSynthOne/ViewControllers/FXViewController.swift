@@ -54,13 +54,20 @@ class FXViewController: SynthPanelController {
     
     @IBOutlet weak var tempoSyncToggle: ToggleButton!
     
+    var tempoKnobs = [MIDIKnob]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
         viewType = .fxView
-
         let s = conductor.synth!
         
+        // Create array of Tempo Sync Knobs
+        let rateKnobs = self.view.subviews.filter { $0 is RateKnob } as! [RateKnob]
+        let timeKnobs = self.view.subviews.filter { $0 is TimeKnob } as! [TimeKnob]
+        tempoKnobs = rateKnobs
+        tempoKnobs = tempoKnobs + timeKnobs
+            
         sampleRate.value = s.getParameterDefault(.bitCrushSampleRate)
         sampleRate.range = s.getParameterRange(.bitCrushSampleRate)
         sampleRate.taper = 5
@@ -121,9 +128,9 @@ class FXViewController: SynthPanelController {
 
         tempoSyncToggle.callback = { value in
             self.conductor.syncRateToTempo = (value == 1)
-            self.lfo1Rate.update()
-            self.lfo2Rate.update()
-            self.autoPanRate.update()
+            self.tempoKnobs.forEach { $0.timeSyncMode = (value == 1) }
+//            rateKnobs.forEach { $0.update() }
+//            timeKnobs.forEach { $0.update() }
         }
     }
 }

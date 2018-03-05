@@ -48,14 +48,16 @@ class Conductor: AKSynthOneProtocol {
     }
 
     func updateSingleUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value inputValue: Double) {
+        
         // cannot access synth until it is initialized and started
         if !started {return}
 
+        // for every binding of type param
         for binding in bindings {
             if param == binding.0 {
                 let control = binding.1
                 
-                // don't update the control if it is the one performing the callback
+                // don't update the control if it is the one performing the callback because it has already been updated
                 if let inputControl = inputControl {
                     if control !== inputControl {
                         control.value = inputValue
@@ -74,6 +76,7 @@ class Conductor: AKSynthOneProtocol {
         }
     }
     
+    // Call when a global update needs to happen.  i.e., on launch, foreground, and/or when a Preset is loaded.
     func updateAllUI() {
         let parameterCount = AKSynthOneParameter.AKSynthOneParameterCount.rawValue
         for address in 0..<parameterCount {
@@ -140,12 +143,11 @@ class Conductor: AKSynthOneProtocol {
         parentVC.updateDisplay(message)
     }
     
+    
     //MARK: - AKSynthOneProtocol
     func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
         DispatchQueue.main.async {
-            self.viewControllers.forEach {
-                $0.updateUI(param, control: nil, value: Double(value))
-            }
+            self.updateSingleUI(param, control: nil, value: value)
         }
     }
     

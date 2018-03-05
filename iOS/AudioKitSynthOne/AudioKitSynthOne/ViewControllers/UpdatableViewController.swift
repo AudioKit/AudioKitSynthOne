@@ -22,7 +22,7 @@ public class UpdatableViewController: UIViewController {
         conductor.updateAllUI()
     }
     
-    func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
-        // subclasses can update UI elements that do not conform to AKSynthOneControl protocol
-    }
+    // subclasses should update UI elements that do not conform to AKSynthOneControl protocol, should not call super
+    func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {}
+    
 }

@@ -410,9 +410,9 @@ class PresetsViewController: UIViewController {
             let popOverController = segue.destination as! PopUpPresetEdit
             popOverController.delegate = self
             popOverController.preset = currentPreset
-            popOverController.preferredContentSize = CGSize(width: 528, height: 320)
+            popOverController.preferredContentSize = CGSize(width: 550, height: 316)
             if let presentation = popOverController.popoverPresentationController {
-                presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+                presentation.backgroundColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 0)
             }
         }
         

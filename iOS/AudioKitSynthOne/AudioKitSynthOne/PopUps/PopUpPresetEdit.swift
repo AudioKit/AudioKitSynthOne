@@ -17,6 +17,8 @@ class PopUpPresetEdit: UIViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var bankPicker: UIPickerView!
+    @IBOutlet weak var saveButton: SynthUIButton!
+    @IBOutlet weak var cancelButton: SynthUIButton!
     
     var delegate: PresetPopOverDelegate?
     
@@ -40,7 +42,7 @@ class PopUpPresetEdit: UIViewController {
         categoryTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         popupView.layer.borderColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
-        popupView.layer.borderWidth = 2
+        popupView.layer.borderWidth = 4
         popupView.layer.cornerRadius = 6
         
         nameTextField.text = preset.name
@@ -52,6 +54,8 @@ class PopUpPresetEdit: UIViewController {
             bankPicker.selectRow(index, inComponent: 0, animated: true)
             bankSelected = preset.bank
         }
+        
+        setupCallbacks()
         
     }
     
@@ -68,14 +72,19 @@ class PopUpPresetEdit: UIViewController {
     // MARK: - IBActions
     // *****************************************************************
     
-    @IBAction func closePressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    func setupCallbacks() {
+        
+        cancelButton.callback = { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        saveButton.callback = { _ in
+            self.delegate?.didFinishEditing(name: self.nameTextField.text!, category: self.categoryIndex, newBank: self.bankSelected)
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
     
-    @IBAction func savePressed(_ sender: UIButton) {
-        delegate?.didFinishEditing(name: nameTextField.text!, category: categoryIndex, newBank: bankSelected)
-        dismiss(animated: true, completion: nil)
-    }
 }
 
 // *****************************************************************
@@ -104,7 +113,7 @@ extension PopUpPresetEdit: UITableViewDataSource {
         
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
         
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 15.0)
+        cell.textLabel?.font = UIFont(name: "Avenir Next", size: 16)
         cell.textLabel?.text = categories[indexPath.row]
         return cell
     }
@@ -150,7 +159,7 @@ extension PopUpPresetEdit: UIPickerViewDataSource {
             pickerLabel?.textAlignment = .center
         }
         pickerLabel?.text = pickerBankNames[row]
-        pickerLabel?.textColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        pickerLabel?.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
         
         return pickerLabel!
     }

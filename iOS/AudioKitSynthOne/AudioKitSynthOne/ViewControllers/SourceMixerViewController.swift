@@ -101,8 +101,16 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(glideKnob,            to: .glide)
         conductor.bind(filterTypeToggle,     to: .filterType)
         conductor.bind(masterVolume,         to: .masterVolume)
-        conductor.bind(tempoStepper,         to: .arpRate)
         conductor.bind(legatoModeToggle,     to: .monoIsLegato)
+        conductor.bind(tempoStepper,         to: .arpRate) { param, control in
+            return { value in
+                self.conductor.synth!.setAK1Parameter(.arpRate, value)
+                self.conductor.updateSingleUI(.lfo1Rate, control: control, value: value)
+                self.conductor.updateSingleUI(.lfo2Rate, control: control, value: value)
+                self.conductor.updateSingleUI(.autoPanFrequency, control: control, value: value)
+                self.conductor.updateSingleUI(.delayTime, control: control, value: value)
+            }
+        }
         
         // Setup Audio Plot Display
         setupAudioPlot()

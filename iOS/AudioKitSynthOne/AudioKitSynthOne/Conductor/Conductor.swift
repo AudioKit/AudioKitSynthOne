@@ -8,48 +8,89 @@
 
 import AudioKit
 
-protocol AKSynthOneControl {
+protocol AKSynthOneControl: class {
     var value: Double { get set }
     var callback: (Double) -> Void { get set }
 }
 
-public typealias AKSynthOneControlCallback = (AKSynthOneParameter) -> ((_: Double) -> Void)
+typealias AKSynthOneControlCallback = (AKSynthOneParameter, AKSynthOneControl?) -> ((_: Double) -> Void)
 
 class Conductor: AKSynthOneProtocol {
-    
     static var sharedInstance = Conductor()
-
     var syncRateToTempo = true
     var neverSleep = false
     var banks: [Bank] = []
-    
     var synth: AKSynthOne!
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
     
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
         let binding = (param, control)
         bindings.append(binding)
-        var control = binding.1
+        let control = binding.1
         if let cb = closure {
-            control.callback = cb(param)
+            control.callback = cb(param, control)
         } else {
             // default closure
-            control.callback = changeParameter(param)
+            control.callback = changeParameter(param, control)
         }
     }
     
-    var changeParameter: AKSynthOneControlCallback  = { param in
+    var changeParameter: AKSynthOneControlCallback  = { param, control in
         return { value in
             sharedInstance.synth.setAK1Parameter(param, value)
-            sharedInstance.updateSingleUI(param)
+            sharedInstance.updateSingleUI(param, control: control, value: value)
         }
-    }
-    {
+        }
+        {
         didSet {
             AKLog("WARNING: changeParameter callback changed")
         }
     }
+
+    func updateSingleUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value inputValue: Double) {
+        // cannot access synth until it is initialized and started
+        if !started {return}
+
+        for binding in bindings {
+            if param == binding.0 {
+                let control = binding.1
+                
+                // don't update the control if it is the one performing the callback
+                if let inputControl = inputControl {
+                    if control !== inputControl {
+                        control.value = inputValue
+                    }
+                } else {
+                    control.value = inputValue
+                }
+                AKLog("updateUI:param:\(param.rawValue), control:\(String(describing: inputControl)), value:\(inputValue)")
+            }
+        }
+
+        // View controllers can own objects which are not updated by the bindings scheme.
+        // For example, ADSRViewController has AKADSRView's which do not conform to AKSynthOneControl
+        viewControllers.forEach {
+            $0.updateUI(param, control: inputControl, value: inputValue)
+        }
+    }
     
+    func updateAllUI() {
+        let parameterCount = AKSynthOneParameter.AKSynthOneParameterCount.rawValue
+        for address in 0..<parameterCount {
+            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: address)
+                else {
+                    AKLog("ERROR: AKSynthOneParameter enum out of range: \(address)")
+                    return
+            }
+            let value = self.synth.getAK1Parameter(param)
+            updateSingleUI(param, control: nil, value: value)
+        }
+        
+        // Display Preset Name again
+        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
+        updateDisplayLabel("\(parentVC.activePreset.position): \(parentVC.activePreset.name)")
+    }
+
     public var viewControllers: Set<UpdatableViewController> = []
     
     fileprivate var started = false
@@ -94,31 +135,6 @@ class Conductor: AKSynthOneProtocol {
         started = true
     }
     
-    func updateSingleUI(_ param: AKSynthOneParameter) {
-        // cannot access synth until it is initialized and started
-        if !started {return}
-        
-        viewControllers.forEach {
-            $0.updateUI(param, value: synth.getAK1Parameter(param) )
-        }
-    }
-    
-    func updateAllUI() {
-        let parameterCount = AKSynthOneParameter.AKSynthOneParameterCount.rawValue
-        for address in 0..<parameterCount {
-            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: address)
-                else {
-                    AKLog("ERROR: AKSynthOneParameter enum out of range: \(address)")
-                    return
-                }
-            updateSingleUI(param)
-        }
-        
-        // Display Preset Name again
-        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
-        parentVC.updateDisplay("\(parentVC.activePreset.position): \(parentVC.activePreset.name)")
-    }
-
     func updateDisplayLabel(_ message: String) {
         let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
         parentVC.updateDisplay(message)
@@ -128,7 +144,7 @@ class Conductor: AKSynthOneProtocol {
     func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
         DispatchQueue.main.async {
             self.viewControllers.forEach {
-                $0.updateUI(param, value: Double(value))
+                $0.updateUI(param, control: nil, value: Double(value))
             }
         }
     }

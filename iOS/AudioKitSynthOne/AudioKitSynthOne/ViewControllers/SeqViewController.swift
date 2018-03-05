@@ -52,10 +52,9 @@ class SeqViewController: SynthPanelController {
         
         for (notePosition, octBoostButton) in arpSeqOctBoostButtons.enumerated() {
             let arpSeqOctBoostParam = arpSeqOctBoostArray[notePosition]
-            conductor.bind(octBoostButton, to: arpSeqOctBoostParam) { _ in
+            conductor.bind(octBoostButton, to: arpSeqOctBoostParam) { param, control in
                 return { value in
                     s.setAK1SeqOctBoost(forIndex: notePosition, value)
-                    // self.conductor.updateSingleUI(arpSeqOctBoostParam)
                     for i in 0...15 {
                         self.updateOctBoostButton(notePosition: i)
                     }
@@ -70,11 +69,11 @@ class SeqViewController: SynthPanelController {
         
         for (notePosition, arpSeqPatternSlider) in arpSeqPatternSliders.enumerated() {
             let arpSeqPatternParam = arpSeqPatternArray[notePosition]
-            conductor.bind(arpSeqPatternSlider, to: arpSeqPatternParam) { _ in
+            conductor.bind(arpSeqPatternSlider, to: arpSeqPatternParam) { param, control in
                 return { value in
                     let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
                     s.setAK1ArpSeqPattern(forIndex: notePosition, tval )
-                    self.conductor.updateSingleUI(arpSeqPatternParam)
+                    self.conductor.updateSingleUI(arpSeqPatternParam, control: arpSeqPatternSlider, value: Double(tval) )
                 }
             }
         }
@@ -86,17 +85,17 @@ class SeqViewController: SynthPanelController {
         
         for (notePosition, arpSeqNoteOnButton) in arpSeqNoteOnButtons.enumerated() {
             let arpSeqPatternParam = arpSeqNoteOnArray[notePosition]
-            conductor.bind(arpSeqNoteOnButton, to: arpSeqPatternParam) { _ in
+            conductor.bind(arpSeqNoteOnButton, to: arpSeqPatternParam) { param, control in
                 return { value in
+                    let v = Double(value > 0 ? true : false)
                     s.setAK1ArpSeqNoteOn(forIndex: notePosition, value >  0 ? true : false )
-                    self.conductor.updateSingleUI(arpSeqPatternParam)
+                    self.conductor.updateSingleUI(arpSeqPatternParam, control: arpSeqNoteOnButton, value: v)
                 }
             }
         }
     }
     
-    override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        super.updateUI(param, value: value)
+    override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
         for i in 0...15 {
             updateOctBoostButton(notePosition: i)
         }

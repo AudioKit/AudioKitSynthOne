@@ -141,7 +141,7 @@
         NSString* keyName = [NSString stringWithCString:_kernel.parameterPresetKey(p).c_str() encoding:[NSString defaultCStringEncoding]];
         AUParameter *param = [AUParameterTree createParameterWithIdentifier:keyName name:friendlyName address:p min:minValue max:maxValue unit:unit unitName:nil flags:flags valueStrings:nil dependentParameters:nil];
         param.value = defaultValue;
-        _kernel.setAK1Parameter(p, defaultValue);
+        //_kernel.setAK1Parameter(p, defaultValue);
         [tree addObject:param];
     }
     

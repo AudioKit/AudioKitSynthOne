@@ -53,9 +53,7 @@ public class HeaderViewController: UpdatableViewController {
        
     }
     
-    override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        super.updateUI(param, value: value)
-      
+    override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
         switch param {
         case .index1:
             displayLabel.text = "OSC1 Morph: \(value.decimalString)"
@@ -103,6 +101,7 @@ public class HeaderViewController: UpdatableViewController {
         case .autoPanFrequency:
             if conductor.syncRateToTempo {
                 displayLabel.text = "AutoPan Rate: \(Rate.fromFrequency(value))"
+                //displayLabel.text = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s"
             } else {
                 displayLabel.text = "AutoPan Rate: \(value.decimalString) Hz"
             }
@@ -130,12 +129,14 @@ public class HeaderViewController: UpdatableViewController {
         case .lfo1Rate:
             if conductor.syncRateToTempo {
                 displayLabel.text = "LFO 1 Rate: \(Rate.fromFrequency(value))"
+                //displayLabel.text = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s"
             } else {
                 displayLabel.text = "LFO 1 Rate: \(value.decimalString) Hz"
             }
         case .lfo2Rate:
             if conductor.syncRateToTempo {
                 displayLabel.text = "LFO 2 Rate: \(Rate.fromFrequency(value))"
+                //displayLabel.text = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s"
             } else {
                 displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"
             }
@@ -183,7 +184,6 @@ public class HeaderViewController: UpdatableViewController {
             // do nothing
         }
         displayLabel.setNeedsDisplay()
-        
     }
     
     @objc func displayLabelTapped() {

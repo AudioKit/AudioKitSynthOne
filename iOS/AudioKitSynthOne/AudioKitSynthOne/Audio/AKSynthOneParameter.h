@@ -26,7 +26,7 @@ typedef AK_ENUM(AKSynthOneParameter) {
     noiseVolume = 12,
     lfo1Index = 13,
     lfo1Amplitude = 14,
-    lfo1Rate = 15,
+    lfo1Rate = 15, // hz
     cutoff = 16,
     resonance = 17,
     filterMix = 18, // unused...hard coded to 1
@@ -58,7 +58,7 @@ typedef AK_ENUM(AKSynthOneParameter) {
     delayMix = 44,
     lfo2Index = 45,
     lfo2Amplitude = 46,
-    lfo2Rate = 47,
+    lfo2Rate = 47, // hz
     cutoffLFO = 48,
     resonanceLFO = 49,
     oscMixLFO = 50,
@@ -73,9 +73,9 @@ typedef AK_ENUM(AKSynthOneParameter) {
     autopanLFO = 59,
     arpDirection = 60,
     arpInterval = 61,
-    arpIsOn = 62, //TODO: rename arpIsOn to arpSeqIsOn including preset conversion
+    arpIsOn = 62,
     arpOctave = 63,
-    arpRate = 64,
+    arpRate = 64, // tempo in bpm, not hz
     arpIsSequencer = 65,
     arpTotalSteps = 66,
     arpSeqPattern00 = 67,
@@ -128,7 +128,7 @@ typedef AK_ENUM(AKSynthOneParameter) {
     arpSeqNoteOn15 = 114,
     filterType = 115,
     phaserMix = 116,
-    phaserRate = 117,
+    phaserRate = 117, //hz?
     phaserFeedback = 118,
     phaserNotchWidth = 119,
     monoIsLegato = 120, // range [0 = legato, 1 = portamento (default)]

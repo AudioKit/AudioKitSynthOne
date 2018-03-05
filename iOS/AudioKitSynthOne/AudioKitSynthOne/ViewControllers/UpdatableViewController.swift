@@ -21,13 +21,8 @@ public class UpdatableViewController: UIViewController {
         super.viewDidAppear(animated)
         conductor.updateAllUI()
     }
-
-    func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        for binding in conductor.bindings {
-            if param == binding.0 {
-                var control = binding.1
-                control.value = value
-            }
-        }
+    
+    func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
+        // subclasses can update UI elements that do not conform to AKSynthOneControl protocol
     }
 }

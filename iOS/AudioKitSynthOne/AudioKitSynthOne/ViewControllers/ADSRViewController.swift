@@ -74,10 +74,7 @@ class ADSRViewController: SynthPanelController {
         }
     }
     
-    override func updateUI(_ param: AKSynthOneParameter, value: Double) {
-        
-        super.updateUI(param, value: value)
-        
+    override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
         switch param {
         case .attackDuration:
             adsrView.attackDuration = value
@@ -95,7 +92,6 @@ class ADSRViewController: SynthPanelController {
             filterADSRView.sustainLevel = value
         case .filterReleaseDuration:
             filterADSRView.releaseDuration = value
-            
         default:
             _ = 0
             // do nothing

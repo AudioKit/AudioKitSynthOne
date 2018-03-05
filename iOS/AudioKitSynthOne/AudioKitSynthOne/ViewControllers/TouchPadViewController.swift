@@ -75,9 +75,9 @@ class TouchPadViewController: SynthPanelController {
             
             // Affect parameters based on touch position
             s.setAK1Parameter(.morphBalance, horizontal)
-            c.updateSingleUI(.morphBalance)
+            c.updateSingleUI(.morphBalance, control: nil, value: horizontal)
             s.setAK1Parameter(.detuningMultiplier, vertical)
-            c.updateSingleUI(.detuningMultiplier)
+            c.updateSingleUI(.detuningMultiplier, control: nil, value: vertical)
         }
         
         touchPad1.completionHandler = { horizontal, vertical, touchesEnded, reset in
@@ -108,9 +108,9 @@ class TouchPadViewController: SynthPanelController {
             
             // Affect parameters based on touch position
             s.setAK1Parameter(.resonance, horizontal)
-            c.updateSingleUI(.resonance)
+            c.updateSingleUI(.resonance, control: nil, value: horizontal)
             s.setAK1Parameter(.cutoff, vertical)
-            c.updateSingleUI(.cutoff)
+            c.updateSingleUI(.cutoff, control: nil, value: vertical)
         }
         
         
@@ -132,7 +132,7 @@ class TouchPadViewController: SynthPanelController {
         createParticles()
     }
     
-    override func updateUI(_ param: AKSynthOneParameter, value: Double) {
+    override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
 
         switch param {
         case .cutoff:

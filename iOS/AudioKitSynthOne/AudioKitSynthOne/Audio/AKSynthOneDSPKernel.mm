@@ -16,7 +16,8 @@
 
 #define SAMPLE_RATE (44100.f)
 #define RELEASE_AMPLITUDE_THRESHOLD (0.00001f)
-#define DELAY_TIME_FLOOR (0.0001f)
+#define DELAY_TIME_FLOOR (0.0005f)
+#define PORTAMENTO_HALF_TIME (0.1f)
 #define DEBUG_DSP_LOGGING (0)
 #define DEBUG_NOTE_STATE_LOGGING (0)
 
@@ -207,14 +208,13 @@ struct AKSynthOneDSPKernel::NoteState {
         // isMono
         const bool isMonoMode = (kernel->p[isMono] == 1);
         
-        //LFO coefficients used throughout run function; range on [0, amplitude]
-        const float lfo1_0_1 = 0.5f * (1.f + kernel->lfo1) * kernel->p[lfo1Amplitude];
-        const float lfo1_1_0 = 1.f - lfo1_0_1; // good for multiplicative
-        const float lfo2_0_1 = 0.5f * (1.f + kernel->lfo2) * kernel->p[lfo2Amplitude];
-        const float lfo2_1_0 = 1.f - lfo2_0_1; // good for multiplicative
-        const float lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
-        const float lfo3_1_0 = 1.f - lfo3_0_1; // good for multiplicative
-
+        // convenience
+        const float lfo1_0_1 = kernel->lfo1_0_1;
+        const float lfo1_1_0 = kernel->lfo1_1_0;
+        const float lfo2_0_1 = kernel->lfo2_0_1;
+        const float lfo2_1_0 = kernel->lfo2_1_0;
+        const float lfo3_0_1 = kernel->lfo3_0_1;
+        const float lfo3_1_0 = kernel->lfo3_1_0;
         
         //pitchLFO common frequency coefficient
         float commonFrequencyCoefficient = 1.0;
@@ -230,7 +230,7 @@ struct AKSynthOneDSPKernel::NoteState {
         const float cachedFrequencyOsc1 = oscmorph1->freq;
         float newFrequencyOsc1 = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyOsc1;
         newFrequencyOsc1 *= nnToHz((int)kernel->p[morph1SemitoneOffset]);
-        newFrequencyOsc1 *= kernel->detuningMultiplierSmooth * commonFrequencyCoefficient;
+        newFrequencyOsc1 *= kernel->p[detuningMultiplier] * commonFrequencyCoefficient;
         newFrequencyOsc1 = clamp(newFrequencyOsc1, 0.f, 0.5f*SAMPLE_RATE);
         oscmorph1->freq = newFrequencyOsc1;
         
@@ -241,7 +241,7 @@ struct AKSynthOneDSPKernel::NoteState {
         const float cachedFrequencyOsc2 = oscmorph2->freq;
         float newFrequencyOsc2 = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyOsc2;
         newFrequencyOsc2 *= nnToHz((int)kernel->p[morph2SemitoneOffset]);
-        newFrequencyOsc2 *= kernel->detuningMultiplierSmooth * commonFrequencyCoefficient;
+        newFrequencyOsc2 *= kernel->p[detuningMultiplier] * commonFrequencyCoefficient;
         
         
         //LFO DETUNE OSC2: original additive method, now with scaled range based on 4Hz at C3
@@ -264,14 +264,14 @@ struct AKSynthOneDSPKernel::NoteState {
         //SUB OSC FREQ
         const float cachedFrequencySub = subOsc->freq;
         float newFrequencySub = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencySub;
-        newFrequencySub *= kernel->detuningMultiplierSmooth / (2.f * (1.f + kernel->p[subOctaveDown])) * commonFrequencyCoefficient;
+        newFrequencySub *= kernel->p[detuningMultiplier] / (2.f * (1.f + kernel->p[subOctaveDown])) * commonFrequencyCoefficient;
         newFrequencySub = clamp(newFrequencySub, 0.f, 0.5f*SAMPLE_RATE);
         subOsc->freq = newFrequencySub;
         
         //FM OSC FREQ
         const float cachedFrequencyFM = fmOsc->freq;
         float newFrequencyFM = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyFM;
-        newFrequencyFM *= kernel->detuningMultiplierSmooth * commonFrequencyCoefficient;
+        newFrequencyFM *= kernel->p[detuningMultiplier] * commonFrequencyCoefficient;
         newFrequencyFM = clamp(newFrequencyFM, 0.f, 0.5f*SAMPLE_RATE);
         fmOsc->freq = newFrequencyFM;
         
@@ -323,13 +323,13 @@ struct AKSynthOneDSPKernel::NoteState {
         fadsr->rel = (float)kernel->p[filterReleaseDuration];
         
         //OSCMORPH CROSSFADE
-        float crossFadePos = kernel->morphBalanceSmooth;
+        float crossFadePos = kernel->p[morphBalance];
         if (kernel->p[oscMixLFO] == 1.f) {
-            crossFadePos = kernel->morphBalanceSmooth + lfo1_0_1;
+            crossFadePos = kernel->p[morphBalance] + lfo1_0_1;
         } else if (kernel->p[oscMixLFO] == 2.f) {
-            crossFadePos = kernel->morphBalanceSmooth + lfo2_0_1;
+            crossFadePos = kernel->p[morphBalance] + lfo2_0_1;
         } else if (kernel->p[oscMixLFO] == 3.f) {
-            crossFadePos = kernel->morphBalanceSmooth + lfo3_0_1;
+            crossFadePos = kernel->p[morphBalance] + lfo3_0_1;
         }
         crossFadePos = clamp(crossFadePos, 0.f, 1.f);
         morphCrossFade->pos = crossFadePos;
@@ -338,7 +338,7 @@ struct AKSynthOneDSPKernel::NoteState {
         filterCrossFade->pos = kernel->p[filterMix];
         
         //FILTER RESONANCE LFO
-        float filterResonance = kernel->resonanceSmooth;
+        float filterResonance = kernel->p[resonance];
         if (kernel->p[resonanceLFO] == 1) {
             filterResonance *= lfo1_1_0;
         } else if (kernel->p[resonanceLFO] == 2) {
@@ -373,7 +373,7 @@ struct AKSynthOneDSPKernel::NoteState {
         sp_adsr_compute(kernel->sp, fadsr, &internalGate, &filter);
         
         // filter frequency cutoff calculation
-        float filterCutoffFreq = kernel->cutoffSmooth;
+        float filterCutoffFreq = kernel->p[cutoff];
         if (kernel->p[cutoffLFO] == 1.f) {
             filterCutoffFreq *= lfo1_1_0;
         } else if (kernel->p[cutoffLFO] == 2.f) {
@@ -474,13 +474,15 @@ AKSynthOneDSPKernel::~AKSynthOneDSPKernel() = default;
 //efficient parameter setter/getter method
 void AKSynthOneDSPKernel::setAK1Parameter(AKSynthOneParameter param, float inputValue) {
     const float value = parameterClamp(param, inputValue);
-    if(p[param] != value) {
+    if(aks1p[param].usePortamento) {
+        aks1p[param].portamentoTarget = value;
+    } else {
         p[param] = value;
-#if DEBUG_DSP_LOGGING
-        const char* d = AKSynthOneDSPKernel::parameterCStr(param);
-        printf("AKSynthOneDSPKernel.hpp:setAK1Parameter(): %i:%s --> %f\n", param, d, value);
-#endif
     }
+#if DEBUG_DSP_LOGGING
+    const char* d = AKSynthOneDSPKernel::parameterCStr(param);
+    printf("AKSynthOneDSPKernel.hpp:setAK1Parameter(): %i:%s --> %f\n", param, d, value);
+#endif
 }
 
 float AKSynthOneDSPKernel::getAK1Parameter(AKSynthOneParameter param) {
@@ -489,26 +491,13 @@ float AKSynthOneDSPKernel::getAK1Parameter(AKSynthOneParameter param) {
 
 void AKSynthOneDSPKernel::setParameters(float params[]) {
     for (int i = 0; i < AKSynthOneParameter::AKSynthOneParameterCount; i++) {
-#if DEBUG_DSP_LOGGING
-        const float oldValue = p[i];
-        const float newValue = params[i];
-        const bool changed = (oldValue != newValue);
-        if(changed) {
-            const char* desc = AKSynthOneDSPKernel::parameterCStr((AKSynthOneParameter)i);
-            printf("AKSynthOneDSPKernel.hpp:setParameters(): #%i: %s: = %s%f\n", i, desc, changed ? "*" : " ", params[i] );
-        }
-#endif
-        p[i] = params[i];
+        setAK1Parameter((AKSynthOneParameter)i, params[i]);
     }
 }
 
 void AKSynthOneDSPKernel::setParameter(AUParameterAddress address, AUValue value) {
     const int i = (AKSynthOneParameter)address;
-    const float oldValue = p[i];
-    const bool changed = (oldValue != value);
-    if(changed) {
-        p[i] = value;
-    }
+    setAK1Parameter((AKSynthOneParameter)i, value);
 }
 
 AUValue AKSynthOneDSPKernel::getParameter(AUParameterAddress address) {
@@ -516,9 +505,7 @@ AUValue AKSynthOneDSPKernel::getParameter(AUParameterAddress address) {
     return p[i];
 }
 
-void AKSynthOneDSPKernel::startRamp(AUParameterAddress address, AUValue value, AUAudioFrameCount duration) {
-    
-}
+void AKSynthOneDSPKernel::startRamp(AUParameterAddress address, AUValue value, AUAudioFrameCount duration) {}
 
 ///DEBUG_NOTE_STATE_LOGGING (1) can cause race conditions
 void AKSynthOneDSPKernel::print_debug() {
@@ -617,23 +604,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     float* outL = (float*)outBufferListPtr->mBuffers[0].mData + bufferOffset;
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
     
-    // update lfo and portamento input parameters at 44100/512 HZ
-    monoFrequencyPort->htime = p[glide]; // htime is half-time in seconds
-    lfo1Phasor->freq = p[lfo1Rate];
-    lfo2Phasor->freq = p[lfo2Rate];
-    panOscillator->freq = p[autoPanFrequency];
-    panOscillator->amp = p[autoPanAmount];
-    bitcrush->bitdepth = p[bitCrushDepth];
-    delayL->del = p[delayTime] * 2.f + DELAY_TIME_FLOOR;
-    delayR->del = p[delayTime] * 2.f + DELAY_TIME_FLOOR;
-    delayRR->del = p[delayTime] + DELAY_TIME_FLOOR;
-    delayFillIn->del = p[delayTime] + DELAY_TIME_FLOOR;
-    delayL->feedback = p[delayFeedback];
-    delayR->feedback = p[delayFeedback];
-    *phaser0->Notch_width = p[phaserNotchWidth];
-    *phaser0->feedback_gain = p[phaserFeedback];
-    *phaser0->lfobpm = p[phaserRate];
-    
     // transition playing notes from release to off...outside render block because it's not expensive to let the release linger
     bool transitionedToOff = false;
     if (p[isMono] == 1.f) {
@@ -653,12 +623,37 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     if (transitionedToOff)
         playingNotesDidChange();
     
+    monoFrequencyPort->htime = p[glide]; // htime is half-time in seconds
+
     const float arpTempo = p[arpRate];
     const double secPerBeat = 0.5f * 0.5f * 60.f / arpTempo;
     
     // RENDER LOOP: Render one audio frame at sample rate, i.e. 44100 HZ ////////////////
     for (AUAudioFrameCount frameIndex = 0; frameIndex < frameCount; ++frameIndex) {
         
+        //PORTAMENTO
+        sp_port_compute(sp, monoFrequencyPort, &monoFrequency, &monoFrequencySmooth);
+        for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
+            if(aks1p[i].usePortamento) {
+                sp_port_compute(sp, aks1p[i].portamento, &aks1p[i].portamentoTarget, &p[i]);
+            }
+        }
+
+        lfo1Phasor->freq = p[lfo1Rate];
+        lfo2Phasor->freq = p[lfo2Rate];
+        panOscillator->freq = p[autoPanFrequency];
+        panOscillator->amp = p[autoPanAmount];
+        bitcrush->bitdepth = p[bitCrushDepth];
+        delayL->del = p[delayTime] * 2.f + DELAY_TIME_FLOOR;
+        delayR->del = p[delayTime] * 2.f + DELAY_TIME_FLOOR;
+        delayRR->del = p[delayTime] + DELAY_TIME_FLOOR;
+        delayFillIn->del = p[delayTime] + DELAY_TIME_FLOOR;
+        delayL->feedback = p[delayFeedback];
+        delayR->feedback = p[delayFeedback];
+        *phaser0->Notch_width = p[phaserNotchWidth];
+        *phaser0->feedback_gain = p[phaserFeedback];
+        *phaser0->lfobpm = p[phaserRate];
+
         // CLEAR BUFFER
         outL[frameIndex] = outR[frameIndex] = 0.f;
         
@@ -836,7 +831,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
         
         //LFO1 on [-1, 1]
-        sp_phasor_compute(sp, lfo1Phasor, nil, &lfo1);
+        sp_phasor_compute(sp, lfo1Phasor, nil, &lfo1); // sp_phasor_compute [0,1]
         if (p[lfo1Index] == 0) { // Sine
             lfo1 = sin(lfo1 * M_PI * 2.f);
         } else if (p[lfo1Index] == 1) { // Square
@@ -850,9 +845,11 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         } else if (p[lfo1Index] == 3) { // Reversed Saw
             lfo1 = (0.5f - lfo1) * 2.f;
         }
-        
+        lfo1_0_1 = 0.5f * (1.f + lfo1) * p[lfo1Amplitude];
+        lfo1_1_0 = 1.f - lfo1_0_1; // good for multiplicative
+
         //LFO2 on [-1, 1]
-        sp_phasor_compute(sp, lfo2Phasor, nil, &lfo2);
+        sp_phasor_compute(sp, lfo2Phasor, nil, &lfo2);  // sp_phasor_compute [0,1]
         if (p[lfo2Index] == 0) { // Sine
             lfo2 = sin(lfo2 * M_PI * 2.0);
         } else if (p[lfo2Index] == 1) { // Square
@@ -866,14 +863,11 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         } else if (p[lfo2Index] == 3) { // Reversed Saw
             lfo2 = (0.5f - lfo2) * 2.f;
         }
-        
-        //PORTAMENTO
-        sp_port_compute(sp, multiplierPort,    &(p[detuningMultiplier]), &detuningMultiplierSmooth);
-        sp_port_compute(sp, balancePort,       &(p[morphBalance]),       &morphBalanceSmooth);
-        sp_port_compute(sp, cutoffPort,        &(p[cutoff]),             &cutoffSmooth);
-        sp_port_compute(sp, resonancePort,     &(p[resonance]),          &resonanceSmooth);
-        sp_port_compute(sp, monoFrequencyPort, &monoFrequency,           &monoFrequencySmooth);
-        
+        lfo2_0_1 = 0.5f * (1.f + lfo2) * p[lfo2Amplitude];
+        lfo2_1_0 = 1.f - lfo2_0_1; // good for multiplicative
+        lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
+        lfo3_1_0 = 1.f - lfo3_0_1; // good for multiplicative
+
         // RENDER NoteState into (outL, outR)
         if(p[isMono] == 1.f) {
             if(monoNote->rootNoteNumber != -1 && monoNote->stage != NoteState::stageOff)
@@ -1230,20 +1224,14 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_phasor_init(sp, lfo1Phasor, 0);
     sp_phasor_create(&lfo2Phasor);
     sp_phasor_init(sp, lfo2Phasor, 0);
-    sp_port_create(&midiNotePort);
-    sp_port_init(sp, midiNotePort, 0.0);
-    sp_port_create(&multiplierPort);
-    sp_port_init(sp, multiplierPort, 0.02);
-    sp_port_create(&balancePort);
-    sp_port_init(sp, balancePort, 0.1);
-    sp_port_create(&cutoffPort);
-    sp_port_init(sp, cutoffPort, 0.05);
-    sp_port_create(&resonancePort);
-    sp_port_init(sp, resonancePort, 0.05);
     sp_bitcrush_create(&bitcrush);
     sp_bitcrush_init(sp, bitcrush);
     sp_phaser_create(&phaser0);
     sp_phaser_init(sp, phaser0);
+    sp_port_create(&midiNotePort);
+    sp_port_init(sp, midiNotePort, 0.0);
+    sp_port_create(&monoFrequencyPort);
+    sp_port_init(sp, monoFrequencyPort, 0.05f);
     *phaser0->MinNotch1Freq = 100;
     *phaser0->MaxNotch1Freq = 800;
     *phaser0->Notch_width = 1000;
@@ -1291,8 +1279,6 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     *compressor1->atk = 0.001f;
     *compressor0->rel = 0.01f;
     *compressor1->rel = 0.01f;
-    sp_port_create(&monoFrequencyPort);
-    sp_port_init(sp, monoFrequencyPort, 0.05f);
     noteStates = (NoteState*)malloc(MAX_POLYPHONY * sizeof(NoteState));
     monoNote = (NoteState*)malloc(sizeof(NoteState));
     heldNoteNumbers = (NSMutableArray<NSNumber*>*)[NSMutableArray array];
@@ -1306,6 +1292,12 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     // copy default dsp values
     for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
         const float value = parameterDefault((AKSynthOneParameter)i);
+        if(aks1p[i].usePortamento) {
+            aks1p[i].portamentoTarget = value;
+            sp_port_create(&aks1p[i].portamento);
+            sp_port_init(sp, aks1p[i].portamento, value);
+            aks1p[i].portamento->htime = PORTAMENTO_HALF_TIME;
+        }
         p[i] = value;
 #if DEBUG_DSP_LOGGING
         const char* d = AKSynthOneDSPKernel::parameterCStr((AKSynthOneParameter)i);
@@ -1323,14 +1315,17 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
 }
 
 void AKSynthOneDSPKernel::destroy() {
+    for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
+        if(aks1p[i].usePortamento) {
+            sp_port_destroy(&aks1p[i].portamento);
+        }
+    }
+    sp_port_destroy(&midiNotePort);
+    sp_port_destroy(&monoFrequencyPort);
+
     sp_ftbl_destroy(&sine);
     sp_phasor_destroy(&lfo1Phasor);
     sp_phasor_destroy(&lfo2Phasor);
-    sp_port_destroy(&midiNotePort);
-    sp_port_destroy(&multiplierPort);
-    sp_port_destroy(&balancePort);
-    sp_port_destroy(&cutoffPort);
-    sp_port_destroy(&resonancePort);
     sp_bitcrush_destroy(&bitcrush);
     sp_phaser_destroy(&phaser0);
     sp_osc_destroy(&panOscillator);
@@ -1348,7 +1343,6 @@ void AKSynthOneDSPKernel::destroy() {
     sp_crossfade_destroy(&revCrossfadeR);
     sp_compressor_destroy(&compressor0);
     sp_compressor_destroy(&compressor1);
-    sp_port_destroy(&monoFrequencyPort);
     free(noteStates);
     free(monoNote);
 }
@@ -1426,5 +1420,4 @@ std::string AKSynthOneDSPKernel::parameterFriendlyName(AKSynthOneParameter i) {
 std::string AKSynthOneDSPKernel::parameterPresetKey(AKSynthOneParameter i) {
     return aks1p[i].presetKey;
 }
-
 

@@ -111,8 +111,6 @@ extension ParentViewController {
         }
         AKLog("END----------------------------------------------------------------------")
             #endif
-        
-      
     }
     
     func saveValuesToPreset() {

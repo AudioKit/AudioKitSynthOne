@@ -23,18 +23,16 @@
 @property (nonatomic) NSArray *parameters;
 @property (nonatomic, weak) id<AKSynthOneProtocol> delegate;
 
-- (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value;
-- (float)getAK1Parameter:(AKSynthOneParameter)param;
-
-///auv3
+///auv3, not yet used
 - (void)setParameter:(AUParameterAddress)address value:(AUValue)value;
 - (AUValue)getParameter:(AUParameterAddress)address;
+- (void)createParameters;
 
+- (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value;
+- (float)getAK1Parameter:(AKSynthOneParameter)param;
 - (float)getParameterMin:(AKSynthOneParameter)param;
 - (float)getParameterMax:(AKSynthOneParameter)param;
 - (float)getParameterDefault:(AKSynthOneParameter)param;
-
-- (void)createParameters;
 
 - (void)setupWaveform:(UInt32)waveform size:(int)size;
 - (void)setWaveform:(UInt32)waveform withValue:(float)value atIndex:(UInt32)index;

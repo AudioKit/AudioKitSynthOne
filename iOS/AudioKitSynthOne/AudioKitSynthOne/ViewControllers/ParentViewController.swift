@@ -152,7 +152,6 @@ public class ParentViewController: UpdatableViewController {
         switchToChildView(.fxView, isTopView: true)
         switchToChildView(.oscView, isTopView: true) 
         switchToChildView(.adsrView, isTopView: false)
-        
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -251,8 +250,10 @@ public class ParentViewController: UpdatableViewController {
         }
         
         monoButton.callback = { value in
-            self.keyboardView.polyphonicMode = !self.monoButton.isSelected
+            let monoMode = value > 0 ? true : false
+            self.keyboardView.polyphonicMode = !monoMode
             s.setAK1Parameter(.isMono, value)
+            self.conductor.updateSingleUI(.isMono, control: self.monoButton, value: value)
         }
         
         keyboardToggle.callback = { value in
@@ -325,6 +326,13 @@ public class ParentViewController: UpdatableViewController {
         conductor.synth.stopAllNotes()
     }
     
+    override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
+        let s = conductor.synth!
+        
+        // In ParentViewController monoButton is the only UI backed by a dsp param
+        monoButton.value = s.getAK1Parameter(.isMono)
+    }
+
     // **********************************************************
     // MARK: - View Navigation/Embed Helper Methods
     // **********************************************************

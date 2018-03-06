@@ -104,11 +104,11 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(legatoModeToggle,     to: .monoIsLegato)
         conductor.bind(tempoStepper,         to: .arpRate) { param, control in
             return { value in
-                self.conductor.synth!.setAK1Parameter(.arpRate, value)
-                self.conductor.updateSingleUI(.lfo1Rate, control: control, value: value)
-                self.conductor.updateSingleUI(.lfo2Rate, control: control, value: value)
-                self.conductor.updateSingleUI(.autoPanFrequency, control: control, value: value)
-                self.conductor.updateSingleUI(.delayTime, control: control, value: value)
+                s.setAK1Parameter(.arpRate, value)
+                self.conductor.updateSingleUI(.lfo1Rate, control: nil, value: s.getAK1Parameter(.lfo1Rate))
+                self.conductor.updateSingleUI(.lfo2Rate, control: nil, value: s.getAK1Parameter(.lfo2Rate))
+                self.conductor.updateSingleUI(.autoPanFrequency, control: nil, value: s.getAK1Parameter(.autoPanFrequency))
+                self.conductor.updateSingleUI(.delayTime, control: nil, value: s.getAK1Parameter(.delayTime))
             }
         }
         
@@ -133,6 +133,5 @@ class SourceMixerViewController: SynthPanelController {
         isAudioPlotFilled = !isAudioPlotFilled
         audioPlot.shouldFill = isAudioPlotFilled
     }
-    
 }
 

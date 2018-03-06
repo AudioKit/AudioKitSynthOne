@@ -50,7 +50,6 @@ public class HeaderViewController: UpdatableViewController {
         displayLabel.isUserInteractionEnabled = true
         
         setupCallbacks()
-       
     }
     
     override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
@@ -100,8 +99,7 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Auto Pan Amp: \(value.percentageString)"
         case .autoPanFrequency:
             if conductor.syncRateToTempo {
-                displayLabel.text = "AutoPan Rate: \(Rate.fromFrequency(value))"
-                //displayLabel.text = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s"
+                displayLabel.text = "AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz"
             } else {
                 displayLabel.text = "AutoPan Rate: \(value.decimalString) Hz"
             }
@@ -128,15 +126,13 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Delay Mix: \(value.percentageString)"
         case .lfo1Rate:
             if conductor.syncRateToTempo {
-                displayLabel.text = "LFO 1 Rate: \(Rate.fromFrequency(value))"
-                //displayLabel.text = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s"
+                displayLabel.text = "LFO 1 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz"
             } else {
                 displayLabel.text = "LFO 1 Rate: \(value.decimalString) Hz"
             }
         case .lfo2Rate:
             if conductor.syncRateToTempo {
-                displayLabel.text = "LFO 2 Rate: \(Rate.fromFrequency(value))"
-                //displayLabel.text = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s"
+                displayLabel.text = "LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz"
             } else {
                 displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"
             }

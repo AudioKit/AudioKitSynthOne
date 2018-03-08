@@ -17,7 +17,9 @@
 #define SAMPLE_RATE (44100.f)
 #define RELEASE_AMPLITUDE_THRESHOLD (0.00001f)
 #define DELAY_TIME_FLOOR (0.0005f)
-#define PORTAMENTO_HALF_TIME (0.1f)
+#define AKS1_PORTAMENTO_HALF_TIME (0.1f)
+//#define AKS1_PORTAMENTO_HALF_TIME (0.5f) // try this for fun
+//#define AKS1_PORTAMENTO_HALF_TIME (1.f) // alice in wonderland
 #define DEBUG_DSP_LOGGING (0)
 #define DEBUG_NOTE_STATE_LOGGING (0)
 
@@ -119,14 +121,14 @@ struct AKSynthOneDSPKernel::NoteState {
         
         // OSC1
         sp_oscmorph_create(&oscmorph1);
-        sp_oscmorph_init(kernel->sp, oscmorph1, kernel->ft_array, NUM_FTABLES, 0);
+        sp_oscmorph_init(kernel->sp, oscmorph1, kernel->ft_array, AKS1_NUM_FTABLES, 0);
         oscmorph1->freq = 0;
         oscmorph1->amp = 0;
         oscmorph1->wtpos = 0;
         
         // OSC2
         sp_oscmorph_create(&oscmorph2);
-        sp_oscmorph_init(kernel->sp, oscmorph2, kernel->ft_array, NUM_FTABLES, 0);
+        sp_oscmorph_init(kernel->sp, oscmorph2, kernel->ft_array, AKS1_NUM_FTABLES, 0);
         oscmorph2->freq = 0;
         oscmorph2->amp = 0;
         oscmorph2->wtpos = 0;
@@ -217,13 +219,13 @@ struct AKSynthOneDSPKernel::NoteState {
         const float lfo3_1_0 = kernel->lfo3_1_0;
         
         //pitchLFO common frequency coefficient
-        float commonFrequencyCoefficient = 1.0;
+        float commonFrequencyCoefficient = 1.f;
         if (kernel->p[pitchLFO] == 1.f) {
-            commonFrequencyCoefficient = 1 + lfo1_0_1;
+            commonFrequencyCoefficient = 1.f + lfo1_0_1;
         } else if (kernel->p[pitchLFO] == 2.f) {
-            commonFrequencyCoefficient = 1 + lfo2_0_1;
+            commonFrequencyCoefficient = 1.f + lfo2_0_1;
         } else if (kernel->p[pitchLFO] == 3.f) {
-            commonFrequencyCoefficient = 1 + lfo3_0_1;
+            commonFrequencyCoefficient = 1.f + lfo3_0_1;
         }
         
         //OSC1 frequency
@@ -288,8 +290,8 @@ struct AKSynthOneDSPKernel::NoteState {
         fmOsc->indx = fmOscIndx;
         
         //ADSR
-        adsr->atk = (float)kernel->p[attackDuration];
-        adsr->rel = (float)kernel->p[releaseDuration];
+        adsr->atk = kernel->p[attackDuration];
+        adsr->rel = kernel->p[releaseDuration];
         
         //ADSR decay LFO
         float dec = kernel->p[decayDuration];
@@ -521,7 +523,7 @@ void AKSynthOneDSPKernel::print_debug() {
         
     } else {
         printf("\nplayingNotes:\n");
-        for(int i=0; i<MAX_POLYPHONY; i++) {
+        for(int i=0; i<AKS1_MAX_POLYPHONY; i++) {
             if(playingNoteStatesIndex == i)
                 printf("*");
             const int nn = noteStates[i].rootNoteNumber;
@@ -542,7 +544,7 @@ void AKSynthOneDSPKernel::resetDSP() {
     arpBeatCounter = 0;
     p[arpIsOn] = 0.f;
     monoNote->clear();
-    for(int i =0; i < MAX_POLYPHONY; i++)
+    for(int i =0; i < AKS1_MAX_POLYPHONY; i++)
         noteStates[i].clear();
     
     print_debug();
@@ -558,7 +560,7 @@ void AKSynthOneDSPKernel::stopAllNotes() {
         stopNote(60);
     } else {
         // POLY
-        for(int i=0; i<NUM_MIDI_NOTES; i++)
+        for(int i=0; i<AKS1_NUM_MIDI_NOTES; i++)
             stopNote(i);
     }
     print_debug();
@@ -623,15 +625,14 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     if (transitionedToOff)
         playingNotesDidChange();
     
-    monoFrequencyPort->htime = p[glide]; // htime is half-time in seconds
-
     const float arpTempo = p[arpRate];
     const double secPerBeat = 0.5f * 0.5f * 60.f / arpTempo;
     
     // RENDER LOOP: Render one audio frame at sample rate, i.e. 44100 HZ ////////////////
     for (AUAudioFrameCount frameIndex = 0; frameIndex < frameCount; ++frameIndex) {
-        
+
         //PORTAMENTO
+        monoFrequencyPort->htime = p[glide]; // htime is half-time in seconds
         sp_port_compute(sp, monoFrequencyPort, &monoFrequency, &monoFrequencySmooth);
         for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
             if(aks1p[i].usePortamento) {
@@ -813,7 +814,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                         AEArrayEnumeratePointers(heldNoteNumbersAE, struct NoteNumber *, noteStruct) {
                             const int baseNote = noteStruct->noteNumber;
                             const int note = baseNote + snn.noteNumber;
-                            if(note >= 0 && note < NUM_MIDI_NOTES) {
+                            if(note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
                                 turnOnKey(note, 127);
                                 arpSeqLastNotes.push_back(note);
                             }
@@ -822,7 +823,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                 } else {
                     // ARPEGGIATOR
                     const int note = snn.noteNumber;
-                    if(note >= 0 && note < NUM_MIDI_NOTES) {
+                    if(note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
                         turnOnKey(note, 127);
                         arpSeqLastNotes.push_back(note);
                     }
@@ -865,6 +866,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
         lfo2_0_1 = 0.5f * (1.f + lfo2) * p[lfo2Amplitude];
         lfo2_1_0 = 1.f - lfo2_0_1; // good for multiplicative
+        
         lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
         lfo3_1_0 = 1.f - lfo3_0_1; // good for multiplicative
 
@@ -880,7 +882,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             }
         }
         
-        ///TODO:still true?
         // NoteState render output "synthOut" is mono
         float synthOut = outL[frameIndex];
         
@@ -989,7 +990,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
 }
 
 void AKSynthOneDSPKernel::turnOnKey(int noteNumber, int velocity) {
-    if(noteNumber < 0 || noteNumber >= NUM_MIDI_NOTES)
+    if(noteNumber < 0 || noteNumber >= AKS1_NUM_MIDI_NOTES)
         return;
     
     const float frequency = tuningTableNoteToHz(noteNumber);
@@ -998,7 +999,7 @@ void AKSynthOneDSPKernel::turnOnKey(int noteNumber, int velocity) {
 
 // turnOnKey is called by render thread in "process", so access note via AEArray
 void AKSynthOneDSPKernel::turnOnKey(int noteNumber, int velocity, float frequency) {
-    if(noteNumber < 0 || noteNumber >= NUM_MIDI_NOTES)
+    if(noteNumber < 0 || noteNumber >= AKS1_NUM_MIDI_NOTES)
         return;
     initializeNoteStates();
     
@@ -1063,7 +1064,7 @@ void AKSynthOneDSPKernel::turnOnKey(int noteNumber, int velocity, float frequenc
 
 // turnOffKey is called by render thread in "process", so access note via AEArray
 void AKSynthOneDSPKernel::turnOffKey(int noteNumber) {
-    if(noteNumber < 0 || noteNumber >= NUM_MIDI_NOTES)
+    if(noteNumber < 0 || noteNumber >= AKS1_NUM_MIDI_NOTES)
         return;
     initializeNoteStates();
     if(p[isMono] == 1.f) {
@@ -1129,7 +1130,7 @@ void AKSynthOneDSPKernel::turnOffKey(int noteNumber) {
 // NOTE ON
 // startNote is not called by render thread, but turnOnKey is
 void AKSynthOneDSPKernel::startNote(int noteNumber, int velocity) {
-    if(noteNumber < 0 || noteNumber >= NUM_MIDI_NOTES)
+    if(noteNumber < 0 || noteNumber >= AKS1_NUM_MIDI_NOTES)
         return;
     
     const float frequency = tuningTableNoteToHz(noteNumber);
@@ -1139,7 +1140,7 @@ void AKSynthOneDSPKernel::startNote(int noteNumber, int velocity) {
 // NOTE ON
 // startNote is not called by render thread, but turnOnKey is
 void AKSynthOneDSPKernel::startNote(int noteNumber, int velocity, float frequency) {
-    if(noteNumber < 0 || noteNumber >= NUM_MIDI_NOTES)
+    if(noteNumber < 0 || noteNumber >= AKS1_NUM_MIDI_NOTES)
         return;
     
     NSNumber* nn = @(noteNumber);
@@ -1157,7 +1158,7 @@ void AKSynthOneDSPKernel::startNote(int noteNumber, int velocity, float frequenc
 
 // NOTE OFF...put into release mode
 void AKSynthOneDSPKernel::stopNote(int noteNumber) {
-    if(noteNumber < 0 || noteNumber >= NUM_MIDI_NOTES)
+    if(noteNumber < 0 || noteNumber >= AKS1_NUM_MIDI_NOTES)
         return;
     
     NSNumber* nn = @(noteNumber);
@@ -1173,7 +1174,7 @@ void AKSynthOneDSPKernel::stopNote(int noteNumber) {
 }
 
 void AKSynthOneDSPKernel::reset() {
-    for (int i = 0; i<MAX_POLYPHONY; i++)
+    for (int i = 0; i<AKS1_MAX_POLYPHONY; i++)
         noteStates[i].clear();
     monoNote->clear();
     resetted = true;
@@ -1218,7 +1219,7 @@ void AKSynthOneDSPKernel::handleMIDIEvent(AUMIDIEvent const& midiEvent) {
 
 void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     AKSoundpipeKernel::init(_channels, _sampleRate);
-    sp_ftbl_create(sp, &sine, FTABLE_SIZE);
+    sp_ftbl_create(sp, &sine, AKS1_FTABLE_SIZE);
     sp_gen_sine(sp, sine);
     sp_phasor_create(&lfo1Phasor);
     sp_phasor_init(sp, lfo1Phasor, 0);
@@ -1279,7 +1280,7 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     *compressor1->atk = 0.001f;
     *compressor0->rel = 0.01f;
     *compressor1->rel = 0.01f;
-    noteStates = (NoteState*)malloc(MAX_POLYPHONY * sizeof(NoteState));
+    noteStates = (NoteState*)malloc(AKS1_MAX_POLYPHONY * sizeof(NoteState));
     monoNote = (NoteState*)malloc(sizeof(NoteState));
     heldNoteNumbers = (NSMutableArray<NSNumber*>*)[NSMutableArray array];
     heldNoteNumbersAE = [[AEArray alloc] initWithCustomMapping:^void *(id item) {
@@ -1296,7 +1297,7 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
             aks1p[i].portamentoTarget = value;
             sp_port_create(&aks1p[i].portamento);
             sp_port_init(sp, aks1p[i].portamento, value);
-            aks1p[i].portamento->htime = PORTAMENTO_HALF_TIME;
+            aks1p[i].portamento->htime = AKS1_PORTAMENTO_HALF_TIME;
         }
         p[i] = value;
 #if DEBUG_DSP_LOGGING
@@ -1352,7 +1353,7 @@ void AKSynthOneDSPKernel::initializeNoteStates() {
     if(initializedNoteStates == false) {
         initializedNoteStates = true;
         // POLY INIT
-        for (int i = 0; i < MAX_POLYPHONY; i++) {
+        for (int i = 0; i < AKS1_MAX_POLYPHONY; i++) {
             NoteState& state = noteStates[i];
             state.kernel = this;
             state.init();

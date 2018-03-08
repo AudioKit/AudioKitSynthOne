@@ -20,10 +20,10 @@
 @class AEArray;
 @class AEMessageQueue;
 
-#define MAX_POLYPHONY (6)
-#define NUM_MIDI_NOTES (128)
-#define FTABLE_SIZE (4096)
-#define NUM_FTABLES (4)
+#define AKS1_MAX_POLYPHONY (6)
+#define AKS1_NUM_MIDI_NOTES (128)
+#define AKS1_FTABLE_SIZE (4096)
+#define AKS1_NUM_FTABLES (4)
 
 #ifdef __cplusplus
 
@@ -187,14 +187,14 @@ private:
     
     bool initializedNoteStates = false;
     
-    // MAX_POLYPHONY is the limit of hard-coded number of simultaneous notes to render to manage computation.
+    // AKS1_MAX_POLYPHONY is the limit of hard-coded number of simultaneous notes to render to manage computation.
     // New noteOn events will steal voices to keep this number.
-    // For now "polyphony" is constant equal to MAX_POLYPHONY, but with some refactoring we could make it dynamic.
-    const int polyphony = MAX_POLYPHONY;
+    // For now "polyphony" is constant equal to AKS1_MAX_POLYPHONY, but with some refactoring we could make it dynamic.
+    const int polyphony = AKS1_MAX_POLYPHONY;
     
     int playingNoteStatesIndex = 0;
-    sp_ftbl *ft_array[NUM_FTABLES];
-    UInt32 tbl_size = FTABLE_SIZE;
+    sp_ftbl *ft_array[AKS1_NUM_FTABLES];
+    UInt32 tbl_size = AKS1_FTABLE_SIZE;
     sp_phasor *lfo1Phasor;
     sp_phasor *lfo2Phasor;
     sp_ftbl *sine;
@@ -296,7 +296,10 @@ private:
         { reverbMix,             0, 0, 1, "reverbMix", "reverbMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayOn,               0, 0, 1, "delayOn", "delayOn", kAudioUnitParameterUnit_Generic, false, NULL},
         { delayFeedback,         0, 0.1, 0.9, "delayFeedback", "delayFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
+        
+        // review ranges of delayTime...time to rate_min/max ?
         { delayTime,             0.1, 0.5, 1.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
+        
         { delayMix,              0, 0.125, 1, "delayMix", "delayMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo2Index,             0, 0, 3, "lfo2Index", "lfo2Index", kAudioUnitParameterUnit_Generic, false, NULL},
         { lfo2Amplitude,         0.016666, 0, 1, "lfo2Amplitude", "lfo2Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -370,7 +373,7 @@ private:
         { arpSeqNoteOn15,        0, 0, 1, "arpSeqNoteOn15", "arpSeqNoteOn15" , kAudioUnitParameterUnit_Generic, false, NULL},
         { filterType,            0, 0, 2, "filterType", "filterType" , kAudioUnitParameterUnit_Generic, false, NULL},
         { phaserMix,             0, 0, 1, "phaserMix", "phaserMix" , kAudioUnitParameterUnit_Generic, true, NULL},
-        { phaserRate,            rate_min, 12, rate_max, "phaserRate", "phaserRate" , kAudioUnitParameterUnit_Hertz, true, NULL},
+        { phaserRate,            12, 12, 300, "phaserRate", "phaserRate" , kAudioUnitParameterUnit_Hertz, true, NULL},
         { phaserFeedback,        0, 0.0, 0.8, "phaserFeedback", "phaserFeedback" , kAudioUnitParameterUnit_Generic, true, NULL},
         { phaserNotchWidth,      100, 800, 1000, "phaserNotchWidth", "phaserNotchWidth" , kAudioUnitParameterUnit_Hertz, true, NULL},
         { monoIsLegato,          0, 0, 1, "monoIsLegato", "monoIsLegato" , kAudioUnitParameterUnit_Generic, false, NULL}

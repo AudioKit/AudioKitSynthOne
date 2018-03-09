@@ -17,7 +17,7 @@ public class FlatToggleButtonStyleKit : NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 43), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = true) {
+    @objc dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 43), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
@@ -31,7 +31,7 @@ public class FlatToggleButtonStyleKit : NSObject {
 
         //// Color Declarations
         let orange = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)
-        let gray = UIColor(red: 0.235, green: 0.235, blue: 0.255, alpha: 1.000)
+        let gray = UIColor(red: 0.216, green: 0.216, blue: 0.235, alpha: 1.000)
         let circleoutline = UIColor(red: 0.176, green: 0.176, blue: 0.176, alpha: 1.000)
         let colorOn = UIColor(red: 0.196, green: 0.196, blue: 0.216, alpha: 1.000)
 

@@ -426,7 +426,7 @@ public protocol AKKeyboardDelegate: class {
     func whiteKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
         if darkMode {
             whiteKeyOff = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
-            keyOnColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
+            keyOnColor = #colorLiteral(red: 0.3529411765, green: 0.3529411765, blue: 0.3725490196, alpha: 1)
         } else {
             whiteKeyOff = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             keyOnColor = keyOnUserColor
@@ -437,7 +437,7 @@ public protocol AKKeyboardDelegate: class {
     
     func topKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
         if darkMode {
-            blackKeyOff = #colorLiteral(red: 0.2370533347, green: 0.237835288, blue: 0.2605919242, alpha: 1)
+            blackKeyOff = #colorLiteral(red: 0.2156862745, green: 0.2156862745, blue: 0.2352941176, alpha: 1)
             keyOnColor = #colorLiteral(red: 0.9607843137, green: 0.5098039216, blue: 0, alpha: 1)
         } else {
             blackKeyOff = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)

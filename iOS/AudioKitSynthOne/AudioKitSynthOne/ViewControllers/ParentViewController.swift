@@ -331,7 +331,7 @@ public class ParentViewController: UpdatableViewController {
         
         // In ParentViewController monoButton is the only UI backed by a dsp param
         monoButton.value = s.getAK1Parameter(.isMono)
-        self.keyboardView.polyphonicMode = monoButton.value > 1 ? false : true
+        //self.keyboardView.polyphonicMode = monoButton.value > 1 ? false : true
     }
 
     // **********************************************************

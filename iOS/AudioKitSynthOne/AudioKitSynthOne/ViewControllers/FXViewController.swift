@@ -127,23 +127,20 @@ class FXViewController: SynthPanelController {
         conductor.bind(phaserNotchWidth,   to: .phaserNotchWidth)
         
         // there is no dsp parameter for "sync to tempo", so it cannot be bound to Conductor
+        // lfo1Rate, lfo2Rate, delayTime, and autoPanRate DO have backing dsp params, but they are dependent on syncRateToTempo, so update them
         tempoSyncToggle.callback = { value in
             DispatchQueue.main.async {
                 self.conductor.syncRateToTempo = (value == 1)
                 self.tempoSyncKnobs.forEach { $0.timeSyncMode = (value == 1) }
                 self.lfo1Rate.value = s.getAK1Parameter(.lfo1Rate)
+                self.lfo1Rate.setNeedsDisplay()
                 self.lfo2Rate.value = s.getAK1Parameter(.lfo2Rate)
+                self.lfo2Rate.setNeedsDisplay()
                 self.delayTime.value = s.getAK1Parameter(.delayTime)
+                self.delayTime.setNeedsDisplay()
                 self.autoPanRate.value = s.getAK1Parameter(.autoPanFrequency)
+                self.autoPanRate.setNeedsDisplay()
             }
         }
-    }
-    
-    override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
-        let s = conductor.synth!
-        lfo1Rate.value = s.getAK1Parameter(.lfo1Rate)
-        lfo2Rate.value = s.getAK1Parameter(.lfo2Rate)
-        delayTime.value = s.getAK1Parameter(.delayTime)
-        autoPanRate.value = s.getAK1Parameter(.autoPanFrequency)
     }
 }

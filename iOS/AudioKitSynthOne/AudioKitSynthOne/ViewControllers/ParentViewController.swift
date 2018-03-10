@@ -327,11 +327,12 @@ public class ParentViewController: UpdatableViewController {
     }
     
     override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
-        let s = conductor.synth!
-        
-        // In ParentViewController monoButton is the only UI backed by a dsp param
-        monoButton.value = s.getAK1Parameter(.isMono)
-        //self.keyboardView.polyphonicMode = monoButton.value > 1 ? false : true
+        // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
+        let isMono = conductor.synth!.getAK1Parameter(.isMono)
+        if isMono != monoButton.value {
+            monoButton.value = isMono
+            self.keyboardView.polyphonicMode = isMono > 0 ? false : true
+        }
     }
 
     // **********************************************************

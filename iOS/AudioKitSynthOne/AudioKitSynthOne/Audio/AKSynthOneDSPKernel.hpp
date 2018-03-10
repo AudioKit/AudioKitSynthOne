@@ -215,9 +215,8 @@ private:
     sp_crossfade *revCrossfadeR;
     sp_compressor *compressor0;
     sp_compressor *compressor1;
-    sp_port *midiNotePort;
-    float midiNote = 0.f;
-    float midiNoteSmooth = 0.f;
+    sp_compressor *compressor2;
+    sp_compressor *compressor3;
     sp_port *monoFrequencyPort;
     float monoFrequencySmooth = 261.6255653006f;
     float tempo = 120.f;
@@ -248,7 +247,7 @@ private:
     
     const float bpm_min = 1.f;
     const float bpm_max = 256.f;
-    const float min_division_of_beat = 1.f/64.f; // 64th note
+    const float min_division_of_beat = 1.f/64.f; // 1 bar * 64th note
     const float max_division_of_beat = 4.f * 8.f; // 8 bars * 4 beats
     const float rate_min = (bpm_min/60.f) / max_division_of_beat; // Hz 0.000520
     const float rate_max = (bpm_max/60.f) / min_division_of_beat; // Hz 273.0666
@@ -256,8 +255,8 @@ private:
         { index1,                0, 1, 1, "index1", "Index 1", kAudioUnitParameterUnit_Generic, true, NULL},
         { index2,                0, 1, 1, "index2", "Index 2", kAudioUnitParameterUnit_Generic, true, NULL},
         { morphBalance,          0, 0.5, 1, "morphBalance", "morphBalance", kAudioUnitParameterUnit_Generic, true, NULL},
-        { morph1SemitoneOffset,  -12, 0, 12, "morph1SemitoneOffset", "morph1SemitoneOffset", kAudioUnitParameterUnit_RelativeSemiTones, false, NULL},
-        { morph2SemitoneOffset,  -12, 0, 12, "morph2SemitoneOffset", "morph2SemitoneOffset", kAudioUnitParameterUnit_RelativeSemiTones, false, NULL},
+        { morph1SemitoneOffset,  -12, 0, 12, "morph1SemitoneOffset", "morph1SemitoneOffset", kAudioUnitParameterUnit_RelativeSemiTones, true, NULL},
+        { morph2SemitoneOffset,  -12, 0, 12, "morph2SemitoneOffset", "morph2SemitoneOffset", kAudioUnitParameterUnit_RelativeSemiTones, true, NULL},
         { morph1Volume,          0, 0.8, 1, "morph1Volume", "morph1Volume", kAudioUnitParameterUnit_Generic, true, NULL},
         { morph2Volume,          0, 0.8, 1, "morph2Volume", "morph2Volume", kAudioUnitParameterUnit_Generic, true, NULL},
         { subVolume,             0, 0, 1, "subVolume", "subVolume", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -275,21 +274,21 @@ private:
         { filterADSRMix,         0, 0, 1.2, "filterADSRMix", "filterADSRMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { isMono,                0, 0, 1, "isMono", "isMono", kAudioUnitParameterUnit_Generic, false, NULL},
         { glide,                 0, 0, 0.2, "glide", "glide", kAudioUnitParameterUnit_Generic, false, NULL},
-        { filterAttackDuration,  0.0005, 0.05, 2, "filterAttackDuration", "filterAttackDuration", kAudioUnitParameterUnit_Seconds, false, NULL},
-        { filterDecayDuration,   0.005, 0.05, 2, "filterDecayDuration", "filterDecayDuration", kAudioUnitParameterUnit_Seconds, false, NULL},
+        { filterAttackDuration,  0.0005, 0.05, 2, "filterAttackDuration", "filterAttackDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
+        { filterDecayDuration,   0.005, 0.05, 2, "filterDecayDuration", "filterDecayDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
         { filterSustainLevel,    0, 1, 1, "filterSustainLevel", "filterSustainLevel", kAudioUnitParameterUnit_Generic, true, NULL},
-        { filterReleaseDuration, 0, 0.5, 2, "filterReleaseDuration", "filterReleaseDuration", kAudioUnitParameterUnit_Seconds, false, NULL},
-        { attackDuration,        0.0005, 0.05, 2, "attackDuration", "attackDuration", kAudioUnitParameterUnit_Seconds, false, NULL},
-        { decayDuration,         0, 0.005, 2, "decayDuration", "decayDuration", kAudioUnitParameterUnit_Seconds, false, NULL},
+        { filterReleaseDuration, 0, 0.5, 2, "filterReleaseDuration", "filterReleaseDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
+        { attackDuration,        0.0005, 0.05, 2, "attackDuration", "attackDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
+        { decayDuration,         0, 0.005, 2, "decayDuration", "decayDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
         { sustainLevel,          0, 0.8, 1, "sustainLevel", "sustainLevel", kAudioUnitParameterUnit_Generic, true, NULL},
-        { releaseDuration,       0.004, 0.05, 2, "releaseDuration", "releaseDuration", kAudioUnitParameterUnit_Seconds, false, NULL},
+        { releaseDuration,       0.004, 0.05, 2, "releaseDuration", "releaseDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
         { morph2Detuning,        -4, 0, 4, "morph2Detuning", "morph2Detuning", kAudioUnitParameterUnit_Generic, true, NULL},
         { detuningMultiplier,    1, 1, 2, "detuningMultiplier", "detuningMultiplier", kAudioUnitParameterUnit_Generic, true, NULL},
         { masterVolume,          0, 0.5, 2, "masterVolume", "masterVolume", kAudioUnitParameterUnit_Generic, true, NULL},
-        { bitCrushDepth,         1, 24, 24, "bitCrushDepth", "bitCrushDepth", kAudioUnitParameterUnit_Generic, false, NULL},
+        { bitCrushDepth,         1, 24, 24, "bitCrushDepth", "bitCrushDepth", kAudioUnitParameterUnit_Generic, true, NULL},
         { bitCrushSampleRate,    4096, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
         { autoPanAmount,         0, 0, 1, "autoPanAmount", "autoPanAmount", kAudioUnitParameterUnit_Generic, true, NULL},
-        { autoPanFrequency,      0, 0.25, 10, "autoPanFrequency", "autoPanFrequency", kAudioUnitParameterUnit_Hertz, false, NULL},
+        { autoPanFrequency,      0, 0.25, 10, "autoPanFrequency", "autoPanFrequency", kAudioUnitParameterUnit_Hertz, true, NULL},
         { reverbOn,              0, 1, 1, "reverbOn", "reverbOn", kAudioUnitParameterUnit_Generic, false, NULL},
         { reverbFeedback,        0, 0.5, 1, "reverbFeedback", "reverbFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
         { reverbHighPass,        80, 700, 900, "reverbHighPass", "reverbHighPass", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -320,7 +319,7 @@ private:
         { arpInterval,           0, 12, 12, "arpInterval", "arpInterval", kAudioUnitParameterUnit_Generic, false, NULL},
         { arpIsOn,               0, 0, 1, "arpIsOn", "arpIsOn", kAudioUnitParameterUnit_Generic, false, NULL},
         { arpOctave,             0, 1, 3, "arpOctave", "arpOctave", kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpRate,               bpm_min, 120, bpm_max, "arpRate", "arpRate", kAudioUnitParameterUnit_BPM, false, NULL},
+        { arpRate,               bpm_min, 120, bpm_max, "arpRate", "arpRate", kAudioUnitParameterUnit_BPM, true, NULL},
         { arpIsSequencer,        0, 0, 1, "arpIsSequencer", "arpIsSequencer", kAudioUnitParameterUnit_Generic, false, NULL},
         { arpTotalSteps,         1, 4, 16, "arpTotalSteps", "arpTotalSteps" , kAudioUnitParameterUnit_Generic, false, NULL},
         { arpSeqPattern00,       -24, 0, 24, "arpSeqPattern00", "arpSeqPattern00" , kAudioUnitParameterUnit_Generic, false, NULL},

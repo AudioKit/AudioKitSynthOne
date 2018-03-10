@@ -16,7 +16,6 @@
 
 #define SAMPLE_RATE (44100.f)
 #define RELEASE_AMPLITUDE_THRESHOLD (0.00001f)
-#define DELAY_TIME_FLOOR (0.0005f)
 #define AKS1_PORTAMENTO_HALF_TIME (0.1f)
 //#define AKS1_PORTAMENTO_HALF_TIME (0.5f) // try this for fun
 //#define AKS1_PORTAMENTO_HALF_TIME (1.f) // alice in wonderland
@@ -600,7 +599,7 @@ void AKSynthOneDSPKernel::heldNotesDidChange() {
 void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount bufferOffset) {
     initializeNoteStates();
     
-    // PREPARE FOR RENDER LOOP...updates here happen at 44100/512 HZ
+    // PREPARE FOR RENDER LOOP...updates here happen at (typically) 44100/512 HZ
     
     // define buffers
     float* outL = (float*)outBufferListPtr->mBuffers[0].mData + bufferOffset;
@@ -632,25 +631,28 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     for (AUAudioFrameCount frameIndex = 0; frameIndex < frameCount; ++frameIndex) {
 
         //PORTAMENTO
-        monoFrequencyPort->htime = p[glide]; // htime is half-time in seconds
-        sp_port_compute(sp, monoFrequencyPort, &monoFrequency, &monoFrequencySmooth);
         for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
             if(aks1p[i].usePortamento) {
                 sp_port_compute(sp, aks1p[i].portamento, &aks1p[i].portamentoTarget, &p[i]);
             }
         }
+        monoFrequencyPort->htime = p[glide]; // note that p[glide] is smoothed by above
+        sp_port_compute(sp, monoFrequencyPort, &monoFrequency, &monoFrequencySmooth);
 
         lfo1Phasor->freq = p[lfo1Rate];
         lfo2Phasor->freq = p[lfo2Rate];
+        
         panOscillator->freq = p[autoPanFrequency];
         panOscillator->amp = p[autoPanAmount];
+        
         bitcrush->bitdepth = p[bitCrushDepth];
-        delayL->del = p[delayTime] * 2.f + DELAY_TIME_FLOOR;
-        delayR->del = p[delayTime] * 2.f + DELAY_TIME_FLOOR;
-        delayRR->del = p[delayTime] + DELAY_TIME_FLOOR;
-        delayFillIn->del = p[delayTime] + DELAY_TIME_FLOOR;
-        delayL->feedback = p[delayFeedback];
-        delayR->feedback = p[delayFeedback];
+        
+        delayL->del = delayR->del = p[delayTime] * 2.f;
+        delayRR->del = delayFillIn->del = p[delayTime];
+        delayL->feedback = delayR->feedback = p[delayFeedback];
+        delayRR->feedback = p[delayFeedback]; // ?
+        delayFillIn->feedback = p[delayFeedback]; // ?
+        
         *phaser0->Notch_width = p[phaserNotchWidth];
         *phaser0->feedback_gain = p[phaserFeedback];
         *phaser0->lfobpm = p[phaserRate];
@@ -920,7 +922,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
         // crossfade phaser
         if(lPhaserMix != 0.f) {
-            lPhaserMix = 1.f - lPhaserMix; // invert, baby
+            lPhaserMix = 1.f - lPhaserMix;
             sp_phaser_compute(sp, phaser0, &panL, &panR, &phaserOutL, &phaserOutR);
             phaserOutL = lPhaserMix * panL + (1.f - lPhaserMix) * phaserOutL;
             phaserOutR = lPhaserMix * panR + (1.f - lPhaserMix) * phaserOutR;
@@ -952,20 +954,23 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         butterworthHipassR->freq = p[reverbHighPass];
         sp_buthp_compute(sp, butterworthHipassL, &mixedDelayL, &butOutL);
         sp_buthp_compute(sp, butterworthHipassR, &mixedDelayR, &butOutR);
-        
-        // X2 has an AKPeakLimiter with "preGain" of 3db but we're just doing the gain here
+
+        // Gain + compression on reverb input
         butOutL *= 2.f;
         butOutR *= 2.f;
-        
-        //TODO:Put dynamics compressor here to match X2 hipass peaklimiter input to reverb per https://trello.com/c/b20JqxTR
+        float butCompressOutL = 0.f;
+        float butCompressOutR = 0.f;
+        sp_compressor_compute(sp, compressor2, &butOutL, &butCompressOutL);
+        sp_compressor_compute(sp, compressor3, &butOutR, &butCompressOutR);
+
         // reverb
         float revOutL = 0.f;
         float revOutR = 0.f;
         reverbCostello->lpfreq = 0.5f * SAMPLE_RATE;
         reverbCostello->feedback = p[reverbFeedback];
-        sp_revsc_compute(sp, reverbCostello, &butOutL, &butOutR, &revOutL, &revOutR);
+        sp_revsc_compute(sp, reverbCostello, &butCompressOutL, &butCompressOutR, &revOutL, &revOutR);
         
-        // reverb crossfade
+        // crossfade wet reverb with wet+dry delay
         float reverbCrossfadeOutL = 0.f;
         float reverbCrossfadeOutR = 0.f;
         const float reverbMixFactor = p[reverbMix] * p[reverbOn];
@@ -974,8 +979,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_crossfade_compute(sp, revCrossfadeL, &mixedDelayL, &revOutL, &reverbCrossfadeOutL);
         sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &revOutR, &reverbCrossfadeOutR);
         
-        // X2 AKPeakLimiter ==> AKDynamicsCompressor
-        // X2 has an AKPeakLimiter with preGain of 3db
+        // final compress/limit
         reverbCrossfadeOutL *= 2.f;
         reverbCrossfadeOutR *= 2.f;
         float compressorOutL = 0.f;
@@ -1229,8 +1233,6 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_bitcrush_init(sp, bitcrush);
     sp_phaser_create(&phaser0);
     sp_phaser_init(sp, phaser0);
-    sp_port_create(&midiNotePort);
-    sp_port_init(sp, midiNotePort, 0.0);
     sp_port_create(&monoFrequencyPort);
     sp_port_init(sp, monoFrequencyPort, 0.05f);
     *phaser0->MinNotch1Freq = 100;
@@ -1269,17 +1271,29 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_crossfade_init(sp, revCrossfadeL);
     sp_crossfade_init(sp, revCrossfadeR);
     sp_compressor_create(&compressor0);
-    sp_compressor_create(&compressor1);
     sp_compressor_init(sp, compressor0);
+    sp_compressor_create(&compressor1);
     sp_compressor_init(sp, compressor1);
+    sp_compressor_create(&compressor2);
+    sp_compressor_init(sp, compressor2);
+    sp_compressor_create(&compressor3);
+    sp_compressor_init(sp, compressor3);
     *compressor0->ratio = 10.f;
     *compressor1->ratio = 10.f;
+    *compressor2->ratio = 10.f;
+    *compressor3->ratio = 10.f;
     *compressor0->thresh = -3.f;
     *compressor1->thresh = -3.f;
+    *compressor2->thresh = -3.f;
+    *compressor3->thresh = -3.f;
     *compressor0->atk = 0.001f;
     *compressor1->atk = 0.001f;
+    *compressor2->atk = 0.001f;
+    *compressor3->atk = 0.001f;
     *compressor0->rel = 0.01f;
     *compressor1->rel = 0.01f;
+    *compressor2->rel = 0.01f;
+    *compressor3->rel = 0.01f;
     noteStates = (NoteState*)malloc(AKS1_MAX_POLYPHONY * sizeof(NoteState));
     monoNote = (NoteState*)malloc(sizeof(NoteState));
     heldNoteNumbers = (NSMutableArray<NSNumber*>*)[NSMutableArray array];
@@ -1321,7 +1335,6 @@ void AKSynthOneDSPKernel::destroy() {
             sp_port_destroy(&aks1p[i].portamento);
         }
     }
-    sp_port_destroy(&midiNotePort);
     sp_port_destroy(&monoFrequencyPort);
 
     sp_ftbl_destroy(&sine);
@@ -1344,6 +1357,8 @@ void AKSynthOneDSPKernel::destroy() {
     sp_crossfade_destroy(&revCrossfadeR);
     sp_compressor_destroy(&compressor0);
     sp_compressor_destroy(&compressor1);
+    sp_compressor_destroy(&compressor2);
+    sp_compressor_destroy(&compressor3);
     free(noteStates);
     free(monoNote);
 }
@@ -1397,12 +1412,10 @@ AudioUnitParameterUnit AKSynthOneDSPKernel::parameterUnit(AKSynthOneParameter i)
     return aks1p[i].unit;
 }
 
-
 ///return clamped value
 float AKSynthOneDSPKernel::parameterClamp(AKSynthOneParameter i, float inputValue) {
-    AKS1Param param = aks1p[i];
-    const float paramMin = param.min;
-    const float paramMax = param.max;
+    const float paramMin = aks1p[i].min;
+    const float paramMax = aks1p[i].max;
     const float retVal = std::min(std::max(inputValue, paramMin), paramMax);
     return retVal;
 }

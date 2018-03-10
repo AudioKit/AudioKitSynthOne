@@ -61,11 +61,15 @@ class Conductor: AKSynthOneProtocol {
                 if let inputControl = inputControl {
                     if control !== inputControl {
                         control.value = inputValue
+                        print("updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
+                    } else {
+                        print("UpdateSingleUI: duplicate control...loop avoided")
                     }
                 } else {
+                    // nil control = global update (i.e., preset, dependencies, etc.)
                     control.value = inputValue
+                    print("updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
                 }
-                AKLog("updateUI:param:\(param.rawValue), control:\(String(describing: inputControl)), value:\(inputValue)")
             }
         }
 
@@ -82,7 +86,7 @@ class Conductor: AKSynthOneProtocol {
         for address in 0..<parameterCount {
             guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: address)
                 else {
-                    AKLog("ERROR: AKSynthOneParameter enum out of range: \(address)")
+                    print("ERROR: AKSynthOneParameter enum out of range: \(address)")
                     return
             }
             let value = self.synth.getAK1Parameter(param)
@@ -108,7 +112,7 @@ class Conductor: AKSynthOneProtocol {
         do {
             try AKSettings.setSession(category: .playAndRecord, with: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
         } catch {
-            AKLog("Could not set session category.")
+            print("Could not set session category.")
         }
         
         synth = AKSynthOne()
@@ -133,7 +137,7 @@ class Conductor: AKSynthOneProtocol {
         do {
             try AudioKit.start()
         } catch {
-            AKLog("AudioKit did not start!")
+            print("AudioKit did not start!")
         }
         started = true
     }

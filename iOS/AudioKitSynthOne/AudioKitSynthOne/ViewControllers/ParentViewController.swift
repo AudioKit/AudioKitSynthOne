@@ -729,7 +729,7 @@ extension ParentViewController: AKMIDIListener  {
     // MIDI Controller input
     public func receivedMIDIController(_ controller: MIDIByte, value: MIDIByte, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
-        /// print("Channel: \(channel+1) controller: \(controller) value: \(value)")
+        /// AKLog("Channel: \(channel+1) controller: \(controller) value: \(value)")
         
         // If any MIDI Learn knobs are active, assign the CC
         DispatchQueue.main.async {
@@ -768,7 +768,7 @@ extension ParentViewController: AKMIDIListener  {
             guard channel == midiChannelIn || omniMode else { return }
             
             if Int(value) != self.presetsViewController.bankIndex {
-                print ("DIFFERENT MSB")
+                AKLog ("DIFFERENT MSB")
                 DispatchQueue.main.async {
                     self.presetsViewController.didSelectBank(index: Int(value))
                 }
@@ -821,7 +821,7 @@ extension ParentViewController: AKMIDIListener  {
     
     // MIDI Setup Change
     public func receivedMIDISetupChange() {
-        print("midi setup change, midi.inputNames: \(midi.inputNames)")
+        AKLog("midi setup change, midi.inputNames: \(midi.inputNames)")
         
         let midiInputNames = midi.inputNames
         midiInputNames.forEach { inputName in

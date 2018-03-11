@@ -61,14 +61,14 @@ class Conductor: AKSynthOneProtocol {
                 if let inputControl = inputControl {
                     if control !== inputControl {
                         control.value = inputValue
-                        print("updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
+                        //AKLog("updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
                     } else {
-                        print("UpdateSingleUI: duplicate control...loop avoided")
+                        //AKLog("UpdateSingleUI: duplicate control...loop avoided")
                     }
                 } else {
                     // nil control = global update (i.e., preset, dependencies, etc.)
                     control.value = inputValue
-                    print("updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
+                    //AKLog("updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
                 }
             }
         }
@@ -86,7 +86,7 @@ class Conductor: AKSynthOneProtocol {
         for address in 0..<parameterCount {
             guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: address)
                 else {
-                    print("ERROR: AKSynthOneParameter enum out of range: \(address)")
+                    AKLog("ERROR: AKSynthOneParameter enum out of range: \(address)")
                     return
             }
             let value = self.synth.getAK1Parameter(param)
@@ -103,8 +103,12 @@ class Conductor: AKSynthOneProtocol {
     fileprivate var started = false
     
     func start() {
-        
-        AKSettings.enableLogging = false
+        #if false
+            print("Logging is OFF")
+        #else
+            AKSettings.enableLogging = true
+            AKLog("Logging is ON")
+        #endif
         
         // Allow audio to play while the iOS device is muted.
         AKSettings.playbackWhileMuted = true
@@ -112,32 +116,37 @@ class Conductor: AKSynthOneProtocol {
         do {
             try AKSettings.setSession(category: .playAndRecord, with: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
         } catch {
-            print("Could not set session category.")
+            AKLog("Could not set session category.")
         }
+        
+        ///DEFAULT TUNING
+        #if true
+            _ = AKPolyphonicNode.tuningTable.defaultTuning()
+            AKLog("setting tuning to default 12ET")
+        #else
+            AKLog("setting tuning to custom tuning")
+            //_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav()
+            //_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 15, 19)
+            //_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111)
+            //_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23)
+            //_ = AKPolyphonicNode.tuningTable.hexany(1, 15, 45, 75)
+            //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45) // 071
+            //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81)
+            //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121)
+            //_ = AKPolyphonicNode.tuningTable.hexany(1, 45, 135, 225)
+            //_ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes()
+            //AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147])
+        #endif
         
         synth = AKSynthOne()
         synth.delegate = self
         synth.rampTime = 0.0 // Handle ramping internally instead of the ramper hack
         
-        ///DEFAULT TUNING
-        _ = AKPolyphonicNode.tuningTable.defaultTuning()
-        //_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav()
-        //_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 15, 19)
-        //_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111)
-        //_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23)
-        //_ = AKPolyphonicNode.tuningTable.hexany(1, 15, 45, 75)
-        //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45) // 071
-        //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81)
-        //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121)
-        //_ = AKPolyphonicNode.tuningTable.hexany(1, 45, 135, 225)
-        //_ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes()
-        //AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147])
-
         AudioKit.output = synth
         do {
             try AudioKit.start()
         } catch {
-            print("AudioKit did not start!")
+            AKLog("AudioKit did not start!")
         }
         started = true
     }
@@ -149,14 +158,14 @@ class Conductor: AKSynthOneProtocol {
     
     
     //MARK: - AKSynthOneProtocol
-    func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
+    func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
         DispatchQueue.main.async {
             self.updateSingleUI(param, control: nil, value: value)
         }
     }
     
     func arpBeatCounterDidChange(_ beat: Int) {
-        print ("arpBeatCounterDidChange")
+        //AKLog ("arpBeatCounterDidChange")
         DispatchQueue.main.async {
            let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
            seqVC?.updateLED(beatCounter: beat)
@@ -167,13 +176,13 @@ class Conductor: AKSynthOneProtocol {
     func heldNotesDidChange() {
         ///TODO:Route this to keyboard view controller (I'll change this so it returns the current array of held notes)
         ///TODO:See https://trello.com/c/cainbbJJ
-        //AKLog("")
+        //AKLog("Conductor.swift:heldNotesDidChange()")
     }
     
     func playingNotesDidChange() {
         ///TODO:Route this to keyboard view controller (I'll change this to return the current array of playing notes)
         ///TODO:See https://trello.com/c/lQZMyF0V
-        //AKLog("")
+        //AKLog("Conductor.swift:playingNotesDidChange")
     }
     
     // Start/Pause AK Engine (Conserve energy by turning background audio off)

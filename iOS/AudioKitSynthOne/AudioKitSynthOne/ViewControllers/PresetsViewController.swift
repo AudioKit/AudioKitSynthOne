@@ -51,7 +51,7 @@ class PresetsViewController: UIViewController {
             presetDescriptionField.text = currentPreset.userText
             categoryLabel.text = PresetCategory(rawValue: currentPreset.category)?.description()
             
-            print ("preset: \(currentPreset.name)")
+            AKLog ("preset: \(currentPreset.name)")
         }
     }
     
@@ -368,7 +368,7 @@ class PresetsViewController: UIViewController {
         // Smoothly cycle through presets if MIDI input is greater than preset count
         let currentPresetIndex = index % (presetsInBank.count)
         
-        print ("currentPresetIndex \(currentPresetIndex)")
+        AKLog ("currentPresetIndex \(currentPresetIndex)")
         
         currentPreset = presetsInBank[currentPresetIndex]
         selectCurrentPreset()

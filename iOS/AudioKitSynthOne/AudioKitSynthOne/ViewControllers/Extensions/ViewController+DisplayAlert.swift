@@ -33,7 +33,7 @@ extension UIViewController {
         }
         
         let cancelAction = UIAlertAction(title: "No", style: .default) { (action: UIAlertAction) in
-            print("User canceled")
+            AKLog("User canceled")
         }
         
         alert.addAction(cancelAction)

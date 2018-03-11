@@ -156,7 +156,7 @@ extension ParentViewController {
             setDefaultsFromAppSettings()
             
         } catch {
-            print("*** error loading")
+            AKLog("*** error loading")
         }
     }
     
@@ -164,7 +164,7 @@ extension ParentViewController {
         do {
             try Disk.save(appSettings, to: .documents, as: "settings.json")
         } catch {
-            print("error saving")
+            AKLog("error saving")
         }
     }
     
@@ -176,7 +176,7 @@ extension ParentViewController {
         do {
             try Disk.save(conductor.banks, to: .documents, as: "banks.json")
         } catch {
-            print("error saving")
+            AKLog("error saving")
         }
     }
     
@@ -196,7 +196,7 @@ extension ParentViewController {
             conductor.banks = banks
             
         } catch {
-            print("*** error loading")
+            AKLog("*** error loading")
         }
     }
     
@@ -207,7 +207,7 @@ extension ParentViewController {
         conductor.banks.append(userBank)
         
         conductor.banks.forEach {
-            print($0.name)
+            AKLog($0.name)
         }
       
         saveBankSettings()

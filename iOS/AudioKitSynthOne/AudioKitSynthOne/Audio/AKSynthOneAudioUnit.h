@@ -10,9 +10,9 @@
 
 #import <AudioKit/AKAudioUnit.h>
 #import "AKSynthOneParameter.h"
+#import "AKSynthOneProtocol.h"
 
 @class AEMessageQueue;
-@protocol AKSynthOneProtocol;
 
 @interface AKSynthOneAudioUnit : AKAudioUnit
 {
@@ -21,7 +21,7 @@
 }
 
 @property (nonatomic) NSArray *parameters;
-@property (nonatomic, weak) id<AKSynthOneProtocol> delegate;
+@property (nonatomic, weak) id<AKSynthOneProtocol> aks1Delegate;
 
 ///auv3, not yet used
 - (void)setParameter:(AUParameterAddress)address value:(AUValue)value;
@@ -45,6 +45,7 @@
 - (void)stopAllNotes;
 - (void)resetDSP;
 - (void)resetSequencer;
+
 
 - (void)paramDidChange:(AKSynthOneParameter)param value:(double)value;
 - (void)arpBeatCounterDidChange;

@@ -32,6 +32,8 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
 
     @IBOutlet weak var debugLabel: UILabel!
     
+    @objc open var delegate: AKSynthOneProtocol?
+
     public func printDebug(_ text: String) {
         debugLabel.text = text
     }
@@ -89,7 +91,7 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
 
     
     //MARK: - AKSynthOneProtocol passthroughs
-    @objc public func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
+    @objc public func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
         //delegate?.paramDidChange(param, value)
     }
     

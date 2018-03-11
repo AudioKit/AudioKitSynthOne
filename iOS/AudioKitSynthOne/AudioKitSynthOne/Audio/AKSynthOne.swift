@@ -9,13 +9,6 @@
 import Foundation
 import AudioKit
 
-@objc public protocol AKSynthOneProtocol {
-    @objc func paramDidChange(_ param: AKSynthOneParameter, _ value: Double)
-    @objc func arpBeatCounterDidChange(_ beat: Int)
-    @objc func heldNotesDidChange()
-    @objc func playingNotesDidChange()
-}
-
 @objc open class AKSynthOne: AKPolyphonicNode, AKComponent, AKSynthOneProtocol {
     
     public typealias AKAudioUnitType = AKSynthOneAudioUnit
@@ -189,7 +182,7 @@ import AudioKit
                 }
             }
             self?.internalAU?.parameters = self?.parameters
-            self?.internalAU?.delegate = self
+            self?.internalAU?.aks1Delegate = self
         }
 
         guard let tree = internalAU?.parameterTree else {
@@ -204,14 +197,13 @@ import AudioKit
             self.notifyDelegateOfParamChange(param, Double(value) )
         })
         
-//        internalAU?.parameters = parameters
-//        internalAU?.delegate = self
+        internalAU?.aks1Delegate = self
     }
 
     @objc open var delegate: AKSynthOneProtocol?
     
     internal func notifyDelegateOfParamChange(_ param: AKSynthOneParameter, _ value: Double) {
-        delegate?.paramDidChange(param, value)
+        delegate?.paramDidChange(param, value: value)
     }
     
     /// stops all notes
@@ -232,8 +224,8 @@ import AudioKit
     }
     
     //MARK: - AKSynthOneProtocol passthroughs
-    @objc public func paramDidChange(_ param: AKSynthOneParameter, _ value: Double) {
-        delegate?.paramDidChange(param, value)
+    @objc public func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
+        delegate?.paramDidChange(param, value: value)
     }
     
     @objc public func arpBeatCounterDidChange(_ beat: Int) {

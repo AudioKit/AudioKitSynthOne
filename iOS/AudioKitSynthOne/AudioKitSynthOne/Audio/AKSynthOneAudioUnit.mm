@@ -20,6 +20,7 @@
 }
 
 @synthesize parameterTree = _parameterTree;
+@synthesize aks1Delegate = _aks1Delegate;
 
 - (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value {
     _kernel.setAK1Parameter(param, value);
@@ -196,22 +197,21 @@
     };
 }
 
-// this breaks Conductor UI updates...see https://trello.com/c/BYJ81iI3
-// need to create delegate in AudioUnitViewController for extension, then we can uncomment
+
 - (void)paramDidChange:(AKSynthOneParameter)param value:(double)value {
-    //[_delegate paramDidChange:param value:value];
+    [_aks1Delegate paramDidChange:param value:value];
 }
 
 - (void)arpBeatCounterDidChange {
-    //[_delegate arpBeatCounterDidChange:_kernel.arpBeatCounter];
+    [_aks1Delegate arpBeatCounterDidChange:_kernel.arpBeatCounter];
 }
 
 - (void)heldNotesDidChange {
-    //[_delegate heldNotesDidChange];
+    [_aks1Delegate heldNotesDidChange];
 }
 
 - (void)playingNotesDidChange {
-    //[_delegate playingNotesDidChange];
+    [_aks1Delegate playingNotesDidChange];
 }
 
 @end

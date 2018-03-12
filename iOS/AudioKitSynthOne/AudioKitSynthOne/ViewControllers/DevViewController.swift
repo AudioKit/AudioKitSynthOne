@@ -31,28 +31,76 @@ class DevViewController: UpdatableViewController {
     public typealias DevTuningCallback = () -> (Void)
     
     //let tuningTable = AKPolyphonicNode.tuningTable
+
+    private typealias Frequency = Double
     
+    // 4 choose 2
+    private class func hexany(_ masterSet: [Frequency]) -> [Frequency] {
+        let A = masterSet[0]
+        let B = masterSet[1]
+        let C = masterSet[2]
+        let D = masterSet[3]
+        return [A * B, A * C, A * D, B * C, B * D, C * D]
+    }
+    
+    // 5 choose 2
+    private class func dekany(_ masterSet: [Frequency]) -> [Frequency] {
+        let A = masterSet[0]
+        let B = masterSet[1]
+        let C = masterSet[2]
+        let D = masterSet[3]
+        let E = masterSet[4]
+        return [A * B, A * C, A * D, A * E, B * C, B * D, B * E, C * D, C * E, D * E]
+    }
+    
+    // 6 choose 2
+    private class func pentadekany(_ masterSet: [Frequency]) -> [Frequency] {
+        let A = masterSet[0]
+        let B = masterSet[1]
+        let C = masterSet[2]
+        let D = masterSet[3]
+        let E = masterSet[4]
+        let F = masterSet[5]
+        return [A * B, A * C, A * D, A * E, A * F, B * C, B * D, B * E, B * F, C * D, C * E, C * F, D * E, D * F, E * F]
+    }
+
     private let tunings: [(String, DevTuningCallback)] = [
         ("12ET", {_ = AKPolyphonicNode.tuningTable.defaultTuning() } ),
         ("12 Pythagorean 12", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147]) } ),
-        ("6 hexany(1, 17, 19, 23)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23) } ),
+        ("5 (8,10,11,12,14) JI", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [8,10,11,12,14])}),
+        ("6 hexany(10, 11, 12, 14)", {_ = AKPolyphonicNode.tuningTable.hexany(10, 11, 12, 14) } ),
+        ("6 hexany(10, 11, 12, 14) inverse", {_ = AKPolyphonicNode.tuningTable.hexany(1/10, 1/11, 1/12, 1/14) } ),
         ("6 hexany(1, 3, 5, 7) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 7)  } ),
         ("6 hexany(1, 3, 5, 45) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45)  } ),// 071
+        ("6 hexany(1, 3, 5, 9)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 9) } ),
+        ("15 pentadekany(hexany(1,3,5,9))", {
+            let masterSet: [Frequency] = [1, 3, 5, 9]
+            let hexany = DevTunings.hexany(masterSet)
+            let pentadekany = DevTunings.pentadekany(hexany)
+            _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: pentadekany)
+        } ),
         ("6 hexany(1, 3, 5, 81)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81) } ),
+        ("10 dekany(1, 3, 5, 9, 81)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: DevTunings.dekany([1,3,5,9,81])) } ),
+        ("15 pentadekany(hexany(1,3,5,81))", {
+            let masterSet: [Frequency] = [1, 3, 5, 81]
+            let hexany = DevTunings.hexany(masterSet)
+            let pentadekany = DevTunings.pentadekany(hexany)
+            _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: pentadekany)
+        } ),
         ("6 hexany(1, 3, 5, 121)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121) } ),
         ("6 hexany(1, 15, 45, 75)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 15, 45, 75) } ),
-        ("6 hexany(1, 45, 135, 225)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 45, 135, 225) } ),
+        ("10 dekany(1, 15, 45, 75, 105)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: DevTunings.dekany([1,15,45,75,105]) ) } ),
+        ("6 hexany(1, 17, 19, 23)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23) } ),
+        ("6 hexany(1, 45, 135, 225)", {_ = AKPolyphonicNode.tuningTable.hexany(1,45,135,225) } ),
+        ("10 dekany(1, 45, 135, 225, 315)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: DevTunings.dekany([1,45,135,225, 315])) } ),
         ("6 hexany(3, 2.111, 5.111, 8.111)", {_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111) } ),
         ("6 hexany(3, 5, 7, 9)", {_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 7, 9) } ),
         ("6 hexany(3, 5, 15, 19)", {_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 15, 19) } ),
-        ("6 hexany(10, 11, 12, 14)", {_ = AKPolyphonicNode.tuningTable.hexany(10, 11, 12, 14) } ),
-        ("6 hexany(10, 11, 12, 14) inverse", {_ = AKPolyphonicNode.tuningTable.hexany(1/10, 1/11, 1/12, 1/14) } ),
         ("7 Highland Bagpipes", {_ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes() } ),
         ("7 MOS G:0.2641", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.2641, level: 5, murchana: 0)}),
         ("7 MOS G:0.238186", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.238186, level: 6, murchana: 0)}),
         ("7 MOS G:0.292", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.292, level: 6, murchana: 0)}),
-        ("5 (8,10,11,12,14) JI", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [8,10,11,12,14])}),
-        //        ("5 (8,10,11,12,14) inverse JI", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,16/10,16/11,16/12,16/14])})
+        //("5 (8,10,11,12,14) inverse JI", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,16/10,16/11,16/12,16/14])})
         /// From Erv Wilson.  See http://anaphoria.com/genus.pdf
         ("17 North Indian:17", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian00_17() } ),
         ("7 North Indian:Kalyan", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian01Kalyan() } ),

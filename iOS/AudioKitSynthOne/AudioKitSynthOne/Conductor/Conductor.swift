@@ -39,7 +39,7 @@ class Conductor: AKSynthOneProtocol {
         return { value in
             sharedInstance.synth.setAK1Parameter(param, value)
             sharedInstance.updateSingleUI(param, control: control, value: value)
-        }
+          }
         }
         {
         didSet {

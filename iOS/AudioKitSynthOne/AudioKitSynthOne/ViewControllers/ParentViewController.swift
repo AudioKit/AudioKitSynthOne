@@ -751,12 +751,6 @@ extension ParentViewController: AKMIDIListener  {
             } else if sustainMode {
                 sustainer.sustain(down: false)
                 sustainMode = false
-                // stop all notes not being held by midi controller
-                //                for note in 0 ... 127 {
-                //                    if !notesFromMIDI.contains(MIDINoteNumber(note)) {
-                //                        conductor.core.stop(note: MIDINoteNumber(note), channel: 0)
-                //                    }
-                //                }
             }
             
           default:

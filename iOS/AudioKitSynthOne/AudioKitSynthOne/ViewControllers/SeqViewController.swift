@@ -110,11 +110,10 @@ class SeqViewController: SynthPanelController {
         let arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
         if arpIsOn && arpIsSequencer && seqNum >= 0 {
-            //let notePosition = (beatCounter % seqNum)
             let notePosition = (beatCounter + seqNum - 1) % seqNum
 
             // TODO: REMOVE - FOR DEBUGING
-            conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(beatCounter)")
+            //conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(beatCounter)")
             
             // clear out all indicators
             arpSeqOctBoostButtons.forEach { $0.isActive = false }
@@ -129,6 +128,5 @@ class SeqViewController: SynthPanelController {
         octBoostButton.transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
         octBoostButton.value = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition)
     }
-    
 }
 

@@ -160,17 +160,16 @@ class Conductor: AKSynthOneProtocol {
     //MARK: - AKSynthOneProtocol
     func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
         DispatchQueue.main.async {
+            //AKLog("arpBeatCounterDidChange")
             self.updateSingleUI(param, control: nil, value: value)
         }
     }
     
     func arpBeatCounterDidChange(_ beat: Int) {
-        //AKLog ("arpBeatCounterDidChange")
         DispatchQueue.main.async {
-           let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
-           seqVC?.updateLED(beatCounter: beat)
+            let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
+            seqVC?.updateLED(beatCounter: beat)
         }
-        
     }
     
     func heldNotesDidChange() {

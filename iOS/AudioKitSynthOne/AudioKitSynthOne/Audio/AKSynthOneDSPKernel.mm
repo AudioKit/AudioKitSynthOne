@@ -475,8 +475,9 @@ AKSynthOneDSPKernel::~AKSynthOneDSPKernel() = default;
 //efficient parameter setter/getter method
 void AKSynthOneDSPKernel::setAK1Parameter(AKSynthOneParameter param, float inputValue) {
     const float value = parameterClamp(param, inputValue);
-    if(aks1p[param].usePortamento) {
-        aks1p[param].portamentoTarget = value;
+    AKS1Param& s = aks1p[param];
+    if(s.usePortamento) {
+        s.portamentoTarget = value;
     } else {
         p[param] = value;
     }
@@ -487,7 +488,11 @@ void AKSynthOneDSPKernel::setAK1Parameter(AKSynthOneParameter param, float input
 }
 
 float AKSynthOneDSPKernel::getAK1Parameter(AKSynthOneParameter param) {
-    return p[param];
+    AKS1Param& s = aks1p[param];
+    if(s.usePortamento)
+        return s.portamentoTarget;
+    else
+        return p[param];
 }
 
 void AKSynthOneDSPKernel::setParameters(float params[]) {
@@ -573,26 +578,44 @@ void AKSynthOneDSPKernel::handleTempoSetting(float currentTempo) {
 
 ///can be called from within the render loop
 void AKSynthOneDSPKernel::beatCounterDidChange() {
+    const BOOL status =
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
                                               audioUnit,
                                               @selector(arpBeatCounterDidChange),
                                               AEArgumentNone);
+    if (!status) {
+#if DEBUG_DSP_LOGGING
+        printf("AKSynthOneDSPKernel::beatCounterDidChange: AEMessageQueuePerformSelectorOnMainThread FAILED!\n");
+#endif
+    }
 }
 
 ///can be called from within the render loop
 void AKSynthOneDSPKernel::playingNotesDidChange() {
+    const BOOL status =
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
                                               audioUnit,
                                               @selector(playingNotesDidChange),
                                               AEArgumentNone);
+    if (!status) {
+#if DEBUG_DSP_LOGGING
+        printf("AKSynthOneDSPKernel::playingNotesDidChange: AEMessageQueuePerformSelectorOnMainThread FAILED!\n");
+#endif
+    }
 }
 
 ///can be called from within the render loop
 void AKSynthOneDSPKernel::heldNotesDidChange() {
+    const BOOL status =
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
                                               audioUnit,
                                               @selector(heldNotesDidChange),
                                               AEArgumentNone);
+    if (!status) {
+#if DEBUG_DSP_LOGGING
+        printf("AKSynthOneDSPKernel::heldNotesDidChange: AEMessageQueuePerformSelectorOnMainThread FAILED!\n");
+#endif
+    }
 }
 
 //MARK: PROCESS

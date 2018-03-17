@@ -285,7 +285,7 @@ private:
         { morph2Detuning,        -4, 0, 4, "morph2Detuning", "morph2Detuning", kAudioUnitParameterUnit_Generic, true, NULL},
         { detuningMultiplier,    1, 1, 2, "detuningMultiplier", "detuningMultiplier", kAudioUnitParameterUnit_Generic, true, NULL},
         { masterVolume,          0, 0.5, 2, "masterVolume", "masterVolume", kAudioUnitParameterUnit_Generic, true, NULL},
-        { bitCrushDepth,         1, 24, 24, "bitCrushDepth", "bitCrushDepth", kAudioUnitParameterUnit_Generic, true, NULL},
+        { bitCrushDepth,         1, 24, 24, "bitCrushDepth", "bitCrushDepth", kAudioUnitParameterUnit_Generic, false, NULL},
         { bitCrushSampleRate,    4096, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
         { autoPanAmount,         0, 0, 1, "autoPanAmount", "autoPanAmount", kAudioUnitParameterUnit_Generic, true, NULL},
         { autoPanFrequency,      0, 0.25, 10, "autoPanFrequency", "autoPanFrequency", kAudioUnitParameterUnit_Hertz, true, NULL},
@@ -296,7 +296,6 @@ private:
         { delayOn,               0, 0, 1, "delayOn", "delayOn", kAudioUnitParameterUnit_Generic, false, NULL},
         { delayFeedback,         0, 0.1, 0.9, "delayFeedback", "delayFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
         
-        // review ranges of delayTime...time to rate_min/max ?
         { delayTime,             0.1, 0.5, 1.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
         
         { delayMix,              0, 0.125, 1, "delayMix", "delayMix", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -319,7 +318,7 @@ private:
         { arpInterval,           0, 12, 12, "arpInterval", "arpInterval", kAudioUnitParameterUnit_Generic, false, NULL},
         { arpIsOn,               0, 0, 1, "arpIsOn", "arpIsOn", kAudioUnitParameterUnit_Generic, false, NULL},
         { arpOctave,             0, 1, 3, "arpOctave", "arpOctave", kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpRate,               bpm_min, 120, bpm_max, "arpRate", "arpRate", kAudioUnitParameterUnit_BPM, true, NULL},
+        { arpRate,               bpm_min, 120, bpm_max, "arpRate", "arpRate", kAudioUnitParameterUnit_BPM, false, NULL},
         { arpIsSequencer,        0, 0, 1, "arpIsSequencer", "arpIsSequencer", kAudioUnitParameterUnit_Generic, false, NULL},
         { arpTotalSteps,         1, 4, 16, "arpTotalSteps", "arpTotalSteps" , kAudioUnitParameterUnit_Generic, false, NULL},
         { arpSeqPattern00,       -24, 0, 24, "arpSeqPattern00", "arpSeqPattern00" , kAudioUnitParameterUnit_Generic, false, NULL},
@@ -372,7 +371,7 @@ private:
         { arpSeqNoteOn15,        0, 0, 1, "arpSeqNoteOn15", "arpSeqNoteOn15" , kAudioUnitParameterUnit_Generic, false, NULL},
         { filterType,            0, 0, 2, "filterType", "filterType" , kAudioUnitParameterUnit_Generic, false, NULL},
         { phaserMix,             0, 0, 1, "phaserMix", "phaserMix" , kAudioUnitParameterUnit_Generic, true, NULL},
-        { phaserRate,            12, 12, 300, "phaserRate", "phaserRate" , kAudioUnitParameterUnit_Hertz, true, NULL},
+        { phaserRate,            1, 12, 300, "phaserRate", "phaserRate" , kAudioUnitParameterUnit_Hertz, true, NULL},
         { phaserFeedback,        0, 0.0, 0.8, "phaserFeedback", "phaserFeedback" , kAudioUnitParameterUnit_Generic, true, NULL},
         { phaserNotchWidth,      100, 800, 1000, "phaserNotchWidth", "phaserNotchWidth" , kAudioUnitParameterUnit_Hertz, true, NULL},
         { monoIsLegato,          0, 0, 1, "monoIsLegato", "monoIsLegato" , kAudioUnitParameterUnit_Generic, false, NULL}

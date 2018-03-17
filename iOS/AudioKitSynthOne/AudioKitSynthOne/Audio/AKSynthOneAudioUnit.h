@@ -46,7 +46,7 @@
 - (void)resetDSP;
 - (void)resetSequencer;
 
-
+// protected...called by DSP.  This audiounit will call out to delegate "aks1Delegate"
 - (void)paramDidChange:(AKSynthOneParameter)param value:(double)value;
 - (void)arpBeatCounterDidChange;
 - (void)heldNotesDidChange;

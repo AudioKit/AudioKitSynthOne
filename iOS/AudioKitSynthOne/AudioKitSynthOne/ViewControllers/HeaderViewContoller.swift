@@ -15,6 +15,7 @@ protocol HeaderDelegate {
     func nextPresetPressed()
     func savePresetPressed()
     func randomPresetPressed()
+    func panicPressed()
     func devPressed()
 }
 
@@ -213,10 +214,7 @@ public class HeaderViewController: UpdatableViewController {
     func setupCallbacks() {
         
         panicButton.callback = { _ in
-            //conductor.synth.reset() // kinder, gentler panic
-            self.conductor.synth.resetDSP() // nuclear panic option
-            
-            // TODO: turn off held notes on keybaord
+            self.headerDelegate?.panicPressed()
         }
         
         saveButton.callback = { _ in

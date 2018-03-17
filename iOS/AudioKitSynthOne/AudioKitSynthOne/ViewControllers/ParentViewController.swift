@@ -534,6 +534,14 @@ extension ParentViewController: HeaderDelegate {
     func savePresetPressed() {
         presetsViewController.editPressed()
     }
+    
+    func panicPressed() {
+        //conductor.synth.reset() // kinder, gentler panic
+        self.conductor.synth.resetDSP() // nuclear panic option
+        
+        // Turn off held notes on keybaord
+        keyboardView.allNotesOff()
+    }
 }
 
 // **************************************************

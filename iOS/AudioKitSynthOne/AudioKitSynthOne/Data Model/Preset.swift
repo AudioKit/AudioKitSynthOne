@@ -101,7 +101,7 @@ class Preset: Codable {
     var arpOctave = 1.0
     var arpRate = 120.0
     var arpIsSequencer = false
-    var arpTotalSteps = 7.0
+    var arpTotalSteps = 8.0
     
     // Author
     var author = ""

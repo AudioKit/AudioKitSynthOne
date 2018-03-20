@@ -74,6 +74,8 @@ public class HeaderViewController: UpdatableViewController {
         case .glide:
             displayLabel.text = "Glide: \(value)"
         case .cutoff, .resonance:
+            // displayLabel.text = "Cutoff: \(conductor.synth.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(Double.scaleRangeZeroToOne(conductor.synth.getAK1Parameter(.resonance), rangeMin: 0, rangeMax: 0.97).percentageString)"
+            
             displayLabel.text = "Cutoff: \(conductor.synth.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(conductor.synth.getAK1Parameter(.resonance).decimalString)"
         case .subVolume:
             displayLabel.text = "Sub Mix: \(value.percentageString)"
@@ -125,11 +127,11 @@ public class HeaderViewController: UpdatableViewController {
          
         case .delayMix:
             displayLabel.text = "Delay Mix: \(value.percentageString)"
-        case .lfo1Rate:
+        case .lfo1Rate, .lfo1Amplitude:
             if conductor.syncRateToTempo {
-                displayLabel.text = "LFO 1 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz"
+                displayLabel.text = "LFO1 Rate: \(Rate.fromFrequency(conductor.synth.getAK1Parameter(.lfo1Rate))), LFO1 Amp: \(value.percentageString)"
             } else {
-                displayLabel.text = "LFO 1 Rate: \(value.decimalString) Hz"
+                displayLabel.text = "LFO1 Rate: \(conductor.synth.getAK1Parameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(value.percentageString)"
             }
         case .lfo2Rate:
             if conductor.syncRateToTempo {
@@ -137,8 +139,6 @@ public class HeaderViewController: UpdatableViewController {
             } else {
                 displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"
             }
-        case .lfo1Amplitude:
-            displayLabel.text = "LFO 1 Amp: \(value.percentageString)"
         case .lfo2Amplitude:
             displayLabel.text = "LFO 2 Amp: \(value.percentageString)"
         case .cutoffLFO:

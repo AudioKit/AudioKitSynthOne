@@ -175,7 +175,13 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Phaser Feedback: \(value.decimalString)"
         case .phaserNotchWidth:
             displayLabel.text = "Phaser Notch Width: \(value.decimalString)"
-
+        case .arpInterval:
+            displayLabel.text = "Arp Interval: \(Int(value))"
+        case .arpIsOn:
+            displayLabel.text = value == 1 ? "Arpeggiator/Sequencer On" : "Arpeggiator/Sequencer Off"
+        case .arpIsSequencer:
+            displayLabel.text = value == 1 ? "Sequencer Mode" : "Arpeggiator Mode"
+            
         default:
             _ = 0
             // do nothing

@@ -130,6 +130,30 @@ class TouchPadViewController: SynthPanelController {
         createParticles()
     }
     
+    override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
+        
+        switch param {
+        case .cutoff:
+            //cutoff = value
+            break
+        case .resonance:
+            //rez = value
+            break
+        case .lfo1Amplitude:
+            //lfoAmp = value
+            break
+        case .lfo1Rate:
+            //lfoRate = value
+            break
+        default:
+            _ = 0
+            // do nothing
+        }
+        
+        touchPad1.setNeedsDisplay()
+        touchPad2.setNeedsDisplay()
+    }
+    
     func resetTouchPad1() {
         self.conductor.synth.setAK1Parameter(.lfo1Rate, self.lfoRate)
         self.conductor.synth.setAK1Parameter(.lfo1Amplitude, self.lfoAmp)

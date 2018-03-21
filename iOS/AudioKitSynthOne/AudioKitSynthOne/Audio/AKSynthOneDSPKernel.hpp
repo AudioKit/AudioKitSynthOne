@@ -246,7 +246,7 @@ private:
     AEArray* heldNoteNumbersAE;
     
     const float bpm_min = 1.f;
-    const float bpm_max = 256.f;
+    const float bpm_max = 220.f;
     const float min_division_of_beat = 1.f/64.f; // 1 bar * 64th note
     const float max_division_of_beat = 4.f * 8.f; // 8 bars * 4 beats
     const float rate_min = (bpm_min/60.f) / max_division_of_beat; // Hz 0.000520

@@ -54,6 +54,9 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
+        
+        let s = conductor.synth!
+        
         switch param {
         case .index1:
             displayLabel.text = "OSC1 Morph: \(value.decimalString)"
@@ -76,7 +79,7 @@ public class HeaderViewController: UpdatableViewController {
         case .cutoff, .resonance:
             // displayLabel.text = "Cutoff: \(conductor.synth.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(Double.scaleRangeZeroToOne(conductor.synth.getAK1Parameter(.resonance), rangeMin: 0, rangeMax: 0.97).percentageString)"
             
-            displayLabel.text = "Cutoff: \(conductor.synth.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(conductor.synth.getAK1Parameter(.resonance).decimalString)"
+            displayLabel.text = "Cutoff: \(s.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(s.getAK1Parameter(.resonance).decimalString)"
         case .subVolume:
             displayLabel.text = "Sub Mix: \(value.percentageString)"
         case .fmVolume:
@@ -129,9 +132,9 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Delay Mix: \(value.percentageString)"
         case .lfo1Rate, .lfo1Amplitude:
             if conductor.syncRateToTempo {
-                displayLabel.text = "LFO1 Rate: \(Rate.fromFrequency(conductor.synth.getAK1Parameter(.lfo1Rate))), LFO1 Amp: \(value.percentageString)"
+                displayLabel.text = "LFO1 Rate: \(Rate.fromFrequency(s.getAK1Parameter(.lfo1Rate))), LFO1 Amp: \(s.getAK1Parameter(.lfo1Amplitude).percentageString)"
             } else {
-                displayLabel.text = "LFO1 Rate: \(conductor.synth.getAK1Parameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(value.percentageString)"
+                displayLabel.text = "LFO1 Rate: \(s.getAK1Parameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getAK1Parameter(.lfo1Amplitude).percentageString)"
             }
         case .lfo2Rate:
             if conductor.syncRateToTempo {

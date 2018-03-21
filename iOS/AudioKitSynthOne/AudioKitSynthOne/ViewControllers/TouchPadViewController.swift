@@ -88,7 +88,8 @@ class TouchPadViewController: SynthPanelController {
                 self.resetTouchPad1()
             }
             
-            c.updateAllUI()
+            c.updateSingleUI(.lfo1Rate, control: nil, value: s.getAK1Parameter(.lfo1Rate))
+            c.updateSingleUI(.lfo1Amplitude, control: nil, value: s.getAK1Parameter(.lfo1Amplitude))
         }
         
         
@@ -124,7 +125,8 @@ class TouchPadViewController: SynthPanelController {
                self.resetTouchPad2()
             }
             
-            c.updateAllUI()
+            c.updateSingleUI(.cutoff, control: nil, value: s.getAK1Parameter(.cutoff))
+            c.updateSingleUI(.resonance, control: nil, value: s.getAK1Parameter(.resonance))
         }
         
         createParticles()

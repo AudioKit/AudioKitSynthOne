@@ -45,19 +45,12 @@ class TouchPadViewController: SynthPanelController {
         // TouchPad 2
         touchPad2.horizontalRange = s.getParameterRange(.cutoff)
         touchPad2.horizontalTaper = 4.04
+        touchPad2.verticalRange = 0...0.75 // account for 0.75 Rez limit in Alpha
         
         cutoff = s.getAK1Parameter(.cutoff)
         rez = s.getAK1Parameter(.resonance)
         let pad2X = cutoff.normalized(from: touchPad2.horizontalRange, taper: touchPad2.horizontalTaper)
         touchPad2.resetToPosition(pad2X, rez)
-        
-        // bindings
-        snapToggle.callback = { value in
-            if value == 1 {
-                // Snapback TouchPad1
-                self.resetTouchPad1()
-            }
-        }
         
         touchPad1.callback = { horizontal, vertical, touchesBegan in
             

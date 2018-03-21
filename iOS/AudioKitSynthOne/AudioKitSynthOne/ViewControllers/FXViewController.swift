@@ -82,9 +82,9 @@ class FXViewController: SynthPanelController {
         delayTime.range = s.getParameterRange(.delayTime)
 
         lfo1Rate.range = s.getParameterRange(.lfo1Rate)
-        lfo1Rate.taper = 3
+        lfo1Rate.taper = 4.5
         lfo2Rate.range = s.getParameterRange(.lfo2Rate)
-        lfo2Rate.taper = 3
+        lfo2Rate.taper = 4.5
         
         phaserMix.range = s.getParameterRange(.phaserMix)
         phaserRate.range = s.getParameterRange(.phaserRate)

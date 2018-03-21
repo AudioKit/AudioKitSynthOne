@@ -63,11 +63,11 @@ public class HeaderViewController: UpdatableViewController {
         case .index2:
             displayLabel.text = "OSC2 Morph: \(value.decimalString)"
         case .morph1SemitoneOffset:
-            displayLabel.text = "DCO1: \(value) semitones"
+            displayLabel.text = "DCO1: \(Int(value)) semitones"
         case .morph2SemitoneOffset:
-            displayLabel.text = "DCO2: \(value) semitones"
+            displayLabel.text = "DCO2: \(Int(value)) semitones"
         case .morph2Detuning:
-            displayLabel.text = "DCO2 Detune: \(value.decimalString) x Hz"
+            displayLabel.text = "DCO2 Detune: \(value.decimalString)Hz"
         case .morphBalance:
             displayLabel.text = "DCO Mix: \(value.decimalString)"
         case .morph1Volume:
@@ -75,7 +75,7 @@ public class HeaderViewController: UpdatableViewController {
         case .morph2Volume:
             displayLabel.text = "DCO2 Vol: \(value.percentageString)"
         case .glide:
-            displayLabel.text = "Glide: \(value)"
+            displayLabel.text = "Glide: \(value.decimalString)"
         case .cutoff, .resonance:
             // displayLabel.text = "Cutoff: \(conductor.synth.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(Double.scaleRangeZeroToOne(conductor.synth.getAK1Parameter(.resonance), rangeMin: 0, rangeMax: 0.97).percentageString)"
             
@@ -102,7 +102,7 @@ public class HeaderViewController: UpdatableViewController {
         case .bitCrushSampleRate:
             displayLabel.text = "Downsample Rate: \(value.decimalString)"
         case .autoPanAmount:
-            displayLabel.text = "Auto Pan Amp: \(value.percentageString)"
+            displayLabel.text = "AutoPan Amp: \(value.percentageString)"
         case .autoPanFrequency:
             if conductor.syncRateToTempo {
                 displayLabel.text = "AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz"

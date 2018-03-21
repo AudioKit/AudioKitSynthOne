@@ -1,8 +1,8 @@
 //
-//  AKSynthOneDSPKernel.m
+//  AKSynthOneDSPKernel.mm
 //  AudioKitSynthOne
 //
-//  Created by Marcus W. Hobbs on 1/27/18.
+//  Created by Marcus W. Hobbs aka Marcus Satellite on 1/27/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
@@ -22,12 +22,6 @@
 #define DEBUG_DSP_LOGGING (0)
 #define DEBUG_NOTE_STATE_LOGGING (0)
 
-/*
-// Convert absolute 12ET note number to frequency
-static inline double etNNToHz(int noteNumber) {
-    return 440.f * exp2((noteNumber - 69.f)/12.f);
-}
- */
 
 // Relative note number to frequency
 static inline float nnToHz(float noteNumber) {
@@ -35,10 +29,9 @@ static inline float nnToHz(float noteNumber) {
 }
 
 // Convert note number to [possibly] microtonal frequency.  12ET is the default.
-// Profiling shows this is ~0% of CPU on a device
+// Profiling shows that while this takes a special Swift lock it still resolves to ~0% of CPU on a device
 static inline double tuningTableNoteToHz(int noteNumber) {
     return [AKPolyphonicNode.tuningTable frequencyForNoteNumber:noteNumber];
-    // return noteToHz(noteNumber);
 }
 
 

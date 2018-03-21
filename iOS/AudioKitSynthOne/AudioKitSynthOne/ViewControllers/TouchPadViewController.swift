@@ -132,26 +132,31 @@ class TouchPadViewController: SynthPanelController {
     
     override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
         
+        // Update TouchPad positions if corresponding knobs are turned
         switch param {
-        case .cutoff:
-            //cutoff = value
-            break
-        case .resonance:
-            //rez = value
-            break
-        case .lfo1Amplitude:
-            //lfoAmp = value
-            break
+            
         case .lfo1Rate:
-            //lfoRate = value
-            break
+            let x = value.normalized(from: self.touchPad1.horizontalRange,
+                                     taper: self.touchPad1.horizontalTaper)
+            self.touchPad1.updateTouchPoint(x, Double(self.touchPad1.y))
+        
+        case .lfo1Amplitude:
+            self.touchPad1.updateTouchPoint(Double(self.touchPad1.x), value)
+       
+        case .cutoff:
+            let x = value.normalized(from: self.touchPad2.horizontalRange,
+                                     taper: self.touchPad2.horizontalTaper)
+            self.touchPad2.updateTouchPoint(x, Double(self.touchPad2.y))
+            
+        case .resonance:
+            self.touchPad2.updateTouchPoint(Double(self.touchPad2.x), value)
+ 
+          
         default:
             _ = 0
             // do nothing
         }
         
-        touchPad1.setNeedsDisplay()
-        touchPad2.setNeedsDisplay()
     }
     
     func resetTouchPad1() {

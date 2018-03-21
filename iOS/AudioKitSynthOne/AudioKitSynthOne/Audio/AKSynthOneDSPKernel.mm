@@ -995,19 +995,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_crossfade_compute(sp, revCrossfadeL, &mixedDelayL, &revOutL, &reverbCrossfadeOutL);
         sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &revOutR, &reverbCrossfadeOutR);
         
-#if 0
-        // final compress/limit
-        reverbCrossfadeOutL *= 2.f;
-        reverbCrossfadeOutR *= 2.f;
-        float compressorOutL = 0.f;
-        float compressorOutR = 0.f;
-        sp_compressor_compute(sp, compressor0, &reverbCrossfadeOutL, &compressorOutL);
-        sp_compressor_compute(sp, compressor1, &reverbCrossfadeOutR, &compressorOutR);
-        
-        // MASTER
-        outL[frameIndex] = compressorOutL * p[masterVolume];
-        outR[frameIndex] = compressorOutR * p[masterVolume];
-#else
         // final compress/limit
         reverbCrossfadeOutL *= (2.f * p[masterVolume]);
         reverbCrossfadeOutR *= (2.f * p[masterVolume]);
@@ -1019,7 +1006,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // MASTER
         outL[frameIndex] = compressorOutL;
         outR[frameIndex] = compressorOutR;
-#endif
     }
 }
 

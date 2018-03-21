@@ -22,10 +22,10 @@ protocol HeaderDelegate {
 public class HeaderViewController: UpdatableViewController {
     
     enum LfoValue: Int  {
-        case Off
+        case OFF
         case LFO1
         case LFO2
-        case Both
+        case BOTH
     }
     
     @IBOutlet weak var displayLabel: UILabel!

@@ -38,8 +38,8 @@ class TouchPadViewController: SynthPanelController {
         touchPad1.horizontalTaper = 4.5
         
         lfoRate = s.getAK1Parameter(.lfo1Rate)
+        let pad1X = lfoRate.normalized(from: touchPad1.horizontalRange, taper: touchPad1.horizontalTaper)
         lfoAmp = s.getAK1Parameter(.lfo1Amplitude)
-        let pad1X = cutoff.normalized(from: touchPad1.horizontalRange, taper: touchPad1.horizontalTaper)
         touchPad1.resetToPosition(pad1X, lfoAmp)
         
         // TouchPad 2
@@ -88,7 +88,8 @@ class TouchPadViewController: SynthPanelController {
                 self.resetTouchPad1()
             }
             
-            c.updateAllUI()
+            c.updateSingleUI(.lfo1Rate, control: nil, value: s.getAK1Parameter(.lfo1Rate))
+            c.updateSingleUI(.lfo1Amplitude, control: nil, value: s.getAK1Parameter(.lfo1Amplitude))
         }
         
         
@@ -124,7 +125,8 @@ class TouchPadViewController: SynthPanelController {
                self.resetTouchPad2()
             }
             
-            c.updateAllUI()
+            c.updateSingleUI(.cutoff, control: nil, value: s.getAK1Parameter(.cutoff))
+            c.updateSingleUI(.resonance, control: nil, value: s.getAK1Parameter(.resonance))
         }
         
         createParticles()
@@ -163,7 +165,7 @@ class TouchPadViewController: SynthPanelController {
         self.conductor.synth.setAK1Parameter(.lfo1Rate, self.lfoRate)
         self.conductor.synth.setAK1Parameter(.lfo1Amplitude, self.lfoAmp)
         let x = self.lfoRate.normalized(from: self.touchPad1.horizontalRange,
-                                       taper: self.touchPad1.horizontalTaper)
+                                        taper: self.touchPad1.horizontalTaper)
         self.touchPad1.resetToPosition(x, self.lfoAmp)
     }
     
@@ -171,7 +173,7 @@ class TouchPadViewController: SynthPanelController {
         self.conductor.synth.setAK1Parameter(.cutoff, self.cutoff)
         self.conductor.synth.setAK1Parameter(.resonance, self.rez)
         let x = self.cutoff.normalized(from: self.touchPad2.horizontalRange,
-                                               taper: self.touchPad2.horizontalTaper)
+                                       taper: self.touchPad2.horizontalTaper)
         self.touchPad2.resetToPosition(x, self.rez)
     }
     

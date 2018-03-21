@@ -245,12 +245,16 @@ private:
     NSMutableArray<NSNumber*>* heldNoteNumbers;
     AEArray* heldNoteNumbersAE;
     
+    
+    // These expressions come from Rate.swift which is used for beat sync
+    const float minutesPerSecond = 1.f / 60.f;
+    const float beatsPerBar = 4.f;
     const float bpm_min = 1.f;
     const float bpm_max = 200.f;
-    const float min_division_of_beat = 1.f/64.f; // 1 bar * 64th note
-    const float max_division_of_beat = 4.f * 8.f; // 8 bars * 4 beats
-    const float rate_min = (bpm_min/60.f) / max_division_of_beat; // Hz 0.000520
-    const float rate_max = (bpm_max/60.f) / min_division_of_beat; // Hz 273.0666 // Should be 53.33 Hz
+    const float bars_min = 1.f / 64.f;
+    const float bars_max = 8.f;
+    const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) );
+    const float rate_max = 1.f / ( (beatsPerBar * bars_min) / (bpm_max * minutesPerSecond) );
     AKS1Param aks1p[AKSynthOneParameter::AKSynthOneParameterCount] = {
         { index1,                0, 1, 1, "index1", "Index 1", kAudioUnitParameterUnit_Generic, true, NULL},
         { index2,                0, 1, 1, "index2", "Index 2", kAudioUnitParameterUnit_Generic, true, NULL},

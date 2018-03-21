@@ -250,7 +250,7 @@ private:
     const float min_division_of_beat = 1.f/64.f; // 1 bar * 64th note
     const float max_division_of_beat = 4.f * 8.f; // 8 bars * 4 beats
     const float rate_min = (bpm_min/60.f) / max_division_of_beat; // Hz 0.000520
-    const float rate_max = (bpm_max/60.f) / min_division_of_beat; // Hz 273.0666 // Should be 53.33 Hz
+    const float rate_max = 53.33; // Hz 273.0666 // Should be 53.33 Hz
     AKS1Param aks1p[AKSynthOneParameter::AKSynthOneParameterCount] = {
         { index1,                0, 1, 1, "index1", "Index 1", kAudioUnitParameterUnit_Generic, true, NULL},
         { index2,                0, 1, 1, "index2", "Index 2", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -269,7 +269,7 @@ private:
         { lfo1Amplitude,         0, 0, 1, "lfo1Amplitude", "lfo1Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo1Rate,              rate_min, 0.25, rate_max, "lfo1Rate", "lfo1Rate", kAudioUnitParameterUnit_Rate, true, NULL},
         { cutoff,                64, 20000, 22050, "cutoff", "cutoff", kAudioUnitParameterUnit_Hertz, true, NULL},
-        { resonance,             0, 0.1, 0.96, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},
+        { resonance,             0, 0.1, 0.75, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},
         { filterMix,             0, 1, 1, "filterMix", "filterMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { filterADSRMix,         0, 0, 1.2, "filterADSRMix", "filterADSRMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { isMono,                0, 0, 1, "isMono", "isMono", kAudioUnitParameterUnit_Generic, false, NULL},

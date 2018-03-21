@@ -45,7 +45,6 @@ class TouchPadViewController: SynthPanelController {
         // TouchPad 2
         touchPad2.horizontalRange = s.getParameterRange(.cutoff)
         touchPad2.horizontalTaper = 4.04
-        touchPad2.verticalRange = 0...0.75 // account for 0.75 Rez limit in Alpha
         
         cutoff = s.getAK1Parameter(.cutoff)
         rez = s.getAK1Parameter(.resonance)
@@ -101,11 +100,14 @@ class TouchPadViewController: SynthPanelController {
                 self.particleEmitter2.birthRate = 1
             }
             
+            // Hack for 0.75 limit
+            let scaledVertical = Double.scaleRange(vertical, rangeMin: 0.0, rangeMax: 0.75)
+            
             // Affect parameters based on touch position
             s.setAK1Parameter(.cutoff, horizontal)
             c.updateSingleUI(.cutoff, control: nil, value: horizontal)
-            s.setAK1Parameter(.resonance, vertical)
-            c.updateSingleUI(.resonance, control: nil, value: vertical)
+            s.setAK1Parameter(.resonance, scaledVertical )
+            c.updateSingleUI(.resonance, control: nil, value: scaledVertical)
         }
         
         
@@ -144,7 +146,10 @@ class TouchPadViewController: SynthPanelController {
             self.touchPad2.updateTouchPoint(x, Double(self.touchPad2.y))
             
         case .resonance:
-            self.touchPad2.updateTouchPoint(Double(self.touchPad2.x), value)
+            // Hack for 0.75 Rez limit
+            let scaledY = Double.scaleRangeZeroToOne(value, rangeMin: 0.0, rangeMax: 0.75)
+            
+            self.touchPad2.updateTouchPoint(Double(self.touchPad2.x), scaledY)
  
           
         default:

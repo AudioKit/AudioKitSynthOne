@@ -250,7 +250,7 @@ private:
     const float min_division_of_beat = 1.f/64.f; // 1 bar * 64th note
     const float max_division_of_beat = 4.f * 8.f; // 8 bars * 4 beats
     const float rate_min = (bpm_min/60.f) / max_division_of_beat; // Hz 0.000520
-    const float rate_max = 53.33; // Hz 273.0666 // Should be 53.33 Hz
+    const float rate_max = (bpm_max/60.f) / min_division_of_beat; // Hz 273.0666 // Should be 53.33 Hz
     AKS1Param aks1p[AKSynthOneParameter::AKSynthOneParameterCount] = {
         { index1,                0, 1, 1, "index1", "Index 1", kAudioUnitParameterUnit_Generic, true, NULL},
         { index2,                0, 1, 1, "index2", "Index 2", kAudioUnitParameterUnit_Generic, true, NULL},

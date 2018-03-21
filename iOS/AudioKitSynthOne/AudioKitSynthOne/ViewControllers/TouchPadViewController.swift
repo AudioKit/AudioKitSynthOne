@@ -34,8 +34,8 @@ class TouchPadViewController: SynthPanelController {
         snapToggle.value = 1
         
         // TouchPad 1
-        touchPad1.horizontalRange = s.getParameterRange(.lfo1Rate)
-        touchPad1.horizontalTaper = 5
+        touchPad1.horizontalRange = 0...53.33 // s.getParameterRange(.lfo1Rate)
+        touchPad1.horizontalTaper = 4.5
         
         lfoRate = s.getAK1Parameter(.lfo1Rate)
         lfoAmp = s.getAK1Parameter(.lfo1Amplitude)

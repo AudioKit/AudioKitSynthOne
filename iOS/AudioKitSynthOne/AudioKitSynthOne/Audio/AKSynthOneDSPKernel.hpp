@@ -273,7 +273,10 @@ private:
         { lfo1Amplitude,         0, 0, 1, "lfo1Amplitude", "lfo1Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo1Rate,              rate_min, 0.25, rate_max, "lfo1Rate", "lfo1Rate", kAudioUnitParameterUnit_Rate, true, NULL},
         { cutoff,                64, 20000, 22050, "cutoff", "cutoff", kAudioUnitParameterUnit_Hertz, true, NULL},
-        { resonance,             0, 0.1, 0.75, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},
+        
+//        { resonance,             0, 0.1, 0.75, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},
+        { resonance,             0, 0.1, 2, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},// will overflow
+        
         { filterMix,             0, 1, 1, "filterMix", "filterMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { filterADSRMix,         0, 0, 1.2, "filterADSRMix", "filterADSRMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { isMono,                0, 0, 1, "isMono", "isMono", kAudioUnitParameterUnit_Generic, false, NULL},

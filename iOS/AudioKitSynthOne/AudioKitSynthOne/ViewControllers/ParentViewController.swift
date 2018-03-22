@@ -536,8 +536,8 @@ extension ParentViewController: HeaderDelegate {
     }
     
     func panicPressed() {
-        //conductor.synth.reset() // kinder, gentler panic
-        self.conductor.synth.resetDSP() // nuclear panic option
+        conductor.synth.reset() // kinder, gentler panic
+        //self.conductor.synth.resetDSP() // nuclear panic option
         
         // Turn off held notes on keybaord
         keyboardView.allNotesOff()

@@ -35,7 +35,7 @@ class TouchPadViewController: SynthPanelController {
         
         // TouchPad 1
         touchPad1.horizontalRange = s.getParameterRange(.lfo1Rate)
-        touchPad1.horizontalTaper = 5
+        touchPad1.horizontalTaper = 4.5
         
         lfoRate = s.getAK1Parameter(.lfo1Rate)
         let pad1X = lfoRate.normalized(from: touchPad1.horizontalRange, taper: touchPad1.horizontalTaper)
@@ -50,14 +50,6 @@ class TouchPadViewController: SynthPanelController {
         rez = s.getAK1Parameter(.resonance)
         let pad2X = cutoff.normalized(from: touchPad2.horizontalRange, taper: touchPad2.horizontalTaper)
         touchPad2.resetToPosition(pad2X, rez)
-        
-        // bindings
-        snapToggle.callback = { value in
-            if value == 1 {
-                // Snapback TouchPad1
-                self.resetTouchPad1()
-            }
-        }
         
         touchPad1.callback = { horizontal, vertical, touchesBegan in
             
@@ -108,11 +100,14 @@ class TouchPadViewController: SynthPanelController {
                 self.particleEmitter2.birthRate = 1
             }
             
+            // Hack for 0.75 limit
+            let scaledVertical = Double.scaleRange(vertical, rangeMin: 0.0, rangeMax: 0.75)
+            
             // Affect parameters based on touch position
             s.setAK1Parameter(.cutoff, horizontal)
             c.updateSingleUI(.cutoff, control: nil, value: horizontal)
-            s.setAK1Parameter(.resonance, vertical)
-            c.updateSingleUI(.resonance, control: nil, value: vertical)
+            s.setAK1Parameter(.resonance, scaledVertical )
+            c.updateSingleUI(.resonance, control: nil, value: scaledVertical)
         }
         
         
@@ -151,7 +146,10 @@ class TouchPadViewController: SynthPanelController {
             self.touchPad2.updateTouchPoint(x, Double(self.touchPad2.y))
             
         case .resonance:
-            self.touchPad2.updateTouchPoint(Double(self.touchPad2.x), value)
+            // Hack for 0.75 Rez limit
+            let scaledY = Double.scaleRangeZeroToOne(value, rangeMin: 0.0, rangeMax: 0.75)
+            
+            self.touchPad2.updateTouchPoint(Double(self.touchPad2.x), scaledY)
  
           
         default:

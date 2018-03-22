@@ -21,6 +21,13 @@ protocol HeaderDelegate {
 
 public class HeaderViewController: UpdatableViewController {
     
+    enum LfoValue: Int  {
+        case OFF
+        case LFO1
+        case LFO2
+        case BOTH
+    }
+    
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var panicButton: PresetUIButton!
     @IBOutlet weak var diceButton: UIButton!
@@ -63,11 +70,11 @@ public class HeaderViewController: UpdatableViewController {
         case .index2:
             displayLabel.text = "OSC2 Morph: \(value.decimalString)"
         case .morph1SemitoneOffset:
-            displayLabel.text = "DCO1: \(value) semitones"
+            displayLabel.text = "DCO1: \(Int(value)) semitones"
         case .morph2SemitoneOffset:
-            displayLabel.text = "DCO2: \(value) semitones"
+            displayLabel.text = "DCO2: \(Int(value)) semitones"
         case .morph2Detuning:
-            displayLabel.text = "DCO2 Detune: \(value.decimalString) x Hz"
+            displayLabel.text = "DCO2 Detune: \(value.decimalString)Hz"
         case .morphBalance:
             displayLabel.text = "DCO Mix: \(value.decimalString)"
         case .morph1Volume:
@@ -75,7 +82,7 @@ public class HeaderViewController: UpdatableViewController {
         case .morph2Volume:
             displayLabel.text = "DCO2 Vol: \(value.percentageString)"
         case .glide:
-            displayLabel.text = "Glide: \(value)"
+            displayLabel.text = "Glide: \(value.decimalString)"
         case .cutoff, .resonance:
             // displayLabel.text = "Cutoff: \(conductor.synth.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(Double.scaleRangeZeroToOne(conductor.synth.getAK1Parameter(.resonance), rangeMin: 0, rangeMax: 0.97).percentageString)"
             
@@ -102,7 +109,7 @@ public class HeaderViewController: UpdatableViewController {
         case .bitCrushSampleRate:
             displayLabel.text = "Downsample Rate: \(value.decimalString)"
         case .autoPanAmount:
-            displayLabel.text = "Auto Pan Amp: \(value.percentageString)"
+            displayLabel.text = "AutoPan Amp: \(value.percentageString)"
         case .autoPanFrequency:
             if conductor.syncRateToTempo {
                 displayLabel.text = "AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz"
@@ -145,31 +152,31 @@ public class HeaderViewController: UpdatableViewController {
         case .lfo2Amplitude:
             displayLabel.text = "LFO 2 Amp: \(value.percentageString)"
         case .cutoffLFO:
-            displayLabel.text = "Cutoff LFO: \(value.decimalString)"
+            displayLabel.text = "Cutoff LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .resonanceLFO:
-            displayLabel.text = "Resonance LFO: \(value.decimalString)"
+            displayLabel.text = "Resonance LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .oscMixLFO:
-            displayLabel.text = "Osc Mix LFO: \(value.decimalString)"
+            displayLabel.text = "Osc Mix LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .sustainLFO:
-            displayLabel.text = "Sustain LFO: \(value.decimalString)"
+            displayLabel.text = "Sustain LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .decayLFO:
-            displayLabel.text = "Decay LFO: \(value.decimalString)"
+            displayLabel.text = "Decay LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .noiseLFO:
-            displayLabel.text = "Noise LFO: \(value.decimalString)"
+            displayLabel.text = "Noise LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .fmLFO:
-            displayLabel.text = "FM LFO: \(value.decimalString)"
+            displayLabel.text = "FM LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .detuneLFO:
-            displayLabel.text = "Detune LFO: \(value.decimalString)"
+            displayLabel.text = "Detune LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .filterEnvLFO:
-            displayLabel.text = "Filter Env LFO: \(value.decimalString)"
+            displayLabel.text = "Filter Env LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .pitchLFO:
-            displayLabel.text = "Pitch LFO: \(value.decimalString)"
+            displayLabel.text = "Pitch LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .bitcrushLFO:
-            displayLabel.text = "Bitcrush LFO: \(value.decimalString)"
+            displayLabel.text = "Bitcrush LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .autopanLFO:
-            displayLabel.text = "AutoPan LFO: \(value.decimalString)"
+            displayLabel.text = "AutoPan LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .filterType:
-            displayLabel.text = "Filter Type: \(value.decimalString)"
+            displayLabel.text = "Filter Type : \(value.decimalString)"
         case .phaserMix:
             displayLabel.text = "Phaser Mix: \(value.decimalString)"
         case .phaserRate:

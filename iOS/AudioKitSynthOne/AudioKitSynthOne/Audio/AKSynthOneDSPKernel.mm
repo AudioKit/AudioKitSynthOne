@@ -676,7 +676,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // CLEAR BUFFER
         outL[frameIndex] = outR[frameIndex] = 0.f;
         
-        // Clear all notes when changing Mono <==> Poly
+        // Clear all notes when toggling Mono <==> Poly
         if( p[isMono] != previousProcessMonoPolyStatus ) {
             previousProcessMonoPolyStatus = p[isMono];
             reset(); // clears all mono and poly notes
@@ -684,7 +684,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
         
         //MARK: ARP/SEQ
-        if( p[arpIsOn] == 1.f || !!arpSeqLastNotes.size() ) {
+        if( p[arpIsOn] == 1.f || arpSeqLastNotes.size() > 0 ) {
             //TODO:here is where we are not sending beat zero to the delegate
             const double oldArpTime = arpTime;
             const double r0 = fmod(oldArpTime, secPerBeat);

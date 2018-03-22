@@ -25,6 +25,7 @@ class Preset: Codable {
     var isMono = 0.0
     var isHoldMode = 0.0
     var isArpMode = 0.0
+    var isLegato = 0.0
     var syncRateToTempo = 1.0
     
     // Controls VC
@@ -186,6 +187,7 @@ class Preset: Codable {
         isHoldMode = dictionary["isHoldMode"] as? Double ?? isHoldMode
         isArpMode = dictionary["isArpMode"] as? Double ?? isArpMode
         syncRateToTempo = dictionary["syncRateToTempo"] as? Double ?? syncRateToTempo
+        isLegato = dictionary["isLegato"] as? Double ?? isLegato
         
         // Controls VC
         masterVolume = dictionary["masterVolume"] as? Double ?? masterVolume

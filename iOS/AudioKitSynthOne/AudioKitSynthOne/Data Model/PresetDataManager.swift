@@ -85,6 +85,7 @@ extension ParentViewController {
         s.setAK1Parameter(.arpRate, activePreset.arpRate)
         s.setAK1Parameter(.arpIsSequencer, activePreset.arpIsSequencer ? 1 : 0 )
         s.setAK1Parameter(.arpTotalSteps, activePreset.arpTotalSteps )
+        s.setAK1Parameter(.monoIsLegato, activePreset.isLegato )
         
         s.setAK1Parameter(.phaserMix, activePreset.phaserMix)
         s.setAK1Parameter(.phaserRate, activePreset.phaserRate)
@@ -117,6 +118,7 @@ extension ParentViewController {
         let s = conductor.synth!
         activePreset.masterVolume = s.getAK1Parameter(.masterVolume)
         activePreset.isMono = s.getAK1Parameter(.isMono)
+        activePreset.isLegato = s.getAK1Parameter(.monoIsLegato)
         activePreset.glide = s.getAK1Parameter(.glide)
         activePreset.waveform1 = s.getAK1Parameter(.index1)
         activePreset.waveform2 = s.getAK1Parameter(.index2)

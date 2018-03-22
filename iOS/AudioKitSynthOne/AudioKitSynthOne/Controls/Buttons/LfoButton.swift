@@ -15,6 +15,17 @@ class LfoButton: UIView, AKSynthOneControl {
     var value: Double = 0 {
         didSet {
             setNeedsDisplay()
+            switch value {
+            case 1:
+                lfo1Active = true
+            case 2:
+                lfo2Active = true
+            case 3:
+                lfo1Active = true
+                lfo2Active = true
+            default:
+                break
+            }
         }
     }
     

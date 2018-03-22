@@ -224,7 +224,7 @@ class PresetsViewController: UIViewController {
         } else {
             // create new preset
             activePreset.uid = UUID().uuidString
-            presets.append(activePreset)
+            presets.insert(activePreset, at: activePreset.position+1)
         }
         
         activePreset.isUser = true

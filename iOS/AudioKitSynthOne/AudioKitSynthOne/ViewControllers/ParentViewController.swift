@@ -286,15 +286,17 @@ public class ParentViewController: UpdatableViewController {
                 // Cutoff
                 let scaledValue = Double.scaleRangeLog(value, rangeMin: 30, rangeMax: 7000)
                 s.setAK1Parameter(.cutoff, scaledValue*3)
+                self.conductor.updateSingleUI(.cutoff, control: nil, value: s.getAK1Parameter(.cutoff))
             case 1:
                 // LFO 1 Rate
-                let scaledValue = Double.scaleRangeLog(value, rangeMin: 0.01, rangeMax: 10.0)
+                let scaledValue = Double.scaleRangeLog(value, rangeMin: 0.01, rangeMax: 12.0)
                 s.setAK1Parameter(.lfo1Rate, scaledValue)
-                break
+                self.conductor.updateSingleUI(.lfo1Rate, control: nil, value: s.getAK1Parameter(.lfo1Rate))
             case 2:
                 // LFO 2 Rate
-                let scaledValue = Double.scaleRangeLog(value, rangeMin: 0.01, rangeMax: 10.0)
+                let scaledValue = Double.scaleRangeLog(value, rangeMin: 0.01, rangeMax: 12.0)
                 s.setAK1Parameter(.lfo2Rate, scaledValue)
+                self.conductor.updateSingleUI(.lfo2Rate, control: nil, value: s.getAK1Parameter(.lfo2Rate))
             default:
                 break
                 

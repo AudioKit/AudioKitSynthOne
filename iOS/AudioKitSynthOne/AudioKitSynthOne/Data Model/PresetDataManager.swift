@@ -15,9 +15,10 @@ extension ParentViewController {
     // **********************************************************
     
     func loadPreset() {
-        // Non-kernel parameters
+        // Non-Kernal parameters
         conductor.syncRateToTempo = (activePreset.syncRateToTempo == 1)
         fxViewController.tempoSyncToggle.value = activePreset.syncRateToTempo
+        fxViewController.tempoSyncKnobs.forEach { $0.timeSyncMode = (activePreset.syncRateToTempo == 1) }
         
         // Kernel Parameters
         let s = conductor.synth!

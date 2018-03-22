@@ -341,20 +341,28 @@ class PresetsViewController: UIViewController {
     }
     
     func nextPreset() {
-        if currentPreset.position < presets.count - 1 {
-            deselectCurrentRow()
-            currentPreset = presets[currentPreset.position + 1]
-            selectCurrentPreset()
+        let presetBank = presets.filter{ $0.bank == currentPreset.bank }.sorted { $0.position < $1.position }
+        
+        if currentPreset.position < presetBank.count - 1 {
+            currentPreset = presetBank[currentPreset.position + 1]
+        } else {
+            currentPreset = presetBank[0]
         }
+        
+        selectCurrentPreset()
     }
     
     func prevPreset() {
+        let presetBank = presets.filter{ $0.bank == currentPreset.bank }.sorted { $0.position < $1.position }
+        
         if currentPreset.position > 0 {
-            deselectCurrentRow()
-            currentPreset = presets[currentPreset.position + -1 ]
-            selectCurrentPreset()
+            currentPreset = presetBank[currentPreset.position + -1 ]
             
+        } else {
+            currentPreset = presetBank.last!
         }
+        
+        selectCurrentPreset()
     }
     
     // Used for Selecting Presets from Program Change

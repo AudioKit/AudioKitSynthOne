@@ -996,8 +996,14 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &revOutR, &reverbCrossfadeOutR);
         
         // final compress/limit
+#if false
         reverbCrossfadeOutL *= (2.f * p[masterVolume]);
         reverbCrossfadeOutR *= (2.f * p[masterVolume]);
+#else
+        //TODO:@MATT https://trello.com/c/b20JqxTR "Marcus,would it be possible to bump this up a couple of db? 😀"
+        reverbCrossfadeOutL *= (2.f * 2.f * p[masterVolume]);
+        reverbCrossfadeOutR *= (2.f * 2.f * p[masterVolume]);
+#endif
         float compressorOutL = 0.f;
         float compressorOutR = 0.f;
         sp_compressor_compute(sp, compressor0, &reverbCrossfadeOutL, &compressorOutL);

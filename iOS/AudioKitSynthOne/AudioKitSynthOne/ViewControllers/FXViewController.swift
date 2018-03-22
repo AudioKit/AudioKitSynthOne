@@ -21,7 +21,7 @@ class FXViewController: SynthPanelController {
     @IBOutlet weak var lfoFilterEnvToggle: LfoButton!
     @IBOutlet weak var lfoPitchToggle: LfoButton!
     @IBOutlet weak var lfoBitcrushToggle: LfoButton!
-    @IBOutlet weak var lfoAutoPanToggle: LfoButton!
+    @IBOutlet weak var lfoTremoloToggle: LfoButton!
     
     @IBOutlet weak var lfo1Amp: MIDIKnob!
     @IBOutlet weak var lfo1Rate: RateKnob!
@@ -118,7 +118,7 @@ class FXViewController: SynthPanelController {
         conductor.bind(lfoFilterEnvToggle, to: .filterEnvLFO)
         conductor.bind(lfoPitchToggle,     to: .pitchLFO)
         conductor.bind(lfoBitcrushToggle,  to: .bitcrushLFO)
-        conductor.bind(lfoAutoPanToggle,   to: .autopanLFO)
+      
         conductor.bind(lfo1WavePicker,     to: .lfo1Index)
         conductor.bind(lfo2WavePicker,     to: .lfo2Index)
         conductor.bind(phaserMix,          to: .phaserMix)

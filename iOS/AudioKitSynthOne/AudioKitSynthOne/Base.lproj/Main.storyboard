@@ -1405,7 +1405,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="AutoPan"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Tremolo"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v1h-So-avW" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -1617,7 +1617,6 @@
                         <outlet property="lfo2Amp" destination="yvG-Pl-PWp" id="Vv6-HH-Lyg"/>
                         <outlet property="lfo2Rate" destination="GiI-jY-k8h" id="rF9-PW-wCW"/>
                         <outlet property="lfo2WavePicker" destination="xKa-3e-MJQ" id="GRY-0D-cfA"/>
-                        <outlet property="lfoAutoPanToggle" destination="Pda-Ea-Gzs" id="tuk-P1-aNl"/>
                         <outlet property="lfoBitcrushToggle" destination="v1h-So-avW" id="0U9-L1-Wnb"/>
                         <outlet property="lfoCutoffToggle" destination="IAH-Z9-Sao" id="9ie-ol-fVs"/>
                         <outlet property="lfoDecayToggle" destination="OiO-GY-Ebf" id="JR7-1a-2ts"/>
@@ -1629,6 +1628,7 @@
                         <outlet property="lfoPitchToggle" destination="93V-FP-Ga6" id="v5H-FX-Rci"/>
                         <outlet property="lfoRezToggle" destination="Dd6-x5-m2h" id="h1j-xO-O7Q"/>
                         <outlet property="lfoSustainToggle" destination="emL-eL-tqy" id="zFS-Ym-g7X"/>
+                        <outlet property="lfoTremoloToggle" destination="Pda-Ea-Gzs" id="c5m-jp-Hrf"/>
                         <outlet property="nav1Button" destination="Xyj-Yj-OIq" id="5yl-Za-EH7"/>
                         <outlet property="nav2Button" destination="8Wt-Tf-MdV" id="AbF-3S-Pte"/>
                         <outlet property="phaserFeedback" destination="OG9-jw-6vI" id="cAp-2D-keT"/>

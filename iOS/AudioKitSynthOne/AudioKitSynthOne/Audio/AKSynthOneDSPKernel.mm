@@ -904,6 +904,71 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         float synthOut = outL[frameIndex];
         
         //BITCRUSH
+        float bitCrushOut = synthOut;
+        
+        //@MATT: These are the tests I've been doing for bitcrush
+#if 0
+        // bypass bitcrush
+#elif 1
+        // max minus linear lfo
+        float bitcrushSrate = p[bitCrushSampleRate];
+        const float bitcrushSrateMax =  aks1p[bitCrushSampleRate].max;
+        const float bitcrushSrateMag = bitcrushSrateMax - bitcrushSrate;
+        if(p[bitcrushLFO] == 1.f) {
+            bitcrushSrate = bitcrushSrateMax - lfo1_0_1 * bitcrushSrateMag;
+        } else if (p[bitcrushLFO] == 2.f) {
+            bitcrushSrate = bitcrushSrateMax - lfo2_0_1 * bitcrushSrateMag;
+        } else if (p[bitcrushLFO] == 3.f) {
+            bitcrushSrate = bitcrushSrateMax - lfo3_0_1 * bitcrushSrateMag;
+        }
+        bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
+        sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
+#elif 0
+        // max minus log2
+        float bitcrushSrate = p[bitCrushSampleRate];
+        const float bitcrushSrateMax =  aks1p[bitCrushSampleRate].max;
+        const float bitcrushSrateMag = bitcrushSrateMax - bitcrushSrate;
+        if(p[bitcrushLFO] == 1.f) {
+            bitcrushSrate = bitcrushSrateMax - ( log2(lfo1_0_1 + 1.f) ) * bitcrushSrateMag;
+        } else if (p[bitcrushLFO] == 2.f) {
+            bitcrushSrate = bitcrushSrateMax - ( log2(lfo2_0_1 + 1.f) ) * bitcrushSrateMag;
+        } else if (p[bitcrushLFO] == 3.f) {
+            bitcrushSrate = bitcrushSrateMax - ( log2(lfo3_0_1 + 1.f) ) * bitcrushSrateMag;
+        }
+        bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
+        sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
+#elif 0
+        // max minus lfo^2
+        float bitcrushSrate = p[bitCrushSampleRate];
+        const float bitcrushSrateMax =  aks1p[bitCrushSampleRate].max;
+        const float bitcrushSrateMag = bitcrushSrateMax - bitcrushSrate;
+        if(p[bitcrushLFO] == 1.f) {
+            bitcrushSrate = bitcrushSrateMax - ( lfo1_0_1 * lfo1_0_1 ) * bitcrushSrateMag;
+        } else if (p[bitcrushLFO] == 2.f) {
+            bitcrushSrate = bitcrushSrateMax - ( lfo2_0_1 * lfo2_0_1 ) * bitcrushSrateMag;
+        } else if (p[bitcrushLFO] == 3.f) {
+            bitcrushSrate = bitcrushSrateMax - ( lfo3_0_1 * lfo3_0_1 ) * bitcrushSrateMag;
+        }
+        bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
+        sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
+#elif 1
+        //TODO:@MATT this is my favorite implementation of bitcrush lfo
+        // max minus 2^lfo-1
+        float bitcrushSrate = p[bitCrushSampleRate];
+        const float bitcrushSrateMax =  aks1p[bitCrushSampleRate].max;
+        const float bitcrushSrateMag = bitcrushSrateMax - bitcrushSrate;
+        if(p[bitcrushLFO] == 1.f) {
+            bitcrushSrate = bitcrushSrateMax - ( exp2(lfo1_0_1) - 1.f ) * bitcrushSrateMag;
+        } else if (p[bitcrushLFO] == 2.f) {
+            bitcrushSrate = bitcrushSrateMax - ( exp2(lfo2_0_1) - 1.f ) * bitcrushSrateMag;
+        } else if (p[bitcrushLFO] == 3.f) {
+            bitcrushSrate = bitcrushSrateMax - ( exp2(lfo3_0_1) - 1.f ) * bitcrushSrateMag;
+        }
+        bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
+        sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
+#else
+        //TODO:@MATT this is the original bitcrush logic...I think the block above is better
+        // original
         float bitcrushSrate = p[bitCrushSampleRate];
         if(p[bitcrushLFO] == 1.f) {
             bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]);
@@ -913,19 +978,19 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             bitcrushSrate *= (1.f + 0.25f * (lfo1 * p[lfo1Amplitude] + lfo2 * p[lfo2Amplitude]));
         }
         bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
-        float bitCrushOut = 0.f;
         sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
+#endif
         
         //AUTOPAN
         float panValue = 0.f;
         sp_osc_compute(sp, panOscillator, nil, &panValue);
         panValue *= p[autoPanAmount];
         if(p[autopanLFO] == 1.f) {
-            panValue *= 0.5f * (1.f + lfo1) * p[lfo1Amplitude];
+            panValue *= lfo1_0_1;
         } else if(p[autopanLFO] == 2.f) {
-            panValue *= 0.5f * (1.f + lfo2) * p[lfo2Amplitude];
+            panValue *= lfo2_0_1;
         } else if(p[autopanLFO] == 3.f) {
-            panValue *= 0.25f * (lfo1 * p[lfo1Amplitude] + lfo2 * p[lfo2Amplitude]);
+            panValue *= lfo3_0_1;
         }
         pan->pan = panValue;
         float panL = 0.f, panR = 0.f;
@@ -996,7 +1061,9 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &revOutR, &reverbCrossfadeOutR);
         
         // final compress/limit
-#if false
+#if true
+        //TODO:@MATT: https://trello.com/c/b20JqxTR "I wonder if there's a way to to make the reverb signal louder without it sounding so distorted and compressed. We may have to dial it back a bit somehow. Maybe lowering the pre-volume before it goes into the limiter?"
+
         reverbCrossfadeOutL *= (2.f * p[masterVolume]);
         reverbCrossfadeOutR *= (2.f * p[masterVolume]);
 #else

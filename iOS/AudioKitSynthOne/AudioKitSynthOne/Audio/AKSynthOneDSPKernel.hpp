@@ -221,12 +221,12 @@ private:
     float monoFrequencySmooth = 261.6255653006f;
     float tempo = 120.f;
     float previousProcessMonoPolyStatus = 0.f;
-    float lfo1_0_1;
-    float lfo1_1_0;
-    float lfo2_0_1;
-    float lfo2_1_0;
-    float lfo3_0_1;
-    float lfo3_1_0;
+    float lfo1_0_1 = 0;
+    float lfo1_1_0 = 0;
+    float lfo2_0_1 = 0;
+    float lfo2_1_0 = 0;
+    float lfo3_0_1 = 0;
+    float lfo3_1_0 = 0;
 
     // Arp/Seq
     double arpSampleCounter = 0;
@@ -275,8 +275,9 @@ private:
         { cutoff,                64, 20000, 22050, "cutoff", "cutoff", kAudioUnitParameterUnit_Hertz, true, NULL},
         
 //        { resonance,             0, 0.1, 0.75, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},
-        { resonance,             0, 0.1, 2, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},// will overflow
-        
+        { resonance,             0, 0.1, 0.99999, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},// will overflow
+//        { resonance,             0, 0.1, 2, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},// will overflow
+
         { filterMix,             0, 1, 1, "filterMix", "filterMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { filterADSRMix,         0, 0, 1.2, "filterADSRMix", "filterADSRMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { isMono,                0, 0, 1, "isMono", "isMono", kAudioUnitParameterUnit_Generic, false, NULL},
@@ -293,7 +294,9 @@ private:
         { detuningMultiplier,    1, 1, 2, "detuningMultiplier", "detuningMultiplier", kAudioUnitParameterUnit_Generic, true, NULL},
         { masterVolume,          0, 0.5, 2, "masterVolume", "masterVolume", kAudioUnitParameterUnit_Generic, true, NULL},
         { bitCrushDepth,         1, 24, 24, "bitCrushDepth", "bitCrushDepth", kAudioUnitParameterUnit_Generic, false, NULL},
-        { bitCrushSampleRate,    4096, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
+//        { bitCrushSampleRate,    4096, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
+//        { bitCrushSampleRate,    2048, 44100, 44100, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
+        { bitCrushSampleRate,    2048, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
         { autoPanAmount,         0, 0, 1, "autoPanAmount", "autoPanAmount", kAudioUnitParameterUnit_Generic, true, NULL},
         { autoPanFrequency,      0, 0.25, 10, "autoPanFrequency", "autoPanFrequency", kAudioUnitParameterUnit_Hertz, true, NULL},
         { reverbOn,              0, 1, 1, "reverbOn", "reverbOn", kAudioUnitParameterUnit_Generic, false, NULL},

@@ -73,6 +73,9 @@ class DevViewController: UpdatableViewController {
 //        (" 6 hexany(10, 11, 12, 14) inverse", {_ = AKPolyphonicNode.tuningTable.hexany(1/10, 1/11, 1/12, 1/14) } ), // yuck
         (" 6 hexany(1, 3, 5, 7) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 7)  } ),
         (" 6 hexany(1, 3, 5, 45) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45)  } ),// 071
+        ("15 pentadekany(hexany(1,3,5,45))", {
+            _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: DevTunings.pentadekany(DevTunings.hexany([1, 3, 5, 45])))
+        } ),
         (" 6 hexany(1, 3, 5, 9)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 9) } ),
         ("15 pentadekany(hexany(1,3,5,9))", {
             _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: DevTunings.pentadekany(DevTunings.hexany([1, 3, 5, 9])))

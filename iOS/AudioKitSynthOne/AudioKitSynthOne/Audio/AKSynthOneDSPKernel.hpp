@@ -275,7 +275,7 @@ private:
         { cutoff,                64, 20000, 22050, "cutoff", "cutoff", kAudioUnitParameterUnit_Hertz, true, NULL},
         
 //        { resonance,             0, 0.1, 0.75, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},
-        { resonance,             0, 0.1, 0.99999, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},// will overflow
+        { resonance,             0, 0.1, 0.98, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},// will overflow
 //        { resonance,             0, 0.1, 2, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},// will overflow
 
         { filterMix,             0, 1, 1, "filterMix", "filterMix", kAudioUnitParameterUnit_Generic, true, NULL},

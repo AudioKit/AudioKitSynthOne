@@ -100,8 +100,8 @@ class TouchPadViewController: SynthPanelController {
                 self.particleEmitter2.birthRate = 1
             }
             
-            // Hack for 0.75 limit
-            let scaledVertical = Double.scaleRange(vertical, rangeMin: 0.0, rangeMax: 0.75)
+            // Hack for 0.98 limit
+            let scaledVertical = Double.scaleRange(vertical, rangeMin: 0.0, rangeMax: 0.98)
             
             // Affect parameters based on touch position
             s.setAK1Parameter(.cutoff, horizontal)
@@ -146,8 +146,8 @@ class TouchPadViewController: SynthPanelController {
             self.touchPad2.updateTouchPoint(x, Double(self.touchPad2.y))
             
         case .resonance:
-            // Hack for 0.75 Rez limit
-            let scaledY = Double.scaleRangeZeroToOne(value, rangeMin: 0.0, rangeMax: 0.75)
+            // Hack for 0.98 Rez limit
+            let scaledY = Double.scaleRangeZeroToOne(value, rangeMin: 0.0, rangeMax: 0.98)
             
             self.touchPad2.updateTouchPoint(Double(self.touchPad2.x), scaledY)
  

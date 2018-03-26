@@ -273,11 +273,7 @@ private:
         { lfo1Amplitude,         0, 0, 1, "lfo1Amplitude", "lfo1Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo1Rate,              rate_min, 0.25, rate_max, "lfo1Rate", "lfo1Rate", kAudioUnitParameterUnit_Rate, true, NULL},
         { cutoff,                64, 20000, 22050, "cutoff", "cutoff", kAudioUnitParameterUnit_Hertz, true, NULL},
-        
-//        { resonance,             0, 0.1, 0.75, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},
         { resonance,             0, 0.1, 0.98, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},// will overflow
-//        { resonance,             0, 0.1, 2, "resonance", "resonance", kAudioUnitParameterUnit_Generic, true, NULL},// will overflow
-
         { filterMix,             0, 1, 1, "filterMix", "filterMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { filterADSRMix,         0, 0, 1.2, "filterADSRMix", "filterADSRMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { isMono,                0, 0, 1, "isMono", "isMono", kAudioUnitParameterUnit_Generic, false, NULL},
@@ -295,8 +291,6 @@ private:
         { masterVolume,          0, 0.5, 2, "masterVolume", "masterVolume", kAudioUnitParameterUnit_Generic, true, NULL},
         { bitCrushDepth,         1, 24, 24, "bitCrushDepth", "bitCrushDepth", kAudioUnitParameterUnit_Generic, false, NULL},
         { bitCrushSampleRate,    4096, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
-//        { bitCrushSampleRate,    2048, 44100, 44100, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
-//        { bitCrushSampleRate,    2048, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
         { autoPanAmount,         0, 0, 1, "autoPanAmount", "autoPanAmount", kAudioUnitParameterUnit_Generic, true, NULL},
         { autoPanFrequency,      0, 0.25, 10, "autoPanFrequency", "autoPanFrequency", kAudioUnitParameterUnit_Hertz, true, NULL},
         { reverbOn,              0, 1, 1, "reverbOn", "reverbOn", kAudioUnitParameterUnit_Generic, false, NULL},

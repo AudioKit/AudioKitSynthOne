@@ -17,6 +17,7 @@
 #define SAMPLE_RATE (44100.f)
 #define RELEASE_AMPLITUDE_THRESHOLD (0.00001f)
 #define AKS1_PORTAMENTO_HALF_TIME (0.1f)
+//#define AKS1_PORTAMENTO_HALF_TIME (0.25f) // too slow for prod synth
 //#define AKS1_PORTAMENTO_HALF_TIME (0.5f) // try this for fun
 //#define AKS1_PORTAMENTO_HALF_TIME (1.f) // alice in wonderland
 #define DEBUG_DSP_LOGGING (0)
@@ -909,7 +910,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         //@MATT: These are the tests I've been doing for bitcrush
 #if 0
         // bypass bitcrush
-#elif 1
+#elif 0
         // max minus linear lfo
         float bitcrushSrate = p[bitCrushSampleRate];
         const float bitcrushSrateMax =  aks1p[bitCrushSampleRate].max;
@@ -924,19 +925,72 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
         sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
 #elif 0
-        // max minus log2
+        //TODO:@MATT this is my favorite implementation of bitcrush lfo
+        // max minus 2^log2(mag * lfo)
         float bitcrushSrate = p[bitCrushSampleRate];
         const float bitcrushSrateMax =  aks1p[bitCrushSampleRate].max;
-        const float bitcrushSrateMag = bitcrushSrateMax - bitcrushSrate;
+        const float bitcrushSrateMag = log2(bitcrushSrateMax - bitcrushSrate);
+        float tmplfo1out = 0;
+        float tmpmag = 0;
         if(p[bitcrushLFO] == 1.f) {
-            bitcrushSrate = bitcrushSrateMax - ( log2(lfo1_0_1 + 1.f) ) * bitcrushSrateMag;
+            tmpmag = log2(lfo1_0_1 + 1.f);
+            tmpmag = powf(tmpmag, 1.f / 4.f);
+            //            bitcrushSrate = bitcrushSrateMax - log2(lfo1_0_1 + 1.f) * bitcrushSrateMag;
+            bitcrushSrate = bitcrushSrateMax - tmpmag * bitcrushSrateMag;
+            tmplfo1out = log2(lfo1_0_1 + 1.f);
+            tmpmag = tmplfo1out * bitcrushSrateMag;
         } else if (p[bitcrushLFO] == 2.f) {
-            bitcrushSrate = bitcrushSrateMax - ( log2(lfo2_0_1 + 1.f) ) * bitcrushSrateMag;
+            bitcrushSrate = bitcrushSrateMax - log2(lfo2_0_1 + 1.f) * bitcrushSrateMag;
         } else if (p[bitcrushLFO] == 3.f) {
-            bitcrushSrate = bitcrushSrateMax - ( log2(lfo3_0_1 + 1.f) ) * bitcrushSrateMag;
+            bitcrushSrate = bitcrushSrateMax - log2(lfo3_0_1 + 1.f) * bitcrushSrateMag;
         }
         bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
         sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
+        ///LOG ///////////////
+        static int bitcrushSrateFinalSampleCounter = 0;
+        bitcrushSrateFinalSampleCounter++;
+        if (bitcrushSrateFinalSampleCounter % (44100/2) == 0) {
+            printf("%f: original:%f, lfo1:%f, lfo1xfm:%f, mag:%f, final:%f\n",bitcrushSrateFinalSampleCounter/44100.f, p[bitCrushSampleRate],lfo1_0_1,tmplfo1out, tmpmag, bitcrushSrate);
+        }
+        static float bitcrushSrateFinalMin = 9999999.f;
+        static float bitcrushSrateFinalMax = -9999999.f;
+        if (bitcrushSrate < bitcrushSrateFinalMin) bitcrushSrateFinalMin = bitcrushSrate;
+        if (bitcrushSrate > bitcrushSrateFinalMax) bitcrushSrateFinalMax = bitcrushSrate;
+        ///LOG //////
+        
+#elif 0
+        // max minus log2 ^ (1/4)
+        float bitcrushSrate = p[bitCrushSampleRate];
+        const float bitcrushSrateMax =  aks1p[bitCrushSampleRate].max;
+        const float bitcrushSrateMag = bitcrushSrateMax - bitcrushSrate;
+        float tmplfo1out = 0;
+        float tmpmag = 0;
+        if(p[bitcrushLFO] == 1.f) {
+            tmpmag = log2(lfo1_0_1 + 1.f);
+            tmpmag = powf(tmpmag, 1.f / 4.f);
+            //            bitcrushSrate = bitcrushSrateMax - log2(lfo1_0_1 + 1.f) * bitcrushSrateMag;
+            bitcrushSrate = bitcrushSrateMax - tmpmag * bitcrushSrateMag;
+            tmplfo1out = log2(lfo1_0_1 + 1.f);
+            tmpmag = tmplfo1out * bitcrushSrateMag;
+        } else if (p[bitcrushLFO] == 2.f) {
+            bitcrushSrate = bitcrushSrateMax - log2(lfo2_0_1 + 1.f) * bitcrushSrateMag;
+        } else if (p[bitcrushLFO] == 3.f) {
+            bitcrushSrate = bitcrushSrateMax - log2(lfo3_0_1 + 1.f) * bitcrushSrateMag;
+        }
+        bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
+        sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
+        ///LOG ///////////////
+        static int bitcrushSrateFinalSampleCounter = 0;
+        bitcrushSrateFinalSampleCounter++;
+        if (bitcrushSrateFinalSampleCounter % (44100/2) == 0) {
+            printf("%f: original:%f, lfo1:%f, lfo1xfm:%f, mag:%f, final:%f\n",bitcrushSrateFinalSampleCounter/44100.f, p[bitCrushSampleRate],lfo1_0_1,tmplfo1out, tmpmag, bitcrushSrate);
+        }
+        static float bitcrushSrateFinalMin = 9999999.f;
+        static float bitcrushSrateFinalMax = -9999999.f;
+        if (bitcrushSrate < bitcrushSrateFinalMin) bitcrushSrateFinalMin = bitcrushSrate;
+        if (bitcrushSrate > bitcrushSrateFinalMax) bitcrushSrateFinalMax = bitcrushSrate;
+        ///LOG //////
+        
 #elif 0
         // max minus lfo^2
         float bitcrushSrate = p[bitCrushSampleRate];
@@ -951,34 +1005,65 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
         bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
         sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
-#elif 1
-        //TODO:@MATT this is my favorite implementation of bitcrush lfo
-        // max minus 2^lfo-1
+#elif 0
+        // max minus (2^lfo) - 1
         float bitcrushSrate = p[bitCrushSampleRate];
         const float bitcrushSrateMax =  aks1p[bitCrushSampleRate].max;
         const float bitcrushSrateMag = bitcrushSrateMax - bitcrushSrate;
+        float tmplfo1out = 0;
+        float tmpmag = 0;
         if(p[bitcrushLFO] == 1.f) {
             bitcrushSrate = bitcrushSrateMax - ( exp2(lfo1_0_1) - 1.f ) * bitcrushSrateMag;
+            tmplfo1out = exp2(lfo1_0_1) - 1.f;
+            tmpmag = ( exp2(lfo1_0_1) - 1.f ) * bitcrushSrateMag;
         } else if (p[bitcrushLFO] == 2.f) {
             bitcrushSrate = bitcrushSrateMax - ( exp2(lfo2_0_1) - 1.f ) * bitcrushSrateMag;
         } else if (p[bitcrushLFO] == 3.f) {
             bitcrushSrate = bitcrushSrateMax - ( exp2(lfo3_0_1) - 1.f ) * bitcrushSrateMag;
         }
+        
+        ///LOG ///////////////
+        static int bitcrushSrateFinalSampleCounter = 0;
+        bitcrushSrateFinalSampleCounter++;
+        if (bitcrushSrateFinalSampleCounter % (44100/2) == 0) {
+            printf("%f: original:%f, lfo1:%f, lfo1xfm:%f, mag:%f, final:%f\n",bitcrushSrateFinalSampleCounter/44100.f, p[bitCrushSampleRate],lfo1_0_1,tmplfo1out, tmpmag, bitcrushSrate);
+        }
+        static float bitcrushSrateFinalMin = 9999999.f;
+        static float bitcrushSrateFinalMax = -9999999.f;
+        if (bitcrushSrate < bitcrushSrateFinalMin) bitcrushSrateFinalMin = bitcrushSrate;
+        if (bitcrushSrate > bitcrushSrateFinalMax) bitcrushSrateFinalMax = bitcrushSrate;
+        ///LOG //////
+        
         bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
         sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
 #else
-        //TODO:@MATT this is the original bitcrush logic...I think the block above is better
-        // original
+        float tmplfo1out = 0.f;
+        //TODO:@MATT this is the original bitcrush logic
+        // original = bitCrushSampleRate about which an lfo is applie...this is clamped
         float bitcrushSrate = p[bitCrushSampleRate];
         if(p[bitcrushLFO] == 1.f) {
-            bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]);
+            bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]); // note this is NOT equal to lfo1_0_1
         } else if (p[bitcrushLFO] == 2.f) {
-            bitcrushSrate *= (1.f + 0.5f * lfo2 * p[lfo2Amplitude]);
+            bitcrushSrate *= (1.f + 0.5f * lfo2 * p[lfo2Amplitude]); // note this is NOT equal to lfo2_0_1
         } else if (p[bitcrushLFO] == 3.f) {
-            bitcrushSrate *= (1.f + 0.25f * (lfo1 * p[lfo1Amplitude] + lfo2 * p[lfo2Amplitude]));
+            bitcrushSrate *= (1.f + 0.25f * (lfo1 * p[lfo1Amplitude] + lfo2 * p[lfo2Amplitude])); // note this is NOT equal to lfo3_0_1
         }
-        bitcrush->srate = parameterClamp(bitCrushSampleRate, bitcrushSrate);
+        bitcrushSrate = parameterClamp(bitCrushSampleRate, bitcrushSrate); // clamp
+        bitcrush->srate = bitcrushSrate;
         sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
+        
+        ///LOG ///////////////
+        static int bitcrushSrateFinalSampleCounter = 0;
+        bitcrushSrateFinalSampleCounter++;
+        if (bitcrushSrateFinalSampleCounter % (44100/2) == 0) {
+            printf("%f: original:%f, lfo1:%f, lfo1xfm:%f, final:%f\n",bitcrushSrateFinalSampleCounter/44100.f, p[bitCrushSampleRate],lfo1_0_1,tmplfo1out, bitcrushSrate);
+        }
+        static float bitcrushSrateFinalMin = 9999999.f;
+        static float bitcrushSrateFinalMax = -9999999.f;
+        if (bitcrushSrate < bitcrushSrateFinalMin) bitcrushSrateFinalMin = bitcrushSrate;
+        if (bitcrushSrate > bitcrushSrateFinalMax) bitcrushSrateFinalMax = bitcrushSrate;
+        ///LOG //////
+
 #endif
         
         //AUTOPAN
@@ -1462,6 +1547,7 @@ void AKSynthOneDSPKernel::initializeNoteStates() {
             state.kernel = this;
             state.init();
             state.stage = NoteState::stageOff;
+            state.internalGate = 0;
             state.rootNoteNumber = -1;
         }
         
@@ -1469,6 +1555,7 @@ void AKSynthOneDSPKernel::initializeNoteStates() {
         monoNote->kernel = this;
         monoNote->init();
         monoNote->stage = NoteState::stageOff;
+        monoNote->internalGate = 0;
         monoNote->rootNoteNumber = -1;
     }
 }

@@ -128,11 +128,11 @@ typedef AK_ENUM(AKSynthOneParameter) {
     arpSeqNoteOn15 = 114,
     filterType = 115,
     phaserMix = 116,
-    phaserRate = 117, //hz?
+    phaserRate = 117,
     phaserFeedback = 118,
     phaserNotchWidth = 119,
     monoIsLegato = 120, // range [0 = legato, 1 = portamento (default)]
-
-    AKSynthOneParameterCount = 121
+    widen = 121,
+    AKSynthOneParameterCount = 122
 } AKSynthOneParameter;
 

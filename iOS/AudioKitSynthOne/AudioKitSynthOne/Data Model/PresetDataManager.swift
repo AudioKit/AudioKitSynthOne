@@ -25,6 +25,7 @@ extension ParentViewController {
         s.setAK1Parameter(.masterVolume, activePreset.masterVolume)
         s.setAK1Parameter(.isMono, activePreset.isMono)
         s.setAK1Parameter(.glide, activePreset.glide)
+        s.setAK1Parameter(.widen, activePreset.widen)
         s.setAK1Parameter(.index1, activePreset.waveform1)
         s.setAK1Parameter(.index2, activePreset.waveform2)
         s.setAK1Parameter(.morph1SemitoneOffset, activePreset.vco1Semitone)
@@ -121,6 +122,7 @@ extension ParentViewController {
         activePreset.isMono = s.getAK1Parameter(.isMono)
         activePreset.isLegato = s.getAK1Parameter(.monoIsLegato)
         activePreset.glide = s.getAK1Parameter(.glide)
+        activePreset.widen = s.getAK1Parameter(.widen) < 1 ? 0 : 1 // widen is smoothed but want to store only 0 or 1
         activePreset.waveform1 = s.getAK1Parameter(.index1)
         activePreset.waveform2 = s.getAK1Parameter(.index2)
         activePreset.vco1Semitone = s.getAK1Parameter(.morph1SemitoneOffset)

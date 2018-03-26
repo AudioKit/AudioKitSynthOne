@@ -102,6 +102,7 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(filterTypeToggle,     to: .filterType)
         conductor.bind(masterVolume,         to: .masterVolume)
         conductor.bind(legatoModeToggle,     to: .monoIsLegato)
+        conductor.bind(widenToggle,          to: .widen)
         conductor.bind(tempoStepper,         to: .arpRate) { param, control in
             return { value in
                 s.setAK1Parameter(.arpRate, value)

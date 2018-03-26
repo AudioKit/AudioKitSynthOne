@@ -57,7 +57,7 @@ class Preset: Codable {
     var autoPanRate = 2.0 // AutoPan Rate
     var filterADSRMix = 0.0 // Filter Envelope depth
     var glide = 0.0 // Mono glide amount
-    
+    var widen = 0.0
     var phaserMix = 0.0
     var phaserRate = 12.0
     var phaserFeedback = 0.0
@@ -217,7 +217,8 @@ class Preset: Codable {
         autoPanRate = dictionary["autoPanRate"] as? Double ?? autoPanRate
         filterADSRMix = dictionary["filterADSRMix"] as? Double ?? filterADSRMix
         glide = dictionary["glide"] as? Double ?? glide
-        
+        widen = dictionary["widen"] as? Double ?? widen
+
         // ADSR
         attackDuration = dictionary["attackDuration"] as? Double ?? attackDuration
         decayDuration = dictionary["decayDuration"] as? Double ?? decayDuration

@@ -1014,9 +1014,16 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_compressor_compute(sp, compressor0, &reverbCrossfadeOutL, &compressorOutL);
         sp_compressor_compute(sp, compressor1, &reverbCrossfadeOutR, &compressorOutR);
         
+        // WIDEN
+        float widenOutR = 0.f;
+        sp_delay_compute(sp, widenDelay, &compressorOutR, &widenOutR);
+        // exploit smoothing of widen toggle as a crossfade
+        widenOutR = p[widen] * widenOutR + (1.f - p[widen]) * compressorOutR;
+
+        
         // MASTER
         outL[frameIndex] = compressorOutL;
-        outR[frameIndex] = compressorOutR;
+        outR[frameIndex] = widenOutR;
     }
 }
 
@@ -1321,6 +1328,9 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     *compressor1->rel = 0.01f;
     *compressor2->rel = 0.01f;
     *compressor3->rel = 0.01f;
+    sp_delay_create(&widenDelay);
+    sp_delay_init(sp, widenDelay, 0.05f);
+    widenDelay->feedback = 0.f;
     noteStates = (NoteState*)malloc(AKS1_MAX_POLYPHONY * sizeof(NoteState));
     monoNote = (NoteState*)malloc(sizeof(NoteState));
     heldNoteNumbers = (NSMutableArray<NSNumber*>*)[NSMutableArray array];
@@ -1375,6 +1385,7 @@ void AKSynthOneDSPKernel::destroy() {
     sp_smoothdelay_destroy(&delayR);
     sp_smoothdelay_destroy(&delayRR);
     sp_smoothdelay_destroy(&delayFillIn);
+    sp_delay_destroy(&widenDelay);
     sp_crossfade_destroy(&delayCrossfadeL);
     sp_crossfade_destroy(&delayCrossfadeR);
     sp_revsc_destroy(&reverbCostello);

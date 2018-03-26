@@ -217,6 +217,7 @@ private:
     sp_compressor *compressor1;
     sp_compressor *compressor2;
     sp_compressor *compressor3;
+    sp_delay *widenDelay;
     sp_port *monoFrequencyPort;
     float monoFrequencySmooth = 261.6255653006f;
     float tempo = 120.f;
@@ -244,7 +245,6 @@ private:
     // Array of midi note numbers of NoteState's which have had a noteOn event but not yet a noteOff event.
     NSMutableArray<NSNumber*>* heldNoteNumbers;
     AEArray* heldNoteNumbersAE;
-    
     
     // These expressions come from Rate.swift which is used for beat sync
     const float minutesPerSecond = 1.f / 60.f;
@@ -299,9 +299,7 @@ private:
         { reverbMix,             0, 0, 1, "reverbMix", "reverbMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayOn,               0, 0, 1, "delayOn", "delayOn", kAudioUnitParameterUnit_Generic, false, NULL},
         { delayFeedback,         0, 0.1, 0.9, "delayFeedback", "delayFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
-        
         { delayTime,             0.1, 0.5, 1.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
-        
         { delayMix,              0, 0.125, 1, "delayMix", "delayMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo2Index,             0, 0, 3, "lfo2Index", "lfo2Index", kAudioUnitParameterUnit_Generic, false, NULL},
         { lfo2Amplitude,         0.016666, 0, 1, "lfo2Amplitude", "lfo2Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -378,7 +376,8 @@ private:
         { phaserRate,            1, 12, 300, "phaserRate", "phaserRate" , kAudioUnitParameterUnit_Hertz, true, NULL},
         { phaserFeedback,        0, 0.0, 0.8, "phaserFeedback", "phaserFeedback" , kAudioUnitParameterUnit_Generic, true, NULL},
         { phaserNotchWidth,      100, 800, 1000, "phaserNotchWidth", "phaserNotchWidth" , kAudioUnitParameterUnit_Hertz, true, NULL},
-        { monoIsLegato,          0, 0, 1, "monoIsLegato", "monoIsLegato" , kAudioUnitParameterUnit_Generic, false, NULL}
+        { monoIsLegato,          0, 0, 1, "monoIsLegato", "monoIsLegato" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { widen,                 0, 0, 1, "widen", "widen" , kAudioUnitParameterUnit_Generic, true, NULL}
     };
 };
 #endif

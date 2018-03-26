@@ -47,7 +47,6 @@ public class LfoBtnStyleKit : NSObject {
         //// Variable Declarations
         let indicator1On = lfoSelected == 1 || lfoSelected == 3
         let indicator2On = lfoSelected == 2 || lfoSelected == 3
-        let greaterThanOne = lfoSelected > 0
 
         //// Button
         //// btnBackground Drawing

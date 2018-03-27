@@ -907,7 +907,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         //BITCRUSH
         float bitCrushOut = synthOut;
         
-        // original = bitCrushSampleRate about which an lfo is applied...this is clamped
+        //original lfo = bitCrushSampleRate frequency about which an lfo is applied...this is clamped
         float bitcrushSrate = p[bitCrushSampleRate];
         if(p[bitcrushLFO] == 1.f) {
             bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]); // note this is NOT equal to lfo1_0_1
@@ -918,7 +918,17 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
         bitcrushSrate = parameterClamp(bitCrushSampleRate, bitcrushSrate); // clamp
         bitcrush->srate = bitcrushSrate;
+        
+        //TODO:@MATT/@AURE: 0 = sp_bitcrush, and 1 = sp_fold, which is the only subset of bitcrush that we need
+#if 0
+        // original bitcrush
         sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
+#else
+        // a subset of bitcrush, "folding", which reduces the sample rate
+        bitcrushFold->incr = SAMPLE_RATE / bitcrushSrate;
+//        bitcrushFold->incr = sp->sr / bitcrushSrate; // might be a bug here...not sure when sp->sr is updated.
+        sp_fold_compute(sp, bitcrushFold, &synthOut, &bitCrushOut);
+#endif
         
         //AUTOPAN
         float panValue = 0.f;
@@ -1265,6 +1275,8 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_phasor_init(sp, lfo2Phasor, 0);
     sp_bitcrush_create(&bitcrush);
     sp_bitcrush_init(sp, bitcrush);
+    sp_fold_create(&bitcrushFold);
+    sp_fold_init(sp, bitcrushFold); bitcrushFold->incr = 1; // YES
     sp_phaser_create(&phaser0);
     sp_phaser_init(sp, phaser0);
     sp_port_create(&monoFrequencyPort);
@@ -1378,6 +1390,7 @@ void AKSynthOneDSPKernel::destroy() {
     sp_phasor_destroy(&lfo1Phasor);
     sp_phasor_destroy(&lfo2Phasor);
     sp_bitcrush_destroy(&bitcrush);
+    sp_fold_destroy(&bitcrushFold);
     sp_phaser_destroy(&phaser0);
     sp_osc_destroy(&panOscillator);
     sp_pan2_destroy(&pan);

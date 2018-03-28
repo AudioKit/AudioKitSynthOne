@@ -109,7 +109,7 @@ class Preset: Codable {
     var category = 0
     var isUser = true
     var isFavorite = false
-    var userText = "AudioKit Synth One preset. Created by YOUR NAME HERE."
+    var userText = "AudioKit Synth One. Preset by ..."
     
     // LFO Routings
     var cutoffLFO = 0.0

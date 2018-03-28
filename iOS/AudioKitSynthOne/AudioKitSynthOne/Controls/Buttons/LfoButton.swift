@@ -14,7 +14,9 @@ class LfoButton: UIView, AKSynthOneControl {
     var callback: (Double)->Void = { _ in }
     var value: Double = 0 {
         didSet {
-            setNeedsDisplay()
+            // Code for activating LFO state from Preset load
+            lfo1Active = false
+            lfo2Active = false
             switch value {
             case 1:
                 lfo1Active = true
@@ -26,6 +28,7 @@ class LfoButton: UIView, AKSynthOneControl {
             default:
                 break
             }
+            setNeedsDisplay()
         }
     }
     
@@ -48,6 +51,8 @@ class LfoButton: UIView, AKSynthOneControl {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
+            
+            print ("Pre Touch: \(value)")
             let touchPoint = touch.location(in: self)
             
             if touchPoint.x < btnWidth/2 {
@@ -62,8 +67,9 @@ class LfoButton: UIView, AKSynthOneControl {
             
             value = newValue
             
-            setNeedsDisplay()
             callback(value)
+            
+            print ("Callback value: \(value)")
         }
     }
     

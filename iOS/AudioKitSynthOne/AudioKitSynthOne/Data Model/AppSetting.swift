@@ -22,7 +22,7 @@ class AppSetting: Codable {
     var midiChannel = 0
     var omniMode = true
     var plotFilled = true
-    var velocitySensitive = true
+    var velocitySensitive = false
     
     var launches = 0
     

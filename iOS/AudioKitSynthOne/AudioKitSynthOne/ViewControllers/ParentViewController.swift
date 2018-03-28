@@ -651,7 +651,6 @@ extension ParentViewController: EmbeddedViewsDelegate {
         let topPanel = synthPanels.filter { $0.isTopContainer }.last
         let bottomPanel = synthPanels.filter { !$0.isTopContainer}.last
         
-        
         // Update Bottom Panel NavButtons
         topChildView = topPanel?.viewType
         DispatchQueue.main.async {
@@ -748,6 +747,8 @@ extension ParentViewController: AKMIDIListener  {
         
         // Handle MIDI Control Messages
         switch controller {
+            
+        // Mod Wheel
         case AKMIDIControl.modulationWheel.rawValue:
             DispatchQueue.main.async {
                 self.modWheelPad.setVerticalValueFrom(midiValue: value)

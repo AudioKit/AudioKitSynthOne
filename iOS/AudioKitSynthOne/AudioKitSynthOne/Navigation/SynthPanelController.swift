@@ -52,7 +52,7 @@ class SynthPanelController: UpdatableViewController {
         
         guard let parentController = self.parent as? ParentViewController else { return }
         
-        if parentController.keyboardToggle.value == 0 {
+        if parentController.keyboardToggle.value == 0 && !parentController.isPresetsDisplayed {
             
             // Make sure the same view doesn't appear twice on the screen
             if leftView == parentController.topChildView || leftView == parentController.bottomChildView {

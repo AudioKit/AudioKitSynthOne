@@ -304,7 +304,7 @@ private:
         { delayTime,             0.1, 0.5, 1.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
         { delayMix,              0, 0.125, 1, "delayMix", "delayMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo2Index,             0, 0, 3, "lfo2Index", "lfo2Index", kAudioUnitParameterUnit_Generic, false, NULL},
-        { lfo2Amplitude,         0.016666, 0, 1, "lfo2Amplitude", "lfo2Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},
+        { lfo2Amplitude,         0, 0, 1, "lfo2Amplitude", "lfo2Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo2Rate,              rate_min, 0.25, rate_max, "lfo2Rate", "lfo2Rate", kAudioUnitParameterUnit_Generic, true, NULL},
         { cutoffLFO,             0, 0, 3, "cutoffLFO", "cutoffLFO", kAudioUnitParameterUnit_Generic, false, NULL},
         { resonanceLFO,          0, 0, 3, "resonanceLFO", "resonanceLFO", kAudioUnitParameterUnit_Generic, false, NULL},

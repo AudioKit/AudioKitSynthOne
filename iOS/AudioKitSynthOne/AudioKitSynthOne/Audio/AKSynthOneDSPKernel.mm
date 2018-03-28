@@ -389,7 +389,7 @@ struct AKSynthOneDSPKernel::NoteState {
 
         // filter frequency mixer
         filterCutoffFreq -= filterCutoffFreq * filterEnvLFOMix * (1.f - filter);
-        filterCutoffFreq = kernel->parameterClamp(cutoff, filterCutoffFreq);//TODO:this is still too low
+        filterCutoffFreq = kernel->parameterClamp(cutoff, filterCutoffFreq);
         loPass->freq = filterCutoffFreq;
         bandPass->freq = filterCutoffFreq;
         hiPass->freq = filterCutoffFreq;
@@ -909,6 +909,9 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
         //original lfo = bitCrushSampleRate frequency about which an lfo is applied...this is clamped
         float bitcrushSrate = p[bitCrushSampleRate];
+        //TODO:@MATT try playing with this one
+#if 1
+        // original linear scheme
         if(p[bitcrushLFO] == 1.f) {
             bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]); // note this is NOT equal to lfo1_0_1
         } else if (p[bitcrushLFO] == 2.f) {
@@ -916,19 +919,36 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         } else if (p[bitcrushLFO] == 3.f) {
             bitcrushSrate *= (1.f + 0.25f * (lfo1 * p[lfo1Amplitude] + lfo2 * p[lfo2Amplitude])); // note this is NOT equal to lfo3_0_1
         }
+#else
+        //new log2 scheme
+        bitcrushSrate = log2(bitcrushSrate);
+        const float magicNumber = 4.f;
+        if(p[bitcrushLFO] == 1.f) {
+            bitcrushSrate += magicNumber * lfo1_0_1;
+        } else if (p[bitcrushLFO] == 2.f) {
+            bitcrushSrate += magicNumber * lfo2_0_1;
+        } else if (p[bitcrushLFO] == 3.f) {
+            bitcrushSrate += magicNumber * lfo3_0_1;
+        }
+        bitcrushSrate = exp2(bitcrushSrate);
+#endif
         bitcrushSrate = parameterClamp(bitCrushSampleRate, bitcrushSrate); // clamp
         bitcrush->srate = bitcrushSrate;
+        
         
         //TODO:@MATT/@AURE: 0 = sp_bitcrush, and 1 = sp_fold, which is the only subset of bitcrush that we need
 #if 0
         // original bitcrush
         sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
 #else
-        // a subset of bitcrush, "folding", which reduces the sample rate
-        bitcrushFold->incr = SAMPLE_RATE / bitcrushSrate;
+        // a subset of bitcrush, "folding" reduces the sample rate
+        float bincr = SAMPLE_RATE / bitcrushSrate;
+        if (bincr < 1.f) bincr = 1.f; // for the case where the audio engine samplerate > 44100
+        bitcrushFold->incr = bincr;
 //        bitcrushFold->incr = sp->sr / bitcrushSrate; // might be a bug here...not sure when sp->sr is updated.
         sp_fold_compute(sp, bitcrushFold, &synthOut, &bitCrushOut);
 #endif
+        
         
         //AUTOPAN
         float panValue = 0.f;

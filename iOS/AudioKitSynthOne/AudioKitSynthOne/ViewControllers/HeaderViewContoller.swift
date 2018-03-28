@@ -55,8 +55,12 @@ public class HeaderViewController: UpdatableViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(HeaderViewController.displayLabelTapped))
         tap.numberOfTapsRequired = 1
         displayLabel.addGestureRecognizer(tap)
-        displayLabel.isUserInteractionEnabled = true
+        displayLabel.isUserInteractionEnabled = true    
         
+        // DEV panel
+        devButton.isHidden = false
+        
+        //
         setupCallbacks()
     }
     
@@ -191,7 +195,8 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = value == 1 ? "Arpeggiator/Sequencer On" : "Arpeggiator/Sequencer Off"
         case .arpIsSequencer:
             displayLabel.text = value == 1 ? "Sequencer Mode" : "Arpeggiator Mode"
-            
+        case .widen:
+            displayLabel.text = value == 1 ? "Widen On" : "Widen Off"
         default:
             _ = 0
             // do nothing

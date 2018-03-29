@@ -909,9 +909,9 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
         //original lfo = bitCrushSampleRate frequency about which an lfo is applied...this is clamped
         float bitcrushSrate = p[bitCrushSampleRate];
-        //TODO:@MATT try playing with this one
-#if 1
-        // original linear scheme
+        //TODO:@MATT BITCRUSH LFO SCHEME
+#if 0
+        // original linear scheme BITCRUSH LFO SCHEME
         if(p[bitcrushLFO] == 1.f) {
             bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]); // note this is NOT equal to lfo1_0_1
         } else if (p[bitcrushLFO] == 2.f) {
@@ -920,7 +920,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             bitcrushSrate *= (1.f + 0.25f * (lfo1 * p[lfo1Amplitude] + lfo2 * p[lfo2Amplitude])); // note this is NOT equal to lfo3_0_1
         }
 #else
-        //new log2 scheme
+        //new log2 scheme BITCRUSH LFO SCHEME
         bitcrushSrate = log2(bitcrushSrate);
         const float magicNumber = 4.f;
         if(p[bitcrushLFO] == 1.f) {
@@ -935,7 +935,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         bitcrushSrate = parameterClamp(bitCrushSampleRate, bitcrushSrate); // clamp
         bitcrush->srate = bitcrushSrate;
         
-        
+        // BITCRUSH VS. FOLD: FOLD IS THE BEST, BUT HAS AN INTERMITTENT BUG WHERE bitcrushSrate CHANGES ARE NOT EFFECTED IMMEDIATELY
         //TODO:@MATT/@AURE: 0 = sp_bitcrush, and 1 = sp_fold, which is the only subset of bitcrush that we need
 #if 0
         // original bitcrush
@@ -1016,9 +1016,36 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // reverb
         float revOutL = 0.f;
         float revOutR = 0.f;
-        reverbCostello->lpfreq = 0.5f * SAMPLE_RATE;
         reverbCostello->feedback = p[reverbFeedback];
+        
+        //TODO:@MATT REVERB the variants  X, X2, FMPLAYER, AKS1
+#if 0
+        //TODO:@MATT: input reverb: "original" hipass and gain+compression on reverb input
+        reverbCostello->lpfreq = 0.5f * SAMPLE_RATE; // changes default
         sp_revsc_compute(sp, reverbCostello, &butCompressOutL, &butCompressOutR, &revOutL, &revOutR);
+#elif 1
+        //TODO:@MATT:input reverb: high-pass, NO compressor/gain, on reverb input
+        //pro:removes low frequency rumblies when reverb feedback is high
+        // don't change default//reverbCostello->lpfreq = 0.5f * SAMPLE_RATE;
+        sp_revsc_compute(sp, reverbCostello, &butOutL, &butOutR, &revOutL, &revOutR);
+#elif 0
+        //TODO:@MATT:input reverb: bypass hipass and gain...more like X
+        sp_revsc_compute(sp, reverbCostello, &mixedDelayL, &mixedDelayR, &revOutL, &revOutR); // TODO:BYPASS
+#endif
+
+        // GAIN ON WET REVERB
+        //TODO:@MATT: wet reverb gain schemes
+#if 0
+        // no gain on wet reverb
+#elif 0
+        // 3db gain on wet reverb
+        revOutL *= 2.f;
+        revOutR *= 2.f;
+#elif 0
+        // 6db gain on wet reverb
+        revOutL *= 4.f;
+        revOutR *= 4.f;
+#endif
         
         // crossfade wet reverb with wet+dry delay
         float reverbCrossfadeOutL = 0.f;
@@ -1029,21 +1056,30 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_crossfade_compute(sp, revCrossfadeL, &mixedDelayL, &revOutL, &reverbCrossfadeOutL);
         sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &revOutR, &reverbCrossfadeOutR);
         
-        // final compress/limit
-#if true
-        //TODO:@MATT: https://trello.com/c/b20JqxTR "I wonder if there's a way to to make the reverb signal louder without it sounding so distorted and compressed. We may have to dial it back a bit somehow. Maybe lowering the pre-volume before it goes into the limiter?"
+        // FINAL COMPRESSOR/LIMITER
+#if 1
+        //TODO:@MATT:
+        // no gain to final limiter
+#elif 0
+        // 3db gain on input to final compressor
         reverbCrossfadeOutL *= (2.f * p[masterVolume]);
         reverbCrossfadeOutR *= (2.f * p[masterVolume]);
-#else
-        //TODO:@MATT https://trello.com/c/b20JqxTR "Marcus,would it be possible to bump this up a couple of db? 😀"
+#elif 0
+        // 6db gain on input to final compressor
         reverbCrossfadeOutL *= (2.f * 2.f * p[masterVolume]);
         reverbCrossfadeOutR *= (2.f * 2.f * p[masterVolume]);
 #endif
-        float compressorOutL = 0.f;
-        float compressorOutR = 0.f;
+
+        float compressorOutL = reverbCrossfadeOutL;
+        float compressorOutR = reverbCrossfadeOutR;
+        
+#if 0
+        //TODO:@MATT
+        // COMPRESSOR TOGGLE: 0 = no compressor, 1 = compressor
         sp_compressor_compute(sp, compressor0, &reverbCrossfadeOutL, &compressorOutL);
         sp_compressor_compute(sp, compressor1, &reverbCrossfadeOutR, &compressorOutR);
-        
+#endif
+
         // WIDEN
         float widenOutR = 0.f;
         sp_delay_compute(sp, widenDelay, &compressorOutR, &widenOutR);

@@ -382,6 +382,7 @@ public class ParentViewController: UpdatableViewController {
                 presentation.sourceRect = midiButton.bounds
             }
         }
+        
     }
     
     fileprivate func add(asChildViewController viewController: UIViewController, isTopContainer: Bool = true) {
@@ -544,6 +545,10 @@ extension ParentViewController: HeaderDelegate {
         
         // Turn off held notes on keybaord
         keyboardView.allNotesOff()
+    }
+    
+    func aboutPressed() {
+        self.performSegue(withIdentifier: "SegueToAbout", sender: self)
     }
 }
 

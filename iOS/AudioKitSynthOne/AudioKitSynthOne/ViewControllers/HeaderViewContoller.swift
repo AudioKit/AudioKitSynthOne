@@ -17,6 +17,7 @@ protocol HeaderDelegate {
     func randomPresetPressed()
     func panicPressed()
     func devPressed()
+    func aboutPressed()
 }
 
 public class HeaderViewController: UpdatableViewController {
@@ -33,6 +34,7 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var diceButton: UIButton!
     @IBOutlet weak var saveButton: PresetUIButton!
     @IBOutlet weak var devButton: PresetUIButton!
+    @IBOutlet weak var aboutButton: PresetUIButton!
     
     var delegate: EmbeddedViewsDelegate?
     var headerDelegate: HeaderDelegate?
@@ -244,6 +246,10 @@ public class HeaderViewController: UpdatableViewController {
         
         devButton.callback = { _ in
             self.headerDelegate?.devPressed()
+        }
+        
+        aboutButton.callback = { _ in
+            self.headerDelegate?.aboutPressed()
         }
     }
     

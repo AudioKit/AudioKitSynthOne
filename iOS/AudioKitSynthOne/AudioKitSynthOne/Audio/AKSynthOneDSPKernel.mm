@@ -937,7 +937,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
         // BITCRUSH VS. FOLD: FOLD IS THE BEST, BUT HAS AN INTERMITTENT BUG WHERE bitcrushSrate CHANGES ARE NOT EFFECTED IMMEDIATELY
         //TODO:@MATT/@AURE: 0 = sp_bitcrush, and 1 = sp_fold, which is the only subset of bitcrush that we need
-#if 0
+#if 1
         // original bitcrush
         sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
 #else
@@ -1057,10 +1057,10 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &revOutR, &reverbCrossfadeOutR);
         
         // FINAL COMPRESSOR/LIMITER
-#if 1
+#if 0
         //TODO:@MATT:
         // no gain to final limiter
-#elif 0
+#elif 1
         // 3db gain on input to final compressor
         reverbCrossfadeOutL *= (2.f * p[masterVolume]);
         reverbCrossfadeOutR *= (2.f * p[masterVolume]);
@@ -1073,7 +1073,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         float compressorOutL = reverbCrossfadeOutL;
         float compressorOutR = reverbCrossfadeOutR;
         
-#if 0
+#if 1
         //TODO:@MATT
         // COMPRESSOR TOGGLE: 0 = no compressor, 1 = compressor
         sp_compressor_compute(sp, compressor0, &reverbCrossfadeOutL, &compressorOutL);

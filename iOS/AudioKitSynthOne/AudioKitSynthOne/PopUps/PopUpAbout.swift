@@ -9,17 +9,69 @@
 import UIKit
 //import MessageUI
 
+
 class PopUpAbout: UIViewController {
     
     @IBOutlet weak var parentView: UIView!
-    
+    @IBOutlet weak var textContainer: UIView!
+    var avPlayer: AVPlayer!
+    var avPlayerLayer: AVPlayerLayer!
+    var paused: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        parentView.layer.borderColor = #colorLiteral(red: 0.09411764706, green: 0.09411764706, blue: 0.09411764706, alpha: 1)
-        parentView.layer.borderWidth = 4
-        parentView.layer.cornerRadius = 6
+        // Border of Popup
+        textContainer.layer.borderColor = #colorLiteral(red: 0.09411764706, green: 0.09411764706, blue: 0.09411764706, alpha: 1)
+        textContainer.layer.borderWidth = 2
+        textContainer.layer.cornerRadius = 8
+        
+        // Background video
+        let theURL = Bundle.main.url(forResource:"dots", withExtension: "mp4")
+        
+        avPlayer = AVPlayer(url: theURL!)
+        avPlayerLayer = AVPlayerLayer(player: avPlayer)
+        avPlayerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        avPlayer.volume = 0
+        avPlayer.actionAtItemEnd = .none
+        
+        avPlayerLayer.frame = view.layer.bounds
+        view.backgroundColor = .clear
+        view.layer.insertSublayer(avPlayerLayer, at: 0)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(playerItemDidReachEnd(notification:)),
+                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: avPlayer.currentItem)
     }
+    
+    @objc func playerItemDidReachEnd(notification: Notification) {
+        let p: AVPlayerItem = notification.object as! AVPlayerItem
+        p.seek(to: kCMTimeZero)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        avPlayer.play()
+        paused = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        avPlayer.pause()
+        paused = true
+    }
+    
+    
+    //*****************************************************************
+    // MARK: - IB Actions
+    //*****************************************************************
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func closePressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -31,23 +83,6 @@ class PopUpAbout: UIViewController {
         }
     }
     
-/*
-    @IBAction func emailPressed(_ sender: UIButton) {
-        
-        let receipients = ["matthew@audiokitpro.com"]
-        let subject = "From AudioKit Synth One"
-        let messageBody = ""
-        
-        let configuredMailComposeViewController = configureMailComposeViewController(recepients: receipients, subject: subject, messageBody: messageBody)
-        
-        if canSendMail() {
-            self.present(configuredMailComposeViewController, animated: true, completion: nil)
-        } else {
-            showSendMailErrorAlert()
-        }
-    }
-*/
-    
     @IBAction func website(_ sender: UIButton) {
         if let url = URL(string: "http://audiokitpro.com") {
             UIApplication.shared.open(url)
@@ -57,6 +92,23 @@ class PopUpAbout: UIViewController {
     @IBAction func reviewAppPressed(_ sender: UIButton) {
         requestReview()
     }
+    
+    /*
+     @IBAction func emailPressed(_ sender: UIButton) {
+     
+     let receipients = ["matthew@audiokitpro.com"]
+     let subject = "From AudioKit Synth One"
+     let messageBody = ""
+     
+     let configuredMailComposeViewController = configureMailComposeViewController(recepients: receipients, subject: subject, messageBody: messageBody)
+     
+     if canSendMail() {
+     self.present(configuredMailComposeViewController, animated: true, completion: nil)
+     } else {
+     showSendMailErrorAlert()
+     }
+     }
+     */
     
 }
 

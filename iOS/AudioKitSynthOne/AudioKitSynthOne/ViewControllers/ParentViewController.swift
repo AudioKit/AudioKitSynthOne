@@ -545,6 +545,8 @@ extension ParentViewController: HeaderDelegate {
         
         // Turn off held notes on keybaord
         keyboardView.allNotesOff()
+        
+        self.displayAlertController("Midi Panic", message: "All notes have been turned off.")
     }
     
     func aboutPressed() {

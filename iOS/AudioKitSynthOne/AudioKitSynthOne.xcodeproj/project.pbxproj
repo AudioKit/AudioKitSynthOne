@@ -63,6 +63,7 @@
 		94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B69C3A1F297E2800191C87 /* FXViewController.swift */; };
 		94C50C3220195FC0008549DB /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 94C50C3120195FC0008549DB /* User.json */; };
 		94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
+		94D513A9206C723F0037CB28 /* PopUpAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D513A4206C6A610037CB28 /* PopUpAbout.swift */; };
 		94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */; };
 		94D917AF1F550D28006ACB4E /* FlatToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */; };
 		94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */; };
@@ -189,6 +190,7 @@
 		94B69C3A1F297E2800191C87 /* FXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		94C50C3120195FC0008549DB /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
 		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
+		94D513A4206C6A610037CB28 /* PopUpAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAbout.swift; sourceTree = "<group>"; };
 		94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatToggleButtonStyleKit.swift; sourceTree = "<group>"; };
 		94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatToggleButton.swift; sourceTree = "<group>"; };
 		94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonStyleKit.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 				94A503901FF2E7680097D37C /* PopUpMIDIViewController.swift */,
 				9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */,
 				94A503981FF2F3E10097D37C /* PopUpMODController.swift */,
+				94D513A4206C6A610037CB28 /* PopUpAbout.swift */,
 			);
 			path = PopUps;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				949D09341F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */,
 				9435245C1F57A6F100BDA789 /* SynthPanelController.swift in Sources */,
 				94A503911FF2E7680097D37C /* PopUpMIDIViewController.swift in Sources */,
+				94D513A9206C723F0037CB28 /* PopUpAbout.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
 				C4AC4B192019C63F00D04C7F /* AEMainThreadEndpoint.m in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,

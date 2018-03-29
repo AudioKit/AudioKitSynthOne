@@ -52,7 +52,6 @@ class LfoButton: UIView, AKSynthOneControl {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             
-            print ("Pre Touch: \(value)")
             let touchPoint = touch.location(in: self)
             
             if touchPoint.x < btnWidth/2 {
@@ -68,8 +67,6 @@ class LfoButton: UIView, AKSynthOneControl {
             value = newValue
             
             callback(value)
-            
-            print ("Callback value: \(value)")
         }
     }
     

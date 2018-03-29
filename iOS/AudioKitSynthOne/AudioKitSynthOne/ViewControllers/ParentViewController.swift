@@ -284,7 +284,8 @@ public class ParentViewController: UpdatableViewController {
             switch self.activePreset.modWheelRouting {
             case 0:
                 // Cutoff
-                let scaledValue = Double.scaleRangeLog(value, rangeMin: 30, rangeMax: 7000)
+                let newValue = 1 - value
+                let scaledValue = Double.scaleRangeLog(newValue, rangeMin: 40, rangeMax: 7600)
                 s.setAK1Parameter(.cutoff, scaledValue*3)
                 self.conductor.updateSingleUI(.cutoff, control: nil, value: s.getAK1Parameter(.cutoff))
             case 1:
@@ -381,6 +382,7 @@ public class ParentViewController: UpdatableViewController {
                 presentation.sourceRect = midiButton.bounds
             }
         }
+        
     }
     
     fileprivate func add(asChildViewController viewController: UIViewController, isTopContainer: Bool = true) {
@@ -543,6 +545,10 @@ extension ParentViewController: HeaderDelegate {
         
         // Turn off held notes on keybaord
         keyboardView.allNotesOff()
+    }
+    
+    func aboutPressed() {
+        self.performSegue(withIdentifier: "SegueToAbout", sender: self)
     }
 }
 

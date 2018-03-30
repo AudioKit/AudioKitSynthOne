@@ -622,6 +622,32 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     float* outL = (float*)outBufferListPtr->mBuffers[0].mData + bufferOffset;
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
     
+    //
+    *compressorMasterL->ratio = p[compressorMasterRatio];
+    *compressorMasterR->ratio = p[compressorMasterRatio];
+    *compressorReverbInputL->ratio = p[compressorReverbInputRatio];
+    *compressorReverbInputR->ratio = p[compressorReverbInputRatio];
+    *compressorReverbWetL->ratio = p[compressorReverbWetRatio];
+    *compressorReverbWetR->ratio = p[compressorReverbWetRatio];
+    *compressorMasterL->thresh = p[compressorMasterThreshold];
+    *compressorMasterR->thresh = p[compressorMasterThreshold];
+    *compressorReverbInputL->thresh = p[compressorReverbInputThreshold];
+    *compressorReverbInputR->thresh = p[compressorReverbInputThreshold];
+    *compressorReverbWetL->thresh = p[compressorReverbWetThreshold];
+    *compressorReverbWetR->thresh = p[compressorReverbWetThreshold];
+    *compressorMasterL->atk = p[compressorMasterAttack];
+    *compressorMasterR->atk = p[compressorMasterAttack];
+    *compressorReverbInputL->atk = p[compressorReverbInputAttack];
+    *compressorReverbInputR->atk = p[compressorReverbInputAttack];
+    *compressorReverbWetL->atk = p[compressorReverbWetAttack];
+    *compressorReverbWetR->atk = p[compressorReverbWetAttack];
+    *compressorMasterL->rel = p[compressorMasterRelease];
+    *compressorMasterR->rel = p[compressorMasterRelease];
+    *compressorReverbInputL->rel = p[compressorReverbInputRelease];
+    *compressorReverbInputR->rel = p[compressorReverbInputRelease];
+    *compressorReverbWetL->rel = p[compressorReverbWetRelease];
+    *compressorReverbWetR->rel = p[compressorReverbWetRelease];
+
     // transition playing notes from release to off...outside render block because it's not expensive to let the release linger
     bool transitionedToOff = false;
     if (p[isMono] == 1.f) {
@@ -1010,27 +1036,27 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         butOutR *= 2.f;
         float butCompressOutL = 0.f;
         float butCompressOutR = 0.f;
-        sp_compressor_compute(sp, compressor2, &butOutL, &butCompressOutL);
-        sp_compressor_compute(sp, compressor3, &butOutR, &butCompressOutR);
+        sp_compressor_compute(sp, compressorReverbInputL, &butOutL, &butCompressOutL);
+        sp_compressor_compute(sp, compressorReverbInputR, &butOutR, &butCompressOutR);
 
         // reverb
-        float revOutL = 0.f;
-        float revOutR = 0.f;
+        float reverbWetL = 0.f;
+        float reverbWetR = 0.f;
         reverbCostello->feedback = p[reverbFeedback];
         
         //TODO:@MATT REVERB the variants  X, X2, FMPLAYER, AKS1
 #if 0
         //TODO:@MATT: input reverb: "original" hipass and gain+compression on reverb input
         reverbCostello->lpfreq = 0.5f * SAMPLE_RATE; // changes default
-        sp_revsc_compute(sp, reverbCostello, &butCompressOutL, &butCompressOutR, &revOutL, &revOutR);
+        sp_revsc_compute(sp, reverbCostello, &butCompressOutL, &butCompressOutR, &reverbWetL, &reverbWetR);
 #elif 1
         //TODO:@MATT:input reverb: high-pass, NO compressor/gain, on reverb input
         //pro:removes low frequency rumblies when reverb feedback is high
         // don't change default//reverbCostello->lpfreq = 0.5f * SAMPLE_RATE;
-        sp_revsc_compute(sp, reverbCostello, &butOutL, &butOutR, &revOutL, &revOutR);
+        sp_revsc_compute(sp, reverbCostello, &butOutL, &butOutR, &reverbWetL, &reverbWetR);
 #elif 0
         //TODO:@MATT:input reverb: bypass hipass and gain...more like X
-        sp_revsc_compute(sp, reverbCostello, &mixedDelayL, &mixedDelayR, &revOutL, &revOutR); // TODO:BYPASS
+        sp_revsc_compute(sp, reverbCostello, &mixedDelayL, &mixedDelayR, &reverbWetL, &reverbWetR);
 #endif
 
         // GAIN ON WET REVERB
@@ -1039,12 +1065,20 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // no gain on wet reverb
 #elif 0
         // 3db gain on wet reverb
-        revOutL *= 2.f;
-        revOutR *= 2.f;
+        reverbWetL *= 2.f;
+        reverbWetR *= 2.f;
 #elif 0
         // 6db gain on wet reverb
-        revOutL *= 4.f;
-        revOutR *= 4.f;
+        reverbWetL *= 4.f;
+        reverbWetR *= 4.f;
+#endif
+        
+        // compressor for wet reverb; like X2, FM
+        float wetReverbLimiterL = reverbWetL;
+        float wetReverbLimiterR = reverbWetR;
+#if 0 // 0 = NOP, 1 = compressor for wet reverb
+        sp_compressor_compute(sp, compressorReverbWetL, &reverbWetL, &wetReverbLimiterL);
+        sp_compressor_compute(sp, compressorReverbWetR, &reverbWetR, &wetReverbLimiterR);
 #endif
         
         // crossfade wet reverb with wet+dry delay
@@ -1053,19 +1087,19 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         const float reverbMixFactor = p[reverbMix] * p[reverbOn];
         revCrossfadeL->pos = reverbMixFactor;
         revCrossfadeR->pos = reverbMixFactor;
-        sp_crossfade_compute(sp, revCrossfadeL, &mixedDelayL, &revOutL, &reverbCrossfadeOutL);
-        sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &revOutR, &reverbCrossfadeOutR);
+        sp_crossfade_compute(sp, revCrossfadeL, &mixedDelayL, &wetReverbLimiterL, &reverbCrossfadeOutL);
+        sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &wetReverbLimiterR, &reverbCrossfadeOutR);
         
-        // FINAL COMPRESSOR/LIMITER
+        // MASTER COMPRESSOR/LIMITER
 #if 0
         //TODO:@MATT:
-        // no gain to final limiter
+        // no gain to master compressor
 #elif 1
-        // 3db gain on input to final compressor
+        // 3db gain on input to master compressor
         reverbCrossfadeOutL *= (2.f * p[masterVolume]);
         reverbCrossfadeOutR *= (2.f * p[masterVolume]);
 #elif 0
-        // 6db gain on input to final compressor
+        // 6db gain on input to master compressor
         reverbCrossfadeOutL *= (2.f * 2.f * p[masterVolume]);
         reverbCrossfadeOutR *= (2.f * 2.f * p[masterVolume]);
 #endif
@@ -1075,12 +1109,12 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
 #if 1
         //TODO:@MATT
-        // COMPRESSOR TOGGLE: 0 = no compressor, 1 = compressor
-        sp_compressor_compute(sp, compressor0, &reverbCrossfadeOutL, &compressorOutL);
-        sp_compressor_compute(sp, compressor1, &reverbCrossfadeOutR, &compressorOutR);
+        // MASTER COMPRESSOR TOGGLE: 0 = no compressor, 1 = compressor
+        sp_compressor_compute(sp, compressorMasterL, &reverbCrossfadeOutL, &compressorOutL);
+        sp_compressor_compute(sp, compressorMasterR, &reverbCrossfadeOutR, &compressorOutR);
 #endif
 
-        // WIDEN
+        // WIDEN.  literally a constant delay with no filtering, so functionally equivalent to being inside master
         float widenOutR = 0.f;
         sp_delay_compute(sp, widenDelay, &compressorOutR, &widenOutR);
         // exploit smoothing of widen toggle as a crossfade
@@ -1372,30 +1406,42 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_crossfade_create(&revCrossfadeR);
     sp_crossfade_init(sp, revCrossfadeL);
     sp_crossfade_init(sp, revCrossfadeR);
-    sp_compressor_create(&compressor0);
-    sp_compressor_init(sp, compressor0);
-    sp_compressor_create(&compressor1);
-    sp_compressor_init(sp, compressor1);
-    sp_compressor_create(&compressor2);
-    sp_compressor_init(sp, compressor2);
-    sp_compressor_create(&compressor3);
-    sp_compressor_init(sp, compressor3);
-    *compressor0->ratio = 10.f;
-    *compressor1->ratio = 10.f;
-    *compressor2->ratio = 10.f;
-    *compressor3->ratio = 10.f;
-    *compressor0->thresh = -3.f;
-    *compressor1->thresh = -3.f;
-    *compressor2->thresh = -3.f;
-    *compressor3->thresh = -3.f;
-    *compressor0->atk = 0.001f;
-    *compressor1->atk = 0.001f;
-    *compressor2->atk = 0.001f;
-    *compressor3->atk = 0.001f;
-    *compressor0->rel = 0.01f;
-    *compressor1->rel = 0.01f;
-    *compressor2->rel = 0.01f;
-    *compressor3->rel = 0.01f;
+    sp_compressor_create(&compressorMasterL);
+    sp_compressor_init(sp, compressorMasterL);
+    sp_compressor_create(&compressorMasterR);
+    sp_compressor_init(sp, compressorMasterR);
+    sp_compressor_create(&compressorReverbInputL);
+    sp_compressor_init(sp, compressorReverbInputL);
+    sp_compressor_create(&compressorReverbInputR);
+    sp_compressor_init(sp, compressorReverbInputR);
+    sp_compressor_create(&compressorReverbWetL);
+    sp_compressor_init(sp, compressorReverbWetL);
+    sp_compressor_create(&compressorReverbWetR);
+    sp_compressor_init(sp, compressorReverbWetR);
+    *compressorMasterL->ratio = 10.f;
+    *compressorMasterR->ratio = 10.f;
+    *compressorReverbInputL->ratio = 10.f;
+    *compressorReverbInputR->ratio = 10.f;
+    *compressorReverbWetL->ratio = 10.f;
+    *compressorReverbWetR->ratio = 10.f;
+    *compressorMasterL->thresh = -3.f;
+    *compressorMasterR->thresh = -3.f;
+    *compressorReverbInputL->thresh = -3.f;
+    *compressorReverbInputR->thresh = -3.f;
+    *compressorReverbWetL->thresh = -3.f;
+    *compressorReverbWetR->thresh = -3.f;
+    *compressorMasterL->atk = 0.001f;
+    *compressorMasterR->atk = 0.001f;
+    *compressorReverbInputL->atk = 0.001f;
+    *compressorReverbInputR->atk = 0.001f;
+    *compressorReverbWetL->atk = 0.001f;
+    *compressorReverbWetR->atk = 0.001f;
+    *compressorMasterL->rel = 0.01f;
+    *compressorMasterR->rel = 0.01f;
+    *compressorReverbInputL->rel = 0.01f;
+    *compressorReverbInputR->rel = 0.01f;
+    *compressorReverbWetL->rel = 0.01f;
+    *compressorReverbWetR->rel = 0.01f;
     sp_delay_create(&widenDelay);
     sp_delay_init(sp, widenDelay, 0.05f);
     widenDelay->feedback = 0.f;
@@ -1462,10 +1508,12 @@ void AKSynthOneDSPKernel::destroy() {
     sp_buthp_destroy(&butterworthHipassR);
     sp_crossfade_destroy(&revCrossfadeL);
     sp_crossfade_destroy(&revCrossfadeR);
-    sp_compressor_destroy(&compressor0);
-    sp_compressor_destroy(&compressor1);
-    sp_compressor_destroy(&compressor2);
-    sp_compressor_destroy(&compressor3);
+    sp_compressor_destroy(&compressorMasterL);
+    sp_compressor_destroy(&compressorMasterR);
+    sp_compressor_destroy(&compressorReverbInputL);
+    sp_compressor_destroy(&compressorReverbInputR);
+    sp_compressor_destroy(&compressorReverbWetL);
+    sp_compressor_destroy(&compressorReverbWetR);
     free(noteStates);
     free(monoNote);
 }

@@ -199,6 +199,36 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = value == 1 ? "Sequencer Mode" : "Arpeggiator Mode"
         case .widen:
             displayLabel.text = value == 1 ? "Widen On" : "Widen Off"
+            
+            // visible on dev panel only
+        case .compressorMasterRatio:
+            displayLabel.text = "compressorMasterRatio: \(value)"
+        case .compressorReverbInputRatio:
+            displayLabel.text = "compressorReverbInputRatio: \(value)"
+        case .compressorReverbWetRatio:
+            displayLabel.text = "compressorReverbWetRatio: \(value)"
+
+        case .compressorMasterThreshold:
+            displayLabel.text = "compressorMasterThreshold: \(value)"
+        case .compressorReverbInputThreshold:
+            displayLabel.text = "compressorReverbInputThreshold: \(value)"
+        case .compressorReverbWetThreshold:
+            displayLabel.text = "compressorReverbWetThreshold: \(value)"
+
+        case .compressorMasterAttack:
+            displayLabel.text = "compressorMasterAttack: \(value)"
+        case .compressorReverbInputAttack:
+            displayLabel.text = "compressorReverbInputAttack: \(value)"
+        case .compressorReverbWetAttack:
+            displayLabel.text = "compressorReverbWetAttack: \(value)"
+            
+        case .compressorMasterRelease:
+            displayLabel.text = "compressorMasterRelease: \(value)"
+        case .compressorReverbInputRelease:
+            displayLabel.text = "compressorReverbInputRelease: \(value)"
+        case .compressorReverbWetRelease:
+            displayLabel.text = "compressorReverbWetRelease: \(value)"
+
         default:
             _ = 0
             // do nothing

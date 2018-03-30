@@ -198,36 +198,36 @@ public class HeaderViewController: UpdatableViewController {
         case .arpIsSequencer:
             displayLabel.text = value == 1 ? "Sequencer Mode" : "Arpeggiator Mode"
         case .widen:
-            displayLabel.text = value == 1 ? "Widen On" : "Widen Off"
+            displayLabel.text = "Widen: \(value.decimalString)"
             
             // visible on dev panel only
         case .compressorMasterRatio:
-            displayLabel.text = "compressorMasterRatio: \(value)"
+            displayLabel.text = "compressorMasterRatio: \(value.decimalString)"
         case .compressorReverbInputRatio:
-            displayLabel.text = "compressorReverbInputRatio: \(value)"
+            displayLabel.text = "compressorReverbInputRatio: \(value.decimalString)"
         case .compressorReverbWetRatio:
-            displayLabel.text = "compressorReverbWetRatio: \(value)"
+            displayLabel.text = "compressorReverbWetRatio: \(value.decimalString)"
 
         case .compressorMasterThreshold:
-            displayLabel.text = "compressorMasterThreshold: \(value)"
+            displayLabel.text = "compressorMasterThreshold: \(value.decimalString)"
         case .compressorReverbInputThreshold:
-            displayLabel.text = "compressorReverbInputThreshold: \(value)"
+            displayLabel.text = "compressorReverbInputThreshold: \(value.decimalString)"
         case .compressorReverbWetThreshold:
-            displayLabel.text = "compressorReverbWetThreshold: \(value)"
+            displayLabel.text = "compressorReverbWetThreshold: \(value.decimalString)"
 
         case .compressorMasterAttack:
-            displayLabel.text = "compressorMasterAttack: \(value)"
+            displayLabel.text = "compressorMasterAttack: \(value.decimalString)"
         case .compressorReverbInputAttack:
-            displayLabel.text = "compressorReverbInputAttack: \(value)"
+            displayLabel.text = "compressorReverbInputAttack: \(value.decimalString)"
         case .compressorReverbWetAttack:
-            displayLabel.text = "compressorReverbWetAttack: \(value)"
+            displayLabel.text = "compressorReverbWetAttack: \(value.decimalString)"
             
         case .compressorMasterRelease:
-            displayLabel.text = "compressorMasterRelease: \(value)"
+            displayLabel.text = "compressorMasterRelease: \(value.decimalString)"
         case .compressorReverbInputRelease:
-            displayLabel.text = "compressorReverbInputRelease: \(value)"
+            displayLabel.text = "compressorReverbInputRelease: \(value.decimalString)"
         case .compressorReverbWetRelease:
-            displayLabel.text = "compressorReverbWetRelease: \(value)"
+            displayLabel.text = "compressorReverbWetRelease: \(value.decimalString)"
 
         default:
             _ = 0

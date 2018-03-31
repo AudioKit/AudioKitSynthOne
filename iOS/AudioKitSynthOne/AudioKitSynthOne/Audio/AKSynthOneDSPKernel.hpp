@@ -319,7 +319,7 @@ private:
         { filterEnvLFO,          0, 0, 3, "filterEnvLFO", "filterEnvLFO", kAudioUnitParameterUnit_Generic, false, NULL},
         { pitchLFO,              0, 0, 3, "pitchLFO", "pitchLFO", kAudioUnitParameterUnit_Generic, false, NULL},
         { bitcrushLFO,           0, 0, 3, "bitcrushLFO", "bitcrushLFO", kAudioUnitParameterUnit_Generic, false, NULL},
-        { autopanLFO,            0, 0, 3, "autopanLFO", "autopanLFO", kAudioUnitParameterUnit_Generic, false, NULL},
+        { tremoloLFO,            0, 0, 3, "tremoloLFO", "tremoloLFO", kAudioUnitParameterUnit_Generic, false, NULL},
         { arpDirection,          0, 1, 2, "arpDirection", "arpDirection", kAudioUnitParameterUnit_Generic, false, NULL},
         { arpInterval,           0, 12, 12, "arpInterval", "arpInterval", kAudioUnitParameterUnit_Generic, false, NULL},
         { arpIsOn,               0, 0, 1, "arpIsOn", "arpIsOn", kAudioUnitParameterUnit_Generic, false, NULL},

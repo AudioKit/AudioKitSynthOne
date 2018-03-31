@@ -936,7 +936,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         //original lfo = bitCrushSampleRate frequency about which an lfo is applied...this is clamped
         float bitcrushSrate = p[bitCrushSampleRate];
         //TODO:@MATT BITCRUSH LFO SCHEME
-#if 0
+#if 1
         // original linear scheme BITCRUSH LFO SCHEME
         if(p[bitcrushLFO] == 1.f) {
             bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]); // note this is NOT equal to lfo1_0_1
@@ -975,18 +975,19 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_fold_compute(sp, bitcrushFold, &synthOut, &bitCrushOut);
 #endif
         
+        //TREMOLO
+        if(p[tremoloLFO] == 1.f) {
+            bitCrushOut *= (1.f - lfo1_0_1);
+        } else if (p[tremoloLFO] == 2.f) {
+            bitCrushOut *= (1.f - lfo2_0_1);
+        } else if (p[tremoloLFO] == 3.f) {
+            bitCrushOut *= (1.f - lfo3_0_1);
+        }
         
         //AUTOPAN
         float panValue = 0.f;
         sp_osc_compute(sp, panOscillator, nil, &panValue);
         panValue *= p[autoPanAmount];
-        if(p[autopanLFO] == 1.f) {
-            panValue *= lfo1_0_1;
-        } else if(p[autopanLFO] == 2.f) {
-            panValue *= lfo2_0_1;
-        } else if(p[autopanLFO] == 3.f) {
-            panValue *= lfo3_0_1;
-        }
         pan->pan = panValue;
         float panL = 0.f, panR = 0.f;
         sp_pan2_compute(sp, pan, &bitCrushOut, &panL, &panR);

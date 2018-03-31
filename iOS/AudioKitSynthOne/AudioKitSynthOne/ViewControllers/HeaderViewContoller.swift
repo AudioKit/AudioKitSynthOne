@@ -179,8 +179,8 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Pitch LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .bitcrushLFO:
             displayLabel.text = "Bitcrush LFO ‣ \(LfoValue(rawValue: Int(value))!)"
-        case .autopanLFO:
-            displayLabel.text = "AutoPan LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+        case .tremoloLFO:
+            displayLabel.text = "Tremolo LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .filterType:
             displayLabel.text = "Filter Type : \(value.decimalString)"
         case .phaserMix:

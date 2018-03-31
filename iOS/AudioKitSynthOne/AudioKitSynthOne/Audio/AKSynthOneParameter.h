@@ -70,7 +70,7 @@ typedef AK_ENUM(AKSynthOneParameter) {
     filterEnvLFO = 56,
     pitchLFO = 57,
     bitcrushLFO = 58,
-    autopanLFO = 59,
+    tremoloLFO = 59,
     arpDirection = 60,
     arpInterval = 61,
     arpIsOn = 62,

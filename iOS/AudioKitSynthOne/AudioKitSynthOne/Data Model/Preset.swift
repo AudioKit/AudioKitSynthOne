@@ -123,7 +123,7 @@ class Preset: Codable {
     var filterEnvLFO = 0.0
     var pitchLFO = 0.0
     var bitcrushLFO = 0.0
-    var autopanLFO = 0.0
+    var tremoloLFO = 0.0
     
     // MOD Wheel Routings
     var modWheelRouting = 0.0
@@ -278,7 +278,7 @@ class Preset: Codable {
         filterEnvLFO = dictionary["filterEnvLFO"] as? Double ?? filterEnvLFO
         pitchLFO = dictionary["pitchLFO"] as? Double ?? pitchLFO
         bitcrushLFO = dictionary["bitcrushLFO"] as? Double ?? bitcrushLFO
-        autopanLFO = dictionary["autopanLFO"] as? Double ?? autopanLFO
+        tremoloLFO = dictionary["tremoloLFO"] as? Double ?? tremoloLFO
         
         // MOD WHeel
         modWheelRouting = dictionary["modWheelRouting"] as? Double ?? modWheelRouting

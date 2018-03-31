@@ -118,7 +118,8 @@ class FXViewController: SynthPanelController {
         conductor.bind(lfoFilterEnvToggle, to: .filterEnvLFO)
         conductor.bind(lfoPitchToggle,     to: .pitchLFO)
         conductor.bind(lfoBitcrushToggle,  to: .bitcrushLFO)
-      
+        conductor.bind(lfoTremoloToggle,   to: .tremoloLFO)
+        
         conductor.bind(lfo1WavePicker,     to: .lfo1Index)
         conductor.bind(lfo2WavePicker,     to: .lfo2Index)
         conductor.bind(phaserMix,          to: .phaserMix)

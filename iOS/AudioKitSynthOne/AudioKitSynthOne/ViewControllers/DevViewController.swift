@@ -30,6 +30,10 @@ class DevViewController: UpdatableViewController {
     @IBOutlet weak var compressorReverbInputRelease: Knob!
     @IBOutlet weak var compressorReverbWetRelease: Knob!
     
+    @IBOutlet weak var compressorMasterMakeupGain: Knob!
+    @IBOutlet weak var compressorReverbInputMakeupGain: Knob!
+    @IBOutlet weak var compressorReverbWetMakeupGain: Knob!
+
     let devTunings = DevTunings()
     
     override func viewDidLoad() {
@@ -71,7 +75,14 @@ class DevViewController: UpdatableViewController {
         compressorReverbWetRelease.range   = s.getParameterRange(.compressorReverbWetRelease)
         conductor.bind(compressorMasterRelease,      to: .compressorMasterRelease)
         conductor.bind(compressorReverbInputRelease, to: .compressorReverbInputRelease)
-        conductor.bind(compressorReverbWetRelease,   to: .compressorReverbWetRelease)        
+        conductor.bind(compressorReverbWetRelease,   to: .compressorReverbWetRelease)
+        
+        compressorMasterMakeupGain.range      = s.getParameterRange(.compressorMasterMakeupGain)
+        compressorReverbInputMakeupGain.range = s.getParameterRange(.compressorReverbInputMakeupGain)
+        compressorReverbWetMakeupGain.range   = s.getParameterRange(.compressorReverbWetMakeupGain)
+        conductor.bind(compressorMasterMakeupGain,      to: .compressorMasterMakeupGain)
+        conductor.bind(compressorReverbInputMakeupGain, to: .compressorReverbInputMakeupGain)
+        conductor.bind(compressorReverbWetMakeupGain,   to: .compressorReverbWetMakeupGain)
     }
 }
 

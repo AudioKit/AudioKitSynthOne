@@ -229,6 +229,13 @@ public class HeaderViewController: UpdatableViewController {
         case .compressorReverbWetRelease:
             displayLabel.text = "compressorReverbWetRelease: \(value.decimalString)"
 
+        case .compressorMasterMakeupGain:
+            displayLabel.text = "compressorMasterMakeupGain: \(value.decimalString)"
+        case .compressorReverbInputMakeupGain:
+            displayLabel.text = "compressorReverbInputMakeupGain: \(value.decimalString)"
+        case .compressorReverbWetMakeupGain:
+            displayLabel.text = "compressorReverbWetMakeupGain: \(value.decimalString)"
+
         default:
             _ = 0
             // do nothing

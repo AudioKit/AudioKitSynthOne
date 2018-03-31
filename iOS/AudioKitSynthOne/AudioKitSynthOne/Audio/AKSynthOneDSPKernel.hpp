@@ -386,16 +386,22 @@ private:
         { compressorMasterRatio,      1, 10, 20, "master compressor ratio", "master compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbInputRatio, 1, 10, 20, "reverb input compressor ratio", "reverb input compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbWetRatio,   1, 10, 20, "reverb wet compressor ratio", "reverb wet compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
+        
         { compressorMasterThreshold,      -60, -3, 0, "master compressor threshold", "master compressor threshold", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbInputThreshold, -60, -3, 0, "reverb input compressor threshold", "reverb input compressor threshold", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbWetThreshold,   -60, -3, 0, "reverb wet compressor threshold", "reverb wet compressor threshold", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorMasterAttack,      0, 0.001, 0.1, "master compressor attack", "master compressor attack", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbInputAttack, 0, 0.001, 0.1, "reverb input compressor attack", "reverb input compressor attack", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbWetAttack,   0, 0.001, 0.1, "reverb wet compressor attack", "reverb wet compressor attack", kAudioUnitParameterUnit_Generic, false, NULL},
+        
+        { compressorMasterAttack,      0, 0.001, 0.01, "master compressor attack", "master compressor attack", kAudioUnitParameterUnit_Generic, false, NULL},
+        { compressorReverbInputAttack, 0, 0.001, 0.01, "reverb input compressor attack", "reverb input compressor attack", kAudioUnitParameterUnit_Generic, false, NULL},
+        { compressorReverbWetAttack,   0, 0.001, 0.01, "reverb wet compressor attack", "reverb wet compressor attack", kAudioUnitParameterUnit_Generic, false, NULL},
+        
         { compressorMasterRelease,      0, 0.1, 0.5, "master compressor release", "master compressor release", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbInputRelease, 0, 0.1, 0.5, "reverb input compressor release", "reverb input compressor release", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbWetRelease,   0, 0.1, 0.5, "reverb wet compressor release", "reverb wet compressor release", kAudioUnitParameterUnit_Generic, false, NULL}
+        { compressorReverbWetRelease,   0, 0.1, 0.5, "reverb wet compressor release", "reverb wet compressor release", kAudioUnitParameterUnit_Generic, false, NULL},
 
+        { compressorMasterMakeupGain,      0.5, 1, 4, "master compressor makeup gain", "master compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
+        { compressorReverbInputMakeupGain, 0.5, 1, 4, "reverb input compressor makeup gain", "reverb input compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
+        { compressorMasterMakeupGain,      0.5, 1, 4, "reverb wet compressor makeup gain", "reverb wet compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL}
     };
 };
 #endif

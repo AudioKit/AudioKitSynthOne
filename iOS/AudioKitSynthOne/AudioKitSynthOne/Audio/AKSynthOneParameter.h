@@ -137,16 +137,23 @@ typedef AK_ENUM(AKSynthOneParameter) {
     compressorMasterRatio = 122,
     compressorReverbInputRatio = 123,
     compressorReverbWetRatio = 124,
+    
     compressorMasterThreshold = 125,
     compressorReverbInputThreshold = 126,
     compressorReverbWetThreshold = 127,
+    
     compressorMasterAttack = 128,
     compressorReverbInputAttack = 129,
     compressorReverbWetAttack = 130,
+    
     compressorMasterRelease = 131,
     compressorReverbInputRelease = 132,
     compressorReverbWetRelease = 133,
 
-    AKSynthOneParameterCount = 134
+    compressorMasterMakeupGain = 134,
+    compressorReverbInputMakeupGain = 135,
+    compressorReverbWetMakeupGain = 136,
+
+    AKSynthOneParameterCount = 137
 } AKSynthOneParameter;
 

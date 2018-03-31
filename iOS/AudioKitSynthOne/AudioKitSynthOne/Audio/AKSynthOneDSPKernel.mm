@@ -622,7 +622,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     float* outL = (float*)outBufferListPtr->mBuffers[0].mData + bufferOffset;
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
     
-    //
+    // visible in DEV panel only
     *compressorMasterL->ratio = p[compressorMasterRatio];
     *compressorMasterR->ratio = p[compressorMasterRatio];
     *compressorReverbInputL->ratio = p[compressorReverbInputRatio];
@@ -1039,18 +1039,21 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         float butCompressOutR = 0.f;
         sp_compressor_compute(sp, compressorReverbInputL, &butOutL, &butCompressOutL);
         sp_compressor_compute(sp, compressorReverbInputR, &butOutR, &butCompressOutR);
+        butCompressOutL *= p[compressorReverbInputMakeupGain];
+        butCompressOutR *= p[compressorReverbInputMakeupGain];
 
+        
         // reverb
         float reverbWetL = 0.f;
         float reverbWetR = 0.f;
         reverbCostello->feedback = p[reverbFeedback];
         
         //TODO:@MATT REVERB the variants  X, X2, FMPLAYER, AKS1
-#if 0
+#if 1
         //TODO:@MATT: input reverb: "original" hipass and gain+compression on reverb input
         reverbCostello->lpfreq = 0.5f * SAMPLE_RATE; // changes default
         sp_revsc_compute(sp, reverbCostello, &butCompressOutL, &butCompressOutR, &reverbWetL, &reverbWetR);
-#elif 1
+#elif 0
         //TODO:@MATT:input reverb: high-pass, NO compressor/gain, on reverb input
         //pro:removes low frequency rumblies when reverb feedback is high
         // don't change default//reverbCostello->lpfreq = 0.5f * SAMPLE_RATE;
@@ -1077,9 +1080,11 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // compressor for wet reverb; like X2, FM
         float wetReverbLimiterL = reverbWetL;
         float wetReverbLimiterR = reverbWetR;
-#if 0 // 0 = NOP, 1 = compressor for wet reverb
+#if 1 // 0 = NOP, 1 = compressor for wet reverb
         sp_compressor_compute(sp, compressorReverbWetL, &reverbWetL, &wetReverbLimiterL);
         sp_compressor_compute(sp, compressorReverbWetR, &reverbWetR, &wetReverbLimiterR);
+        wetReverbLimiterL *= p[compressorReverbWetMakeupGain];
+        wetReverbLimiterR *= p[compressorReverbWetMakeupGain];
 #endif
         
         // crossfade wet reverb with wet+dry delay
@@ -1114,6 +1119,9 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_compressor_compute(sp, compressorMasterL, &reverbCrossfadeOutL, &compressorOutL);
         sp_compressor_compute(sp, compressorMasterR, &reverbCrossfadeOutR, &compressorOutR);
 #endif
+        // Makeup Gain on Master Compressor
+        compressorOutL *= p[compressorMasterMakeupGain];
+        compressorOutR *= p[compressorMasterMakeupGain];
 
         // WIDEN.  literally a constant delay with no filtering, so functionally equivalent to being inside master
         float widenOutR = 0.f;

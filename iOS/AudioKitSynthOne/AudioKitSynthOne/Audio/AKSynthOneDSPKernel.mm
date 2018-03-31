@@ -976,15 +976,14 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
 #endif
         
         //TREMOLO
-        if(p[tremoloLFO] == 1.f) {
-            bitCrushOut *= (1.f - lfo1_0_1);
-        } else if (p[tremoloLFO] == 2.f) {
-            bitCrushOut *= (1.f - lfo2_0_1);
-        } else if (p[tremoloLFO] == 3.f) {
-            bitCrushOut *= (1.f - lfo3_0_1);
-        }
+        if(p[tremoloLFO] == 1.f)
+            bitCrushOut *= lfo1_1_0;
+        else if (p[tremoloLFO] == 2.f)
+            bitCrushOut *= lfo2_1_0;
+        else if (p[tremoloLFO] == 3.f)
+            bitCrushOut *= lfo3_1_0;
         
-        //AUTOPAN
+        //AUTOPAN5
         float panValue = 0.f;
         sp_osc_compute(sp, panOscillator, nil, &panValue);
         panValue *= p[autoPanAmount];
@@ -1062,25 +1061,11 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         //TODO:@MATT:input reverb: bypass hipass and gain...more like X
         sp_revsc_compute(sp, reverbCostello, &mixedDelayL, &mixedDelayR, &reverbWetL, &reverbWetR);
 #endif
-
-        // GAIN ON WET REVERB
-        //TODO:@MATT: wet reverb gain schemes
-#if 0
-        // no gain on wet reverb
-#elif 0
-        // 3db gain on wet reverb
-        reverbWetL *= 2.f;
-        reverbWetR *= 2.f;
-#elif 0
-        // 6db gain on wet reverb
-        reverbWetL *= 4.f;
-        reverbWetR *= 4.f;
-#endif
         
         // compressor for wet reverb; like X2, FM
         float wetReverbLimiterL = reverbWetL;
         float wetReverbLimiterR = reverbWetR;
-#if 1 // 0 = NOP, 1 = compressor for wet reverb
+#if 1 // 0 = NOP, 1 = compressor + makeup gain for wet reverb
         sp_compressor_compute(sp, compressorReverbWetL, &reverbWetL, &wetReverbLimiterL);
         sp_compressor_compute(sp, compressorReverbWetR, &reverbWetR, &wetReverbLimiterR);
         wetReverbLimiterL *= p[compressorReverbWetMakeupGain];
@@ -1099,9 +1084,9 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // MASTER COMPRESSOR/LIMITER
 #if 0
         //TODO:@MATT:
-        // no gain to master compressor
+        // no pre-gain to master compressor
 #elif 1
-        // 3db gain on input to master compressor
+        // 3db pre gain on input to master compressor
         reverbCrossfadeOutL *= (2.f * p[masterVolume]);
         reverbCrossfadeOutR *= (2.f * p[masterVolume]);
 #elif 0
@@ -1129,7 +1114,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // exploit smoothing of widen toggle as a crossfade
         widenOutR = p[widen] * widenOutR + (1.f - p[widen]) * compressorOutR;
 
-        
         // MASTER
         outL[frameIndex] = compressorOutL;
         outR[frameIndex] = widenOutR;

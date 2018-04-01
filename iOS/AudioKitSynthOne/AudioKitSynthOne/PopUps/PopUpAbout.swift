@@ -9,59 +9,39 @@
 import UIKit
 //import MessageUI
 
-
 class PopUpAbout: UIViewController {
     
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var textContainer: UIView!
-    var avPlayer: AVPlayer!
-    var avPlayerLayer: AVPlayerLayer!
-    var paused: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Hide popup at first
+        parentView.alpha = 0
+        textContainer.alpha = 0
         
         // Border of Popup
         textContainer.layer.borderColor = #colorLiteral(red: 0.09411764706, green: 0.09411764706, blue: 0.09411764706, alpha: 1)
         textContainer.layer.borderWidth = 2
         textContainer.layer.cornerRadius = 8
         
-        // Background video
-        let theURL = Bundle.main.url(forResource:"dots", withExtension: "mp4")
-        
-        avPlayer = AVPlayer(url: theURL!)
-        avPlayerLayer = AVPlayerLayer(player: avPlayer)
-        avPlayerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        avPlayer.volume = 0
-        avPlayer.actionAtItemEnd = .none
-        
-        avPlayerLayer.frame = view.layer.bounds
-        view.backgroundColor = .clear
-        view.layer.insertSublayer(avPlayerLayer, at: 0)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(playerItemDidReachEnd(notification:)),
-                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                                               object: avPlayer.currentItem)
-    }
-    
-    @objc func playerItemDidReachEnd(notification: Notification) {
-        let p: AVPlayerItem = notification.object as! AVPlayerItem
-        p.seek(to: kCMTimeZero)
+        // background image
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        avPlayer.play()
-        paused = false
+        
+        // Fade in About Box
+        UIView.animate(withDuration: 2, animations: {
+            self.parentView.alpha = 1.0
+        })
+        
+        UIView.animate(withDuration: 4, animations: {
+            self.textContainer.alpha = 1.0
+        })
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        avPlayer.pause()
-        paused = true
-    }
-    
     
     //*****************************************************************
     // MARK: - IB Actions

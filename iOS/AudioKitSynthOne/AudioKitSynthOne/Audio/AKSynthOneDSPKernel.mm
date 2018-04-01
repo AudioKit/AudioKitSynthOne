@@ -622,6 +622,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     float* outL = (float*)outBufferListPtr->mBuffers[0].mData + bufferOffset;
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
     
+    //TODO:disable this block when we settle on params
     // visible in DEV panel only
     *compressorMasterL->ratio = p[compressorMasterRatio];
     *compressorMasterR->ratio = p[compressorMasterRatio];
@@ -1364,15 +1365,6 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_phaser_init(sp, phaser0);
     sp_port_create(&monoFrequencyPort);
     sp_port_init(sp, monoFrequencyPort, 0.05f);
-    *phaser0->MinNotch1Freq = 100;
-    *phaser0->MaxNotch1Freq = 800;
-    *phaser0->Notch_width = 1000;
-    *phaser0->NotchFreq = 1.5;
-    *phaser0->VibratoMode = 1;
-    *phaser0->depth = 1;
-    *phaser0->feedback_gain = 0;
-    *phaser0->invert = 0;
-    *phaser0->lfobpm = 30;
     sp_osc_create(&panOscillator);
     sp_osc_init(sp, panOscillator, sine, 0.f);
     sp_pan2_create(&pan);
@@ -1411,30 +1403,6 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_compressor_init(sp, compressorReverbWetL);
     sp_compressor_create(&compressorReverbWetR);
     sp_compressor_init(sp, compressorReverbWetR);
-    *compressorMasterL->ratio = 10.f;
-    *compressorMasterR->ratio = 10.f;
-    *compressorReverbInputL->ratio = 10.f;
-    *compressorReverbInputR->ratio = 10.f;
-    *compressorReverbWetL->ratio = 10.f;
-    *compressorReverbWetR->ratio = 10.f;
-    *compressorMasterL->thresh = -3.f;
-    *compressorMasterR->thresh = -3.f;
-    *compressorReverbInputL->thresh = -3.f;
-    *compressorReverbInputR->thresh = -3.f;
-    *compressorReverbWetL->thresh = -3.f;
-    *compressorReverbWetR->thresh = -3.f;
-    *compressorMasterL->atk = 0.001f;
-    *compressorMasterR->atk = 0.001f;
-    *compressorReverbInputL->atk = 0.001f;
-    *compressorReverbInputR->atk = 0.001f;
-    *compressorReverbWetL->atk = 0.001f;
-    *compressorReverbWetR->atk = 0.001f;
-    *compressorMasterL->rel = 0.01f;
-    *compressorMasterR->rel = 0.01f;
-    *compressorReverbInputL->rel = 0.01f;
-    *compressorReverbInputR->rel = 0.01f;
-    *compressorReverbWetL->rel = 0.01f;
-    *compressorReverbWetR->rel = 0.01f;
     sp_delay_create(&widenDelay);
     sp_delay_init(sp, widenDelay, 0.05f);
     widenDelay->feedback = 0.f;
@@ -1465,6 +1433,41 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     }
     previousProcessMonoPolyStatus = p[isMono];
     
+    *phaser0->MinNotch1Freq = 100;
+    *phaser0->MaxNotch1Freq = 800;
+    *phaser0->Notch_width = 1000;
+    *phaser0->NotchFreq = 1.5;
+    *phaser0->VibratoMode = 1;
+    *phaser0->depth = 1;
+    *phaser0->feedback_gain = 0;
+    *phaser0->invert = 0;
+    *phaser0->lfobpm = 30;
+
+    *compressorMasterL->ratio = p[compressorMasterRatio];
+    *compressorMasterR->ratio = p[compressorMasterRatio];
+    *compressorReverbInputL->ratio = p[compressorReverbInputRatio];
+    *compressorReverbInputR->ratio = p[compressorReverbInputRatio];
+    *compressorReverbWetL->ratio = p[compressorReverbWetRatio];
+    *compressorReverbWetR->ratio = p[compressorReverbWetRatio];
+    *compressorMasterL->thresh = p[compressorMasterThreshold];
+    *compressorMasterR->thresh = p[compressorMasterThreshold];
+    *compressorReverbInputL->thresh = p[compressorReverbInputThreshold];
+    *compressorReverbInputR->thresh = p[compressorReverbInputThreshold];
+    *compressorReverbWetL->thresh = p[compressorReverbWetThreshold];
+    *compressorReverbWetR->thresh = p[compressorReverbWetThreshold];
+    *compressorMasterL->atk = p[compressorMasterAttack];
+    *compressorMasterR->atk = p[compressorMasterAttack];
+    *compressorReverbInputL->atk = p[compressorReverbInputAttack];
+    *compressorReverbInputR->atk = p[compressorReverbInputAttack];
+    *compressorReverbWetL->atk = p[compressorReverbWetAttack];
+    *compressorReverbWetR->atk = p[compressorReverbWetAttack];
+    *compressorMasterL->rel = p[compressorMasterRelease];
+    *compressorMasterR->rel = p[compressorMasterRelease];
+    *compressorReverbInputL->rel = p[compressorReverbInputRelease];
+    *compressorReverbInputR->rel = p[compressorReverbInputRelease];
+    *compressorReverbWetL->rel = p[compressorReverbWetRelease];
+    *compressorReverbWetR->rel = p[compressorReverbWetRelease];
+
     // Reserve arp note cache to reduce possibility of reallocation on audio thread.
     arpSeqNotes.reserve(maxArpSeqNotes);
     arpSeqNotes2.reserve(maxArpSeqNotes);

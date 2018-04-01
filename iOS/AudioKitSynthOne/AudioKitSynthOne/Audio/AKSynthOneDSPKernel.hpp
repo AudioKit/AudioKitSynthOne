@@ -271,7 +271,7 @@ private:
         { subIsSquare,           0, 0, 1, "subIsSquare", "subIsSquare", kAudioUnitParameterUnit_Generic, false, NULL},
         { fmVolume,              0, 0, 1, "fmVolume", "fmVolume", kAudioUnitParameterUnit_Generic, true, NULL},
         { fmAmount,              0, 0, 15, "fmAmount", "fmAmount", kAudioUnitParameterUnit_Generic, true, NULL},
-        { noiseVolume,           0, 0, 1, "noiseVolume", "noiseVolume", kAudioUnitParameterUnit_Generic, true, NULL},
+        { noiseVolume,           0, 0, 0.25, "noiseVolume", "noiseVolume", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo1Index,             0, 0, 3, "lfo1Index", "lfo1Index", kAudioUnitParameterUnit_Generic, false, NULL},
         { lfo1Amplitude,         0, 0, 1, "lfo1Amplitude", "lfo1Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo1Rate,              rate_min, 0.25, rate_max, "lfo1Rate", "lfo1Rate", kAudioUnitParameterUnit_Rate, true, NULL},

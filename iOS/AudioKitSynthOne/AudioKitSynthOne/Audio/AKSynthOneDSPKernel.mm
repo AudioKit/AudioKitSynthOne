@@ -962,18 +962,47 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         bitcrushSrate = parameterClamp(bitCrushSampleRate, bitcrushSrate); // clamp
         bitcrush->srate = bitcrushSrate;
         
-        // BITCRUSH VS. FOLD: FOLD IS THE BEST, BUT HAS AN INTERMITTENT BUG WHERE bitcrushSrate CHANGES ARE NOT EFFECTED IMMEDIATELY
         //TODO:@MATT/@AURE: 0 = sp_bitcrush, and 1 = sp_fold, which is the only subset of bitcrush that we need
-#if 1
+#if 0
         // original bitcrush
         sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
-#else
+#elif 0
         // a subset of bitcrush, "folding" reduces the sample rate
         float bincr = SAMPLE_RATE / bitcrushSrate;
         if (bincr < 1.f) bincr = 1.f; // for the case where the audio engine samplerate > 44100
         bitcrushFold->incr = bincr;
-//        bitcrushFold->incr = sp->sr / bitcrushSrate; // might be a bug here...not sure when sp->sr is updated.
+        
         sp_fold_compute(sp, bitcrushFold, &synthOut, &bitCrushOut);
+#elif 1
+        {
+            // a subset of bitcrush, "folding" reduces the sample rate
+            float bincr = SAMPLE_RATE / bitcrushSrate;
+            if (bincr < 1.f) bincr = 1.f; // for the case where the audio engine samplerate > 44100 (i.e., 48000)
+            bitcrushFold->incr = bincr;
+
+            // pulling sp_fold_compute implementation up into dsp kernel to debug
+            float foldOut = synthOut;
+            float foldIn = synthOut;
+            SPFLOAT index = bitcrushFold->index;
+            int32_t sample_index = bitcrushFold->sample_index;
+            SPFLOAT value = bitcrushFold->value;
+            
+//            if (index < (SPFLOAT)sample_index) {
+            if (index <= (SPFLOAT)sample_index) { // Marcus: should be <=
+                
+                index += bitcrushFold->incr;
+                foldOut = value = foldIn;
+            } else {
+                foldOut = value;
+            }
+            sample_index++;
+            bitcrushFold->index = index;
+            bitcrushFold->sample_index = sample_index;
+            bitcrushFold->value = value;
+            // pulling sp_fold_compute implementation up into dsp kernel to debug
+
+            bitCrushOut = foldOut;
+        }
 #endif
         
         //TREMOLO

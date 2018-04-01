@@ -113,7 +113,7 @@ public class HeaderViewController: UpdatableViewController {
         case .bitCrushDepth:
             displayLabel.text = "Bit Crush Depth: \(value.decimalString)"
         case .bitCrushSampleRate:
-            displayLabel.text = "Downsample Rate: \(value.decimalString)"
+            displayLabel.text = "Downsample Rate: \(Int(value)) Hz"
         case .autoPanAmount:
             displayLabel.text = "AutoPan Amp: \(value.percentageString)"
         case .autoPanFrequency:

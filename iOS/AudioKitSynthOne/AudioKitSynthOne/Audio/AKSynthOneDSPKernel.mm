@@ -732,8 +732,8 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                     if(notesPerOctave <= 0) notesPerOctave = 12;
                     const float npof = (float)notesPerOctave/12.f; // 12ET ==> npof = 1
                     
-                    // SEQUENCER
                     if(p[arpIsSequencer] == 1.f) {
+                        // SEQUENCER
                         const int numSteps = p[arpTotalSteps] > 16 ? 16 : (int)p[arpTotalSteps];
                         for(int i = 0; i < numSteps; i++) {
                             const float onOff = p[i + arpSeqNoteOn00];
@@ -745,10 +745,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                             arpSeqNotes.push_back(snn);
                         }
                     } else {
-                        
                         // ARP state
-                        
-                        // reverse
                         AEArrayEnumeratePointers(heldNoteNumbersAE, struct NoteNumber *, note) {
                             std::vector<NoteNumber>::iterator it = arpSeqNotes2.begin();
                             arpSeqNotes2.insert(it, *note);
@@ -911,10 +908,10 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             lfo2 = (0.5f - lfo2) * 2.f;
         }
         lfo2_0_1 = 0.5f * (1.f + lfo2) * p[lfo2Amplitude];
-        lfo2_1_0 = 1.f - lfo2_0_1; // good for multiplicative
+        lfo2_1_0 = 1.f - lfo2_0_1;
         
         lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
-        lfo3_1_0 = 1.f - lfo3_0_1; // good for multiplicative
+        lfo3_1_0 = 1.f - lfo3_0_1;
 
         // RENDER NoteState into (outL, outR)
         if(p[isMono] == 1.f) {
@@ -937,7 +934,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         //original lfo = bitCrushSampleRate frequency about which an lfo is applied...this is clamped
         float bitcrushSrate = p[bitCrushSampleRate];
         //TODO:@MATT BITCRUSH LFO SCHEME
-#if 1
+#if 0
         // original linear scheme BITCRUSH LFO SCHEME
         if(p[bitcrushLFO] == 1.f) {
             bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]); // note this is NOT equal to lfo1_0_1
@@ -962,6 +959,8 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         bitcrushSrate = parameterClamp(bitCrushSampleRate, bitcrushSrate); // clamp
         bitcrush->srate = bitcrushSrate;
         
+        
+        
         //TODO:@MATT/@AURE: 0 = sp_bitcrush, and 1 = sp_fold, which is the only subset of bitcrush that we need
 #if 0
         // original bitcrush
@@ -974,21 +973,20 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
         sp_fold_compute(sp, bitcrushFold, &synthOut, &bitCrushOut);
 #elif 1
-        {
-            // a subset of bitcrush, "folding" reduces the sample rate
+        {//FOLD
             float bincr = SAMPLE_RATE / bitcrushSrate;
             if (bincr < 1.f) bincr = 1.f; // for the case where the audio engine samplerate > 44100 (i.e., 48000)
             bitcrushFold->incr = bincr;
 
             // pulling sp_fold_compute implementation up into dsp kernel to debug
-            float foldOut = synthOut;
             float foldIn = synthOut;
+            float foldOut = synthOut;
             SPFLOAT index = bitcrushFold->index;
             int32_t sample_index = bitcrushFold->sample_index;
             SPFLOAT value = bitcrushFold->value;
             
 //            if (index < (SPFLOAT)sample_index) {
-            if (index <= (SPFLOAT)sample_index) { // Marcus: should be <=
+            if (index <= (SPFLOAT)sample_index) {
                 
                 index += bitcrushFold->incr;
                 foldOut = value = foldIn;
@@ -1076,31 +1074,16 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         float reverbWetL = 0.f;
         float reverbWetR = 0.f;
         reverbCostello->feedback = p[reverbFeedback];
-        
-        //TODO:@MATT REVERB the variants  X, X2, FMPLAYER, AKS1
-#if 1
-        //TODO:@MATT: input reverb: "original" hipass and gain+compression on reverb input
         reverbCostello->lpfreq = 0.5f * SAMPLE_RATE; // changes default
         sp_revsc_compute(sp, reverbCostello, &butCompressOutL, &butCompressOutR, &reverbWetL, &reverbWetR);
-#elif 0
-        //TODO:@MATT:input reverb: high-pass, NO compressor/gain, on reverb input
-        //pro:removes low frequency rumblies when reverb feedback is high
-        // don't change default//reverbCostello->lpfreq = 0.5f * SAMPLE_RATE;
-        sp_revsc_compute(sp, reverbCostello, &butOutL, &butOutR, &reverbWetL, &reverbWetR);
-#elif 0
-        //TODO:@MATT:input reverb: bypass hipass and gain...more like X
-        sp_revsc_compute(sp, reverbCostello, &mixedDelayL, &mixedDelayR, &reverbWetL, &reverbWetR);
-#endif
         
         // compressor for wet reverb; like X2, FM
         float wetReverbLimiterL = reverbWetL;
         float wetReverbLimiterR = reverbWetR;
-#if 1 // 0 = NOP, 1 = compressor + makeup gain for wet reverb
         sp_compressor_compute(sp, compressorReverbWetL, &reverbWetL, &wetReverbLimiterL);
         sp_compressor_compute(sp, compressorReverbWetR, &reverbWetR, &wetReverbLimiterR);
         wetReverbLimiterL *= p[compressorReverbWetMakeupGain];
         wetReverbLimiterR *= p[compressorReverbWetMakeupGain];
-#endif
         
         // crossfade wet reverb with wet+dry delay
         float reverbCrossfadeOutL = 0.f;
@@ -1112,28 +1095,16 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_crossfade_compute(sp, revCrossfadeR, &mixedDelayR, &wetReverbLimiterR, &reverbCrossfadeOutR);
         
         // MASTER COMPRESSOR/LIMITER
-#if 0
-        //TODO:@MATT:
-        // no pre-gain to master compressor
-#elif 1
         // 3db pre gain on input to master compressor
         reverbCrossfadeOutL *= (2.f * p[masterVolume]);
         reverbCrossfadeOutR *= (2.f * p[masterVolume]);
-#elif 0
-        // 6db gain on input to master compressor
-        reverbCrossfadeOutL *= (2.f * 2.f * p[masterVolume]);
-        reverbCrossfadeOutR *= (2.f * 2.f * p[masterVolume]);
-#endif
-
         float compressorOutL = reverbCrossfadeOutL;
         float compressorOutR = reverbCrossfadeOutR;
         
-#if 1
-        //TODO:@MATT
         // MASTER COMPRESSOR TOGGLE: 0 = no compressor, 1 = compressor
         sp_compressor_compute(sp, compressorMasterL, &reverbCrossfadeOutL, &compressorOutL);
         sp_compressor_compute(sp, compressorMasterR, &reverbCrossfadeOutR, &compressorOutR);
-#endif
+
         // Makeup Gain on Master Compressor
         compressorOutL *= p[compressorMasterMakeupGain];
         compressorOutR *= p[compressorMasterMakeupGain];
@@ -1141,7 +1112,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // WIDEN.  literally a constant delay with no filtering, so functionally equivalent to being inside master
         float widenOutR = 0.f;
         sp_delay_compute(sp, widenDelay, &compressorOutR, &widenOutR);
-        // exploit smoothing of widen toggle as a crossfade
         widenOutR = p[widen] * widenOutR + (1.f - p[widen]) * compressorOutR;
 
         // MASTER

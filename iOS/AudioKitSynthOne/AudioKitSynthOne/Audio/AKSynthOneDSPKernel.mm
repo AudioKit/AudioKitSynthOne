@@ -15,14 +15,10 @@
 #import "AEMessageQueue.h"
 
 #define SAMPLE_RATE (44100.f)
-#define RELEASE_AMPLITUDE_THRESHOLD (0.00001f)
+#define RELEASE_AMPLITUDE_THRESHOLD (0.000000000232831f) // 1/2^32
 #define AKS1_PORTAMENTO_HALF_TIME (0.1f)
-//#define AKS1_PORTAMENTO_HALF_TIME (0.25f) // too slow for prod synth
-//#define AKS1_PORTAMENTO_HALF_TIME (0.5f) // try this for fun
-//#define AKS1_PORTAMENTO_HALF_TIME (1.f) // alice in wonderland
 #define DEBUG_DSP_LOGGING (0)
 #define DEBUG_NOTE_STATE_LOGGING (0)
-
 
 // Relative note number to frequency
 static inline float nnToHz(float noteNumber) {
@@ -35,7 +31,6 @@ static inline double tuningTableNoteToHz(int noteNumber) {
     return [AKPolyphonicNode.tuningTable frequencyForNoteNumber:noteNumber];
 }
 
-
 // helper for midi/render thread communication, held-notes, etc
 struct AKSynthOneDSPKernel::NoteNumber {
     
@@ -45,7 +40,6 @@ struct AKSynthOneDSPKernel::NoteNumber {
         noteNumber = 60;
     }
 };
-
 
 // helper for arp/seq
 struct AKSynthOneDSPKernel::SeqNoteNumber {
@@ -63,7 +57,6 @@ struct AKSynthOneDSPKernel::SeqNoteNumber {
         onOff = o;
     }
 };
-
 
 // MARK: NoteState: atomic unit of a "note"
 struct AKSynthOneDSPKernel::NoteState {
@@ -213,14 +206,13 @@ struct AKSynthOneDSPKernel::NoteState {
         
         //pitchLFO common frequency coefficient
         float commonFrequencyCoefficient = 1.f;
-        if (kernel->p[pitchLFO] == 1.f) {
+        if (kernel->p[pitchLFO] == 1.f)
             commonFrequencyCoefficient = 1.f + lfo1_0_1;
-        } else if (kernel->p[pitchLFO] == 2.f) {
+        else if (kernel->p[pitchLFO] == 2.f)
             commonFrequencyCoefficient = 1.f + lfo2_0_1;
-        } else if (kernel->p[pitchLFO] == 3.f) {
+        else if (kernel->p[pitchLFO] == 3.f)
             commonFrequencyCoefficient = 1.f + lfo3_0_1;
-        }
-        
+
         //OSC1 frequency
         const float cachedFrequencyOsc1 = oscmorph1->freq;
         float newFrequencyOsc1 = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyOsc1;
@@ -238,18 +230,16 @@ struct AKSynthOneDSPKernel::NoteState {
         newFrequencyOsc2 *= nnToHz((int)kernel->p[morph2SemitoneOffset]);
         newFrequencyOsc2 *= kernel->p[detuningMultiplier] * commonFrequencyCoefficient;
         
-        
         //LFO DETUNE OSC2: original additive method, now with scaled range based on 4Hz at C3
         const float magicDetune = cachedFrequencyOsc2/261.6255653006f;
-        if (kernel->p[detuneLFO] == 1.f) {
+        if (kernel->p[detuneLFO] == 1.f)
             newFrequencyOsc2 += lfo1_0_1 * kernel->p[morph2Detuning] * magicDetune;
-        } else if (kernel->p[detuneLFO] == 2.f) {
+        else if (kernel->p[detuneLFO] == 2.f)
             newFrequencyOsc2 += lfo2_0_1 * kernel->p[morph2Detuning] * magicDetune;
-        } else if (kernel->p[detuneLFO] == 3.f) {
+        else if (kernel->p[detuneLFO] == 3.f)
             newFrequencyOsc2 += lfo3_0_1 * kernel->p[morph2Detuning] * magicDetune;
-        } else {
+        else
             newFrequencyOsc2 += kernel->p[morph2Detuning] * magicDetune;
-        }
         newFrequencyOsc2 = clamp(newFrequencyOsc2, 0.f, 0.5f*SAMPLE_RATE);
         oscmorph2->freq = newFrequencyOsc2;
         
@@ -260,25 +250,24 @@ struct AKSynthOneDSPKernel::NoteState {
         const float cachedFrequencySub = subOsc->freq;
         float newFrequencySub = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencySub;
         newFrequencySub *= kernel->p[detuningMultiplier] / (2.f * (1.f + kernel->p[subOctaveDown])) * commonFrequencyCoefficient;
-        newFrequencySub = clamp(newFrequencySub, 0.f, 0.5f*SAMPLE_RATE);
+        newFrequencySub = clamp(newFrequencySub, 0.f, 0.5f * SAMPLE_RATE);
         subOsc->freq = newFrequencySub;
         
         //FM OSC FREQ
         const float cachedFrequencyFM = fmOsc->freq;
         float newFrequencyFM = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyFM;
         newFrequencyFM *= kernel->p[detuningMultiplier] * commonFrequencyCoefficient;
-        newFrequencyFM = clamp(newFrequencyFM, 0.f, 0.5f*SAMPLE_RATE);
+        newFrequencyFM = clamp(newFrequencyFM, 0.f, 0.5f * SAMPLE_RATE);
         fmOsc->freq = newFrequencyFM;
         
         //FM LFO
         float fmOscIndx = kernel->p[fmAmount];
-        if (kernel->p[fmLFO] == 1.f) {
+        if (kernel->p[fmLFO] == 1.f)
             fmOscIndx = kernel->p[fmAmount] * lfo1_1_0;
-        } else if (kernel->p[fmLFO] == 2.f) {
+        else if (kernel->p[fmLFO] == 2.f)
             fmOscIndx = kernel->p[fmAmount] * lfo2_1_0;
-        } else if (kernel->p[fmLFO] == 3.f) {
+        else if (kernel->p[fmLFO] == 3.f)
             fmOscIndx = kernel->p[fmAmount] * lfo3_1_0;
-        }
         fmOscIndx = kernel->parameterClamp(fmAmount, fmOscIndx);
         fmOsc->indx = fmOscIndx;
         
@@ -288,44 +277,40 @@ struct AKSynthOneDSPKernel::NoteState {
         
         //ADSR decay LFO
         float dec = kernel->p[decayDuration];
-        if (kernel->p[decayLFO] == 1.f) {
+        if (kernel->p[decayLFO] == 1.f)
             dec *= lfo1_1_0;
-        } else if (kernel->p[decayLFO] == 2.f) {
+        else if (kernel->p[decayLFO] == 2.f)
             dec *= lfo2_1_0;
-        } else if (kernel->p[decayLFO] == 3.f) {
+        else if (kernel->p[decayLFO] == 3.f)
             dec *= lfo3_1_0;
-        }
-
         dec = kernel->parameterClamp(decayDuration, dec);
         adsr->dec = dec;
         
         //ADSR sustain LFO
         float sus = kernel->p[sustainLevel];
-        if (kernel->p[sustainLFO] == 1.f) {
+        if (kernel->p[sustainLFO] == 1.f)
             sus *= lfo1_1_0;
-        } else if (kernel->p[sustainLFO] == 2.f) {
+        else if (kernel->p[sustainLFO] == 2.f)
             sus *= lfo2_1_0;
-        } else if (kernel->p[sustainLFO] == 3.f) {
+        else if (kernel->p[sustainLFO] == 3.f)
             sus *= lfo3_1_0;
-        }
         sus = kernel->parameterClamp(sustainLevel, sus);
         adsr->sus = sus;
         
         //FILTER FREQ CUTOFF ADSR
-        fadsr->atk = (float)kernel->p[filterAttackDuration];
-        fadsr->dec = (float)kernel->p[filterDecayDuration];
-        fadsr->sus = (float)kernel->p[filterSustainLevel];
-        fadsr->rel = (float)kernel->p[filterReleaseDuration];
+        fadsr->atk = kernel->p[filterAttackDuration];
+        fadsr->dec = kernel->p[filterDecayDuration];
+        fadsr->sus = kernel->p[filterSustainLevel];
+        fadsr->rel = kernel->p[filterReleaseDuration];
         
         //OSCMORPH CROSSFADE
         float crossFadePos = kernel->p[morphBalance];
-        if (kernel->p[oscMixLFO] == 1.f) {
+        if (kernel->p[oscMixLFO] == 1.f)
             crossFadePos = kernel->p[morphBalance] + lfo1_0_1;
-        } else if (kernel->p[oscMixLFO] == 2.f) {
+        else if (kernel->p[oscMixLFO] == 2.f)
             crossFadePos = kernel->p[morphBalance] + lfo2_0_1;
-        } else if (kernel->p[oscMixLFO] == 3.f) {
+        else if (kernel->p[oscMixLFO] == 3.f)
             crossFadePos = kernel->p[morphBalance] + lfo3_0_1;
-        }
         crossFadePos = clamp(crossFadePos, 0.f, 1.f);
         morphCrossFade->pos = crossFadePos;
         
@@ -334,13 +319,12 @@ struct AKSynthOneDSPKernel::NoteState {
         
         //FILTER RESONANCE LFO
         float filterResonance = kernel->p[resonance];
-        if (kernel->p[resonanceLFO] == 1) {
+        if (kernel->p[resonanceLFO] == 1)
             filterResonance *= lfo1_1_0;
-        } else if (kernel->p[resonanceLFO] == 2) {
+        else if (kernel->p[resonanceLFO] == 2)
             filterResonance *= lfo2_1_0;
-        } else if (kernel->p[resonanceLFO] == 3) {
+        else if (kernel->p[resonanceLFO] == 3)
             filterResonance *= lfo3_1_0;
-        }
         filterResonance = kernel->parameterClamp(resonance, filterResonance);
         if(kernel->p[filterType] == 0) {
             loPass->res = filterResonance;
@@ -369,23 +353,21 @@ struct AKSynthOneDSPKernel::NoteState {
         
         // filter frequency cutoff calculation
         float filterCutoffFreq = kernel->p[cutoff];
-        if (kernel->p[cutoffLFO] == 1.f) {
+        if (kernel->p[cutoffLFO] == 1.f)
             filterCutoffFreq *= lfo1_1_0;
-        } else if (kernel->p[cutoffLFO] == 2.f) {
+        else if (kernel->p[cutoffLFO] == 2.f)
             filterCutoffFreq *= lfo2_1_0;
-        } else if (kernel->p[cutoffLFO] == 3.f) {
+        else if (kernel->p[cutoffLFO] == 3.f)
             filterCutoffFreq *= lfo3_1_0;
-        }
 
         // filter frequency env lfo crossfade
         float filterEnvLFOMix = kernel->p[filterADSRMix];
-        if (kernel->p[filterEnvLFO] == 1.f) {
+        if (kernel->p[filterEnvLFO] == 1.f)
             filterEnvLFOMix *= lfo1_1_0;
-        } else if (kernel->p[filterEnvLFO] == 2.f) {
+        else if (kernel->p[filterEnvLFO] == 2.f)
             filterEnvLFOMix *= lfo2_1_0;
-        } else if (kernel->p[filterEnvLFO] == 3.f) {
+        else if (kernel->p[filterEnvLFO] == 3.f)
             filterEnvLFOMix *= lfo3_1_0;
-        }
 
         // filter frequency mixer
         filterCutoffFreq -= filterCutoffFreq * filterEnvLFOMix * (1.f - filter);
@@ -415,7 +397,7 @@ struct AKSynthOneDSPKernel::NoteState {
             }
         } else {
             // make sine louder
-            subOsc_out *= kernel->p[subVolume] * 2.f * 1.5f;
+            subOsc_out *= kernel->p[subVolume] * 3.f;
         }
         
         //fmOsc_out
@@ -425,25 +407,23 @@ struct AKSynthOneDSPKernel::NoteState {
         //noise_out
         sp_noise_compute(kernel->sp, noise, nil, &noise_out);
         noise_out *= kernel->p[noiseVolume];
-        if (kernel->p[noiseLFO] == 1.f) {
+        if (kernel->p[noiseLFO] == 1.f)
             noise_out *= lfo1_1_0;
-        } else if (kernel->p[noiseLFO] == 2.f) {
+        else if (kernel->p[noiseLFO] == 2.f)
             noise_out *= lfo2_1_0;
-        } else if (kernel->p[noiseLFO] == 3.f) {
+        else if (kernel->p[noiseLFO] == 3.f)
             noise_out *= lfo3_1_0;
-        }
 
         //synthOut
         float synthOut = amp * (osc_morph_out + subOsc_out + fmOsc_out + noise_out);
         
         //filterOut
-        if(kernel->p[filterType] == 0.f) {
+        if(kernel->p[filterType] == 0.f)
             sp_moogladder_compute(kernel->sp, loPass, &synthOut, &filterOut);
-        } else if (kernel->p[filterType] == 1.f) {
+        else if (kernel->p[filterType] == 1.f)
             sp_butbp_compute(kernel->sp, bandPass, &synthOut, &filterOut);
-        } else if (kernel->p[filterType] == 2.f) {
+        else if (kernel->p[filterType] == 2.f)
             sp_buthp_compute(kernel->sp, hiPass, &synthOut, &filterOut);
-        }
         
         // filter crossfade
         sp_crossfade_compute(kernel->sp, filterCrossFade, &synthOut, &filterOut, &finalOut);
@@ -648,31 +628,31 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     *compressorReverbInputR->rel = p[compressorReverbInputRelease];
     *compressorReverbWetL->rel = p[compressorReverbWetRelease];
     *compressorReverbWetR->rel = p[compressorReverbWetRelease];
-
-    // transition playing notes from release to off...outside render block because it's not expensive to let the release linger
-    bool transitionedToOff = false;
-    if (p[isMono] == 1.f) {
-        if (monoNote->stage == NoteState::stageRelease && monoNote->amp < RELEASE_AMPLITUDE_THRESHOLD) {
-            monoNote->clear();
-            transitionedToOff = true;
-        }
-    } else {
-        for(int i=0; i<polyphony; i++) {
-            NoteState& note = noteStates[i];
-            if (note.stage == NoteState::stageRelease && note.amp < RELEASE_AMPLITUDE_THRESHOLD) {
-                note.clear();
-                transitionedToOff = true;
-            }
-        }
-    }
-    if (transitionedToOff)
-        playingNotesDidChange();
     
     const float arpTempo = p[arpRate];
     const double secPerBeat = 0.5f * 0.5f * 60.f / arpTempo;
     
     // RENDER LOOP: Render one audio frame at sample rate, i.e. 44100 HZ ////////////////
     for (AUAudioFrameCount frameIndex = 0; frameIndex < frameCount; ++frameIndex) {
+
+        // transition playing notes from release to off...inside render block debugging arp/seq heldnotes = 0 bug
+        bool transitionedToOff = false;
+        if (p[isMono] == 1.f) {
+            if (monoNote->stage == NoteState::stageRelease && monoNote->amp <= RELEASE_AMPLITUDE_THRESHOLD) {
+                monoNote->clear();
+                transitionedToOff = true;
+            }
+        } else {
+            for(int i=0; i<polyphony; i++) {
+                NoteState& note = noteStates[i];
+                if (note.stage == NoteState::stageRelease && note.amp <= RELEASE_AMPLITUDE_THRESHOLD) {
+                    note.clear();
+                    transitionedToOff = true;
+                }
+            }
+        }
+        if (transitionedToOff)
+            playingNotesDidChange();
 
         //PORTAMENTO
         for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
@@ -713,25 +693,30 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
         //MARK: ARP/SEQ
         if( p[arpIsOn] == 1.f || arpSeqLastNotes.size() > 0 ) {
-            //TODO:here is where we are not sending beat zero to the delegate
-            const double oldArpTime = arpTime;
-            const double r0 = fmod(oldArpTime, secPerBeat);
+            const double r0 = fmod(arpTime, secPerBeat);
             arpTime = arpSampleCounter/SAMPLE_RATE;
-            const double r1 = fmod(arpTime, secPerBeat);
             arpSampleCounter += 1.0;
-            if (r1 < r0 || oldArpTime >= arpTime) {
+            const double r1 = fmod(arpTime, secPerBeat);
+            if (r1 < r0) {
+                // NEW beatCounter
                 
-                // MARK: ARP+SEQ: NEW beatCounter: Create Arp/Seq array based on held notes and/or sequence parameters
-                if (p[arpIsOn] == 1.f) {
+                // turn Off previous beat's notes
+                for (std::list<int>::iterator arpLastNotesIterator = arpSeqLastNotes.begin(); arpLastNotesIterator != arpSeqLastNotes.end(); ++arpLastNotesIterator) {
+                    turnOffKey(*arpLastNotesIterator);
+                }
+                arpSeqLastNotes.clear();
+
+                // Create Arp/Seq array based on held notes and/or sequence parameters
+                if (p[arpIsOn] == 1.f && heldNoteNumbersAE.count > 0) {
                     arpSeqNotes.clear();
                     arpSeqNotes2.clear();
                     
                     // only update "notes per octave" when beat counter changes so arpSeqNotes and arpSeqLastNotes match
-                    
-                    notesPerOctave = (int)AKPolyphonicNode.tuningTable.npo; // Profiling shows this is ~0% of CPU on a device
+                    notesPerOctave = (int)AKPolyphonicNode.tuningTable.npo;
                     if(notesPerOctave <= 0) notesPerOctave = 12;
                     const float npof = (float)notesPerOctave/12.f; // 12ET ==> npof = 1
                     
+                    // only create arp/sequence if at least one key is held down
                     if(p[arpIsSequencer] == 1.f) {
                         // SEQUENCER
                         const int numSteps = p[arpTotalSteps] > 16 ? 16 : (int)p[arpTotalSteps];
@@ -756,7 +741,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                         const int arpOctaves = (int)p[arpOctave] + 1;
                         
                         if (p[arpDirection] == 0.f) {
-                            
                             // ARP Up
                             int index = 0;
                             for (int octave = 0; octave < arpOctaves; octave++) {
@@ -770,9 +754,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                                     ++index;
                                 }
                             }
-                            
                         } else if (p[arpDirection] == 1.f) {
-                            
                             ///ARP Up + Down
                             //up
                             int index = 0;
@@ -805,7 +787,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                             }
                             
                         } else if (p[arpDirection] == 2.f) {
-                            
                             // ARP Down
                             int index = 0;
                             for (int octave = arpOctaves - 1; octave >= 0; octave--) {
@@ -823,15 +804,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                     }
                 }
                 
-                // MARK: ARP+SEQ: turnOff previous beat's notes
-                for (std::list<int>::iterator arpLastNotesIterator = arpSeqLastNotes.begin(); arpLastNotesIterator != arpSeqLastNotes.end(); ++arpLastNotesIterator) {
-                    turnOffKey(*arpLastNotesIterator);
-                }
-                
-                // Remove last played notes
-                arpSeqLastNotes.clear();
-                
-                // NOP: no midi input
+                // No keys held down?
                 if(heldNoteNumbersAE.count == 0) {
                     if(arpBeatCounter > 0) {
                         arpBeatCounter = 0;
@@ -840,7 +813,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                     continue;
                 }
                 
-                // NOP: the arp/seq sequence is null
                 if(arpSeqNotes.size() == 0)
                     continue;
                 
@@ -849,7 +821,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                 ++arpBeatCounter;
                 beatCounterDidChange();
                 
-                // MARK: ARP+SEQ: turnOn the note of the sequence
+                // ARP+SEQ: turnOn the note of the sequence
                 SeqNoteNumber& snn = arpSeqNotes[seqNotePosition];
                 if (p[arpIsSequencer] == 1.f) {
                     // SEQUENCER
@@ -909,7 +881,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
         lfo2_0_1 = 0.5f * (1.f + lfo2) * p[lfo2Amplitude];
         lfo2_1_0 = 1.f - lfo2_0_1;
-        
         lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
         lfo3_1_0 = 1.f - lfo3_0_1;
 
@@ -944,16 +915,15 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             bitcrushSrate *= (1.f + 0.25f * (lfo1 * p[lfo1Amplitude] + lfo2 * p[lfo2Amplitude])); // note this is NOT equal to lfo3_0_1
         }
 #else
-        //new log2 scheme BITCRUSH LFO SCHEME
+        //new log2 scheme BITCRUSH LFO SCHEME <-- Marcus' favorite
         bitcrushSrate = log2(bitcrushSrate);
         const float magicNumber = 4.f;
-        if(p[bitcrushLFO] == 1.f) {
+        if(p[bitcrushLFO] == 1.f)
             bitcrushSrate += magicNumber * lfo1_0_1;
-        } else if (p[bitcrushLFO] == 2.f) {
+        else if (p[bitcrushLFO] == 2.f)
             bitcrushSrate += magicNumber * lfo2_0_1;
-        } else if (p[bitcrushLFO] == 3.f) {
+        else if (p[bitcrushLFO] == 3.f)
             bitcrushSrate += magicNumber * lfo3_0_1;
-        }
         bitcrushSrate = exp2(bitcrushSrate);
 #endif
         bitcrushSrate = parameterClamp(bitCrushSampleRate, bitcrushSrate); // clamp
@@ -987,7 +957,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             
 //            if (index < (SPFLOAT)sample_index) {
             if (index <= (SPFLOAT)sample_index) {
-                
                 index += bitcrushFold->incr;
                 foldOut = value = foldIn;
             } else {
@@ -1059,7 +1028,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_buthp_compute(sp, butterworthHipassL, &mixedDelayL, &butOutL);
         sp_buthp_compute(sp, butterworthHipassR, &mixedDelayR, &butOutR);
 
-        // Gain + compression on reverb input
+        // Pre Gain + compression on reverb input
         butOutL *= 2.f;
         butOutR *= 2.f;
         float butCompressOutL = 0.f;
@@ -1069,8 +1038,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         butCompressOutL *= p[compressorReverbInputMakeupGain];
         butCompressOutR *= p[compressorReverbInputMakeupGain];
 
-        
-        // reverb
+        // REVERB
         float reverbWetL = 0.f;
         float reverbWetR = 0.f;
         reverbCostello->feedback = p[reverbFeedback];
@@ -1115,8 +1083,14 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         widenOutR = p[widen] * widenOutR + (1.f - p[widen]) * compressorOutR;
 
         // MASTER
+#if 1
+        //TODO:tmp: Dry NoteState(s)
         outL[frameIndex] = compressorOutL;
         outR[frameIndex] = widenOutR;
+#else
+        outL[frameIndex] = synthOut;
+        outR[frameIndex] = synthOut;
+#endif
     }
 }
 
@@ -1159,11 +1133,9 @@ void AKSynthOneDSPKernel::turnOnKey(int noteNumber, int velocity, float frequenc
             }
         }
         if(index != -1) {
-            
             // noteNumber is playing...steal it
             playingNoteStatesIndex = index;
         } else {
-            
             // noteNumber is not playing: search for non-playing notes (-1) starting with current index
             for(int i = 0; i < polyphony; i++) {
                 const int modIndex = (playingNoteStatesIndex + i) % polyphony;
@@ -1174,11 +1146,9 @@ void AKSynthOneDSPKernel::turnOnKey(int noteNumber, int velocity, float frequenc
             }
             
             if(index == -1) {
-                
                 // if there are no non-playing notes then steal oldest note
                 ++playingNoteStatesIndex %= polyphony;
             } else {
-                
                 // use non-playing note slot
                 playingNoteStatesIndex = index;
             }
@@ -1199,15 +1169,14 @@ void AKSynthOneDSPKernel::turnOffKey(int noteNumber) {
         return;
     initializeNoteStates();
     if(p[isMono] == 1.f) {
-        
-        if (heldNoteNumbersAE.count == 0 || p[arpIsOn] == 1.f) {
-            
-            // the case where this was the only held note and now it should be off
+        if (p[arpIsOn] == 1.f || heldNoteNumbersAE.count == 0) {
+            // the case where this was the only held note and now it should be off, OR
             // the case where the sequencer turns off this key even though a note is held down
-            monoNote->stage = NoteState::stageRelease;
-            monoNote->internalGate = 0;
+            if(monoNote->stage != NoteState::stageOff) {
+                monoNote->stage = NoteState::stageRelease;
+                monoNote->internalGate = 0;
+            }
         } else {
-            
             // the case where you had more than one held note and released one (CACA): Keep note ON and set to freq of head
             AEArrayToken token = AEArrayGetToken(heldNoteNumbersAE);
             struct NoteNumber* nn = (struct NoteNumber*)AEArrayGetItem(token, 0);
@@ -1233,7 +1202,6 @@ void AKSynthOneDSPKernel::turnOffKey(int noteNumber) {
             monoNote->internalGate = 1;
         }
     } else {
-        
         // Poly:
         int index = -1;
         for(int i=0; i<polyphony; i++) {
@@ -1244,13 +1212,11 @@ void AKSynthOneDSPKernel::turnOffKey(int noteNumber) {
         }
         
         if(index != -1) {
-            
             // put NoteState into release
             NoteState& note = noteStates[index];
             note.stage = NoteState::stageRelease;
             note.internalGate = 0;
         } else {
-            
             // the case where a note was stolen before the noteOff
         }
     }
@@ -1409,8 +1375,8 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     monoNote = (NoteState*)malloc(sizeof(NoteState));
     heldNoteNumbers = (NSMutableArray<NSNumber*>*)[NSMutableArray array];
     heldNoteNumbersAE = [[AEArray alloc] initWithCustomMapping:^void *(id item) {
-        struct NoteNumber* noteNumber = (struct NoteNumber*)malloc(sizeof(struct NoteNumber));
         const int nn = [(NSNumber*)item intValue];
+        struct NoteNumber* noteNumber = (struct NoteNumber*)malloc(sizeof(struct NoteNumber));
         noteNumber->noteNumber = nn;
         return noteNumber;
     }];
@@ -1586,4 +1552,3 @@ std::string AKSynthOneDSPKernel::parameterFriendlyName(AKSynthOneParameter i) {
 std::string AKSynthOneDSPKernel::parameterPresetKey(AKSynthOneParameter i) {
     return aks1p[i].presetKey;
 }
-

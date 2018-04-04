@@ -206,12 +206,13 @@ struct AKSynthOneDSPKernel::NoteState {
         
         //pitchLFO common frequency coefficient
         float commonFrequencyCoefficient = 1.f;
+        const float semitone = 0.0594630944f;
         if (kernel->p[pitchLFO] == 1.f)
-            commonFrequencyCoefficient = 1.f + lfo1_0_1;
+            commonFrequencyCoefficient = 1.f + lfo1_0_1 * semitone;
         else if (kernel->p[pitchLFO] == 2.f)
-            commonFrequencyCoefficient = 1.f + lfo2_0_1;
+            commonFrequencyCoefficient = 1.f + lfo2_0_1 * semitone;
         else if (kernel->p[pitchLFO] == 3.f)
-            commonFrequencyCoefficient = 1.f + lfo3_0_1;
+            commonFrequencyCoefficient = 1.f + lfo3_0_1 * semitone;
 
         //OSC1 frequency
         const float cachedFrequencyOsc1 = oscmorph1->freq;

@@ -95,7 +95,7 @@ public:
     /// Puts all notes in release mode
     void reset();
     
-    /// Sets beatcounter to 0 and clears sequence
+    /// Sets beatcounter to 0
     void resetSequencer();
     
     // MIDI
@@ -198,7 +198,6 @@ private:
     sp_phasor *lfo1Phasor;
     sp_phasor *lfo2Phasor;
     sp_ftbl *sine;
-    sp_bitcrush *bitcrush;
     sp_fold *bitcrushFold;
     sp_pan2 *pan;
     sp_osc *panOscillator;
@@ -292,7 +291,7 @@ private:
         { morph2Detuning,        -4, 0, 4, "morph2Detuning", "morph2Detuning", kAudioUnitParameterUnit_Generic, true, NULL},
         { detuningMultiplier,    1, 1, 2, "detuningMultiplier", "detuningMultiplier", kAudioUnitParameterUnit_Generic, true, NULL},
         { masterVolume,          0, 0.5, 2, "masterVolume", "masterVolume", kAudioUnitParameterUnit_Generic, true, NULL},
-        { bitCrushDepth,         1, 24, 24, "bitCrushDepth", "bitCrushDepth", kAudioUnitParameterUnit_Generic, false, NULL},// unused
+        { bitCrushDepth,         1, 24, 24, "bitCrushDepth", "bitCrushDepth", kAudioUnitParameterUnit_Generic, false, NULL},// UNUSED
 //        { bitCrushSampleRate,    4096, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
         { bitCrushSampleRate,    2048, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, false, NULL},
         { autoPanAmount,         0, 0, 1, "autoPanAmount", "autoPanAmount", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -383,27 +382,6 @@ private:
         { monoIsLegato,          0, 0, 1, "monoIsLegato", "monoIsLegato" , kAudioUnitParameterUnit_Generic, false, NULL},
         { widen,                 0, 0, 1, "widen", "widen" , kAudioUnitParameterUnit_Generic, true, NULL},
         
-#if 0 // original defaults
-        { compressorMasterRatio,      1, 10, 20, "master compressor ratio", "master compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbInputRatio, 1, 10, 20, "reverb input compressor ratio", "reverb input compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbWetRatio,   1, 10, 20, "reverb wet compressor ratio", "reverb wet compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
-        
-        { compressorMasterThreshold,      -60, -3, 0, "master compressor threshold", "master compressor threshold", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbInputThreshold, -60, -3, 0, "reverb input compressor threshold", "reverb input compressor threshold", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbWetThreshold,   -60, -3, 0, "reverb wet compressor threshold", "reverb wet compressor threshold", kAudioUnitParameterUnit_Generic, false, NULL},
-        
-        { compressorMasterAttack,      0, 0.001, 0.01, "master compressor attack", "master compressor attack", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbInputAttack, 0, 0.001, 0.01, "reverb input compressor attack", "reverb input compressor attack", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbWetAttack,   0, 0.001, 0.01, "reverb wet compressor attack", "reverb wet compressor attack", kAudioUnitParameterUnit_Generic, false, NULL},
-        
-        { compressorMasterRelease,      0, 0.1, 0.5, "master compressor release", "master compressor release", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbInputRelease, 0, 0.1, 0.5, "reverb input compressor release", "reverb input compressor release", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbWetRelease,   0, 0.1, 0.5, "reverb wet compressor release", "reverb wet compressor release", kAudioUnitParameterUnit_Generic, false, NULL},
-
-        { compressorMasterMakeupGain,      0.5, 1, 4, "master compressor makeup gain", "master compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorReverbInputMakeupGain, 0.5, 1, 4, "reverb input compressor makeup gain", "reverb input compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorMasterMakeupGain,      0.5, 1, 4, "reverb wet compressor makeup gain", "reverb wet compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL}
-#else // reverb dynamics
         { compressorMasterRatio,      1, 20, 20, "master compressor ratio", "master compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbInputRatio, 1, 13, 20, "reverb input compressor ratio", "reverb input compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbWetRatio,   1, 13, 20, "reverb wet compressor ratio", "reverb wet compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
@@ -423,7 +401,6 @@ private:
         { compressorMasterMakeupGain,      0.5, 2, 4, "master compressor makeup gain", "master compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbInputMakeupGain, 0.5, 1.88, 4, "reverb input compressor makeup gain", "reverb input compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorMasterMakeupGain,      0.5, 1.88, 4, "reverb wet compressor makeup gain", "reverb wet compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL}
-#endif
     };
 };
 #endif

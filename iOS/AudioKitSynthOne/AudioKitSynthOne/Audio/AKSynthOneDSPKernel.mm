@@ -911,10 +911,8 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         bitcrushIncr = SAMPLE_RATE / bitcrushSrate; //TODO:use live sample rate, not hard-coded
         if (bitcrushIncr < 1.f) bitcrushIncr = 1.f; // for the case where the audio engine samplerate > 44100 (i.e., 48000)
         if (bitcrushIndex <= bitcrushSampleIndex) {
-            bitcrushIndex += bitcrushIncr;
             bitCrushOut = bitcrushValue = synthOut;
-            //test reset
-            // now bitcrushIndex is greater than bitcrushSampleIndex for range of bitcrushIncr 21.54...1
+            bitcrushIndex += bitcrushIncr; // bitcrushIncr >= 1
             bitcrushIndex -= bitcrushSampleIndex;
             bitcrushSampleIndex = 0;
         } else {

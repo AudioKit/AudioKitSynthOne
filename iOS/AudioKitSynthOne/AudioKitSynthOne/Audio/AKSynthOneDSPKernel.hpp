@@ -198,7 +198,6 @@ private:
     sp_phasor *lfo1Phasor;
     sp_phasor *lfo2Phasor;
     sp_ftbl *sine;
-    sp_fold *bitcrushFold;
     sp_pan2 *pan;
     sp_osc *panOscillator;
     sp_phaser *phaser0;
@@ -224,12 +223,16 @@ private:
     float monoFrequencySmooth = 261.6255653006f;
     float tempo = 120.f;
     float previousProcessMonoPolyStatus = 0.f;
-    float lfo1_0_1 = 0;
-    float lfo1_1_0 = 0;
-    float lfo2_0_1 = 0;
-    float lfo2_1_0 = 0;
-    float lfo3_0_1 = 0;
-    float lfo3_1_0 = 0;
+    float lfo1_0_1 = 0.f;
+    float lfo1_1_0 = 0.f;
+    float lfo2_0_1 = 0.f;
+    float lfo2_1_0 = 0.f;
+    float lfo3_0_1 = 0.f;
+    float lfo3_1_0 = 0.f;
+    float bitcrushIncr = 1.f;
+    float bitcrushIndex = 0.f;
+    float bitcrushSampleIndex = 0.f;
+    float bitcrushValue = 0.f;
 
     // Arp/Seq
     double arpSampleCounter = 0;

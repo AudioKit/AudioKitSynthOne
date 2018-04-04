@@ -600,7 +600,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     float* outL = (float*)outBufferListPtr->mBuffers[0].mData + bufferOffset;
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
     
-#if 0
+#if 1
     //TODO:disable this block when we settle on params
     // visible in DEV panel only
     *compressorMasterL->ratio = p[compressorMasterRatio];
@@ -893,9 +893,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // NoteState render output "synthOut" is mono
         float synthOut = outL[frameIndex];
         
-        //BITCRUSH
-        float bitCrushOut = synthOut;
-
         // BITCRUSH LFO
         float bitcrushSrate = p[bitCrushSampleRate];
         bitcrushSrate = log2(bitcrushSrate);
@@ -909,31 +906,21 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         bitcrushSrate = exp2(bitcrushSrate);
         bitcrushSrate = parameterClamp(bitCrushSampleRate, bitcrushSrate); // clamp
         
-        //FOLD implementation pulled up into dsp
-        {
-            float bincr = SAMPLE_RATE / bitcrushSrate;
-            if (bincr < 1.f) bincr = 1.f; // for the case where the audio engine samplerate > 44100 (i.e., 48000)
-            bitcrushFold->incr = bincr;
-
-            float foldIn = synthOut;
-            float foldOut = synthOut;
-            SPFLOAT index = bitcrushFold->index;
-            int32_t sample_index = bitcrushFold->sample_index;
-            SPFLOAT value = bitcrushFold->value;
-            
-            if (index <= (SPFLOAT)sample_index) {
-                index += bitcrushFold->incr;
-                foldOut = value = foldIn;
-            } else {
-                foldOut = value;
-            }
-            sample_index++;
-            bitcrushFold->index = index;
-            bitcrushFold->sample_index = sample_index;
-            bitcrushFold->value = value;
-
-            bitCrushOut = foldOut;
+        //BITCRUSH
+        float bitCrushOut = synthOut;
+        bitcrushIncr = SAMPLE_RATE / bitcrushSrate; //TODO:use live sample rate, not hard-coded
+        if (bitcrushIncr < 1.f) bitcrushIncr = 1.f; // for the case where the audio engine samplerate > 44100 (i.e., 48000)
+        if (bitcrushIndex <= bitcrushSampleIndex) {
+            bitcrushIndex += bitcrushIncr;
+            bitCrushOut = bitcrushValue = synthOut;
+            //test reset
+            // now bitcrushIndex is greater than bitcrushSampleIndex for range of bitcrushIncr 21.54...1
+            bitcrushIndex -= bitcrushSampleIndex;
+            bitcrushSampleIndex = 0;
+        } else {
+            bitCrushOut = bitcrushValue;
         }
+        bitcrushSampleIndex += 1.f;
         
         //TREMOLO
         if(p[tremoloLFO] == 1.f)
@@ -942,6 +929,8 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             bitCrushOut *= lfo2_1_0;
         else if (p[tremoloLFO] == 3.f)
             bitCrushOut *= lfo3_1_0;
+        
+        // signal goes from mono to stereo with autopan
         
         //AUTOPAN
         float panValue = 0.f;
@@ -1278,8 +1267,6 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_phasor_init(sp, lfo1Phasor, 0);
     sp_phasor_create(&lfo2Phasor);
     sp_phasor_init(sp, lfo2Phasor, 0);
-    sp_fold_create(&bitcrushFold);
-    sp_fold_init(sp, bitcrushFold); bitcrushFold->incr = 1; // YES
     sp_phaser_create(&phaser0);
     sp_phaser_init(sp, phaser0);
     sp_port_create(&monoFrequencyPort);
@@ -1406,7 +1393,6 @@ void AKSynthOneDSPKernel::destroy() {
     sp_ftbl_destroy(&sine);
     sp_phasor_destroy(&lfo1Phasor);
     sp_phasor_destroy(&lfo2Phasor);
-    sp_fold_destroy(&bitcrushFold);
     sp_phaser_destroy(&phaser0);
     sp_osc_destroy(&panOscillator);
     sp_pan2_destroy(&pan);

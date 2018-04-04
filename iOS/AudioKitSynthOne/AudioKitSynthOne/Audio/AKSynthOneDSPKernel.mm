@@ -190,7 +190,7 @@ struct AKSynthOneDSPKernel::NoteState {
     }
     
     //MARK:NoteState.run()
-    //This function needs to be heavily optimized...it is called at SampleRate for each NoteState
+    //called at SampleRate for each NoteState.  Polyphony of 6 = 264,000 times per second
     void run(int frameIndex, float *outL, float *outR) {
         
         // isMono
@@ -230,7 +230,7 @@ struct AKSynthOneDSPKernel::NoteState {
         newFrequencyOsc2 *= nnToHz((int)kernel->p[morph2SemitoneOffset]);
         newFrequencyOsc2 *= kernel->p[detuningMultiplier] * commonFrequencyCoefficient;
         
-        //LFO DETUNE OSC2: original additive method, now with scaled range based on 4Hz at C3
+        //LFO DETUNE OSC2
         const float magicDetune = cachedFrequencyOsc2/261.6255653006f;
         if (kernel->p[detuneLFO] == 1.f)
             newFrequencyOsc2 += lfo1_0_1 * kernel->p[morph2Detuning] * magicDetune;
@@ -314,7 +314,7 @@ struct AKSynthOneDSPKernel::NoteState {
         crossFadePos = clamp(crossFadePos, 0.f, 1.f);
         morphCrossFade->pos = crossFadePos;
         
-        //TODO:param filterMix is hard-coded to 1
+        //TODO:param filterMix is hard-coded to 1.  I vote we get rid of it
         filterCrossFade->pos = kernel->p[filterMix];
         
         //FILTER RESONANCE LFO
@@ -487,7 +487,7 @@ AUValue AKSynthOneDSPKernel::getParameter(AUParameterAddress address) {
 
 void AKSynthOneDSPKernel::startRamp(AUParameterAddress address, AUValue value, AUAudioFrameCount duration) {}
 
-///DEBUG_NOTE_STATE_LOGGING (1) can cause race conditions
+///DEBUG_NOTE_STATE_LOGGING (1) can cause race conditions, and audio artifacts
 void AKSynthOneDSPKernel::print_debug() {
 #if DEBUG_NOTE_STATE_LOGGING
     printf("\n-------------------------------------\n");
@@ -534,10 +534,8 @@ void AKSynthOneDSPKernel::stopAllNotes() {
     [heldNoteNumbers removeAllObjects];
     [heldNoteNumbersAE updateWithContentsOfArray:heldNoteNumbers];
     if (p[isMono] == 1) {
-        // MONO
         stopNote(60);
     } else {
-        // POLY
         for(int i=0; i<AKS1_NUM_MIDI_NOTES; i++)
             stopNote(i);
     }
@@ -602,6 +600,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     float* outL = (float*)outBufferListPtr->mBuffers[0].mData + bufferOffset;
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
     
+#if 0
     //TODO:disable this block when we settle on params
     // visible in DEV panel only
     *compressorMasterL->ratio = p[compressorMasterRatio];
@@ -628,31 +627,32 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     *compressorReverbInputR->rel = p[compressorReverbInputRelease];
     *compressorReverbWetL->rel = p[compressorReverbWetRelease];
     *compressorReverbWetR->rel = p[compressorReverbWetRelease];
+#endif
     
+    // transition playing notes from release to off
+    bool transitionedToOff = false;
+    if (p[isMono] == 1.f) {
+        if (monoNote->stage == NoteState::stageRelease && monoNote->amp <= RELEASE_AMPLITUDE_THRESHOLD) {
+            monoNote->clear();
+            transitionedToOff = true;
+        }
+    } else {
+        for(int i=0; i<polyphony; i++) {
+            NoteState& note = noteStates[i];
+            if (note.stage == NoteState::stageRelease && note.amp <= RELEASE_AMPLITUDE_THRESHOLD) {
+                note.clear();
+                transitionedToOff = true;
+            }
+        }
+    }
+    if (transitionedToOff)
+        playingNotesDidChange();
+
     const float arpTempo = p[arpRate];
     const double secPerBeat = 0.5f * 0.5f * 60.f / arpTempo;
     
-    // RENDER LOOP: Render one audio frame at sample rate, i.e. 44100 HZ ////////////////
+    // RENDER LOOP: Render one audio frame at sample rate, i.e. 44100 HZ
     for (AUAudioFrameCount frameIndex = 0; frameIndex < frameCount; ++frameIndex) {
-
-        // transition playing notes from release to off...inside render block debugging arp/seq heldnotes = 0 bug
-        bool transitionedToOff = false;
-        if (p[isMono] == 1.f) {
-            if (monoNote->stage == NoteState::stageRelease && monoNote->amp <= RELEASE_AMPLITUDE_THRESHOLD) {
-                monoNote->clear();
-                transitionedToOff = true;
-            }
-        } else {
-            for(int i=0; i<polyphony; i++) {
-                NoteState& note = noteStates[i];
-                if (note.stage == NoteState::stageRelease && note.amp <= RELEASE_AMPLITUDE_THRESHOLD) {
-                    note.clear();
-                    transitionedToOff = true;
-                }
-            }
-        }
-        if (transitionedToOff)
-            playingNotesDidChange();
 
         //PORTAMENTO
         for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
@@ -668,8 +668,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
         panOscillator->freq = p[autoPanFrequency];
         panOscillator->amp = p[autoPanAmount];
-        
-        bitcrush->bitdepth = p[bitCrushDepth];
         
         delayL->del = delayR->del = p[delayTime] * 2.f;
         delayRR->del = delayFillIn->del = p[delayTime];
@@ -699,7 +697,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             const double r1 = fmod(arpTime, secPerBeat);
             if (r1 < r0) {
                 // NEW beatCounter
-                
                 // turn Off previous beat's notes
                 for (std::list<int>::iterator arpLastNotesIterator = arpSeqLastNotes.begin(); arpLastNotesIterator != arpSeqLastNotes.end(); ++arpLastNotesIterator) {
                     turnOffKey(*arpLastNotesIterator);
@@ -785,7 +782,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                                     }
                                 }
                             }
-                            
                         } else if (p[arpDirection] == 2.f) {
                             // ARP Down
                             int index = 0;
@@ -804,43 +800,41 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                     }
                 }
                 
-                // No keys held down?
+                // No keys held down
                 if(heldNoteNumbersAE.count == 0) {
                     if(arpBeatCounter > 0) {
                         arpBeatCounter = 0;
                         beatCounterDidChange();
                     }
-                    continue;
-                }
-                
-                if(arpSeqNotes.size() == 0)
-                    continue;
-                
-                // Advance arp/seq beatCounter, notify delegates
-                const int seqNotePosition = arpBeatCounter % arpSeqNotes.size();
-                ++arpBeatCounter;
-                beatCounterDidChange();
-                
-                // ARP+SEQ: turnOn the note of the sequence
-                SeqNoteNumber& snn = arpSeqNotes[seqNotePosition];
-                if (p[arpIsSequencer] == 1.f) {
-                    // SEQUENCER
-                    if(snn.onOff == 1) {
-                        AEArrayEnumeratePointers(heldNoteNumbersAE, struct NoteNumber *, noteStruct) {
-                            const int baseNote = noteStruct->noteNumber;
-                            const int note = baseNote + snn.noteNumber;
-                            if(note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
-                                turnOnKey(note, 127);
-                                arpSeqLastNotes.push_back(note);
+                } else if (arpSeqNotes.size() == 0) {
+                    // NOP for zero-length arp/seq
+                } else {
+                    // Advance arp/seq beatCounter, notify delegates
+                    const int seqNotePosition = arpBeatCounter % arpSeqNotes.size();
+                    ++arpBeatCounter;
+                    beatCounterDidChange();
+                    
+                    // ARP+SEQ: turnOn the note of the sequence
+                    SeqNoteNumber& snn = arpSeqNotes[seqNotePosition];
+                    if (p[arpIsSequencer] == 1.f) {
+                        // SEQUENCER
+                        if(snn.onOff == 1) {
+                            AEArrayEnumeratePointers(heldNoteNumbersAE, struct NoteNumber *, noteStruct) {
+                                const int baseNote = noteStruct->noteNumber;
+                                const int note = baseNote + snn.noteNumber;
+                                if(note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
+                                    turnOnKey(note, 127);
+                                    arpSeqLastNotes.push_back(note);
+                                }
                             }
                         }
-                    }
-                } else {
-                    // ARPEGGIATOR
-                    const int note = snn.noteNumber;
-                    if(note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
-                        turnOnKey(note, 127);
-                        arpSeqLastNotes.push_back(note);
+                    } else {
+                        // ARPEGGIATOR
+                        const int note = snn.noteNumber;
+                        if(note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
+                            turnOnKey(note, 127);
+                            arpSeqLastNotes.push_back(note);
+                        }
                     }
                 }
             }
@@ -901,21 +895,9 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
         //BITCRUSH
         float bitCrushOut = synthOut;
-        
-        //original lfo = bitCrushSampleRate frequency about which an lfo is applied...this is clamped
+
+        // BITCRUSH LFO
         float bitcrushSrate = p[bitCrushSampleRate];
-        //TODO:@MATT BITCRUSH LFO SCHEME
-#if 0
-        // original linear scheme BITCRUSH LFO SCHEME
-        if(p[bitcrushLFO] == 1.f) {
-            bitcrushSrate *= (1.f + 0.5f * lfo1 * p[lfo1Amplitude]); // note this is NOT equal to lfo1_0_1
-        } else if (p[bitcrushLFO] == 2.f) {
-            bitcrushSrate *= (1.f + 0.5f * lfo2 * p[lfo2Amplitude]); // note this is NOT equal to lfo2_0_1
-        } else if (p[bitcrushLFO] == 3.f) {
-            bitcrushSrate *= (1.f + 0.25f * (lfo1 * p[lfo1Amplitude] + lfo2 * p[lfo2Amplitude])); // note this is NOT equal to lfo3_0_1
-        }
-#else
-        //new log2 scheme BITCRUSH LFO SCHEME <-- Marcus' favorite
         bitcrushSrate = log2(bitcrushSrate);
         const float magicNumber = 4.f;
         if(p[bitcrushLFO] == 1.f)
@@ -925,37 +907,20 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         else if (p[bitcrushLFO] == 3.f)
             bitcrushSrate += magicNumber * lfo3_0_1;
         bitcrushSrate = exp2(bitcrushSrate);
-#endif
         bitcrushSrate = parameterClamp(bitCrushSampleRate, bitcrushSrate); // clamp
-        bitcrush->srate = bitcrushSrate;
         
-        
-        
-        //TODO:@MATT/@AURE: 0 = sp_bitcrush, and 1 = sp_fold, which is the only subset of bitcrush that we need
-#if 0
-        // original bitcrush
-        sp_bitcrush_compute(sp, bitcrush, &synthOut, &bitCrushOut);
-#elif 0
-        // a subset of bitcrush, "folding" reduces the sample rate
-        float bincr = SAMPLE_RATE / bitcrushSrate;
-        if (bincr < 1.f) bincr = 1.f; // for the case where the audio engine samplerate > 44100
-        bitcrushFold->incr = bincr;
-        
-        sp_fold_compute(sp, bitcrushFold, &synthOut, &bitCrushOut);
-#elif 1
-        {//FOLD
+        //FOLD implementation pulled up into dsp
+        {
             float bincr = SAMPLE_RATE / bitcrushSrate;
             if (bincr < 1.f) bincr = 1.f; // for the case where the audio engine samplerate > 44100 (i.e., 48000)
             bitcrushFold->incr = bincr;
 
-            // pulling sp_fold_compute implementation up into dsp kernel to debug
             float foldIn = synthOut;
             float foldOut = synthOut;
             SPFLOAT index = bitcrushFold->index;
             int32_t sample_index = bitcrushFold->sample_index;
             SPFLOAT value = bitcrushFold->value;
             
-//            if (index < (SPFLOAT)sample_index) {
             if (index <= (SPFLOAT)sample_index) {
                 index += bitcrushFold->incr;
                 foldOut = value = foldIn;
@@ -966,11 +931,9 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             bitcrushFold->index = index;
             bitcrushFold->sample_index = sample_index;
             bitcrushFold->value = value;
-            // pulling sp_fold_compute implementation up into dsp kernel to debug
 
             bitCrushOut = foldOut;
         }
-#endif
         
         //TREMOLO
         if(p[tremoloLFO] == 1.f)
@@ -980,7 +943,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         else if (p[tremoloLFO] == 3.f)
             bitCrushOut *= lfo3_1_0;
         
-        //AUTOPAN5
+        //AUTOPAN
         float panValue = 0.f;
         sp_osc_compute(sp, panOscillator, nil, &panValue);
         panValue *= p[autoPanAmount];
@@ -993,7 +956,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         float phaserOutR = panR;
         float lPhaserMix = p[phaserMix];
         
-        // crossfade phaser
+        // PHASER CROSSFADE
         if(lPhaserMix != 0.f) {
             lPhaserMix = 1.f - lPhaserMix;
             sp_phaser_compute(sp, phaser0, &panL, &panR, &phaserOutL, &phaserOutR);
@@ -1001,7 +964,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             phaserOutR = lPhaserMix * panR + (1.f - lPhaserMix) * phaserOutR;
         }
         
-        // delays
+        // PING PONG DELAY
         float delayOutL = 0.f;
         float delayOutR = 0.f;
         float delayOutRR = 0.f;
@@ -1012,7 +975,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_smoothdelay_compute(sp, delayRR,     &delayOutR,  &delayOutRR);
         delayOutRR += delayFillInOut;
         
-        // delays mixer
+        // DELAY MIXER
         float mixedDelayL = 0.f;
         float mixedDelayR = 0.f;
         delayCrossfadeL->pos = p[delayMix] * p[delayOn];
@@ -1077,20 +1040,14 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         compressorOutL *= p[compressorMasterMakeupGain];
         compressorOutR *= p[compressorMasterMakeupGain];
 
-        // WIDEN.  literally a constant delay with no filtering, so functionally equivalent to being inside master
+        // WIDEN: constant delay with no filtering, so functionally equivalent to being inside master
         float widenOutR = 0.f;
         sp_delay_compute(sp, widenDelay, &compressorOutR, &widenOutR);
         widenOutR = p[widen] * widenOutR + (1.f - p[widen]) * compressorOutR;
 
         // MASTER
-#if 1
-        //TODO:tmp: Dry NoteState(s)
         outL[frameIndex] = compressorOutL;
         outR[frameIndex] = widenOutR;
-#else
-        outL[frameIndex] = synthOut;
-        outR[frameIndex] = synthOut;
-#endif
     }
 }
 
@@ -1263,11 +1220,10 @@ void AKSynthOneDSPKernel::stopNote(int noteNumber) {
     [heldNoteNumbersAE updateWithContentsOfArray: heldNoteNumbers];
     
     // ARP/SEQ
-    if(p[arpIsOn] == 1.f) {
+    if(p[arpIsOn] == 1.f)
         return;
-    } else {
+    else
         turnOffKey(noteNumber);
-    }
 }
 
 void AKSynthOneDSPKernel::reset() {
@@ -1322,8 +1278,6 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_phasor_init(sp, lfo1Phasor, 0);
     sp_phasor_create(&lfo2Phasor);
     sp_phasor_init(sp, lfo2Phasor, 0);
-    sp_bitcrush_create(&bitcrush);
-    sp_bitcrush_init(sp, bitcrush);
     sp_fold_create(&bitcrushFold);
     sp_fold_init(sp, bitcrushFold); bitcrushFold->incr = 1; // YES
     sp_phaser_create(&phaser0);
@@ -1452,7 +1406,6 @@ void AKSynthOneDSPKernel::destroy() {
     sp_ftbl_destroy(&sine);
     sp_phasor_destroy(&lfo1Phasor);
     sp_phasor_destroy(&lfo2Phasor);
-    sp_bitcrush_destroy(&bitcrush);
     sp_fold_destroy(&bitcrushFold);
     sp_phaser_destroy(&phaser0);
     sp_osc_destroy(&panOscillator);

@@ -70,7 +70,7 @@ class FXViewController: SynthPanelController {
             
         sampleRate.value = s.getParameterDefault(.bitCrushSampleRate)
         sampleRate.range = s.getParameterRange(.bitCrushSampleRate)
-        sampleRate.taper = 3
+        sampleRate.taper = 4
 
         autoPanRate.range = s.getParameterRange(.autoPanFrequency)
         autoPanRate.taper = 2

@@ -957,10 +957,17 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         float delayOutR = 0.f;
         float delayOutRR = 0.f;
         float delayFillInOut = 0.f;
+#if AKS1_TMP_SMOOTH_VS_VAR_DELAY
         sp_smoothdelay_compute(sp, delayL,      &phaserOutL, &delayOutL);
         sp_smoothdelay_compute(sp, delayR,      &phaserOutR, &delayOutR);
         sp_smoothdelay_compute(sp, delayFillIn, &phaserOutR, &delayFillInOut);
         sp_smoothdelay_compute(sp, delayRR,     &delayOutR,  &delayOutRR);
+#else
+        sp_vdelay_compute(sp, delayL,      &phaserOutL, &delayOutL);
+        sp_vdelay_compute(sp, delayR,      &phaserOutR, &delayOutR);
+        sp_vdelay_compute(sp, delayFillIn, &phaserOutR, &delayFillInOut);
+        sp_vdelay_compute(sp, delayRR,     &delayOutR,  &delayOutRR);
+#endif
         delayOutRR += delayFillInOut;
         
         // DELAY MIXER
@@ -1274,6 +1281,8 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_osc_init(sp, panOscillator, sine, 0.f);
     sp_pan2_create(&pan);
     sp_pan2_init(sp, pan);
+    
+#if AKS1_TMP_SMOOTH_VS_VAR_DELAY
     sp_smoothdelay_create(&delayL);
     sp_smoothdelay_create(&delayR);
     sp_smoothdelay_create(&delayRR);
@@ -1282,6 +1291,16 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_smoothdelay_init(sp, delayR, 10.f, 512);
     sp_smoothdelay_init(sp, delayRR, 10.f, 512);
     sp_smoothdelay_init(sp, delayFillIn, 10.f, 512);
+#else
+    sp_vdelay_create(&delayL);
+    sp_vdelay_create(&delayR);
+    sp_vdelay_create(&delayRR);
+    sp_vdelay_create(&delayFillIn);
+    sp_vdelay_init(sp, delayL, 10.f);
+    sp_vdelay_init(sp, delayR, 10.f);
+    sp_vdelay_init(sp, delayRR, 10.f);
+    sp_vdelay_init(sp, delayFillIn, 10.f);
+#endif
     sp_crossfade_create(&delayCrossfadeL);
     sp_crossfade_create(&delayCrossfadeR);
     sp_crossfade_init(sp, delayCrossfadeL);
@@ -1395,10 +1414,17 @@ void AKSynthOneDSPKernel::destroy() {
     sp_phaser_destroy(&phaser0);
     sp_osc_destroy(&panOscillator);
     sp_pan2_destroy(&pan);
+#if AKS1_TMP_SMOOTH_VS_VAR_DELAY
     sp_smoothdelay_destroy(&delayL);
     sp_smoothdelay_destroy(&delayR);
     sp_smoothdelay_destroy(&delayRR);
     sp_smoothdelay_destroy(&delayFillIn);
+#else
+    sp_vdelay_destroy(&delayL);
+    sp_vdelay_destroy(&delayR);
+    sp_vdelay_destroy(&delayRR);
+    sp_vdelay_destroy(&delayFillIn);
+#endif
     sp_delay_destroy(&widenDelay);
     sp_crossfade_destroy(&delayCrossfadeL);
     sp_crossfade_destroy(&delayCrossfadeR);

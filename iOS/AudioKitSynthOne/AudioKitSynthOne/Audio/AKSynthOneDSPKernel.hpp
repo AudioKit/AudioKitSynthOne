@@ -25,6 +25,9 @@
 #define AKS1_FTABLE_SIZE (4096)
 #define AKS1_NUM_FTABLES (4)
 
+//TODO:COMMIT TO A DELAY MODEL
+#define AKS1_TMP_SMOOTH_VS_VAR_DELAY (0)
+
 #ifdef __cplusplus
 
 class AKSynthOneDSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
@@ -201,10 +204,17 @@ private:
     sp_pan2 *pan;
     sp_osc *panOscillator;
     sp_phaser *phaser0;
+#if AKS1_TMP_SMOOTH_VS_VAR_DELAY
     sp_smoothdelay *delayL;
     sp_smoothdelay *delayR;
     sp_smoothdelay *delayRR;
     sp_smoothdelay *delayFillIn;
+#else
+    sp_vdelay *delayL;
+    sp_vdelay *delayR;
+    sp_vdelay *delayRR;
+    sp_vdelay *delayFillIn;
+#endif
     sp_crossfade *delayCrossfadeL;
     sp_crossfade *delayCrossfadeR;
     sp_revsc *reverbCostello;

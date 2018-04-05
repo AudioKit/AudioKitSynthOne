@@ -268,8 +268,8 @@ private:
     const float bpm_max = 200.f;
     const float bars_min = 1.f / 64.f;
     const float bars_max = 8.f;
-    const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) );
-    const float rate_max = 1.f / ( (beatsPerBar * bars_min) / (bpm_max * minutesPerSecond) );
+    const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) ); //  0.00052
+    const float rate_max = 1.f / ( (beatsPerBar * bars_min) / (bpm_max * minutesPerSecond) ); // 53.3333
     AKS1Param aks1p[AKSynthOneParameter::AKSynthOneParameterCount] = {
         { index1,                0, 1, 1, "index1", "Index 1", kAudioUnitParameterUnit_Generic, true, NULL},
         { index2,                0, 1, 1, "index2", "Index 2", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -315,7 +315,10 @@ private:
         { reverbMix,             0, 0, 1, "reverbMix", "reverbMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayOn,               0, 0, 1, "delayOn", "delayOn", kAudioUnitParameterUnit_Generic, false, NULL},
         { delayFeedback,         0, 0.1, 0.9, "delayFeedback", "delayFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
-        { delayTime,             0.1, 0.5, 1.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
+        
+//        { delayTime,             0.1, 0.5, 1.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
+        { delayTime,             0.0003628117914, 0.25, 1.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},// 16/44100
+
         { delayMix,              0, 0.125, 1, "delayMix", "delayMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo2Index,             0, 0, 3, "lfo2Index", "lfo2Index", kAudioUnitParameterUnit_Generic, false, NULL},
         { lfo2Amplitude,         0, 0, 1, "lfo2Amplitude", "lfo2Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},

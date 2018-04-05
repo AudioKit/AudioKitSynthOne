@@ -79,6 +79,10 @@ public protocol AKKeyboardDelegate: class {
         }
     }
     
+    private var arpSeqOn: Bool {
+        return Conductor.sharedInstance.synth.getAK1Parameter(.arpIsOn) > 0 ? true : false
+    }
+    
     let naturalNotes = ["C", "D", "E", "F", "G", "A", "B"]
     let notesWithSharps = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
     let topKeyNotes = [0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 11]
@@ -352,8 +356,8 @@ public protocol AKKeyboardDelegate: class {
                 pressRemoved(key)
             }
         }
-
-        if ❗️polyphonicMode {
+        
+        if ❗️polyphonicMode && ❗️arpSeqOn {
             for key in onKeys where key != newNote {
                 pressRemoved(key)
             }
@@ -373,8 +377,8 @@ public protocol AKKeyboardDelegate: class {
         }
      
         onKeys.remove(note)
-        delegate?.noteOff(note: note) 
-        if ❗️polyphonicMode {
+        delegate?.noteOff(note: note)
+        if ❗️polyphonicMode && ❗️arpSeqOn {
             // in mono mode, replace with note from highest remaining touch, if it exists
             var remainingNotes = notesFromTouches(touches ?? Set<UITouch>())
             remainingNotes = remainingNotes.filter { $0 != note }

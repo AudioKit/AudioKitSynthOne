@@ -628,6 +628,8 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     *compressorReverbInputR->rel = p[compressorReverbInputRelease];
     *compressorReverbWetL->rel = p[compressorReverbWetRelease];
     *compressorReverbWetR->rel = p[compressorReverbWetRelease];
+    
+    
 #endif
     
     // transition playing notes from release to off
@@ -670,6 +672,11 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         panOscillator->freq = p[autoPanFrequency];
         panOscillator->amp = p[autoPanAmount];
         
+        loPassInputDelayL->freq = p[delayInputCutoff];
+        loPassInputDelayL->res = p[delayInputResonance];
+        loPassInputDelayR->freq = p[delayInputCutoff];
+        loPassInputDelayR->res = p[delayInputResonance];
+
         delayL->del = delayR->del = p[delayTime] * 2.f;
         delayRR->del = delayFillIn->del = p[delayTime];
         delayL->feedback = delayR->feedback = p[delayFeedback];
@@ -680,6 +687,12 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         *phaser0->feedback_gain = p[phaserFeedback];
         *phaser0->lfobpm = p[phaserRate];
 
+        loPassInputDelayL->freq = p[delayInputCutoff];
+        loPassInputDelayL->res = p[delayInputResonance];
+        loPassInputDelayR->freq = p[delayInputCutoff];
+        loPassInputDelayR->res = p[delayInputResonance];
+
+        
         // CLEAR BUFFER
         outL[frameIndex] = outR[frameIndex] = 0.f;
         
@@ -952,20 +965,26 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             phaserOutR = lPhaserMix * panR + (1.f - lPhaserMix) * phaserOutR;
         }
         
+        // DELAY INPUT LOW PASS FILTER
+        float delayInputLowPassOutL = phaserOutL;
+        float delayInputLowPassOutR = phaserOutR;
+        sp_moogladder_compute(sp, loPassInputDelayL, &phaserOutL, &delayInputLowPassOutL);
+        sp_moogladder_compute(sp, loPassInputDelayR, &phaserOutR, &delayInputLowPassOutR);
+
         // PING PONG DELAY
         float delayOutL = 0.f;
         float delayOutR = 0.f;
         float delayOutRR = 0.f;
         float delayFillInOut = 0.f;
 #if AKS1_TMP_SMOOTH_VS_VAR_DELAY
-        sp_smoothdelay_compute(sp, delayL,      &phaserOutL, &delayOutL);
-        sp_smoothdelay_compute(sp, delayR,      &phaserOutR, &delayOutR);
-        sp_smoothdelay_compute(sp, delayFillIn, &phaserOutR, &delayFillInOut);
+        sp_smoothdelay_compute(sp, delayL,      &delayInputLowPassOutL, &delayOutL);
+        sp_smoothdelay_compute(sp, delayR,      &delayInputLowPassOutR, &delayOutR);
+        sp_smoothdelay_compute(sp, delayFillIn, &delayInputLowPassOutR, &delayFillInOut);
         sp_smoothdelay_compute(sp, delayRR,     &delayOutR,  &delayOutRR);
 #else
-        sp_vdelay_compute(sp, delayL,      &phaserOutL, &delayOutL);
-        sp_vdelay_compute(sp, delayR,      &phaserOutR, &delayOutR);
-        sp_vdelay_compute(sp, delayFillIn, &phaserOutR, &delayFillInOut);
+        sp_vdelay_compute(sp, delayL,      &delayInputLowPassOutL, &delayOutL);
+        sp_vdelay_compute(sp, delayR,      &delayInputLowPassOutR, &delayOutR);
+        sp_vdelay_compute(sp, delayFillIn, &delayInputLowPassOutR, &delayFillInOut);
         sp_vdelay_compute(sp, delayRR,     &delayOutR,  &delayOutRR);
 #endif
         delayOutRR += delayFillInOut;
@@ -1282,6 +1301,10 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_pan2_create(&pan);
     sp_pan2_init(sp, pan);
     
+    sp_moogladder_create(&loPassInputDelayL);
+    sp_moogladder_init(sp, loPassInputDelayL);
+    sp_moogladder_create(&loPassInputDelayR);
+    sp_moogladder_init(sp, loPassInputDelayR);
 #if AKS1_TMP_SMOOTH_VS_VAR_DELAY
     sp_smoothdelay_create(&delayL);
     sp_smoothdelay_create(&delayR);
@@ -1392,6 +1415,11 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     *compressorReverbWetL->rel = p[compressorReverbWetRelease];
     *compressorReverbWetR->rel = p[compressorReverbWetRelease];
 
+    loPassInputDelayL->freq = p[delayInputCutoff];
+    loPassInputDelayL->res = p[delayInputResonance];
+    loPassInputDelayR->freq = p[delayInputCutoff];
+    loPassInputDelayR->res = p[delayInputResonance];
+
     // Reserve arp note cache to reduce possibility of reallocation on audio thread.
     arpSeqNotes.reserve(maxArpSeqNotes);
     arpSeqNotes2.reserve(maxArpSeqNotes);
@@ -1414,6 +1442,9 @@ void AKSynthOneDSPKernel::destroy() {
     sp_phaser_destroy(&phaser0);
     sp_osc_destroy(&panOscillator);
     sp_pan2_destroy(&pan);
+
+    sp_moogladder_destroy(&loPassInputDelayL);
+    sp_moogladder_destroy(&loPassInputDelayR);
 #if AKS1_TMP_SMOOTH_VS_VAR_DELAY
     sp_smoothdelay_destroy(&delayL);
     sp_smoothdelay_destroy(&delayR);

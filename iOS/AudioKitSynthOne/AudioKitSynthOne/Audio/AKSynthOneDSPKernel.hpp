@@ -204,6 +204,9 @@ private:
     sp_pan2 *pan;
     sp_osc *panOscillator;
     sp_phaser *phaser0;
+    
+    sp_moogladder *loPassInputDelayL;
+    sp_moogladder *loPassInputDelayR;
 #if AKS1_TMP_SMOOTH_VS_VAR_DELAY
     sp_smoothdelay *delayL;
     sp_smoothdelay *delayR;
@@ -416,7 +419,10 @@ private:
         
         { compressorMasterMakeupGain,      0.5, 2, 4, "master compressor makeup gain", "master compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbInputMakeupGain, 0.5, 1.88, 4, "reverb input compressor makeup gain", "reverb input compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorMasterMakeupGain,      0.5, 1.88, 4, "reverb wet compressor makeup gain", "reverb wet compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL}
+        { compressorMasterMakeupGain,      0.5, 1.88, 4, "reverb wet compressor makeup gain", "reverb wet compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
+        
+        { delayInputCutoff,                64, 2000, 22050, "delayInputCutoff", "delayInputCutoff", kAudioUnitParameterUnit_Hertz, true, NULL},
+        { delayInputResonance,             0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, true, NULL}
     };
 };
 #endif

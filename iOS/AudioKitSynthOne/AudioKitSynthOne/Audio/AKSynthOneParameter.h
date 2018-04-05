@@ -154,6 +154,9 @@ typedef AK_ENUM(AKSynthOneParameter) {
     compressorReverbInputMakeupGain = 135,
     compressorReverbWetMakeupGain = 136,
 
-    AKSynthOneParameterCount = 137
+    delayInputCutoff = 137,
+    delayInputResonance = 138,
+
+    AKSynthOneParameterCount = 139
 } AKSynthOneParameter;
 

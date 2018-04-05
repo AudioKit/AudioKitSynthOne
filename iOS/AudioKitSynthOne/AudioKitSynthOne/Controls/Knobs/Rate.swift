@@ -16,6 +16,7 @@ public enum Rate: Int, CustomStringConvertible {
     case threeBars
     case twoBars
     case bar
+    case barTriplet
     case half
     case halfTriplet
     case quarter
@@ -47,6 +48,8 @@ public enum Rate: Int, CustomStringConvertible {
             return "2 bars"
         case .bar:
             return "1 bar"
+        case .barTriplet:
+            return "1 bar triplet"
         case .half:
             return "1/2 note"
         case .halfTriplet:
@@ -89,18 +92,20 @@ public enum Rate: Int, CustomStringConvertible {
             return seconds(bars: 2)
         case .bar:
             return seconds(bars: 1)
+        case .barTriplet:
+            return seconds(bars: 1,    triplet: true)
         case .half:
             return seconds(bars: 1/2)
         case .halfTriplet:
-            return seconds(bars: 1/2, triplet: true)
+            return seconds(bars: 1/2,  triplet: true)
         case .quarter:
             return seconds(bars: 1/4)
         case .quarterTriplet:
-            return seconds(bars: 1/4, triplet: true)
+            return seconds(bars: 1/4,  triplet: true)
         case .eighth:
             return seconds(bars: 1/8)
         case .eighthTriplet:
-            return seconds(bars: 1/8, triplet: true)
+            return seconds(bars: 1/8,  triplet: true)
         case .sixteenth:
             return seconds(bars: 1/16)
         case .sixteenthTriplet:

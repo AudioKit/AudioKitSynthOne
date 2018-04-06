@@ -942,6 +942,7 @@
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)",
 					"\"$(SRCROOT)/../../../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework/Headers/\"",
+					"\"$(SRCROOT)/../../../AudioKit/AudioKit/Core/AudioKitCore/\"/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1001,6 +1002,7 @@
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)",
 					"\"$(SRCROOT)/../../../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework/Headers/\"",
+					"\"$(SRCROOT)/../../../AudioKit/AudioKit/Core/AudioKitCore/\"/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;

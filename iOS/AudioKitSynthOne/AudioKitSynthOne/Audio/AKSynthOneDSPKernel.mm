@@ -615,8 +615,8 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
     
 #if 1
-    //TODO:disable this block when we settle on params
-    // visible in DEV panel only
+    //TODO:disable this block when we settle on params.
+    // currently visible in DEV panel only.
     *compressorMasterL->ratio = p[compressorMasterRatio];
     *compressorMasterR->ratio = p[compressorMasterRatio];
     *compressorReverbInputL->ratio = p[compressorReverbInputRatio];
@@ -642,7 +642,10 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     *compressorReverbWetL->rel = p[compressorReverbWetRelease];
     *compressorReverbWetR->rel = p[compressorReverbWetRelease];
     
-    
+    loPassInputDelayL->freq = p[delayInputCutoff];
+    loPassInputDelayL->res = p[delayInputResonance];
+    loPassInputDelayR->freq = p[delayInputCutoff];
+    loPassInputDelayR->res = p[delayInputResonance];
 #endif
     
     // transition playing notes from release to off
@@ -685,11 +688,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         panOscillator->freq = p[autoPanFrequency];
         panOscillator->amp = p[autoPanAmount];
         
-        loPassInputDelayL->freq = p[delayInputCutoff];
-        loPassInputDelayL->res = p[delayInputResonance];
-        loPassInputDelayR->freq = p[delayInputCutoff];
-        loPassInputDelayR->res = p[delayInputResonance];
-
         delayL->del = delayR->del = p[delayTime] * 2.f;
         delayRR->del = delayFillIn->del = p[delayTime];
         delayL->feedback = delayR->feedback = p[delayFeedback];
@@ -699,12 +697,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         *phaser0->Notch_width = p[phaserNotchWidth];
         *phaser0->feedback_gain = p[phaserFeedback];
         *phaser0->lfobpm = p[phaserRate];
-
-        loPassInputDelayL->freq = p[delayInputCutoff];
-        loPassInputDelayL->res = p[delayInputResonance];
-        loPassInputDelayR->freq = p[delayInputCutoff];
-        loPassInputDelayR->res = p[delayInputResonance];
-
         
         // CLEAR BUFFER
         outL[frameIndex] = outR[frameIndex] = 0.f;

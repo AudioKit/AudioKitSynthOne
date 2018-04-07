@@ -410,8 +410,8 @@ private:
         { compressorReverbInputMakeupGain, 0.5, 1.88, 4, "reverb input compressor makeup gain", "reverb input compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorMasterMakeupGain,      0.5, 1.88, 4, "reverb wet compressor makeup gain", "reverb wet compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
         
-        { delayInputCutoff,                64, 2000, 22050, "delayInputCutoff", "delayInputCutoff", kAudioUnitParameterUnit_Hertz, true, NULL},
-        { delayInputResonance,             0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, true, NULL}
+        { delayInputCutoff,                64, 8192, 22050, "delayInputCutoff", "delayInputCutoff", kAudioUnitParameterUnit_Hertz, false, NULL},
+        { delayInputResonance,             0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, false, NULL}
     };
 };
 #endif

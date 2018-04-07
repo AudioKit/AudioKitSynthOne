@@ -90,8 +90,6 @@ public class HeaderViewController: UpdatableViewController {
         case .glide:
             displayLabel.text = "Glide: \(value.decimalString)"
         case .cutoff, .resonance:
-            // displayLabel.text = "Cutoff: \(conductor.synth.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(Double.scaleRangeZeroToOne(conductor.synth.getAK1Parameter(.resonance), rangeMin: 0, rangeMax: 0.97).percentageString)"
-            
             displayLabel.text = "Cutoff: \(s.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(s.getAK1Parameter(.resonance).decimalString)"
         case .subVolume:
             displayLabel.text = "Sub Mix: \(value.percentageString)"
@@ -235,6 +233,9 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "compressorReverbInputMakeupGain: \(value.decimalString)"
         case .compressorReverbWetMakeupGain:
             displayLabel.text = "compressorReverbWetMakeupGain: \(value.decimalString)"
+
+        case .delayInputCutoff, .delayInputResonance:
+            displayLabel.text = "Delay Input Cutoff: \(s.getAK1Parameter(.delayInputCutoff).decimalString) Hz, Rez: \(s.getAK1Parameter(.delayInputResonance).decimalString)"
 
         default:
             _ = 0

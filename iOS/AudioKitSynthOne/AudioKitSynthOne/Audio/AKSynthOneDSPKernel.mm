@@ -31,16 +31,6 @@ static inline double tuningTableNoteToHz(int noteNumber) {
     return [AKPolyphonicNode.tuningTable frequencyForNoteNumber:noteNumber];
 }
 
-// helper for midi/render thread communication, held-notes, etc
-struct AKSynthOneDSPKernel::NoteNumber {
-    
-    int noteNumber;
-    
-    void init() {
-        noteNumber = 60;
-    }
-};
-
 // helper for arp/seq
 struct AKSynthOneDSPKernel::SeqNoteNumber {
     
@@ -565,10 +555,23 @@ void AKSynthOneDSPKernel::beatCounterDidChange() {
 
 ///can be called from within the render loop
 void AKSynthOneDSPKernel::playingNotesDidChange() {
+    
+    if(p[isMono] == 1.f) {
+        aePlayingNotes.playingNotes[0] = {monoNote->rootNoteNumber};
+        for(int i=1; i<AKS1_MAX_POLYPHONY; i++) {
+            aePlayingNotes.playingNotes[i] = {-1};
+        }
+    } else {
+        for(int i=0; i<AKS1_MAX_POLYPHONY; i++) {
+            aePlayingNotes.playingNotes[i] = {noteStates[i].rootNoteNumber};
+        }
+    }
+    
     const BOOL status =
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
                                               audioUnit,
-                                              @selector(playingNotesDidChange),
+                                              @selector(playingNotesDidChange:),
+                                              AEArgumentStruct(aePlayingNotes),
                                               AEArgumentNone);
     if (!status) {
 #if DEBUG_DSP_LOGGING
@@ -579,10 +582,20 @@ void AKSynthOneDSPKernel::playingNotesDidChange() {
 
 ///can be called from within the render loop
 void AKSynthOneDSPKernel::heldNotesDidChange() {
+    
+    for(int i = 0; i<AKS1_NUM_MIDI_NOTES; i++)
+        aeHeldNotes.heldNotes[i] = false;
+
+    AEArrayEnumeratePointers(heldNoteNumbersAE, NoteNumber *, note) {
+        const int nn = note->noteNumber;
+        aeHeldNotes.heldNotes[nn] = true;
+    }
+    
     const BOOL status =
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
                                               audioUnit,
-                                              @selector(heldNotesDidChange),
+                                              @selector(heldNotesDidChange:),
+                                              AEArgumentStruct(aeHeldNotes),
                                               AEArgumentNone);
     if (!status) {
 #if DEBUG_DSP_LOGGING
@@ -742,7 +755,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                         }
                     } else {
                         // ARP state
-                        AEArrayEnumeratePointers(heldNoteNumbersAE, struct NoteNumber *, note) {
+                        AEArrayEnumeratePointers(heldNoteNumbersAE, NoteNumber *, note) {
                             std::vector<NoteNumber>::iterator it = arpSeqNotes2.begin();
                             arpSeqNotes2.insert(it, *note);
                         }
@@ -756,7 +769,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                             int index = 0;
                             for (int octave = 0; octave < arpOctaves; octave++) {
                                 for (int i = 0; i < heldNotesCount; i++) {
-                                    struct NoteNumber& note = arpSeqNotes2[i];
+                                    NoteNumber& note = arpSeqNotes2[i];
                                     const int nn = note.noteNumber + (octave * arpIntervalUp);
                                     struct SeqNoteNumber snn;
                                     snn.init(nn, onOff);
@@ -771,7 +784,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                             int index = 0;
                             for (int octave = 0; octave < arpOctaves; octave++) {
                                 for (int i = 0; i < heldNotesCount; i++) {
-                                    struct NoteNumber& note = arpSeqNotes2[i];
+                                    NoteNumber& note = arpSeqNotes2[i];
                                     const int nn = note.noteNumber + (octave * arpIntervalUp);
                                     struct SeqNoteNumber snn;
                                     snn.init(nn, onOff);
@@ -786,7 +799,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                                     const bool firstNote = (i == heldNotesCount - 1) && (octave == arpOctaves - 1);
                                     const bool lastNote = (i == 0) && (octave == 0);
                                     if (!firstNote && !lastNote) {
-                                        struct NoteNumber& note = arpSeqNotes2[i];
+                                        NoteNumber& note = arpSeqNotes2[i];
                                         const int nn = note.noteNumber + (octave * arpIntervalUp);
                                         struct SeqNoteNumber snn;
                                         snn.init(nn, onOff);
@@ -801,7 +814,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                             int index = 0;
                             for (int octave = arpOctaves - 1; octave >= 0; octave--) {
                                 for (int i = heldNotesCount - 1; i >= 0; i--) {
-                                    struct NoteNumber& note = arpSeqNotes2[i];
+                                    NoteNumber& note = arpSeqNotes2[i];
                                     const int nn = note.noteNumber + (octave * arpIntervalUp);
                                     struct SeqNoteNumber snn;
                                     snn.init(nn, onOff);
@@ -833,7 +846,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                     if (p[arpIsSequencer] == 1.f) {
                         // SEQUENCER
                         if(snn.onOff == 1) {
-                            AEArrayEnumeratePointers(heldNoteNumbersAE, struct NoteNumber *, noteStruct) {
+                            AEArrayEnumeratePointers(heldNoteNumbersAE, NoteNumber *, noteStruct) {
                                 const int baseNote = noteStruct->noteNumber;
                                 const int note = baseNote + snn.noteNumber;
                                 if(note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
@@ -976,17 +989,10 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         float delayOutR = 0.f;
         float delayOutRR = 0.f;
         float delayFillInOut = 0.f;
-#if AKS1_TMP_SMOOTH_VS_VAR_DELAY
-        sp_smoothdelay_compute(sp, delayL,      &delayInputLowPassOutL, &delayOutL);
-        sp_smoothdelay_compute(sp, delayR,      &delayInputLowPassOutR, &delayOutR);
-        sp_smoothdelay_compute(sp, delayFillIn, &delayInputLowPassOutR, &delayFillInOut);
-        sp_smoothdelay_compute(sp, delayRR,     &delayOutR,  &delayOutRR);
-#else
         sp_vdelay_compute(sp, delayL,      &delayInputLowPassOutL, &delayOutL);
         sp_vdelay_compute(sp, delayR,      &delayInputLowPassOutR, &delayOutR);
         sp_vdelay_compute(sp, delayFillIn, &delayInputLowPassOutR, &delayFillInOut);
         sp_vdelay_compute(sp, delayRR,     &delayOutR,  &delayOutRR);
-#endif
         delayOutRR += delayFillInOut;
         
         // DELAY MIXER
@@ -1150,7 +1156,7 @@ void AKSynthOneDSPKernel::turnOffKey(int noteNumber) {
         } else {
             // the case where you had more than one held note and released one (CACA): Keep note ON and set to freq of head
             AEArrayToken token = AEArrayGetToken(heldNoteNumbersAE);
-            struct NoteNumber* nn = (struct NoteNumber*)AEArrayGetItem(token, 0);
+            NoteNumber* nn = (NoteNumber*)AEArrayGetItem(token, 0);
             const int headNN = nn->noteNumber;
             monoFrequency = tuningTableNoteToHz(headNN);
             monoNote->rootNoteNumber = headNN;
@@ -1305,16 +1311,6 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_moogladder_init(sp, loPassInputDelayL);
     sp_moogladder_create(&loPassInputDelayR);
     sp_moogladder_init(sp, loPassInputDelayR);
-#if AKS1_TMP_SMOOTH_VS_VAR_DELAY
-    sp_smoothdelay_create(&delayL);
-    sp_smoothdelay_create(&delayR);
-    sp_smoothdelay_create(&delayRR);
-    sp_smoothdelay_create(&delayFillIn);
-    sp_smoothdelay_init(sp, delayL, 10.f, 512);
-    sp_smoothdelay_init(sp, delayR, 10.f, 512);
-    sp_smoothdelay_init(sp, delayRR, 10.f, 512);
-    sp_smoothdelay_init(sp, delayFillIn, 10.f, 512);
-#else
     sp_vdelay_create(&delayL);
     sp_vdelay_create(&delayR);
     sp_vdelay_create(&delayRR);
@@ -1323,7 +1319,6 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     sp_vdelay_init(sp, delayR, 10.f);
     sp_vdelay_init(sp, delayRR, 10.f);
     sp_vdelay_init(sp, delayFillIn, 10.f);
-#endif
     sp_crossfade_create(&delayCrossfadeL);
     sp_crossfade_create(&delayCrossfadeR);
     sp_crossfade_init(sp, delayCrossfadeL);
@@ -1358,7 +1353,7 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     heldNoteNumbers = (NSMutableArray<NSNumber*>*)[NSMutableArray array];
     heldNoteNumbersAE = [[AEArray alloc] initWithCustomMapping:^void *(id item) {
         const int nn = [(NSNumber*)item intValue];
-        struct NoteNumber* noteNumber = (struct NoteNumber*)malloc(sizeof(struct NoteNumber));
+        NoteNumber* noteNumber = (NoteNumber*)malloc(sizeof(NoteNumber));
         noteNumber->noteNumber = nn;
         return noteNumber;
     }];
@@ -1442,20 +1437,12 @@ void AKSynthOneDSPKernel::destroy() {
     sp_phaser_destroy(&phaser0);
     sp_osc_destroy(&panOscillator);
     sp_pan2_destroy(&pan);
-
     sp_moogladder_destroy(&loPassInputDelayL);
     sp_moogladder_destroy(&loPassInputDelayR);
-#if AKS1_TMP_SMOOTH_VS_VAR_DELAY
-    sp_smoothdelay_destroy(&delayL);
-    sp_smoothdelay_destroy(&delayR);
-    sp_smoothdelay_destroy(&delayRR);
-    sp_smoothdelay_destroy(&delayFillIn);
-#else
     sp_vdelay_destroy(&delayL);
     sp_vdelay_destroy(&delayR);
     sp_vdelay_destroy(&delayRR);
     sp_vdelay_destroy(&delayFillIn);
-#endif
     sp_delay_destroy(&widenDelay);
     sp_crossfade_destroy(&delayCrossfadeL);
     sp_crossfade_destroy(&delayCrossfadeR);

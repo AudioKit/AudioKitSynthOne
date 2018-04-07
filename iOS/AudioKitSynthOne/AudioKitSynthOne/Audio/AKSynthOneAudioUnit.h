@@ -10,9 +10,33 @@
 
 #import <AudioKit/AKAudioUnit.h>
 #import "AKSynthOneParameter.h"
-#import "AKSynthOneProtocol.h"
+
+#define AKS1_MAX_POLYPHONY (6)
+#define AKS1_NUM_MIDI_NOTES (128)
 
 @class AEMessageQueue;
+
+// helper for midi/render thread communication: held, playing notes
+typedef struct NoteNumber {
+    int noteNumber;
+} NoteNumber;
+
+// helper for main+render thread communication: array of playing notes
+typedef struct PlayingNotes {
+    NoteNumber playingNotes[AKS1_MAX_POLYPHONY];
+} PlayingNotes;
+
+// helper for main+render thread communication: array of playing notes
+typedef struct HeldNotes {
+    bool heldNotes[AKS1_NUM_MIDI_NOTES];
+} HeldNotes;
+
+@protocol AKSynthOneProtocol
+-(void)paramDidChange:(AKSynthOneParameter)param value:(double)value;
+-(void)arpBeatCounterDidChange:(NSInteger)beat;
+-(void)heldNotesDidChange:(HeldNotes)heldNotes;
+-(void)playingNotesDidChange:(PlayingNotes)playingNotes;
+@end
 
 @interface AKSynthOneAudioUnit : AKAudioUnit
 {
@@ -46,11 +70,11 @@
 - (void)resetDSP;
 - (void)resetSequencer;
 
-// protected...called by DSP.  This audiounit will call out to delegate "aks1Delegate"
+// Called by DSP only
 - (void)paramDidChange:(AKSynthOneParameter)param value:(double)value;
 - (void)arpBeatCounterDidChange;
-- (void)heldNotesDidChange;
-- (void)playingNotesDidChange;
+- (void)heldNotesDidChange:(HeldNotes)heldNotes;
+- (void)playingNotesDidChange:(PlayingNotes)playingNotes;
 
 @end
 

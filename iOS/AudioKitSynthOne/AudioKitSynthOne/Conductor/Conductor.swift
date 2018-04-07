@@ -172,16 +172,16 @@ class Conductor: AKSynthOneProtocol {
         }
     }
     
-    func heldNotesDidChange() {
+    func heldNotesDidChange(_ heldNotes: HeldNotes) {
         ///TODO:Route this to keyboard view controller (I'll change this so it returns the current array of held notes)
         ///TODO:See https://trello.com/c/cainbbJJ
-        //AKLog("Conductor.swift:heldNotesDidChange()")
+        //AKLog("\(heldNotes)")
     }
     
-    func playingNotesDidChange() {
+    func playingNotesDidChange(_ playingNotes: PlayingNotes) {
         ///TODO:Route this to keyboard view controller (I'll change this to return the current array of playing notes)
         ///TODO:See https://trello.com/c/lQZMyF0V
-        //AKLog("Conductor.swift:playingNotesDidChange")
+        //AKLog("\(playingNotes)")
     }
     
     // Start/Pause AK Engine (Conserve energy by turning background audio off)

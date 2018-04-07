@@ -6,15 +6,15 @@
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-#ifndef AKSynthOneProtocol_h
-#define AKSynthOneProtocol_h
 
-@protocol AKSynthOneProtocol
--(void)paramDidChange:(AKSynthOneParameter)param value:(double)value;
--(void)arpBeatCounterDidChange: (NSInteger)beat;
--(void)heldNotesDidChange;
--(void)playingNotesDidChange;
-@end
+#pragma once
+
+#import "AKSynthOneAudioUnit.h"
+
+// 3 correlated protocols: AKSynthOneProtocol
+// AKSynthOneDSP2AUProtocol   C++ DSP kernel layer to ObjC++ audiounit layer: Pass struct of array of structs to AU
+// AKSynthOneAU2AppProtocol   ObjC++ audiounit layer to Swift (conductor): Pass array of nsnumbers to swift..maybe extend to tuples or structs
+// AKSynthOneAppProtocol      Swift Conductor to Swift UI: internal app delegation
 
 
-#endif /* AKSynthOneProtocol_h */
+

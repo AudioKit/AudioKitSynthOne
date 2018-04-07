@@ -184,13 +184,13 @@
                               AudioBufferList            *outputData,
                               const AURenderEvent        *realtimeEventListHead,
                               AURenderPullInputBlock      pullInputBlock) {
-        _outputBusBuffer.prepareOutputBufferList(outputData, frameCount, true);
+        self->_outputBusBuffer.prepareOutputBufferList(outputData, frameCount, true);
         state->setBuffer(outputData);
         state->processWithEvents(timestamp, frameCount, realtimeEventListHead);
         double currentTempo;
-        if ( _musicalContext ) {
-            if (_musicalContext( &currentTempo, NULL, NULL, NULL, NULL, NULL ) ) {
-                _kernel.handleTempoSetting(currentTempo);
+        if ( self->_musicalContext ) {
+            if (self->_musicalContext( &currentTempo, NULL, NULL, NULL, NULL, NULL ) ) {
+                self->_kernel.handleTempoSetting(currentTempo);
             }
         }
         return noErr;
@@ -206,12 +206,12 @@
     [_aks1Delegate arpBeatCounterDidChange:_kernel.arpBeatCounter];
 }
 
-- (void)heldNotesDidChange {
-    [_aks1Delegate heldNotesDidChange];
+- (void)heldNotesDidChange:(HeldNotes)heldNotes {
+    [_aks1Delegate heldNotesDidChange:heldNotes];
 }
 
-- (void)playingNotesDidChange {
-    [_aks1Delegate playingNotesDidChange];
+- (void)playingNotesDidChange:(PlayingNotes)playingNotes {
+    [_aks1Delegate playingNotesDidChange:playingNotes];
 }
 
 @end

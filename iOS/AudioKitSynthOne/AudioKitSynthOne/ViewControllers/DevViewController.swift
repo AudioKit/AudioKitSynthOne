@@ -34,6 +34,10 @@ class DevViewController: UpdatableViewController {
     @IBOutlet weak var compressorReverbInputMakeupGain: Knob!
     @IBOutlet weak var compressorReverbWetMakeupGain: Knob!
 
+    @IBOutlet weak var delayInputFilterCutoffFreq: Knob!
+    @IBOutlet weak var delayInputFilterResonance: Knob!
+
+    
     let devTunings = DevTunings()
     
     override func viewDidLoad() {
@@ -49,6 +53,7 @@ class DevViewController: UpdatableViewController {
         masterVolume.range = s.getParameterRange(.masterVolume)
         conductor.bind(masterVolume, to:.masterVolume)
         
+        // reverb/master dynamics
         compressorMasterRatio.range      = s.getParameterRange(.compressorMasterRatio)
         compressorReverbInputRatio.range = s.getParameterRange(.compressorReverbInputRatio)
         compressorReverbWetRatio.range   = s.getParameterRange(.compressorReverbWetRatio)
@@ -83,6 +88,12 @@ class DevViewController: UpdatableViewController {
         conductor.bind(compressorMasterMakeupGain,      to: .compressorMasterMakeupGain)
         conductor.bind(compressorReverbInputMakeupGain, to: .compressorReverbInputMakeupGain)
         conductor.bind(compressorReverbWetMakeupGain,   to: .compressorReverbWetMakeupGain)
+        
+        //delay input filter
+        delayInputFilterCutoffFreq.range =      s.getParameterRange(.delayInputCutoff)
+        delayInputFilterResonance.range =       s.getParameterRange(.delayInputResonance)
+        conductor.bind(delayInputFilterCutoffFreq,      to: .delayInputCutoff)
+        conductor.bind(delayInputFilterResonance,       to: .delayInputResonance)
     }
 }
 

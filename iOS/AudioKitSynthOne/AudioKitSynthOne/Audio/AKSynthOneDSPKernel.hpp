@@ -20,13 +20,8 @@
 @class AEArray;
 @class AEMessageQueue;
 
-#define AKS1_MAX_POLYPHONY (6)
-#define AKS1_NUM_MIDI_NOTES (128)
 #define AKS1_FTABLE_SIZE (4096)
 #define AKS1_NUM_FTABLES (4)
-
-//TODO:COMMIT TO A DELAY MODEL
-#define AKS1_TMP_SMOOTH_VS_VAR_DELAY (0)
 
 #ifdef __cplusplus
 
@@ -62,15 +57,6 @@ public:
     void stopAllNotes();
     
     void handleTempoSetting(float currentTempo);
-    
-    ///can be called from within the render loop
-    void beatCounterDidChange();
-    
-    ///can be called from within the render loop
-    void playingNotesDidChange();
-    
-    ///can be called from within the render loop
-    void heldNotesDidChange();
     
     ///PROCESS
     void process(AUAudioFrameCount frameCount, AUAudioFrameCount bufferOffset) override;
@@ -161,10 +147,20 @@ public:
     // midi
     bool notesHeld = false;
     
+    PlayingNotes aePlayingNotes;
+    HeldNotes aeHeldNotes;
+    
 private:
     
-    struct NoteNumber;
+    ///can be called from within the render loop
+    void beatCounterDidChange();
     
+    ///can be called from within the render loop
+    void playingNotesDidChange();
+    
+    ///can be called from within the render loop
+    void heldNotesDidChange();
+
     struct SeqNoteNumber;
     
     struct NoteState;
@@ -207,17 +203,10 @@ private:
     
     sp_moogladder *loPassInputDelayL;
     sp_moogladder *loPassInputDelayR;
-#if AKS1_TMP_SMOOTH_VS_VAR_DELAY
-    sp_smoothdelay *delayL;
-    sp_smoothdelay *delayR;
-    sp_smoothdelay *delayRR;
-    sp_smoothdelay *delayFillIn;
-#else
     sp_vdelay *delayL;
     sp_vdelay *delayR;
     sp_vdelay *delayRR;
     sp_vdelay *delayFillIn;
-#endif
     sp_crossfade *delayCrossfadeL;
     sp_crossfade *delayCrossfadeR;
     sp_revsc *reverbCostello;

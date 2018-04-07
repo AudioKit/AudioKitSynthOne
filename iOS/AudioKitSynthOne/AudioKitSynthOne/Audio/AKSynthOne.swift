@@ -232,12 +232,11 @@ import AudioKit
         delegate?.arpBeatCounterDidChange(beat)
     }
     
-    @objc public func heldNotesDidChange() {
-        delegate?.heldNotesDidChange()
+    @objc public func heldNotesDidChange(_ heldNotes: HeldNotes) {
+        delegate?.heldNotesDidChange(heldNotes)
     }
     
-    @objc public func playingNotesDidChange() {
-        delegate?.playingNotesDidChange()
+    @objc public func playingNotesDidChange(_ playingNotes: PlayingNotes) {
+        delegate?.playingNotesDidChange(playingNotes)
     }
-
 }

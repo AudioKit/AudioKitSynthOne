@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-Regular</string>
-        </array>
-        <array key="AvenirNextCondensed.ttc">
-            <string>AvenirNextCondensed-DemiBold</string>
-            <string>AvenirNextCondensed-Medium</string>
-            <string>AvenirNextCondensed-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Synth One-->
         <scene sceneID="tne-QT-ifu">
@@ -1276,13 +1266,6 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFB-QY-Gd6">
-                                <rect key="frame" x="492" y="17" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="New Preset">
-                                    <color key="titleColor" red="0.82352941180000006" green="0.45098039220000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thresh" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccQ-TI-oSy">
                                 <rect key="frame" x="16" y="22" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1290,6 +1273,16 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hao-tC-GCj" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="600" y="68" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6F-Xo-jT1" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="600" y="138" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -1312,6 +1305,8 @@
                         <outlet property="compressorReverbWetRatio" destination="Y0N-uy-kG9" id="1a4-xe-9gD"/>
                         <outlet property="compressorReverbWetRelease" destination="GbJ-mf-gk5" id="MeO-PE-Ocf"/>
                         <outlet property="compressorReverbWetThreshold" destination="SLl-8w-3xu" id="DH6-li-evq"/>
+                        <outlet property="delayInputFilterCutoffFreq" destination="Hao-tC-GCj" id="Axm-Ef-Ncf"/>
+                        <outlet property="delayInputFilterResonance" destination="g6F-Xo-jT1" id="bWO-8E-i1Z"/>
                         <outlet property="masterVolume" destination="d5E-zX-i6x" id="Mxd-PM-RQS"/>
                         <outlet property="tuningTableView" destination="BeM-2O-kjR" id="hBC-5d-5DS"/>
                     </connections>
@@ -2594,12 +2589,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" id="d30-PE-yhE" customClass="CategoryCell" customModule="AudioKitSynthOne" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="228" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d30-PE-yhE" id="u7e-or-1Fo">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="d30-PE-yhE" id="u7e-or-1Fo">
                                             <rect key="frame" x="0.0" y="0.0" width="228" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpD-vS-vgX">
-                                                    <rect key="frame" x="25" y="11" width="136" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpD-vS-vgX">
+                                                    <rect key="frame" x="18" y="11" width="136" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="Axr-RX-roP"/>
                                                         <constraint firstAttribute="width" constant="136" id="zuQ-k1-RJw"/>

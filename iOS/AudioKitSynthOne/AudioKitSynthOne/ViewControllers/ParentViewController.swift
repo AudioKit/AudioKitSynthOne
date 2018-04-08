@@ -112,13 +112,13 @@ public class ParentViewController: UpdatableViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        keyboardView?.delegate = self
-        keyboardView?.polyphonicMode = true
-        
+
         // Conductor start
         conductor.start()
         sustainer = SDSustainer(conductor.synth)
+
+        keyboardView?.delegate = self
+        keyboardView?.polyphonicMode = conductor.synth.getAK1Parameter(.isMono) > 0 ? true : false
 
         // Set Header as Delegate
         if let headerVC = self.childViewControllers.first as? HeaderViewController {

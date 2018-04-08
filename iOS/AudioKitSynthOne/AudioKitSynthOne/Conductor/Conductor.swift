@@ -160,7 +160,6 @@ class Conductor: AKSynthOneProtocol {
     //MARK: - AKSynthOneProtocol
     func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
         DispatchQueue.main.async {
-            //AKLog("arpBeatCounterDidChange")
             self.updateSingleUI(param, control: nil, value: value)
         }
     }

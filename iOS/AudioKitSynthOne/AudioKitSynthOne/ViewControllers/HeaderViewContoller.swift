@@ -6,6 +6,7 @@
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 
+
 import UIKit
 
 protocol HeaderDelegate {
@@ -180,7 +181,13 @@ public class HeaderViewController: UpdatableViewController {
         case .tremoloLFO:
             displayLabel.text = "Tremolo LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .filterType:
-            displayLabel.text = "Filter Type : \(value.decimalString)"
+            var ftype = "Low Pass"
+            if value == 1 {
+                ftype = "Band Pass"
+            } else if value == 2 {
+                ftype = "High Pass"
+            }
+            displayLabel.text = "Filter Type : \(ftype)"
         case .phaserMix:
             displayLabel.text = "Phaser Mix: \(value.decimalString)"
         case .phaserRate:
@@ -190,11 +197,13 @@ public class HeaderViewController: UpdatableViewController {
         case .phaserNotchWidth:
             displayLabel.text = "Phaser Notch Width: \(value.decimalString)"
         case .arpInterval:
-            displayLabel.text = "Arp Interval: \(Int(value))"
+            displayLabel.text = "Arpeggiator Interval: \(Int(value))"
         case .arpIsOn:
             displayLabel.text = value == 1 ? "Arpeggiator/Sequencer On" : "Arpeggiator/Sequencer Off"
         case .arpIsSequencer:
             displayLabel.text = value == 1 ? "Sequencer Mode" : "Arpeggiator Mode"
+        case .arpRate:
+            displayLabel.text = "Arpeggiator/Sequencer Tempo: \(value) BPM"
         case .widen:
             displayLabel.text = "Widen: \(value.decimalString)"
             

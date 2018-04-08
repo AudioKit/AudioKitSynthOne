@@ -141,8 +141,8 @@ class DevViewController: UpdatableViewController {
         ("12ET", {_ = AKPolyphonicNode.tuningTable.defaultTuning() } ),
         ("12 Pythagorean 12", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147]) } ),
         (" 5 (8,10,11,12,14) JI", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [8,10,11,12,14])}), // stephen's wilson's garden theme tuning; demoFileName: 20180312_aks1_5_8_10_11_12_14_00_01
-        (" 6 hexany(10, 11, 12, 14)", {_ = AKPolyphonicNode.tuningTable.hexany(10, 11, 12, 14) } ),
-        ("10 dekany(8,10,11,12,14)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies:DevTunings.dekany([8,10,11,12,14]))} ),
+//        (" 6 hexany(10, 11, 12, 14)", {_ = AKPolyphonicNode.tuningTable.hexany(10, 11, 12, 14) } ),
+//        ("10 dekany(8,10,11,12,14)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies:DevTunings.dekany([8,10,11,12,14]))} ),
 //        (" 6 hexany(10, 11, 12, 14) inverse", {_ = AKPolyphonicNode.tuningTable.hexany(1/10, 1/11, 1/12, 1/14) } ), // yuck
         (" 6 hexany(1, 3, 5, 7) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 7)  } ),
         (" 6 hexany(1, 3, 5, 45) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45)  } ),// 071

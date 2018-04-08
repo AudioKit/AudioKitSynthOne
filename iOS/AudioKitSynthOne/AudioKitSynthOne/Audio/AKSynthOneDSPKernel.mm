@@ -322,7 +322,7 @@ struct AKSynthOneDSPKernel::NoteState {
         } else if(kernel->p[filterType] == 1) {
             // bandpass bandwidth is a different unit than lopass resonance.
             // take advantage of the range of resonance [0,1].
-            const float bandwidth = (0.5f * 0.5f * 0.5f * 0.5f) * SAMPLE_RATE * (-1.f + exp2( clamp(1.f - filterResonance, 0.f, 1.f) ) );
+            const float bandwidth = 0.0625f * SAMPLE_RATE * (-1.f + exp2( clamp(1.f - filterResonance, 0.f, 1.f) ) );
             bandPass->bw = bandwidth;
         }
         

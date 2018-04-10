@@ -22,6 +22,7 @@ class Conductor: AKSynthOneProtocol {
     var banks: [Bank] = []
     var synth: AKSynthOne!
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
+    var heldNoteCount: Int = 0
     
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
         let binding = (param, control)
@@ -165,10 +166,8 @@ class Conductor: AKSynthOneProtocol {
     }
     
     func arpBeatCounterDidChange(_ beat: Int) {
-        DispatchQueue.main.async {
-            let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
-            seqVC?.updateLED(beatCounter: beat)
-        }
+        let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
+        seqVC?.updateLED(beatCounter: beat, heldNotes: self.heldNoteCount)
     }
     
     func heldNotesDidChange(_ heldNotes: HeldNotes) {
@@ -176,14 +175,7 @@ class Conductor: AKSynthOneProtocol {
         ///TODO:See https://trello.com/c/cainbbJJ
         // AKLog("\(heldNotes)")
         
-        // Reset Arp Sequencer LED
-        if heldNotes.heldNotesCount == 0 {
-            if (synth.getAK1Parameter(.arpIsOn) == 1) && (synth.getAK1Parameter(.arpIsSequencer) == 1) {
-                let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
-                seqVC?.updateLED(beatCounter: 0)
-                print ("GOT HERE 3 ***")
-            }
-        }
+        heldNoteCount = Int(heldNotes.heldNotesCount)
     }
     
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {

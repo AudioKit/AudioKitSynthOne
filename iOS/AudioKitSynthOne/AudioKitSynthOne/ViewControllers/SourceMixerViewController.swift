@@ -135,4 +135,3 @@ class SourceMixerViewController: SynthPanelController {
         audioPlot.shouldFill = isAudioPlotFilled
     }
 }
-

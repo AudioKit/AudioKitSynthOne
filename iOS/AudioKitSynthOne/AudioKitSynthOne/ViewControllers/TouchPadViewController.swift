@@ -27,8 +27,7 @@ class TouchPadViewController: SynthPanelController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let c = Conductor.sharedInstance
-        let s = c.synth!
+        let s = conductor.synth!
         
         viewType = .padView
         snapToggle.value = 1
@@ -50,6 +49,17 @@ class TouchPadViewController: SynthPanelController {
         rez = s.getAK1Parameter(.resonance)
         let pad2X = cutoff.normalized(from: touchPad2.horizontalRange, taper: touchPad2.horizontalTaper)
         touchPad2.resetToPosition(pad2X, rez)
+        
+        setupCallbacks()
+    }
+    
+    // *********************************************************
+    // MARK: - Touch Pad Callbacks
+    // *********************************************************
+        
+    func setupCallbacks() {
+        let c = conductor
+        let s = conductor.synth!
         
         touchPad1.callback = { horizontal, vertical, touchesBegan in
             
@@ -127,6 +137,30 @@ class TouchPadViewController: SynthPanelController {
         createParticles()
     }
     
+    // *********************************************************
+    // MARK: - Reset Touch Pads
+    // *********************************************************
+    
+    func resetTouchPad1() {
+        self.conductor.synth.setAK1Parameter(.lfo1Rate, self.lfoRate)
+        self.conductor.synth.setAK1Parameter(.lfo1Amplitude, self.lfoAmp)
+        let x = self.lfoRate.normalized(from: self.touchPad1.horizontalRange,
+                                        taper: self.touchPad1.horizontalTaper)
+        self.touchPad1.resetToPosition(x, self.lfoAmp)
+    }
+    
+    func resetTouchPad2() {
+        self.conductor.synth.setAK1Parameter(.cutoff, self.cutoff)
+        self.conductor.synth.setAK1Parameter(.resonance, self.rez)
+        let x = self.cutoff.normalized(from: self.touchPad2.horizontalRange,
+                                       taper: self.touchPad2.horizontalTaper)
+        self.touchPad2.resetToPosition(x, self.rez)
+    }
+    
+    // *********************************************************
+    // MARK: - Update UI
+    // *********************************************************
+    
     override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
         
         // Update TouchPad positions if corresponding knobs are turned
@@ -159,21 +193,7 @@ class TouchPadViewController: SynthPanelController {
         
     }
     
-    func resetTouchPad1() {
-        self.conductor.synth.setAK1Parameter(.lfo1Rate, self.lfoRate)
-        self.conductor.synth.setAK1Parameter(.lfo1Amplitude, self.lfoAmp)
-        let x = self.lfoRate.normalized(from: self.touchPad1.horizontalRange,
-                                        taper: self.touchPad1.horizontalTaper)
-        self.touchPad1.resetToPosition(x, self.lfoAmp)
-    }
-    
-    func resetTouchPad2() {
-        self.conductor.synth.setAK1Parameter(.cutoff, self.cutoff)
-        self.conductor.synth.setAK1Parameter(.resonance, self.rez)
-        let x = self.cutoff.normalized(from: self.touchPad2.horizontalRange,
-                                       taper: self.touchPad2.horizontalTaper)
-        self.touchPad2.resetToPosition(x, self.rez)
-    }
+  
     
 
     

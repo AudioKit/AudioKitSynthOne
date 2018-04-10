@@ -1,5 +1,5 @@
 //
-//  ADSRViewController.swift
+//  PresetsViewController.swift
 //  AudioKit Synth One
 //
 //  Created by Matthew Fecher on 7/24/17.
@@ -312,6 +312,7 @@ class PresetsViewController: UIViewController {
             let initPreset = Preset(position: 0)
             initPreset.bank = newBankName
             self.presets.append(initPreset)
+            self.saveAllPresetsIn(newBankName)
             
             // Add new bank to App settings
             self.addNewBank(newBankName:  newBankName, newBankIndex: newBankIndex)
@@ -847,7 +848,6 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                     if conductor.banks.contains(where: { $0.name == bankName }) {
                         displayAlertController("Oh my!", message: "There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.")
                         bankName += " [rename]"
-                        
                     }
                     
                     // Update presets

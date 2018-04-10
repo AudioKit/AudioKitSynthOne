@@ -1,5 +1,5 @@
 //
-//  SynthOneViewController.swift
+//  ParentViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by Aurelius Prochazka on 7/8/17.

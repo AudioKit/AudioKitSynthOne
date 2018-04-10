@@ -25,6 +25,7 @@ class PresetsViewController: UIViewController {
     @IBOutlet weak var importButton: SynthUIButton!
     @IBOutlet weak var reorderButton: SynthUIButton!
     @IBOutlet weak var importBankButton: PresetUIButton!
+    @IBOutlet weak var newBankButton: PresetUIButton!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryEmbeddedView: UIView!
@@ -301,6 +302,21 @@ class PresetsViewController: UIViewController {
             self.saveAllPresetsIn(self.currentPreset.bank)
         }
         
+        newBankButton.callback = { _ in
+            
+            // New Bank Name
+            let newBankIndex = self.conductor.banks.count
+            let newBankName = "Bank\(newBankIndex)"
+            
+            // Add a preset to the new Bank
+            let initPreset = Preset(position: 0)
+            initPreset.bank = newBankName
+            self.presets.append(initPreset)
+            
+            // Add new bank to App settings
+            self.addNewBank(newBankName:  newBankName, newBankIndex: newBankIndex)
+        }
+        
         importButton.callback = { _ in
             let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
             documentPicker.delegate = self
@@ -406,7 +422,21 @@ class PresetsViewController: UIViewController {
         if newIndex == currentPreset.position { newIndex = randomNumbers.nextInt() }
         currentPreset = presets[newIndex]
         selectCurrentPreset()
+    }
+    
+    func addNewBank(newBankName: String, newBankIndex: Int) {
+        // Add new bank to App settings
+        let newBank = Bank(name: newBankName, position: newBankIndex)
+        self.conductor.banks.append(newBank)
         
+        self.presetsDelegate?.banksDidUpdate()
+        
+        // Add Bank to left category listing
+        self.updateCategoryTable()
+        self.selectCategory(PresetCategory.bankStartingIndex + newBankIndex)
+        self.self.categoryIndex = PresetCategory.bankStartingIndex + newBankIndex
+        
+        self.sortPresets()
     }
     
     // *****************************************************************
@@ -834,17 +864,7 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                     
                     // Save to AppSettings
                     let newBankIndex = conductor.banks.count
-                    let newBank = Bank(name: bankName, position: newBankIndex)
-                    conductor.banks.append(newBank)
-                    
-                    presetsDelegate?.banksDidUpdate()
-                    
-                    // Add Bank to left category listing
-                    updateCategoryTable()
-                    selectCategory(PresetCategory.bankStartingIndex + newBankIndex)
-                    categoryIndex = PresetCategory.bankStartingIndex + newBankIndex
-                    
-                    sortPresets()
+                    self.addNewBank(newBankName:  bankName, newBankIndex: newBankIndex)
                     
                 } else {
                     let importedPreset = Preset.parseDataToPreset(presetJSON: presetJSON)

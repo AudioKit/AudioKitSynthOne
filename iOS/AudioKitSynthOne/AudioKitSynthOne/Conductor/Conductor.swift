@@ -22,6 +22,7 @@ class Conductor: AKSynthOneProtocol {
     var banks: [Bank] = []
     var synth: AKSynthOne!
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
+    var heldNoteCount: Int = 0
     
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
         let binding = (param, control)
@@ -165,16 +166,16 @@ class Conductor: AKSynthOneProtocol {
     }
     
     func arpBeatCounterDidChange(_ beat: Int) {
-        DispatchQueue.main.async {
-            let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
-            seqVC?.updateLED(beatCounter: beat)
-        }
+        let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
+        seqVC?.updateLED(beatCounter: beat, heldNotes: self.heldNoteCount)
     }
     
     func heldNotesDidChange(_ heldNotes: HeldNotes) {
         ///TODO:Route this to keyboard view controller (I'll change this so it returns the current array of held notes)
         ///TODO:See https://trello.com/c/cainbbJJ
         // AKLog("\(heldNotes)")
+        
+        heldNoteCount = Int(heldNotes.heldNotesCount)
     }
     
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {

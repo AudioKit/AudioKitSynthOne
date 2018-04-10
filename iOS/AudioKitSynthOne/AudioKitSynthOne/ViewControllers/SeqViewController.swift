@@ -99,16 +99,29 @@ class SeqViewController: SynthPanelController {
         for i in 0...15 {
             updateOctBoostButton(notePosition: i)
         }
+        
+        // Update arpIsSequencer LED position
+        switch param {
+            
+        case .arpIsSequencer, .arpIsOn:
+             updateLED(beatCounter: 0, heldNotes: 0)
+        default:
+            _ = 0
+        }
+    
     }
     
     // *****************************************************************
     // MARK: - Helpers
     // *****************************************************************
     
-    @objc public func updateLED(beatCounter: Int) {
+    @objc public func updateLED(beatCounter: Int, heldNotes: Int = 128) {
         let arpIsOn = conductor.synth.getAK1Parameter(.arpIsOn) > 0 ? true : false
         let arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
+        
+        arpSeqOctBoostButtons.forEach { $0.isActive = false }
+        
         if arpIsOn && arpIsSequencer && seqNum >= 0 {
             let notePosition = (beatCounter + seqNum - 1) % seqNum
 
@@ -118,8 +131,12 @@ class SeqViewController: SynthPanelController {
             // clear out all indicators
             arpSeqOctBoostButtons.forEach { $0.isActive = false }
             
-            // change the outline current notePosition
-            arpSeqOctBoostButtons[notePosition].isActive = true
+            if heldNotes != 0 {
+               // change the outline current notePosition
+               arpSeqOctBoostButtons[notePosition].isActive = true
+            } else {
+               arpSeqOctBoostButtons[0].isActive = true
+            }
         }
     }
     

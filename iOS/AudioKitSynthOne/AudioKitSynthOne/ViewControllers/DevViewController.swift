@@ -140,10 +140,7 @@ class DevViewController: UpdatableViewController {
     private let tunings: [(String, DevTuningCallback)] = [
         ("12ET", {_ = AKPolyphonicNode.tuningTable.defaultTuning() } ),
         ("12 Pythagorean 12", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147]) } ),
-        (" 5 (8,10,11,12,14) JI", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [8,10,11,12,14])}), // stephen's wilson's garden theme tuning; demoFileName: 20180312_aks1_5_8_10_11_12_14_00_01
-//        (" 6 hexany(10, 11, 12, 14)", {_ = AKPolyphonicNode.tuningTable.hexany(10, 11, 12, 14) } ),
-//        ("10 dekany(8,10,11,12,14)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies:DevTunings.dekany([8,10,11,12,14]))} ),
-//        (" 6 hexany(10, 11, 12, 14) inverse", {_ = AKPolyphonicNode.tuningTable.hexany(1/10, 1/11, 1/12, 1/14) } ), // yuck
+        (" 5 (8,10,11,12,14) JI", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [8,10,11,12,14])}), // stephen's wilson's garden theme tuning;
         (" 6 hexany(1, 3, 5, 7) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 7)  } ),
         (" 6 hexany(1, 3, 5, 45) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45)  } ),// 071
         ("15 pentadekany(hexany(1,3,5,45))", {
@@ -199,7 +196,7 @@ class DevViewController: UpdatableViewController {
         (" 7 North Indian:Champakali", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian22Champakali() } ),
         (" 7 North Indian:Patdeep", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian23Patdeep() } ),
         (" 7 North Indian:MohanKauns", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian24MohanKauns() } ),
-        ("7 North Indian:Parameswari", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian25Parameswari() } )
+        (" 7 North Indian:Parameswari", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian25Parameswari() } )
     ]
     
     ///UITableViewDataSource

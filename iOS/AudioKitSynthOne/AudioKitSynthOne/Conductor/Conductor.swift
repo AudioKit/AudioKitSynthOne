@@ -175,6 +175,15 @@ class Conductor: AKSynthOneProtocol {
         ///TODO:Route this to keyboard view controller (I'll change this so it returns the current array of held notes)
         ///TODO:See https://trello.com/c/cainbbJJ
         // AKLog("\(heldNotes)")
+        
+        // Reset Arp Sequencer LED
+        if heldNotes.heldNotesCount == 0 {
+            if (synth.getAK1Parameter(.arpIsOn) == 1) && (synth.getAK1Parameter(.arpIsSequencer) == 1) {
+                let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
+                seqVC?.updateLED(beatCounter: 0)
+                print ("GOT HERE 3 ***")
+            }
+        }
     }
     
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {

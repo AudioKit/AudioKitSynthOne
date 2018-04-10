@@ -3163,11 +3163,11 @@
                         <viewControllerLayoutGuide type="bottom" id="fxC-Bk-2tx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gb3-Ka-bLx">
-                        <rect key="frame" x="0.0" y="0.0" width="613" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQc-dn-5Qg">
-                                <rect key="frame" x="0.0" y="10" width="610" height="470"/>
+                                <rect key="frame" x="205.5" y="126" width="610" height="470"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nMU-sw-PHp">
                                         <rect key="frame" x="0.0" y="62" width="613" height="347"/>
@@ -3231,6 +3231,14 @@ Thanks to the following people for their contributions:
                                     <constraint firstAttribute="width" constant="610" id="kgV-rO-efB"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btb-C6-DW5">
+                                <rect key="frame" x="615" y="721" width="124" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="marcusPressed:" destination="omd-Vp-Pv1" eventType="touchUpInside" id="4aG-gr-ODt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -3240,7 +3248,7 @@ Thanks to the following people for their contributions:
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="613" height="536"/>
+                    <size key="freeformSize" width="1024" height="768"/>
                     <connections>
                         <outlet property="parentView" destination="MQc-dn-5Qg" id="n6D-f6-rnz"/>
                         <outlet property="textContainer" destination="nMU-sw-PHp" id="y4P-te-5IO"/>
@@ -3248,7 +3256,7 @@ Thanks to the following people for their contributions:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ML8-ax-oA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1874.7070312499998" y="172.65625"/>
+            <point key="canvasLocation" x="-2033.7890624999998" y="235.15625"/>
         </scene>
     </scenes>
     <resources>

@@ -383,6 +383,10 @@ public class ParentViewController: UpdatableViewController {
             }
         }
         
+        if segue.identifier == "SegueToAbout" {
+            let popOverController = segue.destination as! PopUpAbout
+            popOverController.delegate = self
+        }
     }
     
     fileprivate func add(asChildViewController viewController: UIViewController, isTopContainer: Bool = true) {
@@ -424,6 +428,13 @@ extension ParentViewController: ModWheelDelegate {
     }
 }
 
+extension ParentViewController: AboutDelegate {
+    
+    func showDevPanel() {
+        isDevView = false
+        devPressed() 
+    }
+}
 
 // **********************************************************
 // MARK: - MIDI Settings Pop Over Delegate

@@ -7,13 +7,18 @@
 //
 
 import UIKit
-//import MessageUI
+import MessageUI
+
+protocol AboutDelegate {
+    func showDevPanel()
+}
 
 class PopUpAbout: UIViewController {
     
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var textContainer: UIView!
-
+    var delegate: AboutDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,6 +78,10 @@ class PopUpAbout: UIViewController {
         requestReview()
     }
     
+    @IBAction func marcusPressed(_ sender: UIButton) {
+        delegate?.showDevPanel()
+        dismiss(animated: true, completion: nil)
+    }
     /*
      @IBAction func emailPressed(_ sender: UIButton) {
      

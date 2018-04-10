@@ -370,14 +370,17 @@ public protocol AKKeyboardDelegate: class {
         setNeedsDisplay()
     }
     
-    
-    func pressRemoved(_ note: MIDINoteNumber, touches: Set<UITouch>? = nil) {
+    func pressRemoved(_ note: MIDINoteNumber, touches: Set<UITouch>? = nil, isFromMIDI: Bool = false) {
         guard onKeys.contains(note) else {
             return
         }
      
         onKeys.remove(note)
-        delegate?.noteOff(note: note)
+        
+        if !isFromMIDI {
+            delegate?.noteOff(note: note)
+        }
+        
         if ❗️polyphonicMode && ❗️arpSeqOn {
             // in mono mode, replace with note from highest remaining touch, if it exists
             var remainingNotes = notesFromTouches(touches ?? Set<UITouch>())

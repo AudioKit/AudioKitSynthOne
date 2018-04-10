@@ -174,7 +174,7 @@ class Conductor: AKSynthOneProtocol {
     func heldNotesDidChange(_ heldNotes: HeldNotes) {
         ///TODO:Route this to keyboard view controller (I'll change this so it returns the current array of held notes)
         ///TODO:See https://trello.com/c/cainbbJJ
-        //AKLog("\(heldNotes)")
+        // AKLog("\(heldNotes)")
     }
     
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {

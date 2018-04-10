@@ -50,7 +50,7 @@ public class ParentViewController: UpdatableViewController {
     var midiChannelIn: MIDIChannel = 0
     var midiInputs = [MIDIInput]()
     var omniMode = true
-    
+    var notesFromMIDI = Set<MIDINoteNumber>()
     var appSettings = AppSetting()
     var isDevView = false
     
@@ -723,6 +723,7 @@ extension ParentViewController: AKMIDIListener  {
         
         DispatchQueue.main.async {
             self.keyboardView.pressAdded(noteNumber, velocity: newVelocity)
+            self.notesFromMIDI.insert(noteNumber)
         }
     }
     
@@ -731,7 +732,17 @@ extension ParentViewController: AKMIDIListener  {
         
         DispatchQueue.main.async {
             self.keyboardView.pressRemoved(noteNumber)
+            self.notesFromMIDI.remove(noteNumber)
+            
+            // Mono Mode
+            if !self.keyboardView.polyphonicMode {
+                let remainingNotes = self.notesFromMIDI.filter { $0 != noteNumber }
+                if let highest = remainingNotes.max() {
+                    self.keyboardView.pressAdded(highest, velocity: velocity)
+                }
+            }
         }
+      
     }
     
     // Assign MIDI CC to active MIDI Learn knobs

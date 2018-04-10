@@ -300,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1327.1484375" y="-838.28125"/>
+            <point key="canvasLocation" x="-1670" y="-839"/>
         </scene>
         <!--Source Mixer-->
         <scene sceneID="h0Y-DX-cbn">
@@ -536,7 +536,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Widen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJU-yN-MIg">
-                                <rect key="frame" x="726" y="253" width="37" height="30"/>
+                                <rect key="frame" x="726" y="266" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -864,7 +864,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFg-69-Hlo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-587" y="-1109"/>
+            <point key="canvasLocation" x="-587" y="-1204"/>
         </scene>
         <!--ADSR-->
         <scene sceneID="crk-4V-XLk">
@@ -1111,7 +1111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8q-3b-bAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-587.109375" y="-921.484375"/>
+            <point key="canvasLocation" x="-587" y="-980"/>
         </scene>
         <!--DEV-->
         <scene sceneID="JRs-Mi-uc0">
@@ -1313,7 +1313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91R-2p-bBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54.4921875" y="-218.359375"/>
+            <point key="canvasLocation" x="640" y="-218"/>
         </scene>
         <!--TouchPad-->
         <scene sceneID="dsG-FG-foi">
@@ -1808,7 +1808,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7V-hT-z83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-587.109375" y="-582.421875"/>
+            <point key="canvasLocation" x="-587" y="-606"/>
         </scene>
         <!--Seq View Controller-->
         <scene sceneID="VRP-IS-XGW">
@@ -2224,7 +2224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQk-sd-9z1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54.4921875" y="-582.421875"/>
+            <point key="canvasLocation" x="640" y="-605"/>
         </scene>
         <!--Pop Up Keyboard Controller-->
         <scene sceneID="nVT-JB-zlP">

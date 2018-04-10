@@ -586,10 +586,13 @@ void AKSynthOneDSPKernel::heldNotesDidChange() {
     for(int i = 0; i<AKS1_NUM_MIDI_NOTES; i++)
         aeHeldNotes.heldNotes[i] = false;
 
+    int count = 0;
     AEArrayEnumeratePointers(heldNoteNumbersAE, NoteNumber *, note) {
         const int nn = note->noteNumber;
         aeHeldNotes.heldNotes[nn] = true;
+        ++count;
     }
+    aeHeldNotes.heldNotesCount = count;
     
     const BOOL status =
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,

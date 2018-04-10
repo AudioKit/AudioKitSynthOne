@@ -28,6 +28,7 @@ typedef struct PlayingNotes {
 
 // helper for main+render thread communication: array of playing notes
 typedef struct HeldNotes {
+    int heldNotesCount;
     bool heldNotes[AKS1_NUM_MIDI_NOTES];
 } HeldNotes;
 

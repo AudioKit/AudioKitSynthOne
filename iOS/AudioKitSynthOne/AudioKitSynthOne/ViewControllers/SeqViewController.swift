@@ -103,7 +103,7 @@ class SeqViewController: SynthPanelController {
         // Update arpIsSequencer LED position
         switch param {
             
-        case .arpIsSequencer:
+        case .arpIsSequencer, .arpIsOn:
              updateLED(beatCounter: 0, heldNotes: 0)
         default:
             _ = 0

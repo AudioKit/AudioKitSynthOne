@@ -2664,7 +2664,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdg-cd-gxJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-737" y="1213"/>
+            <point key="canvasLocation" x="-957" y="1174"/>
         </scene>
         <!--Pop Up Preset Edit-->
         <scene sceneID="Opm-jz-zET">
@@ -3062,7 +3062,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8g-AB-yUZ">
-                                <rect key="frame" x="106" y="54" width="300" height="191"/>
+                                <rect key="frame" x="106" y="120" width="300" height="191"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jiS-68-Gtf">
                                         <rect key="frame" x="16" y="48" width="268" height="30"/>
@@ -3136,8 +3136,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="p8g-AB-yUZ" firstAttribute="centerY" secondItem="ece-Jf-1v6" secondAttribute="centerY" id="9pz-7O-xjp"/>
                             <constraint firstItem="p8g-AB-yUZ" firstAttribute="centerX" secondItem="ece-Jf-1v6" secondAttribute="centerX" id="swS-R2-FWP"/>
+                            <constraint firstItem="p8g-AB-yUZ" firstAttribute="top" secondItem="Oxt-Lo-MFw" secondAttribute="bottom" constant="100" id="vgx-Rz-DSO"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

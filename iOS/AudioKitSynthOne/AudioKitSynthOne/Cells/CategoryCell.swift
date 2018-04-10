@@ -55,11 +55,11 @@ class CategoryCell: UITableViewCell {
             backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
  
             // Display Share & Edit Buttons
-            if currentCategory.hasPrefix("🎛:") {
+            if currentCategory.hasPrefix("⏣") {
                 shareButton?.isHidden = false
                 
                 // Banks 0 & 1 can not be edited
-                if currentCategory.hasPrefix("🎛: BankA") || currentCategory.hasPrefix("🎛: User") {
+                if currentCategory.hasPrefix("⏣ BankA") || currentCategory.hasPrefix("⏣ User") {
                     editButton?.isHidden = true
                 } else {
                     editButton?.isHidden = false

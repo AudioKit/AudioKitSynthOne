@@ -223,12 +223,13 @@ import AudioKit
         internalAU?.stopNote(noteNumber)
     }
     
-    //MARK: - AKSynthOneProtocol passthroughs
+    //MARK: - Passthroughs for AKSynthOneProtocol called by DSP on main thread
+
     @objc public func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
         delegate?.paramDidChange(param, value: value)
     }
     
-    @objc public func arpBeatCounterDidChange(_ beat: Int) {
+    @objc public func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {
         delegate?.arpBeatCounterDidChange(beat)
     }
     

@@ -541,10 +541,12 @@ void AKSynthOneDSPKernel::handleTempoSetting(float currentTempo) {
 
 ///can be called from within the render loop
 void AKSynthOneDSPKernel::beatCounterDidChange() {
+    AKS1ArpBeatCounter retVal = {arpBeatCounter, heldNoteNumbersAE.count};
     const BOOL status =
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
                                               audioUnit,
-                                              @selector(arpBeatCounterDidChange),
+                                              @selector(arpBeatCounterDidChange:),
+                                              AEArgumentStruct(retVal),
                                               AEArgumentNone);
     if (!status) {
 #if DEBUG_DSP_LOGGING

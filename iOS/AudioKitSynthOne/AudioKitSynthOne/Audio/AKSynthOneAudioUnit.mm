@@ -198,12 +198,13 @@
 }
 
 
+// passthroughs for AKSynthOneProtocol called by DSP on main thread
 - (void)paramDidChange:(AKSynthOneParameter)param value:(double)value {
     [_aks1Delegate paramDidChange:param value:value];
 }
 
-- (void)arpBeatCounterDidChange {
-    [_aks1Delegate arpBeatCounterDidChange:_kernel.arpBeatCounter];
+- (void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatCounter {
+    [_aks1Delegate arpBeatCounterDidChange:arpBeatCounter];
 }
 
 - (void)heldNotesDidChange:(HeldNotes)heldNotes {

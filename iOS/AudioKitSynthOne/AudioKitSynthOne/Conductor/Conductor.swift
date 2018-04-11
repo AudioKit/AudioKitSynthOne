@@ -159,17 +159,24 @@ class Conductor: AKSynthOneProtocol {
     
     
     //MARK: - AKSynthOneProtocol
+    
+    //TODO:MARCUS: updateSingleUI is called too many times...could this be a contributor?
+    // called by DSP on main thread
     func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
-        DispatchQueue.main.async {
-            self.updateSingleUI(param, control: nil, value: value)
+        self.updateSingleUI(param, control: nil, value: value)
+    }
+    
+    //TODO:@MATT: passing a struct with beat counter and held note count on main thread
+    // called by DSP on main thread
+    func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {
+        let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
+        if beat.heldNotesCount > 0 {
+            seqVC?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
+            print("beatCounter:\(Int(beat.beatCounter)), heldNotes:\(self.heldNoteCount)")
         }
     }
     
-    func arpBeatCounterDidChange(_ beat: Int) {
-        let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
-        seqVC?.updateLED(beatCounter: beat, heldNotes: self.heldNoteCount)
-    }
-    
+    // called by DSP on main thread
     func heldNotesDidChange(_ heldNotes: HeldNotes) {
         ///TODO:Route this to keyboard view controller (I'll change this so it returns the current array of held notes)
         ///TODO:See https://trello.com/c/cainbbJJ
@@ -178,6 +185,7 @@ class Conductor: AKSynthOneProtocol {
         heldNoteCount = Int(heldNotes.heldNotesCount)
     }
     
+    // called by DSP on main thread
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
         ///TODO:Route this to keyboard view controller (I'll change this to return the current array of playing notes)
         ///TODO:See https://trello.com/c/lQZMyF0V

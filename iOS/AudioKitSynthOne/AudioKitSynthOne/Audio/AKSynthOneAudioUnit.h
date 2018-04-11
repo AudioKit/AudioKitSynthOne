@@ -26,15 +26,22 @@ typedef struct PlayingNotes {
     NoteNumber playingNotes[AKS1_MAX_POLYPHONY];
 } PlayingNotes;
 
-// helper for main+render thread communication: array of playing notes
+// helper for main+render thread communication: array of held notes
 typedef struct HeldNotes {
     int heldNotesCount;
     bool heldNotes[AKS1_NUM_MIDI_NOTES];
 } HeldNotes;
 
+// helper for main+render thread communcation: arp beat counter, and number of held notes
+typedef struct AKS1ArpBeatCounter {
+    int beatCounter;
+    int heldNotesCount;
+} AKS1ArpBeatCounter;
+
+
 @protocol AKSynthOneProtocol
 -(void)paramDidChange:(AKSynthOneParameter)param value:(double)value;
--(void)arpBeatCounterDidChange:(NSInteger)beat;
+-(void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatCounter;
 -(void)heldNotesDidChange:(HeldNotes)heldNotes;
 -(void)playingNotesDidChange:(PlayingNotes)playingNotes;
 @end
@@ -71,9 +78,9 @@ typedef struct HeldNotes {
 - (void)resetDSP;
 - (void)resetSequencer;
 
-// Called by DSP only
+// protected passthroughs for AKSynthOneProtocol called by DSP on main thread
 - (void)paramDidChange:(AKSynthOneParameter)param value:(double)value;
-- (void)arpBeatCounterDidChange;
+- (void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatcounter;
 - (void)heldNotesDidChange:(HeldNotes)heldNotes;
 - (void)playingNotesDidChange:(PlayingNotes)playingNotes;
 

@@ -362,12 +362,8 @@ public protocol AKKeyboardDelegate: class {
         }
         
         if ❗️polyphonicMode {
-            if !arpIsSequencer && arpIsOn {
-                // Allow mono mode to accept poly keytouches in Arp mode but not Seq Mode
-            } else {
-                for key in onKeys where key != newNote {
-                    pressRemoved(key)
-                }
+            for key in onKeys where key != newNote {
+                pressRemoved(key)
             }
         }
         
@@ -391,10 +387,6 @@ public protocol AKKeyboardDelegate: class {
         
      
         if ❗️polyphonicMode {
-         
-          if !arpIsSequencer && arpIsOn {
-             // Allow mono mode to accept poly keytouches in Arp mode but not Seq Mode
-          } else {
             // in mono mode, replace with note from highest remaining touch, if it exists
             var remainingNotes = notesFromTouches(touches ?? Set<UITouch>())
             remainingNotes = remainingNotes.filter { $0 != note }
@@ -402,7 +394,7 @@ public protocol AKKeyboardDelegate: class {
                 pressAdded(highest)
             }
         }
-    }
+        
         setNeedsDisplay()
     }
     

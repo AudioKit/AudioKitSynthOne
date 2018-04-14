@@ -110,12 +110,16 @@ extension PopUpPresetEdit: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
-        
-        cell.textLabel?.font = UIFont(name: "Avenir Next", size: 16)
-        cell.textLabel?.text = categories[indexPath.row]
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell? {
+            cell.textLabel?.font = UIFont(name: "Avenir Next", size: 16)
+            cell.textLabel?.text = categories[indexPath.row]
+            return cell
+        } else {
+            let cell = UITableViewCell()
+            cell.textLabel?.font = UIFont(name: "Avenir Next", size: 16)
+            cell.textLabel?.text = categories[indexPath.row]
+            return cell
+        }
     }
 }
 

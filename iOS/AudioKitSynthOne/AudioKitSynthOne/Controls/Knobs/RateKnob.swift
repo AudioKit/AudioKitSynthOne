@@ -34,8 +34,8 @@ public class RateKnob: MIDIKnob {
             }
         }
         set(newValue) {
-            _value = range.clamp(newValue)
             _value = onlyIntegers ? round(_value) : _value
+            _value = range.clamp(newValue)
 
             if !timeSyncMode {
                 knobValue = CGFloat(_value.normalized(from: range, taper: taper))

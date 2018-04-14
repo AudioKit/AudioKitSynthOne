@@ -92,15 +92,15 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
     
     //MARK: - AKSynthOneProtocol passthroughs
     @objc public func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
-        //delegate?.paramDidChange(param, value)
+        delegate?.paramDidChange(param, value)
     }
     
     @objc public func arpBeatCounterDidChange(_ beat: Int) {
-        //delegate?.arpBeatCounterDidChange(beat)
+        delegate?.arpBeatCounterDidChange(beat)
     }
     
     @objc public func heldNotesDidChange() {
-        //delegate?.heldNotesDidChange()
+        delegate?.heldNotesDidChange()
     }
     
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {

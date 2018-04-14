@@ -1283,6 +1283,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buW-hd-P1s" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="600" y="10" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -1306,6 +1311,7 @@
                         <outlet property="compressorReverbWetRelease" destination="GbJ-mf-gk5" id="MeO-PE-Ocf"/>
                         <outlet property="compressorReverbWetThreshold" destination="SLl-8w-3xu" id="DH6-li-evq"/>
                         <outlet property="delayInputFilterCutoffFreq" destination="Hao-tC-GCj" id="Axm-Ef-Ncf"/>
+                        <outlet property="delayInputFilterCutoffFreqTrackingRatio" destination="buW-hd-P1s" id="KzQ-eh-amd"/>
                         <outlet property="delayInputFilterResonance" destination="g6F-Xo-jT1" id="bWO-8E-i1Z"/>
                         <outlet property="masterVolume" destination="d5E-zX-i6x" id="Mxd-PM-RQS"/>
                         <outlet property="tuningTableView" destination="BeM-2O-kjR" id="hBC-5d-5DS"/>

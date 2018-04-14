@@ -621,7 +621,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     
 #if 1
     //TODO:disable this block when we settle on params.
-    // currently visible in DEV panel only.
+    // currently controls are visible in DEV panel only.
     *compressorMasterL->ratio = p[compressorMasterRatio];
     *compressorMasterR->ratio = p[compressorMasterRatio];
     *compressorReverbInputL->ratio = p[compressorReverbInputRatio];
@@ -646,11 +646,23 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     *compressorReverbInputR->rel = p[compressorReverbInputRelease];
     *compressorReverbWetL->rel = p[compressorReverbWetRelease];
     *compressorReverbWetR->rel = p[compressorReverbWetRelease];
-    
+#endif
+
+#if 0
     loPassInputDelayL->freq = p[delayInputCutoff];
     loPassInputDelayL->res = p[delayInputResonance];
     loPassInputDelayR->freq = p[delayInputCutoff];
     loPassInputDelayR->res = p[delayInputResonance];
+#elif 1
+    //TODO: Commit to Smart Delay Input Cutoff Frequency
+    float oscFilterFreqCutoff = p[cutoff];
+    const float oscFilterFreqCutoffMagic = p[delayInputCutoffTrackingRatio];
+    oscFilterFreqCutoff *= oscFilterFreqCutoffMagic;
+    const float oscFilterResonance = 0.f;
+    loPassInputDelayL->freq = oscFilterFreqCutoff;
+    loPassInputDelayL->res = oscFilterResonance;
+    loPassInputDelayR->freq = oscFilterFreqCutoff;
+    loPassInputDelayR->res = oscFilterResonance;
 #endif
     
     // transition playing notes from release to off

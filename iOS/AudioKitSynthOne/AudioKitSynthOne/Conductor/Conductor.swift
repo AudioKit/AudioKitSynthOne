@@ -160,8 +160,8 @@ class Conductor: AKSynthOneProtocol {
     
     //MARK: - AKSynthOneProtocol
     
-    //TODO:MARCUS: updateSingleUI is called too many times...could this be a contributor?
-    // called by DSP on main thread
+    //TODO:As of 20180412 I am holding on NOT implementing the dsp call to this function, so no call to main thread
+    //TODO:but I want to leave this here because when we move to 100% dsp we'll need this
     func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
         self.updateSingleUI(param, control: nil, value: value)
     }
@@ -172,7 +172,7 @@ class Conductor: AKSynthOneProtocol {
         let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
         if beat.heldNotesCount > 0 {
             seqVC?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
-            print("beatCounter:\(Int(beat.beatCounter)), heldNotes:\(self.heldNoteCount)")
+            //print("beatCounter:\(Int(beat.beatCounter)), heldNotes:\(self.heldNoteCount)")
         }
     }
     

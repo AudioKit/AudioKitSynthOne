@@ -246,6 +246,9 @@ public class HeaderViewController: UpdatableViewController {
         case .delayInputCutoff, .delayInputResonance:
             displayLabel.text = "Delay Input Cutoff: \(s.getAK1Parameter(.delayInputCutoff).decimalString) Hz, Rez: \(s.getAK1Parameter(.delayInputResonance).decimalString)"
 
+        case .delayInputCutoffTrackingRatio:
+            displayLabel.text = "Delay Input Cutoff Tracking: \(s.getAK1Parameter(.delayInputCutoffTrackingRatio).decimalString)"
+
         default:
             _ = 0
             // do nothing

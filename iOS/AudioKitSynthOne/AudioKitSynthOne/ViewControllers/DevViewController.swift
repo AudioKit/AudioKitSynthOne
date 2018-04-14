@@ -34,9 +34,9 @@ class DevViewController: UpdatableViewController {
     @IBOutlet weak var compressorReverbInputMakeupGain: Knob!
     @IBOutlet weak var compressorReverbWetMakeupGain: Knob!
 
+    @IBOutlet weak var delayInputFilterCutoffFreqTrackingRatio: Knob!
     @IBOutlet weak var delayInputFilterCutoffFreq: Knob!
     @IBOutlet weak var delayInputFilterResonance: Knob!
-
     
     let devTunings = DevTunings()
     
@@ -90,10 +90,12 @@ class DevViewController: UpdatableViewController {
         conductor.bind(compressorReverbWetMakeupGain,   to: .compressorReverbWetMakeupGain)
         
         //delay input filter
-        delayInputFilterCutoffFreq.range =      s.getParameterRange(.delayInputCutoff)
-        delayInputFilterResonance.range =       s.getParameterRange(.delayInputResonance)
-        conductor.bind(delayInputFilterCutoffFreq,      to: .delayInputCutoff)
-        conductor.bind(delayInputFilterResonance,       to: .delayInputResonance)
+        delayInputFilterCutoffFreqTrackingRatio.range = s.getParameterRange(.delayInputCutoffTrackingRatio)
+        delayInputFilterCutoffFreq.range =              s.getParameterRange(.delayInputCutoff)
+        delayInputFilterResonance.range =               s.getParameterRange(.delayInputResonance)
+        conductor.bind(delayInputFilterCutoffFreqTrackingRatio, to: .delayInputCutoffTrackingRatio)
+        conductor.bind(delayInputFilterCutoffFreq,              to: .delayInputCutoff)
+        conductor.bind(delayInputFilterResonance,               to: .delayInputResonance)
     }
 }
 
@@ -215,7 +217,7 @@ class DevViewController: UpdatableViewController {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tuning = tunings[(indexPath as NSIndexPath).row]
         let title = tuning.0 // title
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "DevTunings") as UITableViewCell! {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "DevTunings") as UITableViewCell? {
             configureCell(cell)
             cell.textLabel?.text = title
             return cell
@@ -237,5 +239,4 @@ class DevViewController: UpdatableViewController {
         let tuning = tunings[(indexPath as NSIndexPath).row]
         tuning.1()
     }
-    
 }

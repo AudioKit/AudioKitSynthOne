@@ -653,7 +653,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     loPassInputDelayL->res = p[delayInputResonance];
     loPassInputDelayR->freq = p[delayInputCutoff];
     loPassInputDelayR->res = p[delayInputResonance];
-#elif 1
+#elif 0
     //TODO: Commit to Smart Delay Input Cutoff Frequency
     float oscFilterFreqCutoff = p[cutoff];
     const float oscFilterFreqCutoffMagic = p[delayInputCutoffTrackingRatio];
@@ -663,6 +663,25 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     loPassInputDelayL->res = oscFilterResonance;
     loPassInputDelayR->freq = oscFilterFreqCutoff;
     loPassInputDelayR->res = oscFilterResonance;
+#elif 1
+    //TODO: Commit to Smart Delay Input Cutoff Frequency
+    {
+        //linear interpolation of percentage in pitch space
+        const float pmax = log2(aks1p[cutoff].max);
+        const float pmin = log2(1024.f);
+        float pval = log2(p[cutoff]);
+        if(pval < pmin) pval = pmin;
+        const float pnorm = (pval - pmin)/(pmax - pmin);
+        const float mmax = p[delayInputCutoffTrackingRatio];
+        const float mmin = 1.f;
+        const float oscFilterFreqCutoffPercentage = mmin + pnorm * (mmax - mmin);
+        const float oscFilterFreqCutoff = p[cutoff] * oscFilterFreqCutoffPercentage;
+        const float oscFilterResonance = 0.f;
+        loPassInputDelayL->freq = oscFilterFreqCutoff;
+        loPassInputDelayL->res = oscFilterResonance;
+        loPassInputDelayR->freq = oscFilterFreqCutoff;
+        loPassInputDelayR->res = oscFilterResonance;
+    }
 #endif
     
     // transition playing notes from release to off

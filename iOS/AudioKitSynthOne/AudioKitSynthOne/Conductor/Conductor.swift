@@ -23,7 +23,9 @@ class Conductor: AKSynthOneProtocol {
     var synth: AKSynthOne!
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
     var heldNoteCount: Int = 0
-    
+
+    private var audioUnitPropertyListener: AudioUnitPropertyListener!
+
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
         let binding = (param, control)
         bindings.append(binding)
@@ -144,12 +146,24 @@ class Conductor: AKSynthOneProtocol {
         synth.rampTime = 0.0 // Handle ramping internally instead of the ramper hack
         
         AudioKit.output = synth
+
         do {
             try AudioKit.start()
         } catch {
             AKLog("AudioKit did not start!")
         }
         started = true
+        audioUnitPropertyListener = AudioUnitPropertyListener { (audioUnit, property) in
+            //self.hostAppIcon.image = AudioOutputUnitGetHostIcon(AudioKit.engine.outputNode.audioUnit!, 44)
+        }
+
+        do {
+            try AudioKit.engine.outputNode.audioUnit!.add(listener: audioUnitPropertyListener, toProperty: kAudioUnitProperty_IsInterAppConnected)
+        } catch {
+            AKLog("Unsuccessful")
+        }
+        
+        Audiobus.start()
     }
     
     func updateDisplayLabel(_ message: String) {

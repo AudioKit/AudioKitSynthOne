@@ -98,6 +98,8 @@
 		C4AC4B192019C63F00D04C7F /* AEMainThreadEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4B082019C63F00D04C7F /* AEMainThreadEndpoint.m */; };
 		C4AC4B1B2019C63F00D04C7F /* AEAudioThreadEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4B0A2019C63F00D04C7F /* AEAudioThreadEndpoint.m */; };
 		C4B9C02B201D54D400D9833D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B9C02A201D54D400D9833D /* AudioToolbox.framework */; };
+		C4CC3041208499D1004E91CB /* Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC3040208499D0004E91CB /* Audiobus.swift */; };
+		C4CC3043208499E5004E91CB /* Audiobus.txt in Resources */ = {isa = PBXBuildFile; fileRef = C4CC3042208499E5004E91CB /* Audiobus.txt */; };
 		C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DE91F24A77C0011066A /* Conductor.swift */; };
 		C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */; };
 		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
@@ -243,6 +245,8 @@
 		C4AC4B092019C63F00D04C7F /* AEArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEArray.h; sourceTree = "<group>"; };
 		C4AC4B0A2019C63F00D04C7F /* AEAudioThreadEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEAudioThreadEndpoint.m; sourceTree = "<group>"; };
 		C4B9C02A201D54D400D9833D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C4CC3040208499D0004E91CB /* Audiobus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audiobus.swift; sourceTree = "<group>"; };
+		C4CC3042208499E5004E91CB /* Audiobus.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Audiobus.txt; sourceTree = "<group>"; };
 		C4CD8DE91F24A77C0011066A /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewContoller.swift; sourceTree = "<group>"; };
 		C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioKitSynthOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -514,6 +518,8 @@
 		C4AC4AEA2019BF0500D04C7F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				C4CC3040208499D0004E91CB /* Audiobus.swift */,
+				C4CC3042208499E5004E91CB /* Audiobus.txt */,
 				C4AC4AF82019C63F00D04C7F /* TAAE */,
 				C4AC4AEC2019BF0500D04C7F /* AKSynthOne.swift */,
 				C4AC4AED2019BF0500D04C7F /* AKSynthOneAudioUnit.h */,
@@ -630,7 +636,6 @@
 				C4D193C11F1187B500FF4FE4 /* Frameworks */,
 				C4D193C21F1187B500FF4FE4 /* Resources */,
 				A02F99CB702A38B4BC2953CB /* [CP] Embed Pods Frameworks */,
-				49AFE224E0CF5996AB47A9C6 /* [CP] Copy Pods Resources */,
 				C474D95D1F13172B00946035 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -698,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C50C3220195FC0008549DB /* User.json in Resources */,
+				C4CC3043208499E5004E91CB /* Audiobus.txt in Resources */,
 				94FA2DC51F9E82BB00DED735 /* BankA.json in Resources */,
 				C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */,
 				C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */,
@@ -707,21 +713,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49AFE224E0CF5996AB47A9C6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A02F99CB702A38B4BC2953CB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -806,6 +797,7 @@
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
 				94A503991FF2F3E10097D37C /* PopUpMODController.swift in Sources */,
 				9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
+				C4CC3041208499D1004E91CB /* Audiobus.swift in Sources */,
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
 				94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,

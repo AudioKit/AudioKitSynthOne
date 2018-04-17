@@ -39,7 +39,7 @@ class FXViewController: SynthPanelController {
     @IBOutlet weak var reverbMix: MIDIKnob!
     @IBOutlet weak var reverbToggle: ToggleButton!
     
-    @IBOutlet weak var delayTime: MIDIKnob!
+    @IBOutlet weak var delayTime: TimeKnob!
     @IBOutlet weak var delayFeedback: MIDIKnob!
     @IBOutlet weak var delayMix: MIDIKnob!
     @IBOutlet weak var delayToggle: ToggleButton!
@@ -119,7 +119,6 @@ class FXViewController: SynthPanelController {
         conductor.bind(lfoPitchToggle,     to: .pitchLFO)
         conductor.bind(lfoBitcrushToggle,  to: .bitcrushLFO)
         conductor.bind(lfoTremoloToggle,   to: .tremoloLFO)
-        
         conductor.bind(lfo1WavePicker,     to: .lfo1Index)
         conductor.bind(lfo2WavePicker,     to: .lfo2Index)
         conductor.bind(phaserMix,          to: .phaserMix)
@@ -127,20 +126,45 @@ class FXViewController: SynthPanelController {
         conductor.bind(phaserFeedback,     to: .phaserFeedback)
         conductor.bind(phaserNotchWidth,   to: .phaserNotchWidth)
         
-        // there is no dsp parameter for "sync to tempo", so it cannot be bound to Conductor
-        // lfo1Rate, lfo2Rate, delayTime, and autoPanRate DO have backing dsp params, but they are dependent on syncRateToTempo, so update them
+        //TODO:Move this to DSP
+        // update lfo1Rate, lfo2Rate, delayTime, and autoPanRate when "sync to tempo" changes
         tempoSyncToggle.callback = { value in
-            DispatchQueue.main.async {
-                self.conductor.syncRateToTempo = (value == 1)
-                self.tempoSyncKnobs.forEach { $0.timeSyncMode = (value == 1) }
-                self.lfo1Rate.value = s.getAK1Parameter(.lfo1Rate)
-                self.lfo1Rate.setNeedsDisplay()
-                self.lfo2Rate.value = s.getAK1Parameter(.lfo2Rate)
-                self.lfo2Rate.setNeedsDisplay()
-                self.delayTime.value = s.getAK1Parameter(.delayTime)
-                self.delayTime.setNeedsDisplay()
-                self.autoPanRate.value = s.getAK1Parameter(.autoPanFrequency)
-                self.autoPanRate.setNeedsDisplay()
+            self.conductor.syncRateToTempo = (value == 1)
+            self.tempoSyncKnobs.forEach { $0.timeSyncMode = self.conductor.syncRateToTempo }
+            if self.conductor.syncRateToTempo {
+                self.conductor.updateSingleUI(.lfo1Rate, control: nil, value: s.getAK1Parameter(.lfo1Rate))
+                self.conductor.updateSingleUI(.lfo2Rate, control: nil, value: s.getAK1Parameter(.lfo2Rate))
+                self.conductor.updateSingleUI(.delayTime, control: nil, value: s.getAK1Parameter(.delayTime))
+                self.conductor.updateSingleUI(.autoPanFrequency, control: nil, value: s.getAK1Parameter(.autoPanFrequency))
+            }
+        }
+    }
+    
+    override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
+        let synth = conductor.synth
+        let tempoSync = conductor.syncRateToTempo
+        if param == .lfo1Rate && control !== lfo1Rate {
+            lfo1Rate.value = value
+            if tempoSync {
+                synth?.setAK1Parameter(.lfo1Rate, lfo1Rate.value)
+            }
+        }
+        if param == .lfo2Rate && control !== lfo2Rate {
+            lfo2Rate.value = value
+            if tempoSync {
+                synth?.setAK1Parameter(.lfo2Rate, lfo2Rate.value)
+            }
+        }
+        if param == .delayTime && control !== delayTime {
+            delayTime.value = value
+            if tempoSync {
+                synth?.setAK1Parameter(.delayTime, delayTime.value)
+            }
+        }
+        if param == .autoPanFrequency && control !== autoPanRate {
+            autoPanRate.value = value
+            if tempoSync {
+                synth?.setAK1Parameter(.autoPanFrequency, autoPanRate.value)
             }
         }
     }

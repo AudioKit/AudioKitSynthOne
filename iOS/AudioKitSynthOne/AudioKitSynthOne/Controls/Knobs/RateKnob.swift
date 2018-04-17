@@ -14,6 +14,7 @@ public class RateKnob: MIDIKnob {
         return Rate(rawValue: Int(knobValue * CGFloat(Rate.count))) ?? Rate.sixtyFourth
     }
 
+    //TODO:@MATT This is unused...do you still need this?
     func update() {
         if timeSyncMode {
             // knobValue = CGFloat(Rate.fromFrequency(_value).frequency) / CGFloat(Rate.count)
@@ -34,9 +35,8 @@ public class RateKnob: MIDIKnob {
             }
         }
         set(newValue) {
-            _value = onlyIntegers ? round(_value) : _value
-            _value = range.clamp(newValue)
-
+            _value = onlyIntegers ? round(newValue) : newValue
+            _value = range.clamp(_value)
             if !timeSyncMode {
                 knobValue = CGFloat(_value.normalized(from: range, taper: taper))
             }

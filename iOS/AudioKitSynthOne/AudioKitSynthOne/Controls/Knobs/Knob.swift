@@ -19,6 +19,7 @@ public class Knob: UIView, AKSynthOneControl {
     
     var range: ClosedRange = 0.0...1.0 {
         didSet {
+            _value = range.clamp(_value)
             knobValue = CGFloat(Double(knobValue).normalized(from: range, taper: taper))
         }
     }
@@ -31,16 +32,15 @@ public class Knob: UIView, AKSynthOneControl {
         }
         
         set(newValue) {
-            _value = range.clamp(newValue)
-
-            _value = onlyIntegers ? round(_value) : _value
+            _value = onlyIntegers ? round(newValue) : newValue
+            _value = range.clamp(_value)
             knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
         }
     }
     
     // Knob properties
     var knobValue: CGFloat = 0.0 {
-        didSet(newValue) {
+        didSet {
             self.setNeedsDisplay()
         }
     }

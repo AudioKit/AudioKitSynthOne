@@ -10,12 +10,15 @@ import UIKit
 
 public class TimeKnob: MIDIKnob {
     
-    var limitedRate = Rate.count - 3
+    static let offset = 4   // twoBars to sixtyFourth
+
+    var limitedRate = Rate.count - offset
     
     var rate: Rate {
-        return Rate(rawValue: 3 + Int(CGFloat(limitedRate) - knobValue * CGFloat(limitedRate))) ?? Rate.sixtyFourth
+        return Rate(rawValue: TimeKnob.offset + Int(CGFloat(limitedRate) - knobValue * CGFloat(limitedRate))) ?? Rate.sixtyFourth
     }
     
+    //TODO:@MATT This is unused...do you still need this?
     func update() {
         if timeSyncMode {
             // knobValue = CGFloat(Rate.fromTime(_value).time) / CGFloat(limitedRate)
@@ -36,9 +39,8 @@ public class TimeKnob: MIDIKnob {
             }
         }
         set(newValue) {
-            _value = range.clamp(newValue)
-            _value = onlyIntegers ? round(_value) : _value
-            
+            _value = onlyIntegers ? round(newValue) : newValue
+            _value = range.clamp(_value)
             if !timeSyncMode {
                 knobValue = CGFloat(_value.normalized(from: range, taper: taper))
             }

@@ -64,14 +64,14 @@ class Conductor: AKSynthOneProtocol {
                 if let inputControl = inputControl {
                     if control !== inputControl {
                         control.value = inputValue
-                        //AKLog("updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
+                        //AKLog("self update: updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
                     } else {
                         //AKLog("UpdateSingleUI: duplicate control...loop avoided")
                     }
                 } else {
                     // nil control = global update (i.e., preset, dependencies, etc.)
                     control.value = inputValue
-                    //AKLog("updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
+                    //AKLog("dependency update: updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
                 }
             }
         }
@@ -124,16 +124,18 @@ class Conductor: AKSynthOneProtocol {
         
         ///DEFAULT TUNING
         #if true
+        //TODO:20180413: this does not crash
             _ = AKPolyphonicNode.tuningTable.defaultTuning()
-            AKLog("setting tuning to default 12ET")
+        AKLog("global tuningTable set to default: 12ET")
         #else
+        //TODO:20180413: these crash
             AKLog("setting tuning to custom tuning")
             //_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav()
             //_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 15, 19)
             //_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111)
             //_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23)
             //_ = AKPolyphonicNode.tuningTable.hexany(1, 15, 45, 75)
-            //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45) // 071
+            _ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45) // 071
             //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81)
             //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121)
             //_ = AKPolyphonicNode.tuningTable.hexany(1, 45, 135, 225)

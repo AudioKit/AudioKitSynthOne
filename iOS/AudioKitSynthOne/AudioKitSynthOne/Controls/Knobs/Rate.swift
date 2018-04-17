@@ -26,8 +26,11 @@ public enum Rate: Int, CustomStringConvertible {
     case sixteenth
     case sixteenthTriplet
     case thirtySecondth
+    case thirtySecondthTriplet
     case sixtyFourth
-    
+    case sixtyFourthTriplet
+
+    // count of enums
     static let count: Int = {
         var max: Int = 0
         while let _ = Rate(rawValue: max) { max += 1 }
@@ -68,8 +71,12 @@ public enum Rate: Int, CustomStringConvertible {
             return "1/16 triplet"
         case .thirtySecondth:
             return "1/32 note"
+        case .thirtySecondthTriplet:
+            return "1/32 triplet"
         case .sixtyFourth:
             return "1/64 note"
+        case .sixtyFourthTriplet:
+            return "1/64 triplet"
         }
     }
     
@@ -112,8 +119,12 @@ public enum Rate: Int, CustomStringConvertible {
             return seconds(bars: 1/16, triplet: true)
         case .thirtySecondth:
             return seconds(bars: 1/32)
+        case .thirtySecondthTriplet:
+            return seconds(bars: 1/32, triplet: true)
         case .sixtyFourth:
             return seconds(bars: 1/64)
+        case .sixtyFourthTriplet:
+            return seconds(bars: 1/64, triplet: true)
         }
     }
 
@@ -138,36 +149,15 @@ public enum Rate: Int, CustomStringConvertible {
     }
     
     static func fromFrequency(_ frequency: Double) -> Rate {
-
         return(Rate.findMinimum(frequency, comparator: { (i) -> Double in
             Rate(rawValue: i)!.frequency
         }))
-//        var closestRate = Rate(rawValue: 0)
-//        var smallestDifference = 1000000000.0
-//        for i in 0 ..< Rate.count {
-//            let difference: Double = abs(Rate(rawValue: i)!.frequency - frequency)
-//            if  difference < smallestDifference {
-//                smallestDifference = difference
-//                closestRate = Rate(rawValue: i)
-//            }
-//        }
-//        return closestRate!
     }
     
     static func fromTime(_ time: Double) -> Rate {
         return(Rate.findMinimum(time, comparator: { (i) -> Double in
             Rate(rawValue: i)!.time
         }))
-//        var closestRate = Rate(rawValue: 0)
-//        var smallestDifference = 1000000000.0
-//        for i in 0 ..< Rate.count {
-//            let difference: Double = abs(Rate(rawValue: i)!.time - time)
-//            if  difference < smallestDifference {
-//                smallestDifference = difference
-//                closestRate = Rate(rawValue: i)
-//            }
-//        }
-//        return closestRate!
     }
 }
 

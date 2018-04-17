@@ -649,6 +649,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
 #endif
 
 #if 0
+    // linear relationship between osc filter cutoff and delay input cutoff, including 0
     loPassInputDelayL->freq = p[delayInputCutoff];
     loPassInputDelayL->res = p[delayInputResonance];
     loPassInputDelayR->freq = p[delayInputCutoff];

@@ -26,7 +26,6 @@ class TempoStepper: Stepper {
             _value = round(newValue)
             range = (Double(minValue) ... Double(maxValue))
             _value = range.clamp(_value)
-            AKLog("_value:\(_value)")
             knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
         }
     }

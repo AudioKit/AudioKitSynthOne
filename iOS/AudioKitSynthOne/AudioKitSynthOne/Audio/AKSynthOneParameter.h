@@ -62,7 +62,7 @@ typedef AK_ENUM(AKSynthOneParameter) {
     cutoffLFO = 48,
     resonanceLFO = 49,
     oscMixLFO = 50,
-    sustainLFO = 51,
+    reverbMixLFO = 51,
     decayLFO = 52,
     noiseLFO = 53,
     fmLFO = 54,

@@ -318,7 +318,7 @@ private:
         { cutoffLFO,             0, 0, 3, "cutoffLFO", "cutoffLFO", kAudioUnitParameterUnit_Generic, false, NULL},
         { resonanceLFO,          0, 0, 3, "resonanceLFO", "resonanceLFO", kAudioUnitParameterUnit_Generic, false, NULL},
         { oscMixLFO,             0, 0, 3, "oscMixLFO", "oscMixLFO", kAudioUnitParameterUnit_Generic, false, NULL},
-        { sustainLFO,            0, 0, 3, "sustainLFO", "sustainLFO", kAudioUnitParameterUnit_Generic, false, NULL},
+        { reverbMixLFO,            0, 0, 3, "reverbMixLFO", "reverbMixLFO", kAudioUnitParameterUnit_Generic, false, NULL},
         { decayLFO,              0, 0, 3, "decayLFO", "decayLFO", kAudioUnitParameterUnit_Generic, false, NULL},
         { noiseLFO,              0, 0, 3, "noiseLFO", "noiseLFO", kAudioUnitParameterUnit_Generic, false, NULL},
         { fmLFO,                 0, 0, 3, "fmLFO", "fmLFO", kAudioUnitParameterUnit_Generic, false, NULL},

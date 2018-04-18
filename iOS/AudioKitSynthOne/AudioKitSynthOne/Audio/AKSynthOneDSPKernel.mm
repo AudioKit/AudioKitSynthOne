@@ -279,13 +279,17 @@ struct AKSynthOneDSPKernel::NoteState {
         
         //ADSR sustain LFO
         float sus = kernel->p[sustainLevel];
-        if (kernel->p[sustainLFO] == 1.f)
+#if 1
+        //TODO:Replace NoteState::sustainLFO with global:reverbMixLFO
+#elif 0
+        if (kernel->p[reverbMixLFO] == 1.f)
             sus *= lfo1_1_0;
-        else if (kernel->p[sustainLFO] == 2.f)
+        else if (kernel->p[reverbMixLFO] == 2.f)
             sus *= lfo2_1_0;
-        else if (kernel->p[sustainLFO] == 3.f)
+        else if (kernel->p[reverbMixLFO] == 3.f)
             sus *= lfo3_1_0;
         sus = kernel->parameterClamp(sustainLevel, sus);
+#endif
         adsr->sus = sus;
         
         //FILTER FREQ CUTOFF ADSR
@@ -718,22 +722,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
         monoFrequencyPort->htime = p[glide]; // note that p[glide] is smoothed by above
         sp_port_compute(sp, monoFrequencyPort, &monoFrequency, &monoFrequencySmooth);
-
-        lfo1Phasor->freq = p[lfo1Rate];
-        lfo2Phasor->freq = p[lfo2Rate];
-        
-        panOscillator->freq = p[autoPanFrequency];
-        panOscillator->amp = p[autoPanAmount];
-        
-        delayL->del = delayR->del = p[delayTime] * 2.f;
-        delayRR->del = delayFillIn->del = p[delayTime];
-        delayL->feedback = delayR->feedback = p[delayFeedback];
-        delayRR->feedback = p[delayFeedback]; // ?
-        delayFillIn->feedback = p[delayFeedback]; // ?
-        
-        *phaser0->Notch_width = p[phaserNotchWidth];
-        *phaser0->feedback_gain = p[phaserFeedback];
-        *phaser0->lfobpm = p[phaserRate];
         
         // CLEAR BUFFER
         outL[frameIndex] = outR[frameIndex] = 0.f;
@@ -897,6 +885,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
         
         //LFO1 on [-1, 1]
+        lfo1Phasor->freq = p[lfo1Rate];
         sp_phasor_compute(sp, lfo1Phasor, nil, &lfo1); // sp_phasor_compute [0,1]
         if (p[lfo1Index] == 0) { // Sine
             lfo1 = sin(lfo1 * M_PI * 2.f);
@@ -915,6 +904,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         lfo1_1_0 = 1.f - lfo1_0_1; // good for multiplicative
 
         //LFO2 on [-1, 1]
+        lfo2Phasor->freq = p[lfo2Rate];
         sp_phasor_compute(sp, lfo2Phasor, nil, &lfo2);  // sp_phasor_compute [0,1]
         if (p[lfo2Index] == 0) { // Sine
             lfo2 = sin(lfo2 * M_PI * 2.0);
@@ -987,19 +977,21 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // signal goes from mono to stereo with autopan
         
         //AUTOPAN
+        panOscillator->freq = p[autoPanFrequency];
+        panOscillator->amp = p[autoPanAmount];
         float panValue = 0.f;
         sp_osc_compute(sp, panOscillator, nil, &panValue);
-        panValue *= p[autoPanAmount];
         pan->pan = panValue;
         float panL = 0.f, panR = 0.f;
         sp_pan2_compute(sp, pan, &bitCrushOut, &panL, &panR);
         
-        //PHASER
+        // PHASER+CROSSFADE
         float phaserOutL = panL;
         float phaserOutR = panR;
         float lPhaserMix = p[phaserMix];
-        
-        // PHASER CROSSFADE
+        *phaser0->Notch_width = p[phaserNotchWidth];
+        *phaser0->feedback_gain = p[phaserFeedback];
+        *phaser0->lfobpm = p[phaserRate];
         if(lPhaserMix != 0.f) {
             lPhaserMix = 1.f - lPhaserMix;
             sp_phaser_compute(sp, phaser0, &panL, &panR, &phaserOutL, &phaserOutR);
@@ -1018,6 +1010,10 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         float delayOutR = 0.f;
         float delayOutRR = 0.f;
         float delayFillInOut = 0.f;
+        delayL->del = delayR->del = p[delayTime] * 2.f;
+        delayRR->del = delayFillIn->del = p[delayTime];
+        delayL->feedback = delayR->feedback = p[delayFeedback];
+        delayRR->feedback = delayFillIn->feedback = p[delayFeedback];
         sp_vdelay_compute(sp, delayL,      &delayInputLowPassOutL, &delayOutL);
         sp_vdelay_compute(sp, delayR,      &delayInputLowPassOutR, &delayOutR);
         sp_vdelay_compute(sp, delayFillIn, &delayInputLowPassOutR, &delayFillInOut);
@@ -1032,7 +1028,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         sp_crossfade_compute(sp, delayCrossfadeL, &phaserOutL, &delayOutL, &mixedDelayL);
         sp_crossfade_compute(sp, delayCrossfadeR, &phaserOutR, &delayOutRR, &mixedDelayR);
         
-        // Butterworth hi-pass filter for reverb input
+        // REVERB INPUT HIPASS FILTER
         float butOutL = 0.f;
         float butOutR = 0.f;
         butterworthHipassL->freq = p[reverbHighPass];
@@ -1054,7 +1050,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         float reverbWetL = 0.f;
         float reverbWetR = 0.f;
         reverbCostello->feedback = p[reverbFeedback];
-        reverbCostello->lpfreq = 0.5f * SAMPLE_RATE; // changes default
+        reverbCostello->lpfreq = 0.5f * SAMPLE_RATE;
         sp_revsc_compute(sp, reverbCostello, &butCompressOutL, &butCompressOutR, &reverbWetL, &reverbWetR);
         
         // compressor for wet reverb; like X2, FM
@@ -1068,7 +1064,13 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         // crossfade wet reverb with wet+dry delay
         float reverbCrossfadeOutL = 0.f;
         float reverbCrossfadeOutR = 0.f;
-        const float reverbMixFactor = p[reverbMix] * p[reverbOn];
+        float reverbMixFactor = p[reverbMix] * p[reverbOn];
+        if(p[reverbMixLFO] == 1.f)
+            reverbMixFactor *= lfo1_1_0;
+        else if(p[reverbMixLFO] == 2.f)
+            reverbMixFactor *= lfo2_1_0;
+        else if(p[reverbMixLFO] == 3.f)
+            reverbMixFactor *= lfo3_1_0;
         revCrossfadeL->pos = reverbMixFactor;
         revCrossfadeR->pos = reverbMixFactor;
         sp_crossfade_compute(sp, revCrossfadeL, &mixedDelayL, &wetReverbLimiterL, &reverbCrossfadeOutL);

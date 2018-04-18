@@ -162,8 +162,8 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Resonance LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .oscMixLFO:
             displayLabel.text = "Osc Mix LFO ‣ \(LfoValue(rawValue: Int(value))!)"
-        case .sustainLFO:
-            displayLabel.text = "Sustain LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+        case .reverbMixLFO:
+            displayLabel.text = "Reverb Mix LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .decayLFO:
             displayLabel.text = "Decay LFO ‣ \(LfoValue(rawValue: Int(value))!)"
         case .noiseLFO:

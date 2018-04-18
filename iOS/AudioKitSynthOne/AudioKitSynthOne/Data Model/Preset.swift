@@ -115,7 +115,7 @@ class Preset: Codable {
     var cutoffLFO = 0.0
     var resonanceLFO = 0.0
     var oscMixLFO = 0.0
-    var sustainLFO = 0.0
+    var reverbMixLFO = 0.0
     var decayLFO = 0.0
     var noiseLFO = 0.0
     var fmLFO = 0.0
@@ -270,7 +270,7 @@ class Preset: Codable {
         cutoffLFO = dictionary["cutoffLFO"] as? Double ?? cutoffLFO
         resonanceLFO = dictionary["resonanceLFO"] as? Double ?? resonanceLFO
         oscMixLFO = dictionary["oscMixLFO"] as? Double ?? oscMixLFO
-        sustainLFO = dictionary["sustainLFO"] as? Double ?? sustainLFO
+        reverbMixLFO = dictionary["reverbMixLFO"] as? Double ?? reverbMixLFO
         decayLFO = dictionary["decayLFO"] as? Double ?? decayLFO
         noiseLFO = dictionary["noiseLFO"] as? Double ?? noiseLFO
         fmLFO = dictionary["fmLFO"] as? Double ?? fmLFO

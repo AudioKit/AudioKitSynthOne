@@ -1516,12 +1516,12 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Osc Mix"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZZ-WL-inO" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="121" y="255" width="106" height="36"/>
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lNJ-vo-Ird" userLabel="Lfo Reverb Toggle" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="121" y="175" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Noise"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Reverb"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OiO-GY-Ebf" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -1532,12 +1532,12 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Decay"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emL-eL-tqy" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="121" y="175" width="106" height="36"/>
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZZ-WL-inO" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="121" y="255" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Sustain"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Noise"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mbh-Az-jeK" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -1564,12 +1564,12 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="FilterEnv"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pda-Ea-Gzs" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="344" y="255" width="106" height="36"/>
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93V-FP-Ga6" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="344" y="175" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Tremolo"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Pitch"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v1h-So-avW" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -1580,12 +1580,12 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Bitcrush"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93V-FP-Ga6" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="344" y="175" width="106" height="36"/>
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pda-Ea-Gzs" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="344" y="255" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Pitch"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Tremolo"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaK-QY-gw2" customClass="LFOWavePicker" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -1795,8 +1795,8 @@
                         <outlet property="lfoNoiseToggle" destination="eZZ-WL-inO" id="ZhF-1d-65b"/>
                         <outlet property="lfoOscMixToggle" destination="yMC-Nf-cet" id="GXS-yJ-H9S"/>
                         <outlet property="lfoPitchToggle" destination="93V-FP-Ga6" id="v5H-FX-Rci"/>
+                        <outlet property="lfoReverbMixToggle" destination="lNJ-vo-Ird" id="Trc-3a-b6c"/>
                         <outlet property="lfoRezToggle" destination="Dd6-x5-m2h" id="h1j-xO-O7Q"/>
-                        <outlet property="lfoSustainToggle" destination="emL-eL-tqy" id="zFS-Ym-g7X"/>
                         <outlet property="lfoTremoloToggle" destination="Pda-Ea-Gzs" id="c5m-jp-Hrf"/>
                         <outlet property="nav1Button" destination="Xyj-Yj-OIq" id="5yl-Za-EH7"/>
                         <outlet property="nav2Button" destination="8Wt-Tf-MdV" id="AbF-3S-Pte"/>

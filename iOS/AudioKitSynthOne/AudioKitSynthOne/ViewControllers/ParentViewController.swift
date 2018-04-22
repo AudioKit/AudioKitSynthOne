@@ -143,9 +143,11 @@ public class ParentViewController: UpdatableViewController {
         
         // Temporary MIDI IN
         // TODO: Remove
-        midi.createVirtualPorts()
-        midi.openInput("Session 1")
-        midi.addListener(self)
+        DispatchQueue.global(qos: .background).async {
+            self.midi.createVirtualPorts()
+            self.midi.openInput("Session 1")
+            self.midi.addListener(self)
+        }
         
         // Pre-load views and Set initial subviews
         switchToChildView(.seqView, isTopView: true)

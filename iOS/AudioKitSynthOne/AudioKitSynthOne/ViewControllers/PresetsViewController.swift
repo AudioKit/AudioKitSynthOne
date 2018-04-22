@@ -50,9 +50,7 @@ class PresetsViewController: UIViewController {
         didSet {
             createActivePreset()
             presetDescriptionField.text = currentPreset.userText
-            categoryLabel.text = PresetCategory(rawValue: currentPreset.category)?.description()
-            
-            AKLog ("preset: \(currentPreset.name)")
+            categoryLabel.text = PresetCategory(rawValue: currentPreset.category)?.description()            
         }
     }
     

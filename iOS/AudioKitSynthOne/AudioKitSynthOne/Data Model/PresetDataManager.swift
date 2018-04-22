@@ -15,13 +15,14 @@ extension ParentViewController {
     // **********************************************************
     
     func loadPreset() {
-        // Non-Kernal parameters
-        conductor.syncRateToTempo = (activePreset.syncRateToTempo == 1)
-        fxViewController.tempoSyncToggle.value = activePreset.syncRateToTempo
-        fxViewController.tempoSyncKnobs.forEach { $0.timeSyncMode = (activePreset.syncRateToTempo == 1) }
-        
-        // Kernel Parameters
         let s = conductor.synth!
+        
+        s.setAK1Parameter(.tempoSyncToArpRate,  activePreset.tempoSyncToArpRate)
+        s.setAK1Parameter(.arpRate, activePreset.arpRate)
+        s.setAK1Parameter(.lfo1Rate, activePreset.lfoRate)
+        s.setAK1Parameter(.lfo2Rate, activePreset.lfo2Rate)
+        s.setAK1Parameter(.delayTime, activePreset.delayTime)
+        s.setAK1Parameter(.autoPanFrequency, activePreset.autoPanRate)
         s.setAK1Parameter(.masterVolume, activePreset.masterVolume)
         s.setAK1Parameter(.isMono, activePreset.isMono)
         s.setAK1Parameter(.glide, activePreset.glide)
@@ -53,21 +54,17 @@ extension ParentViewController {
         s.setAK1Parameter(.releaseDuration, activePreset.releaseDuration)
         s.setAK1Parameter(.bitCrushSampleRate, activePreset.crushFreq)
         s.setAK1Parameter(.autoPanAmount, activePreset.autoPanAmount)
-        s.setAK1Parameter(.autoPanFrequency, activePreset.autoPanRate)
         s.setAK1Parameter(.reverbOn, activePreset.reverbToggled)
         s.setAK1Parameter(.reverbFeedback, activePreset.reverbFeedback)
         s.setAK1Parameter(.reverbHighPass, activePreset.reverbHighPass)
         s.setAK1Parameter(.reverbMix, activePreset.reverbMix)
         s.setAK1Parameter(.delayOn, activePreset.delayToggled)
         s.setAK1Parameter(.delayFeedback, activePreset.delayFeedback)
-        s.setAK1Parameter(.delayTime, activePreset.delayTime)
         s.setAK1Parameter(.delayMix, activePreset.delayMix)
         s.setAK1Parameter(.lfo1Index, activePreset.lfoWaveform)
         s.setAK1Parameter(.lfo1Amplitude, activePreset.lfoAmplitude)
-        s.setAK1Parameter(.lfo1Rate, activePreset.lfoRate)
         s.setAK1Parameter(.lfo2Index, activePreset.lfo2Waveform)
         s.setAK1Parameter(.lfo2Amplitude, activePreset.lfo2Amplitude)
-        s.setAK1Parameter(.lfo2Rate, activePreset.lfo2Rate)
         s.setAK1Parameter(.cutoffLFO, activePreset.cutoffLFO)
         s.setAK1Parameter(.resonanceLFO, activePreset.resonanceLFO)
         s.setAK1Parameter(.oscMixLFO, activePreset.oscMixLFO)
@@ -84,26 +81,22 @@ extension ParentViewController {
         s.setAK1Parameter(.arpInterval, activePreset.arpInterval)
         s.setAK1Parameter(.arpIsOn, activePreset.isArpMode)
         s.setAK1Parameter(.arpOctave, activePreset.arpOctave)
-        s.setAK1Parameter(.arpRate, activePreset.arpRate)
         s.setAK1Parameter(.arpIsSequencer, activePreset.arpIsSequencer ? 1 : 0 )
         s.setAK1Parameter(.arpTotalSteps, activePreset.arpTotalSteps )
         s.setAK1Parameter(.monoIsLegato, activePreset.isLegato )
-        
         s.setAK1Parameter(.phaserMix, activePreset.phaserMix)
         s.setAK1Parameter(.phaserRate, activePreset.phaserRate)
         s.setAK1Parameter(.phaserFeedback, activePreset.phaserFeedback)
         s.setAK1Parameter(.phaserNotchWidth, activePreset.phaserNotchWidth)
-        
         for i in 0..<16 {
             s.setAK1ArpSeqPattern(forIndex: i, activePreset.seqPatternNote[i])
             s.setAK1SeqOctBoost(forIndex: i, activePreset.seqOctBoost[i] ? 1 : 0)
             s.setAK1ArpSeqNoteOn(forIndex: i, activePreset.seqNoteOn[i])
         }
-
         s.setAK1Parameter(.filterType, activePreset.filterType)
-
-        s.resetSequencer()
         
+        s.resetSequencer()
+                
         #if false
         AKLog("----------------------------------------------------------------------")
         AKLog("Preset #\(activePreset.position) \(activePreset.name)")
@@ -118,6 +111,7 @@ extension ParentViewController {
     
     func saveValuesToPreset() {
         let s = conductor.synth!
+        activePreset.tempoSyncToArpRate = s.getAK1Parameter(.tempoSyncToArpRate)
         activePreset.masterVolume = s.getAK1Parameter(.masterVolume)
         activePreset.isMono = s.getAK1Parameter(.isMono)
         activePreset.isLegato = s.getAK1Parameter(.monoIsLegato)
@@ -184,13 +178,10 @@ extension ParentViewController {
         activePreset.arpIsSequencer = s.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         activePreset.arpTotalSteps = s.getAK1Parameter(.arpTotalSteps)
         activePreset.isArpMode = s.getAK1Parameter(.arpIsOn)
-        
         activePreset.phaserMix = s.getAK1Parameter(.phaserMix)
         activePreset.phaserRate = s.getAK1Parameter(.phaserRate)
         activePreset.phaserFeedback = s.getAK1Parameter(.phaserFeedback)
         activePreset.phaserNotchWidth = s.getAK1Parameter(.phaserNotchWidth)
-        
-        activePreset.syncRateToTempo = conductor.syncRateToTempo ? 1:0
         
         for i in 0..<16 {
             activePreset.seqPatternNote[i] = s.getAK1ArpSeqPattern(forIndex: i)

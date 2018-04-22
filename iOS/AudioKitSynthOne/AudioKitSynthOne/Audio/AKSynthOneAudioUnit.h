@@ -16,10 +16,18 @@
 
 @class AEMessageQueue;
 
-// helper for midi/render thread communication: held, playing notes
+// helper for midi/render thread communication: held+playing notes
 typedef struct NoteNumber {
     int noteNumber;
 } NoteNumber;
+
+// helper for render/main thread communication:
+// DSP updates UI elements lfo1Rate, lfo2Rate, autoPanRate, delayTime when arpOn/tempoSyncArpRate update
+// DSP updates lfo1Rate, lfo2Rate, autoPanRate, delayTime based on current arpOn/tempoSyncArpRate
+typedef struct DependentParam {
+    AKSynthOneParameter param;
+    float value01;// [0,1] for ui
+} DependentParam;
 
 // helper for main+render thread communication: array of playing notes
 typedef struct PlayingNotes {
@@ -40,7 +48,7 @@ typedef struct AKS1ArpBeatCounter {
 
 
 @protocol AKSynthOneProtocol
--(void)paramDidChange:(AKSynthOneParameter)param value:(double)value;
+-(void)dependentParamDidChange:(DependentParam)dependentParam;
 -(void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatCounter;
 -(void)heldNotesDidChange:(HeldNotes)heldNotes;
 -(void)playingNotesDidChange:(PlayingNotes)playingNotes;
@@ -60,8 +68,11 @@ typedef struct AKS1ArpBeatCounter {
 - (AUValue)getParameter:(AUParameterAddress)address;
 - (void)createParameters;
 
-- (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value;
 - (float)getAK1Parameter:(AKSynthOneParameter)param;
+- (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value;
+- (float)getAK1DependentParameter:(AKSynthOneParameter)param;
+- (void)setAK1DependentParameter:(AKSynthOneParameter)param value:(float)value;
+
 - (float)getParameterMin:(AKSynthOneParameter)param;
 - (float)getParameterMax:(AKSynthOneParameter)param;
 - (float)getParameterDefault:(AKSynthOneParameter)param;
@@ -79,7 +90,7 @@ typedef struct AKS1ArpBeatCounter {
 - (void)resetSequencer;
 
 // protected passthroughs for AKSynthOneProtocol called by DSP on main thread
-- (void)paramDidChange:(AKSynthOneParameter)param value:(double)value;
+- (void)dependentParamDidChange:(DependentParam)param;
 - (void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatcounter;
 - (void)heldNotesDidChange:(HeldNotes)heldNotes;
 - (void)playingNotesDidChange:(PlayingNotes)playingNotes;

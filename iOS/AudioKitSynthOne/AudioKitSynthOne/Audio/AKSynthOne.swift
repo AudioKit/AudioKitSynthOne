@@ -38,7 +38,6 @@ import AudioKit
         internalAU?.stopAllNotes()
     }
     
-    ///These getter/setters are more efficient than using "parameter[i]"
     open func setAK1Parameter(_ param: AKSynthOneParameter, _ value : Double) {
         internalAU?.setAK1Parameter(param, value: Float(value))
     }
@@ -47,6 +46,13 @@ import AudioKit
         return Double(internalAU?.getAK1Parameter(param) ?? 0)
     }
     
+    open func getAK1DependentParameter(_ param: AKSynthOneParameter) -> Double {
+        return Double(internalAU?.getAK1DependentParameter(param) ?? 0)
+    }
+    open func setAK1DependentParameter(_ param: AKSynthOneParameter, _ value : Double) {
+        internalAU?.setAK1DependentParameter(param, value: Float(value))
+    }
+
     open func getParameterMin(_ param: AKSynthOneParameter) -> Double {
         return Double(internalAU?.getParameterMin(param) ?? 0)
     }
@@ -203,7 +209,7 @@ import AudioKit
     @objc open var delegate: AKSynthOneProtocol?
     
     internal func notifyDelegateOfParamChange(_ param: AKSynthOneParameter, _ value: Double) {
-        delegate?.paramDidChange(param, value: value)
+        AKLog("unused")
     }
     
     /// stops all notes
@@ -225,8 +231,8 @@ import AudioKit
     
     //MARK: - Passthroughs for AKSynthOneProtocol called by DSP on main thread
 
-    @objc public func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
-        delegate?.paramDidChange(param, value: value)
+    @objc public func dependentParamDidChange(_ param: DependentParam) {
+        delegate?.dependentParamDidChange(param)
     }
     
     @objc public func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {

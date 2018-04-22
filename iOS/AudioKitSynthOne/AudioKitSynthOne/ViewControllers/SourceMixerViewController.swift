@@ -102,34 +102,8 @@ class SourceMixerViewController: SynthPanelController {
         conductor.bind(masterVolume,         to: .masterVolume)
         conductor.bind(legatoModeToggle,     to: .monoIsLegato)
         conductor.bind(widenToggle,          to: .widen)
-        
-        //TODO:Move this to DSP
-        // update lfo1Rate, lfo2Rate, delayTime, and autoPanRate when arpIsOn changes
-        conductor.bind(arpSeqToggle,         to: .arpIsOn) { param, control in
-            return { value in
-                s.setAK1Parameter(.arpIsOn, value)
-                if self.conductor.syncRateToTempo {
-                    self.conductor.updateSingleUI(.lfo1Rate, control: nil, value: s.getAK1Parameter(.lfo1Rate))
-                    self.conductor.updateSingleUI(.lfo2Rate, control: nil, value: s.getAK1Parameter(.lfo2Rate))
-                    self.conductor.updateSingleUI(.autoPanFrequency, control: nil, value: s.getAK1Parameter(.autoPanFrequency))
-                    self.conductor.updateSingleUI(.delayTime, control: nil, value: s.getAK1Parameter(.delayTime))
-                }
-            }
-        }
-        
-        //TODO:Move this to DSP
-        // update lfo1Rate, lfo2Rate, delayTime, and autoPanRate when arpRate changes
-        conductor.bind(tempoStepper,         to: .arpRate) { param, control in
-            return { value in
-                s.setAK1Parameter(.arpRate, value)
-                if self.conductor.syncRateToTempo {
-                    self.conductor.updateSingleUI(.lfo1Rate, control: nil, value: s.getAK1Parameter(.lfo1Rate))
-                    self.conductor.updateSingleUI(.lfo2Rate, control: nil, value: s.getAK1Parameter(.lfo2Rate))
-                    self.conductor.updateSingleUI(.autoPanFrequency, control: nil, value: s.getAK1Parameter(.autoPanFrequency))
-                    self.conductor.updateSingleUI(.delayTime, control: nil, value: s.getAK1Parameter(.delayTime))
-                }
-            }
-        }
+        conductor.bind(arpSeqToggle,         to: .arpIsOn)
+        conductor.bind(tempoStepper,         to: .arpRate)
         
         // Setup Audio Plot Display
         setupAudioPlot()

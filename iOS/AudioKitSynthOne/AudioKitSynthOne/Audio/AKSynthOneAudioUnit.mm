@@ -22,12 +22,20 @@
 @synthesize parameterTree = _parameterTree;
 @synthesize aks1Delegate = _aks1Delegate;
 
+- (float)getAK1Parameter:(AKSynthOneParameter)param {
+    return _kernel.getAK1Parameter(param);
+}
+
 - (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value {
     _kernel.setAK1Parameter(param, value);
 }
 
-- (float)getAK1Parameter:(AKSynthOneParameter)inAKSynthOneParameterEnum {
-    return _kernel.getAK1Parameter(inAKSynthOneParameterEnum);
+- (float)getAK1DependentParameter:(AKSynthOneParameter)param {
+    return _kernel.getAK1DependentParameter(param);
+}
+
+- (void)setAK1DependentParameter:(AKSynthOneParameter)param value:(float)value {
+    _kernel.setAK1DependentParameter(param, value);
 }
 
 ///auv3
@@ -199,8 +207,8 @@
 
 
 // passthroughs for AKSynthOneProtocol called by DSP on main thread
-- (void)paramDidChange:(AKSynthOneParameter)param value:(double)value {
-    [_aks1Delegate paramDidChange:param value:value];
+- (void)dependentParamDidChange:(DependentParam)param {
+    [_aks1Delegate dependentParamDidChange:param];
 }
 
 - (void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatCounter {

@@ -17,7 +17,6 @@ typealias AKSynthOneControlCallback = (AKSynthOneParameter, AKSynthOneControl?) 
 
 class Conductor: AKSynthOneProtocol {
     static var sharedInstance = Conductor()
-    var syncRateToTempo = true
     var neverSleep = false
     var banks: [Bank] = []
     var synth: AKSynthOne!
@@ -31,6 +30,7 @@ class Conductor: AKSynthOneProtocol {
         bindings.append(binding)
         let control = binding.1
         if let cb = closure {
+            // custom closure
             control.callback = cb(param, control)
         } else {
             // default closure
@@ -64,14 +64,10 @@ class Conductor: AKSynthOneProtocol {
                 if let inputControl = inputControl {
                     if control !== inputControl {
                         control.value = inputValue
-                        //AKLog("self update: updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
-                    } else {
-                        //AKLog("UpdateSingleUI: duplicate control...loop avoided")
                     }
                 } else {
-                    // nil control = global update (i.e., preset, dependencies, etc.)
+                    // nil control = global update (i.e., preset change)
                     control.value = inputValue
-                    //AKLog("dependency update: updateSingleUI:param:\(param.rawValue), value:\(inputValue)")
                 }
             }
         }
@@ -109,6 +105,7 @@ class Conductor: AKSynthOneProtocol {
         #if false
             print("Logging is OFF")
         #else
+            //TODO:disable for release
             AKSettings.enableLogging = true
             AKLog("Logging is ON")
         #endif
@@ -122,26 +119,8 @@ class Conductor: AKSynthOneProtocol {
             AKLog("Could not set session category.")
         }
         
-        ///DEFAULT TUNING
-        #if true
-        //TODO:20180413: this does not crash
-            _ = AKPolyphonicNode.tuningTable.defaultTuning()
-        AKLog("global tuningTable set to default: 12ET")
-        #else
-        //TODO:20180413: these crash
-            AKLog("setting tuning to custom tuning")
-            //_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav()
-            //_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 15, 19)
-            //_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111)
-            //_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23)
-            //_ = AKPolyphonicNode.tuningTable.hexany(1, 15, 45, 75)
-            _ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45) // 071
-            //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81)
-            //_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121)
-            //_ = AKPolyphonicNode.tuningTable.hexany(1, 45, 135, 225)
-            //_ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes()
-            //AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147])
-        #endif
+        // DEFAULT TUNING
+        _ = AKPolyphonicNode.tuningTable.defaultTuning()
         
         synth = AKSynthOne()
         synth.delegate = self
@@ -153,6 +132,7 @@ class Conductor: AKSynthOneProtocol {
             try AudioKit.start()
         } catch {
             AKLog("AudioKit did not start!")
+            //TODO:Handle synth start failure
         }
         started = true
         audioUnitPropertyListener = AudioUnitPropertyListener { (audioUnit, property) in
@@ -169,43 +149,40 @@ class Conductor: AKSynthOneProtocol {
     }
     
     func updateDisplayLabel(_ message: String) {
-        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
-        parentVC.updateDisplay(message)
+        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as? ParentViewController
+        parentVC?.updateDisplay(message)
     }
     
+    func updateDisplayLabel(_ param: AKSynthOneParameter, value: Double) {
+        let parentVC = self.viewControllers.filter { $0 is HeaderViewController }.first as? HeaderViewController
+        parentVC?.updateDisplayLabel(param, value: value)
+    }
     
     //MARK: - AKSynthOneProtocol
     
-    //TODO:As of 20180412 I am holding on NOT implementing the dsp call to this function, so no call to main thread
-    //TODO:but I want to leave this here because when we move to 100% dsp we'll need this
-    func paramDidChange(_ param: AKSynthOneParameter, value: Double) {
-        self.updateSingleUI(param, control: nil, value: value)
+    // called by DSP on main thread
+    func dependentParamDidChange(_ param: DependentParam) {
+        let fxVC = self.viewControllers.filter { $0 is FXViewController }.first as? FXViewController
+        fxVC?.dependentParamDidChange(param)
+        let touchPadVC = self.viewControllers.filter { $0 is TouchPadViewController }.first as? TouchPadViewController
+        touchPadVC?.dependentParamDidChange(param)
     }
     
-    //TODO:@MATT: passing a struct with beat counter and held note count on main thread
     // called by DSP on main thread
     func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {
         let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
         if beat.heldNotesCount > 0 {
             seqVC?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
-            //print("beatCounter:\(Int(beat.beatCounter)), heldNotes:\(self.heldNoteCount)")
         }
     }
     
     // called by DSP on main thread
     func heldNotesDidChange(_ heldNotes: HeldNotes) {
-        ///TODO:Route this to keyboard view controller (I'll change this so it returns the current array of held notes)
-        ///TODO:See https://trello.com/c/cainbbJJ
-        // AKLog("\(heldNotes)")
-        
         heldNoteCount = Int(heldNotes.heldNotesCount)
     }
     
     // called by DSP on main thread
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
-        ///TODO:Route this to keyboard view controller (I'll change this to return the current array of playing notes)
-        ///TODO:See https://trello.com/c/lQZMyF0V
-        //AKLog("\(playingNotes)")
     }
     
     // Start/Pause AK Engine (Conserve energy by turning background audio off)

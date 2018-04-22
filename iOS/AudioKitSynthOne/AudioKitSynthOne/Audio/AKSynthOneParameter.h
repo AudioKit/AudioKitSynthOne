@@ -75,7 +75,7 @@ typedef AK_ENUM(AKSynthOneParameter) {
     arpInterval = 61,
     arpIsOn = 62,
     arpOctave = 63,
-    arpRate = 64, // tempo in bpm, not hz
+    arpRate = 64, // rate in bpm, not hz
     arpIsSequencer = 65,
     arpTotalSteps = 66,
     arpSeqPattern00 = 67,
@@ -137,27 +137,25 @@ typedef AK_ENUM(AKSynthOneParameter) {
     compressorMasterRatio = 122,
     compressorReverbInputRatio = 123,
     compressorReverbWetRatio = 124,
-    
     compressorMasterThreshold = 125,
     compressorReverbInputThreshold = 126,
     compressorReverbWetThreshold = 127,
-    
     compressorMasterAttack = 128,
     compressorReverbInputAttack = 129,
     compressorReverbWetAttack = 130,
-    
     compressorMasterRelease = 131,
     compressorReverbInputRelease = 132,
     compressorReverbWetRelease = 133,
-
     compressorMasterMakeupGain = 134,
     compressorReverbInputMakeupGain = 135,
     compressorReverbWetMakeupGain = 136,
-
     delayInputCutoffTrackingRatio = 137,
     delayInputCutoff = 138,
     delayInputResonance = 139,
 
-    AKSynthOneParameterCount = 140
+    tempoSyncToArpRate = 140,
+    
+    AKSynthOneParameterCount = 141
+    
 } AKSynthOneParameter;
 

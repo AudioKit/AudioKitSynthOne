@@ -12,10 +12,10 @@
 #import <vector>
 #import <list>
 #include <string>
-
 #import "AKSoundpipeKernel.hpp"
 #import "AKSynthOneAudioUnit.h"
 #import "AKSynthOneParameter.h"
+#import "AKS1Rate.hpp"
 
 @class AEArray;
 @class AEMessageQueue;
@@ -26,18 +26,21 @@
 #ifdef __cplusplus
 
 class AKSynthOneDSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
-    
-public:
 
     // MARK: AKSynthOneDSPKernel Member Functions
+
+public:
     
     AKSynthOneDSPKernel();
     
     ~AKSynthOneDSPKernel();
 
-    void setAK1Parameter(AKSynthOneParameter param, float inputValue);
-    
     float getAK1Parameter(AKSynthOneParameter param);
+    void setAK1Parameter(AKSynthOneParameter param, float value);
+
+    // lfo1Rate, lfo2Rate, autoPanRate, and delayTime; returns on [0,1]
+    float getAK1DependentParameter(AKSynthOneParameter param);
+    void setAK1DependentParameter(AKSynthOneParameter param, float value);
 
     // AUParameter/AUValue
     void setParameters(float params[]);
@@ -47,8 +50,6 @@ public:
     AUValue getParameter(AUParameterAddress address);
     
     void startRamp(AUParameterAddress address, AUValue value, AUAudioFrameCount duration) override;
-    
-    void print_debug();
     
     ///panic...hard-resets DSP.  artifacts.
     void resetDSP();
@@ -125,6 +126,16 @@ public:
     ///parameter presetKey
     std::string parameterPresetKey(AKSynthOneParameter i);
 
+private:
+    inline void print_debug();
+
+    inline void _setAK1Parameter(AKSynthOneParameter param, float inputValue01);
+    
+    inline void _setAK1ParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread);
+    
+    inline void _rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread);
+
+    
     // MARK: Member Variables
 public:
     
@@ -148,10 +159,22 @@ public:
     bool notesHeld = false;
     
     PlayingNotes aePlayingNotes;
+    
     HeldNotes aeHeldNotes;
     
 private:
+    AKS1Rate _rate;
     
+    DependentParam _lfo1Rate;
+    
+    DependentParam _lfo2Rate;
+    
+    DependentParam _autoPanRate;
+    
+    DependentParam _delayTime;
+    
+    void dependentParameterDidChange(DependentParam param);
+
     ///can be called from within the render loop
     void beatCounterDidChange();
     
@@ -177,6 +200,7 @@ private:
         sp_port *portamento;
         float portamentoTarget;
     };
+    
     
     // array of struct NoteState of count MAX_POLYPHONY
     AKSynthOneDSPKernel::NoteState* noteStates;
@@ -260,7 +284,7 @@ private:
     const float bpm_max = 200.f;
     const float bars_min = 1.f / 64.f;
     const float bars_max = 8.f;
-    const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) ); //  0.00052
+    const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) ); //  0.00052 8 bars at 1bpm
     const float rate_max = 1.f / ( (beatsPerBar * bars_min) / (bpm_max * minutesPerSecond) ); // 53.3333
     AKS1Param aks1p[AKSynthOneParameter::AKSynthOneParameterCount] = {
         { index1,                0, 1, 1, "index1", "Index 1", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -297,20 +321,16 @@ private:
         { detuningMultiplier,    1, 1, 2, "detuningMultiplier", "detuningMultiplier", kAudioUnitParameterUnit_Generic, true, NULL},
         { masterVolume,          0, 0.5, 2, "masterVolume", "masterVolume", kAudioUnitParameterUnit_Generic, true, NULL},
         { bitCrushDepth,         1, 24, 24, "bitCrushDepth", "bitCrushDepth", kAudioUnitParameterUnit_Generic, false, NULL},// UNUSED
-//        { bitCrushSampleRate,    4096, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
         { bitCrushSampleRate,    2048, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, false, NULL},
         { autoPanAmount,         0, 0, 1, "autoPanAmount", "autoPanAmount", kAudioUnitParameterUnit_Generic, true, NULL},
-        { autoPanFrequency,      0, 0.25, 10, "autoPanFrequency", "autoPanFrequency", kAudioUnitParameterUnit_Hertz, true, NULL},
+        { autoPanFrequency,      rate_min, 0.25, 10, "autoPanFrequency", "autoPanFrequency", kAudioUnitParameterUnit_Hertz, true, NULL},
         { reverbOn,              0, 1, 1, "reverbOn", "reverbOn", kAudioUnitParameterUnit_Generic, false, NULL},
         { reverbFeedback,        0, 0.5, 1, "reverbFeedback", "reverbFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
         { reverbHighPass,        80, 700, 900, "reverbHighPass", "reverbHighPass", kAudioUnitParameterUnit_Generic, true, NULL},
         { reverbMix,             0, 0, 1, "reverbMix", "reverbMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayOn,               0, 0, 1, "delayOn", "delayOn", kAudioUnitParameterUnit_Generic, false, NULL},
         { delayFeedback,         0, 0.1, 0.9, "delayFeedback", "delayFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
-        
-//        { delayTime,             0.1, 0.5, 1.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
         { delayTime,             0.0003628117914, 0.25, 1.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},// 16/44100
-
         { delayMix,              0, 0.125, 1, "delayMix", "delayMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo2Index,             0, 0, 3, "lfo2Index", "lfo2Index", kAudioUnitParameterUnit_Generic, false, NULL},
         { lfo2Amplitude,         0, 0, 1, "lfo2Amplitude", "lfo2Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -414,7 +434,10 @@ private:
         { delayInputCutoffTrackingRatio,                0.001, 0.75, 1, "delayInputCutoffTrackingRatio", "delayInputCutoffTrackingRatio", kAudioUnitParameterUnit_Hertz, false, NULL},
         //TODO: these two are not currently used
         { delayInputCutoff,                64, 8192, 22050, "delayInputCutoff", "delayInputCutoff", kAudioUnitParameterUnit_Hertz, false, NULL},
-        { delayInputResonance,             0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, false, NULL}
+        { delayInputResonance,             0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, false, NULL},
+        { tempoSyncToArpRate,                   0, 1, 1, "tempoSyncToArpRate", "tempoSyncToArpRate", kAudioUnitParameterUnit_Generic, false, NULL}
     };
 };
+
+
 #endif

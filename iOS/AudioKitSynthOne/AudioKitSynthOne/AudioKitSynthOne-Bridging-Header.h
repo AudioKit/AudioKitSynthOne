@@ -10,4 +10,5 @@
 
 #import "AKSynthOneAudioUnit.h"
 #import "AKSynthOneParameter.h"
+#import "AKSynthOneRate.h"
 #import "Audiobus.h"

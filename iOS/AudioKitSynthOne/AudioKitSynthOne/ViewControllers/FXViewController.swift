@@ -24,22 +24,22 @@ class FXViewController: SynthPanelController {
     @IBOutlet weak var lfoTremoloToggle: LfoButton!
     
     @IBOutlet weak var lfo1Amp: MIDIKnob!
-    @IBOutlet weak var lfo1Rate: RateKnob!
+    @IBOutlet weak var lfo1Rate: MIDIKnob!
     
     @IBOutlet weak var lfo2Amp: MIDIKnob!
-    @IBOutlet weak var lfo2Rate: RateKnob!
+    @IBOutlet weak var lfo2Rate: MIDIKnob!
     
     @IBOutlet weak var sampleRate: MIDIKnob!
     
     @IBOutlet weak var autoPanAmount: Knob!
-    @IBOutlet weak var autoPanRate: RateKnob!
+    @IBOutlet weak var autoPanRate: MIDIKnob!
     
     @IBOutlet weak var reverbSize: MIDIKnob!
     @IBOutlet weak var reverbLowCut: MIDIKnob!
     @IBOutlet weak var reverbMix: MIDIKnob!
     @IBOutlet weak var reverbToggle: ToggleButton!
     
-    @IBOutlet weak var delayTime: TimeKnob!
+    @IBOutlet weak var delayTime: MIDIKnob!
     @IBOutlet weak var delayFeedback: MIDIKnob!
     @IBOutlet weak var delayMix: MIDIKnob!
     @IBOutlet weak var delayToggle: ToggleButton!
@@ -54,7 +54,6 @@ class FXViewController: SynthPanelController {
     
     @IBOutlet weak var tempoSyncToggle: ToggleButton!
     
-    var tempoSyncKnobs = [MIDIKnob]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,51 +61,31 @@ class FXViewController: SynthPanelController {
         viewType = .fxView
         let s = conductor.synth!
         
-        // Create array of Tempo Sync Knobs
-        let rateKnobs = self.view.subviews.filter { $0 is RateKnob } as! [RateKnob]
-        let timeKnobs = self.view.subviews.filter { $0 is TimeKnob } as! [TimeKnob]
-        tempoSyncKnobs = rateKnobs
-        tempoSyncKnobs = tempoSyncKnobs + timeKnobs
-            
-        sampleRate.value = s.getParameterDefault(.bitCrushSampleRate)
         sampleRate.range = s.getParameterRange(.bitCrushSampleRate)
         sampleRate.taper = 4
-
-        autoPanRate.range = s.getParameterRange(.autoPanFrequency)
-        autoPanRate.taper = 2
+        conductor.bind(sampleRate,         to: .bitCrushSampleRate)
 
         reverbLowCut.range = s.getParameterRange(.reverbHighPass)
         reverbLowCut.taper = 1
+        conductor.bind(reverbLowCut,       to: .reverbHighPass)
 
         delayFeedback.range = s.getParameterRange(.delayFeedback)
-        delayTime.range = s.getParameterRange(.delayTime)
+        conductor.bind(delayFeedback,      to: .delayFeedback)
 
-        lfo1Rate.range = s.getParameterRange(.lfo1Rate)
-        lfo1Rate.taper = 4.5
-        lfo2Rate.range = s.getParameterRange(.lfo2Rate)
-        lfo2Rate.taper = 4.5
-        
         phaserMix.range = s.getParameterRange(.phaserMix)
         phaserRate.range = s.getParameterRange(.phaserRate)
         phaserRate.taper = 2
         phaserFeedback.range = s.getParameterRange(.phaserFeedback)
         phaserNotchWidth.range = s.getParameterRange(.phaserNotchWidth)
 
-        conductor.bind(sampleRate,         to: .bitCrushSampleRate)
         conductor.bind(autoPanAmount,      to: .autoPanAmount)
-        conductor.bind(autoPanRate,        to: .autoPanFrequency)
         conductor.bind(reverbSize,         to: .reverbFeedback)
-        conductor.bind(reverbLowCut,       to: .reverbHighPass)
         conductor.bind(reverbMix,          to: .reverbMix)
         conductor.bind(reverbToggle,       to: .reverbOn)
-        conductor.bind(delayTime,          to: .delayTime)
-        conductor.bind(delayFeedback,      to: .delayFeedback)
         conductor.bind(delayMix,           to: .delayMix)
         conductor.bind(delayToggle,        to: .delayOn)
         conductor.bind(lfo1Amp,            to: .lfo1Amplitude)
-        conductor.bind(lfo1Rate,           to: .lfo1Rate)
         conductor.bind(lfo2Amp,            to: .lfo2Amplitude)
-        conductor.bind(lfo2Rate,           to: .lfo2Rate)
         conductor.bind(lfoCutoffToggle,    to: .cutoffLFO)
         conductor.bind(lfoRezToggle,       to: .resonanceLFO)
         conductor.bind(lfoOscMixToggle,    to: .oscMixLFO)
@@ -125,47 +104,54 @@ class FXViewController: SynthPanelController {
         conductor.bind(phaserRate,         to: .phaserRate)
         conductor.bind(phaserFeedback,     to: .phaserFeedback)
         conductor.bind(phaserNotchWidth,   to: .phaserNotchWidth)
+        conductor.bind(tempoSyncToggle,    to: .tempoSyncToArpRate)
         
-        //TODO:Move this to DSP
-        // update lfo1Rate, lfo2Rate, delayTime, and autoPanRate when "sync to tempo" changes
-        tempoSyncToggle.callback = { value in
-            self.conductor.syncRateToTempo = (value == 1)
-            self.tempoSyncKnobs.forEach { $0.timeSyncMode = self.conductor.syncRateToTempo }
-            if self.conductor.syncRateToTempo {
-                self.conductor.updateSingleUI(.lfo1Rate, control: nil, value: s.getAK1Parameter(.lfo1Rate))
-                self.conductor.updateSingleUI(.lfo2Rate, control: nil, value: s.getAK1Parameter(.lfo2Rate))
-                self.conductor.updateSingleUI(.delayTime, control: nil, value: s.getAK1Parameter(.delayTime))
-                self.conductor.updateSingleUI(.autoPanFrequency, control: nil, value: s.getAK1Parameter(.autoPanFrequency))
-            }
+        // These 4 params are dependent on arpRate, and tempoSyncToArpRate, so can't use conductor binding scheme
+        lfo1Rate.range = 0...1
+        lfo1Rate.taper = 1
+        lfo1Rate.value = s.getAK1DependentParameter(.lfo1Rate)
+        lfo1Rate.callback = { value in
+            s.setAK1DependentParameter(.lfo1Rate, value)
+            self.conductor.updateDisplayLabel(.lfo1Rate, value: s.getAK1Parameter(.lfo1Rate))
+        }
+        
+        lfo2Rate.range = 0...1
+        lfo2Rate.taper = 1
+        lfo2Rate.value = s.getAK1DependentParameter(.lfo2Rate)
+        lfo2Rate.callback = { value in
+            s.setAK1DependentParameter(.lfo2Rate, value)
+            self.conductor.updateDisplayLabel(.lfo2Rate, value: s.getAK1Parameter(.lfo2Rate))
+        }
+        
+        autoPanRate.range = 0...1
+        autoPanRate.taper = 1
+        autoPanRate.value = s.getAK1DependentParameter(.autoPanFrequency)
+        autoPanRate.callback = { value in
+            s.setAK1DependentParameter(.autoPanFrequency, value)
+            self.conductor.updateDisplayLabel(.autoPanFrequency, value: s.getAK1Parameter(.autoPanFrequency))
+        }
+        
+        delayTime.range = 0...1
+        delayTime.taper = 1
+        delayTime.value = s.getAK1DependentParameter(.delayTime)
+        delayTime.callback = { value in
+            s.setAK1DependentParameter(.delayTime, value)
+            self.conductor.updateDisplayLabel(.delayTime, value: s.getAK1Parameter(.delayTime))
         }
     }
     
-    override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
-        let synth = conductor.synth
-        let tempoSync = conductor.syncRateToTempo
-        if param == .lfo1Rate && control !== lfo1Rate {
-            lfo1Rate.value = value
-            if tempoSync {
-                synth?.setAK1Parameter(.lfo1Rate, lfo1Rate.value)
-            }
-        }
-        if param == .lfo2Rate && control !== lfo2Rate {
-            lfo2Rate.value = value
-            if tempoSync {
-                synth?.setAK1Parameter(.lfo2Rate, lfo2Rate.value)
-            }
-        }
-        if param == .delayTime && control !== delayTime {
-            delayTime.value = value
-            if tempoSync {
-                synth?.setAK1Parameter(.delayTime, delayTime.value)
-            }
-        }
-        if param == .autoPanFrequency && control !== autoPanRate {
-            autoPanRate.value = value
-            if tempoSync {
-                synth?.setAK1Parameter(.autoPanFrequency, autoPanRate.value)
-            }
+    func dependentParamDidChange(_ param: DependentParam) {
+        switch param.param {
+        case .lfo1Rate:
+            lfo1Rate.value = Double(param.value01)
+        case .lfo2Rate:
+            lfo2Rate.value = Double(param.value01)
+        case .autoPanFrequency:
+            autoPanRate.value = Double(param.value01)
+        case .delayTime:
+            delayTime.value = Double(param.value01)
+        default:
+            _ = 0
         }
     }
 }

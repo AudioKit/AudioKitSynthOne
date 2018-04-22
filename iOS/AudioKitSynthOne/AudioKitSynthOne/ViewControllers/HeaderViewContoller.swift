@@ -68,7 +68,10 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
-        
+        updateDisplayLabel(param, value: value)
+    }
+    
+    func updateDisplayLabel(_ param: AKSynthOneParameter, value: Double) {
         let s = conductor.synth!
         
         switch param {
@@ -116,7 +119,7 @@ public class HeaderViewController: UpdatableViewController {
         case .autoPanAmount:
             displayLabel.text = "AutoPan Amp: \(value.percentageString)"
         case .autoPanFrequency:
-            if conductor.syncRateToTempo {
+            if s.getAK1Parameter(.tempoSyncToArpRate) > 0 {
                 displayLabel.text = "AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz"
             } else {
                 displayLabel.text = "AutoPan Rate: \(value.decimalString) Hz"
@@ -134,7 +137,7 @@ public class HeaderViewController: UpdatableViewController {
         case .delayFeedback:
             displayLabel.text = "Delay Taps: \(value.percentageString)"
         case .delayTime:
-            if conductor.syncRateToTempo {
+            if s.getAK1Parameter(.tempoSyncToArpRate) > 0 {
                 displayLabel.text = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s"
             } else {
                displayLabel.text = "Delay Time: \(value.decimalString) s"
@@ -143,13 +146,13 @@ public class HeaderViewController: UpdatableViewController {
         case .delayMix:
             displayLabel.text = "Delay Mix: \(value.percentageString)"
         case .lfo1Rate, .lfo1Amplitude:
-            if conductor.syncRateToTempo {
+            if s.getAK1Parameter(.tempoSyncToArpRate) > 0 {
                 displayLabel.text = "LFO1 Rate: \(Rate.fromFrequency(s.getAK1Parameter(.lfo1Rate))), LFO1 Amp: \(s.getAK1Parameter(.lfo1Amplitude).percentageString)"
             } else {
                 displayLabel.text = "LFO1 Rate: \(s.getAK1Parameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getAK1Parameter(.lfo1Amplitude).percentageString)"
             }
         case .lfo2Rate:
-            if conductor.syncRateToTempo {
+            if s.getAK1Parameter(.tempoSyncToArpRate) > 0 {
                 displayLabel.text = "LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz"
             } else {
                 displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"
@@ -301,25 +304,5 @@ public class HeaderViewController: UpdatableViewController {
         aboutButton.callback = { _ in
             self.headerDelegate?.aboutPressed()
         }
-    }
-    
-    // ********************************************************
-    // MARK: - Helper
-    // ********************************************************
-    /*
-    // Header nav buttons
-    func updateHeaderNavButtons() {
-     
-        guard let parentController = self.parent as? SynthOneViewController else { return }
-        guard let topView = parentController.topChildView else { return }
-        guard let bottomView = parentController.bottomChildView else { return }
-        
-        headerNavBtns.forEach { $0.isSelected = false }
-        headerNavBtns.forEach { $0.isEnabled = true }
-        
-        headerNavBtns[topView.rawValue].isSelected = true
-        headerNavBtns[bottomView.rawValue].isEnabled = false
-       
-    }
-    */
+    }    
 }

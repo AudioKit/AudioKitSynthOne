@@ -135,7 +135,10 @@ private:
     
     inline void _rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread);
 
+    inline float taper01(float inputValue01, float taper); // algebraic only
     
+    inline float taper(float inputValue01, float min, float max, float taper); // > 0 algebraic, < 0 exponential
+
     // MARK: Member Variables
 public:
     

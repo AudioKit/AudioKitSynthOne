@@ -441,6 +441,28 @@ AKSynthOneDSPKernel::AKSynthOneDSPKernel() {}
 
 AKSynthOneDSPKernel::~AKSynthOneDSPKernel() = default;
 
+
+// algebraic taper for range [0,1]
+inline float AKSynthOneDSPKernel::taper01(float inputValue01, float taper) {
+    return powf(inputValue01, 1.f / taper);
+}
+
+// algebraic and exponential taper for all ranges
+inline float AKSynthOneDSPKernel::taper(float inputValue01, float min, float max, float taper) {
+    if((min == 0.f || max == 0.f) && taper < 0.f) {
+        printf("can have a negative taper with a range that includes 0\n");
+        return min;
+    }
+    
+    if (taper > 0.f) {
+        // algebraic taper
+        return powf(((inputValue01 - min ) / (max - min)), (1.f / taper));
+    } else {
+        // exponential taper
+        return min * expf(logf(max / min) * inputValue01);
+    }
+}
+
 float AKSynthOneDSPKernel::getAK1Parameter(AKSynthOneParameter param) {
     AKS1Param& s = aks1p[param];
     if(s.usePortamento)

@@ -84,7 +84,7 @@ class AppSetting: Codable {
     // Keyboard
     var labelMode = 1
     var octaveRange = 2
-    var darkMode = true
+    var darkMode = false
     var showKeyboard = 0.0 // 1 show, 0 hide
     
     // ******************************************************

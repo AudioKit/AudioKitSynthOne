@@ -154,10 +154,12 @@ class DevViewController: UpdatableViewController {
         } ),
         (" 6 hexany(1, 3, 5, 81)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81) } ),
         ("10 dekany(1, 3, 5, 9, 81)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: DevTunings.dekany([1,3,5,9,81])) } ),
-        ("15 pentadekany(hexany(1,3,5,81))", {
-            _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: DevTunings.pentadekany(DevTunings.hexany([1, 3, 5, 81])))
+        ("15 pentadekany(hexany(1,3,5,81))", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: DevTunings.pentadekany(DevTunings.hexany([1, 3, 5, 81])))
         } ),
         (" 6 hexany(1, 3, 5, 121)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121) } ),
+        ("15 pentadekany(hexany(1, 3, 5, 121))",
+         {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: DevTunings.pentadekany(DevTunings.hexany([1, 3, 5, 121])))}
+        ),
         (" 6 hexany(1, 15, 45, 75)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 15, 45, 75) } ),
         ("10 dekany(1, 15, 45, 75, 105)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: DevTunings.dekany([1,15,45,75,105]) ) } ),
         (" 6 hexany(1, 17, 19, 23)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23) } ),

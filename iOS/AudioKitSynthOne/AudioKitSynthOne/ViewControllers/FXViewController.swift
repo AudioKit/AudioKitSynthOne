@@ -62,7 +62,7 @@ class FXViewController: SynthPanelController {
         let s = conductor.synth!
         
         sampleRate.range = s.getParameterRange(.bitCrushSampleRate)
-        sampleRate.taper = 4
+        sampleRate.taper = 4.6
         conductor.bind(sampleRate,         to: .bitCrushSampleRate)
 
         reverbLowCut.range = s.getParameterRange(.reverbHighPass)

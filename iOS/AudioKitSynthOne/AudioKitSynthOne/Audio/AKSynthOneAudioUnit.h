@@ -27,6 +27,7 @@ typedef struct NoteNumber {
 typedef struct DependentParam {
     AKSynthOneParameter param;
     float value01;// [0,1] for ui
+    float value;
 } DependentParam;
 
 // helper for main+render thread communication: array of playing notes

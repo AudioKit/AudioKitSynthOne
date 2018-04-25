@@ -135,9 +135,13 @@ private:
     
     inline void _rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread);
 
-    inline float taper01(float inputValue01, float taper); // algebraic only
-    
-    inline float taper(float inputValue01, float min, float max, float taper); // > 0 algebraic, < 0 exponential
+     // algebraic only
+    inline float taper01(float inputValue01, float taper);
+    inline float taper01Inverse(float inputValue01, float taper);
+
+     // > 0 algebraic, < 0 exponential
+    inline float taper(float inputValue01, float min, float max, float taper);
+    inline float taperInverse(float inputValue01, float min, float max, float taper);
 
     // MARK: Member Variables
 public:
@@ -333,7 +337,7 @@ private:
         { reverbMix,             0, 0, 1, "reverbMix", "reverbMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayOn,               0, 0, 1, "delayOn", "delayOn", kAudioUnitParameterUnit_Generic, false, NULL},
         { delayFeedback,         0, 0.1, 0.9, "delayFeedback", "delayFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
-        { delayTime,             0.0003628117914, 0.25, 1.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},// 16/44100
+        { delayTime,             0.0003628117914, 0.25, 2.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
         { delayMix,              0, 0.125, 1, "delayMix", "delayMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo2Index,             0, 0, 3, "lfo2Index", "lfo2Index", kAudioUnitParameterUnit_Generic, false, NULL},
         { lfo2Amplitude,         0, 0, 1, "lfo2Amplitude", "lfo2Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},

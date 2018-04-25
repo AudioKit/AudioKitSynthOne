@@ -135,7 +135,7 @@ class FXViewController: SynthPanelController {
         delayTime.taper = 1
         delayTime.value = s.getAK1DependentParameter(.delayTime)
         delayTime.callback = { value in
-            s.setAK1DependentParameter(.delayTime, 1 - value)
+            s.setAK1DependentParameter(.delayTime, value)
             self.conductor.updateDisplayLabel(.delayTime, value: s.getAK1Parameter(.delayTime))
         }
     }
@@ -149,7 +149,7 @@ class FXViewController: SynthPanelController {
         case .autoPanFrequency:
             autoPanRate.value = Double(param.value01)
         case .delayTime:
-            delayTime.value = 1 - Double(param.value01)
+            delayTime.value = Double(param.value01)
         default:
             _ = 0
         }

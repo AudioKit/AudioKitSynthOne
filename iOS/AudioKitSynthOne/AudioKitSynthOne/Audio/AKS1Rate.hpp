@@ -52,14 +52,16 @@ public:
         }
     }
     
-    inline AKS1RateArgs nearestFrequency(float inputFrequency, float inputTempoBPM) {
+    inline AKS1RateArgs nearestFrequency(float inputFrequency, float inputTempoBPM, float min, float max) {
         int closestRate = eightBars;
         float closestFrequency = frequency(inputTempoBPM, (AKSynthOneRate)closestRate);
         float smallestDifference = 1000000000.f;
         for(int i = eightBars; i < AKSynthOneRate::AKSynthOneRateCount; i++) {
             float tempoAsFrequency = frequency(inputTempoBPM, (AKSynthOneRate)i);
+            if (tempoAsFrequency < min || tempoAsFrequency > max)
+                continue;
             float difference = abs(tempoAsFrequency - inputFrequency);
-            if(difference < smallestDifference) {
+            if (difference < smallestDifference) {
                 smallestDifference = difference;
                 closestRate = i;
                 closestFrequency = tempoAsFrequency;
@@ -70,14 +72,16 @@ public:
     }
     
     // special case for delay excludes 8, 6, 4, 3 bar enums
-    inline AKS1RateArgs nearestTime(float inputTime, float inputTempoBPM) {
-        int closestRate = twoBars;
+    inline AKS1RateArgs nearestTime(float inputTime, float inputTempoBPM, float min, float max) {
+        int closestRate = sixtyFourthTriplet;
         float closestTime = time(inputTempoBPM, (AKSynthOneRate)closestRate);
         float smallestDifference = 1000000000.f;
-        for(int i = twoBars; i < AKSynthOneRate::AKSynthOneRateCount; i++) {
+        for(int i = sixtyFourthTriplet; i >= twoBars; i--) {
             float tempoTime = time(inputTempoBPM, (AKSynthOneRate)i);
+            if (tempoTime < min || tempoTime > max)
+                continue;
             float difference = abs(tempoTime - inputTime);
-            if(difference < smallestDifference) {
+            if (difference < smallestDifference) {
                 smallestDifference = difference;
                 closestRate = i;
                 closestTime = tempoTime;

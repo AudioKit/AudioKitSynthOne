@@ -150,10 +150,10 @@ public class ParentViewController: UpdatableViewController {
         }
         
         // Pre-load views and Set initial subviews
-        switchToChildView(.seqView, isTopView: true)
         switchToChildView(.fxView, isTopView: true)
+        switchToChildView(.adsrView, isTopView: true)
         switchToChildView(.oscView, isTopView: true) 
-        switchToChildView(.adsrView, isTopView: false)
+        switchToChildView(.seqView, isTopView: false)
     }
     
     public override func viewDidAppear(_ animated: Bool) {

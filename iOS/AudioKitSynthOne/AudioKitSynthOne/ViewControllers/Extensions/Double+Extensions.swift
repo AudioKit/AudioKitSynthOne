@@ -41,19 +41,19 @@ extension Double {
     // *********************************************************
     
     // return random number between 0.0 and 1.0
-    public static func random() -> Double {
-        return Double(arc4random()) / 0xFFFFFFFF
-    }
+//    public static func random() -> Double {
+//        return Double(arc4random()) / 0xFFFFFFFF
+//    }
     
     // return random number in range
-    public static func random(min: Double, max: Double) -> Double {
-        return Double.random() * (max - min) + min
-    }
-    
-    // return either -1 or 1 randomly
-    public static func randomSign() -> Double {
-        return (arc4random_uniform(2) == 0) ? 1.0 : -1.0
-    }
+//    public static func random(min: Double, max: Double) -> Double {
+//        return Double.random() * (max - min) + min
+//    }
+//    
+//    // return either -1 or 1 randomly
+//    public static func randomSign() -> Double {
+//        return (arc4random_uniform(2) == 0) ? 1.0 : -1.0
+//    }
     
     // *********************************************************
     // MARK: - Scale Range

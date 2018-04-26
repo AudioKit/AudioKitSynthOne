@@ -778,26 +778,29 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                     ++arpBeatCounter;
                     beatCounterDidChange();
                     
-                    // ARP+SEQ: turnOn the note of the sequence
-                    SeqNoteNumber& snn = arpSeqNotes[seqNotePosition];
-                    if (p[arpIsSequencer] == 1.f) {
-                        // SEQUENCER
-                        if (snn.onOff == 1) {
-                            AEArrayEnumeratePointers(heldNoteNumbersAE, NoteNumber *, noteStruct) {
-                                const int baseNote = noteStruct->noteNumber;
-                                const int note = baseNote + snn.noteNumber;
-                                if (note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
-                                    turnOnKey(note, 127);
-                                    arpSeqLastNotes.push_back(note);
+                    // Play the arp/seq
+                    if (getAK1Parameter(arpIsOn) > 0.f) {
+                        // ARP+SEQ: turnOn the note of the sequence
+                        SeqNoteNumber& snn = arpSeqNotes[seqNotePosition];
+                        if (p[arpIsSequencer] == 1.f) {
+                            // SEQUENCER
+                            if (snn.onOff == 1) {
+                                AEArrayEnumeratePointers(heldNoteNumbersAE, NoteNumber *, noteStruct) {
+                                    const int baseNote = noteStruct->noteNumber;
+                                    const int note = baseNote + snn.noteNumber;
+                                    if (note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
+                                        turnOnKey(note, 127);
+                                        arpSeqLastNotes.push_back(note);
+                                    }
                                 }
                             }
-                        }
-                    } else {
-                        // ARPEGGIATOR
-                        const int note = snn.noteNumber;
-                        if (note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
-                            turnOnKey(note, 127);
-                            arpSeqLastNotes.push_back(note);
+                        } else {
+                            // ARPEGGIATOR
+                            const int note = snn.noteNumber;
+                            if (note >= 0 && note < AKS1_NUM_MIDI_NOTES) {
+                                turnOnKey(note, 127);
+                                arpSeqLastNotes.push_back(note);
+                            }
                         }
                     }
                 }

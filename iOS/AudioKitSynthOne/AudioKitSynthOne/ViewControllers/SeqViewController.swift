@@ -118,24 +118,20 @@ class SeqViewController: SynthPanelController {
     @objc public func updateLED(beatCounter: Int, heldNotes: Int = 128) {
         let arpIsOn = conductor.synth.getAK1Parameter(.arpIsOn) > 0 ? true : false
         let arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
-        let seqNum = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
+        let seqTotalSteps = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
         
+        // clear out all indicators
         arpSeqOctBoostButtons.forEach { $0.isActive = false }
         
-        if arpIsOn && arpIsSequencer && seqNum >= 0 {
-            let notePosition = (beatCounter + seqNum - 1) % seqNum
-
-            // TODO: REMOVE - FOR DEBUGING
-            //conductor.updateDisplayLabel("notePosition: \(notePosition), beatCounter: \(beatCounter)")
-            
-            // clear out all indicators
-            arpSeqOctBoostButtons.forEach { $0.isActive = false }
-            
+        // if a non-trivial sequence is playing
+        if arpIsOn && arpIsSequencer && seqTotalSteps > 0 {
+            let notePosition = (beatCounter + seqTotalSteps - 1) % seqTotalSteps
             if heldNotes != 0 {
-               // change the outline current notePosition
-               arpSeqOctBoostButtons[notePosition].isActive = true
+                // change the outline current notePosition
+                arpSeqOctBoostButtons[notePosition].isActive = true
             } else {
-               arpSeqOctBoostButtons[0].isActive = true
+                // on
+                arpSeqOctBoostButtons[0].isActive = true
             }
         }
     }

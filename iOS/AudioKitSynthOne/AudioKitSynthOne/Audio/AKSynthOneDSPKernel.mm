@@ -654,7 +654,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
         
         //MARK: ARP/SEQ
-        if ( p[arpIsOn] == 1.f || arpSeqLastNotes.size() > 0 ) {
+        if (getAK1Parameter(arpIsOn) == 1.f || arpSeqLastNotes.size() > 0) {
             const double r0 = fmod(arpTime, secPerBeat);
             arpTime = arpSampleCounter/AKS1_SAMPLE_RATE;
             arpSampleCounter += 1.0;
@@ -668,7 +668,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                 arpSeqLastNotes.clear();
 
                 // Create Arp/Seq array based on held notes and/or sequence parameters
-                if (p[arpIsOn] == 1.f && heldNoteNumbersAE.count > 0) {
+                if (getAK1Parameter(arpIsOn) == 1.f && heldNoteNumbersAE.count > 0) {
                     arpSeqNotes.clear();
                     arpSeqNotes2.clear();
                     
@@ -1100,7 +1100,7 @@ void AKSynthOneDSPKernel::turnOffKey(int noteNumber) {
         return;
     initializeNoteStates();
     if (p[isMono] == 1.f) {
-        if (p[arpIsOn] == 1.f || heldNoteNumbersAE.count == 0) {
+        if (getAK1Parameter(arpIsOn) == 1.f || heldNoteNumbersAE.count == 0) {
             // the case where this was the only held note and now it should be off, OR
             // the case where the sequencer turns off this key even though a note is held down
             if (monoNote->stage != NoteState::stageOff) {
@@ -1177,7 +1177,7 @@ void AKSynthOneDSPKernel::startNote(int noteNumber, int velocity, float frequenc
     [heldNoteNumbersAE updateWithContentsOfArray:heldNoteNumbers];
     
     // ARP/SEQ
-    if (p[arpIsOn] == 1.f) {
+    if (getAK1Parameter(arpIsOn) == 1.f) {
         return;
     } else {
         turnOnKey(noteNumber, velocity, frequency);
@@ -1194,7 +1194,7 @@ void AKSynthOneDSPKernel::stopNote(int noteNumber) {
     [heldNoteNumbersAE updateWithContentsOfArray: heldNoteNumbers];
     
     // ARP/SEQ
-    if (p[arpIsOn] == 1.f)
+    if (getAK1Parameter(arpIsOn) == 1.f)
         return;
     else
         turnOffKey(noteNumber);

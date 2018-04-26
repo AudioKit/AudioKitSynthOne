@@ -171,9 +171,7 @@ class Conductor: AKSynthOneProtocol {
     // called by DSP on main thread
     func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {
         let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
-        if beat.heldNotesCount > 0 {
-            seqVC?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
-        }
+        seqVC?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
     }
     
     // called by DSP on main thread

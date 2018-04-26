@@ -14,12 +14,12 @@
 #import "AEArray.h"
 #import "AEMessageQueue.h"
 
-#define SAMPLE_RATE (44100.f)
-#define RELEASE_AMPLITUDE_THRESHOLD (0.000000000232831f) // 1/2^32
+#define AKS1_SAMPLE_RATE (44100.f)
+#define AKS1_RELEASE_AMPLITUDE_THRESHOLD (0.000000000232831f) // 1/2^32
 #define AKS1_PORTAMENTO_HALF_TIME (0.1f)
-#define DEBUG_DSP_LOGGING (0)
-#define DEBUG_NOTE_STATE_LOGGING (0)
-#define DEPENDENT_PARAM_TAPER (0.4f)
+#define AKS1_DEBUG_DSP_LOGGING (0)
+#define AKS1_DEBUG_NOTE_STATE_LOGGING (0)
+#define AKS1_DEPENDENT_PARAM_TAPER (0.4f)
 
 // Relative note number to frequency
 static inline float nnToHz(float noteNumber) {
@@ -210,7 +210,7 @@ struct AKSynthOneDSPKernel::NoteState {
         float newFrequencyOsc1 = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyOsc1;
         newFrequencyOsc1 *= nnToHz((int)kernel->p[morph1SemitoneOffset]);
         newFrequencyOsc1 *= kernel->p[detuningMultiplier] * commonFrequencyCoefficient;
-        newFrequencyOsc1 = clamp(newFrequencyOsc1, 0.f, 0.5f*SAMPLE_RATE);
+        newFrequencyOsc1 = clamp(newFrequencyOsc1, 0.f, 0.5f*AKS1_SAMPLE_RATE);
         oscmorph1->freq = newFrequencyOsc1;
         
         //OSC1: wavetable
@@ -232,7 +232,7 @@ struct AKSynthOneDSPKernel::NoteState {
             newFrequencyOsc2 += lfo3_0_1 * kernel->p[morph2Detuning] * magicDetune;
         else
             newFrequencyOsc2 += kernel->p[morph2Detuning] * magicDetune;
-        newFrequencyOsc2 = clamp(newFrequencyOsc2, 0.f, 0.5f*SAMPLE_RATE);
+        newFrequencyOsc2 = clamp(newFrequencyOsc2, 0.f, 0.5f*AKS1_SAMPLE_RATE);
         oscmorph2->freq = newFrequencyOsc2;
         
         //OSC2: wavetable
@@ -242,14 +242,14 @@ struct AKSynthOneDSPKernel::NoteState {
         const float cachedFrequencySub = subOsc->freq;
         float newFrequencySub = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencySub;
         newFrequencySub *= kernel->p[detuningMultiplier] / (2.f * (1.f + kernel->p[subOctaveDown])) * commonFrequencyCoefficient;
-        newFrequencySub = clamp(newFrequencySub, 0.f, 0.5f * SAMPLE_RATE);
+        newFrequencySub = clamp(newFrequencySub, 0.f, 0.5f * AKS1_SAMPLE_RATE);
         subOsc->freq = newFrequencySub;
         
         //FM OSC FREQ
         const float cachedFrequencyFM = fmOsc->freq;
         float newFrequencyFM = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyFM;
         newFrequencyFM *= kernel->p[detuningMultiplier] * commonFrequencyCoefficient;
-        newFrequencyFM = clamp(newFrequencyFM, 0.f, 0.5f * SAMPLE_RATE);
+        newFrequencyFM = clamp(newFrequencyFM, 0.f, 0.5f * AKS1_SAMPLE_RATE);
         fmOsc->freq = newFrequencyFM;
         
         //FM LFO
@@ -316,7 +316,7 @@ struct AKSynthOneDSPKernel::NoteState {
         } else if (kernel->p[filterType] == 1) {
             // bandpass bandwidth is a different unit than lopass resonance.
             // take advantage of the range of resonance [0,1].
-            const float bandwidth = 0.0625f * SAMPLE_RATE * (-1.f + exp2( clamp(1.f - filterResonance, 0.f, 1.f) ) );
+            const float bandwidth = 0.0625f * AKS1_SAMPLE_RATE * (-1.f + exp2( clamp(1.f - filterResonance, 0.f, 1.f) ) );
             bandPass->bw = bandwidth;
         }
         
@@ -432,268 +432,6 @@ AKSynthOneDSPKernel::AKSynthOneDSPKernel() {}
 AKSynthOneDSPKernel::~AKSynthOneDSPKernel() = default;
 
 
-// algebraic taper and inverse for input range [0,1]
-inline float AKSynthOneDSPKernel::taper01(float inputValue01, float taper) {
-    return powf(inputValue01, 1.f / taper);
-}
-inline float AKSynthOneDSPKernel::taper01Inverse(float inputValue01, float taper) {
-    return powf(inputValue01, taper);
-}
-
-// algebraic and exponential taper and inverse generalized for all ranges
-inline float AKSynthOneDSPKernel::taper(float inputValue01, float min, float max, float taper) {
-    if ( (min == 0.f || max == 0.f) && (taper < 0.f) ) {
-        printf("can have a negative taper with a range that includes 0\n");
-        return min;
-    }
-    
-    if (taper > 0.f) {
-        // algebraic taper
-        return powf((inputValue01 - min )/(max - min), 1.f / taper);
-    } else {
-        // exponential taper
-        return min * expf(logf(max/min) * inputValue01);
-    }
-}
-
-inline float AKSynthOneDSPKernel::taperInverse(float inputValue01, float min, float max, float taper) {
-    if ((min == 0.f || max == 0.f) && taper < 0.f) {
-        printf("can have a negative taper with a range that includes 0\n");
-        return min;
-    }
-    
-    // Avoiding division by zero in this trivial case
-    if ((max - min) < FLT_EPSILON) {
-        return min;
-    }
-    
-    if (taper > 0.f) {
-        // algebraic taper
-        return min + (max - min) * pow(inputValue01, taper);
-    } else {
-        // exponential taper
-        float adjustedMinimum = 0.0;
-        float adjustedMaximum = 0.0;
-        if (min == 0.f) { adjustedMinimum = FLT_EPSILON; }
-        if (max == 0.f) { adjustedMaximum = FLT_EPSILON; }
-        return logf(inputValue01 / adjustedMinimum) / logf(adjustedMaximum / adjustedMinimum);
-    }
-}
-
-
-float AKSynthOneDSPKernel::getAK1Parameter(AKSynthOneParameter param) {
-    AKS1Param& s = aks1p[param];
-    if (s.usePortamento)
-        return s.portamentoTarget;
-    else
-        return p[param];
-}
-
-inline void AKSynthOneDSPKernel::_setAK1Parameter(AKSynthOneParameter param, float inputValue) {
-    const float value = parameterClamp(param, inputValue);
-    AKS1Param& s = aks1p[param];
-    if (s.usePortamento) {
-        s.portamentoTarget = value;
-    } else {
-        p[param] = value;
-    }
-}
-
-void AKSynthOneDSPKernel::setAK1Parameter(AKSynthOneParameter param, float inputValue) {
-    _setAK1ParameterHelper(param, inputValue, true);
-}
-
-inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread) {
-    if (p[tempoSyncToArpRate] > 0.f) {
-        // tempo sync
-        if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency) {
-            const float value = parameterClamp(param, inputValue);
-            AKS1RateArgs syncdValue = _rate.nearestFrequency(value, getAK1Parameter(arpRate), parameterMin(param), parameterMax(param));
-            _setAK1Parameter(param, syncdValue.value);
-            DependentParam previousDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f};
-            DependentParam outputDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f};
-            switch(param) {
-                case lfo1Rate:
-                    previousDP = _lfo1Rate;
-                    outputDP = _lfo1Rate = {param, syncdValue.value01, syncdValue.value};
-                    break;
-                case lfo2Rate:
-                    previousDP = _lfo2Rate;
-                    outputDP = _lfo2Rate = {param, syncdValue.value01, syncdValue.value};
-                    break;
-                case autoPanFrequency:
-                    previousDP = _autoPanRate;
-                    outputDP = _autoPanRate = {param, syncdValue.value01, syncdValue.value};
-                    break;
-                default:
-                    break;
-            }
-            if (notifyMainThread && (outputDP.value != previousDP.value)) {
-                dependentParameterDidChange(outputDP);
-            }
-        } else if (param == delayTime) {
-            const float value = parameterClamp(param, inputValue);
-            DependentParam previousDP = _delayTime;
-            AKS1RateArgs syncdValue = _rate.nearestTime(value, getAK1Parameter(arpRate), parameterMin(param), parameterMax(param));
-            _setAK1Parameter(param, syncdValue.value);
-            _delayTime = {param, 1.f - syncdValue.value01, syncdValue.value};
-            DependentParam outputDP = _delayTime;
-            if (notifyMainThread && (previousDP.value != _delayTime.value) ) {
-                dependentParameterDidChange(outputDP);
-            }
-        }
-    } else {
-        // no tempo sync
-        _setAK1Parameter(param, inputValue);
-        const float val = getAK1Parameter(param);
-        const float min = parameterMin(param);
-        const float max = parameterMax(param);
-        const float val01 = clamp((val - min) / (max - min), 0.f, 1.f);
-        if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency || param == delayTime) {
-            DependentParam previousDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f};
-            DependentParam outputDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f};
-            switch(param) {
-                case lfo1Rate:
-                    previousDP = _lfo1Rate;
-                    outputDP = _lfo1Rate = {param, val01, val};
-                    break;
-                case lfo2Rate:
-                    previousDP = _lfo2Rate;
-                    outputDP = _lfo2Rate = {param, val01, val};
-                    break;
-                case autoPanFrequency:
-                    previousDP = _autoPanRate;
-                    outputDP = _autoPanRate = {param, val01, val};
-                    break;
-                case delayTime:
-                    previousDP = _delayTime;
-                    _delayTime = {param, val01, val};
-                    outputDP = {param, val01, val};
-                    break;
-                default:
-                    break;
-            }
-            if (notifyMainThread && (outputDP.value != previousDP.value)) {
-                outputDP = {param, taper01Inverse(outputDP.value01, DEPENDENT_PARAM_TAPER), outputDP.value};
-                dependentParameterDidChange(outputDP);
-            }
-        }
-    }
-}
-
-inline void AKSynthOneDSPKernel::_setAK1ParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread) {
-    if (param == tempoSyncToArpRate || param == arpRate) {
-        _setAK1Parameter(param, inputValue);
-        _rateHelper(lfo1Rate, getAK1Parameter(lfo1Rate), notifyMainThread);
-        _rateHelper(lfo2Rate, getAK1Parameter(lfo2Rate), notifyMainThread);
-        _rateHelper(autoPanFrequency, getAK1Parameter(autoPanFrequency), notifyMainThread);
-        _rateHelper(delayTime, getAK1Parameter(delayTime), notifyMainThread);
-    } else if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency || param == delayTime) {
-        // dependent params
-        _rateHelper(param, inputValue, notifyMainThread);
-    } else {
-        // independent params
-        _setAK1Parameter(param, inputValue);
-    }
-}
-
-float AKSynthOneDSPKernel::getAK1DependentParameter(AKSynthOneParameter param) {
-    DependentParam dp;
-    switch(param) {
-        case lfo1Rate: dp = _lfo1Rate; break;
-        case lfo2Rate: dp = _lfo2Rate; break;
-        case autoPanFrequency: dp = _autoPanRate; break;
-        case delayTime: dp = _delayTime; break;
-        default:printf("error");break;
-    }
-    
-    if (p[tempoSyncToArpRate] > 0.f) {
-        return dp.value01;
-    } else {
-        return taper01Inverse(dp.value01, DEPENDENT_PARAM_TAPER);
-    }
-}
-
-// map normalized input to parameter range, do not notify main thread
-void AKSynthOneDSPKernel::setAK1DependentParameter(AKSynthOneParameter param, float inputValue01) {
-    const float taperValue01 = taper01(inputValue01, DEPENDENT_PARAM_TAPER); // for tempoSync == false
-    switch(param) {
-        case lfo1Rate: case lfo2Rate: case autoPanFrequency:
-            if (p[tempoSyncToArpRate] > 0.f) {
-                // tempo sync
-                AKSynthOneRate rate = _rate.rateFromFrequency01(inputValue01);
-                const float val = _rate.frequency(getAK1Parameter(arpRate), rate);
-                _setAK1ParameterHelper(param, val, false);
-            } else {
-                // no tempo sync
-                const float min = parameterMin(param);
-                const float max = parameterMax(param);
-                const float val = min + taperValue01 * (max - min);
-                _setAK1ParameterHelper(param, val, false);
-            }
-            break;
-        case delayTime:
-            if (p[tempoSyncToArpRate] > 0.f) {
-                // tempo sync
-                const float valInvert = 1.f - inputValue01;
-                AKSynthOneRate rate = _rate.rateFromTime01(valInvert);
-                const float val = _rate.time(getAK1Parameter(arpRate), rate);
-                _setAK1ParameterHelper(delayTime, val, false);
-            } else {
-                // no tempo sync
-                const float min = parameterMin(delayTime);
-                const float max = parameterMax(delayTime);
-                const float val = min + taperValue01 * (max - min);
-                _setAK1ParameterHelper(delayTime, val, false);
-            }
-            break;
-        default:printf("error");break;
-    }
-}
-
-void AKSynthOneDSPKernel::setParameters(float params[]) {
-    for (int i = 0; i < AKSynthOneParameter::AKSynthOneParameterCount; i++) {
-        setAK1Parameter((AKSynthOneParameter)i, params[i]);
-    }
-}
-
-void AKSynthOneDSPKernel::setParameter(AUParameterAddress address, AUValue value) {
-    const int i = (AKSynthOneParameter)address;
-    setAK1Parameter((AKSynthOneParameter)i, value);
-}
-
-AUValue AKSynthOneDSPKernel::getParameter(AUParameterAddress address) {
-    const int i = (AKSynthOneParameter)address;
-    return p[i];
-}
-
-void AKSynthOneDSPKernel::startRamp(AUParameterAddress address, AUValue value, AUAudioFrameCount duration) {}
-
-///DEBUG_NOTE_STATE_LOGGING (1) can cause race conditions, and audio artifacts
-inline void AKSynthOneDSPKernel::print_debug() {
-#if DEBUG_NOTE_STATE_LOGGING
-    printf("\n-------------------------------------\n");
-    printf("\nheldNoteNumbers:\n");
-    for (NSNumber* nnn in heldNoteNumbers) {
-        printf("%li, ", (long)nnn.integerValue);
-    }
-    
-    if (p[isMono] == 1) {
-        printf("\nmonoNote noteNumber:%i, freq:%f, freqSmooth:%f\n",monoNote->rootNoteNumber, monoFrequency, monoFrequencySmooth);
-        
-    } else {
-        printf("\nplayingNotes:\n");
-        for(int i=0; i<AKS1_MAX_POLYPHONY; i++) {
-            if (playingNoteStatesIndex == i)
-                printf("*");
-            const int nn = noteStates[i].rootNoteNumber;
-            printf("%i:%i, ", i, nn);
-        }
-    }
-    printf("\n-------------------------------------\n");
-#endif
-}
-
 ///panic...hard-resets DSP.  artifacts.
 void AKSynthOneDSPKernel::resetDSP() {
     [heldNoteNumbers removeAllObjects];
@@ -740,7 +478,7 @@ void AKSynthOneDSPKernel::dependentParameterDidChange(DependentParam param) {
                                               AEArgumentStruct(param),
                                               AEArgumentNone);
     if (!status) {
-#if DEBUG_DSP_LOGGING
+#if AKS1_DEBUG_DSP_LOGGING
         printf("AKSynthOneDSPKernel::dependentParameterDidChange: AEMessageQueuePerformSelectorOnMainThread FAILED!\n");
 #endif
     }
@@ -756,7 +494,7 @@ void AKSynthOneDSPKernel::beatCounterDidChange() {
                                               AEArgumentStruct(retVal),
                                               AEArgumentNone);
     if (!status) {
-#if DEBUG_DSP_LOGGING
+#if AKS1_DEBUG_DSP_LOGGING
         printf("AKSynthOneDSPKernel::beatCounterDidChange: AEMessageQueuePerformSelectorOnMainThread FAILED!\n");
 #endif
     }
@@ -783,7 +521,7 @@ void AKSynthOneDSPKernel::playingNotesDidChange() {
                                               AEArgumentStruct(aePlayingNotes),
                                               AEArgumentNone);
     if (!status) {
-#if DEBUG_DSP_LOGGING
+#if AKS1_DEBUG_DSP_LOGGING
         printf("AKSynthOneDSPKernel::playingNotesDidChange: AEMessageQueuePerformSelectorOnMainThread FAILED!\n");
 #endif
     }
@@ -810,7 +548,7 @@ void AKSynthOneDSPKernel::heldNotesDidChange() {
                                               AEArgumentStruct(aeHeldNotes),
                                               AEArgumentNone);
     if (!status) {
-#if DEBUG_DSP_LOGGING
+#if AKS1_DEBUG_DSP_LOGGING
         printf("AKSynthOneDSPKernel::heldNotesDidChange: AEMessageQueuePerformSelectorOnMainThread FAILED!\n");
 #endif
     }
@@ -874,14 +612,14 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     // transition playing notes from release to off
     bool transitionedToOff = false;
     if (p[isMono] == 1.f) {
-        if (monoNote->stage == NoteState::stageRelease && monoNote->amp <= RELEASE_AMPLITUDE_THRESHOLD) {
+        if (monoNote->stage == NoteState::stageRelease && monoNote->amp <= AKS1_RELEASE_AMPLITUDE_THRESHOLD) {
             monoNote->clear();
             transitionedToOff = true;
         }
     } else {
         for(int i=0; i<polyphony; i++) {
             NoteState& note = noteStates[i];
-            if (note.stage == NoteState::stageRelease && note.amp <= RELEASE_AMPLITUDE_THRESHOLD) {
+            if (note.stage == NoteState::stageRelease && note.amp <= AKS1_RELEASE_AMPLITUDE_THRESHOLD) {
                 note.clear();
                 transitionedToOff = true;
             }
@@ -918,7 +656,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         //MARK: ARP/SEQ
         if ( p[arpIsOn] == 1.f || arpSeqLastNotes.size() > 0 ) {
             const double r0 = fmod(arpTime, secPerBeat);
-            arpTime = arpSampleCounter/SAMPLE_RATE;
+            arpTime = arpSampleCounter/AKS1_SAMPLE_RATE;
             arpSampleCounter += 1.0;
             const double r1 = fmod(arpTime, secPerBeat);
             if (r1 < r0) {
@@ -1136,7 +874,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
         //BITCRUSH
         float bitCrushOut = synthOut;
-        bitcrushIncr = SAMPLE_RATE / bitcrushSrate; //TODO:use live sample rate, not hard-coded
+        bitcrushIncr = AKS1_SAMPLE_RATE / bitcrushSrate; //TODO:use live sample rate, not hard-coded
         if (bitcrushIncr < 1.f) bitcrushIncr = 1.f; // for the case where the audio engine samplerate > 44100 (i.e., 48000)
         if (bitcrushIndex <= bitcrushSampleIndex) {
             bitCrushOut = bitcrushValue = synthOut;
@@ -1232,7 +970,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         float reverbWetL = 0.f;
         float reverbWetR = 0.f;
         reverbCostello->feedback = p[reverbFeedback];
-        reverbCostello->lpfreq = 0.5f * SAMPLE_RATE;
+        reverbCostello->lpfreq = 0.5f * AKS1_SAMPLE_RATE;
         sp_revsc_compute(sp, reverbCostello, &butCompressOutL, &butCompressOutR, &reverbWetL, &reverbWetR);
         
         // compressor for wet reverb; like X2, FM
@@ -1583,7 +1321,7 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
             aks1p[i].portamento->htime = AKS1_PORTAMENTO_HALF_TIME;
         }
         p[i] = value;
-#if DEBUG_DSP_LOGGING
+#if AKS1_DEBUG_DSP_LOGGING
         const char* d = AKSynthOneDSPKernel::parameterCStr((AKSynthOneParameter)i);
         printf("AKSynthOneDSPKernel.hpp:setAK1Parameter(): %i:%s --> %f\n", i, d, value);
 #endif
@@ -1713,6 +1451,12 @@ void AKSynthOneDSPKernel::setWaveformValue(uint32_t waveform, uint32_t index, fl
     ft_array[waveform]->tbl[index] = value;
 }
 
+
+
+
+
+
+
 ///parameter min
 float AKSynthOneDSPKernel::parameterMin(AKSynthOneParameter i) {
     return aks1p[i].min;
@@ -1753,4 +1497,265 @@ std::string AKSynthOneDSPKernel::parameterFriendlyName(AKSynthOneParameter i) {
 ///parameter presetKey
 std::string AKSynthOneDSPKernel::parameterPresetKey(AKSynthOneParameter i) {
     return aks1p[i].presetKey;
+}
+
+// algebraic taper and inverse for input range [0,1]
+inline float AKSynthOneDSPKernel::taper01(float inputValue01, float taper) {
+    return powf(inputValue01, 1.f / taper);
+}
+inline float AKSynthOneDSPKernel::taper01Inverse(float inputValue01, float taper) {
+    return powf(inputValue01, taper);
+}
+
+// algebraic and exponential taper and inverse generalized for all ranges
+inline float AKSynthOneDSPKernel::taper(float inputValue01, float min, float max, float taper) {
+    if ( (min == 0.f || max == 0.f) && (taper < 0.f) ) {
+        printf("can have a negative taper with a range that includes 0\n");
+        return min;
+    }
+    
+    if (taper > 0.f) {
+        // algebraic taper
+        return powf((inputValue01 - min )/(max - min), 1.f / taper);
+    } else {
+        // exponential taper
+        return min * expf(logf(max/min) * inputValue01);
+    }
+}
+
+inline float AKSynthOneDSPKernel::taperInverse(float inputValue01, float min, float max, float taper) {
+    if ((min == 0.f || max == 0.f) && taper < 0.f) {
+        printf("can have a negative taper with a range that includes 0\n");
+        return min;
+    }
+    
+    // Avoiding division by zero in this trivial case
+    if ((max - min) < FLT_EPSILON) {
+        return min;
+    }
+    
+    if (taper > 0.f) {
+        // algebraic taper
+        return min + (max - min) * pow(inputValue01, taper);
+    } else {
+        // exponential taper
+        float adjustedMinimum = 0.0;
+        float adjustedMaximum = 0.0;
+        if (min == 0.f) { adjustedMinimum = FLT_EPSILON; }
+        if (max == 0.f) { adjustedMaximum = FLT_EPSILON; }
+        return logf(inputValue01 / adjustedMinimum) / logf(adjustedMaximum / adjustedMinimum);
+    }
+}
+
+float AKSynthOneDSPKernel::getAK1Parameter(AKSynthOneParameter param) {
+    AKS1Param& s = aks1p[param];
+    if (s.usePortamento)
+        return s.portamentoTarget;
+    else
+        return p[param];
+}
+
+inline void AKSynthOneDSPKernel::_setAK1Parameter(AKSynthOneParameter param, float inputValue) {
+    const float value = parameterClamp(param, inputValue);
+    AKS1Param& s = aks1p[param];
+    if (s.usePortamento) {
+        s.portamentoTarget = value;
+    } else {
+        p[param] = value;
+    }
+}
+
+void AKSynthOneDSPKernel::setAK1Parameter(AKSynthOneParameter param, float inputValue) {
+    _setAK1ParameterHelper(param, inputValue, true);
+}
+
+inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread) {
+    if (p[tempoSyncToArpRate] > 0.f) {
+        // tempo sync
+        if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency) {
+            const float value = parameterClamp(param, inputValue);
+            AKS1RateArgs syncdValue = _rate.nearestFrequency(value, getAK1Parameter(arpRate), parameterMin(param), parameterMax(param));
+            _setAK1Parameter(param, syncdValue.value);
+            DependentParam previousDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f};
+            DependentParam outputDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f};
+            switch(param) {
+                case lfo1Rate:
+                    previousDP = _lfo1Rate;
+                    outputDP = _lfo1Rate = {param, syncdValue.value01, syncdValue.value};
+                    break;
+                case lfo2Rate:
+                    previousDP = _lfo2Rate;
+                    outputDP = _lfo2Rate = {param, syncdValue.value01, syncdValue.value};
+                    break;
+                case autoPanFrequency:
+                    previousDP = _autoPanRate;
+                    outputDP = _autoPanRate = {param, syncdValue.value01, syncdValue.value};
+                    break;
+                default:
+                    break;
+            }
+            if (notifyMainThread && (outputDP.value != previousDP.value)) {
+                dependentParameterDidChange(outputDP);
+            }
+        } else if (param == delayTime) {
+            const float value = parameterClamp(param, inputValue);
+            DependentParam previousDP = _delayTime;
+            AKS1RateArgs syncdValue = _rate.nearestTime(value, getAK1Parameter(arpRate), parameterMin(param), parameterMax(param));
+            _setAK1Parameter(param, syncdValue.value);
+            _delayTime = {param, 1.f - syncdValue.value01, syncdValue.value};
+            DependentParam outputDP = _delayTime;
+            if (notifyMainThread && (previousDP.value != _delayTime.value) ) {
+                dependentParameterDidChange(outputDP);
+            }
+        }
+    } else {
+        // no tempo sync
+        _setAK1Parameter(param, inputValue);
+        const float val = getAK1Parameter(param);
+        const float min = parameterMin(param);
+        const float max = parameterMax(param);
+        const float val01 = clamp((val - min) / (max - min), 0.f, 1.f);
+        if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency || param == delayTime) {
+            DependentParam previousDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f};
+            DependentParam outputDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f};
+            switch(param) {
+                case lfo1Rate:
+                    previousDP = _lfo1Rate;
+                    outputDP = _lfo1Rate = {param, val01, val};
+                    break;
+                case lfo2Rate:
+                    previousDP = _lfo2Rate;
+                    outputDP = _lfo2Rate = {param, val01, val};
+                    break;
+                case autoPanFrequency:
+                    previousDP = _autoPanRate;
+                    outputDP = _autoPanRate = {param, val01, val};
+                    break;
+                case delayTime:
+                    previousDP = _delayTime;
+                    _delayTime = {param, val01, val};
+                    outputDP = {param, val01, val};
+                    break;
+                default:
+                    break;
+            }
+            if (notifyMainThread && (outputDP.value != previousDP.value)) {
+                outputDP = {param, taper01Inverse(outputDP.value01, AKS1_DEPENDENT_PARAM_TAPER), outputDP.value};
+                dependentParameterDidChange(outputDP);
+            }
+        }
+    }
+}
+
+inline void AKSynthOneDSPKernel::_setAK1ParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread) {
+    if (param == tempoSyncToArpRate || param == arpRate) {
+        _setAK1Parameter(param, inputValue);
+        _rateHelper(lfo1Rate, getAK1Parameter(lfo1Rate), notifyMainThread);
+        _rateHelper(lfo2Rate, getAK1Parameter(lfo2Rate), notifyMainThread);
+        _rateHelper(autoPanFrequency, getAK1Parameter(autoPanFrequency), notifyMainThread);
+        _rateHelper(delayTime, getAK1Parameter(delayTime), notifyMainThread);
+    } else if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency || param == delayTime) {
+        // dependent params
+        _rateHelper(param, inputValue, notifyMainThread);
+    } else {
+        // independent params
+        _setAK1Parameter(param, inputValue);
+    }
+}
+
+float AKSynthOneDSPKernel::getAK1DependentParameter(AKSynthOneParameter param) {
+    DependentParam dp;
+    switch(param) {
+        case lfo1Rate: dp = _lfo1Rate; break;
+        case lfo2Rate: dp = _lfo2Rate; break;
+        case autoPanFrequency: dp = _autoPanRate; break;
+        case delayTime: dp = _delayTime; break;
+        default:printf("error");break;
+    }
+    
+    if (p[tempoSyncToArpRate] > 0.f) {
+        return dp.value01;
+    } else {
+        return taper01Inverse(dp.value01, AKS1_DEPENDENT_PARAM_TAPER);
+    }
+}
+
+// map normalized input to parameter range, do not notify main thread
+void AKSynthOneDSPKernel::setAK1DependentParameter(AKSynthOneParameter param, float inputValue01) {
+    const float taperValue01 = taper01(inputValue01, AKS1_DEPENDENT_PARAM_TAPER); // for tempoSync == false
+    switch(param) {
+        case lfo1Rate: case lfo2Rate: case autoPanFrequency:
+            if (p[tempoSyncToArpRate] > 0.f) {
+                // tempo sync
+                AKSynthOneRate rate = _rate.rateFromFrequency01(inputValue01);
+                const float val = _rate.frequency(getAK1Parameter(arpRate), rate);
+                _setAK1ParameterHelper(param, val, false);
+            } else {
+                // no tempo sync
+                const float min = parameterMin(param);
+                const float max = parameterMax(param);
+                const float val = min + taperValue01 * (max - min);
+                _setAK1ParameterHelper(param, val, false);
+            }
+            break;
+        case delayTime:
+            if (p[tempoSyncToArpRate] > 0.f) {
+                // tempo sync
+                const float valInvert = 1.f - inputValue01;
+                AKSynthOneRate rate = _rate.rateFromTime01(valInvert);
+                const float val = _rate.time(getAK1Parameter(arpRate), rate);
+                _setAK1ParameterHelper(delayTime, val, false);
+            } else {
+                // no tempo sync
+                const float min = parameterMin(delayTime);
+                const float max = parameterMax(delayTime);
+                const float val = min + taperValue01 * (max - min);
+                _setAK1ParameterHelper(delayTime, val, false);
+            }
+            break;
+        default:printf("error");break;
+    }
+}
+
+void AKSynthOneDSPKernel::setParameters(float params[]) {
+    for (int i = 0; i < AKSynthOneParameter::AKSynthOneParameterCount; i++) {
+        setAK1Parameter((AKSynthOneParameter)i, params[i]);
+    }
+}
+
+void AKSynthOneDSPKernel::setParameter(AUParameterAddress address, AUValue value) {
+    const int i = (AKSynthOneParameter)address;
+    setAK1Parameter((AKSynthOneParameter)i, value);
+}
+
+AUValue AKSynthOneDSPKernel::getParameter(AUParameterAddress address) {
+    const int i = (AKSynthOneParameter)address;
+    return p[i];
+}
+
+void AKSynthOneDSPKernel::startRamp(AUParameterAddress address, AUValue value, AUAudioFrameCount duration) {}
+
+///AKS1_DEBUG_NOTE_STATE_LOGGING (1) can cause race conditions, and audio artifacts
+inline void AKSynthOneDSPKernel::print_debug() {
+#if AKS1_DEBUG_NOTE_STATE_LOGGING
+    printf("\n-------------------------------------\n");
+    printf("\nheldNoteNumbers:\n");
+    for (NSNumber* nnn in heldNoteNumbers) {
+        printf("%li, ", (long)nnn.integerValue);
+    }
+    
+    if (p[isMono] == 1) {
+        printf("\nmonoNote noteNumber:%i, freq:%f, freqSmooth:%f\n",monoNote->rootNoteNumber, monoFrequency, monoFrequencySmooth);
+        
+    } else {
+        printf("\nplayingNotes:\n");
+        for(int i=0; i<AKS1_MAX_POLYPHONY; i++) {
+            if (playingNoteStatesIndex == i)
+                printf("*");
+            const int nn = noteStates[i].rootNoteNumber;
+            printf("%i:%i, ", i, nn);
+        }
+    }
+    printf("\n-------------------------------------\n");
+#endif
 }

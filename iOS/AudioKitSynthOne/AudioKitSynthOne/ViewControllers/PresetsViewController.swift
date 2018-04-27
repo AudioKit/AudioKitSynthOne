@@ -141,7 +141,11 @@ class PresetsViewController: UIViewController {
             
         // Sort by Categories
         case 1...PresetCategory.categoryCount:
-            sortedPresets = presets.filter { $0.category == categoryIndex }
+            sortedPresets.removeAll()
+            let categoryPresets = presets.filter { $0.category == categoryIndex }
+            conductor.banks.forEach { bank in
+                sortedPresets += categoryPresets.filter { $0.bank == bank.name }.sorted { $0.position < $1.position }
+            }
             
         // Sort by Favorites
         case PresetCategory.categoryCount + 1:

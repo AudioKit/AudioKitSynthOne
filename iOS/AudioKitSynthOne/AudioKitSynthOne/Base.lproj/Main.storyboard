@@ -2552,8 +2552,8 @@
                                 <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Free &amp; open-source synthesizer. It's free, share with your friends!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jE-3e-bye">
-                                <rect key="frame" x="17" y="31" width="187" height="51"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Free &amp; open-source synthesizer. Browse presets &amp; banks below. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jE-3e-bye">
+                                <rect key="frame" x="17" y="31" width="211" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2603,7 +2603,7 @@
                     </state>
                 </button>
             </objects>
-            <point key="canvasLocation" x="-594" y="139"/>
+            <point key="canvasLocation" x="-594.140625" y="138.671875"/>
         </scene>
         <!--Presets Categories Controller-->
         <scene sceneID="thJ-7m-sD3">
@@ -2685,7 +2685,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdg-cd-gxJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-957" y="1174"/>
+            <point key="canvasLocation" x="-905" y="596"/>
         </scene>
         <!--Pop Up Preset Edit-->
         <scene sceneID="Opm-jz-zET">
@@ -3214,7 +3214,7 @@ This app is a labor of love. How can you help? Please share with your friends an
 We're all volunteers. We don't get paid anything to create these apps. We're dozens of developers, sound designers, and music lovers across the globe who want to give back to the music-making community. We hope you enjoy it!
 
 Thanks to the following people for their contributions:
-</mutableString>
+- List People Here</mutableString>
                                                 <color key="textColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

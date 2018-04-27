@@ -748,12 +748,15 @@ extension PresetsViewController: PresetPopOverDelegate {
         
         // Check for bank change
         if currentPreset.bank != newBank {
-            // remove preset from its previous bank
-            let oldBank = currentPreset.bank
-            currentPreset.bank = newBank
-            saveAllPresetsIn(oldBank)
+            // Check if preset name exists
+            if  name == currentPreset.name {
+                // remove preset from its previous bank if preset not renamed
+                let oldBank = currentPreset.bank
+                currentPreset.bank = newBank
+                saveAllPresetsIn(oldBank)
+            }
         }
-        
+       
         // save preset
         presetsDelegate?.saveEditedPreset(name: name, category: category, bank: newBank)
     }

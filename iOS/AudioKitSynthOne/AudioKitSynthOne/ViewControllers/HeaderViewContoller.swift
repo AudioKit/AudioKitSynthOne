@@ -61,7 +61,7 @@ public class HeaderViewController: UpdatableViewController {
         displayLabel.isUserInteractionEnabled = true    
         
         // DEV panel
-        devButton.isHidden = false
+        devButton.isHidden = true
         
         //
         setupCallbacks()
@@ -202,11 +202,11 @@ public class HeaderViewController: UpdatableViewController {
         case .arpInterval:
             displayLabel.text = "Arpeggiator Interval: \(Int(value))"
         case .arpIsOn:
-            displayLabel.text = value == 1 ? "Arpeggiator/Sequencer On" : "Arpeggiator/Sequencer Off"
+            displayLabel.text = value == 1 ? "Arp/Sequencer On" : "Arpeggiator/Sequencer Off"
         case .arpIsSequencer:
             displayLabel.text = value == 1 ? "Sequencer Mode" : "Arpeggiator Mode"
         case .arpRate:
-            displayLabel.text = "Arpeggiator/Sequencer Tempo: \(value) BPM"
+            displayLabel.text = "Arp/Sequencer Tempo: \(value) BPM"
         case .widen:
             displayLabel.text = "Widen: \(value.decimalString)"
             

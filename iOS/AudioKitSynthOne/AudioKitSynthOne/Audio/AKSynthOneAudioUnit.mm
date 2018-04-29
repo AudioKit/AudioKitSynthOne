@@ -34,8 +34,8 @@
     return _kernel.getAK1DependentParameter(param);
 }
 
-- (void)setAK1DependentParameter:(AKSynthOneParameter)param value:(float)value {
-    _kernel.setAK1DependentParameter(param, value);
+- (void)setAK1DependentParameter:(AKSynthOneParameter)param value:(float)value payload:(int)payload {
+    _kernel.setAK1DependentParameter(param, value, payload);
 }
 
 ///auv3

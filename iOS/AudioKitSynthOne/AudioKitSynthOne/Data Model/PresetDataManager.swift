@@ -15,7 +15,11 @@ extension ParentViewController {
     // **********************************************************
     
     func loadPreset() {
-        let s = conductor.synth!
+
+        guard let s = conductor.synth else {
+            print("ERROR:can't read presets if synth is not initialized")
+            return
+        }
         
         s.setAK1Parameter(.tempoSyncToArpRate,  activePreset.tempoSyncToArpRate)
         s.setAK1Parameter(.arpRate, activePreset.arpRate)
@@ -94,19 +98,26 @@ extension ParentViewController {
             s.setAK1ArpSeqNoteOn(forIndex: i, activePreset.seqNoteOn[i])
         }
         s.setAK1Parameter(.filterType, activePreset.filterType)
-        
+        s.setAK1Parameter(.compressorMasterRatio, activePreset.compressorMasterRatio)
+        s.setAK1Parameter(.compressorReverbInputRatio, activePreset.compressorReverbInputRatio)
+        s.setAK1Parameter(.compressorReverbWetRatio, activePreset.compressorReverbWetRatio)
+        s.setAK1Parameter(.compressorMasterThreshold, activePreset.compressorMasterThreshold)
+        s.setAK1Parameter(.compressorReverbInputThreshold, activePreset.compressorReverbInputThreshold)
+        s.setAK1Parameter(.compressorReverbWetThreshold, activePreset.compressorReverbWetThreshold)
+        s.setAK1Parameter(.compressorMasterAttack, activePreset.compressorMasterAttack)
+        s.setAK1Parameter(.compressorReverbInputAttack, activePreset.compressorReverbInputAttack)
+        s.setAK1Parameter(.compressorReverbWetAttack, activePreset.compressorReverbWetAttack)
+        s.setAK1Parameter(.compressorMasterRelease, activePreset.compressorMasterRelease)
+        s.setAK1Parameter(.compressorReverbInputRelease, activePreset.compressorReverbInputRelease)
+        s.setAK1Parameter(.compressorReverbWetRelease, activePreset.compressorReverbWetRelease)
+        s.setAK1Parameter(.compressorMasterMakeupGain, activePreset.compressorMasterMakeupGain)
+        s.setAK1Parameter(.compressorReverbInputMakeupGain, activePreset.compressorReverbInputMakeupGain)
+        s.setAK1Parameter(.compressorReverbWetMakeupGain, activePreset.compressorReverbWetMakeupGain)
+        s.setAK1Parameter(.delayInputCutoffTrackingRatio, activePreset.delayInputCutoffTrackingRatio)
+        s.setAK1Parameter(.delayInputResonance, activePreset.delayInputResonance)
+
+        //
         s.resetSequencer()
-                
-        #if false
-        AKLog("----------------------------------------------------------------------")
-        AKLog("Preset #\(activePreset.position) \(activePreset.name)")
-        for i in 0..<AKSynthOneParameter.count {
-            let param : AKSynthOneParameter = AKSynthOneParameter(rawValue: i)!
-            let sd = param.simpleDescription()
-            AKLog("\(i) = \(sd) = \(s.getAK1Parameter(param))")
-        }
-        AKLog("END----------------------------------------------------------------------")
-            #endif
     }
     
     func saveValuesToPreset() {
@@ -188,9 +199,26 @@ extension ParentViewController {
             activePreset.seqOctBoost[i] = s.getAK1SeqOctBoost(forIndex: i) > 0 ? true : false
             activePreset.seqNoteOn[i] = s.getAK1ArpSeqNoteOn(forIndex: i)
         }
-
-        activePreset.filterType = s.getAK1Parameter(.filterType)
         
+        activePreset.filterType = s.getAK1Parameter(.filterType)
+        activePreset.compressorMasterRatio = s.getAK1Parameter(.compressorMasterRatio)
+        activePreset.compressorReverbInputRatio = s.getAK1Parameter(.compressorReverbInputRatio)
+        activePreset.compressorReverbWetRatio = s.getAK1Parameter(.compressorReverbWetRatio)
+        activePreset.compressorMasterThreshold = s.getAK1Parameter(.compressorMasterThreshold)
+        activePreset.compressorReverbInputThreshold = s.getAK1Parameter(.compressorReverbInputThreshold)
+        activePreset.compressorReverbWetThreshold = s.getAK1Parameter(.compressorReverbWetThreshold)
+        activePreset.compressorMasterAttack = s.getAK1Parameter(.compressorMasterAttack)
+        activePreset.compressorReverbInputAttack = s.getAK1Parameter(.compressorReverbInputAttack)
+        activePreset.compressorReverbWetAttack = s.getAK1Parameter(.compressorReverbWetAttack)
+        activePreset.compressorMasterRelease = s.getAK1Parameter(.compressorMasterRelease)
+        activePreset.compressorReverbInputRelease = s.getAK1Parameter(.compressorReverbInputRelease)
+        activePreset.compressorReverbWetRelease = s.getAK1Parameter(.compressorReverbWetRelease)
+        activePreset.compressorMasterMakeupGain = s.getAK1Parameter(.compressorMasterMakeupGain)
+        activePreset.compressorReverbInputMakeupGain = s.getAK1Parameter(.compressorReverbInputMakeupGain)
+        activePreset.compressorReverbWetMakeupGain = s.getAK1Parameter(.compressorReverbWetMakeupGain)
+        activePreset.delayInputCutoffTrackingRatio = s.getAK1Parameter(.delayInputCutoffTrackingRatio)
+        activePreset.delayInputResonance = s.getAK1Parameter(.delayInputResonance)
+
         // octave position
         activePreset.octavePosition = keyboardView.firstOctave - 2
         

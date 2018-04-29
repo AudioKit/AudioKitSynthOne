@@ -91,8 +91,6 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
 
     
     //MARK: - AKSynthOneProtocol passthroughs
-    -(void)dependentParamDidChange:(DependentParam)dependentParam;
-
     @objc public func dependentParamDidChange(_ param: DependentParam) {
         delegate?.dependentParamDidChange(param)
     }

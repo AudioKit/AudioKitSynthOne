@@ -111,7 +111,7 @@ class FXViewController: SynthPanelController {
         lfo1Rate.taper = 1
         lfo1Rate.value = s.getAK1DependentParameter(.lfo1Rate)
         lfo1Rate.callback = { value in
-            s.setAK1DependentParameter(.lfo1Rate, value)
+            s.setAK1DependentParameter(.lfo1Rate, value, self.conductor.lfo1RateFXPanelID)
             self.conductor.updateDisplayLabel(.lfo1Rate, value: s.getAK1Parameter(.lfo1Rate))
         }
         
@@ -119,7 +119,7 @@ class FXViewController: SynthPanelController {
         lfo2Rate.taper = 1
         lfo2Rate.value = s.getAK1DependentParameter(.lfo2Rate)
         lfo2Rate.callback = { value in
-            s.setAK1DependentParameter(.lfo2Rate, value)
+            s.setAK1DependentParameter(.lfo2Rate, value, self.conductor.lfo2RateFXPanelID)
             self.conductor.updateDisplayLabel(.lfo2Rate, value: s.getAK1Parameter(.lfo2Rate))
         }
         
@@ -127,7 +127,7 @@ class FXViewController: SynthPanelController {
         autoPanRate.taper = 1
         autoPanRate.value = s.getAK1DependentParameter(.autoPanFrequency)
         autoPanRate.callback = { value in
-            s.setAK1DependentParameter(.autoPanFrequency, value)
+            s.setAK1DependentParameter(.autoPanFrequency, value, self.conductor.autoPanFXPanelID)
             self.conductor.updateDisplayLabel(.autoPanFrequency, value: s.getAK1Parameter(.autoPanFrequency))
         }
         
@@ -135,7 +135,7 @@ class FXViewController: SynthPanelController {
         delayTime.taper = 1
         delayTime.value = s.getAK1DependentParameter(.delayTime)
         delayTime.callback = { value in
-            s.setAK1DependentParameter(.delayTime, value)
+            s.setAK1DependentParameter(.delayTime, value, self.conductor.delayTimeFXPanelID)
             self.conductor.updateDisplayLabel(.delayTime, value: s.getAK1Parameter(.delayTime))
         }
     }
@@ -143,8 +143,14 @@ class FXViewController: SynthPanelController {
     func dependentParamDidChange(_ param: DependentParam) {
         switch param.param {
         case .lfo1Rate:
+            if param.payload == conductor.lfo1RateFXPanelID {
+                return
+            }
             lfo1Rate.value = Double(param.value01)
         case .lfo2Rate:
+            if param.payload == conductor.lfo2RateFXPanelID {
+                return
+            }
             lfo2Rate.value = Double(param.value01)
         case .autoPanFrequency:
             autoPanRate.value = Double(param.value01)

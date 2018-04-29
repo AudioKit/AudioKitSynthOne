@@ -22,9 +22,15 @@ class Conductor: AKSynthOneProtocol {
     var synth: AKSynthOne!
     var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
     var heldNoteCount: Int = 0
-
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
-
+    let lfo1RateFXPanelID: Int32 = 1
+    let lfo2RateFXPanelID: Int32 = 2
+    let autoPanFXPanelID: Int32 = 3
+    let delayTimeFXPanelID: Int32 = 4
+    let lfo1RateTouchPadID: Int32 = 5
+    let lfo1RateModWheelID: Int32 = 6
+    let lfo2RateModWheelID: Int32 = 7
+    
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
         let binding = (param, control)
         bindings.append(binding)
@@ -164,8 +170,12 @@ class Conductor: AKSynthOneProtocol {
     func dependentParamDidChange(_ param: DependentParam) {
         let fxVC = self.viewControllers.filter { $0 is FXViewController }.first as? FXViewController
         fxVC?.dependentParamDidChange(param)
+        
         let touchPadVC = self.viewControllers.filter { $0 is TouchPadViewController }.first as? TouchPadViewController
         touchPadVC?.dependentParamDidChange(param)
+        
+        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as? ParentViewController
+        parentVC?.dependentParamDidChange(param)
     }
     
     // called by DSP on main thread

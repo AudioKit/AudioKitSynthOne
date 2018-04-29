@@ -142,7 +142,6 @@ public class ParentViewController: UpdatableViewController {
         displayPresetsController()
         
         // Temporary MIDI IN
-        // TODO: Remove
         DispatchQueue.global(qos: .background).async {
             self.midi.createVirtualPorts()
             self.midi.openInput("Session 1")
@@ -282,25 +281,23 @@ public class ParentViewController: UpdatableViewController {
         }
         
         modWheelPad.callback = { value in
-            
             switch self.activePreset.modWheelRouting {
             case 0:
                 // Cutoff
                 let newValue = 1 - value
                 let scaledValue = Double.scaleRangeLog(newValue, rangeMin: 40, rangeMax: 7600)
                 s.setAK1Parameter(.cutoff, scaledValue*3)
-                self.conductor.updateSingleUI(.cutoff, control: nil, value: s.getAK1Parameter(.cutoff))
+                self.conductor.updateSingleUI(.cutoff, control: self.modWheelPad, value: s.getAK1Parameter(.cutoff))
             case 1:
                 // LFO 1 Rate
-                let scaledValue = Double.scaleRangeLog(value, rangeMin: 0.01, rangeMax: 12.0)
-                s.setAK1Parameter(.lfo1Rate, scaledValue)
+                let scaledValue = Double.scaleRange(value, rangeMin: 0, rangeMax: 1)
+                s.setAK1DependentParameter(.lfo1Rate, scaledValue, self.conductor.lfo1RateModWheelID)
             case 2:
                 // LFO 2 Rate
-                let scaledValue = Double.scaleRangeLog(value, rangeMin: 0.01, rangeMax: 12.0)
-                s.setAK1Parameter(.lfo2Rate, scaledValue)
+                let scaledValue = Double.scaleRange(value, rangeMin: 0, rangeMax: 1)
+                s.setAK1DependentParameter(.lfo2Rate, scaledValue, self.conductor.lfo2RateModWheelID)
             default:
                 break
-                
             }
         }
         
@@ -330,11 +327,44 @@ public class ParentViewController: UpdatableViewController {
     }
     
     override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
+        let s = conductor.synth!
+        
         // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
-        let isMono = conductor.synth!.getAK1Parameter(.isMono)
+        let isMono = s.getAK1Parameter(.isMono)
         if isMono != monoButton.value {
             monoButton.value = isMono
             self.keyboardView.polyphonicMode = isMono > 0 ? false : true
+        }
+        
+        if param == .cutoff {
+            if inputControl === modWheelPad || activePreset.modWheelRouting != 0 {
+                return
+            }
+            let mmin = 40.0
+            let mmax = 7600.0
+            let scaledValue01 = (0...1).clamp(1 - ((log(value)-log(mmin))/(log(mmax)-log(mmin))))
+            modWheelPad.setVerticalValue01(scaledValue01)
+        }
+    }
+    
+    func dependentParamDidChange(_ param: DependentParam) {
+        switch param.param {
+        case .lfo1Rate:
+            if param.payload == conductor.lfo1RateModWheelID {
+                return
+            }
+            if activePreset.modWheelRouting == 1 {
+                modWheelPad.setVerticalValue01(Double(param.value01))
+            }
+        case .lfo2Rate:
+            if param.payload == conductor.lfo2RateModWheelID {
+                return
+            }
+            if activePreset.modWheelRouting == 2 {
+                modWheelPad.setVerticalValue01(Double(param.value01))
+            }
+        default:
+            _ = 0
         }
     }
 
@@ -425,6 +455,22 @@ extension ParentViewController: ModWheelDelegate {
     
     func didSelectRouting(newDestination: Int) {
         activePreset.modWheelRouting = Double(newDestination)
+        let s = conductor.synth!
+
+        switch activePreset.modWheelRouting {
+        case 0:
+            // Cutoff
+            conductor.updateSingleUI(.cutoff, control: nil, value: s.getAK1Parameter(.cutoff))
+        case 1:
+            // LFO 1 Rate
+            modWheelPad.setVerticalValue01(Double(s.getAK1DependentParameter(.lfo1Rate)))
+        case 2:
+            // LFO 2 Rate
+            modWheelPad.setVerticalValue01(Double(s.getAK1DependentParameter(.lfo2Rate)))
+        default:
+            break
+        }
+
     }
 }
 
@@ -873,5 +919,4 @@ extension ParentViewController: AKMIDIListener  {
     }
     
 }
-
 

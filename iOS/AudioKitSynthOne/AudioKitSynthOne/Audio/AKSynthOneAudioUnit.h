@@ -28,6 +28,7 @@ typedef struct DependentParam {
     AKSynthOneParameter param;
     float value01;// [0,1] for ui
     float value;
+    int payload;
 } DependentParam;
 
 // helper for main+render thread communication: array of playing notes
@@ -72,7 +73,7 @@ typedef struct AKS1ArpBeatCounter {
 - (float)getAK1Parameter:(AKSynthOneParameter)param;
 - (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value;
 - (float)getAK1DependentParameter:(AKSynthOneParameter)param;
-- (void)setAK1DependentParameter:(AKSynthOneParameter)param value:(float)value;
+- (void)setAK1DependentParameter:(AKSynthOneParameter)param value:(float)value payload:(int)payload;
 
 - (float)getParameterMin:(AKSynthOneParameter)param;
 - (float)getParameterMax:(AKSynthOneParameter)param;

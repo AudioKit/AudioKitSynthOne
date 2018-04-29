@@ -61,12 +61,17 @@ public class HeaderViewController: UpdatableViewController {
         displayLabel.isUserInteractionEnabled = true    
         
         // DEV panel
+        #if true
         devButton.isHidden = true
+        #else
+        //TODO:Show for debug, hide for release, keep easter egg :-)
+        devButton.isHidden = false
+        #endif
         
         //
         setupCallbacks()
     }
-    
+     
     override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
         updateDisplayLabel(param, value: value)
     }
@@ -246,11 +251,11 @@ public class HeaderViewController: UpdatableViewController {
         case .compressorReverbWetMakeupGain:
             displayLabel.text = "compressorReverbWetMakeupGain: \(value.decimalString)"
 
-        case .delayInputCutoff, .delayInputResonance:
-            displayLabel.text = "Delay Input Cutoff: \(s.getAK1Parameter(.delayInputCutoff).decimalString) Hz, Rez: \(s.getAK1Parameter(.delayInputResonance).decimalString)"
+        case .delayInputResonance:
+            displayLabel.text = "Delay Input Rez: \(s.getAK1Parameter(.delayInputResonance).decimalString)"
 
         case .delayInputCutoffTrackingRatio:
-            displayLabel.text = "Delay Input Cutoff Tracking: \(s.getAK1Parameter(.delayInputCutoffTrackingRatio).decimalString)"
+            displayLabel.text = "Delay Input Cutoff Tracking Ratio: \(s.getAK1Parameter(.delayInputCutoffTrackingRatio).decimalString)"
 
         default:
             _ = 0

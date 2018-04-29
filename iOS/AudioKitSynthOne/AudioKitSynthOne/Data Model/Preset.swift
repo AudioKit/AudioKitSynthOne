@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AudioKit
 
 
 // ******************************************************
@@ -14,7 +15,7 @@ import Foundation
 // ******************************************************
 
 class Preset: Codable {
-    
+        
     var uid = UUID().uuidString
     var position = 0 // Preset #
     var name = "Init"
@@ -128,6 +129,26 @@ class Preset: Codable {
     // MOD Wheel Routings
     var modWheelRouting = 0.0
     
+    // REVERB/MASTER DYNAMICS
+    var compressorMasterRatio = 0.0
+    var compressorReverbInputRatio = 0.0
+    var compressorReverbWetRatio = 0.0
+    var compressorMasterThreshold = 0.0
+    var compressorReverbInputThreshold = 0.0
+    var compressorReverbWetThreshold = 0.0
+    var compressorMasterAttack = 0.0
+    var compressorReverbInputAttack = 0.0
+    var compressorReverbWetAttack = 0.0
+    var compressorMasterRelease = 0.0
+    var compressorReverbInputRelease = 0.0
+    var compressorReverbWetRelease = 0.0
+    var compressorMasterMakeupGain = 0.0
+    var compressorReverbInputMakeupGain = 0.0
+    var compressorReverbWetMakeupGain = 0.0
+    var delayInputCutoffTrackingRatio = 0.0
+    var delayInputResonance = 0.0
+
+    
     // ******************************************************
     // MARK: - Init
     // ******************************************************
@@ -176,6 +197,12 @@ class Preset: Codable {
     // Init from Dictionary/JSON
     init(dictionary: [String: Any]) {
         
+        //TODO:initialize with dsp defaults.  i.e., s.getAK1Parameter(.tempoSyncToArpRate)
+        guard let _ = Conductor.sharedInstance.synth else {
+            print("ERROR:can't read presets if synth is not initialized")
+            return
+        }
+
         name = dictionary["name"] as? String ?? name
         position = dictionary["position"] as? Int ?? position
         uid = dictionary["uid"] as? String ?? uid
@@ -288,5 +315,25 @@ class Preset: Codable {
         phaserMix = dictionary["phaserMix"] as? Double ?? phaserMix
         phaserRate = dictionary["phaserRate"] as? Double ?? phaserRate
         phaserNotchWidth = dictionary["phaserNotchWidth"] as? Double ?? phaserNotchWidth
+        
+        //REVERB/MASTER DYNAMICS
+        compressorMasterRatio = dictionary["compressorMasterRatio"] as? Double ?? compressorMasterRatio
+        compressorReverbInputRatio = dictionary["compressorReverbInputRatio"] as? Double ?? compressorReverbInputRatio
+        compressorReverbWetRatio = dictionary["compressorReverbWetRatio"] as? Double ?? compressorReverbWetRatio
+        compressorMasterThreshold = dictionary["compressorMasterThreshold"] as? Double ?? compressorMasterThreshold
+        compressorReverbInputThreshold = dictionary["compressorReverbInputThreshold"] as? Double ?? compressorReverbInputThreshold
+        compressorReverbWetThreshold = dictionary["compressorReverbWetThreshold"] as? Double ?? compressorReverbWetThreshold
+        compressorMasterAttack = dictionary["compressorMasterAttack"] as? Double ?? compressorMasterAttack
+        compressorReverbInputAttack = dictionary["compressorReverbInputAttack"] as? Double ?? compressorReverbInputAttack
+        compressorReverbWetAttack = dictionary["compressorReverbWetAttack"] as? Double ?? compressorReverbWetAttack
+        compressorMasterRelease = dictionary["compressorMasterRelease"] as? Double ?? compressorMasterRelease
+        compressorReverbInputRelease = dictionary["compressorReverbInputRelease"] as? Double ?? compressorReverbInputRelease
+        compressorReverbWetRelease = dictionary["compressorReverbWetRelease"] as? Double ?? compressorReverbWetRelease
+        compressorMasterMakeupGain = dictionary["compressorMasterMakeupGain"] as? Double ?? compressorMasterMakeupGain
+        compressorReverbInputMakeupGain = dictionary["compressorReverbInputMakeupGain"] as? Double ?? compressorReverbInputMakeupGain
+        compressorReverbWetMakeupGain = dictionary["compressorReverbWetMakeupGain"] as? Double ?? compressorReverbWetMakeupGain
+        delayInputCutoffTrackingRatio = dictionary["delayInputCutoffTrackingRatio"] as? Double ?? delayInputCutoffTrackingRatio
+        delayInputResonance = dictionary["delayInputResonance"] as? Double ?? delayInputResonance
+
     }
 }

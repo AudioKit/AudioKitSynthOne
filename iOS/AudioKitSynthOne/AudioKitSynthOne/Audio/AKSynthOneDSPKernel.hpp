@@ -40,7 +40,7 @@ public:
 
     // lfo1Rate, lfo2Rate, autoPanRate, and delayTime; returns on [0,1]
     float getAK1DependentParameter(AKSynthOneParameter param);
-    void setAK1DependentParameter(AKSynthOneParameter param, float value);
+    void setAK1DependentParameter(AKSynthOneParameter param, float value, int payload);
 
     // AUParameter/AUValue
     void setParameters(float params[]);
@@ -131,9 +131,9 @@ private:
 
     inline void _setAK1Parameter(AKSynthOneParameter param, float inputValue01);
     
-    inline void _setAK1ParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread);
+    inline void _setAK1ParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload);
     
-    inline void _rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread);
+    inline void _rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload);
 
      // algebraic only
     inline float taper01(float inputValue01, float taper);
@@ -315,7 +315,7 @@ private:
         { filterMix,             0, 1, 1, "filterMix", "filterMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { filterADSRMix,         0, 0, 1.2, "filterADSRMix", "filterADSRMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { isMono,                0, 0, 1, "isMono", "isMono", kAudioUnitParameterUnit_Generic, false, NULL},
-        { glide,                 0, 0, 0.2, "glide", "glide", kAudioUnitParameterUnit_Generic, false, NULL},
+        { glide,                 0, 0, 0.2, "glide", "glide", kAudioUnitParameterUnit_Generic, true, NULL},
         { filterAttackDuration,  0.0005, 0.05, 2, "filterAttackDuration", "filterAttackDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
         { filterDecayDuration,   0.005, 0.05, 2, "filterDecayDuration", "filterDecayDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
         { filterSustainLevel,    0, 1, 1, "filterSustainLevel", "filterSustainLevel", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -331,11 +331,11 @@ private:
         { bitCrushSampleRate,    2048, 44100, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
         { autoPanAmount,         0, 0, 1, "autoPanAmount", "autoPanAmount", kAudioUnitParameterUnit_Generic, true, NULL},
         { autoPanFrequency,      rate_min, 0.25, 10, "autoPanFrequency", "autoPanFrequency", kAudioUnitParameterUnit_Hertz, true, NULL},
-        { reverbOn,              0, 1, 1, "reverbOn", "reverbOn", kAudioUnitParameterUnit_Generic, false, NULL},
+        { reverbOn,              0, 1, 1, "reverbOn", "reverbOn", kAudioUnitParameterUnit_Generic, true, NULL},
         { reverbFeedback,        0, 0.5, 1, "reverbFeedback", "reverbFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
         { reverbHighPass,        80, 700, 900, "reverbHighPass", "reverbHighPass", kAudioUnitParameterUnit_Generic, true, NULL},
         { reverbMix,             0, 0, 1, "reverbMix", "reverbMix", kAudioUnitParameterUnit_Generic, true, NULL},
-        { delayOn,               0, 0, 1, "delayOn", "delayOn", kAudioUnitParameterUnit_Generic, false, NULL},
+        { delayOn,               0, 0, 1, "delayOn", "delayOn", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayFeedback,         0, 0.1, 0.9, "delayFeedback", "delayFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayTime,             0.0003628117914, 0.25, 2.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
         { delayMix,              0, 0.125, 1, "delayMix", "delayMix", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -415,7 +415,7 @@ private:
         { phaserFeedback,        0, 0.0, 0.8, "phaserFeedback", "phaserFeedback" , kAudioUnitParameterUnit_Generic, true, NULL},
         { phaserNotchWidth,      100, 800, 1000, "phaserNotchWidth", "phaserNotchWidth" , kAudioUnitParameterUnit_Hertz, true, NULL},
         { monoIsLegato,          0, 0, 1, "monoIsLegato", "monoIsLegato" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { widen,                 0, 0, 1, "widen", "widen" , kAudioUnitParameterUnit_Generic, true, NULL},
+        { widen,                 0, 0, 1, "widen", "widen" , kAudioUnitParameterUnit_Generic, true, NULL},//this is a toggle, but we smooth it for crossfade
         
         { compressorMasterRatio,      1, 20, 20, "master compressor ratio", "master compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbInputRatio, 1, 13, 20, "reverb input compressor ratio", "reverb input compressor ratio", kAudioUnitParameterUnit_Generic, false, NULL},
@@ -437,10 +437,7 @@ private:
         { compressorReverbInputMakeupGain, 0.5, 1.88, 4, "reverb input compressor makeup gain", "reverb input compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorMasterMakeupGain,      0.5, 1.88, 4, "reverb wet compressor makeup gain", "reverb wet compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
         
-        //TODO: these are mutually exclusive...this is currently being used
         { delayInputCutoffTrackingRatio,                0.001, 0.75, 1, "delayInputCutoffTrackingRatio", "delayInputCutoffTrackingRatio", kAudioUnitParameterUnit_Hertz, false, NULL},
-        //TODO: these two are not currently used
-        { delayInputCutoff,                64, 8192, 22050, "delayInputCutoff", "delayInputCutoff", kAudioUnitParameterUnit_Hertz, false, NULL},
         { delayInputResonance,             0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, false, NULL},
         { tempoSyncToArpRate,                   0, 1, 1, "tempoSyncToArpRate", "tempoSyncToArpRate", kAudioUnitParameterUnit_Generic, false, NULL}
     };

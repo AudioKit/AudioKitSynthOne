@@ -49,8 +49,8 @@ import AudioKit
     open func getAK1DependentParameter(_ param: AKSynthOneParameter) -> Double {
         return Double(internalAU?.getAK1DependentParameter(param) ?? 0)
     }
-    open func setAK1DependentParameter(_ param: AKSynthOneParameter, _ value : Double) {
-        internalAU?.setAK1DependentParameter(param, value: Float(value))
+    open func setAK1DependentParameter(_ param: AKSynthOneParameter, _ value : Double, _ payload: Int32) {
+        internalAU?.setAK1DependentParameter(param, value: Float(value), payload: payload)
     }
 
     open func getParameterMin(_ param: AKSynthOneParameter) -> Double {

@@ -50,7 +50,6 @@ public class AKVerticalPad: UIView {
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
         centerPointX = self.bounds.size.width/2
       
         // Setup Touch Visual Indicators
@@ -73,36 +72,40 @@ public class AKVerticalPad: UIView {
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let touchPoint = touch.location(in: self)
-   
             if touchPoint.y > (self.bounds.minY + 0) && touchPoint.y < (self.bounds.maxY) {
                 setPercentagesWithTouchPoint(touchPoint, began: false)
             }
         }
     }
     
+    // return indicator to center of view
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // return indicator to center of view
         completionHandler(verticalValue, true, false)
     }
     
+    // Linear Scale MIDI 0...127 to 0.0...1.0
     func setVerticalValueFrom(midiValue: MIDIByte) {
-        // Linear Scale MIDI 0...127 to 0.0...1.0
         verticalValue = Double.scaleRangeZeroToOne(Double(midiValue), rangeMin: 0, rangeMax: 127)
-        
         let verticalPos = self.bounds.height - (self.bounds.height * CGFloat(verticalValue))
         touchPointView.center = CGPoint(x: centerPointX, y: verticalPos + yVisualAdjust)
         callback(verticalValue)
     }
     
+    // Linear Scale from PitchWheel
     func setVerticalValueFromPitchWheel(midiValue: MIDIWord) {
-        // Linear Scale from PitchWheel
         verticalValue = Double.scaleRangeZeroToOne(Double(midiValue), rangeMin: 0, rangeMax: 16384)
-        
         let verticalPos = self.bounds.height - (self.bounds.height * CGFloat(verticalValue))
         touchPointView.center = CGPoint(x: centerPointX, y: verticalPos + yVisualAdjust)
         callback(verticalValue)
     }
 
+    func setVerticalValue01(_ inputValue01: Double) {
+        verticalValue = (0...1).clamp(inputValue01)
+        let verticalPos = self.bounds.height - (self.bounds.height * CGFloat(verticalValue))
+        touchPointView.center = CGPoint(x: centerPointX, y: verticalPos + yVisualAdjust)
+        // do not call callback() !
+    }
+    
     func resetToCenter() {
         resetToPosition(0.5, 0.5)
     }
@@ -125,12 +128,23 @@ public class AKVerticalPad: UIView {
     }
     
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint, began: Bool = false) {
-    
         y = CGFloat((0.0 ... 1.0).clamp(1 - touchPoint.y / self.bounds.size.height))
         touchPointView.center = CGPoint(x: centerPointX, y: touchPoint.y + yVisualAdjust)
         verticalValue = Double(y).denormalized(to: verticalRange, taper: verticalTaper)
         callback(verticalValue)
      
     }
-    
 }
+
+// This is just to suppress warnings when passing AKVerticalPad as a payload to DSP setter
+extension AKVerticalPad: AKSynthOneControl {
+    var value: Double {
+        get {
+            return verticalValue
+        }
+        set(newValue) {
+            verticalValue = newValue
+        }
+    }
+}
+

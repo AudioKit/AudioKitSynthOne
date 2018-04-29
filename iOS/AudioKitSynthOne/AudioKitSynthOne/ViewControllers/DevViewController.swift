@@ -35,7 +35,6 @@ class DevViewController: UpdatableViewController {
     @IBOutlet weak var compressorReverbWetMakeupGain: Knob!
 
     @IBOutlet weak var delayInputFilterCutoffFreqTrackingRatio: Knob!
-    @IBOutlet weak var delayInputFilterCutoffFreq: Knob!
     @IBOutlet weak var delayInputFilterResonance: Knob!
     
     let devTunings = DevTunings()
@@ -91,10 +90,8 @@ class DevViewController: UpdatableViewController {
         
         //delay input filter
         delayInputFilterCutoffFreqTrackingRatio.range = s.getParameterRange(.delayInputCutoffTrackingRatio)
-        delayInputFilterCutoffFreq.range =              s.getParameterRange(.delayInputCutoff)
         delayInputFilterResonance.range =               s.getParameterRange(.delayInputResonance)
         conductor.bind(delayInputFilterCutoffFreqTrackingRatio, to: .delayInputCutoffTrackingRatio)
-        conductor.bind(delayInputFilterCutoffFreq,              to: .delayInputCutoff)
         conductor.bind(delayInputFilterResonance,               to: .delayInputResonance)
     }
 }

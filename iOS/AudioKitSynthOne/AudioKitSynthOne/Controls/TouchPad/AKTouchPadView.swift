@@ -43,21 +43,21 @@ public class AKTouchPadView: UIView {
 
     public var verticalRange: ClosedRange = 0.0...1.0 {
         didSet {
-            x = CGFloat(verticalValue.normalized(from: verticalRange, taper: verticalTaper))
+            y = CGFloat(verticalValue.normalized(from: verticalRange, taper: verticalTaper))
         }
     }
 
     public var verticalValue: Double = 0 {
         didSet {
             verticalValue = verticalRange.clamp(verticalValue)
-            x = CGFloat(verticalValue.normalized(from: verticalRange, taper: verticalTaper))
+            y = CGFloat(verticalValue.normalized(from: verticalRange, taper: verticalTaper))
         }
     }
 
     var touchPointView: TouchPoint!
 
-    override init (frame : CGRect) {
-        super.init(frame : frame)
+    override init (frame: CGRect) {
+        super.init(frame: frame)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -86,30 +86,28 @@ public class AKTouchPadView: UIView {
         }
     }
     
+    // return indicator to center of view
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // return indicator to center of view
         completionHandler(horizontalValue, verticalValue, true, false)
     }
 
     func resetToCenter() {
         resetToPosition(0.5, 0.5)
-        /*self.horizontalValue = Double(self.x).denormalized(range: self.horizontalRange, taper: self.horizontalTaper)
-        self.verticalValue = Double(self.y).denormalized(range: self.verticalRange, taper: self.verticalTaper) */
     }
     
     func resetToPosition(_ newPercentX: Double, _ newPercentY: Double) {
         let centerPointX = self.bounds.size.width * CGFloat(newPercentX)
         let centerPointY = self.bounds.size.height * CGFloat(1 - newPercentY)
-   
         UIView.animate(
             withDuration: 0.2,
             delay: 0.0,
             options: UIViewAnimationOptions(),
-            animations: { self.touchPointView.center = CGPoint(x: centerPointX, y: centerPointY) },
+            animations: {
+                self.touchPointView.center = CGPoint(x: centerPointX, y: centerPointY)
+            },
             completion: { finished in
                 self.x = CGFloat(newPercentX)
                 self.y = CGFloat(newPercentY)
-
                 self.horizontalValue = Double(self.x).denormalized(to: self.horizontalRange, taper: self.horizontalTaper)
                 self.verticalValue = Double(self.y).denormalized(to: self.verticalRange, taper: self.verticalTaper)
                 self.completionHandler(self.horizontalValue, self.verticalValue, true, true)
@@ -119,19 +117,17 @@ public class AKTouchPadView: UIView {
     func updateTouchPoint(_ newX: Double, _ newY: Double) {
         let centerPointX = self.bounds.size.width * CGFloat(newX)
         let centerPointY = self.bounds.size.height * CGFloat(1 - newY)
-        self.x = CGFloat(newX)
-        self.y = CGFloat(newY)
-        self.touchPointView.center = CGPoint(x: centerPointX, y: centerPointY)
+        x = CGFloat(newX)
+        y = CGFloat(newY)
+        touchPointView.center = CGPoint(x: centerPointX, y: centerPointY)
     }
     
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint, began: Bool = false) {
         x = CGFloat((0.0 ... 1.0).clamp(touchPoint.x / self.bounds.size.width))
         y = CGFloat((0.0 ... 1.0).clamp(1 - touchPoint.y / self.bounds.size.height))
-
         touchPointView.center = CGPoint(x: touchPoint.x, y: touchPoint.y)
         horizontalValue = Double(x).denormalized(to: horizontalRange, taper: horizontalTaper)
         verticalValue = Double(y).denormalized(to: verticalRange, taper: verticalTaper)
         callback(horizontalValue, verticalValue, began)
     }
-    
 }

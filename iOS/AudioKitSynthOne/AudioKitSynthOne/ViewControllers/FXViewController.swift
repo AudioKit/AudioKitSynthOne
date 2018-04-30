@@ -153,8 +153,14 @@ class FXViewController: SynthPanelController {
             }
             lfo2Rate.value = Double(param.value01)
         case .autoPanFrequency:
+            if param.payload == conductor.autoPanFXPanelID {
+                return
+            }
             autoPanRate.value = Double(param.value01)
         case .delayTime:
+            if param.payload == conductor.delayTimeFXPanelID {
+                return
+            }
             delayTime.value = Double(param.value01)
         default:
             _ = 0

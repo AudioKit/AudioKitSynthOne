@@ -591,25 +591,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     *compressorReverbInputR->rel = getAK1Parameter(compressorReverbInputRelease);
     *compressorReverbWetL->rel = getAK1Parameter(compressorReverbWetRelease);
     *compressorReverbWetR->rel = getAK1Parameter(compressorReverbWetRelease);
-
-    {
-        //linear interpolation of percentage in pitch space
-        const float lpc = getAK1Parameter(cutoff);
-        const float pmax = log2(parameterMax(cutoff));
-        const float pmin = log2(1024.f);
-        float pval = log2(lpc);
-        if (pval < pmin) pval = pmin;
-        const float pnorm = (pval - pmin)/(pmax - pmin);
-        const float mmax = getAK1Parameter(delayInputCutoffTrackingRatio);
-        const float mmin = 1.f;
-        const float oscFilterFreqCutoffPercentage = mmin + pnorm * (mmax - mmin);
-        const float oscFilterFreqCutoff = lpc * oscFilterFreqCutoffPercentage;
-        const float oscFilterResonance = 0.f;
-        loPassInputDelayL->freq = oscFilterFreqCutoff;
-        loPassInputDelayL->res = oscFilterResonance;
-        loPassInputDelayR->freq = oscFilterFreqCutoff;
-        loPassInputDelayR->res = oscFilterResonance;
-    }
     
     // transition playing notes from release to off
     bool transitionedToOff = false;
@@ -925,6 +906,24 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
         
         // DELAY INPUT LOW PASS FILTER
+        //linear interpolation of percentage in pitch space
+        const float pmin2 = log2(1024.f);
+        const float pmax2 = log2(parameterMax(cutoff));
+        const float pval1 = getAK1Parameter(cutoff);
+        float pval2 = log2(pval1);
+        if (pval2 < pmin2) pval2 = pmin2;
+        if (pval2 > pmax2) pval2 = pmax2;
+        const float pnorm2 = (pval2 - pmin2)/(pmax2 - pmin2);
+        const float mmax = getAK1Parameter(delayInputCutoffTrackingRatio);
+        const float mmin = 1.f;
+        const float oscFilterFreqCutoffPercentage = mmin + pnorm2 * (mmax - mmin);
+        const float oscFilterResonance = 0.f; // constant
+        float oscFilterFreqCutoff = pval1 * oscFilterFreqCutoffPercentage;
+        oscFilterFreqCutoff = parameterClamp(cutoff, oscFilterFreqCutoff);
+        loPassInputDelayL->freq = oscFilterFreqCutoff;
+        loPassInputDelayL->res = oscFilterResonance;
+        loPassInputDelayR->freq = oscFilterFreqCutoff;
+        loPassInputDelayR->res = oscFilterResonance;
         float delayInputLowPassOutL = phaserOutL;
         float delayInputLowPassOutR = phaserOutR;
         sp_moogladder_compute(sp, loPassInputDelayL, &phaserOutL, &delayInputLowPassOutL);

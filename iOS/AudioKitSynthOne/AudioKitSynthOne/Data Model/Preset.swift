@@ -145,7 +145,7 @@ class Preset: Codable {
     var compressorMasterMakeupGain = 0.0
     var compressorReverbInputMakeupGain = 0.0
     var compressorReverbWetMakeupGain = 0.0
-    var delayInputCutoffTrackingRatio = 0.0
+    var delayInputCutoffTrackingRatio = 0.75
     var delayInputResonance = 0.0
 
     

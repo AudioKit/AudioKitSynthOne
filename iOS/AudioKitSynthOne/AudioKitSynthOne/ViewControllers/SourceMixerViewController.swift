@@ -63,6 +63,8 @@ class SourceMixerViewController: SynthPanelController {
         morph1SemitoneOffset.range = s.getParameterRange(.morph1SemitoneOffset)
         morph2SemitoneOffset.onlyIntegers = true
         morph2SemitoneOffset.range = s.getParameterRange(.morph2SemitoneOffset)
+        morph1SemitoneOffset.knobSensitivity = 0.004
+        morph2SemitoneOffset.knobSensitivity = 0.004
         morph2Detuning.range = s.getParameterRange(.morph2Detuning)
         morphBalance.range = s.getParameterRange(.morphBalance)
         morph1Volume.range = s.getParameterRange(.morph1Volume)

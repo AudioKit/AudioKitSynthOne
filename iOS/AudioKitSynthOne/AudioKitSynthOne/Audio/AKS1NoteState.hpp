@@ -5,6 +5,7 @@
 //  Created by Marcus W. Hobbs on 4/30/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
+//  Atomic unit of a "note"; managed by AKSynthOneDSPKernel
 
 #pragma once
 

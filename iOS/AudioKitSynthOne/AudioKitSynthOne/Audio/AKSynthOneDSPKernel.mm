@@ -242,27 +242,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         
         // CLEAR BUFFER
         outL[frameIndex] = outR[frameIndex] = 0.f;
-        
-        //linear interpolation of percentage in pitch space
-        const float pmin2 = log2(1024.f);
-        const float pmax2 = log2(parameterMax(cutoff));
-        const float lpc = getAK1Parameter(cutoff);
-        float pval2 = log2(lpc);
-        if (pval2 < pmin2) pval2 = pmin2;
-        if (pval2 > pmax2) pval2 = pmax2;
-        const float pnorm2 = (pval2 - pmin2)/(pmax2 - pmin2);
-        const float mmax = getAK1Parameter(delayInputCutoffTrackingRatio);
-        const float mmin = 1.f;
-        const float oscFilterFreqCutoffPercentage = mmin + pnorm2 * (mmax - mmin);
-        const float oscFilterResonance = 0.f;
-        float oscFilterFreqCutoff = lpc * oscFilterFreqCutoffPercentage;
-        oscFilterFreqCutoff = exp2(oscFilterFreqCutoff);
-        oscFilterFreqCutoff = parameterClamp(cutoff, oscFilterFreqCutoff);
-        loPassInputDelayL->freq = oscFilterFreqCutoff;
-        loPassInputDelayL->res = oscFilterResonance;
-        loPassInputDelayR->freq = oscFilterFreqCutoff;
-        loPassInputDelayR->res = oscFilterResonance;
-        
+                
         // Clear all notes when toggling Mono <==> Poly
         if (getAK1Parameter(isMono) != previousProcessMonoPolyStatus ) {
             previousProcessMonoPolyStatus = getAK1Parameter(isMono);

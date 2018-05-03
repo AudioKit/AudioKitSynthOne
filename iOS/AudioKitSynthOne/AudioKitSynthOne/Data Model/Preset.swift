@@ -40,11 +40,11 @@ class Preset: Codable {
     var vcoBalance = 0.5 // VCO1/VCO2 Mix
     var subVolume = 0.0 // SubOsc Mix
     var fmVolume = 0.0 // FM Mix
-    var fmMod = 0.0 // FM Modulation Amt
+    var fmAmount = 0.0 // FM Modulation Amt
     var noiseVolume = 0.0 // Noise Mix
  
     var cutoff = 2000.0 // Cutoff Knob Position
-    var rez = 0.1 // Filter Q/Rez
+    var resonance = 0.1 // Filter Q/Rez
     var filterType = 0.0 // 0 = lopass, 1=bandpass, 2=hipassh.s
     var delayTime = 0.5 // Delay (seconds)
     var delayMix = 0.5 // Dry/Wet
@@ -55,7 +55,7 @@ class Preset: Codable {
     var midiBendRange = 2.0 // MIDI bend range in +/- semitones
     var crushFreq = 44100.0 // Crusher Frequency
     var autoPanAmount = 0.0
-    var autoPanRate = 2.0 // AutoPan Rate
+    var autoPanFrequency = 2.0 // AutoPan Rate
     var filterADSRMix = 0.0 // Filter Envelope depth
     var glide = 0.0 // Mono glide amount
     var widen = 0.0
@@ -70,10 +70,10 @@ class Preset: Codable {
     var sustainLevel = 0.8
     var releaseDuration = 0.05
     
-    var filterAttack = 0.05
-    var filterDecay = 0.5
-    var filterSustain = 1.0
-    var filterRelease = 0.5
+    var filterAttackDuration = 0.05
+    var filterDecayDuration = 0.5
+    var filterSustainLevel = 1.0
+    var filterReleaseDuration = 0.5
     
     // Toggle Presets
     var delayToggled = 0.0
@@ -153,9 +153,7 @@ class Preset: Codable {
     // MARK: - Init
     // ******************************************************
  
-    init() {
-
-     }
+    init() {}
 
     convenience init(position: Int) {
         self.init()
@@ -198,11 +196,15 @@ class Preset: Codable {
     init(dictionary: [String: Any]) {
         
         //TODO:initialize with dsp defaults.  i.e., s.getAK1Parameter(.tempoSyncToArpRate)
-        guard let _ = Conductor.sharedInstance.synth else {
-            print("ERROR:can't read presets if synth is not initialized")
+        guard let s = Conductor.sharedInstance.synth else {
+            print("ERROR: can't read presets until synth is initialized")
             return
         }
 
+        let p = { param in
+            return Double(s.getParameterDefault(param))
+        }
+        
         name = dictionary["name"] as? String ?? name
         position = dictionary["position"] as? Int ?? position
         uid = dictionary["uid"] as? String ?? uid
@@ -210,14 +212,15 @@ class Preset: Codable {
         
         // Synth VC
         octavePosition = dictionary["octavePosition"] as? Int ?? octavePosition
-        isMono = dictionary["isMono"] as? Double ?? isMono
+        isMono = dictionary["isMono"] as? Double ?? p(.isMono)
+        //TODO:move isHoldMove to dsp
         isHoldMode = dictionary["isHoldMode"] as? Double ?? isHoldMode
         isArpMode = dictionary["isArpMode"] as? Double ?? isArpMode
-        tempoSyncToArpRate = dictionary["tempoSyncToArpRate"] as? Double ?? tempoSyncToArpRate
+        tempoSyncToArpRate = dictionary["tempoSyncToArpRate"] as? Double ?? p(.tempoSyncToArpRate)
         isLegato = dictionary["isLegato"] as? Double ?? isLegato
         
         // Controls VC
-        masterVolume = dictionary["masterVolume"] as? Double ?? masterVolume
+        masterVolume = dictionary["masterVolume"] as? Double ?? p(.masterVolume)
         
         vco1Volume = dictionary["vco1Volume"] as? Double ?? vco1Volume
         vco2Volume = dictionary["vco2Volume"] as? Double ?? vco2Volume
@@ -225,67 +228,75 @@ class Preset: Codable {
         vco2Semitone = dictionary["vco2Semitone"] as? Double ?? vco2Semitone
         vco2Detuning = dictionary["vco2Detuning"] as? Double ?? vco2Detuning
         vcoBalance = dictionary["vcoBalance"] as? Double ?? vcoBalance
-        subVolume = dictionary["subVolume"] as? Double ?? subVolume
-        fmVolume = dictionary["fmVolume"] as? Double ?? fmVolume
-        fmMod = dictionary["fmMod"] as? Double ?? fmMod
-        noiseVolume = dictionary["noiseVolume"] as? Double ?? noiseVolume
+        subVolume = dictionary["subVolume"] as? Double ?? p(.subVolume)
+        fmVolume = dictionary["fmVolume"] as? Double ?? p(.fmVolume)
+        fmAmount = dictionary["fmMod"] as? Double ?? p(.fmAmount)
+        noiseVolume = dictionary["noiseVolume"] as? Double ?? p(.noiseVolume)
        
-        cutoff = dictionary["cutoff"] as? Double ?? cutoff
-        rez = dictionary["rez"] as? Double ?? rez
-        filterType = dictionary["filterType"] as? Double ?? filterType
-        delayTime = dictionary["delayTime"] as? Double ?? delayTime
-        delayFeedback = dictionary["delayFeedback"] as? Double ?? delayFeedback
-        delayMix = dictionary["delayMix"] as? Double ?? delayMix
-        reverbFeedback = dictionary["reverbFeedback"] as? Double ?? reverbFeedback
-        reverbMix = dictionary["reverbMix"] as? Double ?? reverbMix
-        reverbHighPass = dictionary["reverbHighPass"] as? Double ?? reverbHighPass
+        cutoff = dictionary["cutoff"] as? Double ?? p(.cutoff)
+        resonance = dictionary["rez"] as? Double ?? p(.resonance)
+        filterType = dictionary["filterType"] as? Double ?? p(.filterType)
+        delayTime = dictionary["delayTime"] as? Double ?? p(.delayTime)
+        delayFeedback = dictionary["delayFeedback"] as? Double ?? p(.delayFeedback)
+        delayMix = dictionary["delayMix"] as? Double ?? p(.delayMix)
+        reverbFeedback = dictionary["reverbFeedback"] as? Double ?? p(.reverbFeedback)
+        reverbMix = dictionary["reverbMix"] as? Double ?? p(.reverbMix)
+        reverbHighPass = dictionary["reverbHighPass"] as? Double ?? p(.reverbHighPass)
         midiBendRange = dictionary["midiBendRange"] as? Double ?? midiBendRange
-        crushFreq = dictionary["crushFreq"] as? Double ?? crushFreq
-        autoPanRate = dictionary["autoPanRate"] as? Double ?? autoPanRate
-        filterADSRMix = dictionary["filterADSRMix"] as? Double ?? filterADSRMix
-        glide = dictionary["glide"] as? Double ?? glide
-        widen = dictionary["widen"] as? Double ?? widen
+        crushFreq = dictionary["crushFreq"] as? Double ?? p(.bitCrushSampleRate)
+        autoPanFrequency = dictionary["autoPanRate"] as? Double ?? p(.autoPanFrequency)
+        filterADSRMix = dictionary["filterADSRMix"] as? Double ?? p(.filterADSRMix)
+        glide = dictionary["glide"] as? Double ?? p(.glide)
+        widen = dictionary["widen"] as? Double ?? p(.widen)
 
         // ADSR
-        attackDuration = dictionary["attackDuration"] as? Double ?? attackDuration
-        decayDuration = dictionary["decayDuration"] as? Double ?? decayDuration
-        sustainLevel = dictionary["sustainLevel"] as? Double ?? sustainLevel
-        releaseDuration = dictionary["releaseDuration"] as? Double ?? releaseDuration
+        attackDuration = dictionary["attackDuration"] as? Double ?? p(.attackDuration)
+        decayDuration = dictionary["decayDuration"] as? Double ?? p(.decayDuration)
+        sustainLevel = dictionary["sustainLevel"] as? Double ?? p(.sustainLevel)
+        releaseDuration = dictionary["releaseDuration"] as? Double ?? p(.releaseDuration)
         
-        filterAttack = dictionary["filterAttack"] as? Double ?? filterAttack
-        filterDecay = dictionary["filterDecay"] as? Double ?? filterDecay
-        filterSustain = dictionary["filterSustain"] as? Double ?? filterSustain
-        filterRelease = dictionary["filterRelease"] as? Double ?? filterRelease
+        filterAttackDuration = dictionary["filterAttack"] as? Double ?? p(.filterAttackDuration)
+        filterDecayDuration = dictionary["filterDecay"] as? Double ?? p(.filterDecayDuration)
+        filterSustainLevel = dictionary["filterSustain"] as? Double ?? p(.filterSustainLevel)
+        filterReleaseDuration = dictionary["filterRelease"] as? Double ?? p(.filterReleaseDuration)
         
         // Toggle Presets
-        delayToggled = dictionary["delayToggled"] as? Double ?? delayToggled
-        reverbToggled = dictionary["reverbToggled"] as? Double ?? reverbToggled
-        autoPanAmount = dictionary["autoPanAmount"] as? Double ?? autoPanAmount
-        subOsc24Toggled = dictionary["subOsc24Toggled"] as? Double ?? subOsc24Toggled
-        subOscSquareToggled = dictionary["subOscSquareToggled"] as? Double ?? subOscSquareToggled
+        delayToggled = dictionary["delayToggled"] as? Double ?? p(.delayOn)
+        reverbToggled = dictionary["reverbToggled"] as? Double ?? p(.reverbOn)
+        autoPanAmount = dictionary["autoPanAmount"] as? Double ?? p(.autoPanAmount)
+        subOsc24Toggled = dictionary["subOsc24Toggled"] as? Double ?? p(.subOctaveDown)
+        subOscSquareToggled = dictionary["subOscSquareToggled"] as? Double ?? p(.subIsSquare)
         
         // Waveforms
-        waveform1 = dictionary["waveform1"] as? Double ?? waveform1
-        waveform2 = dictionary["waveform2"] as? Double ?? waveform2
-        lfoWaveform = dictionary["lfoWaveform"] as? Double ?? lfoWaveform
-        lfoAmplitude = dictionary["lfoAmplitude"] as? Double ?? lfoAmplitude
-        lfoRate = dictionary["lfoRate"] as? Double ?? lfoRate
-        lfo2Waveform = dictionary["lfo2Waveform"] as? Double ?? lfo2Waveform
-        lfo2Amplitude = dictionary["lfo2Amplitude"] as? Double ?? lfo2Amplitude
-        lfo2Rate = dictionary["lfo2Rate"] as? Double ?? lfo2Rate
+        waveform1 = dictionary["waveform1"] as? Double ?? p(.index1)
+        waveform2 = dictionary["waveform2"] as? Double ?? p(.index2)
+        lfoWaveform = dictionary["lfoWaveform"] as? Double ?? p(.lfo1Index)
+        lfoAmplitude = dictionary["lfoAmplitude"] as? Double ?? p(.lfo1Amplitude)
+        lfoRate = dictionary["lfoRate"] as? Double ?? p(.lfo1Rate)
+        lfo2Waveform = dictionary["lfo2Waveform"] as? Double ?? p(.lfo2Index)
+        lfo2Amplitude = dictionary["lfo2Amplitude"] as? Double ?? p(.lfo2Amplitude)
+        lfo2Rate = dictionary["lfo2Rate"] as? Double ?? p(.lfo2Rate)
         
         // Seq
-        seqPatternNote = dictionary["seqPatternNote"] as? [Int] ?? seqPatternNote
-        seqNoteOn = dictionary["seqNoteOn"] as? [Bool] ?? seqNoteOn
-        seqOctBoost = dictionary["seqOctBoost"] as? [Bool] ?? seqOctBoost
+        var seqPatternNoteDefault = [Int]()
+        var seqNoteOnDefault = [Bool]()
+        var seqOctBoostDefault = [Bool]()
+        for i in 0..<16 {
+            seqPatternNoteDefault.append(s.getAK1ArpSeqPattern(forIndex: i))
+            seqNoteOnDefault.append(s.getAK1ArpSeqNoteOn(forIndex: i))
+            seqOctBoostDefault.append(s.getAK1SeqOctBoost(forIndex: i))
+        }
+        seqPatternNote = dictionary["seqPatternNote"] as? [Int] ?? seqPatternNoteDefault
+        seqNoteOn = dictionary["seqNoteOn"] as? [Bool] ?? seqNoteOnDefault
+        seqOctBoost = dictionary["seqOctBoost"] as? [Bool] ?? seqOctBoostDefault
         
         // Arp
-        arpDirection = dictionary["arpDirection"] as? Double ?? arpDirection
-        arpInterval = dictionary["arpInterval"] as? Double ?? arpInterval
-        arpOctave = dictionary["arpOctave"] as? Double ?? arpOctave
-        arpRate = dictionary["arpRate"] as? Double ?? arpRate
-        arpIsSequencer = dictionary["arpIsSequencer"] as? Bool ?? arpIsSequencer
-        arpTotalSteps = dictionary["arpTotalSteps"] as? Double ?? arpTotalSteps
+        arpDirection = dictionary["arpDirection"] as? Double ?? p(.arpDirection)
+        arpInterval = dictionary["arpInterval"] as? Double ?? p(.arpInterval)
+        arpOctave = dictionary["arpOctave"] as? Double ?? p(.arpOctave)
+        arpRate = dictionary["arpRate"] as? Double ?? p(.arpRate)
+        arpIsSequencer = dictionary["arpIsSequencer"] as? Bool ?? Bool(p(.arpIsSequencer) > 0 ? true : false)
+        arpTotalSteps = dictionary["arpTotalSteps"] as? Double ?? p(.arpTotalSteps)
         
         author = dictionary["author"] as? String ?? author
         category = dictionary["category"] as? Int ?? category
@@ -294,46 +305,45 @@ class Preset: Codable {
         userText = dictionary["userText"] as? String ?? userText
         
         // LFO Routings
-        cutoffLFO = dictionary["cutoffLFO"] as? Double ?? cutoffLFO
-        resonanceLFO = dictionary["resonanceLFO"] as? Double ?? resonanceLFO
-        oscMixLFO = dictionary["oscMixLFO"] as? Double ?? oscMixLFO
-        reverbMixLFO = dictionary["reverbMixLFO"] as? Double ?? reverbMixLFO
-        decayLFO = dictionary["decayLFO"] as? Double ?? decayLFO
-        noiseLFO = dictionary["noiseLFO"] as? Double ?? noiseLFO
-        fmLFO = dictionary["fmLFO"] as? Double ?? fmLFO
-        detuneLFO = dictionary["detuneLFO"] as? Double ?? detuneLFO
-        filterEnvLFO = dictionary["filterEnvLFO"] as? Double ?? filterEnvLFO
-        pitchLFO = dictionary["pitchLFO"] as? Double ?? pitchLFO
-        bitcrushLFO = dictionary["bitcrushLFO"] as? Double ?? bitcrushLFO
-        tremoloLFO = dictionary["tremoloLFO"] as? Double ?? tremoloLFO
+        cutoffLFO = dictionary["cutoffLFO"] as? Double ?? p(.cutoffLFO)
+        resonanceLFO = dictionary["resonanceLFO"] as? Double ?? p(.resonanceLFO)
+        oscMixLFO = dictionary["oscMixLFO"] as? Double ?? p(.oscMixLFO)
+        reverbMixLFO = dictionary["reverbMixLFO"] as? Double ?? p(.reverbMixLFO)
+        decayLFO = dictionary["decayLFO"] as? Double ?? p(.decayLFO)
+        noiseLFO = dictionary["noiseLFO"] as? Double ?? p(.noiseLFO)
+        fmLFO = dictionary["fmLFO"] as? Double ?? p(.fmLFO)
+        detuneLFO = dictionary["detuneLFO"] as? Double ?? p(.detuneLFO)
+        filterEnvLFO = dictionary["filterEnvLFO"] as? Double ?? p(.filterEnvLFO)
+        pitchLFO = dictionary["pitchLFO"] as? Double ?? p(.pitchLFO)
+        bitcrushLFO = dictionary["bitcrushLFO"] as? Double ?? p(.bitcrushLFO)
+        tremoloLFO = dictionary["tremoloLFO"] as? Double ?? p(.tremoloLFO)
         
         // MOD WHeel
         modWheelRouting = dictionary["modWheelRouting"] as? Double ?? modWheelRouting
         
         // FX
-        phaserFeedback = dictionary["phaserFeedback"] as? Double ?? phaserFeedback
-        phaserMix = dictionary["phaserMix"] as? Double ?? phaserMix
-        phaserRate = dictionary["phaserRate"] as? Double ?? phaserRate
-        phaserNotchWidth = dictionary["phaserNotchWidth"] as? Double ?? phaserNotchWidth
+        phaserFeedback = dictionary["phaserFeedback"] as? Double ?? p(.phaserFeedback)
+        phaserMix = dictionary["phaserMix"] as? Double ?? p(.phaserMix)
+        phaserRate = dictionary["phaserRate"] as? Double ?? p(.phaserRate)
+        phaserNotchWidth = dictionary["phaserNotchWidth"] as? Double ?? p(.phaserNotchWidth)
         
         //REVERB/MASTER DYNAMICS
-        compressorMasterRatio = dictionary["compressorMasterRatio"] as? Double ?? compressorMasterRatio
-        compressorReverbInputRatio = dictionary["compressorReverbInputRatio"] as? Double ?? compressorReverbInputRatio
-        compressorReverbWetRatio = dictionary["compressorReverbWetRatio"] as? Double ?? compressorReverbWetRatio
-        compressorMasterThreshold = dictionary["compressorMasterThreshold"] as? Double ?? compressorMasterThreshold
-        compressorReverbInputThreshold = dictionary["compressorReverbInputThreshold"] as? Double ?? compressorReverbInputThreshold
-        compressorReverbWetThreshold = dictionary["compressorReverbWetThreshold"] as? Double ?? compressorReverbWetThreshold
-        compressorMasterAttack = dictionary["compressorMasterAttack"] as? Double ?? compressorMasterAttack
-        compressorReverbInputAttack = dictionary["compressorReverbInputAttack"] as? Double ?? compressorReverbInputAttack
-        compressorReverbWetAttack = dictionary["compressorReverbWetAttack"] as? Double ?? compressorReverbWetAttack
-        compressorMasterRelease = dictionary["compressorMasterRelease"] as? Double ?? compressorMasterRelease
-        compressorReverbInputRelease = dictionary["compressorReverbInputRelease"] as? Double ?? compressorReverbInputRelease
-        compressorReverbWetRelease = dictionary["compressorReverbWetRelease"] as? Double ?? compressorReverbWetRelease
-        compressorMasterMakeupGain = dictionary["compressorMasterMakeupGain"] as? Double ?? compressorMasterMakeupGain
-        compressorReverbInputMakeupGain = dictionary["compressorReverbInputMakeupGain"] as? Double ?? compressorReverbInputMakeupGain
-        compressorReverbWetMakeupGain = dictionary["compressorReverbWetMakeupGain"] as? Double ?? compressorReverbWetMakeupGain
-        delayInputCutoffTrackingRatio = dictionary["delayInputCutoffTrackingRatio"] as? Double ?? delayInputCutoffTrackingRatio
-        delayInputResonance = dictionary["delayInputResonance"] as? Double ?? delayInputResonance
-
+        compressorMasterRatio = dictionary["compressorMasterRatio"] as? Double ?? p(.compressorMasterRatio)
+        compressorReverbInputRatio = dictionary["compressorReverbInputRatio"] as? Double ?? p(.compressorReverbInputRatio)
+        compressorReverbWetRatio = dictionary["compressorReverbWetRatio"] as? Double ?? p(.compressorReverbWetRatio)
+        compressorMasterThreshold = dictionary["compressorMasterThreshold"] as? Double ?? p(.compressorMasterThreshold)
+        compressorReverbInputThreshold = dictionary["compressorReverbInputThreshold"] as? Double ?? p(.compressorReverbInputThreshold)
+        compressorReverbWetThreshold = dictionary["compressorReverbWetThreshold"] as? Double ?? p(.compressorReverbWetThreshold)
+        compressorMasterAttack = dictionary["compressorMasterAttack"] as? Double ?? p(.compressorMasterAttack)
+        compressorReverbInputAttack = dictionary["compressorReverbInputAttack"] as? Double ?? p(.compressorReverbInputAttack)
+        compressorReverbWetAttack = dictionary["compressorReverbWetAttack"] as? Double ?? p(.compressorReverbWetAttack)
+        compressorMasterRelease = dictionary["compressorMasterRelease"] as? Double ?? p(.compressorMasterRelease)
+        compressorReverbInputRelease = dictionary["compressorReverbInputRelease"] as? Double ?? p(.compressorReverbInputRelease)
+        compressorReverbWetRelease = dictionary["compressorReverbWetRelease"] as? Double ?? p(.compressorReverbWetRelease)
+        compressorMasterMakeupGain = dictionary["compressorMasterMakeupGain"] as? Double ?? p(.compressorMasterMakeupGain)
+        compressorReverbInputMakeupGain = dictionary["compressorReverbInputMakeupGain"] as? Double ?? p(.compressorReverbInputMakeupGain)
+        compressorReverbWetMakeupGain = dictionary["compressorReverbWetMakeupGain"] as? Double ?? p(.compressorReverbWetMakeupGain)
+        delayInputCutoffTrackingRatio = dictionary["delayInputCutoffTrackingRatio"] as? Double ?? p(.delayInputCutoffTrackingRatio)
+        delayInputResonance = dictionary["delayInputResonance"] as? Double ?? p(.delayInputResonance)
     }
 }

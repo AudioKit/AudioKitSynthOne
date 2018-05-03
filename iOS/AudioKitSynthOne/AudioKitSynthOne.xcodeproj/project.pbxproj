@@ -115,6 +115,7 @@
 		C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBA1F244AD40011B119 /* CGFloat+Extensions.swift */; };
 		C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */; };
 		C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */; };
+		F48556352097A071000319E5 /* AKS1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = F48556332097A071000319E5 /* AKS1NoteState.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -266,6 +267,8 @@
 		C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 		C75EC33F7DB5853B42F6D569 /* Pods-SynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynthOne/Pods-SynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
+		F48556332097A071000319E5 /* AKS1NoteState.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
+		F48556342097A071000319E5 /* AKS1NoteState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AKS1NoteState.hpp; sourceTree = "<group>"; };
 		F4DFA161208905BF00412E7B /* AKSynthOneRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
 		F4DFA16220890E8900412E7B /* AKS1Rate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AKS1Rate.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -520,9 +523,9 @@
 		C4AC4AEA2019BF0500D04C7F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				C4CC3040208499D0004E91CB /* Audiobus.swift */,
-				C4CC3042208499E5004E91CB /* Audiobus.txt */,
-				C4AC4AF82019C63F00D04C7F /* TAAE */,
+				F48556342097A071000319E5 /* AKS1NoteState.hpp */,
+				F48556332097A071000319E5 /* AKS1NoteState.mm */,
+				F4DFA16220890E8900412E7B /* AKS1Rate.hpp */,
 				C4AC4AEC2019BF0500D04C7F /* AKSynthOne.swift */,
 				C4AC4AED2019BF0500D04C7F /* AKSynthOneAudioUnit.h */,
 				C4AC4AEF2019BF0500D04C7F /* AKSynthOneAudioUnit.mm */,
@@ -530,7 +533,9 @@
 				C42459DE201D6498004565AB /* AKSynthOneDSPKernel.mm */,
 				C4AC4AEB2019BF0500D04C7F /* AKSynthOneParameter.h */,
 				F4DFA161208905BF00412E7B /* AKSynthOneRate.h */,
-				F4DFA16220890E8900412E7B /* AKS1Rate.hpp */,
+				C4CC3040208499D0004E91CB /* Audiobus.swift */,
+				C4CC3042208499E5004E91CB /* Audiobus.txt */,
+				C4AC4AF82019C63F00D04C7F /* TAAE */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -764,6 +769,7 @@
 				345AA333202268B300E5FBBC /* SDSustainer.swift in Sources */,
 				94AF74001F55FAAF00ED8B51 /* TouchPointStyleKit.swift in Sources */,
 				C4AC4B132019C63F00D04C7F /* AEUtilities.m in Sources */,
+				F48556352097A071000319E5 /* AKS1NoteState.mm in Sources */,
 				943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */,

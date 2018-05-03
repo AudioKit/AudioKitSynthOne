@@ -139,7 +139,7 @@ class SeqViewController: SynthPanelController {
     func updateOctBoostButton(notePosition: Int) {
         let octBoostButton = arpSeqOctBoostButtons[notePosition]
         octBoostButton.transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
-        octBoostButton.value = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition)
+        octBoostButton.value = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition) == true ? 1 : 0
     }
 }
 

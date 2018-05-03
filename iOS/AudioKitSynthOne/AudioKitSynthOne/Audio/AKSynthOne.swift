@@ -85,11 +85,11 @@ import AudioKit
         internalAU?.setAK1Parameter(aspp, value: Float(value) )
     }
     
-    open func getAK1SeqOctBoost(forIndex inputIndex : Int) -> Double {
+    open func getAK1SeqOctBoost(forIndex inputIndex : Int) -> Bool {
         let index = (0...15).clamp(inputIndex)
         let asni = Int32(Int(AKSynthOneParameter.arpSeqOctBoost00.rawValue) + index)
         let asnp = AKSynthOneParameter(rawValue: asni)!
-        return getAK1Parameter(asnp)
+        return getAK1Parameter(asnp) > 0 ? true : false
     }
     
     open func setAK1SeqOctBoost(forIndex inputIndex : Int, _ value: Double) {

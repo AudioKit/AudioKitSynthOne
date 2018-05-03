@@ -11,7 +11,7 @@
 
 #import <vector>
 #import <list>
-#include <string>
+#import <string>
 #import "AKSoundpipeKernel.hpp"
 #import "AKSynthOneAudioUnit.h"
 #import "AKSynthOneParameter.h"
@@ -22,8 +22,11 @@
 
 #define AKS1_FTABLE_SIZE (4096)
 #define AKS1_NUM_FTABLES (4)
+#define AKS1_SAMPLE_RATE (44100.f)
 
 #ifdef __cplusplus
+
+struct AKS1NoteState;
 
 class AKSynthOneDSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
 
@@ -34,6 +37,11 @@ public:
     AKSynthOneDSPKernel();
     
     ~AKSynthOneDSPKernel();
+
+    // public accessor for protected sp
+    sp_data *spp() {
+        return sp;
+    }
 
     float getAK1Parameter(AKSynthOneParameter param);
     void setAK1Parameter(AKSynthOneParameter param, float value);
@@ -169,6 +177,19 @@ public:
     
     HeldNotes aeHeldNotes;
     
+    sp_ftbl *ft_array[AKS1_NUM_FTABLES];
+
+    sp_ftbl *sine;
+    
+    float lfo1_0_1 = 0.f;
+    float lfo1_1_0 = 0.f;
+    float lfo2_0_1 = 0.f;
+    float lfo2_1_0 = 0.f;
+    float lfo3_0_1 = 0.f;
+    float lfo3_1_0 = 0.f;
+    
+    float monoFrequencySmooth = 261.6255653006f;
+
 private:
     AKS1Rate _rate;
     
@@ -193,8 +214,6 @@ private:
 
     struct SeqNoteNumber;
     
-    struct NoteState;
-    
     struct AKS1Param {
         AKSynthOneParameter param;
         float min;
@@ -208,12 +227,11 @@ private:
         float portamentoTarget;
     };
     
-    
-    // array of struct NoteState of count MAX_POLYPHONY
-    AKSynthOneDSPKernel::NoteState* noteStates;
+    // array of struct AKS1NoteState of count MAX_POLYPHONY
+    AKS1NoteState* noteStates;
     
     // monophonic: single instance of NoteState
-    AKSynthOneDSPKernel::NoteState* monoNote;
+    AKS1NoteState* monoNote;
     
     bool initializedNoteStates = false;
     
@@ -223,11 +241,9 @@ private:
     const int polyphony = AKS1_MAX_POLYPHONY;
     
     int playingNoteStatesIndex = 0;
-    sp_ftbl *ft_array[AKS1_NUM_FTABLES];
     UInt32 tbl_size = AKS1_FTABLE_SIZE;
     sp_phasor *lfo1Phasor;
     sp_phasor *lfo2Phasor;
-    sp_ftbl *sine;
     sp_pan2 *pan;
     sp_osc *panOscillator;
     sp_phaser *phaser0;
@@ -253,15 +269,8 @@ private:
     sp_compressor *compressorReverbWetR;
     sp_delay *widenDelay;
     sp_port *monoFrequencyPort;
-    float monoFrequencySmooth = 261.6255653006f;
     float tempo = 120.f;
     float previousProcessMonoPolyStatus = 0.f;
-    float lfo1_0_1 = 0.f;
-    float lfo1_1_0 = 0.f;
-    float lfo2_0_1 = 0.f;
-    float lfo2_1_0 = 0.f;
-    float lfo3_0_1 = 0.f;
-    float lfo3_1_0 = 0.f;
     float bitcrushIncr = 1.f;
     float bitcrushIndex = 0.f;
     float bitcrushSampleIndex = 0.f;
@@ -442,6 +451,4 @@ private:
         { tempoSyncToArpRate,                   0, 1, 1, "tempoSyncToArpRate", "tempoSyncToArpRate", kAudioUnitParameterUnit_Generic, false, NULL}
     };
 };
-
-
 #endif

@@ -61,7 +61,7 @@ public class HeaderViewController: UpdatableViewController {
         displayLabel.isUserInteractionEnabled = true    
         
         // DEV panel
-        #if true
+        #if false
         devButton.isHidden = true
         #else
         //TODO:Show for debug, hide for release, keep easter egg :-)

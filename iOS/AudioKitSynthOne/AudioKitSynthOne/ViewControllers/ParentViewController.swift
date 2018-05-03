@@ -406,7 +406,7 @@ public class ParentViewController: UpdatableViewController {
             let popOverController = segue.destination as! PopUpMODController
             popOverController.delegate = self
             popOverController.modWheelDestination = Int(activePreset.modWheelRouting)
-            popOverController.preferredContentSize = CGSize(width: 300, height: 170)
+            popOverController.preferredContentSize = CGSize(width: 300, height: 290)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
                 presentation.sourceRect = midiButton.bounds

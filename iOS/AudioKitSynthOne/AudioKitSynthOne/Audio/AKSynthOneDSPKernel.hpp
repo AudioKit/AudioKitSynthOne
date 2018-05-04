@@ -453,8 +453,8 @@ private:
         { tempoSyncToArpRate, 0, 1, 1, "tempoSyncToArpRate", "tempoSyncToArpRate", kAudioUnitParameterUnit_Generic, false, NULL},
         
         { pitchbend,              0, 8192, 16383, "pitchbend", "pitchbend", kAudioUnitParameterUnit_Generic, true, NULL},
-        { pitchbendMinSemitones,  -12, -2, 1, "pitchbendMinSemitones", "pitchbendMinSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
-        { pitchbendMaxSemitones,  1, 2, 12, "pitchbendMaxSemitones", "pitchbendMaxSemitones", kAudioUnitParameterUnit_Generic, false, NULL}
+        { pitchbendMinSemitones,  -12, -2, 0, "pitchbendMinSemitones", "pitchbendMinSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
+        { pitchbendMaxSemitones,  0, 2, 12, "pitchbendMaxSemitones", "pitchbendMaxSemitones", kAudioUnitParameterUnit_Generic, false, NULL}
     };
 };
 #endif

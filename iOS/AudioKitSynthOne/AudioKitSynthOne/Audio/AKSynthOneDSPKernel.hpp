@@ -201,6 +201,8 @@ private:
     
     DependentParam _delayTime;
     
+    DependentParam _pitchbend;
+    
     void dependentParameterDidChange(DependentParam param);
 
     ///can be called from within the render loop
@@ -442,13 +444,17 @@ private:
         { compressorReverbInputRelease, 0, 0.225, 0.5, "reverb input compressor release", "reverb input compressor release", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbWetRelease,   0, 0.15, 0.5, "reverb wet compressor release", "reverb wet compressor release", kAudioUnitParameterUnit_Generic, false, NULL},
         
-        { compressorMasterMakeupGain,      0.5, 2, 4, "master compressor makeup gain", "master compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
+        { compressorMasterMakeupGain, 0.5, 2, 4, "master compressor makeup gain", "master compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
         { compressorReverbInputMakeupGain, 0.5, 1.88, 4, "reverb input compressor makeup gain", "reverb input compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
-        { compressorMasterMakeupGain,      0.5, 1.88, 4, "reverb wet compressor makeup gain", "reverb wet compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
+        { compressorMasterMakeupGain, 0.5, 1.88, 4, "reverb wet compressor makeup gain", "reverb wet compressor makeup gain", kAudioUnitParameterUnit_Generic, false, NULL},
         
-        { delayInputCutoffTrackingRatio,                0.5, 0.75, 1, "delayInputCutoffTrackingRatio", "delayInputCutoffTrackingRatio", kAudioUnitParameterUnit_Hertz, false, NULL},
-        { delayInputResonance,             0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, false, NULL},
-        { tempoSyncToArpRate,                   0, 1, 1, "tempoSyncToArpRate", "tempoSyncToArpRate", kAudioUnitParameterUnit_Generic, false, NULL}
+        { delayInputCutoffTrackingRatio, 0.5, 0.75, 1, "delayInputCutoffTrackingRatio", "delayInputCutoffTrackingRatio", kAudioUnitParameterUnit_Hertz, false, NULL},
+        { delayInputResonance, 0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, false, NULL},
+        { tempoSyncToArpRate, 0, 1, 1, "tempoSyncToArpRate", "tempoSyncToArpRate", kAudioUnitParameterUnit_Generic, false, NULL},
+        
+        { pitchbend,              0, 8192, 16383, "pitchbend", "pitchbend", kAudioUnitParameterUnit_Generic, true, NULL},
+        { pitchbendMinSemitones,  -12, -2, 1, "pitchbendMinSemitones", "pitchbendMinSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
+        { pitchbendMaxSemitones,  1, 2, 12, "pitchbendMaxSemitones", "pitchbendMaxSemitones", kAudioUnitParameterUnit_Generic, false, NULL}
     };
 };
 #endif

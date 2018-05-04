@@ -36,7 +36,7 @@ public class ParentViewController: UpdatableViewController {
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
     @IBOutlet weak var modWheelSettings: SynthUIButton!
     @IBOutlet weak var midiLearnToggle: SynthUIButton!
-    @IBOutlet weak var pitchPad: AKVerticalPad!
+    @IBOutlet weak var pitchbend: AKVerticalPad!
     @IBOutlet weak var modWheelPad: AKVerticalPad!
     
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
@@ -301,22 +301,16 @@ public class ParentViewController: UpdatableViewController {
             }
         }
         
-        pitchPad.callback = { value in
-            var bendValue = 1.0
-            if value < 0.5 {
-                bendValue = Double.scaleEntireRange(value, fromRangeMin: 0.0, fromRangeMax: 0.5, toRangeMin: 0.5, toRangeMax: 1.0)
-            } else {
-                bendValue = Double.scaleEntireRange(value, fromRangeMin: 0.5, fromRangeMax: 1.0, toRangeMin: 1.0, toRangeMax: 2.0)
-            }
-            s.setAK1Parameter(.detuningMultiplier, bendValue)
+
+        pitchbend.callback = { value01 in
+            s.setAK1DependentParameter(.pitchbend, value01, Conductor.sharedInstance.pitchbendParentVCID)
         }
-        
-        pitchPad.completionHandler = {  _, touchesEnded, reset in
+        pitchbend.completionHandler = {  _, touchesEnded, reset in
             if touchesEnded && !reset {
-                self.pitchPad.resetToCenter()
+                self.pitchbend.resetToCenter()
             }
             if reset {
-                s.setAK1Parameter(.detuningMultiplier, 1.0)
+                s.setAK1DependentParameter(.pitchbend, 0.5, Conductor.sharedInstance.pitchbendParentVCID)
             }
         }
     }
@@ -327,9 +321,9 @@ public class ParentViewController: UpdatableViewController {
     }
     
     override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
-        let s = conductor.synth!
         
         // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
+        guard let s = conductor.synth else { return }
         let isMono = s.getAK1Parameter(.isMono)
         if isMono != monoButton.value {
             monoButton.value = isMono
@@ -349,6 +343,7 @@ public class ParentViewController: UpdatableViewController {
     
     func dependentParamDidChange(_ param: DependentParam) {
         switch param.param {
+            
         case .lfo1Rate:
             if param.payload == conductor.lfo1RateModWheelID {
                 return
@@ -356,6 +351,7 @@ public class ParentViewController: UpdatableViewController {
             if activePreset.modWheelRouting == 1 {
                 modWheelPad.setVerticalValue01(Double(param.value01))
             }
+            
         case .lfo2Rate:
             if param.payload == conductor.lfo2RateModWheelID {
                 return
@@ -363,6 +359,13 @@ public class ParentViewController: UpdatableViewController {
             if activePreset.modWheelRouting == 2 {
                 modWheelPad.setVerticalValue01(Double(param.value01))
             }
+            
+        case .pitchbend:
+            if param.payload == conductor.pitchbendParentVCID {
+                return
+            }
+            pitchbend.setVerticalValue01(Double(param.value01))
+            
         default:
             _ = 0
         }
@@ -887,12 +890,12 @@ extension ParentViewController: AKMIDIListener  {
     // MIDI Pitch Wheel
     public func receivedMIDIPitchWheel(_ pitchWheelValue: MIDIWord, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
-        
-        DispatchQueue.main.async {
-            self.pitchPad.setVerticalValueFromPitchWheel(midiValue: pitchWheelValue)
-        }
+        guard let s = Conductor.sharedInstance.synth else { return }
+        let val01 = Double.scaleRangeZeroToOne(Double(pitchWheelValue), rangeMin: 0, rangeMax: 16383)
+        s.setAK1DependentParameter(.pitchbend, val01, 0)
+        // UI will be updated by dependentParameterDidChange()
     }
-    
+
     // After touch
     public func receivedMIDIAfterTouch(_ pressure: MIDIByte, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }

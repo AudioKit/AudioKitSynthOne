@@ -30,6 +30,7 @@ class Conductor: AKSynthOneProtocol {
     let lfo1RateTouchPadID: Int32 = 5
     let lfo1RateModWheelID: Int32 = 6
     let lfo2RateModWheelID: Int32 = 7
+    let pitchbendParentVCID: Int32 = 8
     
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
         let binding = (param, control)
@@ -122,7 +123,7 @@ class Conductor: AKSynthOneProtocol {
         do {
             try AKSettings.setSession(category: .playAndRecord, with: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
         } catch {
-            AKLog("Could not set session category.")
+            AKLog("Could not set session category: \(error)")
         }
         
         // DEFAULT TUNING
@@ -137,7 +138,7 @@ class Conductor: AKSynthOneProtocol {
         do {
             try AudioKit.start()
         } catch {
-            AKLog("AudioKit did not start!")
+            AKLog("AudioKit did not start! \(error)")
             //TODO:Handle synth start failure
         }
         started = true

@@ -153,8 +153,11 @@ typedef AK_ENUM(AKSynthOneParameter) {
     delayInputResonance = 138,
 
     tempoSyncToArpRate = 139,
+    pitchbend = 140,
+    pitchbendMinSemitones = 141,
+    pitchbendMaxSemitones = 142,
     
-    AKSynthOneParameterCount = 140
+    AKSynthOneParameterCount = 143
     
 } AKSynthOneParameter;
 

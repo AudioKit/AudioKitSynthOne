@@ -135,20 +135,34 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     const float lfo3_1_0 = kernel->lfo3_1_0;
     
     //pitchLFO common frequency coefficient
-    float commonFrequencyCoefficient = 1.f;
+    float pitchLFOCoefficient = 1.f;
     const float semitone = 0.0594630944f; // 1 = 2^(1/12)
     if (getParam(pitchLFO) == 1.f)
-        commonFrequencyCoefficient = 1.f + lfo1_0_1 * semitone;
+        pitchLFOCoefficient = 1.f + lfo1_0_1 * semitone;
     else if (getParam(pitchLFO) == 2.f)
-        commonFrequencyCoefficient = 1.f + lfo2_0_1 * semitone;
+        pitchLFOCoefficient = 1.f + lfo2_0_1 * semitone;
     else if (getParam(pitchLFO) == 3.f)
-        commonFrequencyCoefficient = 1.f + lfo3_0_1 * semitone;
+        pitchLFOCoefficient = 1.f + lfo3_0_1 * semitone;
+    
+    // pitchbend coefficient
+    const float pbmin = getParam(pitchbendMinSemitones);
+    const float pbmax = getParam(pitchbendMaxSemitones);
+    const float pbVal = getParam(pitchbend);
+    float pitchbendCoefficient = 1.f;
+    if (pbmin < 0.f && pbVal < 8192.f) {
+        const float pbminst = pbmin * ((8191.f - pbVal) / 8191.f);
+        pitchbendCoefficient = nnToHz(pbminst);
+    } else if (pbmax > 0.f && pbVal >= 8192.f) {
+        const float pbmaxst = pbmax * (-(8192.f - pbVal) / 8192.f);
+        pitchbendCoefficient = nnToHz(pbmaxst);
+    }
     
     //OSC1 frequency
     const float cachedFrequencyOsc1 = oscmorph1->freq;
     float newFrequencyOsc1 = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyOsc1;
     newFrequencyOsc1 *= nnToHz((int)getParam(morph1SemitoneOffset));
-    newFrequencyOsc1 *= getParam(detuningMultiplier) * commonFrequencyCoefficient;
+    newFrequencyOsc1 *= getParam(detuningMultiplier) * pitchLFOCoefficient;
+    newFrequencyOsc1 *= pitchbendCoefficient;
     newFrequencyOsc1 = clamp(newFrequencyOsc1, 0.f, 0.5f*AKS1_SAMPLE_RATE);
     oscmorph1->freq = newFrequencyOsc1;
     
@@ -159,7 +173,8 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     const float cachedFrequencyOsc2 = oscmorph2->freq;
     float newFrequencyOsc2 = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyOsc2;
     newFrequencyOsc2 *= nnToHz((int)getParam(morph2SemitoneOffset));
-    newFrequencyOsc2 *= getParam(detuningMultiplier) * commonFrequencyCoefficient;
+    newFrequencyOsc2 *= getParam(detuningMultiplier) * pitchLFOCoefficient;
+    newFrequencyOsc2 *= pitchbendCoefficient;
     
     //LFO DETUNE OSC2
     const float magicDetune = cachedFrequencyOsc2/261.6255653006f;
@@ -180,14 +195,16 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     //SUB OSC FREQ
     const float cachedFrequencySub = subOsc->freq;
     float newFrequencySub = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencySub;
-    newFrequencySub *= getParam(detuningMultiplier) / (2.f * (1.f + getParam(subOctaveDown))) * commonFrequencyCoefficient;
+    newFrequencySub *= getParam(detuningMultiplier) / (2.f * (1.f + getParam(subOctaveDown))) * pitchLFOCoefficient;
+    newFrequencySub *= pitchbendCoefficient;
     newFrequencySub = clamp(newFrequencySub, 0.f, 0.5f * AKS1_SAMPLE_RATE);
     subOsc->freq = newFrequencySub;
     
     //FM OSC FREQ
     const float cachedFrequencyFM = fmOsc->freq;
     float newFrequencyFM = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyFM;
-    newFrequencyFM *= getParam(detuningMultiplier) * commonFrequencyCoefficient;
+    newFrequencyFM *= getParam(detuningMultiplier) * pitchLFOCoefficient;
+    newFrequencyFM *= pitchbendCoefficient;
     newFrequencyFM = clamp(newFrequencyFM, 0.f, 0.5f * AKS1_SAMPLE_RATE);
     fmOsc->freq = newFrequencyFM;
     

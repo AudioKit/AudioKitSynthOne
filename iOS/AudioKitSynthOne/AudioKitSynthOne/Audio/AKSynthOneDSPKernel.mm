@@ -1191,6 +1191,19 @@ void AKSynthOneDSPKernel::setAK1Parameter(AKSynthOneParameter param, float input
 }
 
 inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload) {
+    
+    // pitchbend
+    if (param == pitchbend) {
+        const float val = parameterClamp(param, inputValue);
+        const float val01 = (val - parameterMin(pitchbend)) / (parameterMax(pitchbend) - parameterMin(pitchbend));
+        _pitchbend = {param, val01, val, payload};
+        _setAK1Parameter(param, val);
+        if (notifyMainThread) {
+            dependentParameterDidChange(_pitchbend);
+        }
+        return;
+    }
+    
     if (getAK1Parameter(tempoSyncToArpRate) > 0.f) {
         // tempo sync
         if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency) {
@@ -1267,6 +1280,8 @@ inline void AKSynthOneDSPKernel::_setAK1ParameterHelper(AKSynthOneParameter para
     } else if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency || param == delayTime) {
         // dependent params
         _rateHelper(param, inputValue, notifyMainThread, payload);
+    } else if (param == pitchbend) {
+        _rateHelper(param, inputValue, notifyMainThread, payload);
     } else {
         // independent params
         _setAK1Parameter(param, inputValue);
@@ -1274,6 +1289,11 @@ inline void AKSynthOneDSPKernel::_setAK1ParameterHelper(AKSynthOneParameter para
 }
 
 float AKSynthOneDSPKernel::getAK1DependentParameter(AKSynthOneParameter param) {
+
+    if (param == pitchbend) {
+        return _pitchbend.value;
+    }
+
     DependentParam dp;
     switch(param) {
         case lfo1Rate: dp = _lfo1Rate; break;
@@ -1324,6 +1344,14 @@ void AKSynthOneDSPKernel::setAK1DependentParameter(AKSynthOneParameter param, fl
                 const float val = min + taperValue01 * (max - min);
                 _setAK1ParameterHelper(delayTime, val, notify, payload);
             }
+            break;
+        case pitchbend:
+        {
+            const float min = parameterMin(param);
+            const float max = parameterMax(param);
+            const float val = min + inputValue01 * (max - min);
+            _setAK1ParameterHelper(pitchbend, val, notify, payload);
+        }
             break;
         default:
             printf("error\n");

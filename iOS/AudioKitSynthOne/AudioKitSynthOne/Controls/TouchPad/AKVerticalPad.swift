@@ -93,7 +93,7 @@ public class AKVerticalPad: UIView {
     
     // Linear Scale from PitchWheel
     func setVerticalValueFromPitchWheel(midiValue: MIDIWord) {
-        verticalValue = Double.scaleRangeZeroToOne(Double(midiValue), rangeMin: 0, rangeMax: 16384)
+        verticalValue = Double.scaleRangeZeroToOne(Double(midiValue), rangeMin: 0, rangeMax: 16383)
         let verticalPos = self.bounds.height - (self.bounds.height * CGFloat(verticalValue))
         touchPointView.center = CGPoint(x: centerPointX, y: verticalPos + yVisualAdjust)
         callback(verticalValue)

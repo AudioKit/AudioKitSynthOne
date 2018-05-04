@@ -115,6 +115,8 @@ extension ParentViewController {
         s.setAK1Parameter(.compressorReverbWetMakeupGain, activePreset.compressorReverbWetMakeupGain)
         s.setAK1Parameter(.delayInputCutoffTrackingRatio, activePreset.delayInputCutoffTrackingRatio)
         s.setAK1Parameter(.delayInputResonance, activePreset.delayInputResonance)
+        s.setAK1Parameter(.pitchbendMinSemitones, activePreset.pitchbendMinSemitones)
+        s.setAK1Parameter(.pitchbendMaxSemitones, activePreset.pitchbendMaxSemitones)
 
         //
         s.resetSequencer()
@@ -218,6 +220,8 @@ extension ParentViewController {
         activePreset.compressorReverbWetMakeupGain = s.getAK1Parameter(.compressorReverbWetMakeupGain)
         activePreset.delayInputCutoffTrackingRatio = s.getAK1Parameter(.delayInputCutoffTrackingRatio)
         activePreset.delayInputResonance = s.getAK1Parameter(.delayInputResonance)
+        activePreset.pitchbendMinSemitones = s.getAK1Parameter(.pitchbendMinSemitones)
+        activePreset.pitchbendMaxSemitones = s.getAK1Parameter(.pitchbendMaxSemitones)
 
         // octave position
         activePreset.octavePosition = keyboardView.firstOctave - 2

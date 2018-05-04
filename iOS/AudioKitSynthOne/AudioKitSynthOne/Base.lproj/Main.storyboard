@@ -286,7 +286,7 @@
                         <outlet property="modWheelSettings" destination="OxM-Pu-Zba" id="KMo-fd-i8c"/>
                         <outlet property="monoButton" destination="FTi-x2-zwk" id="6K7-cc-Waz"/>
                         <outlet property="octaveStepper" destination="ZJ3-lz-BGf" id="3yD-ED-e4v"/>
-                        <outlet property="pitchPad" destination="RfU-sr-0bT" id="4OC-Cy-IqN"/>
+                        <outlet property="pitchbend" destination="RfU-sr-0bT" id="ZL5-ID-1hP"/>
                         <outlet property="topContainerView" destination="FVi-Ld-MF5" id="hUr-7n-IQP"/>
                         <outlet property="topPanelheight" destination="065-6c-Sa4" id="pwh-6g-OsJ"/>
                         <segue destination="qsj-iI-Pz6" kind="popoverPresentation" identifier="SegueToMOD" popoverAnchorView="OxM-Pu-Zba" id="TVa-dv-w7i">

@@ -129,6 +129,10 @@ class Preset: Codable {
     // MOD Wheel Routings
     var modWheelRouting = 0.0
     
+    // Pitchbend
+    var pitchbendMinSemitones = 0.0
+    var pitchbendMaxSemitones = 0.0
+    
     // REVERB/MASTER DYNAMICS
     var compressorMasterRatio = 0.0
     var compressorReverbInputRatio = 0.0
@@ -195,7 +199,6 @@ class Preset: Codable {
     // Init from Dictionary/JSON
     init(dictionary: [String: Any]) {
         
-        //TODO:initialize with dsp defaults.  i.e., s.getAK1Parameter(.tempoSyncToArpRate)
         guard let s = Conductor.sharedInstance.synth else {
             print("ERROR: can't read presets until synth is initialized")
             return
@@ -215,19 +218,19 @@ class Preset: Codable {
         isMono = dictionary["isMono"] as? Double ?? p(.isMono)
         //TODO:move isHoldMove to dsp
         isHoldMode = dictionary["isHoldMode"] as? Double ?? isHoldMode
-        isArpMode = dictionary["isArpMode"] as? Double ?? isArpMode
+        isArpMode = dictionary["isArpMode"] as? Double ?? p(.arpIsOn)
         tempoSyncToArpRate = dictionary["tempoSyncToArpRate"] as? Double ?? p(.tempoSyncToArpRate)
-        isLegato = dictionary["isLegato"] as? Double ?? isLegato
+        isLegato = dictionary["isLegato"] as? Double ?? p(.monoIsLegato)
         
         // Controls VC
         masterVolume = dictionary["masterVolume"] as? Double ?? p(.masterVolume)
         
-        vco1Volume = dictionary["vco1Volume"] as? Double ?? vco1Volume
-        vco2Volume = dictionary["vco2Volume"] as? Double ?? vco2Volume
-        vco1Semitone = dictionary["vco1Semitone"] as? Double ?? vco1Semitone
-        vco2Semitone = dictionary["vco2Semitone"] as? Double ?? vco2Semitone
-        vco2Detuning = dictionary["vco2Detuning"] as? Double ?? vco2Detuning
-        vcoBalance = dictionary["vcoBalance"] as? Double ?? vcoBalance
+        vco1Volume = dictionary["vco1Volume"] as? Double ?? p(.morph1Volume)
+        vco2Volume = dictionary["vco2Volume"] as? Double ?? p(.morph2Volume)
+        vco1Semitone = dictionary["vco1Semitone"] as? Double ?? p(.morph1SemitoneOffset)
+        vco2Semitone = dictionary["vco2Semitone"] as? Double ?? p(.morph2SemitoneOffset)
+        vco2Detuning = dictionary["vco2Detuning"] as? Double ?? p(.morph2Detuning)
+        vcoBalance = dictionary["vcoBalance"] as? Double ?? p(.morphBalance)
         subVolume = dictionary["subVolume"] as? Double ?? p(.subVolume)
         fmVolume = dictionary["fmVolume"] as? Double ?? p(.fmVolume)
         fmAmount = dictionary["fmMod"] as? Double ?? p(.fmAmount)
@@ -320,6 +323,10 @@ class Preset: Codable {
         
         // MOD WHeel
         modWheelRouting = dictionary["modWheelRouting"] as? Double ?? modWheelRouting
+        
+        // Pitchbend
+        pitchbendMaxSemitones = dictionary["pitchbendMaxSemitones"] as? Double ?? p(.pitchbendMaxSemitones)
+        pitchbendMinSemitones = dictionary["pitchbendMinSemitones"] as? Double ?? p(.pitchbendMinSemitones)
         
         // FX
         phaserFeedback = dictionary["phaserFeedback"] as? Double ?? p(.phaserFeedback)

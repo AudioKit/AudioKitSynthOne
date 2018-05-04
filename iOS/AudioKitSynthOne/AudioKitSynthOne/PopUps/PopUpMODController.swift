@@ -25,15 +25,18 @@ class PopUpMODController: UIViewController {
         
         modWheelSegment.selectedSegmentIndex = modWheelDestination
         
-        // TODO MARCUS: Set Values of PitchWheel from Kernel?
+        let c = Conductor.sharedInstance
+        guard let s = c.synth else { return }
         
-        pitchUpperRange.maxValue = 24
-        pitchUpperRange.minValue = 0
-        pitchLowerRange.maxValue = 0
-        pitchLowerRange.minValue = -24
-        
-        pitchUpperRange.value = 12
-        pitchLowerRange.value = -12
+        pitchUpperRange.maxValue = s.getParameterMax(.pitchbendMaxSemitones)
+        pitchUpperRange.minValue = s.getParameterMin(.pitchbendMaxSemitones)
+        pitchUpperRange.value = s.getParameterDefault(.pitchbendMaxSemitones)
+        c.bind(pitchUpperRange, to:.pitchbendMaxSemitones)
+
+        pitchLowerRange.maxValue = s.getParameterMax(.pitchbendMinSemitones)
+        pitchLowerRange.minValue = s.getParameterMin(.pitchbendMinSemitones)
+        pitchLowerRange.value = s.getParameterDefault(.pitchbendMinSemitones)
+        c.bind(pitchLowerRange, to:.pitchbendMinSemitones)
     }
     
     override func viewDidAppear(_ animated: Bool) {

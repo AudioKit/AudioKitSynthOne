@@ -24,7 +24,7 @@ static inline float nnToHz(float noteNumber) {
 // MARK: Member Functions
 
 inline float AKS1NoteState::getParam(AKSynthOneParameter param) {
-    return kernel->getAK1Parameter(param);
+    return kernel->p[param];
 }
 
 void AKS1NoteState::init() {

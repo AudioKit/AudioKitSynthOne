@@ -135,7 +135,6 @@ public:
     std::string parameterPresetKey(AKSynthOneParameter i);
 
 private:
-    inline void print_debug();
 
     inline void _setAK1Parameter(AKSynthOneParameter param, float inputValue01);
     

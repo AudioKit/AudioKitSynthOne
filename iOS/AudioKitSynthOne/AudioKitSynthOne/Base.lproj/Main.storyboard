@@ -753,6 +753,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAc-Vl-9He">
                                         <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="openHostApp:" destination="1VX-El-kEm" eventType="touchUpInside" id="3or-6o-HdX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -873,6 +876,7 @@
                         <outlet property="devButton" destination="fTf-DE-i4f" id="iT8-Vj-xzr"/>
                         <outlet property="diceButton" destination="Ake-qE-FFb" id="0DA-UA-1Pa"/>
                         <outlet property="displayLabel" destination="I96-P8-9zu" id="2Eq-3h-Hme"/>
+                        <outlet property="hostAppIcon" destination="Gc3-Yk-DKR" id="8hU-Kn-xxX"/>
                         <outlet property="panicButton" destination="fwk-oi-nBb" id="7Pe-IO-ly0"/>
                         <outlet property="saveButton" destination="W2N-mA-AKs" id="KaO-5S-p9D"/>
                     </connections>

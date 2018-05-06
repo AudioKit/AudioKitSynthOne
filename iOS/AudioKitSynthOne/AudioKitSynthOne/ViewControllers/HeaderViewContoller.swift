@@ -36,6 +36,7 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var saveButton: PresetUIButton!
     @IBOutlet weak var devButton: PresetUIButton!
     @IBOutlet weak var aboutButton: PresetUIButton!
+    @IBOutlet weak var hostAppIcon: UIImageView!
     
     var delegate: EmbeddedViewsDelegate?
     var headerDelegate: HeaderDelegate?
@@ -309,5 +310,22 @@ public class HeaderViewController: UpdatableViewController {
         aboutButton.callback = { _ in
             self.headerDelegate?.aboutPressed()
         }
-    }    
+    }
+
+    @IBAction func openHostApp(_ sender: AnyObject) {
+
+        var url: CFURL = CFURLCreateWithString(nil, "" as CFString?, nil)
+        var size = UInt32(MemoryLayout<CFURL>.size)
+        let result = AudioUnitGetProperty(
+            AudioKit.engine.outputNode.audioUnit!,
+            AudioUnitPropertyID(kAudioUnitProperty_PeerURL),
+            AudioUnitScope(kAudioUnitScope_Global),
+            0,
+            &url,
+            &size)
+
+        if result == noErr {
+            UIApplication.shared.open(url as URL)
+        }
+    }
 }

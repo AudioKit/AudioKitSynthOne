@@ -143,7 +143,8 @@ class Conductor: AKSynthOneProtocol {
         }
         started = true
         audioUnitPropertyListener = AudioUnitPropertyListener { (audioUnit, property) in
-            //self.hostAppIcon.image = AudioOutputUnitGetHostIcon(AudioKit.engine.outputNode.audioUnit!, 44)
+            let headerVC = self.viewControllers.filter { $0 is HeaderViewController }.first as? HeaderViewController
+            headerVC?.hostAppIcon.image = AudioOutputUnitGetHostIcon(AudioKit.engine.outputNode.audioUnit!, 44)
         }
 
         do {
@@ -161,8 +162,8 @@ class Conductor: AKSynthOneProtocol {
     }
     
     func updateDisplayLabel(_ param: AKSynthOneParameter, value: Double) {
-        let parentVC = self.viewControllers.filter { $0 is HeaderViewController }.first as? HeaderViewController
-        parentVC?.updateDisplayLabel(param, value: value)
+        let headerVC = self.viewControllers.filter { $0 is HeaderViewController }.first as? HeaderViewController
+        headerVC?.updateDisplayLabel(param, value: value)
     }
     
     //MARK: - AKSynthOneProtocol

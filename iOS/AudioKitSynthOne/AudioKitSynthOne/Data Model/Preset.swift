@@ -70,10 +70,10 @@ class Preset: Codable {
     var sustainLevel = 0.8
     var releaseDuration = 0.05
     
-    var filterAttackDuration = 0.05
-    var filterDecayDuration = 0.5
-    var filterSustainLevel = 1.0
-    var filterReleaseDuration = 0.5
+    var filterAttack = 0.05
+    var filterDecay = 0.5
+    var filterSustain = 1.0
+    var filterRelease = 0.5
     
     // Toggle Presets
     var delayToggled = 0.0
@@ -261,10 +261,10 @@ class Preset: Codable {
         sustainLevel = dictionary["sustainLevel"] as? Double ?? p(.sustainLevel)
         releaseDuration = dictionary["releaseDuration"] as? Double ?? p(.releaseDuration)
         
-        filterAttackDuration = dictionary["filterAttack"] as? Double ?? p(.filterAttackDuration)
-        filterDecayDuration = dictionary["filterDecay"] as? Double ?? p(.filterDecayDuration)
-        filterSustainLevel = dictionary["filterSustain"] as? Double ?? p(.filterSustainLevel)
-        filterReleaseDuration = dictionary["filterRelease"] as? Double ?? p(.filterReleaseDuration)
+        filterAttack = dictionary["filterAttack"] as? Double ?? p(.filterAttackDuration)
+        filterDecay = dictionary["filterDecay"] as? Double ?? p(.filterDecayDuration)
+        filterSustain = dictionary["filterSustain"] as? Double ?? p(.filterSustainLevel)
+        filterRelease = dictionary["filterRelease"] as? Double ?? p(.filterReleaseDuration)
         
         // Toggle Presets
         delayToggled = dictionary["delayToggled"] as? Double ?? p(.delayOn)

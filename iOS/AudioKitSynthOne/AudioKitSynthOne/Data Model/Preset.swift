@@ -53,7 +53,7 @@ class Preset: Codable {
     var reverbMix = 0.5 // Dry/Wet
     var reverbHighPass = 80.0 // Highpass filter freq for Filter
     var midiBendRange = 2.0 // MIDI bend range in +/- semitones
-    var crushFreq = 44100.0 // Crusher Frequency
+    var crushFreq = 48_000.0 // Crusher Frequency
     var autoPanAmount = 0.0
     var autoPanFrequency = 2.0 // AutoPan Rate
     var filterADSRMix = 0.0 // Filter Envelope depth
@@ -245,7 +245,10 @@ class Preset: Codable {
         reverbFeedback = dictionary["reverbFeedback"] as? Double ?? p(.reverbFeedback)
         reverbMix = dictionary["reverbMix"] as? Double ?? p(.reverbMix)
         reverbHighPass = dictionary["reverbHighPass"] as? Double ?? p(.reverbHighPass)
+        
+        //TODO:@MATT this is unused
         midiBendRange = dictionary["midiBendRange"] as? Double ?? midiBendRange
+        
         crushFreq = dictionary["crushFreq"] as? Double ?? p(.bitCrushSampleRate)
         autoPanFrequency = dictionary["autoPanRate"] as? Double ?? p(.autoPanFrequency)
         filterADSRMix = dictionary["filterADSRMix"] as? Double ?? p(.filterADSRMix)

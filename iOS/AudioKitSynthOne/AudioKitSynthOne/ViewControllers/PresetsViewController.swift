@@ -127,6 +127,11 @@ class PresetsViewController: UIViewController {
         updateCategoryTable()
     }
     
+    func upgradePresets() {
+        // Add Missing Banks
+      
+    }
+    
     func sortPresets() {
         
         switch categoryIndex {

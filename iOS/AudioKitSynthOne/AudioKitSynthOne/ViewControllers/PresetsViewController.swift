@@ -480,6 +480,7 @@ class PresetsViewController: UIViewController {
     
     @IBAction func doneEditingPressed(_ sender: UIButton) {
         self.view.endEditing(true)
+        self.savePreset(currentPreset)
     }
     
 }

@@ -63,6 +63,7 @@
 		94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B69C3A1F297E2800191C87 /* FXViewController.swift */; };
 		94C50C3220195FC0008549DB /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 94C50C3120195FC0008549DB /* User.json */; };
 		94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */; };
+		94D1763F20A138C50073F67F /* RedSky.json in Resources */ = {isa = PBXBuildFile; fileRef = 94D1763E20A138C50073F67F /* RedSky.json */; };
 		94D513A9206C723F0037CB28 /* PopUpAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D513A4206C6A610037CB28 /* PopUpAbout.swift */; };
 		94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */; };
 		94D917AF1F550D28006ACB4E /* FlatToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */; };
@@ -193,6 +194,7 @@
 		94B69C3A1F297E2800191C87 /* FXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		94C50C3120195FC0008549DB /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
 		94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
+		94D1763E20A138C50073F67F /* RedSky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RedSky.json; sourceTree = "<group>"; };
 		94D513A4206C6A610037CB28 /* PopUpAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAbout.swift; sourceTree = "<group>"; };
 		94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatToggleButtonStyleKit.swift; sourceTree = "<group>"; };
 		94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatToggleButton.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			children = (
 				94FA2DC41F9E82BB00DED735 /* BankA.json */,
 				94C50C3120195FC0008549DB /* User.json */,
+				94D1763E20A138C50073F67F /* RedSky.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				94C50C3220195FC0008549DB /* User.json in Resources */,
 				C4CC3043208499E5004E91CB /* Audiobus.txt in Resources */,
 				94FA2DC51F9E82BB00DED735 /* BankA.json in Resources */,
+				94D1763F20A138C50073F67F /* RedSky.json in Resources */,
 				C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */,
 				C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */,
 			);

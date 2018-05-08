@@ -208,18 +208,6 @@ extension ParentViewController {
             let bank = Bank(name: bankName, position: i)
             conductor.banks.append(bank)
         }
-        
-//        let bankA = Bank(name: "BankA", position: 0)
-//        let userBank = Bank(name: "User", position: 1)
-//        conductor.banks.append(bankA)
-//        conductor.banks.append(userBank)
-//        
-//        let newBank = Bank(name: "Red Sky Lullaby", position: 2)
-//        conductor.banks.append(newBank)
-//        
-//        conductor.banks.forEach {
-//            AKLog($0.name)
-//        }
       
         saveBankSettings()
     }

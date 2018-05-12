@@ -172,6 +172,15 @@ public class ParentViewController: UpdatableViewController {
             createInitBanks()
         }
         
+        // Check preset versions
+        let currentPresetVersion = AppSetting().presetsVersion
+        if appSettings.presetsVersion < currentPresetVersion {
+            presetsViewController.upgradePresets()
+            // Save appSettings
+            appSettings.presetsVersion = currentPresetVersion
+            saveAppSettings()
+        }
+        
         presetsViewController.loadBanks()
         
         // On four runs show dialog and request review

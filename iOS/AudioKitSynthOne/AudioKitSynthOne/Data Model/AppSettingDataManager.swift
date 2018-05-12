@@ -10,6 +10,8 @@ import AudioKit
 import UIKit
 import Disk
 
+let initBanks = ["BankA", "User", "Red Sky Lullaby"]
+
 extension ParentViewController {
     
     // **********************************************************
@@ -201,13 +203,10 @@ extension ParentViewController {
     }
     
     func createInitBanks() {
-        let bankA = Bank(name: "BankA", position: 0)
-        let userBank = Bank(name: "User", position: 1)
-        conductor.banks.append(bankA)
-        conductor.banks.append(userBank)
         
-        conductor.banks.forEach {
-            AKLog($0.name)
+        for (i, bankName) in initBanks.enumerated() {
+            let bank = Bank(name: bankName, position: i)
+            conductor.banks.append(bank)
         }
       
         saveBankSettings()

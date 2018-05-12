@@ -260,13 +260,6 @@ class PresetsViewController: UIViewController {
     }
     
     func selectCurrentPreset() {
-        // No preset is selected, select first one
-        //        guard presets.index(where: {$0 === currentPreset}) != nil else {
-        //            // currentPreset = presets[0]
-        //            tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
-        //            return
-        //        }
-        //
         // Find the preset in the current view
         if let index = sortedPresets.index(where: {$0 === currentPreset}) {
             tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
@@ -283,6 +276,19 @@ class PresetsViewController: UIViewController {
             tableView.deselectRow(at: IndexPath(row: index, section: 0), animated: false)
         }
     }
+    
+    func upgradePresets() {
+        // If the bankName is not in conductorBanks, add bank to conductor banks
+        for bankName in initBanks {
+            if !conductor.banks.contains(where: { $0.name == bankName }) {
+                // Add bank to conductor banks
+                let bank = Bank(name: bankName, position: conductor.banks.count)
+                conductor.banks.append(bank)
+                presetsDelegate?.banksDidUpdate()
+            }
+        }
+    }
+    
     
     // *****************************************************************
     // MARK: - IBActions / Callbacks
@@ -480,6 +486,7 @@ class PresetsViewController: UIViewController {
     
     @IBAction func doneEditingPressed(_ sender: UIButton) {
         self.view.endEditing(true)
+        self.savePreset(currentPreset)
     }
     
 }

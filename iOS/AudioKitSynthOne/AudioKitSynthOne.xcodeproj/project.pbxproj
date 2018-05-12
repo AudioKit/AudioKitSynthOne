@@ -116,6 +116,8 @@
 		C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBA1F244AD40011B119 /* CGFloat+Extensions.swift */; };
 		C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */; };
 		C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */; };
+		F4675242209FBE5000060209 /* TuningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4675241209FBE5000060209 /* TuningsViewController.swift */; };
+		F467524520A01A5F00060209 /* TuningsPitchWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */; };
 		F48556352097A071000319E5 /* AKS1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = F48556332097A071000319E5 /* AKS1NoteState.mm */; };
 /* End PBXBuildFile section */
 
@@ -269,6 +271,8 @@
 		C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 		C75EC33F7DB5853B42F6D569 /* Pods-SynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynthOne/Pods-SynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
+		F4675241209FBE5000060209 /* TuningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsViewController.swift; sourceTree = "<group>"; };
+		F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsPitchWheelView.swift; sourceTree = "<group>"; };
 		F48556332097A071000319E5 /* AKS1NoteState.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
 		F48556342097A071000319E5 /* AKS1NoteState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AKS1NoteState.hpp; sourceTree = "<group>"; };
 		F4DFA161208905BF00412E7B /* AKSynthOneRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
@@ -326,7 +330,6 @@
 			isa = PBXGroup;
 			children = (
 				C4F7ECB91F244AD40011B119 /* Extensions */,
-				94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */,
 				9410659E1F26AA55002777AB /* ADSRViewController.swift */,
 				946D159E1FD26CD6006E7C97 /* DevViewController.swift */,
 				94B69C3A1F297E2800191C87 /* FXViewController.swift */,
@@ -337,6 +340,8 @@
 				9468E2791F2827AC00C60B1B /* SettingsViewController.swift */,
 				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
 				945261381F2918A60037662C /* TouchPadViewController.swift */,
+				F4675241209FBE5000060209 /* TuningsViewController.swift */,
+				F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				9435245B1F57A6F100BDA789 /* SynthPanelController.swift */,
+				94CA7BAC1F27B86D00253C09 /* UpdatableViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -807,6 +813,7 @@
 				C4AC4B192019C63F00D04C7F /* AEMainThreadEndpoint.m in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				94A880811FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,
+				F467524520A01A5F00060209 /* TuningsPitchWheelView.swift in Sources */,
 				C4AC4B152019C63F00D04C7F /* AETime.m in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
 				94A503991FF2F3E10097D37C /* PopUpMODController.swift in Sources */,
@@ -859,6 +866,7 @@
 				C42459DF201D6498004565AB /* AKSynthOneDSPKernel.mm in Sources */,
 				949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
 				C42459E1201D64D4004565AB /* Bank.swift in Sources */,
+				F4675242209FBE5000060209 /* TuningsViewController.swift in Sources */,
 				94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */,
 				949D09361F34F6FB000FB6E0 /* LFOPickerStyleKit.swift in Sources */,
 				945C3A061F3141F60086D58B /* ArpButton.swift in Sources */,

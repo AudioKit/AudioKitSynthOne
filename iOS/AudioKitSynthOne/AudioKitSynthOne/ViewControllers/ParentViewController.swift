@@ -100,6 +100,12 @@ public class ParentViewController: UpdatableViewController {
         return viewController
     }()
     
+    lazy var tuningsViewController: TuningsViewController = {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier()) as! TuningsViewController
+        return viewController
+    }()
+
     lazy var presetsViewController: PresetsViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
@@ -712,6 +718,10 @@ extension ParentViewController: EmbeddedViewsDelegate {
             add(asChildViewController: seqViewController, isTopContainer: isTopView)
             seqViewController.navDelegate = self
             seqViewController.isTopContainer = isTopView
+        case .tuningsView:
+            add(asChildViewController: tuningsViewController, isTopContainer: isTopView)
+            tuningsViewController.navDelegate = self
+            tuningsViewController.isTopContainer = isTopView
         }
         
         // Update panel navigation

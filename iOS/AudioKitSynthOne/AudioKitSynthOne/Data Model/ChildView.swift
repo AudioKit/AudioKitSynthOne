@@ -14,8 +14,9 @@ public enum ChildView: Int {
     case padView = 2
     case fxView = 3
     case seqView = 4
+    case tuningsView = 5
     
-    static let maxValue = 4
+    static let maxValue = 5
     
     func identifier() -> String {
         switch self {
@@ -24,6 +25,7 @@ public enum ChildView: Int {
         case .padView: return "TouchPadViewController"
         case .fxView: return "FXViewController"
         case .seqView: return "SeqViewController"
+        case .tuningsView: return "TuningsViewController"
         }
     }
     
@@ -34,6 +36,7 @@ public enum ChildView: Int {
         case .padView: return "PAD"
         case .fxView: return "FX"
         case .seqView: return "ARP"
+        case .tuningsView: return "TUNE"
         }
     }
     

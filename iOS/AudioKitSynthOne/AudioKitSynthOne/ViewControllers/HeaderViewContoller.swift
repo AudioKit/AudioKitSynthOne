@@ -65,7 +65,6 @@ public class HeaderViewController: UpdatableViewController {
         #if true
         devButton.isHidden = true
         #else
-        //TODO:Show for debug, hide for release, keep easter egg :-)
         devButton.isHidden = false
         #endif
         

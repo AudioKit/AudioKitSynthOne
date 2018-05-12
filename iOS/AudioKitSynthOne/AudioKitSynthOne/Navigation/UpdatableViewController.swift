@@ -24,5 +24,4 @@ public class UpdatableViewController: UIViewController {
     
     // subclasses should update UI elements that do not conform to AKSynthOneControl protocol, should not call super
     func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {}
-    
 }

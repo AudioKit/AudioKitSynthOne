@@ -462,15 +462,13 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             bitCrushOut *= lfo3_1_0;
         
         // signal goes from mono to stereo with autopan
-        
-        //AUTOPAN
         panOscillator->freq = p[autoPanFrequency];
         panOscillator->amp = p[autoPanAmount];
         float panValue = 0.f;
         sp_osc_compute(sp, panOscillator, nil, &panValue);
         pan->pan = panValue;
         float panL = 0.f, panR = 0.f;
-        sp_pan2_compute(sp, pan, &bitCrushOut, &panL, &panR);
+        sp_pan2_compute(sp, pan, &bitCrushOut, &panL, &panR); // pan2 is equal power
         
         // PHASER+CROSSFADE
         float phaserOutL = panL;

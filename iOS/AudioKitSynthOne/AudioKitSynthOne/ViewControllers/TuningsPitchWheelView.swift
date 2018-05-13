@@ -19,14 +19,18 @@ public class TuningsPitchWheelView: UIView {
     public required init?(coder aDecoder: NSCoder) {
         self.overlayView = TuningsPitchWheelOverlayView.init(frame: CGRect.init())
         super.init(coder: aDecoder)
-        overlayView.frame = self.bounds
-        overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(overlayView)
+        configure()
     }
     
     public override init(frame: CGRect) {
         self.overlayView = TuningsPitchWheelOverlayView.init(frame: frame)
         super.init(frame: frame)
+        configure()
+    }
+    
+    internal func configure() {
+        self.isOpaque = false
+        self.backgroundColor = UIColor.clear
         overlayView.frame = self.bounds
         overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(overlayView)
@@ -70,8 +74,6 @@ public class TuningsPitchWheelView: UIView {
     override public func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         context.saveGState()
-        #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1).setFill()
-        context.fill(rect)
         
         let x: CGFloat = rect.origin.x
         let y: CGFloat = rect.origin.y
@@ -115,7 +117,6 @@ public class TuningsPitchWheelView: UIView {
             
             // draw text of log2 f
             let msd = String(format: "%.04f", p)
-            //let msd = "\(p.decimalString)"
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
         }
         pxy = mspxy
@@ -126,7 +127,7 @@ public class TuningsPitchWheelView: UIView {
         UIColor.lightGray.setFill()
         let npostr = "\(masterPitch.count)"
         let npopt =  CGPoint.init(x: 2 * fontSize, y: 2 * fontSize)
-        _ = npostr.drawCentered(atPoint: npopt, font: bdf2, color: UIColor.black)
+        _ = npostr.drawCentered(atPoint: npopt, font: bdf2, color: UIColor.lightGray)
         
         // POP
         context.restoreGState()
@@ -137,8 +138,7 @@ public class TuningsPitchWheelView: UIView {
 private extension TuningsPitchWheelView {
     func color(forPitch pitch: Double) -> UIColor {
         let hue = CGFloat(pitch.truncatingRemainder(dividingBy: 1))
-        //TODO:insert brightness taper here for 0.6-0.7
-        let r = UIColor.init(hue: hue, saturation: 1, brightness: 1, alpha: 1)
+        let r = UIColor.init(hue: hue, saturation: 0.75, brightness: 1, alpha: 0.75)
         return r
     }
     
@@ -171,14 +171,12 @@ private extension String {
         let labelSize = self.size(withAttributes: [.font:font, .strokeColor:color])
         let centeredAvgP = CGPoint(x: point.x - labelSize.width / 2.0, y: point.y - labelSize.height / 2.0)
         
-        // draw stroke
         var attributes = [NSAttributedStringKey : Any]()
         attributes[.font] = font
         attributes[.strokeWidth] = 12
-        attributes[.strokeColor] = UIColor.darkGray
+        attributes[.strokeColor] = UIColor.black
         self.draw(at: centeredAvgP, withAttributes: attributes)
         
-        // draw fill
         attributes.removeValue(forKey: .strokeWidth)
         attributes.removeValue(forKey: .strokeColor)
         attributes[.foregroundColor] = color

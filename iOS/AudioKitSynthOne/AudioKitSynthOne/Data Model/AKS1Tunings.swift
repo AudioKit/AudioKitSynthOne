@@ -153,8 +153,9 @@ import AudioKit
     }
     
     private func configureCell(_ cell: UITableViewCell) {
-        cell.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        cell.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        cell.isOpaque = false
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     
     ///UITableViewDelegate

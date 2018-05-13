@@ -30,7 +30,8 @@ class TuningsViewController: SynthPanelController {
         viewType = .tuningsView
         tuningTableView.dataSource = aks1Tunings
         tuningTableView.delegate = aks1Tunings
-        tuningTableView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        tuningTableView.backgroundColor = UIColor.clear
+        tuningTableView.isOpaque = false
         aks1Tunings.tuningsDelegate = self
         tuningDidChange()
     }

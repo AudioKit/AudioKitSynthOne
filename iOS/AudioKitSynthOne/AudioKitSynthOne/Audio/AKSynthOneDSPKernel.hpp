@@ -332,7 +332,7 @@ private:
         { filterSustainLevel,    0, 1, 1, "filterSustain", "filterSustainLevel", kAudioUnitParameterUnit_Generic, true, NULL},
         { filterReleaseDuration, 0, 0.5, 2, "filterRelease", "filterReleaseDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
         { attackDuration,        0.0005, 0.05, 2, "attackDuration", "attackDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
-        { decayDuration,         0, 0.005, 2, "decayDuration", "decayDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
+        { decayDuration,         0.005, 0.005, 2, "decayDuration", "decayDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
         { sustainLevel,          0, 0.8, 1, "sustainLevel", "sustainLevel", kAudioUnitParameterUnit_Generic, true, NULL},
         { releaseDuration,       0.004, 0.05, 2, "releaseDuration", "releaseDuration", kAudioUnitParameterUnit_Seconds, true, NULL},
         { morph2Detuning,        -4, 0, 4, "morph2Detuning", "morph2Detuning", kAudioUnitParameterUnit_Generic, true, NULL},

@@ -128,11 +128,8 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     
     // convenience
     const float lfo1_0_1 = kernel->lfo1_0_1;
-    const float lfo1_1_0 = kernel->lfo1_1_0;
     const float lfo2_0_1 = kernel->lfo2_0_1;
-    const float lfo2_1_0 = kernel->lfo2_1_0;
     const float lfo3_0_1 = kernel->lfo3_0_1;
-    const float lfo3_1_0 = kernel->lfo3_1_0;
     
     //pitchLFO common frequency coefficient
     float pitchLFOCoefficient = 1.f;
@@ -211,11 +208,11 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     //FM LFO
     float fmOscIndx = getParam(fmAmount);
     if (getParam(fmLFO) == 1.f)
-        fmOscIndx = getParam(fmAmount) * lfo1_1_0;
+        fmOscIndx = getParam(fmAmount) * lfo1_0_1;
     else if (getParam(fmLFO) == 2.f)
-        fmOscIndx = getParam(fmAmount) * lfo2_1_0;
+        fmOscIndx = getParam(fmAmount) * lfo2_0_1;
     else if (getParam(fmLFO) == 3.f)
-        fmOscIndx = getParam(fmAmount) * lfo3_1_0;
+        fmOscIndx = getParam(fmAmount) * lfo3_0_1;
     fmOscIndx = kernel->parameterClamp(fmAmount, fmOscIndx);
     fmOsc->indx = fmOscIndx;
     
@@ -226,11 +223,11 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     //ADSR decay LFO
     float dec = getParam(decayDuration);
     if (getParam(decayLFO) == 1.f)
-        dec *= lfo1_1_0;
+        dec *= lfo1_0_1;
     else if (getParam(decayLFO) == 2.f)
-        dec *= lfo2_1_0;
+        dec *= lfo2_0_1;
     else if (getParam(decayLFO) == 3.f)
-        dec *= lfo3_1_0;
+        dec *= lfo3_0_1;
     dec = kernel->parameterClamp(decayDuration, dec);
     adsr->dec = dec;
     
@@ -261,11 +258,11 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     //FILTER RESONANCE LFO
     float filterResonance = getParam(resonance);
     if (getParam(resonanceLFO) == 1)
-        filterResonance *= lfo1_1_0;
+        filterResonance *= lfo1_0_1;
     else if (getParam(resonanceLFO) == 2)
-        filterResonance *= lfo2_1_0;
+        filterResonance *= lfo2_0_1;
     else if (getParam(resonanceLFO) == 3)
-        filterResonance *= lfo3_1_0;
+        filterResonance *= lfo3_0_1;
     filterResonance = kernel->parameterClamp(resonance, filterResonance);
     if (getParam(filterType) == 0) {
         loPass->res = filterResonance;
@@ -295,20 +292,20 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     // filter frequency cutoff calculation
     float filterCutoffFreq = getParam(cutoff);
     if (getParam(cutoffLFO) == 1.f)
-        filterCutoffFreq *= lfo1_1_0;
+        filterCutoffFreq *= lfo1_0_1;
     else if (getParam(cutoffLFO) == 2.f)
-        filterCutoffFreq *= lfo2_1_0;
+        filterCutoffFreq *= lfo2_0_1;
     else if (getParam(cutoffLFO) == 3.f)
-        filterCutoffFreq *= lfo3_1_0;
+        filterCutoffFreq *= lfo3_0_1;
     
     // filter frequency env lfo crossfade
     float filterEnvLFOMix = getParam(filterADSRMix);
     if (getParam(filterEnvLFO) == 1.f)
-        filterEnvLFOMix *= lfo1_1_0;
+        filterEnvLFOMix *= lfo1_0_1;
     else if (getParam(filterEnvLFO) == 2.f)
-        filterEnvLFOMix *= lfo2_1_0;
+        filterEnvLFOMix *= lfo2_0_1;
     else if (getParam(filterEnvLFO) == 3.f)
-        filterEnvLFOMix *= lfo3_1_0;
+        filterEnvLFOMix *= lfo3_0_1;
     
     // filter frequency mixer
     filterCutoffFreq -= filterCutoffFreq * filterEnvLFOMix * (1.f - filter);
@@ -349,11 +346,11 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     sp_noise_compute(kernel->spp(), noise, nil, &noise_out);
     noise_out *= getParam(noiseVolume);
     if (getParam(noiseLFO) == 1.f)
-        noise_out *= lfo1_1_0;
+        noise_out *= lfo1_0_1;
     else if (getParam(noiseLFO) == 2.f)
-        noise_out *= lfo2_1_0;
+        noise_out *= lfo2_0_1;
     else if (getParam(noiseLFO) == 3.f)
-        noise_out *= lfo3_1_0;
+        noise_out *= lfo3_0_1;
     
     //synthOut
     float synthOut = amp * (osc_morph_out + subOsc_out + fmOsc_out + noise_out);

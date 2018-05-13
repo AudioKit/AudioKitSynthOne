@@ -12,23 +12,67 @@ import AudioKit
 
 public class TuningsPitchWheelView: UIView {
     
+    var overlayView: TuningsPitchWheelOverlayView
+    var masterPitch = [Double]()
+    var pxy = [CGPoint]()
+    
+    public required init?(coder aDecoder: NSCoder) {
+        self.overlayView = TuningsPitchWheelOverlayView.init(frame: CGRect.init())
+        super.init(coder: aDecoder)
+        overlayView.frame = self.bounds
+        overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addSubview(overlayView)
+    }
+    
+    public override init(frame: CGRect) {
+        self.overlayView = TuningsPitchWheelOverlayView.init(frame: frame)
+        super.init(frame: frame)
+        overlayView.frame = self.bounds
+        overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addSubview(overlayView)
+    }
+    
     public func updateFromGlobalTuningTable() {
-        DispatchQueue.main.async {
-            self.setNeedsDisplay()
+        DispatchQueue.global(qos: .background).async {
+            // no access to the master set so recreate it from (middle c nn, + npo)
+            let mc = AKPolyphonicNode.tuningTable.middleCFrequency
+            if mc < 1 { return }
+            let npo = AKPolyphonicNode.tuningTable.npo
+            if npo < 1 { return }
+            var mp = [Double]()
+            for i: Int in 0..<npo {
+                let nn = Int(AKPolyphonicNode.tuningTable.middleCNoteNumber) + i
+                let f = AKPolyphonicNode.tuningTable.frequency(forNoteNumber: MIDINoteNumber(nn)) / mc
+                let p = log2(f)
+                mp.append(p)
+            }
+            
+            self.masterPitch = mp
+            
+            DispatchQueue.main.async {
+                self.setNeedsDisplay()
+                DispatchQueue.main.async {
+                    self.overlayView.setNeedsDisplay()
+                }
+            }
         }
     }
     
-    //draw the state of AKPolyphonicNode.tuningTable.masterSet as a PitchWheel
+    ///schedule update of overlay for next main thread run loop
+    public func playingNotesDidChange(_ playingNotes: PlayingNotes) {
+        DispatchQueue.main.async {
+            self.overlayView.playingNotes = playingNotes
+            self.overlayView.setNeedsDisplay()
+        }
+    }
+
+    ///draw the state of AKPolyphonicNode.tuningTable.masterSet as a PitchWheel
     override public func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         context.saveGState()
         #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1).setFill()
         context.fill(rect)
         
-        let mc = AKPolyphonicNode.tuningTable.middleCFrequency
-        if mc < 1 { return }
-        let npo = AKPolyphonicNode.tuningTable.npo
-        if npo < 1 { return }
         let x: CGFloat = rect.origin.x
         let y: CGFloat = rect.origin.y
         let w: CGFloat = rect.size.width
@@ -37,21 +81,14 @@ public class TuningsPitchWheelView: UIView {
         let r = inset * (w < h ? w : h)
         let xp = x + 0.5 * w
         let yp = y + 0.5 * h
-        var masterPitch = [Double]()
         let fontSize: CGFloat = 16
         let sdf = UIFont.systemFont(ofSize: fontSize)
-        let bdf = UIFont.boldSystemFont(ofSize: fontSize)
+        let bdf2 = UIFont.boldSystemFont(ofSize: 2 * fontSize)
         UIColor.black.setStroke()
-        
-        // we don't have access to the master set so recreate it from (middle c nn, + npo)
-        for i: Int in 0..<npo {
-            let nn = Int(AKPolyphonicNode.tuningTable.middleCNoteNumber) + i
-            let f = AKPolyphonicNode.tuningTable.frequency(forNoteNumber: MIDINoteNumber(nn)) / mc
-            let p = log2(f)
-            masterPitch.append(p)
-        }
-        
-        for (_, p) in masterPitch.enumerated() {
+
+        var mspxy = [CGPoint]()
+        let masterSet = masterPitch
+        for (_, p) in masterSet.enumerated() {
             context.setLineWidth(1)
             let cfp = color(forPitch: p)
             cfp.setStroke()
@@ -68,35 +105,40 @@ public class TuningsPitchWheelView: UIView {
             let p1 = CGPoint.init(x: p11.x + xp, y: p11.y + yp)
             let p22 = horagram01ToCartesian01(p: CGPoint.init(x: p, y: Double(0.5 * r2)))
             let p2: CGPoint = CGPoint.init(x: p22.x + xp, y: p22.y + yp)
+            mspxy.append(p2)
             generalLineP(context, p0, p2)
             
             // BIG DOT
-            let bigR: CGFloat = 0.5 * 14
+            let bigR: CGFloat = 0.5 * 14 * 1.618
             let bigDotR = CGRect(x: CGFloat(p2.x - 0.5 * bigR), y: CGFloat(p2.y - 0.5 * bigR), width: bigR, height: bigR)
             context.fillEllipse(in: bigDotR)
             
             // draw text of log2 f
-            let msd = "\(p.decimalString)"
+            let msd = String(format: "%.04f", p)
+            //let msd = "\(p.decimalString)"
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
         }
+        pxy = mspxy
+        self.overlayView.pxy = pxy
         
         // draw NPO
-        UIColor.black.setStroke()
-        UIColor.black.setFill()
-        let npostr = "\(npo)"
-        let npopt =  CGPoint.init(x: fontSize, y: fontSize)
-        _ = npostr.drawCentered(atPoint: npopt, font: bdf, color: UIColor.black)
+        UIColor.darkGray.setStroke()
+        UIColor.lightGray.setFill()
+        let npostr = "\(masterPitch.count)"
+        let npopt =  CGPoint.init(x: 2 * fontSize, y: 2 * fontSize)
+        _ = npostr.drawCentered(atPoint: npopt, font: bdf2, color: UIColor.black)
         
         // POP
         context.restoreGState()
     }
-    
 }
 
 
 private extension TuningsPitchWheelView {
     func color(forPitch pitch: Double) -> UIColor {
-        let r = UIColor.init(hue: CGFloat(pitch.truncatingRemainder(dividingBy: 1)), saturation: 1, brightness: 0.75, alpha: 1)
+        let hue = CGFloat(pitch.truncatingRemainder(dividingBy: 1))
+        //TODO:insert brightness taper here for 0.6-0.7
+        let r = UIColor.init(hue: hue, saturation: 1, brightness: 1, alpha: 1)
         return r
     }
     
@@ -143,5 +185,61 @@ private extension String {
         self.draw(at: centeredAvgP, withAttributes:attributes)
         
         return labelSize
+    }
+}
+
+
+///transparent overlay for tuning view which displays amplitudes of playing notes
+public class TuningsPitchWheelOverlayView: UIView {
+    
+    var pxy = [CGPoint]()
+    var playingNotes: PlayingNotes?
+    
+    required public override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.isOpaque = false
+        self.backgroundColor = UIColor.clear
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.isOpaque = false
+        self.backgroundColor = UIColor.clear
+    }
+    
+    override public func draw(_ rect: CGRect) {
+        guard let context = UIGraphicsGetCurrentContext() else { return }
+        context.saveGState()
+        
+        UIColor.white.setStroke()
+        context.setLineWidth(1)
+        
+        let pxyCopy = pxy
+        let npo = Int32(pxyCopy.count)
+        if npo < 1 { return }
+        
+        if let pn = playingNotes {
+            // must match AKS1_MAX_POLYPHONY
+            let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2, pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
+            for playingNote in na {
+                if playingNote.noteNumber != -1 {
+                    var v = playingNote.amp
+                    v = 2 * v
+                    if v > 0 {
+                        var nn = playingNote.noteNumber - Int32(AKPolyphonicNode.tuningTable.middleCNoteNumber)
+                        while nn < 0 { nn = nn + Int32(npo) }
+                        while nn >= npo { nn = nn - Int32(npo) }
+                        nn = nn % npo
+                        let p = pxyCopy[Int(nn)]
+                        let bigR = CGFloat(v * 2 * 14)
+                        let bigDotR = CGRect(x: p.x - bigR/2, y: p.y - bigR/2, width: bigR, height: bigR)
+                        context.strokeEllipse(in: bigDotR)
+                    }
+                }
+            }
+        }
+        
+        // POP
+        context.restoreGState()
     }
 }

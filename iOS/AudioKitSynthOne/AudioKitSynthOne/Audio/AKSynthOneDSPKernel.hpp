@@ -278,6 +278,7 @@ private:
     float bitcrushValue = 0.f;
 
     // Arp/Seq
+    double sampleCounter = 0;
     double arpSampleCounter = 0;
     double arpTime = 0;
     int notesPerOctave = 12;

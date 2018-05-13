@@ -116,6 +116,7 @@
 		C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBA1F244AD40011B119 /* CGFloat+Extensions.swift */; };
 		C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */; };
 		C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */; };
+		F41C34D020A7A71A006EB96B /* AKS1Tunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */; };
 		F4675242209FBE5000060209 /* TuningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4675241209FBE5000060209 /* TuningsViewController.swift */; };
 		F467524520A01A5F00060209 /* TuningsPitchWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */; };
 		F48556352097A071000319E5 /* AKS1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = F48556332097A071000319E5 /* AKS1NoteState.mm */; };
@@ -271,6 +272,7 @@
 		C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 		C75EC33F7DB5853B42F6D569 /* Pods-SynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynthOne/Pods-SynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
+		F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKS1Tunings.swift; sourceTree = "<group>"; };
 		F4675241209FBE5000060209 /* TuningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsViewController.swift; sourceTree = "<group>"; };
 		F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsPitchWheelView.swift; sourceTree = "<group>"; };
 		F48556332097A071000319E5 /* AKS1NoteState.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 		945C3A0B1F3142310086D58B /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */,
 				941DE3E01FCE3CD400A09C24 /* AppSetting.swift */,
 				941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */,
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
@@ -794,6 +797,7 @@
 				94AF74071F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */,
 				9403F29D1F671A6000320FCC /* Preset.swift in Sources */,
 				94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */,
+				F41C34D020A7A71A006EB96B /* AKS1Tunings.swift in Sources */,
 				94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */,
 				946D159F1FD26CD6006E7C97 /* DevViewController.swift in Sources */,
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,

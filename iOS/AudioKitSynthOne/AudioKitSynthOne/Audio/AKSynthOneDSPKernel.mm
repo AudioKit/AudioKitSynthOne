@@ -104,14 +104,15 @@ void AKSynthOneDSPKernel::beatCounterDidChange() {
 
 ///can be called from within the render loop
 void AKSynthOneDSPKernel::playingNotesDidChange() {
+    aePlayingNotes.polyphony = AKS1_MAX_POLYPHONY;
     if (p[isMono] > 0.f) {
-        aePlayingNotes.playingNotes[0] = {monoNote->rootNoteNumber};
-        for(int i=1; i<AKS1_MAX_POLYPHONY; i++) {
-            aePlayingNotes.playingNotes[i] = {-1};
+        aePlayingNotes.playingNotes[0] = {monoNote->rootNoteNumber, monoNote->amp};
+        for(int i = 1; i<AKS1_MAX_POLYPHONY; i++) {
+            aePlayingNotes.playingNotes[i] = {-1,-1};
         }
     } else {
         for(int i=0; i<AKS1_MAX_POLYPHONY; i++) {
-            aePlayingNotes.playingNotes[i] = {noteStates[i].rootNoteNumber};
+            aePlayingNotes.playingNotes[i] = {noteStates[i].rootNoteNumber, noteStates[i].amp};
         }
     }
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
@@ -174,23 +175,25 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     *compressorReverbWetR->rel = p[compressorReverbWetRelease];
     
     // transition playing notes from release to off
-    bool transitionedToOff = false;
     if (p[isMono] > 0.f) {
         if (monoNote->stage == AKS1NoteState::stageRelease && monoNote->amp <= AKS1_RELEASE_AMPLITUDE_THRESHOLD) {
             monoNote->clear();
-            transitionedToOff = true;
         }
     } else {
         for(int i=0; i<polyphony; i++) {
             AKS1NoteState& note = noteStates[i];
             if (note.stage == AKS1NoteState::stageRelease && note.amp <= AKS1_RELEASE_AMPLITUDE_THRESHOLD) {
                 note.clear();
-                transitionedToOff = true;
             }
         }
     }
-    if (transitionedToOff)
+    
+    // throttle main thread notification to ~30hz
+    sampleCounter += frameCount;
+    if (sampleCounter > 1535.0) {
         playingNotesDidChange();
+        sampleCounter = 0;
+    }
 
     const float arpTempo = p[arpRate];
     const double secPerBeat = 0.5f * 0.5f * 60.f / arpTempo;
@@ -959,6 +962,8 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     arpSeqNotes.reserve(maxArpSeqNotes);
     arpSeqNotes2.reserve(maxArpSeqNotes);
     arpSeqLastNotes.resize(maxArpSeqNotes);
+    
+    aePlayingNotes.polyphony = AKS1_MAX_POLYPHONY;
     
     // initializeNoteStates() must be called AFTER init returns, BEFORE process, turnOnKey, and turnOffKey
 }

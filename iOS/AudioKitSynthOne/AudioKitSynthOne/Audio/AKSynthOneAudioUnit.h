@@ -19,6 +19,7 @@
 // helper for midi/render thread communication: held+playing notes
 typedef struct NoteNumber {
     int noteNumber;
+    float amp;
 } NoteNumber;
 
 // helper for render/main thread communication:
@@ -33,6 +34,7 @@ typedef struct DependentParam {
 
 // helper for main+render thread communication: array of playing notes
 typedef struct PlayingNotes {
+    int polyphony;
     NoteNumber playingNotes[AKS1_MAX_POLYPHONY];
 } PlayingNotes;
 

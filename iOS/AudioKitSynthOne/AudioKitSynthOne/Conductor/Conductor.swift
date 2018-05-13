@@ -193,6 +193,8 @@ class Conductor: AKSynthOneProtocol {
     
     // called by DSP on main thread
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
+        let seqVC = self.viewControllers.filter { $0 is TuningsViewController }.first as? TuningsViewController
+        seqVC?.playingNotesDidChange(playingNotes)
     }
     
     // Start/Pause AK Engine (Conserve energy by turning background audio off)

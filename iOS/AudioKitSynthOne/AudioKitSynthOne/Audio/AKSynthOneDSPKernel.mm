@@ -188,7 +188,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         }
     }
     
-    // throttle main thread notification to ~30hz
+    // throttle main thread notification to < 30hz
     sampleCounter += frameCount;
     if (sampleCounter > 1535.0) {
         playingNotesDidChange();

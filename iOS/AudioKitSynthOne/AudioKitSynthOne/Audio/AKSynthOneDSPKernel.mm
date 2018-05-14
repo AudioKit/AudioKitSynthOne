@@ -393,7 +393,6 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
         lfo1_0_1 = 0.5f * (1.f + lfo1) * p[lfo1Amplitude];
         lfo1_1_0 = 1.f - (0.5f * (1.f + -lfo1) * p[lfo1Amplitude]);
 
-
         //LFO2 on [-1, 1]
         lfo2Phasor->freq = p[lfo2Rate];
         sp_phasor_compute(sp, lfo2Phasor, nil, &lfo2);  // sp_phasor_compute [0,1]

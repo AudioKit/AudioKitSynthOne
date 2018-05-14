@@ -92,7 +92,7 @@ public class TuningsPitchWheelView: UIView {
         let masterSet = masterPitch
         for (_, p) in masterSet.enumerated() {
             context.setLineWidth(1)
-            let cfp = color(forPitch: p)
+            let cfp = color(forPitch: p, alpha: 0.75)
             cfp.setStroke()
             cfp.setFill()
             
@@ -111,13 +111,16 @@ public class TuningsPitchWheelView: UIView {
             generalLineP(context, p0, p2)
             
             // BIG DOT
+            let bfp = color(forPitch: p, alpha: 1)
+            bfp.setStroke()
+            bfp.setFill()
             let bigR: CGFloat = 0.5 * 14 * 1.618
             let bigDotR = CGRect(x: CGFloat(p2.x - 0.5 * bigR), y: CGFloat(p2.y - 0.5 * bigR), width: bigR, height: bigR)
             context.fillEllipse(in: bigDotR)
             
             // draw text of log2 f
             let msd = String(format: "%.04f", p)
-            _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
+            _ = msd.drawCentered(atPoint: p1, font: sdf, color: bfp)
         }
         pxy = mspxy
         self.overlayView.pxy = pxy
@@ -127,7 +130,7 @@ public class TuningsPitchWheelView: UIView {
         UIColor.lightGray.setFill()
         let npostr = "\(masterPitch.count)"
         let npopt =  CGPoint.init(x: 2 * fontSize, y: 2 * fontSize)
-        _ = npostr.drawCentered(atPoint: npopt, font: bdf2, color: UIColor.lightGray)
+        _ = npostr.drawCentered(atPoint: npopt, font: bdf2, color: UIColor.lightGray, drawStroke: false)
         
         // POP
         context.restoreGState()
@@ -136,9 +139,9 @@ public class TuningsPitchWheelView: UIView {
 
 
 private extension TuningsPitchWheelView {
-    func color(forPitch pitch: Double) -> UIColor {
+    func color(forPitch pitch: Double, saturation: CGFloat = 0.625, brightness: CGFloat = 1, alpha: CGFloat = 0.75) -> UIColor {
         let hue = CGFloat(pitch.truncatingRemainder(dividingBy: 1))
-        let r = UIColor.init(hue: hue, saturation: 0.75, brightness: 1, alpha: 0.75)
+        let r = UIColor.init(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         return r
     }
     
@@ -165,17 +168,19 @@ private extension TuningsPitchWheelView {
     }
 }
 
-
 private extension String {
-    func drawCentered(atPoint point: CGPoint, font: UIFont, color: UIColor) -> CGSize {
+    func drawCentered(atPoint point: CGPoint, font: UIFont, color: UIColor, drawStroke: Bool = true) -> CGSize {
         let labelSize = self.size(withAttributes: [.font:font, .strokeColor:color])
         let centeredAvgP = CGPoint(x: point.x - labelSize.width / 2.0, y: point.y - labelSize.height / 2.0)
         
         var attributes = [NSAttributedStringKey : Any]()
         attributes[.font] = font
         attributes[.strokeWidth] = 12
-        attributes[.strokeColor] = UIColor.black
-        self.draw(at: centeredAvgP, withAttributes: attributes)
+        
+        if drawStroke {
+            attributes[.strokeColor] = UIColor.black
+            self.draw(at: centeredAvgP, withAttributes: attributes)
+        }
         
         attributes.removeValue(forKey: .strokeWidth)
         attributes.removeValue(forKey: .strokeColor)

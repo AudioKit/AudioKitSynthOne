@@ -1229,7 +1229,7 @@ inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float in
                     break;
             }
             if (notifyMainThread) {
-                outputDP = {param, taper01Inverse(outputDP.value01, AKS1_DEPENDENT_PARAM_TAPER), outputDP.value};
+                outputDP = {param, taper01Inverse(outputDP.value01, AKS1_DEPENDENT_PARAM_TAPER), outputDP.value, payload};
                 dependentParameterDidChange(outputDP);
             }
         }

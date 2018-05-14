@@ -391,7 +391,8 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             lfo1 = (0.5f - lfo1) * 2.f;
         }
         lfo1_0_1 = 0.5f * (1.f + lfo1) * p[lfo1Amplitude];
-        lfo1_1_0 = 1.f - lfo1_0_1; // good for multiplicative
+        lfo1_1_0 = 1.f - (0.5f * (1.f + -lfo1) * p[lfo1Amplitude]);
+
 
         //LFO2 on [-1, 1]
         lfo2Phasor->freq = p[lfo2Rate];
@@ -410,9 +411,9 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             lfo2 = (0.5f - lfo2) * 2.f;
         }
         lfo2_0_1 = 0.5f * (1.f + lfo2) * p[lfo2Amplitude];
-        lfo2_1_0 = 1.f - lfo2_0_1;
+        lfo2_1_0 = 1.f - (0.5f * (1.f + -lfo2) * p[lfo2Amplitude]);
         lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
-        lfo3_1_0 = 1.f - lfo3_0_1;
+        lfo3_1_0 = 0.5f * (lfo1_1_0 + lfo2_1_0);
 
         // RENDER NoteState into (outL, outR)
         if (p[isMono] > 0.f) {

@@ -22,6 +22,7 @@ class TuningsViewController: SynthPanelController {
     
     @IBOutlet weak var tuningTableView: UITableView!
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
+    @IBOutlet weak var masterTuning: MIDIKnob!
     
     private let aks1Tunings = AKS1Tunings()
     
@@ -34,6 +35,8 @@ class TuningsViewController: SynthPanelController {
         tuningTableView.isOpaque = false
         aks1Tunings.tuningsDelegate = self
         tuningDidChange()
+        masterTuning.range = Conductor.sharedInstance.synth!.getParameterRange(.frequencyA4)
+        Conductor.sharedInstance.bind(masterTuning, to: .frequencyA4)
     }
     
     public override func viewDidAppear(_ animated: Bool) {

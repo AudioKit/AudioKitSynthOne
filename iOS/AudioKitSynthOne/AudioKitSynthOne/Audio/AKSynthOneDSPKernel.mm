@@ -965,6 +965,8 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     
     aePlayingNotes.polyphony = AKS1_MAX_POLYPHONY;
     
+    AKPolyphonicNode.tuningTable.middleCFrequency = getAK1Parameter(frequencyA4) * exp2((60.f - 69.f)/12.f);
+
     // initializeNoteStates() must be called AFTER init returns, BEFORE process, turnOnKey, and turnOffKey
 }
 
@@ -1249,8 +1251,15 @@ inline void AKSynthOneDSPKernel::_setAK1ParameterHelper(AKSynthOneParameter para
     } else if (param == pitchbend) {
         _rateHelper(param, inputValue, notifyMainThread, payload);
     } else {
-        // independent params
-        _setAK1Parameter(param, inputValue);
+        // special case for updating the tuning table based on frequency at A4.
+        // see https://en.wikipedia.org/wiki/A440_(pitch_standard)
+        if (param == frequencyA4) {
+            _setAK1Parameter(param, truncf(inputValue));
+            AKPolyphonicNode.tuningTable.middleCFrequency = inputValue * exp2((60.f - 69.f)/12.f);
+        } else {
+            // all remaining independent params
+            _setAK1Parameter(param, inputValue);
+        }
     }
 }
 

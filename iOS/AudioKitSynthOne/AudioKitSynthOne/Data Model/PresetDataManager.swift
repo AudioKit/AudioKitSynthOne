@@ -117,7 +117,8 @@ extension ParentViewController {
         s.setAK1Parameter(.delayInputResonance, activePreset.delayInputResonance)
         s.setAK1Parameter(.pitchbendMinSemitones, activePreset.pitchbendMinSemitones)
         s.setAK1Parameter(.pitchbendMaxSemitones, activePreset.pitchbendMaxSemitones)
-
+        s.setAK1Parameter(.frequencyA4, activePreset.frequencyA4)
+        
         //
         s.resetSequencer()
     }
@@ -195,13 +196,11 @@ extension ParentViewController {
         activePreset.phaserRate = s.getAK1Parameter(.phaserRate)
         activePreset.phaserFeedback = s.getAK1Parameter(.phaserFeedback)
         activePreset.phaserNotchWidth = s.getAK1Parameter(.phaserNotchWidth)
-        
         for i in 0..<16 {
             activePreset.seqPatternNote[i] = s.getAK1ArpSeqPattern(forIndex: i)
             activePreset.seqOctBoost[i] = s.getAK1SeqOctBoost(forIndex: i)
             activePreset.seqNoteOn[i] = s.getAK1ArpSeqNoteOn(forIndex: i)
         }
-        
         activePreset.filterType = s.getAK1Parameter(.filterType)
         activePreset.compressorMasterRatio = s.getAK1Parameter(.compressorMasterRatio)
         activePreset.compressorReverbInputRatio = s.getAK1Parameter(.compressorReverbInputRatio)
@@ -222,7 +221,8 @@ extension ParentViewController {
         activePreset.delayInputResonance = s.getAK1Parameter(.delayInputResonance)
         activePreset.pitchbendMinSemitones = s.getAK1Parameter(.pitchbendMinSemitones)
         activePreset.pitchbendMaxSemitones = s.getAK1Parameter(.pitchbendMaxSemitones)
-
+        activePreset.frequencyA4 = s.getAK1Parameter(.frequencyA4)
+        
         // octave position
         activePreset.octavePosition = keyboardView.firstOctave - 2
         

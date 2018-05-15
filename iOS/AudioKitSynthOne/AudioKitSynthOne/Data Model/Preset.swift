@@ -152,6 +152,8 @@ class Preset: Codable {
     var delayInputCutoffTrackingRatio = 0.75
     var delayInputResonance = 0.0
 
+    // master tuning
+    var frequencyA4 = 440.0
     
     // ******************************************************
     // MARK: - Init
@@ -355,5 +357,7 @@ class Preset: Codable {
         compressorReverbWetMakeupGain = dictionary["compressorReverbWetMakeupGain"] as? Double ?? p(.compressorReverbWetMakeupGain)
         delayInputCutoffTrackingRatio = dictionary["delayInputCutoffTrackingRatio"] as? Double ?? p(.delayInputCutoffTrackingRatio)
         delayInputResonance = dictionary["delayInputResonance"] as? Double ?? p(.delayInputResonance)
+        
+        frequencyA4 = dictionary["frequencyA4"] as? Double ?? p(.frequencyA4)
     }
 }

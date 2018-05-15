@@ -38,7 +38,7 @@ public class TuningsPitchWheelView: UIView {
     
     public func updateFromGlobalTuningTable() {
         DispatchQueue.global(qos: .background).async {
-            // no access to the master set so recreate it from (middle c nn, + npo)
+            // no access to the master set so recreate it from midi note numbers [60, 60 + npo]
             let mc = AKPolyphonicNode.tuningTable.middleCFrequency
             if mc < 1 { return }
             let npo = AKPolyphonicNode.tuningTable.npo
@@ -79,7 +79,7 @@ public class TuningsPitchWheelView: UIView {
         let y: CGFloat = rect.origin.y
         let w: CGFloat = rect.size.width
         let h: CGFloat = rect.size.height
-        let inset: CGFloat = 0.85
+        let inset: CGFloat = 0.85 + 0.1 - 0.05
         let r = inset * (w < h ? w : h)
         let xp = x + 0.5 * w
         let yp = y + 0.5 * h
@@ -92,7 +92,8 @@ public class TuningsPitchWheelView: UIView {
         let masterSet = masterPitch
         for (_, p) in masterSet.enumerated() {
             context.setLineWidth(1)
-            let cfp = color(forPitch: p, alpha: 0.75)
+            //let cfp = color(forPitch: p, alpha: 0.75 - 0.1)
+            let cfp = color(forPitch: p, brightness: 1, alpha: 0.65)
             cfp.setStroke()
             cfp.setFill()
             
@@ -100,7 +101,7 @@ public class TuningsPitchWheelView: UIView {
             let r0: CGFloat = 0
             let r1f: CGFloat = 1 - 0.25 + 0.1
             let r1: CGFloat = r * r1f
-            let r2: CGFloat = r * r1f * 0.75
+            let r2: CGFloat = r * r1f * (0.75 - 0.05 - 0.05)
             let p00: CGPoint = horagram01ToCartesian01(p: CGPoint.init(x: p, y: Double(0.5 * r0)))
             let p0 = CGPoint.init(x: p00.x + xp, y: p00.y + yp)
             let p11 = horagram01ToCartesian01(p: CGPoint.init(x:p, y: Double(0.5 * r1)))
@@ -120,7 +121,7 @@ public class TuningsPitchWheelView: UIView {
             
             // draw text of log2 f
             let msd = String(format: "%.04f", p)
-            _ = msd.drawCentered(atPoint: p1, font: sdf, color: bfp)
+            _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
         }
         pxy = mspxy
         self.overlayView.pxy = pxy

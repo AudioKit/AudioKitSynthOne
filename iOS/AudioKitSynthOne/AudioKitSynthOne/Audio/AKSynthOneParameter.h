@@ -133,7 +133,6 @@ typedef AK_ENUM(AKSynthOneParameter) {
     phaserNotchWidth = 119,
     monoIsLegato = 120, // range [0 = legato, 1 = portamento (default)]
     widen = 121,
-    
     compressorMasterRatio = 122,
     compressorReverbInputRatio = 123,
     compressorReverbWetRatio = 124,
@@ -151,13 +150,12 @@ typedef AK_ENUM(AKSynthOneParameter) {
     compressorReverbWetMakeupGain = 136,
     delayInputCutoffTrackingRatio = 137,
     delayInputResonance = 138,
-
     tempoSyncToArpRate = 139,
     pitchbend = 140,
     pitchbendMinSemitones = 141,
     pitchbendMaxSemitones = 142,
+    frequencyA4 = 143,
     
-    AKSynthOneParameterCount = 143
-    
+    AKSynthOneParameterCount = 144
 } AKSynthOneParameter;
 

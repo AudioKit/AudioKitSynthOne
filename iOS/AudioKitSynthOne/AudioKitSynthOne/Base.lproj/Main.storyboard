@@ -1177,6 +1177,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ICz-sQ-fwm" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="899" y="118" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Master Tuning" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXs-DV-of7">
+                                <rect key="frame" x="895" y="65" width="69" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -1184,6 +1196,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
+                        <outlet property="masterTuning" destination="ICz-sQ-fwm" id="ff9-So-mio"/>
                         <outlet property="nav1Button" destination="GKH-5a-fe3" id="K0T-J5-sLK"/>
                         <outlet property="nav2Button" destination="dAt-xo-d7i" id="Ilm-N0-Oq0"/>
                         <outlet property="tuningTableView" destination="BeM-2O-kjR" id="hBC-5d-5DS"/>

@@ -29,7 +29,7 @@ class AppSetting: Codable {
     var launches = 0
     
     // Presets version
-    var presetsVersion = 1.06
+    var presetsVersion = 1.07
     
     // MIDI Learn Settings
     

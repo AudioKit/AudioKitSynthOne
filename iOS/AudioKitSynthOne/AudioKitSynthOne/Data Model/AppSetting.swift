@@ -12,7 +12,7 @@ import Foundation
 // MARK: - App Settings
 // ******************************************************
 
-let initBanks = ["BankA", "User", "DJ Puzzle", "Red Sky Lullaby"]
+let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
 
 class AppSetting: Codable {
     

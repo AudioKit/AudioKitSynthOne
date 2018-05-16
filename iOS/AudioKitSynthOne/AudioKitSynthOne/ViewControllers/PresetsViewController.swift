@@ -280,7 +280,7 @@ class PresetsViewController: UIViewController {
     func upgradePresets() {
         
         // Remove existing presets
-        let banksToUpdate = ["DJ Puzzle", "Red Sky Lullaby"]
+        let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
         
         banksToUpdate.forEach { bankName in
             presets = presets.filter{$0.bank != bankName}

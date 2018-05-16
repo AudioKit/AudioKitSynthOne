@@ -33,6 +33,7 @@
 		945C3A061F3141F60086D58B /* ArpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A031F3141F50086D58B /* ArpButton.swift */; };
 		945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0F1F3143A00086D58B /* SeqViewController.swift */; };
 		946306F620AC8C8C00AB97EC /* DJ Puzzle.json in Resources */ = {isa = PBXBuildFile; fileRef = 946306F520AC8C8C00AB97EC /* DJ Puzzle.json */; };
+		946306F820AC9BC000AB97EC /* Brice Beasley.json in Resources */ = {isa = PBXBuildFile; fileRef = 946306F720AC9BC000AB97EC /* Brice Beasley.json */; };
 		94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94656AEC205F410900634B2C /* KeyboardShowButton.swift */; };
 		9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468E2791F2827AC00C60B1B /* SettingsViewController.swift */; };
 		946D159F1FD26CD6006E7C97 /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946D159E1FD26CD6006E7C97 /* DevViewController.swift */; };
@@ -168,6 +169,7 @@
 		945C3A0E1F31428B0086D58B /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
 		945C3A0F1F3143A00086D58B /* SeqViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeqViewController.swift; sourceTree = "<group>"; };
 		946306F520AC8C8C00AB97EC /* DJ Puzzle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "DJ Puzzle.json"; sourceTree = "<group>"; };
+		946306F720AC9BC000AB97EC /* Brice Beasley.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Brice Beasley.json"; sourceTree = "<group>"; };
 		94656AEC205F410900634B2C /* KeyboardShowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShowButton.swift; sourceTree = "<group>"; };
 		9468E2791F2827AC00C60B1B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		946D159E1FD26CD6006E7C97 /* DevViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DevViewController.swift; path = AudioKitSynthOne/ViewControllers/DevViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -314,6 +316,7 @@
 			children = (
 				94FA2DC41F9E82BB00DED735 /* BankA.json */,
 				94C50C3120195FC0008549DB /* User.json */,
+				946306F720AC9BC000AB97EC /* Brice Beasley.json */,
 				946306F520AC8C8C00AB97EC /* DJ Puzzle.json */,
 				94D1763E20A138C50073F67F /* Red Sky Lullaby.json */,
 			);
@@ -730,6 +733,7 @@
 				C4CC3043208499E5004E91CB /* Audiobus.txt in Resources */,
 				94FA2DC51F9E82BB00DED735 /* BankA.json in Resources */,
 				94D1763F20A138C50073F67F /* Red Sky Lullaby.json in Resources */,
+				946306F820AC9BC000AB97EC /* Brice Beasley.json in Resources */,
 				946306F620AC8C8C00AB97EC /* DJ Puzzle.json in Resources */,
 				C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */,
 				C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */,

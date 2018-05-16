@@ -157,6 +157,7 @@ import AudioKit
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         let tuning = tunings[(indexPath as NSIndexPath).row]
         let title = tuning.0 // title
         if let cell = tableView.dequeueReusableCell(withIdentifier: "TuningsViewController") as UITableViewCell? {
@@ -177,10 +178,19 @@ import AudioKit
         cell.textLabel?.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if cell.isSelected {
+            cell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        }
+    }
+    
     ///UITableViewDelegate
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tuning = tunings[(indexPath as NSIndexPath).row]
         tuning.1()
+      
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         tuningsDelegate?.tuningDidChange()
     }
 }

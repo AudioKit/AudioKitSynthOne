@@ -10,8 +10,6 @@ import AudioKit
 import UIKit
 import Disk
 
-let initBanks = ["BankA", "User", "Red Sky Lullaby"]
-
 extension ParentViewController {
     
     // **********************************************************

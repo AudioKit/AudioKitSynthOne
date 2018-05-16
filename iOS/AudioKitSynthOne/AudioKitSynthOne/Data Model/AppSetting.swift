@@ -12,6 +12,8 @@ import Foundation
 // MARK: - App Settings
 // ******************************************************
 
+let initBanks = ["BankA", "User", "DJ Puzzle", "Red Sky Lullaby"]
+
 class AppSetting: Codable {
     
     var settingID = "main"
@@ -27,7 +29,7 @@ class AppSetting: Codable {
     var launches = 0
     
     // Presets version
-    var presetsVersion = 1.01
+    var presetsVersion = 1.06
     
     // MIDI Learn Settings
     

@@ -278,6 +278,16 @@ class PresetsViewController: UIViewController {
     }
     
     func upgradePresets() {
+        
+        // Remove existing presets
+        let banksToUpdate = ["DJ Puzzle", "Red Sky Lullaby"]
+        
+        banksToUpdate.forEach { bankName in
+            presets = presets.filter{$0.bank != bankName}
+            loadFactoryPresets(bankName)
+            saveAllPresetsIn(bankName)
+        }
+        
         // If the bankName is not in conductorBanks, add bank to conductor banks
         for bankName in initBanks {
             if !conductor.banks.contains(where: { $0.name == bankName }) {

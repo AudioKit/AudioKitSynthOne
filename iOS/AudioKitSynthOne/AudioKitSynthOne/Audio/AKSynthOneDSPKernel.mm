@@ -966,7 +966,7 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     aePlayingNotes.polyphony = AKS1_MAX_POLYPHONY;
     
     AKPolyphonicNode.tuningTable.middleCFrequency = getAK1Parameter(frequencyA4) * exp2((60.f - 69.f)/12.f);
-
+    
     // initializeNoteStates() must be called AFTER init returns, BEFORE process, turnOnKey, and turnOffKey
 }
 

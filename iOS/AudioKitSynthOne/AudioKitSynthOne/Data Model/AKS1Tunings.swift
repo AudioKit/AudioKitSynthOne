@@ -47,9 +47,25 @@ import AudioKit
         return [A * B, A * C, A * D, A * E, A * F, B * C, B * D, B * E, B * F, C * D, C * E, C * F, D * E, D * F, E * F]
     }
     
+    public func resetTuning() {
+        _ = AKPolyphonicNode.tuningTable.defaultTuning()
+        let f = Conductor.sharedInstance.synth!.getParameterDefault(.frequencyA4)
+        Conductor.sharedInstance.synth!.setAK1Parameter(.frequencyA4, f)
+        tuningsDelegate?.tuningDidChange()
+    }
+    
+    public func randomTuning() -> Int {
+        let ri = Int(arc4random() % UInt32(tunings.count))
+        let tuning = tunings[ri]
+        tuning.1()
+        tuningsDelegate?.tuningDidChange()
+        return ri
+    }
+    
     private let tunings: [(String, AKS1TuningCallback)] = [
         ("12 Tone Equal Temperament (default)", {_ = AKPolyphonicNode.tuningTable.defaultTuning() } ),
         ("12 Pythagorean 12", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147]) } ),
+        
         // scales designed by Marcus Hobbs using Wilsonic
         (" 6 Hexany(1, 3, 5, 7) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 7)  } ),
         ("10 Dekany(1, 3, 5, 7, 11)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1,3,5,7,11])) } ),
@@ -105,6 +121,7 @@ import AudioKit
         (" 7 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,18,5,21,3,25,15])}),
         (" 8 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,75,19,5,94,3,118,15])}),
         ("12 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,65,9,37,151,21,86,12,49,200,28,114])}),
+        
         /// scales designed by Erv Wilson.  See http://anaphoria.com/genus.pdf
         (" 7 Highland Bagpipes", {_ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes() } ),
         (" 7 MOS G:0.2641", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.2641, level: 5, murchana: 0)}),
@@ -175,7 +192,7 @@ import AudioKit
     private func configureCell(_ cell: UITableViewCell) {
         cell.isOpaque = false
         cell.backgroundColor = UIColor.clear
-        cell.textLabel?.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        cell.textLabel?.textColor = #colorLiteral(red: 0.694699347, green: 0.6895567775, blue: 0.6986362338, alpha: 1)
     }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

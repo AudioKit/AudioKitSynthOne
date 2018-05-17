@@ -23,20 +23,35 @@ class TuningsViewController: SynthPanelController {
     @IBOutlet weak var tuningTableView: UITableView!
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
     @IBOutlet weak var masterTuning: MIDIKnob!
+    @IBOutlet weak var resetTunings: SynthUIButton!
+    @IBOutlet weak var diceButton: UIButton!
     
     private let aks1Tunings = AKS1Tunings()
     
     override func viewDidLoad() {
         super.viewDidLoad()        
         viewType = .tuningsView
-        tuningTableView.dataSource = aks1Tunings
-        tuningTableView.delegate = aks1Tunings
+        
         tuningTableView.backgroundColor = UIColor.clear
         tuningTableView.isOpaque = false
+        tuningTableView.dataSource = aks1Tunings
+        tuningTableView.delegate = aks1Tunings
         aks1Tunings.tuningsDelegate = self
+        
         tuningDidChange()
+
         masterTuning.range = Conductor.sharedInstance.synth!.getParameterRange(.frequencyA4)
+        masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
         Conductor.sharedInstance.bind(masterTuning, to: .frequencyA4)
+        
+        resetTunings.callback = { value in
+            if value == 1 {
+                self.aks1Tunings.resetTuning()
+                self.masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
+                self.selectRow(0)
+                self.resetTunings.value = 0
+            }
+        }
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -44,14 +59,26 @@ class TuningsViewController: SynthPanelController {
     }
     
     func dependentParamDidChange(_ param: DependentParam) {
-        switch param.param {
-        default:
-            _ = 0
-        }
+        //NOP for Tunings panel
     }
 
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
         tuningsPitchWheelView.playingNotesDidChange(playingNotes)
+    }
+    
+    @IBAction func randomPressed(_ sender: UIButton) {
+        let index = aks1Tunings.randomTuning()
+        selectRow(index)
+        UIView.animate(withDuration: 0.4, animations: {
+            for _ in 0 ... 1 {
+                self.diceButton.transform = self.diceButton.transform.rotated(by: CGFloat(Double.pi))
+            }
+        })
+    }
+    
+    internal func selectRow(_ index: Int) {
+        let path = IndexPath(row: index, section: 0)
+        tuningTableView.selectRow(at: path, animated: true, scrollPosition: .middle)
     }
 }
 

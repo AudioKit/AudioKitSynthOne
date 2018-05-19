@@ -22,7 +22,9 @@ extension ParentViewController {
         }
         
         s.setAK1Parameter(.tempoSyncToArpRate,  activePreset.tempoSyncToArpRate)
-        s.setAK1Parameter(.arpRate, activePreset.arpRate)
+        if !appSettings.freezeArpRate {
+            s.setAK1Parameter(.arpRate, activePreset.arpRate)
+        }
         s.setAK1Parameter(.lfo1Rate, activePreset.lfoRate)
         s.setAK1Parameter(.lfo2Rate, activePreset.lfo2Rate)
         s.setAK1Parameter(.delayTime, activePreset.delayTime)
@@ -188,7 +190,9 @@ extension ParentViewController {
         activePreset.arpDirection = s.getAK1Parameter(.arpDirection)
         activePreset.arpInterval = s.getAK1Parameter(.arpInterval)
         activePreset.arpOctave = s.getAK1Parameter(.arpOctave)
-        activePreset.arpRate = s.getAK1Parameter(.arpRate)
+        if !appSettings.freezeArpRate {
+            activePreset.arpRate = s.getAK1Parameter(.arpRate)
+        }
         activePreset.arpIsSequencer = s.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         activePreset.arpTotalSteps = s.getAK1Parameter(.arpTotalSteps)
         activePreset.isArpMode = s.getAK1Parameter(.arpIsOn)

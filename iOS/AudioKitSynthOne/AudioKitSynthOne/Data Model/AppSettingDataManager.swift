@@ -22,6 +22,7 @@ extension ParentViewController {
         //conductor.backgroundAudioOn = appSettings.backgroundAudioOn
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
+        devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
         
         // MIDI Learn
         mixerViewController.masterVolume.midiCC = MIDIByte(appSettings.masterVolume_CC)
@@ -82,6 +83,7 @@ extension ParentViewController {
         // appSettings.backgroundAudioOn = conductor.backgroundAudioOn
         appSettings.midiChannel = Int(midiChannelIn)
         appSettings.omniMode = omniMode
+        appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
         
         // MIDI Learn
         appSettings.masterVolume_CC = Int(mixerViewController.masterVolume.midiCC)
@@ -133,7 +135,6 @@ extension ParentViewController {
         appSettings.octaveRange = keyboardView.octaveCount
         appSettings.darkMode = keyboardView.darkMode
         appSettings.showKeyboard = keyboardToggle.value
-        
         
         appSettings.plotFilled = mixerViewController.isAudioPlotFilled
         saveAppSettings()

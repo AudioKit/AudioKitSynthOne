@@ -76,9 +76,10 @@ public class ParentViewController: UpdatableViewController {
         return viewController
     }()
     
-    fileprivate lazy var devViewController: DevViewController = {
+    lazy var devViewController: DevViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: "DevViewController") as! DevViewController
+        viewController.delegate = self
         return viewController
     }()
     
@@ -159,6 +160,10 @@ public class ParentViewController: UpdatableViewController {
         switchToChildView(.adsrView, isTopView: true)
         switchToChildView(.oscView, isTopView: true) 
         switchToChildView(.seqView, isTopView: false)
+        
+        // Pre-load dev panel view
+        add(asChildViewController: devViewController, isTopContainer: true)
+        devViewController.view.removeFromSuperview()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -211,7 +216,9 @@ public class ParentViewController: UpdatableViewController {
         midiKnobs += adsrViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
         midiKnobs += fxViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
         midiKnobs += seqViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        
+        midiKnobs += devViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+        midiKnobs += tuningsViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+
         // Set initial preset
         presetsViewController.didSelectPreset(index: 0)
         
@@ -790,6 +797,17 @@ extension ParentViewController: AKKeyboardDelegate {
 }
 
 // **********************************************************
+// MARK: - DevPanelDelegate protocol functions
+// **********************************************************
+
+extension ParentViewController: DevPanelDelegate {
+    
+    public func freezeArpChanged(_ value: Bool) {
+        appSettings.freezeArpRate = value
+    }
+}
+
+// **********************************************************
 // MARK: - AKMIDIListener protocol functions
 // **********************************************************
 
@@ -821,7 +839,6 @@ extension ParentViewController: AKMIDIListener  {
                 }
             }
         }
-      
     }
     
     // Assign MIDI CC to active MIDI Learn knobs

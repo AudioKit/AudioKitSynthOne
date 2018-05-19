@@ -9,9 +9,13 @@
 import AudioKit
 import UIKit
 
+protocol DevPanelDelegate {
+    func freezeArpChanged(_ value: Bool)
+}
+
 class DevViewController: UpdatableViewController {
     
-    @IBOutlet weak var tuningTableView: UITableView!
+    var delegate: DevPanelDelegate?
     
     @IBOutlet weak var masterVolume: Knob! // i.e., gain before compressorMaster
     @IBOutlet weak var compressorMasterRatio: Knob!
@@ -36,6 +40,8 @@ class DevViewController: UpdatableViewController {
 
     @IBOutlet weak var delayInputFilterCutoffFreqTrackingRatio: Knob!
     @IBOutlet weak var delayInputFilterResonance: Knob!
+    
+    @IBOutlet weak var freezeArpRate: ToggleButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,5 +94,11 @@ class DevViewController: UpdatableViewController {
         delayInputFilterResonance.range =               s.getParameterRange(.delayInputResonance)
         conductor.bind(delayInputFilterCutoffFreqTrackingRatio, to: .delayInputCutoffTrackingRatio)
         conductor.bind(delayInputFilterResonance,               to: .delayInputResonance)
+        
+        // freeze arp rate
+        freezeArpRate.callback = { value in
+            let v = (value == 1 ? true : false)
+            self.delegate?.freezeArpChanged(v)
+        }
     }
 }

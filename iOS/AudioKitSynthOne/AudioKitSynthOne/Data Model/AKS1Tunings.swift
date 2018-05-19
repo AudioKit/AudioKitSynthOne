@@ -64,7 +64,7 @@ import AudioKit
     
     private let tunings: [(String, AKS1TuningCallback)] = [
         ("12 Tone Equal Temperament (default)", {_ = AKPolyphonicNode.tuningTable.defaultTuning() } ),
-        ("12 Pythagorean 12", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147]) } ),
+        ("12 Chain of pure fifths", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,3,9,27,81,243,729,2187,6561,19683,59049,177147]) } ),
         
         // scales designed by Marcus Hobbs using Wilsonic
         (" 6 Hexany(1, 3, 5, 7) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 7)  } ),

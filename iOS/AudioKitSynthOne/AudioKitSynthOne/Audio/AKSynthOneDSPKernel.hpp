@@ -456,7 +456,7 @@ private:
         { pitchbendMinSemitones,  -24, -12, 0, "pitchbendMinSemitones", "pitchbendMinSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         { pitchbendMaxSemitones,  0, 12, 24, "pitchbendMaxSemitones", "pitchbendMaxSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         
-        { frequencyA4,  420, 440, 460, "frequencyA4", "frequencyA4", kAudioUnitParameterUnit_Hertz, false, NULL}
+        { frequencyA4,  410, 440, 470, "frequencyA4", "frequencyA4", kAudioUnitParameterUnit_Hertz, false, NULL}
     };
 };
 #endif

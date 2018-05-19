@@ -48,7 +48,7 @@ class TuningsViewController: SynthPanelController {
             if value == 1 {
                 self.aks1Tunings.resetTuning()
                 self.masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
-                self.selectRow(0)
+                self.deselectRow()
                 self.resetTunings.value = 0
             }
         }
@@ -74,6 +74,14 @@ class TuningsViewController: SynthPanelController {
                 self.diceButton.transform = self.diceButton.transform.rotated(by: CGFloat(Double.pi))
             }
         })
+    }
+    
+    internal func deselectRow() {
+        if let index = tuningTableView.indexPathForSelectedRow{
+            tuningTableView.deselectRow(at: index, animated: true)
+        }
+        
+    
     }
     
     internal func selectRow(_ index: Int) {

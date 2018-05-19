@@ -80,6 +80,8 @@ class TuningsViewController: SynthPanelController {
         if let index = tuningTableView.indexPathForSelectedRow{
             tuningTableView.deselectRow(at: index, animated: true)
         }
+        
+    
     }
     
     internal func selectRow(_ index: Int) {

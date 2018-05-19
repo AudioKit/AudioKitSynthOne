@@ -97,8 +97,7 @@ class DevViewController: UpdatableViewController {
         
         // freeze arp rate
         freezeArpRate.callback = { value in
-            let v = (value == 1 ? true : false)
-            self.delegate?.freezeArpChanged(v)
+            self.delegate?.freezeArpChanged(value == 1 ? true : false)
         }
     }
 }

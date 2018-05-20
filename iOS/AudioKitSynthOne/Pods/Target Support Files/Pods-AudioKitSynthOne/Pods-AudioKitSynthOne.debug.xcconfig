@@ -1,11 +1,11 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Disk"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ChimpKit" "${PODS_CONFIGURATION_BUILD_DIR}/Disk" "${PODS_ROOT}/OneSignal/iOS_SDK/OneSignalSDK/Framework"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Audiobus"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Audiobus" "${PODS_ROOT}/Headers/Public/OneSignal"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
 LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Audiobus"
-OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Disk/Disk.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Audiobus"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Audiobus" -l"z" -framework "AVFoundation" -framework "Accelerate" -framework "AudioToolbox" -framework "CoreGraphics" -framework "Disk" -framework "QuartzCore" -framework "Security"
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ChimpKit/ChimpKit.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Disk/Disk.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Audiobus" -isystem "${PODS_ROOT}/Headers/Public/OneSignal"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Audiobus" -l"z" -framework "AVFoundation" -framework "Accelerate" -framework "AudioToolbox" -framework "ChimpKit" -framework "CoreGraphics" -framework "Disk" -framework "OneSignal" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration" -framework "UIKit" -framework "UserNotifications"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

@@ -297,6 +297,7 @@
                         </segue>
                         <segue destination="omd-Vp-Pv1" kind="presentation" identifier="SegueToAbout" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="y8u-Bg-zoU"/>
                         <segue destination="u9K-io-wc1" kind="presentation" identifier="SegueToMailingList" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Rwy-kA-ElW"/>
+                        <segue destination="dUa-Pu-Sp7" kind="presentation" identifier="SegueToMore" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="EyS-P8-wmm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -3562,6 +3563,110 @@ Thanks to the following people for their contributions:
             </objects>
             <point key="canvasLocation" x="718.9453125" y="-764.0625"/>
         </scene>
+        <!--More-->
+        <scene sceneID="ySE-mC-Wfy">
+            <objects>
+                <viewController id="dUa-Pu-Sp7" userLabel="More" customClass="InfoController" customModule="AudioKitSynthOne" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ssJ-3E-Fo8"/>
+                        <viewControllerLayoutGuide type="bottom" id="QH2-Yf-6vf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Je-Ud-jxR">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="580"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1CJ-C2-m7I">
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="580"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fmplayer" translatesAutoresizingMaskIntoConstraints="NO" id="AgO-Cd-qZV">
+                                        <rect key="frame" x="0.0" y="46" width="500" height="287"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bE6-fs-EzP">
+                                        <rect key="frame" x="-1" y="326" width="500" height="247"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xlz-Ty-QqJ">
+                                                <rect key="frame" x="23" y="44" width="454" height="123"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Award-winning Free iPad Instrument inspired by the DX7 &amp; DXII. Beautiful and lush sounding multi-instrument samples of Electric Pianos, Tines, Basses, Keys and iconic 80s sounds. "Sounds LUSH and Awesome!" – The Sound Test Room. Download now.</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FM PLAYER: CLASSIC DX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-b2-rlM">
+                                                <rect key="frame" x="29" y="23" width="170" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APB-aA-Pto">
+                                                <rect key="frame" x="29" y="175" width="448" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.4549019608" green="0.62352941179999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
+                                                <state key="normal" title="Get FREE in App Store!">
+                                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="getFMPlayerPressed:" destination="dUa-Pu-Sp7" eventType="touchUpInside" id="Dr2-pF-nb9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDL-ai-etn">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLX-De-eb2">
+                                                <rect key="frame" x="435" y="8" width="49" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                                                <state key="normal" title="DONE">
+                                                    <color key="titleColor" red="0.4549019608" green="0.62352941179999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closePressed:" destination="dUa-Pu-Sp7" eventType="touchUpInside" id="jbb-jV-oh5"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OTHER APPS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qr-Q3-mSD">
+                                                <rect key="frame" x="19" y="14" width="227" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                                <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="580" id="SHU-62-AXE"/>
+                                    <constraint firstAttribute="width" constant="500" id="cia-U0-gv6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1CJ-C2-m7I" firstAttribute="centerY" secondItem="4Je-Ud-jxR" secondAttribute="centerY" id="XWu-7L-v2b"/>
+                            <constraint firstItem="1CJ-C2-m7I" firstAttribute="centerX" secondItem="4Je-Ud-jxR" secondAttribute="centerX" id="jvi-96-ngk"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="500" height="580"/>
+                    <connections>
+                        <outlet property="moreView" destination="1CJ-C2-m7I" id="NgH-Ib-H65"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZS-Mh-6cJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="643.9453125" y="-163.28125"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ak1-logo" width="188" height="14"/>
@@ -3579,6 +3684,7 @@ Thanks to the following people for their contributions:
         <image name="bluetooth" width="13" height="18"/>
         <image name="circuit" width="857" height="527"/>
         <image name="dice" width="19" height="18"/>
+        <image name="fmplayer" width="510" height="382"/>
         <image name="headerback" width="1024" height="38"/>
         <image name="keyboard_top" width="1023" height="47"/>
         <image name="left-arrow" width="20" height="20"/>

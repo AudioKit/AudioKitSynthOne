@@ -386,7 +386,7 @@ class PresetsViewController: UIViewController {
         
         if currentPreset.position < presetBank.count - 1 {
             currentPreset = presetBank[currentPreset.position + 1]
-             print("next preset \(currentPreset.position)")
+           
         } else {
             currentPreset = presetBank[0]
         }
@@ -399,7 +399,7 @@ class PresetsViewController: UIViewController {
         
         if currentPreset.position > 0 {
             currentPreset = presetBank[currentPreset.position + -1 ]
-             print("prev preset \(currentPreset.position)")
+            
         } else {
             currentPreset = presetBank.last!
         }

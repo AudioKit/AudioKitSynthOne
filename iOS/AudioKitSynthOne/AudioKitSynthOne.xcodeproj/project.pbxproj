@@ -26,6 +26,7 @@
 		943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B59601F36B4F200E5FBE6 /* TimeKnob.swift */; };
 		943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B99DB1F99C95600E09C93 /* MorphSelectorStyleKit.swift */; };
 		943D9D2C20B1D56A004149AD /* MailingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D9D2B20B1D56A004149AD /* MailingListController.swift */; };
+		943D9D2E20B1F72E004149AD /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D9D2D20B1F72D004149AD /* InfoController.swift */; };
 		9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
 		944A6CDF20B0B7E600D797A8 /* Parent+PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944A6CDE20B0B7E500D797A8 /* Parent+PushNotification.swift */; };
 		9451E2FE1F58C20B008181F9 /* HeaderNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */; };
@@ -161,6 +162,7 @@
 		943B59601F36B4F200E5FBE6 /* TimeKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeKnob.swift; sourceTree = "<group>"; };
 		943B99DB1F99C95600E09C93 /* MorphSelectorStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphSelectorStyleKit.swift; sourceTree = "<group>"; };
 		943D9D2B20B1D56A004149AD /* MailingListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailingListController.swift; sourceTree = "<group>"; };
+		943D9D2D20B1F72D004149AD /* InfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpKeyboardController.swift; sourceTree = "<group>"; };
 		944A6CDE20B0B7E500D797A8 /* Parent+PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PushNotification.swift"; sourceTree = "<group>"; };
 		9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderNavButton.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 		94A5BF051F96A4E10032C743 /* PopUps */ = {
 			isa = PBXGroup;
 			children = (
+				943D9D2D20B1F72D004149AD /* InfoController.swift */,
 				943D9D2B20B1D56A004149AD /* MailingListController.swift */,
 				C42459E2201D64DE004565AB /* PopUpBankEdit.swift */,
 				9403F2921F671A4900320FCC /* PresetsCategoriesController.swift */,
@@ -889,6 +892,7 @@
 				944A6CDF20B0B7E600D797A8 /* Parent+PushNotification.swift in Sources */,
 				94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */,
 				94FA2DCF1F9E837700DED735 /* CategoryCell.swift in Sources */,
+				943D9D2E20B1F72E004149AD /* InfoController.swift in Sources */,
 				943D9D2C20B1D56A004149AD /* MailingListController.swift in Sources */,
 				C40770EC1F2569C8007F2C77 /* SourceMixerViewController.swift in Sources */,
 				945261481F2928870037662C /* TouchPadViewController.swift in Sources */,

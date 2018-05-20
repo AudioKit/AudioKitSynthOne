@@ -11,6 +11,7 @@ import UIKit
 
 protocol DevPanelDelegate {
     func freezeArpChanged(_ value: Bool)
+    func getFreezeArpChangedValue() -> Bool
 }
 
 class DevViewController: UpdatableViewController {
@@ -96,6 +97,9 @@ class DevViewController: UpdatableViewController {
         conductor.bind(delayInputFilterResonance,               to: .delayInputResonance)
         
         // freeze arp rate
+        if let value = delegate?.getFreezeArpChangedValue() {
+            freezeArpRate.value = value ? 1 : 0
+        }
         freezeArpRate.callback = { value in
             self.delegate?.freezeArpChanged(value == 1 ? true : false)
         }

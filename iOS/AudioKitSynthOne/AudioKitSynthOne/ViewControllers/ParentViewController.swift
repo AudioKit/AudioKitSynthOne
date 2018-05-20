@@ -104,6 +104,7 @@ public class ParentViewController: UpdatableViewController {
     lazy var tuningsViewController: TuningsViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier()) as! TuningsViewController
+        viewController.delegate = self
         return viewController
     }()
 
@@ -785,14 +786,10 @@ extension ParentViewController: AKKeyboardDelegate {
     
     public func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity = 127) {
         sustainer.play(noteNumber: note, velocity: velocity)
-        //conductor.synth.play(noteNumber: note, velocity: velocity)
     }
     
     public func noteOff(note: MIDINoteNumber) {
-        DispatchQueue.main.async {
-            self.sustainer.stop(noteNumber: note)
-            //self.conductor.synth.stop(noteNumber: note)
-        }
+        sustainer.stop(noteNumber: note)
     }
 }
 
@@ -804,6 +801,26 @@ extension ParentViewController: DevPanelDelegate {
     
     public func freezeArpChanged(_ value: Bool) {
         appSettings.freezeArpRate = value
+    }
+    
+    public func getFreezeArpChangedValue() -> Bool {
+        return appSettings.freezeArpRate
+    }
+
+}
+
+// **********************************************************
+// MARK: - TuningPanelDelegate protocol functions
+// **********************************************************
+
+extension ParentViewController: TuningPanelDelegate {
+    
+    public func storeTuningWithPresetDidChange(_ value: Bool) {
+        appSettings.saveTuningWithPreset = value
+    }
+    
+    public func getStoreTuningWithPresetValue() -> Bool {
+        return appSettings.saveTuningWithPreset
     }
 }
 

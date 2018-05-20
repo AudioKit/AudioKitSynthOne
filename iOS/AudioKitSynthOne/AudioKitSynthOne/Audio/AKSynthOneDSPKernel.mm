@@ -15,7 +15,7 @@
 #import "AEMessageQueue.h"
 #import "AKS1NoteState.hpp"
 
-#define AKS1_RELEASE_AMPLITUDE_THRESHOLD (0.000000000232831f) // 1/2^32
+#define AKS1_RELEASE_AMPLITUDE_THRESHOLD (0.01f)
 #define AKS1_PORTAMENTO_HALF_TIME (0.1f)
 #define AKS1_DEPENDENT_PARAM_TAPER (0.4f)
 
@@ -144,7 +144,7 @@ void AKSynthOneDSPKernel::heldNotesDidChange() {
 void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount bufferOffset) {
     initializeNoteStates();
     
-    // PREPARE FOR RENDER LOOP...updates here happen at (typically) 44100/512 HZ
+    // PREPARE FOR RENDER LOOP...updates here happen at (typically) 44100/512 HZ, or 44100/1024 HZ
     float* outL = (float*)outBufferListPtr->mBuffers[0].mData + bufferOffset;
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
     
@@ -176,13 +176,13 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     
     // transition playing notes from release to off
     if (p[isMono] > 0.f) {
-        if (monoNote->stage == AKS1NoteState::stageRelease && monoNote->amp <= AKS1_RELEASE_AMPLITUDE_THRESHOLD) {
+        if (monoNote->stage == AKS1NoteState::stageRelease && monoNote->amp < AKS1_RELEASE_AMPLITUDE_THRESHOLD) {
             monoNote->clear();
         }
     } else {
         for(int i=0; i<polyphony; i++) {
             AKS1NoteState& note = noteStates[i];
-            if (note.stage == AKS1NoteState::stageRelease && note.amp <= AKS1_RELEASE_AMPLITUDE_THRESHOLD) {
+            if (note.stage == AKS1NoteState::stageRelease && note.amp < AKS1_RELEASE_AMPLITUDE_THRESHOLD) {
                 note.clear();
             }
         }
@@ -190,7 +190,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     
     // throttle main thread notification to < 30hz
     sampleCounter += frameCount;
-    if (sampleCounter > 1535.0) {
+    if (sampleCounter > 2048.0) {
         playingNotesDidChange();
         sampleCounter = 0;
     }
@@ -911,6 +911,7 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
         }
         p[i] = value;
     }
+    
     _lfo1Rate = {AKSynthOneParameter::lfo1Rate, getAK1DependentParameter(lfo1Rate), getAK1Parameter(lfo1Rate),0};
     _lfo2Rate = {AKSynthOneParameter::lfo2Rate, getAK1DependentParameter(lfo2Rate), getAK1Parameter(lfo2Rate),0};
     _autoPanRate = {AKSynthOneParameter::autoPanFrequency, getAK1DependentParameter(autoPanFrequency), getAK1Parameter(autoPanFrequency),0};

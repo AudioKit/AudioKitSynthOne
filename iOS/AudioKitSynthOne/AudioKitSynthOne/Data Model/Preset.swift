@@ -152,8 +152,9 @@ class Preset: Codable {
     var delayInputCutoffTrackingRatio = 0.75
     var delayInputResonance = 0.0
 
-    // master tuning
+    // tuning
     var frequencyA4 = 440.0
+    var tuningMasterSet: [Double]?
     
     // ******************************************************
     // MARK: - Init
@@ -166,7 +167,6 @@ class Preset: Codable {
         
         // Preset Number/Position
         self.position = position
-        
     }
     
     
@@ -248,7 +248,7 @@ class Preset: Codable {
         reverbMix = dictionary["reverbMix"] as? Double ?? p(.reverbMix)
         reverbHighPass = dictionary["reverbHighPass"] as? Double ?? p(.reverbHighPass)
         
-        //TODO:@MATT this is unused
+        //TODO:this is unused
         midiBendRange = dictionary["midiBendRange"] as? Double ?? midiBendRange
         
         crushFreq = dictionary["crushFreq"] as? Double ?? p(.bitCrushSampleRate)
@@ -358,6 +358,8 @@ class Preset: Codable {
         delayInputCutoffTrackingRatio = dictionary["delayInputCutoffTrackingRatio"] as? Double ?? p(.delayInputCutoffTrackingRatio)
         delayInputResonance = dictionary["delayInputResonance"] as? Double ?? p(.delayInputResonance)
         
+        // Tuning
         frequencyA4 = dictionary["frequencyA4"] as? Double ?? p(.frequencyA4)
+        tuningMasterSet = dictionary["tuningMasterSet"] as? [Double] // default is nil
     }
 }

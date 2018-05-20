@@ -47,11 +47,21 @@ import AudioKit
         return [A * B, A * C, A * D, A * E, A * F, B * C, B * D, B * E, B * F, C * D, C * E, C * F, D * E, D * F, E * F]
     }
     
-    public func resetTuning() {
-        _ = AKPolyphonicNode.tuningTable.defaultTuning()
+    public func setTuning(withMasterArray master:[Double]) -> Int? {
+        if master.count == 0 { return nil}
+        _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: master)
+        tuningsDelegate?.tuningDidChange()
+        return tunings.count - 1
+    }
+    
+    public func resetTuning() -> Int {
+        let i = 0
+        let tuning = tunings[i]
+        tuning.1()
         let f = Conductor.sharedInstance.synth!.getParameterDefault(.frequencyA4)
         Conductor.sharedInstance.synth!.setAK1Parameter(.frequencyA4, f)
         tuningsDelegate?.tuningDidChange()
+        return i
     }
     
     public func randomTuning() -> Int {
@@ -69,17 +79,22 @@ import AudioKit
         // scales designed by Marcus Hobbs using Wilsonic
         (" 6 Hexany(1, 3, 5, 7) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 7)  } ),
         ("10 Dekany(1, 3, 5, 7, 11)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1,3,5,7,11])) } ),
+        
         (" 6 Hexany(1, 3, 5, 45) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45)  } ),// 071
         ("10 Dekany(1, 3, 5, 45, 75) ",  {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1,3,5,45,75]) ) } ),
         ("15 Pentadekany(Hexany(1,3,5,45))", {
             _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.pentadekany(AKS1Tunings.hexany([1, 3, 5, 45])))
         } ),
+        
         (" 6 Hexany(1, 3, 5, 9)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 9) } ),
         ("10 Dekany(1, 3, 5, 9, 25)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 9, 25] ) ) } ),
         ("15 Pentadekany(Hexany(1,3,5,9))", {
             _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.pentadekany(AKS1Tunings.hexany([1, 3, 5, 9])))
         } ),
+        
         (" 6 Hexany(1, 3, 5, 15)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 15) } ),
+        ("10 Dekany(1, 3, 5, 9, 15)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 9, 15] ) ) } ),
+        
         (" 6 Hexany(1, 3, 5, 81)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81) } ),
         ("10 Dekany(1, 3, 5, 9, 81)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 9, 81] ) ) } ),
         ("15 Pentadekany(Hexany(1,3,5,81))", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.pentadekany(AKS1Tunings.hexany([1, 3, 5, 81])))
@@ -157,10 +172,11 @@ import AudioKit
         (" 7 North Indian:Champakali", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian22Champakali() } ),
         (" 7 North Indian:Patdeep", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian23Patdeep() } ),
         (" 7 North Indian:MohanKauns", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian24MohanKauns() } ),
-        (" 7 North Indian:Parameswari", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian25Parameswari() } )
+        (" 7 North Indian:Parameswari", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian25Parameswari() } ),
+        (" - Tuning From Preset", {_ = 0})
     ]
     
-    ///UITableViewDataSource
+    //MARK: UITableViewDataSource
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -176,7 +192,7 @@ import AudioKit
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         let tuning = tunings[(indexPath as NSIndexPath).row]
-        let title = tuning.0 // title
+        let title = tuning.0
         if let cell = tableView.dequeueReusableCell(withIdentifier: "TuningsViewController") as UITableViewCell? {
             configureCell(cell)
             cell.textLabel?.text = title
@@ -195,19 +211,20 @@ import AudioKit
         cell.textLabel?.textColor = #colorLiteral(red: 0.694699347, green: 0.6895567775, blue: 0.6986362338, alpha: 1)
     }
     
+    //MARK: UITableViewDelegate
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if cell.isSelected {
             cell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         }
     }
     
-    ///UITableViewDelegate
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tuning = tunings[(indexPath as NSIndexPath).row]
         tuning.1()
       
-        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
-        selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        if let selectedCell = tableView.cellForRow(at: indexPath) {
+            selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        }
         tuningsDelegate?.tuningDidChange()
     }
 }

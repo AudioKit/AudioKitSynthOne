@@ -9,13 +9,13 @@
 import UIKit
 import AudioKit
 
-
 public class TuningsPitchWheelView: UIView {
     
     var overlayView: TuningsPitchWheelOverlayView
-    var masterPitch = [Double]()
+    var masterPitch: [Double]?
+    var masterFrequency: [Double]?
     var pxy = [CGPoint]()
-    
+
     public required init?(coder aDecoder: NSCoder) {
         self.overlayView = TuningsPitchWheelOverlayView.init(frame: CGRect.init())
         super.init(coder: aDecoder)
@@ -44,35 +44,37 @@ public class TuningsPitchWheelView: UIView {
             let npo = AKPolyphonicNode.tuningTable.npo
             if npo < 1 { return }
             var mp = [Double]()
+            var mf = [Double]()
             for i: Int in 0..<npo {
                 let nn = Int(AKPolyphonicNode.tuningTable.middleCNoteNumber) + i
                 let f = AKPolyphonicNode.tuningTable.frequency(forNoteNumber: MIDINoteNumber(nn)) / mc
+                mf.append(f)
                 let p = log2(f)
                 mp.append(p)
             }
             
+            self.masterFrequency = mf
             self.masterPitch = mp
+            self.overlayView.masterPitch = mp
             
             DispatchQueue.main.async {
                 self.setNeedsDisplay()
-                DispatchQueue.main.async {
-                    self.overlayView.setNeedsDisplay()
-                }
+                self.overlayView.setNeedsDisplay()
             }
         }
     }
     
-    ///schedule update of overlay for next main thread run loop
+    ///update overlay
     public func playingNotesDidChange(_ playingNotes: PlayingNotes) {
-        DispatchQueue.main.async {
-            self.overlayView.playingNotes = playingNotes
-            self.overlayView.setNeedsDisplay()
-        }
+        overlayView.playingNotes = playingNotes
+        overlayView.setNeedsDisplay()
     }
-
+    
     ///draw the state of AKPolyphonicNode.tuningTable.masterSet as a PitchWheel
     override public func draw(_ rect: CGRect) {
+        guard let masterSet = masterPitch else { return }
         guard let context = UIGraphicsGetCurrentContext() else { return }
+
         context.saveGState()
         
         let x: CGFloat = rect.origin.x
@@ -89,11 +91,9 @@ public class TuningsPitchWheelView: UIView {
         UIColor.black.setStroke()
 
         var mspxy = [CGPoint]()
-        let masterSet = masterPitch
         for (_, p) in masterSet.enumerated() {
             context.setLineWidth(1)
-            //let cfp = color(forPitch: p, alpha: 0.75 - 0.1)
-            let cfp = color(forPitch: p, brightness: 1, alpha: 0.65)
+            let cfp = TuningsPitchWheelView.color(forPitch: p, brightness: 1, alpha: 0.65)
             cfp.setStroke()
             cfp.setFill()
             
@@ -112,10 +112,10 @@ public class TuningsPitchWheelView: UIView {
             generalLineP(context, p0, p2)
             
             // BIG DOT
-            let bfp = color(forPitch: p, alpha: 1)
+            let bfp = TuningsPitchWheelView.color(forPitch: p, alpha: 1)
             bfp.setStroke()
             bfp.setFill()
-            let bigR: CGFloat = 0.5 * 14 * 1.618
+            let bigR: CGFloat = 12
             let bigDotR = CGRect(x: CGFloat(p2.x - 0.5 * bigR), y: CGFloat(p2.y - 0.5 * bigR), width: bigR, height: bigR)
             context.fillEllipse(in: bigDotR)
             
@@ -129,7 +129,7 @@ public class TuningsPitchWheelView: UIView {
         // draw NPO
         UIColor.darkGray.setStroke()
         UIColor.lightGray.setFill()
-        let npostr = "\(masterPitch.count)"
+        let npostr = "\(masterSet.count)"
         let npopt =  CGPoint.init(x: 2 * fontSize, y: 2 * fontSize)
         _ = npostr.drawCentered(atPoint: npopt, font: bdf2, color: UIColor.lightGray, drawStroke: false)
         
@@ -139,8 +139,9 @@ public class TuningsPitchWheelView: UIView {
 }
 
 
-private extension TuningsPitchWheelView {
-    func color(forPitch pitch: Double, saturation: CGFloat = 0.625, brightness: CGFloat = 1, alpha: CGFloat = 0.75) -> UIColor {
+extension TuningsPitchWheelView {
+    
+    public class func color(forPitch pitch: Double, saturation: CGFloat = 0.625, brightness: CGFloat = 1, alpha: CGFloat = 0.75) -> UIColor {
         let hue = CGFloat(pitch.truncatingRemainder(dividingBy: 1))
         let r = UIColor.init(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         return r
@@ -197,8 +198,9 @@ private extension String {
 public class TuningsPitchWheelOverlayView: UIView {
     
     var pxy = [CGPoint]()
+    var masterPitch = [Double]()
     var playingNotes: PlayingNotes?
-    
+
     required public override init(frame: CGRect) {
         super.init(frame: frame)
         self.isOpaque = false
@@ -214,10 +216,7 @@ public class TuningsPitchWheelOverlayView: UIView {
     override public func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         context.saveGState()
-        
-        UIColor.white.setStroke()
         context.setLineWidth(1)
-        
         let pxyCopy = pxy
         let npo = Int32(pxyCopy.count)
         if npo < 1 { return }
@@ -227,15 +226,17 @@ public class TuningsPitchWheelOverlayView: UIView {
             let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2, pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
             for playingNote in na {
                 if playingNote.noteNumber != -1 {
-                    var v = playingNote.amp
-                    v = 2 * v
+                    let v = 2 * playingNote.amp
                     if v > 0 {
                         var nn = playingNote.noteNumber - Int32(AKPolyphonicNode.tuningTable.middleCNoteNumber)
                         while nn < 0 { nn = nn + Int32(npo) }
                         while nn >= npo { nn = nn - Int32(npo) }
                         nn = nn % npo
                         let p = pxyCopy[Int(nn)]
-                        let bigR = CGFloat(v * 2 * 14)
+                        let bigR = CGFloat(v * 26)
+                        let a = bigR < 36 ? bigR / 36 : 1
+                        let pitch = masterPitch[Int(nn)]
+                        TuningsPitchWheelView.color(forPitch: pitch, saturation: 0.36, brightness: 1, alpha: a).setStroke()
                         let bigDotR = CGRect(x: p.x - bigR/2, y: p.y - bigR/2, width: bigR, height: bigR)
                         context.strokeEllipse(in: bigDotR)
                     }

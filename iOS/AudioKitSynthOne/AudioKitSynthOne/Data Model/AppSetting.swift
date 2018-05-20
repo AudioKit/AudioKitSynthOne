@@ -26,7 +26,7 @@ class AppSetting: Codable {
     var plotFilled = true
     var velocitySensitive = false
     var freezeArpRate = false // true = don't modify when preset changes
-
+    var saveTuningWithPreset = false
     var launches = 0
     
     // Presets version
@@ -114,7 +114,7 @@ class AppSetting: Codable {
         plotFilled =  dictionary["plotFilled"] as? Bool ?? plotFilled
         velocitySensitive =  dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
         freezeArpRate = dictionary["freezeArpRate"] as? Bool ?? freezeArpRate
-
+        saveTuningWithPreset = dictionary["saveTuningWithPreset"] as? Bool ?? saveTuningWithPreset
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
         
         masterVolume_CC = dictionary["masterVolume_CC"] as? Int ?? masterVolume_CC

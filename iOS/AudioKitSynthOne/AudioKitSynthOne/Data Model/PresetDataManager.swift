@@ -119,7 +119,15 @@ extension ParentViewController {
         s.setAK1Parameter(.delayInputResonance, activePreset.delayInputResonance)
         s.setAK1Parameter(.pitchbendMinSemitones, activePreset.pitchbendMinSemitones)
         s.setAK1Parameter(.pitchbendMaxSemitones, activePreset.pitchbendMaxSemitones)
+
         s.setAK1Parameter(.frequencyA4, activePreset.frequencyA4)
+        if appSettings.saveTuningWithPreset {
+            if let m = activePreset.tuningMasterSet {
+                tuningsViewController.setTuning(withMasterArray: m)
+            } else {
+                tuningsViewController.setDefaultTuning()
+            }
+        }
         
         //
         s.resetSequencer()
@@ -225,8 +233,15 @@ extension ParentViewController {
         activePreset.delayInputResonance = s.getAK1Parameter(.delayInputResonance)
         activePreset.pitchbendMinSemitones = s.getAK1Parameter(.pitchbendMinSemitones)
         activePreset.pitchbendMaxSemitones = s.getAK1Parameter(.pitchbendMaxSemitones)
-        activePreset.frequencyA4 = s.getAK1Parameter(.frequencyA4)
         
+        // tuning
+        activePreset.frequencyA4 = s.getAK1Parameter(.frequencyA4)
+        if appSettings.saveTuningWithPreset {
+            activePreset.tuningMasterSet = tuningsViewController.getTuning()
+        } else {
+            activePreset.tuningMasterSet = nil
+        }
+
         // octave position
         activePreset.octavePosition = keyboardView.firstOctave - 2
         

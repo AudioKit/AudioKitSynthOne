@@ -19,6 +19,7 @@ protocol HeaderDelegate {
     func panicPressed()
     func devPressed()
     func aboutPressed()
+    func morePressed()
 }
 
 public class HeaderViewController: UpdatableViewController {
@@ -37,6 +38,7 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var devButton: PresetUIButton!
     @IBOutlet weak var aboutButton: PresetUIButton!
     @IBOutlet weak var hostAppIcon: UIImageView!
+    @IBOutlet weak var morePresetsButton: PresetUIButton!
     
     var delegate: EmbeddedViewsDelegate?
     var headerDelegate: HeaderDelegate?
@@ -283,6 +285,9 @@ public class HeaderViewController: UpdatableViewController {
          headerDelegate?.nextPresetPressed()
     }
     
+    @IBAction func morePressed(_ sender: UIButton) {
+     
+    }
     
     @IBAction func randomPressed(_ sender: UIButton) {
         // Animate Dice
@@ -312,6 +317,10 @@ public class HeaderViewController: UpdatableViewController {
         aboutButton.callback = { _ in
             self.headerDelegate?.aboutPressed()
         }
+        
+        morePresetsButton.callback = { _ in
+            self.headerDelegate?.morePressed()
+        }
     }
 
     @IBAction func openHostApp(_ sender: AnyObject) {
@@ -329,5 +338,20 @@ public class HeaderViewController: UpdatableViewController {
         if result == noErr {
             UIApplication.shared.open(url as URL)
         }
+    }
+    
+    func updateMailingListButton(_ signedMailingList: Bool) {
+        print ("Signed Mailing List \(signedMailingList)")
+        // Mailing List Button
+        if signedMailingList {
+            morePresetsButton.setTitle("Apps", for: .normal)
+            morePresetsButton.setTitleColor(#colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1), for: .normal)
+            morePresetsButton.backgroundColor = #colorLiteral(red: 0.168627451, green: 0.168627451, blue: 0.168627451, alpha: 1)
+        } else {
+            morePresetsButton.setTitle("More", for: .normal)
+            morePresetsButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            morePresetsButton.backgroundColor = #colorLiteral(red: 0.7607843137, green: 0.5137254902, blue: 0.1098039216, alpha: 1)
+        }
+     
     }
 }

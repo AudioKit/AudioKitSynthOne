@@ -38,6 +38,7 @@ public class ParentViewController: UpdatableViewController {
     @IBOutlet weak var midiLearnToggle: SynthUIButton!
     @IBOutlet weak var pitchbend: AKVerticalPad!
     @IBOutlet weak var modWheelPad: AKVerticalPad!
+  
     
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
     
@@ -59,6 +60,7 @@ public class ParentViewController: UpdatableViewController {
     var sustainer: SDSustainer!
     var pcJustTriggered = false
     var midiKnobs = [MIDIKnob]()
+    var signedMailingList = false
     
     // ********************************************************
     // MARK: - Define child view controllers
@@ -177,6 +179,13 @@ public class ParentViewController: UpdatableViewController {
             saveAppSettings()
         }
         
+        // Set Mailing List Button
+        signedMailingList = appSettings.signedMailingList
+        presetsViewController.signedMailingList = appSettings.signedMailingList
+        if let headerVC = self.childViewControllers.first as? HeaderViewController {
+            headerVC.updateMailingListButton(appSettings.signedMailingList)
+        }
+        
         // Load Banks
         if Disk.exists("banks.json", in: .documents) {
             loadBankSettings() 
@@ -195,9 +204,19 @@ public class ParentViewController: UpdatableViewController {
         
         presetsViewController.loadBanks()
         
+        // Show email list if first run
+        if appSettings.firstRun && !appSettings.signedMailingList {
+            performSegue(withIdentifier: "SegueToMailingList", sender: self)
+            appSettings.firstRun = false
+        }
+        
         // On four runs show dialog and request review
-        //        if appSettings.launches == 4 { reviewPopUp() }
-        //        if appSettings.launches % 10 == 0 { skRequestReview() }
+        if appSettings.launches == 5 && !appSettings.isPreRelease { reviewPopUp() }
+        if appSettings.launches % 20 == 0 && !appSettings.isPreRelease { skRequestReview() }
+        
+        // Push Notifications request
+        if appSettings.launches == 9 { pushPopUp() }
+        if appSettings.launches % 15 == 0 && !appSettings.pushNotifications { pushPopUp() }
         
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard
@@ -443,6 +462,11 @@ public class ParentViewController: UpdatableViewController {
             let popOverController = segue.destination as! PopUpAbout
             popOverController.delegate = self
         }
+        
+        if segue.identifier == "SegueToMailingList" {
+            let popOverController = segue.destination as! MailingListController
+            popOverController.delegate = self
+        }
     }
     
     fileprivate func add(asChildViewController viewController: UIViewController, isTopContainer: Bool = true) {
@@ -468,10 +492,40 @@ public class ParentViewController: UpdatableViewController {
         topContainerView.subviews.forEach({ $0.removeFromSuperview() })
         add(asChildViewController: presetsViewController)
         presetsViewController.presetsDelegate = self
+        presetsViewController.signedMailingList = appSettings.signedMailingList
         isPresetsDisplayed = true
     }
-    
 }
+
+
+// **********************************************************
+// MARK: - Mailing List PopOver Delegate
+// **********************************************************
+
+
+extension ParentViewController: MailingListDelegate {
+    func didSignMailingList(email: String) {
+        
+        signedMailingList = true
+        
+        DispatchQueue.main.async {
+            if let headerVC = self.childViewControllers.first as? HeaderViewController {
+                headerVC.updateMailingListButton(self.signedMailingList)
+            }
+        }
+        userSignedMailingList(email: email)
+    }
+    
+    func userSignedMailingList(email: String) {
+        appSettings.signedMailingList = true
+        appSettings.userEmail = email
+        saveAppSettingValues()
+        
+        presetsViewController.signedMailingList = appSettings.signedMailingList
+        //presetController.loadFactoryPresets()
+    }
+}
+
 
 // **********************************************************
 // MARK: - Mod Wheel Settings Pop Over Delegate
@@ -620,6 +674,15 @@ extension ParentViewController: HeaderDelegate {
     
     func savePresetPressed() {
         presetsViewController.editPressed()
+    }
+    
+    func morePressed() {
+        print("Segue \(signedMailingList)")
+        if signedMailingList {
+            performSegue(withIdentifier: "SegueToMore", sender: self)
+        } else {
+            performSegue(withIdentifier: "SegueToMailingList", sender: self)
+        }
     }
     
     func panicPressed() {

@@ -19,7 +19,7 @@ class AppSetting: Codable {
     var settingID = "main"
     var firstRun = true
     var isPreRelease = true
-    var signedMailingList = true
+    var signedMailingList = false
     var backgroundAudioOn = true
     var midiChannel = 0
     var omniMode = true
@@ -27,6 +27,8 @@ class AppSetting: Codable {
     var velocitySensitive = false
     var freezeArpRate = false // true = don't modify when preset changes
     var saveTuningWithPreset = false
+    var pushNotifications = false
+    var userEmail = ""
     var launches = 0
     
     // Presets version

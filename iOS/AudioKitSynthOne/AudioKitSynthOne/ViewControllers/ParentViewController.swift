@@ -62,6 +62,10 @@ public class ParentViewController: UpdatableViewController {
     var midiKnobs = [MIDIKnob]()
     var signedMailingList = false
     
+    // AudioBus
+    private var audioUnitPropertyListener: AudioUnitPropertyListener!
+    var midiInput: ABMIDIReceiverPort?
+    
     // ********************************************************
     // MARK: - Define child view controllers
     // ********************************************************
@@ -167,6 +171,31 @@ public class ParentViewController: UpdatableViewController {
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)
         devViewController.view.removeFromSuperview()
+        
+        // IAA MIDI
+        var callbackStruct = AudioOutputUnitMIDICallbacks(
+            userData: nil,
+            MIDIEventProc: {
+                (first, status, data1, data2, offset) in
+                AudioKit.midi.sendMessage([MIDIByte(status), MIDIByte(data1), MIDIByte(data2)])},
+            MIDISysExProc: {
+                (firstPointer, secondPinter, anotherInt32) in
+                print("Not handling sysex")}
+        )
+        
+        let connectIAAMDI = AudioUnitSetProperty(AudioKit.engine.outputNode.audioUnit!,
+                                                 kAudioOutputUnitProperty_MIDICallbacks,
+                                                 kAudioUnitScope_Global,
+                                                 0,
+                                                 &callbackStruct,
+                                                 UInt32(MemoryLayout<AudioOutputUnitMIDICallbacks>.size))
+        if connectIAAMDI != 0 {
+            AKLog("Something bad happened")
+        }
+        
+        
+        // Setup AudioBus MIDI Input
+        setupAudioBusInput()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -884,6 +913,84 @@ extension ParentViewController: TuningPanelDelegate {
 }
 
 // **********************************************************
+// MARK: - AudioBus MIDI Input & Preset Loading
+// **********************************************************
+
+extension ParentViewController: ABAudiobusControllerStateIODelegate {
+    
+    func setupAudioBusInput() {
+        midiInput = ABMIDIReceiverPort(name: "AudioKit Synth One MIDI", title: "AudioKit Synth One MIDI") { (port, midiPacketListPointer)  in
+            
+            let events = AKMIDIEvent.midiEventsFrom(packetListPointer: midiPacketListPointer)
+            for event in events {
+                guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                
+                
+                if event.status == AKMIDIStatus.noteOn {
+                    if event.internalData[2] == 0 {
+                        self.sustainer.stop(noteNumber: event.noteNumber!)
+                    
+                    } else {
+                        // Prevent multiple triggers from multiple MIDI inputs
+//                        guard !self.notesJustTriggered.contains(event.noteNumber!) else { return }
+//
+//                        self.notesJustTriggered.insert(event.noteNumber!)
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+//                            self.notesJustTriggered.remove(event.noteNumber!)
+//                        }
+                        
+                        self.sustainer.play(noteNumber: event.noteNumber!, velocity: event.internalData[2])
+                    }
+                }
+                
+                if event.status == AKMIDIStatus.noteOff {
+                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                    self.sustainer.stop(noteNumber: event.noteNumber!)
+                }
+                
+                if event.status == AKMIDIStatus.pitchWheel {
+                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                    let x = MIDIWord(event.internalData[1])
+                    let y = MIDIWord(event.internalData[2]) << 7
+                    self.receivedMIDIPitchWheel(y+x, channel: event.channel!)
+                }
+                
+                if event.status == AKMIDIStatus.programChange {
+                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                    self.receivedMIDIProgramChange(event.data1, channel: event.channel!)
+                }
+                
+                if event.status == AKMIDIStatus.controllerChange {
+                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                    self.receivedMIDIController(event.data1, value: event.data2, channel: event.channel!)
+                }
+            }
+        }
+        Audiobus.client?.controller.addMIDIReceiverPort(midiInput)
+        Audiobus.client?.controller.stateIODelegate = self
+    }
+    
+    //*****************************************************************
+    // MARK: - AudioBus Preset Delegate
+    //*****************************************************************
+    
+    public func audiobusStateDictionaryForCurrentState() -> [AnyHashable : Any]! {
+        return [ "preset" : activePreset.position]
+    }
+    
+    public func loadState(fromAudiobusStateDictionary dictionary: [AnyHashable : Any]!, responseMessage outResponseMessage: AutoreleasingUnsafeMutablePointer<NSString?>!) {
+        
+        if let abDictionary = dictionary as? [String: Any] {
+            activePreset.position = abDictionary["preset"] as? Int ?? 0
+            DispatchQueue.main.async {
+                self.presetsViewController.didSelectPreset(index: self.activePreset.position)
+            }
+        }
+    }
+}
+
+
+// **********************************************************
 // MARK: - AKMIDIListener protocol functions
 // **********************************************************
 
@@ -1017,16 +1124,16 @@ extension ParentViewController: AKMIDIListener  {
     
     // MIDI Setup Change
     public func receivedMIDISetupChange() {
-        AKLog("midi setup change, midi.inputNames: \(midi.inputNames)")
+        // AKLog("midi setup change, midi.inputNames: \(midi.inputNames)")
         
         let midiInputNames = midi.inputNames
         midiInputNames.forEach { inputName in
-            
+
             // check to see if input exists
             if let index = midiInputs.index(where: { $0.name == inputName }) {
                 midiInputs.remove(at: index)
             }
-            
+
             let newMIDI = MIDIInput(name: inputName, isOpen: true)
             midiInputs.append(newMIDI)
             midi.openInput(inputName)

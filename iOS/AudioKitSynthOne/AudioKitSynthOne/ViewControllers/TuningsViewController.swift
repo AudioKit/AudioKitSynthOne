@@ -62,6 +62,7 @@ class TuningsViewController: SynthPanelController {
         if let v = delegate?.getStoreTuningWithPresetValue() {
             saveTuningWithPreset.value = v ? 1 : 0
         }
+        
         saveTuningWithPreset.callback = { value in
             self.delegate?.storeTuningWithPresetDidChange(value == 1 ? true : false)
         }

@@ -70,12 +70,6 @@ class PresetsViewController: UIViewController {
         }
     }
     
-    var signedMailingList = false {
-        didSet {
-            sortPresets()
-        }
-    }
-    
     let conductor = Conductor.sharedInstance
     let userBankIndex = PresetCategory.bankStartingIndex + 1
     let userBankName = "User"
@@ -305,6 +299,12 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    func addBonusPresets() {
+      let bankName = "BankA"
+      presets = presets.filter{$0.bank != bankName}
+      loadFactoryPresets("Bonus")
+      saveAllPresetsIn(bankName)
+    }
     
     // *****************************************************************
     // MARK: - IBActions / Callbacks

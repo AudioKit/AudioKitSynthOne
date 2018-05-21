@@ -181,7 +181,6 @@ public class ParentViewController: UpdatableViewController {
         
         // Set Mailing List Button
         signedMailingList = appSettings.signedMailingList
-        presetsViewController.signedMailingList = appSettings.signedMailingList
         if let headerVC = self.childViewControllers.first as? HeaderViewController {
             headerVC.updateMailingListButton(appSettings.signedMailingList)
         }
@@ -492,7 +491,6 @@ public class ParentViewController: UpdatableViewController {
         topContainerView.subviews.forEach({ $0.removeFromSuperview() })
         add(asChildViewController: presetsViewController)
         presetsViewController.presetsDelegate = self
-        presetsViewController.signedMailingList = appSettings.signedMailingList
         isPresetsDisplayed = true
     }
 }
@@ -521,8 +519,7 @@ extension ParentViewController: MailingListDelegate {
         appSettings.userEmail = email
         saveAppSettingValues()
         
-        presetsViewController.signedMailingList = appSettings.signedMailingList
-        //presetController.loadFactoryPresets()
+        presetsViewController.addBonusPresets()
     }
 }
 
@@ -677,7 +674,6 @@ extension ParentViewController: HeaderDelegate {
     }
     
     func morePressed() {
-        print("Segue \(signedMailingList)")
         if signedMailingList {
             performSegue(withIdentifier: "SegueToMore", sender: self)
         } else {

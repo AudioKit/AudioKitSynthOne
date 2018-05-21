@@ -5,13 +5,13 @@ def available_pods
     pod 'Disk', '~> 0.3.2'
     pod 'Audiobus'
     pod 'ChimpKit'
-    pod 'OneSignal', '>= 2.5.2', '< 3.0'
+    pod 'OneSignal', '>= 2.6.2', '< 3.0'
 end
 
 target 'AudioKitSynthOne' do
     available_pods 
 end
 
-# target 'OneSignalNotificationServiceExtension' do
-#  pod 'OneSignal', '>= 2.5.2', '< 3.0'
-# end
+target 'OneSignalNotificationServiceExtension' do
+  pod 'OneSignal', '>= 2.6.2', '< 3.0'
+end

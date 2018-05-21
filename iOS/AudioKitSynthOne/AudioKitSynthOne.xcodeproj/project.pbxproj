@@ -14,6 +14,7 @@
 		9403F29A1F671A4900320FCC /* PopUpPresetEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */; };
 		9403F29D1F671A6000320FCC /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F29B1F671A6000320FCC /* Preset.swift */; };
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
+		941645C520B34E5900D62851 /* Bonus.json in Resources */ = {isa = PBXBuildFile; fileRef = 941645C420B34E5900D62851 /* Bonus.json */; };
 		9416FC7220081F3A00A120AD /* MIDIKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC7120081F3A00A120AD /* MIDIKnob.swift */; };
 		9416FC762008204300A120AD /* MIDILearnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC752008204300A120AD /* MIDILearnable.swift */; };
 		941DE3E11FCE3CD400A09C24 /* AppSettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */; };
@@ -150,6 +151,7 @@
 		9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpPresetEdit.swift; sourceTree = "<group>"; };
 		9403F29B1F671A6000320FCC /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		9410659E1F26AA55002777AB /* ADSRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
+		941645C420B34E5900D62851 /* Bonus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Bonus.json; sourceTree = "<group>"; };
 		9416FC7120081F3A00A120AD /* MIDIKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIKnob.swift; sourceTree = "<group>"; };
 		9416FC752008204300A120AD /* MIDILearnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDILearnable.swift; sourceTree = "<group>"; };
 		941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingDataManager.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				94FA2DC41F9E82BB00DED735 /* BankA.json */,
+				941645C420B34E5900D62851 /* Bonus.json */,
 				94C50C3120195FC0008549DB /* User.json */,
 				946306F720AC9BC000AB97EC /* Brice Beasley.json */,
 				946306F520AC8C8C00AB97EC /* DJ Puzzle.json */,
@@ -742,6 +745,7 @@
 				94C50C3220195FC0008549DB /* User.json in Resources */,
 				C4CC3043208499E5004E91CB /* Audiobus.txt in Resources */,
 				94FA2DC51F9E82BB00DED735 /* BankA.json in Resources */,
+				941645C520B34E5900D62851 /* Bonus.json in Resources */,
 				94D1763F20A138C50073F67F /* Red Sky Lullaby.json in Resources */,
 				946306F820AC9BC000AB97EC /* Brice Beasley.json in Resources */,
 				946306F620AC8C8C00AB97EC /* DJ Puzzle.json in Resources */,

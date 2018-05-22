@@ -352,7 +352,7 @@ public class HeaderViewController: UpdatableViewController {
         if signedMailingList {
             morePresetsButton.setTitle("Apps", for: .normal)
             morePresetsButton.setTitleColor(#colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1), for: .normal)
-            morePresetsButton.backgroundColor = #colorLiteral(red: 0.168627451, green: 0.168627451, blue: 0.168627451, alpha: 1)
+            morePresetsButton.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
         } else {
             morePresetsButton.setTitle("More", for: .normal)
             morePresetsButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)

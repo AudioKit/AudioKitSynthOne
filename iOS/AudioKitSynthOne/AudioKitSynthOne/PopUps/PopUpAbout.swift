@@ -78,7 +78,7 @@ class PopUpAbout: UIViewController {
         requestReview()
     }
     
-    @IBAction func marcusPressed(_ sender: UIButton) {
+    @IBAction func devPanelPressed(_ sender: UIButton) {
         delegate?.showDevPanel()
         dismiss(animated: true, completion: nil)
     }

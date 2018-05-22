@@ -103,6 +103,8 @@ public:
     
     void destroy();
     
+    void updateDSPPortamento(float halfTime);
+
     // initializeNoteStates() must be called AFTER init returns
     void initializeNoteStates();
     
@@ -456,7 +458,8 @@ private:
         { pitchbendMinSemitones,  -24, -12, 0, "pitchbendMinSemitones", "pitchbendMinSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         { pitchbendMaxSemitones,  0, 12, 24, "pitchbendMaxSemitones", "pitchbendMaxSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         
-        { frequencyA4,  410, 440, 470, "frequencyA4", "frequencyA4", kAudioUnitParameterUnit_Hertz, false, NULL}
+        { frequencyA4,  410, 440, 470, "frequencyA4", "frequencyA4", kAudioUnitParameterUnit_Hertz, false, NULL},
+        { dspParamPortamentoHalfTime, 0.000001, 0.1, 0.99, "dspParamPortamentoHalfTime", "dspParamPortamentoHalfTime", kAudioUnitParameterUnit_Generic, false, NULL }
     };
 };
 #endif

@@ -119,9 +119,16 @@ public class TuningsPitchWheelView: UIView {
             let bigDotR = CGRect(x: CGFloat(p2.x - 0.5 * bigR), y: CGFloat(p2.y - 0.5 * bigR), width: bigR, height: bigR)
             context.fillEllipse(in: bigDotR)
             
+            #if false
             // draw text of log2 f
             let msd = String(format: "%.04f", p)
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
+            #else
+            // draw harmonic approximation of p
+            let haf = AKS1Tunings.approximateHarmonicFromPitch(p)
+            let msd = String(haf)
+            _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
+            #endif
         }
         pxy = mspxy
         self.overlayView.pxy = pxy

@@ -259,7 +259,9 @@ public class HeaderViewController: UpdatableViewController {
 
         case .frequencyA4:
             displayLabel.text = "Master Frequency at A4: \(s.getAK1Parameter(.frequencyA4).decimalString)"
-            
+        case .dspParamPortamentoHalfTime:
+            displayLabel.text = "DSP portamento half-time: \(s.getAK1Parameter(.dspParamPortamentoHalfTime).decimalString)"
+
         default:
             _ = 0
             // do nothing

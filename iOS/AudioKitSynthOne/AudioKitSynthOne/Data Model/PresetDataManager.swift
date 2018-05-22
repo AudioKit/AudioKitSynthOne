@@ -21,13 +21,26 @@ extension ParentViewController {
             return
         }
         
-        s.setAK1Parameter(.tempoSyncToArpRate,  activePreset.tempoSyncToArpRate)
         if !appSettings.freezeArpRate {
             s.setAK1Parameter(.arpRate, activePreset.arpRate)
         }
+        if !appSettings.freezeDelay {
+            s.setAK1Parameter(.delayOn, activePreset.delayToggled)
+            s.setAK1Parameter(.delayFeedback, activePreset.delayFeedback)
+            s.setAK1Parameter(.delayMix, activePreset.delayMix)
+            s.setAK1Parameter(.delayTime, activePreset.delayTime)
+            s.setAK1Parameter(.delayInputCutoffTrackingRatio, activePreset.delayInputCutoffTrackingRatio)
+            s.setAK1Parameter(.delayInputResonance, activePreset.delayInputResonance)
+        }
+        if !appSettings.freezeReverb {
+            s.setAK1Parameter(.reverbOn, activePreset.reverbToggled)
+            s.setAK1Parameter(.reverbFeedback, activePreset.reverbFeedback)
+            s.setAK1Parameter(.reverbHighPass, activePreset.reverbHighPass)
+            s.setAK1Parameter(.reverbMix, activePreset.reverbMix)
+        }
+        s.setAK1Parameter(.tempoSyncToArpRate,  activePreset.tempoSyncToArpRate)
         s.setAK1Parameter(.lfo1Rate, activePreset.lfoRate)
         s.setAK1Parameter(.lfo2Rate, activePreset.lfo2Rate)
-        s.setAK1Parameter(.delayTime, activePreset.delayTime)
         s.setAK1Parameter(.autoPanFrequency, activePreset.autoPanFrequency)
         s.setAK1Parameter(.masterVolume, activePreset.masterVolume)
         s.setAK1Parameter(.isMono, activePreset.isMono)
@@ -60,13 +73,6 @@ extension ParentViewController {
         s.setAK1Parameter(.releaseDuration, activePreset.releaseDuration)
         s.setAK1Parameter(.bitCrushSampleRate, activePreset.crushFreq)
         s.setAK1Parameter(.autoPanAmount, activePreset.autoPanAmount)
-        s.setAK1Parameter(.reverbOn, activePreset.reverbToggled)
-        s.setAK1Parameter(.reverbFeedback, activePreset.reverbFeedback)
-        s.setAK1Parameter(.reverbHighPass, activePreset.reverbHighPass)
-        s.setAK1Parameter(.reverbMix, activePreset.reverbMix)
-        s.setAK1Parameter(.delayOn, activePreset.delayToggled)
-        s.setAK1Parameter(.delayFeedback, activePreset.delayFeedback)
-        s.setAK1Parameter(.delayMix, activePreset.delayMix)
         s.setAK1Parameter(.lfo1Index, activePreset.lfoWaveform)
         s.setAK1Parameter(.lfo1Amplitude, activePreset.lfoAmplitude)
         s.setAK1Parameter(.lfo2Index, activePreset.lfo2Waveform)
@@ -115,8 +121,6 @@ extension ParentViewController {
         s.setAK1Parameter(.compressorMasterMakeupGain, activePreset.compressorMasterMakeupGain)
         s.setAK1Parameter(.compressorReverbInputMakeupGain, activePreset.compressorReverbInputMakeupGain)
         s.setAK1Parameter(.compressorReverbWetMakeupGain, activePreset.compressorReverbWetMakeupGain)
-        s.setAK1Parameter(.delayInputCutoffTrackingRatio, activePreset.delayInputCutoffTrackingRatio)
-        s.setAK1Parameter(.delayInputResonance, activePreset.delayInputResonance)
         s.setAK1Parameter(.pitchbendMinSemitones, activePreset.pitchbendMinSemitones)
         s.setAK1Parameter(.pitchbendMaxSemitones, activePreset.pitchbendMaxSemitones)
 
@@ -135,6 +139,21 @@ extension ParentViewController {
     
     func saveValuesToPreset() {
         let s = conductor.synth!
+        if !appSettings.freezeArpRate {
+            activePreset.arpRate = s.getAK1Parameter(.arpRate)
+        }
+        if !appSettings.freezeDelay {
+            activePreset.delayToggled = s.getAK1Parameter(.delayOn)
+            activePreset.delayFeedback = s.getAK1Parameter(.delayFeedback)
+            activePreset.delayTime = s.getAK1Parameter(.delayTime)
+            activePreset.delayMix = s.getAK1Parameter(.delayMix)
+        }
+        if !appSettings.freezeReverb {
+            activePreset.reverbToggled = s.getAK1Parameter(.reverbOn)
+            activePreset.reverbFeedback = s.getAK1Parameter(.reverbFeedback)
+            activePreset.reverbHighPass = s.getAK1Parameter(.reverbHighPass)
+            activePreset.reverbMix = s.getAK1Parameter(.reverbMix)
+        }
         activePreset.tempoSyncToArpRate = s.getAK1Parameter(.tempoSyncToArpRate)
         activePreset.masterVolume = s.getAK1Parameter(.masterVolume)
         activePreset.isMono = s.getAK1Parameter(.isMono)
@@ -169,14 +188,6 @@ extension ParentViewController {
         activePreset.crushFreq = s.getAK1Parameter(.bitCrushSampleRate)
         activePreset.autoPanAmount = s.getAK1Parameter(.autoPanAmount)
         activePreset.autoPanFrequency = s.getAK1Parameter(.autoPanFrequency)
-        activePreset.reverbToggled = s.getAK1Parameter(.reverbOn)
-        activePreset.reverbFeedback = s.getAK1Parameter(.reverbFeedback)
-        activePreset.reverbHighPass = s.getAK1Parameter(.reverbHighPass)
-        activePreset.reverbMix = s.getAK1Parameter(.reverbMix)
-        activePreset.delayToggled = s.getAK1Parameter(.delayOn)
-        activePreset.delayFeedback = s.getAK1Parameter(.delayFeedback)
-        activePreset.delayTime = s.getAK1Parameter(.delayTime)
-        activePreset.delayMix = s.getAK1Parameter(.delayMix)
         activePreset.lfoWaveform = s.getAK1Parameter(.lfo1Index)
         activePreset.lfoAmplitude = s.getAK1Parameter(.lfo1Amplitude)
         activePreset.lfoRate = s.getAK1Parameter(.lfo1Rate)
@@ -198,9 +209,6 @@ extension ParentViewController {
         activePreset.arpDirection = s.getAK1Parameter(.arpDirection)
         activePreset.arpInterval = s.getAK1Parameter(.arpInterval)
         activePreset.arpOctave = s.getAK1Parameter(.arpOctave)
-        if !appSettings.freezeArpRate {
-            activePreset.arpRate = s.getAK1Parameter(.arpRate)
-        }
         activePreset.arpIsSequencer = s.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
         activePreset.arpTotalSteps = s.getAK1Parameter(.arpTotalSteps)
         activePreset.isArpMode = s.getAK1Parameter(.arpIsOn)

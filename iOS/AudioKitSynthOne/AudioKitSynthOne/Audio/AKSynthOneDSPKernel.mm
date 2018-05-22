@@ -16,7 +16,7 @@
 #import "AKS1NoteState.hpp"
 
 #define AKS1_RELEASE_AMPLITUDE_THRESHOLD (0.01f)
-#define AKS1_PORTAMENTO_HALF_TIME (0.1f)
+#define AKS1_DEFAULT_PORTAMENTO_HALF_TIME (0.1f)
 #define AKS1_DEPENDENT_PARAM_TAPER (0.4f)
 
 // Convert note number to [possibly] microtonal frequency.  12ET is the default.
@@ -907,10 +907,11 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
             aks1p[i].portamentoTarget = value;
             sp_port_create(&aks1p[i].portamento);
             sp_port_init(sp, aks1p[i].portamento, value);
-            aks1p[i].portamento->htime = AKS1_PORTAMENTO_HALF_TIME;
+            aks1p[i].portamento->htime = AKS1_DEFAULT_PORTAMENTO_HALF_TIME;
         }
         p[i] = value;
     }
+    updateDSPPortamento(p[dspParamPortamentoHalfTime]);
     
     _lfo1Rate = {AKSynthOneParameter::lfo1Rate, getAK1DependentParameter(lfo1Rate), getAK1Parameter(lfo1Rate),0};
     _lfo2Rate = {AKSynthOneParameter::lfo2Rate, getAK1DependentParameter(lfo2Rate), getAK1Parameter(lfo2Rate),0};
@@ -971,6 +972,15 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     // initializeNoteStates() must be called AFTER init returns, BEFORE process, turnOnKey, and turnOffKey
 }
 
+void AKSynthOneDSPKernel::updateDSPPortamento(float halfTime) {
+    const float ht = parameterClamp(dspParamPortamentoHalfTime, halfTime);
+    for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
+        if (aks1p[i].usePortamento) {
+            aks1p[i].portamento->htime = ht;
+        }
+    }
+
+}
 void AKSynthOneDSPKernel::destroy() {
     for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
         if (aks1p[i].usePortamento) {
@@ -1040,12 +1050,6 @@ void AKSynthOneDSPKernel::setupWaveform(uint32_t waveform, uint32_t size) {
 void AKSynthOneDSPKernel::setWaveformValue(uint32_t waveform, uint32_t index, float value) {
     ft_array[waveform]->tbl[index] = value;
 }
-
-
-
-
-
-
 
 ///parameter min
 float AKSynthOneDSPKernel::parameterMin(AKSynthOneParameter i) {
@@ -1256,7 +1260,12 @@ inline void AKSynthOneDSPKernel::_setAK1ParameterHelper(AKSynthOneParameter para
         // see https://en.wikipedia.org/wiki/A440_(pitch_standard)
         if (param == frequencyA4) {
             _setAK1Parameter(param, truncf(inputValue));
-            AKPolyphonicNode.tuningTable.middleCFrequency = inputValue * exp2((60.f - 69.f)/12.f);
+            const float mca = getAK1Parameter(param); // actual value
+            AKPolyphonicNode.tuningTable.middleCFrequency = mca * exp2((60.f - 69.f)/12.f);
+        } else if (param == dspParamPortamentoHalfTime) {
+            _setAK1Parameter(param, inputValue);
+            const float actualValue = getAK1Parameter(dspParamPortamentoHalfTime);
+            updateDSPPortamento(actualValue);
         } else {
             // all remaining independent params
             _setAK1Parameter(param, inputValue);

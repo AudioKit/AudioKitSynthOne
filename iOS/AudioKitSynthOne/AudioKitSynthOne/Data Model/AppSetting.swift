@@ -26,6 +26,10 @@ class AppSetting: Codable {
     var plotFilled = true
     var velocitySensitive = false
     var freezeArpRate = false // true = don't modify when preset changes
+    var freezeDelay = false // true = don't modify when preset changes
+    var freezeReverb = false // true = don't modify when preset changes
+    var dspParamPortamentoHalfTime = 0.1
+
     var saveTuningWithPreset = false
     var launches = 0
     
@@ -114,8 +118,11 @@ class AppSetting: Codable {
         plotFilled =  dictionary["plotFilled"] as? Bool ?? plotFilled
         velocitySensitive =  dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
         freezeArpRate = dictionary["freezeArpRate"] as? Bool ?? freezeArpRate
+        freezeDelay = dictionary["freezeDelay"] as? Bool ?? freezeDelay
+        freezeReverb = dictionary["freezeReverb"] as? Bool ?? freezeReverb
         saveTuningWithPreset = dictionary["saveTuningWithPreset"] as? Bool ?? saveTuningWithPreset
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
+        dspParamPortamentoHalfTime = dictionary["dspParamPortamentoHalfTime"] as? Double ?? dspParamPortamentoHalfTime
         
         masterVolume_CC = dictionary["masterVolume_CC"] as? Int ?? masterVolume_CC
         morph1Selector_CC = dictionary["morph1Selector_CC"] as? Int ?? morph1Selector_CC

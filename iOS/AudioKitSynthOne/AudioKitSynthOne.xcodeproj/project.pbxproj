@@ -122,6 +122,7 @@
 		F4675242209FBE5000060209 /* TuningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4675241209FBE5000060209 /* TuningsViewController.swift */; };
 		F467524520A01A5F00060209 /* TuningsPitchWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */; };
 		F48556352097A071000319E5 /* AKS1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = F48556332097A071000319E5 /* AKS1NoteState.mm */; };
+		F4A5D8CE20B216B300839E58 /* AKS1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -281,6 +282,7 @@
 		F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsPitchWheelView.swift; sourceTree = "<group>"; };
 		F48556332097A071000319E5 /* AKS1NoteState.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
 		F48556342097A071000319E5 /* AKS1NoteState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AKS1NoteState.hpp; sourceTree = "<group>"; };
+		F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Harmonic.swift"; sourceTree = "<group>"; };
 		F4DFA161208905BF00412E7B /* AKSynthOneRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
 		F4DFA16220890E8900412E7B /* AKS1Rate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AKS1Rate.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -440,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */,
+				F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */,
 				941DE3E01FCE3CD400A09C24 /* AppSetting.swift */,
 				941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */,
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
@@ -811,6 +814,7 @@
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
 				C4D193CA1F1187B500FF4FE4 /* ParentViewController.swift in Sources */,
 				9403F2961F671A4900320FCC /* PresetsCategoriesController.swift in Sources */,
+				F4A5D8CE20B216B300839E58 /* AKS1Tunings+Harmonic.swift in Sources */,
 				C42459E3201D64DE004565AB /* PopUpBankEdit.swift in Sources */,
 				947956AF1F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */,
 				94A5038D1FF2E1B80097D37C /* MIDIInput.swift in Sources */,

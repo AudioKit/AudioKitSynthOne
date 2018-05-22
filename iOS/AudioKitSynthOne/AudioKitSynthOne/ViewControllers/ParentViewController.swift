@@ -799,6 +799,16 @@ extension ParentViewController: AKKeyboardDelegate {
 
 extension ParentViewController: DevPanelDelegate {
     
+    func dspParamPortamentoHalfTimeChanged(_ value: Float) {
+        conductor.synth!.setAK1Parameter(.dspParamPortamentoHalfTime, Double(value))
+        let clampedValue = conductor.synth!.getAK1Parameter(.dspParamPortamentoHalfTime)
+        appSettings.dspParamPortamentoHalfTime = Double(clampedValue)
+    }
+    
+    func getDspParamPortamentoHalfTimeValue() -> Float {
+        return Float(appSettings.dspParamPortamentoHalfTime)
+    }
+
     public func freezeArpChanged(_ value: Bool) {
         appSettings.freezeArpRate = value
     }
@@ -807,6 +817,21 @@ extension ParentViewController: DevPanelDelegate {
         return appSettings.freezeArpRate
     }
 
+    func freezeDelayChanged(_ value: Bool) {
+        appSettings.freezeDelay = value
+    }
+    
+    func getFreezeDelayChangedValue() -> Bool {
+        return appSettings.freezeDelay
+    }
+
+    func freezeReverbChanged(_ value: Bool) {
+        appSettings.freezeReverb = value
+    }
+    
+    func getFreezeReverbChangedValue() -> Bool {
+        return appSettings.freezeReverb
+    }
 }
 
 // **********************************************************

@@ -22,7 +22,13 @@ extension ParentViewController {
         //conductor.backgroundAudioOn = appSettings.backgroundAudioOn
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
+        
+        // DEV PANEL
         devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
+        devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
+        devViewController.freezeReverb.value = (appSettings.freezeReverb == true ? 1 : 0)
+        conductor.synth.setAK1Parameter(.dspParamPortamentoHalfTime, appSettings.dspParamPortamentoHalfTime)
+        devViewController.dspParamPortamentoHalfTime.value = conductor.synth.getAK1Parameter(.dspParamPortamentoHalfTime)
         
         // MIDI Learn
         mixerViewController.masterVolume.midiCC = MIDIByte(appSettings.masterVolume_CC)
@@ -84,6 +90,11 @@ extension ParentViewController {
         appSettings.midiChannel = Int(midiChannelIn)
         appSettings.omniMode = omniMode
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
+        appSettings.freezeDelay = (devViewController.freezeDelay.value == 1 ? true : false)
+        appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)
+
+        //
+        appSettings.dspParamPortamentoHalfTime = conductor.synth.getAK1Parameter(.dspParamPortamentoHalfTime)
         
         // MIDI Learn
         appSettings.masterVolume_CC = Int(mixerViewController.masterVolume.midiCC)

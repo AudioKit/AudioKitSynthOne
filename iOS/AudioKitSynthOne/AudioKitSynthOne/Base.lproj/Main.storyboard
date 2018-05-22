@@ -56,7 +56,7 @@
                                 </constraints>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uw2-JG-GSz" userLabel="KeyboardContainer">
-                                <rect key="frame" x="0.0" y="337" width="1024" height="431"/>
+                                <rect key="frame" x="0.0" y="636" width="1024" height="431"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="keyboard_top" translatesAutoresizingMaskIntoConstraints="NO" id="oOK-6u-M58">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="47"/>
@@ -260,7 +260,7 @@
                             <constraint firstAttribute="trailing" secondItem="RnT-Kx-qNG" secondAttribute="trailing" id="3Lo-qO-BtL"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="top" secondItem="RnT-Kx-qNG" secondAttribute="bottom" id="4mP-L3-8Up"/>
                             <constraint firstItem="FVi-Ld-MF5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ps-Uq-68M"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="bottom" id="ChZ-wF-sPF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uw2-JG-GSz" secondAttribute="bottom" constant="-299" id="ChZ-wF-sPF"/>
                             <constraint firstItem="uw2-JG-GSz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FKN-cN-JL9"/>
                             <constraint firstAttribute="trailing" secondItem="uw2-JG-GSz" secondAttribute="trailing" id="ON3-m1-RXe"/>
                             <constraint firstItem="RnT-Kx-qNG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U2m-cp-QYv"/>

@@ -163,9 +163,9 @@ public class ParentViewController: UpdatableViewController {
         
         // Pre-load views and Set initial subviews
         switchToChildView(.fxView, isTopView: true)
-        switchToChildView(.seqView, isTopView: true)
-        switchToChildView(.oscView, isTopView: true) 
-        switchToChildView(.adsrView, isTopView: false)
+        switchToChildView(.adsrView, isTopView: true)
+        switchToChildView(.oscView, isTopView: true)
+        switchToChildView(.seqView, isTopView: false)
         
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)

@@ -39,6 +39,7 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var aboutButton: PresetUIButton!
     @IBOutlet weak var hostAppIcon: UIImageView!
     @IBOutlet weak var morePresetsButton: PresetUIButton!
+    @IBOutlet weak var webButton: PresetUIButton!
     
     var delegate: EmbeddedViewsDelegate?
     var headerDelegate: HeaderDelegate?
@@ -320,6 +321,12 @@ public class HeaderViewController: UpdatableViewController {
         
         morePresetsButton.callback = { _ in
             self.headerDelegate?.morePressed()
+        }
+        
+        webButton.callback = { _ in
+            if let url = URL(string: "http://audiokitpro.com/synth") {
+                UIApplication.shared.open(url)
+            }
         }
     }
 

@@ -244,7 +244,7 @@ public class ParentViewController: UpdatableViewController {
         
         // Push Notifications request
         if appSettings.launches == 9 { pushPopUp() }
-        if appSettings.launches % 15 == 0 && !appSettings.pushNotifications { pushPopUp() }
+        if appSettings.launches % 15 == 0 && !appSettings.pushNotifications && !appSettings.isPreRelease { pushPopUp() }
         
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard

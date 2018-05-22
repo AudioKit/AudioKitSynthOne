@@ -125,8 +125,8 @@ public class TuningsPitchWheelView: UIView {
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
             #else
             // draw harmonic approximation of p
-            let haf = AKS1Tunings.approximateHarmonicFromPitch(p)
-            let msd = String(haf)
+            let harmonic = AKS1Tunings.approximateHarmonicFromPitch(p)
+            let msd = String(harmonic)
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
             #endif
         }

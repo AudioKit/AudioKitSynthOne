@@ -32,7 +32,7 @@ class PopUpAbout: UIViewController {
         textContainer.layer.cornerRadius = 8
         
         // background image
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
+        // view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,13 +63,13 @@ class PopUpAbout: UIViewController {
     }
     
     @IBAction func audioKitPressed(_ sender: UIButton) {
-        if let url = URL(string: "http://audiokitpro.com/audiokit/") {
+        if let url = URL(string: "http://audiokitpro.com/") {
             UIApplication.shared.open(url)
         }
     }
     
-    @IBAction func website(_ sender: UIButton) {
-        if let url = URL(string: "http://audiokitpro.com") {
+    @IBAction func githubPressed(_ sender: UIButton) {
+        if let url = URL(string: "https://github.com/AudioKit/") {
             UIApplication.shared.open(url)
         }
     }
@@ -82,11 +82,19 @@ class PopUpAbout: UIViewController {
         delegate?.showDevPanel()
         dismiss(animated: true, completion: nil)
     }
-    /*
+    
+    
+    @IBAction func videoPressed(_ sender: UIButton) {
+        if let url = URL(string: "https://github.com/AudioKit/") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+   
      @IBAction func emailPressed(_ sender: UIButton) {
      
-     let receipients = ["matthew@audiokitpro.com"]
-     let subject = "From AudioKit Synth One"
+     let receipients = ["team@audiokitpro.com"]
+     let subject = "From AudioKit Synth App"
      let messageBody = ""
      
      let configuredMailComposeViewController = configureMailComposeViewController(recepients: receipients, subject: subject, messageBody: messageBody)
@@ -97,7 +105,7 @@ class PopUpAbout: UIViewController {
      showSendMailErrorAlert()
      }
      }
-     */
+    
     
 }
 
@@ -105,7 +113,7 @@ class PopUpAbout: UIViewController {
 // MARK: - MFMailComposeViewController Delegate
 //*****************************************************************
 
-/*
+
 extension PopUpAbout: MFMailComposeViewControllerDelegate {
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
@@ -136,4 +144,4 @@ extension PopUpAbout: MFMailComposeViewControllerDelegate {
         present(sendMailErrorAlert, animated: true, completion: nil)
     }
 }
-*/
+

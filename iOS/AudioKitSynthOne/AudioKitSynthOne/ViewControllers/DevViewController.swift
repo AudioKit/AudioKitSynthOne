@@ -12,8 +12,8 @@ import UIKit
 protocol DevPanelDelegate {
     
     // app setting (not dsp param)
-    func freezeArpChanged(_ value: Bool)
-    func getFreezeArpChangedValue() -> Bool
+    func freezeArpRateChanged(_ value: Bool)
+    func getFreezeArpRateChangedValue() -> Bool
     
     // app setting (not dsp param)
     func freezeReverbChanged(_ value: Bool)
@@ -115,11 +115,11 @@ class DevViewController: UpdatableViewController {
         conductor.bind(delayInputFilterResonance,               to: .delayInputResonance)
         
         // freeze arp rate, i.e., ignore Preset updates
-        if let value = delegate?.getFreezeArpChangedValue() {
+        if let value = delegate?.getFreezeArpRateChangedValue() {
             freezeArpRate.value = value ? 1 : 0
         }
         freezeArpRate.callback = { value in
-            self.delegate?.freezeArpChanged(value == 1 ? true : false)
+            self.delegate?.freezeArpRateChanged(value == 1 ? true : false)
         }
         
         // freeze delay time, i.e., ignore Preset updates

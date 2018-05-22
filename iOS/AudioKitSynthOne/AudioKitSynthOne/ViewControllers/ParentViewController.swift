@@ -809,16 +809,30 @@ extension ParentViewController: DevPanelDelegate {
         return Float(appSettings.dspParamPortamentoHalfTime)
     }
 
-    public func freezeArpChanged(_ value: Bool) {
+    public func freezeArpRateChanged(_ value: Bool) {
         appSettings.freezeArpRate = value
+        var t: String
+        if value {
+            t = "arpRate Ignores Presets"
+        } else {
+            t = "arpRate Tracks Presets"
+        }
+        updateDisplay(t)
     }
     
-    public func getFreezeArpChangedValue() -> Bool {
+    public func getFreezeArpRateChangedValue() -> Bool {
         return appSettings.freezeArpRate
     }
 
     func freezeDelayChanged(_ value: Bool) {
         appSettings.freezeDelay = value
+        var t: String
+        if value {
+            t = "Delay Params Ignore Presets"
+        } else {
+            t = "Delay Params Track Presets"
+        }
+        updateDisplay(t)
     }
     
     func getFreezeDelayChangedValue() -> Bool {
@@ -827,6 +841,13 @@ extension ParentViewController: DevPanelDelegate {
 
     func freezeReverbChanged(_ value: Bool) {
         appSettings.freezeReverb = value
+        var t: String
+        if value {
+            t = "Reverb Params Ignore Presets"
+        } else {
+            t = "Reverb Params Track Presets"
+        }
+        updateDisplay(t)
     }
     
     func getFreezeReverbChangedValue() -> Bool {
@@ -842,6 +863,13 @@ extension ParentViewController: TuningPanelDelegate {
     
     public func storeTuningWithPresetDidChange(_ value: Bool) {
         appSettings.saveTuningWithPreset = value
+        var t: String
+        if value {
+            t = "Tunings Track Presets"
+        } else {
+            t = "Tunings Ignore Presets"
+        }
+        updateDisplay(t)
     }
     
     public func getStoreTuningWithPresetValue() -> Bool {

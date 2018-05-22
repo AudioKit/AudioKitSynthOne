@@ -341,7 +341,6 @@ public class HeaderViewController: UpdatableViewController {
     }
     
     func updateMailingListButton(_ signedMailingList: Bool) {
-        print ("Signed Mailing List \(signedMailingList)")
         // Mailing List Button
         if signedMailingList {
             morePresetsButton.setTitle("Apps", for: .normal)

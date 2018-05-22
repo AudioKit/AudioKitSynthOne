@@ -110,7 +110,6 @@ public class ParentViewController: UpdatableViewController {
     lazy var tuningsViewController: TuningsViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier()) as! TuningsViewController
-        viewController.delegate = self
         return viewController
     }()
 
@@ -464,9 +463,10 @@ public class ParentViewController: UpdatableViewController {
             let userMIDIChannel = omniMode ? -1 : Int(midiChannelIn)
             popOverController.userChannelIn = userMIDIChannel
             popOverController.midiSources = midiInputs
+            popOverController.saveTuningWithPreset = appSettings.saveTuningWithPreset
             popOverController.velocitySensitive = appSettings.velocitySensitive
             
-            popOverController.preferredContentSize = CGSize(width: 300, height: 320)
+            popOverController.preferredContentSize = CGSize(width: 300, height: 350)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
                 presentation.sourceRect = midiButton.bounds
@@ -611,6 +611,10 @@ extension ParentViewController: MIDISettingsPopOverDelegate {
     func didToggleVelocity() {
         appSettings.velocitySensitive = !appSettings.velocitySensitive
         saveAppSettingValues()
+    }
+    
+    public func storeTuningWithPresetDidChange(_ value: Bool) {
+        appSettings.saveTuningWithPreset = value
     }
 }
 
@@ -893,21 +897,6 @@ extension ParentViewController: DevPanelDelegate {
         return appSettings.freezeArpRate
     }
 
-}
-
-// **********************************************************
-// MARK: - TuningPanelDelegate protocol functions
-// **********************************************************
-
-extension ParentViewController: TuningPanelDelegate {
-    
-    public func storeTuningWithPresetDidChange(_ value: Bool) {
-        appSettings.saveTuningWithPreset = value
-    }
-    
-    public func getStoreTuningWithPresetValue() -> Bool {
-        return appSettings.saveTuningWithPreset
-    }
 }
 
 // **********************************************************

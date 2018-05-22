@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol TuningPanelDelegate {
-    func storeTuningWithPresetDidChange(_ value: Bool)
-    func getStoreTuningWithPresetValue() -> Bool
-}
-
 public protocol TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange()
 }
@@ -30,10 +25,9 @@ class TuningsViewController: SynthPanelController {
     @IBOutlet weak var masterTuning: MIDIKnob!
     @IBOutlet weak var resetTunings: SynthUIButton!
     @IBOutlet weak var diceButton: UIButton!
-    @IBOutlet weak var saveTuningWithPreset: ToggleButton!
     
-    var delegate: TuningPanelDelegate?
     private let aks1Tunings = AKS1Tunings()
+    var getStoreTuningWithPresetValue = false
     
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -57,14 +51,6 @@ class TuningsViewController: SynthPanelController {
                 self.selectRow(i)
                 self.resetTunings.value = 0
             }
-        }
-        
-        if let v = delegate?.getStoreTuningWithPresetValue() {
-            saveTuningWithPreset.value = v ? 1 : 0
-        }
-        
-        saveTuningWithPreset.callback = { value in
-            self.delegate?.storeTuningWithPresetDidChange(value == 1 ? true : false)
         }
         
         tuningDidChange()

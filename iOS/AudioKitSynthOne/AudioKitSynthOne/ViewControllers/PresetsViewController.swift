@@ -498,15 +498,19 @@ class PresetsViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @IBAction func doneEditingPressed(_ sender: UIButton) {
-        self.view.endEditing(true)
-        self.savePreset(currentPreset)
+        view.endEditing(true)
+        presetsDelegate?.saveEditedPreset(name: currentPreset.name, category: currentPreset.category, bank: currentPreset.bank)
     }
     
 }
+
+// *****************************************************************
+// MARK: - TextView Delegate
+// *****************************************************************
 
 extension PresetsViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {

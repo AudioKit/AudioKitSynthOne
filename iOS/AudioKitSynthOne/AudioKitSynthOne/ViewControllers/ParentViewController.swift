@@ -367,7 +367,6 @@ public class ParentViewController: UpdatableViewController {
                 break
             }
         }
-        
 
         pitchbend.callback = { value01 in
             s.setAK1DependentParameter(.pitchbend, value01, Conductor.sharedInstance.pitchbendParentVCID)

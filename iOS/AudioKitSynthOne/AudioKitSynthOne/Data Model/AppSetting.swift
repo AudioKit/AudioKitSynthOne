@@ -27,7 +27,7 @@ class AppSetting: Codable {
     var velocitySensitive = false
     var freezeArpRate = false // true = don't modify when preset changes
     var saveTuningWithPreset = false
-    var pushNotifications = false
+    var pushNotifications = true
     var userEmail = ""
     var launches = 0
     

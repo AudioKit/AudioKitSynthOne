@@ -164,9 +164,9 @@ public class ParentViewController: UpdatableViewController {
         
         // Pre-load views and Set initial subviews
         switchToChildView(.fxView, isTopView: true)
-        switchToChildView(.adsrView, isTopView: true)
+        switchToChildView(.seqView, isTopView: true)
         switchToChildView(.oscView, isTopView: true) 
-        switchToChildView(.seqView, isTopView: false)
+        switchToChildView(.adsrView, isTopView: false)
         
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)
@@ -249,10 +249,8 @@ public class ParentViewController: UpdatableViewController {
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard
         
-        if !keyboardToggle.isOn {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.keyboardToggle.callback(0.0)
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
+            self.keyboardToggle.callback(self.appSettings.showKeyboard)
         }
         
         // Increase number of launches

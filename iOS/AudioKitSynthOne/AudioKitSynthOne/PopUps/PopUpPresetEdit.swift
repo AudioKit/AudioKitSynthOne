@@ -56,7 +56,6 @@ class PopUpPresetEdit: UIViewController {
         }
         
         setupCallbacks()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

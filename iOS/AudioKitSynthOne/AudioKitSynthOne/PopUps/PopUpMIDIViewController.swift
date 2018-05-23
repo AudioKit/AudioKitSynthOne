@@ -13,6 +13,7 @@ protocol MIDISettingsPopOverDelegate {
     func resetMIDILearn()
     func didSelectMIDIChannel(newChannel: Int)
     func didToggleVelocity()
+    func storeTuningWithPresetDidChange(_ value: Bool)
 }
 
 class PopUpMIDIViewController: UIViewController {
@@ -23,6 +24,7 @@ class PopUpMIDIViewController: UIViewController {
     @IBOutlet weak var inputTable: UITableView!
     @IBOutlet weak var sleepToggle: ToggleSwitch!
     @IBOutlet weak var velocityToggle: ToggleSwitch!
+    @IBOutlet weak var saveTuningToggle: ToggleSwitch!
     
     var delegate: MIDISettingsPopOverDelegate?
     
@@ -34,6 +36,7 @@ class PopUpMIDIViewController: UIViewController {
     
     var userChannelIn: Int = 1
     var velocitySensitive = true
+    var saveTuningWithPreset = false
     
     let conductor = Conductor.sharedInstance
     
@@ -56,6 +59,7 @@ class PopUpMIDIViewController: UIViewController {
         // Toggles
         sleepToggle.value = conductor.neverSleep ? 1 : 0
         velocityToggle.value = velocitySensitive ? 1 : 0
+        saveTuningToggle.value = saveTuningWithPreset ? 1 : 0
         
     }
     
@@ -101,6 +105,10 @@ class PopUpMIDIViewController: UIViewController {
         
         velocityToggle.callback = { value in
             self.delegate?.didToggleVelocity()
+        }
+        
+        saveTuningToggle.callback = { value in
+            self.delegate?.storeTuningWithPresetDidChange(value == 1 ? true : false)
         }
       
     }

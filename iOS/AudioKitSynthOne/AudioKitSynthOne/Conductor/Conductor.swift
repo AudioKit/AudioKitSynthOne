@@ -142,6 +142,8 @@ class Conductor: AKSynthOneProtocol {
             //TODO:Handle synth start failure
         }
         started = true
+        
+        // IAA Host Icon
         audioUnitPropertyListener = AudioUnitPropertyListener { (audioUnit, property) in
             let headerVC = self.viewControllers.filter { $0 is HeaderViewController }.first as? HeaderViewController
             headerVC?.hostAppIcon.image = AudioOutputUnitGetHostIcon(AudioKit.engine.outputNode.audioUnit!, 44)

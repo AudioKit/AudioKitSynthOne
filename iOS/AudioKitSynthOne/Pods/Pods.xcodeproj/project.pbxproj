@@ -7,27 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		155278697DE95FE85991CE469BE2935B /* Disk+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250AB566C670CF3A67016B5DEF5E39F /* Disk+Codable.swift */; };
-		54B4D9D1D7107638B4E79C329028CC10 /* Disk+[UIImage].swift in Sources */ = {isa = PBXBuildFile; fileRef = E708F53D4AFE7428CBB391F2C5E2922B /* Disk+[UIImage].swift */; };
-		57F5F0E4502788A2CA95F2B30D4AFCE3 /* Disk+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D4B8631FC8617996C9FB94FA688E27 /* Disk+Helpers.swift */; };
-		6F0B2BE8EB0273B15DD59ADA5CE3912B /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31FE1A57DF8914F6C7296A8D9E8F426 /* Disk.swift */; };
-		87CF22D207D6D38A8FEA9F8C12975BCA /* Disk+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5957AE0D405F5ADECC394B86D6CF404F /* Disk+UIImage.swift */; };
-		8A228D6F7A4F702DDD8DC837D951173C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		A8F909B39333B28D10A25EFC8F6206AF /* Disk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D99E31ABC8674198A334B8C7B15DEDB /* Disk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A95E12AA4AA12FA54D69FD38D797C64F /* Pods-AudioKitSynthOne-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB91E78600481A25B613A6427E74F45 /* Pods-AudioKitSynthOne-dummy.m */; };
-		AFB5DF952786BEE60F3F6FE3EFD2CF32 /* Disk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0E8233E30B7F33331D1F95FDC3BA8B /* Disk-dummy.m */; };
-		B389F193C856F168B09FF64C805EAD4D /* Disk+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF33BBCC3F2A1297A048CBD0A45A2ABE /* Disk+Errors.swift */; };
-		C90319AD1CBE6A1562D75FCDBEBBA5E0 /* Disk+InternalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7DAD6F3B141B2E132BA1BA7804F0A /* Disk+InternalHelpers.swift */; };
-		CD1D1CA049743CCC22302A91F98AA09C /* Pods-AudioKitSynthOne-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2033DC0859C50BF87EF2E06ED5FD0D5 /* Pods-AudioKitSynthOne-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11D0E9EB60321605DEDF452222D8A0BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		155278697DE95FE85991CE469BE2935B /* Disk+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754921C6F44F65577823426F29B5C30 /* Disk+Codable.swift */; };
+		1967D391E61278DEAAFF84CB19249C79 /* Pods-OneSignalNotificationServiceExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA9FD60CD6B12EC9C5166AA9B8BAD /* Pods-OneSignalNotificationServiceExtension-dummy.m */; };
+		1FE1A91C3D9761D3BB7A6F99086D8B09 /* CKSubscribeAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1079DA7508E1FF6C0C4A4740CDE3D9A9 /* CKSubscribeAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		445F50297D930BEE9B87DEE4F3D76B47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		54B4D9D1D7107638B4E79C329028CC10 /* Disk+[UIImage].swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B3CCACDB27892D2834438154019C5 /* Disk+[UIImage].swift */; };
+		5506583225A14637E7C99AFD64344A24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		57D28F111A8735B0CD21E179E299EE8B /* CKAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE258ECEA989FB53C8BEC5376A7943A /* CKAuthViewController.xib */; };
+		57F5F0E4502788A2CA95F2B30D4AFCE3 /* Disk+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609A27B724D02CDA217B262E7554140 /* Disk+Helpers.swift */; };
+		694E02EEC48FAF6C649C38DB6A540172 /* CKSubscribeAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28970CB5FC33BC96BCC9217ABE95438A /* CKSubscribeAlertView.m */; };
+		6F0B2BE8EB0273B15DD59ADA5CE3912B /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D74F13937E496F5C18165715265DC1D /* Disk.swift */; };
+		72B08C0D121F4DF9A36EE8B30DE8BF05 /* CKScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCE2DAFD84BDE35C0764CD3034AA906 /* CKScanViewController.m */; };
+		8450B77F86A4C4AADDA72A1BB2046CC9 /* ChimpKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AFC6B03A7D1C734B68EDF69CE111C2A /* ChimpKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		87CF22D207D6D38A8FEA9F8C12975BCA /* Disk+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51590F068A205E2C26384018CF532FDC /* Disk+UIImage.swift */; };
+		8DF988C4B09C9CFCC026547848C8E4A2 /* Pods-AudioKitSynthOne-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEDB713B860691A4481DC34C402707 /* Pods-AudioKitSynthOne-dummy.m */; };
+		8ED8F394A3F32DC3A0D98A82430FDB95 /* CKAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E336525DAF1E8763B79B000A3912C15D /* CKAuthViewController.m */; };
+		A38A472E99AE27E5451E24D371D4ACC2 /* CKAuthViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D5A51E3B5EBC0DD90098B07036DBF78 /* CKAuthViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8F909B39333B28D10A25EFC8F6206AF /* Disk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B069EAA54D445CD74F22EE2E9AD38D1C /* Disk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AFB5DF952786BEE60F3F6FE3EFD2CF32 /* Disk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 388AA0B3BC3A9DF3FBB3A9C7EB681FC7 /* Disk-dummy.m */; };
+		B031B6E5EA58252A67730618D90AA350 /* ChimpKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 274FF0A6D8E2FDE2448C797BE90FAF43 /* ChimpKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B389F193C856F168B09FF64C805EAD4D /* Disk+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D368DCD2564354D165B63251976F24 /* Disk+Errors.swift */; };
+		B560798328F02B27552DB78FAB29EBE6 /* Pods-OneSignalNotificationServiceExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 96CC33C28722A3D430F8E22EABDC6501 /* Pods-OneSignalNotificationServiceExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5B7A229790C38BFA758607CF8C57E7A /* ChimpKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 432A91CD07F7F50D1EAB0B4848DC6137 /* ChimpKit.m */; };
+		BD712CDE602764C6DF46277FF9CE0479 /* Pods-AudioKitSynthOne-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C299788A0A744B72A3F47874C776B2 /* Pods-AudioKitSynthOne-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF74E38438C1BDFE323C6A5FB5875F30 /* CKScanViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91575ABE2757A29D52989AB9DF057871 /* CKScanViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C90319AD1CBE6A1562D75FCDBEBBA5E0 /* Disk+InternalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4BAD9565960422FC033430772F7F54 /* Disk+InternalHelpers.swift */; };
 		D2CC2D6DAD0F3D1426794BFA9DF3318B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		D5426D24FACD6E34D5B83FC867EF7EAD /* Disk+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1A05DFC6EDE698848BA610774B3219 /* Disk+Data.swift */; };
-		EEC58E9F92789CE9F44909BFA6592BF4 /* Disk+[Data].swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881BA1EF335C5D3863E83DC00E678AF /* Disk+[Data].swift */; };
-		EEF0930DC9A866CA97209104C3BDE95D /* Disk.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EC0B633F1F73C5C5083BAC357EFE20 /* Disk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F138D47E78EB875A53715B233BB93CDD /* Disk+VolumeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87253D56AA13F2E9AFCC0913781F19 /* Disk+VolumeInformation.swift */; };
+		D5426D24FACD6E34D5B83FC867EF7EAD /* Disk+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABAE9093885FA688D9B38C88D52260 /* Disk+Data.swift */; };
+		DE730EDCFFC6E8BEB19E384B987DBF5A /* ChimpKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E70EDBA5C6769476859733726CFFA5 /* ChimpKit-dummy.m */; };
+		EEC58E9F92789CE9F44909BFA6592BF4 /* Disk+[Data].swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AECB314255C1C0BACDF63011D7F1F2F /* Disk+[Data].swift */; };
+		EEF0930DC9A866CA97209104C3BDE95D /* Disk.h in Headers */ = {isa = PBXBuildFile; fileRef = AEBDB9BC2D6938D90C88B66440FB0ED0 /* Disk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F138D47E78EB875A53715B233BB93CDD /* Disk+VolumeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506561CA2109567A98D7896DDCEDAB7 /* Disk+VolumeInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		13AA87CB38D252448A2390848DD25D0E /* PBXContainerItemProxy */ = {
+		31B5FE5C35F553827C2BBE428EF35DF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DA3D658687906C608ED3603EB64B9A6;
+			remoteInfo = ChimpKit;
+		};
+		60F85912F46FF9E5149A51A6C4D680ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -37,58 +59,85 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05EC0B633F1F73C5C5083BAC357EFE20 /* Disk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Disk.h; path = Sources/Disk.h; sourceTree = "<group>"; };
-		0B6E8996A682A34DF6091C595C20941C /* Pods-AudioKitSynthOne-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AudioKitSynthOne-acknowledgements.plist"; sourceTree = "<group>"; };
-		0D59626B07193DBDC495B4044CCA3E0F /* ABMIDIReceiverPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMIDIReceiverPort.h; path = Audiobus/ABMIDIReceiverPort.h; sourceTree = "<group>"; };
-		12A5D40D1F54D860EFCAAFFB72238752 /* ABMIDIFilterPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMIDIFilterPort.h; path = Audiobus/ABMIDIFilterPort.h; sourceTree = "<group>"; };
-		15A7DAD6F3B141B2E132BA1BA7804F0A /* Disk+InternalHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+InternalHelpers.swift"; path = "Sources/Disk+InternalHelpers.swift"; sourceTree = "<group>"; };
-		1A6D429C414E90D951F02D5AA905AD39 /* ABAudiobusController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAudiobusController.h; path = Audiobus/ABAudiobusController.h; sourceTree = "<group>"; };
-		1AA66DE1BB5DFDE0B7E60DFAA9F06FDD /* Pods-AudioKitSynthOne.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AudioKitSynthOne.modulemap"; sourceTree = "<group>"; };
-		1E1A05DFC6EDE698848BA610774B3219 /* Disk+Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Data.swift"; path = "Sources/Disk+Data.swift"; sourceTree = "<group>"; };
-		23001ED9BDE1460CB0502BDAF29DCE2C /* ABAudioFilterPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAudioFilterPort.h; path = Audiobus/ABAudioFilterPort.h; sourceTree = "<group>"; };
-		28985E9C9F1E26E62AE46C456B314B17 /* ABSenderPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABSenderPort.h; path = Audiobus/ABSenderPort.h; sourceTree = "<group>"; };
-		3692060E67FC7D69C214FFA323170C7B /* ABMIDIPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMIDIPort.h; path = Audiobus/ABMIDIPort.h; sourceTree = "<group>"; };
-		36D4B8631FC8617996C9FB94FA688E27 /* Disk+Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Helpers.swift"; path = "Sources/Disk+Helpers.swift"; sourceTree = "<group>"; };
-		38A0A9A4CD56F9B20CC413B16CAE5E19 /* Audiobus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Audiobus.h; path = Audiobus/Audiobus.h; sourceTree = "<group>"; };
-		3FB91E78600481A25B613A6427E74F45 /* Pods-AudioKitSynthOne-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AudioKitSynthOne-dummy.m"; sourceTree = "<group>"; };
-		4D99E31ABC8674198A334B8C7B15DEDB /* Disk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-umbrella.h"; sourceTree = "<group>"; };
-		4E132D9BDA17968383D90B613036E810 /* ABCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABCommon.h; path = Audiobus/ABCommon.h; sourceTree = "<group>"; };
-		5957AE0D405F5ADECC394B86D6CF404F /* Disk+UIImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+UIImage.swift"; path = "Sources/Disk+UIImage.swift"; sourceTree = "<group>"; };
+		026884613AED7974E7BF697D22AAB1F1 /* ABPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPort.h; path = Audiobus/ABPort.h; sourceTree = "<group>"; };
+		04D368DCD2564354D165B63251976F24 /* Disk+Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Errors.swift"; path = "Sources/Disk+Errors.swift"; sourceTree = "<group>"; };
+		06452771919788C5907219B718E02DD8 /* Audiobus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Audiobus.h; path = Audiobus/Audiobus.h; sourceTree = "<group>"; };
+		065B3CCACDB27892D2834438154019C5 /* Disk+[UIImage].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[UIImage].swift"; path = "Sources/Disk+[UIImage].swift"; sourceTree = "<group>"; };
+		09F632CB5FE667DD82396686904FACC2 /* ABMIDIFilterPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMIDIFilterPort.h; path = Audiobus/ABMIDIFilterPort.h; sourceTree = "<group>"; };
+		0A6ABDC431575D0DD45346740CE88574 /* Pods-AudioKitSynthOne.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AudioKitSynthOne.modulemap"; sourceTree = "<group>"; };
+		0B993D9493CECA59F2A2A634060E5C09 /* ChimpKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ChimpKit.framework; path = ChimpKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1079DA7508E1FF6C0C4A4740CDE3D9A9 /* CKSubscribeAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CKSubscribeAlertView.h; path = "ChimpKit3/Helper Objects/CKSubscribeAlertView.h"; sourceTree = "<group>"; };
+		12FC0E7FE1C40006EBEF142591CC45DF /* ABMIDIPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMIDIPort.h; path = Audiobus/ABMIDIPort.h; sourceTree = "<group>"; };
+		1609A27B724D02CDA217B262E7554140 /* Disk+Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Helpers.swift"; path = "Sources/Disk+Helpers.swift"; sourceTree = "<group>"; };
+		1763D2D4B8834D6BBF989F69CE6E3E5B /* ABAudioReceiverPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAudioReceiverPort.h; path = Audiobus/ABAudioReceiverPort.h; sourceTree = "<group>"; };
+		17FEDB713B860691A4481DC34C402707 /* Pods-AudioKitSynthOne-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AudioKitSynthOne-dummy.m"; sourceTree = "<group>"; };
+		1AECB314255C1C0BACDF63011D7F1F2F /* Disk+[Data].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[Data].swift"; path = "Sources/Disk+[Data].swift"; sourceTree = "<group>"; };
+		1BCE2DAFD84BDE35C0764CD3034AA906 /* CKScanViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CKScanViewController.m; path = "ChimpKit3/Helper Objects/CKScanViewController.m"; sourceTree = "<group>"; };
+		1EC9AF25F0C7F6976EA3A644B2457A8A /* ABAudioUnitFader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAudioUnitFader.h; path = Audiobus/ABAudioUnitFader.h; sourceTree = "<group>"; };
+		1F3E70952F4779DBF8938C6D33B8DF9E /* ABCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABCommon.h; path = Audiobus/ABCommon.h; sourceTree = "<group>"; };
+		21E70EDBA5C6769476859733726CFFA5 /* ChimpKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ChimpKit-dummy.m"; sourceTree = "<group>"; };
+		274FF0A6D8E2FDE2448C797BE90FAF43 /* ChimpKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ChimpKit.h; path = ChimpKit3/ChimpKit.h; sourceTree = "<group>"; };
+		28970CB5FC33BC96BCC9217ABE95438A /* CKSubscribeAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CKSubscribeAlertView.m; path = "ChimpKit3/Helper Objects/CKSubscribeAlertView.m"; sourceTree = "<group>"; };
+		28EDD6F349DBDA7B1C74E540FAE33841 /* ABAudioSenderPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAudioSenderPort.h; path = Audiobus/ABAudioSenderPort.h; sourceTree = "<group>"; };
+		37F1D1CEB91A89E41AF3E8853FE9B434 /* Disk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Disk.modulemap; sourceTree = "<group>"; };
+		388AA0B3BC3A9DF3FBB3A9C7EB681FC7 /* Disk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Disk-dummy.m"; sourceTree = "<group>"; };
+		42A8C65EDB42A1AEE7E8E8435F18F8DC /* ABAudioFilterPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAudioFilterPort.h; path = Audiobus/ABAudioFilterPort.h; sourceTree = "<group>"; };
+		432A91CD07F7F50D1EAB0B4848DC6137 /* ChimpKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ChimpKit.m; path = ChimpKit3/ChimpKit.m; sourceTree = "<group>"; };
+		44F50EDF60AC76786546F4C65A56112C /* Pods-AudioKitSynthOne-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AudioKitSynthOne-frameworks.sh"; sourceTree = "<group>"; };
+		5013967D85D7B1361CD05155DFA1FDD4 /* ABAudiobusController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAudiobusController.h; path = Audiobus/ABAudiobusController.h; sourceTree = "<group>"; };
+		51590F068A205E2C26384018CF532FDC /* Disk+UIImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+UIImage.swift"; path = "Sources/Disk+UIImage.swift"; sourceTree = "<group>"; };
+		549136B9E8911F159FB3E49E6D8C290F /* ABReceiverPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABReceiverPort.h; path = Audiobus/ABReceiverPort.h; sourceTree = "<group>"; };
+		570329EE3023B7C75CEC90FBA13F7F0A /* ChimpKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ChimpKit.xcconfig; sourceTree = "<group>"; };
+		5AFC6B03A7D1C734B68EDF69CE111C2A /* ChimpKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ChimpKit-umbrella.h"; sourceTree = "<group>"; };
+		5C57131E117F94C462D9FE2A2641DE85 /* Disk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-prefix.pch"; sourceTree = "<group>"; };
+		5D22EC7CF8CB4981ED033765A9462B5A /* Pods-OneSignalNotificationServiceExtension-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OneSignalNotificationServiceExtension-resources.sh"; sourceTree = "<group>"; };
+		5D26A94545C889D44CA1E17E828B51BC /* Pods-AudioKitSynthOne-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AudioKitSynthOne-resources.sh"; sourceTree = "<group>"; };
+		5D5A51E3B5EBC0DD90098B07036DBF78 /* CKAuthViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CKAuthViewController.h; path = "ChimpKit3/Helper Objects/CKAuthViewController.h"; sourceTree = "<group>"; };
+		64FD02E63B4FDA12E53B284C40281514 /* libAudiobus.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libAudiobus.a; sourceTree = "<group>"; };
+		6506561CA2109567A98D7896DDCEDAB7 /* Disk+VolumeInformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+VolumeInformation.swift"; path = "Sources/Disk+VolumeInformation.swift"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		688442BF2FD99FD75AB910C86B21D2CC /* libAudiobus.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libAudiobus.a; sourceTree = "<group>"; };
-		6BC3C0E7E7E4E75163E134D3C0E0057D /* ABAudioSenderPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAudioSenderPort.h; path = Audiobus/ABAudioSenderPort.h; sourceTree = "<group>"; };
-		6EFC074685741D5A4BE1C44CD2672F25 /* Disk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-prefix.pch"; sourceTree = "<group>"; };
-		768D21332AD48A683C82FDE9DA65D31F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A0D0CF16050ADD083118B5026205DAF /* Pods-AudioKitSynthOne-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AudioKitSynthOne-resources.sh"; sourceTree = "<group>"; };
-		7D941A11E45D919902C73221F646D36D /* Disk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Disk.framework; path = Disk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8586C8104EF529CCE4BFBB4DD1F5E538 /* ABMultiStreamBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMultiStreamBuffer.h; path = Audiobus/ABMultiStreamBuffer.h; sourceTree = "<group>"; };
-		88466DE7639446C1C9F9B23F86F254D4 /* ABPeer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPeer.h; path = Audiobus/ABPeer.h; sourceTree = "<group>"; };
-		8881BA1EF335C5D3863E83DC00E678AF /* Disk+[Data].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[Data].swift"; path = "Sources/Disk+[Data].swift"; sourceTree = "<group>"; };
-		8EBA7590CB227885428F6B500500F213 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
+		66302C70041EF001DB386C3DD00D47F2 /* ChimpKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ChimpKit-prefix.pch"; sourceTree = "<group>"; };
+		74C299788A0A744B72A3F47874C776B2 /* Pods-AudioKitSynthOne-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AudioKitSynthOne-umbrella.h"; sourceTree = "<group>"; };
+		757382610EE422212368A218C26B7D2A /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
+		76761DD76EDE48D4B8F009AF0C215294 /* ABFilterPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABFilterPort.h; path = Audiobus/ABFilterPort.h; sourceTree = "<group>"; };
+		7825D0ACFFFB06D19A0D910D893762D1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A8BE49679A7A16BB16F000FACCE465D /* Pods-AudioKitSynthOne-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AudioKitSynthOne-acknowledgements.plist"; sourceTree = "<group>"; };
+		7D74F13937E496F5C18165715265DC1D /* Disk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disk.swift; path = Sources/Disk.swift; sourceTree = "<group>"; };
+		7D7EFE73954941B3D10AF0ABE319B754 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EFC7B8153DDDAB17DD0B12BC6CEA6FF /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		88CAA9FD60CD6B12EC9C5166AA9B8BAD /* Pods-OneSignalNotificationServiceExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OneSignalNotificationServiceExtension-dummy.m"; sourceTree = "<group>"; };
+		8A3342B161313E041111313A1A5407F9 /* Pods-OneSignalNotificationServiceExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-OneSignalNotificationServiceExtension.modulemap"; sourceTree = "<group>"; };
+		8B4BAD9565960422FC033430772F7F54 /* Disk+InternalHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+InternalHelpers.swift"; path = "Sources/Disk+InternalHelpers.swift"; sourceTree = "<group>"; };
+		8DB7F6D0717D6562E7F6CED16AF4AB50 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91575ABE2757A29D52989AB9DF057871 /* CKScanViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CKScanViewController.h; path = "ChimpKit3/Helper Objects/CKScanViewController.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		98F106D1A5BF5D5299F874FF91F750C2 /* Disk.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Disk.xcconfig; sourceTree = "<group>"; };
-		9B87253D56AA13F2E9AFCC0913781F19 /* Disk+VolumeInformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+VolumeInformation.swift"; path = "Sources/Disk+VolumeInformation.swift"; sourceTree = "<group>"; };
-		A250AB566C670CF3A67016B5DEF5E39F /* Disk+Codable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Codable.swift"; path = "Sources/Disk+Codable.swift"; sourceTree = "<group>"; };
-		B984A3316C07BE7E50C70E9656C78C23 /* Pods-AudioKitSynthOne-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AudioKitSynthOne-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BBE8B49947C26D1C6BFC0B5B93254E75 /* Pods-AudioKitSynthOne-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AudioKitSynthOne-frameworks.sh"; sourceTree = "<group>"; };
-		BFAFD14F82C90F4B6A3FBDDB8D110F7C /* ABLocalPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABLocalPort.h; path = Audiobus/ABLocalPort.h; sourceTree = "<group>"; };
-		C66EDA0A445FDDF89D67EE79B5ECD836 /* ABFilterPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABFilterPort.h; path = Audiobus/ABFilterPort.h; sourceTree = "<group>"; };
-		C8EE51859B330BD77D5984BF8DEAD64D /* ABPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPort.h; path = Audiobus/ABPort.h; sourceTree = "<group>"; };
-		CF906227E96F1E60B521D54875AD861D /* ABButtonTrigger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABButtonTrigger.h; path = Audiobus/ABButtonTrigger.h; sourceTree = "<group>"; };
-		D56527877BCA976529DA702AEF2F5F1C /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
-		D843876E242952164ABF703C35AE937A /* ABTrigger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABTrigger.h; path = Audiobus/ABTrigger.h; sourceTree = "<group>"; };
-		DCEA8B404B4F6B31AA30451D41E9D9B2 /* ABReceiverPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABReceiverPort.h; path = Audiobus/ABReceiverPort.h; sourceTree = "<group>"; };
-		DF33BBCC3F2A1297A048CBD0A45A2ABE /* Disk+Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Errors.swift"; path = "Sources/Disk+Errors.swift"; sourceTree = "<group>"; };
-		E31FE1A57DF8914F6C7296A8D9E8F426 /* Disk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disk.swift; path = Sources/Disk.swift; sourceTree = "<group>"; };
-		E686CED6E5BAB75289E972FE00315583 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E708F53D4AFE7428CBB391F2C5E2922B /* Disk+[UIImage].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[UIImage].swift"; path = "Sources/Disk+[UIImage].swift"; sourceTree = "<group>"; };
-		E829A19FE327D607DC0AA395B698E3F6 /* ABAudioReceiverPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAudioReceiverPort.h; path = Audiobus/ABAudioReceiverPort.h; sourceTree = "<group>"; };
-		EC0E8233E30B7F33331D1F95FDC3BA8B /* Disk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Disk-dummy.m"; sourceTree = "<group>"; };
-		F0226632A89726767EBC7BEB5EA529DB /* Disk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Disk.modulemap; sourceTree = "<group>"; };
-		F2033DC0859C50BF87EF2E06ED5FD0D5 /* Pods-AudioKitSynthOne-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AudioKitSynthOne-umbrella.h"; sourceTree = "<group>"; };
-		F5E8CF8B0A7C63E03CF3B123B7C468BF /* ABAudioUnitFader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAudioUnitFader.h; path = Audiobus/ABAudioUnitFader.h; sourceTree = "<group>"; };
-		F6CAF85474100A3C0AE77CD6B38B6562 /* Pods_AudioKitSynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AudioKitSynthOne.framework; path = "Pods-AudioKitSynthOne.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8E0F4C871ECE25FE6AB4DD14DDDBFF2 /* ABMIDISenderPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMIDISenderPort.h; path = Audiobus/ABMIDISenderPort.h; sourceTree = "<group>"; };
+		96CC33C28722A3D430F8E22EABDC6501 /* Pods-OneSignalNotificationServiceExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OneSignalNotificationServiceExtension-umbrella.h"; sourceTree = "<group>"; };
+		988442AAC38C6D116D492CC34D5CDC4C /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = iOS_SDK/OneSignalSDK/Framework/OneSignal.framework; sourceTree = "<group>"; };
+		9E1D6029C81EE810D64AE358134E3F42 /* Pods-AudioKitSynthOne-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AudioKitSynthOne-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9EB82C1EA8709ACB7695A470602C4D9B /* ABButtonTrigger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABButtonTrigger.h; path = Audiobus/ABButtonTrigger.h; sourceTree = "<group>"; };
+		A4E8E60B9A0B5A4693FDD79ED9B4C416 /* Disk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Disk.framework; path = Disk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEBDB9BC2D6938D90C88B66440FB0ED0 /* Disk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Disk.h; path = Sources/Disk.h; sourceTree = "<group>"; };
+		AF0DB806F2C586A15725DB52CBBDF56F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF8ADBBE02C75A5692EC2851674A90AA /* ABTrigger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABTrigger.h; path = Audiobus/ABTrigger.h; sourceTree = "<group>"; };
+		B069EAA54D445CD74F22EE2E9AD38D1C /* Disk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-umbrella.h"; sourceTree = "<group>"; };
+		B1EF5BEEE4848273705348FA49650E7E /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
+		BA2269FCD8F267748A3CC2CF1288CF39 /* ChimpKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ChimpKit.modulemap; sourceTree = "<group>"; };
+		C89C69760AEDB61E3A7EF62A5AAB25D0 /* ABLocalPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABLocalPort.h; path = Audiobus/ABLocalPort.h; sourceTree = "<group>"; };
+		C941F48AB60F33D82C5E00682492C40D /* ABMIDIReceiverPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMIDIReceiverPort.h; path = Audiobus/ABMIDIReceiverPort.h; sourceTree = "<group>"; };
+		D79C6E5BB7901FC6C47ED50226E9CC1E /* Pods_AudioKitSynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AudioKitSynthOne.framework; path = "Pods-AudioKitSynthOne.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9B0F48EA27821AE30B90E3254504424 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		DBE258ECEA989FB53C8BEC5376A7943A /* CKAuthViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = CKAuthViewController.xib; path = "ChimpKit3/Helper Objects/CKAuthViewController.xib"; sourceTree = "<group>"; };
+		E336525DAF1E8763B79B000A3912C15D /* CKAuthViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CKAuthViewController.m; path = "ChimpKit3/Helper Objects/CKAuthViewController.m"; sourceTree = "<group>"; };
+		E4CCFF19BFB122F7A35D15D3351003EA /* ABSenderPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABSenderPort.h; path = Audiobus/ABSenderPort.h; sourceTree = "<group>"; };
+		E70FDCC40076361B49302257DF42B0E3 /* ABMIDISenderPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMIDISenderPort.h; path = Audiobus/ABMIDISenderPort.h; sourceTree = "<group>"; };
+		E754921C6F44F65577823426F29B5C30 /* Disk+Codable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Codable.swift"; path = "Sources/Disk+Codable.swift"; sourceTree = "<group>"; };
+		EC075178623727E1867276D3B080FEA4 /* Pods-OneSignalNotificationServiceExtension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OneSignalNotificationServiceExtension-acknowledgements.plist"; sourceTree = "<group>"; };
+		EE0F64738C7BAC5362990D1227FF52E4 /* Disk.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Disk.xcconfig; sourceTree = "<group>"; };
+		F1E3612F8E73C1FFB3220C61F8E482D0 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_OneSignalNotificationServiceExtension.framework; path = "Pods-OneSignalNotificationServiceExtension.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F222185338883635869060621B219F5D /* ABPeer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPeer.h; path = Audiobus/ABPeer.h; sourceTree = "<group>"; };
+		F45CB80C780DB2A57285C5B7CDC289EB /* ABMultiStreamBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMultiStreamBuffer.h; path = Audiobus/ABMultiStreamBuffer.h; sourceTree = "<group>"; };
+		F5BE23306451E819E43463573F32775D /* Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FFABAE9093885FA688D9B38C88D52260 /* Disk+Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Data.swift"; path = "Sources/Disk+Data.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,53 +149,116 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD18707A99DCF0AF1A48409B1743FCF3 /* Frameworks */ = {
+		59D36D621CEC1C67011FA38C1159D927 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A228D6F7A4F702DDD8DC837D951173C /* Foundation.framework in Frameworks */,
+				5506583225A14637E7C99AFD64344A24 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		627DBE04164A930E36EB365AB27D974C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				445F50297D930BEE9B87DEE4F3D76B47 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99D3AE535077689CE6A8B455649C15E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11D0E9EB60321605DEDF452222D8A0BB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1797583E36857563016AE7BF03FA61E2 /* Pods */ = {
+		070523B35CB1C872D6DB5D4471C91DB2 /* Disk */ = {
 			isa = PBXGroup;
 			children = (
-				9D6FB37C77AF7733C8D8D04D14662BB4 /* Audiobus */,
-				F1EF225507C33EDF2CB146AD2DC44FC5 /* Disk */,
+				AEBDB9BC2D6938D90C88B66440FB0ED0 /* Disk.h */,
+				7D74F13937E496F5C18165715265DC1D /* Disk.swift */,
+				1AECB314255C1C0BACDF63011D7F1F2F /* Disk+[Data].swift */,
+				065B3CCACDB27892D2834438154019C5 /* Disk+[UIImage].swift */,
+				E754921C6F44F65577823426F29B5C30 /* Disk+Codable.swift */,
+				FFABAE9093885FA688D9B38C88D52260 /* Disk+Data.swift */,
+				04D368DCD2564354D165B63251976F24 /* Disk+Errors.swift */,
+				1609A27B724D02CDA217B262E7554140 /* Disk+Helpers.swift */,
+				8B4BAD9565960422FC033430772F7F54 /* Disk+InternalHelpers.swift */,
+				51590F068A205E2C26384018CF532FDC /* Disk+UIImage.swift */,
+				6506561CA2109567A98D7896DDCEDAB7 /* Disk+VolumeInformation.swift */,
+				ECF280B5BD91223A959D67949C4E5D67 /* Support Files */,
+			);
+			name = Disk;
+			path = Disk;
+			sourceTree = "<group>";
+		};
+		08CC65789717EA9E804B53C69A522766 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA2269FCD8F267748A3CC2CF1288CF39 /* ChimpKit.modulemap */,
+				570329EE3023B7C75CEC90FBA13F7F0A /* ChimpKit.xcconfig */,
+				21E70EDBA5C6769476859733726CFFA5 /* ChimpKit-dummy.m */,
+				66302C70041EF001DB386C3DD00D47F2 /* ChimpKit-prefix.pch */,
+				5AFC6B03A7D1C734B68EDF69CE111C2A /* ChimpKit-umbrella.h */,
+				8DB7F6D0717D6562E7F6CED16AF4AB50 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ChimpKit";
+			sourceTree = "<group>";
+		};
+		0A96E65A5BF2BA79CB9D3192CEF4C7A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E35DFC7451C713A0466BDA603D420719 /* Audiobus */,
+				ED44C75F8C6DA659516B6476DF425851 /* ChimpKit */,
+				070523B35CB1C872D6DB5D4471C91DB2 /* Disk */,
+				5BBFDD3B44159E72D5AAC4D8F0BDECA7 /* OneSignal */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		204705166AF9ED09D046174481827148 /* Support Files */ = {
+		15FCB3D03AD65105DBA2A04946FBC3C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F0226632A89726767EBC7BEB5EA529DB /* Disk.modulemap */,
-				98F106D1A5BF5D5299F874FF91F750C2 /* Disk.xcconfig */,
-				EC0E8233E30B7F33331D1F95FDC3BA8B /* Disk-dummy.m */,
-				6EFC074685741D5A4BE1C44CD2672F25 /* Disk-prefix.pch */,
-				4D99E31ABC8674198A334B8C7B15DEDB /* Disk-umbrella.h */,
-				768D21332AD48A683C82FDE9DA65D31F /* Info.plist */,
+				988442AAC38C6D116D492CC34D5CDC4C /* OneSignal.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Disk";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		391ED591F644A0A6CD29DD0D9121E75E /* Pods-AudioKitSynthOne */ = {
+		5BBFDD3B44159E72D5AAC4D8F0BDECA7 /* OneSignal */ = {
 			isa = PBXGroup;
 			children = (
-				E686CED6E5BAB75289E972FE00315583 /* Info.plist */,
-				1AA66DE1BB5DFDE0B7E60DFAA9F06FDD /* Pods-AudioKitSynthOne.modulemap */,
-				B984A3316C07BE7E50C70E9656C78C23 /* Pods-AudioKitSynthOne-acknowledgements.markdown */,
-				0B6E8996A682A34DF6091C595C20941C /* Pods-AudioKitSynthOne-acknowledgements.plist */,
-				3FB91E78600481A25B613A6427E74F45 /* Pods-AudioKitSynthOne-dummy.m */,
-				BBE8B49947C26D1C6BFC0B5B93254E75 /* Pods-AudioKitSynthOne-frameworks.sh */,
-				7A0D0CF16050ADD083118B5026205DAF /* Pods-AudioKitSynthOne-resources.sh */,
-				F2033DC0859C50BF87EF2E06ED5FD0D5 /* Pods-AudioKitSynthOne-umbrella.h */,
-				8EBA7590CB227885428F6B500500F213 /* Pods-AudioKitSynthOne.debug.xcconfig */,
-				D56527877BCA976529DA702AEF2F5F1C /* Pods-AudioKitSynthOne.release.xcconfig */,
+				15FCB3D03AD65105DBA2A04946FBC3C4 /* Frameworks */,
+			);
+			name = OneSignal;
+			path = OneSignal;
+			sourceTree = "<group>";
+		};
+		6A269B8E59822BDDD2E3E16E3D167DEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64FD02E63B4FDA12E53B284C40281514 /* libAudiobus.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B40C04B94892D69A16A3DF224FE3DC5 /* Pods-AudioKitSynthOne */ = {
+			isa = PBXGroup;
+			children = (
+				7825D0ACFFFB06D19A0D910D893762D1 /* Info.plist */,
+				0A6ABDC431575D0DD45346740CE88574 /* Pods-AudioKitSynthOne.modulemap */,
+				9E1D6029C81EE810D64AE358134E3F42 /* Pods-AudioKitSynthOne-acknowledgements.markdown */,
+				7A8BE49679A7A16BB16F000FACCE465D /* Pods-AudioKitSynthOne-acknowledgements.plist */,
+				17FEDB713B860691A4481DC34C402707 /* Pods-AudioKitSynthOne-dummy.m */,
+				44F50EDF60AC76786546F4C65A56112C /* Pods-AudioKitSynthOne-frameworks.sh */,
+				5D26A94545C889D44CA1E17E828B51BC /* Pods-AudioKitSynthOne-resources.sh */,
+				74C299788A0A744B72A3F47874C776B2 /* Pods-AudioKitSynthOne-umbrella.h */,
+				B1EF5BEEE4848273705348FA49650E7E /* Pods-AudioKitSynthOne.debug.xcconfig */,
+				757382610EE422212368A218C26B7D2A /* Pods-AudioKitSynthOne.release.xcconfig */,
 			);
 			name = "Pods-AudioKitSynthOne";
 			path = "Target Support Files/Pods-AudioKitSynthOne";
@@ -157,53 +269,41 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				1797583E36857563016AE7BF03FA61E2 /* Pods */,
-				E3F0FF0DF18C50C8EAE7395975920C62 /* Products */,
-				EB47207955BAC6DCB9E57E67986620E8 /* Targets Support Files */,
+				0A96E65A5BF2BA79CB9D3192CEF4C7A4 /* Pods */,
+				FF72BBADC88F2F0386C8EB7F2AF0AC65 /* Products */,
+				EBFCF56F019163C02E3C3D7320C048D6 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		9D6FB37C77AF7733C8D8D04D14662BB4 /* Audiobus */ = {
+		89901E1623B5BE0C7ABAEC0F713DD9E0 /* Pods-OneSignalNotificationServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
-				1A6D429C414E90D951F02D5AA905AD39 /* ABAudiobusController.h */,
-				23001ED9BDE1460CB0502BDAF29DCE2C /* ABAudioFilterPort.h */,
-				E829A19FE327D607DC0AA395B698E3F6 /* ABAudioReceiverPort.h */,
-				6BC3C0E7E7E4E75163E134D3C0E0057D /* ABAudioSenderPort.h */,
-				F5E8CF8B0A7C63E03CF3B123B7C468BF /* ABAudioUnitFader.h */,
-				CF906227E96F1E60B521D54875AD861D /* ABButtonTrigger.h */,
-				4E132D9BDA17968383D90B613036E810 /* ABCommon.h */,
-				C66EDA0A445FDDF89D67EE79B5ECD836 /* ABFilterPort.h */,
-				BFAFD14F82C90F4B6A3FBDDB8D110F7C /* ABLocalPort.h */,
-				12A5D40D1F54D860EFCAAFFB72238752 /* ABMIDIFilterPort.h */,
-				3692060E67FC7D69C214FFA323170C7B /* ABMIDIPort.h */,
-				0D59626B07193DBDC495B4044CCA3E0F /* ABMIDIReceiverPort.h */,
-				F8E0F4C871ECE25FE6AB4DD14DDDBFF2 /* ABMIDISenderPort.h */,
-				8586C8104EF529CCE4BFBB4DD1F5E538 /* ABMultiStreamBuffer.h */,
-				88466DE7639446C1C9F9B23F86F254D4 /* ABPeer.h */,
-				C8EE51859B330BD77D5984BF8DEAD64D /* ABPort.h */,
-				DCEA8B404B4F6B31AA30451D41E9D9B2 /* ABReceiverPort.h */,
-				28985E9C9F1E26E62AE46C456B314B17 /* ABSenderPort.h */,
-				D843876E242952164ABF703C35AE937A /* ABTrigger.h */,
-				38A0A9A4CD56F9B20CC413B16CAE5E19 /* Audiobus.h */,
-				CE2C114D90628826FD512EEC40F42256 /* Frameworks */,
+				7D7EFE73954941B3D10AF0ABE319B754 /* Info.plist */,
+				8A3342B161313E041111313A1A5407F9 /* Pods-OneSignalNotificationServiceExtension.modulemap */,
+				F5BE23306451E819E43463573F32775D /* Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown */,
+				EC075178623727E1867276D3B080FEA4 /* Pods-OneSignalNotificationServiceExtension-acknowledgements.plist */,
+				88CAA9FD60CD6B12EC9C5166AA9B8BAD /* Pods-OneSignalNotificationServiceExtension-dummy.m */,
+				5D22EC7CF8CB4981ED033765A9462B5A /* Pods-OneSignalNotificationServiceExtension-resources.sh */,
+				96CC33C28722A3D430F8E22EABDC6501 /* Pods-OneSignalNotificationServiceExtension-umbrella.h */,
+				D9B0F48EA27821AE30B90E3254504424 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				7EFC7B8153DDDAB17DD0B12BC6CEA6FF /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
-			name = Audiobus;
-			path = Audiobus;
+			name = "Pods-OneSignalNotificationServiceExtension";
+			path = "Target Support Files/Pods-OneSignalNotificationServiceExtension";
+			sourceTree = "<group>";
+		};
+		9D7AFF6E531606E9AE8DD88C864DACA2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DBE258ECEA989FB53C8BEC5376A7943A /* CKAuthViewController.xib */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CE2C114D90628826FD512EEC40F42256 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				688442BF2FD99FD75AB910C86B21D2CC /* libAudiobus.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,51 +316,115 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		E3F0FF0DF18C50C8EAE7395975920C62 /* Products */ = {
+		E35DFC7451C713A0466BDA603D420719 /* Audiobus */ = {
 			isa = PBXGroup;
 			children = (
-				7D941A11E45D919902C73221F646D36D /* Disk.framework */,
-				F6CAF85474100A3C0AE77CD6B38B6562 /* Pods_AudioKitSynthOne.framework */,
+				5013967D85D7B1361CD05155DFA1FDD4 /* ABAudiobusController.h */,
+				42A8C65EDB42A1AEE7E8E8435F18F8DC /* ABAudioFilterPort.h */,
+				1763D2D4B8834D6BBF989F69CE6E3E5B /* ABAudioReceiverPort.h */,
+				28EDD6F349DBDA7B1C74E540FAE33841 /* ABAudioSenderPort.h */,
+				1EC9AF25F0C7F6976EA3A644B2457A8A /* ABAudioUnitFader.h */,
+				9EB82C1EA8709ACB7695A470602C4D9B /* ABButtonTrigger.h */,
+				1F3E70952F4779DBF8938C6D33B8DF9E /* ABCommon.h */,
+				76761DD76EDE48D4B8F009AF0C215294 /* ABFilterPort.h */,
+				C89C69760AEDB61E3A7EF62A5AAB25D0 /* ABLocalPort.h */,
+				09F632CB5FE667DD82396686904FACC2 /* ABMIDIFilterPort.h */,
+				12FC0E7FE1C40006EBEF142591CC45DF /* ABMIDIPort.h */,
+				C941F48AB60F33D82C5E00682492C40D /* ABMIDIReceiverPort.h */,
+				E70FDCC40076361B49302257DF42B0E3 /* ABMIDISenderPort.h */,
+				F45CB80C780DB2A57285C5B7CDC289EB /* ABMultiStreamBuffer.h */,
+				F222185338883635869060621B219F5D /* ABPeer.h */,
+				026884613AED7974E7BF697D22AAB1F1 /* ABPort.h */,
+				549136B9E8911F159FB3E49E6D8C290F /* ABReceiverPort.h */,
+				E4CCFF19BFB122F7A35D15D3351003EA /* ABSenderPort.h */,
+				AF8ADBBE02C75A5692EC2851674A90AA /* ABTrigger.h */,
+				06452771919788C5907219B718E02DD8 /* Audiobus.h */,
+				6A269B8E59822BDDD2E3E16E3D167DEE /* Frameworks */,
 			);
-			name = Products;
+			name = Audiobus;
+			path = Audiobus;
 			sourceTree = "<group>";
 		};
-		EB47207955BAC6DCB9E57E67986620E8 /* Targets Support Files */ = {
+		EBFCF56F019163C02E3C3D7320C048D6 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				391ED591F644A0A6CD29DD0D9121E75E /* Pods-AudioKitSynthOne */,
+				7B40C04B94892D69A16A3DF224FE3DC5 /* Pods-AudioKitSynthOne */,
+				89901E1623B5BE0C7ABAEC0F713DD9E0 /* Pods-OneSignalNotificationServiceExtension */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		F1EF225507C33EDF2CB146AD2DC44FC5 /* Disk */ = {
+		ECF280B5BD91223A959D67949C4E5D67 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				05EC0B633F1F73C5C5083BAC357EFE20 /* Disk.h */,
-				E31FE1A57DF8914F6C7296A8D9E8F426 /* Disk.swift */,
-				8881BA1EF335C5D3863E83DC00E678AF /* Disk+[Data].swift */,
-				E708F53D4AFE7428CBB391F2C5E2922B /* Disk+[UIImage].swift */,
-				A250AB566C670CF3A67016B5DEF5E39F /* Disk+Codable.swift */,
-				1E1A05DFC6EDE698848BA610774B3219 /* Disk+Data.swift */,
-				DF33BBCC3F2A1297A048CBD0A45A2ABE /* Disk+Errors.swift */,
-				36D4B8631FC8617996C9FB94FA688E27 /* Disk+Helpers.swift */,
-				15A7DAD6F3B141B2E132BA1BA7804F0A /* Disk+InternalHelpers.swift */,
-				5957AE0D405F5ADECC394B86D6CF404F /* Disk+UIImage.swift */,
-				9B87253D56AA13F2E9AFCC0913781F19 /* Disk+VolumeInformation.swift */,
-				204705166AF9ED09D046174481827148 /* Support Files */,
+				37F1D1CEB91A89E41AF3E8853FE9B434 /* Disk.modulemap */,
+				EE0F64738C7BAC5362990D1227FF52E4 /* Disk.xcconfig */,
+				388AA0B3BC3A9DF3FBB3A9C7EB681FC7 /* Disk-dummy.m */,
+				5C57131E117F94C462D9FE2A2641DE85 /* Disk-prefix.pch */,
+				B069EAA54D445CD74F22EE2E9AD38D1C /* Disk-umbrella.h */,
+				AF0DB806F2C586A15725DB52CBBDF56F /* Info.plist */,
 			);
-			name = Disk;
-			path = Disk;
+			name = "Support Files";
+			path = "../Target Support Files/Disk";
+			sourceTree = "<group>";
+		};
+		ED44C75F8C6DA659516B6476DF425851 /* ChimpKit */ = {
+			isa = PBXGroup;
+			children = (
+				274FF0A6D8E2FDE2448C797BE90FAF43 /* ChimpKit.h */,
+				432A91CD07F7F50D1EAB0B4848DC6137 /* ChimpKit.m */,
+				5D5A51E3B5EBC0DD90098B07036DBF78 /* CKAuthViewController.h */,
+				E336525DAF1E8763B79B000A3912C15D /* CKAuthViewController.m */,
+				91575ABE2757A29D52989AB9DF057871 /* CKScanViewController.h */,
+				1BCE2DAFD84BDE35C0764CD3034AA906 /* CKScanViewController.m */,
+				1079DA7508E1FF6C0C4A4740CDE3D9A9 /* CKSubscribeAlertView.h */,
+				28970CB5FC33BC96BCC9217ABE95438A /* CKSubscribeAlertView.m */,
+				9D7AFF6E531606E9AE8DD88C864DACA2 /* Resources */,
+				08CC65789717EA9E804B53C69A522766 /* Support Files */,
+			);
+			name = ChimpKit;
+			path = ChimpKit;
+			sourceTree = "<group>";
+		};
+		FF72BBADC88F2F0386C8EB7F2AF0AC65 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B993D9493CECA59F2A2A634060E5C09 /* ChimpKit.framework */,
+				A4E8E60B9A0B5A4693FDD79ED9B4C416 /* Disk.framework */,
+				D79C6E5BB7901FC6C47ED50226E9CC1E /* Pods_AudioKitSynthOne.framework */,
+				F1E3612F8E73C1FFB3220C61F8E482D0 /* Pods_OneSignalNotificationServiceExtension.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		661963B5D67D744EEA04E3423D8D88A0 /* Headers */ = {
+		267A1009186C8CD0746EF7D3740EEC31 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD1D1CA049743CCC22302A91F98AA09C /* Pods-AudioKitSynthOne-umbrella.h in Headers */,
+				BD712CDE602764C6DF46277FF9CE0479 /* Pods-AudioKitSynthOne-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32CC3B6C41FB72F15EE0AE1C87D2E83C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B560798328F02B27552DB78FAB29EBE6 /* Pods-OneSignalNotificationServiceExtension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90E554725D74B64937BF4E07589C9AF4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8450B77F86A4C4AADDA72A1BB2046CC9 /* ChimpKit-umbrella.h in Headers */,
+				B031B6E5EA58252A67730618D90AA350 /* ChimpKit.h in Headers */,
+				A38A472E99AE27E5451E24D371D4ACC2 /* CKAuthViewController.h in Headers */,
+				BF74E38438C1BDFE323C6A5FB5875F30 /* CKScanViewController.h in Headers */,
+				1FE1A91C3D9761D3BB7A6F99086D8B09 /* CKSubscribeAlertView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +440,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0DA3D658687906C608ED3603EB64B9A6 /* ChimpKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8EE94FFEADDA3EAF9A4F91BB7B9A0686 /* Build configuration list for PBXNativeTarget "ChimpKit" */;
+			buildPhases = (
+				6E08D1EA66CEEA265601EE2B78EB57E6 /* Sources */,
+				627DBE04164A930E36EB365AB27D974C /* Frameworks */,
+				90E554725D74B64937BF4E07589C9AF4 /* Headers */,
+				149A1BF5B68E173B6CE825D2922FF752 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChimpKit;
+			productName = ChimpKit;
+			productReference = 0B993D9493CECA59F2A2A634060E5C09 /* ChimpKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		1691E754022217B52671D98A23731A08 /* Disk */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBD9A2E3065E5BD8E663E08B81AE10F3 /* Build configuration list for PBXNativeTarget "Disk" */;
@@ -290,25 +472,43 @@
 			);
 			name = Disk;
 			productName = Disk;
-			productReference = 7D941A11E45D919902C73221F646D36D /* Disk.framework */;
+			productReference = A4E8E60B9A0B5A4693FDD79ED9B4C416 /* Disk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		736F3C217311D13C21E37DE3ABAB73FA /* Pods-AudioKitSynthOne */ = {
+		745A2536ABC9981AD547B885DBBC3C73 /* Pods-OneSignalNotificationServiceExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5893B10BF5B9BBCDC1BB715104E56AA9 /* Build configuration list for PBXNativeTarget "Pods-AudioKitSynthOne" */;
+			buildConfigurationList = 5B8484BCBB9BF0FF6FC51657FFDF22D3 /* Build configuration list for PBXNativeTarget "Pods-OneSignalNotificationServiceExtension" */;
 			buildPhases = (
-				E8390208B182A686782ED176565F87CC /* Sources */,
-				FD18707A99DCF0AF1A48409B1743FCF3 /* Frameworks */,
-				661963B5D67D744EEA04E3423D8D88A0 /* Headers */,
+				4FFF30A74222236548450440B772FF4C /* Sources */,
+				99D3AE535077689CE6A8B455649C15E3 /* Frameworks */,
+				32CC3B6C41FB72F15EE0AE1C87D2E83C /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				70AE9E5EC5EE5363A00321F67AC3B217 /* PBXTargetDependency */,
+			);
+			name = "Pods-OneSignalNotificationServiceExtension";
+			productName = "Pods-OneSignalNotificationServiceExtension";
+			productReference = F1E3612F8E73C1FFB3220C61F8E482D0 /* Pods_OneSignalNotificationServiceExtension.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F1ABB644E976B033395B6BCD7828609E /* Pods-AudioKitSynthOne */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 509ADE3BB83CF665B6724DD48E97C008 /* Build configuration list for PBXNativeTarget "Pods-AudioKitSynthOne" */;
+			buildPhases = (
+				66174DFD8860C5EFE2C0E0DB8F328512 /* Sources */,
+				59D36D621CEC1C67011FA38C1159D927 /* Frameworks */,
+				267A1009186C8CD0746EF7D3740EEC31 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				435CECDF923D8EB2D7429E31FDA56C21 /* PBXTargetDependency */,
+				017A1278DE4E5A65FD24C71C02078D49 /* PBXTargetDependency */,
 			);
 			name = "Pods-AudioKitSynthOne";
 			productName = "Pods-AudioKitSynthOne";
-			productReference = F6CAF85474100A3C0AE77CD6B38B6562 /* Pods_AudioKitSynthOne.framework */;
+			productReference = D79C6E5BB7901FC6C47ED50226E9CC1E /* Pods_AudioKitSynthOne.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -317,8 +517,8 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -328,22 +528,55 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = E3F0FF0DF18C50C8EAE7395975920C62 /* Products */;
+			productRefGroup = FF72BBADC88F2F0386C8EB7F2AF0AC65 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				0DA3D658687906C608ED3603EB64B9A6 /* ChimpKit */,
 				1691E754022217B52671D98A23731A08 /* Disk */,
-				736F3C217311D13C21E37DE3ABAB73FA /* Pods-AudioKitSynthOne */,
+				F1ABB644E976B033395B6BCD7828609E /* Pods-AudioKitSynthOne */,
+				745A2536ABC9981AD547B885DBBC3C73 /* Pods-OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		149A1BF5B68E173B6CE825D2922FF752 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57D28F111A8735B0CD21E179E299EE8B /* CKAuthViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		E8390208B182A686782ED176565F87CC /* Sources */ = {
+		4FFF30A74222236548450440B772FF4C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A95E12AA4AA12FA54D69FD38D797C64F /* Pods-AudioKitSynthOne-dummy.m in Sources */,
+				1967D391E61278DEAAFF84CB19249C79 /* Pods-OneSignalNotificationServiceExtension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66174DFD8860C5EFE2C0E0DB8F328512 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DF988C4B09C9CFCC026547848C8E4A2 /* Pods-AudioKitSynthOne-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E08D1EA66CEEA265601EE2B78EB57E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE730EDCFFC6E8BEB19E384B987DBF5A /* ChimpKit-dummy.m in Sources */,
+				B5B7A229790C38BFA758607CF8C57E7A /* ChimpKit.m in Sources */,
+				8ED8F394A3F32DC3A0D98A82430FDB95 /* CKAuthViewController.m in Sources */,
+				72B08C0D121F4DF9A36EE8B30DE8BF05 /* CKScanViewController.m in Sources */,
+				694E02EEC48FAF6C649C38DB6A540172 /* CKSubscribeAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,18 +601,176 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		70AE9E5EC5EE5363A00321F67AC3B217 /* PBXTargetDependency */ = {
+		017A1278DE4E5A65FD24C71C02078D49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Disk;
 			target = 1691E754022217B52671D98A23731A08 /* Disk */;
-			targetProxy = 13AA87CB38D252448A2390848DD25D0E /* PBXContainerItemProxy */;
+			targetProxy = 60F85912F46FF9E5149A51A6C4D680ED /* PBXContainerItemProxy */;
+		};
+		435CECDF923D8EB2D7429E31FDA56C21 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ChimpKit;
+			target = 0DA3D658687906C608ED3603EB64B9A6 /* ChimpKit */;
+			targetProxy = 31B5FE5C35F553827C2BBE428EF35DF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0B1B01EF1F75ACF73BFB41BB3BC832D8 /* Release */ = {
+		0E01C29E20FDDFFE40E7C17F6EFE9CCD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98F106D1A5BF5D5299F874FF91F750C2 /* Disk.xcconfig */;
+			baseConfigurationReference = 7EFC7B8153DDDAB17DD0B12BC6CEA6FF /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_OneSignalNotificationServiceExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6902FB4FC33DED0193A030608D1C19AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 570329EE3023B7C75CEC90FBA13F7F0A /* ChimpKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ChimpKit/ChimpKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ChimpKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ChimpKit/ChimpKit.modulemap";
+				PRODUCT_NAME = ChimpKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6F9224530522DD3C735EC96CF142642E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		AD1EDB949295AFE68839DB20DA35D988 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9B0F48EA27821AE30B90E3254504424 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_OneSignalNotificationServiceExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B4DFD151AC0472657EAF5F6B0D73E9A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE0F64738C7BAC5362990D1227FF52E4 /* Disk.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -396,21 +787,19 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Disk/Disk.modulemap";
-				PRODUCT_MODULE_NAME = Disk;
 				PRODUCT_NAME = Disk;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		199D972A13F2B4C56847F7A89CCA83BC /* Debug */ = {
+		B57951D085A1B98A97F8A1062A5E5C5B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -420,12 +809,10 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -433,7 +820,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -442,7 +828,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -467,17 +852,17 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		28B4943DF4BEC3FC1652A955E9EAF35C /* Debug */ = {
+		C210C69397901F95E84CBCAC6418FFA4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EBA7590CB227885428F6B500500F213 /* Pods-AudioKitSynthOne.debug.xcconfig */;
+			baseConfigurationReference = 757382610EE422212368A218C26B7D2A /* Pods-AudioKitSynthOne.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -497,7 +882,72 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Pods_AudioKitSynthOne;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C46D785E9C3DCDE33AC8A4A9AE09DBE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 570329EE3023B7C75CEC90FBA13F7F0A /* ChimpKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ChimpKit/ChimpKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ChimpKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ChimpKit/ChimpKit.modulemap";
+				PRODUCT_NAME = ChimpKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D1A1A81E33239CFABC1462B057ACC237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1EF5BEEE4848273705348FA49650E7E /* Pods-AudioKitSynthOne.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AudioKitSynthOne/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AudioKitSynthOne;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -508,9 +958,9 @@
 			};
 			name = Debug;
 		};
-		4B9366D0D964BD140C2431296131C71D /* Debug */ = {
+		ED964B7463A146758B68801D25A7409D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98F106D1A5BF5D5299F874FF91F750C2 /* Disk.xcconfig */;
+			baseConfigurationReference = EE0F64738C7BAC5362990D1227FF52E4 /* Disk.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -527,109 +977,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Disk/Disk.modulemap";
-				PRODUCT_MODULE_NAME = Disk;
 				PRODUCT_NAME = Disk;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		EC99C527A703EB7CEC5D6095513DBBC4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D56527877BCA976529DA702AEF2F5F1C /* Pods-AudioKitSynthOne.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-AudioKitSynthOne/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		FDB2FC4A1E5891381CD9D922145497F1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
@@ -639,17 +996,35 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				199D972A13F2B4C56847F7A89CCA83BC /* Debug */,
-				FDB2FC4A1E5891381CD9D922145497F1 /* Release */,
+				B57951D085A1B98A97F8A1062A5E5C5B /* Debug */,
+				6F9224530522DD3C735EC96CF142642E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5893B10BF5B9BBCDC1BB715104E56AA9 /* Build configuration list for PBXNativeTarget "Pods-AudioKitSynthOne" */ = {
+		509ADE3BB83CF665B6724DD48E97C008 /* Build configuration list for PBXNativeTarget "Pods-AudioKitSynthOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				28B4943DF4BEC3FC1652A955E9EAF35C /* Debug */,
-				EC99C527A703EB7CEC5D6095513DBBC4 /* Release */,
+				D1A1A81E33239CFABC1462B057ACC237 /* Debug */,
+				C210C69397901F95E84CBCAC6418FFA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B8484BCBB9BF0FF6FC51657FFDF22D3 /* Build configuration list for PBXNativeTarget "Pods-OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD1EDB949295AFE68839DB20DA35D988 /* Debug */,
+				0E01C29E20FDDFFE40E7C17F6EFE9CCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8EE94FFEADDA3EAF9A4F91BB7B9A0686 /* Build configuration list for PBXNativeTarget "ChimpKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6902FB4FC33DED0193A030608D1C19AF /* Debug */,
+				C46D785E9C3DCDE33AC8A4A9AE09DBE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -657,8 +1032,8 @@
 		CBD9A2E3065E5BD8E663E08B81AE10F3 /* Build configuration list for PBXNativeTarget "Disk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4B9366D0D964BD140C2431296131C71D /* Debug */,
-				0B1B01EF1F75ACF73BFB41BB3BC832D8 /* Release */,
+				B4DFD151AC0472657EAF5F6B0D73E9A1 /* Debug */,
+				ED964B7463A146758B68801D25A7409D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

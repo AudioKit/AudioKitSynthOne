@@ -14,6 +14,9 @@
 		9403F29A1F671A4900320FCC /* PopUpPresetEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */; };
 		9403F29D1F671A6000320FCC /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F29B1F671A6000320FCC /* Preset.swift */; };
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
+		941645C520B34E5900D62851 /* Bonus.json in Resources */ = {isa = PBXBuildFile; fileRef = 941645C420B34E5900D62851 /* Bonus.json */; };
+		941645CD20B3597300D62851 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941645CC20B3597300D62851 /* NotificationService.swift */; };
+		941645D120B3597300D62851 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9416FC7220081F3A00A120AD /* MIDIKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC7120081F3A00A120AD /* MIDIKnob.swift */; };
 		9416FC762008204300A120AD /* MIDILearnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC752008204300A120AD /* MIDILearnable.swift */; };
 		941DE3E11FCE3CD400A09C24 /* AppSettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */; };
@@ -25,7 +28,10 @@
 		9435245C1F57A6F100BDA789 /* SynthPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435245B1F57A6F100BDA789 /* SynthPanelController.swift */; };
 		943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B59601F36B4F200E5FBE6 /* TimeKnob.swift */; };
 		943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B99DB1F99C95600E09C93 /* MorphSelectorStyleKit.swift */; };
+		943D9D2C20B1D56A004149AD /* MailingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D9D2B20B1D56A004149AD /* MailingListController.swift */; };
+		943D9D2E20B1F72E004149AD /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D9D2D20B1F72D004149AD /* InfoController.swift */; };
 		9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
+		944A6CDF20B0B7E600D797A8 /* Parent+PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944A6CDE20B0B7E500D797A8 /* Parent+PushNotification.swift */; };
 		9451E2FE1F58C20B008181F9 /* HeaderNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */; };
 		945261411F2925610037662C /* AKTouchPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9452613E1F2925600037662C /* AKTouchPadView.swift */; };
 		945261481F2928870037662C /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945261381F2918A60037662C /* TouchPadViewController.swift */; };
@@ -44,6 +50,7 @@
 		947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */; };
 		947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B51F32A72400FE5D9B /* ToggleSwitch.swift */; };
 		947B8E171F6AEADD00E08D4B /* Arpeggiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0C1F31425D0086D58B /* Arpeggiator.swift */; };
+		948938C320B37EE500B7CEAA /* Audiobus+MIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948938C220B37EE500B7CEAA /* Audiobus+MIDI.swift */; };
 		9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
 		9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */; };
 		948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C54C21F3A57C600DA6081 /* SynthUIButton.swift */; };
@@ -82,6 +89,7 @@
 		94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFE11F42A94E0071235B /* TempoStyleKit.swift */; };
 		94FBAFE51F42A9630071235B /* TempoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBAFE41F42A9630071235B /* TempoStepper.swift */; };
 		94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */; };
+		99902931E574C71B0CE5371C /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		C40770EC1F2569C8007F2C77 /* SourceMixerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */; };
 		C42459DF201D6498004565AB /* AKSynthOneDSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C42459DE201D6498004565AB /* AKSynthOneDSPKernel.mm */; };
 		C42459E1201D64D4004565AB /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42459E0201D64D4004565AB /* Bank.swift */; };
@@ -125,6 +133,16 @@
 		F4A5D8CE20B216B300839E58 /* AKS1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		941645CF20B3597300D62851 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4D193BC1F1187B500FF4FE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 941645C920B3597300D62851;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		C474D95D1F13172B00946035 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -132,6 +150,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				941645D120B3597300D62851 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +159,7 @@
 
 /* Begin PBXFileReference section */
 		345AA332202268B300E5FBBC /* SDSustainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDSustainer.swift; sourceTree = "<group>"; };
+		3A319653D44EC41DAFAEB963 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		5017AD512810265360A12BE7 /* Pods-SynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SynthOne/Pods-SynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		7A837751B9CCA83DA1F6DAC1 /* Pods_SynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SynthOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +168,10 @@
 		9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpPresetEdit.swift; sourceTree = "<group>"; };
 		9403F29B1F671A6000320FCC /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		9410659E1F26AA55002777AB /* ADSRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
+		941645C420B34E5900D62851 /* Bonus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Bonus.json; sourceTree = "<group>"; };
+		941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		941645CC20B3597300D62851 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		941645CE20B3597300D62851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9416FC7120081F3A00A120AD /* MIDIKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIKnob.swift; sourceTree = "<group>"; };
 		9416FC752008204300A120AD /* MIDILearnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDILearnable.swift; sourceTree = "<group>"; };
 		941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingDataManager.swift; sourceTree = "<group>"; };
@@ -159,7 +183,10 @@
 		9435245B1F57A6F100BDA789 /* SynthPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthPanelController.swift; sourceTree = "<group>"; };
 		943B59601F36B4F200E5FBE6 /* TimeKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeKnob.swift; sourceTree = "<group>"; };
 		943B99DB1F99C95600E09C93 /* MorphSelectorStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphSelectorStyleKit.swift; sourceTree = "<group>"; };
+		943D9D2B20B1D56A004149AD /* MailingListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailingListController.swift; sourceTree = "<group>"; };
+		943D9D2D20B1F72D004149AD /* InfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpKeyboardController.swift; sourceTree = "<group>"; };
+		944A6CDE20B0B7E500D797A8 /* Parent+PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PushNotification.swift"; sourceTree = "<group>"; };
 		9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderNavButton.swift; sourceTree = "<group>"; };
 		945261381F2918A60037662C /* TouchPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPadViewController.swift; sourceTree = "<group>"; };
 		9452613E1F2925600037662C /* AKTouchPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKTouchPadView.swift; sourceTree = "<group>"; };
@@ -181,6 +208,7 @@
 		947956A81F329AB100FE5D9B /* Stepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
 		947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitchStyleKit.swift; sourceTree = "<group>"; };
 		947956B51F32A72400FE5D9B /* ToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitch.swift; sourceTree = "<group>"; };
+		948938C220B37EE500B7CEAA /* Audiobus+MIDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Audiobus+MIDI.swift"; sourceTree = "<group>"; };
 		948C54C21F3A57C600DA6081 /* SynthUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthUIButton.swift; sourceTree = "<group>"; };
 		948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeButton.swift; sourceTree = "<group>"; };
 		949D09321F34F6FA000FB6E0 /* LFOPickerStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOPickerStyleKit.swift; sourceTree = "<group>"; };
@@ -276,6 +304,8 @@
 		C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 		C75EC33F7DB5853B42F6D569 /* Pods-SynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynthOne/Pods-SynthOne.release.xcconfig"; sourceTree = "<group>"; };
+		CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKS1Tunings.swift; sourceTree = "<group>"; };
 		F4675241209FBE5000060209 /* TuningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +318,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		941645C720B3597300D62851 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99902931E574C71B0CE5371C /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4D193C11F1187B500FF4FE4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +347,8 @@
 				E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */,
 				5017AD512810265360A12BE7 /* Pods-SynthOne.debug.xcconfig */,
 				C75EC33F7DB5853B42F6D569 /* Pods-SynthOne.release.xcconfig */,
+				3A319653D44EC41DAFAEB963 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -317,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				94FA2DC41F9E82BB00DED735 /* BankA.json */,
+				941645C420B34E5900D62851 /* Bonus.json */,
 				94C50C3120195FC0008549DB /* User.json */,
 				946306F720AC9BC000AB97EC /* Brice Beasley.json */,
 				946306F520AC8C8C00AB97EC /* DJ Puzzle.json */,
@@ -354,6 +395,15 @@
 				F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		941645CB20B3597300D62851 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				941645CC20B3597300D62851 /* NotificationService.swift */,
+				941645CE20B3597300D62851 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
 		9416FC742008201C00A120AD /* Protocols */ = {
@@ -463,6 +513,7 @@
 				C47FDEF3201C5E3000A31D48 /* AudioKitUI.framework */,
 				BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */,
 				7A837751B9CCA83DA1F6DAC1 /* Pods_SynthOne.framework */,
+				CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -501,6 +552,8 @@
 		94A5BF051F96A4E10032C743 /* PopUps */ = {
 			isa = PBXGroup;
 			children = (
+				943D9D2D20B1F72D004149AD /* InfoController.swift */,
+				943D9D2B20B1D56A004149AD /* MailingListController.swift */,
 				C42459E2201D64DE004565AB /* PopUpBankEdit.swift */,
 				9403F2921F671A4900320FCC /* PresetsCategoriesController.swift */,
 				9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */,
@@ -555,6 +608,7 @@
 				C4AC4AEB2019BF0500D04C7F /* AKSynthOneParameter.h */,
 				F4DFA161208905BF00412E7B /* AKSynthOneRate.h */,
 				C4CC3040208499D0004E91CB /* Audiobus.swift */,
+				948938C220B37EE500B7CEAA /* Audiobus+MIDI.swift */,
 				C4CC3042208499E5004E91CB /* Audiobus.txt */,
 				C4AC4AF82019C63F00D04C7F /* TAAE */,
 			);
@@ -591,6 +645,7 @@
 			children = (
 				C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */,
 				C474D94C1F13172B00946035 /* SynthOne  */,
+				941645CB20B3597300D62851 /* OneSignalNotificationServiceExtension */,
 				C4D193C51F1187B500FF4FE4 /* Products */,
 				9461F0371F5CAAE600EE226E /* Frameworks */,
 				54056ADC83E937067BBBA387 /* Pods */,
@@ -601,6 +656,7 @@
 			isa = PBXGroup;
 			children = (
 				C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */,
+				941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -649,6 +705,7 @@
 				C4F7ECBA1F244AD40011B119 /* CGFloat+Extensions.swift */,
 				9422F92B201A9D2800FE2FAC /* Dictionary+Key.swift */,
 				C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */,
+				944A6CDE20B0B7E500D797A8 /* Parent+PushNotification.swift */,
 				C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */,
 			);
 			path = Extensions;
@@ -657,6 +714,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		941645C920B3597300D62851 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 941645D220B3597300D62851 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				49E9B8C03D2127F41FFB0052 /* [CP] Check Pods Manifest.lock */,
+				941645C620B3597300D62851 /* Sources */,
+				941645C720B3597300D62851 /* Frameworks */,
+				941645C820B3597300D62851 /* Resources */,
+				DA5686B3398A63EB38340252 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		C4D193C31F1187B500FF4FE4 /* AudioKitSynthOne */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4D193D61F1187B500FF4FE4 /* Build configuration list for PBXNativeTarget "AudioKitSynthOne" */;
@@ -667,10 +743,12 @@
 				C4D193C21F1187B500FF4FE4 /* Resources */,
 				A02F99CB702A38B4BC2953CB /* [CP] Embed Pods Frameworks */,
 				C474D95D1F13172B00946035 /* Embed App Extensions */,
+				644C15A91DC9FA78C2D72730 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				941645D020B3597300D62851 /* PBXTargetDependency */,
 			);
 			name = AudioKitSynthOne;
 			productName = AudioKitSynthOne;
@@ -683,10 +761,15 @@
 		C4D193BC1F1187B500FF4FE4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = AudioKit;
 				TargetAttributes = {
+					941645C920B3597300D62851 = {
+						CreatedOnToolsVersion = 9.3.1;
+						DevelopmentTeam = 9W69ZP8S5F;
+						ProvisioningStyle = Automatic;
+					};
 					C4D193C31F1187B500FF4FE4 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 9W69ZP8S5F;
@@ -723,11 +806,19 @@
 			projectRoot = "";
 			targets = (
 				C4D193C31F1187B500FF4FE4 /* AudioKitSynthOne */,
+				941645C920B3597300D62851 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		941645C820B3597300D62851 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4D193C21F1187B500FF4FE4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -735,6 +826,7 @@
 				94C50C3220195FC0008549DB /* User.json in Resources */,
 				C4CC3043208499E5004E91CB /* Audiobus.txt in Resources */,
 				94FA2DC51F9E82BB00DED735 /* BankA.json in Resources */,
+				941645C520B34E5900D62851 /* Bonus.json in Resources */,
 				94D1763F20A138C50073F67F /* Red Sky Lullaby.json in Resources */,
 				946306F820AC9BC000AB97EC /* Brice Beasley.json in Resources */,
 				946306F620AC8C8C00AB97EC /* DJ Puzzle.json in Resources */,
@@ -746,6 +838,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		49E9B8C03D2127F41FFB0052 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		644C15A91DC9FA78C2D72730 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A02F99CB702A38B4BC2953CB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -753,15 +878,32 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChimpKit/ChimpKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChimpKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA5686B3398A63EB38340252 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F326D17312DDE12585405CB6 /* [CP] Check Pods Manifest.lock */ = {
@@ -785,6 +927,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		941645C620B3597300D62851 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				941645CD20B3597300D62851 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4D193C01F1187B500FF4FE4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -854,6 +1004,7 @@
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				943524561F57945500BDA789 /* ChildView.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
+				948938C320B37EE500B7CEAA /* Audiobus+MIDI.swift in Sources */,
 				9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */,
 				947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A041F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
@@ -866,8 +1017,11 @@
 				94AF74021F55FF9700ED8B51 /* TouchPoint.swift in Sources */,
 				94FA2DCD1F9E837700DED735 /* PresetCell.swift in Sources */,
 				C4AC4AF32019BF0500D04C7F /* AKSynthOneAudioUnit.mm in Sources */,
+				944A6CDF20B0B7E600D797A8 /* Parent+PushNotification.swift in Sources */,
 				94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */,
 				94FA2DCF1F9E837700DED735 /* CategoryCell.swift in Sources */,
+				943D9D2E20B1F72E004149AD /* InfoController.swift in Sources */,
+				943D9D2C20B1D56A004149AD /* MailingListController.swift in Sources */,
 				C40770EC1F2569C8007F2C77 /* SourceMixerViewController.swift in Sources */,
 				945261481F2928870037662C /* TouchPadViewController.swift in Sources */,
 				947956A91F329AB200FE5D9B /* Stepper.swift in Sources */,
@@ -898,6 +1052,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		941645D020B3597300D62851 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 941645C920B3597300D62851 /* OneSignalNotificationServiceExtension */;
+			targetProxy = 941645CF20B3597300D62851 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C474D9521F13172B00946035 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -918,6 +1080,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		941645D320B3597300D62851 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A319653D44EC41DAFAEB963 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9W69ZP8S5F;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		941645D420B3597300D62851 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9W69ZP8S5F;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C4D193D41F1187B500FF4FE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1123,6 +1331,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		941645D220B3597300D62851 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				941645D320B3597300D62851 /* Debug */,
+				941645D420B3597300D62851 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C4D193BF1F1187B500FF4FE4 /* Build configuration list for PBXProject "AudioKitSynthOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

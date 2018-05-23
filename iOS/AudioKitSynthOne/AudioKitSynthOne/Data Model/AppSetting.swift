@@ -31,10 +31,12 @@ class AppSetting: Codable {
     var dspParamPortamentoHalfTime = 0.1
 
     var saveTuningWithPreset = false
+    var pushNotifications = true
+    var userEmail = ""
     var launches = 0
     
     // Presets version
-    var presetsVersion = 1.07
+    var presetsVersion = 1.08
     
     // MIDI Learn Settings
     
@@ -90,9 +92,9 @@ class AppSetting: Codable {
     
     // Keyboard
     var labelMode = 1
-    var octaveRange = 2
+    var octaveRange = 3
     var darkMode = true
-    var showKeyboard = 0.0 // 1 show, 0 hide
+    var showKeyboard = 1.0 // 1 show, 0 hide
     
     // ******************************************************
     // MARK: - Init

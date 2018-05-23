@@ -280,8 +280,8 @@ class PresetsViewController: UIViewController {
     func upgradePresets() {
         
         // Remove existing presets
-        let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        
+       // let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
+        let banksToUpdate = ["BankA"]
         banksToUpdate.forEach { bankName in
             presets = presets.filter{$0.bank != bankName}
             loadFactoryPresets(bankName)
@@ -299,6 +299,12 @@ class PresetsViewController: UIViewController {
         }
     }
     
+    func addBonusPresets() {
+      let bankName = "BankA"
+      presets = presets.filter{$0.bank != bankName}
+      loadFactoryPresets("Bonus")
+      saveAllPresetsIn(bankName)
+    }
     
     // *****************************************************************
     // MARK: - IBActions / Callbacks
@@ -380,6 +386,7 @@ class PresetsViewController: UIViewController {
         
         if currentPreset.position < presetBank.count - 1 {
             currentPreset = presetBank[currentPreset.position + 1]
+           
         } else {
             currentPreset = presetBank[0]
         }
@@ -491,15 +498,19 @@ class PresetsViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @IBAction func doneEditingPressed(_ sender: UIButton) {
-        self.view.endEditing(true)
-        self.savePreset(currentPreset)
+        view.endEditing(true)
+        presetsDelegate?.saveEditedPreset(name: currentPreset.name, category: currentPreset.category, bank: currentPreset.bank)
     }
     
 }
+
+// *****************************************************************
+// MARK: - TextView Delegate
+// *****************************************************************
 
 extension PresetsViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {

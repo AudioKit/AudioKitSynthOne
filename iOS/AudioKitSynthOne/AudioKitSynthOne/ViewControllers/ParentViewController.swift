@@ -38,6 +38,7 @@ public class ParentViewController: UpdatableViewController {
     @IBOutlet weak var midiLearnToggle: SynthUIButton!
     @IBOutlet weak var pitchbend: AKVerticalPad!
     @IBOutlet weak var modWheelPad: AKVerticalPad!
+  
     
     var embeddedViewsDelegate: EmbeddedViewsDelegate?
     
@@ -59,6 +60,11 @@ public class ParentViewController: UpdatableViewController {
     var sustainer: SDSustainer!
     var pcJustTriggered = false
     var midiKnobs = [MIDIKnob]()
+    var signedMailingList = false
+    
+    // AudioBus
+    private var audioUnitPropertyListener: AudioUnitPropertyListener!
+    var midiInput: ABMIDIReceiverPort?
     
     // ********************************************************
     // MARK: - Define child view controllers
@@ -104,7 +110,6 @@ public class ParentViewController: UpdatableViewController {
     lazy var tuningsViewController: TuningsViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier()) as! TuningsViewController
-        viewController.delegate = self
         return viewController
     }()
 
@@ -159,12 +164,37 @@ public class ParentViewController: UpdatableViewController {
         // Pre-load views and Set initial subviews
         switchToChildView(.fxView, isTopView: true)
         switchToChildView(.adsrView, isTopView: true)
-        switchToChildView(.oscView, isTopView: true) 
+        switchToChildView(.oscView, isTopView: true)
         switchToChildView(.seqView, isTopView: false)
         
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)
         devViewController.view.removeFromSuperview()
+        
+        // IAA MIDI
+        var callbackStruct = AudioOutputUnitMIDICallbacks(
+            userData: nil,
+            MIDIEventProc: {
+                (first, status, data1, data2, offset) in
+                AudioKit.midi.sendMessage([MIDIByte(status), MIDIByte(data1), MIDIByte(data2)])},
+            MIDISysExProc: {
+                (firstPointer, secondPinter, anotherInt32) in
+                print("Not handling sysex")}
+        )
+        
+        let connectIAAMDI = AudioUnitSetProperty(AudioKit.engine.outputNode.audioUnit!,
+                                                 kAudioOutputUnitProperty_MIDICallbacks,
+                                                 kAudioUnitScope_Global,
+                                                 0,
+                                                 &callbackStruct,
+                                                 UInt32(MemoryLayout<AudioOutputUnitMIDICallbacks>.size))
+        if connectIAAMDI != 0 {
+            AKLog("Something bad happened")
+        }
+        
+        
+        // Setup AudioBus MIDI Input
+        setupAudioBusInput()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -175,6 +205,12 @@ public class ParentViewController: UpdatableViewController {
         } else {
             setDefaultsFromAppSettings()
             saveAppSettings()
+        }
+        
+        // Set Mailing List Button
+        signedMailingList = appSettings.signedMailingList
+        if let headerVC = self.childViewControllers.first as? HeaderViewController {
+            headerVC.updateMailingListButton(appSettings.signedMailingList)
         }
         
         // Load Banks
@@ -195,17 +231,25 @@ public class ParentViewController: UpdatableViewController {
         
         presetsViewController.loadBanks()
         
+        // Show email list if first run
+        if appSettings.firstRun && !appSettings.signedMailingList {
+            performSegue(withIdentifier: "SegueToMailingList", sender: self)
+            appSettings.firstRun = false
+        }
+        
         // On four runs show dialog and request review
-        //        if appSettings.launches == 4 { reviewPopUp() }
-        //        if appSettings.launches % 10 == 0 { skRequestReview() }
+        if appSettings.launches == 5 && !appSettings.isPreRelease { reviewPopUp() }
+        if appSettings.launches % 20 == 0 && !appSettings.isPreRelease { skRequestReview() }
+        
+        // Push Notifications request
+        if appSettings.launches == 9 { pushPopUp() }
+        if appSettings.launches % 15 == 0 && !appSettings.pushNotifications && !appSettings.isPreRelease { pushPopUp() }
         
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard
         
-        if !keyboardToggle.isOn {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.keyboardToggle.callback(0.0)
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
+            self.keyboardToggle.callback(self.appSettings.showKeyboard)
         }
         
         // Increase number of launches
@@ -323,7 +367,6 @@ public class ParentViewController: UpdatableViewController {
                 break
             }
         }
-        
 
         pitchbend.callback = { value01 in
             s.setAK1DependentParameter(.pitchbend, value01, Conductor.sharedInstance.pitchbendParentVCID)
@@ -419,9 +462,10 @@ public class ParentViewController: UpdatableViewController {
             let userMIDIChannel = omniMode ? -1 : Int(midiChannelIn)
             popOverController.userChannelIn = userMIDIChannel
             popOverController.midiSources = midiInputs
+            popOverController.saveTuningWithPreset = appSettings.saveTuningWithPreset
             popOverController.velocitySensitive = appSettings.velocitySensitive
             
-            popOverController.preferredContentSize = CGSize(width: 300, height: 320)
+            popOverController.preferredContentSize = CGSize(width: 300, height: 350)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
                 presentation.sourceRect = midiButton.bounds
@@ -441,6 +485,11 @@ public class ParentViewController: UpdatableViewController {
         
         if segue.identifier == "SegueToAbout" {
             let popOverController = segue.destination as! PopUpAbout
+            popOverController.delegate = self
+        }
+        
+        if segue.identifier == "SegueToMailingList" {
+            let popOverController = segue.destination as! MailingListController
             popOverController.delegate = self
         }
     }
@@ -470,8 +519,36 @@ public class ParentViewController: UpdatableViewController {
         presetsViewController.presetsDelegate = self
         isPresetsDisplayed = true
     }
-    
 }
+
+
+// **********************************************************
+// MARK: - Mailing List PopOver Delegate
+// **********************************************************
+
+
+extension ParentViewController: MailingListDelegate {
+    func didSignMailingList(email: String) {
+        
+        signedMailingList = true
+        
+        DispatchQueue.main.async {
+            if let headerVC = self.childViewControllers.first as? HeaderViewController {
+                headerVC.updateMailingListButton(self.signedMailingList)
+            }
+        }
+        userSignedMailingList(email: email)
+    }
+    
+    func userSignedMailingList(email: String) {
+        appSettings.signedMailingList = true
+        appSettings.userEmail = email
+        saveAppSettingValues()
+        
+        presetsViewController.addBonusPresets()
+    }
+}
+
 
 // **********************************************************
 // MARK: - Mod Wheel Settings Pop Over Delegate
@@ -533,6 +610,10 @@ extension ParentViewController: MIDISettingsPopOverDelegate {
     func didToggleVelocity() {
         appSettings.velocitySensitive = !appSettings.velocitySensitive
         saveAppSettingValues()
+    }
+    
+    public func storeTuningWithPresetDidChange(_ value: Bool) {
+        appSettings.saveTuningWithPreset = value
     }
 }
 
@@ -620,6 +701,14 @@ extension ParentViewController: HeaderDelegate {
     
     func savePresetPressed() {
         presetsViewController.editPressed()
+    }
+    
+    func morePressed() {
+        if signedMailingList {
+            performSegue(withIdentifier: "SegueToMore", sender: self)
+        } else {
+            performSegue(withIdentifier: "SegueToMailingList", sender: self)
+        }
     }
     
     func panicPressed() {
@@ -799,83 +888,93 @@ extension ParentViewController: AKKeyboardDelegate {
 
 extension ParentViewController: DevPanelDelegate {
     
-    func dspParamPortamentoHalfTimeChanged(_ value: Float) {
-        conductor.synth!.setAK1Parameter(.dspParamPortamentoHalfTime, Double(value))
-        let clampedValue = conductor.synth!.getAK1Parameter(.dspParamPortamentoHalfTime)
-        appSettings.dspParamPortamentoHalfTime = Double(clampedValue)
-    }
-    
-    func getDspParamPortamentoHalfTimeValue() -> Float {
-        return Float(appSettings.dspParamPortamentoHalfTime)
-    }
-
-    public func freezeArpRateChanged(_ value: Bool) {
+    public func freezeArpChanged(_ value: Bool) {
         appSettings.freezeArpRate = value
-        var t: String
-        if value {
-            t = "arpRate Ignores Presets"
-        } else {
-            t = "arpRate Tracks Presets"
-        }
-        updateDisplay(t)
     }
     
-    public func getFreezeArpRateChangedValue() -> Bool {
+    public func getFreezeArpChangedValue() -> Bool {
         return appSettings.freezeArpRate
     }
 
-    func freezeDelayChanged(_ value: Bool) {
-        appSettings.freezeDelay = value
-        var t: String
-        if value {
-            t = "Delay Params Ignore Presets"
-        } else {
-            t = "Delay Params Track Presets"
-        }
-        updateDisplay(t)
-    }
-    
-    func getFreezeDelayChangedValue() -> Bool {
-        return appSettings.freezeDelay
-    }
-
-    func freezeReverbChanged(_ value: Bool) {
-        appSettings.freezeReverb = value
-        var t: String
-        if value {
-            t = "Reverb Params Ignore Presets"
-        } else {
-            t = "Reverb Params Track Presets"
-        }
-        updateDisplay(t)
-    }
-    
-    func getFreezeReverbChangedValue() -> Bool {
-        return appSettings.freezeReverb
-    }
 }
 
 // **********************************************************
-// MARK: - TuningPanelDelegate protocol functions
+// MARK: - AudioBus MIDI Input & Preset Loading
 // **********************************************************
 
-extension ParentViewController: TuningPanelDelegate {
+extension ParentViewController: ABAudiobusControllerStateIODelegate {
     
-    public func storeTuningWithPresetDidChange(_ value: Bool) {
-        appSettings.saveTuningWithPreset = value
-        var t: String
-        if value {
-            t = "Tunings Track Presets"
-        } else {
-            t = "Tunings Ignore Presets"
+    func setupAudioBusInput() {
+        midiInput = ABMIDIReceiverPort(name: "AudioKit Synth One MIDI", title: "AudioKit Synth One MIDI") { (port, midiPacketListPointer)  in
+            
+            let events = AKMIDIEvent.midiEventsFrom(packetListPointer: midiPacketListPointer)
+            for event in events {
+                guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                
+                
+                if event.status == AKMIDIStatus.noteOn {
+                    if event.internalData[2] == 0 {
+                        self.sustainer.stop(noteNumber: event.noteNumber!)
+                    
+                    } else {
+                        // Prevent multiple triggers from multiple MIDI inputs
+//                        guard !self.notesJustTriggered.contains(event.noteNumber!) else { return }
+//
+//                        self.notesJustTriggered.insert(event.noteNumber!)
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+//                            self.notesJustTriggered.remove(event.noteNumber!)
+//                        }
+                        
+                        self.sustainer.play(noteNumber: event.noteNumber!, velocity: event.internalData[2])
+                    }
+                }
+                
+                if event.status == AKMIDIStatus.noteOff {
+                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                    self.sustainer.stop(noteNumber: event.noteNumber!)
+                }
+                
+                if event.status == AKMIDIStatus.pitchWheel {
+                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                    let x = MIDIWord(event.internalData[1])
+                    let y = MIDIWord(event.internalData[2]) << 7
+                    self.receivedMIDIPitchWheel(y+x, channel: event.channel!)
+                }
+                
+                if event.status == AKMIDIStatus.programChange {
+                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                    self.receivedMIDIProgramChange(event.data1, channel: event.channel!)
+                }
+                
+                if event.status == AKMIDIStatus.controllerChange {
+                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                    self.receivedMIDIController(event.data1, value: event.data2, channel: event.channel!)
+                }
+            }
         }
-        updateDisplay(t)
+        Audiobus.client?.controller.addMIDIReceiverPort(midiInput)
+        Audiobus.client?.controller.stateIODelegate = self
     }
     
-    public func getStoreTuningWithPresetValue() -> Bool {
-        return appSettings.saveTuningWithPreset
+    //*****************************************************************
+    // MARK: - AudioBus Preset Delegate
+    //*****************************************************************
+    
+    public func audiobusStateDictionaryForCurrentState() -> [AnyHashable : Any]! {
+        return [ "preset" : activePreset.position]
+    }
+    
+    public func loadState(fromAudiobusStateDictionary dictionary: [AnyHashable : Any]!, responseMessage outResponseMessage: AutoreleasingUnsafeMutablePointer<NSString?>!) {
+        
+        if let abDictionary = dictionary as? [String: Any] {
+            activePreset.position = abDictionary["preset"] as? Int ?? 0
+            DispatchQueue.main.async {
+                self.presetsViewController.didSelectPreset(index: self.activePreset.position)
+            }
+        }
     }
 }
+
 
 // **********************************************************
 // MARK: - AKMIDIListener protocol functions
@@ -1011,16 +1110,16 @@ extension ParentViewController: AKMIDIListener  {
     
     // MIDI Setup Change
     public func receivedMIDISetupChange() {
-        AKLog("midi setup change, midi.inputNames: \(midi.inputNames)")
+        // AKLog("midi setup change, midi.inputNames: \(midi.inputNames)")
         
         let midiInputNames = midi.inputNames
         midiInputNames.forEach { inputName in
-            
+
             // check to see if input exists
             if let index = midiInputs.index(where: { $0.name == inputName }) {
                 midiInputs.remove(at: index)
             }
-            
+
             let newMIDI = MIDIInput(name: inputName, isOpen: true)
             midiInputs.append(newMIDI)
             midi.openInput(inputName)

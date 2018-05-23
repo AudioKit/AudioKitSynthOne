@@ -137,14 +137,83 @@ import AudioKit
         (" 8 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,75,19,5,94,3,118,15])}),
         ("12 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1,65,9,37,151,21,86,12,49,200,28,114])}),
         
+        
+        
+        /// scales designed by Jose Garcia
+
+        //! wilson7.scl
+        //Wilson's 22-tone 7-limit 'marimba' scale
+        // 22
+        //!
+        // 28/27
+        // 16/15
+        // 10/9
+        // 9/8
+        // 7/6
+        // 6/5
+        // 5/4
+        // 35/27
+        // 4/3
+        // 27/20
+        // 45/32
+        // 35/24
+        // 3/2
+        // 14/9
+        // 8/5
+        // 5/3
+        // 27/16
+        // 7/4
+        // 9/5
+        // 15/8
+        // 35/18
+        // 2/1
+
+        //! garcia.scl
+        //Linear 29-tone scale by Jose L. Garcia (1988) 15/13-52/45 alternating
+        // 29
+        //!
+        // 40/39
+        // 27/26
+        // 16/15
+        // 128/117
+        // 9/8
+        // 15/13
+        // 32/27
+        // 6/5
+        // 16/13
+        // 81/64
+        // 135/104
+        // 4/3
+        // 160/117
+        // 18/13
+        // 64/45
+        // 512/351
+        // 3/2
+        // 20/13
+        // 81/52
+        // 8/5
+        // 64/39
+        // 27/16
+        // 45/26
+        // 16/9
+        // 9/5
+        // 24/13
+        // 256/135
+        // 405/208
+        // 2/1
+
+        
+        /// scales designed by Kraig Grady
+        //TODO: Add Centaur
+        
         /// scales designed by Erv Wilson.  See http://anaphoria.com/genus.pdf
         (" 7 Highland Bagpipes", {_ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes() } ),
         (" 7 MOS G:0.2641", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.2641, level: 5, murchana: 0)}),
         (" 9 MOS G:0.238186", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.238186, level: 6, murchana: 0)}),
         ("10 MOS G:0.292", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.292, level: 6, murchana: 0)}),
-        (" 7 MOS G:0.4057", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.4057, level: 4, murchana: 0)}),
-        (" 7 MOS G:0.415226", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.415226, level: 4, murchana: 0)}),
-        (" 7 MOS G:0.436385", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.436385, level: 4, murchana: 0)}),
+        (" 7 MOS G:0.4057", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.4057, level: 5, murchana: 0)}),
+        (" 7 MOS G:0.415226", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.415226, level: 5, murchana: 0)}),
+        (" 7 MOS G:0.436385", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.436385, level: 5, murchana: 0)}),
         ("31 Equal Temperament", {_ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 31)}),
         ("17 North Indian:17", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian00_17() } ),
         (" 7 North Indian:Kalyan", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian01Kalyan() } ),
@@ -227,6 +296,68 @@ import AudioKit
         }
         tuningsDelegate?.tuningDidChange()
     }
-    
+   
+//
+//    /// scales designed by Stephen Taylor
+//    //Wilsonic Favorite: MOS G = 0.855088472366333, NPO=13
+//    //        ("13 SJT MOS G: 0.855088472366333", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.855088472366333, level: 10, murchana: 0)}),
+//    ("13 SJT MOS G: 0.855088", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.855088, level: 10, murchana: 0)}),
+//
+//    //Wilsonic Favorite: MOS G = 0.855088472366333, NPO=6
+//    (" 6 SJT MOS G: 0.855088", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.855088, level: 6, murchana: 0)}),
+//
+//    //Wilsonic Favorite: MOS G = 0.7914000153541565, NPO=9
+//    //        (" 6 SJT MOS G: 0.7914000153541565", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.7914000153541565, level: 5, murchana: 0)}),
+//    (" 6 SJT MOS G: 0.791400", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.791400, level: 5, murchana: 0)}),
+//
+//    //Wilsonic Favorite: MOS G = 0.7820796370506287, NPO=5
+//    //?
+//    (" 5 SJT MOS G: 0.78207964", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.78207964, level: 5, murchana: 0)}),
+//
+//    //Wilsonic Favorite: MOS G = 0.6180329918861389, NPO=5
+//    //        (" 5 SJT MOS G: 0.6180329918861389", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.6180329918861389, level: 0, murchana: 0)}),
+//    (" 5 SJT MOS G: 0.618033", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.618033, level: 0, murchana: 0)}),
+//
+//    //!MOS_0.232587_0_0.scl
+//    //MOS: G=0.2325, NPO=17, M=0
+//    //17
+//    //!
+//    //28.372765
+//    //111.950397
+//    //195.528030
+//    //279.105592
+//    //307.478142
+//    //391.056061
+//    //474.633551
+//    //558.211184
+//    //586.583805
+//    //670.161438
+//    //753.739071
+//    //837.316775
+//    //865.689468
+//    //949.267101
+//    //1032.844734
+//    //1116.422367
+//    //2/1
+//    //! Created with the iOS app "Wilsonic" by Marcus Hobbs
+//    //!
+//    //! 0.000000 ==> Scale Degree: 0, Level: 0
+//    //! 28.372765 ==> Scale Degree: 13, Level: 7
+//    //! 111.950397 ==> Scale Degree: 9, Level: 6
+//    //! 195.528030 ==> Scale Degree: 5, Level: 5
+//    //! 279.105592 ==> Scale Degree: 1, Level: 1
+//    //! 307.478142 ==> Scale Degree: 14, Level: 7
+//    //! 391.056061 ==> Scale Degree: 10, Level: 6
+//    //! 474.633551 ==> Scale Degree: 6, Level: 5
+//    //! 558.211184 ==> Scale Degree: 2, Level: 2
+//    //! 586.583805 ==> Scale Degree: 15, Level: 7
+//    //! 670.161438 ==> Scale Degree: 11, Level: 6
+//    //! 753.739071 ==> Scale Degree: 7, Level: 5
+//    //! 837.316775 ==> Scale Degree: 3, Level: 3
+//    //! 865.689468 ==> Scale Degree: 16, Level: 7
+//    //! 949.267101 ==> Scale Degree: 12, Level: 6
+//    //! 1032.844734 ==> Scale Degree: 8, Level: 5
+//    //! 1116.422367 ==> Scale Degree: 4, Level: 4
+
     
 }

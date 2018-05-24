@@ -637,7 +637,6 @@ extension PresetsViewController: UITableViewDelegate {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    
 }
 
 //*****************************************************************

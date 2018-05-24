@@ -12,12 +12,6 @@ public protocol TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange()
 }
 
-extension TuningsViewController: TuningsPitchWheelViewTuningDidChange {
-    func tuningDidChange() {
-        tuningsPitchWheelView.updateFromGlobalTuningTable()
-    }
-}
-
 class TuningsViewController: SynthPanelController {
     
     @IBOutlet weak var tuningTableView: UITableView!
@@ -26,7 +20,7 @@ class TuningsViewController: SynthPanelController {
     @IBOutlet weak var resetTunings: SynthUIButton!
     @IBOutlet weak var diceButton: UIButton!
     
-    private let aks1Tunings = AKS1Tunings()
+    let tuningModel = AKS1Tunings()
     var getStoreTuningWithPresetValue = false
     
     override func viewDidLoad() {
@@ -36,9 +30,9 @@ class TuningsViewController: SynthPanelController {
         tuningTableView.isOpaque = false
         tuningTableView.allowsSelection = true
         tuningTableView.allowsMultipleSelection = false
-        tuningTableView.dataSource = aks1Tunings
-        tuningTableView.delegate = aks1Tunings
-        aks1Tunings.tuningsDelegate = self
+        tuningTableView.dataSource = self
+        tuningTableView.delegate = self
+        tuningModel.tuningsDelegate = self
         
         masterTuning.range = Conductor.sharedInstance.synth!.getParameterRange(.frequencyA4)
         masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
@@ -46,7 +40,7 @@ class TuningsViewController: SynthPanelController {
         
         resetTunings.callback = { value in
             if value == 1 {
-                let i = self.aks1Tunings.resetTuning()
+                let i = self.tuningModel.resetTuning()
                 self.masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
                 self.selectRow(i)
                 self.resetTunings.value = 0
@@ -68,8 +62,9 @@ class TuningsViewController: SynthPanelController {
     }
     
     @IBAction func randomPressed(_ sender: UIButton) {
-        let i = aks1Tunings.randomTuning()
+        let i = tuningModel.randomTuning()
         selectRow(i)
+        tuningDidChange()
         UIView.animate(withDuration: 0.4, animations: {
             for _ in 0 ... 1 {
                 self.diceButton.transform = self.diceButton.transform.rotated(by: CGFloat(Double.pi))
@@ -83,18 +78,122 @@ class TuningsViewController: SynthPanelController {
     }
     
     public func setTuning(withMasterArray master:[Double]) {
-        if let i = aks1Tunings.setTuning(withMasterArray: master) {
+        if let i = tuningModel.setTuning(withMasterArray: master) {
             selectRow(i)
         }
     }
     
     public func setDefaultTuning() {
-        let i = aks1Tunings.resetTuning()
+        let i = tuningModel.resetTuning()
         selectRow(i)
     }
     
     public func getTuning() -> [Double]? {
         return tuningsPitchWheelView.masterFrequency
+    }
+    
+}
+
+
+// *****************************************************************
+// MARK: - TableViewDataSource
+// *****************************************************************
+extension TuningsViewController: UITableViewDataSource {
+    
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    @objc(tableView:heightForRowAtIndexPath:) public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tuningModel.tunings.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
+        let tuning = tuningModel.tunings[(indexPath as NSIndexPath).row]
+        let title = tuning.0
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "TuningsViewController") as UITableViewCell? {
+            configureCell(cell)
+            cell.textLabel?.text = title
+            return cell
+        } else {
+            let cell = UITableViewCell()
+            configureCell(cell)
+            cell.textLabel?.text = title
+            return cell
+        }
+    }
+    
+    private func configureCell(_ cell: UITableViewCell) {
+        cell.isOpaque = false
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.textColor = #colorLiteral(red: 0.694699347, green: 0.6895567775, blue: 0.6986362338, alpha: 1)
+    }
+}
+
+//        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//            // Get current preset
+//            let preset = sortedPresets[(indexPath as NSIndexPath).row]
+//
+//            if let cell = tableView.dequeueReusableCell(withIdentifier: "PresetCell") as? PresetCell {
+//
+//                cell.delegate = self
+//
+//                // Cell updated in PresetCell.swift
+//                cell.configureCell(preset: preset)
+//
+//                return cell
+//
+//            } else {
+//                return PresetCell()
+//            }
+//        }
+//}
+
+//*****************************************************************
+// MARK: - TableViewDelegate
+//*****************************************************************
+
+extension TuningsViewController: UITableViewDelegate {
+    
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if cell.isSelected {
+            cell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        }
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tuning = tuningModel.tunings[(indexPath as NSIndexPath).row]
+        tuning.1()
+        
+        if let selectedCell = tableView.cellForRow(at: indexPath) {
+            selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        }
+        tuningDidChange()
+    }
+    
+    //        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //            self.view.endEditing(true)
+    //
+    //            // Get cell
+    //            let cell = tableView.cellForRow(at: indexPath) as? PresetCell
+    //            guard let newPreset = cell?.currentPreset else { return }
+    //            currentPreset = newPreset
+    //        }
+}
+
+//*****************************************************************
+// MARK: - TuningsPitchWheelViewTuningDidChange
+//*****************************************************************
+
+extension TuningsViewController: TuningsPitchWheelViewTuningDidChange {
+    func tuningDidChange() {
+        tuningsPitchWheelView.updateFromGlobalTuningTable()
     }
 }
 

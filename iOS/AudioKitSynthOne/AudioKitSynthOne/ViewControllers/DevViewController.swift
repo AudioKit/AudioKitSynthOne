@@ -10,29 +10,18 @@ import AudioKit
 import UIKit
 
 protocol DevPanelDelegate {
-    
-    // app setting (not dsp param)
     func freezeArpRateChanged(_ value: Bool)
-    func getFreezeArpRateChangedValue() -> Bool
-    
-    // app setting (not dsp param)
     func freezeReverbChanged(_ value: Bool)
-    func getFreezeReverbChangedValue() -> Bool
-    
-    // app setting (not dsp param)
     func freezeDelayChanged(_ value: Bool)
-    func getFreezeDelayChangedValue() -> Bool
-    
-    // app setting (not dsp param)
-    func dspParamPortamentoHalfTimeChanged(_ value: Float)
-    func getDspParamPortamentoHalfTimeValue() -> Float
+    func dspParamPortamentoHalfTimeChanged(_ value: Double)
 }
 
 class DevViewController: UpdatableViewController {
     
     var delegate: DevPanelDelegate?
     
-    @IBOutlet weak var masterVolume: Knob! // i.e., gain before compressorMaster
+    @IBOutlet weak var masterVolume: Knob! // gain before compressorMaster
+    
     @IBOutlet weak var compressorMasterRatio: Knob!
     @IBOutlet weak var compressorReverbInputRatio: Knob!
     @IBOutlet weak var compressorReverbWetRatio: Knob!
@@ -57,10 +46,14 @@ class DevViewController: UpdatableViewController {
     @IBOutlet weak var delayInputFilterResonance: Knob!
     
     @IBOutlet weak var freezeArpRate: ToggleButton!
+    var freezeArpRateValue = false
     @IBOutlet weak var freezeReverb: ToggleButton!
+    var freezeReverbValue = false
     @IBOutlet weak var freezeDelay: ToggleButton!
+    var freezeDelayValue = false
 
     @IBOutlet weak var dspParamPortamentoHalfTime: Knob!
+    var dspParamPortamentoHalfTimeValue = 0.1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,37 +108,28 @@ class DevViewController: UpdatableViewController {
         conductor.bind(delayInputFilterResonance,               to: .delayInputResonance)
         
         // freeze arp rate, i.e., ignore Preset updates
-        if let value = delegate?.getFreezeArpRateChangedValue() {
-            freezeArpRate.value = value ? 1 : 0
-        }
+        freezeArpRate.value = freezeArpRateValue ? 1 : 0
         freezeArpRate.callback = { value in
             self.delegate?.freezeArpRateChanged(value == 1 ? true : false)
         }
         
         // freeze delay time, i.e., ignore Preset updates
-        if let value = delegate?.getFreezeDelayChangedValue() {
-            freezeDelay.value = value ? 1 : 0
-        }
+        freezeDelay.value = freezeDelayValue ? 1 : 0
         freezeDelay.callback = { value in
             self.delegate?.freezeDelayChanged(value == 1 ? true : false)
         }
         
         // freeze reverb, i.e., ignore Preset updates
-        if let value = delegate?.getFreezeReverbChangedValue() {
-            freezeReverb.value = value ? 1 : 0
-        }
+        freezeReverb.value = freezeReverbValue ? 1 : 0
         freezeReverb.callback = { value in
             self.delegate?.freezeReverbChanged(value == 1 ? true : false)
         }
         
-        //dspParamPortamentoHalfTime
+        //dspParamPortamentoHalfTime (dsp param stored in app settings not presets)
         dspParamPortamentoHalfTime.range = conductor.synth!.getParameterRange(.dspParamPortamentoHalfTime)
-        if let value = delegate?.getDspParamPortamentoHalfTimeValue() {
-            dspParamPortamentoHalfTime.value = Double(value)
-        }
+        dspParamPortamentoHalfTime.value = dspParamPortamentoHalfTimeValue
         dspParamPortamentoHalfTime.callback = { value in
-            self.delegate?.dspParamPortamentoHalfTimeChanged(Float(value))
-            self.conductor.updateSingleUI(.dspParamPortamentoHalfTime, control: self.dspParamPortamentoHalfTime, value: value)
+            self.delegate?.dspParamPortamentoHalfTimeChanged(value)
         }
     }
 }

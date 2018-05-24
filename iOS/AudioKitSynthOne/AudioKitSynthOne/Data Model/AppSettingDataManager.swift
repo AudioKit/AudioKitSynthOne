@@ -27,6 +27,8 @@ extension ParentViewController {
         devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
         devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
         devViewController.freezeReverb.value = (appSettings.freezeReverb == true ? 1 : 0)
+        
+        // dsp param stored in app settings
         conductor.synth.setAK1Parameter(.dspParamPortamentoHalfTime, appSettings.dspParamPortamentoHalfTime)
         devViewController.dspParamPortamentoHalfTime.value = conductor.synth.getAK1Parameter(.dspParamPortamentoHalfTime)
         

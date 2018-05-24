@@ -94,7 +94,6 @@ class PopUpMIDIViewController: UIViewController {
         }
         
         sleepToggle.callback = { value in
-          
             if value == 1 {
                 self.conductor.neverSleep = true
                 self.displayAlertController("Info", message: "This mode is great for playing live. Note: it will use more power and could drain your battery faster")

@@ -85,7 +85,6 @@ public class ParentViewController: UpdatableViewController {
     lazy var devViewController: DevViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = mainStoryboard.instantiateViewController(withIdentifier: "DevViewController") as! DevViewController
-        viewController.delegate = self
         return viewController
     }()
     
@@ -168,6 +167,7 @@ public class ParentViewController: UpdatableViewController {
         switchToChildView(.seqView, isTopView: false)
         
         // Pre-load dev panel view
+        updateDevPanelViewControllerFromSettings()
         add(asChildViewController: devViewController, isTopContainer: true)
         devViewController.view.removeFromSuperview()
         
@@ -195,6 +195,14 @@ public class ParentViewController: UpdatableViewController {
         
         // Setup AudioBus MIDI Input
         setupAudioBusInput()
+    }
+    
+    private func updateDevPanelViewControllerFromSettings() {
+        devViewController.freezeArpRateValue = appSettings.freezeArpRate
+        devViewController.freezeDelayValue = appSettings.freezeDelay
+        devViewController.freezeReverbValue = appSettings.freezeReverb
+        devViewController.dspParamPortamentoHalfTimeValue = appSettings.dspParamPortamentoHalfTime
+        devViewController.delegate = self
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -297,7 +305,6 @@ public class ParentViewController: UpdatableViewController {
         }
         
         midiLearnToggle.callback = { _ in
-            
             // Toggle MIDI Learn Knobs in subview
             self.midiKnobs.forEach { $0.midiLearnMode = self.midiLearnToggle.isSelected }
             
@@ -387,7 +394,6 @@ public class ParentViewController: UpdatableViewController {
     }
     
     override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
-        
         // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
         guard let s = conductor.synth else { return }
         let isMono = s.getAK1Parameter(.isMono)
@@ -512,7 +518,6 @@ public class ParentViewController: UpdatableViewController {
     }
     
     func displayPresetsController() {
-        
         // Display Presets View
         topContainerView.subviews.forEach({ $0.removeFromSuperview() })
         add(asChildViewController: presetsViewController)
@@ -573,7 +578,6 @@ extension ParentViewController: ModWheelDelegate {
         default:
             break
         }
-
     }
 }
 
@@ -679,6 +683,7 @@ extension ParentViewController: HeaderDelegate {
         
         if isDevView {
             topContainerView.subviews.forEach({ $0.removeFromSuperview() })
+            updateDevPanelViewControllerFromSettings()
             add(asChildViewController: devViewController)
         } else {
             if let cv = topChildView {
@@ -887,15 +892,22 @@ extension ParentViewController: AKKeyboardDelegate {
 // **********************************************************
 
 extension ParentViewController: DevPanelDelegate {
-    
-    public func freezeArpChanged(_ value: Bool) {
+    func freezeArpRateChanged(_ value: Bool) {
         appSettings.freezeArpRate = value
     }
     
-    public func getFreezeArpChangedValue() -> Bool {
-        return appSettings.freezeArpRate
+    func freezeReverbChanged(_ value: Bool) {
+        appSettings.freezeReverb = value
     }
-
+    
+    func freezeDelayChanged(_ value: Bool) {
+        appSettings.freezeDelay = value
+    }
+    
+    func dspParamPortamentoHalfTimeChanged(_ value: Double) {
+        conductor.synth!.setAK1Parameter(.dspParamPortamentoHalfTime, value)
+        appSettings.dspParamPortamentoHalfTime = conductor.synth!.getAK1Parameter(.dspParamPortamentoHalfTime)
+    }
 }
 
 // **********************************************************

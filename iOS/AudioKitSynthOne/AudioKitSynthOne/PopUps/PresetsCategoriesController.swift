@@ -26,13 +26,20 @@ enum PresetCategory: Int {
 
     func description() -> String {
         switch self {
-        case .all: return "All"
-        case .arp: return "Arp/Seq"
-        case .poly: return "Poly"
-        case .pad: return "Pad"
-        case .lead: return "Lead"
-        case .bass: return "Bass"
-        case .pluck: return "Pluck"
+        case .all:
+            return "All"
+        case .arp:
+            return "Arp/Seq"
+        case .poly:
+            return "Poly"
+        case .pad:
+            return "Pad"
+        case .lead:
+            return "Lead"
+        case .bass:
+            return "Bass"
+        case .pluck:
+            return "Pluck"
         }
     }
 }

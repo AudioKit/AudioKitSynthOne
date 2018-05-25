@@ -36,7 +36,12 @@ public class ToggleButtonStyleKit: NSObject {
         let gradientColor2 = UIColor(red: 0.388, green: 0.388, blue: 0.409, alpha: 1.000)
 
         //// Gradient Declarations
-        let gradient = CGGradient(colorsSpace: nil, colors: [gradientColor.cgColor, gradientColor.blended(withFraction: 0.5, of: gradientColor3).cgColor, gradientColor3.cgColor, gradientColor4.cgColor, gradientColor2.cgColor] as CFArray, locations: [0.1, 0.1, 0.19, 0.61, 1])!
+        let gradient = CGGradient(colorsSpace: nil,
+                                  colors: [gradientColor.cgColor,
+                                           gradientColor.blended(withFraction: 0.5, of: gradientColor3).cgColor,
+                                           gradientColor3.cgColor, gradientColor4.cgColor,
+                                           gradientColor2.cgColor] as CFArray,
+                                  locations: [0.1, 0.1, 0.19, 0.61, 1])!
 
         //// Shadow Declarations
         let shadow = NSShadow()
@@ -52,7 +57,10 @@ public class ToggleButtonStyleKit: NSObject {
         //// Rectangle 3 Drawing
         let rectangle3Path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 34, height: 34), cornerRadius: 4)
         context.saveGState()
-        context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale, height: shadow3.shadowOffset.height * resizedShadowScale), blur: shadow3.shadowBlurRadius * resizedShadowScale, color: (shadow3.shadowColor as! UIColor).cgColor)
+        context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale,
+                                         height: shadow3.shadowOffset.height * resizedShadowScale),
+                          blur: shadow3.shadowBlurRadius * resizedShadowScale,
+                          color: (shadow3.shadowColor as! UIColor).cgColor)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         rectangle3Path.addClip()
         context.drawLinearGradient(gradient, start: CGPoint(x: 17, y: 34), end: CGPoint(x: 17, y: 0), options: [])
@@ -74,7 +82,10 @@ public class ToggleButtonStyleKit: NSObject {
             //// Rectangle Drawing
             let rectanglePath = UIBezierPath(rect: CGRect(x: 15, y: 11, width: 4, height: 12))
             context.saveGState()
-            context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale, height: shadow.shadowOffset.height * resizedShadowScale), blur: shadow.shadowBlurRadius * resizedShadowScale, color: (shadow.shadowColor as! UIColor).cgColor)
+            context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
+                                             height: shadow.shadowOffset.height * resizedShadowScale),
+                              blur: shadow.shadowBlurRadius * resizedShadowScale,
+                              color: (shadow.shadowColor as! UIColor).cgColor)
             orange.setFill()
             rectanglePath.fill()
             context.restoreGState()
@@ -102,17 +113,17 @@ public class ToggleButtonStyleKit: NSObject {
             scales.height = abs(target.height / rect.height)
 
             switch self {
-                case .aspectFit:
-                    scales.width = min(scales.width, scales.height)
-                    scales.height = scales.width
-                case .aspectFill:
-                    scales.width = max(scales.width, scales.height)
-                    scales.height = scales.width
-                case .stretch:
-                    break
-                case .center:
-                    scales.width = 1
-                    scales.height = 1
+            case .aspectFit:
+                scales.width = min(scales.width, scales.height)
+                scales.height = scales.width
+            case .aspectFill:
+                scales.width = max(scales.width, scales.height)
+                scales.height = scales.width
+            case .stretch:
+                break
+            case .center:
+                scales.width = 1
+                scales.height = 1
             }
 
             var result = rect.standardized

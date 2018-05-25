@@ -20,23 +20,35 @@ public enum ChildView: Int {
 
     func identifier() -> String {
         switch self {
-        case .oscView: return "SourceMixerViewController"
-        case .adsrView: return "ADSRViewController"
-        case .padView: return "TouchPadViewController"
-        case .fxView: return "FXViewController"
-        case .seqView: return "SeqViewController"
-        case .tuningsView: return "TuningsViewController"
+        case .oscView:
+            return "SourceMixerViewController"
+        case .adsrView:
+            return "ADSRViewController"
+        case .padView:
+            return "TouchPadViewController"
+        case .fxView:
+            return "FXViewController"
+        case .seqView:
+            return "SeqViewController"
+        case .tuningsView:
+            return "TuningsViewController"
         }
     }
 
     func btnText() -> String {
         switch self {
-        case .oscView: return "MAIN"
-        case .adsrView: return "ADSR"
-        case .padView: return "PAD"
-        case .fxView: return "FX"
-        case .seqView: return "ARP"
-        case .tuningsView: return "TUNE"
+        case .oscView:
+            return "MAIN"
+        case .adsrView:
+            return "ADSR"
+        case .padView:
+            return "PAD"
+        case .fxView:
+            return "FX"
+        case .seqView:
+            return "ARP"
+        case .tuningsView:
+            return "TUNE"
         }
     }
 

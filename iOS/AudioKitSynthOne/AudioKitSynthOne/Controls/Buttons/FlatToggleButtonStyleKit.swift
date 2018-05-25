@@ -15,7 +15,10 @@ public class FlatToggleButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 43), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false) {
+    @objc
+    dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 43),
+                                                    resizing: ResizingBehavior = .aspectFit,
+                                                    isToggled: Bool = false) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -49,7 +52,7 @@ public class FlatToggleButtonStyleKit: NSObject {
         colorOn.setFill()
         buttonBackgroundPath.fill()
 
-        if (isToggled) {
+        if isToggled {
             //// buttonBackground 2 Drawing
             let buttonBackground2Path = UIBezierPath(ovalIn: CGRect(x: 2.5, y: 1.5, width: 30, height: 30))
             colorOn.setFill()
@@ -75,7 +78,7 @@ public class FlatToggleButtonStyleKit: NSObject {
 
         }
 
-        if (isToggled) {
+        if isToggled {
             //// buttonOn
             //// Rectangle Drawing
             let rectanglePath = UIBezierPath(rect: CGRect(x: 15.5, y: 10.5, width: 4, height: 12))
@@ -106,19 +109,19 @@ public class FlatToggleButtonStyleKit: NSObject {
             var scales = CGSize.zero
             scales.width = abs(target.width / rect.width)
             scales.height = abs(target.height / rect.height)
-
+            
             switch self {
-                case .aspectFit:
-                    scales.width = min(scales.width, scales.height)
-                    scales.height = scales.width
-                case .aspectFill:
-                    scales.width = max(scales.width, scales.height)
-                    scales.height = scales.width
-                case .stretch:
-                    break
-                case .center:
-                    scales.width = 1
-                    scales.height = 1
+            case .aspectFit:
+                scales.width = min(scales.width, scales.height)
+                scales.height = scales.width
+            case .aspectFill:
+                scales.width = max(scales.width, scales.height)
+                scales.height = scales.width
+            case .stretch:
+                break
+            case .center:
+                scales.width = 1
+                scales.height = 1
             }
 
             var result = rect.standardized

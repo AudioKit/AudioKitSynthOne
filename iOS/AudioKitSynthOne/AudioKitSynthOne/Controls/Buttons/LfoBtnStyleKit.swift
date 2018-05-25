@@ -56,7 +56,9 @@ public class LfoBtnStyleKit: NSObject {
 
         if (indicator1On) {
             //// leftPress Drawing
-            let leftPressPath = UIBezierPath(roundedRect: CGRect(x: 3, y: 3, width: 50, height: 31), byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: 3, height: 3))
+            let leftPressPath = UIBezierPath(roundedRect: CGRect(x: 3, y: 3, width: 50, height: 31),
+                                             byRoundingCorners: [.topLeft, .bottomLeft],
+                                             cornerRadii: CGSize(width: 3, height: 3))
             leftPressPath.close()
             downColor.setFill()
             leftPressPath.fill()
@@ -64,7 +66,8 @@ public class LfoBtnStyleKit: NSObject {
 
         if (indicator2On) {
             //// rightPress Drawing
-            let rightPressPath = UIBezierPath(roundedRect: CGRect(x: 53, y: 3, width: 49, height: 31), byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: 3, height: 3))
+            let rightPressPath = UIBezierPath(roundedRect: CGRect(x: 53, y: 3, width: 49, height: 31),
+                                              byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: 3, height: 3))
             rightPressPath.close()
             downColor.setFill()
             rightPressPath.fill()
@@ -79,7 +82,10 @@ public class LfoBtnStyleKit: NSObject {
             //// Lfo1Selected Drawing
             let lfo1SelectedPath = UIBezierPath(rect: CGRect(x: 10, y: 9, width: 11, height: 18))
             context.saveGState()
-            context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale, height: shadow.shadowOffset.height * resizedShadowScale), blur: shadow.shadowBlurRadius * resizedShadowScale, color: (shadow.shadowColor as! UIColor).cgColor)
+            context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
+                                             height: shadow.shadowOffset.height * resizedShadowScale),
+                              blur: shadow.shadowBlurRadius * resizedShadowScale,
+                              color: (shadow.shadowColor as! UIColor).cgColor)
             onColor.setFill()
             lfo1SelectedPath.fill()
             context.restoreGState()
@@ -95,7 +101,10 @@ public class LfoBtnStyleKit: NSObject {
             //// Lfo2Selected Drawing
             let lfo2SelectedPath = UIBezierPath(rect: CGRect(x: 83, y: 9, width: 11, height: 18))
             context.saveGState()
-            context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale, height: shadow.shadowOffset.height * resizedShadowScale), blur: shadow.shadowBlurRadius * resizedShadowScale, color: (shadow.shadowColor as! UIColor).cgColor)
+            context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
+                                             height: shadow.shadowOffset.height * resizedShadowScale),
+                              blur: shadow.shadowBlurRadius * resizedShadowScale,
+                              color: (shadow.shadowColor as! UIColor).cgColor)
             onColor.setFill()
             lfo2SelectedPath.fill()
             context.restoreGState()
@@ -112,10 +121,18 @@ public class LfoBtnStyleKit: NSObject {
             .paragraphStyle: textStyle,
         ] as [NSAttributedStringKey: Any]
 
-        let textTextHeight: CGFloat = buttonText.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
+        let textTextHeight: CGFloat = buttonText.boundingRect(with: CGSize(width: textRect.width,
+                                                                           height: CGFloat.infinity),
+                                                              options: .usesLineFragmentOrigin,
+                                                              attributes: textFontAttributes,
+                                                              context: nil).height
         context.saveGState()
         context.clip(to: textRect)
-        buttonText.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
+        buttonText.draw(in: CGRect(x: textRect.minX,
+                                   y: textRect.minY + (textRect.height - textTextHeight) / 2,
+                                   width: textRect.width,
+                                   height: textTextHeight),
+                        withAttributes: textFontAttributes)
         context.restoreGState()
 
         context.restoreGState()
@@ -139,17 +156,17 @@ public class LfoBtnStyleKit: NSObject {
             scales.height = abs(target.height / rect.height)
 
             switch self {
-                case .aspectFit:
-                    scales.width = min(scales.width, scales.height)
-                    scales.height = scales.width
-                case .aspectFill:
-                    scales.width = max(scales.width, scales.height)
-                    scales.height = scales.width
-                case .stretch:
-                    break
-                case .center:
-                    scales.width = 1
-                    scales.height = 1
+            case .aspectFit:
+                scales.width = min(scales.width, scales.height)
+                scales.height = scales.width
+            case .aspectFill:
+                scales.width = max(scales.width, scales.height)
+                scales.height = scales.width
+            case .stretch:
+                break
+            case .center:
+                scales.width = 1
+                scales.height = 1
             }
 
             var result = rect.standardized

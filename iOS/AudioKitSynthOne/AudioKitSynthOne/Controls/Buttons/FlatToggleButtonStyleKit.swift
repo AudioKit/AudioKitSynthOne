@@ -17,8 +17,8 @@ public class FlatToggleButtonStyleKit: NSObject {
 
     @objc
     dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 43),
-                                                    resizing: ResizingBehavior = .aspectFit,
-                                                    isToggled: Bool = false) {
+                                              resizing: ResizingBehavior = .aspectFit,
+                                              isToggled: Bool = false) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -65,7 +65,10 @@ public class FlatToggleButtonStyleKit: NSObject {
             context.setAlpha((shadow2.shadowColor as! UIColor).cgColor.alpha)
             context.beginTransparencyLayer(auxiliaryInfo: nil)
             let buttonBackground2OpaqueShadow = (shadow2.shadowColor as! UIColor).withAlphaComponent(1)
-            context.setShadow(offset: CGSize(width: shadow2.shadowOffset.width * resizedShadowScale, height: shadow2.shadowOffset.height * resizedShadowScale), blur: shadow2.shadowBlurRadius * resizedShadowScale, color: buttonBackground2OpaqueShadow.cgColor)
+            context.setShadow(offset: CGSize(width: shadow2.shadowOffset.width * resizedShadowScale,
+                                             height: shadow2.shadowOffset.height * resizedShadowScale),
+                              blur: shadow2.shadowBlurRadius * resizedShadowScale,
+                              color: buttonBackground2OpaqueShadow.cgColor)
             context.setBlendMode(.sourceOut)
             context.beginTransparencyLayer(auxiliaryInfo: nil)
 

@@ -28,11 +28,11 @@ public class ToggleSwitchStyleKit: NSObject {
 
         //// Color Declarations
         let gray = UIColor(red: 0.306, green: 0.306, blue: 0.325, alpha: 1.000)
-        let _222 = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
+        let shadowColor = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
 
         //// Shadow Declarations
         let shadow = NSShadow()
-        shadow.shadowColor = _222
+        shadow.shadowColor = shadowColor
         shadow.shadowOffset = CGSize(width: 0, height: -2)
         shadow.shadowBlurRadius = 8
 
@@ -41,7 +41,7 @@ public class ToggleSwitchStyleKit: NSObject {
 
         //// track Drawing
         let trackPath = UIBezierPath(roundedRect: CGRect(x: 8, y: 6, width: 36, height: 17), cornerRadius: 6)
-        _222.setFill()
+        shadowColor.setFill()
         trackPath.fill()
 
         //// button
@@ -71,7 +71,7 @@ public class ToggleSwitchStyleKit: NSObject {
         context.endTransparencyLayer()
         context.restoreGState()
 
-        _222.setStroke()
+        shadowColor.setStroke()
         buttonBackground2Path.lineWidth = 0.5
         buttonBackground2Path.stroke()
 

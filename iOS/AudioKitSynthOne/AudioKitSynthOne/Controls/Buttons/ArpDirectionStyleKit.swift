@@ -53,12 +53,12 @@ public class ArpDirectionStyleKit: NSObject {
         downPath.stroke()
 
         //// up_down Drawing
-        let up_downPath = UIBezierPath(roundedRect: CGRect(x: 35.5, y: 2, width: 35, height: 29), cornerRadius: 1)
+        let upDownPath = UIBezierPath(roundedRect: CGRect(x: 35.5, y: 2, width: 35, height: 29), cornerRadius: 1)
         upDownSelected.setFill()
-        up_downPath.fill()
+        upDownPath.fill()
         UIColor.black.setStroke()
-        up_downPath.lineWidth = 1
-        up_downPath.stroke()
+        upDownPath.lineWidth = 1
+        upDownPath.stroke()
 
         //// Rectangle Drawing
         context.saveGState()

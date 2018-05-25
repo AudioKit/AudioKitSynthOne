@@ -19,25 +19,25 @@ class Stepper: UIView, AKSynthOneControl {
     var minValue = 0.0 {
         didSet {
             range = (Double(minValue) ... Double(maxValue))
-            _value = range.clamp(_value)
+            internalValue = range.clamp(internalValue)
         }
     }
     var maxValue = 3.0 {
         didSet {
             range = (Double(minValue) ... Double(maxValue))
-            _value = range.clamp(_value)
+            internalValue = range.clamp(internalValue)
         }
     }
 
-    internal var _value: Double = 0
+    internal var internalValue: Double = 0
 
     public internal(set) var value: Double {
         get {
-            return _value
+            return internalValue
         }
         set {
-            _value = round(_value)
-            _value = range.clamp(newValue)
+            internalValue = round(internalValue)
+            internalValue = range.clamp(newValue)
             setNeedsDisplay()
         }
     }
@@ -57,7 +57,7 @@ class Stepper: UIView, AKSynthOneControl {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         range = (Double(minValue) ... Double(maxValue))
-        _value = 1
+        internalValue = 1
         text = "1"
     }
 

@@ -20,12 +20,12 @@ class TempoStepper: Stepper {
 
     public override var value: Double {
         get {
-            return _value
+            return internalValue
         }
         set {
-            _value = round(newValue)
+            internalValue = round(newValue)
             range = (Double(minValue) ... Double(maxValue))
-            _value = range.clamp(_value)
+            internalValue = range.clamp(internalValue)
             knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
         }
     }
@@ -51,8 +51,8 @@ class TempoStepper: Stepper {
         maxValue = 360
         minValue = 60
         range = (Double(minValue) ... Double(maxValue))
-        _value = 120
-        text = String(_value)
+        internalValue = 120
+        text = String(internalValue)
     }
 
     // *********************************************************

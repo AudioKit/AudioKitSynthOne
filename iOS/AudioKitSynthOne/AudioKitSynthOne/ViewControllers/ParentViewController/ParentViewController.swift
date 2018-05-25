@@ -251,7 +251,7 @@ public class ParentViewController: UpdatableViewController {
         }
 
         // Increase number of launches
-        appSettings.launches = appSettings.launches + 1
+        appSettings.launches += 1
         saveAppSettingValues()
 
         // Get MIDI Knobs

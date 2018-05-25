@@ -9,6 +9,8 @@
 import UIKit
 import AudioKit
 
+// swiftlint:disable identifier_name:min_length
+
 @objc open class AKS1Tunings: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     public var tuningsDelegate: TuningsPitchWheelViewTuningDidChange?
@@ -19,32 +21,32 @@ import AudioKit
 
     // 4 choose 2
     private class func hexany(_ masterSet: [Frequency]) -> [Frequency] {
-        let A = masterSet[0]
-        let B = masterSet[1]
-        let C = masterSet[2]
-        let D = masterSet[3]
-        return [A * B, A * C, A * D, B * C, B * D, C * D]
+        let a = masterSet[0]
+        let b = masterSet[1]
+        let c = masterSet[2]
+        let d = masterSet[3]
+        return [a * b, a * c, a * d, b * c, b * d, c * d]
     }
 
     // 5 choose 2
     private class func dekany(_ masterSet: [Frequency]) -> [Frequency] {
-        let A = masterSet[0]
-        let B = masterSet[1]
-        let C = masterSet[2]
-        let D = masterSet[3]
-        let E = masterSet[4]
-        return [A * B, A * C, A * D, A * E, B * C, B * D, B * E, C * D, C * E, D * E]
+        let a = masterSet[0]
+        let b = masterSet[1]
+        let c = masterSet[2]
+        let d = masterSet[3]
+        let e = masterSet[4]
+        return [a * b, a * c, a * d, a * e, b * c, b * d, b * e, c * d, c * e, d * e]
     }
 
     // 6 choose 2
     private class func pentadekany(_ masterSet: [Frequency]) -> [Frequency] {
-        let A = masterSet[0]
-        let B = masterSet[1]
-        let C = masterSet[2]
-        let D = masterSet[3]
-        let E = masterSet[4]
-        let F = masterSet[5]
-        return [A * B, A * C, A * D, A * E, A * F, B * C, B * D, B * E, B * F, C * D, C * E, C * F, D * E, D * F, E * F]
+        let a = masterSet[0]
+        let b = masterSet[1]
+        let c = masterSet[2]
+        let d = masterSet[3]
+        let e = masterSet[4]
+        let f = masterSet[5]
+        return [a * b, a * c, a * d, a * e, a * f, b * c, b * d, b * e, b * f, c * d, c * e, c * f, d * e, d * f, e * f]
     }
 
     public func setTuning(withMasterArray master: [Double]) -> Int? {

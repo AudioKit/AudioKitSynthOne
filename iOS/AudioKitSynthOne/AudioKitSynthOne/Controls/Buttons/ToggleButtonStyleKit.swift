@@ -15,7 +15,10 @@ public class ToggleButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 43), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false) {
+    @objc
+    dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 43),
+                                                    resizing: ResizingBehavior = .aspectFit,
+                                                    isToggled: Bool = false) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -77,7 +80,7 @@ public class ToggleButtonStyleKit: NSObject {
         darkerGray.setFill()
         rectangle2Path.fill()
 
-        if (isToggled) {
+        if isToggled {
             //// buttonOn
             //// Rectangle Drawing
             let rectanglePath = UIBezierPath(rect: CGRect(x: 15, y: 11, width: 4, height: 12))

@@ -55,7 +55,7 @@ public class TempoStyleKit: NSObject {
         //// Rectangle Drawing
         context.saveGState()
         context.translateBy(x: 61.5, y: 54.5)
-        context.rotate(by: -270 * CGFloat.pi/180)
+        context.rotate(by: -270 * CGFloat.pi / 180)
 
         let rectanglePath = UIBezierPath()
         rectanglePath.move(to: CGPoint(x: 3.5, y: -5.5))
@@ -69,7 +69,7 @@ public class TempoStyleKit: NSObject {
         //// Rectangle 4 Drawing
         context.saveGState()
         context.translateBy(x: 20.5, y: 55.5)
-        context.rotate(by: -90 * CGFloat.pi/180)
+        context.rotate(by: -90 * CGFloat.pi / 180)
 
         let rectangle4Path = UIBezierPath()
         rectangle4Path.move(to: CGPoint(x: 3.5, y: -5.5))
@@ -93,13 +93,20 @@ public class TempoStyleKit: NSObject {
         let tempoBackgroundFontAttributes = [
             NSAttributedStringKey.font: UIFont(name: "AvenirNextCondensed-Regular", size: 15)!,
             NSAttributedStringKey.foregroundColor: textColor,
-            NSAttributedStringKey.paragraphStyle: tempoBackgroundStyle,
+            NSAttributedStringKey.paragraphStyle: tempoBackgroundStyle
         ]
 
-        let tempoBackgroundTextHeight: CGFloat = text.boundingRect(with: CGSize(width: tempoBackgroundRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: tempoBackgroundFontAttributes, context: nil).height
+        let tempoBackgroundTextHeight: CGFloat = text.boundingRect(with: CGSize(width: tempoBackgroundRect.width,
+                                                                                height: CGFloat.infinity),
+                                                                   options: .usesLineFragmentOrigin,
+                                                                   attributes: tempoBackgroundFontAttributes,
+                                                                   context: nil).height
         context.saveGState()
         context.clip(to: tempoBackgroundRect)
-        text.draw(in: CGRect(x: tempoBackgroundRect.minX, y: tempoBackgroundRect.minY + (tempoBackgroundRect.height - tempoBackgroundTextHeight) / 2, width: tempoBackgroundRect.width, height: tempoBackgroundTextHeight), withAttributes: tempoBackgroundFontAttributes)
+        text.draw(in: CGRect(x: tempoBackgroundRect.minX,
+                             y: tempoBackgroundRect.minY + (tempoBackgroundRect.height - tempoBackgroundTextHeight) / 2,
+                             width: tempoBackgroundRect.width, height: tempoBackgroundTextHeight),
+                  withAttributes: tempoBackgroundFontAttributes)
         context.restoreGState()
 
         context.restoreGState()

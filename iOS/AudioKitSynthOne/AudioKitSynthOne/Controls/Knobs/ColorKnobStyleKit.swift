@@ -79,7 +79,10 @@ public class ColorKnobStyleKit: NSObject {
         //// GradientKnob Drawing
         let gradientKnobPath = UIBezierPath(ovalIn: CGRect(x: 19, y: 19, width: 90, height: 90))
         context.saveGState()
-        context.setShadow(offset: CGSize(width: shadow2.shadowOffset.width * resizedShadowScale, height: shadow2.shadowOffset.height * resizedShadowScale), blur: shadow2.shadowBlurRadius * resizedShadowScale, color: (shadow2.shadowColor as! UIColor).cgColor)
+        context.setShadow(offset: CGSize(width: shadow2.shadowOffset.width * resizedShadowScale,
+                                         height: shadow2.shadowOffset.height * resizedShadowScale),
+                          blur: shadow2.shadowBlurRadius * resizedShadowScale,
+                          color: (shadow2.shadowColor as! UIColor).cgColor)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         gradientKnobPath.addClip()
         context.drawLinearGradient(edge2, start: CGPoint(x: 64, y: 109), end: CGPoint(x: 64, y: 19), options: [])
@@ -92,7 +95,10 @@ public class ColorKnobStyleKit: NSObject {
         context.setAlpha((shadow3.shadowColor as! UIColor).cgColor.alpha)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         let gradientKnobOpaqueShadow = (shadow3.shadowColor as! UIColor).withAlphaComponent(1)
-        context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale, height: shadow3.shadowOffset.height * resizedShadowScale), blur: shadow3.shadowBlurRadius * resizedShadowScale, color: gradientKnobOpaqueShadow.cgColor)
+        context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale,
+                                         height: shadow3.shadowOffset.height * resizedShadowScale),
+                          blur: shadow3.shadowBlurRadius * resizedShadowScale,
+                          color: gradientKnobOpaqueShadow.cgColor)
         context.setBlendMode(.sourceOut)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
 
@@ -117,7 +123,10 @@ public class ColorKnobStyleKit: NSObject {
         context.setAlpha((shadow6.shadowColor as! UIColor).cgColor.alpha)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         let topCircleOpaqueShadow = (shadow6.shadowColor as! UIColor).withAlphaComponent(1)
-        context.setShadow(offset: CGSize(width: shadow6.shadowOffset.width * resizedShadowScale, height: shadow6.shadowOffset.height * resizedShadowScale), blur: shadow6.shadowBlurRadius * resizedShadowScale, color: topCircleOpaqueShadow.cgColor)
+        context.setShadow(offset: CGSize(width: shadow6.shadowOffset.width * resizedShadowScale,
+                                         height: shadow6.shadowOffset.height * resizedShadowScale),
+                          blur: shadow6.shadowBlurRadius * resizedShadowScale,
+                          color: topCircleOpaqueShadow.cgColor)
         context.setBlendMode(.sourceOut)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
 
@@ -132,11 +141,14 @@ public class ColorKnobStyleKit: NSObject {
         //// Indicator Drawing
         context.saveGState()
         context.translateBy(x: 64.5, y: 63.5)
-        context.rotate(by: -(knobAngle - 240) * CGFloat.pi/180)
+        context.rotate(by: -(knobAngle - 240) * CGFloat.pi / 180)
 
         let indicatorPath = UIBezierPath(rect: CGRect(x: -2.32, y: -44.82, width: 6.36, height: 35))
         context.saveGState()
-        context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale, height: shadow.shadowOffset.height * resizedShadowScale), blur: shadow.shadowBlurRadius * resizedShadowScale, color: (shadow.shadowColor as! UIColor).cgColor)
+        context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
+                                         height: shadow.shadowOffset.height * resizedShadowScale),
+                          blur: shadow.shadowBlurRadius * resizedShadowScale,
+                          color: (shadow.shadowColor as! UIColor).cgColor)
         indicatorColor.setFill()
         indicatorPath.fill()
         context.restoreGState()

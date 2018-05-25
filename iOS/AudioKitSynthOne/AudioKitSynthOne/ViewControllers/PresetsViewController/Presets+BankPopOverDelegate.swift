@@ -14,13 +14,13 @@ extension PresetsViewController: BankPopOverDelegate {
 
     func didFinishEditing(oldName: String, newName: String) {
         // update presets
-        let presetsInBank = presets.filter { $0.bank == oldName}
+        let presetsInBank = presets.filter { $0.bank == oldName }
         presetsInBank.forEach {
             $0.bank = newName
         }
 
         // Update Conductor
-        let bank = conductor.banks.filter { $0.name == oldName}.first
+        let bank = conductor.banks.filter { $0.name == oldName }.first
         bank?.name = newName
 
         // Update AppSettings
@@ -42,7 +42,7 @@ extension PresetsViewController: BankPopOverDelegate {
     func didDeleteBank(bankName: String) {
 
         // Remove presets from main list
-        presets = presets.filter { $0.bank != bankName}
+        presets = presets.filter { $0.bank != bankName }
 
         // Remove from Conductor
         conductor.banks = conductor.banks.filter { $0.name != bankName }

@@ -103,7 +103,7 @@ class SeqViewController: SynthPanelController {
             conductor.bind(arpSeqNoteOnButton, to: arpSeqPatternParam) { _, control in
                 return { value in
                     let v = Double(truncating: value > 0 ? true : false)
-                    s.setAK1ArpSeqNoteOn(forIndex: notePosition, value >  0 ? true : false )
+                    s.setAK1ArpSeqNoteOn(forIndex: notePosition, value > 0 ? true : false )
                     self.conductor.updateSingleUI(arpSeqPatternParam, control: arpSeqNoteOnButton, value: v)
                 }
             }

@@ -73,7 +73,7 @@ public class Knob: UIView, AKSynthOneControl {
     }
 
     public override func draw(_ rect: CGRect) {
-        KnobStyleKit.drawKnobOne(frame: CGRect(x:0, y:0, width: self.bounds.width, height: self.bounds.height), knobValue: knobValue)
+        KnobStyleKit.drawKnobOne(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height), knobValue: knobValue)
     }
 
     // Helper
@@ -81,7 +81,7 @@ public class Knob: UIView, AKSynthOneControl {
         // Knobs assume up or right is increasing, and down or left is decreasing
 
         knobValue += (touchPoint.x - lastX) * knobSensitivity
-        knobValue -= (touchPoint.y - lastY) * knobSensitivity/4
+        knobValue -= (touchPoint.y - lastY) * knobSensitivity / 4
 
         knobValue = (0.0 ... 1.0).clamp(knobValue)
 

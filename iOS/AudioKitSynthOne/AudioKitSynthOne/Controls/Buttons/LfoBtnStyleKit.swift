@@ -15,7 +15,11 @@ public class LfoBtnStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawLfoButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 106, height: 38), resizing: ResizingBehavior = .aspectFit, lfoSelected: CGFloat = 5, buttonText: String = "Hello") {
+    @objc
+    dynamic public class func drawLfoButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 106, height: 38),
+                                                  resizing: ResizingBehavior = .aspectFit,
+                                                  lfoSelected: CGFloat = 5,
+                                                  buttonText: String = "Hello") {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -47,14 +51,15 @@ public class LfoBtnStyleKit: NSObject {
 
         //// Button
         //// btnBackground Drawing
-        let btnBackgroundPath = UIBezierPath(roundedRect: CGRect(x: 2.5, y: 2.5, width: 100, height: 32), cornerRadius: 2)
+        let btnBackgroundPath = UIBezierPath(roundedRect: CGRect(x: 2.5, y: 2.5, width: 100, height: 32),
+                                             cornerRadius: 2)
         btnBack.setFill()
         btnBackgroundPath.fill()
         color.setStroke()
         btnBackgroundPath.lineWidth = 1
         btnBackgroundPath.stroke()
 
-        if (indicator1On) {
+        if indicator1On {
             //// leftPress Drawing
             let leftPressPath = UIBezierPath(roundedRect: CGRect(x: 3, y: 3, width: 50, height: 31),
                                              byRoundingCorners: [.topLeft, .bottomLeft],
@@ -64,10 +69,11 @@ public class LfoBtnStyleKit: NSObject {
             leftPressPath.fill()
         }
 
-        if (indicator2On) {
+        if indicator2On {
             //// rightPress Drawing
             let rightPressPath = UIBezierPath(roundedRect: CGRect(x: 53, y: 3, width: 49, height: 31),
-                                              byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: 3, height: 3))
+                                              byRoundingCorners: [.topRight, .bottomRight],
+                                              cornerRadii: CGSize(width: 3, height: 3))
             rightPressPath.close()
             downColor.setFill()
             rightPressPath.fill()
@@ -97,7 +103,7 @@ public class LfoBtnStyleKit: NSObject {
         offColor.setFill()
         lfo2IndicatorPath.fill()
 
-        if (indicator2On) {
+        if indicator2On {
             //// Lfo2Selected Drawing
             let lfo2SelectedPath = UIBezierPath(rect: CGRect(x: 83, y: 9, width: 11, height: 18))
             context.saveGState()
@@ -118,7 +124,7 @@ public class LfoBtnStyleKit: NSObject {
         let textFontAttributes = [
             .font: UIFont(name: "AvenirNextCondensed-Regular", size: 16)!,
             .foregroundColor: textColor,
-            .paragraphStyle: textStyle,
+            .paragraphStyle: textStyle
         ] as [NSAttributedStringKey: Any]
 
         let textTextHeight: CGFloat = buttonText.boundingRect(with: CGSize(width: textRect.width,

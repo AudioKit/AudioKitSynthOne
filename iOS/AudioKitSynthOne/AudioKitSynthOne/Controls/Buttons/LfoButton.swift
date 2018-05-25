@@ -54,7 +54,7 @@ class LfoButton: UIView, AKSynthOneControl {
 
             let touchPoint = touch.location(in: self)
 
-            if touchPoint.x < btnWidth/2 {
+            if touchPoint.x < btnWidth / 2 {
                 lfo1Active = !lfo1Active
             } else {
                 lfo2Active = !lfo2Active

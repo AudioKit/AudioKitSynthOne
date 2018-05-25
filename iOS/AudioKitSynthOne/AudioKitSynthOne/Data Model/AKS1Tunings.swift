@@ -15,7 +15,7 @@ import AudioKit
 
     public var tuningsDelegate: TuningsPitchWheelViewTuningDidChange?
 
-    public typealias AKS1TuningCallback = () -> (Void)
+    public typealias AKS1TuningCallback = () -> Void
 
     private typealias Frequency = Double
 
@@ -50,7 +50,7 @@ import AudioKit
     }
 
     public func setTuning(withMasterArray master: [Double]) -> Int? {
-        if master.count == 0 { return nil}
+        if master.count == 0 { return nil }
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: master)
         tuningsDelegate?.tuningDidChange()
         return tunings.count - 1
@@ -75,106 +75,106 @@ import AudioKit
     }
 
     private let tunings: [(String, AKS1TuningCallback)] = [
-        ("12 Tone Equal Temperament (default)", {_ = AKPolyphonicNode.tuningTable.defaultTuning() }),
-        ("12 Chain of pure fifths", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 3, 9, 27, 81, 243, 729, 2187, 6561, 19683, 59049, 177147]) }),
+        ("12 Tone Equal Temperament (default)", { _ = AKPolyphonicNode.tuningTable.defaultTuning() }),
+        ("12 Chain of pure fifths", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 3, 9, 27, 81, 243, 729, 2_187, 6_561, 19_683, 59_049, 177_147]) }),
 
         // scales designed by Marcus Hobbs using Wilsonic
-        (" 6 Hexany(1, 3, 5, 7) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 7)  }),
-        ("10 Dekany(1, 3, 5, 7, 11)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 7, 11])) }),
+        (" 6 Hexany(1, 3, 5, 7) ", { _ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 7) }),
+        ("10 Dekany(1, 3, 5, 7, 11)", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 7, 11])) }),
 
-        (" 6 Hexany(1, 3, 5, 45) ", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45)  }),// 071
-        ("10 Dekany(1, 3, 5, 45, 75) ", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 45, 75]) ) }),
+        (" 6 Hexany(1, 3, 5, 45) ", { _ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 45) }), // 071
+        ("10 Dekany(1, 3, 5, 45, 75) ", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 45, 75]) ) }),
         ("15 Pentadekany(Hexany(1,3,5,45))", {
             _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.pentadekany(AKS1Tunings.hexany([1, 3, 5, 45])))
         }),
 
-        (" 6 Hexany(1, 3, 5, 9)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 9) }),
-        ("10 Dekany(1, 3, 5, 9, 25)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 9, 25] ) ) }),
+        (" 6 Hexany(1, 3, 5, 9)", { _ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 9) }),
+        ("10 Dekany(1, 3, 5, 9, 25)", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 9, 25] ) ) }),
         ("15 Pentadekany(Hexany(1,3,5,9))", {
             _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.pentadekany(AKS1Tunings.hexany([1, 3, 5, 9])))
         }),
 
-        (" 6 Hexany(1, 3, 5, 15)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 15) }),
-        ("10 Dekany(1, 3, 5, 9, 15)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 9, 15] ) ) }),
+        (" 6 Hexany(1, 3, 5, 15)", { _ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 15) }),
+        ("10 Dekany(1, 3, 5, 9, 15)", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 9, 15] ) ) }),
 
-        (" 6 Hexany(1, 3, 5, 81)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81) }),
-        ("10 Dekany(1, 3, 5, 9, 81)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 9, 81] ) ) }),
+        (" 6 Hexany(1, 3, 5, 81)", { _ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 81) }),
+        ("10 Dekany(1, 3, 5, 9, 81)", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 9, 81] ) ) }),
         ("15 Pentadekany(Hexany(1,3,5,81))", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.pentadekany(AKS1Tunings.hexany([1, 3, 5, 81])))
         }),
-        (" 6 Hexany(1, 3, 5, 121)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121) }),
-        ("10 Dekany(1, 3, 5, 11, 121)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 11, 121] ) ) }),
-        ("15 Pentadekany(Hexany(1, 3, 5, 121))", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.pentadekany(AKS1Tunings.hexany([1, 3, 5, 121])))}
+        (" 6 Hexany(1, 3, 5, 121)", { _ = AKPolyphonicNode.tuningTable.hexany(1, 3, 5, 121) }),
+        ("10 Dekany(1, 3, 5, 11, 121)", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 3, 5, 11, 121] ) ) }),
+        ("15 Pentadekany(Hexany(1, 3, 5, 121))", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.pentadekany(AKS1Tunings.hexany([1, 3, 5, 121]))) }
         ),
-        (" 6 Hexany(1, 15, 45, 75)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 15, 45, 75) }),
-        ("10 Dekany(1, 15, 45, 75, 105)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 15, 45, 75, 105]) ) }),
+        (" 6 Hexany(1, 15, 45, 75)", { _ = AKPolyphonicNode.tuningTable.hexany(1, 15, 45, 75) }),
+        ("10 Dekany(1, 15, 45, 75, 105)", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 15, 45, 75, 105]) ) }),
         ("15 Pentadekany(1, 15, 45, 75)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.pentadekany(AKS1Tunings.hexany([1, 15, 45, 75])))
         }),
-        (" 6 Hexany(1, 17, 19, 23)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23) }),
-        (" 6 Hexany(1, 45, 135, 225)", {_ = AKPolyphonicNode.tuningTable.hexany(1, 45, 135, 225) }),
-        ("10 Dekany(1, 45, 135, 225, 315)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 45, 135, 225, 315])) }),
-        (" 6 Hexany(3, 2.111, 5.111, 8.111)", {_ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111) }),
-        (" 6 Hexany(3, 1.346, 4.346, 7.346)", {_ = AKPolyphonicNode.tuningTable.hexany(3, 1.346, 4.346, 7.346) }),
-        (" 6 Hexany(3, 5, 7, 9)", {_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 7, 9) }),
-        (" 6 Hexany(3, 7, 9, 35)", {_ = AKPolyphonicNode.tuningTable.hexany(3, 7, 9, 35) }),
-        (" 6 Hexany(3, 5, 15, 19)", {_ = AKPolyphonicNode.tuningTable.hexany(3, 5, 15, 19) }),
-        (" 6 Hexany(5, 7, 21, 35)", {_ = AKPolyphonicNode.tuningTable.hexany(5, 7, 21, 35) }),
+        (" 6 Hexany(1, 17, 19, 23)", { _ = AKPolyphonicNode.tuningTable.hexany(1, 17, 19, 23) }),
+        (" 6 Hexany(1, 45, 135, 225)", { _ = AKPolyphonicNode.tuningTable.hexany(1, 45, 135, 225) }),
+        ("10 Dekany(1, 45, 135, 225, 315)", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.dekany([1, 45, 135, 225, 315])) }),
+        (" 6 Hexany(3, 2.111, 5.111, 8.111)", { _ = AKPolyphonicNode.tuningTable.hexany(3, 2.111, 5.111, 8.111) }),
+        (" 6 Hexany(3, 1.346, 4.346, 7.346)", { _ = AKPolyphonicNode.tuningTable.hexany(3, 1.346, 4.346, 7.346) }),
+        (" 6 Hexany(3, 5, 7, 9)", { _ = AKPolyphonicNode.tuningTable.hexany(3, 5, 7, 9) }),
+        (" 6 Hexany(3, 7, 9, 35)", { _ = AKPolyphonicNode.tuningTable.hexany(3, 7, 9, 35) }),
+        (" 6 Hexany(3, 5, 15, 19)", { _ = AKPolyphonicNode.tuningTable.hexany(3, 5, 15, 19) }),
+        (" 6 Hexany(5, 7, 21, 35)", { _ = AKPolyphonicNode.tuningTable.hexany(5, 7, 21, 35) }),
         ("15 Pentadekany(5, 7, 21, 35)", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: AKS1Tunings.pentadekany(AKS1Tunings.hexany([5, 7, 21, 35])))
         }),
-        (" 6 Hexany(9, 25, 49, 81)", {_ = AKPolyphonicNode.tuningTable.hexany(9, 25, 49, 81) }),
-        (" 5 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 19, 5, 3, 15])}),
-        (" 5 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [35, 20, 46, 26, 15])}),
-        (" 5 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 37, 21, 49, 28])}),
-        (" 5 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [35, 74, 23, 51, 61])}),
-        (" 6 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [74, 150, 85, 106, 120, 61])}),
-        (" 6 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 9, 5, 23, 48, 7])}),
-        (" 6 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 9, 21, 3, 25, 15])}),
-        (" 6 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 75, 19, 5, 3, 15])}),
-        (" 7 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 17, 10, 47, 3, 13, 7])}),
-        (" 7 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 9, 5, 21, 3, 27, 7])}),
-        (" 7 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 9, 21, 3, 25, 15, 31])}),
-        (" 7 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 75, 19, 5, 94, 3, 15])}),
-        (" 7 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [9, 40, 21, 25, 52, 15, 31])}),
-        (" 7 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 18, 5, 21, 3, 25, 15])}),
-        (" 8 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 75, 19, 5, 94, 3, 118, 15])}),
-        ("12 Recurrence Relation", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 65, 9, 37, 151, 21, 86, 12, 49, 200, 28, 114])}),
+        (" 6 Hexany(9, 25, 49, 81)", { _ = AKPolyphonicNode.tuningTable.hexany(9, 25, 49, 81) }),
+        (" 5 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 19, 5, 3, 15]) }),
+        (" 5 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [35, 20, 46, 26, 15]) }),
+        (" 5 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 37, 21, 49, 28]) }),
+        (" 5 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [35, 74, 23, 51, 61]) }),
+        (" 6 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [74, 150, 85, 106, 120, 61]) }),
+        (" 6 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 9, 5, 23, 48, 7]) }),
+        (" 6 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 9, 21, 3, 25, 15]) }),
+        (" 6 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 75, 19, 5, 3, 15]) }),
+        (" 7 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 17, 10, 47, 3, 13, 7]) }),
+        (" 7 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 9, 5, 21, 3, 27, 7]) }),
+        (" 7 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 9, 21, 3, 25, 15, 31]) }),
+        (" 7 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 75, 19, 5, 94, 3, 15]) }),
+        (" 7 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [9, 40, 21, 25, 52, 15, 31]) }),
+        (" 7 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 18, 5, 21, 3, 25, 15]) }),
+        (" 8 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 75, 19, 5, 94, 3, 118, 15]) }),
+        ("12 Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 65, 9, 37, 151, 21, 86, 12, 49, 200, 28, 114]) }),
 
         /// scales designed by Erv Wilson.  See http://anaphoria.com/genus.pdf
-        (" 7 Highland Bagpipes", {_ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes() }),
-        (" 7 MOS G:0.2641", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.2641, level: 5, murchana: 0)}),
-        (" 9 MOS G:0.238186", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.238186, level: 6, murchana: 0)}),
-        ("10 MOS G:0.292", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.292, level: 6, murchana: 0)}),
-        (" 7 MOS G:0.4057", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.4057, level: 4, murchana: 0)}),
-        (" 7 MOS G:0.415226", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.415226, level: 4, murchana: 0)}),
-        (" 7 MOS G:0.436385", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.436385, level: 4, murchana: 0)}),
-        ("31 Equal Temperament", {_ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 31)}),
-        ("17 North Indian:17", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian00_17() }),
-        (" 7 North Indian:Kalyan", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian01Kalyan() }),
-        (" 7 North Indian:Bilawal", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian02Bilawal() }),
-        (" 7 North Indian:Khamaj", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian03Khamaj() }),
-        (" 7 North Indian:KafiOld", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian04KafiOld() }),
-        (" 7 North Indian:Kafi", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian05Kafi() }),
-        (" 7 North Indian:Asawari", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian06Asawari() }),
-        (" 7 North Indian:Bhairavi", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian07Bhairavi() }),
-        (" 7 North Indian:Bhairav", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav() }),
-        (" 7 North Indian:Marwa", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian08Marwa() }),
-        (" 7 North Indian:Purvi", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian09Purvi() }),
-        (" 7 North Indian:Lalit2", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian10Lalit2() }),
-        (" 7 North Indian:Todi", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian11Todi() }),
-        (" 7 North Indian:Lalit", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian12Lalit() }),
-        (" 7 North Indian:NoName", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian13NoName() }),
-        (" 7 North Indian:AnandBhairav", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian14AnandBhairav() }),
-        (" 7 North Indian:Bhairav", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav() }),
-        (" 7 North Indian:JogiyaTodi", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian16JogiyaTodi() }),
-        (" 7 North Indian:Madhubanti", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian17Madhubanti() }),
-        (" 7 North Indian:NatBhairav", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian18NatBhairav() }),
-        (" 7 North Indian:AhirBhairav", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian19AhirBhairav() }),
-        (" 7 North Indian:ChandraKanada", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian20ChandraKanada() }),
-        (" 7 North Indian:BasantMukhair", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian21BasantMukhari() }),
-        (" 7 North Indian:Champakali", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian22Champakali() }),
-        (" 7 North Indian:Patdeep", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian23Patdeep() }),
-        (" 7 North Indian:MohanKauns", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian24MohanKauns() }),
-        (" 7 North Indian:Parameswari", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian25Parameswari() }),
-        (" - Tuning From Preset", {_ = 0})
+        (" 7 Highland Bagpipes", { _ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes() }),
+        (" 7 MOS G:0.2641", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.264_1, level: 5, murchana: 0) }),
+        (" 9 MOS G:0.238186", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.238_186, level: 6, murchana: 0) }),
+        ("10 MOS G:0.292", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.292, level: 6, murchana: 0) }),
+        (" 7 MOS G:0.4057", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.405_7, level: 4, murchana: 0) }),
+        (" 7 MOS G:0.415226", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.415_226, level: 4, murchana: 0) }),
+        (" 7 MOS G:0.436385", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.436_385, level: 4, murchana: 0) }),
+        ("31 Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 31) }),
+        ("17 North Indian:17", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian00_17() }),
+        (" 7 North Indian:Kalyan", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian01Kalyan() }),
+        (" 7 North Indian:Bilawal", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian02Bilawal() }),
+        (" 7 North Indian:Khamaj", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian03Khamaj() }),
+        (" 7 North Indian:KafiOld", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian04KafiOld() }),
+        (" 7 North Indian:Kafi", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian05Kafi() }),
+        (" 7 North Indian:Asawari", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian06Asawari() }),
+        (" 7 North Indian:Bhairavi", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian07Bhairavi() }),
+        (" 7 North Indian:Bhairav", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav() }),
+        (" 7 North Indian:Marwa", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian08Marwa() }),
+        (" 7 North Indian:Purvi", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian09Purvi() }),
+        (" 7 North Indian:Lalit2", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian10Lalit2() }),
+        (" 7 North Indian:Todi", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian11Todi() }),
+        (" 7 North Indian:Lalit", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian12Lalit() }),
+        (" 7 North Indian:NoName", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian13NoName() }),
+        (" 7 North Indian:AnandBhairav", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian14AnandBhairav() }),
+        (" 7 North Indian:Bhairav", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav() }),
+        (" 7 North Indian:JogiyaTodi", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian16JogiyaTodi() }),
+        (" 7 North Indian:Madhubanti", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian17Madhubanti() }),
+        (" 7 North Indian:NatBhairav", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian18NatBhairav() }),
+        (" 7 North Indian:AhirBhairav", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian19AhirBhairav() }),
+        (" 7 North Indian:ChandraKanada", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian20ChandraKanada() }),
+        (" 7 North Indian:BasantMukhair", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian21BasantMukhari() }),
+        (" 7 North Indian:Champakali", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian22Champakali() }),
+        (" 7 North Indian:Patdeep", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian23Patdeep() }),
+        (" 7 North Indian:MohanKauns", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian24MohanKauns() }),
+        (" 7 North Indian:Parameswari", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian25Parameswari() }),
+        (" - Tuning From Preset", { _ = 0 })
     ]
 
     // MARK: UITableViewDataSource

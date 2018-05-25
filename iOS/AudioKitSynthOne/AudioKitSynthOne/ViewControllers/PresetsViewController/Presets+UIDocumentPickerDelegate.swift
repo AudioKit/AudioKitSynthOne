@@ -50,7 +50,7 @@ extension PresetsViewController: UIDocumentPickerDelegate {
 
                     // Save to AppSettings
                     let newBankIndex = conductor.banks.count
-                    self.addNewBank(newBankName:  bankName, newBankIndex: newBankIndex)
+                    self.addNewBank(newBankName: bankName, newBankIndex: newBankIndex)
 
                 } else {
                     let importedPreset = Preset.parseDataToPreset(presetJSON: presetJSON)

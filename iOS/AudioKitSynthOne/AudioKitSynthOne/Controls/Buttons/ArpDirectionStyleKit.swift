@@ -63,7 +63,7 @@ public class ArpDirectionStyleKit: NSObject {
         //// Rectangle Drawing
         context.saveGState()
         context.translateBy(x: 88, y: 26.5)
-        context.rotate(by: -90 * CGFloat.pi/180)
+        context.rotate(by: -90 * CGFloat.pi / 180)
 
         let rectanglePath = UIBezierPath()
         rectanglePath.move(to: CGPoint(x: 12.5, y: -5))
@@ -77,7 +77,7 @@ public class ArpDirectionStyleKit: NSObject {
         //// Rectangle 2 Drawing
         context.saveGState()
         context.translateBy(x: 49.62, y: 4)
-        context.rotate(by: 90 * CGFloat.pi/180)
+        context.rotate(by: 90 * CGFloat.pi / 180)
 
         let rectangle2Path = UIBezierPath()
         rectangle2Path.move(to: CGPoint(x: 10.8, y: -5.38))
@@ -91,7 +91,7 @@ public class ArpDirectionStyleKit: NSObject {
         //// Rectangle 3 Drawing
         context.saveGState()
         context.translateBy(x: 56, y: 30.5)
-        context.rotate(by: -90 * CGFloat.pi/180)
+        context.rotate(by: -90 * CGFloat.pi / 180)
 
         let rectangle3Path = UIBezierPath()
         rectangle3Path.move(to: CGPoint(x: 12.5, y: -5))
@@ -105,7 +105,7 @@ public class ArpDirectionStyleKit: NSObject {
         //// Rectangle 4 Drawing
         context.saveGState()
         context.translateBy(x: 18.12, y: 9)
-        context.rotate(by: 90 * CGFloat.pi/180)
+        context.rotate(by: 90 * CGFloat.pi / 180)
 
         let rectangle4Path = UIBezierPath()
         rectangle4Path.move(to: CGPoint(x: 10.8, y: -5.38))

@@ -66,7 +66,7 @@ extension PresetsViewController: PresetCellDelegate {
         // Save preset to temp directory to be shared
         let presetLocation = "temp/\(currentPreset.name).synth1"
         try? Disk.save(currentPreset, to: .caches, as: presetLocation)
-        let path: URL =  try! Disk.getURL(for: presetLocation, in: .caches)
+        let path: URL = try! Disk.getURL(for: presetLocation, in: .caches)
 
         // Share
         let activityViewController = UIActivityViewController(
@@ -78,7 +78,9 @@ extension PresetsViewController: PresetCellDelegate {
 
         if let popoverPresentationController = activityViewController.popoverPresentationController {
             popoverPresentationController.sourceView = self.view
-            popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.midX,
+                                                              y: self.view.bounds.midY,
+                                                              width: 0, height: 0)
             popoverPresentationController.permittedArrowDirections = []
         }
 

@@ -102,29 +102,29 @@ public enum Rate: Int, CustomStringConvertible {
         case .barTriplet:
             return seconds(bars: 1, triplet: true)
         case .half:
-            return seconds(bars: 1/2)
+            return seconds(bars: 1 / 2)
         case .halfTriplet:
-            return seconds(bars: 1/2, triplet: true)
+            return seconds(bars: 1 / 2, triplet: true)
         case .quarter:
-            return seconds(bars: 1/4)
+            return seconds(bars: 1 / 4)
         case .quarterTriplet:
-            return seconds(bars: 1/4, triplet: true)
+            return seconds(bars: 1 / 4, triplet: true)
         case .eighth:
-            return seconds(bars: 1/8)
+            return seconds(bars: 1 / 8)
         case .eighthTriplet:
-            return seconds(bars: 1/8, triplet: true)
+            return seconds(bars: 1 / 8, triplet: true)
         case .sixteenth:
-            return seconds(bars: 1/16)
+            return seconds(bars: 1 / 16)
         case .sixteenthTriplet:
-            return seconds(bars: 1/16, triplet: true)
+            return seconds(bars: 1 / 16, triplet: true)
         case .thirtySecondth:
-            return seconds(bars: 1/32)
+            return seconds(bars: 1 / 32)
         case .thirtySecondthTriplet:
-            return seconds(bars: 1/32, triplet: true)
+            return seconds(bars: 1 / 32, triplet: true)
         case .sixtyFourth:
-            return seconds(bars: 1/64)
+            return seconds(bars: 1 / 64)
         case .sixtyFourthTriplet:
-            return seconds(bars: 1/64, triplet: true)
+            return seconds(bars: 1 / 64, triplet: true)
         }
     }
 
@@ -137,7 +137,7 @@ public enum Rate: Int, CustomStringConvertible {
 
     private static func findMinimum(_ value: Double, comparator: (Int) -> Double) -> Rate {
         var closestRate = Rate(rawValue: 0)
-        var smallestDifference = 1000000000.0
+        var smallestDifference = 1_000_000_000.0
         for i in 0 ..< Rate.count {
             let difference: Double = abs(comparator(i) - value)
             if  difference < smallestDifference {

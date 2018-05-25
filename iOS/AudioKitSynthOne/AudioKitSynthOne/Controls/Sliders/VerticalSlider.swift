@@ -34,7 +34,7 @@ class VerticalSlider: UIControl, AKSynthOneControl {
     var sliderY: CGFloat = 0.0
     var sliderValue: CGFloat = 0.5 {
         didSet {
-            sliderY = convertValueToY(currentValue) - knobSize.height/2
+            sliderY = convertValueToY(currentValue) - knobSize.height / 2
         }
     }
 

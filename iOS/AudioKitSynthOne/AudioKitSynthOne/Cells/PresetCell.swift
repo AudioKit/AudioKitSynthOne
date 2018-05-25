@@ -42,7 +42,7 @@ class PresetCell: UITableViewCell {
         // set cell selection color
         let selectedView = UIView(frame: CGRect.zero)
         selectedView.backgroundColor = UIColor.clear
-        selectedBackgroundView  = selectedView
+        selectedBackgroundView = selectedView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

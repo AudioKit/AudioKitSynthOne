@@ -15,7 +15,12 @@ public class NavButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawNavButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 63, height: 156), resizing: ResizingBehavior = .aspectFit, isOn: CGFloat = 0, rotation: CGFloat = 180, text: String = "ADSR") {
+    @objc
+    dynamic public class func drawNavButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 63, height: 156),
+                                                  resizing: ResizingBehavior = .aspectFit,
+                                                  isOn: CGFloat = 0,
+                                                  rotation: CGFloat = 180,
+                                                  text: String = "ADSR") {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -46,7 +51,7 @@ public class NavButtonStyleKit: NSObject {
         //// arrow Drawing
         context.saveGState()
         context.translateBy(x: 30.5, y: 85)
-        context.rotate(by: -rotation * CGFloat.pi/180)
+        context.rotate(by: -rotation * CGFloat.pi / 180)
 
         let arrowPath = UIBezierPath()
         arrowPath.move(to: CGPoint(x: 12.5, y: -15))
@@ -64,13 +69,19 @@ public class NavButtonStyleKit: NSObject {
         let labelFontAttributes = [
             .font: UIFont(name: "AvenirNextCondensed-Regular", size: UIFont.labelFontSize)!,
             .foregroundColor: labelColor,
-            .paragraphStyle: labelStyle,
+            .paragraphStyle: labelStyle
         ] as [NSAttributedStringKey: Any]
 
-        let labelTextHeight: CGFloat = text.boundingRect(with: CGSize(width: labelRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: labelFontAttributes, context: nil).height
+        let labelTextHeight: CGFloat = text.boundingRect(with: CGSize(width: labelRect.width, height: CGFloat.infinity),
+                                                         options: .usesLineFragmentOrigin,
+                                                         attributes: labelFontAttributes,
+                                                         context: nil).height
         context.saveGState()
         context.clip(to: labelRect)
-        text.draw(in: CGRect(x: labelRect.minX, y: labelRect.minY + (labelRect.height - labelTextHeight) / 2, width: labelRect.width, height: labelTextHeight), withAttributes: labelFontAttributes)
+        text.draw(in: CGRect(x: labelRect.minX, y: labelRect.minY + (labelRect.height - labelTextHeight) / 2,
+                             width: labelRect.width,
+                             height: labelTextHeight),
+                  withAttributes: labelFontAttributes)
         context.restoreGState()
 
         context.restoreGState()

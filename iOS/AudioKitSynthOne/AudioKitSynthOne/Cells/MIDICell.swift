@@ -28,7 +28,7 @@ class MIDICell: UITableViewCell {
         // set cell selection color
         let selectedView = UIView(frame: CGRect.zero)
         selectedView.backgroundColor = UIColor.clear
-        selectedBackgroundView  = selectedView
+        selectedBackgroundView = selectedView
 
         cellLabel?.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
     }

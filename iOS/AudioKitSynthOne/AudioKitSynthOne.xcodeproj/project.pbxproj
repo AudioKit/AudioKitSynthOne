@@ -94,6 +94,16 @@
 		C42459DF201D6498004565AB /* AKSynthOneDSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C42459DE201D6498004565AB /* AKSynthOneDSPKernel.mm */; };
 		C42459E1201D64D4004565AB /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42459E0201D64D4004565AB /* Bank.swift */; };
 		C42459E3201D64DE004565AB /* PopUpBankEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42459E2201D64DE004565AB /* PopUpBankEdit.swift */; };
+		C4421A5E20B811B000BE9F12 /* Parent+MailingListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A5D20B811B000BE9F12 /* Parent+MailingListDelegate.swift */; };
+		C4421A6020B8122700BE9F12 /* Parent+HeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A5F20B8122700BE9F12 /* Parent+HeaderDelegate.swift */; };
+		C4421A6220B812C800BE9F12 /* Parent+ModWheelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A6120B812C800BE9F12 /* Parent+ModWheelDelegate.swift */; };
+		C4421A6420B812FF00BE9F12 /* Parent+PresetsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A6320B812FF00BE9F12 /* Parent+PresetsDelegate.swift */; };
+		C4421A6620B8133C00BE9F12 /* Parent+EmbeddedViewsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A6520B8133C00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */; };
+		C4421A6820B8137700BE9F12 /* Parent+MIDIListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A6720B8137700BE9F12 /* Parent+MIDIListener.swift */; };
+		C4421A6A20B813ED00BE9F12 /* Parent+Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A6920B813ED00BE9F12 /* Parent+Audiobus.swift */; };
+		C4421A6C20B8146800BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A6B20B8146800BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift */; };
+		C4421A6E20B814BE00BE9F12 /* Parent+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A6D20B814BE00BE9F12 /* Parent+Keyboard.swift */; };
+		C4421A7020B8150B00BE9F12 /* Parent+DevPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A6F20B8150B00BE9F12 /* Parent+DevPanel.swift */; };
 		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
 		C47FDEF5201C5E3000A31D48 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF3201C5E3000A31D48 /* AudioKitUI.framework */; };
 		C47FDEF6201C5E3000A31D48 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF4201C5E3000A31D48 /* AudioKit.framework */; };
@@ -251,6 +261,16 @@
 		C42459DE201D6498004565AB /* AKSynthOneDSPKernel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKSynthOneDSPKernel.mm; sourceTree = "<group>"; };
 		C42459E0201D64D4004565AB /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		C42459E2201D64DE004565AB /* PopUpBankEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpBankEdit.swift; sourceTree = "<group>"; };
+		C4421A5D20B811B000BE9F12 /* Parent+MailingListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+MailingListDelegate.swift"; sourceTree = "<group>"; };
+		C4421A5F20B8122700BE9F12 /* Parent+HeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+HeaderDelegate.swift"; sourceTree = "<group>"; };
+		C4421A6120B812C800BE9F12 /* Parent+ModWheelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+ModWheelDelegate.swift"; sourceTree = "<group>"; };
+		C4421A6320B812FF00BE9F12 /* Parent+PresetsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+PresetsDelegate.swift"; sourceTree = "<group>"; };
+		C4421A6520B8133C00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+EmbeddedViewsDelegate.swift"; sourceTree = "<group>"; };
+		C4421A6720B8137700BE9F12 /* Parent+MIDIListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+MIDIListener.swift"; sourceTree = "<group>"; };
+		C4421A6920B813ED00BE9F12 /* Parent+Audiobus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+Audiobus.swift"; sourceTree = "<group>"; };
+		C4421A6B20B8146800BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+MIDISettingsPopOverDelegate.swift"; sourceTree = "<group>"; };
+		C4421A6D20B814BE00BE9F12 /* Parent+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+Keyboard.swift"; sourceTree = "<group>"; };
+		C4421A6F20B8150B00BE9F12 /* Parent+DevPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+DevPanel.swift"; sourceTree = "<group>"; };
 		C46E16071F27FF9C00A518F5 /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C474D9501F13172B00946035 /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
 		C474D9531F13172B00946035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -702,6 +722,16 @@
 				C4F7ECBA1F244AD40011B119 /* CGFloat+Extensions.swift */,
 				9422F92B201A9D2800FE2FAC /* Dictionary+Key.swift */,
 				C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */,
+				C4421A6920B813ED00BE9F12 /* Parent+Audiobus.swift */,
+				C4421A6F20B8150B00BE9F12 /* Parent+DevPanel.swift */,
+				C4421A6520B8133C00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */,
+				C4421A6D20B814BE00BE9F12 /* Parent+Keyboard.swift */,
+				C4421A5F20B8122700BE9F12 /* Parent+HeaderDelegate.swift */,
+				C4421A5D20B811B000BE9F12 /* Parent+MailingListDelegate.swift */,
+				C4421A6720B8137700BE9F12 /* Parent+MIDIListener.swift */,
+				C4421A6B20B8146800BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift */,
+				C4421A6120B812C800BE9F12 /* Parent+ModWheelDelegate.swift */,
+				C4421A6320B812FF00BE9F12 /* Parent+PresetsDelegate.swift */,
 				944A6CDE20B0B7E500D797A8 /* Parent+PushNotification.swift */,
 				C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */,
 			);
@@ -949,6 +979,7 @@
 				C4AC4B0D2019C63F00D04C7F /* AEMessageQueue.m in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */,
+				C4421A6820B8137700BE9F12 /* Parent+MIDIListener.swift in Sources */,
 				94A8807E1FC8F9F100DADC66 /* AKVerticalPad.swift in Sources */,
 				C4AC4B0F2019C63F00D04C7F /* AEManagedValue.m in Sources */,
 				9451E2FE1F58C20B008181F9 /* HeaderNavButton.swift in Sources */,
@@ -961,6 +992,7 @@
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
 				C4D193CA1F1187B500FF4FE4 /* ParentViewController.swift in Sources */,
 				9403F2961F671A4900320FCC /* PresetsCategoriesController.swift in Sources */,
+				C4421A7020B8150B00BE9F12 /* Parent+DevPanel.swift in Sources */,
 				C42459E3201D64DE004565AB /* PopUpBankEdit.swift in Sources */,
 				947956AF1F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */,
 				94A5038D1FF2E1B80097D37C /* MIDIInput.swift in Sources */,
@@ -977,6 +1009,7 @@
 				94A880811FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,
 				F467524520A01A5F00060209 /* TuningsPitchWheelView.swift in Sources */,
 				C4AC4B152019C63F00D04C7F /* AETime.m in Sources */,
+				C4421A6620B8133C00BE9F12 /* Parent+EmbeddedViewsDelegate.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
 				94A503991FF2F3E10097D37C /* PopUpMODController.swift in Sources */,
 				9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
@@ -999,7 +1032,9 @@
 				947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				943524561F57945500BDA789 /* ChildView.swift in Sources */,
+				C4421A6220B812C800BE9F12 /* Parent+ModWheelDelegate.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
+				C4421A6420B812FF00BE9F12 /* Parent+PresetsDelegate.swift in Sources */,
 				948938C320B37EE500B7CEAA /* Audiobus+MIDI.swift in Sources */,
 				9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */,
 				947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
@@ -1007,7 +1042,9 @@
 				94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */,
 				9416FC762008204300A120AD /* MIDILearnable.swift in Sources */,
 				C4AC4AF12019BF0500D04C7F /* AKSynthOne.swift in Sources */,
+				C4421A6A20B813ED00BE9F12 /* Parent+Audiobus.swift in Sources */,
 				C4AC4B172019C63F00D04C7F /* AETypes.m in Sources */,
+				C4421A5E20B811B000BE9F12 /* Parent+MailingListDelegate.swift in Sources */,
 				9416FC7220081F3A00A120AD /* MIDIKnob.swift in Sources */,
 				C4AC4B0B2019C63F00D04C7F /* AEWeakRetainingProxy.m in Sources */,
 				94AF74021F55FF9700ED8B51 /* TouchPoint.swift in Sources */,
@@ -1021,12 +1058,14 @@
 				C40770EC1F2569C8007F2C77 /* SourceMixerViewController.swift in Sources */,
 				945261481F2928870037662C /* TouchPadViewController.swift in Sources */,
 				947956A91F329AB200FE5D9B /* Stepper.swift in Sources */,
+				C4421A6C20B8146800BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift in Sources */,
 				94FA2DC21F9E7C2800DED735 /* PresetDataManager.swift in Sources */,
 				C4AC4B112019C63F00D04C7F /* AEArray.m in Sources */,
 				94346F901FC7975C00434900 /* ColorKnob.swift in Sources */,
 				94A5039D1FF2F6E30097D37C /* ChannelStepper.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
 				C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */,
+				C4421A6E20B814BE00BE9F12 /* Parent+Keyboard.swift in Sources */,
 				94A503961FF2EB9E0097D37C /* MIDICell.swift in Sources */,
 				C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */,
 				C42459DF201D6498004565AB /* AKSynthOneDSPKernel.mm in Sources */,
@@ -1043,6 +1082,7 @@
 				948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
 				94DB3FE01FC8C0EA007F8081 /* PresetUIButton.swift in Sources */,
+				C4421A6020B8122700BE9F12 /* Parent+HeaderDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -63,11 +63,9 @@ class PresetsViewController: UIViewController {
     }
 
     var bankIndex: Int {
-        get {
-           var newIndex = categoryIndex - PresetCategory.bankStartingIndex
-           if newIndex < 0 { newIndex = 0 }
-           return newIndex
-        }
+        var newIndex = categoryIndex - PresetCategory.bankStartingIndex
+        if newIndex < 0 { newIndex = 0 }
+        return newIndex
     }
 
     let conductor = Conductor.sharedInstance
@@ -240,7 +238,9 @@ class PresetsViewController: UIViewController {
 
     func selectCategory(_ newIndex: Int) {
         guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesController else { return }
-        categoriesVC.categoryTableView.selectRow(at: IndexPath(row: newIndex, section: 0), animated: false, scrollPosition: .top)
+        categoriesVC.categoryTableView.selectRow(at: IndexPath(row: newIndex, section: 0),
+                                                 animated: false,
+                                                 scrollPosition: .top)
     }
 
     func updateCategoryTable() {
@@ -412,7 +412,7 @@ class PresetsViewController: UIViewController {
         deselectCurrentRow()
 
         // Get current Bank
-        let currentBank = conductor.banks.filter { $0.position == bankIndex }.first
+        let currentBank = conductor.banks.first(where: { $0.position == bankIndex })
         let presetsInBank = presets.filter { $0.bank == currentBank!.name }.sorted { $0.position < $1.position }
 
         // Smoothly cycle through presets if MIDI input is greater than preset count
@@ -483,7 +483,7 @@ class PresetsViewController: UIViewController {
         if segue.identifier == "SegueToBankEdit" {
             let popOverController = segue.destination as! PopUpBankEdit
             popOverController.delegate = self
-            let bank = conductor.banks.filter { $0.position == bankIndex }.first
+            let bank = conductor.banks.first(where: { $0.position == bankIndex })
             popOverController.bankName = bank!.name
             popOverController.preferredContentSize = CGSize(width: 300, height: 320)
             if let presentation = popOverController.popoverPresentationController {
@@ -503,7 +503,9 @@ class PresetsViewController: UIViewController {
 
     @IBAction func doneEditingPressed(_ sender: UIButton) {
         view.endEditing(true)
-        presetsDelegate?.saveEditedPreset(name: currentPreset.name, category: currentPreset.category, bank: currentPreset.bank)
+        presetsDelegate?.saveEditedPreset(name: currentPreset.name,
+                                          category: currentPreset.category,
+                                          bank: currentPreset.bank)
     }
 
 }

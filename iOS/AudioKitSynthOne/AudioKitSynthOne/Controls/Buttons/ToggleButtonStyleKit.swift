@@ -17,8 +17,8 @@ public class ToggleButtonStyleKit: NSObject {
 
     @objc
     dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 43),
-                                                    resizing: ResizingBehavior = .aspectFit,
-                                                    isToggled: Bool = false) {
+                                              resizing: ResizingBehavior = .aspectFit,
+                                              isToggled: Bool = false) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 

@@ -17,10 +17,10 @@ public class NavButtonStyleKit: NSObject {
 
     @objc
     dynamic public class func drawNavButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 63, height: 156),
-                                                  resizing: ResizingBehavior = .aspectFit,
-                                                  isOn: CGFloat = 0,
-                                                  rotation: CGFloat = 180,
-                                                  text: String = "ADSR") {
+                                            resizing: ResizingBehavior = .aspectFit,
+                                            isOn: CGFloat = 0,
+                                            rotation: CGFloat = 180,
+                                            text: String = "ADSR") {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 

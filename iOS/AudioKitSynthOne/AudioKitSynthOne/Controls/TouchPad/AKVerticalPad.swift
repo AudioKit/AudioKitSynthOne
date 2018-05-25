@@ -116,7 +116,8 @@ public class AKVerticalPad: UIView {
             withDuration: 0.05,
             delay: 0.0,
             options: UIViewAnimationOptions(),
-            animations: { self.touchPointView.center = CGPoint(x: self.centerPointX, y: centerPointY + self.yVisualAdjust) },
+            animations: { self.touchPointView.center = CGPoint(x: self.centerPointX,
+                                                               y: centerPointY + self.yVisualAdjust) },
             completion: { _ in
                 self.x = CGFloat(newPercentX)
                 self.y = CGFloat(newPercentY)

@@ -19,18 +19,18 @@ extension TuningsViewController: TuningsPitchWheelViewTuningDidChange {
 }
 
 class TuningsViewController: SynthPanelController {
-    
+
     @IBOutlet weak var tuningTableView: UITableView!
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
     @IBOutlet weak var masterTuning: MIDIKnob!
     @IBOutlet weak var resetTunings: SynthUIButton!
     @IBOutlet weak var diceButton: UIButton!
-    
+
     private let aks1Tunings = AKS1Tunings()
     var getStoreTuningWithPresetValue = false
-    
+
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
         viewType = .tuningsView
         tuningTableView.backgroundColor = UIColor.clear
         tuningTableView.isOpaque = false
@@ -39,11 +39,11 @@ class TuningsViewController: SynthPanelController {
         tuningTableView.dataSource = aks1Tunings
         tuningTableView.delegate = aks1Tunings
         aks1Tunings.tuningsDelegate = self
-        
+
         masterTuning.range = Conductor.sharedInstance.synth!.getParameterRange(.frequencyA4)
         masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
         Conductor.sharedInstance.bind(masterTuning, to: .frequencyA4)
-        
+
         resetTunings.callback = { value in
             if value == 1 {
                 let i = self.aks1Tunings.resetTuning()
@@ -52,21 +52,21 @@ class TuningsViewController: SynthPanelController {
                 self.resetTunings.value = 0
             }
         }
-        
+
         tuningDidChange()
     }
-    
+
     public override func viewDidAppear(_ animated: Bool) {
         tuningDidChange()
     }
-    
+
     func dependentParamDidChange(_ param: DependentParam) {
     }
 
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
         tuningsPitchWheelView.playingNotesDidChange(playingNotes)
     }
-    
+
     @IBAction func randomPressed(_ sender: UIButton) {
         let i = aks1Tunings.randomTuning()
         selectRow(i)
@@ -76,25 +76,24 @@ class TuningsViewController: SynthPanelController {
             }
         })
     }
-    
+
     internal func selectRow(_ index: Int) {
         let path = IndexPath(row: index, section: 0)
         tuningTableView.selectRow(at: path, animated: true, scrollPosition: .middle)
     }
-    
-    public func setTuning(withMasterArray master:[Double]) {
+
+    public func setTuning(withMasterArray master: [Double]) {
         if let i = aks1Tunings.setTuning(withMasterArray: master) {
             selectRow(i)
         }
     }
-    
+
     public func setDefaultTuning() {
         let i = aks1Tunings.resetTuning()
         selectRow(i)
     }
-    
+
     public func getTuning() -> [Double]? {
         return tuningsPitchWheelView.masterFrequency
     }
 }
-

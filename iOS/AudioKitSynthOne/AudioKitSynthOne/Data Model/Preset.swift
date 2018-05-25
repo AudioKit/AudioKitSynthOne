@@ -9,18 +9,17 @@
 import Foundation
 import AudioKit
 
-
 // ******************************************************
 // MARK: - Preset
 // ******************************************************
 
 class Preset: Codable {
-        
+
     var uid = UUID().uuidString
     var position = 0 // Preset #
     var name = "Init"
     var bank = "User"
-    
+
     // Synth VC
     var octavePosition = 0
     var isMono = 0.0
@@ -28,10 +27,10 @@ class Preset: Codable {
     var isArpMode = 0.0
     var isLegato = 0.0
     var tempoSyncToArpRate = 1.0
-    
+
     // Controls VC
     var masterVolume = 0.5 // Master Volume
-   
+
     var vco1Volume = 0.75
     var vco2Volume = 0.75
     var vco1Semitone = 0.0 // VCO1 Semitones
@@ -42,7 +41,7 @@ class Preset: Codable {
     var fmVolume = 0.0 // FM Mix
     var fmAmount = 0.0 // FM Modulation Amt
     var noiseVolume = 0.0 // Noise Mix
- 
+
     var cutoff = 2000.0 // Cutoff Knob Position
     var resonance = 0.1 // Filter Q/Rez
     var filterType = 0.0 // 0 = lopass, 1=bandpass, 2=hipassh.s
@@ -63,40 +62,40 @@ class Preset: Codable {
     var phaserRate = 12.0
     var phaserFeedback = 0.0
     var phaserNotchWidth = 800.00
-    
+
     // ADSR
     var attackDuration = 0.05
     var decayDuration = 0.05
     var sustainLevel = 0.8
     var releaseDuration = 0.05
-    
+
     var filterAttack = 0.05
     var filterDecay = 0.5
     var filterSustain = 1.0
     var filterRelease = 0.5
-    
+
     // Toggle Presets
     var delayToggled = 0.0
     var reverbToggled = 1.0
     var subOsc24Toggled = 0.0
     var subOscSquareToggled = 0.0
-    
+
     // Waveforms
     var waveform1 = 0.0
     var waveform2 = 0.0
-    
+
     var lfoWaveform = 0.0 // LFO wave index
     var lfoAmplitude = 0.0 // LFO Amp (Hz)
     var lfoRate = 0.0 // LFO Rate
     var lfo2Waveform = 0.0
     var lfo2Amplitude = 0.0
     var lfo2Rate = 0.0
-    
+
     // Seq Pattern
     var seqPatternNote = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     var seqOctBoost = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-    var seqNoteOn = [true, true, true, true,true, true, true, true,true, true, true, true,true, true, true, true]
-    
+    var seqNoteOn = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+
     // Arp
     var arpDirection = 0.0
     var arpInterval = 12.0
@@ -104,14 +103,14 @@ class Preset: Codable {
     var arpRate = 120.0
     var arpIsSequencer = false
     var arpTotalSteps = 8.0
-    
+
     // Author
     var author = ""
     var category = 0
     var isUser = true
     var isFavorite = false
     var userText = "AudioKit Synth One. Preset by ..."
-    
+
     // LFO Routings
     var cutoffLFO = 0.0
     var resonanceLFO = 0.0
@@ -125,14 +124,14 @@ class Preset: Codable {
     var pitchLFO = 0.0
     var bitcrushLFO = 0.0
     var tremoloLFO = 0.0
-    
+
     // MOD Wheel Routings
     var modWheelRouting = 0.0
-    
+
     // Pitchbend
     var pitchbendMinSemitones = 0.0
     var pitchbendMaxSemitones = 0.0
-    
+
     // REVERB/MASTER DYNAMICS
     var compressorMasterRatio = 0.0
     var compressorReverbInputRatio = 0.0
@@ -155,25 +154,24 @@ class Preset: Codable {
     // tuning
     var frequencyA4 = 440.0
     var tuningMasterSet: [Double]?
-    
+
     // ******************************************************
     // MARK: - Init
     // ******************************************************
- 
+
     init() {}
 
     convenience init(position: Int) {
         self.init()
-        
+
         // Preset Number/Position
         self.position = position
     }
-    
-    
+
     //*****************************************************************
     // MARK: - Class Function to Return array of Presets
     //*****************************************************************
-    
+
     // Return Array of Presets
     class public func parseDataToPresets(jsonArray: [Any]) -> [Preset] {
         var presets = [Preset]()
@@ -185,7 +183,7 @@ class Preset: Codable {
         }
         return presets
     }
-    
+
     // Return Single Preset
     class public func parseDataToPreset(presetJSON: Any) -> Preset {
         if let presetDictionary = presetJSON as? [String: Any] {
@@ -193,14 +191,14 @@ class Preset: Codable {
         }
         return Preset()
     }
-    
+
     //*****************************************************************
     // MARK: - JSON Parsing into object
     //*****************************************************************
 
     // Init from Dictionary/JSON
     init(dictionary: [String: Any]) {
-        
+
         guard let s = Conductor.sharedInstance.synth else {
             print("ERROR: can't read presets until synth is initialized")
             return
@@ -209,12 +207,12 @@ class Preset: Codable {
         let p = { param in
             return Double(s.getParameterDefault(param))
         }
-        
+
         name = dictionary["name"] as? String ?? name
         position = dictionary["position"] as? Int ?? position
         uid = dictionary["uid"] as? String ?? uid
         bank = dictionary["bank"] as? String ?? bank
-        
+
         // Synth VC
         octavePosition = dictionary["octavePosition"] as? Int ?? octavePosition
         isMono = dictionary["isMono"] as? Double ?? p(.isMono)
@@ -223,10 +221,10 @@ class Preset: Codable {
         isArpMode = dictionary["isArpMode"] as? Double ?? p(.arpIsOn)
         tempoSyncToArpRate = dictionary["tempoSyncToArpRate"] as? Double ?? p(.tempoSyncToArpRate)
         isLegato = dictionary["isLegato"] as? Double ?? p(.monoIsLegato)
-        
+
         // Controls VC
         masterVolume = dictionary["masterVolume"] as? Double ?? p(.masterVolume)
-        
+
         vco1Volume = dictionary["vco1Volume"] as? Double ?? p(.morph1Volume)
         vco2Volume = dictionary["vco2Volume"] as? Double ?? p(.morph2Volume)
         vco1Semitone = dictionary["vco1Semitone"] as? Double ?? p(.morph1SemitoneOffset)
@@ -237,7 +235,7 @@ class Preset: Codable {
         fmVolume = dictionary["fmVolume"] as? Double ?? p(.fmVolume)
         fmAmount = dictionary["fmMod"] as? Double ?? p(.fmAmount)
         noiseVolume = dictionary["noiseVolume"] as? Double ?? p(.noiseVolume)
-       
+
         cutoff = dictionary["cutoff"] as? Double ?? p(.cutoff)
         resonance = dictionary["rez"] as? Double ?? p(.resonance)
         filterType = dictionary["filterType"] as? Double ?? p(.filterType)
@@ -247,10 +245,10 @@ class Preset: Codable {
         reverbFeedback = dictionary["reverbFeedback"] as? Double ?? p(.reverbFeedback)
         reverbMix = dictionary["reverbMix"] as? Double ?? p(.reverbMix)
         reverbHighPass = dictionary["reverbHighPass"] as? Double ?? p(.reverbHighPass)
-        
+
         //TODO:this is unused
         midiBendRange = dictionary["midiBendRange"] as? Double ?? midiBendRange
-        
+
         crushFreq = dictionary["crushFreq"] as? Double ?? p(.bitCrushSampleRate)
         autoPanFrequency = dictionary["autoPanRate"] as? Double ?? p(.autoPanFrequency)
         filterADSRMix = dictionary["filterADSRMix"] as? Double ?? p(.filterADSRMix)
@@ -262,19 +260,19 @@ class Preset: Codable {
         decayDuration = dictionary["decayDuration"] as? Double ?? p(.decayDuration)
         sustainLevel = dictionary["sustainLevel"] as? Double ?? p(.sustainLevel)
         releaseDuration = dictionary["releaseDuration"] as? Double ?? p(.releaseDuration)
-        
+
         filterAttack = dictionary["filterAttack"] as? Double ?? p(.filterAttackDuration)
         filterDecay = dictionary["filterDecay"] as? Double ?? p(.filterDecayDuration)
         filterSustain = dictionary["filterSustain"] as? Double ?? p(.filterSustainLevel)
         filterRelease = dictionary["filterRelease"] as? Double ?? p(.filterReleaseDuration)
-        
+
         // Toggle Presets
         delayToggled = dictionary["delayToggled"] as? Double ?? p(.delayOn)
         reverbToggled = dictionary["reverbToggled"] as? Double ?? p(.reverbOn)
         autoPanAmount = dictionary["autoPanAmount"] as? Double ?? p(.autoPanAmount)
         subOsc24Toggled = dictionary["subOsc24Toggled"] as? Double ?? p(.subOctaveDown)
         subOscSquareToggled = dictionary["subOscSquareToggled"] as? Double ?? p(.subIsSquare)
-        
+
         // Waveforms
         waveform1 = dictionary["waveform1"] as? Double ?? p(.index1)
         waveform2 = dictionary["waveform2"] as? Double ?? p(.index2)
@@ -284,7 +282,7 @@ class Preset: Codable {
         lfo2Waveform = dictionary["lfo2Waveform"] as? Double ?? p(.lfo2Index)
         lfo2Amplitude = dictionary["lfo2Amplitude"] as? Double ?? p(.lfo2Amplitude)
         lfo2Rate = dictionary["lfo2Rate"] as? Double ?? p(.lfo2Rate)
-        
+
         // Seq
         var seqPatternNoteDefault = [Int]()
         var seqNoteOnDefault = [Bool]()
@@ -297,7 +295,7 @@ class Preset: Codable {
         seqPatternNote = dictionary["seqPatternNote"] as? [Int] ?? seqPatternNoteDefault
         seqNoteOn = dictionary["seqNoteOn"] as? [Bool] ?? seqNoteOnDefault
         seqOctBoost = dictionary["seqOctBoost"] as? [Bool] ?? seqOctBoostDefault
-        
+
         // Arp
         arpDirection = dictionary["arpDirection"] as? Double ?? p(.arpDirection)
         arpInterval = dictionary["arpInterval"] as? Double ?? p(.arpInterval)
@@ -305,13 +303,13 @@ class Preset: Codable {
         arpRate = dictionary["arpRate"] as? Double ?? p(.arpRate)
         arpIsSequencer = dictionary["arpIsSequencer"] as? Bool ?? Bool(p(.arpIsSequencer) > 0 ? true : false)
         arpTotalSteps = dictionary["arpTotalSteps"] as? Double ?? p(.arpTotalSteps)
-        
+
         author = dictionary["author"] as? String ?? author
         category = dictionary["category"] as? Int ?? category
         isUser = dictionary["isUser"] as? Bool ?? isUser
         isFavorite = dictionary["isFavorite"] as? Bool ?? isFavorite
         userText = dictionary["userText"] as? String ?? userText
-        
+
         // LFO Routings
         cutoffLFO = dictionary["cutoffLFO"] as? Double ?? p(.cutoffLFO)
         resonanceLFO = dictionary["resonanceLFO"] as? Double ?? p(.resonanceLFO)
@@ -325,20 +323,20 @@ class Preset: Codable {
         pitchLFO = dictionary["pitchLFO"] as? Double ?? p(.pitchLFO)
         bitcrushLFO = dictionary["bitcrushLFO"] as? Double ?? p(.bitcrushLFO)
         tremoloLFO = dictionary["tremoloLFO"] as? Double ?? p(.tremoloLFO)
-        
+
         // MOD WHeel
         modWheelRouting = dictionary["modWheelRouting"] as? Double ?? modWheelRouting
-        
+
         // Pitchbend
         pitchbendMaxSemitones = dictionary["pitchbendMaxSemitones"] as? Double ?? p(.pitchbendMaxSemitones)
         pitchbendMinSemitones = dictionary["pitchbendMinSemitones"] as? Double ?? p(.pitchbendMinSemitones)
-        
+
         // FX
         phaserFeedback = dictionary["phaserFeedback"] as? Double ?? p(.phaserFeedback)
         phaserMix = dictionary["phaserMix"] as? Double ?? p(.phaserMix)
         phaserRate = dictionary["phaserRate"] as? Double ?? p(.phaserRate)
         phaserNotchWidth = dictionary["phaserNotchWidth"] as? Double ?? p(.phaserNotchWidth)
-        
+
         //REVERB/MASTER DYNAMICS
         compressorMasterRatio = dictionary["compressorMasterRatio"] as? Double ?? p(.compressorMasterRatio)
         compressorReverbInputRatio = dictionary["compressorReverbInputRatio"] as? Double ?? p(.compressorReverbInputRatio)
@@ -357,7 +355,7 @@ class Preset: Codable {
         compressorReverbWetMakeupGain = dictionary["compressorReverbWetMakeupGain"] as? Double ?? p(.compressorReverbWetMakeupGain)
         delayInputCutoffTrackingRatio = dictionary["delayInputCutoffTrackingRatio"] as? Double ?? p(.delayInputCutoffTrackingRatio)
         delayInputResonance = dictionary["delayInputResonance"] as? Double ?? p(.delayInputResonance)
-        
+
         // Tuning
         frequencyA4 = dictionary["frequencyA4"] as? Double ?? p(.frequencyA4)
         tuningMasterSet = dictionary["tuningMasterSet"] as? [Double] // default is nil

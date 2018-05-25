@@ -14,58 +14,57 @@ protocol CategoryCellDelegate {
 }
 
 class CategoryCell: UITableViewCell {
-    
+
     // *********************************************************
     // MARK: - Properties / Outlets
     // *********************************************************
-    
+
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
-    
+
     var currentCategory: String = ""
-    
+
     var delegate: CategoryCellDelegate?
-    
+
     // *********************************************************
     // MARK: - Lifecycle
     // *********************************************************
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+
         // set cell selection color
         let selectedView = UIView(frame: CGRect.zero)
         selectedView.backgroundColor = UIColor.clear
         selectedBackgroundView  = selectedView
-        
+
         categoryLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         shareButton.isHidden = true
     }
-    
- 
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         // let color = editButton.backgroundColor
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
         if selected {
             categoryLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
- 
+
             // ⏣
             // Display Share & Edit Buttons
             if currentCategory.hasPrefix("Bank:") {
                 shareButton?.isHidden = false
-                
+
                 // Banks 0 & 1 can not be edited
                 if currentCategory.hasPrefix("Bank: BankA") || currentCategory.hasPrefix("Bank: User") {
                     editButton?.isHidden = true
                 } else {
                     editButton?.isHidden = false
                 }
-                
+
             }
         } else {
              categoryLabel?.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
@@ -74,24 +73,24 @@ class CategoryCell: UITableViewCell {
              editButton?.isHidden = true
         }
     }
- 
+
     // *********************************************************
     // MARK: - Configure Cell
     // *********************************************************
-    
+
     func configureCell(category: String) {
         currentCategory = category
         categoryLabel?.text = "\(category)"
     }
-    
+
     // *********************************************************
     // MARK: - IBAction
     // *********************************************************
-    
+
     @IBAction func sharePressed(_ sender: UIButton) {
         delegate?.bankShare()
     }
-    
+
     @IBAction func editPressed(_ sender: UIButton) {
         delegate?.bankEdit()
     }

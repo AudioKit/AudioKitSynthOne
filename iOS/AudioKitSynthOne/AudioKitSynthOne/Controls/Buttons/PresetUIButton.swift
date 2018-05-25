@@ -13,7 +13,7 @@ class PresetUIButton: SynthUIButton {
     // *********************************************************
     // MARK: - Handle Touches
     // *********************************************************
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
 
@@ -22,4 +22,3 @@ class PresetUIButton: SynthUIButton {
         }
     }
 }
-

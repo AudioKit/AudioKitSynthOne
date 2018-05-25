@@ -9,25 +9,22 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class ToggleSwitchStyleKit : NSObject {
+public class ToggleSwitchStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawToggleSwitch(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 60, height: 31), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false ) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 60, height: 31), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 60, y: resizedFrame.height / 31)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 60, resizedFrame.height / 31)
-
 
         //// Color Declarations
         let gray = UIColor(red: 0.306, green: 0.306, blue: 0.325, alpha: 1.000)
@@ -47,12 +44,9 @@ public class ToggleSwitchStyleKit : NSObject {
         _222.setFill()
         trackPath.fill()
 
-
         //// button
         context.saveGState()
         context.translateBy(x: (expression - 9), y: 2)
-
-
 
         //// buttonBackground 2 Drawing
         let buttonBackground2Path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 26, height: 26))
@@ -81,16 +75,11 @@ public class ToggleSwitchStyleKit : NSObject {
         buttonBackground2Path.lineWidth = 0.5
         buttonBackground2Path.stroke()
 
-
-
         context.restoreGState()
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(ToggleSwitchStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {

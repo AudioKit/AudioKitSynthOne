@@ -9,25 +9,22 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class LfoBtnStyleKit : NSObject {
+public class LfoBtnStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawLfoButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 106, height: 38), resizing: ResizingBehavior = .aspectFit, lfoSelected: CGFloat = 5, buttonText: String = "Hello") {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 106, height: 38), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 106, y: resizedFrame.height / 38)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 106, resizedFrame.height / 38)
-
 
         //// Color Declarations
         let lfo1Color = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)
@@ -57,7 +54,6 @@ public class LfoBtnStyleKit : NSObject {
         btnBackgroundPath.lineWidth = 1
         btnBackgroundPath.stroke()
 
-
         if (indicator1On) {
             //// leftPress Drawing
             let leftPressPath = UIBezierPath(roundedRect: CGRect(x: 3, y: 3, width: 50, height: 31), byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: 3, height: 3))
@@ -65,7 +61,6 @@ public class LfoBtnStyleKit : NSObject {
             downColor.setFill()
             leftPressPath.fill()
         }
-
 
         if (indicator2On) {
             //// rightPress Drawing
@@ -75,12 +70,10 @@ public class LfoBtnStyleKit : NSObject {
             rightPressPath.fill()
         }
 
-
         //// Lfo1Indicator Drawing
         let lfo1IndicatorPath = UIBezierPath(rect: CGRect(x: 10, y: 9, width: 11, height: 18))
         offColor.setFill()
         lfo1IndicatorPath.fill()
-
 
         if (indicator1On) {
             //// Lfo1Selected Drawing
@@ -93,12 +86,10 @@ public class LfoBtnStyleKit : NSObject {
 
         }
 
-
         //// Lfo2Indicator Drawing
         let lfo2IndicatorPath = UIBezierPath(rect: CGRect(x: 83, y: 9, width: 11, height: 18))
         offColor.setFill()
         lfo2IndicatorPath.fill()
-
 
         if (indicator2On) {
             //// Lfo2Selected Drawing
@@ -110,7 +101,6 @@ public class LfoBtnStyleKit : NSObject {
             context.restoreGState()
 
         }
-
 
         //// Text Drawing
         let textRect = CGRect(x: 21, y: 8, width: 62, height: 21)
@@ -127,13 +117,10 @@ public class LfoBtnStyleKit : NSObject {
         context.clip(to: textRect)
         buttonText.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
         context.restoreGState()
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(LfoBtnStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {

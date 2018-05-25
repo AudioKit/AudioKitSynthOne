@@ -9,25 +9,22 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class SliderStyleKit : NSObject {
+public class SliderStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawVerticalSlider(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 42, height: 160), resizing: ResizingBehavior = .aspectFit, sliderY: CGFloat = 70, minY: CGFloat = 0, maxY: CGFloat = 132) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 42, height: 160), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 42, y: resizedFrame.height / 160)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 42, resizedFrame.height / 160)
-
 
         //// Color Declarations
         let color = UIColor(red: 0.804, green: 0.800, blue: 0.792, alpha: 0.300)
@@ -62,75 +59,60 @@ public class SliderStyleKit : NSObject {
 
         //// Slider
 
-
         //// Track
         //// Rectangle 4 Drawing
         let rectangle4Path = UIBezierPath(rect: CGRect(x: 2, y: 45, width: 38, height: 2))
         color.setFill()
         rectangle4Path.fill()
 
-
         //// Rectangle 3 Drawing
         let rectangle3Path = UIBezierPath(rect: CGRect(x: 2, y: 28, width: 38, height: 2))
         color.setFill()
         rectangle3Path.fill()
-
 
         //// Rectangle 2 Drawing
         let rectangle2Path = UIBezierPath(rect: CGRect(x: 2, y: 11, width: 38, height: 2))
         color.setFill()
         rectangle2Path.fill()
 
-
         //// Rectangle 5 Drawing
         let rectangle5Path = UIBezierPath(rect: CGRect(x: 2, y: 78, width: 38, height: 2))
         color.setFill()
         rectangle5Path.fill()
-
 
         //// Rectangle 6 Drawing
         let rectangle6Path = UIBezierPath(rect: CGRect(x: 2, y: 61, width: 38, height: 2))
         color.setFill()
         rectangle6Path.fill()
 
-
         //// Rectangle 7 Drawing
         let rectangle7Path = UIBezierPath(rect: CGRect(x: 2, y: 111, width: 38, height: 2))
         color.setFill()
         rectangle7Path.fill()
-
 
         //// Rectangle 8 Drawing
         let rectangle8Path = UIBezierPath(rect: CGRect(x: 2, y: 95, width: 38, height: 2))
         color.setFill()
         rectangle8Path.fill()
 
-
         //// Rectangle 9 Drawing
         let rectangle9Path = UIBezierPath(rect: CGRect(x: 2, y: 145, width: 38, height: 2))
         color.setFill()
         rectangle9Path.fill()
-
 
         //// Rectangle 10 Drawing
         let rectangle10Path = UIBezierPath(rect: CGRect(x: 2, y: 128, width: 38, height: 2))
         color.setFill()
         rectangle10Path.fill()
 
-
         //// pole Drawing
         let polePath = UIBezierPath(roundedRect: CGRect(x: 18, y: 5, width: 6, height: 150), cornerRadius: 2)
         _222.setFill()
         polePath.fill()
 
-
-
-
         //// Indicator
         context.saveGState()
         context.translateBy(x: 21, y: (bounds + 13.5))
-
-
 
         //// Rectangle 11 Drawing
         let rectangle11Path = UIBezierPath(roundedRect: CGRect(x: -20, y: -13.5, width: 40, height: 28), cornerRadius: 4)
@@ -142,8 +124,6 @@ public class SliderStyleKit : NSObject {
         context.endTransparencyLayer()
         context.restoreGState()
 
-
-
         //// Rectangle 12 Drawing
         let rectangle12Path = UIBezierPath(rect: CGRect(x: -16, y: -1.5, width: 32, height: 3))
         context.saveGState()
@@ -151,8 +131,6 @@ public class SliderStyleKit : NSObject {
         orange.setFill()
         rectangle12Path.fill()
         context.restoreGState()
-
-
 
         //// Rectangle 13 Drawing
         let rectangle13Path = UIBezierPath(roundedRect: CGRect(x: -20, y: -13.5, width: 40, height: 28), cornerRadius: 4)
@@ -181,17 +159,11 @@ public class SliderStyleKit : NSObject {
 
         context.restoreGState()
 
-
-
-
         context.restoreGState()
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(SliderStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
@@ -233,8 +205,6 @@ public class SliderStyleKit : NSObject {
     }
 }
 
-
-
 private extension UIColor {
     func blended(withFraction fraction: CGFloat, of color: UIColor) -> UIColor {
         var r1: CGFloat = 1, g1: CGFloat = 1, b1: CGFloat = 1, a1: CGFloat = 1
@@ -246,6 +216,6 @@ private extension UIColor {
         return UIColor(red: r1 * (1 - fraction) + r2 * fraction,
             green: g1 * (1 - fraction) + g2 * fraction,
             blue: b1 * (1 - fraction) + b2 * fraction,
-            alpha: a1 * (1 - fraction) + a2 * fraction);
+            alpha: a1 * (1 - fraction) + a2 * fraction)
     }
 }

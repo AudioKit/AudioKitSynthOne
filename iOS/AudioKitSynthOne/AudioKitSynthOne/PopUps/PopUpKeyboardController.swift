@@ -13,17 +13,17 @@ protocol KeyboardPopOverDelegate {
 }
 
 class PopUpKeyboardController: UIViewController {
-    
+
     @IBOutlet weak var octaveRangeSegment: UISegmentedControl!
     @IBOutlet weak var labelModeSegment: UISegmentedControl!
     @IBOutlet weak var keyboardModeSegment: UISegmentedControl!
-    
+
     var delegate: KeyboardPopOverDelegate?
-    
+
     var labelMode: Int = 1
     var octaveRange: Int = 2
     var darkMode: Bool = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,47 +31,45 @@ class PopUpKeyboardController: UIViewController {
         octaveRangeSegment.selectedSegmentIndex = octaveRange - 1
         labelModeSegment.selectedSegmentIndex = labelMode
         keyboardModeSegment.selectedSegmentIndex = darkMode ? 1 : 0
-        
+
     }
-    
+
     // Set fonts for UISegmentedControls
     override func viewDidLayoutSubviews() {
         let attr = NSDictionary(object: UIFont(name: "Avenir Next Condensed", size: 15.0)!, forKey: NSAttributedStringKey.font as NSCopying)
-        labelModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject] , for: .normal)
-        keyboardModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject] , for: .normal)
-        octaveRangeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject] , for: .normal)
+        labelModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
+        keyboardModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
+        octaveRangeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
     }
-    
+
     @IBAction func octaveRangeDidChange(_ sender: UISegmentedControl) {
-        
+
         octaveRange = sender.selectedSegmentIndex + 1
-       
+
         delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
     }
-    
+
     @IBAction func keyLabelDidChange(_ sender: UISegmentedControl) {
-        
+
            labelMode = sender.selectedSegmentIndex
-        
+
            delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
     }
-    
-    
+
     @IBAction func keyboardModeDidChange(_ sender: UISegmentedControl) {
-        
+
         if sender.selectedSegmentIndex == 1 {
             darkMode = true
         } else {
             darkMode = false
         }
-        
+
         delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
     }
-    
-    
+
     @IBAction func closeButton(_ sender: UIButton) {
        // delegate?.didFinishSelecting(root: selectedRoot, scaleType: selectedScaleType)
         dismiss(animated: true, completion: nil)
- 
+
     }
 }

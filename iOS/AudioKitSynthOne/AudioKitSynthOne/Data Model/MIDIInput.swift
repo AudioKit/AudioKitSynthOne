@@ -11,13 +11,13 @@ import Foundation
 class MIDIInput {
     var name = "Session 1"
     var isOpen = true
-    
+
     init() {
     }
-    
+
     convenience init(name: String, isOpen: Bool) {
         self.init()
-        
+
         self.name = name
         self.isOpen = isOpen
     }

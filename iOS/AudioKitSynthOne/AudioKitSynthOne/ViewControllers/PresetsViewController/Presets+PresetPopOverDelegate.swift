@@ -20,7 +20,7 @@ extension PresetsViewController: PresetPopOverDelegate {
                 currentPreset.bank = newBank
                 saveAllPresetsIn(oldBank)
 
-                let currentBank = conductor.banks.filter{ $0.name == newBank }.first
+                let currentBank = conductor.banks.filter { $0.name == newBank }.first
                 selectCategory(PresetCategory.bankStartingIndex + currentBank!.position )
                 categoryIndex = PresetCategory.bankStartingIndex + currentBank!.position
             }

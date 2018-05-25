@@ -9,24 +9,21 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class NavButtonStyleKit : NSObject {
+public class NavButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawNavButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 63, height: 156), resizing: ResizingBehavior = .aspectFit, isOn: CGFloat = 0, rotation: CGFloat = 180, text: String = "ADSR") {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 63, height: 156), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 63, y: resizedFrame.height / 156)
-
 
         //// Color Declarations
         let selectedColor = UIColor(red: 0.341, green: 0.349, blue: 0.345, alpha: 1.000)
@@ -46,7 +43,6 @@ public class NavButtonStyleKit : NSObject {
         btnBackgroundPath.lineWidth = 1
         btnBackgroundPath.stroke()
 
-
         //// arrow Drawing
         context.saveGState()
         context.translateBy(x: 30.5, y: 85)
@@ -60,7 +56,6 @@ public class NavButtonStyleKit : NSObject {
         arrowPath.fill()
 
         context.restoreGState()
-
 
         //// label Drawing
         let labelRect = CGRect(x: 5, y: 36, width: 50, height: 21)
@@ -77,13 +72,10 @@ public class NavButtonStyleKit : NSObject {
         context.clip(to: labelRect)
         text.draw(in: CGRect(x: labelRect.minX, y: labelRect.minY + (labelRect.height - labelTextHeight) / 2, width: labelRect.width, height: labelTextHeight), withAttributes: labelFontAttributes)
         context.restoreGState()
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(NavButtonStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {

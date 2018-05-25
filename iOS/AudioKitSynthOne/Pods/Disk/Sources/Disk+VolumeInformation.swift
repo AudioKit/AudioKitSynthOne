@@ -34,7 +34,7 @@ public extension Disk {
         let results = try? fileUrl.resourceValues(forKeys: [key])
         return results
     }
-    
+
     /// Volume’s total capacity in bytes.
     public static var totalCapacity: Int? {
         get {
@@ -42,7 +42,7 @@ public extension Disk {
             return resourceValues?.volumeTotalCapacity
         }
     }
-    
+
     /// Volume’s available capacity in bytes.
     public static var availableCapacity: Int? {
         get {
@@ -50,7 +50,7 @@ public extension Disk {
             return resourceValues?.volumeAvailableCapacity
         }
     }
-    
+
     /// Volume’s available capacity in bytes for storing important resources.
     ///
     /// Indicates the amount of space that can be made available  for things the user has explicitly requested in the app's UI (i.e. downloading a video or new level for a game.)
@@ -65,7 +65,7 @@ public extension Disk {
             }
         }
     }
-    
+
     /// Volume’s available capacity in bytes for storing nonessential resources.
     ///
     /// Indicates the amount of space available for things that the user is likely to want but hasn't explicitly requested (i.e. next episode in video series they're watching, or recently updated documents in a server that they might be likely to open.)

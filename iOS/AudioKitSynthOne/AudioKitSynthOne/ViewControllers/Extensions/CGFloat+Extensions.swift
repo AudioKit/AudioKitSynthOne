@@ -14,5 +14,5 @@ extension CGFloat {
     var percentageString: String {
         return "\(Int(100 * self))%"
     }
-    
+
 }

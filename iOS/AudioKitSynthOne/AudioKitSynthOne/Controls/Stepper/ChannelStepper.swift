@@ -10,14 +10,14 @@ import UIKit
 
 @IBDesignable
 class ChannelStepper: Stepper {
-    
+
     // *********************************************************
     // MARK: - Draw
     // *********************************************************
-    
+
     override func draw(_ rect: CGRect) {
         let displayText = (value == 0) ? "∞" : String(Int(value))
         StepperStyleKit.drawStepper(valuePressed: valuePressed, text: displayText)
     }
-    
+
 }

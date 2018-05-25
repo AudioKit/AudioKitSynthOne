@@ -56,4 +56,3 @@ extension ParentViewController: PresetsDelegate {
         saveBankSettings()
     }
 }
-

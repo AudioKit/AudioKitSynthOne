@@ -9,24 +9,21 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class StepperStyleKit : NSObject {
+public class StepperStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawStepper(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 109, height: 37), resizing: ResizingBehavior = .aspectFit, valuePressed: CGFloat = 0, text: String = "1") {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 109, height: 37), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 109, y: resizedFrame.height / 37)
-
 
         //// Color Declarations
         let selectedColor = UIColor(red: 0.369, green: 0.369, blue: 0.388, alpha: 1.000)
@@ -46,7 +43,6 @@ public class StepperStyleKit : NSObject {
         btnMinusPath.lineWidth = 1
         btnMinusPath.stroke()
 
-
         //// btnPlus Drawing
         let btnPlusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 29), cornerRadius: 1)
         upSelected.setFill()
@@ -54,7 +50,6 @@ public class StepperStyleKit : NSObject {
         UIColor.black.setStroke()
         btnPlusPath.lineWidth = 1
         btnPlusPath.stroke()
-
 
         //// background Drawing
         let backgroundRect = CGRect(x: 35.5, y: 2, width: 35, height: 29)
@@ -78,7 +73,6 @@ public class StepperStyleKit : NSObject {
         text.draw(in: CGRect(x: backgroundRect.minX, y: backgroundRect.minY + (backgroundRect.height - backgroundTextHeight) / 2, width: backgroundRect.width, height: backgroundTextHeight), withAttributes: backgroundFontAttributes)
         context.restoreGState()
 
-
         //// Rectangle Drawing
         context.saveGState()
         context.translateBy(x: 89.5, y: 16.5)
@@ -93,7 +87,6 @@ public class StepperStyleKit : NSObject {
 
         context.restoreGState()
 
-
         //// Rectangle 4 Drawing
         context.saveGState()
         context.translateBy(x: 17, y: 16.5)
@@ -106,13 +99,10 @@ public class StepperStyleKit : NSObject {
         rectangle4Path.fill()
 
         context.restoreGState()
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(StepperStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {

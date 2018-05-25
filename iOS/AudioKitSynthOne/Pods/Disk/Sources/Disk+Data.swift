@@ -39,7 +39,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Retrieve data from disk
     ///
     /// - Parameters:
@@ -58,4 +58,3 @@ public extension Disk {
         }
     }
 }
-

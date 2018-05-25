@@ -60,7 +60,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Append an image to a folder
     ///
     /// - Parameters:
@@ -108,7 +108,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Append an array of images to a folder
     ///
     /// - Parameters:
@@ -129,7 +129,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Retrieve an array of images from a folder on disk
     ///
     /// - Parameters:
@@ -163,4 +163,3 @@ public extension Disk {
     }
 
 }
-

@@ -9,25 +9,22 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class TouchPointStyleKit : NSObject {
+public class TouchPointStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawTouchPoint(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 61, height: 61), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 61, height: 61), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 61, y: resizedFrame.height / 61)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 61, resizedFrame.height / 61)
-
 
         //// Color Declarations
         let orange = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)
@@ -48,7 +45,6 @@ public class TouchPointStyleKit : NSObject {
         context.setShadow(offset: CGSize(width: outerGlow.shadowOffset.width * resizedShadowScale, height: outerGlow.shadowOffset.height * resizedShadowScale), blur: outerGlow.shadowBlurRadius * resizedShadowScale, color: (outerGlow.shadowColor as! UIColor).cgColor)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
 
-
         //// Rectangle 2 Drawing
         let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: 11, y: 10, width: 39, height: 39), cornerRadius: 8)
         context.saveGState()
@@ -58,7 +54,6 @@ public class TouchPointStyleKit : NSObject {
         rectangle2Path.stroke()
         context.restoreGState()
 
-
         //// Rectangle Drawing
         let rectanglePath = UIBezierPath(roundedRect: CGRect(x: 19, y: 18, width: 23, height: 23), cornerRadius: 4)
         context.saveGState()
@@ -67,17 +62,12 @@ public class TouchPointStyleKit : NSObject {
         rectanglePath.fill()
         context.restoreGState()
 
-
-
         context.endTransparencyLayer()
         context.restoreGState()
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(TouchPointStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {

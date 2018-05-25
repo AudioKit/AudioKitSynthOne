@@ -76,7 +76,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Retrieve image from disk
     ///
     /// - Parameters:
@@ -104,5 +104,3 @@ public extension Disk {
         }
     }
 }
-
-

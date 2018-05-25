@@ -45,7 +45,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Append a file with Data to a folder
     ///
     /// - Parameters:
@@ -79,7 +79,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Append an array of data objects as files to a folder
     ///
     /// - Parameters:
@@ -100,7 +100,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Retrieve an array of Data objects from disk
     ///
     /// - Parameters:
@@ -131,4 +131,3 @@ public extension Disk {
         }
     }
 }
-

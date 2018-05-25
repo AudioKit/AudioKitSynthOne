@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 class ToggleButton: UIView, AKSynthOneControl {
-    
+
     // *********************************************************
     // MARK: - ToggleButton
     // *********************************************************
@@ -19,7 +19,7 @@ class ToggleButton: UIView, AKSynthOneControl {
         return value == 1
     }
 
-    var callback: (Double)->Void = { _ in }
+    var callback: (Double) -> Void = { _ in }
 
     var value: Double = 0.0 {
         didSet {
@@ -30,11 +30,11 @@ class ToggleButton: UIView, AKSynthOneControl {
     override func draw(_ rect: CGRect) {
         ToggleButtonStyleKit.drawRoundButton(isToggled: isOn)
     }
-    
+
     // *********************************************************
     // MARK: - Handle Touches
     // *********************************************************
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             value = isOn ? 0 : 1
@@ -42,6 +42,5 @@ class ToggleButton: UIView, AKSynthOneControl {
             callback(value)
         }
     }
- 
 
 }

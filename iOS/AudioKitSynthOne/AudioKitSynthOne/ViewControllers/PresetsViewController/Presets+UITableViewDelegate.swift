@@ -29,10 +29,10 @@ extension PresetsViewController: UITableViewDelegate {
             guard let presetToDelete = cell?.currentPreset else { return }
 
             // Delete the preset from the data source
-            presets = presets.filter{$0.uid != presetToDelete.uid}
+            presets = presets.filter {$0.uid != presetToDelete.uid}
 
             // Resave Preset Positions in Bank
-            let presetBank = presets.filter{ $0.bank == presetToDelete.bank }.sorted { $0.position < $1.position }
+            let presetBank = presets.filter { $0.bank == presetToDelete.bank }.sorted { $0.position < $1.position }
             for (i, preset) in presetBank.enumerated() {
                 preset.position = i
             }
@@ -77,6 +77,3 @@ extension PresetsViewController: UITableViewDelegate {
     }
 
 }
-
-
-

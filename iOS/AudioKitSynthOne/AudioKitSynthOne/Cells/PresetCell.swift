@@ -85,7 +85,7 @@ class PresetCell: UITableViewCell {
         if preset.bank != "BankA" {
             presetNameLabel.text = "[\(bank!.position)] \(preset.position): \(preset.name)"
         } else {
-             presetNameLabel.text = "\(preset.position): \(preset.name)"
+            presetNameLabel.text = "\(preset.position): \(preset.name)"
         }
 
         if preset.isFavorite {

@@ -25,9 +25,9 @@ class SliderTransposeButton: UILabel, AKSynthOneControl {
                 _value = 1
                 self.backgroundColor = #colorLiteral(red: 0.3725490196, green: 0.3725490196, blue: 0.3921568627, alpha: 1)
                 if transposeAmt >= 0 {
-                    transposeAmt = transposeAmt + 12
+                    transposeAmt += transposeAmt
                 } else {
-                    transposeAmt = transposeAmt - 12
+                    transposeAmt -= transposeAmt
                                                               }
             } else {
                 _value = 0

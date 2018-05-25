@@ -22,7 +22,7 @@ extension PresetsViewController: PresetCellDelegate {
             guard let copy = try? Disk.retrieve("tmp/presetcopy.json", from: .caches, as: Preset.self) else { return }
 
             // Set duplicate preset properties
-            copy.name = copy.name + " [copy]"
+            copy.name += " [copy]"
             copy.uid = UUID().uuidString
             copy.isUser = true
             copy.bank = userBankName // User Bank

@@ -35,7 +35,7 @@ public class SliderStyleKit: NSObject {
         let gradientColor = UIColor(red: 0.235, green: 0.235, blue: 0.252, alpha: 1.000)
         let shadow2Color = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
         let color4 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.042)
-        let _222 = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
+        let shadowColor = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
 
         //// Gradient Declarations
         let gradient = CGGradient(colorsSpace: nil, colors: [gradientColor.cgColor, gradientColor.blended(withFraction: 0.5, of: gradientColor3).cgColor, gradientColor3.cgColor, gradientColor4.cgColor, gradientColor2.cgColor] as CFArray, locations: [0.1, 0.1, 0.19, 0.61, 1])!
@@ -107,7 +107,7 @@ public class SliderStyleKit: NSObject {
 
         //// pole Drawing
         let polePath = UIBezierPath(roundedRect: CGRect(x: 18, y: 5, width: 6, height: 150), cornerRadius: 2)
-        _222.setFill()
+        shadowColor.setFill()
         polePath.fill()
 
         //// Indicator

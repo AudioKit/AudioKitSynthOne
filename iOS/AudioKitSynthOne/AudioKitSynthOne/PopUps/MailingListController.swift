@@ -84,7 +84,7 @@ class MailingListController: UIViewController, UITextFieldDelegate {
 
         // Add pop up
         let alert = UIAlertController(title: "Almost Done",
-                                      message: "To receive your free presets,\n please confirm that \n\n'\(emailAddress)' \n\n is your correct email address?",
+                                      message: "To receive your free presets,\n please confirm that \n'\(emailAddress)' \n is your correct email address and you consent to us emailing you?",
             preferredStyle: .alert)
         let submitAction = UIAlertAction(title: "Yes, that is correct 👍🏼", style: .default) { (_) in
 

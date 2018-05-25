@@ -68,11 +68,14 @@ public class ArpButtonStyleKit: NSObject {
         buttonOff.setFill()
         buttonGlowOffPath.fill()
 
-        if (isToggled) {
+        if isToggled {
             //// ButtonGlow Drawing
             let buttonGlowPath = UIBezierPath(rect: CGRect(x: 7, y: 9, width: 21, height: 4))
             context.saveGState()
-            context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale, height: shadow3.shadowOffset.height * resizedShadowScale), blur: shadow3.shadowBlurRadius * resizedShadowScale, color: (shadow3.shadowColor as! UIColor).cgColor)
+            context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale,
+                                             height: shadow3.shadowOffset.height * resizedShadowScale),
+                              blur: shadow3.shadowBlurRadius * resizedShadowScale,
+                              color: (shadow3.shadowColor as! UIColor).cgColor)
             orange.setFill()
             buttonGlowPath.fill()
             context.restoreGState()
@@ -100,17 +103,17 @@ public class ArpButtonStyleKit: NSObject {
             scales.height = abs(target.height / rect.height)
 
             switch self {
-                case .aspectFit:
-                    scales.width = min(scales.width, scales.height)
-                    scales.height = scales.width
-                case .aspectFill:
-                    scales.width = max(scales.width, scales.height)
-                    scales.height = scales.width
-                case .stretch:
-                    break
-                case .center:
-                    scales.width = 1
-                    scales.height = 1
+            case .aspectFit:
+                scales.width = min(scales.width, scales.height)
+                scales.height = scales.width
+            case .aspectFill:
+                scales.width = max(scales.width, scales.height)
+                scales.height = scales.width
+            case .stretch:
+                break
+            case .center:
+                scales.width = 1
+                scales.height = 1
             }
 
             var result = rect.standardized

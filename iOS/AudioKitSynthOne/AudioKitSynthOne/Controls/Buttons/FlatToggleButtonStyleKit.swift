@@ -9,25 +9,22 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class FlatToggleButtonStyleKit : NSObject {
+public class FlatToggleButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 43), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 40, height: 43), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 40, y: resizedFrame.height / 43)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 40, resizedFrame.height / 43)
-
 
         //// Color Declarations
         let orange = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)
@@ -47,12 +44,10 @@ public class FlatToggleButtonStyleKit : NSObject {
         //// buttonOff
         //// Rectangle 2 Drawing
 
-
         //// buttonBackground Drawing
         let buttonBackgroundPath = UIBezierPath(ovalIn: CGRect(x: 2.5, y: 1.5, width: 30, height: 30))
         colorOn.setFill()
         buttonBackgroundPath.fill()
-
 
         if (isToggled) {
             //// buttonBackground 2 Drawing
@@ -80,9 +75,6 @@ public class FlatToggleButtonStyleKit : NSObject {
 
         }
 
-
-
-
         if (isToggled) {
             //// buttonOn
             //// Rectangle Drawing
@@ -93,16 +85,11 @@ public class FlatToggleButtonStyleKit : NSObject {
             rectanglePath.fill()
             context.restoreGState()
 
-
-
         }
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(FlatToggleButtonStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {

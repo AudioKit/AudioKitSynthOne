@@ -9,11 +9,9 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class MorphSelectorStyleKit : NSObject {
+public class MorphSelectorStyleKit: NSObject {
 
     //// Drawing Methods
 
@@ -33,15 +31,12 @@ public class MorphSelectorStyleKit : NSObject {
         //// Frames
         let frame = CGRect(x: 0, y: 0, width: width, height: height)
 
-
         //// background Drawing
-
 
         //// Chosen Area Drawing
         let chosenAreaPath = UIBezierPath(rect: CGRect(x: (xValue - 0.138461538462), y: 7, width: 39, height: 36))
         selectedBG.setFill()
         chosenAreaPath.fill()
-
 
         //// Triangle Drawing
         let trianglePath = UIBezierPath()
@@ -53,7 +48,6 @@ public class MorphSelectorStyleKit : NSObject {
         color1.setStroke()
         trianglePath.lineWidth = 2
         trianglePath.stroke()
-
 
         //// Square Drawing
         let squarePath = UIBezierPath()
@@ -69,7 +63,6 @@ public class MorphSelectorStyleKit : NSObject {
         squarePath.lineWidth = 2
         squarePath.stroke()
 
-
         //// HighPWMValue Drawing
         let highPWMValuePath = UIBezierPath()
         highPWMValuePath.move(to: CGPoint(x: frame.minX + 0.59591 * frame.width, y: frame.minY + 0.48169 * frame.height))
@@ -83,7 +76,6 @@ public class MorphSelectorStyleKit : NSObject {
         color3.setStroke()
         highPWMValuePath.lineWidth = 2
         highPWMValuePath.stroke()
-
 
         //// Sawtooth Drawing
         let sawtoothPath = UIBezierPath()

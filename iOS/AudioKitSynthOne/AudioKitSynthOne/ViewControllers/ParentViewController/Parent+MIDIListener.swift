@@ -8,7 +8,7 @@
 
 // AKMIDIListener protocol functions
 
-extension ParentViewController: AKMIDIListener  {
+extension ParentViewController: AKMIDIListener {
 
     public func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }

@@ -10,9 +10,9 @@ import UIKit
 
 @IBDesignable
 class FlatToggleButton: ToggleButton {
-    
+
     override func draw(_ rect: CGRect) {
         FlatToggleButtonStyleKit.drawRoundButton(isToggled: isOn)
     }
-    
+
 }

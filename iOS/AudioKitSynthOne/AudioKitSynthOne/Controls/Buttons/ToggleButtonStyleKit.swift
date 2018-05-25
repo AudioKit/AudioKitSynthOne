@@ -9,25 +9,22 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class ToggleButtonStyleKit : NSObject {
+public class ToggleButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawRoundButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 43), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 40, height: 43), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 40, y: resizedFrame.height / 43)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 40, resizedFrame.height / 43)
-
 
         //// Color Declarations
         let orange = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)
@@ -62,21 +59,15 @@ public class ToggleButtonStyleKit : NSObject {
         context.endTransparencyLayer()
         context.restoreGState()
 
-
-
         //// buttonBackground 2 Drawing
         let buttonBackground2Path = UIBezierPath(ovalIn: CGRect(x: 2, y: 2, width: 30, height: 30))
         gray.setFill()
         buttonBackground2Path.fill()
 
-
         //// Rectangle 2 Drawing
         let rectangle2Path = UIBezierPath(rect: CGRect(x: 15, y: 11, width: 4, height: 12))
         darkerGray.setFill()
         rectangle2Path.fill()
-
-
-
 
         if (isToggled) {
             //// buttonOn
@@ -88,16 +79,11 @@ public class ToggleButtonStyleKit : NSObject {
             rectanglePath.fill()
             context.restoreGState()
 
-
-
         }
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(ToggleButtonStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
@@ -139,8 +125,6 @@ public class ToggleButtonStyleKit : NSObject {
     }
 }
 
-
-
 private extension UIColor {
     func blended(withFraction fraction: CGFloat, of color: UIColor) -> UIColor {
         var r1: CGFloat = 1, g1: CGFloat = 1, b1: CGFloat = 1, a1: CGFloat = 1
@@ -152,6 +136,6 @@ private extension UIColor {
         return UIColor(red: r1 * (1 - fraction) + r2 * fraction,
             green: g1 * (1 - fraction) + g2 * fraction,
             blue: b1 * (1 - fraction) + b2 * fraction,
-            alpha: a1 * (1 - fraction) + a2 * fraction);
+            alpha: a1 * (1 - fraction) + a2 * fraction)
     }
 }

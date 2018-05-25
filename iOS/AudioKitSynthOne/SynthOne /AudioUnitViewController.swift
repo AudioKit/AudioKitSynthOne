@@ -12,7 +12,7 @@ import AudioKit
 public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSynthOneProtocol {
 
     @IBOutlet weak var testSlider: UISlider!
-    
+
     @IBAction func changeTestSlider(_ sender: UISlider) {
         let v = sender.value
         let p: AKSynthOneParameter = .cutoff
@@ -31,7 +31,7 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
     }
 
     @IBOutlet weak var debugLabel: UILabel!
-    
+
     @objc open var delegate: AKSynthOneProtocol?
 
     public func printDebug(_ text: String) {
@@ -47,10 +47,9 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
             }
         }
     }
-    
+
     /// A token for our registration to observe parameter value changes.
     var parameterObserverToken: AUParameterObserverToken!
-    
 
 //    override func changeParameter(_ param: AKSynthOneParameter) -> ((_: Double) -> Void) {
 //        return { value in
@@ -70,7 +69,7 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
     public func createAudioUnit(with componentDescription: AudioComponentDescription) throws -> AUAudioUnit {
         audioUnit = try AKSynthOneAudioUnit(componentDescription: componentDescription, options: [])
         audioUnit?.delegate = self
-        
+
         let waveformArray = [AKTable(.triangle), AKTable(.square), AKTable(.sine), AKTable(.sawtooth)]
         for (i, waveform) in waveformArray.enumerated() {
             audioUnit?.setupWaveform(UInt32(i), size: Int32(UInt32(waveform.count)))
@@ -81,32 +80,30 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
 
         //
         audioUnit?.createParameters()
-                
+
         return audioUnit!
     }
-    
+
     func connectViewWithAU() {
         printDebug("Hook up connectViewWithAU()")
     }
 
-    
-    //MARK: - AKSynthOneProtocol passthroughs
+    // MARK: - AKSynthOneProtocol passthroughs
     @objc public func dependentParamDidChange(_ param: DependentParam) {
         delegate?.dependentParamDidChange(param)
     }
-    
+
     @objc public func arpBeatCounterDidChange(_ beat: Int) {
         delegate?.arpBeatCounterDidChange(beat)
     }
-    
+
     @objc public func heldNotesDidChange() {
         delegate?.heldNotesDidChange()
     }
-    
+
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
         ///TODO:Route this to keyboard view controller (I'll change this to return the current array of playing notes)
         ///TODO:See https://trello.com/c/lQZMyF0V
         //AKLog("Conductor.swift:playingNotesDidChange")
     }
 }
-

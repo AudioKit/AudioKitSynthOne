@@ -31,7 +31,7 @@ extension PresetsViewController: PresetCellDelegate {
             presets.append(copy)
 
             // Resave positions in User Bank
-            let userBank = presets.filter{ $0.bank == copy.bank }.sorted { $0.position < $1.position }
+            let userBank = presets.filter { $0.bank == copy.bank }.sorted { $0.position < $1.position }
             for (i, preset) in userBank.enumerated() {
                 preset.position = i
             }
@@ -87,6 +87,3 @@ extension PresetsViewController: PresetCellDelegate {
 
     // To find the files in your machine, search for filename in your ~/Library/Developer/CoreSimulator/Devices/ directories
 }
-
-
-

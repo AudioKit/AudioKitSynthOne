@@ -15,7 +15,7 @@ import Foundation
 let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
 
 class AppSetting: Codable {
-    
+
     var settingID = "main"
     var firstRun = true
     var isPreRelease = true
@@ -30,12 +30,12 @@ class AppSetting: Codable {
     var pushNotifications = true
     var userEmail = ""
     var launches = 0
-    
+
     // Presets version
     var presetsVersion = 1.08
-    
+
     // MIDI Learn Settings
-    
+
     // mixer controller
     var masterVolume_CC = 255
     var morph1Selector_CC = 255
@@ -53,10 +53,10 @@ class AppSetting: Codable {
     var fmAmount_CC = 255
     var noiseVolume_CC = 255
     var glideKnob_CC = 255
-    
+
     // seq controller
     var arpInterval_CC = 255
-    
+
     // adsr
     var attackKnob_CC = 255
     var decayKnob_CC = 255
@@ -67,7 +67,7 @@ class AppSetting: Codable {
     var filterSustainKnob_CC = 255
     var filterReleaseKnob_CC = 255
     var filterADSRMixKnob_CC = 255
-    
+
     // fxController
     var sampleRate_CC = 255
     var autoPanRate_CC = 255
@@ -85,24 +85,24 @@ class AppSetting: Codable {
     var phaserRate_CC = 255
     var phaserFeedback_CC = 255
     var phaserNotchWidth_CC = 255
-    
+
     // Keyboard
     var labelMode = 1
     var octaveRange = 3
     var darkMode = true
     var showKeyboard = 1.0 // 1 show, 0 hide
-    
+
     // ******************************************************
     // MARK: - Init
     // ******************************************************
-    
+
     init() {
     }
-    
+
     //*****************************************************************
     // MARK: - JSON Parsing into object
     //*****************************************************************
-    
+
     // Init from Dictionary/JSON
     init(dictionary: [String: Any]) {
         settingID = dictionary["settingID"] as? String ?? settingID
@@ -118,7 +118,7 @@ class AppSetting: Codable {
         freezeArpRate = dictionary["freezeArpRate"] as? Bool ?? freezeArpRate
         saveTuningWithPreset = dictionary["saveTuningWithPreset"] as? Bool ?? saveTuningWithPreset
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
-        
+
         masterVolume_CC = dictionary["masterVolume_CC"] as? Int ?? masterVolume_CC
         morph1Selector_CC = dictionary["morph1Selector_CC"] as? Int ?? morph1Selector_CC
         morph2Selector_CC = dictionary["morph2Selector_CC"] as? Int ?? morph2Selector_CC
@@ -128,16 +128,16 @@ class AppSetting: Codable {
         morphBalance_CC = dictionary["morphBalance_CC"] as? Int ?? morphBalance_CC
         morph1Volume_CC = dictionary["morph1Volume_CC"] as? Int ?? morph1Volume_CC
         morph2Volume_CC = dictionary["morph2Volume_CC"] as? Int ?? morph2Volume_CC
-        
+
         cutoff_CC = dictionary["cutoff_CC"] as? Int ?? cutoff_CC
         rez_CC = dictionary["rez_CC"] as? Int ?? rez_CC
         subVolume_CC = dictionary["subVolume_CC"] as? Int ?? subVolume_CC
         fmVolume_CC = dictionary["fmVolume_CC"] as? Int ?? fmVolume_CC
         noiseVolume_CC = dictionary["noiseVolume_CC"] as? Int ?? noiseVolume_CC
         glideKnob_CC = dictionary["glideKnob_CC"] as? Int ?? glideKnob_CC
-        
+
         arpInterval_CC = dictionary["arpInterval_CC"] as? Int ?? arpInterval_CC
-        
+
         attackKnob_CC = dictionary["attackKnob_CC"] as? Int ?? attackKnob_CC
         decayKnob_CC = dictionary["decayKnob_CC"] as? Int ?? decayKnob_CC
         sustainKnob_CC = dictionary["sustainKnob_CC"] as? Int ?? sustainKnob_CC
@@ -147,7 +147,7 @@ class AppSetting: Codable {
         filterSustainKnob_CC = dictionary["filterSustainKnob_CC"] as? Int ?? filterSustainKnob_CC
         filterReleaseKnob_CC = dictionary[" filterReleaseKnob_CC"] as? Int ?? filterReleaseKnob_CC
         filterADSRMixKnob_CC = dictionary[" filterADSRMixKnob_CC"] as? Int ?? filterADSRMixKnob_CC
-        
+
         sampleRate_CC = dictionary["sampleRate_CC"] as? Int ?? sampleRate_CC
         delayTime_CC = dictionary["delayTime_CC"] as? Int ?? delayTime_CC
         delayFeedback_CC = dictionary["delayFeedback_CC"] as? Int ?? delayFeedback_CC
@@ -163,14 +163,13 @@ class AppSetting: Codable {
         reverbSize_CC = dictionary["reverbSize_CC"] as? Int ?? reverbSize_CC
         reverbLowCut_CC = dictionary["reverbLowCut_CC"] as? Int ?? reverbLowCut_CC
         reverbMix_CC = dictionary["reverbMix_CC"] as? Int ?? reverbMix_CC
-        
+
         // Keyboard
         labelMode = dictionary["labelMode"] as? Int ?? labelMode
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
         darkMode = dictionary["darkMode"] as? Bool ?? darkMode
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
-        
+
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
     }
 }
-

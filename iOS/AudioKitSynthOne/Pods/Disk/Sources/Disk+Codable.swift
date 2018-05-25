@@ -44,7 +44,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Append Codable struct JSON data to a file's data
     ///
     /// - Parameters:
@@ -83,7 +83,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Append Codable struct array JSON data to a file's data
     ///
     /// - Parameters:
@@ -122,7 +122,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Retrieve and decode a struct from a file on disk
     ///
     /// - Parameters:
@@ -156,7 +156,7 @@ extension Disk {
             failureReason: "JSONDecoder could not decode type \(T.self) from the data existing at the file location.",
             recoverySuggestion: "Ensure that you only append data structure(s) with the same type as the data existing at the file location.")
     }
-    
+
     /// Helper method to create error for when trying to saving Codable structs as multiple files to a folder
     fileprivate static func createInvalidFileNameForStructsError() -> Error {
         return Disk.createError(
@@ -166,4 +166,3 @@ extension Disk {
             recoverySuggestion: "Save your struct or array of structs as one file that encapsulates all the data (i.e. \"multiple-messages.json\")")
     }
 }
-

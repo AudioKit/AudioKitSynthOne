@@ -11,19 +11,19 @@ import UIKit
 import Disk
 
 extension ParentViewController {
-    
+
     // **********************************************************
     // MARK: - Convert App Settings to Controls and vice-versa
     // **********************************************************
-    
+
     func setDefaultsFromAppSettings() {
-        
+
         // MIDI
         //conductor.backgroundAudioOn = appSettings.backgroundAudioOn
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
         devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
-        
+
         // MIDI Learn
         mixerViewController.masterVolume.midiCC = MIDIByte(appSettings.masterVolume_CC)
         mixerViewController.morph1SemitoneOffset.midiCC = MIDIByte(appSettings.morph1SemitoneOffset_CC)
@@ -39,9 +39,9 @@ extension ParentViewController {
         mixerViewController.glideKnob.midiCC = MIDIByte(appSettings.glideKnob_CC)
         mixerViewController.cutoff.midiCC = MIDIByte(appSettings.cutoff_CC)
         mixerViewController.resonance.midiCC = MIDIByte(appSettings.rez_CC)
-        
+
         seqViewController.arpInterval.midiCC = MIDIByte(appSettings.arpInterval_CC)
-        
+
         adsrViewController.attackKnob.midiCC = MIDIByte(appSettings.attackKnob_CC)
         adsrViewController.decayKnob.midiCC = MIDIByte(appSettings.decayKnob_CC)
         adsrViewController.sustainKnob.midiCC = MIDIByte(appSettings.sustainKnob_CC)
@@ -51,7 +51,7 @@ extension ParentViewController {
         adsrViewController.filterSustainKnob.midiCC = MIDIByte(appSettings.filterSustainKnob_CC)
         adsrViewController.filterReleaseKnob.midiCC = MIDIByte(appSettings.filterReleaseKnob_CC)
         adsrViewController.filterADSRMixKnob.midiCC = MIDIByte(appSettings.filterADSRMixKnob_CC)
-        
+
         fxViewController.sampleRate.midiCC = MIDIByte(appSettings.sampleRate_CC)
         fxViewController.autoPanRate.midiCC = MIDIByte(appSettings.autoPanRate_CC)
         fxViewController.reverbSize.midiCC = MIDIByte(appSettings.reverbSize_CC)
@@ -68,23 +68,23 @@ extension ParentViewController {
         fxViewController.phaserRate.midiCC = MIDIByte(appSettings.phaserRate_CC)
         fxViewController.phaserFeedback.midiCC = MIDIByte(appSettings.phaserFeedback_CC)
         fxViewController.phaserNotchWidth.midiCC = MIDIByte(appSettings.phaserNotchWidth_CC)
-        
+
         // keyboard
         keyboardView.labelMode = appSettings.labelMode
         keyboardView.octaveCount = appSettings.octaveRange
         keyboardView.darkMode = appSettings.darkMode
-        
+
         //TODO: Persist AudioPlot fill?
     }
-    
+
     func saveAppSettingValues() {
-        
+
         // MIDI
         // appSettings.backgroundAudioOn = conductor.backgroundAudioOn
         appSettings.midiChannel = Int(midiChannelIn)
         appSettings.omniMode = omniMode
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
-        
+
         // MIDI Learn
         appSettings.masterVolume_CC = Int(mixerViewController.masterVolume.midiCC)
         appSettings.morph1SemitoneOffset_CC = Int(mixerViewController.morph1SemitoneOffset.midiCC)
@@ -100,9 +100,9 @@ extension ParentViewController {
         appSettings.glideKnob_CC = Int(mixerViewController.glideKnob.midiCC)
         appSettings.cutoff_CC = Int(mixerViewController.cutoff.midiCC)
         appSettings.rez_CC = Int(mixerViewController.resonance.midiCC)
-        
+
         appSettings.arpInterval_CC = Int(seqViewController.arpInterval.midiCC)
-        
+
         appSettings.attackKnob_CC = Int(adsrViewController.attackKnob.midiCC)
         appSettings.decayKnob_CC = Int(adsrViewController.decayKnob.midiCC)
         appSettings.sustainKnob_CC = Int(adsrViewController.sustainKnob.midiCC)
@@ -112,7 +112,7 @@ extension ParentViewController {
         appSettings.filterSustainKnob_CC = Int(adsrViewController.filterSustainKnob.midiCC)
         appSettings.filterReleaseKnob_CC = Int(adsrViewController.filterReleaseKnob.midiCC)
         appSettings.filterADSRMixKnob_CC = Int(adsrViewController.filterADSRMixKnob.midiCC)
-        
+
         appSettings.sampleRate_CC = Int(fxViewController.sampleRate.midiCC)
         appSettings.autoPanRate_CC = Int(fxViewController.autoPanRate.midiCC)
         appSettings.reverbSize_CC = Int(fxViewController.reverbSize.midiCC)
@@ -129,38 +129,38 @@ extension ParentViewController {
         appSettings.phaserRate_CC = Int(fxViewController.phaserRate.midiCC)
         appSettings.phaserFeedback_CC = Int(fxViewController.phaserFeedback.midiCC)
         appSettings.phaserNotchWidth_CC = Int(fxViewController.phaserNotchWidth.midiCC)
-       
+
         // keyboard
         appSettings.labelMode = keyboardView.labelMode
         appSettings.octaveRange = keyboardView.octaveCount
         appSettings.darkMode = keyboardView.darkMode
         appSettings.showKeyboard = keyboardToggle.value
-        
+
         appSettings.plotFilled = mixerViewController.isAudioPlotFilled
         saveAppSettings()
     }
-    
+
     // **********************************************************
     // MARK: - Load / Save App Settings
     // **********************************************************
-    
+
     // Load App Settings from Device
     func loadSettingsFromDevice() {
         do {
             let retrievedSettingData = try Disk.retrieve("settings.json", from: .documents, as: Data.self)
             let settingsJSON = try? JSONSerialization.jsonObject(with: retrievedSettingData, options: [])
-            
+
             if let settingDictionary = settingsJSON as? [String: Any] {
                 appSettings = AppSetting(dictionary: settingDictionary)
             }
-            
+
             setDefaultsFromAppSettings()
-            
+
         } catch {
             AKLog("*** error loading")
         }
     }
-    
+
     func saveAppSettings() {
         do {
             try Disk.save(appSettings, to: .documents, as: "settings.json")
@@ -168,11 +168,11 @@ extension ParentViewController {
             AKLog("error saving")
         }
     }
-    
+
     // **********************************************************
     // MARK: - Load / Save Bank Settings
     // **********************************************************
-    
+
     func saveBankSettings() {
         do {
             try Disk.save(conductor.banks, to: .documents, as: "banks.json")
@@ -180,12 +180,12 @@ extension ParentViewController {
             AKLog("error saving")
         }
     }
-    
+
     func loadBankSettings() {
         do {
             let retrievedSettingData = try Disk.retrieve("banks.json", from: .documents, as: Data.self)
             let banksJSON = try? JSONSerialization.jsonObject(with: retrievedSettingData, options: [])
-            
+
             guard let jsonArray = banksJSON as? [Any] else { return }
             var banks = [Bank]()
             for bankJSON in jsonArray {
@@ -195,20 +195,20 @@ extension ParentViewController {
                 }
             }
             conductor.banks = banks
-            
+
         } catch {
             AKLog("*** error loading")
         }
     }
-    
+
     func createInitBanks() {
-        
+
         for (i, bankName) in initBanks.enumerated() {
             let bank = Bank(name: bankName, position: i)
             conductor.banks.append(bank)
         }
-      
+
         saveBankSettings()
     }
-    
+
 }

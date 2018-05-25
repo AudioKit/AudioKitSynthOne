@@ -45,7 +45,7 @@ extension PresetsViewController: BankPopOverDelegate {
         presets = presets.filter { $0.bank != bankName}
 
         // Remove from Conductor
-        conductor.banks = conductor.banks.filter{ $0.name != bankName }
+        conductor.banks = conductor.banks.filter { $0.name != bankName }
 
         // Reorder Banks
         for (i, bank) in conductor.banks.enumerated() {
@@ -65,4 +65,3 @@ extension PresetsViewController: BankPopOverDelegate {
 
     }
 }
-

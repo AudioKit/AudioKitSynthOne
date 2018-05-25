@@ -9,25 +9,22 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class ColorKnobStyleKit : NSObject {
+public class ColorKnobStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawFMKnob(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 124, height: 124), resizing: ResizingBehavior = .aspectFit, knobValue: CGFloat = 0.496) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 124, height: 124), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 124, y: resizedFrame.height / 124)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 124, resizedFrame.height / 124)
-
 
         //// Color Declarations
         let black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
@@ -67,13 +64,10 @@ public class ColorKnobStyleKit : NSObject {
         //// Knob
         context.saveGState()
 
-
-
         //// BlackBackground Drawing
         let blackBackgroundPath = UIBezierPath(ovalIn: CGRect(x: 4, y: 4, width: 120, height: 120))
         black.setFill()
         blackBackgroundPath.fill()
-
 
         //// GradientKnob 2 Drawing
         let gradientKnob2Path = UIBezierPath(ovalIn: CGRect(x: 13, y: 13, width: 102, height: 102))
@@ -81,7 +75,6 @@ public class ColorKnobStyleKit : NSObject {
         gradientKnob2Path.addClip()
         context.drawLinearGradient(lowerKnobGradient2, start: CGPoint(x: 64, y: 115), end: CGPoint(x: 64, y: 13), options: [])
         context.restoreGState()
-
 
         //// GradientKnob Drawing
         let gradientKnobPath = UIBezierPath(ovalIn: CGRect(x: 19, y: 19, width: 90, height: 90))
@@ -112,8 +105,6 @@ public class ColorKnobStyleKit : NSObject {
 
         context.restoreGState()
 
-
-
         //// topCircle Drawing
         let topCirclePath = UIBezierPath(ovalIn: CGRect(x: 31, y: 31, width: 67, height: 66))
         knobTopColor.setFill()
@@ -137,8 +128,6 @@ public class ColorKnobStyleKit : NSObject {
         context.endTransparencyLayer()
         context.restoreGState()
 
-
-
         //// IndicatorGroup
         //// Indicator Drawing
         context.saveGState()
@@ -152,21 +141,13 @@ public class ColorKnobStyleKit : NSObject {
         indicatorPath.fill()
         context.restoreGState()
 
+        context.restoreGState()
 
         context.restoreGState()
 
-
-
-
-
-        context.restoreGState()
-        
         context.restoreGState()
 
     }
-
-
-
 
     @objc(ColorKnobStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
@@ -208,8 +189,6 @@ public class ColorKnobStyleKit : NSObject {
     }
 }
 
-
-
 private extension UIColor {
     func blended(withFraction fraction: CGFloat, of color: UIColor) -> UIColor {
         var r1: CGFloat = 1, g1: CGFloat = 1, b1: CGFloat = 1, a1: CGFloat = 1
@@ -221,6 +200,6 @@ private extension UIColor {
         return UIColor(red: r1 * (1 - fraction) + r2 * fraction,
             green: g1 * (1 - fraction) + g2 * fraction,
             blue: b1 * (1 - fraction) + b2 * fraction,
-            alpha: a1 * (1 - fraction) + a2 * fraction);
+            alpha: a1 * (1 - fraction) + a2 * fraction)
     }
 }

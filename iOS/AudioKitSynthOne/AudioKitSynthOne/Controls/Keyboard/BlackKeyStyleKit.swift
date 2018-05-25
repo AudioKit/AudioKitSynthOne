@@ -9,11 +9,9 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class BlackKeyStyleKit : NSObject {
+public class BlackKeyStyleKit: NSObject {
 
     //// Drawing Methods
 
@@ -52,10 +50,8 @@ public class BlackKeyStyleKit : NSObject {
         shadow.shadowOffset = CGSize(width: 0, height: 0)
         shadow.shadowBlurRadius = 4
 
-
         //// Subframes
         let blackKey2: CGRect = CGRect(x: frame.minX + 0.5, y: frame.minY, width: fastFloor((frame.width - 0.5) * 1.01408 + 0.5), height: fastFloor((frame.height) * 1.00000 + 0.5))
-
 
         //// BlackKey 2
         //// Rectangle 4 Drawing
@@ -81,8 +77,6 @@ public class BlackKeyStyleKit : NSObject {
         context.endTransparencyLayer()
         context.endTransparencyLayer()
         context.restoreGState()
-
-
 
         //// Rectangle 5 Drawing
         let rectangle5Rect = CGRect(x: blackKey2.minX + fastFloor(blackKey2.width * 0.11111 + 0.5), y: blackKey2.minY + fastFloor(blackKey2.height * 0.75000 + 0.5), width: fastFloor(blackKey2.width * 0.91667 + 0.5) - fastFloor(blackKey2.width * 0.11111 + 0.5), height: fastFloor(blackKey2.height * 0.97321 + 0.5) - fastFloor(blackKey2.height * 0.75000 + 0.5))
@@ -113,8 +107,6 @@ public class BlackKeyStyleKit : NSObject {
         context.endTransparencyLayer()
         context.endTransparencyLayer()
         context.restoreGState()
-
-
 
         //// Rectangle 6 Drawing
         let rectangle6Rect = CGRect(x: blackKey2.minX + fastFloor(blackKey2.width * 0.11111 + 0.5), y: blackKey2.minY + fastFloor(blackKey2.height * 0.00000 + 0.5), width: fastFloor(blackKey2.width * 0.91667 + 0.5) - fastFloor(blackKey2.width * 0.11111 + 0.5), height: fastFloor(blackKey2.height * 0.83036 + 0.5) - fastFloor(blackKey2.height * 0.00000 + 0.5))
@@ -153,8 +145,6 @@ public class BlackKeyStyleKit : NSObject {
 
 }
 
-
-
 private extension UIColor {
     func blended(withFraction fraction: CGFloat, of color: UIColor) -> UIColor {
         var r1: CGFloat = 1, g1: CGFloat = 1, b1: CGFloat = 1, a1: CGFloat = 1
@@ -166,6 +156,6 @@ private extension UIColor {
         return UIColor(red: r1 * (1 - fraction) + r2 * fraction,
             green: g1 * (1 - fraction) + g2 * fraction,
             blue: b1 * (1 - fraction) + b2 * fraction,
-            alpha: a1 * (1 - fraction) + a2 * fraction);
+            alpha: a1 * (1 - fraction) + a2 * fraction)
     }
 }

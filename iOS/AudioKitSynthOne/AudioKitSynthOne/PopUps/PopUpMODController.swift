@@ -19,15 +19,15 @@ class PopUpMODController: UIViewController {
     var modWheelDestination = 0
     @IBOutlet weak var pitchUpperRange: Stepper!
     @IBOutlet weak var pitchLowerRange: Stepper!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         modWheelSegment.selectedSegmentIndex = modWheelDestination
-        
+
         let c = Conductor.sharedInstance
         guard let s = c.synth else { return }
-        
+
         pitchUpperRange.maxValue = s.getParameterMax(.pitchbendMaxSemitones)
         pitchUpperRange.minValue = s.getParameterMin(.pitchbendMaxSemitones)
         pitchUpperRange.value = s.getAK1Parameter(.pitchbendMaxSemitones)
@@ -38,7 +38,7 @@ class PopUpMODController: UIViewController {
         pitchLowerRange.value = s.getAK1Parameter(.pitchbendMinSemitones)
         c.bind(pitchLowerRange, to:.pitchbendMinSemitones)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         guard let s = Conductor.sharedInstance.synth else { return }
         pitchUpperRange.value = s.getAK1Parameter(.pitchbendMaxSemitones)
@@ -48,9 +48,9 @@ class PopUpMODController: UIViewController {
     @IBAction func routingValueDidChange(_ sender: UISegmentedControl) {
         delegate?.didSelectRouting(newDestination: sender.selectedSegmentIndex)
     }
-    
+
     @IBAction func closeButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
+
 }

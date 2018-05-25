@@ -11,12 +11,11 @@
 extension ParentViewController: ABAudiobusControllerStateIODelegate {
 
     func setupAudioBusInput() {
-        midiInput = ABMIDIReceiverPort(name: "AudioKit Synth One MIDI", title: "AudioKit Synth One MIDI") { (port, midiPacketListPointer)  in
+        midiInput = ABMIDIReceiverPort(name: "AudioKit Synth One MIDI", title: "AudioKit Synth One MIDI") { (_, midiPacketListPointer)  in
 
             let events = AKMIDIEvent.midiEventsFrom(packetListPointer: midiPacketListPointer)
             for event in events {
                 guard event.channel == self.midiChannelIn || self.omniMode else { return }
-
 
                 if event.status == AKMIDIStatus.noteOn {
                     if event.internalData[2] == 0 {
@@ -67,7 +66,7 @@ extension ParentViewController: ABAudiobusControllerStateIODelegate {
     //*****************************************************************
 
     public func audiobusStateDictionaryForCurrentState() -> [AnyHashable : Any]! {
-        return [ "preset" : activePreset.position]
+        return [ "preset": activePreset.position]
     }
 
     public func loadState(fromAudiobusStateDictionary dictionary: [AnyHashable : Any]!, responseMessage outResponseMessage: AutoreleasingUnsafeMutablePointer<NSString?>!) {

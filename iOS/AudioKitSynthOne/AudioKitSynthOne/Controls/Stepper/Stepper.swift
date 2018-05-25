@@ -96,7 +96,7 @@ class Stepper: UIView, AKSynthOneControl {
 
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            let _ = touch.location(in: self)
+            _ = touch.location(in: self)
         }
     }
 

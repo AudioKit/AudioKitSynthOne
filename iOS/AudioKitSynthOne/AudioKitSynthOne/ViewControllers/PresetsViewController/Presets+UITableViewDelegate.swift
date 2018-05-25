@@ -18,7 +18,10 @@ extension PresetsViewController: UITableViewDelegate {
     }
 
     // Editing the table view.
-    @objc(tableView:commitEditingStyle:forRowAtIndexPath:) func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    @objc(tableView:commitEditingStyle:forRowAtIndexPath:)
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCellEditingStyle,
+                   forRowAt indexPath: IndexPath) {
 
         if editingStyle == .delete {
 
@@ -29,7 +32,7 @@ extension PresetsViewController: UITableViewDelegate {
             guard let presetToDelete = cell?.currentPreset else { return }
 
             // Delete the preset from the data source
-            presets = presets.filter {$0.uid != presetToDelete.uid}
+            presets = presets.filter { $0.uid != presetToDelete.uid }
 
             // Resave Preset Positions in Bank
             let presetBank = presets.filter { $0.bank == presetToDelete.bank }.sorted { $0.position < $1.position }
@@ -47,13 +50,16 @@ extension PresetsViewController: UITableViewDelegate {
         }
     }
 
-    @objc(tableView:canFocusRowAtIndexPath:) func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
+    @objc(tableView:canFocusRowAtIndexPath:) func tableView(_ tableView: UITableView,
+                                                            canFocusRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
 
     // Override to support rearranging the table view.
-    @objc(tableView:moveRowAtIndexPath:toIndexPath:) func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
+    @objc(tableView:moveRowAtIndexPath:toIndexPath:) func tableView(_ tableView: UITableView,
+                                                                    moveRowAt fromIndexPath: IndexPath,
+                                                                    to toIndexPath: IndexPath) {
 
         // Get preset
         let presetToMove = sortedPresets[Int(fromIndexPath.row)]

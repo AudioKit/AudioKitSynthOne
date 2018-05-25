@@ -15,13 +15,16 @@ public class KnobStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawKnobOne(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 124, height: 124), resizing: ResizingBehavior = .aspectFit, knobValue: CGFloat = 0.396) {
+    @objc dynamic public class func drawKnobOne(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 124, height: 124),
+                                                resizing: ResizingBehavior = .aspectFit,
+                                                knobValue: CGFloat = 0.396) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
         //// Resize to Target Frame
         context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 124, height: 124), target: targetFrame)
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 124, height: 124),
+                                                  target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 124, y: resizedFrame.height / 124)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 124, resizedFrame.height / 124)
@@ -35,8 +38,16 @@ public class KnobStyleKit: NSObject {
         let orange2 = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)
 
         //// Gradient Declarations
-        let edge2 = CGGradient(colorsSpace: nil, colors: [knobBottom.cgColor, knobBottom.blended(withFraction: 0.5, of: knobTop2).cgColor, knobTop2.cgColor, knobTop2.blended(withFraction: 0.5, of: knobLight).cgColor, knobLight.cgColor] as CFArray, locations: [0, 0.23, 0.41, 0.73, 1])!
-        let lowerKnobGradient2 = CGGradient(colorsSpace: nil, colors: [knobTop2.cgColor, knobBottom.cgColor, knobLight.cgColor] as CFArray, locations: [0, 0.51, 1])!
+        let edge2 = CGGradient(colorsSpace: nil, colors: [knobBottom.cgColor,
+                                                          knobBottom.blended(withFraction: 0.5, of: knobTop2).cgColor,
+                                                          knobTop2.cgColor,
+                                                          knobTop2.blended(withFraction: 0.5, of: knobLight).cgColor,
+                                                          knobLight.cgColor] as CFArray,
+                               locations: [0, 0.23, 0.41, 0.73, 1])!
+        let lowerKnobGradient2 = CGGradient(colorsSpace: nil, colors: [knobTop2.cgColor,
+                                                                       knobBottom.cgColor,
+                                                                       knobLight.cgColor] as CFArray,
+                                            locations: [0, 0.51, 1])!
 
         //// Shadow Declarations
         let shadow2 = NSShadow()
@@ -68,13 +79,19 @@ public class KnobStyleKit: NSObject {
         let gradientKnob2Path = UIBezierPath(ovalIn: CGRect(x: 8, y: 8, width: 102, height: 102))
         context.saveGState()
         gradientKnob2Path.addClip()
-        context.drawLinearGradient(lowerKnobGradient2, start: CGPoint(x: 59, y: 110), end: CGPoint(x: 59, y: 8), options: [])
+        context.drawLinearGradient(lowerKnobGradient2,
+                                   start: CGPoint(x: 59, y: 110),
+                                   end: CGPoint(x: 59, y: 8),
+                                   options: [])
         context.restoreGState()
 
         //// GradientKnob Drawing
         let gradientKnobPath = UIBezierPath(ovalIn: CGRect(x: 14, y: 14, width: 90, height: 90))
         context.saveGState()
-        context.setShadow(offset: CGSize(width: shadow2.shadowOffset.width * resizedShadowScale, height: shadow2.shadowOffset.height * resizedShadowScale), blur: shadow2.shadowBlurRadius * resizedShadowScale, color: (shadow2.shadowColor as! UIColor).cgColor)
+        context.setShadow(offset: CGSize(width: shadow2.shadowOffset.width * resizedShadowScale,
+                                         height: shadow2.shadowOffset.height * resizedShadowScale),
+                          blur: shadow2.shadowBlurRadius * resizedShadowScale,
+                          color: (shadow2.shadowColor as! UIColor).cgColor)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         gradientKnobPath.addClip()
         context.drawLinearGradient(edge2, start: CGPoint(x: 59, y: 104), end: CGPoint(x: 59, y: 14), options: [])
@@ -104,11 +121,14 @@ public class KnobStyleKit: NSObject {
         //// Indicator Drawing
         context.saveGState()
         context.translateBy(x: 59, y: 59)
-        context.rotate(by: -(knobAngle - 240) * CGFloat.pi/180)
+        context.rotate(by: -(knobAngle - 240) * CGFloat.pi / 180)
 
         let indicatorPath = UIBezierPath(rect: CGRect(x: -3, y: -45, width: 6, height: 18))
         context.saveGState()
-        context.setShadow(offset: CGSize(width: shadow4.shadowOffset.width * resizedShadowScale, height: shadow4.shadowOffset.height * resizedShadowScale), blur: shadow4.shadowBlurRadius * resizedShadowScale, color: (shadow4.shadowColor as! UIColor).cgColor)
+        context.setShadow(offset: CGSize(width: shadow4.shadowOffset.width * resizedShadowScale,
+                                         height: shadow4.shadowOffset.height * resizedShadowScale),
+                          blur: shadow4.shadowBlurRadius * resizedShadowScale,
+                          color: (shadow4.shadowColor as! UIColor).cgColor)
         orange2.setFill()
         indicatorPath.fill()
         context.restoreGState()

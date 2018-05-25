@@ -38,7 +38,7 @@ class CategoryCell: UITableViewCell {
         // set cell selection color
         let selectedView = UIView(frame: CGRect.zero)
         selectedView.backgroundColor = UIColor.clear
-        selectedBackgroundView  = selectedView
+        selectedBackgroundView = selectedView
 
         categoryLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         shareButton.isHidden = true

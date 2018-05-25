@@ -64,19 +64,26 @@ public class StepperStyleKit: NSObject {
         let backgroundFontAttributes = [
             .font: UIFont(name: "AvenirNextCondensed-Regular", size: UIFont.systemFontSize)!,
             .foregroundColor: textColor,
-            .paragraphStyle: backgroundStyle,
+            .paragraphStyle: backgroundStyle
         ] as [NSAttributedStringKey: Any]
 
-        let backgroundTextHeight: CGFloat = text.boundingRect(with: CGSize(width: backgroundRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: backgroundFontAttributes, context: nil).height
+        let backgroundTextHeight: CGFloat = text.boundingRect(with: CGSize(width: backgroundRect.width,
+                                                                           height: CGFloat.infinity),
+                                                              options: .usesLineFragmentOrigin,
+                                                              attributes: backgroundFontAttributes,
+                                                              context: nil).height
         context.saveGState()
         context.clip(to: backgroundRect)
-        text.draw(in: CGRect(x: backgroundRect.minX, y: backgroundRect.minY + (backgroundRect.height - backgroundTextHeight) / 2, width: backgroundRect.width, height: backgroundTextHeight), withAttributes: backgroundFontAttributes)
+        text.draw(in: CGRect(x: backgroundRect.minX,
+                             y: backgroundRect.minY + (backgroundRect.height - backgroundTextHeight) / 2,
+                             width: backgroundRect.width, height: backgroundTextHeight),
+                  withAttributes: backgroundFontAttributes)
         context.restoreGState()
 
         //// Rectangle Drawing
         context.saveGState()
         context.translateBy(x: 89.5, y: 16.5)
-        context.rotate(by: -180 * CGFloat.pi/180)
+        context.rotate(by: -180 * CGFloat.pi / 180)
 
         let rectanglePath = UIBezierPath()
         rectanglePath.move(to: CGPoint(x: 3.5, y: -5.33))

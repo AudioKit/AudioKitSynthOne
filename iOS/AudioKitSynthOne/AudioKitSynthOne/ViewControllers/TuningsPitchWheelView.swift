@@ -17,13 +17,13 @@ public class TuningsPitchWheelView: UIView {
     var pxy = [CGPoint]()
 
     public required init?(coder aDecoder: NSCoder) {
-        self.overlayView = TuningsPitchWheelOverlayView.init(frame: CGRect.init())
+        self.overlayView = TuningsPitchWheelOverlayView(frame: CGRect())
         super.init(coder: aDecoder)
         configure()
     }
 
     public override init(frame: CGRect) {
-        self.overlayView = TuningsPitchWheelOverlayView.init(frame: frame)
+        self.overlayView = TuningsPitchWheelOverlayView(frame: frame)
         super.init(frame: frame)
         configure()
     }
@@ -102,12 +102,12 @@ public class TuningsPitchWheelView: UIView {
             let r1f: CGFloat = 1 - 0.25 + 0.1
             let r1: CGFloat = r * r1f
             let r2: CGFloat = r * r1f * (0.75 - 0.05 - 0.05)
-            let p00: CGPoint = horagram01ToCartesian01(p: CGPoint.init(x: p, y: Double(0.5 * r0)))
-            let p0 = CGPoint.init(x: p00.x + xp, y: p00.y + yp)
-            let p11 = horagram01ToCartesian01(p: CGPoint.init(x:p, y: Double(0.5 * r1)))
-            let p1 = CGPoint.init(x: p11.x + xp, y: p11.y + yp)
-            let p22 = horagram01ToCartesian01(p: CGPoint.init(x: p, y: Double(0.5 * r2)))
-            let p2: CGPoint = CGPoint.init(x: p22.x + xp, y: p22.y + yp)
+            let p00: CGPoint = horagram01ToCartesian01(p: CGPoint(x: p, y: Double(0.5 * r0)))
+            let p0 = CGPoint(x: p00.x + xp, y: p00.y + yp)
+            let p11 = horagram01ToCartesian01(p: CGPoint(x: p, y: Double(0.5 * r1)))
+            let p1 = CGPoint(x: p11.x + xp, y: p11.y + yp)
+            let p22 = horagram01ToCartesian01(p: CGPoint(x: p, y: Double(0.5 * r2)))
+            let p2: CGPoint = CGPoint(x: p22.x + xp, y: p22.y + yp)
             mspxy.append(p2)
             generalLineP(context, p0, p2)
 
@@ -130,7 +130,7 @@ public class TuningsPitchWheelView: UIView {
         UIColor.darkGray.setStroke()
         UIColor.lightGray.setFill()
         let npostr = "\(masterSet.count)"
-        let npopt =  CGPoint.init(x: 2 * fontSize, y: 2 * fontSize)
+        let npopt = CGPoint(x: 2 * fontSize, y: 2 * fontSize)
         _ = npostr.drawCentered(atPoint: npopt, font: bdf2, color: UIColor.lightGray, drawStroke: false)
 
         // POP
@@ -142,7 +142,7 @@ extension TuningsPitchWheelView {
 
     public class func color(forPitch pitch: Double, saturation: CGFloat = 0.625, brightness: CGFloat = 1, alpha: CGFloat = 0.75) -> UIColor {
         let hue = CGFloat(pitch.truncatingRemainder(dividingBy: 1))
-        let r = UIColor.init(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+        let r = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         return r
     }
 
@@ -150,7 +150,7 @@ extension TuningsPitchWheelView {
         let thetaRadians: CGFloat = CGFloat(radians01(d01: Float(p.x)) - 0.5 * Double.pi) // clockwise
         let x = p.y * cos(thetaRadians)
         let y = p.y * sin(thetaRadians)
-        return CGPoint(x:x, y:y)
+        return CGPoint(x: x, y: y)
     }
 
     func radians01(d01: Float) -> Float {
@@ -186,7 +186,7 @@ private extension String {
         attributes.removeValue(forKey: .strokeWidth)
         attributes.removeValue(forKey: .strokeColor)
         attributes[.foregroundColor] = color
-        self.draw(at: centeredAvgP, withAttributes:attributes)
+        self.draw(at: centeredAvgP, withAttributes: attributes)
 
         return labelSize
     }
@@ -235,7 +235,7 @@ public class TuningsPitchWheelOverlayView: UIView {
                         let a = bigR < 36 ? bigR / 36 : 1
                         let pitch = masterPitch[Int(nn)]
                         TuningsPitchWheelView.color(forPitch: pitch, saturation: 0.36, brightness: 1, alpha: a).setStroke()
-                        let bigDotR = CGRect(x: p.x - bigR/2, y: p.y - bigR/2, width: bigR, height: bigR)
+                        let bigDotR = CGRect(x: p.x - bigR / 2, y: p.y - bigR / 2, width: bigR, height: bigR)
                         context.strokeEllipse(in: bigDotR)
                     }
                 }

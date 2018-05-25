@@ -45,16 +45,16 @@ public class AKVerticalPad: UIView {
     var touchPointView: ModWheelTouchPoint!
 
     override init (frame: CGRect) {
-        super.init(frame : frame)
+        super.init(frame: frame)
     }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        centerPointX = self.bounds.size.width/2
+        centerPointX = self.bounds.size.width / 2
 
         // Setup Touch Visual Indicators
         touchPointView = ModWheelTouchPoint(frame: CGRect(x: -200, y: -200, width: 58, height: 58))
-        touchPointView.center = CGPoint(x: centerPointX, y: self.bounds.size.height/2)
+        touchPointView.center = CGPoint(x: centerPointX, y: self.bounds.size.height / 2)
         touchPointView.isOpaque = false
         self.addSubview(touchPointView)
     }
@@ -92,7 +92,7 @@ public class AKVerticalPad: UIView {
 
     // Linear Scale from PitchWheel
     func setVerticalValueFromPitchWheel(midiValue: MIDIWord) {
-        verticalValue = Double.scaleRangeZeroToOne(Double(midiValue), rangeMin: 0, rangeMax: 16383)
+        verticalValue = Double.scaleRangeZeroToOne(Double(midiValue), rangeMin: 0, rangeMax: 16_383)
         let verticalPos = self.bounds.height - (self.bounds.height * CGFloat(verticalValue))
         touchPointView.center = CGPoint(x: centerPointX, y: verticalPos + yVisualAdjust)
         callback(verticalValue)

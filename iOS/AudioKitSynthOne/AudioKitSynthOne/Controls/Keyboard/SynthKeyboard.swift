@@ -176,9 +176,10 @@ public protocol AKKeyboardDelegate: class {
 
         let lastCRect = CGRect(x: whiteKeyX(0, octaveNumber: octaveCount),
                                y: 1,
-                               width: tempWidth/2,
+                               width: tempWidth / 2,
                                height: whiteKeySize.height)
-        let lastC = UIBezierPath(roundedRect: lastCRect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 5, height: 5))
+        let lastC = UIBezierPath(roundedRect: lastCRect, byRoundingCorners: [.bottomLeft, .bottomRight],
+                                 cornerRadii: CGSize(width: 5, height: 5))
 
         whiteKeyColor(0, octaveNumber: octaveCount).setFill()
         lastC.fill()
@@ -206,7 +207,7 @@ public protocol AKKeyboardDelegate: class {
 
         for i in 0 ..< 7 {
 
-            let whiteKeysRect = CGRect(x: whiteKeyX(i, octaveNumber: octaveNumber), y: 1, width:  whiteKeySize.width - 1, height: whiteKeySize.height)
+            let whiteKeysRect = CGRect(x: whiteKeyX(i, octaveNumber: octaveNumber), y: 1, width: whiteKeySize.width - 1, height: whiteKeySize.height)
             whiteKeysPaths.append(UIBezierPath(roundedRect: whiteKeysRect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 5, height: 5)))
 
             whiteKeyColor(i, octaveNumber: octaveNumber).setFill()
@@ -248,15 +249,23 @@ public protocol AKKeyboardDelegate: class {
             let whiteKeysFontAttributes  = [
                 NSAttributedStringKey.font: UIFont(name: "AvenirNextCondensed-Regular", size: 14)!,
                 NSAttributedStringKey.foregroundColor: textColor,
-                NSAttributedStringKey.paragraphStyle: whiteKeysStyle,
-                ] as [NSAttributedStringKey : Any]
+                NSAttributedStringKey.paragraphStyle: whiteKeysStyle
+                ] as [NSAttributedStringKey: Any]
 
-            let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: whiteKeysFontAttributes, context: nil).height
+            let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width,
+                                                                                              height: CGFloat.infinity),
+                                                                                 options: .usesLineFragmentOrigin,
+                                                                                 attributes: whiteKeysFontAttributes,
+                                                                                 context: nil).height
             context.saveGState()
             context.clip(to: whiteKeysRect)
 
             // adjust for keyboard being hidden
-            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX, y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6, width: whiteKeysRect.width, height: whiteKeysTextHeight), withAttributes: whiteKeysFontAttributes)
+            whiteKeysTextContent.draw(in: CGRect(x: whiteKeysRect.minX,
+                                                 y: whiteKeysRect.minY + whiteKeysRect.height - whiteKeysTextHeight - 6,
+                                                 width: whiteKeysRect.width,
+                                                 height: whiteKeysTextHeight),
+                                      withAttributes: whiteKeysFontAttributes)
             context.restoreGState()
         }
     }
@@ -431,7 +440,7 @@ public protocol AKKeyboardDelegate: class {
     }
 
     func topKeyX(_ n: Int, octaveNumber: Int) -> CGFloat {
-        return CGFloat(n) * topKeySize.width - (topKeyWidthIncrease/2) + xOffset + oneOctaveSize.width * CGFloat(octaveNumber)
+        return CGFloat(n) * topKeySize.width - (topKeyWidthIncrease / 2) + xOffset + oneOctaveSize.width * CGFloat(octaveNumber)
     }
 
     func whiteKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {

@@ -350,8 +350,8 @@ public class ParentViewController: UpdatableViewController {
             case 0:
                 // Cutoff
                 let newValue = 1 - value
-                let scaledValue = Double.scaleRangeLog(newValue, rangeMin: 40, rangeMax: 7600)
-                s.setAK1Parameter(.cutoff, scaledValue*3)
+                let scaledValue = Double.scaleRangeLog(newValue, rangeMin: 40, rangeMax: 7_600)
+                s.setAK1Parameter(.cutoff, scaledValue * 3)
                 self.conductor.updateSingleUI(.cutoff, control: self.modWheelPad, value: s.getAK1Parameter(.cutoff))
             case 1:
                 // LFO 1 Rate
@@ -399,8 +399,8 @@ public class ParentViewController: UpdatableViewController {
                 return
             }
             let mmin = 40.0
-            let mmax = 7600.0
-            let scaledValue01 = (0...1).clamp(1 - ((log(value)-log(mmin))/(log(mmax)-log(mmin))))
+            let mmax = 7_600.0
+            let scaledValue01 = (0...1).clamp(1 - ((log(value) - log(mmin)) / (log(mmax) - log(mmin))))
             modWheelPad.setVerticalValue01(scaledValue01)
         }
     }

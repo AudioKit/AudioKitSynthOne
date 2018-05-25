@@ -42,7 +42,7 @@ class Preset: Codable {
     var fmAmount = 0.0 // FM Modulation Amt
     var noiseVolume = 0.0 // Noise Mix
 
-    var cutoff = 2000.0 // Cutoff Knob Position
+    var cutoff = 2_000.0 // Cutoff Knob Position
     var resonance = 0.1 // Filter Q/Rez
     var filterType = 0.0 // 0 = lopass, 1=bandpass, 2=hipassh.s
     var delayTime = 0.5 // Delay (seconds)

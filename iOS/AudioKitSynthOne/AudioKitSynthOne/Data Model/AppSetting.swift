@@ -113,8 +113,8 @@ class AppSetting: Codable {
         backgroundAudioOn = dictionary["backgroundAudioOn"] as? Bool ?? backgroundAudioOn
         midiChannel = dictionary["midiChannel"] as? Int ?? midiChannel
         omniMode = dictionary["omniMode"] as? Bool ?? omniMode
-        plotFilled =  dictionary["plotFilled"] as? Bool ?? plotFilled
-        velocitySensitive =  dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
+        plotFilled = dictionary["plotFilled"] as? Bool ?? plotFilled
+        velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
         freezeArpRate = dictionary["freezeArpRate"] as? Bool ?? freezeArpRate
         saveTuningWithPreset = dictionary["saveTuningWithPreset"] as? Bool ?? saveTuningWithPreset
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion

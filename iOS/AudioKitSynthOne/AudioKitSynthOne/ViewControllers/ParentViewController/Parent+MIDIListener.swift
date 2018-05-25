@@ -124,7 +124,7 @@ extension ParentViewController: AKMIDIListener {
     public func receivedMIDIPitchWheel(_ pitchWheelValue: MIDIWord, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
         guard let s = Conductor.sharedInstance.synth else { return }
-        let val01 = Double.scaleRangeZeroToOne(Double(pitchWheelValue), rangeMin: 0, rangeMax: 16383)
+        let val01 = Double.scaleRangeZeroToOne(Double(pitchWheelValue), rangeMin: 0, rangeMax: 16_383)
         s.setAK1DependentParameter(.pitchbend, val01, 0)
         // UI will be updated by dependentParameterDidChange()
     }

@@ -59,7 +59,7 @@ class Conductor: AKSynthOneProtocol {
     func updateSingleUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value inputValue: Double) {
 
         // cannot access synth until it is initialized and started
-        if !started {return}
+        if !started { return }
 
         // for every binding of type param
         for binding in bindings {

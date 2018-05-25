@@ -83,7 +83,10 @@ public class FlatToggleButtonStyleKit: NSObject {
             //// Rectangle Drawing
             let rectanglePath = UIBezierPath(rect: CGRect(x: 15.5, y: 10.5, width: 4, height: 12))
             context.saveGState()
-            context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale, height: shadow.shadowOffset.height * resizedShadowScale), blur: shadow.shadowBlurRadius * resizedShadowScale, color: (shadow.shadowColor as! UIColor).cgColor)
+            context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
+                                             height: shadow.shadowOffset.height * resizedShadowScale),
+                              blur: shadow.shadowBlurRadius * resizedShadowScale,
+                              color: (shadow.shadowColor as! UIColor).cgColor)
             orange.setFill()
             rectanglePath.fill()
             context.restoreGState()
@@ -109,7 +112,7 @@ public class FlatToggleButtonStyleKit: NSObject {
             var scales = CGSize.zero
             scales.width = abs(target.width / rect.width)
             scales.height = abs(target.height / rect.height)
-            
+
             switch self {
             case .aspectFit:
                 scales.width = min(scales.width, scales.height)

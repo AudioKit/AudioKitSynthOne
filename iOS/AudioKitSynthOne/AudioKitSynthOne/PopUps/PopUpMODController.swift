@@ -31,12 +31,12 @@ class PopUpMODController: UIViewController {
         pitchUpperRange.maxValue = s.getParameterMax(.pitchbendMaxSemitones)
         pitchUpperRange.minValue = s.getParameterMin(.pitchbendMaxSemitones)
         pitchUpperRange.value = s.getAK1Parameter(.pitchbendMaxSemitones)
-        c.bind(pitchUpperRange, to:.pitchbendMaxSemitones)
+        c.bind(pitchUpperRange, to: .pitchbendMaxSemitones)
 
         pitchLowerRange.maxValue = s.getParameterMax(.pitchbendMinSemitones)
         pitchLowerRange.minValue = s.getParameterMin(.pitchbendMinSemitones)
         pitchLowerRange.value = s.getAK1Parameter(.pitchbendMinSemitones)
-        c.bind(pitchLowerRange, to:.pitchbendMinSemitones)
+        c.bind(pitchLowerRange, to: .pitchbendMinSemitones)
     }
 
     override func viewDidAppear(_ animated: Bool) {

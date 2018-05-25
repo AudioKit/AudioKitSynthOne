@@ -23,8 +23,8 @@ class MorphSelector: UIView, AKSynthOneControl {
     }
 
     //// Color Declarations
-    @IBInspectable open var color: UIColor      = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
-    @IBInspectable open var selected: UIColor   = UIColor(red: 0.929, green: 0.533, blue: 0.000, alpha: 1.000)
+    @IBInspectable open var color: UIColor = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
+    @IBInspectable open var selected: UIColor = UIColor(red: 0.929, green: 0.533, blue: 0.000, alpha: 1.000)
     @IBInspectable open var unselected: UIColor = UIColor(red: 0.533, green: 0.533, blue: 0.533, alpha: 1.000)
     @IBInspectable open var selectedBG: UIColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.181)
 

@@ -20,7 +20,7 @@ class LFOWavePicker: UIView, AKSynthOneControl {
 
     // Draw Button
     override func draw(_ rect: CGRect) {
-        LFOPickerStyleKit.drawLFOWaveformPicker(fraction: CGFloat(value/3.0))
+        LFOPickerStyleKit.drawLFOWaveformPicker(fraction: CGFloat(value / 3.0))
     }
 
     // *********************************************************

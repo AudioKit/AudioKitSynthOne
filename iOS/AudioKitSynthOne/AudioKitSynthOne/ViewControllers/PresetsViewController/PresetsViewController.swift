@@ -165,7 +165,7 @@ class PresetsViewController: UIViewController {
 
     func randomizePresets() {
         // Generate random presets 🎲
-        randomNumbers = GKShuffledDistribution(lowestValue: 0, highestValue: presets.count-1)
+        randomNumbers = GKShuffledDistribution(lowestValue: 0, highestValue: presets.count - 1)
     }
 
     func loadPresetsFromDevice(_ fileName: String) {
@@ -178,7 +178,7 @@ class PresetsViewController: UIViewController {
     }
 
     func loadFactoryPresets(_ bank: String) {
-        if let filePath = Bundle.main.path(forResource: bank, ofType:"json") {
+        if let filePath = Bundle.main.path(forResource: bank, ofType: "json") {
             let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
             parsePresetsFromData(data: data!)
         }
@@ -227,7 +227,7 @@ class PresetsViewController: UIViewController {
         } else {
             // create new preset
             activePreset.uid = UUID().uuidString
-            presets.insert(activePreset, at: activePreset.position+1)
+            presets.insert(activePreset, at: activePreset.position + 1)
         }
 
         activePreset.isUser = true
@@ -261,7 +261,7 @@ class PresetsViewController: UIViewController {
 
     func selectCurrentPreset() {
         // Find the preset in the current view
-        if let index = sortedPresets.index(where: {$0 === currentPreset}) {
+        if let index = sortedPresets.index(where: { $0 === currentPreset }) {
             tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
         } else {
             tableView.setContentOffset(CGPoint.zero, animated: false)
@@ -272,7 +272,7 @@ class PresetsViewController: UIViewController {
     }
 
     func deselectCurrentRow() {
-        if let index = sortedPresets.index(where: {$0 === currentPreset}) {
+        if let index = sortedPresets.index(where: { $0 === currentPreset }) {
             tableView.deselectRow(at: IndexPath(row: index, section: 0), animated: false)
         }
     }
@@ -283,7 +283,7 @@ class PresetsViewController: UIViewController {
        // let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
         let banksToUpdate = ["BankA"]
         banksToUpdate.forEach { bankName in
-            presets = presets.filter {$0.bank != bankName}
+            presets = presets.filter { $0.bank != bankName }
             loadFactoryPresets(bankName)
             saveAllPresetsIn(bankName)
         }
@@ -301,7 +301,7 @@ class PresetsViewController: UIViewController {
 
     func addBonusPresets() {
       let bankName = "BankA"
-      presets = presets.filter {$0.bank != bankName}
+      presets = presets.filter { $0.bank != bankName }
       loadFactoryPresets("Bonus")
       saveAllPresetsIn(bankName)
     }
@@ -339,7 +339,7 @@ class PresetsViewController: UIViewController {
             self.saveAllPresetsIn(newBankName)
 
             // Add new bank to App settings
-            self.addNewBank(newBankName:  newBankName, newBankIndex: newBankIndex)
+            self.addNewBank(newBankName: newBankName, newBankIndex: newBankIndex)
         }
 
         importButton.callback = { _ in
@@ -367,7 +367,7 @@ class PresetsViewController: UIViewController {
             if self.tableView.isEditing {
                 self.reorderButton.setTitle("I'M DONE!", for: UIControlState())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-                self.reorderButton.backgroundColor = UIColor(red: 230/255, green: 136/255, blue: 2/255, alpha: 1.0)
+                self.reorderButton.backgroundColor = UIColor(red: 230 / 255, green: 136 / 255, blue: 2 / 255, alpha: 1.0)
                 self.categoryEmbeddedView.isUserInteractionEnabled = false
 
             } else {

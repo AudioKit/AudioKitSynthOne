@@ -15,7 +15,9 @@ public class ArpButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawArpButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 35, height: 25), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false) {
+    @objc dynamic public class func drawArpButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 35, height: 25),
+                                                  resizing: ResizingBehavior = .aspectFit,
+                                                  isToggled: Bool = false) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -36,7 +38,13 @@ public class ArpButtonStyleKit: NSObject {
         let buttonEdge = UIColor(red: 0.173, green: 0.173, blue: 0.125, alpha: 1.000)
 
         //// Gradient Declarations
-        let gradient = CGGradient(colorsSpace: nil, colors: [gradientColor.cgColor, gradientColor.blended(withFraction: 0.5, of: gradientColor3).cgColor, gradientColor3.cgColor, gradientColor4.cgColor, gradientColor2.cgColor] as CFArray, locations: [0, 0.1, 0.19, 0.61, 1])!
+        let gradient = CGGradient(colorsSpace: nil,
+                                  colors: [gradientColor.cgColor,
+                                           gradientColor.blended(withFraction: 0.5, of: gradientColor3).cgColor,
+                                           gradientColor3.cgColor,
+                                           gradientColor4.cgColor,
+                                           gradientColor2.cgColor] as CFArray,
+                                  locations: [0, 0.1, 0.19, 0.61, 1])!
 
         //// Shadow Declarations
         let shadow = NSShadow()
@@ -52,7 +60,10 @@ public class ArpButtonStyleKit: NSObject {
         //// ButtonBack Drawing
         let buttonBackPath = UIBezierPath(roundedRect: CGRect(x: 1, y: 1, width: 33, height: 21), cornerRadius: 4)
         context.saveGState()
-        context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale, height: shadow.shadowOffset.height * resizedShadowScale), blur: shadow.shadowBlurRadius * resizedShadowScale, color: (shadow.shadowColor as! UIColor).cgColor)
+        context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
+                                         height: shadow.shadowOffset.height * resizedShadowScale),
+                          blur: shadow.shadowBlurRadius * resizedShadowScale,
+                          color: (shadow.shadowColor as! UIColor).cgColor)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         buttonBackPath.addClip()
         context.drawLinearGradient(gradient, start: CGPoint(x: 17.5, y: 22), end: CGPoint(x: 17.5, y: 1), options: [])

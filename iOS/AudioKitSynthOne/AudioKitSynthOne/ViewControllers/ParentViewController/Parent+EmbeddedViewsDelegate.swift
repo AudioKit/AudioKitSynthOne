@@ -58,7 +58,7 @@ extension ParentViewController: EmbeddedViewsDelegate {
         let synthPanels = childViewControllers.filter { $0 is SynthPanelController } as! [SynthPanelController]
         // Get current Top and Bottom Panels
         let topPanel = synthPanels.filter { $0.isTopContainer }.last
-        let bottomPanel = synthPanels.filter { !$0.isTopContainer}.last
+        let bottomPanel = synthPanels.filter { !$0.isTopContainer }.last
 
         // Update Bottom Panel NavButtons
         topChildView = topPanel?.viewType

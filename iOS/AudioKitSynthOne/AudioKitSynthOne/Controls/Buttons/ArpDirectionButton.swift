@@ -41,7 +41,7 @@ class ArpDirectionButton: UIView, AKSynthOneControl {
             switch touchPoint.x {
             case 0..<btnWidth:
                 value = 0
-            case btnWidth...btnWidth*2:
+            case btnWidth...btnWidth * 2:
                 value = 1
             default:
                 value = 2

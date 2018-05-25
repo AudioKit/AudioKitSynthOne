@@ -19,7 +19,7 @@
 		941645D120B3597300D62851 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9416FC7220081F3A00A120AD /* MIDIKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC7120081F3A00A120AD /* MIDIKnob.swift */; };
 		9416FC762008204300A120AD /* MIDILearnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC752008204300A120AD /* MIDILearnable.swift */; };
-		941DE3E11FCE3CD400A09C24 /* AppSettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */; };
+		941DE3E11FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3DF1FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift */; };
 		941DE3E31FCE3CD400A09C24 /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3E01FCE3CD400A09C24 /* AppSetting.swift */; };
 		9422F92C201A9D2800FE2FAC /* Dictionary+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9422F92B201A9D2800FE2FAC /* Dictionary+Key.swift */; };
 		94346F901FC7975C00434900 /* ColorKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94346F8E1FC7975C00434900 /* ColorKnob.swift */; };
@@ -183,7 +183,7 @@
 		941645CE20B3597300D62851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9416FC7120081F3A00A120AD /* MIDIKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIKnob.swift; sourceTree = "<group>"; };
 		9416FC752008204300A120AD /* MIDILearnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDILearnable.swift; sourceTree = "<group>"; };
-		941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingDataManager.swift; sourceTree = "<group>"; };
+		941DE3DF1FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ParentViewController+AppSettingDataManager.swift"; sourceTree = "<group>"; };
 		941DE3E01FCE3CD400A09C24 /* AppSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		9422F92B201A9D2800FE2FAC /* Dictionary+Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Key.swift"; sourceTree = "<group>"; };
 		94346F8E1FC7975C00434900 /* ColorKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorKnob.swift; sourceTree = "<group>"; };
@@ -511,7 +511,7 @@
 			children = (
 				F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */,
 				941DE3E01FCE3CD400A09C24 /* AppSetting.swift */,
-				941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */,
+				941DE3DF1FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift */,
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
 				C42459E0201D64D4004565AB /* Bank.swift */,
 				943524551F57945500BDA789 /* ChildView.swift */,
@@ -974,7 +974,7 @@
 				943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */,
-				941DE3E11FCE3CD400A09C24 /* AppSettingDataManager.swift in Sources */,
+				941DE3E11FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift in Sources */,
 				943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */,
 				C4AC4B0D2019C63F00D04C7F /* AEMessageQueue.m in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,

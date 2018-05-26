@@ -78,6 +78,7 @@ class TuningsViewController: SynthPanelController {
         tuningTableView.selectRow(at: path, animated: true, scrollPosition: .middle)
     }
     
+    //TODO: determine encoding, match with local tuning list, add if not there, select row
     public func setTuning(withMasterArray master:[Double]) {
         if let i = tuningModel.setTuning(withMasterArray: master) {
             selectRow(i)

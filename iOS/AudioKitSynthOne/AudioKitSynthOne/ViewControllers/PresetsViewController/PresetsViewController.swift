@@ -151,7 +151,7 @@ class PresetsViewController: UIViewController {
 
         // Display Banks
         case PresetCategory.bankStartingIndex ... PresetCategory.bankStartingIndex + conductor.banks.count:
-            let bank = conductor.banks.filter { $0.position == bankIndex }.first
+            let bank = conductor.banks.first(where: { $0.position == bankIndex })
             sortedPresets = presets.filter { $0.bank == bank!.name }
                 .sorted { $0.position < $1.position }
 
@@ -367,7 +367,7 @@ class PresetsViewController: UIViewController {
             if self.tableView.isEditing {
                 self.reorderButton.setTitle("I'M DONE!", for: UIControlState())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-                self.reorderButton.backgroundColor = UIColor(red: 230 / 255, green: 136 / 255, blue: 2 / 255, alpha: 1.0)
+                self.reorderButton.backgroundColor = UIColor(red: 230 / 255, green: 136 / 255, blue: 2 / 255, alpha: 1)
                 self.categoryEmbeddedView.isUserInteractionEnabled = false
 
             } else {

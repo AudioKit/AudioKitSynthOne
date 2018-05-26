@@ -99,7 +99,7 @@ class Conductor: AKSynthOneProtocol {
         }
 
         // Display Preset Name again
-        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
+        let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as! ParentViewController
         updateDisplayLabel("\(parentVC.activePreset.position): \(parentVC.activePreset.name)")
     }
 
@@ -120,7 +120,8 @@ class Conductor: AKSynthOneProtocol {
         AKSettings.playbackWhileMuted = true
 
         do {
-            try AKSettings.setSession(category: .playAndRecord, with: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
+            try AKSettings.setSession(category: .playAndRecord,
+                                      with: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
         } catch {
             AKLog("Could not set session category: \(error)")
         }
@@ -144,12 +145,13 @@ class Conductor: AKSynthOneProtocol {
 
         // IAA Host Icon
         audioUnitPropertyListener = AudioUnitPropertyListener { (audioUnit, _) in
-            let headerVC = self.viewControllers.filter { $0 is HeaderViewController }.first as? HeaderViewController
+            let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController }) as? HeaderViewController
             headerVC?.hostAppIcon.image = AudioOutputUnitGetHostIcon(AudioKit.engine.outputNode.audioUnit!, 44)
         }
 
         do {
-            try AudioKit.engine.outputNode.audioUnit!.add(listener: audioUnitPropertyListener, toProperty: kAudioUnitProperty_IsInterAppConnected)
+            try AudioKit.engine.outputNode.audioUnit!.add(listener: audioUnitPropertyListener,
+                                                          toProperty: kAudioUnitProperty_IsInterAppConnected)
         } catch {
             AKLog("Unsuccessful")
         }
@@ -158,12 +160,12 @@ class Conductor: AKSynthOneProtocol {
     }
 
     func updateDisplayLabel(_ message: String) {
-        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as? ParentViewController
+        let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as? ParentViewController
         parentVC?.updateDisplay(message)
     }
 
     func updateDisplayLabel(_ param: AKSynthOneParameter, value: Double) {
-        let headerVC = self.viewControllers.filter { $0 is HeaderViewController }.first as? HeaderViewController
+        let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController }) as? HeaderViewController
         headerVC?.updateDisplayLabel(param, value: value)
     }
 
@@ -171,19 +173,19 @@ class Conductor: AKSynthOneProtocol {
 
     // called by DSP on main thread
     func dependentParamDidChange(_ param: DependentParam) {
-        let fxVC = self.viewControllers.filter { $0 is FXViewController }.first as? FXViewController
+        let fxVC = self.viewControllers.first(where: { $0 is FXViewController }) as? FXViewController
         fxVC?.dependentParamDidChange(param)
 
-        let touchPadVC = self.viewControllers.filter { $0 is TouchPadViewController }.first as? TouchPadViewController
+        let touchPadVC = self.viewControllers.first(where: { $0 is TouchPadViewController }) as? TouchPadViewController
         touchPadVC?.dependentParamDidChange(param)
 
-        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as? ParentViewController
+        let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as? ParentViewController
         parentVC?.dependentParamDidChange(param)
     }
 
     // called by DSP on main thread
     func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {
-        let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
+        let seqVC = self.viewControllers.first(where: { $0 is SeqViewController }) as? SeqViewController
         seqVC?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
     }
 
@@ -194,7 +196,7 @@ class Conductor: AKSynthOneProtocol {
 
     // called by DSP on main thread
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
-        let seqVC = self.viewControllers.filter { $0 is TuningsViewController }.first as? TuningsViewController
+        let seqVC = self.viewControllers.first(where: { $0 is TuningsViewController }) as? TuningsViewController
         seqVC?.playingNotesDidChange(playingNotes)
     }
 

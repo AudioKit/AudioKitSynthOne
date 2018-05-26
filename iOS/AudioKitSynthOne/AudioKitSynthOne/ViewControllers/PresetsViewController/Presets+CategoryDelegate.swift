@@ -16,7 +16,7 @@ extension PresetsViewController: CategoryDelegate {
 
     func bankShare() {
         // Get Bank to Share
-        let bank = conductor.banks.filter { $0.position == bankIndex }.first
+        let bank = conductor.banks.first(where: { $0.position == bankIndex })
         let bankName = bank!.name
         let bankPresetsToShare = presets.filter { $0.bank == bankName }
 

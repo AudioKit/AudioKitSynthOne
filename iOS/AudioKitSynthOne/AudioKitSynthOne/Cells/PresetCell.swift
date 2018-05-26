@@ -81,7 +81,7 @@ class PresetCell: UITableViewCell {
     func configureCell(preset: Preset) {
         currentPreset = preset
 
-        let bank = conductor.banks.filter { $0.name == preset.bank }.first
+        let bank = conductor.banks.first(where: { $0.name == preset.bank })
         if preset.bank != "BankA" {
             presetNameLabel.text = "[\(bank!.position)] \(preset.position): \(preset.name)"
         } else {

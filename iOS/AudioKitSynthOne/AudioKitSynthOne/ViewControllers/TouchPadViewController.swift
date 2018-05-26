@@ -204,7 +204,7 @@ class TouchPadViewController: SynthPanelController {
         particleEmitter2.renderMode = kCAEmitterLayerAdditive
         particleEmitter2.emitterPosition = CGPoint(x: -400, y: -400)
 
-        let particleCell = makeEmitterCellWithColor(UIColor(red: 230 / 255, green: 136 / 255, blue: 2 / 255, alpha: 1.0))
+        let particleCell = makeEmitterCellWithColor(UIColor(red: 230 / 255, green: 136 / 255, blue: 2 / 255, alpha: 1))
 
         particleEmitter1.emitterCells = [particleCell]
         particleEmitter2.emitterCells = [particleCell]

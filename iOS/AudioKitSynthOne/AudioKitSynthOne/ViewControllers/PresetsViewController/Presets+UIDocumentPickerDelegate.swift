@@ -32,7 +32,9 @@ extension PresetsViewController: UIDocumentPickerDelegate {
 
                     // check for duplicate bank name already in system
                     if conductor.banks.contains(where: { $0.name == bankName }) {
-                        displayAlertController("Oh my!", message: "There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.")
+                        displayAlertController("Oh my!",
+                                               message: "There is already a bank with the name '\(bankName)'. "  +
+                                                        "Please rename one of them to keep things working smoothly.")
                         bankName += " [rename]"
                     }
 

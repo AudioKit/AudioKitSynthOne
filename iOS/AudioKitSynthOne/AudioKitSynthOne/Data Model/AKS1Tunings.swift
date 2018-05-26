@@ -182,7 +182,8 @@ import AudioKit
         return 1
     }
 
-    @objc(tableView:heightForRowAtIndexPath:) public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) public func tableView(_ tableView: UITableView,
+                                                                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
 

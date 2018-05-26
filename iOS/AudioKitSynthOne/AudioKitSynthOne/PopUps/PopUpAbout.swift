@@ -94,7 +94,9 @@ class PopUpAbout: UIViewController {
      let subject = "From AudioKit Synth App"
      let messageBody = ""
 
-     let configuredMailComposeViewController = configureMailComposeViewController(recepients: receipients, subject: subject, messageBody: messageBody)
+     let configuredMailComposeViewController = configureMailComposeViewController(recepients: receipients,
+                                                                                  subject: subject,
+                                                                                  messageBody: messageBody)
 
      if canSendMail() {
      self.present(configuredMailComposeViewController, animated: true, completion: nil)
@@ -111,7 +113,9 @@ class PopUpAbout: UIViewController {
 
 extension PopUpAbout: MFMailComposeViewControllerDelegate {
 
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult,
+                               error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
 
@@ -119,7 +123,9 @@ extension PopUpAbout: MFMailComposeViewControllerDelegate {
         return MFMailComposeViewController.canSendMail()
     }
 
-    func configureMailComposeViewController(recepients: [String], subject: String, messageBody: String) -> MFMailComposeViewController {
+    func configureMailComposeViewController(recepients: [String],
+                                            subject: String,
+                                            messageBody: String) -> MFMailComposeViewController {
 
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
@@ -132,7 +138,10 @@ extension PopUpAbout: MFMailComposeViewControllerDelegate {
     }
 
     func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: .alert)
+        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email",
+                                                   message: "Your device could not send e-mail.  " +
+                                                            "Please check e-mail configuration and try again.",
+                                                   preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
 
         sendMailErrorAlert.addAction(cancelAction)

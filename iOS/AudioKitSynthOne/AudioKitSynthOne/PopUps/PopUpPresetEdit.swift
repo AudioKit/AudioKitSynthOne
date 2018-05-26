@@ -78,7 +78,9 @@ class PopUpPresetEdit: UIViewController {
         }
 
         saveButton.callback = { _ in
-            self.delegate?.didFinishEditing(name: self.nameTextField.text!, category: self.categoryIndex, newBank: self.bankSelected)
+            self.delegate?.didFinishEditing(name: self.nameTextField.text!,
+                                            category: self.categoryIndex,
+                                            newBank: self.bankSelected)
             self.dismiss(animated: true, completion: nil)
         }
 
@@ -96,7 +98,8 @@ extension PopUpPresetEdit: UITableViewDataSource {
         return 1
     }
 
-    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView,
+                                                             heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
 
@@ -152,7 +155,9 @@ extension PopUpPresetEdit: UIPickerViewDataSource {
         return pickerBankNames[row]
     }
 
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int,
+                    forComponent component: Int,
+                    reusing view: UIView?) -> UIView {
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
             pickerLabel = UILabel()

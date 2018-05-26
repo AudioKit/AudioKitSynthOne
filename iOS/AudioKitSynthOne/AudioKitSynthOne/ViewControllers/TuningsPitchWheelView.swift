@@ -116,7 +116,9 @@ public class TuningsPitchWheelView: UIView {
             bfp.setStroke()
             bfp.setFill()
             let bigR: CGFloat = 12
-            let bigDotR = CGRect(x: CGFloat(p2.x - 0.5 * bigR), y: CGFloat(p2.y - 0.5 * bigR), width: bigR, height: bigR)
+            let bigDotR = CGRect(x: CGFloat(p2.x - 0.5 * bigR),
+                                 y: CGFloat(p2.y - 0.5 * bigR),
+                                 width: bigR, height: bigR)
             context.fillEllipse(in: bigDotR)
 
             // draw text of log2 f
@@ -140,7 +142,10 @@ public class TuningsPitchWheelView: UIView {
 
 extension TuningsPitchWheelView {
 
-    public class func color(forPitch pitch: Double, saturation: CGFloat = 0.625, brightness: CGFloat = 1, alpha: CGFloat = 0.75) -> UIColor {
+    public class func color(forPitch pitch: Double,
+                            saturation: CGFloat = 0.625,
+                            brightness: CGFloat = 1,
+                            alpha: CGFloat = 0.75) -> UIColor {
         let hue = CGFloat(pitch.truncatingRemainder(dividingBy: 1))
         let r = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         return r

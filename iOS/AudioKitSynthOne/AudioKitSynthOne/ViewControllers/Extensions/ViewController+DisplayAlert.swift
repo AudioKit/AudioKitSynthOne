@@ -26,7 +26,8 @@ extension UIViewController {
     func reviewPopUp() {
         // Add pop up
         let alert = UIAlertController(title: "Thank you",
-                                      message: "This is a FREE effort. Please help with a Great rating so we can make more apps! Thanks for being awesome.",
+                                      message: "This is a FREE effort. Please help with a Great rating so we can " +
+                                               "make more apps! Thanks for being awesome.",
                                       preferredStyle: .alert)
         let submitAction = UIAlertAction(title: "Cool 👍🏼", style: .default) { (_) in
             self.requestReview()

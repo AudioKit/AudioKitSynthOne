@@ -87,5 +87,5 @@ extension PresetsViewController: PresetCellDelegate {
         self.present(activityViewController, animated: true, completion: nil)
     }
 
-    // To find the files in your machine, search for filename in your ~/Library/Developer/CoreSimulator/Devices/ directories
+    // To find the files in your machine, search for filename in your ~/Library/Developer/CoreSimulator/Devices/
 }

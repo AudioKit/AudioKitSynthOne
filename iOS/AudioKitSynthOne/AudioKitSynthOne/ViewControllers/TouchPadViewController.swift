@@ -67,7 +67,8 @@ class TouchPadViewController: SynthPanelController {
         let s = c.synth!
 
         touchPad1.callback = { horizontal, vertical, touchesBegan in
-            self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width / 2), y: self.touchPad1.bounds.height / 2)
+            self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width / 2),
+                                                            y: self.touchPad1.bounds.height / 2)
 
             if touchesBegan {
                 // record values before touched
@@ -95,7 +96,8 @@ class TouchPadViewController: SynthPanelController {
         }
 
         touchPad2.callback = { horizontal, vertical, touchesBegan in
-            self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width / 2), y: self.touchPad2.bounds.height / 2)
+            self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width / 2),
+                                                            y: self.touchPad2.bounds.height / 2)
 
             // Particle Position
             if touchesBegan {

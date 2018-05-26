@@ -40,13 +40,21 @@ extension Audiobus {
     }
 
     // MARK: - Send MIDI Messages
-    class func sendNoteOnMessage(midiSendPort: ABMIDISenderPort, status: AKMIDIStatus, note: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel = 0) {
+    class func sendNoteOnMessage(midiSendPort: ABMIDISenderPort,
+                                 status: AKMIDIStatus,
+                                 note: MIDINoteNumber,
+                                 velocity: MIDIVelocity,
+                                 channel: MIDIChannel = 0) {
         let noteCommand = MIDIByte(0x90) + channel
         let data = [noteCommand, note, velocity]
         sendMessage(midiSendPort: midiSendPort, data: data)
     }
 
-    class func sendNoteOffMessage(midiSendPort: ABMIDISenderPort, status: AKMIDIStatus, note: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel = 0) {
+    class func sendNoteOffMessage(midiSendPort: ABMIDISenderPort,
+                                  status: AKMIDIStatus,
+                                  note: MIDINoteNumber,
+                                  velocity: MIDIVelocity,
+                                  channel: MIDIChannel = 0) {
         let noteCommand = MIDIByte(0x80) + channel
         let data = [noteCommand, note, velocity]
         sendMessage(midiSendPort: midiSendPort, data: data)

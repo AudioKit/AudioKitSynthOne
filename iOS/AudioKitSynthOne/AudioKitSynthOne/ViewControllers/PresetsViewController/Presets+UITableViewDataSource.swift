@@ -12,7 +12,8 @@ extension PresetsViewController: UITableViewDataSource {
         return 1
     }
 
-    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView,
+                                                             heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
 

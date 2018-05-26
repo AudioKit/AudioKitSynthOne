@@ -55,13 +55,4 @@ extension Double {
 //        return (arc4random_uniform(2) == 0) ? 1.0 : -1.0
 //    }
 
-    // *********************************************************
-    // MARK: - Scale Range
-    // *********************************************************
-
-    // Logarithmically scale 0.0 to 1.0 to any range
-    public static func scaleRangeLog(_ value: Double, rangeMin: Double, rangeMax: Double) -> Double {
-        let scale = (log(rangeMax) - log(rangeMin))
-        return exp(log(rangeMin) + (scale * value))
-    }
 }

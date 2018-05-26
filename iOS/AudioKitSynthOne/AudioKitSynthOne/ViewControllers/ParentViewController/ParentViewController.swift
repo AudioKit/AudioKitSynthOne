@@ -343,7 +343,7 @@ public class ParentViewController: UpdatableViewController {
             case 0:
                 // Cutoff
                 let newValue = 1 - value
-                let scaledValue = Double.scaleRangeLog(newValue, rangeMin: 40, rangeMax: 7_600)
+                let scaledValue = newValue.denormalized(to: 40...7_600, taper: -1)  
                 s.setAK1Parameter(.cutoff, scaledValue * 3)
                 self.conductor.updateSingleUI(.cutoff, control: self.modWheelPad, value: s.getAK1Parameter(.cutoff))
             case 1:

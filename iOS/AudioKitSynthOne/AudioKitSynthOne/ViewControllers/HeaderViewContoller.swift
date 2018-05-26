@@ -80,6 +80,7 @@ public class HeaderViewController: UpdatableViewController {
 
     func updateDisplayLabel(_ param: AKSynthOneParameter, value: Double) {
         let s = conductor.synth!
+        let lfoValue = LFOValue(rawValue: Int(value))!
 
         switch param {
         case .index1:
@@ -101,7 +102,8 @@ public class HeaderViewController: UpdatableViewController {
         case .glide:
             displayLabel.text = "Glide: \(value.decimalString)"
         case .cutoff, .resonance:
-            displayLabel.text = "Cutoff: \(s.getAK1Parameter(.cutoff).decimalString) Hz, Rez: \(s.getAK1Parameter(.resonance).decimalString)"
+            displayLabel.text = "Cutoff: \(s.getAK1Parameter(.cutoff).decimalString) Hz, " +
+                                "Rez: \(s.getAK1Parameter(.resonance).decimalString)"
         case .subVolume:
             displayLabel.text = "Sub Mix: \(value.percentageString)"
         case .fmVolume:
@@ -154,9 +156,11 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Delay Mix: \(value.percentageString)"
         case .lfo1Rate, .lfo1Amplitude:
             if s.getAK1Parameter(.tempoSyncToArpRate) > 0 {
-                displayLabel.text = "LFO1 Rate: \(Rate.fromFrequency(s.getAK1Parameter(.lfo1Rate))), LFO1 Amp: \(s.getAK1Parameter(.lfo1Amplitude).percentageString)"
+                displayLabel.text = "LFO1 Rate: \(Rate.fromFrequency(s.getAK1Parameter(.lfo1Rate))), " +
+                                    "LFO1 Amp: \(s.getAK1Parameter(.lfo1Amplitude).percentageString)"
             } else {
-                displayLabel.text = "LFO1 Rate: \(s.getAK1Parameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getAK1Parameter(.lfo1Amplitude).percentageString)"
+                displayLabel.text = "LFO1 Rate: \(s.getAK1Parameter(.lfo1Rate).decimalString)Hz, " +
+                                    "LFO1 Amp: \(s.getAK1Parameter(.lfo1Amplitude).percentageString)"
             }
         case .lfo2Rate:
             if s.getAK1Parameter(.tempoSyncToArpRate) > 0 {
@@ -167,29 +171,29 @@ public class HeaderViewController: UpdatableViewController {
         case .lfo2Amplitude:
             displayLabel.text = "LFO 2 Amp: \(value.percentageString)"
         case .cutoffLFO:
-            displayLabel.text = "Cutoff LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Cutoff LFO ‣ \(lfoValue)"
         case .resonanceLFO:
-            displayLabel.text = "Resonance LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Resonance LFO ‣ \(lfoValue)"
         case .oscMixLFO:
-            displayLabel.text = "Osc Mix LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Osc Mix LFO ‣ \(lfoValue)"
         case .reverbMixLFO:
-            displayLabel.text = "Reverb Mix LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Reverb Mix LFO ‣ \(lfoValue)"
         case .decayLFO:
-            displayLabel.text = "Decay LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Decay LFO ‣ \(lfoValue)"
         case .noiseLFO:
-            displayLabel.text = "Noise LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Noise LFO ‣ \(lfoValue)"
         case .fmLFO:
-            displayLabel.text = "FM LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "FM LFO ‣ \(lfoValue)"
         case .detuneLFO:
-            displayLabel.text = "Detune LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Detune LFO ‣ \(lfoValue)"
         case .filterEnvLFO:
-            displayLabel.text = "Filter Env LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Filter Env LFO ‣ \(lfoValue)"
         case .pitchLFO:
-            displayLabel.text = "Pitch LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Pitch LFO ‣ \(lfoValue)"
         case .bitcrushLFO:
-            displayLabel.text = "Bitcrush LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Bitcrush LFO ‣ \(lfoValue)"
         case .tremoloLFO:
-            displayLabel.text = "Tremolo LFO ‣ \(LFOValue(rawValue: Int(value))!)"
+            displayLabel.text = "Tremolo LFO ‣ \(lfoValue)"
         case .filterType:
             var ftype = "Low Pass"
             if value == 1 {
@@ -257,7 +261,8 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Delay Input Rez: \(s.getAK1Parameter(.delayInputResonance).decimalString)"
 
         case .delayInputCutoffTrackingRatio:
-            displayLabel.text = "Delay Input Cutoff Tracking Ratio: \(s.getAK1Parameter(.delayInputCutoffTrackingRatio).decimalString)"
+            displayLabel.text = "Delay Input Cutoff Tracking Ratio: " +
+                                "\(s.getAK1Parameter(.delayInputCutoffTrackingRatio).decimalString)"
 
         case .frequencyA4:
             displayLabel.text = "Master Frequency at A4: \(s.getAK1Parameter(.frequencyA4).decimalString)"

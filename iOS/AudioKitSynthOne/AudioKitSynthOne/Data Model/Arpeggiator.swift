@@ -18,7 +18,8 @@
 //    var isSequencer = false
 //    var totalSteps = 8.0
 //    var seqPattern = [0, 7, -2, 0, 0, 7, -2, 0, 0, 7, -2, 0, 0, 7, -2, 0]
-//    var seqOctBoost = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+//    var seqOctBoost = [false, false, false, false, false, false, false, false,
+//                       false, false, false, false, false, false, false, false]
 //    var seqNoteOn = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
 //
 //}

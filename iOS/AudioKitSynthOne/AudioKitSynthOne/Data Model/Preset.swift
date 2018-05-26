@@ -337,7 +337,7 @@ class Preset: Codable {
         phaserRate = dictionary["phaserRate"] as? Double ?? p(.phaserRate)
         phaserNotchWidth = dictionary["phaserNotchWidth"] as? Double ?? p(.phaserNotchWidth)
 
-        //REVERB/MASTER DYNAMICS
+        // REVERB/MASTER DYNAMICS
         compressorMasterRatio = dictionary["compressorMasterRatio"] as? Double ?? p(.compressorMasterRatio)
         compressorReverbInputRatio = dictionary["compressorReverbInputRatio"] as? Double ?? p(.compressorReverbInputRatio)
         compressorReverbWetRatio = dictionary["compressorReverbWetRatio"] as? Double ?? p(.compressorReverbWetRatio)

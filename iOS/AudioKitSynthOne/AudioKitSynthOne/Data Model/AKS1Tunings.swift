@@ -57,7 +57,7 @@ import AudioKit
     }
 
     public func resetTuning() -> Int {
-        guard let synth = Conductor.sharedInstance.synth else { return 0}
+        guard let synth = Conductor.sharedInstance.synth else { return 0 }
         let i = 0
         let tuning = tunings[i]
         tuning.1()

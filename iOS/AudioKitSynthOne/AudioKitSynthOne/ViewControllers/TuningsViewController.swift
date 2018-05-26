@@ -32,9 +32,9 @@ class TuningsViewController: SynthPanelController {
         tuningTableView.isOpaque = false
         tuningTableView.allowsSelection = true
         tuningTableView.allowsMultipleSelection = false
-        tuningTableView.dataSource = aks1Tunings
-        tuningTableView.delegate = aks1Tunings
-        aks1Tunings.tuningsDelegate = self
+        tuningTableView.dataSource = self
+        tuningTableView.delegate = self
+        tuningModel.tuningsDelegate = self
 
         masterTuning.range = synth.getRange(.frequencyA4)
         masterTuning.value = synth.getSynthParameter(.frequencyA4)
@@ -42,7 +42,7 @@ class TuningsViewController: SynthPanelController {
         
         resetTunings.callback = { value in
             if value == 1 {
-                let i = self.aks1Tunings.resetTuning()
+                let i = self.tuningModel.resetTuning()
                 self.masterTuning.value = synth.getSynthParameter(.frequencyA4)
                 self.selectRow(i)
                 self.resetTunings.value = 0

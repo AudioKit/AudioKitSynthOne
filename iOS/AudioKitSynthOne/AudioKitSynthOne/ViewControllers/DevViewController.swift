@@ -125,7 +125,7 @@ class DevViewController: UpdatableViewController {
         }
         
         //dspParamPortamentoHalfTime (dsp param stored in app settings not presets)
-        dspParamPortamentoHalfTime.range = conductor.synth!.getParameterRange(.dspParamPortamentoHalfTime)
+        dspParamPortamentoHalfTime.range = conductor.synth!.getRange(.dspParamPortamentoHalfTime)
         dspParamPortamentoHalfTime.value = dspParamPortamentoHalfTimeValue
         dspParamPortamentoHalfTime.callback = { value in
             self.delegate?.dspParamPortamentoHalfTimeChanged(value)

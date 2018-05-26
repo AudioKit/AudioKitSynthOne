@@ -48,7 +48,7 @@ class DevViewController: UpdatableViewController {
         super.viewDidLoad()
 
         // Defaults, limits
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
 
         // masterVolume is the input gain to compressorMaster
         masterVolume.range = s.getParameterRange(.masterVolume)

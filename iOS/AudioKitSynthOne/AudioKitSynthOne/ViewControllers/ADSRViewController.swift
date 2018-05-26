@@ -30,7 +30,7 @@ class ADSRViewController: SynthPanelController {
 
         envelopeLabelBackground.layer.cornerRadius = 8
 
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
 
         attackKnob.range = s.getParameterRange(.attackDuration)
         decayKnob.range = s.getParameterRange(.decayDuration)

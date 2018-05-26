@@ -27,7 +27,7 @@ class TouchPadViewController: SynthPanelController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
 
         viewType = .padView
         snapToggle.value = 1

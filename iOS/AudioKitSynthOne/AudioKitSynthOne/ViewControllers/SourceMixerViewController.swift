@@ -57,7 +57,7 @@ class SourceMixerViewController: SynthPanelController {
         viewType = .oscView
 
         // Defaults, limits
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
 
         morph1SemitoneOffset.onlyIntegers = true
         morph1SemitoneOffset.range = s.getParameterRange(.morph1SemitoneOffset)

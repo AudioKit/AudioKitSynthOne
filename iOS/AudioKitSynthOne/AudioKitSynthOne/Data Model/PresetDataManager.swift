@@ -134,7 +134,7 @@ extension ParentViewController {
     }
 
     func saveValuesToPreset() {
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
         activePreset.tempoSyncToArpRate = s.getAK1Parameter(.tempoSyncToArpRate)
         activePreset.masterVolume = s.getAK1Parameter(.masterVolume)
         activePreset.isMono = s.getAK1Parameter(.isMono)

@@ -37,25 +37,13 @@ public class TuningsPitchWheelView: UIView {
     }
     
     public func updateFromGlobalTuningTable() {
+        
         DispatchQueue.global(qos: .background).async {
-            // no access to the master set so recreate it from midi note numbers [60, 60 + npo]
-            let mc = AKPolyphonicNode.tuningTable.middleCFrequency
-            if mc < 1 { return }
-            let npo = AKPolyphonicNode.tuningTable.npo
-            if npo < 1 { return }
-            var mp = [Double]()
-            var mf = [Double]()
-            for i: Int in 0..<npo {
-                let nn = Int(AKPolyphonicNode.tuningTable.middleCNoteNumber) + i
-                let f = AKPolyphonicNode.tuningTable.frequency(forNoteNumber: MIDINoteNumber(nn)) / mc
-                mf.append(f)
-                let p = log2(f)
-                mp.append(p)
-            }
             
-            self.masterFrequency = mf
-            self.masterPitch = mp
-            self.overlayView.masterPitch = mp
+            let gtt = AKS1Tunings.masterFrequenciesFromGlobalTuningTable()
+            self.masterFrequency = gtt.0
+            self.masterPitch = gtt.1
+            self.overlayView.masterPitch = gtt.1
             
             DispatchQueue.main.async {
                 self.setNeedsDisplay()
@@ -183,6 +171,7 @@ extension TuningsPitchWheelView {
 }
 
 private extension String {
+    
     func drawCentered(atPoint point: CGPoint, font: UIFont, color: UIColor, drawStroke: Bool = true) -> CGSize {
         let labelSize = self.size(withAttributes: [.font:font, .strokeColor:color])
         let centeredAvgP = CGPoint(x: point.x - labelSize.width / 2.0, y: point.y - labelSize.height / 2.0)

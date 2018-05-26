@@ -355,12 +355,10 @@ public class ParentViewController: UpdatableViewController {
                 self.conductor.updateSingleUI(.cutoff, control: self.modWheelPad, value: s.getAK1Parameter(.cutoff))
             case 1:
                 // LFO 1 Rate
-                let scaledValue = Double.scaleRange(value, rangeMin: 0, rangeMax: 1)
-                s.setAK1DependentParameter(.lfo1Rate, scaledValue, self.conductor.lfo1RateModWheelID)
+                s.setAK1DependentParameter(.lfo1Rate, value, self.conductor.lfo1RateModWheelID)
             case 2:
                 // LFO 2 Rate
-                let scaledValue = Double.scaleRange(value, rangeMin: 0, rangeMax: 1)
-                s.setAK1DependentParameter(.lfo2Rate, scaledValue, self.conductor.lfo2RateModWheelID)
+                s.setAK1DependentParameter(.lfo2Rate, value, self.conductor.lfo2RateModWheelID)
             default:
                 break
             }

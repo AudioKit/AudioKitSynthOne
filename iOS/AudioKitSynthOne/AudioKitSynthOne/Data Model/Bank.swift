@@ -11,23 +11,17 @@ import Foundation
 class Bank: Codable {
     var name = "BankA"
     var position = 0
-    
-    // ******************************************************
-    // MARK: - Init
-    // ******************************************************
-    
-    init() {
-    }
-    
+
+    init() {}
+
     convenience init(name: String, position: Int) {
         self.init()
         self.name = name
         self.position = position
     }
-    
+
     // Init from Dictionary/JSON
     init(dictionary: [String: Any]) {
-        
         name = dictionary["name"] as? String ?? name
         position = dictionary["position"] as? Int ?? position
     }

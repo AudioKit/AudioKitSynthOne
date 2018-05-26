@@ -9,18 +9,16 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class ToggleSwitchStyleKit : NSObject {
+public class ToggleSwitchStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawToggleSwitch(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 60, height: 31), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false ) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 60, height: 31), target: targetFrame)
@@ -28,14 +26,13 @@ public class ToggleSwitchStyleKit : NSObject {
         context.scaleBy(x: resizedFrame.width / 60, y: resizedFrame.height / 31)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 60, resizedFrame.height / 31)
 
-
         //// Color Declarations
         let gray = UIColor(red: 0.306, green: 0.306, blue: 0.325, alpha: 1.000)
-        let _222 = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
+        let shadowColor = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
 
         //// Shadow Declarations
         let shadow = NSShadow()
-        shadow.shadowColor = _222
+        shadow.shadowColor = shadowColor
         shadow.shadowOffset = CGSize(width: 0, height: -2)
         shadow.shadowBlurRadius = 8
 
@@ -44,15 +41,12 @@ public class ToggleSwitchStyleKit : NSObject {
 
         //// track Drawing
         let trackPath = UIBezierPath(roundedRect: CGRect(x: 8, y: 6, width: 36, height: 17), cornerRadius: 6)
-        _222.setFill()
+        shadowColor.setFill()
         trackPath.fill()
-
 
         //// button
         context.saveGState()
         context.translateBy(x: (expression - 9), y: 2)
-
-
 
         //// buttonBackground 2 Drawing
         let buttonBackground2Path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 26, height: 26))
@@ -66,7 +60,10 @@ public class ToggleSwitchStyleKit : NSObject {
         context.setAlpha((shadow.shadowColor as! UIColor).cgColor.alpha)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         let buttonBackground2OpaqueShadow = (shadow.shadowColor as! UIColor).withAlphaComponent(1)
-        context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale, height: shadow.shadowOffset.height * resizedShadowScale), blur: shadow.shadowBlurRadius * resizedShadowScale, color: buttonBackground2OpaqueShadow.cgColor)
+        context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
+                                         height: shadow.shadowOffset.height * resizedShadowScale),
+                          blur: shadow.shadowBlurRadius * resizedShadowScale,
+                          color: buttonBackground2OpaqueShadow.cgColor)
         context.setBlendMode(.sourceOut)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
 
@@ -77,20 +74,15 @@ public class ToggleSwitchStyleKit : NSObject {
         context.endTransparencyLayer()
         context.restoreGState()
 
-        _222.setStroke()
+        shadowColor.setStroke()
         buttonBackground2Path.lineWidth = 0.5
         buttonBackground2Path.stroke()
 
-
-
         context.restoreGState()
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(ToggleSwitchStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
@@ -109,17 +101,17 @@ public class ToggleSwitchStyleKit : NSObject {
             scales.height = abs(target.height / rect.height)
 
             switch self {
-                case .aspectFit:
-                    scales.width = min(scales.width, scales.height)
-                    scales.height = scales.width
-                case .aspectFill:
-                    scales.width = max(scales.width, scales.height)
-                    scales.height = scales.width
-                case .stretch:
-                    break
-                case .center:
-                    scales.width = 1
-                    scales.height = 1
+            case .aspectFit:
+                scales.width = min(scales.width, scales.height)
+                scales.height = scales.width
+            case .aspectFill:
+                scales.width = max(scales.width, scales.height)
+                scales.height = scales.width
+            case .stretch:
+                break
+            case .center:
+                scales.width = 1
+                scales.height = 1
             }
 
             var result = rect.standardized

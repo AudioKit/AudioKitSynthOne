@@ -6,7 +6,6 @@
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 
-
 import UIKit
 
 protocol HeaderDelegate {
@@ -23,14 +22,14 @@ protocol HeaderDelegate {
 }
 
 public class HeaderViewController: UpdatableViewController {
-    
-    enum LfoValue: Int  {
+
+    enum LFOValue: Int {
         case OFF
         case LFO1
         case LFO2
         case BOTH
     }
-    
+
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var panicButton: PresetUIButton!
     @IBOutlet weak var diceButton: UIButton!
@@ -40,11 +39,11 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var hostAppIcon: UIImageView!
     @IBOutlet weak var morePresetsButton: PresetUIButton!
     @IBOutlet weak var webButton: PresetUIButton!
-    
+
     var delegate: EmbeddedViewsDelegate?
     var headerDelegate: HeaderDelegate?
     var activePreset = Preset()
-    
+
     func ADSRString(_ a: AKSynthOneParameter,
                     _ d: AKSynthOneParameter,
                     _ s: AKSynthOneParameter,
@@ -54,34 +53,34 @@ public class HeaderViewController: UpdatableViewController {
             "S: \(conductor.synth.getAK1Parameter(s).percentageString) " +
             "R: \(conductor.synth.getAK1Parameter(r).decimalString) "
     }
-    
+
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Add Gesture Recognizer to Display Label
         let tap = UITapGestureRecognizer(target: self, action: #selector(HeaderViewController.displayLabelTapped))
         tap.numberOfTapsRequired = 1
         displayLabel.addGestureRecognizer(tap)
-        displayLabel.isUserInteractionEnabled = true    
-        
+        displayLabel.isUserInteractionEnabled = true
+
         // DEV panel
         #if true
         devButton.isHidden = true
         #else
         devButton.isHidden = false
         #endif
-        
+
         //
         setupCallbacks()
     }
-     
+
     override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
         updateDisplayLabel(param, value: value)
     }
-    
+
     func updateDisplayLabel(_ param: AKSynthOneParameter, value: Double) {
         let s = conductor.synth!
-        
+
         switch param {
         case .index1:
             displayLabel.text = "OSC1 Morph: \(value.decimalString)"
@@ -108,9 +107,9 @@ public class HeaderViewController: UpdatableViewController {
         case .fmVolume:
             displayLabel.text = "FM Mix: \(value.percentageString)"
         case .fmAmount:
-            displayLabel.text = "FM Mod: \(value.decimalString)" 
+            displayLabel.text = "FM Mod: \(value.decimalString)"
         case .noiseVolume:
-            displayLabel.text = "Noise Mix: \((value*4).percentageString)"
+            displayLabel.text = "Noise Mix: \((value * 4).percentageString)"
         case .masterVolume:
             displayLabel.text = "Master Vol: \(value.percentageString)"
         case .attackDuration, .decayDuration, .sustainLevel, .releaseDuration:
@@ -150,7 +149,7 @@ public class HeaderViewController: UpdatableViewController {
             } else {
                displayLabel.text = "Delay Time: \(value.decimalString) s"
             }
-         
+
         case .delayMix:
             displayLabel.text = "Delay Mix: \(value.percentageString)"
         case .lfo1Rate, .lfo1Amplitude:
@@ -168,29 +167,29 @@ public class HeaderViewController: UpdatableViewController {
         case .lfo2Amplitude:
             displayLabel.text = "LFO 2 Amp: \(value.percentageString)"
         case .cutoffLFO:
-            displayLabel.text = "Cutoff LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Cutoff LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .resonanceLFO:
-            displayLabel.text = "Resonance LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Resonance LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .oscMixLFO:
-            displayLabel.text = "Osc Mix LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Osc Mix LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .reverbMixLFO:
-            displayLabel.text = "Reverb Mix LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Reverb Mix LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .decayLFO:
-            displayLabel.text = "Decay LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Decay LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .noiseLFO:
-            displayLabel.text = "Noise LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Noise LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .fmLFO:
-            displayLabel.text = "FM LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "FM LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .detuneLFO:
-            displayLabel.text = "Detune LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Detune LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .filterEnvLFO:
-            displayLabel.text = "Filter Env LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Filter Env LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .pitchLFO:
-            displayLabel.text = "Pitch LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Pitch LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .bitcrushLFO:
-            displayLabel.text = "Bitcrush LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Bitcrush LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .tremoloLFO:
-            displayLabel.text = "Tremolo LFO ‣ \(LfoValue(rawValue: Int(value))!)"
+            displayLabel.text = "Tremolo LFO ‣ \(LFOValue(rawValue: Int(value))!)"
         case .filterType:
             var ftype = "Low Pass"
             if value == 1 {
@@ -217,7 +216,7 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Arp/Sequencer Tempo: \(value) BPM"
         case .widen:
             displayLabel.text = "Widen: \(value.decimalString)"
-            
+
             // visible on dev panel only
         case .compressorMasterRatio:
             displayLabel.text = "compressorMasterRatio: \(value.decimalString)"
@@ -239,7 +238,7 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "compressorReverbInputAttack: \(value.decimalString)"
         case .compressorReverbWetAttack:
             displayLabel.text = "compressorReverbWetAttack: \(value.decimalString)"
-            
+
         case .compressorMasterRelease:
             displayLabel.text = "compressorMasterRelease: \(value.decimalString)"
         case .compressorReverbInputRelease:
@@ -262,8 +261,6 @@ public class HeaderViewController: UpdatableViewController {
 
         case .frequencyA4:
             displayLabel.text = "Master Frequency at A4: \(s.getAK1Parameter(.frequencyA4).decimalString)"
-        case .dspParamPortamentoHalfTime:
-            displayLabel.text = "DSP portamento half-time: \(s.getAK1Parameter(.dspParamPortamentoHalfTime).decimalString)"
 
         default:
             _ = 0
@@ -271,27 +268,27 @@ public class HeaderViewController: UpdatableViewController {
         }
         displayLabel.setNeedsDisplay()
     }
-    
+
     @objc func displayLabelTapped() {
         headerDelegate?.displayLabelTapped()
     }
-    
+
     @IBAction func homePressed(_ sender: UIButton) {
         headerDelegate?.homePressed()
     }
-    
+
     @IBAction func prevPresetPressed(_ sender: UIButton) {
          headerDelegate?.prevPresetPressed()
     }
-    
+
     @IBAction func nextPresetPressed(_ sender: UIButton) {
          headerDelegate?.nextPresetPressed()
     }
-    
+
     @IBAction func morePressed(_ sender: UIButton) {
-     
+
     }
-    
+
     @IBAction func randomPressed(_ sender: UIButton) {
         // Animate Dice
         UIView.animate(withDuration: 0.4, animations: {
@@ -299,32 +296,32 @@ public class HeaderViewController: UpdatableViewController {
                 self.diceButton.transform = self.diceButton.transform.rotated(by: CGFloat(Double.pi))
             }
         })
-        
+
         headerDelegate?.randomPresetPressed()
     }
-    
+
     func setupCallbacks() {
-        
+
         panicButton.callback = { _ in
             self.headerDelegate?.panicPressed()
         }
-        
+
         saveButton.callback = { _ in
             self.headerDelegate?.savePresetPressed()
         }
-        
+
         devButton.callback = { _ in
             self.headerDelegate?.devPressed()
         }
-        
+
         aboutButton.callback = { _ in
             self.headerDelegate?.aboutPressed()
         }
-        
+
         morePresetsButton.callback = { _ in
             self.headerDelegate?.morePressed()
         }
-        
+
         webButton.callback = { _ in
             if let url = URL(string: "http://audiokitpro.com/synth") {
                 UIApplication.shared.open(url)
@@ -348,7 +345,7 @@ public class HeaderViewController: UpdatableViewController {
             UIApplication.shared.open(url as URL)
         }
     }
-    
+
     func updateMailingListButton(_ signedMailingList: Bool) {
         // Mailing List Button
         if signedMailingList {
@@ -360,6 +357,6 @@ public class HeaderViewController: UpdatableViewController {
             morePresetsButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
             morePresetsButton.backgroundColor = #colorLiteral(red: 0.7607843137, green: 0.5137254902, blue: 0.1098039216, alpha: 1)
         }
-     
+
     }
 }

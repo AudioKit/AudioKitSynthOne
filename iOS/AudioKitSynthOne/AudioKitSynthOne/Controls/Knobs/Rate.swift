@@ -9,7 +9,7 @@
 import UIKit
 
 public enum Rate: Int, CustomStringConvertible {
-    
+
     case eightBars = 0
     case sixBars
     case fourBars
@@ -36,7 +36,7 @@ public enum Rate: Int, CustomStringConvertible {
         while let _ = Rate(rawValue: max) { max += 1 }
         return max
     }()
-    
+
     public var description: String {
         switch self {
         case .eightBars:
@@ -79,12 +79,12 @@ public enum Rate: Int, CustomStringConvertible {
             return "1/64 triplet"
         }
     }
-    
+
     var frequency: Double {
         // code to caculate Freq Tempo
         return 1.0 / time
     }
-    
+
      var time: Double {
         switch self {
         case .eightBars:
@@ -100,31 +100,31 @@ public enum Rate: Int, CustomStringConvertible {
         case .bar:
             return seconds(bars: 1)
         case .barTriplet:
-            return seconds(bars: 1,    triplet: true)
+            return seconds(bars: 1, triplet: true)
         case .half:
-            return seconds(bars: 1/2)
+            return seconds(bars: 1 / 2)
         case .halfTriplet:
-            return seconds(bars: 1/2,  triplet: true)
+            return seconds(bars: 1 / 2, triplet: true)
         case .quarter:
-            return seconds(bars: 1/4)
+            return seconds(bars: 1 / 4)
         case .quarterTriplet:
-            return seconds(bars: 1/4,  triplet: true)
+            return seconds(bars: 1 / 4, triplet: true)
         case .eighth:
-            return seconds(bars: 1/8)
+            return seconds(bars: 1 / 8)
         case .eighthTriplet:
-            return seconds(bars: 1/8,  triplet: true)
+            return seconds(bars: 1 / 8, triplet: true)
         case .sixteenth:
-            return seconds(bars: 1/16)
+            return seconds(bars: 1 / 16)
         case .sixteenthTriplet:
-            return seconds(bars: 1/16, triplet: true)
+            return seconds(bars: 1 / 16, triplet: true)
         case .thirtySecondth:
-            return seconds(bars: 1/32)
+            return seconds(bars: 1 / 32)
         case .thirtySecondthTriplet:
-            return seconds(bars: 1/32, triplet: true)
+            return seconds(bars: 1 / 32, triplet: true)
         case .sixtyFourth:
-            return seconds(bars: 1/64)
+            return seconds(bars: 1 / 64)
         case .sixtyFourthTriplet:
-            return seconds(bars: 1/64, triplet: true)
+            return seconds(bars: 1 / 64, triplet: true)
         }
     }
 
@@ -134,10 +134,10 @@ public enum Rate: Int, CustomStringConvertible {
         let s = Conductor.sharedInstance.synth!
         return (beatsPerBar * bars) / (s.getAK1Parameter(.arpRate) * minutesPerSecond) / (triplet ? 1.5 : 1)
     }
-    
-    private static func findMinimum(_ value: Double, comparator: (Int)->Double) -> Rate {
+
+    private static func findMinimum(_ value: Double, comparator: (Int) -> Double) -> Rate {
         var closestRate = Rate(rawValue: 0)
-        var smallestDifference = 1000000000.0
+        var smallestDifference = 1_000_000_000.0
         for i in 0 ..< Rate.count {
             let difference: Double = abs(comparator(i) - value)
             if  difference < smallestDifference {
@@ -147,17 +147,16 @@ public enum Rate: Int, CustomStringConvertible {
         }
         return closestRate!
     }
-    
+
     static func fromFrequency(_ frequency: Double) -> Rate {
         return(Rate.findMinimum(frequency, comparator: { (i) -> Double in
             Rate(rawValue: i)!.frequency
         }))
     }
-    
+
     static func fromTime(_ time: Double) -> Rate {
         return(Rate.findMinimum(time, comparator: { (i) -> Double in
             Rate(rawValue: i)!.time
         }))
     }
 }
-

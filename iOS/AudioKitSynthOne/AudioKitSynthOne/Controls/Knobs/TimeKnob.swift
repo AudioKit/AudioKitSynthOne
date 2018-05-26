@@ -9,15 +9,15 @@
 import UIKit
 
 public class TimeKnob: MIDIKnob {
-    
+
     static let offset = 4   // twoBars to sixtyFourth
 
     var limitedRate = Rate.count - offset
-    
+
     var rate: Rate {
         return Rate(rawValue: TimeKnob.offset + Int(CGFloat(limitedRate) - knobValue * CGFloat(limitedRate))) ?? Rate.sixtyFourth
     }
-    
+
     //TODO:@MATT This is unused...do you still need this?
     func update() {
         if timeSyncMode {
@@ -27,9 +27,9 @@ public class TimeKnob: MIDIKnob {
             knobValue = CGFloat(_value.normalized(from: range, taper: taper))
         }
     }
-    
+
     private var _value: Double = 0
-    
+
     override public var value: Double {
         get {
             if timeSyncMode {
@@ -46,33 +46,33 @@ public class TimeKnob: MIDIKnob {
             }
         }
     }
-    
+
     // Init / Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentMode = .redraw
     }
-    
+
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
         self.isUserInteractionEnabled = true
         contentMode = .redraw
     }
-    
+
     override func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
         // Knobs assume up or right is increasing, and down or left is decreasing
-        
+
         knobValue += (touchPoint.x - lastX) * knobSensitivity
         knobValue -= (touchPoint.y - lastY) * knobSensitivity
-        
+
         knobValue = (0.0 ... 1.0).clamp(knobValue)
-        
+
         if timeSyncMode {
             value = rate.time
         } else {
             value = Double(knobValue).denormalized(to: range, taper: taper)
         }
-        
+
         callback(value)
         lastX = touchPoint.x
         lastY = touchPoint.y

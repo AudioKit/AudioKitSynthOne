@@ -31,7 +31,7 @@ class Conductor: AKSynthOneProtocol {
     let lfo1RateModWheelID: Int32 = 6
     let lfo2RateModWheelID: Int32 = 7
     let pitchbendParentVCID: Int32 = 8
-    
+
     func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
         let binding = (param, control)
         bindings.append(binding)
@@ -44,29 +44,28 @@ class Conductor: AKSynthOneProtocol {
             control.callback = changeParameter(param, control)
         }
     }
-    
+
     var changeParameter: AKSynthOneControlCallback  = { param, control in
         return { value in
             sharedInstance.synth.setAK1Parameter(param, value)
             sharedInstance.updateSingleUI(param, control: control, value: value)
           }
-        }
-        {
+        } {
         didSet {
             AKLog("WARNING: changeParameter callback changed")
         }
     }
 
     func updateSingleUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value inputValue: Double) {
-        
+
         // cannot access synth until it is initialized and started
-        if !started {return}
+        if !started { return }
 
         // for every binding of type param
         for binding in bindings {
             if param == binding.0 {
                 let control = binding.1
-                
+
                 // don't update the control if it is the one performing the callback because it has already been updated
                 if let inputControl = inputControl {
                     if control !== inputControl {
@@ -85,7 +84,7 @@ class Conductor: AKSynthOneProtocol {
             $0.updateUI(param, control: inputControl, value: inputValue)
         }
     }
-    
+
     // Call when a global update needs to happen.  i.e., on launch, foreground, and/or when a Preset is loaded.
     func updateAllUI() {
         let parameterCount = AKSynthOneParameter.AKSynthOneParameterCount.rawValue
@@ -98,16 +97,16 @@ class Conductor: AKSynthOneProtocol {
             let value = self.synth.getAK1Parameter(param)
             updateSingleUI(param, control: nil, value: value)
         }
-        
+
         // Display Preset Name again
-        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as! ParentViewController
+        let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as! ParentViewController
         updateDisplayLabel("\(parentVC.activePreset.position): \(parentVC.activePreset.name)")
     }
 
     public var viewControllers: Set<UpdatableViewController> = []
-    
+
     fileprivate var started = false
-    
+
     func start() {
         #if false
             print("Logging is OFF")
@@ -116,23 +115,24 @@ class Conductor: AKSynthOneProtocol {
             AKSettings.enableLogging = true
             AKLog("Logging is ON")
         #endif
-        
+
         // Allow audio to play while the iOS device is muted.
         AKSettings.playbackWhileMuted = true
-        
+
         do {
-            try AKSettings.setSession(category: .playAndRecord, with: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
+            try AKSettings.setSession(category: .playAndRecord,
+                                      with: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
         } catch {
             AKLog("Could not set session category: \(error)")
         }
-        
+
         // DEFAULT TUNING
         _ = AKPolyphonicNode.tuningTable.defaultTuning()
-        
+
         synth = AKSynthOne()
         synth.delegate = self
         synth.rampTime = 0.0 // Handle ramping internally instead of the ramper hack
-        
+
         AudioKit.output = synth
 
         do {
@@ -142,63 +142,64 @@ class Conductor: AKSynthOneProtocol {
             //TODO:Handle synth start failure
         }
         started = true
-        
+
         // IAA Host Icon
-        audioUnitPropertyListener = AudioUnitPropertyListener { (audioUnit, property) in
-            let headerVC = self.viewControllers.filter { $0 is HeaderViewController }.first as? HeaderViewController
+        audioUnitPropertyListener = AudioUnitPropertyListener { (audioUnit, _) in
+            let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController }) as? HeaderViewController
             headerVC?.hostAppIcon.image = AudioOutputUnitGetHostIcon(AudioKit.engine.outputNode.audioUnit!, 44)
         }
 
         do {
-            try AudioKit.engine.outputNode.audioUnit!.add(listener: audioUnitPropertyListener, toProperty: kAudioUnitProperty_IsInterAppConnected)
+            try AudioKit.engine.outputNode.audioUnit!.add(listener: audioUnitPropertyListener,
+                                                          toProperty: kAudioUnitProperty_IsInterAppConnected)
         } catch {
             AKLog("Unsuccessful")
         }
-        
+
         Audiobus.start()
     }
-    
+
     func updateDisplayLabel(_ message: String) {
-        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as? ParentViewController
+        let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as? ParentViewController
         parentVC?.updateDisplay(message)
     }
-    
+
     func updateDisplayLabel(_ param: AKSynthOneParameter, value: Double) {
-        let headerVC = self.viewControllers.filter { $0 is HeaderViewController }.first as? HeaderViewController
+        let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController }) as? HeaderViewController
         headerVC?.updateDisplayLabel(param, value: value)
     }
-    
-    //MARK: - AKSynthOneProtocol
-    
+
+    // MARK: - AKSynthOneProtocol
+
     // called by DSP on main thread
     func dependentParamDidChange(_ param: DependentParam) {
-        let fxVC = self.viewControllers.filter { $0 is FXViewController }.first as? FXViewController
+        let fxVC = self.viewControllers.first(where: { $0 is FXViewController }) as? FXViewController
         fxVC?.dependentParamDidChange(param)
-        
-        let touchPadVC = self.viewControllers.filter { $0 is TouchPadViewController }.first as? TouchPadViewController
+
+        let touchPadVC = self.viewControllers.first(where: { $0 is TouchPadViewController }) as? TouchPadViewController
         touchPadVC?.dependentParamDidChange(param)
-        
-        let parentVC = self.viewControllers.filter { $0 is ParentViewController }.first as? ParentViewController
+
+        let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as? ParentViewController
         parentVC?.dependentParamDidChange(param)
     }
-    
+
     // called by DSP on main thread
     func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {
-        let seqVC = self.viewControllers.filter { $0 is SeqViewController }.first as? SeqViewController
+        let seqVC = self.viewControllers.first(where: { $0 is SeqViewController }) as? SeqViewController
         seqVC?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
     }
-    
+
     // called by DSP on main thread
     func heldNotesDidChange(_ heldNotes: HeldNotes) {
         heldNoteCount = Int(heldNotes.heldNotesCount)
     }
-    
+
     // called by DSP on main thread
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
-        let seqVC = self.viewControllers.filter { $0 is TuningsViewController }.first as? TuningsViewController
+        let seqVC = self.viewControllers.first(where: { $0 is TuningsViewController }) as? TuningsViewController
         seqVC?.playingNotesDidChange(playingNotes)
     }
-    
+
     // Start/Pause AK Engine (Conserve energy by turning background audio off)
     func startEngine(completionHandler: AKCallback? = nil) {
         AKLog("engine.isRunning: \(AudioKit.engine.isRunning)")
@@ -212,12 +213,12 @@ class Conductor: AKSynthOneProtocol {
             } catch {
                 AKLog("Unable to start the audio engine. Probably fatal error")
             }
-            
+
             return
         }
         completionHandler?()
     }
-    
+
     func stopEngine() {
         AudioKit.engine.pause()
     }

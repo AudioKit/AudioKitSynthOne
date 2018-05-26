@@ -9,11 +9,9 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class BlackKeyStyleKit : NSObject {
+public class BlackKeyStyleKit: NSObject {
 
     //// Drawing Methods
 
@@ -52,14 +50,12 @@ public class BlackKeyStyleKit : NSObject {
         shadow.shadowOffset = CGSize(width: 0, height: 0)
         shadow.shadowBlurRadius = 4
 
-
         //// Subframes
-        let blackKey2: CGRect = CGRect(x: frame.minX + 0.5, y: frame.minY, width: fastFloor((frame.width - 0.5) * 1.01408 + 0.5), height: fastFloor((frame.height) * 1.00000 + 0.5))
-
+        let blackKey2: CGRect = CGRect(x: frame.minX + 0.5, y: frame.minY, width: fastFloor((frame.width - 0.5) * 1.014_08 + 0.5), height: fastFloor((frame.height) * 1.000_00 + 0.5))
 
         //// BlackKey 2
         //// Rectangle 4 Drawing
-        let rectangle4Path = UIBezierPath(roundedRect: CGRect(x: blackKey2.minX + fastFloor(blackKey2.width * 0.00000 + 0.5), y: blackKey2.minY + fastFloor(blackKey2.height * 0.00000 + 0.5), width: fastFloor(blackKey2.width * 1.00000 + 0.5) - fastFloor(blackKey2.width * 0.00000 + 0.5), height: fastFloor(blackKey2.height * 1.00000 + 0.5) - fastFloor(blackKey2.height * 0.00000 + 0.5)), byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 4, height: 4))
+        let rectangle4Path = UIBezierPath(roundedRect: CGRect(x: blackKey2.minX + fastFloor(blackKey2.width * 0.000_00 + 0.5), y: blackKey2.minY + fastFloor(blackKey2.height * 0.000_00 + 0.5), width: fastFloor(blackKey2.width * 1.000_00 + 0.5) - fastFloor(blackKey2.width * 0.000_00 + 0.5), height: fastFloor(blackKey2.height * 1.000_00 + 0.5) - fastFloor(blackKey2.height * 0.000_00 + 0.5)), byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 4, height: 4))
         rectangle4Path.close()
         backgroundColor.setFill()
         rectangle4Path.fill()
@@ -82,10 +78,8 @@ public class BlackKeyStyleKit : NSObject {
         context.endTransparencyLayer()
         context.restoreGState()
 
-
-
         //// Rectangle 5 Drawing
-        let rectangle5Rect = CGRect(x: blackKey2.minX + fastFloor(blackKey2.width * 0.11111 + 0.5), y: blackKey2.minY + fastFloor(blackKey2.height * 0.75000 + 0.5), width: fastFloor(blackKey2.width * 0.91667 + 0.5) - fastFloor(blackKey2.width * 0.11111 + 0.5), height: fastFloor(blackKey2.height * 0.97321 + 0.5) - fastFloor(blackKey2.height * 0.75000 + 0.5))
+        let rectangle5Rect = CGRect(x: blackKey2.minX + fastFloor(blackKey2.width * 0.111_11 + 0.5), y: blackKey2.minY + fastFloor(blackKey2.height * 0.750_00 + 0.5), width: fastFloor(blackKey2.width * 0.916_67 + 0.5) - fastFloor(blackKey2.width * 0.111_11 + 0.5), height: fastFloor(blackKey2.height * 0.973_21 + 0.5) - fastFloor(blackKey2.height * 0.750_00 + 0.5))
         let rectangle5Path = UIBezierPath(roundedRect: rectangle5Rect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 4, height: 4))
         rectangle5Path.close()
         context.saveGState()
@@ -114,10 +108,8 @@ public class BlackKeyStyleKit : NSObject {
         context.endTransparencyLayer()
         context.restoreGState()
 
-
-
         //// Rectangle 6 Drawing
-        let rectangle6Rect = CGRect(x: blackKey2.minX + fastFloor(blackKey2.width * 0.11111 + 0.5), y: blackKey2.minY + fastFloor(blackKey2.height * 0.00000 + 0.5), width: fastFloor(blackKey2.width * 0.91667 + 0.5) - fastFloor(blackKey2.width * 0.11111 + 0.5), height: fastFloor(blackKey2.height * 0.83036 + 0.5) - fastFloor(blackKey2.height * 0.00000 + 0.5))
+        let rectangle6Rect = CGRect(x: blackKey2.minX + fastFloor(blackKey2.width * 0.111_11 + 0.5), y: blackKey2.minY + fastFloor(blackKey2.height * 0.000_00 + 0.5), width: fastFloor(blackKey2.width * 0.916_67 + 0.5) - fastFloor(blackKey2.width * 0.111_11 + 0.5), height: fastFloor(blackKey2.height * 0.830_36 + 0.5) - fastFloor(blackKey2.height * 0.000_00 + 0.5))
         let rectangle6Path = UIBezierPath(roundedRect: rectangle6Rect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 4, height: 4))
         rectangle6Path.close()
         context.saveGState()
@@ -153,8 +145,6 @@ public class BlackKeyStyleKit : NSObject {
 
 }
 
-
-
 private extension UIColor {
     func blended(withFraction fraction: CGFloat, of color: UIColor) -> UIColor {
         var r1: CGFloat = 1, g1: CGFloat = 1, b1: CGFloat = 1, a1: CGFloat = 1
@@ -166,6 +156,6 @@ private extension UIColor {
         return UIColor(red: r1 * (1 - fraction) + r2 * fraction,
             green: g1 * (1 - fraction) + g2 * fraction,
             blue: b1 * (1 - fraction) + b2 * fraction,
-            alpha: a1 * (1 - fraction) + a2 * fraction);
+            alpha: a1 * (1 - fraction) + a2 * fraction)
     }
 }

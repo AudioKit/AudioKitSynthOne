@@ -9,25 +9,22 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class ColorKnobStyleKit : NSObject {
+public class ColorKnobStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawFMKnob(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 124, height: 124), resizing: ResizingBehavior = .aspectFit, knobValue: CGFloat = 0.496) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 124, height: 124), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 124, y: resizedFrame.height / 124)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 124, resizedFrame.height / 124)
-
 
         //// Color Declarations
         let black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
@@ -67,13 +64,10 @@ public class ColorKnobStyleKit : NSObject {
         //// Knob
         context.saveGState()
 
-
-
         //// BlackBackground Drawing
         let blackBackgroundPath = UIBezierPath(ovalIn: CGRect(x: 4, y: 4, width: 120, height: 120))
         black.setFill()
         blackBackgroundPath.fill()
-
 
         //// GradientKnob 2 Drawing
         let gradientKnob2Path = UIBezierPath(ovalIn: CGRect(x: 13, y: 13, width: 102, height: 102))
@@ -82,11 +76,13 @@ public class ColorKnobStyleKit : NSObject {
         context.drawLinearGradient(lowerKnobGradient2, start: CGPoint(x: 64, y: 115), end: CGPoint(x: 64, y: 13), options: [])
         context.restoreGState()
 
-
         //// GradientKnob Drawing
         let gradientKnobPath = UIBezierPath(ovalIn: CGRect(x: 19, y: 19, width: 90, height: 90))
         context.saveGState()
-        context.setShadow(offset: CGSize(width: shadow2.shadowOffset.width * resizedShadowScale, height: shadow2.shadowOffset.height * resizedShadowScale), blur: shadow2.shadowBlurRadius * resizedShadowScale, color: (shadow2.shadowColor as! UIColor).cgColor)
+        context.setShadow(offset: CGSize(width: shadow2.shadowOffset.width * resizedShadowScale,
+                                         height: shadow2.shadowOffset.height * resizedShadowScale),
+                          blur: shadow2.shadowBlurRadius * resizedShadowScale,
+                          color: (shadow2.shadowColor as! UIColor).cgColor)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         gradientKnobPath.addClip()
         context.drawLinearGradient(edge2, start: CGPoint(x: 64, y: 109), end: CGPoint(x: 64, y: 19), options: [])
@@ -99,7 +95,10 @@ public class ColorKnobStyleKit : NSObject {
         context.setAlpha((shadow3.shadowColor as! UIColor).cgColor.alpha)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         let gradientKnobOpaqueShadow = (shadow3.shadowColor as! UIColor).withAlphaComponent(1)
-        context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale, height: shadow3.shadowOffset.height * resizedShadowScale), blur: shadow3.shadowBlurRadius * resizedShadowScale, color: gradientKnobOpaqueShadow.cgColor)
+        context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale,
+                                         height: shadow3.shadowOffset.height * resizedShadowScale),
+                          blur: shadow3.shadowBlurRadius * resizedShadowScale,
+                          color: gradientKnobOpaqueShadow.cgColor)
         context.setBlendMode(.sourceOut)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
 
@@ -111,8 +110,6 @@ public class ColorKnobStyleKit : NSObject {
         context.restoreGState()
 
         context.restoreGState()
-
-
 
         //// topCircle Drawing
         let topCirclePath = UIBezierPath(ovalIn: CGRect(x: 31, y: 31, width: 67, height: 66))
@@ -126,7 +123,10 @@ public class ColorKnobStyleKit : NSObject {
         context.setAlpha((shadow6.shadowColor as! UIColor).cgColor.alpha)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         let topCircleOpaqueShadow = (shadow6.shadowColor as! UIColor).withAlphaComponent(1)
-        context.setShadow(offset: CGSize(width: shadow6.shadowOffset.width * resizedShadowScale, height: shadow6.shadowOffset.height * resizedShadowScale), blur: shadow6.shadowBlurRadius * resizedShadowScale, color: topCircleOpaqueShadow.cgColor)
+        context.setShadow(offset: CGSize(width: shadow6.shadowOffset.width * resizedShadowScale,
+                                         height: shadow6.shadowOffset.height * resizedShadowScale),
+                          blur: shadow6.shadowBlurRadius * resizedShadowScale,
+                          color: topCircleOpaqueShadow.cgColor)
         context.setBlendMode(.sourceOut)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
 
@@ -137,36 +137,29 @@ public class ColorKnobStyleKit : NSObject {
         context.endTransparencyLayer()
         context.restoreGState()
 
-
-
         //// IndicatorGroup
         //// Indicator Drawing
         context.saveGState()
         context.translateBy(x: 64.5, y: 63.5)
-        context.rotate(by: -(knobAngle - 240) * CGFloat.pi/180)
+        context.rotate(by: -(knobAngle - 240) * CGFloat.pi / 180)
 
         let indicatorPath = UIBezierPath(rect: CGRect(x: -2.32, y: -44.82, width: 6.36, height: 35))
         context.saveGState()
-        context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale, height: shadow.shadowOffset.height * resizedShadowScale), blur: shadow.shadowBlurRadius * resizedShadowScale, color: (shadow.shadowColor as! UIColor).cgColor)
+        context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
+                                         height: shadow.shadowOffset.height * resizedShadowScale),
+                          blur: shadow.shadowBlurRadius * resizedShadowScale,
+                          color: (shadow.shadowColor as! UIColor).cgColor)
         indicatorColor.setFill()
         indicatorPath.fill()
         context.restoreGState()
 
+        context.restoreGState()
 
         context.restoreGState()
 
-
-
-
-
-        context.restoreGState()
-        
         context.restoreGState()
 
     }
-
-
-
 
     @objc(ColorKnobStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
@@ -185,17 +178,17 @@ public class ColorKnobStyleKit : NSObject {
             scales.height = abs(target.height / rect.height)
 
             switch self {
-                case .aspectFit:
-                    scales.width = min(scales.width, scales.height)
-                    scales.height = scales.width
-                case .aspectFill:
-                    scales.width = max(scales.width, scales.height)
-                    scales.height = scales.width
-                case .stretch:
-                    break
-                case .center:
-                    scales.width = 1
-                    scales.height = 1
+            case .aspectFit:
+                scales.width = min(scales.width, scales.height)
+                scales.height = scales.width
+            case .aspectFill:
+                scales.width = max(scales.width, scales.height)
+                scales.height = scales.width
+            case .stretch:
+                break
+            case .center:
+                scales.width = 1
+                scales.height = 1
             }
 
             var result = rect.standardized
@@ -208,8 +201,6 @@ public class ColorKnobStyleKit : NSObject {
     }
 }
 
-
-
 private extension UIColor {
     func blended(withFraction fraction: CGFloat, of color: UIColor) -> UIColor {
         var r1: CGFloat = 1, g1: CGFloat = 1, b1: CGFloat = 1, a1: CGFloat = 1
@@ -221,6 +212,6 @@ private extension UIColor {
         return UIColor(red: r1 * (1 - fraction) + r2 * fraction,
             green: g1 * (1 - fraction) + g2 * fraction,
             blue: b1 * (1 - fraction) + b2 * fraction,
-            alpha: a1 * (1 - fraction) + a2 * fraction);
+            alpha: a1 * (1 - fraction) + a2 * fraction)
     }
 }

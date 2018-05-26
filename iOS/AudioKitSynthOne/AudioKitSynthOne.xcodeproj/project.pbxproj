@@ -10,7 +10,6 @@
 		345AA333202268B300E5FBBC /* SDSustainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345AA332202268B300E5FBBC /* SDSustainer.swift */; };
 		48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */; };
 		9403F2961F671A4900320FCC /* PresetsCategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F2921F671A4900320FCC /* PresetsCategoriesController.swift */; };
-		9403F2981F671A4900320FCC /* PresetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F2931F671A4900320FCC /* PresetsViewController.swift */; };
 		9403F29A1F671A4900320FCC /* PopUpPresetEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */; };
 		9403F29D1F671A6000320FCC /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9403F29B1F671A6000320FCC /* Preset.swift */; };
 		9410659F1F26AA55002777AB /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410659E1F26AA55002777AB /* ADSRViewController.swift */; };
@@ -19,7 +18,7 @@
 		941645D120B3597300D62851 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9416FC7220081F3A00A120AD /* MIDIKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC7120081F3A00A120AD /* MIDIKnob.swift */; };
 		9416FC762008204300A120AD /* MIDILearnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416FC752008204300A120AD /* MIDILearnable.swift */; };
-		941DE3E11FCE3CD400A09C24 /* AppSettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */; };
+		941DE3E11FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3DF1FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift */; };
 		941DE3E31FCE3CD400A09C24 /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DE3E01FCE3CD400A09C24 /* AppSetting.swift */; };
 		9422F92C201A9D2800FE2FAC /* Dictionary+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9422F92B201A9D2800FE2FAC /* Dictionary+Key.swift */; };
 		94346F901FC7975C00434900 /* ColorKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94346F8E1FC7975C00434900 /* ColorKnob.swift */; };
@@ -31,7 +30,6 @@
 		943D9D2C20B1D56A004149AD /* MailingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D9D2B20B1D56A004149AD /* MailingListController.swift */; };
 		943D9D2E20B1F72E004149AD /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D9D2D20B1F72D004149AD /* InfoController.swift */; };
 		9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */; };
-		944A6CDF20B0B7E600D797A8 /* Parent+PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944A6CDE20B0B7E500D797A8 /* Parent+PushNotification.swift */; };
 		9451E2FE1F58C20B008181F9 /* HeaderNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */; };
 		945261411F2925610037662C /* AKTouchPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9452613E1F2925600037662C /* AKTouchPadView.swift */; };
 		945261481F2928870037662C /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945261381F2918A60037662C /* TouchPadViewController.swift */; };
@@ -94,6 +92,26 @@
 		C42459DF201D6498004565AB /* AKSynthOneDSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C42459DE201D6498004565AB /* AKSynthOneDSPKernel.mm */; };
 		C42459E1201D64D4004565AB /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42459E0201D64D4004565AB /* Bank.swift */; };
 		C42459E3201D64DE004565AB /* PopUpBankEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42459E2201D64DE004565AB /* PopUpBankEdit.swift */; };
+		C4421A7E20B8178F00BE9F12 /* Parent+MailingListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */; };
+		C4421A7F20B8178F00BE9F12 /* Parent+PresetsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */; };
+		C4421A8020B8178F00BE9F12 /* Parent+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */; };
+		C4421A8120B8178F00BE9F12 /* Parent+HeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7520B8178F00BE9F12 /* Parent+HeaderDelegate.swift */; };
+		C4421A8220B8178F00BE9F12 /* Parent+ModWheelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7620B8178F00BE9F12 /* Parent+ModWheelDelegate.swift */; };
+		C4421A8320B8179000BE9F12 /* Parent+MIDIListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7720B8178F00BE9F12 /* Parent+MIDIListener.swift */; };
+		C4421A8420B8179000BE9F12 /* Parent+EmbeddedViewsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7820B8178F00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */; };
+		C4421A8520B8179000BE9F12 /* Parent+Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7920B8178F00BE9F12 /* Parent+Audiobus.swift */; };
+		C4421A8620B8179000BE9F12 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7A20B8178F00BE9F12 /* ParentViewController.swift */; };
+		C4421A8720B8179000BE9F12 /* Parent+DevPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7B20B8178F00BE9F12 /* Parent+DevPanel.swift */; };
+		C4421A8820B8179000BE9F12 /* Parent+PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7C20B8178F00BE9F12 /* Parent+PushNotification.swift */; };
+		C4421A8920B8179000BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7D20B8178F00BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift */; };
+		C4421AA120B81A7500BE9F12 /* PresetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A9920B81A7400BE9F12 /* PresetsViewController.swift */; };
+		C4421AA220B81A7500BE9F12 /* Presets+PresetCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A9A20B81A7400BE9F12 /* Presets+PresetCellDelegate.swift */; };
+		C4421AA320B81A7500BE9F12 /* Presets+CategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A9B20B81A7400BE9F12 /* Presets+CategoryDelegate.swift */; };
+		C4421AA420B81A7500BE9F12 /* Presets+PresetPopOverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A9C20B81A7400BE9F12 /* Presets+PresetPopOverDelegate.swift */; };
+		C4421AA520B81A7500BE9F12 /* Presets+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A9D20B81A7400BE9F12 /* Presets+UITableViewDataSource.swift */; };
+		C4421AA620B81A7500BE9F12 /* Presets+UIDocumentPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A9E20B81A7400BE9F12 /* Presets+UIDocumentPickerDelegate.swift */; };
+		C4421AA720B81A7500BE9F12 /* Presets+BankPopOverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A9F20B81A7400BE9F12 /* Presets+BankPopOverDelegate.swift */; };
+		C4421AA820B81A7500BE9F12 /* Presets+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421AA020B81A7500BE9F12 /* Presets+UITableViewDelegate.swift */; };
 		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
 		C47FDEF5201C5E3000A31D48 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF3201C5E3000A31D48 /* AudioKitUI.framework */; };
 		C47FDEF6201C5E3000A31D48 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF4201C5E3000A31D48 /* AudioKit.framework */; };
@@ -114,7 +132,6 @@
 		C4CD8DEA1F24A77D0011066A /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DE91F24A77C0011066A /* Conductor.swift */; };
 		C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */; };
 		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
-		C4D193CA1F1187B500FF4FE4 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C91F1187B500FF4FE4 /* ParentViewController.swift */; };
 		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
 		C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */; };
 		C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EDB6C11F26DFE2006B828C /* MorphSelector.swift */; };
@@ -164,7 +181,6 @@
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		7A837751B9CCA83DA1F6DAC1 /* Pods_SynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SynthOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9403F2921F671A4900320FCC /* PresetsCategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsCategoriesController.swift; sourceTree = "<group>"; };
-		9403F2931F671A4900320FCC /* PresetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsViewController.swift; sourceTree = "<group>"; };
 		9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpPresetEdit.swift; sourceTree = "<group>"; };
 		9403F29B1F671A6000320FCC /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		9410659E1F26AA55002777AB /* ADSRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +190,7 @@
 		941645CE20B3597300D62851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9416FC7120081F3A00A120AD /* MIDIKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIKnob.swift; sourceTree = "<group>"; };
 		9416FC752008204300A120AD /* MIDILearnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDILearnable.swift; sourceTree = "<group>"; };
-		941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingDataManager.swift; sourceTree = "<group>"; };
+		941DE3DF1FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ParentViewController+AppSettingDataManager.swift"; sourceTree = "<group>"; };
 		941DE3E01FCE3CD400A09C24 /* AppSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		9422F92B201A9D2800FE2FAC /* Dictionary+Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Key.swift"; sourceTree = "<group>"; };
 		94346F8E1FC7975C00434900 /* ColorKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorKnob.swift; sourceTree = "<group>"; };
@@ -186,7 +202,6 @@
 		943D9D2B20B1D56A004149AD /* MailingListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailingListController.swift; sourceTree = "<group>"; };
 		943D9D2D20B1F72D004149AD /* InfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		9442BBDA1F48A47B00DCCD00 /* PopUpKeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpKeyboardController.swift; sourceTree = "<group>"; };
-		944A6CDE20B0B7E500D797A8 /* Parent+PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PushNotification.swift"; sourceTree = "<group>"; };
 		9451E2FD1F58C20B008181F9 /* HeaderNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderNavButton.swift; sourceTree = "<group>"; };
 		945261381F2918A60037662C /* TouchPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPadViewController.swift; sourceTree = "<group>"; };
 		9452613E1F2925600037662C /* AKTouchPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKTouchPadView.swift; sourceTree = "<group>"; };
@@ -252,6 +267,26 @@
 		C42459DE201D6498004565AB /* AKSynthOneDSPKernel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKSynthOneDSPKernel.mm; sourceTree = "<group>"; };
 		C42459E0201D64D4004565AB /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		C42459E2201D64DE004565AB /* PopUpBankEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpBankEdit.swift; sourceTree = "<group>"; };
+		C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+MailingListDelegate.swift"; sourceTree = "<group>"; };
+		C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PresetsDelegate.swift"; sourceTree = "<group>"; };
+		C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+Keyboard.swift"; sourceTree = "<group>"; };
+		C4421A7520B8178F00BE9F12 /* Parent+HeaderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+HeaderDelegate.swift"; sourceTree = "<group>"; };
+		C4421A7620B8178F00BE9F12 /* Parent+ModWheelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+ModWheelDelegate.swift"; sourceTree = "<group>"; };
+		C4421A7720B8178F00BE9F12 /* Parent+MIDIListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+MIDIListener.swift"; sourceTree = "<group>"; };
+		C4421A7820B8178F00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+EmbeddedViewsDelegate.swift"; sourceTree = "<group>"; };
+		C4421A7920B8178F00BE9F12 /* Parent+Audiobus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+Audiobus.swift"; sourceTree = "<group>"; };
+		C4421A7A20B8178F00BE9F12 /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
+		C4421A7B20B8178F00BE9F12 /* Parent+DevPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+DevPanel.swift"; sourceTree = "<group>"; };
+		C4421A7C20B8178F00BE9F12 /* Parent+PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PushNotification.swift"; sourceTree = "<group>"; };
+		C4421A7D20B8178F00BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+MIDISettingsPopOverDelegate.swift"; sourceTree = "<group>"; };
+		C4421A9920B81A7400BE9F12 /* PresetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetsViewController.swift; sourceTree = "<group>"; };
+		C4421A9A20B81A7400BE9F12 /* Presets+PresetCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+PresetCellDelegate.swift"; sourceTree = "<group>"; };
+		C4421A9B20B81A7400BE9F12 /* Presets+CategoryDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+CategoryDelegate.swift"; sourceTree = "<group>"; };
+		C4421A9C20B81A7400BE9F12 /* Presets+PresetPopOverDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+PresetPopOverDelegate.swift"; sourceTree = "<group>"; };
+		C4421A9D20B81A7400BE9F12 /* Presets+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		C4421A9E20B81A7400BE9F12 /* Presets+UIDocumentPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+UIDocumentPickerDelegate.swift"; sourceTree = "<group>"; };
+		C4421A9F20B81A7400BE9F12 /* Presets+BankPopOverDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+BankPopOverDelegate.swift"; sourceTree = "<group>"; };
+		C4421AA020B81A7500BE9F12 /* Presets+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		C46E16071F27FF9C00A518F5 /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C474D9501F13172B00946035 /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
 		C474D9531F13172B00946035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -290,7 +325,6 @@
 		C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewContoller.swift; sourceTree = "<group>"; };
 		C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioKitSynthOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C4D193C91F1187B500FF4FE4 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		C4D193CC1F1187B500FF4FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4D193D31F1187B500FF4FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -385,8 +419,8 @@
 				946D159E1FD26CD6006E7C97 /* DevViewController.swift */,
 				94B69C3A1F297E2800191C87 /* FXViewController.swift */,
 				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
-				C4D193C91F1187B500FF4FE4 /* ParentViewController.swift */,
-				9403F2931F671A4900320FCC /* PresetsViewController.swift */,
+				C4421A7120B8178F00BE9F12 /* ParentViewController */,
+				C4421A9820B81A7400BE9F12 /* PresetsViewController */,
 				945C3A0F1F3143A00086D58B /* SeqViewController.swift */,
 				9468E2791F2827AC00C60B1B /* SettingsViewController.swift */,
 				C40770EB1F2569C8007F2C77 /* SourceMixerViewController.swift */,
@@ -494,7 +528,7 @@
 				F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */,
 				F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */,
 				941DE3E01FCE3CD400A09C24 /* AppSetting.swift */,
-				941DE3DF1FCE3CD400A09C24 /* AppSettingDataManager.swift */,
+				941DE3DF1FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift */,
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
 				C42459E0201D64D4004565AB /* Bank.swift */,
 				943524551F57945500BDA789 /* ChildView.swift */,
@@ -582,6 +616,40 @@
 				94FA2DCB1F9E837700DED735 /* PresetCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		C4421A7120B8178F00BE9F12 /* ParentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C4421A7A20B8178F00BE9F12 /* ParentViewController.swift */,
+				C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */,
+				C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */,
+				C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */,
+				C4421A7520B8178F00BE9F12 /* Parent+HeaderDelegate.swift */,
+				C4421A7620B8178F00BE9F12 /* Parent+ModWheelDelegate.swift */,
+				C4421A7720B8178F00BE9F12 /* Parent+MIDIListener.swift */,
+				C4421A7820B8178F00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */,
+				C4421A7920B8178F00BE9F12 /* Parent+Audiobus.swift */,
+				C4421A7B20B8178F00BE9F12 /* Parent+DevPanel.swift */,
+				C4421A7C20B8178F00BE9F12 /* Parent+PushNotification.swift */,
+				C4421A7D20B8178F00BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift */,
+			);
+			path = ParentViewController;
+			sourceTree = "<group>";
+		};
+		C4421A9820B81A7400BE9F12 /* PresetsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C4421A9920B81A7400BE9F12 /* PresetsViewController.swift */,
+				C4421A9A20B81A7400BE9F12 /* Presets+PresetCellDelegate.swift */,
+				C4421A9B20B81A7400BE9F12 /* Presets+CategoryDelegate.swift */,
+				C4421A9C20B81A7400BE9F12 /* Presets+PresetPopOverDelegate.swift */,
+				C4421A9D20B81A7400BE9F12 /* Presets+UITableViewDataSource.swift */,
+				C4421A9E20B81A7400BE9F12 /* Presets+UIDocumentPickerDelegate.swift */,
+				C4421A9F20B81A7400BE9F12 /* Presets+BankPopOverDelegate.swift */,
+				C4421AA020B81A7500BE9F12 /* Presets+UITableViewDelegate.swift */,
+			);
+			path = PresetsViewController;
 			sourceTree = "<group>";
 		};
 		C474D94C1F13172B00946035 /* SynthOne  */ = {
@@ -705,7 +773,6 @@
 				C4F7ECBA1F244AD40011B119 /* CGFloat+Extensions.swift */,
 				9422F92B201A9D2800FE2FAC /* Dictionary+Key.swift */,
 				C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */,
-				944A6CDE20B0B7E500D797A8 /* Parent+PushNotification.swift */,
 				C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */,
 			);
 			path = Extensions;
@@ -947,7 +1014,9 @@
 				943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */,
-				941DE3E11FCE3CD400A09C24 /* AppSettingDataManager.swift in Sources */,
+				C4421AA120B81A7500BE9F12 /* PresetsViewController.swift in Sources */,
+				941DE3E11FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift in Sources */,
+				C4421AA320B81A7500BE9F12 /* Presets+CategoryDelegate.swift in Sources */,
 				943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */,
 				C4AC4B0D2019C63F00D04C7F /* AEMessageQueue.m in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
@@ -962,7 +1031,6 @@
 				94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */,
 				946D159F1FD26CD6006E7C97 /* DevViewController.swift in Sources */,
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
-				C4D193CA1F1187B500FF4FE4 /* ParentViewController.swift in Sources */,
 				9403F2961F671A4900320FCC /* PresetsCategoriesController.swift in Sources */,
 				F4A5D8CE20B216B300839E58 /* AKS1Tunings+Harmonic.swift in Sources */,
 				C42459E3201D64DE004565AB /* PopUpBankEdit.swift in Sources */,
@@ -970,6 +1038,7 @@
 				94A5038D1FF2E1B80097D37C /* MIDIInput.swift in Sources */,
 				94346F911FC7975C00434900 /* ColorKnobStyleKit.swift in Sources */,
 				9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */,
+				C4421AA820B81A7500BE9F12 /* Presets+UITableViewDelegate.swift in Sources */,
 				94FBAFE51F42A9630071235B /* TempoStepper.swift in Sources */,
 				949D09341F34F6FB000FB6E0 /* LFOWavePicker.swift in Sources */,
 				9435245C1F57A6F100BDA789 /* SynthPanelController.swift in Sources */,
@@ -982,42 +1051,52 @@
 				F467524520A01A5F00060209 /* TuningsPitchWheelView.swift in Sources */,
 				C4AC4B152019C63F00D04C7F /* AETime.m in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
+				C4421A8420B8179000BE9F12 /* Parent+EmbeddedViewsDelegate.swift in Sources */,
 				94A503991FF2F3E10097D37C /* PopUpMODController.swift in Sources */,
 				9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
 				C4CC3041208499D1004E91CB /* Audiobus.swift in Sources */,
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
 				94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */,
+				C4421A7E20B8178F00BE9F12 /* Parent+MailingListDelegate.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				945261411F2925610037662C /* AKTouchPadView.swift in Sources */,
+				C4421AA720B81A7500BE9F12 /* Presets+BankPopOverDelegate.swift in Sources */,
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
+				C4421A8920B8179000BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift in Sources */,
 				941DE3E31FCE3CD400A09C24 /* AppSetting.swift in Sources */,
+				C4421AA220B81A7500BE9F12 /* Presets+PresetCellDelegate.swift in Sources */,
 				947B8E171F6AEADD00E08D4B /* Arpeggiator.swift in Sources */,
+				C4421A8520B8179000BE9F12 /* Parent+Audiobus.swift in Sources */,
 				948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */,
-				9403F2981F671A4900320FCC /* PresetsViewController.swift in Sources */,
 				94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */,
 				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
 				9403F29A1F671A4900320FCC /* PopUpPresetEdit.swift in Sources */,
+				C4421AA620B81A7500BE9F12 /* Presets+UIDocumentPickerDelegate.swift in Sources */,
+				C4421AA520B81A7500BE9F12 /* Presets+UITableViewDataSource.swift in Sources */,
 				94DB18D21F37D879008368AE /* NavButton.swift in Sources */,
+				C4421A8820B8179000BE9F12 /* Parent+PushNotification.swift in Sources */,
 				9422F92C201A9D2800FE2FAC /* Dictionary+Key.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				943524561F57945500BDA789 /* ChildView.swift in Sources */,
+				C4421A8220B8178F00BE9F12 /* Parent+ModWheelDelegate.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
 				948938C320B37EE500B7CEAA /* Audiobus+MIDI.swift in Sources */,
 				9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */,
+				C4421A8020B8178F00BE9F12 /* Parent+Keyboard.swift in Sources */,
 				947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A041F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
 				94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */,
 				9416FC762008204300A120AD /* MIDILearnable.swift in Sources */,
 				C4AC4AF12019BF0500D04C7F /* AKSynthOne.swift in Sources */,
 				C4AC4B172019C63F00D04C7F /* AETypes.m in Sources */,
+				C4421A7F20B8178F00BE9F12 /* Parent+PresetsDelegate.swift in Sources */,
 				9416FC7220081F3A00A120AD /* MIDIKnob.swift in Sources */,
 				C4AC4B0B2019C63F00D04C7F /* AEWeakRetainingProxy.m in Sources */,
 				94AF74021F55FF9700ED8B51 /* TouchPoint.swift in Sources */,
 				94FA2DCD1F9E837700DED735 /* PresetCell.swift in Sources */,
 				C4AC4AF32019BF0500D04C7F /* AKSynthOneAudioUnit.mm in Sources */,
-				944A6CDF20B0B7E600D797A8 /* Parent+PushNotification.swift in Sources */,
 				94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */,
 				94FA2DCF1F9E837700DED735 /* CategoryCell.swift in Sources */,
 				943D9D2E20B1F72E004149AD /* InfoController.swift in Sources */,
@@ -1034,6 +1113,7 @@
 				94A503961FF2EB9E0097D37C /* MIDICell.swift in Sources */,
 				C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */,
 				C42459DF201D6498004565AB /* AKSynthOneDSPKernel.mm in Sources */,
+				C4421A8620B8179000BE9F12 /* ParentViewController.swift in Sources */,
 				949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
 				C42459E1201D64D4004565AB /* Bank.swift in Sources */,
 				F4675242209FBE5000060209 /* TuningsViewController.swift in Sources */,
@@ -1043,10 +1123,14 @@
 				C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */,
 				94E951351F3644E5009A8B00 /* Rate.swift in Sources */,
 				C4AC4B1B2019C63F00D04C7F /* AEAudioThreadEndpoint.m in Sources */,
+				C4421AA420B81A7500BE9F12 /* Presets+PresetPopOverDelegate.swift in Sources */,
 				94D917AF1F550D28006ACB4E /* FlatToggleButton.swift in Sources */,
 				948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
+				C4421A8720B8179000BE9F12 /* Parent+DevPanel.swift in Sources */,
 				94DB3FE01FC8C0EA007F8081 /* PresetUIButton.swift in Sources */,
+				C4421A8320B8179000BE9F12 /* Parent+MIDIListener.swift in Sources */,
+				C4421A8120B8178F00BE9F12 /* Parent+HeaderDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

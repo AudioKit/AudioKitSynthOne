@@ -9,11 +9,9 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class LFOPickerStyleKit : NSObject {
+public class LFOPickerStyleKit: NSObject {
 
     //// Drawing Methods
 
@@ -47,7 +45,6 @@ public class LFOPickerStyleKit : NSObject {
         squarePath.lineWidth = 2
         squarePath.stroke()
 
-
         //// DownSaw Drawing
         let downSawPath = UIBezierPath()
         downSawPath.move(to: CGPoint(x: 172, y: 31))
@@ -57,7 +54,6 @@ public class LFOPickerStyleKit : NSObject {
         downSawPath.lineWidth = 2
         downSawPath.stroke()
 
-
         //// UpSaw Drawing
         let upSawPath = UIBezierPath()
         upSawPath.move(to: CGPoint(x: 135, y: 31))
@@ -66,7 +62,6 @@ public class LFOPickerStyleKit : NSObject {
         color3.setStroke()
         upSawPath.lineWidth = 2
         upSawPath.stroke()
-
 
         //// SineWave Drawing
         let sineWavePath = UIBezierPath()

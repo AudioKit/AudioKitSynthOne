@@ -9,25 +9,24 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class ArpButtonStyleKit : NSObject {
+public class ArpButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawArpButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 35, height: 25), resizing: ResizingBehavior = .aspectFit, isToggled: Bool = false) {
+    @objc dynamic public class func drawArpButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 35, height: 25),
+                                                  resizing: ResizingBehavior = .aspectFit,
+                                                  isToggled: Bool = false) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 35, height: 25), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 35, y: resizedFrame.height / 25)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 35, resizedFrame.height / 25)
-
 
         //// Color Declarations
         let gradientColor = UIColor(red: 0.173, green: 0.173, blue: 0.188, alpha: 1.000)
@@ -39,7 +38,13 @@ public class ArpButtonStyleKit : NSObject {
         let buttonEdge = UIColor(red: 0.173, green: 0.173, blue: 0.125, alpha: 1.000)
 
         //// Gradient Declarations
-        let gradient = CGGradient(colorsSpace: nil, colors: [gradientColor.cgColor, gradientColor.blended(withFraction: 0.5, of: gradientColor3).cgColor, gradientColor3.cgColor, gradientColor4.cgColor, gradientColor2.cgColor] as CFArray, locations: [0, 0.1, 0.19, 0.61, 1])!
+        let gradient = CGGradient(colorsSpace: nil,
+                                  colors: [gradientColor.cgColor,
+                                           gradientColor.blended(withFraction: 0.5, of: gradientColor3).cgColor,
+                                           gradientColor3.cgColor,
+                                           gradientColor4.cgColor,
+                                           gradientColor2.cgColor] as CFArray,
+                                  locations: [0, 0.1, 0.19, 0.61, 1])!
 
         //// Shadow Declarations
         let shadow = NSShadow()
@@ -55,7 +60,10 @@ public class ArpButtonStyleKit : NSObject {
         //// ButtonBack Drawing
         let buttonBackPath = UIBezierPath(roundedRect: CGRect(x: 1, y: 1, width: 33, height: 21), cornerRadius: 4)
         context.saveGState()
-        context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale, height: shadow.shadowOffset.height * resizedShadowScale), blur: shadow.shadowBlurRadius * resizedShadowScale, color: (shadow.shadowColor as! UIColor).cgColor)
+        context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
+                                         height: shadow.shadowOffset.height * resizedShadowScale),
+                          blur: shadow.shadowBlurRadius * resizedShadowScale,
+                          color: (shadow.shadowColor as! UIColor).cgColor)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
         buttonBackPath.addClip()
         context.drawLinearGradient(gradient, start: CGPoint(x: 17.5, y: 22), end: CGPoint(x: 17.5, y: 1), options: [])
@@ -66,30 +74,28 @@ public class ArpButtonStyleKit : NSObject {
         buttonBackPath.lineWidth = 1
         buttonBackPath.stroke()
 
-
         //// ButtonGlow off Drawing
         let buttonGlowOffPath = UIBezierPath(rect: CGRect(x: 7, y: 9, width: 21, height: 4))
         buttonOff.setFill()
         buttonGlowOffPath.fill()
 
-
-        if (isToggled) {
+        if isToggled {
             //// ButtonGlow Drawing
             let buttonGlowPath = UIBezierPath(rect: CGRect(x: 7, y: 9, width: 21, height: 4))
             context.saveGState()
-            context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale, height: shadow3.shadowOffset.height * resizedShadowScale), blur: shadow3.shadowBlurRadius * resizedShadowScale, color: (shadow3.shadowColor as! UIColor).cgColor)
+            context.setShadow(offset: CGSize(width: shadow3.shadowOffset.width * resizedShadowScale,
+                                             height: shadow3.shadowOffset.height * resizedShadowScale),
+                              blur: shadow3.shadowBlurRadius * resizedShadowScale,
+                              color: (shadow3.shadowColor as! UIColor).cgColor)
             orange.setFill()
             buttonGlowPath.fill()
             context.restoreGState()
 
         }
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(ArpButtonStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
@@ -108,17 +114,17 @@ public class ArpButtonStyleKit : NSObject {
             scales.height = abs(target.height / rect.height)
 
             switch self {
-                case .aspectFit:
-                    scales.width = min(scales.width, scales.height)
-                    scales.height = scales.width
-                case .aspectFill:
-                    scales.width = max(scales.width, scales.height)
-                    scales.height = scales.width
-                case .stretch:
-                    break
-                case .center:
-                    scales.width = 1
-                    scales.height = 1
+            case .aspectFit:
+                scales.width = min(scales.width, scales.height)
+                scales.height = scales.width
+            case .aspectFill:
+                scales.width = max(scales.width, scales.height)
+                scales.height = scales.width
+            case .stretch:
+                break
+            case .center:
+                scales.width = 1
+                scales.height = 1
             }
 
             var result = rect.standardized
@@ -131,8 +137,6 @@ public class ArpButtonStyleKit : NSObject {
     }
 }
 
-
-
 private extension UIColor {
     func blended(withFraction fraction: CGFloat, of color: UIColor) -> UIColor {
         var r1: CGFloat = 1, g1: CGFloat = 1, b1: CGFloat = 1, a1: CGFloat = 1
@@ -144,6 +148,6 @@ private extension UIColor {
         return UIColor(red: r1 * (1 - fraction) + r2 * fraction,
             green: g1 * (1 - fraction) + g2 * fraction,
             blue: b1 * (1 - fraction) + b2 * fraction,
-            alpha: a1 * (1 - fraction) + a2 * fraction);
+            alpha: a1 * (1 - fraction) + a2 * fraction)
     }
 }

@@ -15,7 +15,7 @@ import Foundation
 let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
 
 class AppSetting: Codable {
-    
+
     var settingID = "main"
     var firstRun = true
     var isPreRelease = true
@@ -34,79 +34,79 @@ class AppSetting: Codable {
     var pushNotifications = true
     var userEmail = ""
     var launches = 0
-    
+
     // Presets version
     var presetsVersion = 1.08
-    
+
     // MIDI Learn Settings
-    
+
     // mixer controller
-    var masterVolume_CC = 255
-    var morph1Selector_CC = 255
-    var morph2Selector_CC = 255
-    var morph1SemitoneOffset_CC = 255
-    var morph2SemitoneOffset_CC = 255
-    var morph2Detuning_CC = 255
-    var morphBalance_CC = 255
-    var morph1Volume_CC = 255
-    var morph2Volume_CC = 255
-    var cutoff_CC = 74 // 74: MIDI Standard CC for filter cutoff
-    var rez_CC = 71 // 71: MIDI Standard CC for filter res
-    var subVolume_CC = 255
-    var fmVolume_CC = 255
-    var fmAmount_CC = 255
-    var noiseVolume_CC = 255
-    var glideKnob_CC = 255
-    
+    var masterVolumeCC = 255
+    var morph1SelectorCC = 255
+    var morph2SelectorCC = 255
+    var morph1SemitoneOffsetCC = 255
+    var morph2SemitoneOffsetCC = 255
+    var morph2DetuningCC = 255
+    var morphBalanceCC = 255
+    var morph1VolumeCC = 255
+    var morph2VolumeCC = 255
+    var cutoffCC = 74 // 74: MIDI Standard CC for filter cutoff
+    var rezCC = 71 // 71: MIDI Standard CC for filter res
+    var subVolumeCC = 255
+    var fmVolumeCC = 255
+    var fmAmountCC = 255
+    var noiseVolumeCC = 255
+    var glideKnobCC = 255
+
     // seq controller
-    var arpInterval_CC = 255
-    
+    var arpIntervalCC = 255
+
     // adsr
-    var attackKnob_CC = 255
-    var decayKnob_CC = 255
-    var sustainKnob_CC = 255
-    var releaseKnob_CC = 255
-    var filterAttackKnob_CC = 255
-    var filterDecayKnob_CC = 255
-    var filterSustainKnob_CC = 255
-    var filterReleaseKnob_CC = 255
-    var filterADSRMixKnob_CC = 255
-    
+    var attackKnobCC = 255
+    var decayKnobCC = 255
+    var sustainKnobCC = 255
+    var releaseKnobCC = 255
+    var filterAttackKnobCC = 255
+    var filterDecayKnobCC = 255
+    var filterSustainKnobCC = 255
+    var filterReleaseKnobCC = 255
+    var filterADSRMixKnobCC = 255
+
     // fxController
-    var sampleRate_CC = 255
-    var autoPanRate_CC = 255
-    var reverbSize_CC = 255
-    var reverbLowCut_CC = 255
-    var reverbMix_CC = 255
-    var delayTime_CC = 255
-    var delayFeedback_CC = 255
-    var delayMix_CC = 255
-    var lfo1Amp_CC = 255
-    var lfo2Amp_CC = 255
-    var lfo1Rate_CC = 255
-    var lfo2Rate_CC = 255
-    var phaserMix_CC = 255
-    var phaserRate_CC = 255
-    var phaserFeedback_CC = 255
-    var phaserNotchWidth_CC = 255
-    
+    var sampleRateCC = 255
+    var autoPanRateCC = 255
+    var reverbSizeCC = 255
+    var reverbLowCutCC = 255
+    var reverbMixCC = 255
+    var delayTimeCC = 255
+    var delayFeedbackCC = 255
+    var delayMixCC = 255
+    var lfo1AmpCC = 255
+    var lfo2AmpCC = 255
+    var lfo1RateCC = 255
+    var lfo2RateCC = 255
+    var phaserMixCC = 255
+    var phaserRateCC = 255
+    var phaserFeedbackCC = 255
+    var phaserNotchWidthCC = 255
+
     // Keyboard
     var labelMode = 1
     var octaveRange = 3
     var darkMode = true
     var showKeyboard = 1.0 // 1 show, 0 hide
-    
+
     // ******************************************************
     // MARK: - Init
     // ******************************************************
-    
+
     init() {
     }
-    
+
     //*****************************************************************
     // MARK: - JSON Parsing into object
     //*****************************************************************
-    
+
     // Init from Dictionary/JSON
     init(dictionary: [String: Any]) {
         settingID = dictionary["settingID"] as? String ?? settingID
@@ -117,8 +117,8 @@ class AppSetting: Codable {
         backgroundAudioOn = dictionary["backgroundAudioOn"] as? Bool ?? backgroundAudioOn
         midiChannel = dictionary["midiChannel"] as? Int ?? midiChannel
         omniMode = dictionary["omniMode"] as? Bool ?? omniMode
-        plotFilled =  dictionary["plotFilled"] as? Bool ?? plotFilled
-        velocitySensitive =  dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
+        plotFilled = dictionary["plotFilled"] as? Bool ?? plotFilled
+        velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
         freezeArpRate = dictionary["freezeArpRate"] as? Bool ?? freezeArpRate
         freezeDelay = dictionary["freezeDelay"] as? Bool ?? freezeDelay
         freezeReverb = dictionary["freezeReverb"] as? Bool ?? freezeReverb
@@ -176,8 +176,7 @@ class AppSetting: Codable {
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
         darkMode = dictionary["darkMode"] as? Bool ?? darkMode
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
-        
+
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
     }
 }
-

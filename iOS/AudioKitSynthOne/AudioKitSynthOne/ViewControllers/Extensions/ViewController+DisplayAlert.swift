@@ -1,6 +1,6 @@
 //
 //  UIViewController+DisplayAlertController.swift
-//  AK1
+//  AudioKit Synth One
 //
 //  Created by Matthew Fecher on 5/1/16.
 //  Copyright © 2016 AudioKit. All rights reserved.

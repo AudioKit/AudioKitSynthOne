@@ -65,7 +65,7 @@ class SeqViewController: SynthPanelController {
             let arpSeqOctBoostParam = arpSeqOctBoostArray[notePosition]
             conductor.bind(octBoostButton, to: arpSeqOctBoostParam) { _, _ in
                 return { value in
-                    s.setAK1SeqOctBoost(forIndex: notePosition, value)
+                    s.setOctaveBoost(forIndex: notePosition, value)
                     for i in 0...15 {
                         self.updateOctBoostButton(notePosition: i)
                     }
@@ -92,7 +92,7 @@ class SeqViewController: SynthPanelController {
             conductor.bind(arpSeqPatternSlider, to: arpSeqPatternParam) { _, control in
                 return { value in
                     let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
-                    s.setAK1ArpSeqPattern(forIndex: notePosition, tval )
+                    s.setPattern(forIndex: notePosition, tval )
                     self.conductor.updateSingleUI(arpSeqPatternParam,
                                                   control: arpSeqPatternSlider,
                                                   value: Double(tval))
@@ -115,7 +115,7 @@ class SeqViewController: SynthPanelController {
             conductor.bind(arpSeqNoteOnButton, to: arpSeqPatternParam) { _, control in
                 return { value in
                     let v = Double(truncating: value > 0 ? true : false)
-                    s.setAK1ArpSeqNoteOn(forIndex: notePosition, value > 0 ? true : false )
+                    s.setNoteOn(forIndex: notePosition, value > 0 ? true : false )
                     self.conductor.updateSingleUI(arpSeqPatternParam, control: arpSeqNoteOnButton, value: v)
                 }
             }
@@ -143,9 +143,9 @@ class SeqViewController: SynthPanelController {
     // *****************************************************************
 
     @objc public func updateLED(beatCounter: Int, heldNotes: Int = 128) {
-        let arpIsOn = conductor.synth.getAK1Parameter(.arpIsOn) > 0 ? true : false
-        let arpIsSequencer = conductor.synth.getAK1Parameter(.arpIsSequencer) > 0 ? true : false
-        let seqTotalSteps = Int(conductor.synth.getAK1Parameter(.arpTotalSteps))
+        let arpIsOn = conductor.synth.getSynthParameter(.arpIsOn) > 0 ? true : false
+        let arpIsSequencer = conductor.synth.getSynthParameter(.arpIsSequencer) > 0 ? true : false
+        let seqTotalSteps = Int(conductor.synth.getSynthParameter(.arpTotalSteps))
 
         // clear out all indicators
         arpSeqOctBoostButtons.forEach { $0.isActive = false }
@@ -165,7 +165,7 @@ class SeqViewController: SynthPanelController {
 
     func updateOctBoostButton(notePosition: Int) {
         let octBoostButton = arpSeqOctBoostButtons[notePosition]
-        octBoostButton.transposeAmt = conductor.synth.getAK1ArpSeqPattern(forIndex: notePosition)
-        octBoostButton.value = conductor.synth.getAK1SeqOctBoost(forIndex: notePosition) == true ? 1 : 0
+        octBoostButton.transposeAmt = conductor.synth.getPattern(forIndex: notePosition)
+        octBoostButton.value = conductor.synth.getOctaveBoost(forIndex: notePosition) == true ? 1 : 0
     }
 }

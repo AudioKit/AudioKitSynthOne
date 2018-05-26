@@ -288,9 +288,9 @@ class Preset: Codable {
         var seqNoteOnDefault = [Bool]()
         var seqOctBoostDefault = [Bool]()
         for i in 0..<16 {
-            seqPatternNoteDefault.append(s.getAK1ArpSeqPattern(forIndex: i))
-            seqNoteOnDefault.append(s.getAK1ArpSeqNoteOn(forIndex: i))
-            seqOctBoostDefault.append(s.getAK1SeqOctBoost(forIndex: i))
+            seqPatternNoteDefault.append(s.getPattern(forIndex: i))
+            seqNoteOnDefault.append(s.isNoteOn(forIndex: i))
+            seqOctBoostDefault.append(s.getOctaveBoost(forIndex: i))
         }
         seqPatternNote = dictionary["seqPatternNote"] as? [Int] ?? seqPatternNoteDefault
         seqNoteOn = dictionary["seqNoteOn"] as? [Bool] ?? seqNoteOnDefault

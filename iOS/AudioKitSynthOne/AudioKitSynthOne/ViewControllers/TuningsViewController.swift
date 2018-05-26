@@ -41,13 +41,13 @@ class TuningsViewController: SynthPanelController {
         aks1Tunings.tuningsDelegate = self
 
         masterTuning.range = Conductor.sharedInstance.synth!.getRange(.frequencyA4)
-        masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
+        masterTuning.value = Conductor.sharedInstance.synth!.getSynthParameter(.frequencyA4)
         Conductor.sharedInstance.bind(masterTuning, to: .frequencyA4)
 
         resetTunings.callback = { value in
             if value == 1 {
                 let i = self.aks1Tunings.resetTuning()
-                self.masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
+                self.masterTuning.value = Conductor.sharedInstance.synth!.getSynthParameter(.frequencyA4)
                 self.selectRow(i)
                 self.resetTunings.value = 0
             }

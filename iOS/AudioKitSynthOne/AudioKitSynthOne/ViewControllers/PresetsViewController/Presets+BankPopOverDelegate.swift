@@ -20,16 +20,16 @@ extension PresetsViewController: BankPopOverDelegate {
         }
 
         // Update Conductor
-        let bank = conductor.banks.first(where: { $0.name == oldName })
-        bank?.name = newName
+        let bank = conductor.banks.first(where: { $0.name == oldName })!
+        bank.name = newName
 
         // Update AppSettings
         presetsDelegate?.banksDidUpdate()
 
         // Update Category Table
         updateCategoryTable()
-        selectCategory(PresetCategory.bankStartingIndex + bank!.position)
-        categoryIndex = PresetCategory.bankStartingIndex + bank!.position
+        selectCategory(PresetCategory.bankStartingIndex + bank.position)
+        categoryIndex = PresetCategory.bankStartingIndex + bank.position
 
         // Save new bank file
         saveAllPresetsIn(newName)

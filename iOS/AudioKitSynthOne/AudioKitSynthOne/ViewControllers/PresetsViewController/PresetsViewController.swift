@@ -177,8 +177,9 @@ class PresetsViewController: UIViewController {
 
     func loadFactoryPresets(_ bank: String) {
         if let filePath = Bundle.main.path(forResource: bank, ofType: "json") {
-            let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
-            parsePresetsFromData(data: data!)
+            guard let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
+                else { return }
+            parsePresetsFromData(data: data)
         }
     }
 
@@ -471,7 +472,7 @@ class PresetsViewController: UIViewController {
 
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueToEdit" {
-            let popOverController = segue.destination as! PopUpPresetEdit
+            guard let popOverController = segue.destination as? PopUpPresetEdit else { return }
             popOverController.delegate = self
             popOverController.preset = currentPreset
             popOverController.preferredContentSize = CGSize(width: 550, height: 316)
@@ -481,10 +482,10 @@ class PresetsViewController: UIViewController {
         }
 
         if segue.identifier == "SegueToBankEdit" {
-            let popOverController = segue.destination as! PopUpBankEdit
+            guard let popOverController = segue.destination as? PopUpBankEdit else { return }
             popOverController.delegate = self
             let bank = conductor.banks.first(where: { $0.position == bankIndex })
-            popOverController.bankName = bank!.name
+            popOverController.bankName = bank?.name ?? "Unnamed Bank"
             popOverController.preferredContentSize = CGSize(width: 300, height: 320)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)

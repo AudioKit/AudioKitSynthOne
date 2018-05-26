@@ -221,7 +221,8 @@ public class TuningsPitchWheelOverlayView: UIView {
 
         if let pn = playingNotes {
             // must match AKS1_MAX_POLYPHONY
-            let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2, pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
+            let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2,
+                      pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
             for playingNote in na {
                 if playingNote.noteNumber != -1 {
                     let v = 2 * playingNote.amp
@@ -234,7 +235,10 @@ public class TuningsPitchWheelOverlayView: UIView {
                         let bigR = CGFloat(v * 26)
                         let a = bigR < 36 ? bigR / 36 : 1
                         let pitch = masterPitch[Int(nn)]
-                        TuningsPitchWheelView.color(forPitch: pitch, saturation: 0.36, brightness: 1, alpha: a).setStroke()
+                        TuningsPitchWheelView.color(forPitch: pitch,
+                                                    saturation: 0.36,
+                                                    brightness: 1,
+                                                    alpha: a).setStroke()
                         let bigDotR = CGRect(x: p.x - bigR / 2, y: p.y - bigR / 2, width: bigR, height: bigR)
                         context.strokeEllipse(in: bigDotR)
                     }

@@ -92,9 +92,9 @@ class Preset: Codable {
     var lfo2Rate = 0.0
 
     // Seq Pattern
-    var seqPatternNote = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    var seqOctBoost = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-    var seqNoteOn = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+    var seqPatternNote = Array(repeating: 0, count: 16)
+    var seqOctBoost = Array(repeating: false, count: 16)
+    var seqNoteOn = Array(repeating: true, count: 16)
 
     // Arp
     var arpDirection = 0.0

@@ -56,7 +56,7 @@ void AKSynthOneDSPKernel::resetDSP() {
     arpSeqNotes.clear();
     arpSeqNotes2.clear();
     arpBeatCounter = 0;
-    _setAK1Parameter(arpIsOn, 0.f);
+    _setSynthParameter(arpIsOn, 0.f);
     monoNote->clear();
     for(int i =0; i < AKS1_MAX_POLYPHONY; i++)
         noteStates[i].clear();
@@ -912,10 +912,10 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
         p[i] = value;
     }
     
-    _lfo1Rate = {AKSynthOneParameter::lfo1Rate, getAK1DependentParameter(lfo1Rate), getAK1Parameter(lfo1Rate),0};
-    _lfo2Rate = {AKSynthOneParameter::lfo2Rate, getAK1DependentParameter(lfo2Rate), getAK1Parameter(lfo2Rate),0};
-    _autoPanRate = {AKSynthOneParameter::autoPanFrequency, getAK1DependentParameter(autoPanFrequency), getAK1Parameter(autoPanFrequency),0};
-    _delayTime = {AKSynthOneParameter::delayTime, getAK1DependentParameter(delayTime),getAK1Parameter(delayTime),0};
+    _lfo1Rate = {AKSynthOneParameter::lfo1Rate, getDependentParameter(lfo1Rate), getSynthParameter(lfo1Rate),0};
+    _lfo2Rate = {AKSynthOneParameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};
+    _autoPanRate = {AKSynthOneParameter::autoPanFrequency, getDependentParameter(autoPanFrequency), getSynthParameter(autoPanFrequency),0};
+    _delayTime = {AKSynthOneParameter::delayTime, getDependentParameter(delayTime),getSynthParameter(delayTime),0};
 
     previousProcessMonoPolyStatus = p[isMono];
     
@@ -929,35 +929,35 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     *phaser0->invert = 0;
     *phaser0->lfobpm = 30;
 
-    *compressorMasterL->ratio = getAK1Parameter(compressorMasterRatio);
-    *compressorMasterR->ratio = getAK1Parameter(compressorMasterRatio);
-    *compressorReverbInputL->ratio = getAK1Parameter(compressorReverbInputRatio);
-    *compressorReverbInputR->ratio = getAK1Parameter(compressorReverbInputRatio);
-    *compressorReverbWetL->ratio = getAK1Parameter(compressorReverbWetRatio);
-    *compressorReverbWetR->ratio = getAK1Parameter(compressorReverbWetRatio);
-    *compressorMasterL->thresh = getAK1Parameter(compressorMasterThreshold);
-    *compressorMasterR->thresh = getAK1Parameter(compressorMasterThreshold);
-    *compressorReverbInputL->thresh = getAK1Parameter(compressorReverbInputThreshold);
-    *compressorReverbInputR->thresh = getAK1Parameter(compressorReverbInputThreshold);
-    *compressorReverbWetL->thresh = getAK1Parameter(compressorReverbWetThreshold);
-    *compressorReverbWetR->thresh = getAK1Parameter(compressorReverbWetThreshold);
-    *compressorMasterL->atk = getAK1Parameter(compressorMasterAttack);
-    *compressorMasterR->atk = getAK1Parameter(compressorMasterAttack);
-    *compressorReverbInputL->atk = getAK1Parameter(compressorReverbInputAttack);
-    *compressorReverbInputR->atk = getAK1Parameter(compressorReverbInputAttack);
-    *compressorReverbWetL->atk = getAK1Parameter(compressorReverbWetAttack);
-    *compressorReverbWetR->atk = getAK1Parameter(compressorReverbWetAttack);
-    *compressorMasterL->rel = getAK1Parameter(compressorMasterRelease);
-    *compressorMasterR->rel = getAK1Parameter(compressorMasterRelease);
-    *compressorReverbInputL->rel = getAK1Parameter(compressorReverbInputRelease);
-    *compressorReverbInputR->rel = getAK1Parameter(compressorReverbInputRelease);
-    *compressorReverbWetL->rel = getAK1Parameter(compressorReverbWetRelease);
-    *compressorReverbWetR->rel = getAK1Parameter(compressorReverbWetRelease);
+    *compressorMasterL->ratio = getSynthParameter(compressorMasterRatio);
+    *compressorMasterR->ratio = getSynthParameter(compressorMasterRatio);
+    *compressorReverbInputL->ratio = getSynthParameter(compressorReverbInputRatio);
+    *compressorReverbInputR->ratio = getSynthParameter(compressorReverbInputRatio);
+    *compressorReverbWetL->ratio = getSynthParameter(compressorReverbWetRatio);
+    *compressorReverbWetR->ratio = getSynthParameter(compressorReverbWetRatio);
+    *compressorMasterL->thresh = getSynthParameter(compressorMasterThreshold);
+    *compressorMasterR->thresh = getSynthParameter(compressorMasterThreshold);
+    *compressorReverbInputL->thresh = getSynthParameter(compressorReverbInputThreshold);
+    *compressorReverbInputR->thresh = getSynthParameter(compressorReverbInputThreshold);
+    *compressorReverbWetL->thresh = getSynthParameter(compressorReverbWetThreshold);
+    *compressorReverbWetR->thresh = getSynthParameter(compressorReverbWetThreshold);
+    *compressorMasterL->atk = getSynthParameter(compressorMasterAttack);
+    *compressorMasterR->atk = getSynthParameter(compressorMasterAttack);
+    *compressorReverbInputL->atk = getSynthParameter(compressorReverbInputAttack);
+    *compressorReverbInputR->atk = getSynthParameter(compressorReverbInputAttack);
+    *compressorReverbWetL->atk = getSynthParameter(compressorReverbWetAttack);
+    *compressorReverbWetR->atk = getSynthParameter(compressorReverbWetAttack);
+    *compressorMasterL->rel = getSynthParameter(compressorMasterRelease);
+    *compressorMasterR->rel = getSynthParameter(compressorMasterRelease);
+    *compressorReverbInputL->rel = getSynthParameter(compressorReverbInputRelease);
+    *compressorReverbInputR->rel = getSynthParameter(compressorReverbInputRelease);
+    *compressorReverbWetL->rel = getSynthParameter(compressorReverbWetRelease);
+    *compressorReverbWetR->rel = getSynthParameter(compressorReverbWetRelease);
 
-    loPassInputDelayL->freq = getAK1Parameter(cutoff);
-    loPassInputDelayL->res = getAK1Parameter(delayInputResonance);
-    loPassInputDelayR->freq = getAK1Parameter(cutoff);
-    loPassInputDelayR->res = getAK1Parameter(delayInputResonance);
+    loPassInputDelayL->freq = getSynthParameter(cutoff);
+    loPassInputDelayL->res = getSynthParameter(delayInputResonance);
+    loPassInputDelayR->freq = getSynthParameter(cutoff);
+    loPassInputDelayR->res = getSynthParameter(delayInputResonance);
 
     // Reserve arp note cache to reduce possibility of reallocation on audio thread.
     arpSeqNotes.reserve(maxArpSeqNotes);
@@ -966,7 +966,7 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     
     aePlayingNotes.polyphony = AKS1_MAX_POLYPHONY;
     
-    AKPolyphonicNode.tuningTable.middleCFrequency = getAK1Parameter(frequencyA4) * exp2((60.f - 69.f)/12.f);
+    AKPolyphonicNode.tuningTable.middleCFrequency = getSynthParameter(frequencyA4) * exp2((60.f - 69.f)/12.f);
     
     // initializeNoteStates() must be called AFTER init returns, BEFORE process, turnOnKey, and turnOffKey
 }
@@ -1137,7 +1137,7 @@ inline float AKSynthOneDSPKernel::taperInverse(float inputValue01, float min, fl
     }
 }
 
-float AKSynthOneDSPKernel::getAK1Parameter(AKSynthOneParameter param) {
+float AKSynthOneDSPKernel::getSynthParameter(AKSynthOneParameter param) {
     AKS1Param& s = aks1p[param];
     if (s.usePortamento)
         return s.portamentoTarget;
@@ -1145,7 +1145,7 @@ float AKSynthOneDSPKernel::getAK1Parameter(AKSynthOneParameter param) {
         return p[param];
 }
 
-inline void AKSynthOneDSPKernel::_setAK1Parameter(AKSynthOneParameter param, float inputValue) {
+inline void AKSynthOneDSPKernel::_setSynthParameter(AKSynthOneParameter param, float inputValue) {
     const float value = parameterClamp(param, inputValue);
     AKS1Param& s = aks1p[param];
     if (s.usePortamento) {
@@ -1155,8 +1155,8 @@ inline void AKSynthOneDSPKernel::_setAK1Parameter(AKSynthOneParameter param, flo
     }
 }
 
-void AKSynthOneDSPKernel::setAK1Parameter(AKSynthOneParameter param, float inputValue) {
-    _setAK1ParameterHelper(param, inputValue, true, 0);
+void AKSynthOneDSPKernel::setSynthParameter(AKSynthOneParameter param, float inputValue) {
+    _setSynthParameterHelper(param, inputValue, true, 0);
 }
 
 inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload) {
@@ -1166,7 +1166,7 @@ inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float in
         const float val = parameterClamp(param, inputValue);
         const float val01 = (val - parameterMin(pitchbend)) / (parameterMax(pitchbend) - parameterMin(pitchbend));
         _pitchbend = {param, val01, val, payload};
-        _setAK1Parameter(param, val);
+        _setSynthParameter(param, val);
         if (notifyMainThread) {
             dependentParameterDidChange(_pitchbend);
         }
@@ -1178,7 +1178,7 @@ inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float in
         if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency) {
             const float value = parameterClamp(param, inputValue);
             AKS1RateArgs syncdValue = _rate.nearestFrequency(value, p[arpRate], parameterMin(param), parameterMax(param));
-            _setAK1Parameter(param, syncdValue.value);
+            _setSynthParameter(param, syncdValue.value);
             DependentParam outputDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f, 0};
             switch(param) {
                 case lfo1Rate:
@@ -1199,7 +1199,7 @@ inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float in
         } else if (param == delayTime) {
             const float value = parameterClamp(param, inputValue);
             AKS1RateArgs syncdValue = _rate.nearestTime(value, p[arpRate], parameterMin(param), parameterMax(param));
-            _setAK1Parameter(param, syncdValue.value);
+            _setSynthParameter(param, syncdValue.value);
             _delayTime = {param, 1.f - syncdValue.value01, syncdValue.value, payload};
             DependentParam outputDP = _delayTime;
             if (notifyMainThread) {
@@ -1208,7 +1208,7 @@ inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float in
         }
     } else {
         // no tempo sync
-        _setAK1Parameter(param, inputValue);
+        _setSynthParameter(param, inputValue);
         const float val = p[param];
         const float min = parameterMin(param);
         const float max = parameterMax(param);
@@ -1239,13 +1239,13 @@ inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float in
     }
 }
 
-inline void AKSynthOneDSPKernel::_setAK1ParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload) {
+inline void AKSynthOneDSPKernel::_setSynthParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload) {
     if (param == tempoSyncToArpRate || param == arpRate) {
-        _setAK1Parameter(param, inputValue);
-        _rateHelper(lfo1Rate, getAK1Parameter(lfo1Rate), notifyMainThread, payload);
-        _rateHelper(lfo2Rate, getAK1Parameter(lfo2Rate), notifyMainThread, payload);
-        _rateHelper(autoPanFrequency, getAK1Parameter(autoPanFrequency), notifyMainThread, payload);
-        _rateHelper(delayTime, getAK1Parameter(delayTime), notifyMainThread, payload);
+        _setSynthParameter(param, inputValue);
+        _rateHelper(lfo1Rate, getSynthParameter(lfo1Rate), notifyMainThread, payload);
+        _rateHelper(lfo2Rate, getSynthParameter(lfo2Rate), notifyMainThread, payload);
+        _rateHelper(autoPanFrequency, getSynthParameter(autoPanFrequency), notifyMainThread, payload);
+        _rateHelper(delayTime, getSynthParameter(delayTime), notifyMainThread, payload);
     } else if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency || param == delayTime) {
         // dependent params
         _rateHelper(param, inputValue, notifyMainThread, payload);
@@ -1255,16 +1255,16 @@ inline void AKSynthOneDSPKernel::_setAK1ParameterHelper(AKSynthOneParameter para
         // special case for updating the tuning table based on frequency at A4.
         // see https://en.wikipedia.org/wiki/A440_(pitch_standard)
         if (param == frequencyA4) {
-            _setAK1Parameter(param, truncf(inputValue));
+            _setSynthParameter(param, truncf(inputValue));
             AKPolyphonicNode.tuningTable.middleCFrequency = inputValue * exp2((60.f - 69.f)/12.f);
         } else {
             // all remaining independent params
-            _setAK1Parameter(param, inputValue);
+            _setSynthParameter(param, inputValue);
         }
     }
 }
 
-float AKSynthOneDSPKernel::getAK1DependentParameter(AKSynthOneParameter param) {
+float AKSynthOneDSPKernel::getDependentParameter(AKSynthOneParameter param) {
 
     if (param == pitchbend) {
         return _pitchbend.value;
@@ -1287,22 +1287,22 @@ float AKSynthOneDSPKernel::getAK1DependentParameter(AKSynthOneParameter param) {
 }
 
 // map normalized input to parameter range
-void AKSynthOneDSPKernel::setAK1DependentParameter(AKSynthOneParameter param, float inputValue01, int payload) {
+void AKSynthOneDSPKernel::setDependentParameter(AKSynthOneParameter param, float inputValue01, int payload) {
     const bool notify = true;
     switch(param) {
         case lfo1Rate: case lfo2Rate: case autoPanFrequency:
             if (p[tempoSyncToArpRate] > 0.f) {
                 // tempo sync
                 AKSynthOneRate rate = _rate.rateFromFrequency01(inputValue01);
-                const float val = _rate.frequency(getAK1Parameter(arpRate), rate);
-                _setAK1ParameterHelper(param, val, notify, payload);
+                const float val = _rate.frequency(getSynthParameter(arpRate), rate);
+                _setSynthParameterHelper(param, val, notify, payload);
             } else {
                 // no tempo sync
                 const float min = parameterMin(param);
                 const float max = parameterMax(param);
                 const float taperValue01 = taper01(inputValue01, AKS1_DEPENDENT_PARAM_TAPER);
                 const float val = min + taperValue01 * (max - min);
-                _setAK1ParameterHelper(param, val, notify, payload);
+                _setSynthParameterHelper(param, val, notify, payload);
             }
             break;
         case delayTime:
@@ -1311,14 +1311,14 @@ void AKSynthOneDSPKernel::setAK1DependentParameter(AKSynthOneParameter param, fl
                 const float valInvert = 1.f - inputValue01;
                 AKSynthOneRate rate = _rate.rateFromTime01(valInvert);
                 const float val = _rate.time(p[arpRate], rate);
-                _setAK1ParameterHelper(delayTime, val, notify, payload);
+                _setSynthParameterHelper(delayTime, val, notify, payload);
             } else {
                 // no tempo sync
                 const float min = parameterMin(delayTime);
                 const float max = parameterMax(delayTime);
                 const float taperValue01 = taper01(inputValue01, AKS1_DEPENDENT_PARAM_TAPER);
                 const float val = min + taperValue01 * (max - min);
-                _setAK1ParameterHelper(delayTime, val, notify, payload);
+                _setSynthParameterHelper(delayTime, val, notify, payload);
             }
             break;
         case pitchbend:
@@ -1326,7 +1326,7 @@ void AKSynthOneDSPKernel::setAK1DependentParameter(AKSynthOneParameter param, fl
             const float min = parameterMin(param);
             const float max = parameterMax(param);
             const float val = min + inputValue01 * (max - min);
-            _setAK1ParameterHelper(pitchbend, val, notify, payload);
+            _setSynthParameterHelper(pitchbend, val, notify, payload);
         }
             break;
         default:
@@ -1337,13 +1337,13 @@ void AKSynthOneDSPKernel::setAK1DependentParameter(AKSynthOneParameter param, fl
 
 void AKSynthOneDSPKernel::setParameters(float params[]) {
     for (int i = 0; i < AKSynthOneParameter::AKSynthOneParameterCount; i++) {
-        setAK1Parameter((AKSynthOneParameter)i, params[i]);
+        setSynthParameter((AKSynthOneParameter)i, params[i]);
     }
 }
 
 void AKSynthOneDSPKernel::setParameter(AUParameterAddress address, AUValue value) {
     const int i = (AKSynthOneParameter)address;
-    setAK1Parameter((AKSynthOneParameter)i, value);
+    setSynthParameter((AKSynthOneParameter)i, value);
 }
 
 AUValue AKSynthOneDSPKernel::getParameter(AUParameterAddress address) {

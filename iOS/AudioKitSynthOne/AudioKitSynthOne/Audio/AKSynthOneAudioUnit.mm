@@ -22,41 +22,41 @@
 @synthesize parameterTree = _parameterTree;
 @synthesize aks1Delegate = _aks1Delegate;
 
-- (float)getAK1Parameter:(AKSynthOneParameter)param {
-    return _kernel.getAK1Parameter(param);
+- (float)getSynthParameter:(AKSynthOneParameter)param {
+    return _kernel.getSynthParameter(param);
 }
 
-- (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value {
-    _kernel.setAK1Parameter(param, value);
+- (void)setSynthParameter:(AKSynthOneParameter)param value:(float)value {
+    _kernel.setSynthParameter(param, value);
 }
 
-- (float)getAK1DependentParameter:(AKSynthOneParameter)param {
-    return _kernel.getAK1DependentParameter(param);
+- (float)getDependentParameter:(AKSynthOneParameter)param {
+    return _kernel.getDependentParameter(param);
 }
 
-- (void)setAK1DependentParameter:(AKSynthOneParameter)param value:(float)value payload:(int)payload {
-    _kernel.setAK1DependentParameter(param, value, payload);
+- (void)setDependentParameter:(AKSynthOneParameter)param value:(float)value payload:(int)payload {
+    _kernel.setDependentParameter(param, value, payload);
 }
 
 ///auv3
 - (void)setParameter:(AUParameterAddress)address value:(AUValue)value {
-    _kernel.setAK1Parameter((AKSynthOneParameter)address, value);
+    _kernel.setSynthParameter((AKSynthOneParameter)address, value);
 }
 
 ///auv3
 - (AUValue)getParameter:(AUParameterAddress)address {
-    return _kernel.getAK1Parameter((AKSynthOneParameter)address);
+    return _kernel.getSynthParameter((AKSynthOneParameter)address);
 }
 
-- (float)getParameterMin:(AKSynthOneParameter)param {
+- (float)getMinimum:(AKSynthOneParameter)param {
     return _kernel.parameterMin(param);
 }
 
-- (float)getParameterMax:(AKSynthOneParameter)param {
+- (float)getMaximum:(AKSynthOneParameter)param {
     return _kernel.parameterMax(param);
 }
 
-- (float)getParameterDefault:(AKSynthOneParameter)param {
+- (float)getDefault:(AKSynthOneParameter)param {
     return _kernel.parameterDefault(param);
 }
 
@@ -150,7 +150,7 @@
         NSString* keyName = [NSString stringWithCString:_kernel.parameterPresetKey(p).c_str() encoding:[NSString defaultCStringEncoding]];
         AUParameter *param = [AUParameterTree createParameterWithIdentifier:keyName name:friendlyName address:p min:minValue max:maxValue unit:unit unitName:nil flags:flags valueStrings:nil dependentParameters:nil];
         param.value = defaultValue;
-        //_kernel.setAK1Parameter(p, defaultValue);
+        //_kernel.setSynthParameter(p, defaultValue);
         [tree addObject:param];
     }
     
@@ -158,11 +158,11 @@
     
     _parameterTree.implementorValueObserver = ^(AUParameter *param, AUValue value) {
         const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
-        blockKernel->setAK1Parameter(p, value);
+        blockKernel->setSynthParameter(p, value);
     };
     _parameterTree.implementorValueProvider = ^(AUParameter *param) {
         const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
-        return blockKernel->getAK1Parameter(p);
+        return blockKernel->getSynthParameter(p);
     };
 }
 

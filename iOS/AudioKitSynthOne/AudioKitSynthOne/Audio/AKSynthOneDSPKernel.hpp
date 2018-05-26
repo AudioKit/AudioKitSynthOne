@@ -43,12 +43,12 @@ public:
         return sp;
     }
 
-    float getAK1Parameter(AKSynthOneParameter param);
-    void setAK1Parameter(AKSynthOneParameter param, float value);
+    float getSynthParameter(AKSynthOneParameter param);
+    void setSynthParameter(AKSynthOneParameter param, float value);
 
     // lfo1Rate, lfo2Rate, autoPanRate, and delayTime; returns on [0,1]
-    float getAK1DependentParameter(AKSynthOneParameter param);
-    void setAK1DependentParameter(AKSynthOneParameter param, float value, int payload);
+    float getDependentParameter(AKSynthOneParameter param);
+    void setDependentParameter(AKSynthOneParameter param, float value, int payload);
 
     // AUParameter/AUValue
     void setParameters(float params[]);
@@ -136,9 +136,9 @@ public:
 
 private:
 
-    inline void _setAK1Parameter(AKSynthOneParameter param, float inputValue01);
+    inline void _setSynthParameter(AKSynthOneParameter param, float inputValue01);
     
-    inline void _setAK1ParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload);
+    inline void _setSynthParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload);
     
     inline void _rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload);
 

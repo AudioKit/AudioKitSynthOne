@@ -108,34 +108,34 @@ class FXViewController: SynthPanelController {
         // These 4 params are dependent on arpRate, and tempoSyncToArpRate, so can't use conductor binding scheme
         lfo1Rate.range = 0...1
         lfo1Rate.taper = 1
-        lfo1Rate.value = s.getAK1DependentParameter(.lfo1Rate)
+        lfo1Rate.value = s.getDependentParameter(.lfo1Rate)
         lfo1Rate.callback = { value in
-            s.setAK1DependentParameter(.lfo1Rate, value, self.conductor.lfo1RateFXPanelID)
-            self.conductor.updateDisplayLabel(.lfo1Rate, value: s.getAK1Parameter(.lfo1Rate))
+            s.setDependentParameter(.lfo1Rate, value, self.conductor.lfo1RateFXPanelID)
+            self.conductor.updateDisplayLabel(.lfo1Rate, value: s.getSynthParameter(.lfo1Rate))
         }
 
         lfo2Rate.range = 0...1
         lfo2Rate.taper = 1
-        lfo2Rate.value = s.getAK1DependentParameter(.lfo2Rate)
+        lfo2Rate.value = s.getDependentParameter(.lfo2Rate)
         lfo2Rate.callback = { value in
-            s.setAK1DependentParameter(.lfo2Rate, value, self.conductor.lfo2RateFXPanelID)
-            self.conductor.updateDisplayLabel(.lfo2Rate, value: s.getAK1Parameter(.lfo2Rate))
+            s.setDependentParameter(.lfo2Rate, value, self.conductor.lfo2RateFXPanelID)
+            self.conductor.updateDisplayLabel(.lfo2Rate, value: s.getSynthParameter(.lfo2Rate))
         }
 
         autoPanRate.range = 0...1
         autoPanRate.taper = 1
-        autoPanRate.value = s.getAK1DependentParameter(.autoPanFrequency)
+        autoPanRate.value = s.getDependentParameter(.autoPanFrequency)
         autoPanRate.callback = { value in
-            s.setAK1DependentParameter(.autoPanFrequency, value, self.conductor.autoPanFXPanelID)
-            self.conductor.updateDisplayLabel(.autoPanFrequency, value: s.getAK1Parameter(.autoPanFrequency))
+            s.setDependentParameter(.autoPanFrequency, value, self.conductor.autoPanFXPanelID)
+            self.conductor.updateDisplayLabel(.autoPanFrequency, value: s.getSynthParameter(.autoPanFrequency))
         }
 
         delayTime.range = 0...1
         delayTime.taper = 1
-        delayTime.value = s.getAK1DependentParameter(.delayTime)
+        delayTime.value = s.getDependentParameter(.delayTime)
         delayTime.callback = { value in
-            s.setAK1DependentParameter(.delayTime, value, self.conductor.delayTimeFXPanelID)
-            self.conductor.updateDisplayLabel(.delayTime, value: s.getAK1Parameter(.delayTime))
+            s.setDependentParameter(.delayTime, value, self.conductor.delayTimeFXPanelID)
+            self.conductor.updateDisplayLabel(.delayTime, value: s.getSynthParameter(.delayTime))
         }
     }
 

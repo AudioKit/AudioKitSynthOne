@@ -17,13 +17,20 @@ extension ParentViewController: AboutDelegate {
 // DevPanelDelegate protocol functions
 
 extension ParentViewController: DevPanelDelegate {
-
-    public func freezeArpChanged(_ value: Bool) {
+    
+    func freezeArpRateChanged(_ value: Bool) {
         appSettings.freezeArpRate = value
     }
-
-    public func getFreezeArpChangedValue() -> Bool {
-        return appSettings.freezeArpRate
+    
+    func freezeReverbChanged(_ value: Bool) {
+        appSettings.freezeReverb = value
     }
-
+    
+    func freezeDelayChanged(_ value: Bool) {
+        appSettings.freezeDelay = value
+    }
+    
+    func dspParamPortamentoHalfTimeChanged(_ value: Double) {
+        appSettings.dspParamPortamentoHalfTime = value
+    }    
 }

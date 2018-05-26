@@ -16,7 +16,7 @@ extension ParentViewController: ABAudiobusControllerStateIODelegate {
 
             let events = AKMIDIEvent.midiEventsFrom(packetListPointer: midiPacketListPointer)
             for event in events {
-                guard event.channel == self.midiChannelIn || self.omniMode else { return }
+                guard let channel = event.channel, event.channel == self.midiChannelIn || self.omniMode else { return }
 
                 if event.status == AKMIDIStatus.noteOn {
                     if event.internalData[2] == 0 {
@@ -36,25 +36,21 @@ extension ParentViewController: ABAudiobusControllerStateIODelegate {
                 }
 
                 if event.status == AKMIDIStatus.noteOff {
-                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
                     self.sustainer.stop(noteNumber: event.noteNumber!)
                 }
 
                 if event.status == AKMIDIStatus.pitchWheel {
-                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
                     let x = MIDIWord(event.internalData[1])
                     let y = MIDIWord(event.internalData[2]) << 7
-                    self.receivedMIDIPitchWheel(y + x, channel: event.channel!)
+                    self.receivedMIDIPitchWheel(y + x, channel: channel)
                 }
 
                 if event.status == AKMIDIStatus.programChange {
-                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
-                    self.receivedMIDIProgramChange(event.data1, channel: event.channel!)
+                    self.receivedMIDIProgramChange(event.data1, channel: channel)
                 }
 
                 if event.status == AKMIDIStatus.controllerChange {
-                    guard event.channel == self.midiChannelIn || self.omniMode else { return }
-                    self.receivedMIDIController(event.data1, value: event.data2, channel: event.channel!)
+                    self.receivedMIDIController(event.data1, value: event.data2, channel: channel)
                 }
             }
         }
@@ -70,7 +66,8 @@ extension ParentViewController: ABAudiobusControllerStateIODelegate {
         return [ "preset": activePreset.position]
     }
 
-    public func loadState(fromAudiobusStateDictionary dictionary: [AnyHashable: Any]!, responseMessage outResponseMessage: AutoreleasingUnsafeMutablePointer<NSString?>!) {
+    public func loadState(fromAudiobusStateDictionary dictionary: [AnyHashable: Any]!,
+                          responseMessage outResponseMessage: AutoreleasingUnsafeMutablePointer<NSString?>!) {
 
         if let abDictionary = dictionary as? [String: Any] {
             activePreset.position = abDictionary["preset"] as? Int ?? 0

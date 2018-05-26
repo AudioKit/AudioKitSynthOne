@@ -84,7 +84,7 @@ public class AKVerticalPad: UIView {
 
     // Linear Scale MIDI 0...127 to 0.0...1.0
     func setVerticalValueFrom(midiValue: MIDIByte) {
-        verticalValue = Double.scaleRangeZeroToOne(Double(midiValue), rangeMin: 0, rangeMax: 127)
+        verticalValue = Double(midiValue).normalized(from: 0...127)
         let verticalPos = self.bounds.height - (self.bounds.height * CGFloat(verticalValue))
         touchPointView.center = CGPoint(x: centerPointX, y: verticalPos + yVisualAdjust)
         callback(verticalValue)
@@ -92,7 +92,7 @@ public class AKVerticalPad: UIView {
 
     // Linear Scale from PitchWheel
     func setVerticalValueFromPitchWheel(midiValue: MIDIWord) {
-        verticalValue = Double.scaleRangeZeroToOne(Double(midiValue), rangeMin: 0, rangeMax: 16_383)
+        verticalValue = Double(midiValue).normalized(from: 0...16_383)
         let verticalPos = self.bounds.height - (self.bounds.height * CGFloat(verticalValue))
         touchPointView.center = CGPoint(x: centerPointX, y: verticalPos + yVisualAdjust)
         callback(verticalValue)

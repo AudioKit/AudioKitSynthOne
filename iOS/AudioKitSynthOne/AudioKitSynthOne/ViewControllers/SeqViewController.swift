@@ -30,7 +30,8 @@ class SeqViewController: SynthPanelController {
 
         viewType = .seqView
 
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
+        
         seqStepsStepper.minValue = s.getParameterMin(.arpTotalSteps)
         seqStepsStepper.maxValue = s.getParameterMax(.arpTotalSteps)
         octaveStepper.minValue = s.getParameterMin(.arpOctave)

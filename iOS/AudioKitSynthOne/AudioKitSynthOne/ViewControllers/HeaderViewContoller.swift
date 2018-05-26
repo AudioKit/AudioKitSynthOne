@@ -79,7 +79,7 @@ public class HeaderViewController: UpdatableViewController {
     }
 
     func updateDisplayLabel(_ param: AKSynthOneParameter, value: Double) {
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
         let lfoValue = LFOValue(rawValue: Int(value))
 
         switch param {

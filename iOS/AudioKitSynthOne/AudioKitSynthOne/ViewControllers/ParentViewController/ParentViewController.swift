@@ -266,7 +266,7 @@ public class ParentViewController: UpdatableViewController {
 
     func setupCallbacks() {
 
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
 
         octaveStepper.callback = { value in
             self.keyboardView.firstOctave = Int(value) + 2

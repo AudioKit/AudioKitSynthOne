@@ -12,7 +12,7 @@ extension ParentViewController: ModWheelDelegate {
 
     func didSelectRouting(newDestination: Int) {
         activePreset.modWheelRouting = Double(newDestination)
-        let s = conductor.synth!
+       guard let s = conductor.synth else { return }
 
         switch activePreset.modWheelRouting {
         case 0:

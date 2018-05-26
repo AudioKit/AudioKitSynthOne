@@ -58,7 +58,7 @@ class FXViewController: SynthPanelController {
         super.viewDidLoad()
 
         viewType = .fxView
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
 
         sampleRate.range = s.getParameterRange(.bitCrushSampleRate)
         sampleRate.taper = 4.6

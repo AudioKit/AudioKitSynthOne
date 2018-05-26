@@ -77,7 +77,8 @@ extension PresetsViewController: UITableViewDelegate {
     }
 
     // Override to support conditional rearranging of the table view.
-    @objc(tableView:canMoveRowAtIndexPath:) func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    @objc(tableView:canMoveRowAtIndexPath:) func tableView(_ tableView: UITableView,
+                                                           canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }

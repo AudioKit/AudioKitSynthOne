@@ -67,7 +67,8 @@ class TouchPadViewController: SynthPanelController {
         let s = c.synth!
 
         touchPad1.callback = { horizontal, vertical, touchesBegan in
-            self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width / 2), y: self.touchPad1.bounds.height / 2)
+            self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width / 2),
+                                                            y: self.touchPad1.bounds.height / 2)
 
             if touchesBegan {
                 // record values before touched
@@ -95,7 +96,8 @@ class TouchPadViewController: SynthPanelController {
         }
 
         touchPad2.callback = { horizontal, vertical, touchesBegan in
-            self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width / 2), y: self.touchPad2.bounds.height / 2)
+            self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width / 2),
+                                                            y: self.touchPad2.bounds.height / 2)
 
             // Particle Position
             if touchesBegan {
@@ -105,9 +107,9 @@ class TouchPadViewController: SynthPanelController {
                 self.particleEmitter2.birthRate = 1
             }
 
-            let scaledVertical = Double.scaleRange(vertical,
-                                                   rangeMin: self.conductor.synth.getParameterMin(.resonance),
-                                                   rangeMax: self.conductor.synth.getParameterMax(.resonance))
+            let minimumResonance = self.conductor.synth.getParameterMin(.resonance)
+            let maximumResonance = self.conductor.synth.getParameterMax(.resonance)
+            let scaledVertical = vertical.denormalized(to: minimumResonance...maximumResonance)
 
             // Affect parameters based on touch position
             s.setAK1Parameter(.cutoff, horizontal)
@@ -166,9 +168,9 @@ class TouchPadViewController: SynthPanelController {
             touchPad2.updateTouchPoint(x, Double(touchPad2.y))
 
         case .resonance:
-            let scaledY = Double.scaleRangeZeroToOne(value,
-                                                     rangeMin: conductor.synth.getParameterMin(.resonance),
-                                                     rangeMax: conductor.synth.getParameterMax(.resonance))
+            let minimumResonance = self.conductor.synth.getParameterMin(.resonance)
+            let maximumResonance = self.conductor.synth.getParameterMax(.resonance)
+            let scaledY = value.normalized(from: minimumResonance...maximumResonance)
             touchPad2.updateTouchPoint(Double(touchPad2.x), scaledY)
 
         default:
@@ -202,7 +204,7 @@ class TouchPadViewController: SynthPanelController {
         particleEmitter2.renderMode = kCAEmitterLayerAdditive
         particleEmitter2.emitterPosition = CGPoint(x: -400, y: -400)
 
-        let particleCell = makeEmitterCellWithColor(UIColor(red: 230 / 255, green: 136 / 255, blue: 2 / 255, alpha: 1.0))
+        let particleCell = makeEmitterCellWithColor(UIColor(red: 230 / 255, green: 136 / 255, blue: 2 / 255, alpha: 1))
 
         particleEmitter1.emitterCells = [particleCell]
         particleEmitter2.emitterCells = [particleCell]

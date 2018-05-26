@@ -71,14 +71,12 @@ public class ParentViewController: UpdatableViewController {
 
     lazy var adsrViewController: ADSRViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier()) as! ADSRViewController
-        return viewController
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier()) as! ADSRViewController
     }()
 
     lazy var mixerViewController: SourceMixerViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier()) as! SourceMixerViewController
-        return viewController
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier()) as! SourceMixerViewController
     }()
 
     lazy var devViewController: DevViewController = {
@@ -90,32 +88,27 @@ public class ParentViewController: UpdatableViewController {
 
     lazy var padViewController: TouchPadViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.padView.identifier()) as! TouchPadViewController
-        return viewController
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.padView.identifier()) as! TouchPadViewController
     }()
 
     lazy var fxViewController: FXViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier()) as! FXViewController
-        return viewController
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier()) as! FXViewController
     }()
 
     lazy var seqViewController: SeqViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier()) as! SeqViewController
-        return viewController
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier()) as! SeqViewController
     }()
 
     lazy var tuningsViewController: TuningsViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier()) as! TuningsViewController
-        return viewController
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier()) as! TuningsViewController
     }()
 
     lazy var presetsViewController: PresetsViewController = {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
-        return viewController
+        return mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
     }()
 
     // ********************************************************
@@ -355,12 +348,10 @@ public class ParentViewController: UpdatableViewController {
                 self.conductor.updateSingleUI(.cutoff, control: self.modWheelPad, value: s.getAK1Parameter(.cutoff))
             case 1:
                 // LFO 1 Rate
-                let scaledValue = Double.scaleRange(value, rangeMin: 0, rangeMax: 1)
-                s.setAK1DependentParameter(.lfo1Rate, scaledValue, self.conductor.lfo1RateModWheelID)
+                s.setAK1DependentParameter(.lfo1Rate, value, self.conductor.lfo1RateModWheelID)
             case 2:
                 // LFO 2 Rate
-                let scaledValue = Double.scaleRange(value, rangeMin: 0, rangeMax: 1)
-                s.setAK1DependentParameter(.lfo2Rate, scaledValue, self.conductor.lfo2RateModWheelID)
+                s.setAK1DependentParameter(.lfo2Rate, value, self.conductor.lfo2RateModWheelID)
             default:
                 break
             }

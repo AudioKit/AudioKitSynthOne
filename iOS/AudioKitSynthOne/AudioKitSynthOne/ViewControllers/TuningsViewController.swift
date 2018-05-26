@@ -51,6 +51,7 @@ class TuningsViewController: SynthPanelController {
     }
     
     public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         tuningDidChange()
     }
     

@@ -120,7 +120,8 @@ class SourceMixerViewController: SynthPanelController {
         displayContainer.addSubview(audioPlot)
 
         // Add Tap Gesture Recognizer to AudioPlot
-        let audioPlotTap = UITapGestureRecognizer(target: self, action: #selector(SourceMixerViewController.audioPlotToggled))
+        let audioPlotTap = UITapGestureRecognizer(target: self,
+                                                  action: #selector(SourceMixerViewController.audioPlotToggled))
         audioPlot.addGestureRecognizer(audioPlotTap)
     }
 

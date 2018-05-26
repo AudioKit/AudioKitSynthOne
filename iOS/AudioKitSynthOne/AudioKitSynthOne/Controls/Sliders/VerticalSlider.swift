@@ -101,11 +101,11 @@ extension VerticalSlider {
     }
 
     func currentToActualValue(_ value: CGFloat) -> Double {
-        return Double.scaleRange(Double(value), rangeMin: -12, rangeMax: 12)
+        return Double(value).normalized(from: -12...12)
     }
 
     func actualToInternalValue(_ actualValue: Double) -> CGFloat {
-        return CGFloat(Double.scaleRangeZeroToOne(actualValue, rangeMin: -12, rangeMax: 12))
+        return CGFloat(actualValue.normalized(from: -12...12))
     }
 
 }

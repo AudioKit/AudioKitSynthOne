@@ -59,22 +59,6 @@ extension Double {
     // MARK: - Scale Range
     // *********************************************************
 
-    // Linear scale 0.0 to 1.0 to any range
-    public static func scaleRange(_ value: Double, rangeMin: Double, rangeMax: Double) -> Double {
-        return ((rangeMax - rangeMin) * (value - 0.0) / (1.0 - 0.0)) + rangeMin
-    }
-
-    // Linear scale entire range to another range
-    public static func scaleEntireRange(_ value: Double, fromRangeMin: Double, fromRangeMax: Double, toRangeMin: Double, toRangeMax: Double) -> Double {
-        return ((toRangeMax - toRangeMin) * (value - fromRangeMin) / (fromRangeMax - fromRangeMin)) + toRangeMin
-    }
-
-    // Linear Scale any range to 0.0-1.0 for Knob/Slider position
-    public static func scaleRangeZeroToOne(_ value: Double, rangeMin: Double, rangeMax: Double) -> Double {
-        let val01 = (value - rangeMin) / (rangeMax - rangeMin)
-        return (0...1).clamp(val01)
-    }
-
     // Logarithmically scale 0.0 to 1.0 to any range
     public static func scaleRangeLog(_ value: Double, rangeMin: Double, rangeMax: Double) -> Double {
         let scale = (log(rangeMax) - log(rangeMin))

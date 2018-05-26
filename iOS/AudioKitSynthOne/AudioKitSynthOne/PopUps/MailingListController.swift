@@ -31,7 +31,10 @@ class MailingListController: UIViewController, UITextFieldDelegate {
         emailField.delegate = self
 
         // add notification for when keyboard appears
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWasShown(notification:)),
+                                               name: NSNotification.Name.UIKeyboardWillChangeFrame,
+                                               object: nil)
 
         // MailChimp API Key
         ChimpKit.shared().apiKey = "c9fbe30105db8481664bdd9cf1559996-us15"
@@ -53,7 +56,8 @@ class MailingListController: UIViewController, UITextFieldDelegate {
 
         // Add pop up
         let alert = UIAlertController(title: "Important",
-                                      message: "You will receive all the presets in this app for FREE after you enter your real email address.",
+                                      message: "You will receive all the presets in this app " +
+                                               "for FREE after you enter your real email address.",
                                       preferredStyle: .alert)
         let submitAction = UIAlertAction(title: "WAIT! Take me back 👍🏼", style: .default) { (_) in
 
@@ -78,26 +82,32 @@ class MailingListController: UIViewController, UITextFieldDelegate {
         guard let emailAddress = emailField.text else { return }
 
         guard emailAddress.isEmail else {
-            displayAlertController("Oops!", message: "🎹 Please enter your real email address so that you can receive all the presets for free. Thank you.")
+            displayAlertController("Oops!",
+                                   message: "🎹 Please enter your real email address so that " +
+                                            "you can receive all the presets for free. Thank you.")
             return
         }
 
         // Add pop up
         let alert = UIAlertController(title: "Almost Done",
-                                      message: "To receive your free presets,\n please confirm that \n'\(emailAddress)' \n is your correct email address and you consent to us emailing you?",
+                                      message: "To receive your free presets,\n please confirm that " +
+                                               " \n'\(emailAddress)' \n is your correct email address " +
+                                               "and you consent to us emailing you?",
             preferredStyle: .alert)
         let submitAction = UIAlertAction(title: "Yes, that is correct 👍🏼", style: .default) { (_) in
 
             // Send to MailChimp
             let mailToSubscribe: [String: AnyObject] = ["email": emailAddress as AnyObject]
-            let params: [String: AnyObject] = ["id": "1240006550" as AnyObject, "email": mailToSubscribe as AnyObject, "double_optin": false as AnyObject]
-            ChimpKit.shared().callApiMethod("lists/subscribe", withParams: params, andCompletionHandler: {(response, data, _) -> Void in
+            let params: [String: AnyObject] = ["id": "1240006550" as AnyObject,
+                                               "email": mailToSubscribe as AnyObject,
+                                               "double_optin": false as AnyObject]
+            ChimpKit.shared().callApiMethod("lists/subscribe", withParams: params) {(response, data, _) -> Void in
                 if let httpResponse = response as? HTTPURLResponse {
                     NSLog("Reponse status code: %d", httpResponse.statusCode)
                     let datastring = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                     print (datastring ?? "error with MailChimp response")
                 }
-            })
+            }
             self.delegate?.didSignMailingList(email: emailAddress)
             self.emailSubmitted()
         }
@@ -114,7 +124,11 @@ class MailingListController: UIViewController, UITextFieldDelegate {
     func emailSubmitted() {
 
         // Create and display alert box
-        let alert = UIAlertController(title: "Congrats! 🎉", message: "All the presets have been unlocked. We are all volunteers who made this app for free. We hope you enjoy it & tell other musicians! 😎", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Congrats! 🎉",
+                                      message: "All the presets have been unlocked. " +
+                                               "We are all volunteers who made this app for free. " +
+                                               "We hope you enjoy it & tell other musicians! 😎",
+                                      preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "Thanks!", style: .default) { _ in
 
             self.dismiss(animated: true, completion: nil)
@@ -142,18 +156,18 @@ extension String {
 
     //To check text field or String is blank or not
     var isBlank: Bool {
-        get {
-            let trimmed = trimmingCharacters(in: CharacterSet.whitespaces)
-            return trimmed.isEmpty
-        }
+        return trimmingCharacters(in: CharacterSet.whitespaces).isEmpty
     }
 
     //Validate Email
 
     var isEmail: Bool {
         do {
-            let regex = try NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}", options: .caseInsensitive)
-            return regex.firstMatch(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSRange(location: 0, length: self.count)) != nil
+            let regex = try NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+                                                options: .caseInsensitive)
+            return regex.firstMatch(in: self,
+                                    options: NSRegularExpression.MatchingOptions(rawValue: 0),
+                                    range: NSRange(location: 0, length: self.count)) != nil
         } catch {
             return false
         }
@@ -166,10 +180,13 @@ extension String {
     //validate Password
     var isValidPassword: Bool {
         do {
-            let regex = try NSRegularExpression(pattern: "^[a-zA-Z_0-9\\-_,;.:#+*?=!§$%&/()@]+$", options: .caseInsensitive)
-            if(regex.firstMatch(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSRange(location: 0, length: self.count)) != nil) {
+            let regex = try NSRegularExpression(pattern: "^[a-zA-Z_0-9\\-_,;.:#+*?=!§$%&/()@]+$",
+                                                options: .caseInsensitive)
+            if regex.firstMatch(in: self,
+                                options: NSRegularExpression.MatchingOptions(rawValue: 0),
+                                range: NSRange(location: 0, length: self.count)) != nil {
 
-                if(self.count >= 6 && self.count <= 20) {
+                if self.count >= 6 && self.count <= 20 {
                     return true
                 } else {
                     return false

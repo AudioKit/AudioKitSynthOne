@@ -204,7 +204,7 @@ class TouchPadViewController: SynthPanelController {
         particleEmitter2.renderMode = kCAEmitterLayerAdditive
         particleEmitter2.emitterPosition = CGPoint(x: -400, y: -400)
 
-        let particleCell = makeEmitterCellWithColor(UIColor(red: 230 / 255, green: 136 / 255, blue: 2 / 255, alpha: 1))
+        let particleCell = makeEmitterCellWithColor(#colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1))
 
         particleEmitter1.emitterCells = [particleCell]
         particleEmitter2.emitterCells = [particleCell]
@@ -228,7 +228,7 @@ class TouchPadViewController: SynthPanelController {
         cell.scaleRange = 0.1
         cell.scaleSpeed = 0.15
 
-        cell.contents = UIImage(named: "spark")?.cgImage
+        cell.contents = #imageLiteral(resourceName: "spark").cgImage
         return cell
     }
 }

@@ -16,14 +16,14 @@ extension PresetsViewController: CategoryDelegate {
 
     func bankShare() {
         // Get Bank to Share
-        let bank = conductor.banks.first(where: { $0.position == bankIndex })
-        let bankName = bank!.name
+        guard let bank = conductor.banks.first(where: { $0.position == bankIndex }) else { return }
+        let bankName = bank.name
         let bankPresetsToShare = presets.filter { $0.bank == bankName }
 
         // Save bank presets to temp directory to be shared
         let bankLocation = "temp/\(bankName).json"
         try? Disk.save(bankPresetsToShare, to: .caches, as: bankLocation)
-        let path: URL = try! Disk.getURL(for: bankLocation, in: .caches)
+        let path: URL? = try? Disk.getURL(for: bankLocation, in: .caches)
 
         // Share
         let activityViewController = UIActivityViewController(

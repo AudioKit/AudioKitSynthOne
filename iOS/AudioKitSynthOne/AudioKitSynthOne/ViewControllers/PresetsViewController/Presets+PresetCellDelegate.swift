@@ -66,7 +66,7 @@ extension PresetsViewController: PresetCellDelegate {
         // Save preset to temp directory to be shared
         let presetLocation = "temp/\(currentPreset.name).synth1"
         try? Disk.save(currentPreset, to: .caches, as: presetLocation)
-        let path: URL = try! Disk.getURL(for: presetLocation, in: .caches)
+        let path: URL? = try? Disk.getURL(for: presetLocation, in: .caches)
 
         // Share
         let activityViewController = UIActivityViewController(

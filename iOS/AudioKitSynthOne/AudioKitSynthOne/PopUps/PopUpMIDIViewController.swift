@@ -89,14 +89,16 @@ class PopUpMIDIViewController: UIViewController {
         resetButton.callback = { value in
             self.delegate?.resetMIDILearn()
             self.resetButton.value = 0
-            self.displayAlertController("MIDI Learn Reset", message: "All MIDI learn knob assignments have been removed.")
+            self.displayAlertController("MIDI Learn Reset",
+                                        message: "All MIDI learn knob assignments have been removed.")
         }
 
         sleepToggle.callback = { value in
 
             if value == 1 {
                 self.conductor.neverSleep = true
-                self.displayAlertController("Info", message: "This mode is great for playing live. Note: it will use more power and could drain your battery faster")
+                self.displayAlertController("Info", message: "This mode is great for playing live. " +
+                    "Note: it will use more power and could drain your battery faster")
             } else {
                 self.conductor.neverSleep = false
             }
@@ -140,7 +142,8 @@ extension PopUpMIDIViewController: UITableViewDataSource {
         return 1
     }
 
-    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView,
+                                                             heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
 

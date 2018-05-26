@@ -32,7 +32,9 @@ class Conductor: AKSynthOneProtocol {
     let lfo2RateModWheelID: Int32 = 7
     let pitchbendParentVCID: Int32 = 8
 
-    func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
+    func bind(_ control: AKSynthOneControl,
+              to param: AKSynthOneParameter,
+              callback closure: AKSynthOneControlCallback? = nil) {
         let binding = (param, control)
         bindings.append(binding)
         let control = binding.1

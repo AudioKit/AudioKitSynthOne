@@ -12,18 +12,18 @@ extension ParentViewController: ModWheelDelegate {
 
     func didSelectRouting(newDestination: Int) {
         activePreset.modWheelRouting = Double(newDestination)
-        let s = conductor.synth!
+       guard let s = conductor.synth else { return }
 
         switch activePreset.modWheelRouting {
         case 0:
             // Cutoff
-            conductor.updateSingleUI(.cutoff, control: nil, value: s.getAK1Parameter(.cutoff))
+            conductor.updateSingleUI(.cutoff, control: nil, value: s.getSynthParameter(.cutoff))
         case 1:
             // LFO 1 Rate
-            modWheelPad.setVerticalValue01(Double(s.getAK1DependentParameter(.lfo1Rate)))
+            modWheelPad.setVerticalValue01(Double(s.getDependentParameter(.lfo1Rate)))
         case 2:
             // LFO 2 Rate
-            modWheelPad.setVerticalValue01(Double(s.getAK1DependentParameter(.lfo2Rate)))
+            modWheelPad.setVerticalValue01(Double(s.getDependentParameter(.lfo2Rate)))
         default:
             break
         }

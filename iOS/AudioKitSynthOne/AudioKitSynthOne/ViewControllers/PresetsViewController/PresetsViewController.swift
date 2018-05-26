@@ -151,8 +151,8 @@ class PresetsViewController: UIViewController {
 
         // Display Banks
         case PresetCategory.bankStartingIndex ... PresetCategory.bankStartingIndex + conductor.banks.count:
-            let bank = conductor.banks.first(where: { $0.position == bankIndex })
-            sortedPresets = presets.filter { $0.bank == bank!.name }
+            guard let bank = conductor.banks.first(where: { $0.position == bankIndex }) else { return }
+            sortedPresets = presets.filter { $0.bank == bank.name }
                 .sorted { $0.position < $1.position }
 
         default:
@@ -177,8 +177,9 @@ class PresetsViewController: UIViewController {
 
     func loadFactoryPresets(_ bank: String) {
         if let filePath = Bundle.main.path(forResource: bank, ofType: "json") {
-            let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
-            parsePresetsFromData(data: data!)
+            guard let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
+                else { return }
+            parsePresetsFromData(data: data)
         }
     }
 
@@ -367,7 +368,7 @@ class PresetsViewController: UIViewController {
             if self.tableView.isEditing {
                 self.reorderButton.setTitle("I'M DONE!", for: UIControlState())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-                self.reorderButton.backgroundColor = UIColor(red: 230 / 255, green: 136 / 255, blue: 2 / 255, alpha: 1)
+                self.reorderButton.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
                 self.categoryEmbeddedView.isUserInteractionEnabled = false
 
             } else {
@@ -471,7 +472,7 @@ class PresetsViewController: UIViewController {
 
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueToEdit" {
-            let popOverController = segue.destination as! PopUpPresetEdit
+            guard let popOverController = segue.destination as? PopUpPresetEdit else { return }
             popOverController.delegate = self
             popOverController.preset = currentPreset
             popOverController.preferredContentSize = CGSize(width: 550, height: 316)
@@ -481,10 +482,10 @@ class PresetsViewController: UIViewController {
         }
 
         if segue.identifier == "SegueToBankEdit" {
-            let popOverController = segue.destination as! PopUpBankEdit
+            guard let popOverController = segue.destination as? PopUpBankEdit else { return }
             popOverController.delegate = self
             let bank = conductor.banks.first(where: { $0.position == bankIndex })
-            popOverController.bankName = bank!.name
+            popOverController.bankName = bank?.name ?? "Unnamed Bank"
             popOverController.preferredContentSize = CGSize(width: 300, height: 320)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)

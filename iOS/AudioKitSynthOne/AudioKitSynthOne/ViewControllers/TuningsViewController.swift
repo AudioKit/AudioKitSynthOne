@@ -24,24 +24,26 @@ class TuningsViewController: SynthPanelController {
     var getStoreTuningWithPresetValue = false
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+
+        guard let synth = Conductor.sharedInstance.synth else { return }
         viewType = .tuningsView
         tuningTableView.backgroundColor = UIColor.clear
         tuningTableView.isOpaque = false
         tuningTableView.allowsSelection = true
         tuningTableView.allowsMultipleSelection = false
-        tuningTableView.dataSource = self
-        tuningTableView.delegate = self
-        tuningModel.tuningsDelegate = self
-        
-        masterTuning.range = Conductor.sharedInstance.synth!.getParameterRange(.frequencyA4)
-        masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
+        tuningTableView.dataSource = aks1Tunings
+        tuningTableView.delegate = aks1Tunings
+        aks1Tunings.tuningsDelegate = self
+
+        masterTuning.range = synth.getRange(.frequencyA4)
+        masterTuning.value = synth.getSynthParameter(.frequencyA4)
         Conductor.sharedInstance.bind(masterTuning, to: .frequencyA4)
         
         resetTunings.callback = { value in
             if value == 1 {
-                let i = self.tuningModel.resetTuning()
-                self.masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
+                let i = self.aks1Tunings.resetTuning()
+                self.masterTuning.value = synth.getSynthParameter(.frequencyA4)
                 self.selectRow(i)
                 self.resetTunings.value = 0
             }

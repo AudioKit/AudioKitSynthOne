@@ -72,14 +72,14 @@ typedef struct AKS1ArpBeatCounter {
 - (AUValue)getParameter:(AUParameterAddress)address;
 - (void)createParameters;
 
-- (float)getAK1Parameter:(AKSynthOneParameter)param;
-- (void)setAK1Parameter:(AKSynthOneParameter)param value:(float)value;
-- (float)getAK1DependentParameter:(AKSynthOneParameter)param;
-- (void)setAK1DependentParameter:(AKSynthOneParameter)param value:(float)value payload:(int)payload;
+- (float)getSynthParameter:(AKSynthOneParameter)param;
+- (void)setSynthParameter:(AKSynthOneParameter)param value:(float)value;
+- (float)getDependentParameter:(AKSynthOneParameter)param;
+- (void)setDependentParameter:(AKSynthOneParameter)param value:(float)value payload:(int)payload;
 
-- (float)getParameterMin:(AKSynthOneParameter)param;
-- (float)getParameterMax:(AKSynthOneParameter)param;
-- (float)getParameterDefault:(AKSynthOneParameter)param;
+- (float)getMinimum:(AKSynthOneParameter)param;
+- (float)getMaximum:(AKSynthOneParameter)param;
+- (float)getDefault:(AKSynthOneParameter)param;
 
 - (void)setupWaveform:(UInt32)waveform size:(int)size;
 - (void)setWaveform:(UInt32)waveform withValue:(float)value atIndex:(UInt32)index;

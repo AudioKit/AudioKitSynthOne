@@ -28,21 +28,21 @@ class PopUpMODController: UIViewController {
         let c = Conductor.sharedInstance
         guard let s = c.synth else { return }
 
-        pitchUpperRange.maxValue = s.getParameterMax(.pitchbendMaxSemitones)
-        pitchUpperRange.minValue = s.getParameterMin(.pitchbendMaxSemitones)
-        pitchUpperRange.value = s.getAK1Parameter(.pitchbendMaxSemitones)
+        pitchUpperRange.maxValue = s.getMaximum(.pitchbendMaxSemitones)
+        pitchUpperRange.minValue = s.getMinimum(.pitchbendMaxSemitones)
+        pitchUpperRange.value = s.getSynthParameter(.pitchbendMaxSemitones)
         c.bind(pitchUpperRange, to: .pitchbendMaxSemitones)
 
-        pitchLowerRange.maxValue = s.getParameterMax(.pitchbendMinSemitones)
-        pitchLowerRange.minValue = s.getParameterMin(.pitchbendMinSemitones)
-        pitchLowerRange.value = s.getAK1Parameter(.pitchbendMinSemitones)
+        pitchLowerRange.maxValue = s.getMaximum(.pitchbendMinSemitones)
+        pitchLowerRange.minValue = s.getMinimum(.pitchbendMinSemitones)
+        pitchLowerRange.value = s.getSynthParameter(.pitchbendMinSemitones)
         c.bind(pitchLowerRange, to: .pitchbendMinSemitones)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         guard let s = Conductor.sharedInstance.synth else { return }
-        pitchUpperRange.value = s.getAK1Parameter(.pitchbendMaxSemitones)
-        pitchLowerRange.value = s.getAK1Parameter(.pitchbendMinSemitones)
+        pitchUpperRange.value = s.getSynthParameter(.pitchbendMaxSemitones)
+        pitchLowerRange.value = s.getSynthParameter(.pitchbendMinSemitones)
     }
 
     @IBAction func routingValueDidChange(_ sender: UISegmentedControl) {

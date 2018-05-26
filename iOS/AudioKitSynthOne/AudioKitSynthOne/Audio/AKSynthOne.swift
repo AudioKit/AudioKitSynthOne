@@ -10,9 +10,9 @@ import Foundation
 import AudioKit
 
 @objc open class AKSynthOne: AKPolyphonicNode, AKComponent, AKSynthOneProtocol {
-    
+
     public typealias AKAudioUnitType = AKSynthOneAudioUnit
-    
+
     /// Four letter unique description of the node
     public static let ComponentDescription = AudioComponentDescription(instrument: "aks1")
 
@@ -23,33 +23,33 @@ import AudioKit
 
     fileprivate var waveformArray = [AKTable]()
     fileprivate var auParameters: [AUParameter] = []
-    
+
     ///Hard-reset of DSP...for PANIC
     open func resetDSP() {
         internalAU?.resetDSP()
     }
-    
+
     open func resetSequencer() {
         internalAU?.resetSequencer()
     }
-    
+
     ///Puts all playing notes into release mode.
     open func stopAllNotes() {
         internalAU?.stopAllNotes()
     }
-    
-    open func setAK1Parameter(_ param: AKSynthOneParameter, _ value : Double) {
+
+    open func setAK1Parameter(_ param: AKSynthOneParameter, _ value: Double) {
         internalAU?.setAK1Parameter(param, value: Float(value))
     }
-    
+
     open func getAK1Parameter(_ param: AKSynthOneParameter) -> Double {
         return Double(internalAU?.getAK1Parameter(param) ?? 0)
     }
-    
+
     open func getAK1DependentParameter(_ param: AKSynthOneParameter) -> Double {
         return Double(internalAU?.getAK1DependentParameter(param) ?? 0)
     }
-    open func setAK1DependentParameter(_ param: AKSynthOneParameter, _ value : Double, _ payload: Int32) {
+    open func setAK1DependentParameter(_ param: AKSynthOneParameter, _ value: Double, _ payload: Int32) {
         internalAU?.setAK1DependentParameter(param, value: Float(value), payload: payload)
     }
 
@@ -66,47 +66,47 @@ import AudioKit
         let max = Double(internalAU?.getParameterMax(param) ?? 1)
         return min ... max
     }
-    
+
     open func getParameterDefault(_ param: AKSynthOneParameter) -> Double {
         return Double(internalAU?.getParameterDefault(param) ?? 0)
     }
 
-    open func getAK1ArpSeqPattern(forIndex inputIndex : Int) -> Int {
+    open func getAK1ArpSeqPattern(forIndex inputIndex: Int) -> Int {
         let index = (0...15).clamp(inputIndex)
         let aspi = Int32(Int(AKSynthOneParameter.arpSeqPattern00.rawValue) + index)
         let aspp = AKSynthOneParameter(rawValue: aspi)!
         return Int( getAK1Parameter(aspp) )
     }
-    
-    open func setAK1ArpSeqPattern(forIndex inputIndex : Int, _ value: Int) {
+
+    open func setAK1ArpSeqPattern(forIndex inputIndex: Int, _ value: Int) {
         let index = Int32((0...15).clamp(inputIndex))
         let aspi = Int32(AKSynthOneParameter.arpSeqPattern00.rawValue + index)
         let aspp = AKSynthOneParameter(rawValue: aspi)!
         internalAU?.setAK1Parameter(aspp, value: Float(value) )
     }
-    
-    open func getAK1SeqOctBoost(forIndex inputIndex : Int) -> Bool {
+
+    open func getAK1SeqOctBoost(forIndex inputIndex: Int) -> Bool {
         let index = (0...15).clamp(inputIndex)
         let asni = Int32(Int(AKSynthOneParameter.arpSeqOctBoost00.rawValue) + index)
         let asnp = AKSynthOneParameter(rawValue: asni)!
         return getAK1Parameter(asnp) > 0 ? true : false
     }
-    
-    open func setAK1SeqOctBoost(forIndex inputIndex : Int, _ value: Double) {
+
+    open func setAK1SeqOctBoost(forIndex inputIndex: Int, _ value: Double) {
         let index = Int32((0...15).clamp(inputIndex))
         let aspi = Int32(AKSynthOneParameter.arpSeqOctBoost00.rawValue + index)
         let aspp = AKSynthOneParameter(rawValue: aspi)!
         internalAU?.setAK1Parameter(aspp, value: Float(value) )
     }
-    
-    open func getAK1ArpSeqNoteOn(forIndex inputIndex : Int) -> Bool {
+
+    open func getAK1ArpSeqNoteOn(forIndex inputIndex: Int) -> Bool {
         let index = (0...15).clamp(inputIndex)
         let asoi = Int32(Int(AKSynthOneParameter.arpSeqNoteOn00.rawValue) + index)
         let asop = AKSynthOneParameter(rawValue: asoi)!
         return ( getAK1Parameter(asop) > 0 ) ? true : false
     }
-    
-    open func setAK1ArpSeqNoteOn(forIndex inputIndex : Int, _ value: Bool) {
+
+    open func setAK1ArpSeqNoteOn(forIndex inputIndex: Int, _ value: Bool) {
         let index = Int32((0...15).clamp(inputIndex))
         let aspi = Int32(AKSynthOneParameter.arpSeqNoteOn00.rawValue + index)
         let aspp = AKSynthOneParameter(rawValue: aspi)!
@@ -126,7 +126,7 @@ import AudioKit
         }
         set {
             internalAU?.parameters = newValue
-            
+
             if internalAU?.isSetUp ?? false {
                 if let existingToken = token {
                     for (index, parameter) in auParameters.enumerated() {
@@ -149,7 +149,7 @@ import AudioKit
     }
 
     // MARK: - Initialization
-    
+
     /// Initialize the synth with defaults
     public convenience override init() {
         let squareWithHighPWM = AKTable()
@@ -170,7 +170,7 @@ import AudioKit
     ///   - waveformArray:      An array of 4 waveforms
     ///
     public init(waveformArray: [AKTable]) {
-        
+
         self.waveformArray = waveformArray
         _Self.register()
 
@@ -180,7 +180,7 @@ import AudioKit
             self?.avAudioNode = avAudioUnit
             self?.midiInstrument = avAudioUnit as? AVAudioUnitMIDIInstrument
             self?.internalAU = avAudioUnit.auAudioUnit as? AKAudioUnitType
-            
+
             for (i, waveform) in waveformArray.enumerated() {
                 self?.internalAU?.setupWaveform(UInt32(i), size: Int32(UInt32(waveform.count)))
                 for (j, sample) in waveform.enumerated() {
@@ -202,16 +202,16 @@ import AudioKit
             }
             self.notifyDelegateOfParamChange(param, Double(value) )
         })
-        
+
         internalAU?.aks1Delegate = self
     }
 
     @objc open var delegate: AKSynthOneProtocol?
-    
+
     internal func notifyDelegateOfParamChange(_ param: AKSynthOneParameter, _ value: Double) {
         AKLog("unused")
     }
-    
+
     /// stops all notes
     open func reset() {
         internalAU?.reset()
@@ -228,21 +228,21 @@ import AudioKit
     open override func stop(noteNumber: MIDINoteNumber) {
         internalAU?.stopNote(noteNumber)
     }
-    
-    //MARK: - Passthroughs for AKSynthOneProtocol called by DSP on main thread
+
+    // MARK: - Passthroughs for AKSynthOneProtocol called by DSP on main thread
 
     @objc public func dependentParamDidChange(_ param: DependentParam) {
         delegate?.dependentParamDidChange(param)
     }
-    
+
     @objc public func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {
         delegate?.arpBeatCounterDidChange(beat)
     }
-    
+
     @objc public func heldNotesDidChange(_ heldNotes: HeldNotes) {
         delegate?.heldNotesDidChange(heldNotes)
     }
-    
+
     @objc public func playingNotesDidChange(_ playingNotes: PlayingNotes) {
         delegate?.playingNotesDidChange(playingNotes)
     }

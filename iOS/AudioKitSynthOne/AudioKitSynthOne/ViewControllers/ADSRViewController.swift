@@ -10,9 +10,8 @@ import UIKit
 import AudioKit
 import AudioKitUI
 
-
 class ADSRViewController: SynthPanelController {
-    
+
     @IBOutlet var adsrView: AKADSRView!
     @IBOutlet var filterADSRView: AKADSRView!
     @IBOutlet weak var attackKnob: MIDIKnob!
@@ -25,14 +24,14 @@ class ADSRViewController: SynthPanelController {
     @IBOutlet weak var filterReleaseKnob: MIDIKnob!
     @IBOutlet weak var filterADSRMixKnob: MIDIKnob!
     @IBOutlet weak var envelopeLabelBackground: UIView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+
         envelopeLabelBackground.layer.cornerRadius = 8
-        
+
         let s = conductor.synth!
-        
+
         attackKnob.range = s.getParameterRange(.attackDuration)
         decayKnob.range = s.getParameterRange(.decayDuration)
         sustainKnob.range = s.getParameterRange(.sustainLevel)
@@ -46,17 +45,17 @@ class ADSRViewController: SynthPanelController {
         filterADSRMixKnob.range = s.getParameterRange(.filterADSRMix)
 
         viewType = .adsrView
-        
-        conductor.bind(attackKnob,        to: .attackDuration)
-        conductor.bind(decayKnob,         to: .decayDuration)
-        conductor.bind(sustainKnob,       to: .sustainLevel)
-        conductor.bind(releaseKnob,       to: .releaseDuration)
-        conductor.bind(filterAttackKnob,  to: .filterAttackDuration)
-        conductor.bind(filterDecayKnob,   to: .filterDecayDuration)
+
+        conductor.bind(attackKnob, to: .attackDuration)
+        conductor.bind(decayKnob, to: .decayDuration)
+        conductor.bind(sustainKnob, to: .sustainLevel)
+        conductor.bind(releaseKnob, to: .releaseDuration)
+        conductor.bind(filterAttackKnob, to: .filterAttackDuration)
+        conductor.bind(filterDecayKnob, to: .filterDecayDuration)
         conductor.bind(filterSustainKnob, to: .filterSustainLevel)
         conductor.bind(filterReleaseKnob, to: .filterReleaseDuration)
         conductor.bind(filterADSRMixKnob, to: .filterADSRMix)
-        
+
         adsrView.callback = { att, dec, sus, rel in
             self.conductor.synth.setAK1Parameter(.attackDuration, att)
             self.conductor.synth.setAK1Parameter(.decayDuration, dec)
@@ -64,7 +63,7 @@ class ADSRViewController: SynthPanelController {
             self.conductor.synth.setAK1Parameter(.releaseDuration, rel)
             self.conductor.updateAllUI()
         }
-        
+
         filterADSRView.callback = { att, dec, sus, rel in
             self.conductor.synth.setAK1Parameter(.filterAttackDuration, att)
             self.conductor.synth.setAK1Parameter(.filterDecayDuration, dec)
@@ -73,7 +72,7 @@ class ADSRViewController: SynthPanelController {
             self.conductor.updateAllUI()
         }
     }
-    
+
     override func updateUI(_ param: AKSynthOneParameter, control: AKSynthOneControl?, value: Double) {
         switch param {
         case .attackDuration:

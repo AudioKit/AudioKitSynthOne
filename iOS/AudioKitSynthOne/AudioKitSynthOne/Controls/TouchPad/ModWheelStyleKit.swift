@@ -9,25 +9,22 @@
 //  http://www.paintcodeapp.com
 //
 
-
-
 import UIKit
 
-public class ModWheelStyleKit : NSObject {
+public class ModWheelStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawTouchPoint(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 57), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 40, height: 57), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 40, y: resizedFrame.height / 57)
         let resizedShadowScale: CGFloat = min(resizedFrame.width / 40, resizedFrame.height / 57)
-
 
         //// Color Declarations
         let orange = UIColor(red: 0.255, green: 0.259, blue: 0.278, alpha: 1.000)
@@ -48,7 +45,6 @@ public class ModWheelStyleKit : NSObject {
         context.setShadow(offset: CGSize(width: outerGlow.shadowOffset.width * resizedShadowScale, height: outerGlow.shadowOffset.height * resizedShadowScale), blur: outerGlow.shadowBlurRadius * resizedShadowScale, color: (outerGlow.shadowColor as! UIColor).cgColor)
         context.beginTransparencyLayer(auxiliaryInfo: nil)
 
-
         //// Rectangle 2 Drawing
         let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: 2, y: 10, width: 34, height: 24), cornerRadius: 6)
         context.saveGState()
@@ -58,7 +54,6 @@ public class ModWheelStyleKit : NSObject {
         rectangle2Path.stroke()
         context.restoreGState()
 
-
         //// Rectangle Drawing
         let rectanglePath = UIBezierPath(roundedRect: CGRect(x: 7, y: 15, width: 24, height: 14), cornerRadius: 3)
         context.saveGState()
@@ -67,17 +62,12 @@ public class ModWheelStyleKit : NSObject {
         rectanglePath.fill()
         context.restoreGState()
 
-
-
         context.endTransparencyLayer()
         context.restoreGState()
-        
+
         context.restoreGState()
 
     }
-
-
-
 
     @objc(ModWheelStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
@@ -96,17 +86,17 @@ public class ModWheelStyleKit : NSObject {
             scales.height = abs(target.height / rect.height)
 
             switch self {
-                case .aspectFit:
-                    scales.width = min(scales.width, scales.height)
-                    scales.height = scales.width
-                case .aspectFill:
-                    scales.width = max(scales.width, scales.height)
-                    scales.height = scales.width
-                case .stretch:
-                    break
-                case .center:
-                    scales.width = 1
-                    scales.height = 1
+            case .aspectFit:
+                scales.width = min(scales.width, scales.height)
+                scales.height = scales.width
+            case .aspectFill:
+                scales.width = max(scales.width, scales.height)
+                scales.height = scales.width
+            case .stretch:
+                break
+            case .center:
+                scales.width = 1
+                scales.height = 1
             }
 
             var result = rect.standardized

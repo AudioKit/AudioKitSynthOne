@@ -9,11 +9,11 @@
 import Foundation
 
 extension ParentViewController {
-    
+
     // **********************************************************
     // MARK: - Preset Load/Save
     // **********************************************************
-    
+
     func loadPreset() {
 
         guard let s = conductor.synth else {
@@ -132,11 +132,11 @@ extension ParentViewController {
                 tuningsViewController.setDefaultTuning()
             }
         }
-        
+
         //
         s.resetSequencer()
     }
-    
+
     func saveValuesToPreset() {
         let s = conductor.synth!
         if !appSettings.freezeArpRate {
@@ -241,7 +241,7 @@ extension ParentViewController {
         activePreset.delayInputResonance = s.getAK1Parameter(.delayInputResonance)
         activePreset.pitchbendMinSemitones = s.getAK1Parameter(.pitchbendMinSemitones)
         activePreset.pitchbendMaxSemitones = s.getAK1Parameter(.pitchbendMaxSemitones)
-        
+
         // tuning
         activePreset.frequencyA4 = s.getAK1Parameter(.frequencyA4)
         if appSettings.saveTuningWithPreset {
@@ -252,10 +252,10 @@ extension ParentViewController {
 
         // octave position
         activePreset.octavePosition = keyboardView.firstOctave - 2
-        
+
         // metadata
         activePreset.userText = presetsViewController.currentPreset.userText
-        
+
         presetsViewController.savePreset(activePreset)
     }
 }

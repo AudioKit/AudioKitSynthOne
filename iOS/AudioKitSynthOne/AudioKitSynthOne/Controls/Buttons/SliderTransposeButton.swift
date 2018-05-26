@@ -9,13 +9,13 @@
 import UIKit
 
 class SliderTransposeButton: UILabel, AKSynthOneControl {
-    
+
     // *********************************************************
     // MARK: - Make Label ToggleButton
     // *********************************************************
-    
+
     private var _value: Double = 0
-    
+
     var value: Double {
         get {
             return _value
@@ -25,9 +25,9 @@ class SliderTransposeButton: UILabel, AKSynthOneControl {
                 _value = 1
                 self.backgroundColor = #colorLiteral(red: 0.3725490196, green: 0.3725490196, blue: 0.3921568627, alpha: 1)
                 if transposeAmt >= 0 {
-                    transposeAmt = transposeAmt + 12
+                    transposeAmt += transposeAmt
                 } else {
-                    transposeAmt = transposeAmt - 12
+                    transposeAmt -= transposeAmt
                                                               }
             } else {
                 _value = 0
@@ -36,15 +36,15 @@ class SliderTransposeButton: UILabel, AKSynthOneControl {
             setNeedsDisplay()
         }
     }
-    
+
     var transposeAmt = 0 {
         didSet {
             self.text = String(transposeAmt)
         }
     }
-    
-    public var callback: (Double)->Void = { _ in }
-    
+
+    public var callback: (Double) -> Void = { _ in }
+
     var isActive = false {
         didSet {
             if isActive {
@@ -54,33 +54,33 @@ class SliderTransposeButton: UILabel, AKSynthOneControl {
                 layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
                 layer.borderWidth = 1
             }
-            
+
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+
         clipsToBounds = true
         layer.cornerRadius = 2
         layer.borderWidth = 1
         layer.borderColor = #colorLiteral(red: 0.09411764706, green: 0.09411764706, blue: 0.09411764706, alpha: 1)
     }
-    
+
     // *********************************************************
     // MARK: - Handle Touches
     // *********************************************************
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            
+
             // toggle
             if value > 0 {
                 value = 0
             } else {
                 value = 1
             }
-            
+
             callback(value)
         }
     }

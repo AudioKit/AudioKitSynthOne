@@ -50,7 +50,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
 
     public var internalAU: AKAudioUnitType?
     public var token: AUParameterObserverToken?
-    
+
     fileprivate var waveformArray = [AKTable]()
 
     fileprivate var auParameters: [AUParameter] = []
@@ -85,10 +85,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
         }
     }
 
-
-    
 //    open var parameterValues: [Double] = []
-
 
     /// Ramp Time represents the speed at which parameters are allowed to change
     open dynamic var rampTime: Double = AKSettings.rampTime {
@@ -110,9 +107,9 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
     ///   - waveformArray:      An array of 4 waveforms
     ///
     public init(waveformArray: [AKTable]) {
-        
+
         self.waveformArray = waveformArray
-        
+
         _Self.register()
 
         super.init()
@@ -121,7 +118,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
             self?.avAudioNode = avAudioUnit
             self?.midiInstrument = avAudioUnit as? AVAudioUnitMIDIInstrument
             self?.internalAU = avAudioUnit.auAudioUnit as? AKAudioUnitType
-            
+
             for (i, waveform) in waveformArray.enumerated() {
                 self?.internalAU?.setupWaveform(UInt32(i), size: Int32(UInt32(waveform.count)))
                 for (j, sample) in waveform.enumerated() {
@@ -135,7 +132,7 @@ open class AKSynthOne: AKPolyphonicNode, AKComponent {
         }
         auParameters = tree.allParameters
 
-        token = tree.token (byAddingParameterObserver: { [weak self] address, value in
+        token = tree.token (byAddingParameterObserver: { [weak self] _, _ in
 
             DispatchQueue.main.async {
 //                   self?.parameters[Int(address)] = Double(value)

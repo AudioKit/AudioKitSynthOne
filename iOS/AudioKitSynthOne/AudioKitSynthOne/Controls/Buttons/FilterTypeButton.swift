@@ -9,15 +9,15 @@
 import UIKit
 
 class FilterTypeButton: UIButton, AKSynthOneControl {
-    
-    var callback: (Double)->Void = { _ in }
-    
+
+    var callback: (Double) -> Void = { _ in }
+
     private var _value: Double = 0
     var value: Double {
         get {
             return _value
         }
-        
+
         set {
             _value = (0 ... 3).clamp(newValue)
             DispatchQueue.main.async {
@@ -42,12 +42,11 @@ class FilterTypeButton: UIButton, AKSynthOneControl {
             }
         }
     }
-    
-    
+
     // *********************************************************
     // MARK: - Handle Touches
     // *********************************************************
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             value += 1

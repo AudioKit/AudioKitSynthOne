@@ -22,4 +22,3 @@
 //    var seqNoteOn = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
 //
 //}
-

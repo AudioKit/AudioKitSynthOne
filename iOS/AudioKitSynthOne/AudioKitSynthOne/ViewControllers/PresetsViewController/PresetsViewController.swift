@@ -368,7 +368,7 @@ class PresetsViewController: UIViewController {
             if self.tableView.isEditing {
                 self.reorderButton.setTitle("I'M DONE!", for: UIControlState())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-                self.reorderButton.backgroundColor = UIColor(red: 230 / 255, green: 136 / 255, blue: 2 / 255, alpha: 1)
+                self.reorderButton.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
                 self.categoryEmbeddedView.isUserInteractionEnabled = false
 
             } else {

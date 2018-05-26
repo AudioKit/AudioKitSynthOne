@@ -81,7 +81,7 @@ public class Knob: UIView, AKSynthOneControl {
         // Knobs assume up or right is increasing, and down or left is decreasing
 
         knobValue += (touchPoint.x - lastX) * knobSensitivity
-        knobValue -= (touchPoint.y - lastY) * knobSensitivity / 4
+        knobValue -= (touchPoint.y - lastY) * knobSensitivity
 
         knobValue = (0.0 ... 1.0).clamp(knobValue)
 

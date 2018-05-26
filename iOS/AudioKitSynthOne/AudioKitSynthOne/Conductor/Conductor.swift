@@ -31,6 +31,9 @@ class Conductor: AKSynthOneProtocol {
     let lfo1RateModWheelID: Int32 = 6
     let lfo2RateModWheelID: Int32 = 7
     let pitchbendParentVCID: Int32 = 8
+    
+    public var viewControllers: Set<UpdatableViewController> = []
+    fileprivate var started = false
 
     func bind(_ control: AKSynthOneControl,
               to param: AKSynthOneParameter,
@@ -104,10 +107,6 @@ class Conductor: AKSynthOneProtocol {
         let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as! ParentViewController
         updateDisplayLabel("\(parentVC.activePreset.position): \(parentVC.activePreset.name)")
     }
-
-    public var viewControllers: Set<UpdatableViewController> = []
-
-    fileprivate var started = false
 
     func start() {
         #if false

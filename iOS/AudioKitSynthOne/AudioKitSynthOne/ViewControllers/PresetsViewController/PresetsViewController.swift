@@ -151,8 +151,8 @@ class PresetsViewController: UIViewController {
 
         // Display Banks
         case PresetCategory.bankStartingIndex ... PresetCategory.bankStartingIndex + conductor.banks.count:
-            let bank = conductor.banks.first(where: { $0.position == bankIndex })
-            sortedPresets = presets.filter { $0.bank == bank!.name }
+            guard let bank = conductor.banks.first(where: { $0.position == bankIndex }) else { return }
+            sortedPresets = presets.filter { $0.bank == bank.name }
                 .sorted { $0.position < $1.position }
 
         default:

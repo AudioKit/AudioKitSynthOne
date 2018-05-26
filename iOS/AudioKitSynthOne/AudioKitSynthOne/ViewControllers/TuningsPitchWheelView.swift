@@ -116,7 +116,9 @@ public class TuningsPitchWheelView: UIView {
             bfp.setStroke()
             bfp.setFill()
             let bigR: CGFloat = 12
-            let bigDotR = CGRect(x: CGFloat(p2.x - 0.5 * bigR), y: CGFloat(p2.y - 0.5 * bigR), width: bigR, height: bigR)
+            let bigDotR = CGRect(x: CGFloat(p2.x - 0.5 * bigR),
+                                 y: CGFloat(p2.y - 0.5 * bigR),
+                                 width: bigR, height: bigR)
             context.fillEllipse(in: bigDotR)
             
             #if false
@@ -147,8 +149,11 @@ public class TuningsPitchWheelView: UIView {
 
 
 extension TuningsPitchWheelView {
-    
-    public class func color(forPitch pitch: Double, saturation: CGFloat = 0.625, brightness: CGFloat = 1, alpha: CGFloat = 0.75) -> UIColor {
+
+    public class func color(forPitch pitch: Double,
+                            saturation: CGFloat = 0.625,
+                            brightness: CGFloat = 1,
+                            alpha: CGFloat = 0.75) -> UIColor {
         let hue = CGFloat(pitch.truncatingRemainder(dividingBy: 1))
         let r = UIColor.init(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         return r
@@ -230,23 +235,25 @@ public class TuningsPitchWheelOverlayView: UIView {
         
         if let pn = playingNotes {
             // must match AKS1_MAX_POLYPHONY
-            let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2, pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
-            for playingNote in na {
-                if playingNote.noteNumber != -1 {
-                    let v = 2 * playingNote.amp
-                    if v > 0 {
-                        var nn = playingNote.noteNumber - Int32(AKPolyphonicNode.tuningTable.middleCNoteNumber)
-                        while nn < 0 { nn = nn + Int32(npo) }
-                        while nn >= npo { nn = nn - Int32(npo) }
-                        nn = nn % npo
-                        let p = pxyCopy[Int(nn)]
-                        let bigR = CGFloat(v * 26)
-                        let a = bigR < 36 ? bigR / 36 : 1
-                        let pitch = masterPitch[Int(nn)]
-                        TuningsPitchWheelView.color(forPitch: pitch, saturation: 0.36, brightness: 1, alpha: a).setStroke()
-                        let bigDotR = CGRect(x: p.x - bigR/2, y: p.y - bigR/2, width: bigR, height: bigR)
-                        context.strokeEllipse(in: bigDotR)
-                    }
+            let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2,
+                      pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
+            for playingNote in na where playingNote.noteNumber != -1 {
+                let v = 2 * playingNote.amp
+                if v > 0 {
+                    var nn = playingNote.noteNumber - Int32(AKPolyphonicNode.tuningTable.middleCNoteNumber)
+                    while nn < 0 { nn = nn + Int32(npo) }
+                    while nn >= npo { nn = nn - Int32(npo) }
+                    nn = nn % npo
+                    let p = pxyCopy[Int(nn)]
+                    let bigR = CGFloat(v * 26)
+                    let a = bigR < 36 ? bigR / 36 : 1
+                    let pitch = masterPitch[Int(nn)]
+                    TuningsPitchWheelView.color(forPitch: pitch,
+                                                saturation: 0.36,
+                                                brightness: 1,
+                                                alpha: a).setStroke()
+                    let bigDotR = CGRect(x: p.x - bigR / 2, y: p.y - bigR / 2, width: bigR, height: bigR)
+                    context.strokeEllipse(in: bigDotR)
                 }
             }
         }

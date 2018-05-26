@@ -11,7 +11,8 @@
 extension ParentViewController: ABAudiobusControllerStateIODelegate {
 
     func setupAudioBusInput() {
-        midiInput = ABMIDIReceiverPort(name: "AudioKit Synth One MIDI", title: "AudioKit Synth One MIDI") { (_, midiPacketListPointer)  in
+        midiInput = ABMIDIReceiverPort(name: "AudioKit Synth One MIDI",
+                                       title: "AudioKit Synth One MIDI") { (_, midiPacketListPointer)  in
 
             let events = AKMIDIEvent.midiEventsFrom(packetListPointer: midiPacketListPointer)
             for event in events {
@@ -23,12 +24,12 @@ extension ParentViewController: ABAudiobusControllerStateIODelegate {
 
                     } else {
                         // Prevent multiple triggers from multiple MIDI inputs
-                        //                        guard !self.notesJustTriggered.contains(event.noteNumber!) else { return }
-                        //
-                        //                        self.notesJustTriggered.insert(event.noteNumber!)
-                        //                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                        //                            self.notesJustTriggered.remove(event.noteNumber!)
-                        //                        }
+//                        guard !self.notesJustTriggered.contains(event.noteNumber!) else { return }
+//
+//                        self.notesJustTriggered.insert(event.noteNumber!)
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+//                            self.notesJustTriggered.remove(event.noteNumber!)
+//                        }
 
                         self.sustainer.play(noteNumber: event.noteNumber!, velocity: event.internalData[2])
                     }

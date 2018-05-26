@@ -31,8 +31,13 @@ class Conductor: AKSynthOneProtocol {
     let lfo1RateModWheelID: Int32 = 6
     let lfo2RateModWheelID: Int32 = 7
     let pitchbendParentVCID: Int32 = 8
+    
+    public var viewControllers: Set<UpdatableViewController> = []
+    fileprivate var started = false
 
-    func bind(_ control: AKSynthOneControl, to param: AKSynthOneParameter, callback closure: AKSynthOneControlCallback? = nil) {
+    func bind(_ control: AKSynthOneControl,
+              to param: AKSynthOneParameter,
+              callback closure: AKSynthOneControlCallback? = nil) {
         let binding = (param, control)
         bindings.append(binding)
         let control = binding.1
@@ -56,25 +61,25 @@ class Conductor: AKSynthOneProtocol {
         }
     }
 
-    func updateSingleUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value inputValue: Double) {
+    func updateSingleUI(_ param: AKSynthOneParameter,
+                        control inputControl: AKSynthOneControl?,
+                        value inputValue: Double) {
 
         // cannot access synth until it is initialized and started
         if !started { return }
 
         // for every binding of type param
-        for binding in bindings {
-            if param == binding.0 {
-                let control = binding.1
-
-                // don't update the control if it is the one performing the callback because it has already been updated
-                if let inputControl = inputControl {
-                    if control !== inputControl {
-                        control.value = inputValue
-                    }
-                } else {
-                    // nil control = global update (i.e., preset change)
+        for binding in bindings where param == binding.0 {
+            let control = binding.1
+            
+            // don't update the control if it is the one performing the callback because it has already been updated
+            if let inputControl = inputControl {
+                if control !== inputControl {
                     control.value = inputValue
                 }
+            } else {
+                // nil control = global update (i.e., preset change)
+                control.value = inputValue
             }
         }
 
@@ -102,10 +107,6 @@ class Conductor: AKSynthOneProtocol {
         let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as! ParentViewController
         updateDisplayLabel("\(parentVC.activePreset.position): \(parentVC.activePreset.name)")
     }
-
-    public var viewControllers: Set<UpdatableViewController> = []
-
-    fileprivate var started = false
 
     func start() {
         #if false

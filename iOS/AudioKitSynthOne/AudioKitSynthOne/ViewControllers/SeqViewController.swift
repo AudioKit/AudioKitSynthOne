@@ -53,7 +53,12 @@ class SeqViewController: SynthPanelController {
                                                           .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14,
                                                           .arpSeqOctBoost15]
 
-        arpSeqOctBoostButtons = self.view.subviews.filter { $0 is SliderTransposeButton }.sorted { $0.tag < $1.tag } as! [SliderTransposeButton]
+        arpSeqOctBoostButtons = self.view.subviews.filter {
+                $0 is SliderTransposeButton
+            }.sorted {
+                $0.tag < $1.tag
+
+            } as! [SliderTransposeButton]
 
         for (notePosition, octBoostButton) in arpSeqOctBoostButtons.enumerated() {
             let arpSeqOctBoostParam = arpSeqOctBoostArray[notePosition]
@@ -75,7 +80,11 @@ class SeqViewController: SynthPanelController {
                                                          .arpSeqPattern12, .arpSeqPattern13, .arpSeqPattern14,
                                                          .arpSeqPattern15]
 
-        arpSeqPatternSliders = self.view.subviews.filter { $0 is VerticalSlider }.sorted { $0.tag < $1.tag } as! [VerticalSlider]
+        arpSeqPatternSliders = self.view.subviews.filter {
+                $0 is VerticalSlider
+            }.sorted {
+                $0.tag < $1.tag
+            } as! [VerticalSlider]
 
         for (notePosition, arpSeqPatternSlider) in arpSeqPatternSliders.enumerated() {
             let arpSeqPatternParam = arpSeqPatternArray[notePosition]
@@ -83,7 +92,9 @@ class SeqViewController: SynthPanelController {
                 return { value in
                     let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
                     s.setAK1ArpSeqPattern(forIndex: notePosition, tval )
-                    self.conductor.updateSingleUI(arpSeqPatternParam, control: arpSeqPatternSlider, value: Double(tval) )
+                    self.conductor.updateSingleUI(arpSeqPatternParam,
+                                                  control: arpSeqPatternSlider,
+                                                  value: Double(tval))
                 }
             }
         }

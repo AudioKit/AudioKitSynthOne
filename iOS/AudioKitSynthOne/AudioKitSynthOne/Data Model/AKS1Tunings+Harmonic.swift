@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension AKS1Tunings {
+extension AKS1Tunings {
     
     public class func approximateHarmonicFromPitch(_ pitch: Double) -> Int {
         let harmonics = [
@@ -1020,7 +1020,7 @@ public extension AKS1Tunings {
         if let harmonic = harmonics[key] {
             return harmonic
         } else {
-            AKLog("can't look up harmonic")
+            AKLog("error approximating harmonic")
             return 1
         }
     }

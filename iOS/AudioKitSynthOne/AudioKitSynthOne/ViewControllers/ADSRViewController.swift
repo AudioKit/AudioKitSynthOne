@@ -30,19 +30,19 @@ class ADSRViewController: SynthPanelController {
 
         envelopeLabelBackground.layer.cornerRadius = 8
 
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
 
-        attackKnob.range = s.getParameterRange(.attackDuration)
-        decayKnob.range = s.getParameterRange(.decayDuration)
-        sustainKnob.range = s.getParameterRange(.sustainLevel)
-        releaseKnob.range = s.getParameterRange(.releaseDuration)
+        attackKnob.range = s.getRange(.attackDuration)
+        decayKnob.range = s.getRange(.decayDuration)
+        sustainKnob.range = s.getRange(.sustainLevel)
+        releaseKnob.range = s.getRange(.releaseDuration)
 
-        filterAttackKnob.range = s.getParameterRange(.filterAttackDuration)
-        filterDecayKnob.range = s.getParameterRange(.filterDecayDuration)
-        filterSustainKnob.range = s.getParameterRange(.filterSustainLevel)
-        filterReleaseKnob.range = s.getParameterRange(.filterReleaseDuration)
+        filterAttackKnob.range = s.getRange(.filterAttackDuration)
+        filterDecayKnob.range = s.getRange(.filterDecayDuration)
+        filterSustainKnob.range = s.getRange(.filterSustainLevel)
+        filterReleaseKnob.range = s.getRange(.filterReleaseDuration)
 
-        filterADSRMixKnob.range = s.getParameterRange(.filterADSRMix)
+        filterADSRMixKnob.range = s.getRange(.filterADSRMix)
 
         viewType = .adsrView
 
@@ -57,18 +57,18 @@ class ADSRViewController: SynthPanelController {
         conductor.bind(filterADSRMixKnob, to: .filterADSRMix)
 
         adsrView.callback = { att, dec, sus, rel in
-            self.conductor.synth.setAK1Parameter(.attackDuration, att)
-            self.conductor.synth.setAK1Parameter(.decayDuration, dec)
-            self.conductor.synth.setAK1Parameter(.sustainLevel, sus)
-            self.conductor.synth.setAK1Parameter(.releaseDuration, rel)
+            self.conductor.synth.setSynthParameter(.attackDuration, att)
+            self.conductor.synth.setSynthParameter(.decayDuration, dec)
+            self.conductor.synth.setSynthParameter(.sustainLevel, sus)
+            self.conductor.synth.setSynthParameter(.releaseDuration, rel)
             self.conductor.updateAllUI()
         }
 
         filterADSRView.callback = { att, dec, sus, rel in
-            self.conductor.synth.setAK1Parameter(.filterAttackDuration, att)
-            self.conductor.synth.setAK1Parameter(.filterDecayDuration, dec)
-            self.conductor.synth.setAK1Parameter(.filterSustainLevel, sus)
-            self.conductor.synth.setAK1Parameter(.filterReleaseDuration, rel)
+            self.conductor.synth.setSynthParameter(.filterAttackDuration, att)
+            self.conductor.synth.setSynthParameter(.filterDecayDuration, dec)
+            self.conductor.synth.setSynthParameter(.filterSustainLevel, sus)
+            self.conductor.synth.setSynthParameter(.filterReleaseDuration, rel)
             self.conductor.updateAllUI()
         }
     }

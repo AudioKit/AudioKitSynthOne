@@ -70,45 +70,52 @@ public class ParentViewController: UpdatableViewController {
     // ********************************************************
 
     lazy var adsrViewController: ADSRViewController = {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier()) as! ADSRViewController
+        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return main.instantiateViewController(withIdentifier: ChildView.adsrView.identifier())
+            as! ADSRViewController
     }()
 
     lazy var mixerViewController: SourceMixerViewController = {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier()) as! SourceMixerViewController
+        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return main.instantiateViewController(withIdentifier: ChildView.oscView.identifier())
+            as! SourceMixerViewController
     }()
 
     lazy var devViewController: DevViewController = {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = mainStoryboard.instantiateViewController(withIdentifier: "DevViewController") as! DevViewController
+        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = main.instantiateViewController(withIdentifier: "DevViewController")
+            as! DevViewController
         viewController.delegate = self
         return viewController
     }()
 
     lazy var padViewController: TouchPadViewController = {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.padView.identifier()) as! TouchPadViewController
+        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return main.instantiateViewController(withIdentifier: ChildView.padView.identifier())
+            as! TouchPadViewController
     }()
 
     lazy var fxViewController: FXViewController = {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier()) as! FXViewController
+        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return main.instantiateViewController(withIdentifier: ChildView.fxView.identifier())
+            as! FXViewController
     }()
 
     lazy var seqViewController: SeqViewController = {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier()) as! SeqViewController
+        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return main.instantiateViewController(withIdentifier: ChildView.seqView.identifier())
+            as! SeqViewController
     }()
 
     lazy var tuningsViewController: TuningsViewController = {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier()) as! TuningsViewController
+        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return main.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier())
+            as! TuningsViewController
     }()
 
     lazy var presetsViewController: PresetsViewController = {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
+        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return main.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
     }()
 
     // ********************************************************
@@ -123,7 +130,7 @@ public class ParentViewController: UpdatableViewController {
         sustainer = SDSustainer(conductor.synth)
 
         keyboardView?.delegate = self
-        keyboardView?.polyphonicMode = conductor.synth.getAK1Parameter(.isMono) > 0 ? true : false
+        keyboardView?.polyphonicMode = conductor.synth.getSynthParameter(.isMono) > 0 ? true : false
 
         // Set Header as Delegate
         if let headerVC = self.childViewControllers.first as? HeaderViewController {
@@ -266,7 +273,7 @@ public class ParentViewController: UpdatableViewController {
 
     func setupCallbacks() {
 
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
 
         octaveStepper.callback = { value in
             self.keyboardView.firstOctave = Int(value) + 2
@@ -311,7 +318,7 @@ public class ParentViewController: UpdatableViewController {
         monoButton.callback = { value in
             let monoMode = value > 0 ? true : false
             self.keyboardView.polyphonicMode = !monoMode
-            s.setAK1Parameter(.isMono, value)
+            s.setSynthParameter(.isMono, value)
             self.conductor.updateSingleUI(.isMono, control: self.monoButton, value: value)
         }
 
@@ -343,29 +350,29 @@ public class ParentViewController: UpdatableViewController {
             case 0:
                 // Cutoff
                 let newValue = 1 - value
-                let scaledValue = Double.scaleRangeLog(newValue, rangeMin: 40, rangeMax: 7_600)
-                s.setAK1Parameter(.cutoff, scaledValue * 3)
-                self.conductor.updateSingleUI(.cutoff, control: self.modWheelPad, value: s.getAK1Parameter(.cutoff))
+                let scaledValue = newValue.denormalized(to: 40...7_600, taper: -1)  
+                s.setSynthParameter(.cutoff, scaledValue * 3)
+                self.conductor.updateSingleUI(.cutoff, control: self.modWheelPad, value: s.getSynthParameter(.cutoff))
             case 1:
                 // LFO 1 Rate
-                s.setAK1DependentParameter(.lfo1Rate, value, self.conductor.lfo1RateModWheelID)
+                s.setDependentParameter(.lfo1Rate, value, self.conductor.lfo1RateModWheelID)
             case 2:
                 // LFO 2 Rate
-                s.setAK1DependentParameter(.lfo2Rate, value, self.conductor.lfo2RateModWheelID)
+                s.setDependentParameter(.lfo2Rate, value, self.conductor.lfo2RateModWheelID)
             default:
                 break
             }
         }
 
         pitchbend.callback = { value01 in
-            s.setAK1DependentParameter(.pitchbend, value01, Conductor.sharedInstance.pitchbendParentVCID)
+            s.setDependentParameter(.pitchbend, value01, Conductor.sharedInstance.pitchbendParentVCID)
         }
         pitchbend.completionHandler = {  _, touchesEnded, reset in
             if touchesEnded && !reset {
                 self.pitchbend.resetToCenter()
             }
             if reset {
-                s.setAK1DependentParameter(.pitchbend, 0.5, Conductor.sharedInstance.pitchbendParentVCID)
+                s.setDependentParameter(.pitchbend, 0.5, Conductor.sharedInstance.pitchbendParentVCID)
             }
         }
     }
@@ -379,7 +386,7 @@ public class ParentViewController: UpdatableViewController {
 
         // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
         guard let s = conductor.synth else { return }
-        let isMono = s.getAK1Parameter(.isMono)
+        let isMono = s.getSynthParameter(.isMono)
         if isMono != monoButton.value {
             monoButton.value = isMono
             self.keyboardView.polyphonicMode = isMono > 0 ? false : true

@@ -57,30 +57,30 @@ class SourceMixerViewController: SynthPanelController {
         viewType = .oscView
 
         // Defaults, limits
-        let s = conductor.synth!
+        guard let s = conductor.synth else { return }
 
         morph1SemitoneOffset.onlyIntegers = true
-        morph1SemitoneOffset.range = s.getParameterRange(.morph1SemitoneOffset)
+        morph1SemitoneOffset.range = s.getRange(.morph1SemitoneOffset)
         morph2SemitoneOffset.onlyIntegers = true
-        morph2SemitoneOffset.range = s.getParameterRange(.morph2SemitoneOffset)
+        morph2SemitoneOffset.range = s.getRange(.morph2SemitoneOffset)
         morph1SemitoneOffset.knobSensitivity = 0.004
         morph2SemitoneOffset.knobSensitivity = 0.004
-        morph2Detuning.range = s.getParameterRange(.morph2Detuning)
-        morphBalance.range = s.getParameterRange(.morphBalance)
-        morph1Volume.range = s.getParameterRange(.morph1Volume)
-        morph2Volume.range = s.getParameterRange(.morph2Volume)
-        glideKnob.range = s.getParameterRange(.glide)
+        morph2Detuning.range = s.getRange(.morph2Detuning)
+        morphBalance.range = s.getRange(.morphBalance)
+        morph1Volume.range = s.getRange(.morph1Volume)
+        morph2Volume.range = s.getRange(.morph2Volume)
+        glideKnob.range = s.getRange(.glide)
         glideKnob.taper = 2
-        cutoff.range = s.getParameterRange(.cutoff)
+        cutoff.range = s.getRange(.cutoff)
         cutoff.taper = 3
-        resonance.range = s.getParameterRange(.resonance)
-        subVolume.range = s.getParameterRange(.subVolume)
-        fmVolume.range = s.getParameterRange(.fmVolume)
-        fmAmount.range = s.getParameterRange(.fmAmount)
-        noiseVolume.range = s.getParameterRange(.noiseVolume)
-        masterVolume.range = s.getParameterRange(.masterVolume)
-        tempoStepper.maxValue = s.getParameterMax(.arpRate)
-        tempoStepper.minValue = s.getParameterMin(.arpRate)
+        resonance.range = s.getRange(.resonance)
+        subVolume.range = s.getRange(.subVolume)
+        fmVolume.range = s.getRange(.fmVolume)
+        fmAmount.range = s.getRange(.fmAmount)
+        noiseVolume.range = s.getRange(.noiseVolume)
+        masterVolume.range = s.getRange(.masterVolume)
+        tempoStepper.maxValue = s.getMaximum(.arpRate)
+        tempoStepper.minValue = s.getMinimum(.arpRate)
 
         conductor.bind(morph1Selector, to: .index1)
         conductor.bind(morph2Selector, to: .index2)

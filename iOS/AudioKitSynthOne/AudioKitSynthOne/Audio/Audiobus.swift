@@ -179,8 +179,7 @@ private extension ABAudiobusController {
 private extension AudioUnit {
 
     var isConnectedToInterAppAudio: Bool {
-        let value: UInt32 = try! getValue(forProperty: kAudioUnitProperty_IsInterAppConnected)
-        return value != 0
+        return (try? getValue(forProperty: kAudioUnitProperty_IsInterAppConnected) ?? 1) != 0
     }
 
     func isConnectedToInterAppAudio(nodeOfType type: OSType) -> Bool {

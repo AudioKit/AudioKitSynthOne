@@ -52,7 +52,7 @@ class Conductor: AKSynthOneProtocol {
 
     var changeParameter: AKSynthOneControlCallback  = { param, control in
         return { value in
-            sharedInstance.synth.setAK1Parameter(param, value)
+            sharedInstance.synth.setSynthParameter(param, value)
             sharedInstance.updateSingleUI(param, control: control, value: value)
           }
         } {
@@ -99,7 +99,7 @@ class Conductor: AKSynthOneProtocol {
                     AKLog("ERROR: AKSynthOneParameter enum out of range: \(address)")
                     return
             }
-            let value = self.synth.getAK1Parameter(param)
+            let value = self.synth.getSynthParameter(param)
             updateSingleUI(param, control: nil, value: value)
         }
 
@@ -132,7 +132,7 @@ class Conductor: AKSynthOneProtocol {
 
         synth = AKSynthOne()
         synth.delegate = self
-        synth.rampTime = 0.0 // Handle ramping internally instead of the ramper hack
+        synth.rampDuration = 0.0 // Handle ramping internally instead of the ramper hack
 
         AudioKit.output = synth
 

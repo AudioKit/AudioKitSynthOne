@@ -1259,12 +1259,12 @@ inline void AKSynthOneDSPKernel::_setSynthParameterHelper(AKSynthOneParameter pa
         // special case for updating the tuning table based on frequency at A4.
         // see https://en.wikipedia.org/wiki/A440_(pitch_standard)
         if (param == frequencyA4) {
-            _setAK1Parameter(param, truncf(inputValue));
-            const float mca = getAK1Parameter(param); // actual value
+            _setSynthParameter(param, truncf(inputValue));
+            const float mca = getParameter(param); // must use getter value
             AKPolyphonicNode.tuningTable.middleCFrequency = mca * exp2((60.f - 69.f)/12.f);
         } else if (param == dspParamPortamentoHalfTime) {
-            _setAK1Parameter(param, inputValue);
-            const float actualValue = getAK1Parameter(dspParamPortamentoHalfTime);
+            _setSynthParameter(param, inputValue);
+            const float actualValue = getParameter(dspParamPortamentoHalfTime);
             updateDSPPortamento(actualValue);
         } else {
             // all remaining independent params

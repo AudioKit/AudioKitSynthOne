@@ -32,17 +32,17 @@ class ADSRViewController: SynthPanelController {
 
         guard let s = conductor.synth else { return }
 
-        attackKnob.range = s.getParameterRange(.attackDuration)
-        decayKnob.range = s.getParameterRange(.decayDuration)
-        sustainKnob.range = s.getParameterRange(.sustainLevel)
-        releaseKnob.range = s.getParameterRange(.releaseDuration)
+        attackKnob.range = s.getRange(.attackDuration)
+        decayKnob.range = s.getRange(.decayDuration)
+        sustainKnob.range = s.getRange(.sustainLevel)
+        releaseKnob.range = s.getRange(.releaseDuration)
 
-        filterAttackKnob.range = s.getParameterRange(.filterAttackDuration)
-        filterDecayKnob.range = s.getParameterRange(.filterDecayDuration)
-        filterSustainKnob.range = s.getParameterRange(.filterSustainLevel)
-        filterReleaseKnob.range = s.getParameterRange(.filterReleaseDuration)
+        filterAttackKnob.range = s.getRange(.filterAttackDuration)
+        filterDecayKnob.range = s.getRange(.filterDecayDuration)
+        filterSustainKnob.range = s.getRange(.filterSustainLevel)
+        filterReleaseKnob.range = s.getRange(.filterReleaseDuration)
 
-        filterADSRMixKnob.range = s.getParameterRange(.filterADSRMix)
+        filterADSRMixKnob.range = s.getRange(.filterADSRMix)
 
         viewType = .adsrView
 

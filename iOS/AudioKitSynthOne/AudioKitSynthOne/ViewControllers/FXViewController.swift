@@ -60,22 +60,22 @@ class FXViewController: SynthPanelController {
         viewType = .fxView
         guard let s = conductor.synth else { return }
 
-        sampleRate.range = s.getParameterRange(.bitCrushSampleRate)
+        sampleRate.range = s.getRange(.bitCrushSampleRate)
         sampleRate.taper = 4.6
         conductor.bind(sampleRate, to: .bitCrushSampleRate)
 
-        reverbLowCut.range = s.getParameterRange(.reverbHighPass)
+        reverbLowCut.range = s.getRange(.reverbHighPass)
         reverbLowCut.taper = 1
         conductor.bind(reverbLowCut, to: .reverbHighPass)
 
-        delayFeedback.range = s.getParameterRange(.delayFeedback)
+        delayFeedback.range = s.getRange(.delayFeedback)
         conductor.bind(delayFeedback, to: .delayFeedback)
 
-        phaserMix.range = s.getParameterRange(.phaserMix)
-        phaserRate.range = s.getParameterRange(.phaserRate)
+        phaserMix.range = s.getRange(.phaserMix)
+        phaserRate.range = s.getRange(.phaserRate)
         phaserRate.taper = 2
-        phaserFeedback.range = s.getParameterRange(.phaserFeedback)
-        phaserNotchWidth.range = s.getParameterRange(.phaserNotchWidth)
+        phaserFeedback.range = s.getRange(.phaserFeedback)
+        phaserNotchWidth.range = s.getRange(.phaserNotchWidth)
 
         conductor.bind(autoPanAmount, to: .autoPanAmount)
         conductor.bind(reverbSize, to: .reverbFeedback)

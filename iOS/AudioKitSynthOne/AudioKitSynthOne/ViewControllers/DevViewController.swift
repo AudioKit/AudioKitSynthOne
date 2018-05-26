@@ -51,48 +51,48 @@ class DevViewController: UpdatableViewController {
         guard let s = conductor.synth else { return }
 
         // masterVolume is the input gain to compressorMaster
-        masterVolume.range = s.getParameterRange(.masterVolume)
+        masterVolume.range = s.getRange(.masterVolume)
         conductor.bind(masterVolume, to: .masterVolume)
 
         // reverb/master dynamics
-        compressorMasterRatio.range = s.getParameterRange(.compressorMasterRatio)
-        compressorReverbInputRatio.range = s.getParameterRange(.compressorReverbInputRatio)
-        compressorReverbWetRatio.range = s.getParameterRange(.compressorReverbWetRatio)
+        compressorMasterRatio.range = s.getRange(.compressorMasterRatio)
+        compressorReverbInputRatio.range = s.getRange(.compressorReverbInputRatio)
+        compressorReverbWetRatio.range = s.getRange(.compressorReverbWetRatio)
         conductor.bind(compressorMasterRatio, to: .compressorMasterRatio)
         conductor.bind(compressorReverbInputRatio, to: .compressorReverbInputRatio)
         conductor.bind(compressorReverbWetRatio, to: .compressorReverbWetRatio)
 
-        compressorMasterThreshold.range = s.getParameterRange(.compressorMasterThreshold)
-        compressorReverbInputThreshold.range = s.getParameterRange(.compressorReverbInputThreshold)
-        compressorReverbWetThreshold.range = s.getParameterRange(.compressorReverbWetThreshold)
+        compressorMasterThreshold.range = s.getRange(.compressorMasterThreshold)
+        compressorReverbInputThreshold.range = s.getRange(.compressorReverbInputThreshold)
+        compressorReverbWetThreshold.range = s.getRange(.compressorReverbWetThreshold)
         conductor.bind(compressorMasterThreshold, to: .compressorMasterThreshold)
         conductor.bind(compressorReverbInputThreshold, to: .compressorReverbInputThreshold)
         conductor.bind(compressorReverbWetThreshold, to: .compressorReverbWetThreshold)
 
-        compressorMasterAttack.range = s.getParameterRange(.compressorMasterAttack)
-        compressorReverbInputAttack.range = s.getParameterRange(.compressorReverbInputAttack)
-        compressorReverbWetAttack.range = s.getParameterRange(.compressorReverbWetAttack)
+        compressorMasterAttack.range = s.getRange(.compressorMasterAttack)
+        compressorReverbInputAttack.range = s.getRange(.compressorReverbInputAttack)
+        compressorReverbWetAttack.range = s.getRange(.compressorReverbWetAttack)
         conductor.bind(compressorMasterAttack, to: .compressorMasterAttack)
         conductor.bind(compressorReverbInputAttack, to: .compressorReverbInputAttack)
         conductor.bind(compressorReverbWetAttack, to: .compressorReverbWetAttack)
 
-        compressorMasterRelease.range = s.getParameterRange(.compressorMasterRelease)
-        compressorReverbInputRelease.range = s.getParameterRange(.compressorReverbInputRelease)
-        compressorReverbWetRelease.range = s.getParameterRange(.compressorReverbWetRelease)
+        compressorMasterRelease.range = s.getRange(.compressorMasterRelease)
+        compressorReverbInputRelease.range = s.getRange(.compressorReverbInputRelease)
+        compressorReverbWetRelease.range = s.getRange(.compressorReverbWetRelease)
         conductor.bind(compressorMasterRelease, to: .compressorMasterRelease)
         conductor.bind(compressorReverbInputRelease, to: .compressorReverbInputRelease)
         conductor.bind(compressorReverbWetRelease, to: .compressorReverbWetRelease)
 
-        compressorMasterMakeupGain.range = s.getParameterRange(.compressorMasterMakeupGain)
-        compressorReverbInputMakeupGain.range = s.getParameterRange(.compressorReverbInputMakeupGain)
-        compressorReverbWetMakeupGain.range = s.getParameterRange(.compressorReverbWetMakeupGain)
+        compressorMasterMakeupGain.range = s.getRange(.compressorMasterMakeupGain)
+        compressorReverbInputMakeupGain.range = s.getRange(.compressorReverbInputMakeupGain)
+        compressorReverbWetMakeupGain.range = s.getRange(.compressorReverbWetMakeupGain)
         conductor.bind(compressorMasterMakeupGain, to: .compressorMasterMakeupGain)
         conductor.bind(compressorReverbInputMakeupGain, to: .compressorReverbInputMakeupGain)
         conductor.bind(compressorReverbWetMakeupGain, to: .compressorReverbWetMakeupGain)
 
         //delay input filter
-        delayInputFilterCutoffFreqTrackingRatio.range = s.getParameterRange(.delayInputCutoffTrackingRatio)
-        delayInputFilterResonance.range = s.getParameterRange(.delayInputResonance)
+        delayInputFilterCutoffFreqTrackingRatio.range = s.getRange(.delayInputCutoffTrackingRatio)
+        delayInputFilterResonance.range = s.getRange(.delayInputResonance)
         conductor.bind(delayInputFilterCutoffFreqTrackingRatio, to: .delayInputCutoffTrackingRatio)
         conductor.bind(delayInputFilterResonance, to: .delayInputResonance)
 

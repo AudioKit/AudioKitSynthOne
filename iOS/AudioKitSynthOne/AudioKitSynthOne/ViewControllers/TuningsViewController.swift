@@ -40,7 +40,7 @@ class TuningsViewController: SynthPanelController {
         tuningTableView.delegate = aks1Tunings
         aks1Tunings.tuningsDelegate = self
 
-        masterTuning.range = Conductor.sharedInstance.synth!.getParameterRange(.frequencyA4)
+        masterTuning.range = Conductor.sharedInstance.synth!.getRange(.frequencyA4)
         masterTuning.value = Conductor.sharedInstance.synth!.getAK1Parameter(.frequencyA4)
         Conductor.sharedInstance.bind(masterTuning, to: .frequencyA4)
 

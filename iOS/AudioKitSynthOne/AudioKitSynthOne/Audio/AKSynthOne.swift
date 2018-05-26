@@ -53,21 +53,21 @@ import AudioKit
         internalAU?.setAK1DependentParameter(param, value: Float(value), payload: payload)
     }
 
-    open func getParameterMin(_ param: AKSynthOneParameter) -> Double {
+    open func getMinimum(_ param: AKSynthOneParameter) -> Double {
         return Double(internalAU?.getParameterMin(param) ?? 0)
     }
 
-    open func getParameterMax(_ param: AKSynthOneParameter) -> Double {
+    open func getMaximum(_ param: AKSynthOneParameter) -> Double {
         return Double(internalAU?.getParameterMax(param) ?? 1)
     }
 
-    open func getParameterRange(_ param: AKSynthOneParameter) -> ClosedRange<Double> {
+    open func getRange(_ param: AKSynthOneParameter) -> ClosedRange<Double> {
         let min = Double(internalAU?.getParameterMin(param) ?? 0)
         let max = Double(internalAU?.getParameterMax(param) ?? 1)
         return min ... max
     }
 
-    open func getParameterDefault(_ param: AKSynthOneParameter) -> Double {
+    open func getDefault(_ param: AKSynthOneParameter) -> Double {
         return Double(internalAU?.getParameterDefault(param) ?? 0)
     }
 
@@ -75,7 +75,7 @@ import AudioKit
         let index = (0...15).clamp(inputIndex)
         let aspi = Int32(Int(AKSynthOneParameter.arpSeqPattern00.rawValue) + index)
         let aspp = AKSynthOneParameter(rawValue: aspi)!
-        return Int( getAK1Parameter(aspp) )
+        return Int(getAK1Parameter(aspp))
     }
 
     open func setAK1ArpSeqPattern(forIndex inputIndex: Int, _ value: Int) {

@@ -205,7 +205,7 @@ class Preset: Codable {
         }
 
         let p = { param in
-            return Double(s.getParameterDefault(param))
+            return Double(s.getDefault(param))
         }
 
         name = dictionary["name"] as? String ?? name

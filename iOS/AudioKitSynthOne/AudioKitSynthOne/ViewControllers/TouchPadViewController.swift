@@ -39,7 +39,7 @@ class TouchPadViewController: SynthPanelController {
         lfoAmp = s.getAK1Parameter(.lfo1Amplitude)
 
         // TouchPad 2
-        touchPad2.horizontalRange = s.getParameterRange(.cutoff)
+        touchPad2.horizontalRange = s.getRange(.cutoff)
         touchPad2.horizontalTaper = 4.04
         cutoff = s.getAK1Parameter(.cutoff)
         rez = s.getAK1Parameter(.resonance)
@@ -107,8 +107,8 @@ class TouchPadViewController: SynthPanelController {
                 self.particleEmitter2.birthRate = 1
             }
 
-            let minimumResonance = self.conductor.synth.getParameterMin(.resonance)
-            let maximumResonance = self.conductor.synth.getParameterMax(.resonance)
+            let minimumResonance = self.conductor.synth.getMinimum(.resonance)
+            let maximumResonance = self.conductor.synth.getMaximum(.resonance)
             let scaledVertical = vertical.denormalized(to: minimumResonance...maximumResonance)
 
             // Affect parameters based on touch position
@@ -168,8 +168,8 @@ class TouchPadViewController: SynthPanelController {
             touchPad2.updateTouchPoint(x, Double(touchPad2.y))
 
         case .resonance:
-            let minimumResonance = self.conductor.synth.getParameterMin(.resonance)
-            let maximumResonance = self.conductor.synth.getParameterMax(.resonance)
+            let minimumResonance = self.conductor.synth.getMinimum(.resonance)
+            let maximumResonance = self.conductor.synth.getMaximum(.resonance)
             let scaledY = value.normalized(from: minimumResonance...maximumResonance)
             touchPad2.updateTouchPoint(Double(touchPad2.x), scaledY)
 

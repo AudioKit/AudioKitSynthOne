@@ -60,7 +60,7 @@ import AudioKit
         let i = 0
         let tuning = tunings[i]
         tuning.1()
-        let f = Conductor.sharedInstance.synth!.getParameterDefault(.frequencyA4)
+        let f = Conductor.sharedInstance.synth!.getDefault(.frequencyA4)
         Conductor.sharedInstance.synth!.setAK1Parameter(.frequencyA4, f)
         tuningsDelegate?.tuningDidChange()
         return i

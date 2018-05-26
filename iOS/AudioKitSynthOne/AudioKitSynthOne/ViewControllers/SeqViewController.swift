@@ -32,11 +32,11 @@ class SeqViewController: SynthPanelController {
 
         guard let s = conductor.synth else { return }
         
-        seqStepsStepper.minValue = s.getParameterMin(.arpTotalSteps)
-        seqStepsStepper.maxValue = s.getParameterMax(.arpTotalSteps)
-        octaveStepper.minValue = s.getParameterMin(.arpOctave)
-        octaveStepper.maxValue = s.getParameterMax(.arpOctave)
-        arpInterval.range = s.getParameterRange(.arpInterval)
+        seqStepsStepper.minValue = s.getMinimum(.arpTotalSteps)
+        seqStepsStepper.maxValue = s.getMaximum(.arpTotalSteps)
+        octaveStepper.minValue = s.getMinimum(.arpOctave)
+        octaveStepper.maxValue = s.getMaximum(.arpOctave)
+        arpInterval.range = s.getRange(.arpInterval)
 
         // Bindings
         conductor.bind(arpToggle, to: .arpIsOn)

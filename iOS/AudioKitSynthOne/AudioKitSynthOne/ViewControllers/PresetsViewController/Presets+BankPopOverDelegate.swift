@@ -20,7 +20,7 @@ extension PresetsViewController: BankPopOverDelegate {
         }
 
         // Update Conductor
-        let bank = conductor.banks.first(where: { $0.name == oldName })!
+        guard let bank = conductor.banks.first(where: { $0.name == oldName }) else { return }
         bank.name = newName
 
         // Update AppSettings

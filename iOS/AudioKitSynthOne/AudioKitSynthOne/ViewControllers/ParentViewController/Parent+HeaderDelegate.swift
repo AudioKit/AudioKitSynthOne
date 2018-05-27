@@ -15,19 +15,20 @@ extension ParentViewController: HeaderDelegate {
 
             // Hide Keyboard
             keyboardView.isShown = keyboardToggle.isOn
-            self.keyboardToggle.callback(0.0)
-            self.keyboardToggle.value = 0.0
+            keyboardToggle.callback(0.0)
+            keyboardToggle.value = 0.0
 
             // Save previous bottom panel
             prevBottomChildView = bottomChildView
 
             // Animate
-            self.topPanelheight.constant = 0
-            self.view.layoutIfNeeded()
+            topPanelheight.constant = 0
+            view.layoutIfNeeded()
             // Add Panel to Top
-            self.displayPresetsController()
-            self.switchToChildView(self.topChildView!, isTopView: false)
-            self.topChildView = nil
+            displayPresetsController()
+            guard let top = topChildView else { return }
+            switchToChildView(top, isTopView: false)
+            topChildView = nil
 
             // Animate panel
             UIView.animate(withDuration: Double(0.2), animations: {
@@ -39,21 +40,23 @@ extension ParentViewController: HeaderDelegate {
 
             // Show Keyboard
             if keyboardView.isShown {
-                self.keyboardToggle.value = 1.0
-                self.keyboardBottomConstraint.constant = 0
-                self.keyboardToggle.setTitle("Hide", for: .normal)
+                keyboardToggle.value = 1.0
+                keyboardBottomConstraint.constant = 0
+                keyboardToggle.setTitle("Hide", for: .normal)
             }
 
             // Add Panel to Top
-            self.switchToChildView(self.bottomChildView!)
+            guard let bottom = bottomChildView else { return }
+            switchToChildView(bottom)
 
             // Add Panel to bottom
-            self.isPresetsDisplayed = true
-            if self.prevBottomChildView == self.topChildView {
-                self.prevBottomChildView = self.prevBottomChildView?.rightView()
+            isPresetsDisplayed = true
+            if prevBottomChildView == topChildView {
+                prevBottomChildView = prevBottomChildView?.rightView()
             }
-            self.switchToChildView(self.prevBottomChildView!, isTopView: false)
-            self.isPresetsDisplayed = false
+            guard let previousBottom = prevBottomChildView else { return }
+            switchToChildView(previousBottom, isTopView: false)
+            isPresetsDisplayed = false
         }
     }
 
@@ -100,15 +103,15 @@ extension ParentViewController: HeaderDelegate {
 
     func panicPressed() {
         conductor.synth.reset() // kinder, gentler panic
-        //self.conductor.synth.resetDSP() // nuclear panic option
+        // conductor.synth.resetDSP() // nuclear panic option
 
         // Turn off held notes on keybaord
         keyboardView.allNotesOff()
 
-        self.displayAlertController("Midi Panic", message: "All notes have been turned off.")
+        displayAlertController("Midi Panic", message: "All notes have been turned off.")
     }
 
     func aboutPressed() {
-        self.performSegue(withIdentifier: "SegueToAbout", sender: self)
+        performSegue(withIdentifier: "SegueToAbout", sender: self)
     }
 }

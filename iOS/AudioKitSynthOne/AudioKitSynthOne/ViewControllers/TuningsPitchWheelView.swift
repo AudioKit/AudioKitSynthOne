@@ -79,7 +79,7 @@ public class TuningsPitchWheelView: UIView {
         UIColor.black.setStroke()
 
         var mspxy = [CGPoint]()
-        for (_, p) in masterSet.enumerated() {
+        for p in masterSet {
             context.setLineWidth(1)
             let cfp = TuningsPitchWheelView.color(forPitch: p, brightness: 1, alpha: 0.65)
             cfp.setStroke()

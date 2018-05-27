@@ -622,17 +622,17 @@
 			isa = PBXGroup;
 			children = (
 				C4421A7A20B8178F00BE9F12 /* ParentViewController.swift */,
-				C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */,
-				C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */,
-				C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */,
-				C4421A7520B8178F00BE9F12 /* Parent+HeaderDelegate.swift */,
-				C4421A7620B8178F00BE9F12 /* Parent+ModWheelDelegate.swift */,
-				C4421A7720B8178F00BE9F12 /* Parent+MIDIListener.swift */,
-				C4421A7820B8178F00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */,
 				C4421A7920B8178F00BE9F12 /* Parent+Audiobus.swift */,
 				C4421A7B20B8178F00BE9F12 /* Parent+DevPanel.swift */,
-				C4421A7C20B8178F00BE9F12 /* Parent+PushNotification.swift */,
+				C4421A7820B8178F00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */,
+				C4421A7520B8178F00BE9F12 /* Parent+HeaderDelegate.swift */,
+				C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */,
+				C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */,
+				C4421A7720B8178F00BE9F12 /* Parent+MIDIListener.swift */,
 				C4421A7D20B8178F00BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift */,
+				C4421A7620B8178F00BE9F12 /* Parent+ModWheelDelegate.swift */,
+				C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */,
+				C4421A7C20B8178F00BE9F12 /* Parent+PushNotification.swift */,
 			);
 			path = ParentViewController;
 			sourceTree = "<group>";
@@ -641,12 +641,12 @@
 			isa = PBXGroup;
 			children = (
 				C4421A9920B81A7400BE9F12 /* PresetsViewController.swift */,
-				C4421A9A20B81A7400BE9F12 /* Presets+PresetCellDelegate.swift */,
-				C4421A9B20B81A7400BE9F12 /* Presets+CategoryDelegate.swift */,
-				C4421A9C20B81A7400BE9F12 /* Presets+PresetPopOverDelegate.swift */,
-				C4421A9D20B81A7400BE9F12 /* Presets+UITableViewDataSource.swift */,
-				C4421A9E20B81A7400BE9F12 /* Presets+UIDocumentPickerDelegate.swift */,
 				C4421A9F20B81A7400BE9F12 /* Presets+BankPopOverDelegate.swift */,
+				C4421A9B20B81A7400BE9F12 /* Presets+CategoryDelegate.swift */,
+				C4421A9A20B81A7400BE9F12 /* Presets+PresetCellDelegate.swift */,
+				C4421A9C20B81A7400BE9F12 /* Presets+PresetPopOverDelegate.swift */,
+				C4421A9E20B81A7400BE9F12 /* Presets+UIDocumentPickerDelegate.swift */,
+				C4421A9D20B81A7400BE9F12 /* Presets+UITableViewDataSource.swift */,
 				C4421AA020B81A7500BE9F12 /* Presets+UITableViewDelegate.swift */,
 			);
 			path = PresetsViewController;
@@ -811,6 +811,7 @@
 				A02F99CB702A38B4BC2953CB /* [CP] Embed Pods Frameworks */,
 				C474D95D1F13172B00946035 /* Embed App Extensions */,
 				644C15A91DC9FA78C2D72730 /* [CP] Copy Pods Resources */,
+				C4421AA920B81D0500BE9F12 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -957,6 +958,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C4421AA920B81D0500BE9F12 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		DA5686B3398A63EB38340252 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

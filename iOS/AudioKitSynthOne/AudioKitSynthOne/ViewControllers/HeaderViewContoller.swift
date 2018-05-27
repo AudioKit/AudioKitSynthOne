@@ -266,7 +266,8 @@ public class HeaderViewController: UpdatableViewController {
 
         case .frequencyA4:
             displayLabel.text = "Master Frequency at A4: \(s.getSynthParameter(.frequencyA4).decimalString)"
-
+        case .portamentoHalfTime:
+            displayLabel.text = "Portamento Half-time: \(s.getSynthParameter(.portamentoHalfTime).decimalString)"
         default:
             _ = 0
             // do nothing

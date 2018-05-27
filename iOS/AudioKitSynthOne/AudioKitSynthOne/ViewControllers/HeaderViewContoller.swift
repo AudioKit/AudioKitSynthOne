@@ -171,29 +171,29 @@ public class HeaderViewController: UpdatableViewController {
         case .lfo2Amplitude:
             displayLabel.text = "LFO 2 Amp: \(value.percentageString)"
         case .cutoffLFO:
-            displayLabel.text = "Cutoff LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Cutoff LFO ‣ " + lfoValue.debugDescription
         case .resonanceLFO:
-            displayLabel.text = "Resonance LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Resonance LFO ‣ " + lfoValue.debugDescription
         case .oscMixLFO:
-            displayLabel.text = "Osc Mix LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Osc Mix LFO ‣ " + lfoValue.debugDescription
         case .reverbMixLFO:
-            displayLabel.text = "Reverb Mix LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Reverb Mix LFO ‣ " + lfoValue.debugDescription
         case .decayLFO:
-            displayLabel.text = "Decay LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Decay LFO ‣ " + lfoValue.debugDescription
         case .noiseLFO:
-            displayLabel.text = "Noise LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Noise LFO ‣ " + lfoValue.debugDescription
         case .fmLFO:
-            displayLabel.text = "FM LFO ‣ \(lfoValue!)"
+            displayLabel.text = "FM LFO ‣ " + lfoValue.debugDescription
         case .detuneLFO:
-            displayLabel.text = "Detune LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Detune LFO ‣ " + lfoValue.debugDescription
         case .filterEnvLFO:
-            displayLabel.text = "Filter Env LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Filter Env LFO ‣ " + lfoValue.debugDescription
         case .pitchLFO:
-            displayLabel.text = "Pitch LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Pitch LFO ‣ " + lfoValue.debugDescription
         case .bitcrushLFO:
-            displayLabel.text = "Bitcrush LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Bitcrush LFO ‣ " + lfoValue.debugDescription
         case .tremoloLFO:
-            displayLabel.text = "Tremolo LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Tremolo LFO ‣ " + lfoValue.debugDescription
         case .filterType:
             var ftype = "Low Pass"
             if value == 1 {

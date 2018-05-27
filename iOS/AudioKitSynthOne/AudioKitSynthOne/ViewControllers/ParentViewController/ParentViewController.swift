@@ -173,12 +173,10 @@ public class ParentViewController: UpdatableViewController {
         // IAA MIDI
         var callbackStruct = AudioOutputUnitMIDICallbacks(
             userData: nil,
-            MIDIEventProc: {
-                (_, status, data1, data2, _) in
-                AudioKit.midi.sendMessage([MIDIByte(status), MIDIByte(data1), MIDIByte(data2)])},
-            MIDISysExProc: {
-                (_, _, _) in
-                print("Not handling sysex")}
+            MIDIEventProc: { (_, status, data1, data2, _) in
+                AudioKit.midi.sendMessage([MIDIByte(status), MIDIByte(data1), MIDIByte(data2)]) },
+            MIDISysExProc: { (_, _, _) in
+                print("Not handling sysex") }
         )
 
         let connectIAAMDI = AudioUnitSetProperty(AudioKit.engine.outputNode.audioUnit!,
@@ -196,7 +194,7 @@ public class ParentViewController: UpdatableViewController {
     }
 
     public override func viewDidAppear(_ animated: Bool) {
-
+        super.viewDidAppear(animated)
         // Load App Settings
         if Disk.exists("settings.json", in: .documents) {
             loadSettingsFromDevice()

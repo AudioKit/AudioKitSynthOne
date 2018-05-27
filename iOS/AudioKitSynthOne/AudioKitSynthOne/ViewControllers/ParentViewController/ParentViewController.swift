@@ -60,7 +60,7 @@ public class ParentViewController: UpdatableViewController {
     var pcJustTriggered = false
     var midiKnobs = [MIDIKnob]()
     var signedMailingList = false
-
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     // AudioBus
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
     var midiInput: ABMIDIReceiverPort?
@@ -70,52 +70,44 @@ public class ParentViewController: UpdatableViewController {
     // ********************************************************
 
     lazy var adsrViewController: ADSRViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.adsrView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier())
             as! ADSRViewController
     }()
 
     lazy var mixerViewController: MixerViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.oscView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier())
             as! MixerViewController
     }()
 
     lazy var devViewController: DevViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = main.instantiateViewController(withIdentifier: "DevViewController")
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: "DevViewController")
             as! DevViewController
         viewController.delegate = self
         return viewController
     }()
 
     lazy var padViewController: TouchPadViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.padView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.padView.identifier())
             as! TouchPadViewController
     }()
 
     lazy var fxViewController: FXViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.fxView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier())
             as! FXViewController
     }()
 
     lazy var seqViewController: SeqViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.seqView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier())
             as! SeqViewController
     }()
 
     lazy var tuningsViewController: TuningsViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier())
             as! TuningsViewController
     }()
 
     lazy var presetsViewController: PresetsViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: "PresetsViewController")
+        return mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController")
             as! PresetsViewController
     }()
 

@@ -60,7 +60,7 @@ public class ParentViewController: UpdatableViewController {
     var pcJustTriggered = false
     var midiKnobs = [MIDIKnob]()
     var signedMailingList = false
-
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     // AudioBus
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
     var midiInput: ABMIDIReceiverPort?
@@ -70,52 +70,45 @@ public class ParentViewController: UpdatableViewController {
     // ********************************************************
 
     lazy var adsrViewController: ADSRViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.adsrView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier())
             as! ADSRViewController
     }()
 
     lazy var mixerViewController: MixerViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.oscView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier())
             as! MixerViewController
     }()
 
     lazy var devViewController: DevViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = main.instantiateViewController(withIdentifier: "DevViewController")
+        var viewController = mainStoryboard.instantiateViewController(withIdentifier: "DevViewController")
             as! DevViewController
         viewController.delegate = self
         return viewController
     }()
 
     lazy var padViewController: TouchPadViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.padView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.padView.identifier())
             as! TouchPadViewController
     }()
 
     lazy var fxViewController: FXViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.fxView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier())
             as! FXViewController
     }()
 
     lazy var seqViewController: SeqViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.seqView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier())
             as! SeqViewController
     }()
 
     lazy var tuningsViewController: TuningsViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier())
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier())
             as! TuningsViewController
     }()
 
     lazy var presetsViewController: PresetsViewController = {
-        let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
+        return mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController")
+            as! PresetsViewController
     }()
 
     // ********************************************************
@@ -179,7 +172,8 @@ public class ParentViewController: UpdatableViewController {
                 print("Not handling sysex") }
         )
 
-        let connectIAAMDI = AudioUnitSetProperty(AudioKit.engine.outputNode.audioUnit!,
+        guard let outputAudioUnit = AudioKit.engine.outputNode.audioUnit else { return }
+        let connectIAAMDI = AudioUnitSetProperty(outputAudioUnit,
                                                  kAudioOutputUnitProperty_MIDICallbacks,
                                                  kAudioUnitScope_Global,
                                                  0,
@@ -252,17 +246,23 @@ public class ParentViewController: UpdatableViewController {
         appSettings.launches += 1
         saveAppSettingValues()
 
-        // Get MIDI Knobs
-        midiKnobs += mixerViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        midiKnobs += adsrViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        midiKnobs += fxViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        midiKnobs += seqViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        midiKnobs += devViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        midiKnobs += tuningsViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+        appendMIDIKnobs(from: mixerViewController)
+        appendMIDIKnobs(from: adsrViewController)
+        appendMIDIKnobs(from: fxViewController)
+        appendMIDIKnobs(from: seqViewController)
+        appendMIDIKnobs(from: devViewController)
+        appendMIDIKnobs(from: tuningsViewController)
 
         // Set initial preset
         presetsViewController.didSelectPreset(index: 0)
 
+    }
+
+    private func appendMIDIKnobs(from controller: UIViewController) {
+        for view in controller.view.subviews {
+            guard let midiKnob = view as? MIDIKnob else { continue }
+            midiKnobs.append(midiKnob)
+        }
     }
 
     // ********************************************************
@@ -349,7 +349,8 @@ public class ParentViewController: UpdatableViewController {
             case 0:
                 // Cutoff
                 let newValue = 1 - value
-                let scaledValue = newValue.denormalized(to: 40...7_600, taper: -1)
+                let scaledValue = Double.scaleRangeLog(newValue, rangeMin: 40, rangeMax: 7600)
+//                let scaledValue = newValue.denormalized(to: 40...7_600, taper: -1)
                 s.setSynthParameter(.cutoff, scaledValue * 3)
                 self.conductor.updateSingleUI(.cutoff, control: self.modWheelPad, value: s.getSynthParameter(.cutoff))
             case 1:

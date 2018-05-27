@@ -36,7 +36,8 @@ extension ParentViewController: ABAudiobusControllerStateIODelegate {
                 }
 
                 if event.status == AKMIDIStatus.noteOff {
-                    self.sustainer.stop(noteNumber: event.noteNumber!)
+                    guard let noteNumber = event.noteNumber else { return }
+                    self.sustainer.stop(noteNumber: noteNumber)
                 }
 
                 if event.status == AKMIDIStatus.pitchWheel {

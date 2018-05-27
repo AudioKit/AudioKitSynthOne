@@ -104,7 +104,8 @@ class Conductor: AKSynthOneProtocol {
         }
 
         // Display Preset Name again
-        let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as! ParentViewController
+        guard let parentVC = self.viewControllers.first(
+            where: { $0 is ParentViewController }) as? ParentViewController else { return }
         updateDisplayLabel("\(parentVC.activePreset.position): \(parentVC.activePreset.name)")
     }
 

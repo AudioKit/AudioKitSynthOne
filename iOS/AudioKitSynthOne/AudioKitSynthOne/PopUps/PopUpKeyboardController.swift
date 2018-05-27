@@ -36,7 +36,8 @@ class PopUpKeyboardController: UIViewController {
 
     // Set fonts for UISegmentedControls
     override func viewDidLayoutSubviews() {
-        let attr = NSDictionary(object: UIFont(name: "Avenir Next Condensed", size: 15.0)!,
+        guard let font = UIFont(name: "Avenir Next Condensed", size: 15.0) else { return }
+        let attr = NSDictionary(object: font,
                                 forKey: NSAttributedStringKey.font as NSCopying)
         labelModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
         keyboardModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)

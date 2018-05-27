@@ -17,9 +17,9 @@ class SeqViewController: SynthPanelController {
     @IBOutlet weak var arpToggle: ToggleButton!
     @IBOutlet weak var arpInterval: MIDIKnob!
 
-    var arpSeqOctBoostButtons = [SliderTransposeButton]()
-    var arpSeqPatternSliders = [VerticalSlider]()
-    var arpSeqNoteOnButtons = [ArpButton]()
+    var octaveBoostButtons = [SliderTransposeButton]()
+    var sliders = [VerticalSlider]()
+    var noteOnButtons = [ArpButton]()
 
     // *********************************************************
     // MARK: - Lifecycle
@@ -54,14 +54,14 @@ class SeqViewController: SynthPanelController {
                                                           .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14,
                                                           .arpSeqOctBoost15]
 
-        arpSeqOctBoostButtons = self.view.subviews.filter {
+        octaveBoostButtons = self.view.subviews.filter {
                 $0 is SliderTransposeButton
             }.sorted {
                 $0.tag < $1.tag
 
             } as! [SliderTransposeButton]
 
-        for (notePosition, octBoostButton) in arpSeqOctBoostButtons.enumerated() {
+        for (notePosition, octBoostButton) in octaveBoostButtons.enumerated() {
             let arpSeqOctBoostParam = arpSeqOctBoostArray[notePosition]
             conductor.bind(octBoostButton, to: arpSeqOctBoostParam) { _, _ in
                 return { value in
@@ -81,13 +81,9 @@ class SeqViewController: SynthPanelController {
                                                          .arpSeqPattern12, .arpSeqPattern13, .arpSeqPattern14,
                                                          .arpSeqPattern15]
 
-        arpSeqPatternSliders = self.view.subviews.filter {
-                $0 is VerticalSlider
-            }.sorted {
-                $0.tag < $1.tag
-            } as! [VerticalSlider]
+        sliders = self.view.subviews.filter { $0 is VerticalSlider }.sorted { $0.tag < $1.tag } as! [VerticalSlider]
 
-        for (notePosition, arpSeqPatternSlider) in arpSeqPatternSliders.enumerated() {
+        for (notePosition, arpSeqPatternSlider) in sliders.enumerated() {
             let arpSeqPatternParam = arpSeqPatternArray[notePosition]
             conductor.bind(arpSeqPatternSlider, to: arpSeqPatternParam) { _, control in
                 return { value in
@@ -108,9 +104,9 @@ class SeqViewController: SynthPanelController {
                                                         .arpSeqNoteOn12, .arpSeqNoteOn13, .arpSeqNoteOn14,
                                                         .arpSeqNoteOn15]
 
-        arpSeqNoteOnButtons = self.view.subviews.filter { $0 is ArpButton }.sorted { $0.tag < $1.tag } as! [ArpButton]
+        noteOnButtons = self.view.subviews.filter { $0 is ArpButton }.sorted { $0.tag < $1.tag } as! [ArpButton]
 
-        for (notePosition, arpSeqNoteOnButton) in arpSeqNoteOnButtons.enumerated() {
+        for (notePosition, arpSeqNoteOnButton) in noteOnButtons.enumerated() {
             let arpSeqPatternParam = arpSeqNoteOnArray[notePosition]
             conductor.bind(arpSeqNoteOnButton, to: arpSeqPatternParam) { _, control in
                 return { value in
@@ -148,23 +144,23 @@ class SeqViewController: SynthPanelController {
         let seqTotalSteps = Int(conductor.synth.getSynthParameter(.arpTotalSteps))
 
         // clear out all indicators
-        arpSeqOctBoostButtons.forEach { $0.isActive = false }
+        octaveBoostButtons.forEach { $0.isActive = false }
 
         // if a non-trivial sequence is playing
         if arpIsOn && arpIsSequencer && seqTotalSteps > 0 {
             let notePosition = (beatCounter + seqTotalSteps - 1) % seqTotalSteps
             if heldNotes != 0 {
                 // change the outline current notePosition
-                arpSeqOctBoostButtons[notePosition].isActive = true
+                octaveBoostButtons[notePosition].isActive = true
             } else {
                 // on
-                arpSeqOctBoostButtons[0].isActive = true
+                octaveBoostButtons[0].isActive = true
             }
         }
     }
 
     func updateOctBoostButton(notePosition: Int) {
-        let octBoostButton = arpSeqOctBoostButtons[notePosition]
+        let octBoostButton = octaveBoostButtons[notePosition]
         octBoostButton.transposeAmt = conductor.synth.getPattern(forIndex: notePosition)
         octBoostButton.value = conductor.synth.getOctaveBoost(forIndex: notePosition) == true ? 1 : 0
     }

@@ -44,7 +44,7 @@ class PopUpBankEdit: UIViewController {
         }
 
         saveButton.callback = { _ in
-            self.delegate?.didFinishEditing(oldName: self.bankName, newName: self.nameTextField.text!)
+            self.delegate?.didFinishEditing(oldName: self.bankName, newName: self.nameTextField.text ?? "Unnamed")
             self.dismiss(animated: true, completion: nil)
         }
 

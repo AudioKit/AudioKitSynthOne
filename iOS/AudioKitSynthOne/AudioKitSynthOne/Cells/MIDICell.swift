@@ -57,7 +57,7 @@ class MIDICell: UITableViewCell {
         cellLabel.text = "\(midiInput.name)"
         //accessoryType = .checkmark
 
-        if currentInput!.isOpen {
+        if midiInput.isOpen {
             accessoryType = .checkmark
         } else {
             accessoryType = .none

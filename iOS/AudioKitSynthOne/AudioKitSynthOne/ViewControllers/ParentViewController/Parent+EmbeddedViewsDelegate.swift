@@ -55,7 +55,12 @@ extension ParentViewController: EmbeddedViewsDelegate {
         // Update NavButtons
 
         // Get all Child Synth Panels
-        let synthPanels = childViewControllers.filter { $0 is SynthPanelController } as! [SynthPanelController]
+        var synthPanels = [SynthPanelController]()
+        for view in childViewControllers {
+            guard let synthPanel = view as? SynthPanelController else { continue }
+            synthPanels.append(synthPanel)
+        }
+
         // Get current Top and Bottom Panels
         let topPanel = synthPanels.filter { $0.isTopContainer }.last
         let bottomPanel = synthPanels.filter { !$0.isTopContainer }.last

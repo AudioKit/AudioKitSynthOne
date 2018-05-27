@@ -39,7 +39,7 @@ extension ParentViewController {
             s.setSynthParameter(.reverbHighPass, activePreset.reverbHighPass)
             s.setSynthParameter(.reverbMix, activePreset.reverbMix)
         }
-        s.setSynthParameter(.tempoSyncToArpRate,  activePreset.tempoSyncToArpRate)
+        s.setSynthParameter(.tempoSyncToArpRate, activePreset.tempoSyncToArpRate)
         s.setSynthParameter(.lfo1Rate, activePreset.lfoRate)
         s.setSynthParameter(.lfo2Rate, activePreset.lfo2Rate)
         s.setSynthParameter(.delayTime, activePreset.delayTime)

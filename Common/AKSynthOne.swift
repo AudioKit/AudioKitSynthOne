@@ -12,9 +12,9 @@ import AudioKit
 
 ///AKSynthOne
 @objc open class AKSynthOne: AKPolyphonicNode, AKComponent {
-    
+
     public typealias AKAudioUnitType = AKSynthOneAudioUnit
-    
+
     /// Four letter unique description of the node
     public static let ComponentDescription = AudioComponentDescription(instrument: "aks1")
 
@@ -25,21 +25,21 @@ import AudioKit
 
     fileprivate var waveformArray = [AKTable]()
     fileprivate var auParameters: [AUParameter] = []
-    
+
     ///Hard-reset of DSP...for PANIC
     open func resetDSP() {
         internalAU?.resetDSP()
     }
-    
+
     open func resetSequencer() {
         internalAU?.resetSequencer()
     }
-    
+
     ///Puts all playing notes into release mode.
     open func stopAllNotes() {
         internalAU?.stopAllNotes()
     }
-    
+
     /// "parameter[i]" syntax is inefficient...use getter/setters below
     open var parameters: [Double] {
         get {
@@ -54,7 +54,7 @@ import AudioKit
         }
         set {
             internalAU?.parameters = newValue
-            
+
             if internalAU?.isSetUp() ?? false {
                 if let existingToken = token {
                     for (index, parameter) in auParameters.enumerated() {
@@ -70,74 +70,73 @@ import AudioKit
     }
 
     ///These getter/setters are more efficient than using "parameter[i]"
-    open func setAK1Parameter(_ inAKSynthOneParameterEnum : AKSynthOneParameter, _ value : Double) {
-        let aks1p : Int32 = Int32(inAKSynthOneParameterEnum.rawValue)
+    open func setAK1Parameter(_ inAKSynthOneParameterEnum: AKSynthOneParameter, _ value: Double) {
+        let aks1p: Int32 = Int32(inAKSynthOneParameterEnum.rawValue)
         let f = Float(value)
         internalAU?.setAK1Parameter(aks1p, value: f)
     }
-    open func getAK1Parameter(_ inAKSynthOneParameterEnum : AKSynthOneParameter) -> Double {
-        let aks1p : Int32 = Int32(inAKSynthOneParameterEnum.rawValue)
+    open func getAK1Parameter(_ inAKSynthOneParameterEnum: AKSynthOneParameter) -> Double {
+        let aks1p: Int32 = Int32(inAKSynthOneParameterEnum.rawValue)
         return Double(internalAU?.getAK1Parameter(aks1p) ?? 0)
     }
 
-    open var filterCutoffMin : Double {
+    open var filterCutoffMin: Double {
         get {
             return Double( internalAU?.filterCutoffMin() ?? 0.001)
         }
     }
-    open var filterCutoffMax : Double {
+    open var filterCutoffMax: Double {
         get {
             return Double( internalAU?.filterCutoffMax() ?? 44100/2)
         }
     }
-    open var filterResonanceMin : Double {
+    open var filterResonanceMin: Double {
         get {
             return Double( internalAU?.filterResonanceMin() ?? 0)
         }
     }
-    open var filterResonanceMax : Double {
+    open var filterResonanceMax: Double {
         get {
             return Double( internalAU?.filterResonanceMax() ?? 1)
         }
     }
 
-    open func getAK1ArpSeqPattern(forIndex inputIndex : Int) -> Int {
+    open func getAK1ArpSeqPattern(forIndex inputIndex: Int) -> Int {
         let index = (0...15).clamp(inputIndex)
         let aspi = AKSynthOneParameter.arpSeqPattern00.rawValue + index
         let aspp = AKSynthOneParameter(rawValue: aspi)!
         return Int( getAK1Parameter(aspp) )
     }
-    open func setAK1ArpSeqPattern(forIndex inputIndex : Int, _ value: Int) {
+    open func setAK1ArpSeqPattern(forIndex inputIndex: Int, _ value: Int) {
         let index = (0...15).clamp(inputIndex)
         let aspi = Int32(AKSynthOneParameter.arpSeqPattern00.rawValue + index)
         internalAU?.setAK1Parameter(aspi, value: Float(value) )
     }
 
-    open func getAK1SeqOctBoost(forIndex inputIndex : Int) -> Bool {
+    open func getAK1SeqOctBoost(forIndex inputIndex: Int) -> Bool {
         let index = (0...15).clamp(inputIndex)
         let asni = AKSynthOneParameter.arpSeqOctBoost00.rawValue + index
         let asnp = AKSynthOneParameter(rawValue: asni)!
         return ( getAK1Parameter(asnp) > 0 ) ? true : false
     }
-    open func setAK1SeqOctBoost(forIndex inputIndex : Int, _ value: Bool) {
+    open func setAK1SeqOctBoost(forIndex inputIndex: Int, _ value: Bool) {
         let index = (0...15).clamp(inputIndex)
         let aspi = Int32(AKSynthOneParameter.arpSeqOctBoost00.rawValue + index)
         internalAU?.setAK1Parameter(aspi, value: Float(value == true ? 1 : 0) )
     }
 
-    open func getAK1ArpSeqNoteOn(forIndex inputIndex : Int) -> Bool {
+    open func getAK1ArpSeqNoteOn(forIndex inputIndex: Int) -> Bool {
         let index = (0...15).clamp(inputIndex)
         let asoi = AKSynthOneParameter.arpSeqNoteOn00.rawValue + index
         let asop = AKSynthOneParameter(rawValue: asoi)!
         return ( getAK1Parameter(asop) > 0 ) ? true : false
     }
-    open func setAK1ArpSeqNoteOn(forIndex inputIndex : Int, _ value: Bool) {
+    open func setAK1ArpSeqNoteOn(forIndex inputIndex: Int, _ value: Bool) {
         let index = (0...15).clamp(inputIndex)
         let aspi = Int32(AKSynthOneParameter.arpSeqNoteOn00.rawValue + index)
         internalAU?.setAK1Parameter(aspi, value: Float(value == true ? 1 : 0) )
     }
 
-    
     /// Ramp Time represents the speed at which parameters are allowed to change
     @objc open dynamic var rampTime: Double = 0.0 {
         willSet {
@@ -146,7 +145,7 @@ import AudioKit
     }
 
     // MARK: - Initialization
-    
+
     /// Initialize the synth with defaults
     public convenience override init() {
         let squareWithHighPWM = AKTable()
@@ -167,7 +166,7 @@ import AudioKit
     ///   - waveformArray:      An array of 4 waveforms
     ///
     public init(waveformArray: [AKTable]) {
-        
+
         self.waveformArray = waveformArray
         _Self.register()
 
@@ -177,7 +176,7 @@ import AudioKit
             self?.avAudioNode = avAudioUnit
             self?.midiInstrument = avAudioUnit as? AVAudioUnitMIDIInstrument
             self?.internalAU = avAudioUnit.auAudioUnit as? AKAudioUnitType
-            
+
             for (i, waveform) in waveformArray.enumerated() {
                 self?.internalAU?.setupWaveform(UInt32(i), size: Int32(UInt32(waveform.count)))
                 for (j, sample) in waveform.enumerated() {

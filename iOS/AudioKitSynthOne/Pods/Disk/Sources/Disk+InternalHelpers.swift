@@ -126,7 +126,7 @@ extension Disk {
             .components(separatedBy: invalidCharacters)
             .joined(separator: "")
         let validFileName = removeSlashesAtBeginning(of: pathWithoutIllegalCharacters)
-        guard validFileName.count > 0  && validFileName != "." else {
+        guard validFileName.count > 0 && validFileName != "." else {
             throw createError(
                 .invalidFileName,
                 description: "\(originalString) is an invalid file name.",

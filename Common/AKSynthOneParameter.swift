@@ -254,15 +254,15 @@ public enum AKSynthOneParameter: Int {
         case .phaserNotchWidth: return "phaserNotchWidth"
         }
     }
-    
+
     public static func desc(forRawValue _rawValue: Int) -> String {
-        var retVal : String = ""
+        var retVal: String = ""
         if let sd = AKSynthOneParameter(rawValue: _rawValue)?.simpleDescription() {
             retVal = sd
         }
         return retVal
     }
-    
+
     ///return count of elements in enum
     public static let count: Int = {
         var max: Int = 0
@@ -270,4 +270,3 @@ public enum AKSynthOneParameter: Int {
         return max
     }()
 }
-

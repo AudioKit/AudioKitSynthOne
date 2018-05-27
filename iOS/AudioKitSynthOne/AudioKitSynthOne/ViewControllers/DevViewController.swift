@@ -53,7 +53,7 @@ class DevViewController: UpdatableViewController {
 
     @IBOutlet weak var dspParamPortamentoHalfTime: Knob!
     var dspParamPortamentoHalfTimeValue = 0.1
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -104,26 +104,26 @@ class DevViewController: UpdatableViewController {
         delayInputFilterCutoffFreqTrackingRatio.range = s.getRange(.delayInputCutoffTrackingRatio)
         delayInputFilterResonance.range = s.getRange(.delayInputResonance)
         conductor.bind(delayInputFilterCutoffFreqTrackingRatio, to: .delayInputCutoffTrackingRatio)
-        conductor.bind(delayInputFilterResonance,               to: .delayInputResonance)
-        
+        conductor.bind(delayInputFilterResonance, to: .delayInputResonance)
+
         // freeze arp rate, i.e., ignore Preset updates
         freezeArpRate.value = freezeArpRateValue ? 1 : 0
         freezeArpRate.callback = { value in
             self.delegate?.freezeArpRateChanged(value == 1 ? true : false)
         }
-        
+
         // freeze delay time, i.e., ignore Preset updates
         freezeDelay.value = freezeDelayValue ? 1 : 0
         freezeDelay.callback = { value in
             self.delegate?.freezeDelayChanged(value == 1 ? true : false)
         }
-        
+
         // freeze reverb, i.e., ignore Preset updates
         freezeReverb.value = freezeReverbValue ? 1 : 0
         freezeReverb.callback = { value in
             self.delegate?.freezeReverbChanged(value == 1 ? true : false)
         }
-        
+
         //dspParamPortamentoHalfTime (dsp param stored in app settings not presets)
         dspParamPortamentoHalfTime.range = conductor.synth!.getRange(.dspParamPortamentoHalfTime)
         dspParamPortamentoHalfTime.value = dspParamPortamentoHalfTimeValue

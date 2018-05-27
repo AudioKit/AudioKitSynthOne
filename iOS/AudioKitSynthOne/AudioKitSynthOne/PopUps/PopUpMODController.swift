@@ -40,6 +40,7 @@ class PopUpMODController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         guard let s = Conductor.sharedInstance.synth else { return }
         pitchUpperRange.value = s.getSynthParameter(.pitchbendMaxSemitones)
         pitchLowerRange.value = s.getSynthParameter(.pitchbendMinSemitones)

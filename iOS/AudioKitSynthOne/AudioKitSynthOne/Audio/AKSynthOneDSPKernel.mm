@@ -911,7 +911,7 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
         }
         p[i] = value;
     }
-    updateDSPPortamento(p[dspParamPortamentoHalfTime]);
+    updateDSPPortamento(p[portamentoHalfTime]);
     
     _lfo1Rate = {AKSynthOneParameter::lfo1Rate, getDependentParameter(lfo1Rate), getSynthParameter(lfo1Rate),0};
     _lfo2Rate = {AKSynthOneParameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};
@@ -973,7 +973,7 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
 }
 
 void AKSynthOneDSPKernel::updateDSPPortamento(float halfTime) {
-    const float ht = parameterClamp(dspParamPortamentoHalfTime, halfTime);
+    const float ht = parameterClamp(portamentoHalfTime, halfTime);
     for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
         if (aks1p[i].usePortamento) {
             aks1p[i].portamento->htime = ht;
@@ -1262,9 +1262,9 @@ inline void AKSynthOneDSPKernel::_setSynthParameterHelper(AKSynthOneParameter pa
             _setSynthParameter(param, truncf(inputValue));
             const float mca = getParameter(param); // must use getter value
             AKPolyphonicNode.tuningTable.middleCFrequency = mca * exp2((60.f - 69.f)/12.f);
-        } else if (param == dspParamPortamentoHalfTime) {
+        } else if (param == portamentoHalfTime) {
             _setSynthParameter(param, inputValue);
-            const float actualValue = getParameter(dspParamPortamentoHalfTime);
+            const float actualValue = getParameter(portamentoHalfTime);
             updateDSPPortamento(actualValue);
         } else {
             // all remaining independent params

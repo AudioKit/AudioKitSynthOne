@@ -30,7 +30,7 @@ extension ParentViewController: DevPanelDelegate {
         appSettings.freezeDelay = value
     }
 
-    func dspParamPortamentoHalfTimeChanged(_ value: Double) {
-        appSettings.dspParamPortamentoHalfTime = value
+    func portamentoChanged(_ value: Double) {
+        appSettings.portamentoHalfTime = value
     }
 }

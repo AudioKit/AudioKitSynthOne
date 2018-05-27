@@ -155,7 +155,7 @@ typedef AK_ENUM(AKSynthOneParameter) {
     pitchbendMinSemitones = 141,
     pitchbendMaxSemitones = 142,
     frequencyA4 = 143,
-    dspParamPortamentoHalfTime = 144,
+    portamentoHalfTime = 144,
     
     AKSynthOneParameterCount = 145
 } AKSynthOneParameter;

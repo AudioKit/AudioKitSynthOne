@@ -13,7 +13,7 @@ protocol DevPanelDelegate {
     func freezeArpRateChanged(_ value: Bool)
     func freezeReverbChanged(_ value: Bool)
     func freezeDelayChanged(_ value: Bool)
-    func dspParamPortamentoHalfTimeChanged(_ value: Double)
+    func portamentoChanged(_ value: Double)
 }
 
 class DevViewController: UpdatableViewController {
@@ -51,8 +51,8 @@ class DevViewController: UpdatableViewController {
     @IBOutlet weak var freezeDelay: ToggleButton!
     var freezeDelayValue = false
 
-    @IBOutlet weak var dspParamPortamentoHalfTime: Knob!
-    var dspParamPortamentoHalfTimeValue = 0.1
+    @IBOutlet weak var portamento: Knob!
+    var portamentoHalfTime = 0.1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,11 +124,12 @@ class DevViewController: UpdatableViewController {
             self.delegate?.freezeReverbChanged(value == 1 ? true : false)
         }
 
-        //dspParamPortamentoHalfTime (dsp param stored in app settings not presets)
-        dspParamPortamentoHalfTime.range = conductor.synth!.getRange(.dspParamPortamentoHalfTime)
-        dspParamPortamentoHalfTime.value = dspParamPortamentoHalfTimeValue
-        dspParamPortamentoHalfTime.callback = { value in
-            self.delegate?.dspParamPortamentoHalfTimeChanged(value)
+        // portamentoHalfTime (dsp param stored in app settings not presets)
+        guard let synth = conductor.synth else { return }
+        portamento.range = synth.getRange(.portamentoHalfTime)
+        portamento.value = portamentoHalfTime
+        portamento.callback = { value in
+            self.delegate?.portamentoChanged(value)
         }
     }
 }

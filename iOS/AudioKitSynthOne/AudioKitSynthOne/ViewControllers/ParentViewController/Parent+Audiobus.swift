@@ -19,9 +19,9 @@ extension ParentViewController: ABAudiobusControllerStateIODelegate {
                 guard let channel = event.channel, event.channel == self.midiChannelIn || self.omniMode else { return }
 
                 if event.status == AKMIDIStatus.noteOn {
+                    guard let noteNumber = event.noteNumber else { return }
                     if event.internalData[2] == 0 {
-                        self.sustainer.stop(noteNumber: event.noteNumber!)
-
+                        self.sustainer.stop(noteNumber: noteNumber)
                     } else {
                         // Prevent multiple triggers from multiple MIDI inputs
 //                        guard !self.notesJustTriggered.contains(event.noteNumber!) else { return }
@@ -31,7 +31,7 @@ extension ParentViewController: ABAudiobusControllerStateIODelegate {
 //                            self.notesJustTriggered.remove(event.noteNumber!)
 //                        }
 
-                        self.sustainer.play(noteNumber: event.noteNumber!, velocity: event.internalData[2])
+                        self.sustainer.play(noteNumber: noteNumber, velocity: event.internalData[2])
                     }
                 }
 

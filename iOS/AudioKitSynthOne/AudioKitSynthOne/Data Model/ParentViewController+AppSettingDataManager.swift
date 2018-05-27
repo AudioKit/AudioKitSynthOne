@@ -29,8 +29,8 @@ extension ParentViewController {
         devViewController.freezeReverb.value = (appSettings.freezeReverb == true ? 1 : 0)
 
         // dsp param stored in app settings
-        conductor.synth.setSynthParameter(.dspParamPortamentoHalfTime, appSettings.dspParamPortamentoHalfTime)
-        devViewController.dspParamPortamentoHalfTime.value = conductor.synth.getSynthParameter(.dspParamPortamentoHalfTime)
+        conductor.synth.setSynthParameter(.portamentoHalfTime, appSettings.portamentoHalfTime)
+        devViewController.portamento.value = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
         // MIDI Learn
         mixerViewController.masterVolume.midiCC = MIDIByte(appSettings.masterVolumeCC)
@@ -96,7 +96,7 @@ extension ParentViewController {
         appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)
 
         //
-        appSettings.dspParamPortamentoHalfTime = conductor.synth.getSynthParameter(.dspParamPortamentoHalfTime)
+        appSettings.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
         // MIDI Learn
         appSettings.masterVolumeCC = Int(mixerViewController.masterVolume.midiCC)

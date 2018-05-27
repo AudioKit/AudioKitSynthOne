@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  MixerViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by Aurelius Prochazka on 7/23/17.
@@ -10,7 +10,7 @@ import AudioKit
 import AudioKitUI
 import UIKit
 
-class SourceMixerViewController: SynthPanelController {
+class MixerViewController: SynthPanelController {
 
     @IBOutlet weak var morph1Selector: MorphSelector!
     @IBOutlet weak var morph2Selector: MorphSelector!
@@ -121,7 +121,7 @@ class SourceMixerViewController: SynthPanelController {
 
         // Add Tap Gesture Recognizer to AudioPlot
         let audioPlotTap = UITapGestureRecognizer(target: self,
-                                                  action: #selector(SourceMixerViewController.audioPlotToggled))
+                                                  action: #selector(MixerViewController.audioPlotToggled))
         audioPlot.addGestureRecognizer(audioPlotTap)
     }
 

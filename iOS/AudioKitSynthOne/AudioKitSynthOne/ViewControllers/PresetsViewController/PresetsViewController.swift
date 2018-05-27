@@ -403,7 +403,8 @@ class PresetsViewController: UIViewController {
             currentPreset = presetBank[currentPreset.position + -1 ]
 
         } else {
-            currentPreset = presetBank.last!
+            guard let lastPreset = presetBank.last else { return }
+            currentPreset = lastPreset
         }
 
         selectCurrentPreset()

@@ -64,7 +64,7 @@ class TouchPadViewController: SynthPanelController {
 
     func setupCallbacks() {
         let c = conductor
-        let s = c.synth!
+        guard let s = c.synth else { return }
 
         touchPad1.callback = { horizontal, vertical, touchesBegan in
             self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width / 2),

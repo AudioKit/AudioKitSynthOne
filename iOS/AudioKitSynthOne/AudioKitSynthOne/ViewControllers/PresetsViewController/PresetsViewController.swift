@@ -99,6 +99,7 @@ class PresetsViewController: UIViewController {
     }
 
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         try? Disk.remove("temp", from: .caches)
     }
 
@@ -413,8 +414,8 @@ class PresetsViewController: UIViewController {
         deselectCurrentRow()
 
         // Get current Bank
-        let currentBank = conductor.banks.first(where: { $0.position == bankIndex })
-        let presetsInBank = presets.filter { $0.bank == currentBank!.name }.sorted { $0.position < $1.position }
+        guard let currentBank = conductor.banks.first(where: { $0.position == bankIndex }) else { return }
+        let presetsInBank = presets.filter { $0.bank == currentBank.name }.sorted { $0.position < $1.position }
 
         // Smoothly cycle through presets if MIDI input is greater than preset count
         let currentPresetIndex = index % (presetsInBank.count)

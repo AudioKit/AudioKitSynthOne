@@ -31,7 +31,7 @@ class Conductor: AKSynthOneProtocol {
     let lfo1RateModWheelID: Int32 = 6
     let lfo2RateModWheelID: Int32 = 7
     let pitchbendParentVCID: Int32 = 8
-    
+
     public var viewControllers: Set<UpdatableViewController> = []
     fileprivate var started = false
 
@@ -71,7 +71,7 @@ class Conductor: AKSynthOneProtocol {
         // for every binding of type param
         for binding in bindings where param == binding.0 {
             let control = binding.1
-            
+
             // don't update the control if it is the one performing the callback because it has already been updated
             if let inputControl = inputControl {
                 if control !== inputControl {

@@ -44,7 +44,7 @@ enum PresetCategory: Int {
     }
 }
 
-protocol CategoryDelegate {
+protocol CategoryDelegate: AnyObject {
     func categoryDidChange(_ newCategoryIndex: Int)
     func bankShare()
     func bankEdit()
@@ -57,7 +57,7 @@ protocol CategoryDelegate {
 class PresetsCategoriesController: UIViewController {
 
     @IBOutlet weak var categoryTableView: UITableView!
-    var categoryDelegate: CategoryDelegate?
+    weak var categoryDelegate: CategoryDelegate?
 
     var choices: [Int: String] = [:] {
         didSet {
@@ -78,7 +78,8 @@ class PresetsCategoriesController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        guard let presetsControler = parent! as? PresetsViewController else { return }
+        super.viewDidAppear(animated)
+        guard let presetsControler = parent as? PresetsViewController else { return }
         categoryDelegate = presetsControler
 
     }

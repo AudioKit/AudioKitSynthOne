@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol ModWheelDelegate {
+protocol ModWheelDelegate: AnyObject {
     func didSelectRouting(newDestination: Int)
 }
 
 class PopUpMODController: UIViewController {
 
     @IBOutlet weak var modWheelSegment: UISegmentedControl!
-    var delegate: ModWheelDelegate?
+    weak var delegate: ModWheelDelegate?
     var modWheelDestination = 0
     @IBOutlet weak var pitchUpperRange: Stepper!
     @IBOutlet weak var pitchLowerRange: Stepper!

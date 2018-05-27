@@ -15,7 +15,7 @@ class SynthPanelController: UpdatableViewController {
     @IBOutlet weak var nav1Button: NavButton!
     @IBOutlet weak var nav2Button: NavButton!
 
-    var navDelegate: EmbeddedViewsDelegate?
+    weak var navDelegate: EmbeddedViewsDelegate?
 //    var bottomNavDelegate: BottomEmbeddedViewsDelegate?
     var isTopContainer: Bool = true
 

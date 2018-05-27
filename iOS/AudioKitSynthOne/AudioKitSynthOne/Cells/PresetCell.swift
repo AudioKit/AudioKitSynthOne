@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PresetCellDelegate {
+protocol PresetCellDelegate: AnyObject {
     func editPressed()
     func duplicatePressed()
     func sharePressed()
@@ -27,7 +27,7 @@ class PresetCell: UITableViewCell {
     @IBOutlet weak var duplicateButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
 
-    var delegate: PresetCellDelegate?
+    weak var delegate: PresetCellDelegate?
     var currentPreset: Preset?
     let conductor = Conductor.sharedInstance
 

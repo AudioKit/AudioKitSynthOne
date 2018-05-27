@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol KeyboardPopOverDelegate {
+protocol KeyboardPopOverDelegate: AnyObject {
     func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool)
 }
 
@@ -18,7 +18,7 @@ class PopUpKeyboardController: UIViewController {
     @IBOutlet weak var labelModeSegment: UISegmentedControl!
     @IBOutlet weak var keyboardModeSegment: UISegmentedControl!
 
-    var delegate: KeyboardPopOverDelegate?
+    weak var delegate: KeyboardPopOverDelegate?
 
     var labelMode: Int = 1
     var octaveRange: Int = 2

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BankPopOverDelegate {
+protocol BankPopOverDelegate: AnyObject {
     func didFinishEditing(oldName: String, newName: String)
     func didDeleteBank(bankName: String)
 }
@@ -21,7 +21,7 @@ class PopUpBankEdit: UIViewController {
     @IBOutlet weak var saveButton: SynthUIButton!
     @IBOutlet weak var deleteButton: SynthUIButton!
 
-    var delegate: BankPopOverDelegate?
+    weak var delegate: BankPopOverDelegate?
 
     var bankName = "bank name"
 

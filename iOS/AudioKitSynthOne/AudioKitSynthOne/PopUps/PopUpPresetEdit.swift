@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PresetPopOverDelegate {
+protocol PresetPopOverDelegate: AnyObject {
     func didFinishEditing(name: String, category: Int, newBank: String)
 }
 
@@ -20,7 +20,7 @@ class PopUpPresetEdit: UIViewController {
     @IBOutlet weak var saveButton: SynthUIButton!
     @IBOutlet weak var cancelButton: SynthUIButton!
 
-    var delegate: PresetPopOverDelegate?
+    weak var delegate: PresetPopOverDelegate?
 
     var preset = Preset()
     var categories = ["none", "arp/seq", "poly", "pad", "lead", "bass", "pluck"]
@@ -59,6 +59,8 @@ class PopUpPresetEdit: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
         categoryTableView.reloadData()
 
         // Populate Preset current values

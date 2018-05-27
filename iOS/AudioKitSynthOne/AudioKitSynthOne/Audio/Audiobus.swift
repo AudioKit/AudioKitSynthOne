@@ -142,7 +142,7 @@ class Audiobus {
             self.updateConnections()
         }
 
-        try! audioUnit.add(listener: audioUnitPropertyListener, toProperty: kAudioUnitProperty_IsInterAppConnected)
+        try? audioUnit.add(listener: audioUnitPropertyListener, toProperty: kAudioUnitProperty_IsInterAppConnected)
     }
 
     private func stopObservingInterAppAudioConnections() {

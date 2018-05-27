@@ -338,8 +338,10 @@ public class HeaderViewController: UpdatableViewController {
 
         var url: CFURL = CFURLCreateWithString(nil, "" as CFString?, nil)
         var size = UInt32(MemoryLayout<CFURL>.size)
+
+        guard let outputAudioUnit = AudioKit.engine.outputNode.audioUnit else { return }
         let result = AudioUnitGetProperty(
-            AudioKit.engine.outputNode.audioUnit!,
+            outputAudioUnit,
             AudioUnitPropertyID(kAudioUnitProperty_PeerURL),
             AudioUnitScope(kAudioUnitScope_Global),
             0,

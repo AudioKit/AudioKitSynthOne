@@ -115,7 +115,8 @@ public class ParentViewController: UpdatableViewController {
 
     lazy var presetsViewController: PresetsViewController = {
         let main = UIStoryboard(name: "Main", bundle: Bundle.main)
-        return main.instantiateViewController(withIdentifier: "PresetsViewController") as! PresetsViewController
+        return main.instantiateViewController(withIdentifier: "PresetsViewController")
+            as! PresetsViewController
     }()
 
     // ********************************************************
@@ -179,7 +180,8 @@ public class ParentViewController: UpdatableViewController {
                 print("Not handling sysex") }
         )
 
-        let connectIAAMDI = AudioUnitSetProperty(AudioKit.engine.outputNode.audioUnit!,
+        guard let outputAudioUnit = AudioKit.engine.outputNode.audioUnit else { return }
+        let connectIAAMDI = AudioUnitSetProperty(outputAudioUnit,
                                                  kAudioOutputUnitProperty_MIDICallbacks,
                                                  kAudioUnitScope_Global,
                                                  0,
@@ -252,17 +254,23 @@ public class ParentViewController: UpdatableViewController {
         appSettings.launches += 1
         saveAppSettingValues()
 
-        // Get MIDI Knobs
-        midiKnobs += mixerViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        midiKnobs += adsrViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        midiKnobs += fxViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        midiKnobs += seqViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        midiKnobs += devViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
-        midiKnobs += tuningsViewController.view.subviews.filter { $0 is MIDIKnob } as! [MIDIKnob]
+        appendMIDIKnobs(from: mixerViewController)
+        appendMIDIKnobs(from: adsrViewController)
+        appendMIDIKnobs(from: fxViewController)
+        appendMIDIKnobs(from: seqViewController)
+        appendMIDIKnobs(from: devViewController)
+        appendMIDIKnobs(from: tuningsViewController)
 
         // Set initial preset
         presetsViewController.didSelectPreset(index: 0)
 
+    }
+
+    private func appendMIDIKnobs(from controller: UIViewController) {
+        for view in controller.view.subviews {
+            guard let midiKnob = view as? MIDIKnob else { continue }
+            midiKnobs.append(midiKnob)
+        }
     }
 
     // ********************************************************

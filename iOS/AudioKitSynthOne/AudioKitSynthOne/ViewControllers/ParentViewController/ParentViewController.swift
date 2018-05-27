@@ -75,10 +75,10 @@ public class ParentViewController: UpdatableViewController {
             as! ADSRViewController
     }()
 
-    lazy var mixerViewController: SourceMixerViewController = {
+    lazy var mixerViewController: MixerViewController = {
         let main = UIStoryboard(name: "Main", bundle: Bundle.main)
         return main.instantiateViewController(withIdentifier: ChildView.oscView.identifier())
-            as! SourceMixerViewController
+            as! MixerViewController
     }()
 
     lazy var devViewController: DevViewController = {
@@ -330,7 +330,8 @@ public class ParentViewController: UpdatableViewController {
                 if self.bottomChildView == self.topChildView {
                     self.bottomChildView = self.bottomChildView?.rightView()
                 }
-                self.switchToChildView(self.bottomChildView!, isTopView: false)
+                guard let bottom = self.bottomChildView else { return }
+                self.switchToChildView(bottom, isTopView: false)
             }
 
             // Animate Keyboard

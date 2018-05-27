@@ -20,14 +20,14 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
             printDebug("audio unit is nil")
             return
         }
-        if let param = au.parameterTree?.parameter(withAddress: AUParameterAddress(p.rawValue))! {
-            let min = param.minValue
-            let max = param.maxValue
-            let value = min + (max - min) * v
-            param.value = value
-            au.setAK1Parameter(p, value: value)
-            printDebug("slider: parameter:\(p.rawValue), value:\(value)")
-        }
+        guard let param = au.parameterTree?.parameter(withAddress: AUParameterAddress(p.rawValue)) else { return }
+        let min = param.minValue
+        let max = param.maxValue
+        let value = min + (max - min) * v
+        param.value = value
+        au.setAK1Parameter(p, value: value)
+        printDebug("slider: parameter:\(p.rawValue), value:\(value)")
+
     }
 
     @IBOutlet weak var debugLabel: UILabel!

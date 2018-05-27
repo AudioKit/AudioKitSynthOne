@@ -80,7 +80,7 @@ class PopUpPresetEdit: UIViewController {
         }
 
         saveButton.callback = { _ in
-            self.delegate?.didFinishEditing(name: self.nameTextField.text!,
+            self.delegate?.didFinishEditing(name: self.nameTextField.text ?? "Unnamed",
                                             category: self.categoryIndex,
                                             newBank: self.bankSelected)
             self.dismiss(animated: true, completion: nil)
@@ -157,19 +157,23 @@ extension PopUpPresetEdit: UIPickerViewDataSource {
         return pickerBankNames[row]
     }
 
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int,
+    func pickerView(_ pickerView: UIPickerView,
+                    viewForRow row: Int,
                     forComponent component: Int,
                     reusing view: UIView?) -> UIView {
-        var pickerLabel: UILabel? = (view as? UILabel)
-        if pickerLabel == nil {
-            pickerLabel = UILabel()
-            pickerLabel?.font = UIFont(name: "Avenir Next Condensed", size: 18)
-            pickerLabel?.textAlignment = .center
-        }
-        pickerLabel?.text = pickerBankNames[row]
-        pickerLabel?.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
 
-        return pickerLabel!
+        guard let pickerLabel = view as? UILabel else {
+            let newLabel = UILabel()
+            newLabel.font = UIFont(name: "Avenir Next Condensed", size: 18)
+            newLabel.textAlignment = .center
+            newLabel.text = pickerBankNames[row]
+            newLabel.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
+            return newLabel
+        }
+        pickerLabel.text = pickerBankNames[row]
+        pickerLabel.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
+
+        return pickerLabel
     }
 }
 

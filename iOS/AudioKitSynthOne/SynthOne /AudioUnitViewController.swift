@@ -32,7 +32,7 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
 
     @IBOutlet weak var debugLabel: UILabel!
 
-    @objc open var delegate: AKSynthOneProtocol?
+    @objc open weak var delegate: AKSynthOneProtocol?
 
     public func printDebug(_ text: String) {
         debugLabel.text = text

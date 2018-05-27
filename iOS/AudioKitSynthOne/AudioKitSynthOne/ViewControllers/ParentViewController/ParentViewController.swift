@@ -10,11 +10,11 @@ import AudioKit
 import UIKit
 import Disk
 
-protocol EmbeddedViewsDelegate {
+protocol EmbeddedViewsDelegate: AnyObject {
     func switchToChildView(_ newView: ChildView, isTopView: Bool)
 }
 
-protocol BottomEmbeddedViewsDelegate {
+protocol BottomEmbeddedViewsDelegate: AnyObject {
     func switchToBottomChildView(_ newView: ChildView)
 }
 
@@ -39,7 +39,7 @@ public class ParentViewController: UpdatableViewController {
     @IBOutlet weak var pitchbend: AKVerticalPad!
     @IBOutlet weak var modWheelPad: AKVerticalPad!
 
-    var embeddedViewsDelegate: EmbeddedViewsDelegate?
+    weak var embeddedViewsDelegate: EmbeddedViewsDelegate?
 
     var topChildView: ChildView?
     var bottomChildView: ChildView?

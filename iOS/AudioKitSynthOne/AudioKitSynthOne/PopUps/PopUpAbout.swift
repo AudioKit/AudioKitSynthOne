@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-protocol AboutDelegate {
+protocol AboutDelegate: AnyObject {
     func showDevPanel()
 }
 
@@ -17,7 +17,7 @@ class PopUpAbout: UIViewController {
 
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var textContainer: UIView!
-    var delegate: AboutDelegate?
+    weak var delegate: AboutDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

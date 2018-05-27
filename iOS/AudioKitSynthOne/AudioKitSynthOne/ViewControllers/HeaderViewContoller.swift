@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol HeaderDelegate {
+protocol HeaderDelegate: AnyObject {
     func displayLabelTapped()
     func homePressed()
     func prevPresetPressed()
@@ -40,8 +40,8 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var morePresetsButton: PresetUIButton!
     @IBOutlet weak var webButton: PresetUIButton!
 
-    var delegate: EmbeddedViewsDelegate?
-    var headerDelegate: HeaderDelegate?
+    weak var delegate: EmbeddedViewsDelegate?
+    weak var headerDelegate: HeaderDelegate?
     var activePreset = Preset()
 
     func ADSRString(_ a: AKSynthOneParameter,

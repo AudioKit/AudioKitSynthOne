@@ -205,7 +205,7 @@ import AudioKit
         internalAU?.aks1Delegate = self
     }
 
-    @objc open var delegate: AKSynthOneProtocol?
+    @objc open weak var delegate: AKSynthOneProtocol?
 
     internal func postNotification(_ param: AKSynthOneParameter, _ value: Double) {
         AKLog("unused")

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MIDISettingsPopOverDelegate {
+protocol MIDISettingsPopOverDelegate: AnyObject {
     func resetMIDILearn()
     func didSelectMIDIChannel(newChannel: Int)
     func didToggleVelocity()
@@ -25,7 +25,7 @@ class PopUpMIDIViewController: UIViewController {
     @IBOutlet weak var velocityToggle: ToggleSwitch!
     @IBOutlet weak var saveTuningToggle: ToggleSwitch!
 
-    var delegate: MIDISettingsPopOverDelegate?
+    weak var delegate: MIDISettingsPopOverDelegate?
 
     var midiSources = [MIDIInput]() {
         didSet {

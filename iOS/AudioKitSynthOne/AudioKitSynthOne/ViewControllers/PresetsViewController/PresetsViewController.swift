@@ -13,7 +13,7 @@ import Disk
 import CloudKit
 import GameplayKit
 
-protocol PresetsDelegate {
+protocol PresetsDelegate: AnyObject {
     func presetDidChange(_ activePreset: Preset)
     func saveEditedPreset(name: String, category: Int, bank: String)
     func banksDidUpdate()
@@ -74,7 +74,7 @@ class PresetsViewController: UIViewController {
 
     var randomNumbers: GKRandomDistribution!
 
-    var presetsDelegate: PresetsDelegate?
+    weak var presetsDelegate: PresetsDelegate?
 
     // *****************************************************************
     // MARK: - Lifecycle

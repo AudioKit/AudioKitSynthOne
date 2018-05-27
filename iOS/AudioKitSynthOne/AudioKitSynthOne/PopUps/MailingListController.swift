@@ -9,7 +9,7 @@
 import UIKit
 import ChimpKit
 
-protocol MailingListDelegate {
+protocol MailingListDelegate: AnyObject {
     func didSignMailingList(email: String)
 }
 
@@ -19,7 +19,7 @@ class MailingListController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
 
-    var delegate: MailingListDelegate?
+    weak var delegate: MailingListDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CategoryCellDelegate {
+protocol CategoryCellDelegate: AnyObject {
     func bankShare()
     func bankEdit()
 }
@@ -25,7 +25,7 @@ class CategoryCell: UITableViewCell {
 
     var currentCategory: String = ""
 
-    var delegate: CategoryCellDelegate?
+    weak var delegate: CategoryCellDelegate?
 
     // *********************************************************
     // MARK: - Lifecycle

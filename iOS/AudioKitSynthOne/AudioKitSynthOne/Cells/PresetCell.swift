@@ -89,9 +89,9 @@ class PresetCell: UITableViewCell {
         }
 
         if preset.isFavorite {
-            favoriteButton.setImage(UIImage(named: "ak_favfilled"), for: .normal)
+            favoriteButton.setImage(#imageLiteral(resourceName: "ak_favfilled"), for: .normal)
         } else {
-            favoriteButton.setImage(UIImage(named: "ak_fav"), for: .normal)
+            favoriteButton.setImage(#imageLiteral(resourceName: "ak_fav"), for: .normal)
         }
 
     }

@@ -21,7 +21,7 @@ public enum ChildView: Int {
     func identifier() -> String {
         switch self {
         case .oscView:
-            return "SourceMixerViewController"
+            return "MixerViewController"
         case .adsrView:
             return "ADSRViewController"
         case .padView:

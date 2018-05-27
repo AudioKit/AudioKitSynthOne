@@ -304,10 +304,10 @@
             </objects>
             <point key="canvasLocation" x="-1670.5078125" y="-839.0625"/>
         </scene>
-        <!--Source Mixer-->
+        <!--Mixer-->
         <scene sceneID="h0Y-DX-cbn">
             <objects>
-                <viewController storyboardIdentifier="SourceMixerViewController" id="MNO-vG-clO" userLabel="Source Mixer" customClass="SourceMixerViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MixerViewController" id="MNO-vG-clO" userLabel="Mixer" customClass="MixerViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bwW-24-SnQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rtq-zb-Exf"/>
@@ -3055,7 +3055,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8g-AB-yUZ">
-                                <rect key="frame" x="106" y="120" width="300" height="191"/>
+                                <rect key="frame" x="106" y="100" width="300" height="191"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jiS-68-Gtf">
                                         <rect key="frame" x="16" y="48" width="268" height="30"/>
@@ -3591,11 +3591,11 @@ Your Name Here, Your Name Here, Your Name Here, Your Name Here, Your Name Here, 
                         <outlet property="compressorReverbWetThreshold" destination="u3g-rg-EOO" id="28L-vf-q0l"/>
                         <outlet property="delayInputFilterCutoffFreqTrackingRatio" destination="QFW-Eg-hdj" id="P9h-bl-dgV"/>
                         <outlet property="delayInputFilterResonance" destination="y3q-zN-2jq" id="aGv-Lm-wag"/>
-                        <outlet property="dspParamPortamentoHalfTime" destination="LOe-jg-3d6" id="c1Y-IV-2L4"/>
                         <outlet property="freezeArpRate" destination="b44-CS-fgf" id="IXT-RC-xwq"/>
                         <outlet property="freezeDelay" destination="Vcx-SK-NQh" id="5tf-fK-fri"/>
                         <outlet property="freezeReverb" destination="Bl8-Ac-O1T" id="xHN-7S-eN8"/>
                         <outlet property="masterVolume" destination="Zdi-Ns-Bh0" id="Hxl-5I-Xat"/>
+                        <outlet property="portamento" destination="LOe-jg-3d6" id="zQY-1O-c1Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHH-7G-RZW" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -459,7 +459,7 @@ private:
         { pitchbendMaxSemitones,  0, 12, 24, "pitchbendMaxSemitones", "pitchbendMaxSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         
         { frequencyA4,  410, 440, 470, "frequencyA4", "frequencyA4", kAudioUnitParameterUnit_Hertz, false, NULL},
-        { dspParamPortamentoHalfTime, 0.000001, 0.1, 0.99, "dspParamPortamentoHalfTime", "dspParamPortamentoHalfTime", kAudioUnitParameterUnit_Generic, false, NULL }
+        { portamentoHalfTime, 0.000001, 0.1, 0.99, "portamentoHalfTime", "portamentoHalfTime", kAudioUnitParameterUnit_Generic, false, NULL }
     };
 };
 #endif

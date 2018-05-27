@@ -283,7 +283,7 @@ class PresetsViewController: UIViewController {
 
         // Remove existing presets
        // let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = ["BankA"]
+        let banksToUpdate = ["BankA", "Red Sky Lullaby"]
         banksToUpdate.forEach { bankName in
             presets = presets.filter { $0.bank != bankName }
             loadFactoryPresets(bankName)

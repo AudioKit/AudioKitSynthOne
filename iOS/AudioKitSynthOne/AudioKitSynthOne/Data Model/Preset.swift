@@ -338,23 +338,40 @@ class Preset: Codable {
         phaserNotchWidth = dictionary["phaserNotchWidth"] as? Double ?? p(.phaserNotchWidth)
 
         // REVERB/MASTER DYNAMICS
-        compressorMasterRatio = dictionary["compressorMasterRatio"] as? Double ?? p(.compressorMasterRatio)
-        compressorReverbInputRatio = dictionary["compressorReverbInputRatio"] as? Double ?? p(.compressorReverbInputRatio)
-        compressorReverbWetRatio = dictionary["compressorReverbWetRatio"] as? Double ?? p(.compressorReverbWetRatio)
-        compressorMasterThreshold = dictionary["compressorMasterThreshold"] as? Double ?? p(.compressorMasterThreshold)
-        compressorReverbInputThreshold = dictionary["compressorReverbInputThreshold"] as? Double ?? p(.compressorReverbInputThreshold)
-        compressorReverbWetThreshold = dictionary["compressorReverbWetThreshold"] as? Double ?? p(.compressorReverbWetThreshold)
-        compressorMasterAttack = dictionary["compressorMasterAttack"] as? Double ?? p(.compressorMasterAttack)
-        compressorReverbInputAttack = dictionary["compressorReverbInputAttack"] as? Double ?? p(.compressorReverbInputAttack)
-        compressorReverbWetAttack = dictionary["compressorReverbWetAttack"] as? Double ?? p(.compressorReverbWetAttack)
-        compressorMasterRelease = dictionary["compressorMasterRelease"] as? Double ?? p(.compressorMasterRelease)
-        compressorReverbInputRelease = dictionary["compressorReverbInputRelease"] as? Double ?? p(.compressorReverbInputRelease)
-        compressorReverbWetRelease = dictionary["compressorReverbWetRelease"] as? Double ?? p(.compressorReverbWetRelease)
-        compressorMasterMakeupGain = dictionary["compressorMasterMakeupGain"] as? Double ?? p(.compressorMasterMakeupGain)
-        compressorReverbInputMakeupGain = dictionary["compressorReverbInputMakeupGain"] as? Double ?? p(.compressorReverbInputMakeupGain)
-        compressorReverbWetMakeupGain = dictionary["compressorReverbWetMakeupGain"] as? Double ?? p(.compressorReverbWetMakeupGain)
-        delayInputCutoffTrackingRatio = dictionary["delayInputCutoffTrackingRatio"] as? Double ?? p(.delayInputCutoffTrackingRatio)
-        delayInputResonance = dictionary["delayInputResonance"] as? Double ?? p(.delayInputResonance)
+        compressorMasterRatio = dictionary["compressorMasterRatio"]
+            as? Double ?? p(.compressorMasterRatio)
+        compressorReverbInputRatio = dictionary["compressorReverbInputRatio"]
+            as? Double ?? p(.compressorReverbInputRatio)
+        compressorReverbWetRatio = dictionary["compressorReverbWetRatio"]
+            as? Double ?? p(.compressorReverbWetRatio)
+        compressorMasterThreshold = dictionary["compressorMasterThreshold"]
+            as? Double ?? p(.compressorMasterThreshold)
+        compressorReverbInputThreshold = dictionary["compressorReverbInputThreshold"]
+            as? Double ?? p(.compressorReverbInputThreshold)
+        compressorReverbWetThreshold = dictionary["compressorReverbWetThreshold"]
+            as? Double ?? p(.compressorReverbWetThreshold)
+        compressorMasterAttack = dictionary["compressorMasterAttack"]
+            as? Double ?? p(.compressorMasterAttack)
+        compressorReverbInputAttack = dictionary["compressorReverbInputAttack"]
+            as? Double ?? p(.compressorReverbInputAttack)
+        compressorReverbWetAttack = dictionary["compressorReverbWetAttack"]
+            as? Double ?? p(.compressorReverbWetAttack)
+        compressorMasterRelease = dictionary["compressorMasterRelease"]
+            as? Double ?? p(.compressorMasterRelease)
+        compressorReverbInputRelease = dictionary["compressorReverbInputRelease"]
+            as? Double ?? p(.compressorReverbInputRelease)
+        compressorReverbWetRelease = dictionary["compressorReverbWetRelease"]
+            as? Double ?? p(.compressorReverbWetRelease)
+        compressorMasterMakeupGain = dictionary["compressorMasterMakeupGain"]
+            as? Double ?? p(.compressorMasterMakeupGain)
+        compressorReverbInputMakeupGain = dictionary["compressorReverbInputMakeupGain"]
+            as? Double ?? p(.compressorReverbInputMakeupGain)
+        compressorReverbWetMakeupGain = dictionary["compressorReverbWetMakeupGain"]
+            as? Double ?? p(.compressorReverbWetMakeupGain)
+        delayInputCutoffTrackingRatio = dictionary["delayInputCutoffTrackingRatio"]
+            as? Double ?? p(.delayInputCutoffTrackingRatio)
+        delayInputResonance = dictionary["delayInputResonance"]
+            as? Double ?? p(.delayInputResonance)
 
         // Tuning
         frequencyA4 = dictionary["frequencyA4"] as? Double ?? p(.frequencyA4)

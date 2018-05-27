@@ -144,7 +144,7 @@ import AudioKit
     /// Ramp Time represents the speed at which parameters are allowed to change
     @objc open dynamic var rampDuration: Double = 0.0 {
         willSet {
-            internalAU?.rampTime = newValue
+            internalAU?.rampDuration = newValue
         }
     }
 

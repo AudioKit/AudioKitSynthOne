@@ -30,7 +30,10 @@ class ADSRViewController: SynthPanelController {
 
         envelopeLabelBackground.layer.cornerRadius = 8
 
-        guard let s = conductor.synth else { return }
+        guard let s = conductor.synth else {
+            AKLog("ADSRViewController view state is invalid because synth is not instantiated")
+            return
+        }
 
         attackKnob.range = s.getRange(.attackDuration)
         decayKnob.range = s.getRange(.decayDuration)

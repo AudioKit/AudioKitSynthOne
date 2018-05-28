@@ -57,7 +57,10 @@ class MixerViewController: SynthPanelController {
         viewType = .oscView
 
         // Defaults, limits
-        guard let s = conductor.synth else { return }
+        guard let s = conductor.synth else {
+            AKLog("MixerViewController view state is invalid because synth is not instantiated")
+            return
+        }
 
         morph1SemitoneOffset.onlyIntegers = true
         morph1SemitoneOffset.range = s.getRange(.morph1SemitoneOffset)

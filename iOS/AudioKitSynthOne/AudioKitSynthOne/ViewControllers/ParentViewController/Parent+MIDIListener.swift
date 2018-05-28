@@ -123,7 +123,10 @@ extension ParentViewController: AKMIDIListener {
     // MIDI Pitch Wheel
     public func receivedMIDIPitchWheel(_ pitchWheelValue: MIDIWord, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
-        guard let s = Conductor.sharedInstance.synth else { return }
+        guard let s = Conductor.sharedInstance.synth else {
+            AKLog("Can't process MIDI pitch wheel because synth is not instantiated")
+            return
+        }
         let val01 = Double(pitchWheelValue).normalized(from: 0...16_383)
         s.setDependentParameter(.pitchbend, val01, 0)
         // UI will be updated by dependentParameterDidChange()

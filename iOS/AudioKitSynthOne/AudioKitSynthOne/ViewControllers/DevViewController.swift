@@ -58,7 +58,10 @@ class DevViewController: UpdatableViewController {
         super.viewDidLoad()
 
         // Defaults, limits
-        guard let s = conductor.synth else { return }
+        guard let s = conductor.synth else {
+            AKLog("DevViewController view state is invalid because synth is not instantiated")
+            return
+        }
 
         // masterVolume is the input gain to compressorMaster
         masterVolume.range = s.getRange(.masterVolume)
@@ -125,8 +128,7 @@ class DevViewController: UpdatableViewController {
         }
 
         // portamentoHalfTime (dsp param stored in app settings not presets)
-        guard let synth = conductor.synth else { return }
-        portamento.range = synth.getRange(.portamentoHalfTime)
+        portamento.range = s.getRange(.portamentoHalfTime)
         portamento.value = portamentoHalfTime
         portamento.callback = { value in
             self.delegate?.portamentoChanged(value)

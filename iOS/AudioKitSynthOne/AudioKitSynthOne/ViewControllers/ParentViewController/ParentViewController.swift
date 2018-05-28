@@ -172,7 +172,11 @@ public class ParentViewController: UpdatableViewController {
                 print("Not handling sysex") }
         )
 
-        guard let outputAudioUnit = AudioKit.engine.outputNode.audioUnit else { return }
+        guard let outputAudioUnit = AudioKit.engine.outputNode.audioUnit else {
+            AKLog("ERROR: can't create outputAudioUnit")
+            return
+        }
+
         let connectIAAMDI = AudioUnitSetProperty(outputAudioUnit,
                                                  kAudioOutputUnitProperty_MIDICallbacks,
                                                  kAudioUnitScope_Global,
@@ -271,7 +275,10 @@ public class ParentViewController: UpdatableViewController {
 
     func setupCallbacks() {
 
-        guard let s = conductor.synth else { return }
+        guard let s = conductor.synth else {
+            AKLog("ParentViewController view state is invalid because synth is not instantiated")
+            return
+        }
 
         octaveStepper.callback = { value in
             self.keyboardView.firstOctave = Int(value) + 2
@@ -349,7 +356,7 @@ public class ParentViewController: UpdatableViewController {
             case 0:
                 // Cutoff
                 let newValue = 1 - value
-                let scaledValue = Double.scaleRangeLog(newValue, rangeMin: 40, rangeMax: 7600)
+                let scaledValue = Double.scaleRangeLog(newValue, rangeMin: 40, rangeMax: 7_600)
 //                let scaledValue = newValue.denormalized(to: 40...7_600, taper: -1)
                 s.setSynthParameter(.cutoff, scaledValue * 3)
                 self.conductor.updateSingleUI(.cutoff, control: self.modWheelPad, value: s.getSynthParameter(.cutoff))
@@ -385,7 +392,10 @@ public class ParentViewController: UpdatableViewController {
     override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
 
         // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
-        guard let s = conductor.synth else { return }
+        guard let s = conductor.synth else {
+            AKLog("ParentViewController can't update global UI because synth is not instantiated")
+            return
+        }
         let isMono = s.getSynthParameter(.isMono)
         if isMono != monoButton.value {
             monoButton.value = isMono

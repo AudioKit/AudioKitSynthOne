@@ -30,7 +30,10 @@ class SeqViewController: SynthPanelController {
 
         viewType = .seqView
 
-        guard let s = conductor.synth else { return }
+        guard let s = conductor.synth else {
+            AKLog("SeqViewController view state is invalid because synth is not instantiated")
+            return
+        }
 
         seqStepsStepper.minValue = s.getMinimum(.arpTotalSteps)
         seqStepsStepper.maxValue = s.getMaximum(.arpTotalSteps)

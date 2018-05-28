@@ -216,7 +216,6 @@ class Preset: Codable {
         // Synth VC
         octavePosition = dictionary["octavePosition"] as? Int ?? octavePosition
         isMono = dictionary["isMono"] as? Double ?? p(.isMono)
-        //TODO:move isHoldMove to dsp
         isHoldMode = dictionary["isHoldMode"] as? Double ?? isHoldMode
         isArpMode = dictionary["isArpMode"] as? Double ?? p(.arpIsOn)
         tempoSyncToArpRate = dictionary["tempoSyncToArpRate"] as? Double ?? p(.tempoSyncToArpRate)
@@ -246,8 +245,7 @@ class Preset: Codable {
         reverbMix = dictionary["reverbMix"] as? Double ?? p(.reverbMix)
         reverbHighPass = dictionary["reverbHighPass"] as? Double ?? p(.reverbHighPass)
 
-        //TODO:this is unused
-        midiBendRange = dictionary["midiBendRange"] as? Double ?? midiBendRange
+        midiBendRange = dictionary["midiBendRange"] as? Double ?? midiBendRange // unused
 
         crushFreq = dictionary["crushFreq"] as? Double ?? p(.bitCrushSampleRate)
         autoPanFrequency = dictionary["autoPanRate"] as? Double ?? p(.autoPanFrequency)

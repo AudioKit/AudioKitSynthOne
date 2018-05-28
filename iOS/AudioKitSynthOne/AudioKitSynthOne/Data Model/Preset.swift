@@ -200,7 +200,7 @@ class Preset: Codable {
     init(dictionary: [String: Any]) {
 
         guard let s = Conductor.sharedInstance.synth else {
-            print("ERROR: can't read presets until synth is initialized")
+            print("ERROR: can't initialize preset until synth is initialized")
             return
         }
 

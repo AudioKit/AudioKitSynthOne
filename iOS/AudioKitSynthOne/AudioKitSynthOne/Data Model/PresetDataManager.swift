@@ -17,7 +17,7 @@ extension ParentViewController {
     func loadPreset() {
 
         guard let s = conductor.synth else {
-            print("ERROR:can't read presets if synth is not initialized")
+            print("ERROR:can't load preset if synth is not initialized")
             return
         }
 
@@ -149,7 +149,11 @@ extension ParentViewController {
     }
 
     func saveValuesToPreset() {
-        guard let s = conductor.synth else { return }
+        guard let s = conductor.synth else {
+            AKLog("Could not save synth state to preset because synth is not instantiated")
+            return
+        }
+
         if !appSettings.freezeArpRate {
             activePreset.arpRate = s.getSynthParameter(.arpRate)
         }

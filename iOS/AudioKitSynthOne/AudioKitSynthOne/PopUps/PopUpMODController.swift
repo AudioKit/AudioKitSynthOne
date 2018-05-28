@@ -26,7 +26,10 @@ class PopUpMODController: UIViewController {
         modWheelSegment.selectedSegmentIndex = modWheelDestination
 
         let c = Conductor.sharedInstance
-        guard let s = c.synth else { return }
+        guard let s = c.synth else {
+            AKLog("PopUpMODController view state is invalid because synth is not instantiated")
+            return
+        }
 
         pitchUpperRange.maxValue = s.getMaximum(.pitchbendMaxSemitones)
         pitchUpperRange.minValue = s.getMinimum(.pitchbendMaxSemitones)
@@ -41,7 +44,10 @@ class PopUpMODController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let s = Conductor.sharedInstance.synth else { return }
+        guard let s = Conductor.sharedInstance.synth else {
+            AKLog("PopUpMODController view state is invalid because synth is not instantiated")
+            return
+        }
         pitchUpperRange.value = s.getSynthParameter(.pitchbendMaxSemitones)
         pitchLowerRange.value = s.getSynthParameter(.pitchbendMinSemitones)
     }

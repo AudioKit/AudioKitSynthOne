@@ -58,7 +58,10 @@ class FXViewController: SynthPanelController {
         super.viewDidLoad()
 
         viewType = .fxView
-        guard let s = conductor.synth else { return }
+        guard let s = conductor.synth else {
+            AKLog("FXViewController view state is invalid because synth is not instantiated")
+            return
+        }
 
         sampleRate.range = s.getRange(.bitCrushSampleRate)
         sampleRate.taper = 4.6

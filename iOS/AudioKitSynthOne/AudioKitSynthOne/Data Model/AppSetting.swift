@@ -28,7 +28,7 @@ class AppSetting: Codable {
     var freezeArpRate = false // true = don't modify when preset changes
     var freezeDelay = false // true = don't modify when preset changes
     var freezeReverb = false // true = don't modify when preset changes
-    var portamentoHalfTime = 0.1
+    var portamentoHalfTime = 0.1 // global portamento HALFTIME for dsp params that are smoothed
 
     var saveTuningWithPreset = false
     var pushNotifications = true

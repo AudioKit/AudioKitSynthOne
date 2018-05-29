@@ -49,38 +49,23 @@ class AKS1Tunings {
     public let tunings: [(String, AKS1TuningCallback)] = [
 
         ("12 Tone Equal Temperament (default)", { _ = AKPolyphonicNode.tuningTable.defaultTuning() }),
-        (" 7 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 7) }),
-        //        ("13 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 13) } ),
-        //        ("15 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 15) } ),
-        //        ("16 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 16) } ),
-        //        ("17 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 17) } ),
-        //        ("19 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 19) } ),
-        //        ("22 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 22) } ),
-        ("31 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 31) }),
-        ("41 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 41) }),
-
         ("12 Chain of pure fifths", { tuningHelper([1, 3, 9, 27, 81, 243, 729, 2_187, 6_561, 19_683, 59_049, 177_147] ) }),
-        //        (" 2 Harmonic", { tuningHelper(harmonicSeries( 2) ) } ),
-        //        (" 2 Subharmonic", { tuningHelper(subHarmonicSeries( 2) ) } ),
-        (" 2 Harmonic+Sub", { tuningHelper( harmonicSubharmonicSeries(2) ) }),
-        (" 3 Harmonic+Sub", { tuningHelper( harmonicSubharmonicSeries(3) ) }),
-        (" 4 Harmonic+Sub", { tuningHelper( harmonicSubharmonicSeries(4) ) }),
-        //        (" 5 Harmonic+Sub", { tuningHelper( harmonicSubharmonicSeries(5) ) } ),
 
-        (" 3 Harmonic", { tuningHelper(harmonicSeries( 3) ) }),
-        (" 4 Harmonic", { tuningHelper(harmonicSeries( 4) ) }),
-        (" 5 Harmonic", { tuningHelper(harmonicSeries( 5) ) }),
-        //        (" 6 Harmonic", { tuningHelper(harmonicSeries( 6) ) } ),
-        //        (" 7 Harmonic", { tuningHelper(harmonicSeries( 7) ) } ),
-        //        (" 9 Harmonic", { tuningHelper(harmonicSeries( 9) ) } ),
-        ("12 Harmonic", { tuningHelper(harmonicSeries(12) ) }),
-
-        (" 3 Subharmonic", { tuningHelper(subHarmonicSeries( 3) ) }),
-        (" 4 Subharmonic", { tuningHelper(subHarmonicSeries( 4) ) }),
-        (" 5 Subharmonic", { tuningHelper(subHarmonicSeries( 5) ) }),
-        //        (" 6 Subharmonic", { tuningHelper(subHarmonicSeries( 6) ) } ),
-        //        (" 7 Subharmonic", { tuningHelper(subHarmonicSeries( 7) ) } ),
-        //        ("16 Subharmonic", { tuningHelper(subHarmonicSeries(16) ) } ),
+        (" 2 Harmonic Dyad", { tuningHelper(harmonicSeries( 2) ) } ),
+        (" 2 Subharmonic Dyad", { tuningHelper(subHarmonicSeries( 2) ) } ),
+        (" 2 Harmonic+Sub Dyad", { tuningHelper( harmonicSubharmonicSeries(2) ) }),
+        (" 3 Harmonic Triad", { tuningHelper(harmonicSeries( 3) ) }),
+        (" 3 Subharmonic Triad", { tuningHelper(subHarmonicSeries( 3) ) }),
+        (" 3 Harmonic+Sub Triad", { tuningHelper( harmonicSubharmonicSeries(3) ) }),
+        (" 4 Harmonic Tetrad", { tuningHelper(harmonicSeries( 4) ) }),
+        (" 4 Subharmonic Tetrad", { tuningHelper(subHarmonicSeries( 4) ) }),
+        (" 4 Harmonic+Sub Tetrad", { tuningHelper( harmonicSubharmonicSeries(4) ) }),
+        (" 5 Harmonic Pentad", { tuningHelper(harmonicSeries( 5) ) }),
+        (" 5 Subharmonic Pentad", { tuningHelper(subHarmonicSeries( 5) ) }),
+//        ("12 Harmonic", { tuningHelper(harmonicSeries(12) ) }), // subragh
+        ("16 Harmonic", { tuningHelper(harmonicSeries(16) ) } ),//subragh
+        ("16 Subharmonic", { tuningHelper(subHarmonicSeries(16) ) } ),
+        ("16 Harmonic+Sub", { tuningHelper(harmonicSubharmonicSeries(16) ) } ),
 
         /// Scales designed by Erv Wilson.  See http://anaphoria.com/genus.pdf
         (" 6 Wilson Hexany(1, 3, 5, 7)", { tuningHelper(AKS1Tunings.hexany( [1, 3, 5, 7] ) ) }),
@@ -106,32 +91,20 @@ class AKS1Tunings {
         (" 7 Wilson MOS G:0.415226", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.415_226, level: 5, murchana: 0) }),
         (" 7 Wilson MOS G:0.436385", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.436_385, level: 5, murchana: 0) }),
         ("22 Wilson Evangelina", { tuningHelper( [1 / 1, 135 / 128, 13 / 12, 10 / 9, 9 / 8, 7 / 6, 11 / 9, 5 / 4, 81 / 64, 4 / 3, 11 / 8, 45 / 32, 17 / 12, 3 / 2, 19 / 12, 13 / 8, 5 / 3, 27 / 16, 7 / 4, 11 / 6, 15 / 8, 243 / 128] ) }),
-        //        (" 7 Wilson North Indian:Kalyan", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian01Kalyan() } ),
-        //        (" 7 Wilson North Indian:Bilawal", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian02Bilawal() } ),
-        //        (" 7 Wilson North Indian:Khamaj", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian03Khamaj() } ),
-        //        (" 7 Wilson North Indian:KafiOld", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian04KafiOld() } ),
         (" 7 Wilson North Indian:Kafi", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian05Kafi() }),
-        //        (" 7 Wilson North Indian:Asawari", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian06Asawari() } ),
         (" 7 Wilson North Indian:Bhairavi", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian07Bhairavi() }),
         (" 7 Wilson North Indian:Bhairav", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav() }),
         (" 7 Wilson North Indian:Marwa", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian08Marwa() }),
         (" 7 Wilson North Indian:Purvi", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian09Purvi() }),
-        //        (" 7 Wilson North Indian:Lalit2", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian10Lalit2() } ),
         (" 7 Wilson North Indian:Todi", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian11Todi() }),
-        //        (" 7 Wilson North Indian:Lalit", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian12Lalit() } ),
-        //        (" 7 Wilson North Indian:NoName", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian13NoName() } ),
-        //        (" 7 Wilson North Indian:AnandBhairav", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian14AnandBhairav() } ),
         (" 7 Wilson North Indian:Bhairav", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian15Bhairav() }),
-        //        (" 7 Wilson North Indian:JogiyaTodi", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian16JogiyaTodi() } ),
         (" 7 Wilson North Indian:Madhubanti", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian17Madhubanti() }),
-        //        (" 7 Wilson North Indian:NatBhairav", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian18NatBhairav() } ),
         (" 7 Wilson North Indian:AhirBhairav", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian19AhirBhairav() }),
         (" 7 Wilson North Indian:ChandraKanada", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian20ChandraKanada() }),
         (" 7 Wilson North Indian:BasantMukhair", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian21BasantMukhari() }),
         (" 7 Wilson North Indian:Champakali", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian22Champakali() }),
         (" 7 Wilson North Indian:Patdeep", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian23Patdeep() }),
         (" 7 Wilson North Indian:MohanKauns", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian24MohanKauns() }),
-        //        (" 7 Wilson North Indian:Parameswari", {_ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian25Parameswari() } ),
         ("17 Wilson North Indian:17", { _ = AKPolyphonicNode.tuningTable.presetPersian17NorthIndian00_17() }),
 
         /// Scales designed by Jose Garcia
@@ -188,6 +161,8 @@ class AKS1Tunings {
         (" 7 Hobbs Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [9, 40, 21, 25, 52, 15, 31]) }),
         (" 7 Hobbs Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 18, 5, 21, 3, 25, 15]) }),
         ("12 Hobbs Recurrence Relation", { _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1, 65, 9, 37, 151, 21, 86, 12, 49, 200, 28, 114]) }),
+        //("31 Hobbs Wilson Mad God MOS G: 0.328173 Hn = Hn-1 + Hn-7", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.328_173, level: 17, murchana: 0 ) }),
+        ("31 Hobbs Wilson Mad God MOS G: 0.328173 Hn = Hn-1 + Hn-7", { tuningHelper([1.0, 1.139858796310911, 1.1521550874588165, 1.1645840255420112, 1.1771470414968035, 1.1898455816958056, 1.2026811081144566, 1.2156550984993382, 1.2287690465383074, 1.2420244620324628, 1.2554228710699677, 1.4310048026790014, 1.4464418478154171, 1.4620454209481724, 1.4778173185074355, 1.493759356302464, 1.5098733697306612, 1.5261612139888834, 1.5426247642870288, 1.5592659160639266, 1.5760865852055608, 1.7965161578941846, 1.8158961774201803, 1.8354852600014551, 1.8552856609175254, 1.8752996597768661, 1.8955295607793536, 1.915977692981552, 1.9366464105648538, 1.9575380931065183, 1.9786551458536268] ) } ),
 
         /// scales designed by Stephen Taylor
         (" 6 SJT MOS G: 0.855088", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.855_088, level: 6, murchana: 0 ) }),
@@ -197,6 +172,10 @@ class AKS1Tunings {
         (" 5 SJT MOS G: 0.618033", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.618_033, level: 4, murchana: 0 ) }),
         (" 5 SJT MOS G: 0.232587", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.232_587, level: 5, murchana: 0 ) }),
         ("27 Taylor Pasadena JI 27", { tuningHelper( [ 1 / 1, 81 / 80, 17 / 16, 16 / 15, 10 / 9, 9 / 8, 8 / 7, 7 / 6, 19 / 16, 6 / 5, 11 / 9, 5 / 4, 9 / 7, 21 / 16, 4 / 3, 11 / 8, 7 / 5, 3 / 2, 11 / 7, 8 / 5, 5 / 3, 13 / 8, 27 / 16, 7 / 4, 9 / 5, 11 / 6, 15 / 8 ] ) }),
+
+        (" 7 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 7) }),
+        ("31 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 31) }),
+        ("41 Tone Equal Temperament", { _ = AKPolyphonicNode.tuningTable.equalTemperament(notesPerOctave: 41) }),
 
         (" - Tuning From Preset", { _ = 0 })
     ]

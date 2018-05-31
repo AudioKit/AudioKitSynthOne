@@ -17,9 +17,10 @@ class AKS1Tunings {
     public typealias Frequency = Double
 
     //TODO: determine encoding, match with local tuning list, add if not there, select row
-    public func setTuning(withMasterArray master: [Double]) -> Int? {
-        if master.count == 0 { return nil }
-        _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: master)
+    public func setTuning(withMasterArray master: [Double]?) -> Int? {
+        guard let masterFrequencies = master else { return nil }
+        if masterFrequencies.count == 0 { return nil }
+        _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: masterFrequencies)
         tuningsDelegate?.tuningDidChange()
         return tunings.count - 1
     }
@@ -51,17 +52,18 @@ class AKS1Tunings {
         ("12 Tone Equal Temperament (default)", { _ = AKPolyphonicNode.tuningTable.defaultTuning() }),
         ("12 Chain of pure fifths", { tuningHelper([1, 3, 9, 27, 81, 243, 729, 2_187, 6_561, 19_683, 59_049, 177_147] ) }),
 
-        (" 2 Harmonic Dyad", { tuningHelper(harmonicSeries( 2) ) } ),
-        (" 2 Subharmonic Dyad", { tuningHelper(subHarmonicSeries( 2) ) } ),
+        // See http://anaphoria.com/harm&Subharm.pdf
+        (" 2 Harmonic Dyad", { tuningHelper(harmonicSeries(2) ) } ),
+        (" 2 Subharmonic Dyad", { tuningHelper(subHarmonicSeries(2) ) } ),
         (" 2 Harmonic+Sub Dyad", { tuningHelper( harmonicSubharmonicSeries(2) ) }),
-        (" 3 Harmonic Triad", { tuningHelper(harmonicSeries( 3) ) }),
-        (" 3 Subharmonic Triad", { tuningHelper(subHarmonicSeries( 3) ) }),
+        (" 3 Harmonic Triad", { tuningHelper(harmonicSeries(3) ) }),
+        (" 3 Subharmonic Triad", { tuningHelper(subHarmonicSeries(3) ) }),
         (" 3 Harmonic+Sub Triad", { tuningHelper( harmonicSubharmonicSeries(3) ) }),
-        (" 4 Harmonic Tetrad", { tuningHelper(harmonicSeries( 4) ) }),
-        (" 4 Subharmonic Tetrad", { tuningHelper(subHarmonicSeries( 4) ) }),
+        (" 4 Harmonic Tetrad", { tuningHelper(harmonicSeries(4) ) }),
+        (" 4 Subharmonic Tetrad", { tuningHelper(subHarmonicSeries(4) ) }),
         (" 4 Harmonic+Sub Tetrad", { tuningHelper( harmonicSubharmonicSeries(4) ) }),
-        (" 5 Harmonic Pentad", { tuningHelper(harmonicSeries( 5) ) }),
-        (" 5 Subharmonic Pentad", { tuningHelper(subHarmonicSeries( 5) ) }),
+        (" 5 Harmonic Pentad", { tuningHelper(harmonicSeries(5) ) }),
+        (" 5 Subharmonic Pentad", { tuningHelper(subHarmonicSeries(5) ) }),
 //        ("12 Harmonic", { tuningHelper(harmonicSeries(12) ) }), // subragh
         ("16 Harmonic", { tuningHelper(harmonicSeries(16) ) } ),//subragh
         ("16 Subharmonic", { tuningHelper(subHarmonicSeries(16) ) } ),
@@ -82,6 +84,14 @@ class AKS1Tunings {
         (" 6 Wilson Hexany(3, 1.346, 4.346, 7.346)", { tuningHelper(AKS1Tunings.hexany( [3, 1.346, 4.346, 7.346] ) ) }),
         (" 6 Wilson Hexany(3, 5, 7, 9)", { tuningHelper(AKS1Tunings.hexany( [3, 5, 7, 9] ) ) }),
         (" 6 Wilson Hexany(3, 5, 15, 19)", { tuningHelper(AKS1Tunings.hexany( [3, 5, 15, 19] ) ) }),
+
+        (" 7 Wilson Diaphonic 1/1, 27/26, 9/8, 4/3, 18/13, 3/2, 27/16", { tuningHelper([1/1, 27/26, 9/8, 4/3, 18/13, 3/2, 27/16] ) } ),
+
+        (" 6 Wilson Hexany(3, 5, 15, 27) Maclellan Bagpipe", { tuningHelper(AKS1Tunings.hexany( [3, 5, 15, 27] ) ) }),
+        ("10 Wilson Dekany(3, 5, 15, 27, 9) Maclellan Bagpipe", { tuningHelper(AKS1Tunings.dekany( [3, 5, 15, 27, 9] ) ) }),
+        ("10 Wilson Dekany(3, 5, 15, 27, 25) Maclellan Bagpipe", { tuningHelper(AKS1Tunings.dekany( [3, 5, 15, 27, 25] ) ) }),
+//        (" 6 Wilson Pentadekany(Hexany(3, 5, 15, 27)) Maclellan Bagpipe", { tuningHelper(AKS1Tunings.pentadekany(AKS1Tunings.hexany( [3, 5, 15, 27] ) ) ) } ),
+
         (" 6 Wilson Hexany(5, 7, 21, 35)", { tuningHelper(AKS1Tunings.hexany( [5, 7, 21, 35] ) ) }),
         (" 7 Wilson Highland Bagpipes", { _ = AKPolyphonicNode.tuningTable.presetHighlandBagPipes() }),
         (" 7 Wilson MOS G:0.2641", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.264_1, level: 5, murchana: 0) }),
@@ -166,7 +176,7 @@ class AKS1Tunings {
 
         /// scales designed by Stephen Taylor
         (" 6 SJT MOS G: 0.855088", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.855_088, level: 6, murchana: 0 ) }),
-        //("13 SJT MOS G: 0.855088", {_ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.855088, level: 10, murchana: 0 ) } ),
+        ("13 SJT MOS G: 0.855088", {_ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: [1.0, 1.094694266037451, 1.1983555360952733, 1.2103631752554715, 1.3249776277750469, 1.3382540326235606, 1.4649790160145073, 1.4796582484056586, 1.6197734002246928, 1.6360036874185588, 1.7909238558332221, 1.8088690872578694, 1.9801586178335864] ) } ),
         (" 6 SJT MOS G: 0.791400", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.791_400, level: 5, murchana: 0 ) }),
         (" 5 SJT MOS G: 0.78207964", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.782_079_64, level: 5, murchana: 0 ) }),
         (" 5 SJT MOS G: 0.618033", { _ = AKPolyphonicNode.tuningTable.momentOfSymmetry(generator: 0.618_033, level: 4, murchana: 0 ) }),

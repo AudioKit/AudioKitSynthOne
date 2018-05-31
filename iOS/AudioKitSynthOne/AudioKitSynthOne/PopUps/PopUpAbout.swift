@@ -43,7 +43,7 @@ class PopUpAbout: UIViewController {
             self.parentView.alpha = 1.0
         })
 
-        UIView.animate(withDuration: 4, animations: {
+        UIView.animate(withDuration: 6, animations: {
             self.textContainer.alpha = 1.0
         })
     }

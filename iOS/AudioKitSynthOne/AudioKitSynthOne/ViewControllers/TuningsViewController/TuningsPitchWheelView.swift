@@ -36,11 +36,28 @@ public class TuningsPitchWheelView: UIView {
         addSubview(overlayView)
     }
 
+    /// return tuple of ([master set of frequencies], [master set of pitches]) both arrays of length npo, normalized
+    internal func masterFrequenciesFromGlobalTuningTable() -> ([Double], [Double]) {
+        let mmm = AKPolyphonicNode.tuningTable.masterSet
+        var mf: [Double] = [1]
+        var mp: [Double] = [0]
+        if mmm.count < 1 { return (mf, mp) }
+        mf.removeAll()
+        mp.removeAll()
+        for f in mmm {
+            mf.append(f)
+            mp.append(log2(f))
+        }
+        return (mf, mp)
+    }
+
     public func updateFromGlobalTuningTable() {
 
+        //TODO:change .background to .utility?
+        // I read .background can stop execution to save battery, but .utility will not
         DispatchQueue.global(qos: .background).async {
 
-            let gtt = AKS1Tunings.masterFrequenciesFromGlobalTuningTable()
+            let gtt = self.masterFrequenciesFromGlobalTuningTable()
             self.masterFrequency = gtt.0
             self.masterPitch = gtt.1
             self.overlayView.masterPitch = gtt.1
@@ -109,16 +126,10 @@ public class TuningsPitchWheelView: UIView {
                                  width: bigR, height: bigR)
             context.fillEllipse(in: bigDotR)
 
-            #if false
-            // draw text of log2 f
-            let msd = String(format: "%.04f", p)
-            _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
-            #else
             // draw harmonic approximation of p
             let harmonic = AKS1Tunings.approximateHarmonicFromPitch(p)
             let msd = String(harmonic)
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
-            #endif
         }
         pxy = mspxy
         self.overlayView.pxy = pxy

@@ -102,8 +102,5 @@ public class AudioUnitViewController: AUViewController, AUAudioUnitFactory, AKSy
     }
 
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
-        ///TODO:Route this to keyboard view controller (I'll change this to return the current array of playing notes)
-        ///TODO:See https://trello.com/c/lQZMyF0V
-        //AKLog("Conductor.swift:playingNotesDidChange")
     }
 }

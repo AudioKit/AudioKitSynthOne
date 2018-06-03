@@ -2,7 +2,7 @@
 //  AKTouchPadView.swift
 //  AudioKit
 //
-//  Created by Aurelius Prochazka, revision history on Github.
+//  Created by AudioKit Contributors, revision history on Github.
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 

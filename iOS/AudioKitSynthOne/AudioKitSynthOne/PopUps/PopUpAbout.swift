@@ -2,7 +2,7 @@
 //  PopUpAbout.swift
 //  AudioKitSynthOne
 //
-//  Created by Matthew Fecher on 3/28/18.
+//  Created by AudioKit Contributors on 3/28/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
@@ -83,7 +83,7 @@ class PopUpAbout: UIViewController {
     }
 
     @IBAction func videoPressed(_ sender: UIButton) {
-        if let url = URL(string: "https://github.com/AudioKit/") {
+        if let url = URL(string: "http://youtu.be/hwDNgCYowYs") {
             UIApplication.shared.open(url)
         }
     }

@@ -2,7 +2,7 @@
 //  ColorKnob.swift
 //  SuperFM
 //
-//  Created by Matthew Fecher on 11/20/17.
+//  Created by AudioKit Contributors on 11/20/17.
 //  Copyright © 2017 AudioKit Pro. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  AKSynthOneDSPKernel.mm
 //  AudioKitSynthOne
 //
-//  Created by Marcus W. Hobbs aka Marcus Satellite on 1/27/18.
+//  Created by AudioKit Contributors on 1/27/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 

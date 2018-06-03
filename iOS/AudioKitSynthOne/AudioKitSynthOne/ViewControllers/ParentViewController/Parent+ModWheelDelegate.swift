@@ -2,7 +2,7 @@
 //  Parent+ModWheelDelegate.swift
 //  AudioKitSynthOne
 //
-//  Created by Aurelius Prochazka on 5/25/18.
+//  Created by AudioKit Contributors on 5/25/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  VerticalSlider.swift
 //  Swift Synth
 //
-//  Created by Matthew Fecher on 1/11/16.
+//  Created by AudioKit Contributors on 1/11/16.
 //  Copyright (c) 2016 AudioKit. All rights reserved.
 
 import UIKit

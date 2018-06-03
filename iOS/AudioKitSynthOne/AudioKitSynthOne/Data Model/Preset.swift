@@ -2,7 +2,7 @@
 //  Preset.swift
 //  AudioKit Synth One
 //
-//  Created by Matthew Fecher on 7/23/16.
+//  Created by AudioKit Contributors on 7/23/16.
 //  Copyright © 2016 AudioKit. All rights reserved.
 //
 

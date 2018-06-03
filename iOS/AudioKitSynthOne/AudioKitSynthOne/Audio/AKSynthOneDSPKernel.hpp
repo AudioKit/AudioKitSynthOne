@@ -2,8 +2,8 @@
 //  AKSynthOneDSPKernel.hpp
 //  AudioKit
 //
-//  Created by Aurelius Prochazka, revision history on Github.
-//  Copyright © 2017 Aurelius Prochazka. All rights reserved.
+//  Created by AudioKit Contributors, revision history on Github.
+//  Join us at AudioKitPro.com, github.com/audiokit
 //
 //  20170926: Super HD refactor by Marcus Hobbs
 

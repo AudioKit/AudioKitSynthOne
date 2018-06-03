@@ -2,7 +2,7 @@
 //  MIDIInput.swift
 //  FMPlayer
 //
-//  Created by Matthew Fecher on 11/12/17.
+//  Created by AudioKit Contributors on 11/12/17.
 //  Copyright © 2017 AudioKit Pro. All rights reserved.
 //
 

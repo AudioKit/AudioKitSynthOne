@@ -2,7 +2,7 @@
 //  PopUpViewController.swift
 //  keyboard-scale-popup
 //
-//  Created by Matthew Fecher on 11/27/16.
+//  Created by AudioKit Contributors on 11/27/16.
 //  Copyright © 2016 audiokit. All rights reserved.
 //
 

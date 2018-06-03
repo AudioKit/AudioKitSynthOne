@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  AudioKitSynthOne
 //
-//  Created by Aurelius Prochazka on 7/8/17.
+//  Created by AudioKit Contributors on 7/8/17.
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 

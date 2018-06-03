@@ -2,7 +2,7 @@
 //  ADSRViewController.swift
 //  AudioKitSynthOne
 //
-//  Created by Matthew Fecher on 7/24/17.
+//  Created by AudioKit Contributors on 7/24/17.
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 

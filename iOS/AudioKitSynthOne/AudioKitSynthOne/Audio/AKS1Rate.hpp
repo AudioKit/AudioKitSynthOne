@@ -2,7 +2,7 @@
 //  AKS1Rate.hpp
 //  AudioKitSynthOne
 //
-//  Created by Marcus W. Hobbs on 4/19/18.
+//  Created by AudioKit Contributors on 4/19/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 

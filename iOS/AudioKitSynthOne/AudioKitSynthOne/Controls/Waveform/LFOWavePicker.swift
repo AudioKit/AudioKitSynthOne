@@ -2,7 +2,7 @@
 //  LFOWavePicker.swift
 //  AudioKit Synth One
 //
-//  Created by Matthew Fecher on 8/4/17.
+//  Created by AudioKit Contributors on 8/4/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
 //
 

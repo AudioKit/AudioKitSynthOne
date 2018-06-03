@@ -2,7 +2,7 @@
 //  Arpeggiator.swift
 //  AudioKit Synth One
 //
-//  Created by Matthew Fecher on 3/17/16.
+//  Created by AudioKit Contributors on 3/17/16.
 //  Copyright © 2016 AudioKit. All rights reserved.
 //
 

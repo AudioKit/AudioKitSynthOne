@@ -2,7 +2,7 @@
 //  RateKnob.swift
 //  AudioKitSynthOne
 //
-//  Created by Aurelius Prochazka on 8/5/17.
+//  Created by AudioKit Contributors on 8/5/17.
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  Dictionary+Key.swift
 //  AudioKitSynthOne
 //
-//  Created by Matthew Fecher on 1/25/18.
+//  Created by AudioKit Contributors on 1/25/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 

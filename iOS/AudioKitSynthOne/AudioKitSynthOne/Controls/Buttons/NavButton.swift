@@ -2,7 +2,7 @@
 //  NavButton.swift
 //  AudioKitSynthOne
 //
-//  Created by Matthew Fecher on 8/6/17.
+//  Created by AudioKit Contributors on 8/6/17.
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 

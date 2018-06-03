@@ -2,7 +2,7 @@
 //  AKSynthOneParameter.h
 //  AudioKit
 //
-//  Created by Marcus W. Hobbs aka Marcus Satellite on 12/24/17.
+//  Created by AudioKit Contributors on 12/24/17.
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 

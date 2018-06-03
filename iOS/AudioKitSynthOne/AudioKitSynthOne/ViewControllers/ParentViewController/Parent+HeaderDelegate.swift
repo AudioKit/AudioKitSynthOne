@@ -61,7 +61,11 @@ extension ParentViewController: HeaderDelegate {
     }
 
     func homePressed() {
-        displayLabelTapped()
+        // Display Osc View when user clicks on AudioKit Synth One logo
+        if bottomChildView == .oscView {
+            switchToChildView(.adsrView, isTopView: false)
+        }
+        switchToChildView(.oscView, isTopView: true)
     }
 
     func devPressed() {

@@ -52,11 +52,7 @@ public class TuningsPitchWheelView: UIView {
     }
 
     public func updateFromGlobalTuningTable() {
-
-        //TODO:change .background to .utility?
-        // I read .background can stop execution to save battery, but .utility will not
         DispatchQueue.global(qos: .background).async {
-
             let gtt = self.masterFrequenciesFromGlobalTuningTable()
             self.masterFrequency = gtt.0
             self.masterPitch = gtt.1

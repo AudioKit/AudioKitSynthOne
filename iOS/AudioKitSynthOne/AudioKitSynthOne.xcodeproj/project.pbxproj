@@ -144,10 +144,14 @@
 		C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */; };
 		C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */; };
 		F41C34D020A7A71A006EB96B /* AKS1Tunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */; };
-		F4675242209FBE5000060209 /* TuningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4675241209FBE5000060209 /* TuningsViewController.swift */; };
-		F467524520A01A5F00060209 /* TuningsPitchWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */; };
+		F45319E120C24F08009378F2 /* AKS1Tunings+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45319E020C24F08009378F2 /* AKS1Tunings+Math.swift */; };
 		F48556352097A071000319E5 /* AKS1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = F48556332097A071000319E5 /* AKS1NoteState.mm */; };
 		F4A5D8CE20B216B300839E58 /* AKS1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */; };
+		F4C0C6BB20C48A9B00D02921 /* TuningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6BA20C48A9B00D02921 /* TuningCell.swift */; };
+		F4C0C6C620C48F0D00D02921 /* TuningsPitchWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6C220C48F0D00D02921 /* TuningsPitchWheelView.swift */; };
+		F4C0C6C720C48F0D00D02921 /* Tunings+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6C320C48F0D00D02921 /* Tunings+UITableViewDelegate.swift */; };
+		F4C0C6C820C48F0D00D02921 /* Tunings+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6C420C48F0D00D02921 /* Tunings+UITableViewDataSource.swift */; };
+		F4C0C6C920C48F0D00D02921 /* TuningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6C520C48F0D00D02921 /* TuningsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -342,11 +346,15 @@
 		D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKS1Tunings.swift; sourceTree = "<group>"; };
-		F4675241209FBE5000060209 /* TuningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsViewController.swift; sourceTree = "<group>"; };
-		F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsPitchWheelView.swift; sourceTree = "<group>"; };
+		F45319E020C24F08009378F2 /* AKS1Tunings+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Math.swift"; sourceTree = "<group>"; };
 		F48556332097A071000319E5 /* AKS1NoteState.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
 		F48556342097A071000319E5 /* AKS1NoteState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AKS1NoteState.hpp; sourceTree = "<group>"; };
 		F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Harmonic.swift"; sourceTree = "<group>"; };
+		F4C0C6BA20C48A9B00D02921 /* TuningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningCell.swift; sourceTree = "<group>"; };
+		F4C0C6C220C48F0D00D02921 /* TuningsPitchWheelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuningsPitchWheelView.swift; sourceTree = "<group>"; };
+		F4C0C6C320C48F0D00D02921 /* Tunings+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tunings+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		F4C0C6C420C48F0D00D02921 /* Tunings+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tunings+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		F4C0C6C520C48F0D00D02921 /* TuningsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuningsViewController.swift; sourceTree = "<group>"; };
 		F4DFA161208905BF00412E7B /* AKSynthOneRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
 		F4DFA16220890E8900412E7B /* AKS1Rate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AKS1Rate.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -425,8 +433,7 @@
 				945C3A0F1F3143A00086D58B /* SeqViewController.swift */,
 				9468E2791F2827AC00C60B1B /* SettingsViewController.swift */,
 				945261381F2918A60037662C /* TouchPadViewController.swift */,
-				F4675241209FBE5000060209 /* TuningsViewController.swift */,
-				F467524420A01A5F00060209 /* TuningsPitchWheelView.swift */,
+				F4C0C6C120C48F0D00D02921 /* TuningsViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -526,6 +533,7 @@
 			isa = PBXGroup;
 			children = (
 				F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */,
+				F45319E020C24F08009378F2 /* AKS1Tunings+Math.swift */,
 				F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */,
 				941DE3E01FCE3CD400A09C24 /* AppSetting.swift */,
 				941DE3DF1FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift */,
@@ -614,6 +622,7 @@
 				94FA2DCC1F9E837700DED735 /* CategoryCell.swift */,
 				94A503951FF2EB9D0097D37C /* MIDICell.swift */,
 				94FA2DCB1F9E837700DED735 /* PresetCell.swift */,
+				F4C0C6BA20C48A9B00D02921 /* TuningCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -776,6 +785,17 @@
 				C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F4C0C6C120C48F0D00D02921 /* TuningsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F4C0C6C520C48F0D00D02921 /* TuningsViewController.swift */,
+				F4C0C6C420C48F0D00D02921 /* Tunings+UITableViewDataSource.swift */,
+				F4C0C6C320C48F0D00D02921 /* Tunings+UITableViewDelegate.swift */,
+				F4C0C6C220C48F0D00D02921 /* TuningsPitchWheelView.swift */,
+			);
+			path = TuningsViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1025,6 +1045,7 @@
 				94AF74001F55FAAF00ED8B51 /* TouchPointStyleKit.swift in Sources */,
 				C4AC4B132019C63F00D04C7F /* AEUtilities.m in Sources */,
 				F48556352097A071000319E5 /* AKS1NoteState.mm in Sources */,
+				F4C0C6C820C48F0D00D02921 /* Tunings+UITableViewDataSource.swift in Sources */,
 				943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				945C3A101F3143A00086D58B /* SeqViewController.swift in Sources */,
@@ -1062,7 +1083,6 @@
 				C4AC4B192019C63F00D04C7F /* AEMainThreadEndpoint.m in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				94A880811FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,
-				F467524520A01A5F00060209 /* TuningsPitchWheelView.swift in Sources */,
 				C4AC4B152019C63F00D04C7F /* AETime.m in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
 				C4421A8420B8179000BE9F12 /* Parent+EmbeddedViewsDelegate.swift in Sources */,
@@ -1070,6 +1090,7 @@
 				9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
 				C4CC3041208499D1004E91CB /* Audiobus.swift in Sources */,
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
+				F45319E120C24F08009378F2 /* AKS1Tunings+Math.swift in Sources */,
 				94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */,
 				C4421A7E20B8178F00BE9F12 /* Parent+MailingListDelegate.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
@@ -1082,6 +1103,8 @@
 				947B8E171F6AEADD00E08D4B /* Arpeggiator.swift in Sources */,
 				C4421A8520B8179000BE9F12 /* Parent+Audiobus.swift in Sources */,
 				948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */,
+				F4C0C6C920C48F0D00D02921 /* TuningsViewController.swift in Sources */,
+				F4C0C6C620C48F0D00D02921 /* TuningsPitchWheelView.swift in Sources */,
 				94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */,
 				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
 				9403F29A1F671A4900320FCC /* PopUpPresetEdit.swift in Sources */,
@@ -1094,11 +1117,13 @@
 				947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				943524561F57945500BDA789 /* ChildView.swift in Sources */,
+				F4C0C6BB20C48A9B00D02921 /* TuningCell.swift in Sources */,
 				C4421A8220B8178F00BE9F12 /* Parent+ModWheelDelegate.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
 				948938C320B37EE500B7CEAA /* Audiobus+MIDI.swift in Sources */,
 				9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */,
 				C4421A8020B8178F00BE9F12 /* Parent+Keyboard.swift in Sources */,
+				F4C0C6C720C48F0D00D02921 /* Tunings+UITableViewDelegate.swift in Sources */,
 				947956AB1F329AB200FE5D9B /* ArpDirectionButton.swift in Sources */,
 				945C3A041F3141F60086D58B /* ArpButtonStyleKit.swift in Sources */,
 				94CA7BAD1F27B86D00253C09 /* UpdatableViewController.swift in Sources */,
@@ -1130,7 +1155,6 @@
 				C4421A8620B8179000BE9F12 /* ParentViewController.swift in Sources */,
 				949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
 				C42459E1201D64D4004565AB /* Bank.swift in Sources */,
-				F4675242209FBE5000060209 /* TuningsViewController.swift in Sources */,
 				94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */,
 				949D09361F34F6FB000FB6E0 /* LFOPickerStyleKit.swift in Sources */,
 				945C3A061F3141F60086D58B /* ArpButton.swift in Sources */,

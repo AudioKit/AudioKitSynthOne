@@ -147,7 +147,8 @@ public class ParentViewController: UpdatableViewController {
         displayPresetsController()
 
         // Temporary MIDI IN
-        DispatchQueue.global(qos: .background).async {
+        //TODO:change .background to .utility?
+        DispatchQueue.global(qos: .userInteractive).async {
             self.midi.createVirtualPorts()
             self.midi.openInput("Session 1")
             self.midi.addListener(self)

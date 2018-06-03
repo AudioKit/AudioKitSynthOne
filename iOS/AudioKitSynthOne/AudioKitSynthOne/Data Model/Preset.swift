@@ -374,8 +374,6 @@ class Preset: Codable {
 
         // Tuning
         frequencyA4 = dictionary["frequencyA4"] as? Double ?? p(.frequencyA4)
-
-        //TODO: Check with AKS1Tunings model
         tuningName = dictionary["tuningName"] as? String // default is nil
         tuningMasterSet = dictionary["tuningMasterSet"] as? [Double] // default is nil
     }

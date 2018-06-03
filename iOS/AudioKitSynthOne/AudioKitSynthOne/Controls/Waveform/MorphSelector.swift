@@ -2,7 +2,7 @@
 //  MorphSelector.swift
 //  AudioKit Synth One
 //
-//  Created by Aurelius Prochazka on 9/4/16.
+//  Created by AudioKit Contributors on 9/4/16.
 //  Copyright © 2016 AudioKit. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  InfoController.swift
 //  FMPlayer
 //
-//  Created by Matthew Fecher on 10/31/17.
+//  Created by AudioKit Contributors on 10/31/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
 //
 

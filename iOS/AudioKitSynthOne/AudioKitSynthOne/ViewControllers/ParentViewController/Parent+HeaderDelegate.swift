@@ -2,7 +2,7 @@
 //  Parent+HeaderDelegate.swift
 //  AudioKitSynthOne
 //
-//  Created by Aurelius Prochazka on 5/25/18.
+//  Created by AudioKit Contributors on 5/25/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
@@ -61,7 +61,11 @@ extension ParentViewController: HeaderDelegate {
     }
 
     func homePressed() {
-        displayLabelTapped()
+        // Display Osc View when user clicks on AudioKit Synth One logo
+        if bottomChildView == .oscView {
+            switchToChildView(.adsrView, isTopView: false)
+        }
+        switchToChildView(.oscView, isTopView: true)
     }
 
     func devPressed() {

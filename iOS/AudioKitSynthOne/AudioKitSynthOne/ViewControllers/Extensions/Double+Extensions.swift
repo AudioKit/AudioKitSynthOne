@@ -2,7 +2,7 @@
 //  Double+Extensions.swift
 //  Swift Synth
 //
-//  Created by Matthew Fecher on 1/5/16.
+//  Created by AudioKit Contributors on 1/5/16.
 //  Copyright © 2016 AudioKit. All rights reserved.
 //
 

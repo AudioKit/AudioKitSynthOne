@@ -2,8 +2,8 @@
 //  AKSynthOne.swift
 //  AudioKit
 //
-//  Created by Aurelius Prochazka, revision history on Github.
-//  Copyright © 2017 Aurelius Prochazka. All rights reserved.
+//  Created by AudioKit Contributors, revision history on Github.
+//  Join us at AudioKitPro.com, github.com/audiokit
 //
 
 import Foundation

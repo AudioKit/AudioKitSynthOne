@@ -2,7 +2,7 @@
 //  AKS1Tunings.swift
 //  AudioKitSynthOne
 //
-//  Created by Marcus W. Hobbs on 5/12/18.
+//  Created by AudioKit Contributors on 5/12/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 

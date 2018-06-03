@@ -2,7 +2,7 @@
 //  ToggleButton.swift
 //  AudioKit Synth One
 //
-//  Created by Matthew Fecher on 7/22/17.
+//  Created by AudioKit Contributors on 7/22/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.
 //
 

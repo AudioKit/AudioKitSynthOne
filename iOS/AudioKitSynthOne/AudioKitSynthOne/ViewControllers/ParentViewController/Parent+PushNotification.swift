@@ -2,7 +2,7 @@
 //  Parent+PushNotification.swift
 //  FMPlayer
 //
-//  Created by Matthew Fecher on 1/8/18.
+//  Created by AudioKit Contributors on 1/8/18.
 //  Copyright © 2018 AudioKit Pro. All rights reserved.
 //
 

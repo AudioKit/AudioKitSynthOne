@@ -42,9 +42,7 @@ public class MIDIKnob: Knob, MIDILearnable {
         }
     }
 
-    // **********************************************************
     // MIDIKnob
-    // **********************************************************
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -58,9 +56,7 @@ public class MIDIKnob: Knob, MIDILearnable {
 
     }
 
-    // **********************************************************
     // UI Helper
-    // **********************************************************
 
     func addHotspot() {
         hotspotView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
@@ -75,9 +71,7 @@ public class MIDIKnob: Knob, MIDILearnable {
         hotspotView.removeFromSuperview()
     }
 
-    // **********************************************************
     // Helper Function
-    // **********************************************************
 
     // Linear Scale MIDI 0...127 to 0.0...1.0
     func setKnobValueFrom(midiValue: MIDIByte) {

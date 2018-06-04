@@ -12,9 +12,7 @@ import Disk
 
 extension ParentViewController {
 
-    // **********************************************************
     // MARK: - Convert App Settings to Controls and vice-versa
-    // **********************************************************
 
     func setDefaultsFromAppSettings() {
 
@@ -153,9 +151,7 @@ extension ParentViewController {
         saveAppSettings()
     }
 
-    // **********************************************************
     // MARK: - Load / Save App Settings
-    // **********************************************************
 
     // Load App Settings from Device
     func loadSettingsFromDevice() {
@@ -182,9 +178,7 @@ extension ParentViewController {
         }
     }
 
-    // **********************************************************
     // MARK: - Load / Save Bank Settings
-    // **********************************************************
 
     func saveBankSettings() {
         do {

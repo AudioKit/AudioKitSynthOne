@@ -444,9 +444,7 @@ public class ParentViewController: UpdatableViewController {
         }
     }
 
-    // **********************************************************
     // MARK: - View Navigation/Embed Helper Methods
-    // **********************************************************
 
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueToKeyboardSettings" {

@@ -3,7 +3,7 @@
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/20/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit

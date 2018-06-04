@@ -1,6 +1,6 @@
 //
 //  MIDIInput.swift
-//  FMPlayer
+//  AudioKit Synth One
 //
 //  Created by AudioKit Contributors on 11/12/17.
 //  Copyright © 2017 AudioKit Pro. All rights reserved.

@@ -11,9 +11,7 @@ import UIKit
 @IBDesignable
 class ToggleSwitch: UIView, AKSynthOneControl {
 
-    // *********************************************************
     // MARK: - ToggleButton
-    // *********************************************************
 
     var isOn = false {
         didSet {
@@ -33,9 +31,7 @@ class ToggleSwitch: UIView, AKSynthOneControl {
         ToggleSwitchStyleKit.drawToggleSwitch(isToggled: value == 0 ? false : true )
     }
 
-    // *********************************************************
     // MARK: - Handle Touches
-    // *********************************************************
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {

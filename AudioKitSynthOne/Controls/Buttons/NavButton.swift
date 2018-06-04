@@ -11,9 +11,7 @@ import UIKit
 @IBDesignable
 class NavButton: UIView {
 
-    // *********************************************************
     // MARK: - ToggleButton
-    // *********************************************************
 
     private var isOn = false
     var value: Double {
@@ -46,9 +44,7 @@ class NavButton: UIView {
         NavButtonStyleKit.drawNavButton(isOn: CGFloat(value), rotation: rotation, text: buttonText)
     }
 
-    // *********************************************************
     // MARK: - Handle Touches
-    // *********************************************************
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {

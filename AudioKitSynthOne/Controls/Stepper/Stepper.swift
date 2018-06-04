@@ -61,17 +61,13 @@ class Stepper: UIView, AKSynthOneControl {
         text = "1"
     }
 
-    // *********************************************************
     // MARK: - Draw
-    // *********************************************************
 
     override func draw(_ rect: CGRect) {
         StepperStyleKit.drawStepper(valuePressed: valuePressed, text: "\(Int(value))")
     }
 
-    // *********************************************************
     // MARK: - Handle Touches
-    // *********************************************************
 
     /// Handle new touches
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

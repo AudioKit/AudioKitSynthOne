@@ -36,9 +36,7 @@ extension Double {
         return "\(Int(100 * self ))%"
     }
 
-    // *********************************************************
     // MARK: - Random Generators
-    // *********************************************************
 
     // return random number between 0.0 and 1.0
 //    public static func random() -> Double {

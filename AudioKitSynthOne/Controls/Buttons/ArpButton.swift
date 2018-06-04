@@ -11,9 +11,7 @@ import UIKit
 @IBDesignable
 class ArpButton: UIView, AKSynthOneControl {
 
-    // *********************************************************
     // MARK: - ToggleButton
-    // *********************************************************
 
     private var _value: Double = 0
     var value: Double {
@@ -36,9 +34,7 @@ class ArpButton: UIView, AKSynthOneControl {
         ArpButtonStyleKit.drawArpButton(isToggled: value > 0 ? true : false)
     }
 
-    // *********************************************************
     // MARK: - Handle Touches
-    // *********************************************************
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {

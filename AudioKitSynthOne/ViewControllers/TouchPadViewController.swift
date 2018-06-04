@@ -58,9 +58,7 @@ class TouchPadViewController: SynthPanelController {
         //conductor.updateAllUI()
     }
 
-    // *********************************************************
     // MARK: - Touch Pad Callbacks
-    // *********************************************************
 
     func setupCallbacks() {
         let c = conductor
@@ -134,9 +132,7 @@ class TouchPadViewController: SynthPanelController {
         createParticles()
     }
 
-    // *********************************************************
     // MARK: - Reset Touch Pads
-    // *********************************************************
 
     func resetTouchPad1() {
         conductor.synth.setDependentParameter(.lfo1Rate, lfoRate, conductor.lfo1RateTouchPadID)
@@ -151,9 +147,7 @@ class TouchPadViewController: SynthPanelController {
         touchPad2.resetToPosition(x, rez)
     }
 
-    // *********************************************************
     // MARK: - Update UI
-    // *********************************************************
 
     override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
 
@@ -191,9 +185,7 @@ class TouchPadViewController: SynthPanelController {
         }
     }
 
-    // *********************************************************
     // MARK: - Particles
-    // *********************************************************
 
     func createParticles() {
         particleEmitter1.frame = touchPad1.bounds

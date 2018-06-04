@@ -15,9 +15,7 @@ protocol CategoryCellDelegate: AnyObject {
 
 class CategoryCell: UITableViewCell {
 
-    // *********************************************************
     // MARK: - Properties / Outlets
-    // *********************************************************
 
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
@@ -27,9 +25,7 @@ class CategoryCell: UITableViewCell {
 
     weak var delegate: CategoryCellDelegate?
 
-    // *********************************************************
     // MARK: - Lifecycle
-    // *********************************************************
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -74,18 +70,14 @@ class CategoryCell: UITableViewCell {
         }
     }
 
-    // *********************************************************
     // MARK: - Configure Cell
-    // *********************************************************
 
     func configureCell(category: String) {
         currentCategory = category
         categoryLabel?.text = "\(category)"
     }
 
-    // *********************************************************
     // MARK: - IBAction
-    // *********************************************************
 
     @IBAction func sharePressed(_ sender: UIButton) {
         delegate?.bankShare()

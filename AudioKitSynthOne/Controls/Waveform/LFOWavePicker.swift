@@ -23,9 +23,7 @@ class LFOWavePicker: UIView, AKSynthOneControl {
         LFOPickerStyleKit.drawLFOWaveformPicker(fraction: CGFloat(value / 3.0))
     }
 
-    // *********************************************************
     // MARK: - Handle Touches
-    // *********************************************************
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {

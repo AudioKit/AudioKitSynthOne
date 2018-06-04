@@ -1,6 +1,6 @@
 //
 //  MailingList.swift
-//  AudioKit Synth One
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 11/26/17.
 //  Copyright © 2017 AudioKit Pro. All rights reserved.

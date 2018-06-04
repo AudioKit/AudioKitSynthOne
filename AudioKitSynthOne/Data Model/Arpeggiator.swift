@@ -1,6 +1,6 @@
 //
 //  Arpeggiator.swift
-//  AudioKit Synth One
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 3/17/16.
 //  Copyright © 2016 AudioKit. All rights reserved.

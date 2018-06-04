@@ -1,6 +1,6 @@
 //
 //  PresetCell.swift
-//  AudioKit Synth One
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/28/16.
 //  Copyright © 2016 AudioKit. All rights reserved.

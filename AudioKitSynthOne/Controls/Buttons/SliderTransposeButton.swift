@@ -1,6 +1,6 @@
 //
 //  TransposeButton.swift
-//  AudioKit Synth One
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/1/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.

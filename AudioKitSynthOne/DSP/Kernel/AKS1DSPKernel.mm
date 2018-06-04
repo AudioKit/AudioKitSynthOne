@@ -1,5 +1,5 @@
 //
-//  AKSynthOneDSPKernel.mm
+//  AKS1DSPKernel.mm
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 1/27/18.
@@ -42,7 +42,7 @@ struct AKS1DSPKernel::SeqNoteNumber {
     }
 };
 
-// MARK: AKSynthOneDSPKernel Member Functions
+// MARK: AKS1DSPKernel Member Functions
 
 AKS1DSPKernel::AKS1DSPKernel() {}
 

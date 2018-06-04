@@ -1,5 +1,5 @@
 //
-//  AKSynthOneDSPKernel.hpp
+//  AKS1DSPKernel.hpp
 //  AudioKit
 //
 //  Created by AudioKit Contributors, revision history on Github.
@@ -30,7 +30,7 @@ struct AKS1NoteState;
 
 class AKS1DSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
 
-    // MARK: AKSynthOneDSPKernel Member Functions
+    // MARK: AKS1DSPKernel Member Functions
 
 public:
     

@@ -1,5 +1,5 @@
 //
-//  AKS1DSPKernel+taper.mm
+//  AKS1DSPKernel+destroy.mm
 //  AudioKitSynthOne
 //
 //  Created by Aurelius Prochazka on 6/4/18.

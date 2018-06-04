@@ -1,5 +1,5 @@
 //
-//  AudioKitSynthOne-Bridging-Header.h
+//  Bridging-Header.h
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 1/24/18.
@@ -8,7 +8,7 @@
 
 #pragma once
 
-#import "AKSynthOneAudioUnit.h"
+#import "AKS1AudioUnit.h"
 #import "AKS1Parameter.h"
 #import "AKSynthOneRate.h"
 #import "Audiobus.h"

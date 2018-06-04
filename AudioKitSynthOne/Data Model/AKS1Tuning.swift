@@ -48,7 +48,7 @@ class AKS1Tuning: Codable, CustomStringConvertible {
         }).sorted()
         for p in l2 {
             let msd = String(format: "%.12f_", p)
-            retVal = retVal + msd
+            retVal += msd
         }
 
         return retVal

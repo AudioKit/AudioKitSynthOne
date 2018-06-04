@@ -35,7 +35,7 @@ cyclomatic_complexity:
 excluded:
   - Pods
   - AudioKitSynthOne/Controls/
-  - AudioKitSynthOne/Data Model/AKS1Tunings.swift
+  - AudioKitSynthOne/Data Model/AKS1Tuning.swift
 
 opt_in_rules:
   - legacy_constructor

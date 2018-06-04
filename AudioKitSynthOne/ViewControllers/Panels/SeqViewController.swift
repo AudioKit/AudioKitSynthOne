@@ -48,7 +48,7 @@ class SeqViewController: PanelViewController {
         conductor.bind(seqStepsStepper, to: .arpTotalSteps)
 
         // ARP/SEQ OCTAVE BOOST
-        let arpSeqOctBoostArray: [AKS1Parameter] = [.arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02,
+        let arpSeqOctBoostArray: [S1Parameter] = [.arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02,
                                                           .arpSeqOctBoost03, .arpSeqOctBoost04, .arpSeqOctBoost05,
                                                           .arpSeqOctBoost06, .arpSeqOctBoost07, .arpSeqOctBoost08,
                                                           .arpSeqOctBoost09, .arpSeqOctBoost10, .arpSeqOctBoost11,
@@ -74,7 +74,7 @@ class SeqViewController: PanelViewController {
         }
 
         // ARP/SEQ PATTERN
-        let arpSeqPatternArray: [AKS1Parameter] = [.arpSeqPattern00, .arpSeqPattern01, .arpSeqPattern02,
+        let arpSeqPatternArray: [S1Parameter] = [.arpSeqPattern00, .arpSeqPattern01, .arpSeqPattern02,
                                                          .arpSeqPattern03, .arpSeqPattern04, .arpSeqPattern05,
                                                          .arpSeqPattern06, .arpSeqPattern07, .arpSeqPattern08,
                                                          .arpSeqPattern09, .arpSeqPattern10, .arpSeqPattern11,
@@ -101,7 +101,7 @@ class SeqViewController: PanelViewController {
         }
 
         // ARP/SEQ NOTE ON/OFF
-        let arpSeqNoteOnArray: [AKS1Parameter] = [.arpSeqNoteOn00, .arpSeqNoteOn01, .arpSeqNoteOn02,
+        let arpSeqNoteOnArray: [S1Parameter] = [.arpSeqNoteOn00, .arpSeqNoteOn01, .arpSeqNoteOn02,
                                                         .arpSeqNoteOn03, .arpSeqNoteOn04, .arpSeqNoteOn05,
                                                         .arpSeqNoteOn06, .arpSeqNoteOn07, .arpSeqNoteOn08,
                                                         .arpSeqNoteOn09, .arpSeqNoteOn10, .arpSeqNoteOn11,
@@ -126,7 +126,7 @@ class SeqViewController: PanelViewController {
         }
     }
 
-    override func updateUI(_ param: AKS1Parameter, control: AKS1Control?, value: Double) {
+    override func updateUI(_ param: S1Parameter, control: S1Control?, value: Double) {
         for i in 0...15 {
             updateOctBoostButton(notePosition: i)
         }

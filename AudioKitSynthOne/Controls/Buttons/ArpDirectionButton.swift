@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class ArpDirectionButton: UIView, AKS1Control {
+class ArpDirectionButton: UIView, S1Control {
 
     // MARK: - LFO Button
 

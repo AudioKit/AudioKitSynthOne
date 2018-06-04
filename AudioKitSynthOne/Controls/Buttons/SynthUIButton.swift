@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SynthUIButton: UIButton, AKS1Control {
+class SynthUIButton: UIButton, S1Control {
 
     var callback: (Double) -> Void = { _ in }
 

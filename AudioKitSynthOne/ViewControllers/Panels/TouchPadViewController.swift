@@ -149,7 +149,7 @@ class TouchPadViewController: PanelViewController {
 
     // MARK: - Update UI
 
-    override func updateUI(_ param: AKS1Parameter, control inputControl: AKS1Control?, value: Double) {
+    override func updateUI(_ param: S1Parameter, control inputControl: S1Control?, value: Double) {
 
         // Update TouchPad positions if corresponding knobs are turned
         switch param {

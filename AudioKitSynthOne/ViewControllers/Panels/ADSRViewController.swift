@@ -76,7 +76,7 @@ class ADSRViewController: PanelViewController {
         }
     }
 
-    override func updateUI(_ param: AKS1Parameter, control: AKS1Control?, value: Double) {
+    override func updateUI(_ param: S1Parameter, control: S1Control?, value: Double) {
         switch param {
         case .attackDuration:
             adsrView.attackDuration = value

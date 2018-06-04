@@ -8,7 +8,7 @@
 
 #pragma once
 
-#import "AKS1AudioUnit.h"
-#import "AKS1Parameter.h"
+#import "S1AudioUnit.h"
+#import "S1Parameter.h"
 #import "AKSynthOneRate.h"
 #import "Audiobus.h"

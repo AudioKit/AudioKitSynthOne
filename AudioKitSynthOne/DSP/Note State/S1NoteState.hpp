@@ -1,11 +1,11 @@
 //
-//  AKS1NoteState.hpp
+//  S1NoteState.hpp
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 4/30/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
-//  Atomic unit of a "note"; managed by AKS1DSPKernel
+//  Atomic unit of a "note"; managed by S1DSPKernel
 
 #pragma once
 
@@ -13,17 +13,17 @@
 #import <list>
 #import <string>
 #import "AKSoundpipeKernel.hpp"
-#import "AKS1AudioUnit.h"
-#import "AKS1Parameter.h"
-#import "AKS1Rate.hpp"
+#import "S1AudioUnit.h"
+#import "S1Parameter.h"
+#import "S1Rate.hpp"
 
 #ifdef __cplusplus
 
-class AKS1DSPKernel;
+class S1DSPKernel;
 
-struct AKS1NoteState {
+struct S1NoteState {
     
-    AKS1DSPKernel* kernel;
+    S1DSPKernel* kernel;
     
     enum NoteStateStage { stageOff, stageOn, stageRelease };
     NoteStateStage stage = stageOff;
@@ -59,7 +59,7 @@ struct AKS1NoteState {
     sp_butbp *bandPass;
     sp_crossfade *filterCrossFade;
     
-    inline float getParam(AKS1Parameter param);
+    inline float getParam(S1Parameter param);
 
     void init();
 

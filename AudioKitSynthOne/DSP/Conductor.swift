@@ -8,19 +8,19 @@
 
 import AudioKit
 
-protocol AKS1Control: class {
+protocol S1Control: class {
     var value: Double { get set }
     var callback: (Double) -> Void { get set }
 }
 
-typealias AKS1ControlCallback = (AKS1Parameter, AKS1Control?) -> ((_: Double) -> Void)
+typealias AKS1ControlCallback = (S1Parameter, S1Control?) -> ((_: Double) -> Void)
 
-class Conductor: AKS1Protocol {
+class Conductor: S1Protocol {
     static var sharedInstance = Conductor()
     var neverSleep = false
     var banks: [Bank] = []
     var synth: AKSynthOne!
-    var bindings: [(AKS1Parameter, AKS1Control)] = []
+    var bindings: [(S1Parameter, S1Control)] = []
     var heldNoteCount: Int = 0
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
     let lfo1RateFXPanelID: Int32 = 1
@@ -35,8 +35,8 @@ class Conductor: AKS1Protocol {
     public var viewControllers: Set<UpdatableViewController> = []
     fileprivate var started = false
 
-    func bind(_ control: AKS1Control,
-              to param: AKS1Parameter,
+    func bind(_ control: S1Control,
+              to param: S1Parameter,
               callback closure: AKS1ControlCallback? = nil) {
         let binding = (param, control)
         bindings.append(binding)
@@ -61,8 +61,8 @@ class Conductor: AKS1Protocol {
         }
     }
 
-    func updateSingleUI(_ param: AKS1Parameter,
-                        control inputControl: AKS1Control?,
+    func updateSingleUI(_ param: S1Parameter,
+                        control inputControl: S1Control?,
                         value inputValue: Double) {
 
         // cannot access synth until it is initialized and started
@@ -92,11 +92,11 @@ class Conductor: AKS1Protocol {
 
     // Call when a global update needs to happen.  i.e., on launch, foreground, and/or when a Preset is loaded.
     func updateAllUI() {
-        let parameterCount = AKS1Parameter.AKS1ParameterCount.rawValue
+        let parameterCount = S1Parameter.S1ParameterCount.rawValue
         for address in 0..<parameterCount {
-            guard let param: AKS1Parameter = AKS1Parameter(rawValue: address)
+            guard let param: S1Parameter = S1Parameter(rawValue: address)
                 else {
-                    AKLog("ERROR: AKS1Parameter enum out of range: \(address)")
+                    AKLog("ERROR: S1Parameter enum out of range: \(address)")
                     return
             }
             let value = self.synth.getSynthParameter(param)
@@ -166,12 +166,12 @@ class Conductor: AKS1Protocol {
         parentVC?.updateDisplay(message)
     }
 
-    func updateDisplayLabel(_ param: AKS1Parameter, value: Double) {
+    func updateDisplayLabel(_ param: S1Parameter, value: Double) {
         let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController }) as? HeaderViewController
         headerVC?.updateDisplayLabel(param, value: value)
     }
 
-    // MARK: - AKS1Protocol
+    // MARK: - S1Protocol
 
     // called by DSP on main thread
     func dependentParamDidChange(_ param: DependentParam) {
@@ -186,7 +186,7 @@ class Conductor: AKS1Protocol {
     }
 
     // called by DSP on main thread
-    func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {
+    func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {
         let seqVC = self.viewControllers.first(where: { $0 is SeqViewController }) as? SeqViewController
         seqVC?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
     }

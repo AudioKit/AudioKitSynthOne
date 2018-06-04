@@ -1,5 +1,5 @@
 //
-//  AKS1AudioUnit.h
+//  S1AudioUnit.h
 //  AudioKit
 //
 //  Created by AudioKit Contributors, revision history on Github.
@@ -9,7 +9,7 @@
 #pragma once
 
 #import <AudioKit/AKAudioUnit.h>
-#import "AKS1Parameter.h"
+#import "S1Parameter.h"
 
 #define AKS1_MAX_POLYPHONY (6)
 #define AKS1_NUM_MIDI_NOTES (128)
@@ -26,7 +26,7 @@ typedef struct NoteNumber {
 // DSP updates UI elements lfo1Rate, lfo2Rate, autoPanRate, delayTime when arpOn/tempoSyncArpRate update
 // DSP updates lfo1Rate, lfo2Rate, autoPanRate, delayTime based on current arpOn/tempoSyncArpRate
 typedef struct DependentParam {
-    AKS1Parameter param;
+    S1Parameter param;
     float value01;// [0,1] for ui
     float value;
     int payload;
@@ -45,41 +45,41 @@ typedef struct HeldNotes {
 } HeldNotes;
 
 // helper for main+render thread communcation: arp beat counter, and number of held notes
-typedef struct AKS1ArpBeatCounter {
+typedef struct S1ArpBeatCounter {
     int beatCounter;
     int heldNotesCount;
 } AKS1ArpBeatCounter;
 
 
-@protocol AKS1Protocol
+@protocol S1Protocol
 -(void)dependentParamDidChange:(DependentParam)dependentParam;
 -(void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatCounter;
 -(void)heldNotesDidChange:(HeldNotes)heldNotes;
 -(void)playingNotesDidChange:(PlayingNotes)playingNotes;
 @end
 
-@interface AKS1AudioUnit : AKAudioUnit
+@interface S1AudioUnit : AKAudioUnit
 {
     @public
     AEMessageQueue  *_messageQueue;
 }
 
 @property (nonatomic) NSArray *parameters;
-@property (nonatomic, weak) id<AKS1Protocol> aks1Delegate;
+@property (nonatomic, weak) id<S1Protocol> aks1Delegate;
 
 ///auv3, not yet used
 - (void)setParameter:(AUParameterAddress)address value:(AUValue)value;
 - (AUValue)getParameter:(AUParameterAddress)address;
 - (void)createParameters;
 
-- (float)getSynthParameter:(AKS1Parameter)param;
-- (void)setSynthParameter:(AKS1Parameter)param value:(float)value;
-- (float)getDependentParameter:(AKS1Parameter)param;
-- (void)setDependentParameter:(AKS1Parameter)param value:(float)value payload:(int)payload;
+- (float)getSynthParameter:(S1Parameter)param;
+- (void)setSynthParameter:(S1Parameter)param value:(float)value;
+- (float)getDependentParameter:(S1Parameter)param;
+- (void)setDependentParameter:(S1Parameter)param value:(float)value payload:(int)payload;
 
-- (float)getMinimum:(AKS1Parameter)param;
-- (float)getMaximum:(AKS1Parameter)param;
-- (float)getDefault:(AKS1Parameter)param;
+- (float)getMinimum:(S1Parameter)param;
+- (float)getMaximum:(S1Parameter)param;
+- (float)getDefault:(S1Parameter)param;
 
 - (void)setupWaveform:(UInt32)waveform size:(int)size;
 - (void)setWaveform:(UInt32)waveform withValue:(float)value atIndex:(UInt32)index;
@@ -93,7 +93,7 @@ typedef struct AKS1ArpBeatCounter {
 - (void)resetDSP;
 - (void)resetSequencer;
 
-// protected passthroughs for AKS1Protocol called by DSP on main thread
+// protected passthroughs for S1Protocol called by DSP on main thread
 - (void)dependentParamDidChange:(DependentParam)param;
 - (void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatcounter;
 - (void)heldNotesDidChange:(HeldNotes)heldNotes;

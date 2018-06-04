@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class Stepper: UIView, AKS1Control {
+class Stepper: UIView, S1Control {
 
     public var callback: (Double) -> Void = { _ in }
 

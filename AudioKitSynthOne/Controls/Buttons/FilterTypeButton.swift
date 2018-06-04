@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterTypeButton: UIButton, AKS1Control {
+class FilterTypeButton: UIButton, S1Control {
 
     var callback: (Double) -> Void = { _ in }
 

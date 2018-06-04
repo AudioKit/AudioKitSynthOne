@@ -1,5 +1,5 @@
 //
-//  AKS1DSPKernel.hpp
+//  S1DSPKernel.hpp
 //  AudioKit
 //
 //  Created by AudioKit Contributors, revision history on Github.
@@ -13,9 +13,9 @@
 #import <list>
 #import <string>
 #import "AKSoundpipeKernel.hpp"
-#import "AKS1AudioUnit.h"
-#import "AKS1Parameter.h"
-#import "AKS1Rate.hpp"
+#import "S1AudioUnit.h"
+#import "S1Parameter.h"
+#import "S1Rate.hpp"
 
 @class AEArray;
 @class AEMessageQueue;
@@ -26,29 +26,29 @@
 
 #ifdef __cplusplus
 
-struct AKS1NoteState;
+struct S1NoteState;
 
-class AKS1DSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
+class S1DSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
 
-    // MARK: AKS1DSPKernel Member Functions
+    // MARK: S1DSPKernel Member Functions
 
 public:
     
-    AKS1DSPKernel();
+    S1DSPKernel();
     
-    ~AKS1DSPKernel();
+    ~S1DSPKernel();
 
     // public accessor for protected sp
     sp_data *spp() {
         return sp;
     }
 
-    float getSynthParameter(AKS1Parameter param);
-    void setSynthParameter(AKS1Parameter param, float value);
+    float getSynthParameter(S1Parameter param);
+    void setSynthParameter(S1Parameter param, float value);
 
     // lfo1Rate, lfo2Rate, autoPanRate, and delayTime; returns on [0,1]
-    float getDependentParameter(AKS1Parameter param);
-    void setDependentParameter(AKS1Parameter param, float value, int payload);
+    float getDependentParameter(S1Parameter param);
+    void setDependentParameter(S1Parameter param, float value, int payload);
 
     // AUParameter/AUValue
     void setParameters(float params[]);
@@ -113,36 +113,36 @@ public:
     void setWaveformValue(uint32_t waveform, uint32_t index, float value);
     
     ///parameter min
-    float parameterMin(AKS1Parameter i);
+    float parameterMin(S1Parameter i);
     
     ///parameter max
-    float parameterMax(AKS1Parameter i);
+    float parameterMax(S1Parameter i);
     
     ///parameter defaults
-    float parameterDefault(AKS1Parameter i);
+    float parameterDefault(S1Parameter i);
     
     ///parameter unit
-    AudioUnitParameterUnit parameterUnit(AKS1Parameter i);
+    AudioUnitParameterUnit parameterUnit(S1Parameter i);
     
     ///parameter clamp
-    float parameterClamp(AKS1Parameter i, float inputValue);
+    float parameterClamp(S1Parameter i, float inputValue);
 
     ///friendly description of parameter
-    std::string parameterFriendlyName(AKS1Parameter i);
+    std::string parameterFriendlyName(S1Parameter i);
     
     ///C string friendly description of parameter
-    const char* parameterCStr(AKS1Parameter i);
+    const char* parameterCStr(S1Parameter i);
 
     ///parameter presetKey
-    std::string parameterPresetKey(AKS1Parameter i);
+    std::string parameterPresetKey(S1Parameter i);
 
 private:
 
-    inline void _setSynthParameter(AKS1Parameter param, float inputValue01);
+    inline void _setSynthParameter(S1Parameter param, float inputValue01);
     
-    inline void _setSynthParameterHelper(AKS1Parameter param, float inputValue, bool notifyMainThread, int payload);
+    inline void _setSynthParameterHelper(S1Parameter param, float inputValue, bool notifyMainThread, int payload);
     
-    inline void _rateHelper(AKS1Parameter param, float inputValue, bool notifyMainThread, int payload);
+    inline void _rateHelper(S1Parameter param, float inputValue, bool notifyMainThread, int payload);
 
      // algebraic only
     inline float taper01(float inputValue01, float taper);
@@ -155,14 +155,14 @@ private:
     // MARK: Member Variables
 public:
     
-    AKS1AudioUnit* audioUnit;
+    S1AudioUnit* audioUnit;
     
     bool resetted = false;
     
     int arpBeatCounter = 0;
     
     /// dsp params
-    float p[AKS1Parameter::AKS1ParameterCount];
+    float p[S1Parameter::S1ParameterCount];
     
     // Portamento values
     float monoFrequency = 440.f * exp2((60.f - 69.f)/12.f);
@@ -192,7 +192,7 @@ public:
     float monoFrequencySmooth = 261.6255653006f;
 
 private:
-    AKS1Rate _rate;
+    S1Rate _rate;
     
     DependentParam _lfo1Rate;
     
@@ -218,7 +218,7 @@ private:
     struct SeqNoteNumber;
     
     struct AKS1Param {
-        AKS1Parameter param;
+        S1Parameter param;
         float min;
         float defaultValue;
         float max;
@@ -230,11 +230,11 @@ private:
         float portamentoTarget;
     };
     
-    // array of struct AKS1NoteState of count MAX_POLYPHONY
-    AKS1NoteState* noteStates;
+    // array of struct S1NoteState of count MAX_POLYPHONY
+    S1NoteState* noteStates;
     
     // monophonic: single instance of NoteState
-    AKS1NoteState* monoNote;
+    S1NoteState* monoNote;
     
     bool initializedNoteStates = false;
     
@@ -306,7 +306,7 @@ private:
     const float bars_max = 8.f;
     const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) ); //  0.00052 8 bars at 1bpm
     const float rate_max = 1.f / ( (beatsPerBar * bars_min) / (bpm_max * minutesPerSecond) ); // 53.3333
-    AKS1Param aks1p[AKS1Parameter::AKS1ParameterCount] = {
+    AKS1Param aks1p[S1Parameter::S1ParameterCount] = {
         { index1,                0, 1, 1, "index1", "Index 1", kAudioUnitParameterUnit_Generic, true, NULL},
         { index2,                0, 1, 1, "index2", "Index 2", kAudioUnitParameterUnit_Generic, true, NULL},
         { morphBalance,          0, 0.5, 1, "morphBalance", "morphBalance", kAudioUnitParameterUnit_Generic, true, NULL},

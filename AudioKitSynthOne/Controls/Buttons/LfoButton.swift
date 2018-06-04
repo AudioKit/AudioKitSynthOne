@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class LfoButton: UIView, AKS1Control {
+class LfoButton: UIView, S1Control {
 
     var callback: (Double) -> Void = { _ in }
     var value: Double = 0 {

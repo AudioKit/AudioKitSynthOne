@@ -13,7 +13,7 @@
 #import <list>
 #import <string>
 #import "AKSoundpipeKernel.hpp"
-#import "AKSynthOneAudioUnit.h"
+#import "AKS1AudioUnit.h"
 #import "AKS1Parameter.h"
 #import "AKS1Rate.hpp"
 
@@ -155,7 +155,7 @@ private:
     // MARK: Member Variables
 public:
     
-    AKSynthOneAudioUnit* audioUnit;
+    AKS1AudioUnit* audioUnit;
     
     bool resetted = false;
     

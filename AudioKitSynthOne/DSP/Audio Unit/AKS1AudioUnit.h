@@ -1,5 +1,5 @@
 //
-//  AKSynthOneAudioUnit.h
+//  AKS1AudioUnit.h
 //  AudioKit
 //
 //  Created by AudioKit Contributors, revision history on Github.
@@ -51,21 +51,21 @@ typedef struct AKS1ArpBeatCounter {
 } AKS1ArpBeatCounter;
 
 
-@protocol AKSynthOneProtocol
+@protocol AKS1Protocol
 -(void)dependentParamDidChange:(DependentParam)dependentParam;
 -(void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatCounter;
 -(void)heldNotesDidChange:(HeldNotes)heldNotes;
 -(void)playingNotesDidChange:(PlayingNotes)playingNotes;
 @end
 
-@interface AKSynthOneAudioUnit : AKAudioUnit
+@interface AKS1AudioUnit : AKAudioUnit
 {
     @public
     AEMessageQueue  *_messageQueue;
 }
 
 @property (nonatomic) NSArray *parameters;
-@property (nonatomic, weak) id<AKSynthOneProtocol> aks1Delegate;
+@property (nonatomic, weak) id<AKS1Protocol> aks1Delegate;
 
 ///auv3, not yet used
 - (void)setParameter:(AUParameterAddress)address value:(AUValue)value;
@@ -93,7 +93,7 @@ typedef struct AKS1ArpBeatCounter {
 - (void)resetDSP;
 - (void)resetSequencer;
 
-// protected passthroughs for AKSynthOneProtocol called by DSP on main thread
+// protected passthroughs for AKS1Protocol called by DSP on main thread
 - (void)dependentParamDidChange:(DependentParam)param;
 - (void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatcounter;
 - (void)heldNotesDidChange:(HeldNotes)heldNotes;

@@ -9,9 +9,9 @@
 import Foundation
 import AudioKit
 
-@objc open class AKSynthOne: AKPolyphonicNode, AKComponent, AKSynthOneProtocol {
+@objc open class AKSynthOne: AKPolyphonicNode, AKComponent, AKS1Protocol {
 
-    public typealias AKAudioUnitType = AKSynthOneAudioUnit
+    public typealias AKAudioUnitType = AKS1AudioUnit
 
     /// Four letter unique description of the node
     public static let ComponentDescription = AudioComponentDescription(instrument: "aks1")
@@ -205,7 +205,7 @@ import AudioKit
         internalAU?.aks1Delegate = self
     }
 
-    @objc open weak var delegate: AKSynthOneProtocol?
+    @objc open weak var delegate: AKS1Protocol?
 
     internal func postNotification(_ param: AKS1Parameter, _ value: Double) {
         AKLog("unused")

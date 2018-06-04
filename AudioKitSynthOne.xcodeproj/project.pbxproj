@@ -107,7 +107,7 @@
 		C435C58220C530C900DAECCD /* AEMainThreadEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56720C530C900DAECCD /* AEMainThreadEndpoint.m */; };
 		C435C58320C530C900DAECCD /* AEAudioThreadEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56920C530C900DAECCD /* AEAudioThreadEndpoint.m */; };
 		C435C58420C530C900DAECCD /* AKS1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C56D20C530C900DAECCD /* AKS1NoteState.mm */; };
-		C435C58520C530C900DAECCD /* AKSynthOneAudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57020C530C900DAECCD /* AKSynthOneAudioUnit.mm */; };
+		C435C58520C530C900DAECCD /* AKS1AudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57020C530C900DAECCD /* AKS1AudioUnit.mm */; };
 		C435C58620C530C900DAECCD /* Audiobus.txt in Resources */ = {isa = PBXBuildFile; fileRef = C435C57220C530C900DAECCD /* Audiobus.txt */; };
 		C435C58720C530C900DAECCD /* Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C57320C530C900DAECCD /* Audiobus.swift */; };
 		C435C58820C530C900DAECCD /* Audiobus+MIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C57420C530C900DAECCD /* Audiobus+MIDI.swift */; };
@@ -292,14 +292,14 @@
 		C435C56920C530C900DAECCD /* AEAudioThreadEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEAudioThreadEndpoint.m; sourceTree = "<group>"; };
 		C435C56C20C530C900DAECCD /* AKS1NoteState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1NoteState.hpp; sourceTree = "<group>"; };
 		C435C56D20C530C900DAECCD /* AKS1NoteState.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
-		C435C56F20C530C900DAECCD /* AKSynthOneAudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneAudioUnit.h; sourceTree = "<group>"; };
-		C435C57020C530C900DAECCD /* AKSynthOneAudioUnit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKSynthOneAudioUnit.mm; sourceTree = "<group>"; };
+		C435C56F20C530C900DAECCD /* AKS1AudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKS1AudioUnit.h; sourceTree = "<group>"; };
+		C435C57020C530C900DAECCD /* AKS1AudioUnit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1AudioUnit.mm; sourceTree = "<group>"; };
 		C435C57220C530C900DAECCD /* Audiobus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Audiobus.txt; sourceTree = "<group>"; };
 		C435C57320C530C900DAECCD /* Audiobus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audiobus.swift; sourceTree = "<group>"; };
 		C435C57420C530C900DAECCD /* Audiobus+MIDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Audiobus+MIDI.swift"; sourceTree = "<group>"; };
 		C435C57620C530C900DAECCD /* AKS1DSPKernel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1DSPKernel.mm; sourceTree = "<group>"; };
 		C435C57720C530C900DAECCD /* AKS1DSPKernel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1DSPKernel.hpp; sourceTree = "<group>"; };
-		C435C58A20C530F000DAECCD /* AudioKitSynthOne-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioKitSynthOne-Bridging-Header.h"; sourceTree = "<group>"; };
+		C435C58A20C530F000DAECCD /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		C435C58C20C5336600DAECCD /* AKS1Rate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1Rate.hpp; sourceTree = "<group>"; };
 		C435C58D20C5336600DAECCD /* AKSynthOneRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
 		C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+MailingListDelegate.swift"; sourceTree = "<group>"; };
@@ -610,9 +610,9 @@
 			children = (
 				C435C55420C530C900DAECCD /* AKSynthOne.swift */,
 				C435C55320C530C900DAECCD /* AKS1Parameter.h */,
+				C435C58A20C530F000DAECCD /* Bridging-Header.h */,
 				C435C55120C530C900DAECCD /* Conductor.swift */,
 				C435C55620C530C900DAECCD /* SDSustainer.swift */,
-				C435C58A20C530F000DAECCD /* AudioKitSynthOne-Bridging-Header.h */,
 				C435C56E20C530C900DAECCD /* Audio Unit */,
 				C435C57120C530C900DAECCD /* Audiobus */,
 				C435C57520C530C900DAECCD /* Kernel */,
@@ -660,8 +660,8 @@
 		C435C56E20C530C900DAECCD /* Audio Unit */ = {
 			isa = PBXGroup;
 			children = (
-				C435C56F20C530C900DAECCD /* AKSynthOneAudioUnit.h */,
-				C435C57020C530C900DAECCD /* AKSynthOneAudioUnit.mm */,
+				C435C56F20C530C900DAECCD /* AKS1AudioUnit.h */,
+				C435C57020C530C900DAECCD /* AKS1AudioUnit.mm */,
 			);
 			path = "Audio Unit";
 			sourceTree = "<group>";
@@ -1063,7 +1063,7 @@
 				C435C57920C530C900DAECCD /* AKSynthOne.swift in Sources */,
 				C435C4F820C5234900DAECCD /* CategoryCell.swift in Sources */,
 				C435C53120C52D4C00DAECCD /* AKS1Tunings+Math.swift in Sources */,
-				C435C58520C530C900DAECCD /* AKSynthOneAudioUnit.mm in Sources */,
+				C435C58520C530C900DAECCD /* AKS1AudioUnit.mm in Sources */,
 				C435C54620C52F0500DAECCD /* PopUpPresetEdit.swift in Sources */,
 				C435C57E20C530C900DAECCD /* AEArray.m in Sources */,
 				C435C50320C5286C00DAECCD /* Helpers.swift in Sources */,
@@ -1266,7 +1266,7 @@
 				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wno-incomplete-umbrella";
@@ -1327,7 +1327,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1365,7 +1365,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1402,7 +1402,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

@@ -15,7 +15,7 @@ protocol AKS1Control: class {
 
 typealias AKS1ControlCallback = (AKS1Parameter, AKS1Control?) -> ((_: Double) -> Void)
 
-class Conductor: AKSynthOneProtocol {
+class Conductor: AKS1Protocol {
     static var sharedInstance = Conductor()
     var neverSleep = false
     var banks: [Bank] = []
@@ -171,7 +171,7 @@ class Conductor: AKSynthOneProtocol {
         headerVC?.updateDisplayLabel(param, value: value)
     }
 
-    // MARK: - AKSynthOneProtocol
+    // MARK: - AKS1Protocol
 
     // called by DSP on main thread
     func dependentParamDidChange(_ param: DependentParam) {

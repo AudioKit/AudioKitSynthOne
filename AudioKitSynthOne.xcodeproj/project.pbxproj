@@ -292,9 +292,6 @@
 		C4421A9F20B81A7400BE9F12 /* Presets+BankPopOverDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+BankPopOverDelegate.swift"; sourceTree = "<group>"; };
 		C4421AA020B81A7500BE9F12 /* Presets+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		C46E16071F27FF9C00A518F5 /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C474D9501F13172B00946035 /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
-		C474D9531F13172B00946035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		C474D9551F13172B00946035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C47FB3C21F36694300EF2F01 /* RateKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateKnob.swift; sourceTree = "<group>"; };
 		C47FDEF3201C5E3000A31D48 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = "../../../AudioKit/Frameworks/AudioKit-iOS/AudioKitUI.framework"; sourceTree = "<group>"; };
 		C47FDEF4201C5E3000A31D48 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = "../../../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework"; sourceTree = "<group>"; };
@@ -661,16 +658,6 @@
 			path = PresetsViewController;
 			sourceTree = "<group>";
 		};
-		C474D94C1F13172B00946035 /* SynthOne  */ = {
-			isa = PBXGroup;
-			children = (
-				C474D9501F13172B00946035 /* AudioUnitViewController.swift */,
-				C474D9521F13172B00946035 /* MainInterface.storyboard */,
-				C474D9551F13172B00946035 /* Info.plist */,
-			);
-			path = "SynthOne ";
-			sourceTree = "<group>";
-		};
 		C4AC4AEA2019BF0500D04C7F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,7 +708,6 @@
 			isa = PBXGroup;
 			children = (
 				C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */,
-				C474D94C1F13172B00946035 /* SynthOne  */,
 				941645CB20B3597300D62851 /* OneSignalNotificationServiceExtension */,
 				C4D193C51F1187B500FF4FE4 /* Products */,
 				9461F0371F5CAAE600EE226E /* Frameworks */,
@@ -1151,14 +1137,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C474D9521F13172B00946035 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C474D9531F13172B00946035 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 		C4D193CB1F1187B500FF4FE4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

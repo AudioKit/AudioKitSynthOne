@@ -65,8 +65,8 @@ class SynthPanelController: UpdatableViewController {
         }
 
         // Update button text
-        nav1Button.buttonText = leftView.btnText()
-        nav2Button.buttonText = rightView.btnText()
+        nav1Button.buttonText = leftView.buttonText()
+        nav2Button.buttonText = rightView.buttonText()
         nav1Button.setNeedsDisplay()
         nav2Button.setNeedsDisplay()
     }

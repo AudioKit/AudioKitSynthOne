@@ -15,7 +15,7 @@ class ArpDirectionButton: UIView, AKSynthOneControl {
 
     public var callback: (Double) -> Void = { _ in }
 
-    private var btnWidth: CGFloat = 35.0
+    private var width: CGFloat = 35.0
 
     var value = 0.0 {
         didSet {
@@ -35,9 +35,9 @@ class ArpDirectionButton: UIView, AKSynthOneControl {
             let touchPoint = touch.location(in: self)
 
             switch touchPoint.x {
-            case 0..<btnWidth:
+            case 0..<width:
                 value = 0
-            case btnWidth...btnWidth * 2:
+            case width...width * 2:
                 value = 1
             default:
                 value = 2

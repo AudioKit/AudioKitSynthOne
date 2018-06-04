@@ -96,9 +96,9 @@
 		C435C4E120C51A2900DAECCD /* Audiobus+MIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4DD20C51A2900DAECCD /* Audiobus+MIDI.swift */; };
 		C435C4E520C51A9C00DAECCD /* AKSynthOneAudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C4E420C51A9C00DAECCD /* AKSynthOneAudioUnit.mm */; };
 		C435C4E920C51ABE00DAECCD /* AKS1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C4E820C51ABE00DAECCD /* AKS1NoteState.mm */; };
-		C435C4EE20C51E7D00DAECCD /* AKS1Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4EB20C51E7D00DAECCD /* AKS1Tuning.swift */; };
-		C435C4EF20C51E7D00DAECCD /* AKS1Tuning+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4EC20C51E7D00DAECCD /* AKS1Tuning+Math.swift */; };
-		C435C4F020C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4ED20C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift */; };
+		C435C4EE20C51E7D00DAECCD /* AKS1Tunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4EB20C51E7D00DAECCD /* AKS1Tunings.swift */; };
+		C435C4EF20C51E7D00DAECCD /* AKS1Tunings+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4EC20C51E7D00DAECCD /* AKS1Tunings+Math.swift */; };
+		C435C4F020C51E7D00DAECCD /* AKS1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4ED20C51E7D00DAECCD /* AKS1Tunings+Harmonic.swift */; };
 		C4421A7E20B8178F00BE9F12 /* Parent+MailingListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */; };
 		C4421A7F20B8178F00BE9F12 /* Parent+PresetsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */; };
 		C4421A8020B8178F00BE9F12 /* Parent+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */; };
@@ -275,9 +275,9 @@
 		C435C4E420C51A9C00DAECCD /* AKSynthOneAudioUnit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKSynthOneAudioUnit.mm; sourceTree = "<group>"; };
 		C435C4E720C51ABE00DAECCD /* AKS1NoteState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1NoteState.hpp; sourceTree = "<group>"; };
 		C435C4E820C51ABE00DAECCD /* AKS1NoteState.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
-		C435C4EB20C51E7D00DAECCD /* AKS1Tuning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKS1Tuning.swift; sourceTree = "<group>"; };
-		C435C4EC20C51E7D00DAECCD /* AKS1Tuning+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AKS1Tuning+Math.swift"; sourceTree = "<group>"; };
-		C435C4ED20C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AKS1Tuning+Harmonic.swift"; sourceTree = "<group>"; };
+		C435C4EB20C51E7D00DAECCD /* AKS1Tunings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKS1Tunings.swift; sourceTree = "<group>"; };
+		C435C4EC20C51E7D00DAECCD /* AKS1Tunings+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Math.swift"; sourceTree = "<group>"; };
+		C435C4ED20C51E7D00DAECCD /* AKS1Tunings+Harmonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Harmonic.swift"; sourceTree = "<group>"; };
 		C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+MailingListDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PresetsDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+Keyboard.swift"; sourceTree = "<group>"; };
@@ -648,9 +648,9 @@
 		C435C4EA20C51E7D00DAECCD /* Tunings */ = {
 			isa = PBXGroup;
 			children = (
-				C435C4EB20C51E7D00DAECCD /* AKS1Tuning.swift */,
-				C435C4EC20C51E7D00DAECCD /* AKS1Tuning+Math.swift */,
-				C435C4ED20C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift */,
+				C435C4EB20C51E7D00DAECCD /* AKS1Tunings.swift */,
+				C435C4EC20C51E7D00DAECCD /* AKS1Tunings+Math.swift */,
+				C435C4ED20C51E7D00DAECCD /* AKS1Tunings+Harmonic.swift */,
 			);
 			path = Tunings;
 			sourceTree = "<group>";
@@ -1060,9 +1060,9 @@
 				94A503911FF2E7680097D37C /* PopUpMIDIViewController.swift in Sources */,
 				94D513A9206C723F0037CB28 /* PopUpAbout.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
-				C435C4EE20C51E7D00DAECCD /* AKS1Tuning.swift in Sources */,
+				C435C4EE20C51E7D00DAECCD /* AKS1Tunings.swift in Sources */,
 				C4AC4B192019C63F00D04C7F /* AEMainThreadEndpoint.m in Sources */,
-				C435C4EF20C51E7D00DAECCD /* AKS1Tuning+Math.swift in Sources */,
+				C435C4EF20C51E7D00DAECCD /* AKS1Tunings+Math.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				94A880811FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,
 				C435C4E120C51A2900DAECCD /* Audiobus+MIDI.swift in Sources */,
@@ -1100,7 +1100,7 @@
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				943524561F57945500BDA789 /* ChildView.swift in Sources */,
 				F4C0C6BB20C48A9B00D02921 /* TuningCell.swift in Sources */,
-				C435C4F020C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift in Sources */,
+				C435C4F020C51E7D00DAECCD /* AKS1Tunings+Harmonic.swift in Sources */,
 				C4421A8220B8178F00BE9F12 /* Parent+ModWheelDelegate.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
 				9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */,

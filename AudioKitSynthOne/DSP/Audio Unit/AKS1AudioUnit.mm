@@ -1,18 +1,18 @@
 //
-//  AKSynthOneAudioUnit.mm
+//  AKS1AudioUnit.mm
 //  AudioKit
 //
 //  Created by AudioKit Contributors, revision history on Github.
 //  Join us at AudioKitPro.com, github.com/audiokit
 //
 
-#import "AKSynthOneAudioUnit.h"
+#import "AKS1AudioUnit.h"
 #import "AKS1DSPKernel.hpp"
 #import "BufferedAudioBus.hpp"
 #import "AEMessageQueue.h"
 #import <AudioKit/AudioKit-swift.h>
 
-@implementation AKSynthOneAudioUnit {
+@implementation AKS1AudioUnit {
     // C++ members need to be ivars; they would be copied on access if they were properties.
     AKS1DSPKernel _kernel;
     BufferedOutputBus _outputBusBuffer;
@@ -206,7 +206,7 @@
 }
 
 
-// passthroughs for AKSynthOneProtocol called by DSP on main thread
+// passthroughs for AKS1Protocol called by DSP on main thread
 - (void)dependentParamDidChange:(DependentParam)param {
     [_aks1Delegate dependentParamDidChange:param];
 }

@@ -44,7 +44,6 @@
 		947956AF1F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A71F329AB100FE5D9B /* ArpDirectionStyleKit.swift */; };
 		947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */; };
 		947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B51F32A72400FE5D9B /* ToggleSwitch.swift */; };
-		947B8E171F6AEADD00E08D4B /* Arpeggiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0C1F31425D0086D58B /* Arpeggiator.swift */; };
 		9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
 		9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */; };
 		948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C54C21F3A57C600DA6081 /* SynthUIButton.swift */; };
@@ -101,6 +100,7 @@
 		C435C4FD20C5234F00DAECCD /* MIDILearnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4FC20C5234F00DAECCD /* MIDILearnable.swift */; };
 		C435C50120C5284C00DAECCD /* UIViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C50020C5284C00DAECCD /* UIViewController+DisplayAlert.swift */; };
 		C435C50320C5286C00DAECCD /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C50220C5286B00DAECCD /* Helpers.swift */; };
+		C435C50520C52A1E00DAECCD /* Parent+AppSettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C50420C52A1E00DAECCD /* Parent+AppSettingDataManager.swift */; };
 		C4421A7E20B8178F00BE9F12 /* Parent+MailingListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */; };
 		C4421A7F20B8178F00BE9F12 /* Parent+PresetsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */; };
 		C4421A8020B8178F00BE9F12 /* Parent+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */; };
@@ -202,7 +202,6 @@
 		9452613E1F2925600037662C /* AKTouchPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKTouchPadView.swift; sourceTree = "<group>"; };
 		945C3A021F3141F50086D58B /* ArpButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpButtonStyleKit.swift; sourceTree = "<group>"; };
 		945C3A031F3141F50086D58B /* ArpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArpButton.swift; sourceTree = "<group>"; };
-		945C3A0C1F31425D0086D58B /* Arpeggiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arpeggiator.swift; sourceTree = "<group>"; };
 		945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStyleKit.swift; sourceTree = "<group>"; };
 		945C3A0E1F31428B0086D58B /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
 		945C3A0F1F3143A00086D58B /* SeqViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeqViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +277,7 @@
 		C435C4FC20C5234F00DAECCD /* MIDILearnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDILearnable.swift; sourceTree = "<group>"; };
 		C435C50020C5284C00DAECCD /* UIViewController+DisplayAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 		C435C50220C5286B00DAECCD /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		C435C50420C52A1E00DAECCD /* Parent+AppSettingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+AppSettingDataManager.swift"; sourceTree = "<group>"; };
 		C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+MailingListDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PresetsDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+Keyboard.swift"; sourceTree = "<group>"; };
@@ -507,7 +507,6 @@
 			isa = PBXGroup;
 			children = (
 				941DE3E01FCE3CD400A09C24 /* AppSetting.swift */,
-				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
 				C42459E0201D64D4004565AB /* Bank.swift */,
 				943524551F57945500BDA789 /* ChildView.swift */,
 				94A5038C1FF2E1B80097D37C /* MIDIInput.swift */,
@@ -647,6 +646,7 @@
 			isa = PBXGroup;
 			children = (
 				C4421A7A20B8178F00BE9F12 /* ParentViewController.swift */,
+				C435C50420C52A1E00DAECCD /* Parent+AppSettingDataManager.swift */,
 				C4421A7920B8178F00BE9F12 /* Parent+Audiobus.swift */,
 				C4421A7B20B8178F00BE9F12 /* Parent+DevPanel.swift */,
 				C4421A7820B8178F00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */,
@@ -1060,7 +1060,6 @@
 				C4421A8920B8179000BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift in Sources */,
 				941DE3E31FCE3CD400A09C24 /* AppSetting.swift in Sources */,
 				C4421AA220B81A7500BE9F12 /* Presets+PresetCellDelegate.swift in Sources */,
-				947B8E171F6AEADD00E08D4B /* Arpeggiator.swift in Sources */,
 				C4421A8520B8179000BE9F12 /* Parent+Audiobus.swift in Sources */,
 				C435C4FD20C5234F00DAECCD /* MIDILearnable.swift in Sources */,
 				948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */,
@@ -1092,6 +1091,7 @@
 				C4421A7F20B8178F00BE9F12 /* Parent+PresetsDelegate.swift in Sources */,
 				9416FC7220081F3A00A120AD /* MIDIKnob.swift in Sources */,
 				C4AC4B0B2019C63F00D04C7F /* AEWeakRetainingProxy.m in Sources */,
+				C435C50520C52A1E00DAECCD /* Parent+AppSettingDataManager.swift in Sources */,
 				94AF74021F55FF9700ED8B51 /* TouchPoint.swift in Sources */,
 				C435C4FA20C5234900DAECCD /* TuningCell.swift in Sources */,
 				94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */,

@@ -75,9 +75,7 @@ class PopUpMIDIViewController: UIViewController {
         }
     }
 
-    // **********************************************************
     // MARK: - Callbacks
-    // **********************************************************
 
     func setupCallbacks() {
         // Setup Callback
@@ -123,9 +121,7 @@ class PopUpMIDIViewController: UIViewController {
         }
     }
 
-    // **********************************************************
     // MARK: - Actions
-    // **********************************************************
 
     @IBAction func closeButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)

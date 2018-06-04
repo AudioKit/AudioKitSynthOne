@@ -132,6 +132,7 @@
 		C4421AA720B81A7500BE9F12 /* Presets+BankPopOverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A9F20B81A7400BE9F12 /* Presets+BankPopOverDelegate.swift */; };
 		C4421AA820B81A7500BE9F12 /* Presets+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421AA020B81A7500BE9F12 /* Presets+UITableViewDelegate.swift */; };
 		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
+		C4AB348120C546C8002714E4 /* AKS1DSPKernel+destroy.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4AB348020C546C8002714E4 /* AKS1DSPKernel+destroy.mm */; };
 		C4B9C02B201D54D400D9833D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B9C02A201D54D400D9833D /* AudioToolbox.framework */; };
 		C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */; };
 		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
@@ -321,6 +322,7 @@
 		C4421A9F20B81A7400BE9F12 /* Presets+BankPopOverDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+BankPopOverDelegate.swift"; sourceTree = "<group>"; };
 		C4421AA020B81A7500BE9F12 /* Presets+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		C47FB3C21F36694300EF2F01 /* RateKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateKnob.swift; sourceTree = "<group>"; };
+		C4AB348020C546C8002714E4 /* AKS1DSPKernel+destroy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "AKS1DSPKernel+destroy.mm"; sourceTree = "<group>"; };
 		C4B9C02A201D54D400D9833D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewContoller.swift; sourceTree = "<group>"; };
 		C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioKitSynthOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -663,8 +665,9 @@
 		C435C57520C530C900DAECCD /* Kernel */ = {
 			isa = PBXGroup;
 			children = (
-				C435C57620C530C900DAECCD /* AKS1DSPKernel.mm */,
 				C435C57720C530C900DAECCD /* AKS1DSPKernel.hpp */,
+				C435C57620C530C900DAECCD /* AKS1DSPKernel.mm */,
+				C4AB348020C546C8002714E4 /* AKS1DSPKernel+destroy.mm */,
 			);
 			path = Kernel;
 			sourceTree = "<group>";
@@ -1083,6 +1086,7 @@
 				C4421AA520B81A7500BE9F12 /* Presets+UITableViewDataSource.swift in Sources */,
 				C435C59620C53A3800DAECCD /* TouchPadViewController.swift in Sources */,
 				94DB18D21F37D879008368AE /* NavButton.swift in Sources */,
+				C4AB348120C546C8002714E4 /* AKS1DSPKernel+destroy.mm in Sources */,
 				C4421A8820B8179000BE9F12 /* Parent+PushNotification.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C435C57D20C530C900DAECCD /* AEManagedValue.m in Sources */,

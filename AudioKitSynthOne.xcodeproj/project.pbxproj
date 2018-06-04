@@ -113,8 +113,6 @@
 		C4421AA720B81A7500BE9F12 /* Presets+BankPopOverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A9F20B81A7400BE9F12 /* Presets+BankPopOverDelegate.swift */; };
 		C4421AA820B81A7500BE9F12 /* Presets+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421AA020B81A7500BE9F12 /* Presets+UITableViewDelegate.swift */; };
 		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
-		C47FDEF5201C5E3000A31D48 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF3201C5E3000A31D48 /* AudioKitUI.framework */; };
-		C47FDEF6201C5E3000A31D48 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47FDEF4201C5E3000A31D48 /* AudioKit.framework */; };
 		C4AC4AF12019BF0500D04C7F /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4AEC2019BF0500D04C7F /* AKSynthOne.swift */; };
 		C4AC4AF32019BF0500D04C7F /* AKSynthOneAudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4AEF2019BF0500D04C7F /* AKSynthOneAudioUnit.mm */; };
 		C4AC4B0B2019C63F00D04C7F /* AEWeakRetainingProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AC4AF92019C63F00D04C7F /* AEWeakRetainingProxy.m */; };
@@ -181,9 +179,7 @@
 /* Begin PBXFileReference section */
 		345AA332202268B300E5FBBC /* SDSustainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDSustainer.swift; sourceTree = "<group>"; };
 		3A319653D44EC41DAFAEB963 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		5017AD512810265360A12BE7 /* Pods-SynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SynthOne/Pods-SynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
-		7A837751B9CCA83DA1F6DAC1 /* Pods_SynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SynthOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9403F2921F671A4900320FCC /* PresetsCategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsCategoriesController.swift; sourceTree = "<group>"; };
 		9403F2941F671A4900320FCC /* PopUpPresetEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpPresetEdit.swift; sourceTree = "<group>"; };
 		9403F29B1F671A6000320FCC /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
@@ -291,10 +287,7 @@
 		C4421A9E20B81A7400BE9F12 /* Presets+UIDocumentPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+UIDocumentPickerDelegate.swift"; sourceTree = "<group>"; };
 		C4421A9F20B81A7400BE9F12 /* Presets+BankPopOverDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+BankPopOverDelegate.swift"; sourceTree = "<group>"; };
 		C4421AA020B81A7500BE9F12 /* Presets+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presets+UITableViewDelegate.swift"; sourceTree = "<group>"; };
-		C46E16071F27FF9C00A518F5 /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C47FB3C21F36694300EF2F01 /* RateKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateKnob.swift; sourceTree = "<group>"; };
-		C47FDEF3201C5E3000A31D48 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = "../../../AudioKit/Frameworks/AudioKit-iOS/AudioKitUI.framework"; sourceTree = "<group>"; };
-		C47FDEF4201C5E3000A31D48 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = "../../../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework"; sourceTree = "<group>"; };
 		C4AC4AEB2019BF0500D04C7F /* AKSynthOneParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneParameter.h; sourceTree = "<group>"; };
 		C4AC4AEC2019BF0500D04C7F /* AKSynthOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKSynthOne.swift; sourceTree = "<group>"; };
 		C4AC4AED2019BF0500D04C7F /* AKSynthOneAudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneAudioUnit.h; sourceTree = "<group>"; };
@@ -338,7 +331,6 @@
 		C4F7ECBA1F244AD40011B119 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
-		C75EC33F7DB5853B42F6D569 /* Pods-SynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynthOne/Pods-SynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
@@ -369,8 +361,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C47FDEF6201C5E3000A31D48 /* AudioKit.framework in Frameworks */,
-				C47FDEF5201C5E3000A31D48 /* AudioKitUI.framework in Frameworks */,
 				48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */,
 				C4B9C02B201D54D400D9833D /* AudioToolbox.framework in Frameworks */,
 			);
@@ -384,8 +374,6 @@
 			children = (
 				51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */,
 				E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */,
-				5017AD512810265360A12BE7 /* Pods-SynthOne.debug.xcconfig */,
-				C75EC33F7DB5853B42F6D569 /* Pods-SynthOne.release.xcconfig */,
 				3A319653D44EC41DAFAEB963 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
 				D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
@@ -548,10 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B9C02A201D54D400D9833D /* AudioToolbox.framework */,
-				C47FDEF4201C5E3000A31D48 /* AudioKit.framework */,
-				C47FDEF3201C5E3000A31D48 /* AudioKitUI.framework */,
 				BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */,
-				7A837751B9CCA83DA1F6DAC1 /* Pods_SynthOne.framework */,
 				CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
@@ -741,7 +726,6 @@
 				94A5BF051F96A4E10032C743 /* PopUps */,
 				947BADE71FB92D0000579BE6 /* Assets */,
 				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
-				C46E16071F27FF9C00A518F5 /* Testing.playground */,
 				C4D193D31F1187B500FF4FE4 /* Info.plist */,
 			);
 			path = AudioKitSynthOne;

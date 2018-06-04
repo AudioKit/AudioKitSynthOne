@@ -1,14 +1,26 @@
 //
-//  Double+Extensions.swift
-//  Swift Synth
+//  DisplayHelpers.swift
+//  AudioKitSynthOne
 //
-//  Created by AudioKit Contributors on 1/5/16.
-//  Copyright © 2016 AudioKit. All rights reserved.
+//  Created by Aurelius Prochazka on 6/4/18.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-import Foundation
+/// Get the key of a dictionary from a value
+extension Dictionary where Value: Equatable {
+    func getKey(forValue val: Value) -> Key? {
+        return first(where: { $1 == val })?.key
+    }
+}
 
-// MARK: - UI Helper Extensions
+// MARK: - Display Helpers
+
+extension CGFloat {
+    // Formatted percentage string e.g. 0.55 -> 55%
+    var percentageString: String {
+        return "\(Int(100 * self))%"
+    }
+}
 
 extension Double {
 
@@ -33,24 +45,11 @@ extension Double {
     var percentageString: String {
         return "\(Int(100 * self ))%"
     }
+}
 
-    // MARK: - Random Generators
+// MARK: - Conversion helper
 
-    // return random number between 0.0 and 1.0
-//    public static func random() -> Double {
-//        return Double(arc4random()) / 0xFFFFFFFF
-//    }
-
-    // return random number in range
-//    public static func random(min: Double, max: Double) -> Double {
-//        return Double.random() * (max - min) + min
-//    }
-//    
-//    // return either -1 or 1 randomly
-//    public static func randomSign() -> Double {
-//        return (arc4random_uniform(2) == 0) ? 1.0 : -1.0
-//    }
-
+extension Double {
     // Logarithmically scale 0.0 to 1.0 to any range
     public static func scaleRangeLog(_ value: Double, rangeMin: Double, rangeMax: Double) -> Double {
         let scale = (log(rangeMax) - log(rangeMin))

@@ -21,9 +21,7 @@ class SeqViewController: SynthPanelController {
     var sliders = [VerticalSlider]()
     var noteOnButtons = [ArpButton]()
 
-    // *********************************************************
     // MARK: - Lifecycle
-    // *********************************************************
 
     override func viewDidLoad() {
         super.viewDidLoad()

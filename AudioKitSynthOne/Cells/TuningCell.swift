@@ -9,9 +9,8 @@
 import UIKit
 
 class TuningCell: UITableViewCell {
-    // *********************************************************
+
     // MARK: - Lifecycle
-    // *********************************************************
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -26,9 +25,7 @@ class TuningCell: UITableViewCell {
         }
     }
 
-    // *********************************************************
     // MARK: - Configure Cell
-    // *********************************************************
 
     func configureCell() {
         isOpaque = false

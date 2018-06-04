@@ -17,9 +17,7 @@ protocol PresetCellDelegate: AnyObject {
 
 class PresetCell: UITableViewCell {
 
-    // *********************************************************
     // MARK: - Properties / Outlets
-    // *********************************************************
 
     @IBOutlet weak var presetNameLabel: UILabel!
     @IBOutlet weak var renameButton: UIButton!
@@ -31,9 +29,7 @@ class PresetCell: UITableViewCell {
     var currentPreset: Preset?
     let conductor = Conductor.sharedInstance
 
-    // *********************************************************
     // MARK: - Lifecycle
-    // *********************************************************
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -74,10 +70,6 @@ class PresetCell: UITableViewCell {
         }
     }
 
-    // *********************************************************
-    // MARK: - Configure Cell
-    // *********************************************************
-
     func configureCell(preset: Preset) {
         currentPreset = preset
 
@@ -96,9 +88,6 @@ class PresetCell: UITableViewCell {
 
     }
 
-    // *********************************************************
-    // MARK: - IBAction
-    // *********************************************************
     @IBAction func duplicatePressed(_ sender: UIButton) {
         delegate?.duplicatePressed()
     }

@@ -10,9 +10,7 @@ import UIKit
 
 class SliderTransposeButton: UILabel, AKSynthOneControl {
 
-    // *********************************************************
     // MARK: - Make Label ToggleButton
-    // *********************************************************
 
     private var _value: Double = 0
 
@@ -67,9 +65,7 @@ class SliderTransposeButton: UILabel, AKSynthOneControl {
         layer.borderColor = #colorLiteral(red: 0.09411764706, green: 0.09411764706, blue: 0.09411764706, alpha: 1)
     }
 
-    // *********************************************************
     // MARK: - Handle Touches
-    // *********************************************************
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {

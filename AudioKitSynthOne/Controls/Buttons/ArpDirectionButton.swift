@@ -11,9 +11,7 @@ import UIKit
 @IBDesignable
 class ArpDirectionButton: UIView, AKSynthOneControl {
 
-    // *********************************************************
     // MARK: - LFO Button
-    // *********************************************************
 
     public var callback: (Double) -> Void = { _ in }
 
@@ -30,9 +28,7 @@ class ArpDirectionButton: UIView, AKSynthOneControl {
         ArpDirectionStyleKit.drawArpDirectionButton(directionSelected: CGFloat(value))
     }
 
-    // *********************************************************
     // MARK: - Handle Touches
-    // *********************************************************
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {

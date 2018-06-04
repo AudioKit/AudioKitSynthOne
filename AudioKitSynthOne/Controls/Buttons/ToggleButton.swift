@@ -11,9 +11,7 @@ import UIKit
 @IBDesignable
 class ToggleButton: UIView, AKSynthOneControl {
 
-    // *********************************************************
     // MARK: - ToggleButton
-    // *********************************************************
 
     var isOn: Bool {
         return value == 1
@@ -31,9 +29,7 @@ class ToggleButton: UIView, AKSynthOneControl {
         ToggleButtonStyleKit.drawRoundButton(isToggled: isOn)
     }
 
-    // *********************************************************
     // MARK: - Handle Touches
-    // *********************************************************
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {

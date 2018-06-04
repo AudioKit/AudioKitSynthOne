@@ -35,7 +35,7 @@ class LfoButton: UIView, AKSynthOneControl {
     var lfo1Active: Bool = false
     var lfo2Active: Bool = false
 
-    let btnWidth: CGFloat = 100
+    let width: CGFloat = 100
 
     // Make Button Text Editable in IB
     @IBInspectable open var buttonText: String = "Hello"
@@ -52,7 +52,7 @@ class LfoButton: UIView, AKSynthOneControl {
 
             let touchPoint = touch.location(in: self)
 
-            if touchPoint.x < btnWidth / 2 {
+            if touchPoint.x < width / 2 {
                 lfo1Active = !lfo1Active
             } else {
                 lfo2Active = !lfo2Active

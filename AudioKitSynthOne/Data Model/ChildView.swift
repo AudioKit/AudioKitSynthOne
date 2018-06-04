@@ -35,7 +35,7 @@ public enum ChildView: Int {
         }
     }
 
-    func btnText() -> String {
+    func buttonText() -> String {
         switch self {
         case .oscView:
             return "MAIN"

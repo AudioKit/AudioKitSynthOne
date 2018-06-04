@@ -96,6 +96,9 @@
 		C435C4E120C51A2900DAECCD /* Audiobus+MIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4DD20C51A2900DAECCD /* Audiobus+MIDI.swift */; };
 		C435C4E520C51A9C00DAECCD /* AKSynthOneAudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C4E420C51A9C00DAECCD /* AKSynthOneAudioUnit.mm */; };
 		C435C4E920C51ABE00DAECCD /* AKS1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C4E820C51ABE00DAECCD /* AKS1NoteState.mm */; };
+		C435C4EE20C51E7D00DAECCD /* AKS1Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4EB20C51E7D00DAECCD /* AKS1Tuning.swift */; };
+		C435C4EF20C51E7D00DAECCD /* AKS1Tuning+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4EC20C51E7D00DAECCD /* AKS1Tuning+Math.swift */; };
+		C435C4F020C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4ED20C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift */; };
 		C4421A7E20B8178F00BE9F12 /* Parent+MailingListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */; };
 		C4421A7F20B8178F00BE9F12 /* Parent+PresetsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */; };
 		C4421A8020B8178F00BE9F12 /* Parent+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */; };
@@ -142,9 +145,6 @@
 		C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBA1F244AD40011B119 /* CGFloat+Extensions.swift */; };
 		C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */; };
 		C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */; };
-		F41C34D020A7A71A006EB96B /* AKS1Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41C34CF20A7A71A006EB96B /* AKS1Tuning.swift */; };
-		F45319E120C24F08009378F2 /* AKS1Tuning+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45319E020C24F08009378F2 /* AKS1Tuning+Math.swift */; };
-		F4A5D8CE20B216B300839E58 /* AKS1Tuning+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5D8CD20B216B300839E58 /* AKS1Tuning+Harmonic.swift */; };
 		F4C0C6BB20C48A9B00D02921 /* TuningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6BA20C48A9B00D02921 /* TuningCell.swift */; };
 		F4C0C6C620C48F0D00D02921 /* TuningsPitchWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6C220C48F0D00D02921 /* TuningsPitchWheelView.swift */; };
 		F4C0C6C720C48F0D00D02921 /* Tunings+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6C320C48F0D00D02921 /* Tunings+UITableViewDelegate.swift */; };
@@ -275,6 +275,9 @@
 		C435C4E420C51A9C00DAECCD /* AKSynthOneAudioUnit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKSynthOneAudioUnit.mm; sourceTree = "<group>"; };
 		C435C4E720C51ABE00DAECCD /* AKS1NoteState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1NoteState.hpp; sourceTree = "<group>"; };
 		C435C4E820C51ABE00DAECCD /* AKS1NoteState.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
+		C435C4EB20C51E7D00DAECCD /* AKS1Tuning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKS1Tuning.swift; sourceTree = "<group>"; };
+		C435C4EC20C51E7D00DAECCD /* AKS1Tuning+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AKS1Tuning+Math.swift"; sourceTree = "<group>"; };
+		C435C4ED20C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AKS1Tuning+Harmonic.swift"; sourceTree = "<group>"; };
 		C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+MailingListDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PresetsDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+Keyboard.swift"; sourceTree = "<group>"; };
@@ -337,9 +340,6 @@
 		CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
-		F41C34CF20A7A71A006EB96B /* AKS1Tuning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKS1Tuning.swift; sourceTree = "<group>"; };
-		F45319E020C24F08009378F2 /* AKS1Tuning+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AKS1Tuning+Math.swift"; sourceTree = "<group>"; };
-		F4A5D8CD20B216B300839E58 /* AKS1Tuning+Harmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AKS1Tuning+Harmonic.swift"; sourceTree = "<group>"; };
 		F4C0C6BA20C48A9B00D02921 /* TuningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningCell.swift; sourceTree = "<group>"; };
 		F4C0C6C220C48F0D00D02921 /* TuningsPitchWheelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuningsPitchWheelView.swift; sourceTree = "<group>"; };
 		F4C0C6C320C48F0D00D02921 /* Tunings+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tunings+UITableViewDelegate.swift"; sourceTree = "<group>"; };
@@ -518,9 +518,6 @@
 		945C3A0B1F3142310086D58B /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				F41C34CF20A7A71A006EB96B /* AKS1Tuning.swift */,
-				F45319E020C24F08009378F2 /* AKS1Tuning+Math.swift */,
-				F4A5D8CD20B216B300839E58 /* AKS1Tuning+Harmonic.swift */,
 				941DE3E01FCE3CD400A09C24 /* AppSetting.swift */,
 				941DE3DF1FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift */,
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
@@ -529,6 +526,7 @@
 				94A5038C1FF2E1B80097D37C /* MIDIInput.swift */,
 				9403F29B1F671A6000320FCC /* Preset.swift */,
 				94FA2DC11F9E7C2800DED735 /* PresetDataManager.swift */,
+				C435C4EA20C51E7D00DAECCD /* Tuning */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -645,6 +643,16 @@
 				C435C4E820C51ABE00DAECCD /* AKS1NoteState.mm */,
 			);
 			path = "Note State";
+			sourceTree = "<group>";
+		};
+		C435C4EA20C51E7D00DAECCD /* Tuning */ = {
+			isa = PBXGroup;
+			children = (
+				C435C4EB20C51E7D00DAECCD /* AKS1Tuning.swift */,
+				C435C4EC20C51E7D00DAECCD /* AKS1Tuning+Math.swift */,
+				C435C4ED20C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift */,
+			);
+			path = Tuning;
 			sourceTree = "<group>";
 		};
 		C4421A7120B8178F00BE9F12 /* ParentViewController */ = {
@@ -1034,13 +1042,11 @@
 				94AF74071F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */,
 				9403F29D1F671A6000320FCC /* Preset.swift in Sources */,
 				94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */,
-				F41C34D020A7A71A006EB96B /* AKS1Tuning.swift in Sources */,
 				C435C4DE20C51A2900DAECCD /* AKSynthOneDSPKernel.mm in Sources */,
 				94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */,
 				946D159F1FD26CD6006E7C97 /* DevViewController.swift in Sources */,
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
 				9403F2961F671A4900320FCC /* PresetsCategoriesController.swift in Sources */,
-				F4A5D8CE20B216B300839E58 /* AKS1Tuning+Harmonic.swift in Sources */,
 				C42459E3201D64DE004565AB /* PopUpBankEdit.swift in Sources */,
 				947956AF1F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */,
 				94A5038D1FF2E1B80097D37C /* MIDIInput.swift in Sources */,
@@ -1054,7 +1060,9 @@
 				94A503911FF2E7680097D37C /* PopUpMIDIViewController.swift in Sources */,
 				94D513A9206C723F0037CB28 /* PopUpAbout.swift in Sources */,
 				C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */,
+				C435C4EE20C51E7D00DAECCD /* AKS1Tuning.swift in Sources */,
 				C4AC4B192019C63F00D04C7F /* AEMainThreadEndpoint.m in Sources */,
+				C435C4EF20C51E7D00DAECCD /* AKS1Tuning+Math.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				94A880811FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,
 				C435C4E120C51A2900DAECCD /* Audiobus+MIDI.swift in Sources */,
@@ -1064,7 +1072,6 @@
 				94A503991FF2F3E10097D37C /* PopUpMODController.swift in Sources */,
 				9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
-				F45319E120C24F08009378F2 /* AKS1Tuning+Math.swift in Sources */,
 				94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */,
 				C4421A7E20B8178F00BE9F12 /* Parent+MailingListDelegate.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
@@ -1093,6 +1100,7 @@
 				C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */,
 				943524561F57945500BDA789 /* ChildView.swift in Sources */,
 				F4C0C6BB20C48A9B00D02921 /* TuningCell.swift in Sources */,
+				C435C4F020C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift in Sources */,
 				C4421A8220B8178F00BE9F12 /* Parent+ModWheelDelegate.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
 				9468E27A1F2827AC00C60B1B /* SettingsViewController.swift in Sources */,

@@ -11,9 +11,7 @@ import AudioKit
 
 extension AKS1Tunings {
 
-    // **********************************************************
     // MARK: - Helpers
-    // **********************************************************
 
     // Harmonic Series from n...2n
     class func harmonicSeries( _ root: Int ) -> [Frequency] {

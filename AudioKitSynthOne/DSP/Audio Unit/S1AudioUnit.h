@@ -26,8 +26,8 @@ typedef struct NoteNumber {
 // DSP updates UI elements lfo1Rate, lfo2Rate, autoPanRate, delayTime when arpOn/tempoSyncArpRate update
 // DSP updates lfo1Rate, lfo2Rate, autoPanRate, delayTime based on current arpOn/tempoSyncArpRate
 typedef struct DependentParameter {
-    S1Parameter param;
-    float value01;// [0,1] for ui
+    S1Parameter parameter;
+    float normalizedValue;// [0,1] for ui
     float value;
     int payload;
 } DependentParameter;

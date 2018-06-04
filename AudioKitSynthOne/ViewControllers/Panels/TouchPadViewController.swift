@@ -176,9 +176,9 @@ class TouchPadViewController: PanelViewController {
         if param.payload == conductor.lfo1RateTouchPadID {
             return
         }
-        switch param.param {
+        switch param.parameter {
         case .lfo1Rate:
-            let val = Double(param.value01)
+            let val = Double(param.normalizedValue)
             touchPad1.updateTouchPoint(val, Double(conductor.synth.getSynthParameter(.lfo1Amplitude)))
         default:
             _ = 0

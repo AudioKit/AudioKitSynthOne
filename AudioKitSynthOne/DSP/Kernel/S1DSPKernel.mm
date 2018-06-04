@@ -1237,7 +1237,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter param, float inputValue, bool n
                     break;
             }
             if (notifyMainThread) {
-                outputDP = {param, taper01Inverse(outputDP.value01, S1_DEPENDENT_PARAM_TAPER), outputDP.value, payload};
+                outputDP = {param, taper01Inverse(outputDP.normalizedValue, S1_DEPENDENT_PARAM_TAPER), outputDP.value, payload};
                 dependentParameterDidChange(outputDP);
             }
         }
@@ -1290,9 +1290,9 @@ float S1DSPKernel::getDependentParameter(S1Parameter param) {
     }
     
     if (p[tempoSyncToArpRate] > 0.f) {
-        return dp.value01;
+        return dp.normalizedValue;
     } else {
-        return taper01Inverse(dp.value01, S1_DEPENDENT_PARAM_TAPER);
+        return taper01Inverse(dp.normalizedValue, S1_DEPENDENT_PARAM_TAPER);
     }
 }
 

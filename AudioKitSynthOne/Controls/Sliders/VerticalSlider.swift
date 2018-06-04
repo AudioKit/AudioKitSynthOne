@@ -1,6 +1,6 @@
 //
 //  VerticalSlider.swift
-//  Swift Synth
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 1/11/16.
 //  Copyright (c) 2016 AudioKit. All rights reserved.

@@ -409,14 +409,14 @@ public class ParentViewController: UpdatableViewController {
     }
 
     func dependentParameterDidChange(_ param: DependentParameter) {
-        switch param.param {
+        switch param.parameter {
 
         case .lfo1Rate:
             if param.payload == conductor.lfo1RateModWheelID {
                 return
             }
             if activePreset.modWheelRouting == 1 {
-                modWheelPad.setVerticalValue01(Double(param.value01))
+                modWheelPad.setVerticalValue01(Double(param.normalizedValue))
             }
 
         case .lfo2Rate:
@@ -424,14 +424,14 @@ public class ParentViewController: UpdatableViewController {
                 return
             }
             if activePreset.modWheelRouting == 2 {
-                modWheelPad.setVerticalValue01(Double(param.value01))
+                modWheelPad.setVerticalValue01(Double(param.normalizedValue))
             }
 
         case .pitchbend:
             if param.payload == conductor.pitchbendParentVCID {
                 return
             }
-            pitchbend.setVerticalValue01(Double(param.value01))
+            pitchbend.setVerticalValue01(Double(param.normalizedValue))
 
         default:
             _ = 0

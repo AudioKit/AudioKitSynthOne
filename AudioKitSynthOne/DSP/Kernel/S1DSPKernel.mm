@@ -75,7 +75,7 @@ void S1DSPKernel::stopAllNotes() {
     }
 }
 
-//TODO:set aks1 param arpRate
+//TODO:set s1 param arpRate
 void S1DSPKernel::handleTempoSetting(float currentTempo) {
     if (currentTempo != tempo) {
         tempo = currentTempo;
@@ -86,7 +86,7 @@ void S1DSPKernel::handleTempoSetting(float currentTempo) {
 void S1DSPKernel::dependentParameterDidChange(DependentParameter param) {
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
                                               audioUnit,
-                                              @selector(dependentParamDidChange:),
+                                              @selector(dependentParameterDidChange:),
                                               AEArgumentStruct(param),
                                               AEArgumentNone);
 }
@@ -203,8 +203,8 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
 
         //PORTAMENTO
         for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
-            if (aks1p[i].usePortamento) {
-                sp_port_compute(sp, aks1p[i].portamento, &aks1p[i].portamentoTarget, &p[i]);
+            if (s1p[i].usePortamento) {
+                sp_port_compute(sp, s1p[i].portamento, &s1p[i].portamentoTarget, &p[i]);
             }
         }
         monoFrequencyPort->htime = p[glide];
@@ -904,11 +904,11 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     // copy default dsp values
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
         const float value = parameterDefault((S1Parameter)i);
-        if (aks1p[i].usePortamento) {
-            aks1p[i].portamentoTarget = value;
-            sp_port_create(&aks1p[i].portamento);
-            sp_port_init(sp, aks1p[i].portamento, value);
-            aks1p[i].portamento->htime = S1_PORTAMENTO_HALF_TIME;
+        if (s1p[i].usePortamento) {
+            s1p[i].portamentoTarget = value;
+            sp_port_create(&s1p[i].portamento);
+            sp_port_init(sp, s1p[i].portamento, value);
+            s1p[i].portamento->htime = S1_PORTAMENTO_HALF_TIME;
         }
         p[i] = value;
     }
@@ -976,16 +976,16 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
 void S1DSPKernel::updateDSPPortamento(float halfTime) {
     const float ht = parameterClamp(portamentoHalfTime, halfTime);
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
-        if (aks1p[i].usePortamento) {
-            aks1p[i].portamento->htime = ht;
+        if (s1p[i].usePortamento) {
+            s1p[i].portamento->htime = ht;
         }
     }
 
 }
 void S1DSPKernel::destroy() {
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
-        if (aks1p[i].usePortamento) {
-            sp_port_destroy(&aks1p[i].portamento);
+        if (s1p[i].usePortamento) {
+            sp_port_destroy(&s1p[i].portamento);
         }
     }
     sp_port_destroy(&monoFrequencyPort);
@@ -1054,44 +1054,44 @@ void S1DSPKernel::setWaveformValue(uint32_t waveform, uint32_t index, float valu
 
 ///parameter min
 float S1DSPKernel::parameterMin(S1Parameter i) {
-    return aks1p[i].min;
+    return s1p[i].min;
 }
 
 ///parameter max
 float S1DSPKernel::parameterMax(S1Parameter i) {
-    return aks1p[i].max;
+    return s1p[i].max;
 }
 
 ///parameter defaults
 float S1DSPKernel::parameterDefault(S1Parameter i) {
-    return parameterClamp(i, aks1p[i].defaultValue);
+    return parameterClamp(i, s1p[i].defaultValue);
 }
 
 AudioUnitParameterUnit S1DSPKernel::parameterUnit(S1Parameter i) {
-    return aks1p[i].unit;
+    return s1p[i].unit;
 }
 
 ///return clamped value
 float S1DSPKernel::parameterClamp(S1Parameter i, float inputValue) {
-    const float paramMin = aks1p[i].min;
-    const float paramMax = aks1p[i].max;
+    const float paramMin = s1p[i].min;
+    const float paramMax = s1p[i].max;
     const float retVal = std::min(std::max(inputValue, paramMin), paramMax);
     return retVal;
 }
 
 ///parameter friendly name as c string
 const char* S1DSPKernel::parameterCStr(S1Parameter i) {
-    return aks1p[i].friendlyName.c_str();
+    return s1p[i].friendlyName.c_str();
 }
 
 ///parameter friendly name
 std::string S1DSPKernel::parameterFriendlyName(S1Parameter i) {
-    return aks1p[i].friendlyName;
+    return s1p[i].friendlyName;
 }
 
 ///parameter presetKey
 std::string S1DSPKernel::parameterPresetKey(S1Parameter i) {
-    return aks1p[i].presetKey;
+    return s1p[i].presetKey;
 }
 
 // algebraic taper and inverse for input range [0,1]
@@ -1143,7 +1143,7 @@ inline float S1DSPKernel::taperInverse(float inputValue01, float min, float max,
 }
 
 float S1DSPKernel::getSynthParameter(S1Parameter param) {
-    S1Param& s = aks1p[param];
+    S1Param& s = s1p[param];
     if (s.usePortamento)
         return s.portamentoTarget;
     else
@@ -1152,7 +1152,7 @@ float S1DSPKernel::getSynthParameter(S1Parameter param) {
 
 inline void S1DSPKernel::_setSynthParameter(S1Parameter param, float inputValue) {
     const float value = parameterClamp(param, inputValue);
-    S1Param& s = aks1p[param];
+    S1Param& s = s1p[param];
     if (s.usePortamento) {
         s.portamentoTarget = value;
     } else {

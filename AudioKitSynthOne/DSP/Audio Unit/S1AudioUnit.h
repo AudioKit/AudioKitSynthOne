@@ -52,7 +52,7 @@ typedef struct S1ArpBeatCounter {
 
 
 @protocol S1Protocol
--(void)dependentParamDidChange:(DependentParameter)dependentParam;
+-(void)dependentParameterDidChange:(DependentParameter)dependentParam;
 -(void)arpBeatCounterDidChange:(S1ArpBeatCounter)arpBeatCounter;
 -(void)heldNotesDidChange:(HeldNotes)heldNotes;
 -(void)playingNotesDidChange:(PlayingNotes)playingNotes;
@@ -65,7 +65,7 @@ typedef struct S1ArpBeatCounter {
 }
 
 @property (nonatomic) NSArray *parameters;
-@property (nonatomic, weak) id<S1Protocol> aks1Delegate;
+@property (nonatomic, weak) id<S1Protocol> s1Delegate;
 
 ///auv3, not yet used
 - (void)setParameter:(AUParameterAddress)address value:(AUValue)value;
@@ -94,7 +94,7 @@ typedef struct S1ArpBeatCounter {
 - (void)resetSequencer;
 
 // protected passthroughs for S1Protocol called by DSP on main thread
-- (void)dependentParamDidChange:(DependentParameter)param;
+- (void)dependentParameterDidChange:(DependentParameter)param;
 - (void)arpBeatCounterDidChange:(S1ArpBeatCounter)arpBeatcounter;
 - (void)heldNotesDidChange:(HeldNotes)heldNotes;
 - (void)playingNotesDidChange:(PlayingNotes)playingNotes;

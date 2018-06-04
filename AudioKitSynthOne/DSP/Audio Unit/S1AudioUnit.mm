@@ -20,7 +20,7 @@
 }
 
 @synthesize parameterTree = _parameterTree;
-@synthesize aks1Delegate = _aks1Delegate;
+@synthesize s1Delegate = _s1Delegate;
 
 - (float)getSynthParameter:(S1Parameter)param {
     return _kernel.getSynthParameter(param);
@@ -207,20 +207,20 @@
 
 
 // passthroughs for S1Protocol called by DSP on main thread
-- (void)dependentParamDidChange:(DependentParameter)param {
-    [_aks1Delegate dependentParamDidChange:param];
+- (void)dependentParameterDidChange:(DependentParameter)param {
+    [_s1Delegate dependentParameterDidChange:param];
 }
 
 - (void)arpBeatCounterDidChange:(S1ArpBeatCounter)arpBeatCounter {
-    [_aks1Delegate arpBeatCounterDidChange:arpBeatCounter];
+    [_s1Delegate arpBeatCounterDidChange:arpBeatCounter];
 }
 
 - (void)heldNotesDidChange:(HeldNotes)heldNotes {
-    [_aks1Delegate heldNotesDidChange:heldNotes];
+    [_s1Delegate heldNotesDidChange:heldNotes];
 }
 
 - (void)playingNotesDidChange:(PlayingNotes)playingNotes {
-    [_aks1Delegate playingNotesDidChange:playingNotes];
+    [_s1Delegate playingNotesDidChange:playingNotes];
 }
 
 @end

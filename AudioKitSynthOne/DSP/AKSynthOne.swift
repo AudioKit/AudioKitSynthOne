@@ -14,7 +14,7 @@ import AudioKit
     public typealias AKAudioUnitType = S1AudioUnit
 
     /// Four letter unique description of the node
-    public static let ComponentDescription = AudioComponentDescription(instrument: "aks1")
+    public static let ComponentDescription = AudioComponentDescription(instrument: "s1")
 
     // MARK: - Properties
 
@@ -187,7 +187,7 @@ import AudioKit
                 }
             }
             self?.internalAU?.parameters = self?.parameters
-            self?.internalAU?.aks1Delegate = self
+            self?.internalAU?.s1Delegate = self
         }
 
         guard let tree = internalAU?.parameterTree else {
@@ -202,7 +202,7 @@ import AudioKit
             self.postNotification(param, Double(value) )
         })
 
-        internalAU?.aks1Delegate = self
+        internalAU?.s1Delegate = self
     }
 
     @objc open weak var delegate: S1Protocol?
@@ -230,8 +230,8 @@ import AudioKit
 
     // MARK: - Passthroughs for AKSynthOneProtocol called by DSP on main thread
 
-    @objc public func dependentParamDidChange(_ param: DependentParameter) {
-        delegate?.dependentParamDidChange(param)
+    @objc public func dependentParameterDidChange(_ param: DependentParameter) {
+        delegate?.dependentParameterDidChange(param)
     }
 
     @objc public func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {

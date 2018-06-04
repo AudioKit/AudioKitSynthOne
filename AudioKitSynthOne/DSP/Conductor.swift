@@ -174,15 +174,15 @@ class Conductor: S1Protocol {
     // MARK: - S1Protocol
 
     // called by DSP on main thread
-    func dependentParamDidChange(_ param: DependentParameter) {
+    func dependentParameterDidChange(_ param: DependentParameter) {
         let fxVC = self.viewControllers.first(where: { $0 is FXViewController }) as? FXViewController
-        fxVC?.dependentParamDidChange(param)
+        fxVC?.dependentParameterDidChange(param)
 
         let touchPadVC = self.viewControllers.first(where: { $0 is TouchPadViewController }) as? TouchPadViewController
-        touchPadVC?.dependentParamDidChange(param)
+        touchPadVC?.dependentParameterDidChange(param)
 
         let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as? ParentViewController
-        parentVC?.dependentParamDidChange(param)
+        parentVC?.dependentParameterDidChange(param)
     }
 
     // called by DSP on main thread

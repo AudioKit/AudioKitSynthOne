@@ -99,6 +99,7 @@
 		C435C4EE20C51E7D00DAECCD /* AKS1Tunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4EB20C51E7D00DAECCD /* AKS1Tunings.swift */; };
 		C435C4EF20C51E7D00DAECCD /* AKS1Tunings+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4EC20C51E7D00DAECCD /* AKS1Tunings+Math.swift */; };
 		C435C4F020C51E7D00DAECCD /* AKS1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4ED20C51E7D00DAECCD /* AKS1Tunings+Harmonic.swift */; };
+		C435C4F220C521C300DAECCD /* AKS1Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4F120C521C300DAECCD /* AKS1Tuning.swift */; };
 		C4421A7E20B8178F00BE9F12 /* Parent+MailingListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */; };
 		C4421A7F20B8178F00BE9F12 /* Parent+PresetsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */; };
 		C4421A8020B8178F00BE9F12 /* Parent+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */; };
@@ -278,6 +279,7 @@
 		C435C4EB20C51E7D00DAECCD /* AKS1Tunings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKS1Tunings.swift; sourceTree = "<group>"; };
 		C435C4EC20C51E7D00DAECCD /* AKS1Tunings+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Math.swift"; sourceTree = "<group>"; };
 		C435C4ED20C51E7D00DAECCD /* AKS1Tunings+Harmonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Harmonic.swift"; sourceTree = "<group>"; };
+		C435C4F120C521C300DAECCD /* AKS1Tuning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKS1Tuning.swift; sourceTree = "<group>"; };
 		C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+MailingListDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PresetsDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+Keyboard.swift"; sourceTree = "<group>"; };
@@ -648,6 +650,7 @@
 		C435C4EA20C51E7D00DAECCD /* Tunings */ = {
 			isa = PBXGroup;
 			children = (
+				C435C4F120C521C300DAECCD /* AKS1Tuning.swift */,
 				C435C4EB20C51E7D00DAECCD /* AKS1Tunings.swift */,
 				C435C4EC20C51E7D00DAECCD /* AKS1Tunings+Math.swift */,
 				C435C4ED20C51E7D00DAECCD /* AKS1Tunings+Harmonic.swift */,
@@ -1040,6 +1043,7 @@
 				C4AC4B0F2019C63F00D04C7F /* AEManagedValue.m in Sources */,
 				9451E2FE1F58C20B008181F9 /* HeaderNavButton.swift in Sources */,
 				94AF74071F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */,
+				C435C4F220C521C300DAECCD /* AKS1Tuning.swift in Sources */,
 				9403F29D1F671A6000320FCC /* Preset.swift in Sources */,
 				94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */,
 				C435C4DE20C51A2900DAECCD /* AKSynthOneDSPKernel.mm in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class LFOWavePicker: UIView, AKSynthOneControl {
+class LFOWavePicker: UIView, AKS1Control {
 
     var callback: (Double) -> Void = { _ in }
     var value: Double = 0 {

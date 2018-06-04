@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SliderTransposeButton: UILabel, AKSynthOneControl {
+class SliderTransposeButton: UILabel, AKS1Control {
 
     // MARK: - Make Label ToggleButton
 

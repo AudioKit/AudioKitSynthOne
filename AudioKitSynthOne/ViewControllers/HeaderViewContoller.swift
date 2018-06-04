@@ -74,7 +74,7 @@ public class HeaderViewController: UpdatableViewController {
         setupCallbacks()
     }
 
-    override func updateUI(_ param: AKS1Parameter, control: AKSynthOneControl?, value: Double) {
+    override func updateUI(_ param: AKS1Parameter, control: AKS1Control?, value: Double) {
         updateDisplayLabel(param, value: value)
     }
 

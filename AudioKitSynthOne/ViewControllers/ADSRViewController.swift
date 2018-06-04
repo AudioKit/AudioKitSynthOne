@@ -76,7 +76,7 @@ class ADSRViewController: SynthPanelController {
         }
     }
 
-    override func updateUI(_ param: AKS1Parameter, control: AKSynthOneControl?, value: Double) {
+    override func updateUI(_ param: AKS1Parameter, control: AKS1Control?, value: Double) {
         switch param {
         case .attackDuration:
             adsrView.attackDuration = value

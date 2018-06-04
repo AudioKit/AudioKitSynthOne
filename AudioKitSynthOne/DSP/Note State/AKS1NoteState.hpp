@@ -14,7 +14,7 @@
 #import <string>
 #import "AKSoundpipeKernel.hpp"
 #import "AKSynthOneAudioUnit.h"
-#import "AKSynthOneParameter.h"
+#import "AKS1Parameter.h"
 #import "AKS1Rate.hpp"
 
 #ifdef __cplusplus
@@ -59,7 +59,7 @@ struct AKS1NoteState {
     sp_butbp *bandPass;
     sp_crossfade *filterCrossFade;
     
-    inline float getParam(AKSynthOneParameter param);
+    inline float getParam(AKS1Parameter param);
 
     void init();
 

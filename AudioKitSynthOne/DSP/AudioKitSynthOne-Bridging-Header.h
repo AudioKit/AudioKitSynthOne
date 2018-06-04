@@ -9,6 +9,6 @@
 #pragma once
 
 #import "AKSynthOneAudioUnit.h"
-#import "AKSynthOneParameter.h"
+#import "AKS1Parameter.h"
 #import "AKSynthOneRate.h"
 #import "Audiobus.h"

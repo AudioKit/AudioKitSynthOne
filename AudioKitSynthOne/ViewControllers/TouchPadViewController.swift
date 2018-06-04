@@ -149,7 +149,7 @@ class TouchPadViewController: SynthPanelController {
 
     // MARK: - Update UI
 
-    override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
+    override func updateUI(_ param: AKS1Parameter, control inputControl: AKSynthOneControl?, value: Double) {
 
         // Update TouchPad positions if corresponding knobs are turned
         switch param {

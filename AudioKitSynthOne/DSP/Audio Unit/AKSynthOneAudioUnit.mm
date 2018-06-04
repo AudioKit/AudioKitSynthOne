@@ -22,48 +22,48 @@
 @synthesize parameterTree = _parameterTree;
 @synthesize aks1Delegate = _aks1Delegate;
 
-- (float)getSynthParameter:(AKSynthOneParameter)param {
+- (float)getSynthParameter:(AKS1Parameter)param {
     return _kernel.getSynthParameter(param);
 }
 
-- (void)setSynthParameter:(AKSynthOneParameter)param value:(float)value {
+- (void)setSynthParameter:(AKS1Parameter)param value:(float)value {
     _kernel.setSynthParameter(param, value);
 }
 
-- (float)getDependentParameter:(AKSynthOneParameter)param {
+- (float)getDependentParameter:(AKS1Parameter)param {
     return _kernel.getDependentParameter(param);
 }
 
-- (void)setDependentParameter:(AKSynthOneParameter)param value:(float)value payload:(int)payload {
+- (void)setDependentParameter:(AKS1Parameter)param value:(float)value payload:(int)payload {
     _kernel.setDependentParameter(param, value, payload);
 }
 
 ///auv3
 - (void)setParameter:(AUParameterAddress)address value:(AUValue)value {
-    _kernel.setSynthParameter((AKSynthOneParameter)address, value);
+    _kernel.setSynthParameter((AKS1Parameter)address, value);
 }
 
 ///auv3
 - (AUValue)getParameter:(AUParameterAddress)address {
-    return _kernel.getSynthParameter((AKSynthOneParameter)address);
+    return _kernel.getSynthParameter((AKS1Parameter)address);
 }
 
-- (float)getMinimum:(AKSynthOneParameter)param {
+- (float)getMinimum:(AKS1Parameter)param {
     return _kernel.parameterMin(param);
 }
 
-- (float)getMaximum:(AKSynthOneParameter)param {
+- (float)getMaximum:(AKS1Parameter)param {
     return _kernel.parameterMax(param);
 }
 
-- (float)getDefault:(AKSynthOneParameter)param {
+- (float)getDefault:(AKS1Parameter)param {
     return _kernel.parameterDefault(param);
 }
 
 ///Deprecated:calling this method to access even a single element of this array results in creating the entire array
 - (NSArray<NSNumber*> *)parameters {
-    NSMutableArray *temp = [NSMutableArray arrayWithCapacity:AKSynthOneParameter::AKSynthOneParameterCount];
-    for (int i = 0; i < AKSynthOneParameter::AKSynthOneParameterCount; i++) {
+    NSMutableArray *temp = [NSMutableArray arrayWithCapacity:AKS1Parameter::AKS1ParameterCount];
+    for (int i = 0; i < AKS1Parameter::AKS1ParameterCount; i++) {
         [temp setObject:[NSNumber numberWithFloat:_kernel.p[i]] atIndexedSubscript:i];
     }
     return [NSArray arrayWithArray:temp];
@@ -71,7 +71,7 @@
 
 ///deprecated
 - (void)setParameters:(NSArray<NSNumber*> *)parameters {
-    float params[AKSynthOneParameter::AKSynthOneParameterCount];
+    float params[AKS1Parameter::AKS1ParameterCount];
     for (int i = 0; i < parameters.count; i++) {
         params[i] = [parameters[i] floatValue];
     }
@@ -140,8 +140,8 @@
     // Create parameter tree
     AudioUnitParameterOptions flags = kAudioUnitParameterFlag_IsWritable | kAudioUnitParameterFlag_IsReadable;
     NSMutableArray<AUParameter*>* tree = [NSMutableArray array];
-    for(NSInteger i = AKSynthOneParameter::index1; i < AKSynthOneParameter::AKSynthOneParameterCount; i++) {
-        const AKSynthOneParameter p = (AKSynthOneParameter)i;
+    for(NSInteger i = AKS1Parameter::index1; i < AKS1Parameter::AKS1ParameterCount; i++) {
+        const AKS1Parameter p = (AKS1Parameter)i;
         const AUValue minValue = _kernel.parameterMin(p);
         const AUValue maxValue = _kernel.parameterMax(p);
         const AUValue defaultValue = _kernel.parameterDefault(p);
@@ -157,11 +157,11 @@
     _parameterTree = [AUParameterTree createTreeWithChildren:tree];
     
     _parameterTree.implementorValueObserver = ^(AUParameter *param, AUValue value) {
-        const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
+        const AKS1Parameter p = (AKS1Parameter)param.address;
         blockKernel->setSynthParameter(p, value);
     };
     _parameterTree.implementorValueProvider = ^(AUParameter *param) {
-        const AKSynthOneParameter p = (AKSynthOneParameter)param.address;
+        const AKS1Parameter p = (AKS1Parameter)param.address;
         return blockKernel->getSynthParameter(p);
     };
 }

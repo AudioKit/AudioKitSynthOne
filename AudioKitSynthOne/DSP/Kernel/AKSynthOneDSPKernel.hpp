@@ -14,7 +14,7 @@
 #import <string>
 #import "AKSoundpipeKernel.hpp"
 #import "AKSynthOneAudioUnit.h"
-#import "AKSynthOneParameter.h"
+#import "AKS1Parameter.h"
 #import "AKS1Rate.hpp"
 
 @class AEArray;
@@ -43,12 +43,12 @@ public:
         return sp;
     }
 
-    float getSynthParameter(AKSynthOneParameter param);
-    void setSynthParameter(AKSynthOneParameter param, float value);
+    float getSynthParameter(AKS1Parameter param);
+    void setSynthParameter(AKS1Parameter param, float value);
 
     // lfo1Rate, lfo2Rate, autoPanRate, and delayTime; returns on [0,1]
-    float getDependentParameter(AKSynthOneParameter param);
-    void setDependentParameter(AKSynthOneParameter param, float value, int payload);
+    float getDependentParameter(AKS1Parameter param);
+    void setDependentParameter(AKS1Parameter param, float value, int payload);
 
     // AUParameter/AUValue
     void setParameters(float params[]);
@@ -113,36 +113,36 @@ public:
     void setWaveformValue(uint32_t waveform, uint32_t index, float value);
     
     ///parameter min
-    float parameterMin(AKSynthOneParameter i);
+    float parameterMin(AKS1Parameter i);
     
     ///parameter max
-    float parameterMax(AKSynthOneParameter i);
+    float parameterMax(AKS1Parameter i);
     
     ///parameter defaults
-    float parameterDefault(AKSynthOneParameter i);
+    float parameterDefault(AKS1Parameter i);
     
     ///parameter unit
-    AudioUnitParameterUnit parameterUnit(AKSynthOneParameter i);
+    AudioUnitParameterUnit parameterUnit(AKS1Parameter i);
     
     ///parameter clamp
-    float parameterClamp(AKSynthOneParameter i, float inputValue);
+    float parameterClamp(AKS1Parameter i, float inputValue);
 
     ///friendly description of parameter
-    std::string parameterFriendlyName(AKSynthOneParameter i);
+    std::string parameterFriendlyName(AKS1Parameter i);
     
     ///C string friendly description of parameter
-    const char* parameterCStr(AKSynthOneParameter i);
+    const char* parameterCStr(AKS1Parameter i);
 
     ///parameter presetKey
-    std::string parameterPresetKey(AKSynthOneParameter i);
+    std::string parameterPresetKey(AKS1Parameter i);
 
 private:
 
-    inline void _setSynthParameter(AKSynthOneParameter param, float inputValue01);
+    inline void _setSynthParameter(AKS1Parameter param, float inputValue01);
     
-    inline void _setSynthParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload);
+    inline void _setSynthParameterHelper(AKS1Parameter param, float inputValue, bool notifyMainThread, int payload);
     
-    inline void _rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload);
+    inline void _rateHelper(AKS1Parameter param, float inputValue, bool notifyMainThread, int payload);
 
      // algebraic only
     inline float taper01(float inputValue01, float taper);
@@ -162,7 +162,7 @@ public:
     int arpBeatCounter = 0;
     
     /// dsp params
-    float p[AKSynthOneParameter::AKSynthOneParameterCount];
+    float p[AKS1Parameter::AKS1ParameterCount];
     
     // Portamento values
     float monoFrequency = 440.f * exp2((60.f - 69.f)/12.f);
@@ -218,7 +218,7 @@ private:
     struct SeqNoteNumber;
     
     struct AKS1Param {
-        AKSynthOneParameter param;
+        AKS1Parameter param;
         float min;
         float defaultValue;
         float max;
@@ -306,7 +306,7 @@ private:
     const float bars_max = 8.f;
     const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) ); //  0.00052 8 bars at 1bpm
     const float rate_max = 1.f / ( (beatsPerBar * bars_min) / (bpm_max * minutesPerSecond) ); // 53.3333
-    AKS1Param aks1p[AKSynthOneParameter::AKSynthOneParameterCount] = {
+    AKS1Param aks1p[AKS1Parameter::AKS1ParameterCount] = {
         { index1,                0, 1, 1, "index1", "Index 1", kAudioUnitParameterUnit_Generic, true, NULL},
         { index2,                0, 1, 1, "index2", "Index 2", kAudioUnitParameterUnit_Generic, true, NULL},
         { morphBalance,          0, 0.5, 1, "morphBalance", "morphBalance", kAudioUnitParameterUnit_Generic, true, NULL},

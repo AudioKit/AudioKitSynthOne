@@ -9,7 +9,7 @@
 #pragma once
 
 #import <AudioKit/AKAudioUnit.h>
-#import "AKSynthOneParameter.h"
+#import "AKS1Parameter.h"
 
 #define AKS1_MAX_POLYPHONY (6)
 #define AKS1_NUM_MIDI_NOTES (128)
@@ -26,7 +26,7 @@ typedef struct NoteNumber {
 // DSP updates UI elements lfo1Rate, lfo2Rate, autoPanRate, delayTime when arpOn/tempoSyncArpRate update
 // DSP updates lfo1Rate, lfo2Rate, autoPanRate, delayTime based on current arpOn/tempoSyncArpRate
 typedef struct DependentParam {
-    AKSynthOneParameter param;
+    AKS1Parameter param;
     float value01;// [0,1] for ui
     float value;
     int payload;
@@ -72,14 +72,14 @@ typedef struct AKS1ArpBeatCounter {
 - (AUValue)getParameter:(AUParameterAddress)address;
 - (void)createParameters;
 
-- (float)getSynthParameter:(AKSynthOneParameter)param;
-- (void)setSynthParameter:(AKSynthOneParameter)param value:(float)value;
-- (float)getDependentParameter:(AKSynthOneParameter)param;
-- (void)setDependentParameter:(AKSynthOneParameter)param value:(float)value payload:(int)payload;
+- (float)getSynthParameter:(AKS1Parameter)param;
+- (void)setSynthParameter:(AKS1Parameter)param value:(float)value;
+- (float)getDependentParameter:(AKS1Parameter)param;
+- (void)setDependentParameter:(AKS1Parameter)param value:(float)value payload:(int)payload;
 
-- (float)getMinimum:(AKSynthOneParameter)param;
-- (float)getMaximum:(AKSynthOneParameter)param;
-- (float)getDefault:(AKSynthOneParameter)param;
+- (float)getMinimum:(AKS1Parameter)param;
+- (float)getMaximum:(AKS1Parameter)param;
+- (float)getDefault:(AKS1Parameter)param;
 
 - (void)setupWaveform:(UInt32)waveform size:(int)size;
 - (void)setWaveform:(UInt32)waveform withValue:(float)value atIndex:(UInt32)index;

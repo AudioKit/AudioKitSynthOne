@@ -392,7 +392,7 @@
 				C435C53420C52D8800DAECCD /* ChildView.swift */,
 				946D159E1FD26CD6006E7C97 /* DevViewController.swift */,
 				C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */,
-				C435C50020C5284C00DAECCD /* UIViewController+DisplayAlert.swift */,
+				C435C59120C53A3800DAECCD /* PanelViewController.swift */,
 				C435C59B20C53A6E00DAECCD /* UpdatableViewController.swift */,
 				C435C58E20C53A3800DAECCD /* Panels */,
 				C4421A7120B8178F00BE9F12 /* ParentViewController */,
@@ -475,6 +475,14 @@
 				945C3A0E1F31428B0086D58B /* VerticalSlider.swift */,
 			);
 			path = Sliders;
+			sourceTree = "<group>";
+		};
+		945FB41B20C58070007EC7DB /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				C435C50020C5284C00DAECCD /* UIViewController+DisplayAlert.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 		9461F0371F5CAAE600EE226E /* Frameworks */ = {
@@ -685,7 +693,6 @@
 				C435C58F20C53A3800DAECCD /* FXViewController.swift */,
 				C435C59220C53A3800DAECCD /* MixerViewController.swift */,
 				C435C59420C53A3800DAECCD /* SeqViewController.swift */,
-				C435C59120C53A3800DAECCD /* PanelViewController.swift */,
 				C435C59020C53A3800DAECCD /* TouchPadViewController.swift */,
 			);
 			path = Panels;
@@ -770,6 +777,7 @@
 		C4F7ECA51F2446960011B119 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				945FB41B20C58070007EC7DB /* Alerts */,
 				945261441F2925860037662C /* Buttons */,
 				C435C4F320C5234900DAECCD /* Cells */,
 				94AF74041F56336900ED8B51 /* Keyboard */,

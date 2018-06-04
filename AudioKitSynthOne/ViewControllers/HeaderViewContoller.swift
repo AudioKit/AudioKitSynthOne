@@ -74,8 +74,8 @@ public class HeaderViewController: UpdatableViewController {
         setupCallbacks()
     }
 
-    override func updateUI(_ param: S1Parameter, control: S1Control?, value: Double) {
-        updateDisplayLabel(param, value: value)
+    override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {
+        updateDisplayLabel(parameter, value: value)
     }
 
     func updateDisplayLabel(_ parameter: S1Parameter, value: Double) {

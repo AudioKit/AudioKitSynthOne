@@ -36,17 +36,17 @@ class Conductor: S1Protocol {
     fileprivate var started = false
 
     func bind(_ control: S1Control,
-              to param: S1Parameter,
+              to parameter: S1Parameter,
               callback closure: S1ControlCallback? = nil) {
-        let binding = (param, control)
+        let binding = (parameter, control)
         bindings.append(binding)
         let control = binding.1
         if let cb = closure {
             // custom closure
-            control.callback = cb(param, control)
+            control.callback = cb(parameter, control)
         } else {
             // default closure
-            control.callback = changeParameter(param, control)
+            control.callback = changeParameter(parameter, control)
         }
     }
 
@@ -61,7 +61,7 @@ class Conductor: S1Protocol {
         }
     }
 
-    func updateSingleUI(_ param: S1Parameter,
+    func updateSingleUI(_ parameter: S1Parameter,
                         control inputControl: S1Control?,
                         value inputValue: Double) {
 
@@ -69,7 +69,7 @@ class Conductor: S1Protocol {
         if !started { return }
 
         // for every binding of type param
-        for binding in bindings where param == binding.0 {
+        for binding in bindings where parameter == binding.0 {
             let control = binding.1
 
             // don't update the control if it is the one performing the callback because it has already been updated
@@ -86,7 +86,7 @@ class Conductor: S1Protocol {
         // View controllers can own objects which are not updated by the bindings scheme.
         // For example, ADSRViewController has AKADSRView's which do not conform to S1Control
         viewControllers.forEach {
-            $0.updateUI(param, control: inputControl, value: inputValue)
+            $0.updateUI(parameter, control: inputControl, value: inputValue)
         }
     }
 
@@ -94,13 +94,13 @@ class Conductor: S1Protocol {
     func updateAllUI() {
         let parameterCount = S1Parameter.S1ParameterCount.rawValue
         for address in 0..<parameterCount {
-            guard let param: S1Parameter = S1Parameter(rawValue: address)
+            guard let parameter: S1Parameter = S1Parameter(rawValue: address)
                 else {
                     AKLog("ERROR: S1Parameter enum out of range: \(address)")
                     return
             }
-            let value = self.synth.getSynthParameter(param)
-            updateSingleUI(param, control: nil, value: value)
+            let value = self.synth.getSynthParameter(parameter)
+            updateSingleUI(parameter, control: nil, value: value)
         }
 
         // Display Preset Name again
@@ -166,23 +166,23 @@ class Conductor: S1Protocol {
         parentVC?.updateDisplay(message)
     }
 
-    func updateDisplayLabel(_ param: S1Parameter, value: Double) {
+    func updateDisplayLabel(_ parameter: S1Parameter, value: Double) {
         let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController }) as? HeaderViewController
-        headerVC?.updateDisplayLabel(param, value: value)
+        headerVC?.updateDisplayLabel(parameter, value: value)
     }
 
     // MARK: - S1Protocol
 
     // called by DSP on main thread
-    func dependentParameterDidChange(_ param: DependentParameter) {
+    func dependentParameterDidChange(_ parameter: DependentParameter) {
         let fxVC = self.viewControllers.first(where: { $0 is FXViewController }) as? FXViewController
-        fxVC?.dependentParameterDidChange(param)
+        fxVC?.dependentParameterDidChange(parameter)
 
         let touchPadVC = self.viewControllers.first(where: { $0 is TouchPadViewController }) as? TouchPadViewController
-        touchPadVC?.dependentParameterDidChange(param)
+        touchPadVC?.dependentParameterDidChange(parameter)
 
         let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as? ParentViewController
-        parentVC?.dependentParameterDidChange(param)
+        parentVC?.dependentParameterDidChange(parameter)
     }
 
     // called by DSP on main thread

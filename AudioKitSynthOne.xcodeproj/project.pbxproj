@@ -526,7 +526,7 @@
 				94A5038C1FF2E1B80097D37C /* MIDIInput.swift */,
 				9403F29B1F671A6000320FCC /* Preset.swift */,
 				94FA2DC11F9E7C2800DED735 /* PresetDataManager.swift */,
-				C435C4EA20C51E7D00DAECCD /* Tuning */,
+				C435C4EA20C51E7D00DAECCD /* Tunings */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -645,14 +645,14 @@
 			path = "Note State";
 			sourceTree = "<group>";
 		};
-		C435C4EA20C51E7D00DAECCD /* Tuning */ = {
+		C435C4EA20C51E7D00DAECCD /* Tunings */ = {
 			isa = PBXGroup;
 			children = (
 				C435C4EB20C51E7D00DAECCD /* AKS1Tuning.swift */,
 				C435C4EC20C51E7D00DAECCD /* AKS1Tuning+Math.swift */,
 				C435C4ED20C51E7D00DAECCD /* AKS1Tuning+Harmonic.swift */,
 			);
-			path = Tuning;
+			path = Tunings;
 			sourceTree = "<group>";
 		};
 		C4421A7120B8178F00BE9F12 /* ParentViewController */ = {

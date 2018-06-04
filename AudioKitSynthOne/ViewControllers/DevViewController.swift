@@ -9,7 +9,7 @@
 import AudioKit
 import UIKit
 
-protocol DevPanelDelegate: AnyObject {
+protocol DevViewDelegate: AnyObject {
     func freezeArpRateChanged(_ value: Bool)
     func freezeReverbChanged(_ value: Bool)
     func freezeDelayChanged(_ value: Bool)
@@ -18,7 +18,7 @@ protocol DevPanelDelegate: AnyObject {
 
 class DevViewController: UpdatableViewController {
 
-    weak var delegate: DevPanelDelegate?
+    weak var delegate: DevViewDelegate?
 
     @IBOutlet weak var masterVolume: Knob! // i.e., gain before compressorMaster
     @IBOutlet weak var compressorMasterRatio: Knob!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeqViewController: SynthPanelController {
+class SeqViewController: PanelViewController {
 
     @IBOutlet weak var seqStepsStepper: Stepper!
     @IBOutlet weak var octaveStepper: Stepper!

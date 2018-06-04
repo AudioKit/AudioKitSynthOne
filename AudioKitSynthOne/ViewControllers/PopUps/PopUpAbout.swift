@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 
 protocol AboutDelegate: AnyObject {
-    func showDevPanel()
+    func showDevView()
 }
 
 class PopUpAbout: UIViewController {
@@ -75,8 +75,8 @@ class PopUpAbout: UIViewController {
         requestReview()
     }
 
-    @IBAction func devPanelPressed(_ sender: UIButton) {
-        delegate?.showDevPanel()
+    @IBAction func devViewPressed(_ sender: UIButton) {
+        delegate?.showDevView()
         dismiss(animated: true, completion: nil)
     }
 

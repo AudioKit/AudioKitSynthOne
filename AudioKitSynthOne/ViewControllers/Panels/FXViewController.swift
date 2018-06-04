@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FXViewController: SynthPanelController {
+class FXViewController: PanelViewController {
 
     @IBOutlet weak var lfoCutoffToggle: LfoButton!
     @IBOutlet weak var lfoRezToggle: LfoButton!

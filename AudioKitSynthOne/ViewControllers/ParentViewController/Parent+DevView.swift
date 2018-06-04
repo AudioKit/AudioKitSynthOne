@@ -1,5 +1,5 @@
 //
-//  Parent+DevPanel.swift
+//  Parent+DevView.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/25/18.
@@ -8,15 +8,15 @@
 
 extension ParentViewController: AboutDelegate {
 
-    func showDevPanel() {
+    func showDevView() {
         isDevView = false
         devPressed()
     }
 }
 
-// DevPanelDelegate protocol functions
+// DevViewDelegate protocol functions
 
-extension ParentViewController: DevPanelDelegate {
+extension ParentViewController: DevViewDelegate {
 
     func freezeArpRateChanged(_ value: Bool) {
         appSettings.freezeArpRate = value

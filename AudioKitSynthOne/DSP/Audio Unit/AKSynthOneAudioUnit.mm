@@ -7,14 +7,14 @@
 //
 
 #import "AKSynthOneAudioUnit.h"
-#import "AKSynthOneDSPKernel.hpp"
+#import "AKS1DSPKernel.hpp"
 #import "BufferedAudioBus.hpp"
 #import "AEMessageQueue.h"
 #import <AudioKit/AudioKit-swift.h>
 
 @implementation AKSynthOneAudioUnit {
     // C++ members need to be ivars; they would be copied on access if they were properties.
-    AKSynthOneDSPKernel _kernel;
+    AKS1DSPKernel _kernel;
     BufferedOutputBus _outputBusBuffer;
     AUHostMusicalContextBlock _musicalContext;
 }
@@ -135,7 +135,7 @@
                                                                  busType:AUAudioUnitBusTypeOutput
                                                                   busses:@[self.outputBus]];
     _kernel.audioUnit = self;
-    __block AKSynthOneDSPKernel *blockKernel = &_kernel;
+    __block AKS1DSPKernel *blockKernel = &_kernel;
     
     // Create parameter tree
     AudioUnitParameterOptions flags = kAudioUnitParameterFlag_IsWritable | kAudioUnitParameterFlag_IsReadable;
@@ -183,7 +183,7 @@
 }
 
 - (AUInternalRenderBlock)internalRenderBlock {
-    __block AKSynthOneDSPKernel *state = &_kernel;
+    __block AKS1DSPKernel *state = &_kernel;
     return ^AUAudioUnitStatus(
                               AudioUnitRenderActionFlags *actionFlags,
                               const AudioTimeStamp       *timestamp,

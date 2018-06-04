@@ -8,13 +8,12 @@
 
 #import "AKS1NoteState.hpp"
 #import <AudioKit/AudioKit-swift.h>
-#import "AKSynthOneDSPKernel.hpp"
+#import "AKS1DSPKernel.hpp"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AudioUnit/AudioUnit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "AEArray.h"
 #import "AEMessageQueue.h"
-#import "AKSynthOneDSPKernel.hpp"
 
 // Relative note number to frequency
 static inline float nnToHz(float noteNumber) {

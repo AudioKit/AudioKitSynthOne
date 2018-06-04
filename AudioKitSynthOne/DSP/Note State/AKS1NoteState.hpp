@@ -19,11 +19,11 @@
 
 #ifdef __cplusplus
 
-class AKSynthOneDSPKernel;
+class AKS1DSPKernel;
 
 struct AKS1NoteState {
     
-    AKSynthOneDSPKernel* kernel;
+    AKS1DSPKernel* kernel;
     
     enum NoteStateStage { stageOff, stageOn, stageRelease };
     NoteStateStage stage = stageOff;

@@ -136,11 +136,12 @@ extension ParentViewController {
         s.setSynthParameter(.pitchbendMaxSemitones, activePreset.pitchbendMaxSemitones)
 
         s.setSynthParameter(.frequencyA4, activePreset.frequencyA4)
-
-        if let m = activePreset.tuningMasterSet {
-            tuningsViewController.setTuning(name: activePreset.tuningName, masterArray: m)
-        } else {
-            tuningsViewController.setDefaultTuning()
+        if appSettings.saveTuningWithPreset {
+            if let m = activePreset.tuningMasterSet {
+                tuningsViewController.setTuning(name: activePreset.tuningName, masterArray: m)
+            } else {
+                tuningsViewController.setDefaultTuning()
+            }
         }
 
         s.resetSequencer()

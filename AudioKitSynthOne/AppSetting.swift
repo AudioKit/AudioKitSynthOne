@@ -94,8 +94,8 @@ class AppSetting: Codable {
     var darkMode = false
     var showKeyboard = 1.0 // 1 show, 0 hide
 
-        // MARK: - Init
-    
+    // MARK: - Init
+
     init() {
     }
 

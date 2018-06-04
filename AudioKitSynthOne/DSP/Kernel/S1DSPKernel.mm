@@ -1054,12 +1054,12 @@ void S1DSPKernel::setWaveformValue(uint32_t waveform, uint32_t index, float valu
 
 ///parameter min
 float S1DSPKernel::parameterMin(S1Parameter i) {
-    return s1p[i].min;
+    return s1p[i].minimum;
 }
 
 ///parameter max
 float S1DSPKernel::parameterMax(S1Parameter i) {
-    return s1p[i].max;
+    return s1p[i].maximum;
 }
 
 ///parameter defaults
@@ -1073,8 +1073,8 @@ AudioUnitParameterUnit S1DSPKernel::parameterUnit(S1Parameter i) {
 
 ///return clamped value
 float S1DSPKernel::parameterClamp(S1Parameter i, float inputValue) {
-    const float paramMin = s1p[i].min;
-    const float paramMax = s1p[i].max;
+    const float paramMin = s1p[i].minimum;
+    const float paramMax = s1p[i].maximum;
     const float retVal = std::min(std::max(inputValue, paramMin), paramMax);
     return retVal;
 }
@@ -1143,7 +1143,7 @@ inline float S1DSPKernel::taperInverse(float inputValue01, float min, float max,
 }
 
 float S1DSPKernel::getSynthParameter(S1Parameter param) {
-    S1Param& s = s1p[param];
+    S1ParameterInfo& s = s1p[param];
     if (s.usePortamento)
         return s.portamentoTarget;
     else
@@ -1152,7 +1152,7 @@ float S1DSPKernel::getSynthParameter(S1Parameter param) {
 
 inline void S1DSPKernel::_setSynthParameter(S1Parameter param, float inputValue) {
     const float value = parameterClamp(param, inputValue);
-    S1Param& s = s1p[param];
+    S1ParameterInfo& s = s1p[param];
     if (s.usePortamento) {
         s.portamentoTarget = value;
     } else {

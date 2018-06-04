@@ -142,7 +142,7 @@ class FXViewController: PanelViewController {
         }
     }
 
-    func dependentParamDidChange(_ param: DependentParam) {
+    func dependentParamDidChange(_ param: DependentParameter) {
         switch param.param {
         case .lfo1Rate:
             if param.payload == conductor.lfo1RateFXPanelID {

@@ -174,7 +174,7 @@ class Conductor: S1Protocol {
     // MARK: - S1Protocol
 
     // called by DSP on main thread
-    func dependentParamDidChange(_ param: DependentParam) {
+    func dependentParamDidChange(_ param: DependentParameter) {
         let fxVC = self.viewControllers.first(where: { $0 is FXViewController }) as? FXViewController
         fxVC?.dependentParamDidChange(param)
 

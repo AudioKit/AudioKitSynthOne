@@ -230,7 +230,7 @@ import AudioKit
 
     // MARK: - Passthroughs for AKSynthOneProtocol called by DSP on main thread
 
-    @objc public func dependentParamDidChange(_ param: DependentParam) {
+    @objc public func dependentParamDidChange(_ param: DependentParameter) {
         delegate?.dependentParamDidChange(param)
     }
 

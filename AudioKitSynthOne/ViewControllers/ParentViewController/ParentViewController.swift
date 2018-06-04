@@ -65,9 +65,7 @@ public class ParentViewController: UpdatableViewController {
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
     var midiInput: ABMIDIReceiverPort?
 
-    // ********************************************************
     // MARK: - Define child view controllers
-    // ********************************************************
 
     lazy var adsrViewController: ADSRViewController = {
         return mainStoryboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier())
@@ -111,9 +109,7 @@ public class ParentViewController: UpdatableViewController {
             as! PresetsViewController
     }()
 
-    // ********************************************************
     // MARK: - viewDidLoad
-    // ********************************************************
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -270,9 +266,7 @@ public class ParentViewController: UpdatableViewController {
         }
     }
 
-    // ********************************************************
     // MARK: - Callbacks
-    // ********************************************************
 
     func setupCallbacks() {
 

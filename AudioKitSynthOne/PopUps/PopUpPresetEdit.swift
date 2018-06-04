@@ -31,9 +31,7 @@ class PopUpPresetEdit: UIViewController {
     var pickerBankNames = [String]()
     var bankSelected = "BankA"
 
-    // *****************************************************************
     // MARK: - Lifecycle
-    // *****************************************************************
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,9 +67,7 @@ class PopUpPresetEdit: UIViewController {
         categoryTableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
     }
 
-    // *****************************************************************
     // MARK: - IBActions
-    // *****************************************************************
 
     func setupCallbacks() {
 

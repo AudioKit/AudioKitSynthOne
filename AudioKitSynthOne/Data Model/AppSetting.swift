@@ -8,9 +8,7 @@
 
 import Foundation
 
-// ******************************************************
 // MARK: - App Settings
-// ******************************************************
 
 let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
 
@@ -96,10 +94,8 @@ class AppSetting: Codable {
     var darkMode = false
     var showKeyboard = 1.0 // 1 show, 0 hide
 
-    // ******************************************************
-    // MARK: - Init
-    // ******************************************************
-
+        // MARK: - Init
+    
     init() {
     }
 

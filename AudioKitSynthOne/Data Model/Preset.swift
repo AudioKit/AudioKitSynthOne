@@ -9,9 +9,7 @@
 import Foundation
 import AudioKit
 
-// ******************************************************
 // MARK: - Preset
-// ******************************************************
 
 class Preset: Codable {
 
@@ -156,10 +154,8 @@ class Preset: Codable {
     var tuningName: String?
     var tuningMasterSet: [Double]?
 
-    // ******************************************************
-    // MARK: - Init
-    // ******************************************************
-
+        // MARK: - Init
+    
     init() {}
 
     convenience init(position: Int) {

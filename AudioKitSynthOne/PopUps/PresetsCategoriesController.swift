@@ -8,9 +8,7 @@
 
 import UIKit
 
-// ******************************************************
 // MARK: - Preset Category Enum
-// ******************************************************
 
 enum PresetCategory: Int {
     case all
@@ -50,9 +48,7 @@ protocol CategoryDelegate: AnyObject {
     func bankEdit()
 }
 
-// ******************************************************
 // MARK: - PresetsCategoriesController
-// ******************************************************
 
 class PresetsCategoriesController: UIViewController {
 

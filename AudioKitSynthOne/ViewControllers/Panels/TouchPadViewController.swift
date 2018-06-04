@@ -172,7 +172,7 @@ class TouchPadViewController: PanelViewController {
         }
     }
 
-    func dependentParamDidChange(_ param: DependentParameter) {
+    func dependentParameterDidChange(_ param: DependentParameter) {
         if param.payload == conductor.lfo1RateTouchPadID {
             return
         }

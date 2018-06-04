@@ -357,15 +357,21 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     
     //synthOut
     float synthOut = amp * (osc_morph_out + subOsc_out + fmOsc_out + noise_out);
-    
-    //filterOut
+
+    //filterOut:  Always calcuate all filters so when user switches the buffers are up-to-date.
+    float moogOut;
+    sp_moogladder_compute(kernel->spp(), loPass, &synthOut, &moogOut);
+    float bandOut;
+    sp_butbp_compute(kernel->spp(), bandPass, &synthOut, &bandOut);
+    float hipassOut;
+    sp_buthp_compute(kernel->spp(), hiPass, &synthOut, &hipassOut);
     if (getParam(filterType) == 0.f)
-        sp_moogladder_compute(kernel->spp(), loPass, &synthOut, &filterOut);
+        filterOut = moogOut;
     else if (getParam(filterType) == 1.f)
-        sp_butbp_compute(kernel->spp(), bandPass, &synthOut, &filterOut);
+        filterOut = bandOut;
     else if (getParam(filterType) == 2.f)
-        sp_buthp_compute(kernel->spp(), hiPass, &synthOut, &filterOut);
-    
+        filterOut = hipassOut;
+
     // filter crossfade
     sp_crossfade_compute(kernel->spp(), filterCrossFade, &synthOut, &filterOut, &finalOut);
     

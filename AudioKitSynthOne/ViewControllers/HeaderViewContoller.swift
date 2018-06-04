@@ -78,13 +78,13 @@ public class HeaderViewController: UpdatableViewController {
         updateDisplayLabel(param, value: value)
     }
 
-    func updateDisplayLabel(_ param: S1Parameter, value: Double) {
+    func updateDisplayLabel(_ parameter: S1Parameter, value: Double) {
         guard let s = conductor.synth else {
             AKLog("Can't update header displayLabel because synth is not instantiated")
             return
         }
         let lfoValue = LFOValue(rawValue: Int(value))
-        switch param {
+        switch parameter {
         case .index1:
             displayLabel.text = "OSC1 Morph: \(value.decimalString)"
         case .index2:

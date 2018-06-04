@@ -232,7 +232,7 @@ public class TuningsPitchWheelOverlayView: UIView {
             let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2,
                       pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
             for playingNote in na where playingNote.noteNumber != -1 {
-                let v = 2 * playingNote.amp
+                let v = 2 * playingNote.amplitude
                 if v > 0 {
                     var nn = playingNote.noteNumber - Int32(AKPolyphonicNode.tuningTable.middleCNoteNumber)
                     while nn < 0 { nn = nn + Int32(npo) }

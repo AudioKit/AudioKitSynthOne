@@ -127,7 +127,7 @@ class DevViewController: UpdatableViewController {
             self.delegate?.freezeReverbChanged(value == 1 ? true : false)
         }
 
-        // portamentoHalfTime (dsp param stored in app settings not presets)
+        // portamentoHalfTime (dsp parameter stored in app settings not presets)
         portamento.range = s.getRange(.portamentoHalfTime)
         portamento.value = portamentoHalfTime
         portamento.callback = { value in

@@ -50,10 +50,10 @@ class Conductor: S1Protocol {
         }
     }
 
-    var changeParameter: S1ControlCallback  = { param, control in
+    var changeParameter: S1ControlCallback  = { parameter, control in
         return { value in
-            sharedInstance.synth.setSynthParameter(param, value)
-            sharedInstance.updateSingleUI(param, control: control, value: value)
+            sharedInstance.synth.setSynthParameter(parameter, value)
+            sharedInstance.updateSingleUI(parameter, control: control, value: value)
           }
         } {
         didSet {

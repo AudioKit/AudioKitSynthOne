@@ -384,7 +384,7 @@ public class ParentViewController: UpdatableViewController {
         conductor.synth.stopAllNotes()
     }
 
-    override func updateUI(_ param: S1Parameter, control inputControl: S1Control?, value: Double) {
+    override func updateUI(_ parameter: S1Parameter, control inputControl: S1Control?, value: Double) {
 
         // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
         guard let s = conductor.synth else {
@@ -397,7 +397,7 @@ public class ParentViewController: UpdatableViewController {
             self.keyboardView.polyphonicMode = isMono > 0 ? false : true
         }
 
-        if param == .cutoff {
+        if parameter == .cutoff {
             if inputControl === modWheelPad || activePreset.modWheelRouting != 0 {
                 return
             }
@@ -408,30 +408,30 @@ public class ParentViewController: UpdatableViewController {
         }
     }
 
-    func dependentParameterDidChange(_ param: DependentParameter) {
-        switch param.parameter {
+    func dependentParameterDidChange(_ dependentParameter: DependentParameter) {
+        switch dependentParameter.parameter {
 
         case .lfo1Rate:
-            if param.payload == conductor.lfo1RateModWheelID {
+            if dependentParameter.payload == conductor.lfo1RateModWheelID {
                 return
             }
             if activePreset.modWheelRouting == 1 {
-                modWheelPad.setVerticalValue01(Double(param.normalizedValue))
+                modWheelPad.setVerticalValue01(Double(dependentParameter.normalizedValue))
             }
 
         case .lfo2Rate:
-            if param.payload == conductor.lfo2RateModWheelID {
+            if dependentParameter.payload == conductor.lfo2RateModWheelID {
                 return
             }
             if activePreset.modWheelRouting == 2 {
-                modWheelPad.setVerticalValue01(Double(param.normalizedValue))
+                modWheelPad.setVerticalValue01(Double(dependentParameter.normalizedValue))
             }
 
         case .pitchbend:
-            if param.payload == conductor.pitchbendParentVCID {
+            if dependentParameter.payload == conductor.pitchbendParentVCID {
                 return
             }
-            pitchbend.setVerticalValue01(Double(param.normalizedValue))
+            pitchbend.setVerticalValue01(Double(dependentParameter.normalizedValue))
 
         default:
             _ = 0

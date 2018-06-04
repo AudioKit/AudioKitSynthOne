@@ -76,9 +76,7 @@ class PresetsViewController: UIViewController {
 
     weak var presetsDelegate: PresetsDelegate?
 
-    // *****************************************************************
     // MARK: - Lifecycle
-    // *****************************************************************
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,9 +101,7 @@ class PresetsViewController: UIViewController {
         try? Disk.remove("temp", from: .caches)
     }
 
-    // *****************************************************************
     // MARK: - Load/Save/Manipulate Presets
-    // *****************************************************************
 
     func loadBanks() {
         presets.removeAll()
@@ -308,9 +304,7 @@ class PresetsViewController: UIViewController {
       saveAllPresetsIn(bankName)
     }
 
-    // *****************************************************************
     // MARK: - IBActions / Callbacks
-    // *****************************************************************
 
     func setupCallbacks() {
 
@@ -468,9 +462,7 @@ class PresetsViewController: UIViewController {
         self.sortPresets()
     }
 
-    // *****************************************************************
     // MARK: - Segue
-    // *****************************************************************
 
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueToEdit" {
@@ -495,9 +487,7 @@ class PresetsViewController: UIViewController {
         }
     }
 
-    // *****************************************************************
     // MARK: - TextView
-    // *****************************************************************
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)

@@ -142,9 +142,7 @@ class SeqViewController: SynthPanelController {
 
     }
 
-    // *****************************************************************
     // MARK: - Helpers
-    // *****************************************************************
 
     @objc public func updateLED(beatCounter: Int, heldNotes: Int = 128) {
         let arpIsOn = conductor.synth.getSynthParameter(.arpIsOn) > 0 ? true : false

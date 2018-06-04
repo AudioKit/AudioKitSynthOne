@@ -9,9 +9,7 @@
 import UIKit
 import StoreKit
 
-// *********************************************************
 // MARK: - Display AlertViewController (Pop-up message)
-// *********************************************************
 
 extension UIViewController {
 

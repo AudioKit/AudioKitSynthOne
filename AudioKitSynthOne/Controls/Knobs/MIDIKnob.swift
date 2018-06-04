@@ -1,6 +1,6 @@
 //
 //  MIDIKnob.swift
-//  RomPlayer
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 10/18/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.

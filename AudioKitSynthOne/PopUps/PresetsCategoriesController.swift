@@ -1,6 +1,6 @@
 //
 //  PresetsCategoriesController.swift
-//  AudioKit Synth One
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 9/2/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  Preset.swift
-//  AudioKit Synth One
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/23/16.
 //  Copyright © 2016 AudioKit. All rights reserved.

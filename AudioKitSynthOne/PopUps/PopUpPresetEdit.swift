@@ -1,6 +1,6 @@
 //
 //  PopUpPresetEdit.swift
-//  AudioKit Synth One
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 9/5/17.
 //  Copyright © 2017 Matthew Fecher. All rights reserved.

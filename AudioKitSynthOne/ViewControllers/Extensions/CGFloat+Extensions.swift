@@ -1,6 +1,6 @@
 //
 //  CGFloat+Extensions.swift
-//  AudioKit Synth One
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 1/17/16.
 //  Copyright © 2016 AudioKit. All rights reserved.

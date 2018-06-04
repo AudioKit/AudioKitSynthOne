@@ -809,7 +809,6 @@
 				941645C620B3597300D62851 /* Sources */,
 				941645C720B3597300D62851 /* Frameworks */,
 				941645C820B3597300D62851 /* Resources */,
-				DA5686B3398A63EB38340252 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -830,7 +829,6 @@
 				C4D193C21F1187B500FF4FE4 /* Resources */,
 				A02F99CB702A38B4BC2953CB /* [CP] Embed Pods Frameworks */,
 				C474D95D1F13172B00946035 /* Embed App Extensions */,
-				644C15A91DC9FA78C2D72730 /* [CP] Copy Pods Resources */,
 				C4421AA920B81D0500BE9F12 /* ShellScript */,
 			);
 			buildRules = (
@@ -944,21 +942,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		644C15A91DC9FA78C2D72730 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A02F99CB702A38B4BC2953CB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -991,21 +974,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-		DA5686B3398A63EB38340252 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		F326D17312DDE12585405CB6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1283,7 +1251,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../AudioKit/Frameworks/AudioKit-iOS/\"";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../AudioKit/Frameworks/AudioKit-iOS/\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1301,8 +1269,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)",
-					"\"$(SRCROOT)/../../../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework/Headers/\"",
-					"\"$(SRCROOT)/../../../AudioKit/AudioKit/Core/AudioKitCore/\"/**",
+					"\"$(SRCROOT)/../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework/Headers/\"",
+					"\"$(SRCROOT)/../AudioKit/AudioKit/Core/AudioKitCore/\"/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1313,6 +1281,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/AudioKitSynthOne-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "-Wno-incomplete-umbrella";
 			};
 			name = Debug;
 		};
@@ -1351,7 +1320,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../AudioKit/Frameworks/AudioKit-iOS/\"";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../AudioKit/Frameworks/AudioKit-iOS/\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1363,8 +1332,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)",
-					"\"$(SRCROOT)/../../../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework/Headers/\"",
-					"\"$(SRCROOT)/../../../AudioKit/AudioKit/Core/AudioKitCore/\"/**",
+					"\"$(SRCROOT)/../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework/Headers/\"",
+					"\"$(SRCROOT)/../AudioKit/AudioKit/Core/AudioKitCore/\"/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1374,6 +1343,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				WARNING_CFLAGS = "-Wno-incomplete-umbrella";
 			};
 			name = Release;
 		};

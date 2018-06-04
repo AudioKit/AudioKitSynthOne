@@ -10,6 +10,7 @@ import Foundation
 
 extension AKS1Tunings {
 
+    // pitch is log2(frequency)
     public class func approximateHarmonicFromPitch(_ pitch: Double) -> Int {
         let harmonics = [
             "0.000": 1, "0.001": 1_025, "0.002": 2_051, "0.003": 513, "0.004": 1_027,

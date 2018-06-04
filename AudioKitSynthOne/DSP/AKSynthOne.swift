@@ -38,37 +38,37 @@ import AudioKit
         internalAU?.stopAllNotes()
     }
 
-    open func setSynthParameter(_ param: S1Parameter, _ value: Double) {
-        internalAU?.setSynthParameter(param, value: Float(value))
+    open func setSynthParameter(_ parameter: S1Parameter, _ value: Double) {
+        internalAU?.setSynthParameter(parameter, value: Float(value))
     }
 
-    open func getSynthParameter(_ param: S1Parameter) -> Double {
-        return Double(internalAU?.getSynthParameter(param) ?? 0)
+    open func getSynthParameter(_ parameter: S1Parameter) -> Double {
+        return Double(internalAU?.getSynthParameter(parameter) ?? 0)
     }
 
-    open func getDependentParameter(_ param: S1Parameter) -> Double {
-        return Double(internalAU?.getDependentParameter(param) ?? 0)
+    open func getDependentParameter(_ parameter: S1Parameter) -> Double {
+        return Double(internalAU?.getDependentParameter(parameter) ?? 0)
     }
-    open func setDependentParameter(_ param: S1Parameter, _ value: Double, _ payload: Int32) {
-        internalAU?.setDependentParameter(param, value: Float(value), payload: payload)
-    }
-
-    open func getMinimum(_ param: S1Parameter) -> Double {
-        return Double(internalAU?.getMinimum(param) ?? 0)
+    open func setDependentParameter(_ parameter: S1Parameter, _ value: Double, _ payload: Int32) {
+        internalAU?.setDependentParameter(parameter, value: Float(value), payload: payload)
     }
 
-    open func getMaximum(_ param: S1Parameter) -> Double {
-        return Double(internalAU?.getMaximum(param) ?? 1)
+    open func getMinimum(_ parameter: S1Parameter) -> Double {
+        return Double(internalAU?.getMinimum(parameter) ?? 0)
     }
 
-    open func getRange(_ param: S1Parameter) -> ClosedRange<Double> {
-        let min = Double(internalAU?.getMinimum(param) ?? 0)
-        let max = Double(internalAU?.getMaximum(param) ?? 1)
+    open func getMaximum(_ parameter: S1Parameter) -> Double {
+        return Double(internalAU?.getMaximum(parameter) ?? 1)
+    }
+
+    open func getRange(_ parameter: S1Parameter) -> ClosedRange<Double> {
+        let min = Double(internalAU?.getMinimum(parameter) ?? 0)
+        let max = Double(internalAU?.getMaximum(parameter) ?? 1)
         return min ... max
     }
 
-    open func getDefault(_ param: S1Parameter) -> Double {
-        return Double(internalAU?.getDefault(param) ?? 0)
+    open func getDefault(_ parameter: S1Parameter) -> Double {
+        return Double(internalAU?.getDefault(parameter) ?? 0)
     }
 
     open func getPattern(forIndex inputIndex: Int) -> Int {
@@ -196,10 +196,10 @@ import AudioKit
         auParameters = tree.allParameters
 
         token = tree.token(byAddingParameterObserver: { address, value in
-            guard let param: S1Parameter = S1Parameter(rawValue: Int32(address)) else {
+            guard let parameter: S1Parameter = S1Parameter(rawValue: Int32(address)) else {
                 return
             }
-            self.postNotification(param, Double(value) )
+            self.postNotification(parameter, Double(value) )
         })
 
         internalAU?.s1Delegate = self
@@ -207,7 +207,7 @@ import AudioKit
 
     @objc open weak var delegate: S1Protocol?
 
-    internal func postNotification(_ param: S1Parameter, _ value: Double) {
+    internal func postNotification(_ parameter: S1Parameter, _ value: Double) {
         AKLog("unused")
     }
 
@@ -230,8 +230,8 @@ import AudioKit
 
     // MARK: - Passthroughs for AKSynthOneProtocol called by DSP on main thread
 
-    @objc public func dependentParameterDidChange(_ param: DependentParameter) {
-        delegate?.dependentParameterDidChange(param)
+    @objc public func dependentParameterDidChange(_ parameter: DependentParameter) {
+        delegate?.dependentParameterDidChange(parameter)
     }
 
     @objc public func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {

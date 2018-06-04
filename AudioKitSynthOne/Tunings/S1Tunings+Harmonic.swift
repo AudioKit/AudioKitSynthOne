@@ -1,5 +1,5 @@
 //
-//  AKS1Tunings+Harmonic.swift
+//  S1Tunings+Harmonic.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/20/18.

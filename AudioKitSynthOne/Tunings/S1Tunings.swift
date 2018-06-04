@@ -1,5 +1,5 @@
 //
-//  AKS1Tunings.swift
+//  S1Tunings.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/12/18.
@@ -14,7 +14,7 @@ class S1Tunings {
 
     var tunings = [S1Tuning]()
     var tuningsDelegate: TuningsPitchWheelViewTuningDidChange?
-    public typealias AKS1TuningCallback = () -> [Double]
+    public typealias S1TuningCallback = () -> [Double]
     public typealias Frequency = Double
     private let tuningFilename = "tunings.json"
 
@@ -149,9 +149,9 @@ class S1Tunings {
         return (t.name, t.masterSet)
     }
 
-    internal static func defaultTunings() -> [(String, AKS1TuningCallback)] {
+    internal static func defaultTunings() -> [(String, S1TuningCallback)] {
 
-        var retVal = [(String, AKS1TuningCallback)]()
+        var retVal = [(String, S1TuningCallback)]()
 
         // do NOT include default tuning (12ET)
 

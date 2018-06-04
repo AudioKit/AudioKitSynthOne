@@ -13,7 +13,7 @@ protocol S1Control: class {
     var callback: (Double) -> Void { get set }
 }
 
-typealias AKS1ControlCallback = (S1Parameter, S1Control?) -> ((_: Double) -> Void)
+typealias S1ControlCallback = (S1Parameter, S1Control?) -> ((_: Double) -> Void)
 
 class Conductor: S1Protocol {
     static var sharedInstance = Conductor()
@@ -37,7 +37,7 @@ class Conductor: S1Protocol {
 
     func bind(_ control: S1Control,
               to param: S1Parameter,
-              callback closure: AKS1ControlCallback? = nil) {
+              callback closure: S1ControlCallback? = nil) {
         let binding = (param, control)
         bindings.append(binding)
         let control = binding.1
@@ -50,7 +50,7 @@ class Conductor: S1Protocol {
         }
     }
 
-    var changeParameter: AKS1ControlCallback  = { param, control in
+    var changeParameter: S1ControlCallback  = { param, control in
         return { value in
             sharedInstance.synth.setSynthParameter(param, value)
             sharedInstance.updateSingleUI(param, control: control, value: value)
@@ -84,7 +84,7 @@ class Conductor: S1Protocol {
         }
 
         // View controllers can own objects which are not updated by the bindings scheme.
-        // For example, ADSRViewController has AKADSRView's which do not conform to AKS1Control
+        // For example, ADSRViewController has AKADSRView's which do not conform to S1Control
         viewControllers.forEach {
             $0.updateUI(param, control: inputControl, value: inputValue)
         }

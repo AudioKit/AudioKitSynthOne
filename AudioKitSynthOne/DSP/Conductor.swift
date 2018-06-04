@@ -8,19 +8,19 @@
 
 import AudioKit
 
-protocol AKSynthOneControl: class {
+protocol AKS1Control: class {
     var value: Double { get set }
     var callback: (Double) -> Void { get set }
 }
 
-typealias AKSynthOneControlCallback = (AKS1Parameter, AKSynthOneControl?) -> ((_: Double) -> Void)
+typealias AKS1ControlCallback = (AKS1Parameter, AKS1Control?) -> ((_: Double) -> Void)
 
 class Conductor: AKSynthOneProtocol {
     static var sharedInstance = Conductor()
     var neverSleep = false
     var banks: [Bank] = []
     var synth: AKSynthOne!
-    var bindings: [(AKS1Parameter, AKSynthOneControl)] = []
+    var bindings: [(AKS1Parameter, AKS1Control)] = []
     var heldNoteCount: Int = 0
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
     let lfo1RateFXPanelID: Int32 = 1
@@ -35,9 +35,9 @@ class Conductor: AKSynthOneProtocol {
     public var viewControllers: Set<UpdatableViewController> = []
     fileprivate var started = false
 
-    func bind(_ control: AKSynthOneControl,
+    func bind(_ control: AKS1Control,
               to param: AKS1Parameter,
-              callback closure: AKSynthOneControlCallback? = nil) {
+              callback closure: AKS1ControlCallback? = nil) {
         let binding = (param, control)
         bindings.append(binding)
         let control = binding.1
@@ -50,7 +50,7 @@ class Conductor: AKSynthOneProtocol {
         }
     }
 
-    var changeParameter: AKSynthOneControlCallback  = { param, control in
+    var changeParameter: AKS1ControlCallback  = { param, control in
         return { value in
             sharedInstance.synth.setSynthParameter(param, value)
             sharedInstance.updateSingleUI(param, control: control, value: value)
@@ -62,7 +62,7 @@ class Conductor: AKSynthOneProtocol {
     }
 
     func updateSingleUI(_ param: AKS1Parameter,
-                        control inputControl: AKSynthOneControl?,
+                        control inputControl: AKS1Control?,
                         value inputValue: Double) {
 
         // cannot access synth until it is initialized and started
@@ -84,7 +84,7 @@ class Conductor: AKSynthOneProtocol {
         }
 
         // View controllers can own objects which are not updated by the bindings scheme.
-        // For example, ADSRViewController has AKADSRView's which do not conform to AKSynthOneControl
+        // For example, ADSRViewController has AKADSRView's which do not conform to AKS1Control
         viewControllers.forEach {
             $0.updateUI(param, control: inputControl, value: inputValue)
         }

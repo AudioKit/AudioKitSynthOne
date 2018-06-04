@@ -126,7 +126,7 @@ class SeqViewController: SynthPanelController {
         }
     }
 
-    override func updateUI(_ param: AKS1Parameter, control: AKSynthOneControl?, value: Double) {
+    override func updateUI(_ param: AKS1Parameter, control: AKS1Control?, value: Double) {
         for i in 0...15 {
             updateOctBoostButton(notePosition: i)
         }

@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class ToggleSwitch: UIView, AKSynthOneControl {
+class ToggleSwitch: UIView, AKS1Control {
 
     // MARK: - ToggleButton
 

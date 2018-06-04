@@ -1,5 +1,5 @@
 //
-//  AppSettingDataManager.swift
+//  Parent+AppSettingDataManager.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 10/31/17.

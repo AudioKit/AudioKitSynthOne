@@ -17,7 +17,7 @@ public class LfoBtnStyleKit: NSObject {
 
     @objc
     dynamic public class func drawLfoButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 106, height: 38),
-                                            resizing: ResizingBehavior = .aspectFit,
+                                            resizing: ResizingBehavior  = .aspectFit,
                                             lfoSelected: CGFloat = 5,
                                             buttonText: String = "Hello") {
         //// General Declarations

@@ -141,10 +141,10 @@
 		C4F7ECBE1F244ADB0011B119 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBA1F244AD40011B119 /* CGFloat+Extensions.swift */; };
 		C4F7ECBF1F244ADB0011B119 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBB1F244AD40011B119 /* Double+Extensions.swift */; };
 		C4F7ECC11F244ADB0011B119 /* ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECBD1F244AD40011B119 /* ViewController+DisplayAlert.swift */; };
-		F41C34D020A7A71A006EB96B /* AKS1Tunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */; };
-		F45319E120C24F08009378F2 /* AKS1Tunings+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45319E020C24F08009378F2 /* AKS1Tunings+Math.swift */; };
+		F41C34D020A7A71A006EB96B /* AKS1Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41C34CF20A7A71A006EB96B /* AKS1Tuning.swift */; };
+		F45319E120C24F08009378F2 /* AKS1Tuning+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45319E020C24F08009378F2 /* AKS1Tuning+Math.swift */; };
 		F48556352097A071000319E5 /* AKS1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = F48556332097A071000319E5 /* AKS1NoteState.mm */; };
-		F4A5D8CE20B216B300839E58 /* AKS1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */; };
+		F4A5D8CE20B216B300839E58 /* AKS1Tuning+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5D8CD20B216B300839E58 /* AKS1Tuning+Harmonic.swift */; };
 		F4C0C6BB20C48A9B00D02921 /* TuningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6BA20C48A9B00D02921 /* TuningCell.swift */; };
 		F4C0C6C620C48F0D00D02921 /* TuningsPitchWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6C220C48F0D00D02921 /* TuningsPitchWheelView.swift */; };
 		F4C0C6C720C48F0D00D02921 /* Tunings+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0C6C320C48F0D00D02921 /* Tunings+UITableViewDelegate.swift */; };
@@ -334,11 +334,11 @@
 		CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
-		F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKS1Tunings.swift; sourceTree = "<group>"; };
-		F45319E020C24F08009378F2 /* AKS1Tunings+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Math.swift"; sourceTree = "<group>"; };
+		F41C34CF20A7A71A006EB96B /* AKS1Tuning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKS1Tuning.swift; sourceTree = "<group>"; };
+		F45319E020C24F08009378F2 /* AKS1Tuning+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AKS1Tuning+Math.swift"; sourceTree = "<group>"; };
 		F48556332097A071000319E5 /* AKS1NoteState.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
 		F48556342097A071000319E5 /* AKS1NoteState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AKS1NoteState.hpp; sourceTree = "<group>"; };
-		F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Harmonic.swift"; sourceTree = "<group>"; };
+		F4A5D8CD20B216B300839E58 /* AKS1Tuning+Harmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AKS1Tuning+Harmonic.swift"; sourceTree = "<group>"; };
 		F4C0C6BA20C48A9B00D02921 /* TuningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningCell.swift; sourceTree = "<group>"; };
 		F4C0C6C220C48F0D00D02921 /* TuningsPitchWheelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuningsPitchWheelView.swift; sourceTree = "<group>"; };
 		F4C0C6C320C48F0D00D02921 /* Tunings+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tunings+UITableViewDelegate.swift"; sourceTree = "<group>"; };
@@ -517,9 +517,9 @@
 		945C3A0B1F3142310086D58B /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				F41C34CF20A7A71A006EB96B /* AKS1Tunings.swift */,
-				F45319E020C24F08009378F2 /* AKS1Tunings+Math.swift */,
-				F4A5D8CD20B216B300839E58 /* AKS1Tunings+Harmonic.swift */,
+				F41C34CF20A7A71A006EB96B /* AKS1Tuning.swift */,
+				F45319E020C24F08009378F2 /* AKS1Tuning+Math.swift */,
+				F4A5D8CD20B216B300839E58 /* AKS1Tuning+Harmonic.swift */,
 				941DE3E01FCE3CD400A09C24 /* AppSetting.swift */,
 				941DE3DF1FCE3CD400A09C24 /* ParentViewController+AppSettingDataManager.swift */,
 				945C3A0C1F31425D0086D58B /* Arpeggiator.swift */,
@@ -1000,12 +1000,12 @@
 				94AF74071F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */,
 				9403F29D1F671A6000320FCC /* Preset.swift in Sources */,
 				94B69C3B1F297E2800191C87 /* FXViewController.swift in Sources */,
-				F41C34D020A7A71A006EB96B /* AKS1Tunings.swift in Sources */,
+				F41C34D020A7A71A006EB96B /* AKS1Tuning.swift in Sources */,
 				94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */,
 				946D159F1FD26CD6006E7C97 /* DevViewController.swift in Sources */,
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
 				9403F2961F671A4900320FCC /* PresetsCategoriesController.swift in Sources */,
-				F4A5D8CE20B216B300839E58 /* AKS1Tunings+Harmonic.swift in Sources */,
+				F4A5D8CE20B216B300839E58 /* AKS1Tuning+Harmonic.swift in Sources */,
 				C42459E3201D64DE004565AB /* PopUpBankEdit.swift in Sources */,
 				947956AF1F329AB200FE5D9B /* ArpDirectionStyleKit.swift in Sources */,
 				94A5038D1FF2E1B80097D37C /* MIDIInput.swift in Sources */,
@@ -1028,7 +1028,7 @@
 				9442BBDB1F48A47C00DCCD00 /* PopUpKeyboardController.swift in Sources */,
 				C4CC3041208499D1004E91CB /* Audiobus.swift in Sources */,
 				C4EDB6C21F26DFE9006B828C /* MorphSelector.swift in Sources */,
-				F45319E120C24F08009378F2 /* AKS1Tunings+Math.swift in Sources */,
+				F45319E120C24F08009378F2 /* AKS1Tuning+Math.swift in Sources */,
 				94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */,
 				C4421A7E20B8178F00BE9F12 /* Parent+MailingListDelegate.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,

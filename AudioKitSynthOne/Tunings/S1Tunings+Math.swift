@@ -9,7 +9,7 @@
 import Foundation
 import AudioKit
 
-extension AKS1Tunings {
+extension S1Tunings {
 
     // MARK: - Helpers
 

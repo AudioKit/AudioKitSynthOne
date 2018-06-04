@@ -71,10 +71,10 @@
 		C435C52520C52D1700DAECCD /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C51C20C52D1700DAECCD /* Preset.swift */; };
 		C435C52920C52D2F00DAECCD /* MIDIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52720C52D2E00DAECCD /* MIDIInput.swift */; };
 		C435C52A20C52D2F00DAECCD /* MIDILearnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52820C52D2E00DAECCD /* MIDILearnable.swift */; };
-		C435C53020C52D4C00DAECCD /* AKS1Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52C20C52D4B00DAECCD /* AKS1Tuning.swift */; };
-		C435C53120C52D4C00DAECCD /* AKS1Tunings+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52D20C52D4B00DAECCD /* AKS1Tunings+Math.swift */; };
-		C435C53220C52D4C00DAECCD /* AKS1Tunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52E20C52D4B00DAECCD /* AKS1Tunings.swift */; };
-		C435C53320C52D4C00DAECCD /* AKS1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52F20C52D4B00DAECCD /* AKS1Tunings+Harmonic.swift */; };
+		C435C53020C52D4C00DAECCD /* S1Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52C20C52D4B00DAECCD /* S1Tuning.swift */; };
+		C435C53120C52D4C00DAECCD /* S1Tunings+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52D20C52D4B00DAECCD /* S1Tunings+Math.swift */; };
+		C435C53220C52D4C00DAECCD /* S1Tunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52E20C52D4B00DAECCD /* S1Tunings.swift */; };
+		C435C53320C52D4C00DAECCD /* S1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52F20C52D4B00DAECCD /* S1Tunings+Harmonic.swift */; };
 		C435C53520C52D8800DAECCD /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53420C52D8800DAECCD /* ChildView.swift */; };
 		C435C53720C52DC800DAECCD /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53620C52DC800DAECCD /* AppSetting.swift */; };
 		C435C54220C52F0500DAECCD /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53920C52F0500DAECCD /* InfoController.swift */; };
@@ -98,12 +98,12 @@
 		C435C58120C530C900DAECCD /* AETypes.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56620C530C900DAECCD /* AETypes.m */; };
 		C435C58220C530C900DAECCD /* AEMainThreadEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56720C530C900DAECCD /* AEMainThreadEndpoint.m */; };
 		C435C58320C530C900DAECCD /* AEAudioThreadEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56920C530C900DAECCD /* AEAudioThreadEndpoint.m */; };
-		C435C58420C530C900DAECCD /* AKS1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C56D20C530C900DAECCD /* AKS1NoteState.mm */; };
-		C435C58520C530C900DAECCD /* AKS1AudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57020C530C900DAECCD /* AKS1AudioUnit.mm */; };
+		C435C58420C530C900DAECCD /* S1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C56D20C530C900DAECCD /* S1NoteState.mm */; };
+		C435C58520C530C900DAECCD /* S1AudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57020C530C900DAECCD /* S1AudioUnit.mm */; };
 		C435C58620C530C900DAECCD /* Audiobus.txt in Resources */ = {isa = PBXBuildFile; fileRef = C435C57220C530C900DAECCD /* Audiobus.txt */; };
 		C435C58720C530C900DAECCD /* Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C57320C530C900DAECCD /* Audiobus.swift */; };
 		C435C58820C530C900DAECCD /* Audiobus+MIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C57420C530C900DAECCD /* Audiobus+MIDI.swift */; };
-		C435C58920C530C900DAECCD /* AKS1DSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57620C530C900DAECCD /* AKS1DSPKernel.mm */; };
+		C435C58920C530C900DAECCD /* S1DSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57620C530C900DAECCD /* S1DSPKernel.mm */; };
 		C435C59520C53A3800DAECCD /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C58F20C53A3800DAECCD /* FXViewController.swift */; };
 		C435C59620C53A3800DAECCD /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C59020C53A3800DAECCD /* TouchPadViewController.swift */; };
 		C435C59720C53A3800DAECCD /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C59120C53A3800DAECCD /* PanelViewController.swift */; };
@@ -244,10 +244,10 @@
 		C435C51C20C52D1700DAECCD /* Preset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		C435C52720C52D2E00DAECCD /* MIDIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIInput.swift; sourceTree = "<group>"; };
 		C435C52820C52D2E00DAECCD /* MIDILearnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDILearnable.swift; sourceTree = "<group>"; };
-		C435C52C20C52D4B00DAECCD /* AKS1Tuning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKS1Tuning.swift; sourceTree = "<group>"; };
-		C435C52D20C52D4B00DAECCD /* AKS1Tunings+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Math.swift"; sourceTree = "<group>"; };
-		C435C52E20C52D4B00DAECCD /* AKS1Tunings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKS1Tunings.swift; sourceTree = "<group>"; };
-		C435C52F20C52D4B00DAECCD /* AKS1Tunings+Harmonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AKS1Tunings+Harmonic.swift"; sourceTree = "<group>"; };
+		C435C52C20C52D4B00DAECCD /* S1Tuning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S1Tuning.swift; sourceTree = "<group>"; };
+		C435C52D20C52D4B00DAECCD /* S1Tunings+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "S1Tunings+Math.swift"; sourceTree = "<group>"; };
+		C435C52E20C52D4B00DAECCD /* S1Tunings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S1Tunings.swift; sourceTree = "<group>"; };
+		C435C52F20C52D4B00DAECCD /* S1Tunings+Harmonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "S1Tunings+Harmonic.swift"; sourceTree = "<group>"; };
 		C435C53420C52D8800DAECCD /* ChildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
 		C435C53620C52DC800DAECCD /* AppSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		C435C53920C52F0500DAECCD /* InfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		C435C54020C52F0500DAECCD /* MailingListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailingListController.swift; sourceTree = "<group>"; };
 		C435C54120C52F0500DAECCD /* PopUpKeyboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpKeyboardController.swift; sourceTree = "<group>"; };
 		C435C55120C530C900DAECCD /* Conductor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
-		C435C55320C530C900DAECCD /* AKS1Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKS1Parameter.h; sourceTree = "<group>"; };
+		C435C55320C530C900DAECCD /* S1Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S1Parameter.h; sourceTree = "<group>"; };
 		C435C55420C530C900DAECCD /* AKSynthOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKSynthOne.swift; sourceTree = "<group>"; };
 		C435C55620C530C900DAECCD /* SDSustainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDSustainer.swift; sourceTree = "<group>"; };
 		C435C55820C530C900DAECCD /* AEWeakRetainingProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEWeakRetainingProxy.m; sourceTree = "<group>"; };
@@ -281,17 +281,17 @@
 		C435C56720C530C900DAECCD /* AEMainThreadEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEMainThreadEndpoint.m; sourceTree = "<group>"; };
 		C435C56820C530C900DAECCD /* AEArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEArray.h; sourceTree = "<group>"; };
 		C435C56920C530C900DAECCD /* AEAudioThreadEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEAudioThreadEndpoint.m; sourceTree = "<group>"; };
-		C435C56C20C530C900DAECCD /* AKS1NoteState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1NoteState.hpp; sourceTree = "<group>"; };
-		C435C56D20C530C900DAECCD /* AKS1NoteState.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
-		C435C56F20C530C900DAECCD /* AKS1AudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKS1AudioUnit.h; sourceTree = "<group>"; };
-		C435C57020C530C900DAECCD /* AKS1AudioUnit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1AudioUnit.mm; sourceTree = "<group>"; };
+		C435C56C20C530C900DAECCD /* S1NoteState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1NoteState.hpp; sourceTree = "<group>"; };
+		C435C56D20C530C900DAECCD /* S1NoteState.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = S1NoteState.mm; sourceTree = "<group>"; };
+		C435C56F20C530C900DAECCD /* S1AudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S1AudioUnit.h; sourceTree = "<group>"; };
+		C435C57020C530C900DAECCD /* S1AudioUnit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = S1AudioUnit.mm; sourceTree = "<group>"; };
 		C435C57220C530C900DAECCD /* Audiobus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Audiobus.txt; sourceTree = "<group>"; };
 		C435C57320C530C900DAECCD /* Audiobus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audiobus.swift; sourceTree = "<group>"; };
 		C435C57420C530C900DAECCD /* Audiobus+MIDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Audiobus+MIDI.swift"; sourceTree = "<group>"; };
-		C435C57620C530C900DAECCD /* AKS1DSPKernel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1DSPKernel.mm; sourceTree = "<group>"; };
-		C435C57720C530C900DAECCD /* AKS1DSPKernel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1DSPKernel.hpp; sourceTree = "<group>"; };
+		C435C57620C530C900DAECCD /* S1DSPKernel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = S1DSPKernel.mm; sourceTree = "<group>"; };
+		C435C57720C530C900DAECCD /* S1DSPKernel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1DSPKernel.hpp; sourceTree = "<group>"; };
 		C435C58A20C530F000DAECCD /* AudioKitSynthOne-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioKitSynthOne-Bridging-Header.h"; sourceTree = "<group>"; };
-		C435C58C20C5336600DAECCD /* AKS1Rate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1Rate.hpp; sourceTree = "<group>"; };
+		C435C58C20C5336600DAECCD /* S1Rate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1Rate.hpp; sourceTree = "<group>"; };
 		C435C58D20C5336600DAECCD /* AKSynthOneRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
 		C435C58F20C53A3800DAECCD /* FXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		C435C59020C53A3800DAECCD /* TouchPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchPadViewController.swift; sourceTree = "<group>"; };
@@ -573,10 +573,10 @@
 		C435C52B20C52D4B00DAECCD /* Tunings */ = {
 			isa = PBXGroup;
 			children = (
-				C435C52C20C52D4B00DAECCD /* AKS1Tuning.swift */,
-				C435C52E20C52D4B00DAECCD /* AKS1Tunings.swift */,
-				C435C52F20C52D4B00DAECCD /* AKS1Tunings+Harmonic.swift */,
-				C435C52D20C52D4B00DAECCD /* AKS1Tunings+Math.swift */,
+				C435C52C20C52D4B00DAECCD /* S1Tuning.swift */,
+				C435C52E20C52D4B00DAECCD /* S1Tunings.swift */,
+				C435C52F20C52D4B00DAECCD /* S1Tunings+Harmonic.swift */,
+				C435C52D20C52D4B00DAECCD /* S1Tunings+Math.swift */,
 			);
 			path = Tunings;
 			sourceTree = "<group>";
@@ -601,9 +601,9 @@
 			isa = PBXGroup;
 			children = (
 				C435C55420C530C900DAECCD /* AKSynthOne.swift */,
-				C435C55320C530C900DAECCD /* AKS1Parameter.h */,
 				C435C58A20C530F000DAECCD /* AudioKitSynthOne-Bridging-Header.h */,
 				C435C55120C530C900DAECCD /* Conductor.swift */,
+				C435C55320C530C900DAECCD /* S1Parameter.h */,
 				C435C55620C530C900DAECCD /* SDSustainer.swift */,
 				C435C56E20C530C900DAECCD /* Audio Unit */,
 				C435C57120C530C900DAECCD /* Audiobus */,
@@ -643,8 +643,8 @@
 		C435C56B20C530C900DAECCD /* Note State */ = {
 			isa = PBXGroup;
 			children = (
-				C435C56C20C530C900DAECCD /* AKS1NoteState.hpp */,
-				C435C56D20C530C900DAECCD /* AKS1NoteState.mm */,
+				C435C56C20C530C900DAECCD /* S1NoteState.hpp */,
+				C435C56D20C530C900DAECCD /* S1NoteState.mm */,
 			);
 			path = "Note State";
 			sourceTree = "<group>";
@@ -652,8 +652,8 @@
 		C435C56E20C530C900DAECCD /* Audio Unit */ = {
 			isa = PBXGroup;
 			children = (
-				C435C56F20C530C900DAECCD /* AKS1AudioUnit.h */,
-				C435C57020C530C900DAECCD /* AKS1AudioUnit.mm */,
+				C435C56F20C530C900DAECCD /* S1AudioUnit.h */,
+				C435C57020C530C900DAECCD /* S1AudioUnit.mm */,
 			);
 			path = "Audio Unit";
 			sourceTree = "<group>";
@@ -671,8 +671,8 @@
 		C435C57520C530C900DAECCD /* Kernel */ = {
 			isa = PBXGroup;
 			children = (
-				C435C57620C530C900DAECCD /* AKS1DSPKernel.mm */,
-				C435C57720C530C900DAECCD /* AKS1DSPKernel.hpp */,
+				C435C57620C530C900DAECCD /* S1DSPKernel.mm */,
+				C435C57720C530C900DAECCD /* S1DSPKernel.hpp */,
 			);
 			path = Kernel;
 			sourceTree = "<group>";
@@ -680,7 +680,7 @@
 		C435C58B20C5336600DAECCD /* Rate */ = {
 			isa = PBXGroup;
 			children = (
-				C435C58C20C5336600DAECCD /* AKS1Rate.hpp */,
+				C435C58C20C5336600DAECCD /* S1Rate.hpp */,
 				C435C58D20C5336600DAECCD /* AKSynthOneRate.h */,
 			);
 			path = Rate;
@@ -1016,7 +1016,7 @@
 				943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C435C54820C52F0500DAECCD /* PopUpBankEdit.swift in Sources */,
-				C435C58420C530C900DAECCD /* AKS1NoteState.mm in Sources */,
+				C435C58420C530C900DAECCD /* S1NoteState.mm in Sources */,
 				C4421AA120B81A7500BE9F12 /* PresetsViewController.swift in Sources */,
 				C435C58320C530C900DAECCD /* AEAudioThreadEndpoint.m in Sources */,
 				C4421AA320B81A7500BE9F12 /* Presets+CategoryDelegate.swift in Sources */,
@@ -1031,7 +1031,7 @@
 				94A8807E1FC8F9F100DADC66 /* AKVerticalPad.swift in Sources */,
 				9451E2FE1F58C20B008181F9 /* HeaderNavButton.swift in Sources */,
 				94AF74071F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */,
-				C435C58920C530C900DAECCD /* AKS1DSPKernel.mm in Sources */,
+				C435C58920C530C900DAECCD /* S1DSPKernel.mm in Sources */,
 				94FBAFE21F42A94E0071235B /* TempoStyleKit.swift in Sources */,
 				946D159F1FD26CD6006E7C97 /* DevViewController.swift in Sources */,
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
@@ -1056,7 +1056,7 @@
 				94FBAFDF1F42870B0071235B /* SynthKeyboard.swift in Sources */,
 				C435C53520C52D8800DAECCD /* ChildView.swift in Sources */,
 				C4421A7E20B8178F00BE9F12 /* Parent+MailingListDelegate.swift in Sources */,
-				C435C53020C52D4C00DAECCD /* AKS1Tuning.swift in Sources */,
+				C435C53020C52D4C00DAECCD /* S1Tuning.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				945261411F2925610037662C /* AKTouchPadView.swift in Sources */,
 				C435C54320C52F0500DAECCD /* PopUpMODController.swift in Sources */,
@@ -1065,8 +1065,8 @@
 				C435C57F20C530C900DAECCD /* AEUtilities.m in Sources */,
 				C435C57920C530C900DAECCD /* AKSynthOne.swift in Sources */,
 				C435C4F820C5234900DAECCD /* CategoryCell.swift in Sources */,
-				C435C53120C52D4C00DAECCD /* AKS1Tunings+Math.swift in Sources */,
-				C435C58520C530C900DAECCD /* AKS1AudioUnit.mm in Sources */,
+				C435C53120C52D4C00DAECCD /* S1Tunings+Math.swift in Sources */,
+				C435C58520C530C900DAECCD /* S1AudioUnit.mm in Sources */,
 				C435C54620C52F0500DAECCD /* PopUpPresetEdit.swift in Sources */,
 				C435C57E20C530C900DAECCD /* AEArray.m in Sources */,
 				C435C50320C5286C00DAECCD /* Helpers.swift in Sources */,
@@ -1118,8 +1118,8 @@
 				949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
 				C435C59A20C53A3800DAECCD /* SeqViewController.swift in Sources */,
 				94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */,
-				C435C53220C52D4C00DAECCD /* AKS1Tunings.swift in Sources */,
-				C435C53320C52D4C00DAECCD /* AKS1Tunings+Harmonic.swift in Sources */,
+				C435C53220C52D4C00DAECCD /* S1Tunings.swift in Sources */,
+				C435C53320C52D4C00DAECCD /* S1Tunings+Harmonic.swift in Sources */,
 				949D09361F34F6FB000FB6E0 /* LFOPickerStyleKit.swift in Sources */,
 				945C3A061F3141F60086D58B /* ArpButton.swift in Sources */,
 				C435C50120C5284C00DAECCD /* UIViewController+DisplayAlert.swift in Sources */,

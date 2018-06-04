@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SliderTransposeButton: UILabel, AKS1Control {
+class SliderTransposeButton: UILabel, S1Control {
 
     // MARK: - Make Label ToggleButton
 

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class MorphSelector: UIView, AKS1Control {
+class MorphSelector: UIView, S1Control {
 
     var callback: (Double) -> Void = { _ in }
 

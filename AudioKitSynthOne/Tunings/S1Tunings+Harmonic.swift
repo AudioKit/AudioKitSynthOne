@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension AKS1Tunings {
+extension S1Tunings {
 
     // pitch is log2(frequency)
     public class func approximateHarmonicFromPitch(_ pitch: Double) -> Int {

@@ -1,30 +1,30 @@
 //
-//  AKS1Rate.hpp
+//  S1Rate.hpp
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 4/19/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-#ifndef AKS1Rate_h
-#define AKS1Rate_h
+#ifndef S1Rate_h
+#define S1Rate_h
 
 #import "AKSynthOneRate.h"
 
 // helper for main thread communication
-typedef struct AKS1RateArgs {
+typedef struct S1RateArgs {
     AKSynthOneRate rate;
     float value; // return value
     float value01;// [0,1] normalized index of enums for UI
-} AKS1RateArgs;
+} S1RateArgs;
 
 
-class AKS1Rate {
+class S1Rate {
     
 public:
     
-    AKS1Rate() {}
-    ~AKS1Rate() = default;
+    S1Rate() {}
+    ~S1Rate() = default;
     void init() {}
     
     std::string friendlyName(AKSynthOneRate rate) {
@@ -52,7 +52,7 @@ public:
         }
     }
     
-    inline AKS1RateArgs nearestFrequency(float inputFrequency, float inputTempoBPM, float min, float max) {
+    inline S1RateArgs nearestFrequency(float inputFrequency, float inputTempoBPM, float min, float max) {
         int closestRate = eightBars;
         float closestFrequency = frequency(inputTempoBPM, (AKSynthOneRate)closestRate);
         float smallestDifference = 1000000000.f;
@@ -67,12 +67,12 @@ public:
                 closestFrequency = tempoAsFrequency;
             }
         }
-        AKS1RateArgs retVal = {(AKSynthOneRate)closestRate, closestFrequency, (float)closestRate/(float)(AKSynthOneRate::AKSynthOneRateCount-1.f)};
+        S1RateArgs retVal = {(AKSynthOneRate)closestRate, closestFrequency, (float)closestRate/(float)(AKSynthOneRate::AKSynthOneRateCount-1.f)};
         return retVal;
     }
     
     // special case for delay excludes 8, 6, 4, 3 bar enums
-    inline AKS1RateArgs nearestTime(float inputTime, float inputTempoBPM, float min, float max) {
+    inline S1RateArgs nearestTime(float inputTime, float inputTempoBPM, float min, float max) {
         int closestRate = sixtyFourthTriplet;
         float closestTime = time(inputTempoBPM, (AKSynthOneRate)closestRate);
         float smallestDifference = 1000000000.f;
@@ -88,7 +88,7 @@ public:
             }
         }
         const float outputRate01 = (float)(closestRate - twoBars) / (float)(AKSynthOneRate::AKSynthOneRateCount - 1.f - twoBars);
-        AKS1RateArgs retVal = {(AKSynthOneRate)closestRate, closestTime, outputRate01};
+        S1RateArgs retVal = {(AKSynthOneRate)closestRate, closestTime, outputRate01};
         return retVal;
     }
 
@@ -148,4 +148,4 @@ private:
     }
 };
 
-#endif /* AKS1Rate_h */
+#endif /* S1Rate_h */

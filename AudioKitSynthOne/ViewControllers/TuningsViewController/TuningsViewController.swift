@@ -20,7 +20,7 @@ class TuningsViewController: PanelViewController {
     @IBOutlet weak var resetTunings: SynthUIButton!
     @IBOutlet weak var diceButton: UIButton!
 
-    let tuningModel = AKS1Tunings()
+    let tuningModel = S1Tunings()
     var getStoreTuningWithPresetValue = false
     internal var tuningIndex = 0
 

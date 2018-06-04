@@ -1,14 +1,14 @@
 //
-//  AKS1NoteState.mm
+//  S1NoteState.mm
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 4/30/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-#import "AKS1NoteState.hpp"
+#import "S1NoteState.hpp"
 #import <AudioKit/AudioKit-swift.h>
-#import "AKS1DSPKernel.hpp"
+#import "S1DSPKernel.hpp"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AudioUnit/AudioUnit.h>
 #import <AVFoundation/AVFoundation.h>
@@ -22,11 +22,11 @@ static inline float nnToHz(float noteNumber) {
 
 // MARK: Member Functions
 
-inline float AKS1NoteState::getParam(AKS1Parameter param) {
+inline float S1NoteState::getParam(S1Parameter param) {
     return kernel->p[param];
 }
 
-void AKS1NoteState::init() {
+void S1NoteState::init() {
     // OSC AMPLITUDE ENVELOPE
     sp_adsr_create(&adsr);
     sp_adsr_init(kernel->spp(), adsr);
@@ -78,7 +78,7 @@ void AKS1NoteState::init() {
     sp_buthp_init(kernel->spp(), hiPass);
 }
 
-void AKS1NoteState::destroy() {
+void S1NoteState::destroy() {
     sp_adsr_destroy(&adsr);
     sp_adsr_destroy(&fadsr);
     sp_oscmorph_destroy(&oscmorph1);
@@ -93,7 +93,7 @@ void AKS1NoteState::destroy() {
     sp_buthp_destroy(&hiPass);
 }
 
-void AKS1NoteState::clear() {
+void S1NoteState::clear() {
     internalGate = 0;
     stage = stageOff;
     amp = 0;
@@ -101,7 +101,7 @@ void AKS1NoteState::clear() {
 }
 
 // helper...supports initialization of playing note for both mono and poly
-void AKS1NoteState::startNoteHelper(int noteNumber, int velocity, float frequency) {
+void S1NoteState::startNoteHelper(int noteNumber, int velocity, float frequency) {
     oscmorph1->freq = frequency;
     oscmorph2->freq = frequency;
     subOsc->freq = frequency;
@@ -114,13 +114,13 @@ void AKS1NoteState::startNoteHelper(int noteNumber, int velocity, float frequenc
     fmOsc->amp = amplitude;
     noise->amp = amplitude;
     
-    stage = AKS1NoteState::stageOn;
+    stage = S1NoteState::stageOn;
     internalGate = 1;
     rootNoteNumber = noteNumber;
 }
 
-//called at SampleRate for each AKS1NoteState.  Polyphony of 6 = 264,000 times per second
-void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
+//called at SampleRate for each S1NoteState.  Polyphony of 6 = 264,000 times per second
+void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     
     // isMono
     const bool isMonoMode = getParam(isMono) > 0.f;

@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class Knob: UIView, AKS1Control {
+public class Knob: UIView, S1Control {
 
     var onlyIntegers: Bool = false
 

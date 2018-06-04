@@ -44,10 +44,10 @@ public class HeaderViewController: UpdatableViewController {
     weak var headerDelegate: HeaderDelegate?
     var activePreset = Preset()
 
-    func ADSRString(_ a: AKS1Parameter,
-                    _ d: AKS1Parameter,
-                    _ s: AKS1Parameter,
-                    _ r: AKS1Parameter) -> String {
+    func ADSRString(_ a: S1Parameter,
+                    _ d: S1Parameter,
+                    _ s: S1Parameter,
+                    _ r: S1Parameter) -> String {
         return "A: \(conductor.synth.getSynthParameter(a).decimalString) " +
             "D: \(conductor.synth.getSynthParameter(d).decimalString) " +
             "S: \(conductor.synth.getSynthParameter(s).percentageString) " +
@@ -74,11 +74,11 @@ public class HeaderViewController: UpdatableViewController {
         setupCallbacks()
     }
 
-    override func updateUI(_ param: AKS1Parameter, control: AKS1Control?, value: Double) {
+    override func updateUI(_ param: S1Parameter, control: S1Control?, value: Double) {
         updateDisplayLabel(param, value: value)
     }
 
-    func updateDisplayLabel(_ param: AKS1Parameter, value: Double) {
+    func updateDisplayLabel(_ param: S1Parameter, value: Double) {
         guard let s = conductor.synth else {
             AKLog("Can't update header displayLabel because synth is not instantiated")
             return

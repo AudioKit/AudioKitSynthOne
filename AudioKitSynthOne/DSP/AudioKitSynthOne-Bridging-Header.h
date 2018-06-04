@@ -1,5 +1,5 @@
 //
-//  Bridging-Header.h
+//  AudioKitSynthOne-Bridging-Header.h
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 1/24/18.

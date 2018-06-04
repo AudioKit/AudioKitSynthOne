@@ -211,7 +211,7 @@
     [_aks1Delegate dependentParamDidChange:param];
 }
 
-- (void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatCounter {
+- (void)arpBeatCounterDidChange:(S1ArpBeatCounter)arpBeatCounter {
     [_aks1Delegate arpBeatCounterDidChange:arpBeatCounter];
 }
 

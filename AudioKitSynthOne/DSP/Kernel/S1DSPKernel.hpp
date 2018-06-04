@@ -20,9 +20,9 @@
 @class AEArray;
 @class AEMessageQueue;
 
-#define AKS1_FTABLE_SIZE (4096)
-#define AKS1_NUM_FTABLES (4)
-#define AKS1_SAMPLE_RATE (44100.f)
+#define S1_FTABLE_SIZE (4096)
+#define S1_NUM_FTABLES (4)
+#define S1_SAMPLE_RATE (44100.f)
 
 #ifdef __cplusplus
 
@@ -178,7 +178,7 @@ public:
     
     HeldNotes aeHeldNotes;
     
-    sp_ftbl *ft_array[AKS1_NUM_FTABLES];
+    sp_ftbl *ft_array[S1_NUM_FTABLES];
 
     sp_ftbl *sine;
     
@@ -217,7 +217,7 @@ private:
 
     struct SeqNoteNumber;
     
-    struct AKS1Param {
+    struct S1Param {
         S1Parameter param;
         float min;
         float defaultValue;
@@ -238,13 +238,13 @@ private:
     
     bool initializedNoteStates = false;
     
-    // AKS1_MAX_POLYPHONY is the limit of hard-coded number of simultaneous notes to render to manage computation.
+    // S1_MAX_POLYPHONY is the limit of hard-coded number of simultaneous notes to render to manage computation.
     // New noteOn events will steal voices to keep this number.
-    // For now "polyphony" is constant equal to AKS1_MAX_POLYPHONY, but with some refactoring we could make it dynamic.
-    const int polyphony = AKS1_MAX_POLYPHONY;
+    // For now "polyphony" is constant equal to S1_MAX_POLYPHONY, but with some refactoring we could make it dynamic.
+    const int polyphony = S1_MAX_POLYPHONY;
     
     int playingNoteStatesIndex = 0;
-    UInt32 tbl_size = AKS1_FTABLE_SIZE;
+    UInt32 tbl_size = S1_FTABLE_SIZE;
     sp_phasor *lfo1Phasor;
     sp_phasor *lfo2Phasor;
     sp_pan2 *pan;
@@ -306,7 +306,7 @@ private:
     const float bars_max = 8.f;
     const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) ); //  0.00052 8 bars at 1bpm
     const float rate_max = 1.f / ( (beatsPerBar * bars_min) / (bpm_max * minutesPerSecond) ); // 53.3333
-    AKS1Param aks1p[S1Parameter::S1ParameterCount] = {
+    S1Param aks1p[S1Parameter::S1ParameterCount] = {
         { index1,                0, 1, 1, "index1", "Index 1", kAudioUnitParameterUnit_Generic, true, NULL},
         { index2,                0, 1, 1, "index2", "Index 2", kAudioUnitParameterUnit_Generic, true, NULL},
         { morphBalance,          0, 0.5, 1, "morphBalance", "morphBalance", kAudioUnitParameterUnit_Generic, true, NULL},

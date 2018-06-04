@@ -11,8 +11,8 @@
 #import <AudioKit/AKAudioUnit.h>
 #import "S1Parameter.h"
 
-#define AKS1_MAX_POLYPHONY (6)
-#define AKS1_NUM_MIDI_NOTES (128)
+#define S1_MAX_POLYPHONY (6)
+#define S1_NUM_MIDI_NOTES (128)
 
 @class AEMessageQueue;
 
@@ -35,25 +35,25 @@ typedef struct DependentParam {
 // helper for main+render thread communication: array of playing notes
 typedef struct PlayingNotes {
     int polyphony;
-    NoteNumber playingNotes[AKS1_MAX_POLYPHONY];
+    NoteNumber playingNotes[S1_MAX_POLYPHONY];
 } PlayingNotes;
 
 // helper for main+render thread communication: array of held notes
 typedef struct HeldNotes {
     int heldNotesCount;
-    bool heldNotes[AKS1_NUM_MIDI_NOTES];
+    bool heldNotes[S1_NUM_MIDI_NOTES];
 } HeldNotes;
 
 // helper for main+render thread communcation: arp beat counter, and number of held notes
 typedef struct S1ArpBeatCounter {
     int beatCounter;
     int heldNotesCount;
-} AKS1ArpBeatCounter;
+} S1ArpBeatCounter;
 
 
 @protocol S1Protocol
 -(void)dependentParamDidChange:(DependentParam)dependentParam;
--(void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatCounter;
+-(void)arpBeatCounterDidChange:(S1ArpBeatCounter)arpBeatCounter;
 -(void)heldNotesDidChange:(HeldNotes)heldNotes;
 -(void)playingNotesDidChange:(PlayingNotes)playingNotes;
 @end
@@ -95,7 +95,7 @@ typedef struct S1ArpBeatCounter {
 
 // protected passthroughs for S1Protocol called by DSP on main thread
 - (void)dependentParamDidChange:(DependentParam)param;
-- (void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatcounter;
+- (void)arpBeatCounterDidChange:(S1ArpBeatCounter)arpBeatcounter;
 - (void)heldNotesDidChange:(HeldNotes)heldNotes;
 - (void)playingNotesDidChange:(PlayingNotes)playingNotes;
 

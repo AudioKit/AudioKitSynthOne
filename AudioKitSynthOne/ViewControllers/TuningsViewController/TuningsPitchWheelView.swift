@@ -228,7 +228,7 @@ public class TuningsPitchWheelOverlayView: UIView {
         if npo < 1 { return }
 
         if let pn = playingNotes {
-            // must match AKS1_MAX_POLYPHONY
+            // must match S1_MAX_POLYPHONY
             let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2,
                       pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
             for playingNote in na where playingNote.noteNumber != -1 {

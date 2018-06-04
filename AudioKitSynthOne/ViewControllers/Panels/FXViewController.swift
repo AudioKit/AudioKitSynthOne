@@ -142,28 +142,28 @@ class FXViewController: PanelViewController {
         }
     }
 
-    func dependentParameterDidChange(_ param: DependentParameter) {
-        switch param.parameter {
+    func dependentParameterDidChange(_ dependentParameter: DependentParameter) {
+        switch dependentParameter.parameter {
         case .lfo1Rate:
-            if param.payload == conductor.lfo1RateFXPanelID {
+            if dependentParameter.payload == conductor.lfo1RateFXPanelID {
                 return
             }
-            lfo1Rate.value = Double(param.normalizedValue)
+            lfo1Rate.value = Double(dependentParameter.normalizedValue)
         case .lfo2Rate:
-            if param.payload == conductor.lfo2RateFXPanelID {
+            if dependentParameter.payload == conductor.lfo2RateFXPanelID {
                 return
             }
-            lfo2Rate.value = Double(param.normalizedValue)
+            lfo2Rate.value = Double(dependentParameter.normalizedValue)
         case .autoPanFrequency:
-            if param.payload == conductor.autoPanFXPanelID {
+            if dependentParameter.payload == conductor.autoPanFXPanelID {
                 return
             }
-            autoPanRate.value = Double(param.normalizedValue)
+            autoPanRate.value = Double(dependentParameter.normalizedValue)
         case .delayTime:
-            if param.payload == conductor.delayTimeFXPanelID {
+            if dependentParameter.payload == conductor.delayTimeFXPanelID {
                 return
             }
-            delayTime.value = Double(param.normalizedValue)
+            delayTime.value = Double(dependentParameter.normalizedValue)
         default:
             _ = 0
         }

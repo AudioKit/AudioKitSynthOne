@@ -1,9 +1,9 @@
 //
 //  PopUpViewController.swift
-//  keyboard-scale-popup
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 11/27/16.
-//  Copyright © 2016 audiokit. All rights reserved.
+//  Copyright © 2016 AudioKit. All rights reserved.
 //
 
 import UIKit

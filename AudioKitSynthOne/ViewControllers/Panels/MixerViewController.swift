@@ -10,7 +10,7 @@ import AudioKit
 import AudioKitUI
 import UIKit
 
-class MixerViewController: SynthPanelController {
+class MixerViewController: PanelViewController {
 
     @IBOutlet weak var morph1Selector: MorphSelector!
     @IBOutlet weak var morph2Selector: MorphSelector!

@@ -12,7 +12,7 @@ public protocol TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange()
 }
 
-class TuningsViewController: SynthPanelController {
+class TuningsViewController: PanelViewController {
 
     @IBOutlet weak var tuningTableView: UITableView!
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!

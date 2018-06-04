@@ -1,5 +1,5 @@
 //
-//  NavChildView.swift
+//  PanelViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/30/17.
@@ -10,7 +10,7 @@ import UIKit
 
 // Handles the Left/Right Navigation between Synth Panels
 
-class SynthPanelController: UpdatableViewController {
+class PanelViewController: UpdatableViewController {
 
     @IBOutlet weak var nav1Button: NavButton!
     @IBOutlet weak var nav2Button: NavButton!

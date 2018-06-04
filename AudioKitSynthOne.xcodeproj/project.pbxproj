@@ -106,7 +106,7 @@
 		C435C58920C530C900DAECCD /* AKS1DSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57620C530C900DAECCD /* AKS1DSPKernel.mm */; };
 		C435C59520C53A3800DAECCD /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C58F20C53A3800DAECCD /* FXViewController.swift */; };
 		C435C59620C53A3800DAECCD /* TouchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C59020C53A3800DAECCD /* TouchPadViewController.swift */; };
-		C435C59720C53A3800DAECCD /* SynthPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C59120C53A3800DAECCD /* SynthPanelController.swift */; };
+		C435C59720C53A3800DAECCD /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C59120C53A3800DAECCD /* PanelViewController.swift */; };
 		C435C59820C53A3800DAECCD /* MixerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C59220C53A3800DAECCD /* MixerViewController.swift */; };
 		C435C59920C53A3800DAECCD /* ADSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C59320C53A3800DAECCD /* ADSRViewController.swift */; };
 		C435C59A20C53A3800DAECCD /* SeqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C59420C53A3800DAECCD /* SeqViewController.swift */; };
@@ -120,7 +120,7 @@
 		C4421A8420B8179000BE9F12 /* Parent+EmbeddedViewsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7820B8178F00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */; };
 		C4421A8520B8179000BE9F12 /* Parent+Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7920B8178F00BE9F12 /* Parent+Audiobus.swift */; };
 		C4421A8620B8179000BE9F12 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7A20B8178F00BE9F12 /* ParentViewController.swift */; };
-		C4421A8720B8179000BE9F12 /* Parent+DevPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7B20B8178F00BE9F12 /* Parent+DevPanel.swift */; };
+		C4421A8720B8179000BE9F12 /* Parent+DevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7B20B8178F00BE9F12 /* Parent+DevView.swift */; };
 		C4421A8820B8179000BE9F12 /* Parent+PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7C20B8178F00BE9F12 /* Parent+PushNotification.swift */; };
 		C4421A8920B8179000BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A7D20B8178F00BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift */; };
 		C4421AA120B81A7500BE9F12 /* PresetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4421A9920B81A7400BE9F12 /* PresetsViewController.swift */; };
@@ -295,7 +295,7 @@
 		C435C58D20C5336600DAECCD /* AKSynthOneRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
 		C435C58F20C53A3800DAECCD /* FXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		C435C59020C53A3800DAECCD /* TouchPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchPadViewController.swift; sourceTree = "<group>"; };
-		C435C59120C53A3800DAECCD /* SynthPanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthPanelController.swift; sourceTree = "<group>"; };
+		C435C59120C53A3800DAECCD /* PanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
 		C435C59220C53A3800DAECCD /* MixerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixerViewController.swift; sourceTree = "<group>"; };
 		C435C59320C53A3800DAECCD /* ADSRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSRViewController.swift; sourceTree = "<group>"; };
 		C435C59420C53A3800DAECCD /* SeqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeqViewController.swift; sourceTree = "<group>"; };
@@ -309,7 +309,7 @@
 		C4421A7820B8178F00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+EmbeddedViewsDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7920B8178F00BE9F12 /* Parent+Audiobus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+Audiobus.swift"; sourceTree = "<group>"; };
 		C4421A7A20B8178F00BE9F12 /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
-		C4421A7B20B8178F00BE9F12 /* Parent+DevPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+DevPanel.swift"; sourceTree = "<group>"; };
+		C4421A7B20B8178F00BE9F12 /* Parent+DevView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+DevView.swift"; sourceTree = "<group>"; };
 		C4421A7C20B8178F00BE9F12 /* Parent+PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PushNotification.swift"; sourceTree = "<group>"; };
 		C4421A7D20B8178F00BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+MIDISettingsPopOverDelegate.swift"; sourceTree = "<group>"; };
 		C4421A9920B81A7400BE9F12 /* PresetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetsViewController.swift; sourceTree = "<group>"; };
@@ -685,7 +685,7 @@
 				C435C58F20C53A3800DAECCD /* FXViewController.swift */,
 				C435C59220C53A3800DAECCD /* MixerViewController.swift */,
 				C435C59420C53A3800DAECCD /* SeqViewController.swift */,
-				C435C59120C53A3800DAECCD /* SynthPanelController.swift */,
+				C435C59120C53A3800DAECCD /* PanelViewController.swift */,
 				C435C59020C53A3800DAECCD /* TouchPadViewController.swift */,
 			);
 			path = Panels;
@@ -697,7 +697,7 @@
 				C4421A7A20B8178F00BE9F12 /* ParentViewController.swift */,
 				C435C50420C52A1E00DAECCD /* Parent+AppSettingDataManager.swift */,
 				C4421A7920B8178F00BE9F12 /* Parent+Audiobus.swift */,
-				C4421A7B20B8178F00BE9F12 /* Parent+DevPanel.swift */,
+				C4421A7B20B8178F00BE9F12 /* Parent+DevView.swift */,
 				C4421A7820B8178F00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */,
 				C4421A7520B8178F00BE9F12 /* Parent+HeaderDelegate.swift */,
 				C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */,
@@ -1012,7 +1012,7 @@
 				C4421AA120B81A7500BE9F12 /* PresetsViewController.swift in Sources */,
 				C435C58320C530C900DAECCD /* AEAudioThreadEndpoint.m in Sources */,
 				C4421AA320B81A7500BE9F12 /* Presets+CategoryDelegate.swift in Sources */,
-				C435C59720C53A3800DAECCD /* SynthPanelController.swift in Sources */,
+				C435C59720C53A3800DAECCD /* PanelViewController.swift in Sources */,
 				C435C57B20C530C900DAECCD /* AEWeakRetainingProxy.m in Sources */,
 				943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */,
 				C435C58220C530C900DAECCD /* AEMainThreadEndpoint.m in Sources */,
@@ -1123,7 +1123,7 @@
 				948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
 				C435C54920C52F0500DAECCD /* MailingListController.swift in Sources */,
-				C4421A8720B8179000BE9F12 /* Parent+DevPanel.swift in Sources */,
+				C4421A8720B8179000BE9F12 /* Parent+DevView.swift in Sources */,
 				94DB3FE01FC8C0EA007F8081 /* PresetUIButton.swift in Sources */,
 				C4421A8320B8179000BE9F12 /* Parent+MIDIListener.swift in Sources */,
 				C435C57C20C530C900DAECCD /* AEMessageQueue.m in Sources */,

@@ -486,30 +486,31 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
             phaserOutL = lPhaserMix * panL + (1.f - lPhaserMix) * phaserOutL;
             phaserOutR = lPhaserMix * panR + (1.f - lPhaserMix) * phaserOutR;
         }
-        
-        // DELAY INPUT LOW PASS FILTER
-        //linear interpolation of percentage in pitch space
-        const float pmin2 = log2(1024.f);
-        const float pmax2 = log2(parameterMax(cutoff));
-        const float pval1 = p[cutoff];
-        float pval2 = log2(pval1);
-        if (pval2 < pmin2) pval2 = pmin2;
-        if (pval2 > pmax2) pval2 = pmax2;
-        const float pnorm2 = (pval2 - pmin2)/(pmax2 - pmin2);
-        const float mmax = p[delayInputCutoffTrackingRatio];
-        const float mmin = 1.f;
-        const float oscFilterFreqCutoffPercentage = mmin + pnorm2 * (mmax - mmin);
-        const float oscFilterResonance = 0.f; // constant
-        float oscFilterFreqCutoff = pval1 * oscFilterFreqCutoffPercentage;
-        oscFilterFreqCutoff = parameterClamp(cutoff, oscFilterFreqCutoff);
-        loPassInputDelayL->freq = oscFilterFreqCutoff;
-        loPassInputDelayL->res = oscFilterResonance;
-        loPassInputDelayR->freq = oscFilterFreqCutoff;
-        loPassInputDelayR->res = oscFilterResonance;
+
+        // For lowpass osc filter: use a lowpass on delay input, with magically-attenuated cutoff
         float delayInputLowPassOutL = phaserOutL;
         float delayInputLowPassOutR = phaserOutR;
-        sp_moogladder_compute(sp, loPassInputDelayL, &phaserOutL, &delayInputLowPassOutL);
-        sp_moogladder_compute(sp, loPassInputDelayR, &phaserOutR, &delayInputLowPassOutR);
+        if(p[filterType] == 0.f) {
+            const float pmin2 = log2(1024.f);
+            const float pmax2 = log2(parameterMax(cutoff));
+            const float pval1 = p[cutoff];
+            float pval2 = log2(pval1);
+            if (pval2 < pmin2) pval2 = pmin2;
+            if (pval2 > pmax2) pval2 = pmax2;
+            const float pnorm2 = (pval2 - pmin2)/(pmax2 - pmin2);
+            const float mmax = p[delayInputCutoffTrackingRatio];
+            const float mmin = 1.f;
+            const float oscFilterFreqCutoffPercentage = mmin + pnorm2 * (mmax - mmin);
+            const float oscFilterResonance = 0.f; // constant
+            float oscFilterFreqCutoff = pval1 * oscFilterFreqCutoffPercentage;
+            oscFilterFreqCutoff = parameterClamp(cutoff, oscFilterFreqCutoff);
+            loPassInputDelayL->freq = oscFilterFreqCutoff;
+            loPassInputDelayL->res = oscFilterResonance;
+            loPassInputDelayR->freq = oscFilterFreqCutoff;
+            loPassInputDelayR->res = oscFilterResonance;
+            sp_moogladder_compute(sp, loPassInputDelayL, &phaserOutL, &delayInputLowPassOutL);
+            sp_moogladder_compute(sp, loPassInputDelayR, &phaserOutR, &delayInputLowPassOutR);
+        }
 
         // PING PONG DELAY
         float delayOutL = 0.f;

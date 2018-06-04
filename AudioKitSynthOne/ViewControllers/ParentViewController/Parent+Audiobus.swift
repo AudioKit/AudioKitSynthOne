@@ -59,9 +59,7 @@ extension ParentViewController: ABAudiobusControllerStateIODelegate {
         Audiobus.client?.controller.stateIODelegate = self
     }
 
-    //*****************************************************************
     // MARK: - AudioBus Preset Delegate
-    //*****************************************************************
 
     public func audiobusStateDictionaryForCurrentState() -> [AnyHashable: Any]! {
         return [ "preset": activePreset.position]

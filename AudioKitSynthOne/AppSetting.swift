@@ -99,9 +99,7 @@ class AppSetting: Codable {
     init() {
     }
 
-    //*****************************************************************
     // MARK: - JSON Parsing into object
-    //*****************************************************************
 
     // Init from Dictionary/JSON
     init(dictionary: [String: Any]) {

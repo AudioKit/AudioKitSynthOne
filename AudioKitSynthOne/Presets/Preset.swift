@@ -165,9 +165,7 @@ class Preset: Codable {
         self.position = position
     }
 
-    //*****************************************************************
     // MARK: - Class Function to Return array of Presets
-    //*****************************************************************
 
     // Return Array of Presets
     class public func parseDataToPresets(jsonArray: [Any]) -> [Preset] {
@@ -189,9 +187,7 @@ class Preset: Codable {
         return Preset()
     }
 
-    //*****************************************************************
     // MARK: - JSON Parsing into object
-    //*****************************************************************
 
     // Init from Dictionary/JSON
     init(dictionary: [String: Any]) {

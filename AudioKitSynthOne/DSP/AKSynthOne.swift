@@ -14,7 +14,7 @@ import AudioKit
     public typealias AKAudioUnitType = S1AudioUnit
 
     /// Four letter unique description of the node
-    public static let ComponentDescription = AudioComponentDescription(instrument: "s1")
+    public static let ComponentDescription = AudioComponentDescription(instrument: "aks1")
 
     // MARK: - Properties
 

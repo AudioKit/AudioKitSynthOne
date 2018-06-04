@@ -384,7 +384,7 @@ public class ParentViewController: UpdatableViewController {
         conductor.synth.stopAllNotes()
     }
 
-    override func updateUI(_ param: AKSynthOneParameter, control inputControl: AKSynthOneControl?, value: Double) {
+    override func updateUI(_ param: AKS1Parameter, control inputControl: AKSynthOneControl?, value: Double) {
 
         // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
         guard let s = conductor.synth else {

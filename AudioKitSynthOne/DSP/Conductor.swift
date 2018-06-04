@@ -13,14 +13,14 @@ protocol AKSynthOneControl: class {
     var callback: (Double) -> Void { get set }
 }
 
-typealias AKSynthOneControlCallback = (AKSynthOneParameter, AKSynthOneControl?) -> ((_: Double) -> Void)
+typealias AKSynthOneControlCallback = (AKS1Parameter, AKSynthOneControl?) -> ((_: Double) -> Void)
 
 class Conductor: AKSynthOneProtocol {
     static var sharedInstance = Conductor()
     var neverSleep = false
     var banks: [Bank] = []
     var synth: AKSynthOne!
-    var bindings: [(AKSynthOneParameter, AKSynthOneControl)] = []
+    var bindings: [(AKS1Parameter, AKSynthOneControl)] = []
     var heldNoteCount: Int = 0
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
     let lfo1RateFXPanelID: Int32 = 1
@@ -36,7 +36,7 @@ class Conductor: AKSynthOneProtocol {
     fileprivate var started = false
 
     func bind(_ control: AKSynthOneControl,
-              to param: AKSynthOneParameter,
+              to param: AKS1Parameter,
               callback closure: AKSynthOneControlCallback? = nil) {
         let binding = (param, control)
         bindings.append(binding)
@@ -61,7 +61,7 @@ class Conductor: AKSynthOneProtocol {
         }
     }
 
-    func updateSingleUI(_ param: AKSynthOneParameter,
+    func updateSingleUI(_ param: AKS1Parameter,
                         control inputControl: AKSynthOneControl?,
                         value inputValue: Double) {
 
@@ -92,11 +92,11 @@ class Conductor: AKSynthOneProtocol {
 
     // Call when a global update needs to happen.  i.e., on launch, foreground, and/or when a Preset is loaded.
     func updateAllUI() {
-        let parameterCount = AKSynthOneParameter.AKSynthOneParameterCount.rawValue
+        let parameterCount = AKS1Parameter.AKS1ParameterCount.rawValue
         for address in 0..<parameterCount {
-            guard let param: AKSynthOneParameter = AKSynthOneParameter(rawValue: address)
+            guard let param: AKS1Parameter = AKS1Parameter(rawValue: address)
                 else {
-                    AKLog("ERROR: AKSynthOneParameter enum out of range: \(address)")
+                    AKLog("ERROR: AKS1Parameter enum out of range: \(address)")
                     return
             }
             let value = self.synth.getSynthParameter(param)
@@ -166,7 +166,7 @@ class Conductor: AKSynthOneProtocol {
         parentVC?.updateDisplay(message)
     }
 
-    func updateDisplayLabel(_ param: AKSynthOneParameter, value: Double) {
+    func updateDisplayLabel(_ param: AKS1Parameter, value: Double) {
         let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController }) as? HeaderViewController
         headerVC?.updateDisplayLabel(param, value: value)
     }

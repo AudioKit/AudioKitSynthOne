@@ -202,7 +202,7 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
     for (AUAudioFrameCount frameIndex = 0; frameIndex < frameCount; ++frameIndex) {
 
         //PORTAMENTO
-        for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
+        for(int i = 0; i< AKS1Parameter::AKS1ParameterCount; i++) {
             if (aks1p[i].usePortamento) {
                 sp_port_compute(sp, aks1p[i].portamento, &aks1p[i].portamentoTarget, &p[i]);
             }
@@ -249,9 +249,9 @@ void AKSynthOneDSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCoun
                         // SEQUENCER
                         const int numSteps = p[arpTotalSteps] > 16 ? 16 : (int)p[arpTotalSteps];
                         for(int i = 0; i < numSteps; i++) {
-                            const float onOff = p[(AKSynthOneParameter)(i + arpSeqNoteOn00)];
-                            const int octBoost = p[(AKSynthOneParameter)(i + arpSeqOctBoost00)];
-                            const int nn = p[(AKSynthOneParameter)(i + arpSeqPattern00)] * npof;
+                            const float onOff = p[(AKS1Parameter)(i + arpSeqNoteOn00)];
+                            const int octBoost = p[(AKS1Parameter)(i + arpSeqOctBoost00)];
+                            const int nn = p[(AKS1Parameter)(i + arpSeqPattern00)] * npof;
                             const int nnob = (nn < 0) ? (nn - octBoost * notesPerOctave) : (nn + octBoost * notesPerOctave);
                             struct SeqNoteNumber snn;
                             snn.init(nnob, onOff);
@@ -902,8 +902,8 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     _rate.init();
 
     // copy default dsp values
-    for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
-        const float value = parameterDefault((AKSynthOneParameter)i);
+    for(int i = 0; i< AKS1Parameter::AKS1ParameterCount; i++) {
+        const float value = parameterDefault((AKS1Parameter)i);
         if (aks1p[i].usePortamento) {
             aks1p[i].portamentoTarget = value;
             sp_port_create(&aks1p[i].portamento);
@@ -914,10 +914,10 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
     }
     updateDSPPortamento(p[portamentoHalfTime]);
     
-    _lfo1Rate = {AKSynthOneParameter::lfo1Rate, getDependentParameter(lfo1Rate), getSynthParameter(lfo1Rate),0};
-    _lfo2Rate = {AKSynthOneParameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};
-    _autoPanRate = {AKSynthOneParameter::autoPanFrequency, getDependentParameter(autoPanFrequency), getSynthParameter(autoPanFrequency),0};
-    _delayTime = {AKSynthOneParameter::delayTime, getDependentParameter(delayTime),getSynthParameter(delayTime),0};
+    _lfo1Rate = {AKS1Parameter::lfo1Rate, getDependentParameter(lfo1Rate), getSynthParameter(lfo1Rate),0};
+    _lfo2Rate = {AKS1Parameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};
+    _autoPanRate = {AKS1Parameter::autoPanFrequency, getDependentParameter(autoPanFrequency), getSynthParameter(autoPanFrequency),0};
+    _delayTime = {AKS1Parameter::delayTime, getDependentParameter(delayTime),getSynthParameter(delayTime),0};
 
     previousProcessMonoPolyStatus = p[isMono];
     
@@ -975,7 +975,7 @@ void AKSynthOneDSPKernel::init(int _channels, double _sampleRate) {
 
 void AKSynthOneDSPKernel::updateDSPPortamento(float halfTime) {
     const float ht = parameterClamp(portamentoHalfTime, halfTime);
-    for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
+    for(int i = 0; i< AKS1Parameter::AKS1ParameterCount; i++) {
         if (aks1p[i].usePortamento) {
             aks1p[i].portamento->htime = ht;
         }
@@ -983,7 +983,7 @@ void AKSynthOneDSPKernel::updateDSPPortamento(float halfTime) {
 
 }
 void AKSynthOneDSPKernel::destroy() {
-    for(int i = 0; i< AKSynthOneParameter::AKSynthOneParameterCount; i++) {
+    for(int i = 0; i< AKS1Parameter::AKS1ParameterCount; i++) {
         if (aks1p[i].usePortamento) {
             sp_port_destroy(&aks1p[i].portamento);
         }
@@ -1053,26 +1053,26 @@ void AKSynthOneDSPKernel::setWaveformValue(uint32_t waveform, uint32_t index, fl
 }
 
 ///parameter min
-float AKSynthOneDSPKernel::parameterMin(AKSynthOneParameter i) {
+float AKSynthOneDSPKernel::parameterMin(AKS1Parameter i) {
     return aks1p[i].min;
 }
 
 ///parameter max
-float AKSynthOneDSPKernel::parameterMax(AKSynthOneParameter i) {
+float AKSynthOneDSPKernel::parameterMax(AKS1Parameter i) {
     return aks1p[i].max;
 }
 
 ///parameter defaults
-float AKSynthOneDSPKernel::parameterDefault(AKSynthOneParameter i) {
+float AKSynthOneDSPKernel::parameterDefault(AKS1Parameter i) {
     return parameterClamp(i, aks1p[i].defaultValue);
 }
 
-AudioUnitParameterUnit AKSynthOneDSPKernel::parameterUnit(AKSynthOneParameter i) {
+AudioUnitParameterUnit AKSynthOneDSPKernel::parameterUnit(AKS1Parameter i) {
     return aks1p[i].unit;
 }
 
 ///return clamped value
-float AKSynthOneDSPKernel::parameterClamp(AKSynthOneParameter i, float inputValue) {
+float AKSynthOneDSPKernel::parameterClamp(AKS1Parameter i, float inputValue) {
     const float paramMin = aks1p[i].min;
     const float paramMax = aks1p[i].max;
     const float retVal = std::min(std::max(inputValue, paramMin), paramMax);
@@ -1080,17 +1080,17 @@ float AKSynthOneDSPKernel::parameterClamp(AKSynthOneParameter i, float inputValu
 }
 
 ///parameter friendly name as c string
-const char* AKSynthOneDSPKernel::parameterCStr(AKSynthOneParameter i) {
+const char* AKSynthOneDSPKernel::parameterCStr(AKS1Parameter i) {
     return aks1p[i].friendlyName.c_str();
 }
 
 ///parameter friendly name
-std::string AKSynthOneDSPKernel::parameterFriendlyName(AKSynthOneParameter i) {
+std::string AKSynthOneDSPKernel::parameterFriendlyName(AKS1Parameter i) {
     return aks1p[i].friendlyName;
 }
 
 ///parameter presetKey
-std::string AKSynthOneDSPKernel::parameterPresetKey(AKSynthOneParameter i) {
+std::string AKSynthOneDSPKernel::parameterPresetKey(AKS1Parameter i) {
     return aks1p[i].presetKey;
 }
 
@@ -1142,7 +1142,7 @@ inline float AKSynthOneDSPKernel::taperInverse(float inputValue01, float min, fl
     }
 }
 
-float AKSynthOneDSPKernel::getSynthParameter(AKSynthOneParameter param) {
+float AKSynthOneDSPKernel::getSynthParameter(AKS1Parameter param) {
     AKS1Param& s = aks1p[param];
     if (s.usePortamento)
         return s.portamentoTarget;
@@ -1150,7 +1150,7 @@ float AKSynthOneDSPKernel::getSynthParameter(AKSynthOneParameter param) {
         return p[param];
 }
 
-inline void AKSynthOneDSPKernel::_setSynthParameter(AKSynthOneParameter param, float inputValue) {
+inline void AKSynthOneDSPKernel::_setSynthParameter(AKS1Parameter param, float inputValue) {
     const float value = parameterClamp(param, inputValue);
     AKS1Param& s = aks1p[param];
     if (s.usePortamento) {
@@ -1160,11 +1160,11 @@ inline void AKSynthOneDSPKernel::_setSynthParameter(AKSynthOneParameter param, f
     }
 }
 
-void AKSynthOneDSPKernel::setSynthParameter(AKSynthOneParameter param, float inputValue) {
+void AKSynthOneDSPKernel::setSynthParameter(AKS1Parameter param, float inputValue) {
     _setSynthParameterHelper(param, inputValue, true, 0);
 }
 
-inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload) {
+inline void AKSynthOneDSPKernel::_rateHelper(AKS1Parameter param, float inputValue, bool notifyMainThread, int payload) {
     
     // pitchbend
     if (param == pitchbend) {
@@ -1184,7 +1184,7 @@ inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float in
             const float value = parameterClamp(param, inputValue);
             AKS1RateArgs syncdValue = _rate.nearestFrequency(value, p[arpRate], parameterMin(param), parameterMax(param));
             _setSynthParameter(param, syncdValue.value);
-            DependentParam outputDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f, 0};
+            DependentParam outputDP = {AKS1Parameter::AKS1ParameterCount, 0.f, 0.f, 0};
             switch(param) {
                 case lfo1Rate:
                     outputDP = _lfo1Rate = {param, syncdValue.value01, syncdValue.value, payload};
@@ -1219,7 +1219,7 @@ inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float in
         const float max = parameterMax(param);
         const float val01 = clamp((val - min) / (max - min), 0.f, 1.f);
         if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency || param == delayTime) {
-            DependentParam outputDP = {AKSynthOneParameter::AKSynthOneParameterCount, 0.f, 0.f, 0};
+            DependentParam outputDP = {AKS1Parameter::AKS1ParameterCount, 0.f, 0.f, 0};
             switch(param) {
                 case lfo1Rate:
                     outputDP = _lfo1Rate = {param, val01, val, payload};
@@ -1244,7 +1244,7 @@ inline void AKSynthOneDSPKernel::_rateHelper(AKSynthOneParameter param, float in
     }
 }
 
-inline void AKSynthOneDSPKernel::_setSynthParameterHelper(AKSynthOneParameter param, float inputValue, bool notifyMainThread, int payload) {
+inline void AKSynthOneDSPKernel::_setSynthParameterHelper(AKS1Parameter param, float inputValue, bool notifyMainThread, int payload) {
     if (param == tempoSyncToArpRate || param == arpRate) {
         _setSynthParameter(param, inputValue);
         _rateHelper(lfo1Rate, getSynthParameter(lfo1Rate), notifyMainThread, payload);
@@ -1274,7 +1274,7 @@ inline void AKSynthOneDSPKernel::_setSynthParameterHelper(AKSynthOneParameter pa
     }
 }
 
-float AKSynthOneDSPKernel::getDependentParameter(AKSynthOneParameter param) {
+float AKSynthOneDSPKernel::getDependentParameter(AKS1Parameter param) {
 
     if (param == pitchbend) {
         return _pitchbend.value;
@@ -1297,7 +1297,7 @@ float AKSynthOneDSPKernel::getDependentParameter(AKSynthOneParameter param) {
 }
 
 // map normalized input to parameter range
-void AKSynthOneDSPKernel::setDependentParameter(AKSynthOneParameter param, float inputValue01, int payload) {
+void AKSynthOneDSPKernel::setDependentParameter(AKS1Parameter param, float inputValue01, int payload) {
     const bool notify = true;
     switch(param) {
         case lfo1Rate: case lfo2Rate: case autoPanFrequency:
@@ -1346,18 +1346,18 @@ void AKSynthOneDSPKernel::setDependentParameter(AKSynthOneParameter param, float
 }
 
 void AKSynthOneDSPKernel::setParameters(float params[]) {
-    for (int i = 0; i < AKSynthOneParameter::AKSynthOneParameterCount; i++) {
-        setSynthParameter((AKSynthOneParameter)i, params[i]);
+    for (int i = 0; i < AKS1Parameter::AKS1ParameterCount; i++) {
+        setSynthParameter((AKS1Parameter)i, params[i]);
     }
 }
 
 void AKSynthOneDSPKernel::setParameter(AUParameterAddress address, AUValue value) {
-    const int i = (AKSynthOneParameter)address;
-    setSynthParameter((AKSynthOneParameter)i, value);
+    const int i = (AKS1Parameter)address;
+    setSynthParameter((AKS1Parameter)i, value);
 }
 
 AUValue AKSynthOneDSPKernel::getParameter(AUParameterAddress address) {
-    const int i = (AKSynthOneParameter)address;
+    const int i = (AKS1Parameter)address;
     return p[i];
 }
 

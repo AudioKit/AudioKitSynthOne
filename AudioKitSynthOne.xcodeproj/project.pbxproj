@@ -269,10 +269,8 @@
 		C435C54C20C52F8300DAECCD /* UpdatableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
 		C435C54D20C52F8300DAECCD /* SynthPanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthPanelController.swift; sourceTree = "<group>"; };
 		C435C55120C530C900DAECCD /* Conductor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
-		C435C55220C530C900DAECCD /* AKSynthOneProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneProtocol.h; sourceTree = "<group>"; };
-		C435C55320C530C900DAECCD /* AKSynthOneParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneParameter.h; sourceTree = "<group>"; };
+		C435C55320C530C900DAECCD /* AKS1Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKS1Parameter.h; sourceTree = "<group>"; };
 		C435C55420C530C900DAECCD /* AKSynthOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKSynthOne.swift; sourceTree = "<group>"; };
-		C435C55520C530C900DAECCD /* AKS1Rate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1Rate.hpp; sourceTree = "<group>"; };
 		C435C55620C530C900DAECCD /* SDSustainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDSustainer.swift; sourceTree = "<group>"; };
 		C435C55820C530C900DAECCD /* AEWeakRetainingProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEWeakRetainingProxy.m; sourceTree = "<group>"; };
 		C435C55920C530C900DAECCD /* AEMessageQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEMessageQueue.m; sourceTree = "<group>"; };
@@ -292,7 +290,6 @@
 		C435C56720C530C900DAECCD /* AEMainThreadEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEMainThreadEndpoint.m; sourceTree = "<group>"; };
 		C435C56820C530C900DAECCD /* AEArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEArray.h; sourceTree = "<group>"; };
 		C435C56920C530C900DAECCD /* AEAudioThreadEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEAudioThreadEndpoint.m; sourceTree = "<group>"; };
-		C435C56A20C530C900DAECCD /* AKSynthOneRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
 		C435C56C20C530C900DAECCD /* AKS1NoteState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1NoteState.hpp; sourceTree = "<group>"; };
 		C435C56D20C530C900DAECCD /* AKS1NoteState.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKS1NoteState.mm; sourceTree = "<group>"; };
 		C435C56F20C530C900DAECCD /* AKSynthOneAudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneAudioUnit.h; sourceTree = "<group>"; };
@@ -303,6 +300,8 @@
 		C435C57620C530C900DAECCD /* AKSynthOneDSPKernel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AKSynthOneDSPKernel.mm; sourceTree = "<group>"; };
 		C435C57720C530C900DAECCD /* AKSynthOneDSPKernel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKSynthOneDSPKernel.hpp; sourceTree = "<group>"; };
 		C435C58A20C530F000DAECCD /* AudioKitSynthOne-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioKitSynthOne-Bridging-Header.h"; sourceTree = "<group>"; };
+		C435C58C20C5336600DAECCD /* AKS1Rate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AKS1Rate.hpp; sourceTree = "<group>"; };
+		C435C58D20C5336600DAECCD /* AKSynthOneRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
 		C4421A7220B8178F00BE9F12 /* Parent+MailingListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+MailingListDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7320B8178F00BE9F12 /* Parent+PresetsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+PresetsDelegate.swift"; sourceTree = "<group>"; };
 		C4421A7420B8178F00BE9F12 /* Parent+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+Keyboard.swift"; sourceTree = "<group>"; };
@@ -609,18 +608,16 @@
 		C435C55020C530C900DAECCD /* DSP */ = {
 			isa = PBXGroup;
 			children = (
-				C435C55520C530C900DAECCD /* AKS1Rate.hpp */,
 				C435C55420C530C900DAECCD /* AKSynthOne.swift */,
-				C435C55320C530C900DAECCD /* AKSynthOneParameter.h */,
-				C435C55220C530C900DAECCD /* AKSynthOneProtocol.h */,
-				C435C56A20C530C900DAECCD /* AKSynthOneRate.h */,
+				C435C55320C530C900DAECCD /* AKS1Parameter.h */,
+				C435C55120C530C900DAECCD /* Conductor.swift */,
+				C435C55620C530C900DAECCD /* SDSustainer.swift */,
+				C435C58A20C530F000DAECCD /* AudioKitSynthOne-Bridging-Header.h */,
 				C435C56E20C530C900DAECCD /* Audio Unit */,
 				C435C57120C530C900DAECCD /* Audiobus */,
-				C435C58A20C530F000DAECCD /* AudioKitSynthOne-Bridging-Header.h */,
-				C435C55120C530C900DAECCD /* Conductor.swift */,
 				C435C57520C530C900DAECCD /* Kernel */,
 				C435C56B20C530C900DAECCD /* Note State */,
-				C435C55620C530C900DAECCD /* SDSustainer.swift */,
+				C435C58B20C5336600DAECCD /* Rate */,
 				C435C55720C530C900DAECCD /* TAAE */,
 			);
 			path = DSP;
@@ -686,6 +683,15 @@
 				C435C57720C530C900DAECCD /* AKSynthOneDSPKernel.hpp */,
 			);
 			path = Kernel;
+			sourceTree = "<group>";
+		};
+		C435C58B20C5336600DAECCD /* Rate */ = {
+			isa = PBXGroup;
+			children = (
+				C435C58C20C5336600DAECCD /* AKS1Rate.hpp */,
+				C435C58D20C5336600DAECCD /* AKSynthOneRate.h */,
+			);
+			path = Rate;
 			sourceTree = "<group>";
 		};
 		C4421A7120B8178F00BE9F12 /* ParentViewController */ = {

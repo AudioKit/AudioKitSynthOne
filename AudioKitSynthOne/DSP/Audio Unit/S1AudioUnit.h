@@ -25,12 +25,12 @@ typedef struct NoteNumber {
 // helper for render/main thread communication:
 // DSP updates UI elements lfo1Rate, lfo2Rate, autoPanRate, delayTime when arpOn/tempoSyncArpRate update
 // DSP updates lfo1Rate, lfo2Rate, autoPanRate, delayTime based on current arpOn/tempoSyncArpRate
-typedef struct DependentParam {
+typedef struct DependentParameter {
     S1Parameter param;
     float value01;// [0,1] for ui
     float value;
     int payload;
-} DependentParam;
+} DependentParameter;
 
 // helper for main+render thread communication: array of playing notes
 typedef struct PlayingNotes {
@@ -52,7 +52,7 @@ typedef struct S1ArpBeatCounter {
 
 
 @protocol S1Protocol
--(void)dependentParamDidChange:(DependentParam)dependentParam;
+-(void)dependentParamDidChange:(DependentParameter)dependentParam;
 -(void)arpBeatCounterDidChange:(S1ArpBeatCounter)arpBeatCounter;
 -(void)heldNotesDidChange:(HeldNotes)heldNotes;
 -(void)playingNotesDidChange:(PlayingNotes)playingNotes;
@@ -94,7 +94,7 @@ typedef struct S1ArpBeatCounter {
 - (void)resetSequencer;
 
 // protected passthroughs for S1Protocol called by DSP on main thread
-- (void)dependentParamDidChange:(DependentParam)param;
+- (void)dependentParamDidChange:(DependentParameter)param;
 - (void)arpBeatCounterDidChange:(S1ArpBeatCounter)arpBeatcounter;
 - (void)heldNotesDidChange:(HeldNotes)heldNotes;
 - (void)playingNotesDidChange:(PlayingNotes)playingNotes;

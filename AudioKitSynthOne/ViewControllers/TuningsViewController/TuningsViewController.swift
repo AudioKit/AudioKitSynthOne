@@ -59,7 +59,7 @@ class TuningsViewController: PanelViewController {
         super.viewDidAppear(animated)
     }
 
-    func dependentParamDidChange(_ param: DependentParam) {}
+    func dependentParamDidChange(_ param: DependentParameter) {}
 
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
         tuningsPitchWheelView.playingNotesDidChange(playingNotes)

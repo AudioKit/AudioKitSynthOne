@@ -194,17 +194,17 @@ public:
 private:
     S1Rate _rate;
     
-    DependentParam _lfo1Rate;
+    DependentParameter _lfo1Rate;
     
-    DependentParam _lfo2Rate;
+    DependentParameter _lfo2Rate;
     
-    DependentParam _autoPanRate;
+    DependentParameter _autoPanRate;
     
-    DependentParam _delayTime;
+    DependentParameter _delayTime;
     
-    DependentParam _pitchbend;
+    DependentParameter _pitchbend;
     
-    void dependentParameterDidChange(DependentParam param);
+    void dependentParameterDidChange(DependentParameter param);
 
     ///can be called from within the render loop
     void beatCounterDidChange();

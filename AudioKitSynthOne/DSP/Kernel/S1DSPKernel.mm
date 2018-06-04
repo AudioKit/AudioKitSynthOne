@@ -83,7 +83,7 @@ void S1DSPKernel::handleTempoSetting(float currentTempo) {
 }
 
 //
-void S1DSPKernel::dependentParameterDidChange(DependentParam param) {
+void S1DSPKernel::dependentParameterDidChange(DependentParameter param) {
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
                                               audioUnit,
                                               @selector(dependentParamDidChange:),
@@ -1184,7 +1184,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter param, float inputValue, bool n
             const float value = parameterClamp(param, inputValue);
             S1RateArgs syncdValue = _rate.nearestFrequency(value, p[arpRate], parameterMin(param), parameterMax(param));
             _setSynthParameter(param, syncdValue.value);
-            DependentParam outputDP = {S1Parameter::S1ParameterCount, 0.f, 0.f, 0};
+            DependentParameter outputDP = {S1Parameter::S1ParameterCount, 0.f, 0.f, 0};
             switch(param) {
                 case lfo1Rate:
                     outputDP = _lfo1Rate = {param, syncdValue.value01, syncdValue.value, payload};
@@ -1206,7 +1206,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter param, float inputValue, bool n
             S1RateArgs syncdValue = _rate.nearestTime(value, p[arpRate], parameterMin(param), parameterMax(param));
             _setSynthParameter(param, syncdValue.value);
             _delayTime = {param, 1.f - syncdValue.value01, syncdValue.value, payload};
-            DependentParam outputDP = _delayTime;
+            DependentParameter outputDP = _delayTime;
             if (notifyMainThread) {
                 dependentParameterDidChange(outputDP);
             }
@@ -1219,7 +1219,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter param, float inputValue, bool n
         const float max = parameterMax(param);
         const float val01 = clamp((val - min) / (max - min), 0.f, 1.f);
         if (param == lfo1Rate || param == lfo2Rate || param == autoPanFrequency || param == delayTime) {
-            DependentParam outputDP = {S1Parameter::S1ParameterCount, 0.f, 0.f, 0};
+            DependentParameter outputDP = {S1Parameter::S1ParameterCount, 0.f, 0.f, 0};
             switch(param) {
                 case lfo1Rate:
                     outputDP = _lfo1Rate = {param, val01, val, payload};
@@ -1280,7 +1280,7 @@ float S1DSPKernel::getDependentParameter(S1Parameter param) {
         return _pitchbend.value;
     }
 
-    DependentParam dp;
+    DependentParameter dp;
     switch(param) {
         case lfo1Rate: dp = _lfo1Rate; break;
         case lfo2Rate: dp = _lfo2Rate; break;

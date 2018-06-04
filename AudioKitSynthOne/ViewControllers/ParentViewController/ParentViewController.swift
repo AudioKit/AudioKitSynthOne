@@ -408,7 +408,7 @@ public class ParentViewController: UpdatableViewController {
         }
     }
 
-    func dependentParamDidChange(_ param: DependentParam) {
+    func dependentParamDidChange(_ param: DependentParameter) {
         switch param.param {
 
         case .lfo1Rate:

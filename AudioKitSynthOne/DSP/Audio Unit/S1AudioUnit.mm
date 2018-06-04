@@ -207,7 +207,7 @@
 
 
 // passthroughs for S1Protocol called by DSP on main thread
-- (void)dependentParamDidChange:(DependentParam)param {
+- (void)dependentParamDidChange:(DependentParameter)param {
     [_aks1Delegate dependentParamDidChange:param];
 }
 

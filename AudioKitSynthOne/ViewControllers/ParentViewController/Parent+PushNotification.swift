@@ -1,6 +1,6 @@
 //
 //  Parent+PushNotification.swift
-//  FMPlayer
+//  AudioKit Synth One
 //
 //  Created by AudioKit Contributors on 1/8/18.
 //  Copyright © 2018 AudioKit Pro. All rights reserved.

@@ -1,0 +1,144 @@
+//
+//  S1DSPKernel+getSetSynthParameters.mm
+//  AudioKitSynthOne
+//
+//  Created by Aurelius Prochazka on 6/4/18.
+//  Copyright © 2018 AudioKit. All rights reserved.
+//
+
+#import <AudioKit/AudioKit-swift.h>
+#import "S1DSPKernel.hpp"
+
+
+float S1DSPKernel::getSynthParameter(S1Parameter param) {
+    S1ParameterInfo& s = s1p[param];
+    if (s.usePortamento)
+        return s.portamentoTarget;
+    else
+        return p[param];
+}
+
+inline void S1DSPKernel::_setSynthParameter(S1Parameter param, float inputValue) {
+    const float value = parameterClamp(param, inputValue);
+    S1ParameterInfo& s = s1p[param];
+    if (s.usePortamento) {
+        s.portamentoTarget = value;
+    } else {
+        p[param] = value;
+    }
+}
+
+void S1DSPKernel::setSynthParameter(S1Parameter param, float inputValue) {
+    _setSynthParameterHelper(param, inputValue, true, 0);
+}
+
+inline void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bool notifyMainThread, int payload) {
+
+    // pitchbend
+    if (parameter == pitchbend) {
+        const float val = parameterClamp(parameter, inputValue);
+        const float val01 = (val - parameterMin(pitchbend)) / (parameterMax(pitchbend) - parameterMin(pitchbend));
+        _pitchbend = {parameter, val01, val, payload};
+        _setSynthParameter(parameter, val);
+        if (notifyMainThread) {
+            dependentParameterDidChange(_pitchbend);
+        }
+        return;
+    }
+
+    if (p[tempoSyncToArpRate] > 0.f) {
+        // tempo sync
+        if (parameter == lfo1Rate || parameter == lfo2Rate || parameter == autoPanFrequency) {
+            const float value = parameterClamp(parameter, inputValue);
+            S1RateArgs syncdValue = _rate.nearestFrequency(value, p[arpRate], parameterMin(parameter), parameterMax(parameter));
+            _setSynthParameter(parameter, syncdValue.value);
+            DependentParameter outputDP = {S1Parameter::S1ParameterCount, 0.f, 0.f, 0};
+            switch(parameter) {
+                case lfo1Rate:
+                    outputDP = _lfo1Rate = {parameter, syncdValue.value01, syncdValue.value, payload};
+                    break;
+                case lfo2Rate:
+                    outputDP = _lfo2Rate = {parameter, syncdValue.value01, syncdValue.value, payload};
+                    break;
+                case autoPanFrequency:
+                    outputDP = _autoPanRate = {parameter, syncdValue.value01, syncdValue.value, payload};
+                    break;
+                default:
+                    break;
+            }
+            if (notifyMainThread) {
+                dependentParameterDidChange(outputDP);
+            }
+        } else if (parameter == delayTime) {
+            const float value = parameterClamp(parameter, inputValue);
+            S1RateArgs syncdValue = _rate.nearestTime(value, p[arpRate], parameterMin(parameter), parameterMax(parameter));
+            _setSynthParameter(parameter, syncdValue.value);
+            _delayTime = {parameter, 1.f - syncdValue.value01, syncdValue.value, payload};
+            DependentParameter outputDP = _delayTime;
+            if (notifyMainThread) {
+                dependentParameterDidChange(outputDP);
+            }
+        }
+    } else {
+        // no tempo sync
+        _setSynthParameter(parameter, inputValue);
+        const float val = p[parameter];
+        const float min = parameterMin(parameter);
+        const float max = parameterMax(parameter);
+        const float val01 = clamp((val - min) / (max - min), 0.f, 1.f);
+        if (parameter == lfo1Rate || parameter == lfo2Rate || parameter == autoPanFrequency || parameter == delayTime) {
+            DependentParameter outputDP = {S1Parameter::S1ParameterCount, 0.f, 0.f, 0};
+            switch(parameter) {
+                case lfo1Rate:
+                    outputDP = _lfo1Rate = {parameter, val01, val, payload};
+                    break;
+                case lfo2Rate:
+                    outputDP = _lfo2Rate = {parameter, val01, val, payload};
+                    break;
+                case autoPanFrequency:
+                    outputDP = _autoPanRate = {parameter, val01, val, payload};
+                    break;
+                case delayTime:
+                    outputDP = _delayTime = {parameter, val01, val, payload};
+                    break;
+                default:
+                    break;
+            }
+            if (notifyMainThread) {
+                outputDP = {parameter, taper01Inverse(outputDP.normalizedValue, S1_DEPENDENT_PARAM_TAPER), outputDP.value, payload};
+                dependentParameterDidChange(outputDP);
+            }
+        }
+    }
+}
+
+inline void S1DSPKernel::_setSynthParameterHelper(S1Parameter parameter, float inputValue, bool notifyMainThread, int payload) {
+    if (parameter == tempoSyncToArpRate || parameter == arpRate) {
+        _setSynthParameter(parameter, inputValue);
+        _rateHelper(lfo1Rate, getSynthParameter(lfo1Rate), notifyMainThread, payload);
+        _rateHelper(lfo2Rate, getSynthParameter(lfo2Rate), notifyMainThread, payload);
+        _rateHelper(autoPanFrequency, getSynthParameter(autoPanFrequency), notifyMainThread, payload);
+        _rateHelper(delayTime, getSynthParameter(delayTime), notifyMainThread, payload);
+    } else if (parameter == lfo1Rate || parameter == lfo2Rate || parameter == autoPanFrequency || parameter == delayTime) {
+        // dependent params
+        _rateHelper(parameter, inputValue, notifyMainThread, payload);
+    } else if (parameter == pitchbend) {
+        _rateHelper(parameter, inputValue, notifyMainThread, payload);
+    } else {
+        // special case for updating the tuning table based on frequency at A4.
+        // see https://en.wikipedia.org/wiki/A440_(pitch_standard)
+        if (parameter == frequencyA4) {
+            _setSynthParameter(parameter, truncf(inputValue));
+            const float mca = getParameter(parameter); // must use getter value
+            AKPolyphonicNode.tuningTable.middleCFrequency = mca * exp2((60.f - 69.f)/12.f);
+        } else if (parameter == portamentoHalfTime) {
+            _setSynthParameter(parameter, inputValue);
+            const float actualValue = getParameter(portamentoHalfTime);
+            updateDSPPortamento(actualValue);
+        } else {
+            // all remaining independent params
+            _setSynthParameter(parameter, inputValue);
+        }
+    }
+}
+

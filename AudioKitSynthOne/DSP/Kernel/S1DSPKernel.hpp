@@ -24,6 +24,10 @@
 #define S1_NUM_FTABLES (4)
 #define S1_SAMPLE_RATE (44100.f)
 
+#define S1_RELEASE_AMPLITUDE_THRESHOLD (0.01f)
+#define S1_PORTAMENTO_HALF_TIME (0.1f)
+#define S1_DEPENDENT_PARAM_TAPER (0.4f)
+
 #ifdef __cplusplus
 
 struct S1NoteState;
@@ -154,7 +158,7 @@ private:
 
     // MARK: Member Variables
 public:
-    
+
     S1AudioUnit* audioUnit;
     
     bool resetted = false;
@@ -215,7 +219,22 @@ private:
     ///can be called from within the render loop
     void heldNotesDidChange();
 
-    struct SeqNoteNumber;
+    // helper for arp/seq
+    struct SeqNoteNumber {
+
+        int noteNumber;
+        int onOff;
+
+        void init() {
+            noteNumber = 60;
+            onOff = 1;
+        }
+
+        void init(int nn, int o) {
+            noteNumber = nn;
+            onOff = o;
+        }
+    };
     
     struct S1ParameterInfo {
         S1Parameter parameter;

@@ -132,6 +132,18 @@
 		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
 		C4969BAE20C608B500C72780 /* UIViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4969BAD20C608B500C72780 /* UIViewController+DisplayAlert.swift */; };
 		C4969BB020C6092B00C72780 /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4969BAF20C6092B00C72780 /* PanelViewController.swift */; };
+		C4B490E720C649D900FD565A /* S1DSPKernel+destroy.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */; };
+		C4B490E920C64AC600FD565A /* S1DSPKernel+MIDI.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490E820C64AC600FD565A /* S1DSPKernel+MIDI.mm */; };
+		C4B490EB20C64C8E00FD565A /* S1DSPKernel+getSetSynthParameters.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490EA20C64C8E00FD565A /* S1DSPKernel+getSetSynthParameters.mm */; };
+		C4B490ED20C64D8C00FD565A /* S1DSPKernel+getSetDependentParameters.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490EC20C64D8C00FD565A /* S1DSPKernel+getSetDependentParameters.mm */; };
+		C4B490EF20C64E5600FD565A /* S1DSPKernel+didChanges.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490EE20C64E5600FD565A /* S1DSPKernel+didChanges.mm */; };
+		C4B490F120C64ED300FD565A /* S1DSPKernel+tapers.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490F020C64ED200FD565A /* S1DSPKernel+tapers.mm */; };
+		C4B490F320C6539200FD565A /* S1DSPKernel+process.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490F220C6539200FD565A /* S1DSPKernel+process.mm */; };
+		C4B490F520C6542500FD565A /* S1DSPKernel+parameters.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490F420C6542500FD565A /* S1DSPKernel+parameters.mm */; };
+		C4B490F720C654E600FD565A /* S1DSPKernel+reset.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490F620C654E600FD565A /* S1DSPKernel+reset.mm */; };
+		C4B490F920C655AF00FD565A /* S1DSPKernel+setup.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490F820C655AF00FD565A /* S1DSPKernel+setup.mm */; };
+		C4B490FB20C6560000FD565A /* S1DSPKernel+startStopNotes.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490FA20C6560000FD565A /* S1DSPKernel+startStopNotes.mm */; };
+		C4B490FD20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490FC20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm */; };
 		C4B9C02B201D54D400D9833D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B9C02A201D54D400D9833D /* AudioToolbox.framework */; };
 		C4CD8DEE1F2522270011066A /* HeaderViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */; };
 		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
@@ -321,6 +333,18 @@
 		C47FB3C21F36694300EF2F01 /* RateKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateKnob.swift; sourceTree = "<group>"; };
 		C4969BAD20C608B500C72780 /* UIViewController+DisplayAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 		C4969BAF20C6092B00C72780 /* PanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
+		C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+destroy.mm"; sourceTree = "<group>"; };
+		C4B490E820C64AC600FD565A /* S1DSPKernel+MIDI.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+MIDI.mm"; sourceTree = "<group>"; };
+		C4B490EA20C64C8E00FD565A /* S1DSPKernel+getSetSynthParameters.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+getSetSynthParameters.mm"; sourceTree = "<group>"; };
+		C4B490EC20C64D8C00FD565A /* S1DSPKernel+getSetDependentParameters.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+getSetDependentParameters.mm"; sourceTree = "<group>"; };
+		C4B490EE20C64E5600FD565A /* S1DSPKernel+didChanges.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+didChanges.mm"; sourceTree = "<group>"; };
+		C4B490F020C64ED200FD565A /* S1DSPKernel+tapers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+tapers.mm"; sourceTree = "<group>"; };
+		C4B490F220C6539200FD565A /* S1DSPKernel+process.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+process.mm"; sourceTree = "<group>"; };
+		C4B490F420C6542500FD565A /* S1DSPKernel+parameters.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+parameters.mm"; sourceTree = "<group>"; };
+		C4B490F620C654E600FD565A /* S1DSPKernel+reset.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+reset.mm"; sourceTree = "<group>"; };
+		C4B490F820C655AF00FD565A /* S1DSPKernel+setup.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+setup.mm"; sourceTree = "<group>"; };
+		C4B490FA20C6560000FD565A /* S1DSPKernel+startStopNotes.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+startStopNotes.mm"; sourceTree = "<group>"; };
+		C4B490FC20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+toggleKeys.mm"; sourceTree = "<group>"; };
 		C4B9C02A201D54D400D9833D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C4CD8DED1F2522270011066A /* HeaderViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewContoller.swift; sourceTree = "<group>"; };
 		C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioKitSynthOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -664,6 +688,18 @@
 			children = (
 				C435C57720C530C900DAECCD /* S1DSPKernel.hpp */,
 				C435C57620C530C900DAECCD /* S1DSPKernel.mm */,
+				C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */,
+				C4B490EE20C64E5600FD565A /* S1DSPKernel+didChanges.mm */,
+				C4B490EC20C64D8C00FD565A /* S1DSPKernel+getSetDependentParameters.mm */,
+				C4B490EA20C64C8E00FD565A /* S1DSPKernel+getSetSynthParameters.mm */,
+				C4B490E820C64AC600FD565A /* S1DSPKernel+MIDI.mm */,
+				C4B490F420C6542500FD565A /* S1DSPKernel+parameters.mm */,
+				C4B490F220C6539200FD565A /* S1DSPKernel+process.mm */,
+				C4B490F620C654E600FD565A /* S1DSPKernel+reset.mm */,
+				C4B490F820C655AF00FD565A /* S1DSPKernel+setup.mm */,
+				C4B490FA20C6560000FD565A /* S1DSPKernel+startStopNotes.mm */,
+				C4B490F020C64ED200FD565A /* S1DSPKernel+tapers.mm */,
+				C4B490FC20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm */,
 			);
 			path = Kernel;
 			sourceTree = "<group>";
@@ -1007,6 +1043,7 @@
 				943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C435C54820C52F0500DAECCD /* BankEditorViewController.swift in Sources */,
+				C4B490F720C654E600FD565A /* S1DSPKernel+reset.mm in Sources */,
 				C435C58420C530C900DAECCD /* S1NoteState.mm in Sources */,
 				C4421AA120B81A7500BE9F12 /* PresetsViewController.swift in Sources */,
 				C435C58320C530C900DAECCD /* AEAudioThreadEndpoint.m in Sources */,
@@ -1018,6 +1055,7 @@
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */,
 				C435C52A20C52D2F00DAECCD /* MIDILearnable.swift in Sources */,
+				C4B490EB20C64C8E00FD565A /* S1DSPKernel+getSetSynthParameters.mm in Sources */,
 				94A8807E1FC8F9F100DADC66 /* AKVerticalPad.swift in Sources */,
 				9451E2FE1F58C20B008181F9 /* HeaderNavButton.swift in Sources */,
 				94AF74071F56339C00ED8B51 /* BlackKeyStyleKit.swift in Sources */,
@@ -1068,12 +1106,17 @@
 				C435C52520C52D1700DAECCD /* Preset.swift in Sources */,
 				C4421AA220B81A7500BE9F12 /* Presets+PresetCellDelegate.swift in Sources */,
 				C435C59920C53A3800DAECCD /* ADSRViewController.swift in Sources */,
+				C4B490ED20C64D8C00FD565A /* S1DSPKernel+getSetDependentParameters.mm in Sources */,
+				C4B490EF20C64E5600FD565A /* S1DSPKernel+didChanges.mm in Sources */,
 				C4421A8520B8179000BE9F12 /* Parent+Audiobus.swift in Sources */,
 				948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */,
 				94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */,
 				C435C54A20C52F0500DAECCD /* KeyboardSettingsViewController.swift in Sources */,
 				C435C59C20C53A6F00DAECCD /* UpdatableViewController.swift in Sources */,
+				C4B490F320C6539200FD565A /* S1DSPKernel+process.mm in Sources */,
 				C435C59520C53A3800DAECCD /* FXViewController.swift in Sources */,
+				C4B490E920C64AC600FD565A /* S1DSPKernel+MIDI.mm in Sources */,
+				C4B490E720C649D900FD565A /* S1DSPKernel+destroy.mm in Sources */,
 				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
 				C435C4FB20C5234900DAECCD /* PresetCell.swift in Sources */,
 				F4C534A720C6421700FA7E5E /* Tunings+UITableViewDelegate.swift in Sources */,
@@ -1083,6 +1126,7 @@
 				94DB18D21F37D879008368AE /* NavButton.swift in Sources */,
 				C4421A8820B8179000BE9F12 /* Parent+PushNotification.swift in Sources */,
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
+				C4B490FB20C6560000FD565A /* S1DSPKernel+startStopNotes.mm in Sources */,
 				C435C57D20C530C900DAECCD /* AEManagedValue.m in Sources */,
 				947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4421A8220B8178F00BE9F12 /* Parent+ModWheelDelegate.swift in Sources */,
@@ -1101,10 +1145,12 @@
 				C435C4FA20C5234900DAECCD /* TuningCell.swift in Sources */,
 				94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */,
 				947956A91F329AB200FE5D9B /* Stepper.swift in Sources */,
+				C4B490F120C64ED300FD565A /* S1DSPKernel+tapers.mm in Sources */,
 				94346F901FC7975C00434900 /* ColorKnob.swift in Sources */,
 				C435C4F920C5234900DAECCD /* MIDICell.swift in Sources */,
 				94A5039D1FF2F6E30097D37C /* ChannelStepper.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
+				C4B490F920C655AF00FD565A /* S1DSPKernel+setup.mm in Sources */,
 				C4421A8620B8179000BE9F12 /* ParentViewController.swift in Sources */,
 				949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
 				C435C59A20C53A3800DAECCD /* SeqViewController.swift in Sources */,
@@ -1119,6 +1165,7 @@
 				C435C58820C530C900DAECCD /* Audiobus+MIDI.swift in Sources */,
 				C4421AA420B81A7500BE9F12 /* Presets+PresetPopOverDelegate.swift in Sources */,
 				94D917AF1F550D28006ACB4E /* FlatToggleButton.swift in Sources */,
+				C4B490FD20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm in Sources */,
 				948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
 				C435C54920C52F0500DAECCD /* MailingListViewController.swift in Sources */,
@@ -1128,6 +1175,7 @@
 				C4421A8320B8179000BE9F12 /* Parent+MIDIListener.swift in Sources */,
 				C435C57C20C530C900DAECCD /* AEMessageQueue.m in Sources */,
 				C435C57820C530C900DAECCD /* Conductor.swift in Sources */,
+				C4B490F520C6542500FD565A /* S1DSPKernel+parameters.mm in Sources */,
 				C4421A8120B8178F00BE9F12 /* Parent+HeaderDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

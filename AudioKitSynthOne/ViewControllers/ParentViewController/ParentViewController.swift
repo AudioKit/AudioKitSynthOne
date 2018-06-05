@@ -51,7 +51,7 @@ public class ParentViewController: UpdatableViewController {
     var midiInputs = [MIDIInput]()
     var omniMode = true
     var notesFromMIDI = Set<MIDINoteNumber>()
-    var appSettings = AppSetting()
+    var appSettings = AppSettings()
     var isDevView = false
 
     let midi = AKMIDI()  ///TODO: REMOVE
@@ -212,7 +212,7 @@ public class ParentViewController: UpdatableViewController {
         }
 
         // Check preset versions
-        let currentPresetVersion = AppSetting().presetsVersion
+        let currentPresetVersion = AppSettings().presetsVersion
         if appSettings.presetsVersion < currentPresetVersion {
             presetsViewController.upgradePresets()
             // Save appSettings

@@ -1,5 +1,5 @@
 //
-//  MailingList.swift
+//  MailingListViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 11/26/17.

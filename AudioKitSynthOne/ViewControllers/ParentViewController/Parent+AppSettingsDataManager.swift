@@ -1,5 +1,5 @@
 //
-//  Parent+AppSettingDataManager.swift
+//  Parent+AppSettingsDataManager.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 10/31/17.
@@ -160,7 +160,7 @@ extension ParentViewController {
             let settingsJSON = try? JSONSerialization.jsonObject(with: retrievedSettingData, options: [])
 
             if let settingDictionary = settingsJSON as? [String: Any] {
-                appSettings = AppSetting(dictionary: settingDictionary)
+                appSettings = AppSettings(dictionary: settingDictionary)
             }
 
             setDefaultsFromAppSettings()

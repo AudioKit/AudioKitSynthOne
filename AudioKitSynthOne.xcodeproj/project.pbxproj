@@ -58,7 +58,7 @@
 		C435C4FA20C5234900DAECCD /* TuningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4F620C5234900DAECCD /* TuningCell.swift */; };
 		C435C4FB20C5234900DAECCD /* PresetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4F720C5234900DAECCD /* PresetCell.swift */; };
 		C435C50320C5286C00DAECCD /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C50220C5286B00DAECCD /* Helpers.swift */; };
-		C435C50520C52A1E00DAECCD /* Parent+AppSettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C50420C52A1E00DAECCD /* Parent+AppSettingDataManager.swift */; };
+		C435C50520C52A1E00DAECCD /* Parent+AppSettingsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C50420C52A1E00DAECCD /* Parent+AppSettingsDataManager.swift */; };
 		C435C51D20C52D1700DAECCD /* PresetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C51320C52D1700DAECCD /* PresetDataManager.swift */; };
 		C435C51E20C52D1700DAECCD /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C51420C52D1700DAECCD /* Bank.swift */; };
 		C435C51F20C52D1700DAECCD /* Brice Beasley.json in Resources */ = {isa = PBXBuildFile; fileRef = C435C51620C52D1700DAECCD /* Brice Beasley.json */; };
@@ -75,7 +75,7 @@
 		C435C53220C52D4C00DAECCD /* S1Tunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52E20C52D4B00DAECCD /* S1Tunings.swift */; };
 		C435C53320C52D4C00DAECCD /* S1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52F20C52D4B00DAECCD /* S1Tunings+Harmonic.swift */; };
 		C435C53520C52D8800DAECCD /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53420C52D8800DAECCD /* ChildView.swift */; };
-		C435C53720C52DC800DAECCD /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53620C52DC800DAECCD /* AppSetting.swift */; };
+		C435C53720C52DC800DAECCD /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53620C52DC800DAECCD /* AppSettings.swift */; };
 		C435C54220C52F0500DAECCD /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53920C52F0500DAECCD /* InfoController.swift */; };
 		C435C54320C52F0500DAECCD /* WheelSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53A20C52F0500DAECCD /* WheelSettingsViewController.swift */; };
 		C435C54420C52F0500DAECCD /* MIDISettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53B20C52F0500DAECCD /* MIDISettingsViewController.swift */; };
@@ -231,7 +231,7 @@
 		C435C4F620C5234900DAECCD /* TuningCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuningCell.swift; sourceTree = "<group>"; };
 		C435C4F720C5234900DAECCD /* PresetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetCell.swift; sourceTree = "<group>"; };
 		C435C50220C5286B00DAECCD /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		C435C50420C52A1E00DAECCD /* Parent+AppSettingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+AppSettingDataManager.swift"; sourceTree = "<group>"; };
+		C435C50420C52A1E00DAECCD /* Parent+AppSettingsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+AppSettingsDataManager.swift"; sourceTree = "<group>"; };
 		C435C51320C52D1700DAECCD /* PresetDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetDataManager.swift; sourceTree = "<group>"; };
 		C435C51420C52D1700DAECCD /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		C435C51620C52D1700DAECCD /* Brice Beasley.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Brice Beasley.json"; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 		C435C52E20C52D4B00DAECCD /* S1Tunings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S1Tunings.swift; sourceTree = "<group>"; };
 		C435C52F20C52D4B00DAECCD /* S1Tunings+Harmonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "S1Tunings+Harmonic.swift"; sourceTree = "<group>"; };
 		C435C53420C52D8800DAECCD /* ChildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
-		C435C53620C52DC800DAECCD /* AppSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
+		C435C53620C52DC800DAECCD /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		C435C53920C52F0500DAECCD /* InfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		C435C53A20C52F0500DAECCD /* WheelSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelSettingsViewController.swift; sourceTree = "<group>"; };
 		C435C53B20C52F0500DAECCD /* MIDISettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDISettingsViewController.swift; sourceTree = "<group>"; };
@@ -695,7 +695,7 @@
 			isa = PBXGroup;
 			children = (
 				C4421A7A20B8178F00BE9F12 /* ParentViewController.swift */,
-				C435C50420C52A1E00DAECCD /* Parent+AppSettingDataManager.swift */,
+				C435C50420C52A1E00DAECCD /* Parent+AppSettingsDataManager.swift */,
 				C4421A7920B8178F00BE9F12 /* Parent+Audiobus.swift */,
 				C4421A7B20B8178F00BE9F12 /* Parent+DevView.swift */,
 				C4421A7820B8178F00BE9F12 /* Parent+EmbeddedViewsDelegate.swift */,
@@ -752,7 +752,7 @@
 			children = (
 				94780FEF1F9B0108006D3710 /* AudioKitSynthOne.entitlements */,
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
-				C435C53620C52DC800DAECCD /* AppSetting.swift */,
+				C435C53620C52DC800DAECCD /* AppSettings.swift */,
 				C435C50220C5286B00DAECCD /* Helpers.swift */,
 				C4D193D31F1187B500FF4FE4 /* Info.plist */,
 				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
@@ -1038,7 +1038,7 @@
 				C435C58120C530C900DAECCD /* AETypes.m in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				C435C54220C52F0500DAECCD /* InfoController.swift in Sources */,
-				C435C53720C52DC800DAECCD /* AppSetting.swift in Sources */,
+				C435C53720C52DC800DAECCD /* AppSettings.swift in Sources */,
 				C435C54720C52F0500DAECCD /* PresetsCategoriesViewController.swift in Sources */,
 				94A880811FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
@@ -1097,7 +1097,7 @@
 				C4421A7F20B8178F00BE9F12 /* Parent+PresetsDelegate.swift in Sources */,
 				C435C58020C530C900DAECCD /* AETime.m in Sources */,
 				9416FC7220081F3A00A120AD /* MIDIKnob.swift in Sources */,
-				C435C50520C52A1E00DAECCD /* Parent+AppSettingDataManager.swift in Sources */,
+				C435C50520C52A1E00DAECCD /* Parent+AppSettingsDataManager.swift in Sources */,
 				94AF74021F55FF9700ED8B51 /* TouchPoint.swift in Sources */,
 				C435C4FA20C5234900DAECCD /* TuningCell.swift in Sources */,
 				94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */,

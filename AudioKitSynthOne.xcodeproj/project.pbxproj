@@ -76,7 +76,7 @@
 		C435C53320C52D4C00DAECCD /* S1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52F20C52D4B00DAECCD /* S1Tunings+Harmonic.swift */; };
 		C435C53520C52D8800DAECCD /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53420C52D8800DAECCD /* ChildView.swift */; };
 		C435C53720C52DC800DAECCD /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53620C52DC800DAECCD /* AppSettings.swift */; };
-		C435C54220C52F0500DAECCD /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53920C52F0500DAECCD /* InfoController.swift */; };
+		C435C54220C52F0500DAECCD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53920C52F0500DAECCD /* InfoViewController.swift */; };
 		C435C54320C52F0500DAECCD /* WheelSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53A20C52F0500DAECCD /* WheelSettingsViewController.swift */; };
 		C435C54420C52F0500DAECCD /* MIDISettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53B20C52F0500DAECCD /* MIDISettingsViewController.swift */; };
 		C435C54520C52F0500DAECCD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53C20C52F0500DAECCD /* AboutViewController.swift */; };
@@ -261,7 +261,7 @@
 		C435C52F20C52D4B00DAECCD /* S1Tunings+Harmonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "S1Tunings+Harmonic.swift"; sourceTree = "<group>"; };
 		C435C53420C52D8800DAECCD /* ChildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
 		C435C53620C52DC800DAECCD /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		C435C53920C52F0500DAECCD /* InfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
+		C435C53920C52F0500DAECCD /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		C435C53A20C52F0500DAECCD /* WheelSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelSettingsViewController.swift; sourceTree = "<group>"; };
 		C435C53B20C52F0500DAECCD /* MIDISettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDISettingsViewController.swift; sourceTree = "<group>"; };
 		C435C53C20C52F0500DAECCD /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -600,7 +600,7 @@
 			children = (
 				C435C53C20C52F0500DAECCD /* AboutViewController.swift */,
 				C435C53F20C52F0500DAECCD /* BankEditorViewController.swift */,
-				C435C53920C52F0500DAECCD /* InfoController.swift */,
+				C435C53920C52F0500DAECCD /* InfoViewController.swift */,
 				C435C54120C52F0500DAECCD /* KeyboardSettingsViewController.swift */,
 				C435C54020C52F0500DAECCD /* MailingListViewController.swift */,
 				C435C53B20C52F0500DAECCD /* MIDISettingsViewController.swift */,
@@ -1075,7 +1075,7 @@
 				C435C58120C530C900DAECCD /* AETypes.m in Sources */,
 				F4C534A620C6421700FA7E5E /* TuningsPitchWheelView.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
-				C435C54220C52F0500DAECCD /* InfoController.swift in Sources */,
+				C435C54220C52F0500DAECCD /* InfoViewController.swift in Sources */,
 				C435C53720C52DC800DAECCD /* AppSettings.swift in Sources */,
 				C435C54720C52F0500DAECCD /* PresetsCategoriesViewController.swift in Sources */,
 				94A880811FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,

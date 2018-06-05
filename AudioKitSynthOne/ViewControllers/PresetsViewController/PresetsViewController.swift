@@ -390,7 +390,7 @@ class PresetsViewController: UIViewController {
         selectCurrentPreset()
     }
 
-    func prevPreset() {
+    func previousPreset() {
         let presetBank = presets.filter { $0.bank == currentPreset.bank }.sorted { $0.position < $1.position }
 
         if currentPreset.position > 0 {

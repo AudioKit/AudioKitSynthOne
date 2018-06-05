@@ -32,8 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
 
-        // Recommend moving the below line to prompt for push after informing the user about
-        //   how your app will use them.
+        // TODO: Remove these commented out lines or uncomment them
 //        OneSignal.promptForPushNotifications(userResponse: { accepted in
 //            print("User accepted notifications: \(accepted)")
 //        })
@@ -53,16 +52,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        // TODO: Remove these commented out lines or uncomment them
 //        if !conductor.backgroundAudioOn {
 //            conductor.stopEngine()
 //        }
     }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-
     func applicationDidBecomeActive(_ application: UIApplication) {
 
+        // TODO: Remove these commented out lines or uncomment them
 //        if !conductor.backgroundAudioOn {
 //            conductor.startEngine(completionHandler: {
 //                // Audiobus.start()

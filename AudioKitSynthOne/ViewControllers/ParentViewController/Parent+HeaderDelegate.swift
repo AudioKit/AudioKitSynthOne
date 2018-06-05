@@ -85,8 +85,8 @@ extension ParentViewController: HeaderDelegate {
         presetsViewController.randomPreset()
     }
 
-    func prevPresetPressed() {
-        presetsViewController.prevPreset()
+    func previousPresetPressed() {
+        presetsViewController.previousPreset()
     }
 
     func nextPresetPressed() {

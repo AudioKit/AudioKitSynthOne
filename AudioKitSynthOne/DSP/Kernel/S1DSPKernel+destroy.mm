@@ -1,17 +1,17 @@
 //
-//  AKS1DSPKernel+destroy.mm
+//  S1DSPKernel+destroy.cpp
 //  AudioKitSynthOne
 //
 //  Created by Aurelius Prochazka on 6/4/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-#import "AKS1DSPKernel.hpp"
+#import "S1DSPKernel.hpp"
 
-void AKS1DSPKernel::destroy() {
-    for(int i = 0; i< AKS1Parameter::AKS1ParameterCount; i++) {
-        if (aks1p[i].usePortamento) {
-            sp_port_destroy(&aks1p[i].portamento);
+void S1DSPKernel::destroy() {
+    for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
+        if (s1p[i].usePortamento) {
+            sp_port_destroy(&s1p[i].portamento);
         }
     }
     sp_port_destroy(&monoFrequencyPort);
@@ -45,3 +45,5 @@ void AKS1DSPKernel::destroy() {
     free(noteStates);
     free(monoNote);
 }
+
+

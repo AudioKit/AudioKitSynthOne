@@ -8,19 +8,19 @@
 
 import AudioKit
 
-protocol AKS1Control: class {
+protocol S1Control: class {
     var value: Double { get set }
     var callback: (Double) -> Void { get set }
 }
 
-typealias AKS1ControlCallback = (AKS1Parameter, AKS1Control?) -> ((_: Double) -> Void)
+typealias S1ControlCallback = (S1Parameter, S1Control?) -> ((_: Double) -> Void)
 
-class Conductor: AKS1Protocol {
+class Conductor: S1Protocol {
     static var sharedInstance = Conductor()
     var neverSleep = false
     var banks: [Bank] = []
     var synth: AKSynthOne!
-    var bindings: [(AKS1Parameter, AKS1Control)] = []
+    var bindings: [(S1Parameter, S1Control)] = []
     var heldNoteCount: Int = 0
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
     let lfo1RateFXPanelID: Int32 = 1
@@ -35,25 +35,25 @@ class Conductor: AKS1Protocol {
     public var viewControllers: Set<UpdatableViewController> = []
     fileprivate var started = false
 
-    func bind(_ control: AKS1Control,
-              to param: AKS1Parameter,
-              callback closure: AKS1ControlCallback? = nil) {
-        let binding = (param, control)
+    func bind(_ control: S1Control,
+              to parameter: S1Parameter,
+              callback closure: S1ControlCallback? = nil) {
+        let binding = (parameter, control)
         bindings.append(binding)
         let control = binding.1
         if let cb = closure {
             // custom closure
-            control.callback = cb(param, control)
+            control.callback = cb(parameter, control)
         } else {
             // default closure
-            control.callback = changeParameter(param, control)
+            control.callback = changeParameter(parameter, control)
         }
     }
 
-    var changeParameter: AKS1ControlCallback  = { param, control in
+    var changeParameter: S1ControlCallback  = { parameter, control in
         return { value in
-            sharedInstance.synth.setSynthParameter(param, value)
-            sharedInstance.updateSingleUI(param, control: control, value: value)
+            sharedInstance.synth.setSynthParameter(parameter, value)
+            sharedInstance.updateSingleUI(parameter, control: control, value: value)
           }
         } {
         didSet {
@@ -61,15 +61,15 @@ class Conductor: AKS1Protocol {
         }
     }
 
-    func updateSingleUI(_ param: AKS1Parameter,
-                        control inputControl: AKS1Control?,
+    func updateSingleUI(_ parameter: S1Parameter,
+                        control inputControl: S1Control?,
                         value inputValue: Double) {
 
         // cannot access synth until it is initialized and started
         if !started { return }
 
         // for every binding of type param
-        for binding in bindings where param == binding.0 {
+        for binding in bindings where parameter == binding.0 {
             let control = binding.1
 
             // don't update the control if it is the one performing the callback because it has already been updated
@@ -84,23 +84,23 @@ class Conductor: AKS1Protocol {
         }
 
         // View controllers can own objects which are not updated by the bindings scheme.
-        // For example, ADSRViewController has AKADSRView's which do not conform to AKS1Control
+        // For example, ADSRViewController has AKADSRView's which do not conform to S1Control
         viewControllers.forEach {
-            $0.updateUI(param, control: inputControl, value: inputValue)
+            $0.updateUI(parameter, control: inputControl, value: inputValue)
         }
     }
 
     // Call when a global update needs to happen.  i.e., on launch, foreground, and/or when a Preset is loaded.
     func updateAllUI() {
-        let parameterCount = AKS1Parameter.AKS1ParameterCount.rawValue
+        let parameterCount = S1Parameter.S1ParameterCount.rawValue
         for address in 0..<parameterCount {
-            guard let param: AKS1Parameter = AKS1Parameter(rawValue: address)
+            guard let parameter: S1Parameter = S1Parameter(rawValue: address)
                 else {
-                    AKLog("ERROR: AKS1Parameter enum out of range: \(address)")
+                    AKLog("ERROR: S1Parameter enum out of range: \(address)")
                     return
             }
-            let value = self.synth.getSynthParameter(param)
-            updateSingleUI(param, control: nil, value: value)
+            let value = self.synth.getSynthParameter(parameter)
+            updateSingleUI(parameter, control: nil, value: value)
         }
 
         // Display Preset Name again
@@ -166,27 +166,27 @@ class Conductor: AKS1Protocol {
         parentVC?.updateDisplay(message)
     }
 
-    func updateDisplayLabel(_ param: AKS1Parameter, value: Double) {
+    func updateDisplayLabel(_ parameter: S1Parameter, value: Double) {
         let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController }) as? HeaderViewController
-        headerVC?.updateDisplayLabel(param, value: value)
+        headerVC?.updateDisplayLabel(parameter, value: value)
     }
 
-    // MARK: - AKS1Protocol
+    // MARK: - S1Protocol
 
     // called by DSP on main thread
-    func dependentParamDidChange(_ param: DependentParam) {
+    func dependentParameterDidChange(_ parameter: DependentParameter) {
         let fxVC = self.viewControllers.first(where: { $0 is FXViewController }) as? FXViewController
-        fxVC?.dependentParamDidChange(param)
+        fxVC?.dependentParameterDidChange(parameter)
 
         let touchPadVC = self.viewControllers.first(where: { $0 is TouchPadViewController }) as? TouchPadViewController
-        touchPadVC?.dependentParamDidChange(param)
+        touchPadVC?.dependentParameterDidChange(parameter)
 
         let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as? ParentViewController
-        parentVC?.dependentParamDidChange(param)
+        parentVC?.dependentParameterDidChange(parameter)
     }
 
     // called by DSP on main thread
-    func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {
+    func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {
         let seqVC = self.viewControllers.first(where: { $0 is SeqViewController }) as? SeqViewController
         seqVC?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
     }

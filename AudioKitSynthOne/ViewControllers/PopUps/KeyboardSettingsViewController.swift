@@ -1,9 +1,9 @@
 //
-//  PopUpViewController.swift
-//  keyboard-scale-popup
+//  KeyboardSettingsViewController.swift
+//  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 11/27/16.
-//  Copyright © 2016 audiokit. All rights reserved.
+//  Copyright © 2016 AudioKit. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ protocol KeyboardPopOverDelegate: AnyObject {
     func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool)
 }
 
-class PopUpKeyboardController: UIViewController {
+class KeyboardSettingsViewController: UIViewController {
 
     @IBOutlet weak var octaveRangeSegment: UISegmentedControl!
     @IBOutlet weak var labelModeSegment: UISegmentedControl!

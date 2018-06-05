@@ -51,7 +51,7 @@ public class ParentViewController: UpdatableViewController {
     var midiInputs = [MIDIInput]()
     var omniMode = true
     var notesFromMIDI = Set<MIDINoteNumber>()
-    var appSettings = AppSetting()
+    var appSettings = AppSettings()
     var isDevView = false
 
     let midi = AKMIDI()  ///TODO: REMOVE
@@ -212,7 +212,7 @@ public class ParentViewController: UpdatableViewController {
         }
 
         // Check preset versions
-        let currentPresetVersion = AppSetting().presetsVersion
+        let currentPresetVersion = AppSettings().presetsVersion
         if appSettings.presetsVersion < currentPresetVersion {
             presetsViewController.upgradePresets()
             // Save appSettings
@@ -384,7 +384,7 @@ public class ParentViewController: UpdatableViewController {
         conductor.synth.stopAllNotes()
     }
 
-    override func updateUI(_ param: AKS1Parameter, control inputControl: AKS1Control?, value: Double) {
+    override func updateUI(_ parameter: S1Parameter, control inputControl: S1Control?, value: Double) {
 
         // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
         guard let s = conductor.synth else {
@@ -397,7 +397,7 @@ public class ParentViewController: UpdatableViewController {
             self.keyboardView.polyphonicMode = isMono > 0 ? false : true
         }
 
-        if param == .cutoff {
+        if parameter == .cutoff {
             if inputControl === modWheelPad || activePreset.modWheelRouting != 0 {
                 return
             }
@@ -408,30 +408,30 @@ public class ParentViewController: UpdatableViewController {
         }
     }
 
-    func dependentParamDidChange(_ param: DependentParam) {
-        switch param.param {
+    func dependentParameterDidChange(_ dependentParameter: DependentParameter) {
+        switch dependentParameter.parameter {
 
         case .lfo1Rate:
-            if param.payload == conductor.lfo1RateModWheelID {
+            if dependentParameter.payload == conductor.lfo1RateModWheelID {
                 return
             }
             if activePreset.modWheelRouting == 1 {
-                modWheelPad.setVerticalValue01(Double(param.value01))
+                modWheelPad.setVerticalValue01(Double(dependentParameter.normalizedValue))
             }
 
         case .lfo2Rate:
-            if param.payload == conductor.lfo2RateModWheelID {
+            if dependentParameter.payload == conductor.lfo2RateModWheelID {
                 return
             }
             if activePreset.modWheelRouting == 2 {
-                modWheelPad.setVerticalValue01(Double(param.value01))
+                modWheelPad.setVerticalValue01(Double(dependentParameter.normalizedValue))
             }
 
         case .pitchbend:
-            if param.payload == conductor.pitchbendParentVCID {
+            if dependentParameter.payload == conductor.pitchbendParentVCID {
                 return
             }
-            pitchbend.setVerticalValue01(Double(param.value01))
+            pitchbend.setVerticalValue01(Double(dependentParameter.normalizedValue))
 
         default:
             _ = 0
@@ -442,7 +442,7 @@ public class ParentViewController: UpdatableViewController {
 
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueToKeyboardSettings" {
-            guard let popOverController = segue.destination as? PopUpKeyboardController else { return }
+            guard let popOverController = segue.destination as? KeyboardSettingsViewController else { return }
             popOverController.delegate = self
             popOverController.octaveRange = keyboardView.octaveCount
             popOverController.labelMode = keyboardView.labelMode
@@ -456,7 +456,7 @@ public class ParentViewController: UpdatableViewController {
         }
 
         if segue.identifier == "SegueToMIDI" {
-            guard let popOverController = segue.destination as? PopUpMIDIViewController else { return }
+            guard let popOverController = segue.destination as? MIDISettingsViewController else { return }
             popOverController.delegate = self
             let userMIDIChannel = omniMode ? -1 : Int(midiChannelIn)
             popOverController.userChannelIn = userMIDIChannel
@@ -472,7 +472,7 @@ public class ParentViewController: UpdatableViewController {
         }
 
         if segue.identifier == "SegueToMOD" {
-            guard let popOverController = segue.destination as? PopUpMODController else { return }
+            guard let popOverController = segue.destination as? WheelSettingsViewController else { return }
             popOverController.delegate = self
             popOverController.modWheelDestination = Int(activePreset.modWheelRouting)
             popOverController.preferredContentSize = CGSize(width: 300, height: 290)
@@ -483,12 +483,12 @@ public class ParentViewController: UpdatableViewController {
         }
 
         if segue.identifier == "SegueToAbout" {
-            guard let popOverController = segue.destination as? PopUpAbout else { return }
+            guard let popOverController = segue.destination as? AboutViewController else { return }
             popOverController.delegate = self
         }
 
         if segue.identifier == "SegueToMailingList" {
-            guard let popOverController = segue.destination as? MailingListController else { return }
+            guard let popOverController = segue.destination as? MailingListViewController else { return }
             popOverController.delegate = self
         }
     }

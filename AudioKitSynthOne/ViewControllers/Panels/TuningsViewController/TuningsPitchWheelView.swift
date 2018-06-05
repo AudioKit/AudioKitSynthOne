@@ -123,7 +123,7 @@ public class TuningsPitchWheelView: UIView {
             context.fillEllipse(in: bigDotR)
 
             // draw harmonic approximation of p
-            let harmonic = AKS1Tunings.approximateHarmonicFromPitch(p)
+            let harmonic = S1Tunings.approximateHarmonicFromPitch(p)
             let msd = String(harmonic)
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
         }
@@ -228,11 +228,11 @@ public class TuningsPitchWheelOverlayView: UIView {
         if npo < 1 { return }
 
         if let pn = playingNotes {
-            // must match AKS1_MAX_POLYPHONY
+            // must match S1_MAX_POLYPHONY
             let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2,
                       pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
             for playingNote in na where playingNote.noteNumber != -1 {
-                let v = 2 * playingNote.amp
+                let v = 2 * playingNote.amplitude
                 if v > 0 {
                     var nn = playingNote.noteNumber - Int32(AKPolyphonicNode.tuningTable.middleCNoteNumber)
                     while nn < 0 { nn = nn + Int32(npo) }

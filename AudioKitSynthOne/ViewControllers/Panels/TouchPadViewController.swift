@@ -149,10 +149,10 @@ class TouchPadViewController: PanelViewController {
 
     // MARK: - Update UI
 
-    override func updateUI(_ param: AKS1Parameter, control inputControl: AKS1Control?, value: Double) {
+    override func updateUI(_ parameter: S1Parameter, control inputControl: S1Control?, value: Double) {
 
         // Update TouchPad positions if corresponding knobs are turned
-        switch param {
+        switch parameter {
 
         case .lfo1Amplitude:
             touchPad1.updateTouchPoint(Double(conductor.synth.getDependentParameter(.lfo1Rate)), value)
@@ -172,13 +172,13 @@ class TouchPadViewController: PanelViewController {
         }
     }
 
-    func dependentParamDidChange(_ param: DependentParam) {
-        if param.payload == conductor.lfo1RateTouchPadID {
+    func dependentParameterDidChange(_ dependentParameter: DependentParameter) {
+        if dependentParameter.payload == conductor.lfo1RateTouchPadID {
             return
         }
-        switch param.param {
+        switch dependentParameter.parameter {
         case .lfo1Rate:
-            let val = Double(param.value01)
+            let val = Double(dependentParameter.normalizedValue)
             touchPad1.updateTouchPoint(val, Double(conductor.synth.getSynthParameter(.lfo1Amplitude)))
         default:
             _ = 0

@@ -1,5 +1,5 @@
 //
-//  MailingList.swift
+//  MailingListViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 11/26/17.
@@ -13,7 +13,7 @@ protocol MailingListDelegate: AnyObject {
     func didSignMailingList(email: String)
 }
 
-class MailingListController: UIViewController, UITextFieldDelegate {
+class MailingListViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var moreView: UIView!
     @IBOutlet weak var emailField: UITextField!

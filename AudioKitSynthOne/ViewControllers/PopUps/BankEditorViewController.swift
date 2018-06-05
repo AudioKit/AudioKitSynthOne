@@ -1,5 +1,5 @@
 //
-//  PopUpBankEdit.swift
+//  BankEditorViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 1/27/18.
@@ -13,7 +13,7 @@ protocol BankPopOverDelegate: AnyObject {
     func didDeleteBank(bankName: String)
 }
 
-class PopUpBankEdit: UIViewController {
+class BankEditorViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var popupView: UIView!

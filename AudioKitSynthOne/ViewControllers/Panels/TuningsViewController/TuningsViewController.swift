@@ -12,6 +12,9 @@ public protocol TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange()
 }
 
+/// View controller for the Tunings Panel
+///
+/// Erv Wilson is the man [website](http://aure.com/)
 class TuningsViewController: PanelViewController {
 
     @IBOutlet weak var tuningTableView: UITableView!
@@ -20,7 +23,7 @@ class TuningsViewController: PanelViewController {
     @IBOutlet weak var resetTunings: SynthUIButton!
     @IBOutlet weak var diceButton: UIButton!
 
-    let tuningModel = AKS1Tunings()
+    let tuningModel = S1Tunings()
     var getStoreTuningWithPresetValue = false
     internal var tuningIndex = 0
 
@@ -59,8 +62,11 @@ class TuningsViewController: PanelViewController {
         super.viewDidAppear(animated)
     }
 
-    func dependentParamDidChange(_ param: DependentParam) {}
+    func dependentParameterDidChange(_ parameter: DependentParameter) {}
 
+    /// Notification of a change in notes played
+    ///
+    /// - Parameter playingNotes: An array of playing notes
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
         tuningsPitchWheelView.playingNotesDidChange(playingNotes)
     }
@@ -105,9 +111,7 @@ class TuningsViewController: PanelViewController {
     }
 }
 
-//*****************************************************************
 // MARK: - TuningsPitchWheelViewTuningDidChange
-//*****************************************************************
 
 extension TuningsViewController: TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange() {

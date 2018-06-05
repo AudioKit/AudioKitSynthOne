@@ -3,13 +3,13 @@
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/28/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit
 
 @IBDesignable
-class LfoButton: UIView, AKS1Control {
+class LfoButton: UIView, S1Control {
 
     var callback: (Double) -> Void = { _ in }
     var value: Double = 0 {

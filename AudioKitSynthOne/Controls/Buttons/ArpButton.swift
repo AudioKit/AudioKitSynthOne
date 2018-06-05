@@ -3,13 +3,13 @@
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/1/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit
 
 @IBDesignable
-class ArpButton: UIView, AKS1Control {
+class ArpButton: UIView, S1Control {
 
     // MARK: - ToggleButton
 

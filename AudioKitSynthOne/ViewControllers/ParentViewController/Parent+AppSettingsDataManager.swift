@@ -1,9 +1,9 @@
 //
-//  Parent+AppSettingDataManager.swift
+//  Parent+AppSettingsDataManager.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 10/31/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import AudioKit
@@ -26,7 +26,7 @@ extension ParentViewController {
         devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
         devViewController.freezeReverb.value = (appSettings.freezeReverb == true ? 1 : 0)
 
-        // dsp param stored in app settings
+        // DSP parameter stored in app settings
         conductor.synth.setSynthParameter(.portamentoHalfTime, appSettings.portamentoHalfTime)
         devViewController.portamento.value = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
@@ -160,7 +160,7 @@ extension ParentViewController {
             let settingsJSON = try? JSONSerialization.jsonObject(with: retrievedSettingData, options: [])
 
             if let settingDictionary = settingsJSON as? [String: Any] {
-                appSettings = AppSetting(dictionary: settingDictionary)
+                appSettings = AppSettings(dictionary: settingDictionary)
             }
 
             setDefaultsFromAppSettings()

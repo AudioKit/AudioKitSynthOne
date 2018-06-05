@@ -48,7 +48,7 @@ class SeqViewController: PanelViewController {
         conductor.bind(seqStepsStepper, to: .arpTotalSteps)
 
         // ARP/SEQ OCTAVE BOOST
-        let arpSeqOctBoostArray: [AKS1Parameter] = [.arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02,
+        let arpSeqOctBoostArray: [S1Parameter] = [.arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02,
                                                           .arpSeqOctBoost03, .arpSeqOctBoost04, .arpSeqOctBoost05,
                                                           .arpSeqOctBoost06, .arpSeqOctBoost07, .arpSeqOctBoost08,
                                                           .arpSeqOctBoost09, .arpSeqOctBoost10, .arpSeqOctBoost11,
@@ -62,8 +62,8 @@ class SeqViewController: PanelViewController {
         }
 
         for (notePosition, octBoostButton) in octaveBoostButtons.enumerated() {
-            let arpSeqOctBoostParam = arpSeqOctBoostArray[notePosition]
-            conductor.bind(octBoostButton, to: arpSeqOctBoostParam) { _, _ in
+            let arpSeqOctBoostParameter = arpSeqOctBoostArray[notePosition]
+            conductor.bind(octBoostButton, to: arpSeqOctBoostParameter) { _, _ in
                 return { value in
                     s.setOctaveBoost(forIndex: notePosition, value)
                     for i in 0...15 {
@@ -74,7 +74,7 @@ class SeqViewController: PanelViewController {
         }
 
         // ARP/SEQ PATTERN
-        let arpSeqPatternArray: [AKS1Parameter] = [.arpSeqPattern00, .arpSeqPattern01, .arpSeqPattern02,
+        let arpSeqPatternArray: [S1Parameter] = [.arpSeqPattern00, .arpSeqPattern01, .arpSeqPattern02,
                                                          .arpSeqPattern03, .arpSeqPattern04, .arpSeqPattern05,
                                                          .arpSeqPattern06, .arpSeqPattern07, .arpSeqPattern08,
                                                          .arpSeqPattern09, .arpSeqPattern10, .arpSeqPattern11,
@@ -88,12 +88,12 @@ class SeqViewController: PanelViewController {
         }
 
         for (notePosition, arpSeqPatternSlider) in sliders.enumerated() {
-            let arpSeqPatternParam = arpSeqPatternArray[notePosition]
-            conductor.bind(arpSeqPatternSlider, to: arpSeqPatternParam) { _, control in
+            let arpSeqPatternParameter = arpSeqPatternArray[notePosition]
+            conductor.bind(arpSeqPatternSlider, to: arpSeqPatternParameter) { _, control in
                 return { value in
                     let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
                     s.setPattern(forIndex: notePosition, tval )
-                    self.conductor.updateSingleUI(arpSeqPatternParam,
+                    self.conductor.updateSingleUI(arpSeqPatternParameter,
                                                   control: arpSeqPatternSlider,
                                                   value: Double(tval))
                 }
@@ -101,7 +101,7 @@ class SeqViewController: PanelViewController {
         }
 
         // ARP/SEQ NOTE ON/OFF
-        let arpSeqNoteOnArray: [AKS1Parameter] = [.arpSeqNoteOn00, .arpSeqNoteOn01, .arpSeqNoteOn02,
+        let arpSeqNoteOnArray: [S1Parameter] = [.arpSeqNoteOn00, .arpSeqNoteOn01, .arpSeqNoteOn02,
                                                         .arpSeqNoteOn03, .arpSeqNoteOn04, .arpSeqNoteOn05,
                                                         .arpSeqNoteOn06, .arpSeqNoteOn07, .arpSeqNoteOn08,
                                                         .arpSeqNoteOn09, .arpSeqNoteOn10, .arpSeqNoteOn11,
@@ -115,24 +115,24 @@ class SeqViewController: PanelViewController {
         }
 
         for (notePosition, arpSeqNoteOnButton) in noteOnButtons.enumerated() {
-            let arpSeqPatternParam = arpSeqNoteOnArray[notePosition]
-            conductor.bind(arpSeqNoteOnButton, to: arpSeqPatternParam) { _, control in
+            let arpSeqPatternParameter = arpSeqNoteOnArray[notePosition]
+            conductor.bind(arpSeqNoteOnButton, to: arpSeqPatternParameter) { _, control in
                 return { value in
                     let v = Double(truncating: value > 0 ? true : false)
                     s.setNoteOn(forIndex: notePosition, value > 0 ? true : false )
-                    self.conductor.updateSingleUI(arpSeqPatternParam, control: arpSeqNoteOnButton, value: v)
+                    self.conductor.updateSingleUI(arpSeqPatternParameter, control: arpSeqNoteOnButton, value: v)
                 }
             }
         }
     }
 
-    override func updateUI(_ param: AKS1Parameter, control: AKS1Control?, value: Double) {
+    override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {
         for i in 0...15 {
             updateOctBoostButton(notePosition: i)
         }
 
         // Update arpIsSequencer LED position
-        switch param {
+        switch parameter {
 
         case .arpIsSequencer, .arpIsOn:
              updateLED(beatCounter: 0, heldNotes: 0)

@@ -3,13 +3,13 @@
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/4/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit
 
 @IBDesignable
-class LFOWavePicker: UIView, AKS1Control {
+class LFOWavePicker: UIView, S1Control {
 
     var callback: (Double) -> Void = { _ in }
     var value: Double = 0 {

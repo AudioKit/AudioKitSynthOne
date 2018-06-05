@@ -3,12 +3,12 @@
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/1/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit
 
-class SliderTransposeButton: UILabel, AKS1Control {
+class SliderTransposeButton: UILabel, S1Control {
 
     // MARK: - Make Label ToggleButton
 

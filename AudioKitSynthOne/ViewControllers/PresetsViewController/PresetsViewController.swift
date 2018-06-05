@@ -503,8 +503,8 @@ class PresetsViewController: UIViewController {
 
 }
 
-// *****************************************************************
 // MARK: - TextView Delegate
+
 extension PresetsViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         doneEditingButton.isHidden = true

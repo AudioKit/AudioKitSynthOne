@@ -98,8 +98,8 @@ class PresetsCategoriesViewController: UIViewController {
     }
 }
 
-// *****************************************************************
 // MARK: - TableViewDataSource
+
 extension PresetsCategoriesViewController: UITableViewDataSource {
 
     func numberOfSections(in categoryTableView: UITableView) -> Int {

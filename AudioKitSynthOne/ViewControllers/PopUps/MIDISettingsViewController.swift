@@ -129,8 +129,8 @@ class MIDISettingsViewController: UIViewController {
 
 }
 
-// *****************************************************************
 // MARK: - TableViewDataSource
+
 extension MIDISettingsViewController: UITableViewDataSource {
 
     func numberOfSections(in categoryTableView: UITableView) -> Int {

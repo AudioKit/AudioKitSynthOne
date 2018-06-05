@@ -12,6 +12,9 @@ public protocol TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange()
 }
 
+/// View controller for the Tunings Panel
+///
+/// Erv Wilson is the man [website](http://aure.com/)
 class TuningsViewController: PanelViewController {
 
     @IBOutlet weak var tuningTableView: UITableView!
@@ -61,6 +64,9 @@ class TuningsViewController: PanelViewController {
 
     func dependentParameterDidChange(_ parameter: DependentParameter) {}
 
+    /// Notification of a change in notes played
+    ///
+    /// - Parameter playingNotes: An array of playing notes
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
         tuningsPitchWheelView.playingNotesDidChange(playingNotes)
     }

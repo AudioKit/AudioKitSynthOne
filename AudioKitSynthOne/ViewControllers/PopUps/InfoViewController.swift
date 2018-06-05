@@ -1,5 +1,5 @@
 //
-//  InfoController.swift
+//  InfoViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 10/31/17.
@@ -9,7 +9,7 @@
 import UIKit
 import StoreKit
 
-class InfoController: UIViewController {
+class InfoViewController: UIViewController {
 
     @IBOutlet weak var moreView: UIView!
 

@@ -1,5 +1,5 @@
 //
-//  PopUpMIDIViewController.swift
+//  MIDISettingsViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 12/26/17.
@@ -15,7 +15,7 @@ protocol MIDISettingsPopOverDelegate: AnyObject {
     func storeTuningWithPresetDidChange(_ value: Bool)
 }
 
-class PopUpMIDIViewController: UIViewController {
+class MIDISettingsViewController: UIViewController {
 
     @IBOutlet weak var channelStepper: Stepper!
     @IBOutlet weak var channelLabel: UILabel!
@@ -129,11 +129,9 @@ class PopUpMIDIViewController: UIViewController {
 
 }
 
-// *****************************************************************
 // MARK: - TableViewDataSource
-// *****************************************************************
 
-extension PopUpMIDIViewController: UITableViewDataSource {
+extension MIDISettingsViewController: UITableViewDataSource {
 
     func numberOfSections(in categoryTableView: UITableView) -> Int {
         return 1
@@ -168,11 +166,9 @@ extension PopUpMIDIViewController: UITableViewDataSource {
     }
 }
 
-//*****************************************************************
 // MARK: - TableViewDelegate
-//*****************************************************************
 
-extension PopUpMIDIViewController: UITableViewDelegate {
+extension MIDISettingsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 

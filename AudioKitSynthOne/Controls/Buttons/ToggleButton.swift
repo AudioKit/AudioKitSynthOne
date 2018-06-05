@@ -3,13 +3,13 @@
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/22/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit
 
 @IBDesignable
-class ToggleButton: UIView, AKS1Control {
+class ToggleButton: UIView, S1Control {
 
     // MARK: - ToggleButton
 

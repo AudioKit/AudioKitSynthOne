@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class VerticalSlider: UIControl, AKS1Control {
+class VerticalSlider: UIControl, S1Control {
 
     var callback: (Double) -> Void = { _ in }
     var minValue: CGFloat = 0.0

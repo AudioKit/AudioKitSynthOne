@@ -9,9 +9,9 @@
 import Foundation
 import AudioKit
 
-@objc open class AKSynthOne: AKPolyphonicNode, AKComponent, AKS1Protocol {
+@objc open class AKSynthOne: AKPolyphonicNode, AKComponent, S1Protocol {
 
-    public typealias AKAudioUnitType = AKS1AudioUnit
+    public typealias AKAudioUnitType = S1AudioUnit
 
     /// Four letter unique description of the node
     public static let ComponentDescription = AudioComponentDescription(instrument: "aks1")
@@ -38,78 +38,78 @@ import AudioKit
         internalAU?.stopAllNotes()
     }
 
-    open func setSynthParameter(_ param: AKS1Parameter, _ value: Double) {
-        internalAU?.setSynthParameter(param, value: Float(value))
+    open func setSynthParameter(_ parameter: S1Parameter, _ value: Double) {
+        internalAU?.setSynthParameter(parameter, value: Float(value))
     }
 
-    open func getSynthParameter(_ param: AKS1Parameter) -> Double {
-        return Double(internalAU?.getSynthParameter(param) ?? 0)
+    open func getSynthParameter(_ parameter: S1Parameter) -> Double {
+        return Double(internalAU?.getSynthParameter(parameter) ?? 0)
     }
 
-    open func getDependentParameter(_ param: AKS1Parameter) -> Double {
-        return Double(internalAU?.getDependentParameter(param) ?? 0)
+    open func getDependentParameter(_ parameter: S1Parameter) -> Double {
+        return Double(internalAU?.getDependentParameter(parameter) ?? 0)
     }
-    open func setDependentParameter(_ param: AKS1Parameter, _ value: Double, _ payload: Int32) {
-        internalAU?.setDependentParameter(param, value: Float(value), payload: payload)
-    }
-
-    open func getMinimum(_ param: AKS1Parameter) -> Double {
-        return Double(internalAU?.getMinimum(param) ?? 0)
+    open func setDependentParameter(_ parameter: S1Parameter, _ value: Double, _ payload: Int32) {
+        internalAU?.setDependentParameter(parameter, value: Float(value), payload: payload)
     }
 
-    open func getMaximum(_ param: AKS1Parameter) -> Double {
-        return Double(internalAU?.getMaximum(param) ?? 1)
+    open func getMinimum(_ parameter: S1Parameter) -> Double {
+        return Double(internalAU?.getMinimum(parameter) ?? 0)
     }
 
-    open func getRange(_ param: AKS1Parameter) -> ClosedRange<Double> {
-        let min = Double(internalAU?.getMinimum(param) ?? 0)
-        let max = Double(internalAU?.getMaximum(param) ?? 1)
+    open func getMaximum(_ parameter: S1Parameter) -> Double {
+        return Double(internalAU?.getMaximum(parameter) ?? 1)
+    }
+
+    open func getRange(_ parameter: S1Parameter) -> ClosedRange<Double> {
+        let min = Double(internalAU?.getMinimum(parameter) ?? 0)
+        let max = Double(internalAU?.getMaximum(parameter) ?? 1)
         return min ... max
     }
 
-    open func getDefault(_ param: AKS1Parameter) -> Double {
-        return Double(internalAU?.getDefault(param) ?? 0)
+    open func getDefault(_ parameter: S1Parameter) -> Double {
+        return Double(internalAU?.getDefault(parameter) ?? 0)
     }
 
     open func getPattern(forIndex inputIndex: Int) -> Int {
         let index = (0...15).clamp(inputIndex)
-        let aspi = Int32(Int(AKS1Parameter.arpSeqPattern00.rawValue) + index)
-        guard let aspp = AKS1Parameter(rawValue: aspi) else { return 0 }
+        let aspi = Int32(Int(S1Parameter.arpSeqPattern00.rawValue) + index)
+        guard let aspp = S1Parameter(rawValue: aspi) else { return 0 }
         return Int(getSynthParameter(aspp))
     }
 
     open func setPattern(forIndex inputIndex: Int, _ value: Int) {
         let index = Int32((0...15).clamp(inputIndex))
-        let aspi = Int32(AKS1Parameter.arpSeqPattern00.rawValue + index)
-        guard let aspp = AKS1Parameter(rawValue: aspi) else { return }
+        let aspi = Int32(S1Parameter.arpSeqPattern00.rawValue + index)
+        guard let aspp = S1Parameter(rawValue: aspi) else { return }
         internalAU?.setSynthParameter(aspp, value: Float(value) )
     }
 
     open func getOctaveBoost(forIndex inputIndex: Int) -> Bool {
         let index = (0...15).clamp(inputIndex)
-        let asni = Int32(Int(AKS1Parameter.arpSeqOctBoost00.rawValue) + index)
-        guard let asnp = AKS1Parameter(rawValue: asni) else { return false }
+        let asni = Int32(Int(S1Parameter.arpSeqOctBoost00.rawValue) + index)
+        guard let asnp = S1Parameter(rawValue: asni) else { return false }
         return getSynthParameter(asnp) > 0 ? true : false
     }
 
     open func setOctaveBoost(forIndex inputIndex: Int, _ value: Double) {
         let index = Int32((0...15).clamp(inputIndex))
-        let aspi = Int32(AKS1Parameter.arpSeqOctBoost00.rawValue + index)
-        guard let aspp = AKS1Parameter(rawValue: aspi) else { return }
+        let aspi = Int32(S1Parameter.arpSeqOctBoost00.rawValue + index)
+        guard let aspp = S1Parameter(rawValue: aspi) else { return }
         internalAU?.setSynthParameter(aspp, value: Float(value) )
     }
 
     open func isNoteOn(forIndex inputIndex: Int) -> Bool {
         let index = (0...15).clamp(inputIndex)
-        let asoi = Int32(Int(AKS1Parameter.arpSeqNoteOn00.rawValue) + index)
-        guard let asop = AKS1Parameter(rawValue: asoi) else { return false }
+        let asoi = Int32(Int(S1Parameter.arpSeqNoteOn00.rawValue) + index)
+        guard let asop = S1Parameter(rawValue: asoi) else { return false }
         return ( getSynthParameter(asop) > 0 ) ? true : false
     }
 
     open func setNoteOn(forIndex inputIndex: Int, _ value: Bool) {
         let index = Int32((0...15).clamp(inputIndex))
-        let aspi = Int32(AKS1Parameter.arpSeqNoteOn00.rawValue + index)
-        guard let aspp = AKS1Parameter(rawValue: aspi) else { return }
+        let aspi = Int32(S1Parameter.arpSeqNoteOn00.rawValue + index)
+        guard let aspp = S1Parameter(rawValue: aspi) else { return }
         internalAU?.setSynthParameter(aspp, value: Float(value == true ? 1 : 0) )
     }
 
@@ -187,7 +187,7 @@ import AudioKit
                 }
             }
             self?.internalAU?.parameters = self?.parameters
-            self?.internalAU?.aks1Delegate = self
+            self?.internalAU?.s1Delegate = self
         }
 
         guard let tree = internalAU?.parameterTree else {
@@ -196,18 +196,18 @@ import AudioKit
         auParameters = tree.allParameters
 
         token = tree.token(byAddingParameterObserver: { address, value in
-            guard let param: AKS1Parameter = AKS1Parameter(rawValue: Int32(address)) else {
+            guard let parameter: S1Parameter = S1Parameter(rawValue: Int32(address)) else {
                 return
             }
-            self.postNotification(param, Double(value) )
+            self.postNotification(parameter, Double(value) )
         })
 
-        internalAU?.aks1Delegate = self
+        internalAU?.s1Delegate = self
     }
 
-    @objc open weak var delegate: AKS1Protocol?
+    @objc open weak var delegate: S1Protocol?
 
-    internal func postNotification(_ param: AKS1Parameter, _ value: Double) {
+    internal func postNotification(_ parameter: S1Parameter, _ value: Double) {
         AKLog("unused")
     }
 
@@ -230,11 +230,11 @@ import AudioKit
 
     // MARK: - Passthroughs for AKSynthOneProtocol called by DSP on main thread
 
-    @objc public func dependentParamDidChange(_ param: DependentParam) {
-        delegate?.dependentParamDidChange(param)
+    @objc public func dependentParameterDidChange(_ parameter: DependentParameter) {
+        delegate?.dependentParameterDidChange(parameter)
     }
 
-    @objc public func arpBeatCounterDidChange(_ beat: AKS1ArpBeatCounter) {
+    @objc public func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {
         delegate?.arpBeatCounterDidChange(beat)
     }
 

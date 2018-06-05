@@ -3,7 +3,7 @@
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/24/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import AudioKit
@@ -235,14 +235,14 @@ class PresetsViewController: UIViewController {
     }
 
     func selectCategory(_ newIndex: Int) {
-        guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesController else { return }
+        guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesViewController else { return }
         categoriesVC.categoryTableView.selectRow(at: IndexPath(row: newIndex, section: 0),
                                                  animated: false,
                                                  scrollPosition: .top)
     }
 
     func updateCategoryTable() {
-        guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesController else { return }
+        guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesViewController else { return }
         categoriesVC.updateChoices()
     }
 
@@ -466,7 +466,7 @@ class PresetsViewController: UIViewController {
 
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueToEdit" {
-            guard let popOverController = segue.destination as? PopUpPresetEdit else { return }
+            guard let popOverController = segue.destination as? PresetEditorViewController else { return }
             popOverController.delegate = self
             popOverController.preset = currentPreset
             popOverController.preferredContentSize = CGSize(width: 550, height: 316)
@@ -476,7 +476,7 @@ class PresetsViewController: UIViewController {
         }
 
         if segue.identifier == "SegueToBankEdit" {
-            guard let popOverController = segue.destination as? PopUpBankEdit else { return }
+            guard let popOverController = segue.destination as? BankEditorViewController else { return }
             popOverController.delegate = self
             let bank = conductor.banks.first(where: { $0.position == bankIndex })
             popOverController.bankName = bank?.name ?? "Unnamed Bank"
@@ -503,9 +503,7 @@ class PresetsViewController: UIViewController {
 
 }
 
-// *****************************************************************
 // MARK: - TextView Delegate
-// *****************************************************************
 
 extension PresetsViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {

@@ -1,14 +1,14 @@
 //
-//  AKS1NoteState.mm
+//  S1NoteState.mm
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 4/30/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-#import "AKS1NoteState.hpp"
+#import "S1NoteState.hpp"
 #import <AudioKit/AudioKit-swift.h>
-#import "AKS1DSPKernel.hpp"
+#import "S1DSPKernel.hpp"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AudioUnit/AudioUnit.h>
 #import <AVFoundation/AVFoundation.h>
@@ -22,11 +22,11 @@ static inline float nnToHz(float noteNumber) {
 
 // MARK: Member Functions
 
-inline float AKS1NoteState::getParam(AKS1Parameter param) {
+inline float S1NoteState::getParam(S1Parameter param) {
     return kernel->p[param];
 }
 
-void AKS1NoteState::init() {
+void S1NoteState::init() {
     // OSC AMPLITUDE ENVELOPE
     sp_adsr_create(&adsr);
     sp_adsr_init(kernel->spp(), adsr);
@@ -37,14 +37,14 @@ void AKS1NoteState::init() {
     
     // OSC1
     sp_oscmorph_create(&oscmorph1);
-    sp_oscmorph_init(kernel->spp(), oscmorph1, kernel->ft_array, AKS1_NUM_FTABLES, 0);
+    sp_oscmorph_init(kernel->spp(), oscmorph1, kernel->ft_array, S1_NUM_FTABLES, 0);
     oscmorph1->freq = 0;
     oscmorph1->amp = 0;
     oscmorph1->wtpos = 0;
     
     // OSC2
     sp_oscmorph_create(&oscmorph2);
-    sp_oscmorph_init(kernel->spp(), oscmorph2, kernel->ft_array, AKS1_NUM_FTABLES, 0);
+    sp_oscmorph_init(kernel->spp(), oscmorph2, kernel->ft_array, S1_NUM_FTABLES, 0);
     oscmorph2->freq = 0;
     oscmorph2->amp = 0;
     oscmorph2->wtpos = 0;
@@ -78,7 +78,7 @@ void AKS1NoteState::init() {
     sp_buthp_init(kernel->spp(), hiPass);
 }
 
-void AKS1NoteState::destroy() {
+void S1NoteState::destroy() {
     sp_adsr_destroy(&adsr);
     sp_adsr_destroy(&fadsr);
     sp_oscmorph_destroy(&oscmorph1);
@@ -93,7 +93,7 @@ void AKS1NoteState::destroy() {
     sp_buthp_destroy(&hiPass);
 }
 
-void AKS1NoteState::clear() {
+void S1NoteState::clear() {
     internalGate = 0;
     stage = stageOff;
     amp = 0;
@@ -101,7 +101,7 @@ void AKS1NoteState::clear() {
 }
 
 // helper...supports initialization of playing note for both mono and poly
-void AKS1NoteState::startNoteHelper(int noteNumber, int velocity, float frequency) {
+void S1NoteState::startNoteHelper(int noteNumber, int velocity, float frequency) {
     oscmorph1->freq = frequency;
     oscmorph2->freq = frequency;
     subOsc->freq = frequency;
@@ -114,13 +114,13 @@ void AKS1NoteState::startNoteHelper(int noteNumber, int velocity, float frequenc
     fmOsc->amp = amplitude;
     noise->amp = amplitude;
     
-    stage = AKS1NoteState::stageOn;
+    stage = S1NoteState::stageOn;
     internalGate = 1;
     rootNoteNumber = noteNumber;
 }
 
-//called at SampleRate for each AKS1NoteState.  Polyphony of 6 = 264,000 times per second
-void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
+//called at SampleRate for each S1NoteState.  Polyphony of 6 = 264,000 times per second
+void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     
     // isMono
     const bool isMonoMode = getParam(isMono) > 0.f;
@@ -162,7 +162,7 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     newFrequencyOsc1 *= nnToHz((int)getParam(morph1SemitoneOffset));
     newFrequencyOsc1 *= getParam(detuningMultiplier) * pitchLFOCoefficient;
     newFrequencyOsc1 *= pitchbendCoefficient;
-    newFrequencyOsc1 = clamp(newFrequencyOsc1, 0.f, 0.5f*AKS1_SAMPLE_RATE);
+    newFrequencyOsc1 = clamp(newFrequencyOsc1, 0.f, 0.5f*S1_SAMPLE_RATE);
     oscmorph1->freq = newFrequencyOsc1;
     
     //OSC1: wavetable
@@ -185,7 +185,7 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
         newFrequencyOsc2 += lfo3_0_1 * getParam(morph2Detuning) * magicDetune;
     else
         newFrequencyOsc2 += getParam(morph2Detuning) * magicDetune;
-    newFrequencyOsc2 = clamp(newFrequencyOsc2, 0.f, 0.5f*AKS1_SAMPLE_RATE);
+    newFrequencyOsc2 = clamp(newFrequencyOsc2, 0.f, 0.5f*S1_SAMPLE_RATE);
     oscmorph2->freq = newFrequencyOsc2;
     
     //OSC2: wavetable
@@ -196,7 +196,7 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     float newFrequencySub = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencySub;
     newFrequencySub *= getParam(detuningMultiplier) / (2.f * (1.f + getParam(subOctaveDown))) * pitchLFOCoefficient;
     newFrequencySub *= pitchbendCoefficient;
-    newFrequencySub = clamp(newFrequencySub, 0.f, 0.5f * AKS1_SAMPLE_RATE);
+    newFrequencySub = clamp(newFrequencySub, 0.f, 0.5f * S1_SAMPLE_RATE);
     subOsc->freq = newFrequencySub;
     
     //FM OSC FREQ
@@ -204,7 +204,7 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     float newFrequencyFM = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyFM;
     newFrequencyFM *= getParam(detuningMultiplier) * pitchLFOCoefficient;
     newFrequencyFM *= pitchbendCoefficient;
-    newFrequencyFM = clamp(newFrequencyFM, 0.f, 0.5f * AKS1_SAMPLE_RATE);
+    newFrequencyFM = clamp(newFrequencyFM, 0.f, 0.5f * S1_SAMPLE_RATE);
     fmOsc->freq = newFrequencyFM;
     
     //FM LFO
@@ -271,7 +271,7 @@ void AKS1NoteState::run(int frameIndex, float *outL, float *outR) {
     } else if (getParam(filterType) == 1) {
         // bandpass bandwidth is a different unit than lopass resonance.
         // take advantage of the range of resonance [0,1].
-        const float bandwidth = 0.0625f * AKS1_SAMPLE_RATE * (-1.f + exp2( clamp(1.f - filterResonance, 0.f, 1.f) ) );
+        const float bandwidth = 0.0625f * S1_SAMPLE_RATE * (-1.f + exp2( clamp(1.f - filterResonance, 0.f, 1.f) ) );
         bandPass->bw = bandwidth;
     }
     

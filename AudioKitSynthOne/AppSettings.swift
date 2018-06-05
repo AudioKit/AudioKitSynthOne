@@ -3,16 +3,14 @@
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 10/31/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import Foundation
 
-// MARK: - App Settings
-
 let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
 
-class AppSetting: Codable {
+class AppSettings: Codable {
 
     var settingID = "main"
     var firstRun = true
@@ -94,14 +92,12 @@ class AppSetting: Codable {
     var darkMode = false
     var showKeyboard = 1.0 // 1 show, 0 hide
 
-        // MARK: - Init
-    
     init() {
     }
 
     // MARK: - JSON Parsing into object
 
-    // Init from Dictionary/JSON
+    /// Initialization from Dictionary/JSON
     init(dictionary: [String: Any]) {
         settingID = dictionary["settingID"] as? String ?? settingID
         launches = dictionary["launches"] as? Int ?? launches

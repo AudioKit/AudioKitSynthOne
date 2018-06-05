@@ -1,5 +1,5 @@
 //
-//  AKS1Parameter.h
+//  S1Parameter.h
 //  AudioKit
 //
 //  Created by AudioKit Contributors on 12/24/17.
@@ -10,7 +10,7 @@
 
 #pragma once
 
-typedef AK_ENUM(AKS1Parameter) {
+typedef AK_ENUM(S1Parameter) {
     index1 = 0,
     index2 = 1,
     morphBalance = 2,
@@ -157,6 +157,6 @@ typedef AK_ENUM(AKS1Parameter) {
     frequencyA4 = 143,
     portamentoHalfTime = 144,
     
-    AKS1ParameterCount = 145
-} AKS1Parameter;
+    S1ParameterCount = 145
+} S1Parameter;
 

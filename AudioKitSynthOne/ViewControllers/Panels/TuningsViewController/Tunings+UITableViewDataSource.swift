@@ -8,9 +8,6 @@
 
 import UIKit
 
-// *****************************************************************
-// MARK: - TableViewDataSource
-// *****************************************************************
 extension TuningsViewController: UITableViewDataSource {
 
     public func numberOfSections(in tableView: UITableView) -> Int {

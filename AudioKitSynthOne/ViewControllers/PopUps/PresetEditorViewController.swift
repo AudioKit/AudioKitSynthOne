@@ -1,9 +1,9 @@
 //
-//  PopUpPresetEdit.swift
+//  PresetEditorViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 9/5/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ protocol PresetPopOverDelegate: AnyObject {
     func didFinishEditing(name: String, category: Int, newBank: String)
 }
 
-class PopUpPresetEdit: UIViewController {
+class PresetEditorViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var popupView: UIView!
@@ -86,11 +86,9 @@ class PopUpPresetEdit: UIViewController {
 
 }
 
-// *****************************************************************
 // MARK: - TableViewDataSource
-// *****************************************************************
 
-extension PopUpPresetEdit: UITableViewDataSource {
+extension PresetEditorViewController: UITableViewDataSource {
 
     func numberOfSections(in categoryTableView: UITableView) -> Int {
         return 1
@@ -123,11 +121,9 @@ extension PopUpPresetEdit: UITableViewDataSource {
     }
 }
 
-//*****************************************************************
 // MARK: - TableViewDelegate
-//*****************************************************************
 
-extension PopUpPresetEdit: UITableViewDelegate {
+extension PresetEditorViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         categoryIndex = (indexPath as NSIndexPath).row
@@ -135,11 +131,9 @@ extension PopUpPresetEdit: UITableViewDelegate {
 
 }
 
-// *****************************************************************
 // MARK: - PickerDataSource
-// *****************************************************************
 
-extension PopUpPresetEdit: UIPickerViewDataSource {
+extension PresetEditorViewController: UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -173,11 +167,9 @@ extension PopUpPresetEdit: UIPickerViewDataSource {
     }
 }
 
-//*****************************************************************
 // MARK: - PickerViewDelegate
-//*****************************************************************
 
-extension PopUpPresetEdit: UIPickerViewDelegate {
+extension PresetEditorViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         bankSelected = pickerBankNames[row]

@@ -1,9 +1,9 @@
 //
-//  PresetsCategoriesController.swift
+//  PresetsCategoriesViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 9/2/17.
-//  Copyright © 2017 Matthew Fecher. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit
@@ -50,7 +50,7 @@ protocol CategoryDelegate: AnyObject {
 
 // MARK: - PresetsCategoriesController
 
-class PresetsCategoriesController: UIViewController {
+class PresetsCategoriesViewController: UIViewController {
 
     @IBOutlet weak var categoryTableView: UITableView!
     weak var categoryDelegate: CategoryDelegate?
@@ -98,11 +98,9 @@ class PresetsCategoriesController: UIViewController {
     }
 }
 
-// *****************************************************************
 // MARK: - TableViewDataSource
-// *****************************************************************
 
-extension PresetsCategoriesController: UITableViewDataSource {
+extension PresetsCategoriesViewController: UITableViewDataSource {
 
     func numberOfSections(in categoryTableView: UITableView) -> Int {
         return 1
@@ -140,11 +138,9 @@ extension PresetsCategoriesController: UITableViewDataSource {
 
 }
 
-//*****************************************************************
 // MARK: - TableViewDelegate
-//*****************************************************************
 
-extension PresetsCategoriesController: UITableViewDelegate {
+extension PresetsCategoriesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
@@ -154,12 +150,10 @@ extension PresetsCategoriesController: UITableViewDelegate {
 
 }
 
-//*****************************************************************
 // MARK: - Cell Delegate
-//*****************************************************************
 
 // Pass the button calls up to PresetsView Controller
-extension PresetsCategoriesController: CategoryCellDelegate {
+extension PresetsCategoriesViewController: CategoryCellDelegate {
 
     func bankShare() {
         categoryDelegate?.bankShare()

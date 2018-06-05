@@ -22,6 +22,6 @@ public class UpdatableViewController: UIViewController {
         conductor.updateAllUI()
     }
 
-    // subclasses should update UI elements that do not conform to AKS1Control protocol, should not call super
-    func updateUI(_ param: AKS1Parameter, control inputControl: AKS1Control?, value: Double) {}
+    // subclasses should update UI elements that do not conform to S1Control protocol, should not call super
+    func updateUI(_ parameter: S1Parameter, control inputControl: S1Control?, value: Double) {}
 }

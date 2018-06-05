@@ -1,69 +1,69 @@
 //
-//  AKS1AudioUnit.mm
+//  S1AudioUnit.mm
 //  AudioKit
 //
 //  Created by AudioKit Contributors, revision history on Github.
 //  Join us at AudioKitPro.com, github.com/audiokit
 //
 
-#import "AKS1AudioUnit.h"
-#import "AKS1DSPKernel.hpp"
+#import "S1AudioUnit.h"
+#import "S1DSPKernel.hpp"
 #import "BufferedAudioBus.hpp"
 #import "AEMessageQueue.h"
 #import <AudioKit/AudioKit-swift.h>
 
-@implementation AKS1AudioUnit {
+@implementation S1AudioUnit {
     // C++ members need to be ivars; they would be copied on access if they were properties.
-    AKS1DSPKernel _kernel;
+    S1DSPKernel _kernel;
     BufferedOutputBus _outputBusBuffer;
     AUHostMusicalContextBlock _musicalContext;
 }
 
 @synthesize parameterTree = _parameterTree;
-@synthesize aks1Delegate = _aks1Delegate;
+@synthesize s1Delegate = _s1Delegate;
 
-- (float)getSynthParameter:(AKS1Parameter)param {
+- (float)getSynthParameter:(S1Parameter)param {
     return _kernel.getSynthParameter(param);
 }
 
-- (void)setSynthParameter:(AKS1Parameter)param value:(float)value {
+- (void)setSynthParameter:(S1Parameter)param value:(float)value {
     _kernel.setSynthParameter(param, value);
 }
 
-- (float)getDependentParameter:(AKS1Parameter)param {
+- (float)getDependentParameter:(S1Parameter)param {
     return _kernel.getDependentParameter(param);
 }
 
-- (void)setDependentParameter:(AKS1Parameter)param value:(float)value payload:(int)payload {
+- (void)setDependentParameter:(S1Parameter)param value:(float)value payload:(int)payload {
     _kernel.setDependentParameter(param, value, payload);
 }
 
 ///auv3
 - (void)setParameter:(AUParameterAddress)address value:(AUValue)value {
-    _kernel.setSynthParameter((AKS1Parameter)address, value);
+    _kernel.setSynthParameter((S1Parameter)address, value);
 }
 
 ///auv3
 - (AUValue)getParameter:(AUParameterAddress)address {
-    return _kernel.getSynthParameter((AKS1Parameter)address);
+    return _kernel.getSynthParameter((S1Parameter)address);
 }
 
-- (float)getMinimum:(AKS1Parameter)param {
+- (float)getMinimum:(S1Parameter)param {
     return _kernel.parameterMin(param);
 }
 
-- (float)getMaximum:(AKS1Parameter)param {
+- (float)getMaximum:(S1Parameter)param {
     return _kernel.parameterMax(param);
 }
 
-- (float)getDefault:(AKS1Parameter)param {
+- (float)getDefault:(S1Parameter)param {
     return _kernel.parameterDefault(param);
 }
 
 ///Deprecated:calling this method to access even a single element of this array results in creating the entire array
 - (NSArray<NSNumber*> *)parameters {
-    NSMutableArray *temp = [NSMutableArray arrayWithCapacity:AKS1Parameter::AKS1ParameterCount];
-    for (int i = 0; i < AKS1Parameter::AKS1ParameterCount; i++) {
+    NSMutableArray *temp = [NSMutableArray arrayWithCapacity:S1Parameter::S1ParameterCount];
+    for (int i = 0; i < S1Parameter::S1ParameterCount; i++) {
         [temp setObject:[NSNumber numberWithFloat:_kernel.p[i]] atIndexedSubscript:i];
     }
     return [NSArray arrayWithArray:temp];
@@ -71,7 +71,7 @@
 
 ///deprecated
 - (void)setParameters:(NSArray<NSNumber*> *)parameters {
-    float params[AKS1Parameter::AKS1ParameterCount];
+    float params[S1Parameter::S1ParameterCount];
     for (int i = 0; i < parameters.count; i++) {
         params[i] = [parameters[i] floatValue];
     }
@@ -135,13 +135,13 @@
                                                                  busType:AUAudioUnitBusTypeOutput
                                                                   busses:@[self.outputBus]];
     _kernel.audioUnit = self;
-    __block AKS1DSPKernel *blockKernel = &_kernel;
+    __block S1DSPKernel *blockKernel = &_kernel;
     
     // Create parameter tree
     AudioUnitParameterOptions flags = kAudioUnitParameterFlag_IsWritable | kAudioUnitParameterFlag_IsReadable;
     NSMutableArray<AUParameter*>* tree = [NSMutableArray array];
-    for(NSInteger i = AKS1Parameter::index1; i < AKS1Parameter::AKS1ParameterCount; i++) {
-        const AKS1Parameter p = (AKS1Parameter)i;
+    for(NSInteger i = S1Parameter::index1; i < S1Parameter::S1ParameterCount; i++) {
+        const S1Parameter p = (S1Parameter)i;
         const AUValue minValue = _kernel.parameterMin(p);
         const AUValue maxValue = _kernel.parameterMax(p);
         const AUValue defaultValue = _kernel.parameterDefault(p);
@@ -157,11 +157,11 @@
     _parameterTree = [AUParameterTree createTreeWithChildren:tree];
     
     _parameterTree.implementorValueObserver = ^(AUParameter *param, AUValue value) {
-        const AKS1Parameter p = (AKS1Parameter)param.address;
+        const S1Parameter p = (S1Parameter)param.address;
         blockKernel->setSynthParameter(p, value);
     };
     _parameterTree.implementorValueProvider = ^(AUParameter *param) {
-        const AKS1Parameter p = (AKS1Parameter)param.address;
+        const S1Parameter p = (S1Parameter)param.address;
         return blockKernel->getSynthParameter(p);
     };
 }
@@ -183,7 +183,7 @@
 }
 
 - (AUInternalRenderBlock)internalRenderBlock {
-    __block AKS1DSPKernel *state = &_kernel;
+    __block S1DSPKernel *state = &_kernel;
     return ^AUAudioUnitStatus(
                               AudioUnitRenderActionFlags *actionFlags,
                               const AudioTimeStamp       *timestamp,
@@ -206,21 +206,21 @@
 }
 
 
-// passthroughs for AKS1Protocol called by DSP on main thread
-- (void)dependentParamDidChange:(DependentParam)param {
-    [_aks1Delegate dependentParamDidChange:param];
+// passthroughs for S1Protocol called by DSP on main thread
+- (void)dependentParameterDidChange:(DependentParameter)param {
+    [_s1Delegate dependentParameterDidChange:param];
 }
 
-- (void)arpBeatCounterDidChange:(AKS1ArpBeatCounter)arpBeatCounter {
-    [_aks1Delegate arpBeatCounterDidChange:arpBeatCounter];
+- (void)arpBeatCounterDidChange:(S1ArpBeatCounter)arpBeatCounter {
+    [_s1Delegate arpBeatCounterDidChange:arpBeatCounter];
 }
 
 - (void)heldNotesDidChange:(HeldNotes)heldNotes {
-    [_aks1Delegate heldNotesDidChange:heldNotes];
+    [_s1Delegate heldNotesDidChange:heldNotes];
 }
 
 - (void)playingNotesDidChange:(PlayingNotes)playingNotes {
-    [_aks1Delegate playingNotesDidChange:playingNotes];
+    [_s1Delegate playingNotesDidChange:playingNotes];
 }
 
 @end

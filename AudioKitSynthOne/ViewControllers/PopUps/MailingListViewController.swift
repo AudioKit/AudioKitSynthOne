@@ -13,7 +13,7 @@ protocol MailingListDelegate: AnyObject {
     func didSignMailingList(email: String)
 }
 
-class MailingListController: UIViewController, UITextFieldDelegate {
+class MailingListViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var moreView: UIView!
     @IBOutlet weak var emailField: UITextField!

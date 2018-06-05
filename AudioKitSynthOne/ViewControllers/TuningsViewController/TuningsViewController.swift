@@ -105,9 +105,7 @@ class TuningsViewController: PanelViewController {
     }
 }
 
-//*****************************************************************
 // MARK: - TuningsPitchWheelViewTuningDidChange
-//*****************************************************************
 
 extension TuningsViewController: TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange() {

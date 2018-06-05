@@ -1,5 +1,5 @@
 //
-//  PopUpViewController.swift
+//  KeyboardSettingsViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 11/27/16.
@@ -12,7 +12,7 @@ protocol KeyboardPopOverDelegate: AnyObject {
     func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool)
 }
 
-class PopUpKeyboardController: UIViewController {
+class KeyboardSettingsViewController: UIViewController {
 
     @IBOutlet weak var octaveRangeSegment: UISegmentedControl!
     @IBOutlet weak var labelModeSegment: UISegmentedControl!

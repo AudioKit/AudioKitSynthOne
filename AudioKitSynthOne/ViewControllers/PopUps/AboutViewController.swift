@@ -1,5 +1,5 @@
 //
-//  PopUpAbout.swift
+//  AboutViewController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 3/28/18.
@@ -13,7 +13,7 @@ protocol AboutDelegate: AnyObject {
     func showDevView()
 }
 
-class PopUpAbout: UIViewController {
+class AboutViewController: UIViewController {
 
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var textContainer: UIView!
@@ -105,11 +105,9 @@ class PopUpAbout: UIViewController {
 
 }
 
-//*****************************************************************
 // MARK: - MFMailComposeViewController Delegate
-//*****************************************************************
 
-extension PopUpAbout: MFMailComposeViewControllerDelegate {
+extension AboutViewController: MFMailComposeViewControllerDelegate {
 
     func mailComposeController(_ controller: MFMailComposeViewController,
                                didFinishWith result: MFMailComposeResult,

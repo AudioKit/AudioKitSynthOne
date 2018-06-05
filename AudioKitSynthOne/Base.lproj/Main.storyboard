@@ -2178,10 +2178,10 @@
             </objects>
             <point key="canvasLocation" x="68" y="-604"/>
         </scene>
-        <!--Pop Up Keyboard Controller-->
+        <!--Keyboard Settings View Controller-->
         <scene sceneID="nVT-JB-zlP">
             <objects>
-                <viewController id="9qI-Vs-eLW" customClass="PopUpKeyboardController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9qI-Vs-eLW" customClass="KeyboardSettingsViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Jm-dk-ghz"/>
                         <viewControllerLayoutGuide type="bottom" id="nli-Me-Dhp"/>
@@ -2536,10 +2536,10 @@
             </objects>
             <point key="canvasLocation" x="-594.140625" y="138.671875"/>
         </scene>
-        <!--Presets Categories Controller-->
+        <!--Presets Categories View Controller-->
         <scene sceneID="thJ-7m-sD3">
             <objects>
-                <viewController id="HmU-RM-4Vo" customClass="PresetsCategoriesController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HmU-RM-4Vo" customClass="PresetsCategoriesViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X73-TU-57Y"/>
                         <viewControllerLayoutGuide type="bottom" id="VH7-DI-jRE"/>
@@ -2618,10 +2618,10 @@
             </objects>
             <point key="canvasLocation" x="-905" y="596"/>
         </scene>
-        <!--Pop Up Preset Edit-->
+        <!--Preset Editor View Controller-->
         <scene sceneID="Opm-jz-zET">
             <objects>
-                <viewController id="Jll-oz-p3Y" customClass="PopUpPresetEdit" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jll-oz-p3Y" customClass="PresetEditorViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jBk-hS-0Cd"/>
                         <viewControllerLayoutGuide type="bottom" id="Rvb-Dn-8mK"/>
@@ -2762,10 +2762,10 @@
             </objects>
             <point key="canvasLocation" x="-737.109375" y="875.78125"/>
         </scene>
-        <!--Pop UpMOD Controller-->
+        <!--Wheel Settings View Controller-->
         <scene sceneID="2nO-a2-8tJ">
             <objects>
-                <viewController id="qsj-iI-Pz6" customClass="PopUpMODController" customModule="AudioKitSynthOne" sceneMemberID="viewController">
+                <viewController id="qsj-iI-Pz6" customClass="WheelSettingsViewController" customModule="AudioKitSynthOne" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZDf-m7-snJ"/>
                         <viewControllerLayoutGuide type="bottom" id="06P-ho-gDh"/>
@@ -2872,10 +2872,10 @@
             </objects>
             <point key="canvasLocation" x="-1115" y="511"/>
         </scene>
-        <!--Pop UpMIDI View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="fqU-aQ-kCC">
             <objects>
-                <viewController storyboardIdentifier="PopUpMIDIController" id="wQW-DI-keW" customClass="PopUpMIDIViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopUpMIDIController" id="wQW-DI-keW" customClass="MIDISettingsViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fBZ-Yb-aLt"/>
                         <viewControllerLayoutGuide type="bottom" id="LJL-6a-0Xy"/>
@@ -3052,10 +3052,10 @@
             </objects>
             <point key="canvasLocation" x="-1327.1484375" y="693.75"/>
         </scene>
-        <!--Pop Up Bank Edit-->
+        <!--Bank Editor View Controller-->
         <scene sceneID="Rol-HK-KBc">
             <objects>
-                <viewController id="1TZ-6t-Sv7" customClass="PopUpBankEdit" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1TZ-6t-Sv7" customClass="BankEditorViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oxt-Lo-MFw"/>
                         <viewControllerLayoutGuide type="bottom" id="0Ex-rp-qAX"/>
@@ -3160,7 +3160,7 @@
         <!--About-->
         <scene sceneID="puM-ra-17n">
             <objects>
-                <viewController storyboardIdentifier="PopUpAbout" id="omd-Vp-Pv1" userLabel="About" customClass="PopUpAbout" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopUpAbout" id="omd-Vp-Pv1" userLabel="About" customClass="AboutViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6nd-bR-FZJ"/>
                         <viewControllerLayoutGuide type="bottom" id="fxC-Bk-2tx"/>
@@ -3615,7 +3615,7 @@ Your Name Here, Your Name Here, Your Name Here, Your Name Here, Your Name Here, 
         <!--MailingList-->
         <scene sceneID="vhj-nS-HfJ">
             <objects>
-                <viewController id="u9K-io-wc1" userLabel="MailingList" customClass="MailingListController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="u9K-io-wc1" userLabel="MailingList" customClass="MailingListViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lOf-sD-Nba"/>
                         <viewControllerLayoutGuide type="bottom" id="O0Z-dh-iS6"/>

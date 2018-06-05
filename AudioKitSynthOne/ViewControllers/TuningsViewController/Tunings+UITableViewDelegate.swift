@@ -6,9 +6,7 @@
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-//*****************************************************************
 // MARK: - TableViewDelegate
-//*****************************************************************
 
 extension TuningsViewController: UITableViewDelegate {
 

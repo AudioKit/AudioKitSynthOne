@@ -11,7 +11,7 @@ import UIKit
 protocol HeaderDelegate: AnyObject {
     func displayLabelTapped()
     func homePressed()
-    func prevPresetPressed()
+    func previousPresetPressed()
     func nextPresetPressed()
     func savePresetPressed()
     func randomPresetPressed()
@@ -285,8 +285,8 @@ public class HeaderViewController: UpdatableViewController {
         headerDelegate?.homePressed()
     }
 
-    @IBAction func prevPresetPressed(_ sender: UIButton) {
-         headerDelegate?.prevPresetPressed()
+    @IBAction func previousPresetPressed(_ sender: UIButton) {
+         headerDelegate?.previousPresetPressed()
     }
 
     @IBAction func nextPresetPressed(_ sender: UIButton) {

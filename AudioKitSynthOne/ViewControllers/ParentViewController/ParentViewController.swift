@@ -442,7 +442,7 @@ public class ParentViewController: UpdatableViewController {
 
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueToKeyboardSettings" {
-            guard let popOverController = segue.destination as? PopUpKeyboardController else { return }
+            guard let popOverController = segue.destination as? KeyboardSettingsViewController else { return }
             popOverController.delegate = self
             popOverController.octaveRange = keyboardView.octaveCount
             popOverController.labelMode = keyboardView.labelMode
@@ -456,7 +456,7 @@ public class ParentViewController: UpdatableViewController {
         }
 
         if segue.identifier == "SegueToMIDI" {
-            guard let popOverController = segue.destination as? PopUpMIDIViewController else { return }
+            guard let popOverController = segue.destination as? MIDISettingsViewController else { return }
             popOverController.delegate = self
             let userMIDIChannel = omniMode ? -1 : Int(midiChannelIn)
             popOverController.userChannelIn = userMIDIChannel
@@ -472,7 +472,7 @@ public class ParentViewController: UpdatableViewController {
         }
 
         if segue.identifier == "SegueToMOD" {
-            guard let popOverController = segue.destination as? PopUpMODController else { return }
+            guard let popOverController = segue.destination as? WheelSettingsViewController else { return }
             popOverController.delegate = self
             popOverController.modWheelDestination = Int(activePreset.modWheelRouting)
             popOverController.preferredContentSize = CGSize(width: 300, height: 290)
@@ -483,12 +483,12 @@ public class ParentViewController: UpdatableViewController {
         }
 
         if segue.identifier == "SegueToAbout" {
-            guard let popOverController = segue.destination as? PopUpAbout else { return }
+            guard let popOverController = segue.destination as? AboutViewController else { return }
             popOverController.delegate = self
         }
 
         if segue.identifier == "SegueToMailingList" {
-            guard let popOverController = segue.destination as? MailingListController else { return }
+            guard let popOverController = segue.destination as? MailingListViewController else { return }
             popOverController.delegate = self
         }
     }

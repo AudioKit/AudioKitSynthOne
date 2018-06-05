@@ -77,14 +77,14 @@
 		C435C53520C52D8800DAECCD /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53420C52D8800DAECCD /* ChildView.swift */; };
 		C435C53720C52DC800DAECCD /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53620C52DC800DAECCD /* AppSetting.swift */; };
 		C435C54220C52F0500DAECCD /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53920C52F0500DAECCD /* InfoController.swift */; };
-		C435C54320C52F0500DAECCD /* PopUpMODController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53A20C52F0500DAECCD /* PopUpMODController.swift */; };
-		C435C54420C52F0500DAECCD /* PopUpMIDIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53B20C52F0500DAECCD /* PopUpMIDIViewController.swift */; };
-		C435C54520C52F0500DAECCD /* PopUpAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53C20C52F0500DAECCD /* PopUpAbout.swift */; };
-		C435C54620C52F0500DAECCD /* PopUpPresetEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53D20C52F0500DAECCD /* PopUpPresetEdit.swift */; };
-		C435C54720C52F0500DAECCD /* PresetsCategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53E20C52F0500DAECCD /* PresetsCategoriesController.swift */; };
-		C435C54820C52F0500DAECCD /* PopUpBankEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53F20C52F0500DAECCD /* PopUpBankEdit.swift */; };
-		C435C54920C52F0500DAECCD /* MailingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C54020C52F0500DAECCD /* MailingListController.swift */; };
-		C435C54A20C52F0500DAECCD /* PopUpKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C54120C52F0500DAECCD /* PopUpKeyboardController.swift */; };
+		C435C54320C52F0500DAECCD /* WheelSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53A20C52F0500DAECCD /* WheelSettingsViewController.swift */; };
+		C435C54420C52F0500DAECCD /* MIDISettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53B20C52F0500DAECCD /* MIDISettingsViewController.swift */; };
+		C435C54520C52F0500DAECCD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53C20C52F0500DAECCD /* AboutViewController.swift */; };
+		C435C54620C52F0500DAECCD /* PresetEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53D20C52F0500DAECCD /* PresetEditorViewController.swift */; };
+		C435C54720C52F0500DAECCD /* PresetsCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53E20C52F0500DAECCD /* PresetsCategoriesViewController.swift */; };
+		C435C54820C52F0500DAECCD /* BankEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C53F20C52F0500DAECCD /* BankEditorViewController.swift */; };
+		C435C54920C52F0500DAECCD /* MailingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C54020C52F0500DAECCD /* MailingListViewController.swift */; };
+		C435C54A20C52F0500DAECCD /* KeyboardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C54120C52F0500DAECCD /* KeyboardSettingsViewController.swift */; };
 		C435C57820C530C900DAECCD /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C55120C530C900DAECCD /* Conductor.swift */; };
 		C435C57920C530C900DAECCD /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C55420C530C900DAECCD /* AKSynthOne.swift */; };
 		C435C57A20C530C900DAECCD /* SDSustainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C55620C530C900DAECCD /* SDSustainer.swift */; };
@@ -250,14 +250,14 @@
 		C435C53420C52D8800DAECCD /* ChildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
 		C435C53620C52DC800DAECCD /* AppSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		C435C53920C52F0500DAECCD /* InfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
-		C435C53A20C52F0500DAECCD /* PopUpMODController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpMODController.swift; sourceTree = "<group>"; };
-		C435C53B20C52F0500DAECCD /* PopUpMIDIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpMIDIViewController.swift; sourceTree = "<group>"; };
-		C435C53C20C52F0500DAECCD /* PopUpAbout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpAbout.swift; sourceTree = "<group>"; };
-		C435C53D20C52F0500DAECCD /* PopUpPresetEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPresetEdit.swift; sourceTree = "<group>"; };
-		C435C53E20C52F0500DAECCD /* PresetsCategoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetsCategoriesController.swift; sourceTree = "<group>"; };
-		C435C53F20C52F0500DAECCD /* PopUpBankEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpBankEdit.swift; sourceTree = "<group>"; };
-		C435C54020C52F0500DAECCD /* MailingListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailingListController.swift; sourceTree = "<group>"; };
-		C435C54120C52F0500DAECCD /* PopUpKeyboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpKeyboardController.swift; sourceTree = "<group>"; };
+		C435C53A20C52F0500DAECCD /* WheelSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelSettingsViewController.swift; sourceTree = "<group>"; };
+		C435C53B20C52F0500DAECCD /* MIDISettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDISettingsViewController.swift; sourceTree = "<group>"; };
+		C435C53C20C52F0500DAECCD /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		C435C53D20C52F0500DAECCD /* PresetEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetEditorViewController.swift; sourceTree = "<group>"; };
+		C435C53E20C52F0500DAECCD /* PresetsCategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetsCategoriesViewController.swift; sourceTree = "<group>"; };
+		C435C53F20C52F0500DAECCD /* BankEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankEditorViewController.swift; sourceTree = "<group>"; };
+		C435C54020C52F0500DAECCD /* MailingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailingListViewController.swift; sourceTree = "<group>"; };
+		C435C54120C52F0500DAECCD /* KeyboardSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardSettingsViewController.swift; sourceTree = "<group>"; };
 		C435C55120C530C900DAECCD /* Conductor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		C435C55320C530C900DAECCD /* S1Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S1Parameter.h; sourceTree = "<group>"; };
 		C435C55420C530C900DAECCD /* AKSynthOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKSynthOne.swift; sourceTree = "<group>"; };
@@ -575,16 +575,16 @@
 		C435C53820C52F0500DAECCD /* PopUps */ = {
 			isa = PBXGroup;
 			children = (
-				C4969BAD20C608B500C72780 /* UIViewController+DisplayAlert.swift */,
+				C435C53C20C52F0500DAECCD /* AboutViewController.swift */,
+				C435C53F20C52F0500DAECCD /* BankEditorViewController.swift */,
 				C435C53920C52F0500DAECCD /* InfoController.swift */,
-				C435C53A20C52F0500DAECCD /* PopUpMODController.swift */,
-				C435C53B20C52F0500DAECCD /* PopUpMIDIViewController.swift */,
-				C435C53C20C52F0500DAECCD /* PopUpAbout.swift */,
-				C435C53D20C52F0500DAECCD /* PopUpPresetEdit.swift */,
-				C435C53E20C52F0500DAECCD /* PresetsCategoriesController.swift */,
-				C435C53F20C52F0500DAECCD /* PopUpBankEdit.swift */,
-				C435C54020C52F0500DAECCD /* MailingListController.swift */,
-				C435C54120C52F0500DAECCD /* PopUpKeyboardController.swift */,
+				C435C54120C52F0500DAECCD /* KeyboardSettingsViewController.swift */,
+				C435C54020C52F0500DAECCD /* MailingListViewController.swift */,
+				C435C53B20C52F0500DAECCD /* MIDISettingsViewController.swift */,
+				C435C53D20C52F0500DAECCD /* PresetEditorViewController.swift */,
+				C435C53E20C52F0500DAECCD /* PresetsCategoriesViewController.swift */,
+				C4969BAD20C608B500C72780 /* UIViewController+DisplayAlert.swift */,
+				C435C53A20C52F0500DAECCD /* WheelSettingsViewController.swift */,
 			);
 			path = PopUps;
 			sourceTree = "<group>";
@@ -1007,7 +1007,7 @@
 				F4C0C6C820C48F0D00D02921 /* Tunings+UITableViewDataSource.swift in Sources */,
 				943B99DC1F99C95600E09C93 /* MorphSelectorStyleKit.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
-				C435C54820C52F0500DAECCD /* PopUpBankEdit.swift in Sources */,
+				C435C54820C52F0500DAECCD /* BankEditorViewController.swift in Sources */,
 				C435C58420C530C900DAECCD /* S1NoteState.mm in Sources */,
 				C4421AA120B81A7500BE9F12 /* PresetsViewController.swift in Sources */,
 				C435C58320C530C900DAECCD /* AEAudioThreadEndpoint.m in Sources */,
@@ -1015,7 +1015,7 @@
 				C435C57B20C530C900DAECCD /* AEWeakRetainingProxy.m in Sources */,
 				943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */,
 				C435C58220C530C900DAECCD /* AEMainThreadEndpoint.m in Sources */,
-				C435C54420C52F0500DAECCD /* PopUpMIDIViewController.swift in Sources */,
+				C435C54420C52F0500DAECCD /* MIDISettingsViewController.swift in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */,
 				C435C52A20C52D2F00DAECCD /* MIDILearnable.swift in Sources */,
@@ -1039,7 +1039,7 @@
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				C435C54220C52F0500DAECCD /* InfoController.swift in Sources */,
 				C435C53720C52DC800DAECCD /* AppSetting.swift in Sources */,
-				C435C54720C52F0500DAECCD /* PresetsCategoriesController.swift in Sources */,
+				C435C54720C52F0500DAECCD /* PresetsCategoriesViewController.swift in Sources */,
 				94A880811FC8FB4F00DADC66 /* ModWheelStyleKit.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
 				C4421A8420B8179000BE9F12 /* Parent+EmbeddedViewsDelegate.swift in Sources */,
@@ -1050,7 +1050,7 @@
 				C435C53020C52D4C00DAECCD /* S1Tuning.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				945261411F2925610037662C /* AKTouchPadView.swift in Sources */,
-				C435C54320C52F0500DAECCD /* PopUpMODController.swift in Sources */,
+				C435C54320C52F0500DAECCD /* WheelSettingsViewController.swift in Sources */,
 				C4421AA720B81A7500BE9F12 /* Presets+BankPopOverDelegate.swift in Sources */,
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
 				C435C57F20C530C900DAECCD /* AEUtilities.m in Sources */,
@@ -1058,13 +1058,13 @@
 				C435C4F820C5234900DAECCD /* CategoryCell.swift in Sources */,
 				C435C53120C52D4C00DAECCD /* S1Tunings+Math.swift in Sources */,
 				C435C58520C530C900DAECCD /* S1AudioUnit.mm in Sources */,
-				C435C54620C52F0500DAECCD /* PopUpPresetEdit.swift in Sources */,
+				C435C54620C52F0500DAECCD /* PresetEditorViewController.swift in Sources */,
 				C435C57E20C530C900DAECCD /* AEArray.m in Sources */,
 				C435C50320C5286C00DAECCD /* Helpers.swift in Sources */,
 				C435C58720C530C900DAECCD /* Audiobus.swift in Sources */,
 				C435C51E20C52D1700DAECCD /* Bank.swift in Sources */,
 				C4421A8920B8179000BE9F12 /* Parent+MIDISettingsPopOverDelegate.swift in Sources */,
-				C435C54520C52F0500DAECCD /* PopUpAbout.swift in Sources */,
+				C435C54520C52F0500DAECCD /* AboutViewController.swift in Sources */,
 				C435C52520C52D1700DAECCD /* Preset.swift in Sources */,
 				C4421AA220B81A7500BE9F12 /* Presets+PresetCellDelegate.swift in Sources */,
 				C435C59920C53A3800DAECCD /* ADSRViewController.swift in Sources */,
@@ -1073,7 +1073,7 @@
 				F4C0C6C920C48F0D00D02921 /* TuningsViewController.swift in Sources */,
 				F4C0C6C620C48F0D00D02921 /* TuningsPitchWheelView.swift in Sources */,
 				94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */,
-				C435C54A20C52F0500DAECCD /* PopUpKeyboardController.swift in Sources */,
+				C435C54A20C52F0500DAECCD /* KeyboardSettingsViewController.swift in Sources */,
 				C435C59C20C53A6F00DAECCD /* UpdatableViewController.swift in Sources */,
 				C435C59520C53A3800DAECCD /* FXViewController.swift in Sources */,
 				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
@@ -1121,7 +1121,7 @@
 				94D917AF1F550D28006ACB4E /* FlatToggleButton.swift in Sources */,
 				948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
-				C435C54920C52F0500DAECCD /* MailingListController.swift in Sources */,
+				C435C54920C52F0500DAECCD /* MailingListViewController.swift in Sources */,
 				C4969BB020C6092B00C72780 /* PanelViewController.swift in Sources */,
 				C4421A8720B8179000BE9F12 /* Parent+DevView.swift in Sources */,
 				94DB3FE01FC8C0EA007F8081 /* PresetUIButton.swift in Sources */,

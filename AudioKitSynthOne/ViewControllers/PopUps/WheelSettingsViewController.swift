@@ -1,5 +1,5 @@
 //
-//  PopUpMODController.swift
+//  WheelSettingsViewControllerswift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 12/26/17.
@@ -12,7 +12,7 @@ protocol ModWheelDelegate: AnyObject {
     func didSelectRouting(newDestination: Int)
 }
 
-class PopUpMODController: UIViewController {
+class WheelSettingsViewController: UIViewController {
 
     @IBOutlet weak var modWheelSegment: UISegmentedControl!
     weak var delegate: ModWheelDelegate?

@@ -1,5 +1,5 @@
 //
-//  S1Tunings+Harmonic.swift
+//  Tunings+Harmonic.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/20/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension S1Tunings {
+extension Tunings {
 
     // pitch is log2(frequency)
     public class func approximateHarmonicFromPitch(_ pitch: Double) -> Int {

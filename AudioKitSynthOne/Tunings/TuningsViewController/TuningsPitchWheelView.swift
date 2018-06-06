@@ -123,7 +123,7 @@ public class TuningsPitchWheelView: UIView {
             context.fillEllipse(in: bigDotR)
 
             // draw harmonic approximation of p
-            let harmonic = S1Tunings.approximateHarmonicFromPitch(p)
+            let harmonic = Tunings.approximateHarmonicFromPitch(p)
             let msd = String(harmonic)
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
         }

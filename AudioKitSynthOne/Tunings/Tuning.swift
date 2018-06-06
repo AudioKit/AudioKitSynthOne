@@ -6,7 +6,7 @@
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-class S1Tuning: Codable, CustomStringConvertible {
+class Tuning: Codable, CustomStringConvertible {
 
     static let defaultName = "12 ET"
     var name = defaultName
@@ -17,7 +17,7 @@ class S1Tuning: Codable, CustomStringConvertible {
 
     var encoding: String {
         get {
-            return S1Tuning.encode(inputMasterSet: masterSet)
+            return Tuning.encode(inputMasterSet: masterSet)
         }
     }
 
@@ -25,8 +25,8 @@ class S1Tuning: Codable, CustomStringConvertible {
         return "\(name): \(masterSet)"
     }
 
-    class public func defaultTuning() -> S1Tuning {
-        let t = S1Tuning()
+    class public func defaultTuning() -> Tuning {
+        let t = Tuning()
         t.name = defaultName
         t.masterSet = defaultMasterSet
         return t
@@ -53,7 +53,7 @@ class S1Tuning: Codable, CustomStringConvertible {
     init() {}
 
     init(dictionary: [String: Any]) {
-        name = dictionary["name"] as? String ?? S1Tuning.defaultName
-        masterSet = dictionary["masterSet"] as? [Double] ?? S1Tuning.defaultMasterSet
+        name = dictionary["name"] as? String ?? Tuning.defaultName
+        masterSet = dictionary["masterSet"] as? [Double] ?? Tuning.defaultMasterSet
     }
 }

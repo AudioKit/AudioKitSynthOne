@@ -13,7 +13,6 @@ import Disk
 class Tunings {
 
     var isTuningReady = false
-    var tunings = [S1Tuning]()
     var tunings = [Tuning]()
     var tuningsDelegate: TuningsPitchWheelViewTuningDidChange?
     public typealias S1TuningCallback = () -> [Double]
@@ -212,25 +211,25 @@ class Tunings {
         retVal.append( (" 7 Wilson MOS G:0.436385", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.436_385, level: 5, murchana: 0); return t.masterSet }) )
         retVal.append( ("31 Wilson MOS G:0.328173", { return [1.0, 1.139_858_796_310_911, 1.152_155_087_458_816_5, 1.164_584_025_542_011_2, 1.177_147_041_496_803_5, 1.189_845_581_695_805_6, 1.202_681_108_114_456_6, 1.215_655_098_499_338_2, 1.228_769_046_538_307_4, 1.242_024_462_032_462_8, 1.255_422_871_069_967_7, 1.431_004_802_679_001_4, 1.446_441_847_815_417_1, 1.462_045_420_948_172_4, 1.477_817_318_507_435_5, 1.493_759_356_302_464, 1.509_873_369_730_661_2, 1.526_161_213_988_883_4, 1.542_624_764_287_028_8, 1.559_265_916_063_926_6, 1.576_086_585_205_560_8, 1.796_516_157_894_184_6, 1.815_896_177_420_180_3, 1.835_485_260_001_455_1, 1.855_285_660_917_525_4, 1.875_299_659_776_866_1, 1.895_529_560_779_353_6, 1.915_977_692_981_552, 1.936_646_410_564_853_8, 1.957_538_093_106_518_3, 1.978_655_145_853_626_8] }) )
         retVal.append( ("22 Wilson Evangelina", { let s: [Double] =  [1 / 1, 135 / 128, 13 / 12, 10 / 9, 9 / 8, 7 / 6, 11 / 9, 5 / 4, 81 / 64, 4 / 3, 11 / 8, 45 / 32, 17 / 12, 3 / 2, 19 / 12, 13 / 8, 5 / 3, 27 / 16, 7 / 4, 11 / 6, 15 / 8, 243 / 128]; return s }) )
-//        retVal.append( (" 7 Wilson North Indian:Kafi", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian05Kafi(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:Bhairavi", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian07Bhairavi(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:Bhairav", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian15Bhairav(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:Marwa", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian08Marwa(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:Purvi", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian09Purvi(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:Todi", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian11Todi(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:Bhairav", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian15Bhairav(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:Madhubanti", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian17Madhubanti(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:AhirBhairav", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian19AhirBhairav(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:ChandraKanada", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian20ChandraKanada(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:BasantMukhair", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian21BasantMukhari(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:Champakali", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian22Champakali(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:Patdeep", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian23Patdeep(); return t.masterSet }) )
-//        retVal.append( (" 7 Wilson North Indian:MohanKauns", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian24MohanKauns(); return t.masterSet }) )
-//        retVal.append( ("17 Wilson North Indian:17", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian00_17(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:Kafi", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian05Kafi(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:Bhairavi", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian07Bhairavi(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:Bhairav", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian15Bhairav(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:Marwa", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian08Marwa(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:Purvi", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian09Purvi(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:Todi", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian11Todi(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:Bhairav", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian15Bhairav(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:Madhubanti", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian17Madhubanti(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:AhirBhairav", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian19AhirBhairav(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:ChandraKanada", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian20ChandraKanada(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:BasantMukhair", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian21BasantMukhari(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:Champakali", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian22Champakali(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:Patdeep", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian23Patdeep(); return t.masterSet }) )
+        retVal.append( (" 7 Wilson North Indian:MohanKauns", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian24MohanKauns(); return t.masterSet }) )
+        retVal.append( ("17 Wilson North Indian:17", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian00_17(); return t.masterSet }) )
 
         /// Scales designed by Jose Garcia
-//        retVal.append( ("22 Garcia: Wilson 7-limit marimba", { let s: [Double] =  [1 / 1, 28 / 27, 16 / 15, 10 / 9, 9 / 8, 7 / 6, 6 / 5, 5 / 4, 35 / 27, 4 / 3, 27 / 20, 45 / 32, 35 / 24, 3 / 2, 14 / 9, 8 / 5, 5 / 3, 27 / 16, 7 / 4, 9 / 5, 15 / 8, 35 / 18]; return s }) )
-//        retVal.append( ("29 Garcia: linear 15/13-52/45 alternating", { let s: [Double] =  [1 / 1, 40 / 39, 27 / 26, 16 / 15, 128 / 117, 9 / 8, 15 / 13, 32 / 27, 6 / 5, 16 / 13, 81 / 64, 135 / 104, 4 / 3, 160 / 117, 18 / 13, 64 / 45, 512 / 351, 3 / 2, 20 / 13, 81 / 52, 8 / 5, 64 / 39, 27 / 16, 45 / 26, 16 / 9, 9 / 5, 24 / 13, 405 / 208]; return s }) )
+        retVal.append( ("22 Garcia: Wilson 7-limit marimba", { let s: [Double] =  [1 / 1, 28 / 27, 16 / 15, 10 / 9, 9 / 8, 7 / 6, 6 / 5, 5 / 4, 35 / 27, 4 / 3, 27 / 20, 45 / 32, 35 / 24, 3 / 2, 14 / 9, 8 / 5, 5 / 3, 27 / 16, 7 / 4, 9 / 5, 15 / 8, 35 / 18]; return s }) )
+        retVal.append( ("29 Garcia: linear 15/13-52/45 alternating", { let s: [Double] =  [1 / 1, 40 / 39, 27 / 26, 16 / 15, 128 / 117, 9 / 8, 15 / 13, 32 / 27, 6 / 5, 16 / 13, 81 / 64, 135 / 104, 4 / 3, 160 / 117, 18 / 13, 64 / 45, 512 / 351, 3 / 2, 20 / 13, 81 / 52, 8 / 5, 64 / 39, 27 / 16, 45 / 26, 16 / 9, 9 / 5, 24 / 13, 405 / 208]; return s }) )
 
         /// scales designed by Kraig Grady
         retVal.append( (" 5 Grady: S 7-limit Pentatonic", { let s: [Double] = [1 / 1, 7 / 6, 4 / 3, 3 / 2, 7 / 4]; return s }) )
@@ -276,12 +275,12 @@ class Tunings {
         retVal.append( ("12 Hobbs Recurrence Relation", { let s: [Double] = [1, 65, 9, 37, 151, 21, 86, 12, 49, 200, 28, 114]; return s }) )
 
         /// scales designed by Stephen Taylor
-        retVal.append( (" 6 SJT MOS G: 0.855088", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.855_088, level: 6, murchana: 0 ); return t.masterSet }) )
-        retVal.append( ("13 SJT MOS G: 0.855088", { return [1.0, 1.094_694_266_037_451, 1.198_355_536_095_273_3, 1.210_363_175_255_471_5, 1.324_977_627_775_046_9, 1.338_254_032_623_560_6, 1.464_979_016_014_507_3, 1.479_658_248_405_658_6, 1.619_773_400_224_692_8, 1.636_003_687_418_558_8, 1.790_923_855_833_222_1, 1.808_869_087_257_869_4, 1.980_158_617_833_586_4] }) )
-        retVal.append( (" 6 SJT MOS G: 0.791400", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.791_400, level: 5, murchana: 0 ); return t.masterSet }) )
-        retVal.append( (" 5 SJT MOS G: 0.78207964", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.782_079_64, level: 5, murchana: 0 ); return t.masterSet }) )
-        retVal.append( (" 5 SJT MOS G: 0.618033", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.618_033, level: 4, murchana: 0 ); return t.masterSet }) )
-        retVal.append( (" 5 SJT MOS G: 0.232587", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.232_587, level: 5, murchana: 0 ); return t.masterSet }) )
+        retVal.append( (" 6 Taylor MOS G: 0.855088", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.855_088, level: 6, murchana: 0 ); return t.masterSet }) )
+        retVal.append( ("13 Taylor MOS G: 0.855088", { return [1.0, 1.094_694_266_037_451, 1.198_355_536_095_273_3, 1.210_363_175_255_471_5, 1.324_977_627_775_046_9, 1.338_254_032_623_560_6, 1.464_979_016_014_507_3, 1.479_658_248_405_658_6, 1.619_773_400_224_692_8, 1.636_003_687_418_558_8, 1.790_923_855_833_222_1, 1.808_869_087_257_869_4, 1.980_158_617_833_586_4] }) )
+        retVal.append( (" 6 Taylor MOS G: 0.791400", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.791_400, level: 5, murchana: 0 ); return t.masterSet }) )
+        retVal.append( (" 5 Taylor MOS G: 0.78207964", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.782_079_64, level: 5, murchana: 0 ); return t.masterSet }) )
+        retVal.append( (" 5 Taylor MOS G: 0.618033", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.618_033, level: 4, murchana: 0 ); return t.masterSet }) )
+        retVal.append( (" 5 Taylor MOS G: 0.232587", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.232_587, level: 5, murchana: 0 ); return t.masterSet }) )
         retVal.append( ("27 Taylor Pasadena JI 27", { let s: [Double] = [ 1.0 / 1, 81 / 80, 17 / 16, 16 / 15, 10 / 9, 9 / 8, 8 / 7, 7 / 6, 19 / 16, 6 / 5, 11 / 9, 5 / 4, 9 / 7, 21 / 16, 4 / 3, 11 / 8, 7 / 5, 3 / 2, 11 / 7, 8 / 5, 5 / 3, 13 / 8, 27 / 16, 7 / 4, 9 / 5, 11 / 6, 15 / 8 ]; return s }) )
 
         retVal.append( (" 7 Tone Equal Temperament", { let t = AKTuningTable(); _ = t.equalTemperament(notesPerOctave: 7); return t.masterSet }) )

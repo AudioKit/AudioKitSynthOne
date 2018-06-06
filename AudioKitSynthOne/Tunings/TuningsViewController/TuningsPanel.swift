@@ -31,7 +31,7 @@ class TuningsPanel: Panel {
         super.viewDidLoad()
 
         guard let synth = Conductor.sharedInstance.synth else { return }
-        viewType = .tuningsView
+        viewType = .tunings
         tuningTableView.backgroundColor = UIColor.clear
         tuningTableView.isOpaque = false
         tuningTableView.allowsSelection = true

@@ -9,8 +9,9 @@
 import UIKit
 import StoreKit
 
-// MARK: - Display AlertViewController (Pop-up message)
+// TODO: Does this need to be an extension to all view controllers or just specific ones?
 
+// Display AlertViewController (Pop-up message)
 extension UIViewController {
 
     func displayAlertController(_ title: String, message: String) {

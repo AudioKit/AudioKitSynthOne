@@ -461,6 +461,16 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		C432978720C896250063F795 /* Internet */ = {
+			isa = PBXGroup;
+			children = (
+				C4B4916220C7C72900FD565A /* AboutViewController.swift */,
+				C4B4916120C7C72900FD565A /* InfoViewController.swift */,
+				C4B4919520C7C81200FD565A /* Mailing List */,
+			);
+			path = Internet;
+			sourceTree = "<group>";
+		};
 		C435C50620C52BD800DAECCD /* Presets */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,9 +699,7 @@
 		C4B4915C20C7C72900FD565A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				C4B4916220C7C72900FD565A /* AboutViewController.swift */,
 				C4B4915F20C7C72900FD565A /* ChildPanel.swift */,
-				C4B4916120C7C72900FD565A /* InfoViewController.swift */,
 				94DB18D11F37D879008368AE /* NavButton.swift */,
 				94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */,
 				C4B4915D20C7C72900FD565A /* Panel.swift */,
@@ -844,8 +852,8 @@
 				C435C55020C530C900DAECCD /* DSP */,
 				C4B491A220C7C94E00FD565A /* Effects */,
 				C4B4917520C7C75500FD565A /* Header */,
+				C432978720C896250063F795 /* Internet */,
 				C4B4911620C7C62A00FD565A /* Keyboard */,
-				C4B4919520C7C81200FD565A /* Mailing List */,
 				C435C52620C52D2E00DAECCD /* MIDI */,
 				C4B491A520C7C95900FD565A /* Main */,
 				C4B4915C20C7C72900FD565A /* Navigation */,

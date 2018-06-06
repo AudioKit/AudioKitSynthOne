@@ -1,5 +1,5 @@
 //
-//  UIViewController+DisplayAlertController.swift
+//  UIViewController+DisplayAlert.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/1/16.
@@ -9,7 +9,7 @@
 import UIKit
 import StoreKit
 
-// TODO: Does this need to be an extension to all view controllers or just specific ones?
+// TODO: This poorly named or has too many different thing in it
 
 // Display AlertViewController (Pop-up message)
 extension UIViewController {

@@ -6,6 +6,9 @@
 //  Copyright © 2017 AudioKit Pro. All rights reserved.
 //
 
+// TODO: This class is not referenced anywhere in the synth, should we just delete is and the StyleKit file?
+
+
 import UIKit
 
 @IBDesignable

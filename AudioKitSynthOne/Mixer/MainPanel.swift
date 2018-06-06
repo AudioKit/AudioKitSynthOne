@@ -1,5 +1,5 @@
 //
-//  MixerViewController.swift
+//  MainPanel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/23/17.
@@ -10,7 +10,10 @@ import AudioKit
 import AudioKitUI
 import UIKit
 
-class MixerViewController: PanelViewController {
+// TODO: So is this the Mixer or the Main View? In the UI its never referred to as the Mixer. Might need to move folder.
+
+/// Main Oscillator Mixing Panel
+class MainPanel: Panel {
 
     @IBOutlet weak var morph1Selector: MorphSelector!
     @IBOutlet weak var morph2Selector: MorphSelector!
@@ -54,11 +57,11 @@ class MixerViewController: PanelViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewType = .oscView
+        viewType = .main
 
         // Defaults, limits
         guard let s = conductor.synth else {
-            AKLog("MixerViewController view state is invalid because synth is not instantiated")
+            AKLog("MainPanel view state is invalid because synth is not instantiated")
             return
         }
 
@@ -124,7 +127,7 @@ class MixerViewController: PanelViewController {
 
         // Add Tap Gesture Recognizer to AudioPlot
         let audioPlotTap = UITapGestureRecognizer(target: self,
-                                                  action: #selector(MixerViewController.audioPlotToggled))
+                                                  action: #selector(MainPanel.audioPlotToggled))
         audioPlot.addGestureRecognizer(audioPlotTap)
     }
 

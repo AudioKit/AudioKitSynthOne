@@ -1,5 +1,5 @@
 //
-//  ADSRViewController.swift
+//  ADSRPanel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/24/17.
@@ -10,7 +10,7 @@ import UIKit
 import AudioKit
 import AudioKitUI
 
-class ADSRViewController: PanelViewController {
+class ADSRPanel: Panel {
 
     @IBOutlet var adsrView: AKADSRView!
     @IBOutlet var filterADSRView: AKADSRView!
@@ -31,7 +31,7 @@ class ADSRViewController: PanelViewController {
         envelopeLabelBackground.layer.cornerRadius = 8
 
         guard let s = conductor.synth else {
-            AKLog("ADSRViewController view state is invalid because synth is not instantiated")
+            AKLog("ADSRPanel view state is invalid because synth is not instantiated")
             return
         }
 
@@ -47,7 +47,7 @@ class ADSRViewController: PanelViewController {
 
         filterADSRMixKnob.range = s.getRange(.filterADSRMix)
 
-        viewType = .adsrView
+        viewType = .adsr
 
         conductor.bind(attackKnob, to: .attackDuration)
         conductor.bind(decayKnob, to: .decayDuration)

@@ -8,7 +8,7 @@
 
 // MARK: - TableViewDelegate
 
-extension TuningsViewController: UITableViewDelegate {
+extension TuningsPanel: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if cell.isSelected {

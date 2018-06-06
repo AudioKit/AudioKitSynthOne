@@ -19,16 +19,16 @@ extension ParentViewController: HeaderDelegate {
             keyboardToggle.value = 0.0
 
             // Save previous bottom panel
-            prevBottomChildView = bottomChildView
+            prevBottomChildPanel = bottomChildPanel
 
             // Animate
             topPanelheight.constant = 0
             view.layoutIfNeeded()
             // Add Panel to Top
             displayPresetsController()
-            guard let top = topChildView else { return }
-            switchToChildView(top, isTopView: false)
-            topChildView = nil
+            guard let top = topChildPanel else { return }
+            switchToChildPanel(top, isOnTop: false)
+            topChildPanel = nil
 
             // Animate panel
             UIView.animate(withDuration: Double(0.2), animations: {
@@ -46,26 +46,26 @@ extension ParentViewController: HeaderDelegate {
             }
 
             // Add Panel to Top
-            guard let bottom = bottomChildView else { return }
-            switchToChildView(bottom)
+            guard let bottom = bottomChildPanel else { return }
+            switchToChildPanel(bottom)
 
             // Add Panel to bottom
             isPresetsDisplayed = true
-            if prevBottomChildView == topChildView {
-                prevBottomChildView = prevBottomChildView?.rightView()
+            if prevBottomChildPanel == topChildPanel {
+                prevBottomChildPanel = prevBottomChildPanel?.rightPanel()
             }
-            guard let previousBottom = prevBottomChildView else { return }
-            switchToChildView(previousBottom, isTopView: false)
+            guard let previousBottom = prevBottomChildPanel else { return }
+            switchToChildPanel(previousBottom, isOnTop: false)
             isPresetsDisplayed = false
         }
     }
 
     func homePressed() {
         // Display Osc View when user clicks on AudioKit Synth One logo
-        if bottomChildView == .oscView {
-            switchToChildView(.adsrView, isTopView: false)
+        if bottomChildPanel == .main {
+            switchToChildPanel(.adsr, isOnTop: false)
         }
-        switchToChildView(.oscView, isTopView: true)
+        switchToChildPanel(.main, isOnTop: true)
     }
 
     func devPressed() {
@@ -75,8 +75,8 @@ extension ParentViewController: HeaderDelegate {
             topContainerView.subviews.forEach({ $0.removeFromSuperview() })
             add(asChildViewController: devViewController)
         } else {
-            if let cv = topChildView {
-                switchToChildView(cv)
+            if let cv = topChildPanel {
+                switchToChildPanel(cv)
             }
         }
     }

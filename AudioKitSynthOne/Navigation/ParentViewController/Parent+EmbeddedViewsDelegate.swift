@@ -10,44 +10,44 @@
 
 extension ParentViewController: EmbeddedViewsDelegate {
 
-    func switchToChildView(_ newView: ChildView, isTopView: Bool = true) {
+    func switchToChildPanel(_ newView: ChildPanel, isOnTop: Bool = true) {
 
         // remove all child views
-        if isTopView {
+        if isOnTop {
             topContainerView.subviews.forEach({ $0.removeFromSuperview() })
         } else {
             bottomContainerView.subviews.forEach({ $0.removeFromSuperview() })
         }
 
         switch newView {
-        case .adsrView:
-            add(asChildViewController: adsrViewController, isTopContainer: isTopView)
-            adsrViewController.navDelegate = self
-            adsrViewController.isTopContainer = isTopView
-        case .oscView:
-            add(asChildViewController: mixerViewController, isTopContainer: isTopView)
-            mixerViewController.navDelegate = self
-            mixerViewController.isTopContainer = isTopView
-        case .padView:
-            add(asChildViewController: padViewController, isTopContainer: isTopView)
-            padViewController.navDelegate = self
-            padViewController.isTopContainer = isTopView
-        case .fxView:
-            add(asChildViewController: fxViewController, isTopContainer: isTopView)
-            fxViewController.navDelegate = self
-            fxViewController.isTopContainer = isTopView
-        case .seqView:
-            add(asChildViewController: seqViewController, isTopContainer: isTopView)
-            seqViewController.navDelegate = self
-            seqViewController.isTopContainer = isTopView
-        case .tuningsView:
-            add(asChildViewController: tuningsViewController, isTopContainer: isTopView)
-            tuningsViewController.navDelegate = self
-            tuningsViewController.isTopContainer = isTopView
+        case .adsr:
+            add(asChildViewController: adsrPanel, isTopContainer: isOnTop)
+            adsrPanel.navDelegate = self
+            adsrPanel.isTopContainer = isOnTop
+        case .main:
+            add(asChildViewController: mainPanel, isTopContainer: isOnTop)
+            mainPanel.navDelegate = self
+            mainPanel.isTopContainer = isOnTop
+        case .touchPad:
+            add(asChildViewController: touchPadPanel, isTopContainer: isOnTop)
+            touchPadPanel.navDelegate = self
+            touchPadPanel.isTopContainer = isOnTop
+        case .fx:
+            add(asChildViewController: fxPanel, isTopContainer: isOnTop)
+            fxPanel.navDelegate = self
+            fxPanel.isTopContainer = isOnTop
+        case .arpSeq:
+            add(asChildViewController: arpSeqPanel, isTopContainer: isOnTop)
+            arpSeqPanel.navDelegate = self
+            arpSeqPanel.isTopContainer = isOnTop
+        case .tunings:
+            add(asChildViewController: tuningsPanel, isTopContainer: isOnTop)
+            tuningsPanel.navDelegate = self
+            tuningsPanel.isTopContainer = isOnTop
         }
 
         // Update panel navigation
-        if isTopView { isPresetsDisplayed = false }
+        if isOnTop { isPresetsDisplayed = false }
         updatePanelNav()
     }
 
@@ -55,9 +55,9 @@ extension ParentViewController: EmbeddedViewsDelegate {
         // Update NavButtons
 
         // Get all Child Synth Panels
-        var synthPanels = [PanelViewController]()
+        var synthPanels = [Panel]()
         for view in childViewControllers {
-            guard let synthPanel = view as? PanelViewController else { continue }
+            guard let synthPanel = view as? Panel else { continue }
             synthPanels.append(synthPanel)
         }
 
@@ -66,14 +66,14 @@ extension ParentViewController: EmbeddedViewsDelegate {
         let bottomPanel = synthPanels.filter { !$0.isTopContainer }.last
 
         // Update Bottom Panel NavButtons
-        topChildView = topPanel?.viewType
+        topChildPanel = topPanel?.viewType
         DispatchQueue.main.async {
             topPanel?.updateNavButtons()
         }
 
         // Update Bottom Panel NavButtons
         if keyboardToggle.value == 0 || isPresetsDisplayed {
-            bottomChildView = bottomPanel?.viewType
+            bottomChildPanel = bottomPanel?.viewType
             DispatchQueue.main.async {
                 bottomPanel?.updateNavButtons()
             }

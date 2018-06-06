@@ -1,5 +1,5 @@
 //
-//  FXViewController.swift
+//  FXPanel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/26/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FXViewController: PanelViewController {
+class FXPanel: Panel {
 
     @IBOutlet weak var lfoCutoffToggle: LfoButton!
     @IBOutlet weak var lfoRezToggle: LfoButton!
@@ -57,9 +57,9 @@ class FXViewController: PanelViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewType = .fxView
+        viewType = .fx
         guard let s = conductor.synth else {
-            AKLog("FXViewController view state is invalid because synth is not instantiated")
+            AKLog("FXPanel view state is invalid because synth is not instantiated")
             return
         }
 

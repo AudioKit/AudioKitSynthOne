@@ -20,14 +20,14 @@ class Panel: UpdatableViewController {
     var isTopContainer: Bool = true
 
     var viewType = ChildPanel.main
-    var leftView = ChildPanel.arpSeq
-    var rightView = ChildPanel.adsr
+    var leftPanel = ChildPanel.arpSeq
+    var rightPanel = ChildPanel.adsr
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        leftView = self.viewType.leftPanel()
-        rightView = self.viewType.rightPanel()
+        leftPanel = self.viewType.leftPanel()
+        rightPanel = self.viewType.rightPanel()
 
         navButtonsSetup()
     }
@@ -36,37 +36,37 @@ class Panel: UpdatableViewController {
 
         // Left Nav Button
         nav1Button.callback = { _ in
-           self.navDelegate?.switchToChildPanel(self.leftView, isOnTop: self.isTopContainer)
+           self.navDelegate?.switchToChildPanel(self.leftPanel, isOnTop: self.isTopContainer)
         }
 
         // Right Nav Button
         nav2Button.callback = { _ in
-           self.navDelegate?.switchToChildPanel(self.rightView, isOnTop: self.isTopContainer)
+           self.navDelegate?.switchToChildPanel(self.rightPanel, isOnTop: self.isTopContainer)
         }
     }
 
     func updateNavButtons() {
 
-        leftView = viewType.leftPanel()
-        rightView = viewType.rightPanel()
+        leftPanel = viewType.leftPanel()
+        rightPanel = viewType.rightPanel()
 
-        guard let parentController = self.parent as? ParentViewController else { return }
+        guard let manager = self.parent as? Manager else { return }
 
-        if parentController.keyboardToggle.value == 0 && !parentController.isPresetsDisplayed {
+        if manager.keyboardToggle.value == 0 && !manager.isPresetsDisplayed {
 
             // Make sure the same view doesn't appear twice on the screen
-            if leftView == parentController.topChildPanel || leftView == parentController.bottomChildPanel {
-                leftView = leftView.leftPanel()
+            if leftPanel == manager.topChildPanel || leftPanel == manager.bottomChildPanel {
+                leftPanel = leftPanel.leftPanel()
             }
 
-            if rightView == parentController.topChildPanel || rightView == parentController.bottomChildPanel {
-                rightView = rightView.rightPanel()
+            if rightPanel == manager.topChildPanel || rightPanel == manager.bottomChildPanel {
+                rightPanel = rightPanel.rightPanel()
             }
         }
 
         // Update button text
-        nav1Button.buttonText = leftView.buttonText()
-        nav2Button.buttonText = rightView.buttonText()
+        nav1Button.buttonText = leftPanel.buttonText()
+        nav2Button.buttonText = rightPanel.buttonText()
         nav1Button.setNeedsDisplay()
         nav2Button.setNeedsDisplay()
     }

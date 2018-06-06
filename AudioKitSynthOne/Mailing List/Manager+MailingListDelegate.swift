@@ -1,5 +1,5 @@
 //
-//  Parent+MailingListDelegate.swift
+//  Manager+MailingListDelegate.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/25/18.
@@ -8,7 +8,7 @@
 
 // Mailing List PopOver Delegate
 
-extension ParentViewController: MailingListDelegate {
+extension Manager: MailingListDelegate {
     func didSignMailingList(email: String) {
 
         signedMailingList = true

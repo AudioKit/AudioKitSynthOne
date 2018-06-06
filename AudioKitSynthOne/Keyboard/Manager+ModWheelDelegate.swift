@@ -1,5 +1,5 @@
 //
-//  Parent+ModWheelDelegate.swift
+//  Manager+ModWheelDelegate.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/25/18.
@@ -8,7 +8,7 @@
 
 // Mod Wheel Settings Pop Over Delegate
 
-extension ParentViewController: ModWheelDelegate {
+extension Manager: ModWheelDelegate {
 
     func didSelectRouting(newDestination: Int) {
         activePreset.modWheelRouting = Double(newDestination)

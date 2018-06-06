@@ -1,5 +1,5 @@
 //
-//  Parent+PushNotification.swift
+//  Manager+PushNotification.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 1/8/18.
@@ -9,7 +9,7 @@
 import Foundation
 import OneSignal
 
-extension ParentViewController {
+extension Manager {
 
     func pushPopUp() {
         // Add pop up

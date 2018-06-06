@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension ParentViewController {
+extension Manager {
 
     // MARK: - Preset Load/Save
 

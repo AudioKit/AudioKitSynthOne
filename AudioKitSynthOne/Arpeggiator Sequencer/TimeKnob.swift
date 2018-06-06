@@ -6,6 +6,8 @@
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 
+// TODO: This class is not referenced anywhere in the synth, should we just delete the file?
+
 import UIKit
 
 public class TimeKnob: MIDIKnob {

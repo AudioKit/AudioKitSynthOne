@@ -151,6 +151,7 @@
 		C4B491BE20C7DEB100FD565A /* ArpDirectionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491BA20C7DEB100FD565A /* ArpDirectionStyleKit.swift */; };
 		C4B491C220C7DF2A00FD565A /* MorphSelectorStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491C020C7DF2A00FD565A /* MorphSelectorStyleKit.swift */; };
 		C4B491C320C7DF2A00FD565A /* LFOPickerStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491C120C7DF2A00FD565A /* LFOPickerStyleKit.swift */; };
+		C4B491C520C7EC2E00FD565A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C4B491C420C7EC2E00FD565A /* README.md */; };
 		C4B9C02B201D54D400D9833D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B9C02A201D54D400D9833D /* AudioToolbox.framework */; };
 		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
 		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
@@ -352,6 +353,7 @@
 		C4B491BA20C7DEB100FD565A /* ArpDirectionStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArpDirectionStyleKit.swift; sourceTree = "<group>"; };
 		C4B491C020C7DF2A00FD565A /* MorphSelectorStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphSelectorStyleKit.swift; sourceTree = "<group>"; };
 		C4B491C120C7DF2A00FD565A /* LFOPickerStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFOPickerStyleKit.swift; sourceTree = "<group>"; };
+		C4B491C420C7EC2E00FD565A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4B9C02A201D54D400D9833D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioKitSynthOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -780,6 +782,7 @@
 		C4B491A520C7C95900FD565A /* Mixer */ = {
 			isa = PBXGroup;
 			children = (
+				C4B491C420C7EC2E00FD565A /* README.md */,
 				C4B491BF20C7DF2A00FD565A /* StyleKits */,
 				948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */,
 				C4B491A620C7C95900FD565A /* MainPanel.swift */,
@@ -990,6 +993,7 @@
 				C4B4914720C7C6E300FD565A /* Audiobus.txt in Resources */,
 				C435C52120C52D1700DAECCD /* Bonus.json in Resources */,
 				C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */,
+				C4B491C520C7EC2E00FD565A /* README.md in Resources */,
 				C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

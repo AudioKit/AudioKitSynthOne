@@ -84,7 +84,7 @@ class Conductor: S1Protocol {
         }
 
         // View controllers can own objects which are not updated by the bindings scheme.
-        // For example, ADSRViewController has AKADSRView's which do not conform to S1Control
+        // For example, ADSRPanel has AKADSRView's which do not conform to S1Control
         viewControllers.forEach {
             $0.updateUI(parameter, control: inputControl, value: inputValue)
         }
@@ -175,11 +175,11 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func dependentParameterDidChange(_ parameter: DependentParameter) {
-        let fxVC = self.viewControllers.first(where: { $0 is FXPanel }) as? FXPanel
-        fxVC?.dependentParameterDidChange(parameter)
+        let fxPanel = self.viewControllers.first(where: { $0 is FXPanel }) as? FXPanel
+        fxPanel?.dependentParameterDidChange(parameter)
 
-        let touchPadVC = self.viewControllers.first(where: { $0 is TouchPadPanel }) as? TouchPadPanel
-        touchPadVC?.dependentParameterDidChange(parameter)
+        let touchPadPanel = self.viewControllers.first(where: { $0 is TouchPadPanel }) as? TouchPadPanel
+        touchPadPanel?.dependentParameterDidChange(parameter)
 
         let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as? ParentViewController
         parentVC?.dependentParameterDidChange(parameter)
@@ -187,8 +187,8 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {
-        let seqVC = self.viewControllers.first(where: { $0 is ArpSeqPanel }) as? ArpSeqPanel
-        seqVC?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
+        let arpSeqPanel = self.viewControllers.first(where: { $0 is ArpSeqPanel }) as? ArpSeqPanel
+        arpSeqPanel?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
     }
 
     // called by DSP on main thread
@@ -198,8 +198,8 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
-        let seqVC = self.viewControllers.first(where: { $0 is TuningsPanel }) as? TuningsPanel
-        seqVC?.playingNotesDidChange(playingNotes)
+        let tuningsPanel = self.viewControllers.first(where: { $0 is TuningsPanel }) as? TuningsPanel
+        tuningsPanel?.playingNotesDidChange(playingNotes)
     }
 
     // Start/Pause AK Engine (Conserve energy by turning background audio off)

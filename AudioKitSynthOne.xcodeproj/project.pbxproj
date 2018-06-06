@@ -773,7 +773,7 @@
 			path = Effects;
 			sourceTree = "<group>";
 		};
-		C4B491A520C7C95900FD565A /* Mixer */ = {
+		C4B491A520C7C95900FD565A /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				C4B491C420C7EC2E00FD565A /* README.md */,
@@ -783,7 +783,7 @@
 				C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */,
 				C4B491A820C7D10200FD565A /* MorphSelector.swift */,
 			);
-			path = Mixer;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		C4B491B620C7DEB100FD565A /* StyleKits */ = {
@@ -847,7 +847,7 @@
 				C4B4911620C7C62A00FD565A /* Keyboard */,
 				C4B4919520C7C81200FD565A /* Mailing List */,
 				C435C52620C52D2E00DAECCD /* MIDI */,
-				C4B491A520C7C95900FD565A /* Mixer */,
+				C4B491A520C7C95900FD565A /* Main */,
 				C4B4915C20C7C72900FD565A /* Navigation */,
 				C435C50620C52BD800DAECCD /* Presets */,
 				C4B4910A20C7C5E400FD565A /* Settings */,

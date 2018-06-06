@@ -136,9 +136,9 @@ extension ParentViewController {
         s.setSynthParameter(.frequencyA4, activePreset.frequencyA4)
         if appSettings.saveTuningWithPreset {
             if let m = activePreset.tuningMasterSet {
-                tuningsViewController.setTuning(name: activePreset.tuningName, masterArray: m)
+                tuningsPanel.setTuning(name: activePreset.tuningName, masterArray: m)
             } else {
-                tuningsViewController.setDefaultTuning()
+                tuningsPanel.setDefaultTuning()
             }
         }
 
@@ -265,7 +265,7 @@ extension ParentViewController {
         // tuning
         activePreset.frequencyA4 = s.getSynthParameter(.frequencyA4)
         if appSettings.saveTuningWithPreset {
-            let t = tuningsViewController.getTuning()
+            let t = tuningsPanel.getTuning()
             activePreset.tuningName = t.0
             activePreset.tuningMasterSet = t.1
         } else {

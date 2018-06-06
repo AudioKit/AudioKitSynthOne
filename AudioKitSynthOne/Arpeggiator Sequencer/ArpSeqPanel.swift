@@ -26,7 +26,7 @@ class ArpSeqPanel: Panel {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewType = .arpSeq
+        currentPanel = .arpSeq
 
         guard let s = conductor.synth else {
             AKLog("ArpSeqPanel view state is invalid because synth is not instantiated")

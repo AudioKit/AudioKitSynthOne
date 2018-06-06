@@ -19,7 +19,6 @@
 		947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */; };
 		947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B51F32A72400FE5D9B /* ToggleSwitch.swift */; };
 		9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
-		9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */; };
 		948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C54C21F3A57C600DA6081 /* SynthUIButton.swift */; };
 		948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */; };
 		949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */; };
@@ -83,9 +82,7 @@
 		C4B490FB20C6560000FD565A /* S1DSPKernel+startStopNotes.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490FA20C6560000FD565A /* S1DSPKernel+startStopNotes.mm */; };
 		C4B490FD20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490FC20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm */; };
 		C4B4910520C7C5C500FD565A /* ArpDirectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910020C7C5C500FD565A /* ArpDirectionButton.swift */; };
-		C4B4910620C7C5C500FD565A /* ArpButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910120C7C5C500FD565A /* ArpButtonStyleKit.swift */; };
 		C4B4910720C7C5C500FD565A /* ArpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910220C7C5C500FD565A /* ArpButton.swift */; };
-		C4B4910820C7C5C500FD565A /* ArpDirectionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910320C7C5C500FD565A /* ArpDirectionStyleKit.swift */; };
 		C4B4910920C7C5C500FD565A /* SeqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910420C7C5C500FD565A /* SeqViewController.swift */; };
 		C4B4910D20C7C5E500FD565A /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910B20C7C5E400FD565A /* AppSettings.swift */; };
 		C4B4910E20C7C5E500FD565A /* Parent+AppSettingsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910C20C7C5E400FD565A /* Parent+AppSettingsDataManager.swift */; };
@@ -145,12 +142,15 @@
 		C4B491A420C7C94E00FD565A /* FXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491A320C7C94E00FD565A /* FXViewController.swift */; };
 		C4B491A720C7C95A00FD565A /* MixerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491A620C7C95900FD565A /* MixerViewController.swift */; };
 		C4B491AC20C7D10200FD565A /* MorphSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491A820C7D10200FD565A /* MorphSelector.swift */; };
-		C4B491AD20C7D10200FD565A /* LFOPickerStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491A920C7D10200FD565A /* LFOPickerStyleKit.swift */; };
-		C4B491AE20C7D10200FD565A /* MorphSelectorStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491AA20C7D10200FD565A /* MorphSelectorStyleKit.swift */; };
 		C4B491AF20C7D10200FD565A /* LFOWavePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */; };
 		C4B491B120C7D11500FD565A /* MIDIKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491B020C7D11500FD565A /* MIDIKnob.swift */; };
-		C4B491B420C7D19F00FD565A /* TempoStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491B220C7D19E00FD565A /* TempoStyleKit.swift */; };
 		C4B491B520C7D19F00FD565A /* TempoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491B320C7D19F00FD565A /* TempoStepper.swift */; };
+		C4B491BB20C7DEB100FD565A /* TempoStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491B720C7DEB100FD565A /* TempoStyleKit.swift */; };
+		C4B491BC20C7DEB100FD565A /* ArpButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491B820C7DEB100FD565A /* ArpButtonStyleKit.swift */; };
+		C4B491BD20C7DEB100FD565A /* SliderStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491B920C7DEB100FD565A /* SliderStyleKit.swift */; };
+		C4B491BE20C7DEB100FD565A /* ArpDirectionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491BA20C7DEB100FD565A /* ArpDirectionStyleKit.swift */; };
+		C4B491C220C7DF2A00FD565A /* MorphSelectorStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491C020C7DF2A00FD565A /* MorphSelectorStyleKit.swift */; };
+		C4B491C320C7DF2A00FD565A /* LFOPickerStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491C120C7DF2A00FD565A /* LFOPickerStyleKit.swift */; };
 		C4B9C02B201D54D400D9833D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B9C02A201D54D400D9833D /* AudioToolbox.framework */; };
 		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
 		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
@@ -195,7 +195,6 @@
 		94346F8E1FC7975C00434900 /* ColorKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorKnob.swift; sourceTree = "<group>"; };
 		94346F8F1FC7975C00434900 /* ColorKnobStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorKnobStyleKit.swift; sourceTree = "<group>"; };
 		943B59601F36B4F200E5FBE6 /* TimeKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeKnob.swift; sourceTree = "<group>"; };
-		945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStyleKit.swift; sourceTree = "<group>"; };
 		945C3A0E1F31428B0086D58B /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
 		94656AEC205F410900634B2C /* KeyboardShowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShowButton.swift; sourceTree = "<group>"; };
 		94780FEF1F9B0108006D3710 /* AudioKitSynthOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudioKitSynthOne.entitlements; sourceTree = "<group>"; };
@@ -284,9 +283,7 @@
 		C4B490FA20C6560000FD565A /* S1DSPKernel+startStopNotes.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+startStopNotes.mm"; sourceTree = "<group>"; };
 		C4B490FC20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+toggleKeys.mm"; sourceTree = "<group>"; };
 		C4B4910020C7C5C500FD565A /* ArpDirectionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArpDirectionButton.swift; sourceTree = "<group>"; };
-		C4B4910120C7C5C500FD565A /* ArpButtonStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArpButtonStyleKit.swift; sourceTree = "<group>"; };
 		C4B4910220C7C5C500FD565A /* ArpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArpButton.swift; sourceTree = "<group>"; };
-		C4B4910320C7C5C500FD565A /* ArpDirectionStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArpDirectionStyleKit.swift; sourceTree = "<group>"; };
 		C4B4910420C7C5C500FD565A /* SeqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeqViewController.swift; sourceTree = "<group>"; };
 		C4B4910B20C7C5E400FD565A /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		C4B4910C20C7C5E400FD565A /* Parent+AppSettingsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+AppSettingsDataManager.swift"; sourceTree = "<group>"; };
@@ -346,12 +343,15 @@
 		C4B491A320C7C94E00FD565A /* FXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXViewController.swift; sourceTree = "<group>"; };
 		C4B491A620C7C95900FD565A /* MixerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixerViewController.swift; sourceTree = "<group>"; };
 		C4B491A820C7D10200FD565A /* MorphSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphSelector.swift; sourceTree = "<group>"; };
-		C4B491A920C7D10200FD565A /* LFOPickerStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFOPickerStyleKit.swift; sourceTree = "<group>"; };
-		C4B491AA20C7D10200FD565A /* MorphSelectorStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphSelectorStyleKit.swift; sourceTree = "<group>"; };
 		C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFOWavePicker.swift; sourceTree = "<group>"; };
 		C4B491B020C7D11500FD565A /* MIDIKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIKnob.swift; sourceTree = "<group>"; };
-		C4B491B220C7D19E00FD565A /* TempoStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempoStyleKit.swift; sourceTree = "<group>"; };
 		C4B491B320C7D19F00FD565A /* TempoStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempoStepper.swift; sourceTree = "<group>"; };
+		C4B491B720C7DEB100FD565A /* TempoStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempoStyleKit.swift; sourceTree = "<group>"; };
+		C4B491B820C7DEB100FD565A /* ArpButtonStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArpButtonStyleKit.swift; sourceTree = "<group>"; };
+		C4B491B920C7DEB100FD565A /* SliderStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderStyleKit.swift; sourceTree = "<group>"; };
+		C4B491BA20C7DEB100FD565A /* ArpDirectionStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArpDirectionStyleKit.swift; sourceTree = "<group>"; };
+		C4B491C020C7DF2A00FD565A /* MorphSelectorStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphSelectorStyleKit.swift; sourceTree = "<group>"; };
+		C4B491C120C7DF2A00FD565A /* LFOPickerStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFOPickerStyleKit.swift; sourceTree = "<group>"; };
 		C4B9C02A201D54D400D9833D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioKitSynthOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -617,17 +617,14 @@
 		C4B490FF20C7C5C500FD565A /* Arpeggiator Sequencer */ = {
 			isa = PBXGroup;
 			children = (
+				C4B491B620C7DEB100FD565A /* StyleKits */,
 				C4B4910220C7C5C500FD565A /* ArpButton.swift */,
-				C4B4910120C7C5C500FD565A /* ArpButtonStyleKit.swift */,
 				C4B4910020C7C5C500FD565A /* ArpDirectionButton.swift */,
-				C4B4910320C7C5C500FD565A /* ArpDirectionStyleKit.swift */,
 				94E951341F3644E5009A8B00 /* Rate.swift */,
 				C47FB3C21F36694300EF2F01 /* RateKnob.swift */,
 				C4B4910420C7C5C500FD565A /* SeqViewController.swift */,
-				945C3A0D1F31428B0086D58B /* SliderStyleKit.swift */,
 				94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */,
 				C4B491B320C7D19F00FD565A /* TempoStepper.swift */,
-				C4B491B220C7D19E00FD565A /* TempoStyleKit.swift */,
 				943B59601F36B4F200E5FBE6 /* TimeKnob.swift */,
 				945C3A0E1F31428B0086D58B /* VerticalSlider.swift */,
 			);
@@ -783,14 +780,33 @@
 		C4B491A520C7C95900FD565A /* Mixer */ = {
 			isa = PBXGroup;
 			children = (
+				C4B491BF20C7DF2A00FD565A /* StyleKits */,
 				948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */,
 				C4B491A620C7C95900FD565A /* MixerViewController.swift */,
-				C4B491A920C7D10200FD565A /* LFOPickerStyleKit.swift */,
 				C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */,
 				C4B491A820C7D10200FD565A /* MorphSelector.swift */,
-				C4B491AA20C7D10200FD565A /* MorphSelectorStyleKit.swift */,
 			);
 			path = Mixer;
+			sourceTree = "<group>";
+		};
+		C4B491B620C7DEB100FD565A /* StyleKits */ = {
+			isa = PBXGroup;
+			children = (
+				C4B491B720C7DEB100FD565A /* TempoStyleKit.swift */,
+				C4B491B820C7DEB100FD565A /* ArpButtonStyleKit.swift */,
+				C4B491B920C7DEB100FD565A /* SliderStyleKit.swift */,
+				C4B491BA20C7DEB100FD565A /* ArpDirectionStyleKit.swift */,
+			);
+			path = StyleKits;
+			sourceTree = "<group>";
+		};
+		C4B491BF20C7DF2A00FD565A /* StyleKits */ = {
+			isa = PBXGroup;
+			children = (
+				C4B491C020C7DF2A00FD565A /* MorphSelectorStyleKit.swift */,
+				C4B491C120C7DF2A00FD565A /* LFOPickerStyleKit.swift */,
+			);
+			path = StyleKits;
 			sourceTree = "<group>";
 		};
 		C4D193BB1F1187B500FF4FE4 = {
@@ -1066,6 +1082,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4B4911F20C7C62A00FD565A /* KeyboardSettingsViewController.swift in Sources */,
+				C4B491BB20C7DEB100FD565A /* TempoStyleKit.swift in Sources */,
 				C4B491A720C7C95A00FD565A /* MixerViewController.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4B491AF20C7D10200FD565A /* LFOWavePicker.swift in Sources */,
@@ -1082,6 +1099,7 @@
 				943B59611F36B4F200E5FBE6 /* TimeKnob.swift in Sources */,
 				C435C58220C530C900DAECCD /* AEMainThreadEndpoint.m in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
+				C4B491BD20C7DEB100FD565A /* SliderStyleKit.swift in Sources */,
 				C4B491AC20C7D10200FD565A /* MorphSelector.swift in Sources */,
 				C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */,
 				C435C52A20C52D2F00DAECCD /* MIDILearnable.swift in Sources */,
@@ -1094,7 +1112,6 @@
 				C435C51D20C52D1700DAECCD /* PresetDataManager.swift in Sources */,
 				C435C52920C52D2F00DAECCD /* MIDIInput.swift in Sources */,
 				94346F911FC7975C00434900 /* ColorKnobStyleKit.swift in Sources */,
-				9489EF651F3145F100416F26 /* SliderStyleKit.swift in Sources */,
 				C435C58120C530C900DAECCD /* AETypes.m in Sources */,
 				C4B4915020C7C6FC00FD565A /* Parent+MIDIListener.swift in Sources */,
 				C4B4912020C7C62A00FD565A /* WheelSettingsViewController.swift in Sources */,
@@ -1108,7 +1125,6 @@
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				C4B4916D20C7C72A00FD565A /* Parent+EmbeddedViewsDelegate.swift in Sources */,
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
-				C4B4910820C7C5C500FD565A /* ArpDirectionStyleKit.swift in Sources */,
 				C435C57F20C530C900DAECCD /* AEUtilities.m in Sources */,
 				C435C57920C530C900DAECCD /* AKSynthOne.swift in Sources */,
 				C4B4914020C7C6A000FD565A /* TouchPointStyleKit.swift in Sources */,
@@ -1124,10 +1140,10 @@
 				C435C52520C52D1700DAECCD /* Preset.swift in Sources */,
 				C4B4910920C7C5C500FD565A /* SeqViewController.swift in Sources */,
 				C4B4919820C7C81200FD565A /* Parent+MailingListDelegate.swift in Sources */,
-				C4B491AE20C7D10200FD565A /* MorphSelectorStyleKit.swift in Sources */,
 				C4B4919320C7C7C500FD565A /* PresetsCategoriesViewController.swift in Sources */,
 				C4B4911D20C7C62A00FD565A /* SynthKeyboard.swift in Sources */,
 				C4B490ED20C64D8C00FD565A /* S1DSPKernel+getSetDependentParameters.mm in Sources */,
+				C4B491C320C7DF2A00FD565A /* LFOPickerStyleKit.swift in Sources */,
 				C4B4918720C7C79C00FD565A /* Presets+CategoryDelegate.swift in Sources */,
 				C4B490EF20C64E5600FD565A /* S1DSPKernel+didChanges.mm in Sources */,
 				C4B4916B20C7C72A00FD565A /* InfoViewController.swift in Sources */,
@@ -1149,14 +1165,13 @@
 				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C4B490FB20C6560000FD565A /* S1DSPKernel+startStopNotes.mm in Sources */,
 				C435C57D20C530C900DAECCD /* AEManagedValue.m in Sources */,
-				C4B491AD20C7D10200FD565A /* LFOPickerStyleKit.swift in Sources */,
 				C4B4913D20C7C6A000FD565A /* AKVerticalPad.swift in Sources */,
 				C4B4918520C7C79C00FD565A /* PresetsViewController.swift in Sources */,
 				C4B4919B20C7C8C800FD565A /* Parent+ModWheelDelegate.swift in Sources */,
 				947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
-				C4B4910620C7C5C500FD565A /* ArpButtonStyleKit.swift in Sources */,
 				C4B491B120C7D11500FD565A /* MIDIKnob.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
+				C4B491BC20C7DEB100FD565A /* ArpButtonStyleKit.swift in Sources */,
 				C4B4919420C7C7C500FD565A /* PresetEditorViewController.swift in Sources */,
 				C4B4918620C7C79C00FD565A /* Presets+PresetCellDelegate.swift in Sources */,
 				C435C57A20C530C900DAECCD /* SDSustainer.swift in Sources */,
@@ -1189,13 +1204,14 @@
 				C4B490FD20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm in Sources */,
 				948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
+				C4B491C220C7DF2A00FD565A /* MorphSelectorStyleKit.swift in Sources */,
 				C4B4914A20C7C6E300FD565A /* Audiobus+MIDI.swift in Sources */,
-				C4B491B420C7D19F00FD565A /* TempoStyleKit.swift in Sources */,
 				C4B4917420C7C73B00FD565A /* DevViewController.swift in Sources */,
 				C4B4917A20C7C75500FD565A /* HeaderNavButton.swift in Sources */,
 				C4B4918C20C7C79C00FD565A /* Presets+UITableViewDelegate.swift in Sources */,
 				94DB3FE01FC8C0EA007F8081 /* PresetUIButton.swift in Sources */,
 				C4B4916720C7C72A00FD565A /* PanelViewController.swift in Sources */,
+				C4B491BE20C7DEB100FD565A /* ArpDirectionStyleKit.swift in Sources */,
 				C4B4916A20C7C72A00FD565A /* UpdatableViewController.swift in Sources */,
 				C435C57C20C530C900DAECCD /* AEMessageQueue.m in Sources */,
 				C4B4910520C7C5C500FD565A /* ArpDirectionButton.swift in Sources */,

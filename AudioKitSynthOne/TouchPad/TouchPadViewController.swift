@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TouchPadViewController: PanelViewController {
+class TouchPadViewController: Panel {
 
     @IBOutlet weak var touchPad1: AKTouchPadView!
     @IBOutlet weak var touchPad2: AKTouchPadView!

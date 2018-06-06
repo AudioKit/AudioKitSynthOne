@@ -12,7 +12,7 @@ import UIKit
 
 //: TODO So is this the Mixer or the Main View?  In the UI its never referred to as the Mixer.
 
-class MixerViewController: PanelViewController {
+class MixerViewController: Panel {
 
     @IBOutlet weak var morph1Selector: MorphSelector!
     @IBOutlet weak var morph2Selector: MorphSelector!

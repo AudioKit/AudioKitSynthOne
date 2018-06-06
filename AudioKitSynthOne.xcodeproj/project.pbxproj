@@ -421,8 +421,6 @@
 			isa = PBXGroup;
 			children = (
 				94F694C51F683D5D0061DA5E /* CallbackButton.swift */,
-				94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */,
-				94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */,
 				948C54C21F3A57C600DA6081 /* SynthUIButton.swift */,
 				C4F7ECAB1F2446960011B119 /* ToggleButton.swift */,
 				C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */,
@@ -786,6 +784,7 @@
 				C4B491C420C7EC2E00FD565A /* README.md */,
 				C4B491BF20C7DF2A00FD565A /* StyleKits */,
 				948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */,
+				94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */,
 				C4B491A620C7C95900FD565A /* MainPanel.swift */,
 				C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */,
 				C4B491A820C7D10200FD565A /* MorphSelector.swift */,
@@ -807,6 +806,7 @@
 		C4B491BF20C7DF2A00FD565A /* StyleKits */ = {
 			isa = PBXGroup;
 			children = (
+				94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */,
 				C4B491C020C7DF2A00FD565A /* MorphSelectorStyleKit.swift */,
 				C4B491C120C7DF2A00FD565A /* LFOPickerStyleKit.swift */,
 			);

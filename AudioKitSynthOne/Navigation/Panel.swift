@@ -1,5 +1,5 @@
 //
-//  PanelViewController.swift
+//  Panel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/30/17.
@@ -10,7 +10,7 @@ import UIKit
 
 // Handles the Left/Right Navigation between Synth Panels
 
-class PanelViewController: UpdatableViewController {
+class Panel: UpdatableViewController {
 
     @IBOutlet weak var nav1Button: NavButton!
     @IBOutlet weak var nav2Button: NavButton!
@@ -19,15 +19,15 @@ class PanelViewController: UpdatableViewController {
 //    var bottomNavDelegate: BottomEmbeddedViewsDelegate?
     var isTopContainer: Bool = true
 
-    var viewType = ChildView.oscView
-    var leftView = ChildView.seqView
-    var rightView = ChildView.adsrView
+    var viewType = ChildPanel.main
+    var leftView = ChildPanel.arpSeq
+    var rightView = ChildPanel.adsr
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        leftView = self.viewType.leftView()
-        rightView = self.viewType.rightView()
+        leftView = self.viewType.leftPanel()
+        rightView = self.viewType.rightPanel()
 
         navButtonsSetup()
     }
@@ -36,31 +36,31 @@ class PanelViewController: UpdatableViewController {
 
         // Left Nav Button
         nav1Button.callback = { _ in
-           self.navDelegate?.switchToChildView(self.leftView, isTopView: self.isTopContainer)
+           self.navDelegate?.switchToChildPanel(self.leftView, isOnTop: self.isTopContainer)
         }
 
         // Right Nav Button
         nav2Button.callback = { _ in
-           self.navDelegate?.switchToChildView(self.rightView, isTopView: self.isTopContainer)
+           self.navDelegate?.switchToChildPanel(self.rightView, isOnTop: self.isTopContainer)
         }
     }
 
     func updateNavButtons() {
 
-        leftView = viewType.leftView()
-        rightView = viewType.rightView()
+        leftView = viewType.leftPanel()
+        rightView = viewType.rightPanel()
 
         guard let parentController = self.parent as? ParentViewController else { return }
 
         if parentController.keyboardToggle.value == 0 && !parentController.isPresetsDisplayed {
 
             // Make sure the same view doesn't appear twice on the screen
-            if leftView == parentController.topChildView || leftView == parentController.bottomChildView {
-                leftView = leftView.leftView()
+            if leftView == parentController.topChildPanel || leftView == parentController.bottomChildPanel {
+                leftView = leftView.leftPanel()
             }
 
-            if rightView == parentController.topChildView || rightView == parentController.bottomChildView {
-                rightView = rightView.rightView()
+            if rightView == parentController.topChildPanel || rightView == parentController.bottomChildPanel {
+                rightView = rightView.rightPanel()
             }
         }
 

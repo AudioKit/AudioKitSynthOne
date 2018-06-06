@@ -11,11 +11,12 @@ import UIKit
 import Disk
 
 protocol EmbeddedViewsDelegate: AnyObject {
-    func switchToChildView(_ newView: ChildView, isTopView: Bool)
+    func switchToChildPanel(_ newView: ChildPanel, isOnTop: Bool)
 }
 
+// TODO: This does not appear to be used anywhere in the code
 protocol BottomEmbeddedViewsDelegate: AnyObject {
-    func switchToBottomChildView(_ newView: ChildView)
+    func switchToBottomChildPanel(_ newView: ChildPanel)
 }
 
 public class ParentViewController: UpdatableViewController {
@@ -36,14 +37,14 @@ public class ParentViewController: UpdatableViewController {
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
     @IBOutlet weak var modWheelSettings: SynthUIButton!
     @IBOutlet weak var midiLearnToggle: SynthUIButton!
-    @IBOutlet weak var pitchbend: AKVerticalPad!
+    @IBOutlet weak var pitchBend: AKVerticalPad!
     @IBOutlet weak var modWheelPad: AKVerticalPad!
 
     weak var embeddedViewsDelegate: EmbeddedViewsDelegate?
 
-    var topChildView: ChildView?
-    var bottomChildView: ChildView?
-    var prevBottomChildView: ChildView?
+    var topChildPanel: ChildPanel?
+    var bottomChildPanel: ChildPanel?
+    var prevBottomChildPanel: ChildPanel?
     var isPresetsDisplayed: Bool = false
     var activePreset = Preset()
 
@@ -67,14 +68,12 @@ public class ParentViewController: UpdatableViewController {
 
     // MARK: - Define child view controllers
 
-    lazy var adsrViewController: ADSRViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier())
-            as! ADSRViewController
+    lazy var adsrPanel: ADSRPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.adsr.identifier()) as! ADSRPanel
     }()
 
-    lazy var mixerViewController: MixerViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier())
-            as! MixerViewController
+    lazy var mainPanel: MainPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.main.identifier()) as! MainPanel
     }()
 
     lazy var devViewController: DevViewController = {
@@ -84,24 +83,22 @@ public class ParentViewController: UpdatableViewController {
         return viewController
     }()
 
-    lazy var padViewController: TouchPadViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.padView.identifier())
-            as! TouchPadViewController
+    lazy var touchPadPanel: TouchPadPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.touchPad.identifier())
+            as! TouchPadPanel
     }()
 
-    lazy var fxViewController: FXViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier())
-            as! FXViewController
+    lazy var fxPanel: FXPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.fx.identifier()) as! FXPanel
     }()
 
-    lazy var seqViewController: SeqViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier())
-            as! SeqViewController
+    lazy var arpSeqPanel: ArpSeqPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.arpSeq.identifier()) as! ArpSeqPanel
     }()
 
-    lazy var tuningsViewController: TuningsViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier())
-            as! TuningsViewController
+    lazy var tuningsPanel: TuningsPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.tunings.identifier())
+            as! TuningsPanel
     }()
 
     lazy var presetsViewController: PresetsViewController = {
@@ -151,10 +148,10 @@ public class ParentViewController: UpdatableViewController {
         }
 
         // Pre-load views and Set initial subviews
-        switchToChildView(.fxView, isTopView: true)
-        switchToChildView(.adsrView, isTopView: true)
-        switchToChildView(.oscView, isTopView: true)
-        switchToChildView(.seqView, isTopView: false)
+        switchToChildPanel(.fx, isOnTop: true)
+        switchToChildPanel(.adsr, isOnTop: true)
+        switchToChildPanel(.main, isOnTop: true)
+        switchToChildPanel(.arpSeq, isOnTop: false)
 
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)
@@ -247,12 +244,12 @@ public class ParentViewController: UpdatableViewController {
         appSettings.launches += 1
         saveAppSettingValues()
 
-        appendMIDIKnobs(from: mixerViewController)
-        appendMIDIKnobs(from: adsrViewController)
-        appendMIDIKnobs(from: fxViewController)
-        appendMIDIKnobs(from: seqViewController)
+        appendMIDIKnobs(from: mainPanel)
+        appendMIDIKnobs(from: adsrPanel)
+        appendMIDIKnobs(from: fxPanel)
+        appendMIDIKnobs(from: arpSeqPanel)
         appendMIDIKnobs(from: devViewController)
-        appendMIDIKnobs(from: tuningsViewController)
+        appendMIDIKnobs(from: tuningsPanel)
 
         // Set initial preset
         presetsViewController.didSelectPreset(index: 0)
@@ -329,11 +326,11 @@ public class ParentViewController: UpdatableViewController {
                 self.keyboardToggle.setTitle("Show", for: .normal)
 
                 // Add panel to bottom
-                if self.bottomChildView == self.topChildView {
-                    self.bottomChildView = self.bottomChildView?.rightView()
+                if self.bottomChildPanel == self.topChildPanel {
+                    self.bottomChildPanel = self.bottomChildPanel?.rightPanel()
                 }
-                guard let bottom = self.bottomChildView else { return }
-                self.switchToChildView(bottom, isTopView: false)
+                guard let bottom = self.bottomChildPanel else { return }
+                self.switchToChildPanel(bottom, isOnTop: false)
             }
 
             // Animate Keyboard
@@ -366,12 +363,12 @@ public class ParentViewController: UpdatableViewController {
             }
         }
 
-        pitchbend.callback = { value01 in
+        pitchBend.callback = { value01 in
             s.setDependentParameter(.pitchbend, value01, Conductor.sharedInstance.pitchbendParentVCID)
         }
-        pitchbend.completionHandler = {  _, touchesEnded, reset in
+        pitchBend.completionHandler = {  _, touchesEnded, reset in
             if touchesEnded && !reset {
-                self.pitchbend.resetToCenter()
+                self.pitchBend.resetToCenter()
             }
             if reset {
                 s.setDependentParameter(.pitchbend, 0.5, Conductor.sharedInstance.pitchbendParentVCID)
@@ -431,7 +428,7 @@ public class ParentViewController: UpdatableViewController {
             if dependentParameter.payload == conductor.pitchbendParentVCID {
                 return
             }
-            pitchbend.setVerticalValue01(Double(dependentParameter.normalizedValue))
+            pitchBend.setVerticalValue01(Double(dependentParameter.normalizedValue))
 
         default:
             _ = 0

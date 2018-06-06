@@ -8,47 +8,39 @@
 
 import UIKit
 
-// Handles the Left/Right Navigation between Synth Panels
-
+/// A Panel is a View Controller with other panels to the left and right of itself
 class Panel: UpdatableViewController {
 
-    @IBOutlet weak var nav1Button: NavButton!
-    @IBOutlet weak var nav2Button: NavButton!
+    @IBOutlet weak var leftNavButton: NavButton!
+    @IBOutlet weak var rightNavButton: NavButton!
 
     weak var navDelegate: EmbeddedViewsDelegate?
 //    var bottomNavDelegate: BottomEmbeddedViewsDelegate?
     var isTopContainer: Bool = true
 
-    var viewType = ChildPanel.main
+    var currentPanel = ChildPanel.main
     var leftPanel = ChildPanel.arpSeq
     var rightPanel = ChildPanel.adsr
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        leftPanel = self.viewType.leftPanel()
-        rightPanel = self.viewType.rightPanel()
+        leftPanel = self.currentPanel.leftPanel()
+        rightPanel = self.currentPanel.rightPanel()
 
-        navButtonsSetup()
-    }
-
-    func navButtonsSetup() {
-
-        // Left Nav Button
-        nav1Button.callback = { _ in
+        leftNavButton.callback = { _ in
            self.navDelegate?.switchToChildPanel(self.leftPanel, isOnTop: self.isTopContainer)
         }
 
-        // Right Nav Button
-        nav2Button.callback = { _ in
+        rightNavButton.callback = { _ in
            self.navDelegate?.switchToChildPanel(self.rightPanel, isOnTop: self.isTopContainer)
         }
     }
 
     func updateNavButtons() {
 
-        leftPanel = viewType.leftPanel()
-        rightPanel = viewType.rightPanel()
+        leftPanel = currentPanel.leftPanel()
+        rightPanel = currentPanel.rightPanel()
 
         guard let manager = self.parent as? Manager else { return }
 
@@ -65,10 +57,10 @@ class Panel: UpdatableViewController {
         }
 
         // Update button text
-        nav1Button.buttonText = leftPanel.buttonText()
-        nav2Button.buttonText = rightPanel.buttonText()
-        nav1Button.setNeedsDisplay()
-        nav2Button.setNeedsDisplay()
+        leftNavButton.buttonText = leftPanel.buttonText()
+        rightNavButton.buttonText = rightPanel.buttonText()
+        leftNavButton.setNeedsDisplay()
+        rightNavButton.setNeedsDisplay()
     }
 
 }

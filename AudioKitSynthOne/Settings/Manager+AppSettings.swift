@@ -1,5 +1,5 @@
 //
-//  Parent+AppSettingsDataManager.swift
+//  Manager+AppSettingsDataManager.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 10/31/17.
@@ -10,7 +10,7 @@ import AudioKit
 import UIKit
 import Disk
 
-extension ParentViewController {
+extension Manager {
 
     // MARK: - Convert App Settings to Controls and vice-versa
 

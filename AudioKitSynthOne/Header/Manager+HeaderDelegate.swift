@@ -1,5 +1,5 @@
 //
-//  Parent+HeaderDelegate.swift
+//  Manager+HeaderDelegate.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/25/18.
@@ -8,7 +8,7 @@
 
 // Header Delegate
 
-extension ParentViewController: HeaderDelegate {
+extension Manager: HeaderDelegate {
 
     func displayLabelTapped() {
         if !isPresetsDisplayed {

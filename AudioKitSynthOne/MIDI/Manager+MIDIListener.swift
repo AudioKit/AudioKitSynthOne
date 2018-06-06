@@ -1,5 +1,5 @@
 //
-//  Parent+MIDIListener.swift
+//  Manager+MIDIListener.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/25/18.
@@ -8,7 +8,7 @@
 
 // AKMIDIListener protocol functions
 
-extension ParentViewController: AKMIDIListener {
+extension Manager: AKMIDIListener {
 
     public func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }

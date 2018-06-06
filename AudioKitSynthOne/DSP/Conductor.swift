@@ -30,7 +30,7 @@ class Conductor: S1Protocol {
     let lfo1RateTouchPadID: Int32 = 5
     let lfo1RateModWheelID: Int32 = 6
     let lfo2RateModWheelID: Int32 = 7
-    let pitchbendParentVCID: Int32 = 8
+    let pitchBendID: Int32 = 8
 
     public var viewControllers: Set<UpdatableViewController> = []
     fileprivate var started = false
@@ -104,9 +104,9 @@ class Conductor: S1Protocol {
         }
 
         // Display Preset Name again
-        guard let parentVC = self.viewControllers.first(
-            where: { $0 is ParentViewController }) as? ParentViewController else { return }
-        updateDisplayLabel("\(parentVC.activePreset.position): \(parentVC.activePreset.name)")
+        guard let manager = self.viewControllers.first(
+            where: { $0 is Manager }) as? Manager else { return }
+        updateDisplayLabel("\(manager.activePreset.position): \(manager.activePreset.name)")
     }
 
     func start() {
@@ -162,8 +162,8 @@ class Conductor: S1Protocol {
     }
 
     func updateDisplayLabel(_ message: String) {
-        let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as? ParentViewController
-        parentVC?.updateDisplay(message)
+        let manager = self.viewControllers.first(where: { $0 is Manager }) as? Manager
+        manager?.updateDisplay(message)
     }
 
     func updateDisplayLabel(_ parameter: S1Parameter, value: Double) {
@@ -181,8 +181,8 @@ class Conductor: S1Protocol {
         let touchPadPanel = self.viewControllers.first(where: { $0 is TouchPadPanel }) as? TouchPadPanel
         touchPadPanel?.dependentParameterDidChange(parameter)
 
-        let parentVC = self.viewControllers.first(where: { $0 is ParentViewController }) as? ParentViewController
-        parentVC?.dependentParameterDidChange(parameter)
+        let manager = self.viewControllers.first(where: { $0 is Manager }) as? Manager
+        manager?.dependentParameterDidChange(parameter)
     }
 
     // called by DSP on main thread

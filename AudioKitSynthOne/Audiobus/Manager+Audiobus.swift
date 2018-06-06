@@ -1,5 +1,5 @@
 //
-//  Parent+Audiobus.swift
+//  Manager+Audiobus.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/25/18.
@@ -8,7 +8,7 @@
 
 // AudioBus MIDI Input & Preset Loading
 
-extension ParentViewController: ABAudiobusControllerStateIODelegate {
+extension Manager: ABAudiobusControllerStateIODelegate {
 
     func setupAudioBusInput() {
         midiInput = ABMIDIReceiverPort(name: "AudioKit Synth One MIDI",

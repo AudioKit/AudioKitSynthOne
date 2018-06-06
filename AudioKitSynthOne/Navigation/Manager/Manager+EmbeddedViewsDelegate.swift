@@ -1,5 +1,5 @@
 //
-//  Parent+EmbeddedViewsDelegate.swift
+//  Manager+EmbeddedViewsDelegate.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/25/18.
@@ -8,7 +8,7 @@
 
 // Embedded Views Delegate
 
-extension ParentViewController: EmbeddedViewsDelegate {
+extension Manager: EmbeddedViewsDelegate {
 
     func switchToChildPanel(_ newView: ChildPanel, isOnTop: Bool = true) {
 

@@ -1,5 +1,5 @@
 //
-//  Parent+Keyboard.swift
+//  Manager+Keyboard.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/25/18.
@@ -8,7 +8,7 @@
 
 // Keyboard Pop Over Delegate
 
-extension ParentViewController: KeyboardPopOverDelegate {
+extension Manager: KeyboardPopOverDelegate {
 
     func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool) {
         keyboardView.octaveCount = octaveRange
@@ -22,7 +22,7 @@ extension ParentViewController: KeyboardPopOverDelegate {
 
 // Keyboard Delegate Note on/off
 
-extension ParentViewController: AKKeyboardDelegate {
+extension Manager: AKKeyboardDelegate {
 
     public func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity = 127) {
         sustainer.play(noteNumber: note, velocity: velocity)

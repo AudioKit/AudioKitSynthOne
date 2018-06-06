@@ -1,5 +1,5 @@
 //
-//  ParentViewController.swift
+//  Manager.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/8/17.
@@ -19,7 +19,7 @@ protocol BottomEmbeddedViewsDelegate: AnyObject {
     func switchToBottomChildPanel(_ newView: ChildPanel)
 }
 
-public class ParentViewController: UpdatableViewController {
+public class Manager: UpdatableViewController {
 
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var bottomContainerView: UIView!
@@ -268,7 +268,7 @@ public class ParentViewController: UpdatableViewController {
     func setupCallbacks() {
 
         guard let s = conductor.synth else {
-            AKLog("ParentViewController view state is invalid because synth is not instantiated")
+            AKLog("Manager view state is invalid because synth is not instantiated")
             return
         }
 
@@ -364,14 +364,14 @@ public class ParentViewController: UpdatableViewController {
         }
 
         pitchBend.callback = { value01 in
-            s.setDependentParameter(.pitchbend, value01, Conductor.sharedInstance.pitchbendParentVCID)
+            s.setDependentParameter(.pitchbend, value01, Conductor.sharedInstance.pitchBendID)
         }
         pitchBend.completionHandler = {  _, touchesEnded, reset in
             if touchesEnded && !reset {
                 self.pitchBend.resetToCenter()
             }
             if reset {
-                s.setDependentParameter(.pitchbend, 0.5, Conductor.sharedInstance.pitchbendParentVCID)
+                s.setDependentParameter(.pitchbend, 0.5, Conductor.sharedInstance.pitchBendID)
             }
         }
     }
@@ -425,7 +425,7 @@ public class ParentViewController: UpdatableViewController {
             }
 
         case .pitchbend:
-            if dependentParameter.payload == conductor.pitchbendParentVCID {
+            if dependentParameter.payload == conductor.pitchBendID {
                 return
             }
             pitchBend.setVerticalValue01(Double(dependentParameter.normalizedValue))

@@ -1,5 +1,5 @@
 //
-//  Parent+PresetsDelegate.swift
+//  Manager+PresetsDelegate.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/25/18.
@@ -8,7 +8,7 @@
 
 // Presets Delegate
 
-extension ParentViewController: PresetsDelegate {
+extension Manager: PresetsDelegate {
 
     func presetDidChange(_ newActivePreset: Preset) {
         activePreset = newActivePreset

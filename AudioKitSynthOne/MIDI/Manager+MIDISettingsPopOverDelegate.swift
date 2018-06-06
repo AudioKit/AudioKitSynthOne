@@ -1,5 +1,5 @@
 //
-//  Parent+MIDISettingsPopoverDelegate.swift
+//  Manager+MIDISettingsPopoverDelegate.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/25/18.
@@ -8,7 +8,7 @@
 
 // MIDI Settings Pop Over Delegate
 
-extension ParentViewController: MIDISettingsPopOverDelegate {
+extension Manager: MIDISettingsPopOverDelegate {
 
     func resetMIDILearn() {
         midiKnobs.forEach { $0.midiCC = 255 }

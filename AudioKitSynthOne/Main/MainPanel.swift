@@ -10,7 +10,7 @@ import AudioKit
 import AudioKitUI
 import UIKit
 
-// TODO: So is this the Mixer or the Main View? In the UI its never referred to as the Mixer. Might need to move folder.
+// TODO: Rename Main to
 
 /// Main Oscillator Mixing Panel
 class MainPanel: Panel {

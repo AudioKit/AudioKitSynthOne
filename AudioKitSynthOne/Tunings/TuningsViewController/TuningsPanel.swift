@@ -1,5 +1,5 @@
 //
-//  TuningsViewController.swift
+//  TuningsPanel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/6/18.
@@ -31,7 +31,7 @@ class TuningsPanel: Panel {
         super.viewDidLoad()
 
         guard let synth = Conductor.sharedInstance.synth else { return }
-        viewType = .tuningsView
+        viewType = .tunings
         tuningModel.loadTunings()
         tuningTableView.backgroundColor = UIColor.clear
         tuningTableView.isOpaque = false

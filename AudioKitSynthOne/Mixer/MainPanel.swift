@@ -10,8 +10,9 @@ import AudioKit
 import AudioKitUI
 import UIKit
 
-//: TODO So is this the Mixer or the Main View?  In the UI its never referred to as the Mixer. Might need to move folder.
+// TODO: So is this the Mixer or the Main View? In the UI its never referred to as the Mixer. Might need to move folder.
 
+/// Main Oscillator Mixing Panel
 class MainPanel: Panel {
 
     @IBOutlet weak var morph1Selector: MorphSelector!
@@ -56,7 +57,7 @@ class MainPanel: Panel {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewType = .mainPanel
+        viewType = .main
 
         // Defaults, limits
         guard let s = conductor.synth else {

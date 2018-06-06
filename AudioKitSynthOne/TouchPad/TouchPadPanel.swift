@@ -29,7 +29,7 @@ class TouchPadPanel: Panel {
 
         guard let s = conductor.synth else { return }
 
-        viewType = .padView
+        viewType = .touchPad
         snapToggle.value = 1
 
         // TouchPad 1

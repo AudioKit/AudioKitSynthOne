@@ -26,10 +26,10 @@ class ArpSeqPanel: Panel {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewType = .seqView
+        viewType = .arpSeq
 
         guard let s = conductor.synth else {
-            AKLog("SeqViewController view state is invalid because synth is not instantiated")
+            AKLog("ArpSeqPanel view state is invalid because synth is not instantiated")
             return
         }
 
@@ -49,11 +49,11 @@ class ArpSeqPanel: Panel {
 
         // ARP/SEQ OCTAVE BOOST
         let arpSeqOctBoostArray: [S1Parameter] = [.arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02,
-                                                          .arpSeqOctBoost03, .arpSeqOctBoost04, .arpSeqOctBoost05,
-                                                          .arpSeqOctBoost06, .arpSeqOctBoost07, .arpSeqOctBoost08,
-                                                          .arpSeqOctBoost09, .arpSeqOctBoost10, .arpSeqOctBoost11,
-                                                          .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14,
-                                                          .arpSeqOctBoost15]
+                                                  .arpSeqOctBoost03, .arpSeqOctBoost04, .arpSeqOctBoost05,
+                                                  .arpSeqOctBoost06, .arpSeqOctBoost07, .arpSeqOctBoost08,
+                                                  .arpSeqOctBoost09, .arpSeqOctBoost10, .arpSeqOctBoost11,
+                                                  .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14,
+                                                  .arpSeqOctBoost15]
 
         octaveBoostButtons.removeAll() // just in case we run this more than once
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {
@@ -75,11 +75,11 @@ class ArpSeqPanel: Panel {
 
         // ARP/SEQ PATTERN
         let arpSeqPatternArray: [S1Parameter] = [.arpSeqPattern00, .arpSeqPattern01, .arpSeqPattern02,
-                                                         .arpSeqPattern03, .arpSeqPattern04, .arpSeqPattern05,
-                                                         .arpSeqPattern06, .arpSeqPattern07, .arpSeqPattern08,
-                                                         .arpSeqPattern09, .arpSeqPattern10, .arpSeqPattern11,
-                                                         .arpSeqPattern12, .arpSeqPattern13, .arpSeqPattern14,
-                                                         .arpSeqPattern15]
+                                                 .arpSeqPattern03, .arpSeqPattern04, .arpSeqPattern05,
+                                                 .arpSeqPattern06, .arpSeqPattern07, .arpSeqPattern08,
+                                                 .arpSeqPattern09, .arpSeqPattern10, .arpSeqPattern11,
+                                                 .arpSeqPattern12, .arpSeqPattern13, .arpSeqPattern14,
+                                                 .arpSeqPattern15]
 
         sliders.removeAll() // just in case we run this more than once
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {
@@ -102,11 +102,11 @@ class ArpSeqPanel: Panel {
 
         // ARP/SEQ NOTE ON/OFF
         let arpSeqNoteOnArray: [S1Parameter] = [.arpSeqNoteOn00, .arpSeqNoteOn01, .arpSeqNoteOn02,
-                                                        .arpSeqNoteOn03, .arpSeqNoteOn04, .arpSeqNoteOn05,
-                                                        .arpSeqNoteOn06, .arpSeqNoteOn07, .arpSeqNoteOn08,
-                                                        .arpSeqNoteOn09, .arpSeqNoteOn10, .arpSeqNoteOn11,
-                                                        .arpSeqNoteOn12, .arpSeqNoteOn13, .arpSeqNoteOn14,
-                                                        .arpSeqNoteOn15]
+                                                .arpSeqNoteOn03, .arpSeqNoteOn04, .arpSeqNoteOn05,
+                                                .arpSeqNoteOn06, .arpSeqNoteOn07, .arpSeqNoteOn08,
+                                                .arpSeqNoteOn09, .arpSeqNoteOn10, .arpSeqNoteOn11,
+                                                .arpSeqNoteOn12, .arpSeqNoteOn13, .arpSeqNoteOn14,
+                                                .arpSeqNoteOn15]
 
         noteOnButtons.removeAll() // just in case we run this more than once
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {

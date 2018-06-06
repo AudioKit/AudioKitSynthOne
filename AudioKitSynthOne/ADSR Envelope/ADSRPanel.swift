@@ -31,7 +31,7 @@ class ADSRPanel: Panel {
         envelopeLabelBackground.layer.cornerRadius = 8
 
         guard let s = conductor.synth else {
-            AKLog("ADSRViewController view state is invalid because synth is not instantiated")
+            AKLog("ADSRPanel view state is invalid because synth is not instantiated")
             return
         }
 
@@ -47,7 +47,7 @@ class ADSRPanel: Panel {
 
         filterADSRMixKnob.range = s.getRange(.filterADSRMix)
 
-        viewType = .adsrView
+        viewType = .adsr
 
         conductor.bind(attackKnob, to: .attackDuration)
         conductor.bind(decayKnob, to: .decayDuration)

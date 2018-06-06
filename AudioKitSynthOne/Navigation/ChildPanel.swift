@@ -1,5 +1,5 @@
 //
-//  ChildView.swift
+//  ChildPanel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/30/17.
@@ -9,56 +9,56 @@
 import Foundation
 
 public enum ChildPanel: Int {
-    case mainPanel = 0
-    case adsrView = 1
-    case padView = 2
-    case fxView = 3
-    case seqView = 4
-    case tuningsView = 5
+    case main = 0
+    case adsr = 1
+    case touchPad = 2
+    case fx = 3
+    case arpSeq = 4
+    case tunings = 5
 
     static let maxValue = 5
 
     func identifier() -> String {
         switch self {
-        case .mainPanel:
+        case .main:
             return "MainPanel"
-        case .adsrView:
-            return "ADSRViewController"
-        case .padView:
-            return "TouchPadViewController"
-        case .fxView:
-            return "FXViewController"
-        case .seqView:
-            return "SeqViewController"
-        case .tuningsView:
-            return "TuningsViewController"
+        case .adsr:
+            return "ADSRPanel"
+        case .touchPad:
+            return "TouchPadPanel"
+        case .fx:
+            return "FXPanel"
+        case .arpSeq:
+            return "ArpSeqPanel"
+        case .tunings:
+            return "TuningsPanel"
         }
     }
 
     func buttonText() -> String {
         switch self {
-        case .mainPanel:
+        case .main:
             return "MAIN"
-        case .adsrView:
+        case .adsr:
             return "ADSR"
-        case .padView:
+        case .touchPad:
             return "PAD"
-        case .fxView:
+        case .fx:
             return "FX"
-        case .seqView:
+        case .arpSeq:
             return "ARP"
-        case .tuningsView:
+        case .tunings:
             return "TUNE"
         }
     }
 
-    func leftView() -> ChildPanel {
+    func leftPanel() -> ChildPanel {
         var leftValue = self.rawValue - 1
         if leftValue < 0 { leftValue = ChildPanel.maxValue }
         return ChildPanel(rawValue: leftValue)!
     }
 
-    func rightView() -> ChildPanel {
+    func rightPanel() -> ChildPanel {
         var rightValue = self.rawValue + 1
         if rightValue > ChildPanel.maxValue { rightValue = 0 }
         return ChildPanel(rawValue: rightValue)!

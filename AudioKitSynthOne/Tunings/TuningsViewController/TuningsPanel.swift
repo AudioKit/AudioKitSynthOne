@@ -32,7 +32,6 @@ class TuningsPanel: Panel {
 
         guard let synth = Conductor.sharedInstance.synth else { return }
         viewType = .tunings
-        tuningModel.loadTunings()
         tuningTableView.backgroundColor = UIColor.clear
         tuningTableView.isOpaque = false
         tuningTableView.allowsSelection = true
@@ -54,8 +53,13 @@ class TuningsPanel: Panel {
             }
         }
 
-        selectRow(0)
-        tuningDidChange()
+        // callback called on main thread
+        tuningModel.loadTunings {
+            self.tuningTableView.reloadData()
+            self.selectRow(0)
+            self.tuningDidChange()
+            AKLog("default tunings complete")
+        }
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -72,6 +76,7 @@ class TuningsPanel: Panel {
     }
 
     @IBAction func randomPressed(_ sender: UIButton) {
+        guard tuningModel.isTuningReady else { return }
         tuningIndex = tuningModel.randomTuning()
         selectRow(tuningIndex)
         tuningDidChange()
@@ -83,6 +88,7 @@ class TuningsPanel: Panel {
     }
 
     internal func selectRow(_ index: Int) {
+        guard tuningModel.isTuningReady else { return }
         tuningIndex = index
         let path = IndexPath(row: index, section: 0)
         tuningTableView.selectRow(at: path, animated: true, scrollPosition: .middle)
@@ -90,8 +96,8 @@ class TuningsPanel: Panel {
     }
 
     public func setTuning(name: String?, masterArray master: [Double]?) {
+        guard tuningModel.isTuningReady else { return }
         let i = tuningModel.setTuning(name: name, masterArray: master)
-
         if i.1 {
             tuningTableView.reloadData()
         }
@@ -101,11 +107,13 @@ class TuningsPanel: Panel {
     }
 
     public func setDefaultTuning() {
+        guard tuningModel.isTuningReady else { return }
         tuningIndex = tuningModel.resetTuning()
         selectRow(tuningIndex)
     }
 
     public func getTuning() -> (String, [Double]) {
+        guard tuningModel.isTuningReady else { return ("", [1]) }
         let t = tuningModel.getTuning(index: tuningIndex)
         return t
     }

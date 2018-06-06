@@ -11,11 +11,11 @@ import UIKit
 import Disk
 
 protocol EmbeddedViewsDelegate: AnyObject {
-    func switchToChildView(_ newView: ChildView, isTopView: Bool)
+    func switchToChildView(_ newView: ChildPanel, isTopView: Bool)
 }
 
 protocol BottomEmbeddedViewsDelegate: AnyObject {
-    func switchToBottomChildView(_ newView: ChildView)
+    func switchToBottomChildView(_ newView: ChildPanel)
 }
 
 public class ParentViewController: UpdatableViewController {
@@ -41,9 +41,9 @@ public class ParentViewController: UpdatableViewController {
 
     weak var embeddedViewsDelegate: EmbeddedViewsDelegate?
 
-    var topChildView: ChildView?
-    var bottomChildView: ChildView?
-    var prevBottomChildView: ChildView?
+    var topChildView: ChildPanel?
+    var bottomChildView: ChildPanel?
+    var prevBottomChildView: ChildPanel?
     var isPresetsDisplayed: Bool = false
     var activePreset = Preset()
 
@@ -67,14 +67,14 @@ public class ParentViewController: UpdatableViewController {
 
     // MARK: - Define child view controllers
 
-    lazy var adsrViewController: ADSRViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.adsrView.identifier())
-            as! ADSRViewController
+    lazy var adsrViewController: ADSRPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.adsrView.identifier())
+            as! ADSRPanel
     }()
 
-    lazy var mixerViewController: MixerViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.oscView.identifier())
-            as! MixerViewController
+    lazy var mainPanel: MainPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.mainPanel.identifier())
+            as! MainPanel
     }()
 
     lazy var devViewController: DevViewController = {
@@ -84,24 +84,24 @@ public class ParentViewController: UpdatableViewController {
         return viewController
     }()
 
-    lazy var padViewController: TouchPadViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.padView.identifier())
-            as! TouchPadViewController
+    lazy var padViewController: TouchPadPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.padView.identifier())
+            as! TouchPadPanel
     }()
 
-    lazy var fxViewController: FXViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.fxView.identifier())
-            as! FXViewController
+    lazy var fxViewController: FXPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.fxView.identifier())
+            as! FXPanel
     }()
 
-    lazy var seqViewController: SeqViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.seqView.identifier())
-            as! SeqViewController
+    lazy var seqViewController: ArpSeqPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.seqView.identifier())
+            as! ArpSeqPanel
     }()
 
-    lazy var tuningsViewController: TuningsViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildView.tuningsView.identifier())
-            as! TuningsViewController
+    lazy var tuningsViewController: TuningsPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.tuningsView.identifier())
+            as! TuningsPanel
     }()
 
     lazy var presetsViewController: PresetsViewController = {
@@ -153,7 +153,7 @@ public class ParentViewController: UpdatableViewController {
         // Pre-load views and Set initial subviews
         switchToChildView(.fxView, isTopView: true)
         switchToChildView(.adsrView, isTopView: true)
-        switchToChildView(.oscView, isTopView: true)
+        switchToChildView(.mainPanel, isTopView: true)
         switchToChildView(.seqView, isTopView: false)
 
         // Pre-load dev panel view
@@ -247,7 +247,7 @@ public class ParentViewController: UpdatableViewController {
         appSettings.launches += 1
         saveAppSettingValues()
 
-        appendMIDIKnobs(from: mixerViewController)
+        appendMIDIKnobs(from: mainPanel)
         appendMIDIKnobs(from: adsrViewController)
         appendMIDIKnobs(from: fxViewController)
         appendMIDIKnobs(from: seqViewController)

@@ -1,5 +1,5 @@
 //
-//  PanelViewController.swift
+//  Panel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/30/17.
@@ -19,9 +19,9 @@ class Panel: UpdatableViewController {
 //    var bottomNavDelegate: BottomEmbeddedViewsDelegate?
     var isTopContainer: Bool = true
 
-    var viewType = ChildView.oscView
-    var leftView = ChildView.seqView
-    var rightView = ChildView.adsrView
+    var viewType = ChildPanel.mainPanel
+    var leftView = ChildPanel.seqView
+    var rightView = ChildPanel.adsrView
 
     override func viewDidLoad() {
         super.viewDidLoad()

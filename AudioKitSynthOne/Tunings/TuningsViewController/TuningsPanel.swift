@@ -15,7 +15,7 @@ public protocol TuningsPitchWheelViewTuningDidChange {
 /// View controller for the Tunings Panel
 ///
 /// Erv Wilson is the man [website](http://aure.com/)
-class TuningsViewController: Panel {
+class TuningsPanel: Panel {
 
     @IBOutlet weak var tuningTableView: UITableView!
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
@@ -113,7 +113,7 @@ class TuningsViewController: Panel {
 
 // MARK: - TuningsPitchWheelViewTuningDidChange
 
-extension TuningsViewController: TuningsPitchWheelViewTuningDidChange {
+extension TuningsPanel: TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange() {
         tuningsPitchWheelView.updateFromGlobalTuningTable()
     }

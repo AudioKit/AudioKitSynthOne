@@ -1333,7 +1333,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-force_load",
+					"'$(SRCROOT)/../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework/AudioKit'",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
@@ -1395,7 +1399,11 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-force_load",
+					"'$(SRCROOT)/../AudioKit/Frameworks/AudioKit-iOS/AudioKit.framework/AudioKit'",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

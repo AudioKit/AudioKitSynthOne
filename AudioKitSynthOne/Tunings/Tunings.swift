@@ -12,26 +12,36 @@ import Disk
 
 class Tunings {
 
+    var isTuningReady = false
     var tunings = [Tuning]()
     var tuningsDelegate: TuningsPitchWheelViewTuningDidChange?
     public typealias S1TuningCallback = () -> [Double]
     public typealias Frequency = Double
     private let tuningFilename = "tunings.json"
+    public typealias S1TuningLoadCallback = () -> (Void)
 
     init() {}
 
-    func loadTunings() {
-        tunings.removeAll()
+    //
+    func loadTunings(completionHandler: @escaping S1TuningLoadCallback) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.tunings.removeAll()
 
-        // Load tunings
-        if Disk.exists(tuningFilename, in: .documents) {
-            loadTuningsFromDevice()
-        } else {
-            loadTuningFactoryPresets()
+            // Load tunings
+            if Disk.exists(self.tuningFilename, in: .documents) {
+                self.loadTuningsFromDevice()
+            } else {
+                self.loadTuningFactoryPresets()
+            }
+            
+            self.sortTunings()
+            self.saveTunings()
+
+            self.isTuningReady = true
+            DispatchQueue.main.async {
+                completionHandler()
+            }
         }
-
-        sortTunings()
-        saveTunings()
     }
 
     private func loadTuningsFromDevice() {
@@ -265,12 +275,12 @@ class Tunings {
         retVal.append( ("12 Hobbs Recurrence Relation", { let s: [Double] = [1, 65, 9, 37, 151, 21, 86, 12, 49, 200, 28, 114]; return s }) )
 
         /// scales designed by Stephen Taylor
-        retVal.append( (" 6 SJT MOS G: 0.855088", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.855_088, level: 6, murchana: 0 ); return t.masterSet }) )
-        retVal.append( ("13 SJT MOS G: 0.855088", { return [1.0, 1.094_694_266_037_451, 1.198_355_536_095_273_3, 1.210_363_175_255_471_5, 1.324_977_627_775_046_9, 1.338_254_032_623_560_6, 1.464_979_016_014_507_3, 1.479_658_248_405_658_6, 1.619_773_400_224_692_8, 1.636_003_687_418_558_8, 1.790_923_855_833_222_1, 1.808_869_087_257_869_4, 1.980_158_617_833_586_4] }) )
-        retVal.append( (" 6 SJT MOS G: 0.791400", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.791_400, level: 5, murchana: 0 ); return t.masterSet }) )
-        retVal.append( (" 5 SJT MOS G: 0.78207964", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.782_079_64, level: 5, murchana: 0 ); return t.masterSet }) )
-        retVal.append( (" 5 SJT MOS G: 0.618033", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.618_033, level: 4, murchana: 0 ); return t.masterSet }) )
-        retVal.append( (" 5 SJT MOS G: 0.232587", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.232_587, level: 5, murchana: 0 ); return t.masterSet }) )
+        retVal.append( (" 6 Taylor MOS G: 0.855088", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.855_088, level: 6, murchana: 0 ); return t.masterSet }) )
+        retVal.append( ("13 Taylor MOS G: 0.855088", { return [1.0, 1.094_694_266_037_451, 1.198_355_536_095_273_3, 1.210_363_175_255_471_5, 1.324_977_627_775_046_9, 1.338_254_032_623_560_6, 1.464_979_016_014_507_3, 1.479_658_248_405_658_6, 1.619_773_400_224_692_8, 1.636_003_687_418_558_8, 1.790_923_855_833_222_1, 1.808_869_087_257_869_4, 1.980_158_617_833_586_4] }) )
+        retVal.append( (" 6 Taylor MOS G: 0.791400", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.791_400, level: 5, murchana: 0 ); return t.masterSet }) )
+        retVal.append( (" 5 Taylor MOS G: 0.78207964", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.782_079_64, level: 5, murchana: 0 ); return t.masterSet }) )
+        retVal.append( (" 5 Taylor MOS G: 0.618033", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.618_033, level: 4, murchana: 0 ); return t.masterSet }) )
+        retVal.append( (" 5 Taylor MOS G: 0.232587", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.232_587, level: 5, murchana: 0 ); return t.masterSet }) )
         retVal.append( ("27 Taylor Pasadena JI 27", { let s: [Double] = [ 1.0 / 1, 81 / 80, 17 / 16, 16 / 15, 10 / 9, 9 / 8, 8 / 7, 7 / 6, 19 / 16, 6 / 5, 11 / 9, 5 / 4, 9 / 7, 21 / 16, 4 / 3, 11 / 8, 7 / 5, 3 / 2, 11 / 7, 8 / 5, 5 / 3, 13 / 8, 27 / 16, 7 / 4, 9 / 5, 11 / 6, 15 / 8 ]; return s }) )
 
         retVal.append( (" 7 Tone Equal Temperament", { let t = AKTuningTable(); _ = t.equalTemperament(notesPerOctave: 7); return t.masterSet }) )

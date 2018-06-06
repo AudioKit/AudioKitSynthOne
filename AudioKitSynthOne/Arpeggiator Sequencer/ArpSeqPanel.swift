@@ -17,7 +17,7 @@ class ArpSeqPanel: Panel {
     @IBOutlet weak var arpToggle: ToggleButton!
     @IBOutlet weak var arpInterval: MIDIKnob!
 
-    var octaveBoostButtons = [SliderTransposeButton]()
+    var sliderTransposeButtons = [SliderTransposeButton]()
     var sliders = [VerticalSlider]()
     var noteOnButtons = [ArpButton]()
 
@@ -55,13 +55,13 @@ class ArpSeqPanel: Panel {
                                                   .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14,
                                                   .arpSeqOctBoost15]
 
-        octaveBoostButtons.removeAll() // just in case we run this more than once
+        sliderTransposeButtons.removeAll() // just in case we run this more than once
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {
             guard let sliderTransposeButton = view as? SliderTransposeButton else { continue }
-            octaveBoostButtons.append(sliderTransposeButton)
+            sliderTransposeButtons.append(sliderTransposeButton)
         }
 
-        for (notePosition, octBoostButton) in octaveBoostButtons.enumerated() {
+        for (notePosition, octBoostButton) in sliderTransposeButtons.enumerated() {
             let arpSeqOctBoostParameter = arpSeqOctBoostArray[notePosition]
             conductor.bind(octBoostButton, to: arpSeqOctBoostParameter) { _, _ in
                 return { value in
@@ -91,6 +91,8 @@ class ArpSeqPanel: Panel {
             let arpSeqPatternParameter = arpSeqPatternArray[notePosition]
             conductor.bind(arpSeqPatternSlider, to: arpSeqPatternParameter) { _, control in
                 return { value in
+
+                    // TODO: This is incomprehensible
                     let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
                     s.setPattern(forIndex: notePosition, tval )
                     self.conductor.updateSingleUI(arpSeqPatternParameter,
@@ -150,23 +152,24 @@ class ArpSeqPanel: Panel {
         let seqTotalSteps = Int(conductor.synth.getSynthParameter(.arpTotalSteps))
 
         // clear out all indicators
-        octaveBoostButtons.forEach { $0.isActive = false }
+        sliderTransposeButtons.forEach { $0.isActive = false }
 
         // if a non-trivial sequence is playing
         if arpIsOn && arpIsSequencer && seqTotalSteps > 0 {
             let notePosition = (beatCounter + seqTotalSteps - 1) % seqTotalSteps
             if heldNotes != 0 {
                 // change the outline current notePosition
-                octaveBoostButtons[notePosition].isActive = true
+                sliderTransposeButtons[notePosition].isActive = true
             } else {
                 // on
-                octaveBoostButtons[0].isActive = true
+                sliderTransposeButtons[0].isActive = true
             }
         }
     }
 
     func updateOctBoostButton(notePosition: Int) {
-        let octBoostButton = octaveBoostButtons[notePosition]
+        // TOOD: Reconcile names "SliderTransposeBUtton" and "OctBoostButton"
+        let octBoostButton = sliderTransposeButtons[notePosition]
         octBoostButton.transposeAmt = conductor.synth.getPattern(forIndex: notePosition)
         octBoostButton.value = conductor.synth.getOctaveBoost(forIndex: notePosition) == true ? 1 : 0
     }

@@ -1,5 +1,5 @@
 //
-//  S1Tunings.swift
+//  Tunings.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/12/18.
@@ -10,9 +10,9 @@ import UIKit
 import AudioKit
 import Disk
 
-class S1Tunings {
+class Tunings {
 
-    var tunings = [S1Tuning]()
+    var tunings = [Tuning]()
     var tuningsDelegate: TuningsPitchWheelViewTuningDidChange?
     public typealias S1TuningCallback = () -> [Double]
     public typealias Frequency = Double
@@ -44,8 +44,8 @@ class S1Tunings {
     }
 
     private func loadTuningFactoryPresets() {
-        for t in S1Tunings.defaultTunings() {
-            let newTuning = S1Tuning()
+        for t in Tunings.defaultTunings() {
+            let newTuning = Tuning()
             newTuning.name = t.0
             newTuning.masterSet = t.1()
             tunings.append(newTuning)
@@ -63,15 +63,15 @@ class S1Tunings {
     func parseTuningsFromData(data: Data) {
         let tuningsJSON = try? JSONSerialization.jsonObject(with: data, options: [])
         guard let jsonArray = tuningsJSON as? [Any] else { return }
-        tunings += S1Tunings.parseDataToTunings(jsonArray: jsonArray)
+        tunings += Tunings.parseDataToTunings(jsonArray: jsonArray)
     }
 
     // Return Array of Tunings
-    class public func parseDataToTunings(jsonArray: [Any]) -> [S1Tuning] {
-        var retVal = [S1Tuning]()
+    class public func parseDataToTunings(jsonArray: [Any]) -> [Tuning] {
+        var retVal = [Tuning]()
         for tuningJSON in jsonArray {
             if let tuningDictionary = tuningJSON as? [String: Any] {
-                let retrievedTuning = S1Tuning(dictionary: tuningDictionary)
+                let retrievedTuning = Tuning(dictionary: tuningDictionary)
                 retVal.append(retrievedTuning)
             }
         }
@@ -79,7 +79,7 @@ class S1Tunings {
     }
 
     func sortTunings() {
-        let twelve = S1Tuning()
+        let twelve = Tuning()
 
         // remove 12ET, then sort
         var t = tunings.filter { $0.name + $0.encoding != twelve.name + twelve.encoding }
@@ -93,7 +93,7 @@ class S1Tunings {
     public func setTuning(name: String?, masterArray master: [Double]?) -> (Int?, Bool) {
         guard let name = name, let masterFrequencies = master else { return (nil, false) }
         if masterFrequencies.count == 0 { return (nil, false) }
-        let t = S1Tuning()
+        let t = Tuning()
         t.name = name
         t.masterSet = masterFrequencies
 
@@ -175,23 +175,23 @@ class S1Tunings {
         retVal.append( ("16 Harmonic+Subharmonic", { return harmonicSubharmonicSeries(16) }) )
 
         /// Scales designed by Erv Wilson.  See http://anaphoria.com/genus.pdf
-        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 7)", { return S1Tunings.hexany( [1, 3, 5, 7] ) }) )
-        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 45)", { return S1Tunings.hexany( [1, 3, 5, 45] ) }) )
-        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 9)", { return S1Tunings.hexany( [1, 3, 5, 9] ) }) )
-        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 15)", { return S1Tunings.hexany( [1, 3, 5, 15] ) }) )
-        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 81)", { return S1Tunings.hexany( [1, 3, 5, 81] ) }) )
-        retVal.append( ("10 Wilson Dekany(1, 3, 5, 9, 81)", { return S1Tunings.dekany( [1, 3, 5, 9, 81] ) }) )
-        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 121)", { return S1Tunings.hexany( [1, 3, 5, 121] ) }) )
-        retVal.append( (" 6 Wilson Hexany(1, 15, 45, 75)", { return S1Tunings.hexany( [1, 15, 45, 75] ) }) )
-        retVal.append( (" 6 Wilson Hexany(1, 17, 19, 23)", { return S1Tunings.hexany( [1, 17, 19, 23] ) }) )
-        retVal.append( (" 6 Wilson Hexany(1, 45, 135, 225)", { return S1Tunings.hexany( [1, 45, 135, 225] ) }) )
-        retVal.append( (" 6 Hobbs Hexany(3, 2.111, 5.111, 8.111)", { return S1Tunings.hexany( [3, 2.111, 5.111, 8.111] ) }) )
-        retVal.append( (" 6 Hobbs Hexany(3, 1.346, 4.346, 7.346)", { return S1Tunings.hexany( [3, 1.346, 4.346, 7.346] ) }) )
-        retVal.append( (" 6 Wilson Hexany(3, 5, 7, 9)", { return S1Tunings.hexany( [3, 5, 7, 9] ) }) )
-        retVal.append( (" 6 Wilson Hexany(3, 5, 15, 19)", { return S1Tunings.hexany( [3, 5, 15, 19] ) }) )
+        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 7)", { return Tunings.hexany( [1, 3, 5, 7] ) }) )
+        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 45)", { return Tunings.hexany( [1, 3, 5, 45] ) }) )
+        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 9)", { return Tunings.hexany( [1, 3, 5, 9] ) }) )
+        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 15)", { return Tunings.hexany( [1, 3, 5, 15] ) }) )
+        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 81)", { return Tunings.hexany( [1, 3, 5, 81] ) }) )
+        retVal.append( ("10 Wilson Dekany(1, 3, 5, 9, 81)", { return Tunings.dekany( [1, 3, 5, 9, 81] ) }) )
+        retVal.append( (" 6 Wilson Hexany(1, 3, 5, 121)", { return Tunings.hexany( [1, 3, 5, 121] ) }) )
+        retVal.append( (" 6 Wilson Hexany(1, 15, 45, 75)", { return Tunings.hexany( [1, 15, 45, 75] ) }) )
+        retVal.append( (" 6 Wilson Hexany(1, 17, 19, 23)", { return Tunings.hexany( [1, 17, 19, 23] ) }) )
+        retVal.append( (" 6 Wilson Hexany(1, 45, 135, 225)", { return Tunings.hexany( [1, 45, 135, 225] ) }) )
+        retVal.append( (" 6 Hobbs Hexany(3, 2.111, 5.111, 8.111)", { return Tunings.hexany( [3, 2.111, 5.111, 8.111] ) }) )
+        retVal.append( (" 6 Hobbs Hexany(3, 1.346, 4.346, 7.346)", { return Tunings.hexany( [3, 1.346, 4.346, 7.346] ) }) )
+        retVal.append( (" 6 Wilson Hexany(3, 5, 7, 9)", { return Tunings.hexany( [3, 5, 7, 9] ) }) )
+        retVal.append( (" 6 Wilson Hexany(3, 5, 15, 19)", { return Tunings.hexany( [3, 5, 15, 19] ) }) )
         retVal.append( (" 7 Wilson Diaphonic 1/1, 27/26, 9/8, 4/3, 18/13, 3/2, 27/16", { let s: [Double] =  [1 / 1, 27 / 26, 9 / 8, 4 / 3, 18 / 13, 3 / 2, 27 / 16]; return s }) )
-        retVal.append( (" 6 Wilson Hexany(3, 5, 15, 27)", { return S1Tunings.hexany( [3, 5, 15, 27] ) }) )
-        retVal.append( (" 6 Wilson Hexany(5, 7, 21, 35)", { return S1Tunings.hexany( [5, 7, 21, 35] ) }) )
+        retVal.append( (" 6 Wilson Hexany(3, 5, 15, 27)", { return Tunings.hexany( [3, 5, 15, 27] ) }) )
+        retVal.append( (" 6 Wilson Hexany(5, 7, 21, 35)", { return Tunings.hexany( [5, 7, 21, 35] ) }) )
         retVal.append( (" 7 Wilson Highland Bagpipes", { let t = AKTuningTable(); _ = t.presetHighlandBagPipes(); return t.masterSet }) )
         retVal.append( (" 7 Wilson MOS G:0.2641", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.264_1, level: 5, murchana: 0); return t.masterSet }) )
         retVal.append( (" 9 Wilson MOS G:0.238186", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.238_186, level: 6, murchana: 0); return t.masterSet }) )
@@ -249,7 +249,7 @@ class S1Tunings {
         retVal.append( ("10 Grady: Wilson Meta-Ptolemy 10", { let s: [Double] =  [ 1 / 1, 33 / 32, 9 / 8, 73 / 64, 5 / 4, 11 / 8, 3 / 2, 49 / 32, 27 / 16, 15 / 8]; return s }) )
 
         // Scales designed by Marcus Hobbs using Wilsonic
-        retVal.append( (" 6 Hobbs Hexany(9, 25, 49, 81)", { return S1Tunings.hexany( [9, 25, 49, 81] ) }) )
+        retVal.append( (" 6 Hobbs Hexany(9, 25, 49, 81)", { return Tunings.hexany( [9, 25, 49, 81] ) }) )
         retVal.append( (" 5 Hobbs Recurrence Relation", { let s: [Double] = [1, 19, 5, 3, 15]; return s }) )
         retVal.append( (" 5 Hobbs Recurrence Relation", { let s: [Double] = [35, 74, 23, 51, 61]; return s }) )
         retVal.append( (" 6 Hobbs Recurrence Relation", { let s: [Double] = [74, 150, 85, 106, 120, 61]; return s }) )

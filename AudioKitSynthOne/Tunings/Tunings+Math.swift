@@ -1,5 +1,5 @@
 //
-//  AKTuningTable+S1Tunings.swift
+//  Tunings+Math.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 6/1/18.
@@ -9,7 +9,7 @@
 import Foundation
 import AudioKit
 
-extension S1Tunings {
+extension Tunings {
 
     // MARK: - Helpers
 

@@ -49,10 +49,10 @@
 		C435C52520C52D1700DAECCD /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C51C20C52D1700DAECCD /* Preset.swift */; };
 		C435C52920C52D2F00DAECCD /* MIDIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52720C52D2E00DAECCD /* MIDIInput.swift */; };
 		C435C52A20C52D2F00DAECCD /* MIDILearnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52820C52D2E00DAECCD /* MIDILearnable.swift */; };
-		C435C53020C52D4C00DAECCD /* S1Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52C20C52D4B00DAECCD /* S1Tuning.swift */; };
-		C435C53120C52D4C00DAECCD /* S1Tunings+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52D20C52D4B00DAECCD /* S1Tunings+Math.swift */; };
-		C435C53220C52D4C00DAECCD /* S1Tunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52E20C52D4B00DAECCD /* S1Tunings.swift */; };
-		C435C53320C52D4C00DAECCD /* S1Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52F20C52D4B00DAECCD /* S1Tunings+Harmonic.swift */; };
+		C435C53020C52D4C00DAECCD /* Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52C20C52D4B00DAECCD /* Tuning.swift */; };
+		C435C53120C52D4C00DAECCD /* Tunings+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */; };
+		C435C53220C52D4C00DAECCD /* Tunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52E20C52D4B00DAECCD /* Tunings.swift */; };
+		C435C53320C52D4C00DAECCD /* Tunings+Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C52F20C52D4B00DAECCD /* Tunings+Harmonic.swift */; };
 		C435C57820C530C900DAECCD /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C55120C530C900DAECCD /* Conductor.swift */; };
 		C435C57920C530C900DAECCD /* AKSynthOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C55420C530C900DAECCD /* AKSynthOne.swift */; };
 		C435C57A20C530C900DAECCD /* SDSustainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C55620C530C900DAECCD /* SDSustainer.swift */; };
@@ -235,10 +235,10 @@
 		C435C51C20C52D1700DAECCD /* Preset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		C435C52720C52D2E00DAECCD /* MIDIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIInput.swift; sourceTree = "<group>"; };
 		C435C52820C52D2E00DAECCD /* MIDILearnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDILearnable.swift; sourceTree = "<group>"; };
-		C435C52C20C52D4B00DAECCD /* S1Tuning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S1Tuning.swift; sourceTree = "<group>"; };
-		C435C52D20C52D4B00DAECCD /* S1Tunings+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "S1Tunings+Math.swift"; sourceTree = "<group>"; };
-		C435C52E20C52D4B00DAECCD /* S1Tunings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S1Tunings.swift; sourceTree = "<group>"; };
-		C435C52F20C52D4B00DAECCD /* S1Tunings+Harmonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "S1Tunings+Harmonic.swift"; sourceTree = "<group>"; };
+		C435C52C20C52D4B00DAECCD /* Tuning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuning.swift; sourceTree = "<group>"; };
+		C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tunings+Math.swift"; sourceTree = "<group>"; };
+		C435C52E20C52D4B00DAECCD /* Tunings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tunings.swift; sourceTree = "<group>"; };
+		C435C52F20C52D4B00DAECCD /* Tunings+Harmonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tunings+Harmonic.swift"; sourceTree = "<group>"; };
 		C435C55120C530C900DAECCD /* Conductor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		C435C55320C530C900DAECCD /* S1Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S1Parameter.h; sourceTree = "<group>"; };
 		C435C55420C530C900DAECCD /* AKSynthOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKSynthOne.swift; sourceTree = "<group>"; };
@@ -515,10 +515,10 @@
 		C435C52B20C52D4B00DAECCD /* Tunings */ = {
 			isa = PBXGroup;
 			children = (
-				C435C52C20C52D4B00DAECCD /* S1Tuning.swift */,
-				C435C52E20C52D4B00DAECCD /* S1Tunings.swift */,
-				C435C52F20C52D4B00DAECCD /* S1Tunings+Harmonic.swift */,
-				C435C52D20C52D4B00DAECCD /* S1Tunings+Math.swift */,
+				C435C52C20C52D4B00DAECCD /* Tuning.swift */,
+				C435C52E20C52D4B00DAECCD /* Tunings.swift */,
+				C435C52F20C52D4B00DAECCD /* Tunings+Harmonic.swift */,
+				C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */,
 				C435C4F620C5234900DAECCD /* TuningCell.swift */,
 				C4B4915320C7C70D00FD565A /* TuningsViewController */,
 			);
@@ -833,21 +833,21 @@
 		C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */ = {
 			isa = PBXGroup;
 			children = (
+				94780FEF1F9B0108006D3710 /* AudioKitSynthOne.entitlements */,
+				C4D193D31F1187B500FF4FE4 /* Info.plist */,
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
+				C435C50220C5286B00DAECCD /* Helpers.swift */,
+				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
+				C4B4919F20C7C91900FD565A /* ADSR Envelope */,
 				C4B490FF20C7C5C500FD565A /* Arpeggiator Sequencer */,
 				947BADE71FB92D0000579BE6 /* Assets */,
-				C4B4919F20C7C91900FD565A /* ADSR Envelope */,
 				C4B4914220C7C6E300FD565A /* Audiobus */,
-				94780FEF1F9B0108006D3710 /* AudioKitSynthOne.entitlements */,
 				C4F7ECA51F2446960011B119 /* Controls */,
 				C4B4917020C7C73A00FD565A /* Developer */,
 				C435C55020C530C900DAECCD /* DSP */,
 				C4B491A220C7C94E00FD565A /* Effects */,
 				C4B4917520C7C75500FD565A /* Header */,
-				C435C50220C5286B00DAECCD /* Helpers.swift */,
-				C4D193D31F1187B500FF4FE4 /* Info.plist */,
 				C4B4911620C7C62A00FD565A /* Keyboard */,
-				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
 				C4B4919520C7C81200FD565A /* Mailing List */,
 				C435C52620C52D2E00DAECCD /* MIDI */,
 				C4B491A520C7C95900FD565A /* Mixer */,
@@ -1118,7 +1118,7 @@
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				C4B491A120C7C91A00FD565A /* ADSRViewController.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
-				C435C53020C52D4C00DAECCD /* S1Tuning.swift in Sources */,
+				C435C53020C52D4C00DAECCD /* Tuning.swift in Sources */,
 				C4B4910E20C7C5E500FD565A /* Parent+AppSettingsDataManager.swift in Sources */,
 				C4B4918A20C7C79C00FD565A /* Presets+UIDocumentPickerDelegate.swift in Sources */,
 				C4B4916820C7C72A00FD565A /* UIViewController+DisplayAlert.swift in Sources */,
@@ -1129,7 +1129,7 @@
 				C435C57920C530C900DAECCD /* AKSynthOne.swift in Sources */,
 				C4B4914020C7C6A000FD565A /* TouchPointStyleKit.swift in Sources */,
 				C435C4F820C5234900DAECCD /* CategoryCell.swift in Sources */,
-				C435C53120C52D4C00DAECCD /* S1Tunings+Math.swift in Sources */,
+				C435C53120C52D4C00DAECCD /* Tunings+Math.swift in Sources */,
 				C435C58520C530C900DAECCD /* S1AudioUnit.mm in Sources */,
 				C4B4919020C7C7B200FD565A /* BankEditorViewController.swift in Sources */,
 				C4B4915120C7C6FC00FD565A /* MIDISettingsViewController.swift in Sources */,
@@ -1194,8 +1194,8 @@
 				949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */,
 				C4B4910720C7C5C500FD565A /* ArpButton.swift in Sources */,
 				94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */,
-				C435C53220C52D4C00DAECCD /* S1Tunings.swift in Sources */,
-				C435C53320C52D4C00DAECCD /* S1Tunings+Harmonic.swift in Sources */,
+				C435C53220C52D4C00DAECCD /* Tunings.swift in Sources */,
+				C435C53320C52D4C00DAECCD /* Tunings+Harmonic.swift in Sources */,
 				C4B4916F20C7C72A00FD565A /* Parent+PushNotification.swift in Sources */,
 				94E951351F3644E5009A8B00 /* Rate.swift in Sources */,
 				94D917AF1F550D28006ACB4E /* FlatToggleButton.swift in Sources */,

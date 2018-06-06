@@ -1,5 +1,5 @@
 //
-//  AppSetting.swift
+//  AppSettings.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 10/31/17.

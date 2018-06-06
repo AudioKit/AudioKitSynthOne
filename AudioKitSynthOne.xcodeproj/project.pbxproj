@@ -83,7 +83,7 @@
 		C4B4910720C7C5C500FD565A /* ArpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910220C7C5C500FD565A /* ArpButton.swift */; };
 		C4B4910920C7C5C500FD565A /* ArpSeqPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910420C7C5C500FD565A /* ArpSeqPanel.swift */; };
 		C4B4910D20C7C5E500FD565A /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910B20C7C5E400FD565A /* AppSettings.swift */; };
-		C4B4910E20C7C5E500FD565A /* Parent+AppSettingsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910C20C7C5E400FD565A /* Parent+AppSettingsDataManager.swift */; };
+		C4B4910E20C7C5E500FD565A /* Parent+AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4910C20C7C5E400FD565A /* Parent+AppSettings.swift */; };
 		C4B4911C20C7C62A00FD565A /* Parent+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4911720C7C62A00FD565A /* Parent+Keyboard.swift */; };
 		C4B4911D20C7C62A00FD565A /* SynthKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4911820C7C62A00FD565A /* SynthKeyboard.swift */; };
 		C4B4911E20C7C62A00FD565A /* BlackKeyStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4911920C7C62A00FD565A /* BlackKeyStyleKit.swift */; };
@@ -283,7 +283,7 @@
 		C4B4910220C7C5C500FD565A /* ArpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArpButton.swift; sourceTree = "<group>"; };
 		C4B4910420C7C5C500FD565A /* ArpSeqPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArpSeqPanel.swift; sourceTree = "<group>"; };
 		C4B4910B20C7C5E400FD565A /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		C4B4910C20C7C5E400FD565A /* Parent+AppSettingsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+AppSettingsDataManager.swift"; sourceTree = "<group>"; };
+		C4B4910C20C7C5E400FD565A /* Parent+AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+AppSettings.swift"; sourceTree = "<group>"; };
 		C4B4911720C7C62A00FD565A /* Parent+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parent+Keyboard.swift"; sourceTree = "<group>"; };
 		C4B4911820C7C62A00FD565A /* SynthKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthKeyboard.swift; sourceTree = "<group>"; };
 		C4B4911920C7C62A00FD565A /* BlackKeyStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackKeyStyleKit.swift; sourceTree = "<group>"; };
@@ -631,7 +631,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B4910B20C7C5E400FD565A /* AppSettings.swift */,
-				C4B4910C20C7C5E400FD565A /* Parent+AppSettingsDataManager.swift */,
+				C4B4910C20C7C5E400FD565A /* Parent+AppSettings.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1116,7 +1116,7 @@
 				C4B491A120C7C91A00FD565A /* ADSRPanel.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
 				C435C53020C52D4C00DAECCD /* Tuning.swift in Sources */,
-				C4B4910E20C7C5E500FD565A /* Parent+AppSettingsDataManager.swift in Sources */,
+				C4B4910E20C7C5E500FD565A /* Parent+AppSettings.swift in Sources */,
 				C4B4918A20C7C79C00FD565A /* Presets+UIDocumentPickerDelegate.swift in Sources */,
 				C4B4916820C7C72A00FD565A /* UIViewController+DisplayAlert.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,

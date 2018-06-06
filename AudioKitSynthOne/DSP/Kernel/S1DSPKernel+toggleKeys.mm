@@ -14,6 +14,7 @@
 
 // Convert note number to [possibly] microtonal frequency.  12ET is the default.
 // Profiling shows that while this takes a special Swift lock it still resolves to ~0% of CPU on a device
+//TODO: make an instance method
 static inline double tuningTableNoteToHz(int noteNumber) {
     return [AKPolyphonicNode.tuningTable frequencyForNoteNumber:noteNumber];
 }

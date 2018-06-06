@@ -285,7 +285,7 @@
         <!--Mixer-->
         <scene sceneID="h0Y-DX-cbn">
             <objects>
-                <viewController storyboardIdentifier="MixerViewController" id="MNO-vG-clO" userLabel="Mixer" customClass="MixerViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPanel" id="MNO-vG-clO" userLabel="Mixer" customClass="MainPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bwW-24-SnQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rtq-zb-Exf"/>
@@ -891,7 +891,7 @@
         <!--ADSR-->
         <scene sceneID="crk-4V-XLk">
             <objects>
-                <viewController storyboardIdentifier="ADSRViewController" id="kXR-JJ-XpL" userLabel="ADSR" customClass="ADSRViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ADSRViewController" id="kXR-JJ-XpL" userLabel="ADSR" customClass="ADSRPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ASD-Qn-MVB"/>
                         <viewControllerLayoutGuide type="bottom" id="XW6-Jj-EEi"/>
@@ -1138,7 +1138,7 @@
         <!--TUNE-->
         <scene sceneID="JRs-Mi-uc0">
             <objects>
-                <viewController storyboardIdentifier="TuningsViewController" id="gE5-Cr-9iI" userLabel="TUNE" customClass="TuningsViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TuningsViewController" id="gE5-Cr-9iI" userLabel="TUNE" customClass="TuningsPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8BW-oX-hHo"/>
                         <viewControllerLayoutGuide type="bottom" id="aHz-u4-6p6"/>
@@ -1243,7 +1243,7 @@
         <!--TouchPad-->
         <scene sceneID="dsG-FG-foi">
             <objects>
-                <viewController storyboardIdentifier="TouchPadViewController" id="ds7-ID-bFm" userLabel="TouchPad" customClass="TouchPadViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TouchPadViewController" id="ds7-ID-bFm" userLabel="TouchPad" customClass="TouchPadPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qg0-qM-l0Q"/>
                         <viewControllerLayoutGuide type="bottom" id="p3W-RI-iPP"/>
@@ -1343,7 +1343,7 @@
         <!--FX-->
         <scene sceneID="axr-IY-d6c">
             <objects>
-                <viewController storyboardIdentifier="FXViewController" id="KGI-jP-Zha" userLabel="FX" customClass="FXViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FXViewController" id="KGI-jP-Zha" userLabel="FX" customClass="FXPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j0P-av-JIc"/>
                         <viewControllerLayoutGuide type="bottom" id="AJK-xY-yqh"/>
@@ -1735,10 +1735,10 @@
             </objects>
             <point key="canvasLocation" x="-587" y="-606"/>
         </scene>
-        <!--Seq View Controller-->
+        <!--Arp Seq Panel-->
         <scene sceneID="VRP-IS-XGW">
             <objects>
-                <viewController storyboardIdentifier="SeqViewController" id="Au2-GK-lWi" customClass="SeqViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SeqViewController" id="Au2-GK-lWi" customClass="ArpSeqPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gWa-jb-xeH"/>
                         <viewControllerLayoutGuide type="bottom" id="VtE-Vz-dhL"/>

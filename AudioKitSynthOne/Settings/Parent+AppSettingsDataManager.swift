@@ -31,20 +31,20 @@ extension ParentViewController {
         devViewController.portamento.value = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
         // MIDI Learn
-        mixerViewController.masterVolume.midiCC = MIDIByte(appSettings.masterVolumeCC)
-        mixerViewController.morph1SemitoneOffset.midiCC = MIDIByte(appSettings.morph1SemitoneOffsetCC)
-        mixerViewController.morph2SemitoneOffset.midiCC = MIDIByte(appSettings.morph2SemitoneOffsetCC)
-        mixerViewController.morph2Detuning.midiCC = MIDIByte(appSettings.morph2DetuningCC)
-        mixerViewController.morphBalance.midiCC = MIDIByte(appSettings.morphBalanceCC)
-        mixerViewController.morph1Volume.midiCC = MIDIByte(appSettings.morph1VolumeCC)
-        mixerViewController.morph2Volume.midiCC = MIDIByte(appSettings.morph2VolumeCC)
-        mixerViewController.subVolume.midiCC = MIDIByte(appSettings.subVolumeCC)
-        mixerViewController.fmVolume.midiCC = MIDIByte(appSettings.fmVolumeCC)
-        mixerViewController.fmAmount.midiCC = MIDIByte(appSettings.fmAmountCC)
-        mixerViewController.noiseVolume.midiCC = MIDIByte(appSettings.noiseVolumeCC)
-        mixerViewController.glideKnob.midiCC = MIDIByte(appSettings.glideKnobCC)
-        mixerViewController.cutoff.midiCC = MIDIByte(appSettings.cutoffCC)
-        mixerViewController.resonance.midiCC = MIDIByte(appSettings.rezCC)
+        mainPanel.masterVolume.midiCC = MIDIByte(appSettings.masterVolumeCC)
+        mainPanel.morph1SemitoneOffset.midiCC = MIDIByte(appSettings.morph1SemitoneOffsetCC)
+        mainPanel.morph2SemitoneOffset.midiCC = MIDIByte(appSettings.morph2SemitoneOffsetCC)
+        mainPanel.morph2Detuning.midiCC = MIDIByte(appSettings.morph2DetuningCC)
+        mainPanel.morphBalance.midiCC = MIDIByte(appSettings.morphBalanceCC)
+        mainPanel.morph1Volume.midiCC = MIDIByte(appSettings.morph1VolumeCC)
+        mainPanel.morph2Volume.midiCC = MIDIByte(appSettings.morph2VolumeCC)
+        mainPanel.subVolume.midiCC = MIDIByte(appSettings.subVolumeCC)
+        mainPanel.fmVolume.midiCC = MIDIByte(appSettings.fmVolumeCC)
+        mainPanel.fmAmount.midiCC = MIDIByte(appSettings.fmAmountCC)
+        mainPanel.noiseVolume.midiCC = MIDIByte(appSettings.noiseVolumeCC)
+        mainPanel.glideKnob.midiCC = MIDIByte(appSettings.glideKnobCC)
+        mainPanel.cutoff.midiCC = MIDIByte(appSettings.cutoffCC)
+        mainPanel.resonance.midiCC = MIDIByte(appSettings.rezCC)
 
         seqViewController.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
 
@@ -97,20 +97,20 @@ extension ParentViewController {
         appSettings.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
         // MIDI Learn
-        appSettings.masterVolumeCC = Int(mixerViewController.masterVolume.midiCC)
-        appSettings.morph1SemitoneOffsetCC = Int(mixerViewController.morph1SemitoneOffset.midiCC)
-        appSettings.morph2SemitoneOffsetCC = Int(mixerViewController.morph2SemitoneOffset.midiCC)
-        appSettings.morph2DetuningCC = Int(mixerViewController.morph2Detuning.midiCC)
-        appSettings.morphBalanceCC = Int(mixerViewController.morphBalance.midiCC)
-        appSettings.morph1VolumeCC = Int(mixerViewController.morph1Volume.midiCC)
-        appSettings.morph2VolumeCC = Int(mixerViewController.morph2Volume.midiCC)
-        appSettings.subVolumeCC = Int(mixerViewController.subVolume.midiCC)
-        appSettings.fmVolumeCC = Int(mixerViewController.fmVolume.midiCC)
-        appSettings.fmAmountCC = Int(mixerViewController.fmAmount.midiCC)
-        appSettings.noiseVolumeCC = Int(mixerViewController.noiseVolume.midiCC)
-        appSettings.glideKnobCC = Int(mixerViewController.glideKnob.midiCC)
-        appSettings.cutoffCC = Int(mixerViewController.cutoff.midiCC)
-        appSettings.rezCC = Int(mixerViewController.resonance.midiCC)
+        appSettings.masterVolumeCC = Int(mainPanel.masterVolume.midiCC)
+        appSettings.morph1SemitoneOffsetCC = Int(mainPanel.morph1SemitoneOffset.midiCC)
+        appSettings.morph2SemitoneOffsetCC = Int(mainPanel.morph2SemitoneOffset.midiCC)
+        appSettings.morph2DetuningCC = Int(mainPanel.morph2Detuning.midiCC)
+        appSettings.morphBalanceCC = Int(mainPanel.morphBalance.midiCC)
+        appSettings.morph1VolumeCC = Int(mainPanel.morph1Volume.midiCC)
+        appSettings.morph2VolumeCC = Int(mainPanel.morph2Volume.midiCC)
+        appSettings.subVolumeCC = Int(mainPanel.subVolume.midiCC)
+        appSettings.fmVolumeCC = Int(mainPanel.fmVolume.midiCC)
+        appSettings.fmAmountCC = Int(mainPanel.fmAmount.midiCC)
+        appSettings.noiseVolumeCC = Int(mainPanel.noiseVolume.midiCC)
+        appSettings.glideKnobCC = Int(mainPanel.glideKnob.midiCC)
+        appSettings.cutoffCC = Int(mainPanel.cutoff.midiCC)
+        appSettings.rezCC = Int(mainPanel.resonance.midiCC)
 
         appSettings.arpIntervalCC = Int(seqViewController.arpInterval.midiCC)
 
@@ -147,7 +147,7 @@ extension ParentViewController {
         appSettings.darkMode = keyboardView.darkMode
         appSettings.showKeyboard = keyboardToggle.value
 
-        appSettings.plotFilled = mixerViewController.isAudioPlotFilled
+        appSettings.plotFilled = mainPanel.isAudioPlotFilled
         saveAppSettings()
     }
 

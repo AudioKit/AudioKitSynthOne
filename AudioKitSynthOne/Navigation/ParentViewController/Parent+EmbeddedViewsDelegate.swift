@@ -10,7 +10,7 @@
 
 extension ParentViewController: EmbeddedViewsDelegate {
 
-    func switchToChildView(_ newView: ChildView, isTopView: Bool = true) {
+    func switchToChildView(_ newView: ChildPanel, isTopView: Bool = true) {
 
         // remove all child views
         if isTopView {
@@ -24,10 +24,10 @@ extension ParentViewController: EmbeddedViewsDelegate {
             add(asChildViewController: adsrViewController, isTopContainer: isTopView)
             adsrViewController.navDelegate = self
             adsrViewController.isTopContainer = isTopView
-        case .oscView:
-            add(asChildViewController: mixerViewController, isTopContainer: isTopView)
-            mixerViewController.navDelegate = self
-            mixerViewController.isTopContainer = isTopView
+        case .mainPanel:
+            add(asChildViewController: mainPanel, isTopContainer: isTopView)
+            mainPanel.navDelegate = self
+            mainPanel.isTopContainer = isTopView
         case .padView:
             add(asChildViewController: padViewController, isTopContainer: isTopView)
             padViewController.navDelegate = self

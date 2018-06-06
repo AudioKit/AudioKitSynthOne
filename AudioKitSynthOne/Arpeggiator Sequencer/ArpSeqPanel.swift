@@ -1,5 +1,5 @@
 //
-//  SeqViewController.swift
+//  ArpSeqPanel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeqViewController: Panel {
+class ArpSeqPanel: Panel {
 
     @IBOutlet weak var seqStepsStepper: Stepper!
     @IBOutlet weak var octaveStepper: Stepper!

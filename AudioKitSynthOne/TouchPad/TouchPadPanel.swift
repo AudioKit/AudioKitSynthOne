@@ -1,5 +1,5 @@
 //
-//  TouchPadViewController.swift
+//  TouchPadPanel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/25/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TouchPadViewController: Panel {
+class TouchPadPanel: Panel {
 
     @IBOutlet weak var touchPad1: AKTouchPadView!
     @IBOutlet weak var touchPad2: AKTouchPadView!

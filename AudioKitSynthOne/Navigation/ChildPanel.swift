@@ -8,8 +8,8 @@
 
 import Foundation
 
-public enum ChildView: Int {
-    case oscView = 0
+public enum ChildPanel: Int {
+    case mainPanel = 0
     case adsrView = 1
     case padView = 2
     case fxView = 3
@@ -20,8 +20,8 @@ public enum ChildView: Int {
 
     func identifier() -> String {
         switch self {
-        case .oscView:
-            return "MixerViewController"
+        case .mainPanel:
+            return "MainPanel"
         case .adsrView:
             return "ADSRViewController"
         case .padView:
@@ -37,7 +37,7 @@ public enum ChildView: Int {
 
     func buttonText() -> String {
         switch self {
-        case .oscView:
+        case .mainPanel:
             return "MAIN"
         case .adsrView:
             return "ADSR"
@@ -52,15 +52,15 @@ public enum ChildView: Int {
         }
     }
 
-    func leftView() -> ChildView {
+    func leftView() -> ChildPanel {
         var leftValue = self.rawValue - 1
-        if leftValue < 0 { leftValue = ChildView.maxValue }
-        return ChildView(rawValue: leftValue)!
+        if leftValue < 0 { leftValue = ChildPanel.maxValue }
+        return ChildPanel(rawValue: leftValue)!
     }
 
-    func rightView() -> ChildView {
+    func rightView() -> ChildPanel {
         var rightValue = self.rawValue + 1
-        if rightValue > ChildView.maxValue { rightValue = 0 }
-        return ChildView(rawValue: rightValue)!
+        if rightValue > ChildPanel.maxValue { rightValue = 0 }
+        return ChildPanel(rawValue: rightValue)!
     }
 }

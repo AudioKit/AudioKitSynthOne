@@ -1,5 +1,5 @@
 //
-//  ADSRViewController.swift
+//  ADSRPanel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/24/17.
@@ -10,7 +10,7 @@ import UIKit
 import AudioKit
 import AudioKitUI
 
-class ADSRViewController: Panel {
+class ADSRPanel: Panel {
 
     @IBOutlet var adsrView: AKADSRView!
     @IBOutlet var filterADSRView: AKADSRView!

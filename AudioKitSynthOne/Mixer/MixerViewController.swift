@@ -10,6 +10,8 @@ import AudioKit
 import AudioKitUI
 import UIKit
 
+//: TODO So is this the Mixer or the Main View?  In the UI its never referred to as the Mixer.
+
 class MixerViewController: PanelViewController {
 
     @IBOutlet weak var morph1Selector: MorphSelector!

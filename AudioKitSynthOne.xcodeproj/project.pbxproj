@@ -109,7 +109,7 @@
 		C4B4915920C7C70D00FD565A /* Tunings+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4915520C7C70D00FD565A /* Tunings+UITableViewDelegate.swift */; };
 		C4B4915A20C7C70D00FD565A /* Tunings+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4915620C7C70D00FD565A /* Tunings+UITableViewDataSource.swift */; };
 		C4B4915B20C7C70D00FD565A /* TuningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4915720C7C70D00FD565A /* TuningsViewController.swift */; };
-		C4B4916720C7C72A00FD565A /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4915D20C7C72900FD565A /* PanelViewController.swift */; };
+		C4B4916720C7C72A00FD565A /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4915D20C7C72900FD565A /* Panel.swift */; };
 		C4B4916820C7C72A00FD565A /* UIViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4915E20C7C72900FD565A /* UIViewController+DisplayAlert.swift */; };
 		C4B4916920C7C72A00FD565A /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4915F20C7C72900FD565A /* ChildView.swift */; };
 		C4B4916A20C7C72A00FD565A /* UpdatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4916020C7C72900FD565A /* UpdatableViewController.swift */; };
@@ -310,7 +310,7 @@
 		C4B4915520C7C70D00FD565A /* Tunings+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tunings+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		C4B4915620C7C70D00FD565A /* Tunings+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tunings+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		C4B4915720C7C70D00FD565A /* TuningsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuningsViewController.swift; sourceTree = "<group>"; };
-		C4B4915D20C7C72900FD565A /* PanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
+		C4B4915D20C7C72900FD565A /* Panel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		C4B4915E20C7C72900FD565A /* UIViewController+DisplayAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 		C4B4915F20C7C72900FD565A /* ChildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
 		C4B4916020C7C72900FD565A /* UpdatableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatableViewController.swift; sourceTree = "<group>"; };
@@ -698,7 +698,7 @@
 				C4B4916120C7C72900FD565A /* InfoViewController.swift */,
 				94DB18D11F37D879008368AE /* NavButton.swift */,
 				94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */,
-				C4B4915D20C7C72900FD565A /* PanelViewController.swift */,
+				C4B4915D20C7C72900FD565A /* Panel.swift */,
 				C4B4916320C7C72900FD565A /* ParentViewController */,
 				C4B4915E20C7C72900FD565A /* UIViewController+DisplayAlert.swift */,
 				C4B4916020C7C72900FD565A /* UpdatableViewController.swift */,
@@ -1210,7 +1210,7 @@
 				C4B4917A20C7C75500FD565A /* HeaderNavButton.swift in Sources */,
 				C4B4918C20C7C79C00FD565A /* Presets+UITableViewDelegate.swift in Sources */,
 				94DB3FE01FC8C0EA007F8081 /* PresetUIButton.swift in Sources */,
-				C4B4916720C7C72A00FD565A /* PanelViewController.swift in Sources */,
+				C4B4916720C7C72A00FD565A /* Panel.swift in Sources */,
 				C4B491BE20C7DEB100FD565A /* ArpDirectionStyleKit.swift in Sources */,
 				C4B4916A20C7C72A00FD565A /* UpdatableViewController.swift in Sources */,
 				C435C57C20C530C900DAECCD /* AEMessageQueue.m in Sources */,

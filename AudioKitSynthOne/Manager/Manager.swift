@@ -69,11 +69,13 @@ public class Manager: UpdatableViewController {
     // MARK: - Define child view controllers
 
     lazy var envelopesPanel: EnvelopesPanelController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.envelopes.identifier()) as! EnvelopesPanelController
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.envelopes.identifier())
+            as! EnvelopesPanelController
     }()
 
     lazy var generatorsPanel: GeneratorsPanelController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.generators.identifier()) as! GeneratorsPanelController
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.generators.identifier())
+            as! GeneratorsPanelController
     }()
 
     lazy var devViewController: DevViewController = {
@@ -89,11 +91,13 @@ public class Manager: UpdatableViewController {
     }()
 
     lazy var fxPanel: EffectsPanelController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.effects.identifier()) as! EffectsPanelController
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.effects.identifier())
+            as! EffectsPanelController
     }()
 
-    lazy var arpSeqPanel: SequencerPanelController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.sequencer.identifier()) as! SequencerPanelController
+    lazy var sequencerPanel: SequencerPanelController = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.sequencer.identifier())
+            as! SequencerPanelController
     }()
 
     lazy var tuningsPanel: TuningsPanelController = {
@@ -247,7 +251,7 @@ public class Manager: UpdatableViewController {
         appendMIDIKnobs(from: generatorsPanel)
         appendMIDIKnobs(from: envelopesPanel)
         appendMIDIKnobs(from: fxPanel)
-        appendMIDIKnobs(from: arpSeqPanel)
+        appendMIDIKnobs(from: sequencerPanel)
         appendMIDIKnobs(from: devViewController)
         appendMIDIKnobs(from: tuningsPanel)
 

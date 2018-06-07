@@ -37,9 +37,9 @@ extension Manager: EmbeddedViewsDelegate {
             fxPanel.navDelegate = self
             fxPanel.isTopContainer = isOnTop
         case .sequencer:
-            add(asChildViewController: arpSeqPanel, isTopContainer: isOnTop)
-            arpSeqPanel.navDelegate = self
-            arpSeqPanel.isTopContainer = isOnTop
+            add(asChildViewController: sequencerPanel, isTopContainer: isOnTop)
+            sequencerPanel.navDelegate = self
+            sequencerPanel.isTopContainer = isOnTop
         case .tunings:
             add(asChildViewController: tuningsPanel, isTopContainer: isOnTop)
             tuningsPanel.navDelegate = self

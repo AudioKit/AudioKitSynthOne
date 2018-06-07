@@ -47,7 +47,7 @@ class ADSRPanel: Panel {
 
         filterADSRMixKnob.range = s.getRange(.filterADSRMix)
 
-        viewType = .adsr
+        currentPanel = .adsr
 
         conductor.bind(attackKnob, to: .attackDuration)
         conductor.bind(decayKnob, to: .decayDuration)

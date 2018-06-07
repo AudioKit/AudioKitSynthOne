@@ -1,5 +1,5 @@
 //
-//  FXPanel.swift
+//  EffectsPanelController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/26/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FXPanel: Panel {
+class EffectsPanelController: PanelController {
 
     @IBOutlet weak var lfoCutoffToggle: LfoButton!
     @IBOutlet weak var lfoRezToggle: LfoButton!

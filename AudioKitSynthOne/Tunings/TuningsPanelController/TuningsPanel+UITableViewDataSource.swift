@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension TuningsPanel: UITableViewDataSource {
+extension TuningsPanelController: UITableViewDataSource {
 
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1

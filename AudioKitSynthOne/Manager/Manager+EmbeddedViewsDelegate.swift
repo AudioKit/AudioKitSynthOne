@@ -21,9 +21,9 @@ extension Manager: EmbeddedViewsDelegate {
 
         switch newView {
         case .envelopes:
-            add(asChildViewController: adsrPanel, isTopContainer: isOnTop)
-            adsrPanel.navDelegate = self
-            adsrPanel.isTopContainer = isOnTop
+            add(asChildViewController: envelopesPanel, isTopContainer: isOnTop)
+            envelopesPanel.navDelegate = self
+            envelopesPanel.isTopContainer = isOnTop
         case .generators:
             add(asChildViewController: generatorsPanel, isTopContainer: isOnTop)
             generatorsPanel.navDelegate = self
@@ -55,9 +55,9 @@ extension Manager: EmbeddedViewsDelegate {
         // Update NavButtons
 
         // Get all Child Synth Panels
-        var synthPanels = [Panel]()
+        var synthPanels = [PanelController]()
         for view in childViewControllers {
-            guard let synthPanel = view as? Panel else { continue }
+            guard let synthPanel = view as? PanelController else { continue }
             synthPanels.append(synthPanel)
         }
 

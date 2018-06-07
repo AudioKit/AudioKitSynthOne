@@ -24,7 +24,7 @@ public class Manager: UpdatableViewController {
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var bottomContainerView: UIView!
 
-    @IBOutlet weak var keyboardView: SynthKeyboard!
+    @IBOutlet weak var keyboardView: KeyboardView!
     @IBOutlet weak var keyboardBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var topPanelheight: NSLayoutConstraint!
 
@@ -68,12 +68,12 @@ public class Manager: UpdatableViewController {
 
     // MARK: - Define child view controllers
 
-    lazy var adsrPanel: EnvelopesPanel = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.envelopes.identifier()) as! EnvelopesPanel
+    lazy var envelopesPanel: EnvelopesPanelController = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.envelopes.identifier()) as! EnvelopesPanelController
     }()
 
-    lazy var generatorsPanel: GeneratorsPanel = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.generators.identifier()) as! GeneratorsPanel
+    lazy var generatorsPanel: GeneratorsPanelController = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.generators.identifier()) as! GeneratorsPanelController
     }()
 
     lazy var devViewController: DevViewController = {
@@ -83,22 +83,22 @@ public class Manager: UpdatableViewController {
         return viewController
     }()
 
-    lazy var touchPadPanel: TouchPadPanel = {
+    lazy var touchPadPanel: TouchPadPanelController = {
         return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.touchPad.identifier())
-            as! TouchPadPanel
+            as! TouchPadPanelController
     }()
 
-    lazy var fxPanel: FXPanel = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.effects.identifier()) as! FXPanel
+    lazy var fxPanel: EffectsPanelController = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.effects.identifier()) as! EffectsPanelController
     }()
 
-    lazy var arpSeqPanel: ArpSeqPanel = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.sequencer.identifier()) as! ArpSeqPanel
+    lazy var arpSeqPanel: SequencerPanelController = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.sequencer.identifier()) as! SequencerPanelController
     }()
 
-    lazy var tuningsPanel: TuningsPanel = {
+    lazy var tuningsPanel: TuningsPanelController = {
         return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.tunings.identifier())
-            as! TuningsPanel
+            as! TuningsPanelController
     }()
 
     lazy var presetsViewController: PresetsViewController = {
@@ -245,7 +245,7 @@ public class Manager: UpdatableViewController {
         saveAppSettingValues()
 
         appendMIDIKnobs(from: generatorsPanel)
-        appendMIDIKnobs(from: adsrPanel)
+        appendMIDIKnobs(from: envelopesPanel)
         appendMIDIKnobs(from: fxPanel)
         appendMIDIKnobs(from: arpSeqPanel)
         appendMIDIKnobs(from: devViewController)

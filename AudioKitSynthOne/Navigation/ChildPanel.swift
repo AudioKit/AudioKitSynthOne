@@ -23,13 +23,13 @@ public enum ChildPanel: Int {
         case .generators:
             return "GeneratorsPanel"
         case .envelopes:
-            return "ADSRPanel"
+            return "EnvelopesPanel"
         case .touchPad:
             return "TouchPadPanel"
         case .effects:
             return "FXPanel"
         case .sequencer:
-            return "ArpSeqPanel"
+            return "SequencerPanel"
         case .tunings:
             return "TuningsPanel"
         }

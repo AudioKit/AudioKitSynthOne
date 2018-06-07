@@ -27,7 +27,7 @@ public enum ChildPanel: Int {
         case .touchPad:
             return "TouchPadPanel"
         case .effects:
-            return "FXPanel"
+            return "EffectsPanel"
         case .sequencer:
             return "SequencerPanel"
         case .tunings:

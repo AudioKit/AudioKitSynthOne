@@ -108,7 +108,8 @@ public class AKTouchPadView: UIView {
             completion: { _ in
                 self.x = CGFloat(newPercentX)
                 self.y = CGFloat(newPercentY)
-                self.horizontalValue = Double(self.x).denormalized(to: self.horizontalRange, taper: self.horizontalTaper)
+                self.horizontalValue = Double(self.x).denormalized(to: self.horizontalRange,
+                                                                   taper: self.horizontalTaper)
                 self.verticalValue = Double(self.y).denormalized(to: self.verticalRange, taper: self.verticalTaper)
                 self.completionHandler(self.horizontalValue, self.verticalValue, true, true)
         })

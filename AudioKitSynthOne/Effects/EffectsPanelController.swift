@@ -59,7 +59,7 @@ class EffectsPanelController: PanelController {
 
         currentPanel = .effects
         guard let s = conductor.synth else {
-            AKLog("FXPanel view state is invalid because synth is not instantiated")
+            AKLog("EffectsPanel view state is invalid because synth is not instantiated")
             return
         }
 
@@ -113,7 +113,7 @@ class EffectsPanelController: PanelController {
         lfo1Rate.taper = 1
         lfo1Rate.value = s.getDependentParameter(.lfo1Rate)
         lfo1Rate.callback = { value in
-            s.setDependentParameter(.lfo1Rate, value, self.conductor.lfo1RateFXPanelID)
+            s.setDependentParameter(.lfo1Rate, value, self.conductor.lfo1RateEffectsPanelID)
             self.conductor.updateDisplayLabel(.lfo1Rate, value: s.getSynthParameter(.lfo1Rate))
         }
 
@@ -121,7 +121,7 @@ class EffectsPanelController: PanelController {
         lfo2Rate.taper = 1
         lfo2Rate.value = s.getDependentParameter(.lfo2Rate)
         lfo2Rate.callback = { value in
-            s.setDependentParameter(.lfo2Rate, value, self.conductor.lfo2RateFXPanelID)
+            s.setDependentParameter(.lfo2Rate, value, self.conductor.lfo2RateEffectsPanelID)
             self.conductor.updateDisplayLabel(.lfo2Rate, value: s.getSynthParameter(.lfo2Rate))
         }
 
@@ -129,7 +129,7 @@ class EffectsPanelController: PanelController {
         autoPanRate.taper = 1
         autoPanRate.value = s.getDependentParameter(.autoPanFrequency)
         autoPanRate.callback = { value in
-            s.setDependentParameter(.autoPanFrequency, value, self.conductor.autoPanFXPanelID)
+            s.setDependentParameter(.autoPanFrequency, value, self.conductor.autoPanEffectsPanelID)
             self.conductor.updateDisplayLabel(.autoPanFrequency, value: s.getSynthParameter(.autoPanFrequency))
         }
 
@@ -137,7 +137,7 @@ class EffectsPanelController: PanelController {
         delayTime.taper = 1
         delayTime.value = s.getDependentParameter(.delayTime)
         delayTime.callback = { value in
-            s.setDependentParameter(.delayTime, value, self.conductor.delayTimeFXPanelID)
+            s.setDependentParameter(.delayTime, value, self.conductor.delayTimeEffectsPanelID)
             self.conductor.updateDisplayLabel(.delayTime, value: s.getSynthParameter(.delayTime))
         }
     }
@@ -145,22 +145,22 @@ class EffectsPanelController: PanelController {
     func dependentParameterDidChange(_ dependentParameter: DependentParameter) {
         switch dependentParameter.parameter {
         case .lfo1Rate:
-            if dependentParameter.payload == conductor.lfo1RateFXPanelID {
+            if dependentParameter.payload == conductor.lfo1RateEffectsPanelID {
                 return
             }
             lfo1Rate.value = Double(dependentParameter.normalizedValue)
         case .lfo2Rate:
-            if dependentParameter.payload == conductor.lfo2RateFXPanelID {
+            if dependentParameter.payload == conductor.lfo2RateEffectsPanelID {
                 return
             }
             lfo2Rate.value = Double(dependentParameter.normalizedValue)
         case .autoPanFrequency:
-            if dependentParameter.payload == conductor.autoPanFXPanelID {
+            if dependentParameter.payload == conductor.autoPanEffectsPanelID {
                 return
             }
             autoPanRate.value = Double(dependentParameter.normalizedValue)
         case .delayTime:
-            if dependentParameter.payload == conductor.delayTimeFXPanelID {
+            if dependentParameter.payload == conductor.delayTimeEffectsPanelID {
                 return
             }
             delayTime.value = Double(dependentParameter.normalizedValue)

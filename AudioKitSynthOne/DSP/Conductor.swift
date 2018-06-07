@@ -23,10 +23,10 @@ class Conductor: S1Protocol {
     var bindings: [(S1Parameter, S1Control)] = []
     var heldNoteCount: Int = 0
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
-    let lfo1RateFXPanelID: Int32 = 1
-    let lfo2RateFXPanelID: Int32 = 2
-    let autoPanFXPanelID: Int32 = 3
-    let delayTimeFXPanelID: Int32 = 4
+    let lfo1RateEffectsPanelID: Int32 = 1
+    let lfo2RateEffectsPanelID: Int32 = 2
+    let autoPanEffectsPanelID: Int32 = 3
+    let delayTimeEffectsPanelID: Int32 = 4
     let lfo1RateTouchPadID: Int32 = 5
     let lfo1RateModWheelID: Int32 = 6
     let lfo2RateModWheelID: Int32 = 7
@@ -187,8 +187,8 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {
-        let arpSeqPanel = self.viewControllers.first(where: { $0 is SequencerPanelController }) as? SequencerPanelController
-        arpSeqPanel?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
+        let sequencerPanel = self.viewControllers.first(where: { $0 is SequencerPanelController }) as? SequencerPanelController
+        sequencerPanel?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
     }
 
     // called by DSP on main thread

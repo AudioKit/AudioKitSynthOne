@@ -46,7 +46,7 @@ extension Manager {
         generatorsPanel.cutoff.midiCC = MIDIByte(appSettings.cutoffCC)
         generatorsPanel.resonance.midiCC = MIDIByte(appSettings.rezCC)
 
-        arpSeqPanel.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
+        sequencerPanel.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
 
         envelopesPanel.attackKnob.midiCC = MIDIByte(appSettings.attackKnobCC)
         envelopesPanel.decayKnob.midiCC = MIDIByte(appSettings.decayKnobCC)
@@ -112,7 +112,7 @@ extension Manager {
         appSettings.cutoffCC = Int(generatorsPanel.cutoff.midiCC)
         appSettings.rezCC = Int(generatorsPanel.resonance.midiCC)
 
-        appSettings.arpIntervalCC = Int(arpSeqPanel.arpInterval.midiCC)
+        appSettings.arpIntervalCC = Int(sequencerPanel.arpInterval.midiCC)
 
         appSettings.attackKnobCC = Int(envelopesPanel.attackKnob.midiCC)
         appSettings.decayKnobCC = Int(envelopesPanel.decayKnob.midiCC)

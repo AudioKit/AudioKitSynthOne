@@ -19,7 +19,7 @@ float S1DSPKernel::getSynthParameter(S1Parameter param) {
 }
 
 inline void S1DSPKernel::_setSynthParameter(S1Parameter param, float inputValue) {
-    const float value = parameterClamp(param, inputValue);
+    const float value = clampedValue(param, inputValue);
     S1ParameterInfo& s = s1p[param];
     if (s.usePortamento) {
         s.portamentoTarget = value;
@@ -36,7 +36,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bo
 
     // pitchbend
     if (parameter == pitchbend) {
-        const float val = parameterClamp(parameter, inputValue);
+        const float val = clampedValue(parameter, inputValue);
         const float val01 = (val - minimum(pitchbend)) / (maximum(pitchbend) - minimum(pitchbend));
         _pitchbend = {parameter, val01, val, payload};
         _setSynthParameter(parameter, val);
@@ -49,7 +49,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bo
     if (p[tempoSyncToArpRate] > 0.f) {
         // tempo sync
         if (parameter == lfo1Rate || parameter == lfo2Rate || parameter == autoPanFrequency) {
-            const float value = parameterClamp(parameter, inputValue);
+            const float value = clampedValue(parameter, inputValue);
             S1RateArgs syncdValue = _rate.nearestFrequency(value, p[arpRate], minimum(parameter), maximum(parameter));
             _setSynthParameter(parameter, syncdValue.value);
             DependentParameter outputDP = {S1Parameter::S1ParameterCount, 0.f, 0.f, 0};
@@ -70,7 +70,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bo
                 dependentParameterDidChange(outputDP);
             }
         } else if (parameter == delayTime) {
-            const float value = parameterClamp(parameter, inputValue);
+            const float value = clampedValue(parameter, inputValue);
             S1RateArgs syncdValue = _rate.nearestTime(value, p[arpRate], minimum(parameter), maximum(parameter));
             _setSynthParameter(parameter, syncdValue.value);
             _delayTime = {parameter, 1.f - syncdValue.value01, syncdValue.value, payload};
@@ -134,7 +134,7 @@ inline void S1DSPKernel::_setSynthParameterHelper(S1Parameter parameter, float i
         } else if (parameter == portamentoHalfTime) {
             _setSynthParameter(parameter, inputValue);
             const float actualValue = getParameter(portamentoHalfTime);
-            updateDSPPortamento(actualValue);
+            updatePortamento(actualValue);
         } else {
             // all remaining independent params
             _setSynthParameter(parameter, inputValue);

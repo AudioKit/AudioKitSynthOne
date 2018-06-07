@@ -310,7 +310,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         else if (p[bitcrushLFO] == 3.f)
             bitcrushSrate += magicNumber * lfo3_0_1;
         bitcrushSrate = exp2(bitcrushSrate);
-        bitcrushSrate = parameterClamp(bitCrushSampleRate, bitcrushSrate); // clamp
+        bitcrushSrate = clampedValue(bitCrushSampleRate, bitcrushSrate); // clamp
 
         //BITCRUSH
         float bitCrushOut = synthOut;
@@ -373,7 +373,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
             const float oscFilterFreqCutoffPercentage = mmin + pnorm2 * (mmax - mmin);
             const float oscFilterResonance = 0.f; // constant
             float oscFilterFreqCutoff = pval1 * oscFilterFreqCutoffPercentage;
-            oscFilterFreqCutoff = parameterClamp(cutoff, oscFilterFreqCutoff);
+            oscFilterFreqCutoff = clampedValue(cutoff, oscFilterFreqCutoff);
             loPassInputDelayL->freq = oscFilterFreqCutoff;
             loPassInputDelayL->res = oscFilterResonance;
             loPassInputDelayR->freq = oscFilterFreqCutoff;

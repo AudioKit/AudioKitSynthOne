@@ -107,7 +107,7 @@ public:
     
     void destroy();
     
-    void updateDSPPortamento(float halfTime);
+    void updatePortamento(float halfTime);
 
     // initializeNoteStates() must be called AFTER init returns
     void initializeNoteStates();
@@ -129,7 +129,7 @@ public:
     AudioUnitParameterUnit parameterUnit(S1Parameter i);
     
     ///parameter clamp
-    float parameterClamp(S1Parameter i, float inputValue);
+    float clampedValue(S1Parameter i, float inputValue);
 
     ///friendly description of parameter
     std::string friendlyName(S1Parameter i);

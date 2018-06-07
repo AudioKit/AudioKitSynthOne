@@ -1,5 +1,5 @@
 //
-//  ADSRPanel.swift
+//  EnvelopePanel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/24/17.
@@ -10,7 +10,7 @@ import UIKit
 import AudioKit
 import AudioKitUI
 
-class ADSRPanel: Panel {
+class EnvelopesPanel: Panel {
 
     @IBOutlet var adsrView: AKADSRView!
     @IBOutlet var filterADSRView: AKADSRView!
@@ -47,7 +47,7 @@ class ADSRPanel: Panel {
 
         filterADSRMixKnob.range = s.getRange(.filterADSRMix)
 
-        currentPanel = .adsr
+        currentPanel = .envelopes
 
         conductor.bind(attackKnob, to: .attackDuration)
         conductor.bind(decayKnob, to: .decayDuration)

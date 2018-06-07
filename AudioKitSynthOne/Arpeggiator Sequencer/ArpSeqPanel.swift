@@ -26,7 +26,7 @@ class ArpSeqPanel: Panel {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        currentPanel = .arpSeq
+        currentPanel = .sequencer
 
         guard let s = conductor.synth else {
             AKLog("ArpSeqPanel view state is invalid because synth is not instantiated")
@@ -94,7 +94,7 @@ class ArpSeqPanel: Panel {
 
                     // TODO: This is incomprehensible
                     let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
-                    s.setPattern(forIndex: notePosition, tval )
+                    s.setPattern(forIndex: notePosition, tval)
                     self.conductor.updateSingleUI(arpSeqPatternParameter,
                                                   control: arpSeqPatternSlider,
                                                   value: Double(tval))

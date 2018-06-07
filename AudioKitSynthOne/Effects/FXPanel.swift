@@ -57,7 +57,7 @@ class FXPanel: Panel {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        currentPanel = .fx
+        currentPanel = .effects
         guard let s = conductor.synth else {
             AKLog("FXPanel view state is invalid because synth is not instantiated")
             return

@@ -18,9 +18,9 @@ class Panel: UpdatableViewController {
 //    var bottomNavDelegate: BottomEmbeddedViewsDelegate?
     var isTopContainer: Bool = true
 
-    var currentPanel = ChildPanel.main
-    var leftPanel = ChildPanel.arpSeq
-    var rightPanel = ChildPanel.adsr
+    var currentPanel = ChildPanel.generators
+    var leftPanel = ChildPanel.sequencer
+    var rightPanel = ChildPanel.envelopes
 
     override func viewDidLoad() {
         super.viewDidLoad()

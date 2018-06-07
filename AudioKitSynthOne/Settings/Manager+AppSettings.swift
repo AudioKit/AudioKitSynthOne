@@ -31,20 +31,20 @@ extension Manager {
         devViewController.portamento.value = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
         // MIDI Learn
-        mainPanel.masterVolume.midiCC = MIDIByte(appSettings.masterVolumeCC)
-        mainPanel.morph1SemitoneOffset.midiCC = MIDIByte(appSettings.morph1SemitoneOffsetCC)
-        mainPanel.morph2SemitoneOffset.midiCC = MIDIByte(appSettings.morph2SemitoneOffsetCC)
-        mainPanel.morph2Detuning.midiCC = MIDIByte(appSettings.morph2DetuningCC)
-        mainPanel.morphBalance.midiCC = MIDIByte(appSettings.morphBalanceCC)
-        mainPanel.morph1Volume.midiCC = MIDIByte(appSettings.morph1VolumeCC)
-        mainPanel.morph2Volume.midiCC = MIDIByte(appSettings.morph2VolumeCC)
-        mainPanel.subVolume.midiCC = MIDIByte(appSettings.subVolumeCC)
-        mainPanel.fmVolume.midiCC = MIDIByte(appSettings.fmVolumeCC)
-        mainPanel.fmAmount.midiCC = MIDIByte(appSettings.fmAmountCC)
-        mainPanel.noiseVolume.midiCC = MIDIByte(appSettings.noiseVolumeCC)
-        mainPanel.glideKnob.midiCC = MIDIByte(appSettings.glideKnobCC)
-        mainPanel.cutoff.midiCC = MIDIByte(appSettings.cutoffCC)
-        mainPanel.resonance.midiCC = MIDIByte(appSettings.rezCC)
+        generatorsPanel.masterVolume.midiCC = MIDIByte(appSettings.masterVolumeCC)
+        generatorsPanel.morph1SemitoneOffset.midiCC = MIDIByte(appSettings.morph1SemitoneOffsetCC)
+        generatorsPanel.morph2SemitoneOffset.midiCC = MIDIByte(appSettings.morph2SemitoneOffsetCC)
+        generatorsPanel.morph2Detuning.midiCC = MIDIByte(appSettings.morph2DetuningCC)
+        generatorsPanel.morphBalance.midiCC = MIDIByte(appSettings.morphBalanceCC)
+        generatorsPanel.morph1Volume.midiCC = MIDIByte(appSettings.morph1VolumeCC)
+        generatorsPanel.morph2Volume.midiCC = MIDIByte(appSettings.morph2VolumeCC)
+        generatorsPanel.subVolume.midiCC = MIDIByte(appSettings.subVolumeCC)
+        generatorsPanel.fmVolume.midiCC = MIDIByte(appSettings.fmVolumeCC)
+        generatorsPanel.fmAmount.midiCC = MIDIByte(appSettings.fmAmountCC)
+        generatorsPanel.noiseVolume.midiCC = MIDIByte(appSettings.noiseVolumeCC)
+        generatorsPanel.glideKnob.midiCC = MIDIByte(appSettings.glideKnobCC)
+        generatorsPanel.cutoff.midiCC = MIDIByte(appSettings.cutoffCC)
+        generatorsPanel.resonance.midiCC = MIDIByte(appSettings.rezCC)
 
         arpSeqPanel.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
 
@@ -97,20 +97,20 @@ extension Manager {
         appSettings.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
         // MIDI Learn
-        appSettings.masterVolumeCC = Int(mainPanel.masterVolume.midiCC)
-        appSettings.morph1SemitoneOffsetCC = Int(mainPanel.morph1SemitoneOffset.midiCC)
-        appSettings.morph2SemitoneOffsetCC = Int(mainPanel.morph2SemitoneOffset.midiCC)
-        appSettings.morph2DetuningCC = Int(mainPanel.morph2Detuning.midiCC)
-        appSettings.morphBalanceCC = Int(mainPanel.morphBalance.midiCC)
-        appSettings.morph1VolumeCC = Int(mainPanel.morph1Volume.midiCC)
-        appSettings.morph2VolumeCC = Int(mainPanel.morph2Volume.midiCC)
-        appSettings.subVolumeCC = Int(mainPanel.subVolume.midiCC)
-        appSettings.fmVolumeCC = Int(mainPanel.fmVolume.midiCC)
-        appSettings.fmAmountCC = Int(mainPanel.fmAmount.midiCC)
-        appSettings.noiseVolumeCC = Int(mainPanel.noiseVolume.midiCC)
-        appSettings.glideKnobCC = Int(mainPanel.glideKnob.midiCC)
-        appSettings.cutoffCC = Int(mainPanel.cutoff.midiCC)
-        appSettings.rezCC = Int(mainPanel.resonance.midiCC)
+        appSettings.masterVolumeCC = Int(generatorsPanel.masterVolume.midiCC)
+        appSettings.morph1SemitoneOffsetCC = Int(generatorsPanel.morph1SemitoneOffset.midiCC)
+        appSettings.morph2SemitoneOffsetCC = Int(generatorsPanel.morph2SemitoneOffset.midiCC)
+        appSettings.morph2DetuningCC = Int(generatorsPanel.morph2Detuning.midiCC)
+        appSettings.morphBalanceCC = Int(generatorsPanel.morphBalance.midiCC)
+        appSettings.morph1VolumeCC = Int(generatorsPanel.morph1Volume.midiCC)
+        appSettings.morph2VolumeCC = Int(generatorsPanel.morph2Volume.midiCC)
+        appSettings.subVolumeCC = Int(generatorsPanel.subVolume.midiCC)
+        appSettings.fmVolumeCC = Int(generatorsPanel.fmVolume.midiCC)
+        appSettings.fmAmountCC = Int(generatorsPanel.fmAmount.midiCC)
+        appSettings.noiseVolumeCC = Int(generatorsPanel.noiseVolume.midiCC)
+        appSettings.glideKnobCC = Int(generatorsPanel.glideKnob.midiCC)
+        appSettings.cutoffCC = Int(generatorsPanel.cutoff.midiCC)
+        appSettings.rezCC = Int(generatorsPanel.resonance.midiCC)
 
         appSettings.arpIntervalCC = Int(arpSeqPanel.arpInterval.midiCC)
 
@@ -147,7 +147,7 @@ extension Manager {
         appSettings.darkMode = keyboardView.darkMode
         appSettings.showKeyboard = keyboardToggle.value
 
-        appSettings.plotFilled = mainPanel.isAudioPlotFilled
+        appSettings.plotFilled = generatorsPanel.isAudioPlotFilled
         saveAppSettings()
     }
 

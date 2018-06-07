@@ -136,9 +136,9 @@
 		C4B4919820C7C81200FD565A /* Manager+MailingListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4919620C7C81200FD565A /* Manager+MailingListDelegate.swift */; };
 		C4B4919920C7C81200FD565A /* MailingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4919720C7C81200FD565A /* MailingListViewController.swift */; };
 		C4B4919B20C7C8C800FD565A /* Manager+ModWheelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4919A20C7C8C800FD565A /* Manager+ModWheelDelegate.swift */; };
-		C4B491A120C7C91A00FD565A /* ADSRPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491A020C7C91900FD565A /* ADSRPanel.swift */; };
+		C4B491A120C7C91A00FD565A /* EnvelopesPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491A020C7C91900FD565A /* EnvelopesPanel.swift */; };
 		C4B491A420C7C94E00FD565A /* FXPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491A320C7C94E00FD565A /* FXPanel.swift */; };
-		C4B491A720C7C95A00FD565A /* MainPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491A620C7C95900FD565A /* MainPanel.swift */; };
+		C4B491A720C7C95A00FD565A /* GeneratorsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491A620C7C95900FD565A /* GeneratorsPanel.swift */; };
 		C4B491AC20C7D10200FD565A /* MorphSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491A820C7D10200FD565A /* MorphSelector.swift */; };
 		C4B491AF20C7D10200FD565A /* LFOWavePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */; };
 		C4B491B120C7D11500FD565A /* MIDIKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B491B020C7D11500FD565A /* MIDIKnob.swift */; };
@@ -336,9 +336,9 @@
 		C4B4919620C7C81200FD565A /* Manager+MailingListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Manager+MailingListDelegate.swift"; sourceTree = "<group>"; };
 		C4B4919720C7C81200FD565A /* MailingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailingListViewController.swift; sourceTree = "<group>"; };
 		C4B4919A20C7C8C800FD565A /* Manager+ModWheelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Manager+ModWheelDelegate.swift"; sourceTree = "<group>"; };
-		C4B491A020C7C91900FD565A /* ADSRPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSRPanel.swift; sourceTree = "<group>"; };
+		C4B491A020C7C91900FD565A /* EnvelopesPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvelopesPanel.swift; sourceTree = "<group>"; };
 		C4B491A320C7C94E00FD565A /* FXPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPanel.swift; sourceTree = "<group>"; };
-		C4B491A620C7C95900FD565A /* MainPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPanel.swift; sourceTree = "<group>"; };
+		C4B491A620C7C95900FD565A /* GeneratorsPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorsPanel.swift; sourceTree = "<group>"; };
 		C4B491A820C7D10200FD565A /* MorphSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphSelector.swift; sourceTree = "<group>"; };
 		C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFOWavePicker.swift; sourceTree = "<group>"; };
 		C4B491B020C7D11500FD565A /* MIDIKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIKnob.swift; sourceTree = "<group>"; };
@@ -763,7 +763,7 @@
 		C4B4919F20C7C91900FD565A /* ADSR Envelope */ = {
 			isa = PBXGroup;
 			children = (
-				C4B491A020C7C91900FD565A /* ADSRPanel.swift */,
+				C4B491A020C7C91900FD565A /* EnvelopesPanel.swift */,
 			);
 			path = "ADSR Envelope";
 			sourceTree = "<group>";
@@ -772,24 +772,24 @@
 			isa = PBXGroup;
 			children = (
 				C4B491A320C7C94E00FD565A /* FXPanel.swift */,
+				C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */,
 				949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */,
 				949D93B51F2C188B007E657B /* LfoButton.swift */,
 			);
 			path = Effects;
 			sourceTree = "<group>";
 		};
-		C4B491A520C7C95900FD565A /* Main */ = {
+		C4B491A520C7C95900FD565A /* Generators */ = {
 			isa = PBXGroup;
 			children = (
 				C4B491C420C7EC2E00FD565A /* README.md */,
 				C4B491BF20C7DF2A00FD565A /* StyleKits */,
 				948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */,
 				94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */,
-				C4B491A620C7C95900FD565A /* MainPanel.swift */,
-				C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */,
+				C4B491A620C7C95900FD565A /* GeneratorsPanel.swift */,
 				C4B491A820C7D10200FD565A /* MorphSelector.swift */,
 			);
-			path = Main;
+			path = Generators;
 			sourceTree = "<group>";
 		};
 		C4B491B620C7DEB100FD565A /* StyleKits */ = {
@@ -816,12 +816,12 @@
 		C4D193BB1F1187B500FF4FE4 = {
 			isa = PBXGroup;
 			children = (
+				C435C4D620C511DB00DAECCD /* README.md */,
 				C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */,
 				9461F0371F5CAAE600EE226E /* Frameworks */,
 				941645CB20B3597300D62851 /* OneSignalNotificationServiceExtension */,
 				54056ADC83E937067BBBA387 /* Pods */,
 				C4D193C51F1187B500FF4FE4 /* Products */,
-				C435C4D620C511DB00DAECCD /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -854,7 +854,7 @@
 				C432978720C896250063F795 /* Internet */,
 				C4B4911620C7C62A00FD565A /* Keyboard */,
 				C435C52620C52D2E00DAECCD /* MIDI */,
-				C4B491A520C7C95900FD565A /* Main */,
+				C4B491A520C7C95900FD565A /* Generators */,
 				C4B4916320C7C72900FD565A /* Manager */,
 				C4B4915C20C7C72900FD565A /* Navigation */,
 				C435C50620C52BD800DAECCD /* Presets */,
@@ -1089,7 +1089,7 @@
 			files = (
 				C4B4911F20C7C62A00FD565A /* KeyboardSettingsViewController.swift in Sources */,
 				C4B491BB20C7DEB100FD565A /* TempoStyleKit.swift in Sources */,
-				C4B491A720C7C95A00FD565A /* MainPanel.swift in Sources */,
+				C4B491A720C7C95A00FD565A /* GeneratorsPanel.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4B491AF20C7D10200FD565A /* LFOWavePicker.swift in Sources */,
 				C4B490F720C654E600FD565A /* S1DSPKernel+reset.mm in Sources */,
@@ -1121,7 +1121,7 @@
 				C4B4915020C7C6FC00FD565A /* Manager+MIDIListener.swift in Sources */,
 				C4B4912020C7C62A00FD565A /* WheelSettingsViewController.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
-				C4B491A120C7C91A00FD565A /* ADSRPanel.swift in Sources */,
+				C4B491A120C7C91A00FD565A /* EnvelopesPanel.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
 				C435C53020C52D4C00DAECCD /* Tuning.swift in Sources */,
 				C4B4910E20C7C5E500FD565A /* Manager+AppSettings.swift in Sources */,

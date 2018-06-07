@@ -9,26 +9,26 @@
 import Foundation
 
 public enum ChildPanel: Int {
-    case main = 0
-    case adsr = 1
+    case generators = 0
+    case envelopes = 1
     case touchPad = 2
-    case fx = 3
-    case arpSeq = 4
+    case effects = 3
+    case sequencer = 4
     case tunings = 5
 
     static let maxValue = 5
 
     func identifier() -> String {
         switch self {
-        case .main:
-            return "MainPanel"
-        case .adsr:
+        case .generators:
+            return "GeneratorsPanel"
+        case .envelopes:
             return "ADSRPanel"
         case .touchPad:
             return "TouchPadPanel"
-        case .fx:
+        case .effects:
             return "FXPanel"
-        case .arpSeq:
+        case .sequencer:
             return "ArpSeqPanel"
         case .tunings:
             return "TuningsPanel"
@@ -37,16 +37,16 @@ public enum ChildPanel: Int {
 
     func buttonText() -> String {
         switch self {
-        case .main:
-            return "MAIN"
-        case .adsr:
-            return "ADSR"
+        case .generators:
+            return "GEN"
+        case .envelopes:
+            return "ENV"
         case .touchPad:
             return "PAD"
-        case .fx:
+        case .effects:
             return "FX"
-        case .arpSeq:
-            return "ARP"
+        case .sequencer:
+            return "SEQ"
         case .tunings:
             return "TUNE"
         }

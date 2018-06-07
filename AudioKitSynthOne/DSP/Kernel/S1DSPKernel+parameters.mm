@@ -9,17 +9,17 @@
 #import "S1DSPKernel.hpp"
 
 ///parameter min
-float S1DSPKernel::parameterMin(S1Parameter i) {
+float S1DSPKernel::minimum(S1Parameter i) {
     return s1p[i].minimum;
 }
 
 ///parameter max
-float S1DSPKernel::parameterMax(S1Parameter i) {
+float S1DSPKernel::maximum(S1Parameter i) {
     return s1p[i].maximum;
 }
 
 ///parameter defaults
-float S1DSPKernel::parameterDefault(S1Parameter i) {
+float S1DSPKernel::defaultValue(S1Parameter i) {
     return parameterClamp(i, s1p[i].defaultValue);
 }
 
@@ -36,17 +36,17 @@ float S1DSPKernel::parameterClamp(S1Parameter i, float inputValue) {
 }
 
 ///parameter friendly name as c string
-const char* S1DSPKernel::parameterCStr(S1Parameter i) {
+const char* S1DSPKernel::cString(S1Parameter i) {
     return s1p[i].friendlyName.c_str();
 }
 
 ///parameter friendly name
-std::string S1DSPKernel::parameterFriendlyName(S1Parameter i) {
+std::string S1DSPKernel::friendlyName(S1Parameter i) {
     return s1p[i].friendlyName;
 }
 
 ///parameter presetKey
-std::string S1DSPKernel::parameterPresetKey(S1Parameter i) {
+std::string S1DSPKernel::presetKey(S1Parameter i) {
     return s1p[i].presetKey;
 }
 

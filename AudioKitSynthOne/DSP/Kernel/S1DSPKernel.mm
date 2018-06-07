@@ -90,7 +90,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
 
     // copy default dsp values
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
-        const float value = parameterDefault((S1Parameter)i);
+        const float value = defaultValue((S1Parameter)i);
         if (s1p[i].usePortamento) {
             s1p[i].portamentoTarget = value;
             sp_port_create(&s1p[i].portamento);

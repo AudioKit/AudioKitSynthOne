@@ -362,7 +362,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         float delayInputLowPassOutR = phaserOutR;
         if(p[filterType] == 0.f) {
             const float pmin2 = log2(1024.f);
-            const float pmax2 = log2(parameterMax(cutoff));
+            const float pmax2 = log2(maximum(cutoff));
             const float pval1 = p[cutoff];
             float pval2 = log2(pval1);
             if (pval2 < pmin2) pval2 = pmin2;

@@ -155,7 +155,7 @@ class Preset: Codable {
     var tuningMasterSet: [Double]?
 
         // MARK: - Init
-    
+
     init() {}
 
     convenience init(position: Int) {

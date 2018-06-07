@@ -48,7 +48,9 @@ class MorphSelector: UIView, S1Control {
     }
 
     override open func draw(_ rect: CGRect) {
-        MorphSelectorStyleKit.drawMorphSelector(value: CGFloat(value), width: self.bounds.width, height: self.bounds.height)
+        MorphSelectorStyleKit.drawMorphSelector(value: CGFloat(value),
+                                                width: self.bounds.width,
+                                                height: self.bounds.height)
     }
 
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -247,21 +247,23 @@ public protocol AKKeyboardDelegate: class {
         // labelMode == 1, Only C, labelMode == 2, All notes
         if labelMode == 1 && i == 0 || labelMode == 2 {
             // Add Label
-            let context = UIGraphicsGetCurrentContext()!
+            guard let context = UIGraphicsGetCurrentContext(),
+                let font = UIFont(name: "AvenirNextCondensed-Regular", size: 14) else { return }
             let whiteKeysTextContent = getWhiteNoteName(i) + String(firstOctave + octaveNumber)
             let whiteKeysStyle = NSMutableParagraphStyle()
             whiteKeysStyle.alignment = .center
             let whiteKeysFontAttributes  = [
-                NSAttributedStringKey.font: UIFont(name: "AvenirNextCondensed-Regular", size: 14)!,
+                NSAttributedStringKey.font: font,
                 NSAttributedStringKey.foregroundColor: textColor,
                 NSAttributedStringKey.paragraphStyle: whiteKeysStyle
                 ] as [NSAttributedStringKey: Any]
 
-            let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(with: CGSize(width: whiteKeysRect.width,
-                                                                                              height: CGFloat.infinity),
-                                                                                 options: .usesLineFragmentOrigin,
-                                                                                 attributes: whiteKeysFontAttributes,
-                                                                                 context: nil).height
+            let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(
+                with: CGSize(width: whiteKeysRect.width,
+                             height: CGFloat.infinity),
+                options: .usesLineFragmentOrigin,
+                attributes: whiteKeysFontAttributes,
+                context: nil).height
             context.saveGState()
             context.clip(to: whiteKeysRect)
 
@@ -445,7 +447,8 @@ public protocol AKKeyboardDelegate: class {
     }
 
     func topKeyX(_ n: Int, octaveNumber: Int) -> CGFloat {
-        return CGFloat(n) * topKeySize.width - (topKeyWidthIncrease / 2) + xOffset + oneOctaveSize.width * CGFloat(octaveNumber)
+        return CGFloat(n) * topKeySize.width - (topKeyWidthIncrease / 2) + xOffset +
+            oneOctaveSize.width * CGFloat(octaveNumber)
     }
 
     func whiteKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
@@ -457,7 +460,8 @@ public protocol AKKeyboardDelegate: class {
             keyOnColor = keyOnUserColor
         }
         return onKeys.contains(
-            MIDINoteNumber((firstOctave + octaveNumber) * 12 + whiteKeyNotes[n] + baseMIDINote ))  ? keyOnColor : whiteKeyOff
+            MIDINoteNumber((firstOctave + octaveNumber) * 12 + whiteKeyNotes[n] + baseMIDINote ))  ?
+                keyOnColor : whiteKeyOff
     }
 
     func topKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {

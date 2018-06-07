@@ -55,12 +55,12 @@ public enum ChildPanel: Int {
     func leftPanel() -> ChildPanel {
         var leftValue = self.rawValue - 1
         if leftValue < 0 { leftValue = ChildPanel.maxValue }
-        return ChildPanel(rawValue: leftValue)!
+        return ChildPanel(rawValue: leftValue) ?? ChildPanel.generators
     }
 
     func rightPanel() -> ChildPanel {
         var rightValue = self.rawValue + 1
         if rightValue > ChildPanel.maxValue { rightValue = 0 }
-        return ChildPanel(rawValue: rightValue)!
+        return ChildPanel(rawValue: rightValue) ?? ChildPanel.generators
     }
 }

@@ -17,7 +17,8 @@ public class TimeKnob: MIDIKnob {
     var limitedRate = Rate.count - offset
 
     var rate: Rate {
-        return Rate(rawValue: TimeKnob.offset + Int(CGFloat(limitedRate) - knobValue * CGFloat(limitedRate))) ?? Rate.sixtyFourth
+        return Rate(rawValue: TimeKnob.offset + Int(CGFloat(limitedRate) - knobValue * CGFloat(limitedRate)))
+            ?? Rate.sixtyFourth
     }
 
     //TODO:@MATT This is unused...do you still need this?

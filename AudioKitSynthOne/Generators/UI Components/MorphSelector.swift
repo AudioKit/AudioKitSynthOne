@@ -23,10 +23,10 @@ class MorphSelector: UIView, S1Control {
     }
 
     //// Color Declarations
-    @IBInspectable open var color: UIColor = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
-    @IBInspectable open var selected: UIColor = UIColor(red: 0.929, green: 0.533, blue: 0.000, alpha: 1.000)
-    @IBInspectable open var unselected: UIColor = UIColor(red: 0.533, green: 0.533, blue: 0.533, alpha: 1.000)
-    @IBInspectable open var selectedBG: UIColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.181)
+    @IBInspectable open var color: UIColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
+    @IBInspectable open var selected: UIColor = #colorLiteral(red: 0.9294117647, green: 0.5333333333, blue: 0, alpha: 1)
+    @IBInspectable open var unselected: UIColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
+    @IBInspectable open var selectedBG: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.18)
 
     override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()

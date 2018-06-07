@@ -99,7 +99,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
         }
         p[i] = value;
     }
-    updateDSPPortamento(p[portamentoHalfTime]);
+    updatePortamento(p[portamentoHalfTime]);
     
     _lfo1Rate = {S1Parameter::lfo1Rate, getDependentParameter(lfo1Rate), getSynthParameter(lfo1Rate),0};
     _lfo2Rate = {S1Parameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};

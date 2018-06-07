@@ -20,7 +20,7 @@ float S1DSPKernel::maximum(S1Parameter i) {
 
 ///parameter defaults
 float S1DSPKernel::defaultValue(S1Parameter i) {
-    return parameterClamp(i, s1p[i].defaultValue);
+    return clampedValue(i, s1p[i].defaultValue);
 }
 
 AudioUnitParameterUnit S1DSPKernel::parameterUnit(S1Parameter i) {
@@ -28,11 +28,11 @@ AudioUnitParameterUnit S1DSPKernel::parameterUnit(S1Parameter i) {
 }
 
 ///return clamped value
-float S1DSPKernel::parameterClamp(S1Parameter i, float inputValue) {
-    const float paramMin = s1p[i].minimum;
-    const float paramMax = s1p[i].maximum;
-    const float retVal = std::min(std::max(inputValue, paramMin), paramMax);
-    return retVal;
+float S1DSPKernel::clampedValue(S1Parameter i, float inputValue) {
+    const float minimum = s1p[i].minimum;
+    const float maximum = s1p[i].maximum;
+    const float clampedValue = std::min(std::max(inputValue, minimum), maximum);
+    return clampedValue;
 }
 
 ///parameter friendly name as c string
@@ -68,8 +68,8 @@ AUValue S1DSPKernel::getParameter(AUParameterAddress address) {
 
 void S1DSPKernel::startRamp(AUParameterAddress address, AUValue value, AUAudioFrameCount duration) {}
 
-void S1DSPKernel::updateDSPPortamento(float halfTime) {
-    const float ht = parameterClamp(portamentoHalfTime, halfTime);
+void S1DSPKernel::updatePortamento(float halfTime) {
+    const float ht = clampedValue(portamentoHalfTime, halfTime);
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
         if (s1p[i].usePortamento) {
             s1p[i].portamento->htime = ht;

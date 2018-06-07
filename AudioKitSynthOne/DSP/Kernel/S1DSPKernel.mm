@@ -149,9 +149,9 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     loPassInputDelayR->res = getSynthParameter(delayInputResonance);
 
     // Reserve arp note cache to reduce possibility of reallocation on audio thread.
-    arpSeqNotes.reserve(maxArpSeqNotes);
-    arpSeqNotes2.reserve(maxArpSeqNotes);
-    arpSeqLastNotes.resize(maxArpSeqNotes);
+    sequencerNotes.reserve(maxSequencerNotes);
+    sequencerNotes2.reserve(maxSequencerNotes);
+    sequencerLastNotes.resize(maxSequencerNotes);
     
     aePlayingNotes.polyphony = S1_MAX_POLYPHONY;
     

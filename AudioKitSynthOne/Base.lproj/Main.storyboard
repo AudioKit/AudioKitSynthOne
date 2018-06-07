@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circuit" translatesAutoresizingMaskIntoConstraints="NO" id="oI3-DX-etX">
@@ -56,7 +52,7 @@
                                 </constraints>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uw2-JG-GSz" userLabel="KeyboardContainer">
-                                <rect key="frame" x="0.0" y="535" width="375" height="431"/>
+                                <rect key="frame" x="0.0" y="468" width="600" height="431"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="keyboard_top" translatesAutoresizingMaskIntoConstraints="NO" id="oOK-6u-M58">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="47"/>
@@ -286,10 +282,10 @@
             </objects>
             <point key="canvasLocation" x="-1670.5078125" y="-839.0625"/>
         </scene>
-        <!--MainPanel-->
+        <!--GeneratorsPanel-->
         <scene sceneID="h0Y-DX-cbn">
             <objects>
-                <viewController storyboardIdentifier="MainPanel" id="MNO-vG-clO" userLabel="MainPanel" customClass="MainPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GeneratorsPanel" id="MNO-vG-clO" userLabel="GeneratorsPanel" customClass="GeneratorsPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bwW-24-SnQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rtq-zb-Exf"/>
@@ -677,6 +673,7 @@
                         <outlet property="fmVolume" destination="eeh-g3-XJ2" id="NHR-Ny-zAj"/>
                         <outlet property="glideKnob" destination="bR1-kC-uYy" id="Z2X-MZ-yqk"/>
                         <outlet property="isMonoToggle" destination="c6c-jK-I3M" id="AsH-Ji-dTQ"/>
+                        <outlet property="leftNavButton" destination="MfO-OP-zsQ" id="5f9-2C-Jqf"/>
                         <outlet property="legatoModeToggle" destination="FC6-mk-ufL" id="Epd-DM-kka"/>
                         <outlet property="masterVolume" destination="la2-0e-izH" id="54u-fs-IBa"/>
                         <outlet property="morph1Selector" destination="wN7-K8-wB0" id="kRL-Ii-Q0K"/>
@@ -687,10 +684,9 @@
                         <outlet property="morph2SemitoneOffset" destination="0QL-6p-40g" id="sP7-H8-chN"/>
                         <outlet property="morph2Volume" destination="BDO-o7-fva" id="P1t-JW-0Tu"/>
                         <outlet property="morphBalance" destination="u1G-nz-9jM" id="Nvc-gS-ml9"/>
-                        <outlet property="leftNavButton" destination="MfO-OP-zsQ" id="5f9-2C-Jqf"/>
-                        <outlet property="rightNavButton" destination="jFg-ph-8JS" id="l8q-cd-aYl"/>
                         <outlet property="noiseVolume" destination="WwC-VK-0Xz" id="mJZ-0W-rfG"/>
                         <outlet property="resonance" destination="8bG-Oy-PkM" id="p13-cW-gjw"/>
+                        <outlet property="rightNavButton" destination="jFg-ph-8JS" id="l8q-cd-aYl"/>
                         <outlet property="subIsSquare" destination="d9F-Dn-rDa" id="sPc-IJ-65e"/>
                         <outlet property="subOctaveDown" destination="RfN-pt-vLT" id="E4J-Wj-UH3"/>
                         <outlet property="subVolume" destination="HbA-YN-8uf" id="2zM-al-Xtv"/>
@@ -895,7 +891,7 @@
         <!--ADSR-->
         <scene sceneID="crk-4V-XLk">
             <objects>
-                <viewController storyboardIdentifier="ADSRPanel" id="kXR-JJ-XpL" userLabel="ADSR" customClass="ADSRPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ADSRPanel" id="kXR-JJ-XpL" userLabel="ADSR" customClass="EnvelopesPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ASD-Qn-MVB"/>
                         <viewControllerLayoutGuide type="bottom" id="XW6-Jj-EEi"/>
@@ -1130,8 +1126,8 @@
                         <outlet property="filterReleaseKnob" destination="jFf-Ek-uea" id="q5B-L4-N1v"/>
                         <outlet property="filterSustainKnob" destination="hff-Gi-ggJ" id="gFX-71-JiH"/>
                         <outlet property="leftNavButton" destination="0Jr-sv-a4K" id="F7k-Di-uZL"/>
-                        <outlet property="rightNavButton" destination="fOW-RF-39C" id="Zik-db-shy"/>
                         <outlet property="releaseKnob" destination="Vv9-HY-oLB" id="P3x-u2-abD"/>
+                        <outlet property="rightNavButton" destination="fOW-RF-39C" id="Zik-db-shy"/>
                         <outlet property="sustainKnob" destination="iNU-FW-fQV" id="Udh-sr-lZ8"/>
                     </connections>
                 </viewController>
@@ -1232,10 +1228,10 @@
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
                         <outlet property="diceButton" destination="e1V-Hp-0S3" id="y2l-N5-p1e"/>
-                        <outlet property="masterTuning" destination="ICz-sQ-fwm" id="ff9-So-mio"/>
                         <outlet property="leftNavButton" destination="GKH-5a-fe3" id="K0T-J5-sLK"/>
-                        <outlet property="rightNavButton" destination="dAt-xo-d7i" id="Ilm-N0-Oq0"/>
+                        <outlet property="masterTuning" destination="ICz-sQ-fwm" id="ff9-So-mio"/>
                         <outlet property="resetTunings" destination="m2T-3V-7aM" id="pNU-ZH-DaK"/>
+                        <outlet property="rightNavButton" destination="dAt-xo-d7i" id="Ilm-N0-Oq0"/>
                         <outlet property="tuningTableView" destination="BeM-2O-kjR" id="hBC-5d-5DS"/>
                         <outlet property="tuningsPitchWheelView" destination="huY-w0-8Zb" id="mRT-G4-2Ca"/>
                     </connections>
@@ -1703,6 +1699,7 @@
                         <outlet property="delayMix" destination="Llm-Od-P25" id="m4Q-YC-HzN"/>
                         <outlet property="delayTime" destination="NqQ-40-D7B" id="Exo-vV-rQm"/>
                         <outlet property="delayToggle" destination="dNU-Q8-hfi" id="o0T-2o-3gK"/>
+                        <outlet property="leftNavButton" destination="Xyj-Yj-OIq" id="5yl-Za-EH7"/>
                         <outlet property="lfo1Amp" destination="i2o-5u-jpE" id="ppX-wr-aBs"/>
                         <outlet property="lfo1Rate" destination="mn7-Xc-1Zo" id="yaS-MZ-WhG"/>
                         <outlet property="lfo1WavePicker" destination="yaK-QY-gw2" id="BBl-0M-Xhd"/>
@@ -1721,8 +1718,6 @@
                         <outlet property="lfoReverbMixToggle" destination="lNJ-vo-Ird" id="Trc-3a-b6c"/>
                         <outlet property="lfoRezToggle" destination="Dd6-x5-m2h" id="h1j-xO-O7Q"/>
                         <outlet property="lfoTremoloToggle" destination="Pda-Ea-Gzs" id="c5m-jp-Hrf"/>
-                        <outlet property="leftNavButton" destination="Xyj-Yj-OIq" id="5yl-Za-EH7"/>
-                        <outlet property="rightNavButton" destination="8Wt-Tf-MdV" id="AbF-3S-Pte"/>
                         <outlet property="phaserFeedback" destination="OG9-jw-6vI" id="cAp-2D-keT"/>
                         <outlet property="phaserMix" destination="lPR-OD-6eO" id="xjd-d7-0rU"/>
                         <outlet property="phaserNotchWidth" destination="3Nj-Pf-hOI" id="qdL-ZU-wBu"/>
@@ -1731,6 +1726,7 @@
                         <outlet property="reverbMix" destination="Muy-Nf-8VP" id="mDk-cx-EaD"/>
                         <outlet property="reverbSize" destination="QPQ-yr-Oh3" id="xLh-46-Jo1"/>
                         <outlet property="reverbToggle" destination="lZX-P1-5MQ" id="uJL-2O-kdF"/>
+                        <outlet property="rightNavButton" destination="8Wt-Tf-MdV" id="AbF-3S-Pte"/>
                         <outlet property="sampleRate" destination="2OJ-Aw-oQg" id="2gF-jY-WNw"/>
                         <outlet property="tempoSyncToggle" destination="FF0-4H-n45" id="Nz7-gW-oep"/>
                     </connections>
@@ -2146,8 +2142,8 @@
                         <outlet property="arpSeqToggle" destination="1KG-7D-uLS" id="DRN-Kb-MN1"/>
                         <outlet property="arpToggle" destination="l1q-wd-14L" id="qr6-Vd-70B"/>
                         <outlet property="leftNavButton" destination="nFz-u7-7Cx" id="p18-Kd-Pui"/>
-                        <outlet property="rightNavButton" destination="NPl-4m-jiz" id="cpY-FC-H7x"/>
                         <outlet property="octaveStepper" destination="EU0-WN-5ya" id="9yz-L2-biO"/>
+                        <outlet property="rightNavButton" destination="NPl-4m-jiz" id="cpY-FC-H7x"/>
                         <outlet property="seqStepsStepper" destination="NFb-PZ-ajP" id="rQ3-fm-gDn"/>
                     </connections>
                 </viewController>

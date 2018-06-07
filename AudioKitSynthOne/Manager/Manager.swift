@@ -68,12 +68,12 @@ public class Manager: UpdatableViewController {
 
     // MARK: - Define child view controllers
 
-    lazy var adsrPanel: ADSRPanel = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.adsr.identifier()) as! ADSRPanel
+    lazy var adsrPanel: EnvelopesPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.envelopes.identifier()) as! EnvelopesPanel
     }()
 
-    lazy var mainPanel: MainPanel = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.main.identifier()) as! MainPanel
+    lazy var generatorsPanel: GeneratorsPanel = {
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.generators.identifier()) as! GeneratorsPanel
     }()
 
     lazy var devViewController: DevViewController = {
@@ -89,11 +89,11 @@ public class Manager: UpdatableViewController {
     }()
 
     lazy var fxPanel: FXPanel = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.fx.identifier()) as! FXPanel
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.effects.identifier()) as! FXPanel
     }()
 
     lazy var arpSeqPanel: ArpSeqPanel = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.arpSeq.identifier()) as! ArpSeqPanel
+        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.sequencer.identifier()) as! ArpSeqPanel
     }()
 
     lazy var tuningsPanel: TuningsPanel = {
@@ -148,10 +148,10 @@ public class Manager: UpdatableViewController {
         }
 
         // Pre-load views and Set initial subviews
-        switchToChildPanel(.fx, isOnTop: true)
-        switchToChildPanel(.adsr, isOnTop: true)
-        switchToChildPanel(.main, isOnTop: true)
-        switchToChildPanel(.arpSeq, isOnTop: false)
+        switchToChildPanel(.effects, isOnTop: true)
+        switchToChildPanel(.envelopes, isOnTop: true)
+        switchToChildPanel(.generators, isOnTop: true)
+        switchToChildPanel(.sequencer, isOnTop: false)
 
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)
@@ -244,7 +244,7 @@ public class Manager: UpdatableViewController {
         appSettings.launches += 1
         saveAppSettingValues()
 
-        appendMIDIKnobs(from: mainPanel)
+        appendMIDIKnobs(from: generatorsPanel)
         appendMIDIKnobs(from: adsrPanel)
         appendMIDIKnobs(from: fxPanel)
         appendMIDIKnobs(from: arpSeqPanel)

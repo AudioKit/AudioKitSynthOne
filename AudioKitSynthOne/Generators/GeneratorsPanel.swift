@@ -1,5 +1,5 @@
 //
-//  MainPanel.swift
+//  GeneratorPanel.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/23/17.
@@ -13,7 +13,7 @@ import UIKit
 // TODO: Rename Main to
 
 /// Main Oscillator Mixing Panel
-class MainPanel: Panel {
+class GeneratorsPanel: Panel {
 
     @IBOutlet weak var morph1Selector: MorphSelector!
     @IBOutlet weak var morph2Selector: MorphSelector!
@@ -57,11 +57,11 @@ class MainPanel: Panel {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        currentPanel = .main
+        currentPanel = .generators
 
         // Defaults, limits
         guard let s = conductor.synth else {
-            AKLog("MainPanel view state is invalid because synth is not instantiated")
+            AKLog("GeneratorsPanel view state is invalid because synth is not instantiated")
             return
         }
 
@@ -127,7 +127,7 @@ class MainPanel: Panel {
 
         // Add Tap Gesture Recognizer to AudioPlot
         let audioPlotTap = UITapGestureRecognizer(target: self,
-                                                  action: #selector(MainPanel.audioPlotToggled))
+                                                  action: #selector(GeneratorsPanel.audioPlotToggled))
         audioPlot.addGestureRecognizer(audioPlotTap)
     }
 

@@ -20,23 +20,23 @@ extension Manager: EmbeddedViewsDelegate {
         }
 
         switch newView {
-        case .adsr:
+        case .envelopes:
             add(asChildViewController: adsrPanel, isTopContainer: isOnTop)
             adsrPanel.navDelegate = self
             adsrPanel.isTopContainer = isOnTop
-        case .main:
-            add(asChildViewController: mainPanel, isTopContainer: isOnTop)
-            mainPanel.navDelegate = self
-            mainPanel.isTopContainer = isOnTop
+        case .generators:
+            add(asChildViewController: generatorsPanel, isTopContainer: isOnTop)
+            generatorsPanel.navDelegate = self
+            generatorsPanel.isTopContainer = isOnTop
         case .touchPad:
             add(asChildViewController: touchPadPanel, isTopContainer: isOnTop)
             touchPadPanel.navDelegate = self
             touchPadPanel.isTopContainer = isOnTop
-        case .fx:
+        case .effects:
             add(asChildViewController: fxPanel, isTopContainer: isOnTop)
             fxPanel.navDelegate = self
             fxPanel.isTopContainer = isOnTop
-        case .arpSeq:
+        case .sequencer:
             add(asChildViewController: arpSeqPanel, isTopContainer: isOnTop)
             arpSeqPanel.navDelegate = self
             arpSeqPanel.isTopContainer = isOnTop

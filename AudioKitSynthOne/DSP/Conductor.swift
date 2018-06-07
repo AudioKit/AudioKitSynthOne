@@ -175,10 +175,12 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func dependentParameterDidChange(_ parameter: DependentParameter) {
-        let fxPanel = self.viewControllers.first(where: { $0 is EffectsPanelController }) as? EffectsPanelController
-        fxPanel?.dependentParameterDidChange(parameter)
+        let effectsPanel = self.viewControllers.first(where: { $0 is EffectsPanelController })
+            as? EffectsPanelController
+        effectsPanel?.dependentParameterDidChange(parameter)
 
-        let touchPadPanel = self.viewControllers.first(where: { $0 is TouchPadPanelController }) as? TouchPadPanelController
+        let touchPadPanel = self.viewControllers.first(where: { $0 is TouchPadPanelController })
+            as? TouchPadPanelController
         touchPadPanel?.dependentParameterDidChange(parameter)
 
         let manager = self.viewControllers.first(where: { $0 is Manager }) as? Manager
@@ -187,7 +189,8 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {
-        let sequencerPanel = self.viewControllers.first(where: { $0 is SequencerPanelController }) as? SequencerPanelController
+        let sequencerPanel = self.viewControllers.first(where: { $0 is SequencerPanelController })
+            as? SequencerPanelController
         sequencerPanel?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
     }
 
@@ -198,7 +201,8 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
-        let tuningsPanel = self.viewControllers.first(where: { $0 is TuningsPanelController }) as? TuningsPanelController
+        let tuningsPanel = self.viewControllers.first(where: { $0 is TuningsPanelController })
+            as? TuningsPanelController
         tuningsPanel?.playingNotesDidChange(playingNotes)
     }
 

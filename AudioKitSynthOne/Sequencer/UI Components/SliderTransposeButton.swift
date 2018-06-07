@@ -26,7 +26,7 @@ class SliderTransposeButton: UILabel, S1Control {
                     transposeAmt += transposeAmt
                 } else {
                     transposeAmt -= transposeAmt
-                                                              }
+                }
             } else {
                 _value = 0
                 self.backgroundColor = #colorLiteral(red: 0.2156862745, green: 0.2156862745, blue: 0.2352941176, alpha: 1)

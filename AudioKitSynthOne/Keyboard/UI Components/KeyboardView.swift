@@ -207,8 +207,13 @@ public protocol AKKeyboardDelegate: class {
 
         for i in 0 ..< 7 {
 
-            let whiteKeysRect = CGRect(x: whiteKeyX(i, octaveNumber: octaveNumber), y: 1, width: whiteKeySize.width - 1, height: whiteKeySize.height)
-            whiteKeysPaths.append(UIBezierPath(roundedRect: whiteKeysRect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 5, height: 5)))
+            let whiteKeysRect = CGRect(x: whiteKeyX(i, octaveNumber: octaveNumber),
+                                       y: 1,
+                                       width: whiteKeySize.width - 1,
+                                       height: whiteKeySize.height)
+            whiteKeysPaths.append(UIBezierPath(roundedRect: whiteKeysRect,
+                                               byRoundingCorners: [.bottomLeft, .bottomRight],
+                                               cornerRadii: CGSize(width: 5, height: 5)))
 
             whiteKeyColor(i, octaveNumber: octaveNumber).setFill()
             whiteKeysPaths[i].fill()
@@ -471,5 +476,4 @@ public protocol AKKeyboardDelegate: class {
         return #colorLiteral(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.000)
 
     }
-
 }

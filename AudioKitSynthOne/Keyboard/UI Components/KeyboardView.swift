@@ -1,5 +1,5 @@
 //
-//  SynthKeyboard.swift
+//  KeyboardView.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/14/17.
@@ -18,7 +18,7 @@ public protocol AKKeyboardDelegate: class {
 }
 
 /// Clickable keyboard mainly used for AudioKit playgrounds
-@IBDesignable open class SynthKeyboard: UIView, AKMIDIListener {
+@IBDesignable open class KeyboardView: UIView, AKMIDIListener {
 
     /// Number of octaves displayed at once
     @IBInspectable open var octaveCount: Int = 2

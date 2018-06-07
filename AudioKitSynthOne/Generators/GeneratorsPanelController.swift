@@ -13,7 +13,7 @@ import UIKit
 // TODO: Rename Main to
 
 /// Main Oscillator Mixing Panel
-class GeneratorsPanel: Panel {
+class GeneratorsPanelController: PanelController {
 
     @IBOutlet weak var morph1Selector: MorphSelector!
     @IBOutlet weak var morph2Selector: MorphSelector!
@@ -127,7 +127,7 @@ class GeneratorsPanel: Panel {
 
         // Add Tap Gesture Recognizer to AudioPlot
         let audioPlotTap = UITapGestureRecognizer(target: self,
-                                                  action: #selector(GeneratorsPanel.audioPlotToggled))
+                                                  action: #selector(GeneratorsPanelController.audioPlotToggled))
         audioPlot.addGestureRecognizer(audioPlotTap)
     }
 

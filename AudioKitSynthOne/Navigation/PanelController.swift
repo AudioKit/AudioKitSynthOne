@@ -1,5 +1,5 @@
 //
-//  Panel.swift
+//  PanelController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/30/17.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// A Panel is a View Controller with other panels to the left and right of itself
-class Panel: UpdatableViewController {
+class PanelController: UpdatableViewController {
 
     @IBOutlet weak var leftNavButton: NavButton!
     @IBOutlet weak var rightNavButton: NavButton!

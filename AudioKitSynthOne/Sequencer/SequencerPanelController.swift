@@ -1,5 +1,5 @@
 //
-//  ArpSeqPanel.swift
+//  SequencerPanelController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArpSeqPanel: Panel {
+class SequencerPanelController: PanelController {
 
     @IBOutlet weak var seqStepsStepper: Stepper!
     @IBOutlet weak var octaveStepper: Stepper!
@@ -29,7 +29,7 @@ class ArpSeqPanel: Panel {
         currentPanel = .sequencer
 
         guard let s = conductor.synth else {
-            AKLog("ArpSeqPanel view state is invalid because synth is not instantiated")
+            AKLog("SequencerPanel view state is invalid because synth is not instantiated")
             return
         }
 

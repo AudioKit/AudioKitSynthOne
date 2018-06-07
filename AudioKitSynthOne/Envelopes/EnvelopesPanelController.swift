@@ -1,5 +1,5 @@
 //
-//  EnvelopePanel.swift
+//  EnvelopePanelController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/24/17.
@@ -10,7 +10,7 @@ import UIKit
 import AudioKit
 import AudioKitUI
 
-class EnvelopesPanel: Panel {
+class EnvelopesPanelController: PanelController {
 
     @IBOutlet var adsrView: AKADSRView!
     @IBOutlet var filterADSRView: AKADSRView!
@@ -31,7 +31,7 @@ class EnvelopesPanel: Panel {
         envelopeLabelBackground.layer.cornerRadius = 8
 
         guard let s = conductor.synth else {
-            AKLog("ADSRPanel view state is invalid because synth is not instantiated")
+            AKLog("EnvelopesPanel view state is invalid because synth is not instantiated")
             return
         }
 

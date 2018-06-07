@@ -1,5 +1,5 @@
 //
-//  TuningsPanel.swift
+//  TuningsPanelController.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 5/6/18.
@@ -15,7 +15,7 @@ public protocol TuningsPitchWheelViewTuningDidChange {
 /// View controller for the Tunings Panel
 ///
 /// Erv Wilson is the man [website](http://aure.com/)
-class TuningsPanel: Panel {
+class TuningsPanelController: PanelController {
 
     @IBOutlet weak var tuningTableView: UITableView!
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
@@ -121,7 +121,7 @@ class TuningsPanel: Panel {
 
 // MARK: - TuningsPitchWheelViewTuningDidChange
 
-extension TuningsPanel: TuningsPitchWheelViewTuningDidChange {
+extension TuningsPanelController: TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange() {
         tuningsPitchWheelView.updateFromGlobalTuningTable()
     }

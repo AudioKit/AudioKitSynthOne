@@ -49,15 +49,15 @@
 }
 
 - (float)getMinimum:(S1Parameter)param {
-    return _kernel.parameterMin(param);
+    return _kernel.minimum(param);
 }
 
 - (float)getMaximum:(S1Parameter)param {
-    return _kernel.parameterMax(param);
+    return _kernel.maximum(param);
 }
 
 - (float)getDefault:(S1Parameter)param {
-    return _kernel.parameterDefault(param);
+    return _kernel.defaultValue(param);
 }
 
 ///Deprecated:calling this method to access even a single element of this array results in creating the entire array
@@ -142,12 +142,12 @@
     NSMutableArray<AUParameter*>* tree = [NSMutableArray array];
     for(NSInteger i = S1Parameter::index1; i < S1Parameter::S1ParameterCount; i++) {
         const S1Parameter p = (S1Parameter)i;
-        const AUValue minValue = _kernel.parameterMin(p);
-        const AUValue maxValue = _kernel.parameterMax(p);
-        const AUValue defaultValue = _kernel.parameterDefault(p);
+        const AUValue minValue = _kernel.minimum(p);
+        const AUValue maxValue = _kernel.maximum(p);
+        const AUValue defaultValue = _kernel.defaultValue(p);
         const AudioUnitParameterUnit unit = _kernel.parameterUnit(p);
-        NSString* friendlyName = [NSString stringWithCString:_kernel.parameterCStr(p) encoding:[NSString defaultCStringEncoding]];
-        NSString* keyName = [NSString stringWithCString:_kernel.parameterPresetKey(p).c_str() encoding:[NSString defaultCStringEncoding]];
+        NSString* friendlyName = [NSString stringWithCString:_kernel.cString(p) encoding:[NSString defaultCStringEncoding]];
+        NSString* keyName = [NSString stringWithCString:_kernel.presetKey(p).c_str() encoding:[NSString defaultCStringEncoding]];
         AUParameter *param = [AUParameterTree createParameterWithIdentifier:keyName name:friendlyName address:p min:minValue max:maxValue unit:unit unitName:nil flags:flags valueStrings:nil dependentParameters:nil];
         param.value = defaultValue;
         //_kernel.setSynthParameter(p, defaultValue);

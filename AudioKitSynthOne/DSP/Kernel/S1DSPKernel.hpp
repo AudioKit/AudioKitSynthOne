@@ -117,13 +117,13 @@ public:
     void setWaveformValue(uint32_t waveform, uint32_t index, float value);
     
     ///parameter min
-    float parameterMin(S1Parameter i);
+    float minimum(S1Parameter i);
     
     ///parameter max
-    float parameterMax(S1Parameter i);
+    float maximum(S1Parameter i);
     
     ///parameter defaults
-    float parameterDefault(S1Parameter i);
+    float defaultValue(S1Parameter i);
     
     ///parameter unit
     AudioUnitParameterUnit parameterUnit(S1Parameter i);
@@ -132,13 +132,13 @@ public:
     float parameterClamp(S1Parameter i, float inputValue);
 
     ///friendly description of parameter
-    std::string parameterFriendlyName(S1Parameter i);
+    std::string friendlyName(S1Parameter i);
     
     ///C string friendly description of parameter
-    const char* parameterCStr(S1Parameter i);
+    const char* cString(S1Parameter i);
 
     ///parameter presetKey
-    std::string parameterPresetKey(S1Parameter i);
+    std::string presetKey(S1Parameter i);
 
 private:
 

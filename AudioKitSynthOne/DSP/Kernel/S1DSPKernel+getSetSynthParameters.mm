@@ -37,7 +37,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bo
     // pitchbend
     if (parameter == pitchbend) {
         const float val = parameterClamp(parameter, inputValue);
-        const float val01 = (val - parameterMin(pitchbend)) / (parameterMax(pitchbend) - parameterMin(pitchbend));
+        const float val01 = (val - minimum(pitchbend)) / (maximum(pitchbend) - minimum(pitchbend));
         _pitchbend = {parameter, val01, val, payload};
         _setSynthParameter(parameter, val);
         if (notifyMainThread) {
@@ -50,7 +50,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bo
         // tempo sync
         if (parameter == lfo1Rate || parameter == lfo2Rate || parameter == autoPanFrequency) {
             const float value = parameterClamp(parameter, inputValue);
-            S1RateArgs syncdValue = _rate.nearestFrequency(value, p[arpRate], parameterMin(parameter), parameterMax(parameter));
+            S1RateArgs syncdValue = _rate.nearestFrequency(value, p[arpRate], minimum(parameter), maximum(parameter));
             _setSynthParameter(parameter, syncdValue.value);
             DependentParameter outputDP = {S1Parameter::S1ParameterCount, 0.f, 0.f, 0};
             switch(parameter) {
@@ -71,7 +71,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bo
             }
         } else if (parameter == delayTime) {
             const float value = parameterClamp(parameter, inputValue);
-            S1RateArgs syncdValue = _rate.nearestTime(value, p[arpRate], parameterMin(parameter), parameterMax(parameter));
+            S1RateArgs syncdValue = _rate.nearestTime(value, p[arpRate], minimum(parameter), maximum(parameter));
             _setSynthParameter(parameter, syncdValue.value);
             _delayTime = {parameter, 1.f - syncdValue.value01, syncdValue.value, payload};
             DependentParameter outputDP = _delayTime;
@@ -83,8 +83,8 @@ inline void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bo
         // no tempo sync
         _setSynthParameter(parameter, inputValue);
         const float val = p[parameter];
-        const float min = parameterMin(parameter);
-        const float max = parameterMax(parameter);
+        const float min = minimum(parameter);
+        const float max = maximum(parameter);
         const float val01 = clamp((val - min) / (max - min), 0.f, 1.f);
         if (parameter == lfo1Rate || parameter == lfo2Rate || parameter == autoPanFrequency || parameter == delayTime) {
             DependentParameter outputDP = {S1Parameter::S1ParameterCount, 0.f, 0.f, 0};

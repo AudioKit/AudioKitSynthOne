@@ -1,3 +1,3 @@
-# Main Panel
+# Generators Panel
 
-![Main Panel](http://audiokit.io/synthone/generatorsPanel.png)
+![Generators Panel](http://audiokit.io/synthone/generatorsPanel.png)

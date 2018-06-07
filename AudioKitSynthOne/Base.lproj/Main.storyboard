@@ -286,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="-1670.5078125" y="-839.0625"/>
         </scene>
-        <!--Mixer-->
+        <!--MainPanel-->
         <scene sceneID="h0Y-DX-cbn">
             <objects>
-                <viewController storyboardIdentifier="MainPanel" id="MNO-vG-clO" userLabel="Mixer" customClass="MainPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPanel" id="MNO-vG-clO" userLabel="MainPanel" customClass="MainPanel" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bwW-24-SnQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rtq-zb-Exf"/>
@@ -687,8 +687,8 @@
                         <outlet property="morph2SemitoneOffset" destination="0QL-6p-40g" id="sP7-H8-chN"/>
                         <outlet property="morph2Volume" destination="BDO-o7-fva" id="P1t-JW-0Tu"/>
                         <outlet property="morphBalance" destination="u1G-nz-9jM" id="Nvc-gS-ml9"/>
-                        <outlet property="nav1Button" destination="MfO-OP-zsQ" id="5f9-2C-Jqf"/>
-                        <outlet property="nav2Button" destination="jFg-ph-8JS" id="l8q-cd-aYl"/>
+                        <outlet property="leftNavButton" destination="MfO-OP-zsQ" id="5f9-2C-Jqf"/>
+                        <outlet property="rightNavButton" destination="jFg-ph-8JS" id="l8q-cd-aYl"/>
                         <outlet property="noiseVolume" destination="WwC-VK-0Xz" id="mJZ-0W-rfG"/>
                         <outlet property="resonance" destination="8bG-Oy-PkM" id="p13-cW-gjw"/>
                         <outlet property="subIsSquare" destination="d9F-Dn-rDa" id="sPc-IJ-65e"/>
@@ -1129,8 +1129,8 @@
                         <outlet property="filterDecayKnob" destination="zG6-hN-Cmg" id="cEz-c7-cYj"/>
                         <outlet property="filterReleaseKnob" destination="jFf-Ek-uea" id="q5B-L4-N1v"/>
                         <outlet property="filterSustainKnob" destination="hff-Gi-ggJ" id="gFX-71-JiH"/>
-                        <outlet property="nav1Button" destination="0Jr-sv-a4K" id="F7k-Di-uZL"/>
-                        <outlet property="nav2Button" destination="fOW-RF-39C" id="Zik-db-shy"/>
+                        <outlet property="leftNavButton" destination="0Jr-sv-a4K" id="F7k-Di-uZL"/>
+                        <outlet property="rightNavButton" destination="fOW-RF-39C" id="Zik-db-shy"/>
                         <outlet property="releaseKnob" destination="Vv9-HY-oLB" id="P3x-u2-abD"/>
                         <outlet property="sustainKnob" destination="iNU-FW-fQV" id="Udh-sr-lZ8"/>
                     </connections>
@@ -1233,8 +1233,8 @@
                     <connections>
                         <outlet property="diceButton" destination="e1V-Hp-0S3" id="y2l-N5-p1e"/>
                         <outlet property="masterTuning" destination="ICz-sQ-fwm" id="ff9-So-mio"/>
-                        <outlet property="nav1Button" destination="GKH-5a-fe3" id="K0T-J5-sLK"/>
-                        <outlet property="nav2Button" destination="dAt-xo-d7i" id="Ilm-N0-Oq0"/>
+                        <outlet property="leftNavButton" destination="GKH-5a-fe3" id="K0T-J5-sLK"/>
+                        <outlet property="rightNavButton" destination="dAt-xo-d7i" id="Ilm-N0-Oq0"/>
                         <outlet property="resetTunings" destination="m2T-3V-7aM" id="pNU-ZH-DaK"/>
                         <outlet property="tuningTableView" destination="BeM-2O-kjR" id="hBC-5d-5DS"/>
                         <outlet property="tuningsPitchWheelView" destination="huY-w0-8Zb" id="mRT-G4-2Ca"/>
@@ -1332,8 +1332,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
-                        <outlet property="nav1Button" destination="kZH-Vd-f0x" id="MMP-Ob-6Pw"/>
-                        <outlet property="nav2Button" destination="ka6-w0-kMD" id="cCf-av-v5u"/>
+                        <outlet property="leftNavButton" destination="kZH-Vd-f0x" id="MMP-Ob-6Pw"/>
+                        <outlet property="rightNavButton" destination="ka6-w0-kMD" id="cCf-av-v5u"/>
                         <outlet property="snapToggle" destination="MKQ-3E-Zo2" id="tsy-0g-pdy"/>
                         <outlet property="touchPad1" destination="sQS-9Y-DsE" id="Bjj-Mt-KXd"/>
                         <outlet property="touchPad1Label" destination="Emx-M3-CQP" id="gBD-2a-8UR"/>
@@ -1721,8 +1721,8 @@
                         <outlet property="lfoReverbMixToggle" destination="lNJ-vo-Ird" id="Trc-3a-b6c"/>
                         <outlet property="lfoRezToggle" destination="Dd6-x5-m2h" id="h1j-xO-O7Q"/>
                         <outlet property="lfoTremoloToggle" destination="Pda-Ea-Gzs" id="c5m-jp-Hrf"/>
-                        <outlet property="nav1Button" destination="Xyj-Yj-OIq" id="5yl-Za-EH7"/>
-                        <outlet property="nav2Button" destination="8Wt-Tf-MdV" id="AbF-3S-Pte"/>
+                        <outlet property="leftNavButton" destination="Xyj-Yj-OIq" id="5yl-Za-EH7"/>
+                        <outlet property="rightNavButton" destination="8Wt-Tf-MdV" id="AbF-3S-Pte"/>
                         <outlet property="phaserFeedback" destination="OG9-jw-6vI" id="cAp-2D-keT"/>
                         <outlet property="phaserMix" destination="lPR-OD-6eO" id="xjd-d7-0rU"/>
                         <outlet property="phaserNotchWidth" destination="3Nj-Pf-hOI" id="qdL-ZU-wBu"/>
@@ -2145,8 +2145,8 @@
                         <outlet property="arpInterval" destination="38E-i2-QVe" id="lAW-Sy-CIi"/>
                         <outlet property="arpSeqToggle" destination="1KG-7D-uLS" id="DRN-Kb-MN1"/>
                         <outlet property="arpToggle" destination="l1q-wd-14L" id="qr6-Vd-70B"/>
-                        <outlet property="nav1Button" destination="nFz-u7-7Cx" id="p18-Kd-Pui"/>
-                        <outlet property="nav2Button" destination="NPl-4m-jiz" id="cpY-FC-H7x"/>
+                        <outlet property="leftNavButton" destination="nFz-u7-7Cx" id="p18-Kd-Pui"/>
+                        <outlet property="rightNavButton" destination="NPl-4m-jiz" id="cpY-FC-H7x"/>
                         <outlet property="octaveStepper" destination="EU0-WN-5ya" id="9yz-L2-biO"/>
                         <outlet property="seqStepsStepper" destination="NFb-PZ-ajP" id="rQ3-fm-gDn"/>
                     </connections>

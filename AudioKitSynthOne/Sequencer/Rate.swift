@@ -129,9 +129,9 @@ public enum Rate: Int, CustomStringConvertible {
     }
 
     func seconds(bars: Double = 1.0, triplet: Bool = false) -> Double {
+        guard let s = Conductor.sharedInstance.synth else { return 0.0 }
         let minutesPerSecond = 1.0 / 60.0
         let beatsPerBar = 4.0
-        let s = Conductor.sharedInstance.synth!
         return (beatsPerBar * bars) / (s.getSynthParameter(.arpRate) * minutesPerSecond) / (triplet ? 1.5 : 1)
     }
 
@@ -145,18 +145,18 @@ public enum Rate: Int, CustomStringConvertible {
                 closestRate = Rate(rawValue: i)
             }
         }
-        return closestRate!
+        return closestRate ?? Rate.sixtyFourth
     }
 
     static func fromFrequency(_ frequency: Double) -> Rate {
         return(Rate.findMinimum(frequency, comparator: { (i) -> Double in
-            Rate(rawValue: i)!.frequency
+            (Rate(rawValue: i) ?? Rate.sixtyFourth).frequency
         }))
     }
 
     static func fromTime(_ time: Double) -> Rate {
         return(Rate.findMinimum(time, comparator: { (i) -> Double in
-            Rate(rawValue: i)!.time
+            (Rate(rawValue: i) ?? Rate.sixtyFourth).time
         }))
     }
 }

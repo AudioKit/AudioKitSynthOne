@@ -104,8 +104,10 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
             ChimpKit.shared().callApiMethod("lists/subscribe", withParams: params) {(response, data, _) -> Void in
                 if let httpResponse = response as? HTTPURLResponse {
                     NSLog("Reponse status code: %d", httpResponse.statusCode)
-                    let datastring = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                    print (datastring ?? "error with MailChimp response")
+                    if let actualData = data {
+                        let datastring = NSString(data: actualData, encoding: String.Encoding.utf8.rawValue)
+                        AKLog(datastring ?? "error with MailChimp response")
+                    }
                 }
             }
             self.delegate?.didSignMailingList(email: emailAddress)

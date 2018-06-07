@@ -145,19 +145,22 @@ class Conductor: S1Protocol {
         }
         started = true
 
-        // IAA Host Icon
-        audioUnitPropertyListener = AudioUnitPropertyListener { (audioUnit, _) in
-            let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController }) as? HeaderViewController
-            headerVC?.hostAppIcon.image = AudioOutputUnitGetHostIcon(AudioKit.engine.outputNode.audioUnit!, 44)
-        }
+        if let au = AudioKit.engine.outputNode.audioUnit {
+            // IAA Host Icon
+            audioUnitPropertyListener = AudioUnitPropertyListener { (_, _) in
+                let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController })
+                    as? HeaderViewController
 
-        do {
-            try AudioKit.engine.outputNode.audioUnit!.add(listener: audioUnitPropertyListener,
-                                                          toProperty: kAudioUnitProperty_IsInterAppConnected)
-        } catch {
-            AKLog("Unsuccessful")
-        }
+                headerVC?.hostAppIcon.image = AudioOutputUnitGetHostIcon(au, 44)
+            }
 
+            do {
+                try au.add(listener: audioUnitPropertyListener,
+                           toProperty: kAudioUnitProperty_IsInterAppConnected)
+            } catch {
+                AKLog("Unsuccessful")
+            }
+        }
         Audiobus.start()
     }
 

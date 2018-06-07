@@ -10,9 +10,6 @@ import AudioKit
 import AudioKitUI
 import UIKit
 
-// TODO: Rename Main to
-
-/// Main Oscillator Mixing Panel
 class GeneratorsPanelController: PanelController {
 
     @IBOutlet weak var morph1Selector: MorphSelector!

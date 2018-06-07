@@ -44,7 +44,7 @@ class GeneratorsPanelController: PanelController {
     @IBOutlet weak var filterTypeToggle: FilterTypeButton!
     @IBOutlet weak var displayContainer: UIView!
 
-    @IBOutlet weak var arpSeqToggle: FlatToggleButton!
+    @IBOutlet weak var sequencerToggle: FlatToggleButton!
     @IBOutlet weak var tempoStepper: TempoStepper!
 
     @IBOutlet weak var legatoModeToggle: ToggleButton!
@@ -110,7 +110,7 @@ class GeneratorsPanelController: PanelController {
         conductor.bind(masterVolume, to: .masterVolume)
         conductor.bind(legatoModeToggle, to: .monoIsLegato)
         conductor.bind(widenToggle, to: .widen)
-        conductor.bind(arpSeqToggle, to: .arpIsOn)
+        conductor.bind(sequencerToggle, to: .arpIsOn)
         conductor.bind(tempoStepper, to: .arpRate)
 
         // Setup Audio Plot Display

@@ -13,7 +13,7 @@ class SequencerPanelController: PanelController {
     @IBOutlet weak var seqStepsStepper: Stepper!
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
-    @IBOutlet weak var arpSeqToggle: ToggleSwitch!
+    @IBOutlet weak var sequencerToggle: ToggleSwitch!
     @IBOutlet weak var arpToggle: ToggleButton!
     @IBOutlet weak var arpInterval: MIDIKnob!
 
@@ -44,16 +44,16 @@ class SequencerPanelController: PanelController {
         conductor.bind(arpInterval, to: .arpInterval)
         conductor.bind(octaveStepper, to: .arpOctave)
         conductor.bind(arpDirectionButton, to: .arpDirection)
-        conductor.bind(arpSeqToggle, to: .arpIsSequencer)
+        conductor.bind(sequencerToggle, to: .arpIsSequencer)
         conductor.bind(seqStepsStepper, to: .arpTotalSteps)
 
         // ARP/SEQ OCTAVE BOOST
-        let arpSeqOctBoostArray: [S1Parameter] = [.arpSeqOctBoost00, .arpSeqOctBoost01, .arpSeqOctBoost02,
-                                                  .arpSeqOctBoost03, .arpSeqOctBoost04, .arpSeqOctBoost05,
-                                                  .arpSeqOctBoost06, .arpSeqOctBoost07, .arpSeqOctBoost08,
-                                                  .arpSeqOctBoost09, .arpSeqOctBoost10, .arpSeqOctBoost11,
-                                                  .arpSeqOctBoost12, .arpSeqOctBoost13, .arpSeqOctBoost14,
-                                                  .arpSeqOctBoost15]
+        let sequencerOctBoostArray: [S1Parameter] = [.sequencerOctBoost00, .sequencerOctBoost01, .sequencerOctBoost02,
+                                                     .sequencerOctBoost03, .sequencerOctBoost04, .sequencerOctBoost05,
+                                                     .sequencerOctBoost06, .sequencerOctBoost07, .sequencerOctBoost08,
+                                                     .sequencerOctBoost09, .sequencerOctBoost10, .sequencerOctBoost11,
+                                                     .sequencerOctBoost12, .sequencerOctBoost13, .sequencerOctBoost14,
+                                                     .sequencerOctBoost15]
 
         sliderTransposeButtons.removeAll() // just in case we run this more than once
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {
@@ -62,8 +62,8 @@ class SequencerPanelController: PanelController {
         }
 
         for (notePosition, octBoostButton) in sliderTransposeButtons.enumerated() {
-            let arpSeqOctBoostParameter = arpSeqOctBoostArray[notePosition]
-            conductor.bind(octBoostButton, to: arpSeqOctBoostParameter) { _, _ in
+            let sequencerOctBoostParameter = sequencerOctBoostArray[notePosition]
+            conductor.bind(octBoostButton, to: sequencerOctBoostParameter) { _, _ in
                 return { value in
                     s.setOctaveBoost(forIndex: notePosition, value)
                     for i in 0...15 {
@@ -74,12 +74,12 @@ class SequencerPanelController: PanelController {
         }
 
         // ARP/SEQ PATTERN
-        let arpSeqPatternArray: [S1Parameter] = [.arpSeqPattern00, .arpSeqPattern01, .arpSeqPattern02,
-                                                 .arpSeqPattern03, .arpSeqPattern04, .arpSeqPattern05,
-                                                 .arpSeqPattern06, .arpSeqPattern07, .arpSeqPattern08,
-                                                 .arpSeqPattern09, .arpSeqPattern10, .arpSeqPattern11,
-                                                 .arpSeqPattern12, .arpSeqPattern13, .arpSeqPattern14,
-                                                 .arpSeqPattern15]
+        let sequencerPatternArray: [S1Parameter] = [.sequencerPattern00, .sequencerPattern01, .sequencerPattern02,
+                                                    .sequencerPattern03, .sequencerPattern04, .sequencerPattern05,
+                                                    .sequencerPattern06, .sequencerPattern07, .sequencerPattern08,
+                                                    .sequencerPattern09, .sequencerPattern10, .sequencerPattern11,
+                                                    .sequencerPattern12, .sequencerPattern13, .sequencerPattern14,
+                                                    .sequencerPattern15]
 
         sliders.removeAll() // just in case we run this more than once
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {
@@ -87,28 +87,28 @@ class SequencerPanelController: PanelController {
             sliders.append(verticalSlider)
         }
 
-        for (notePosition, arpSeqPatternSlider) in sliders.enumerated() {
-            let arpSeqPatternParameter = arpSeqPatternArray[notePosition]
-            conductor.bind(arpSeqPatternSlider, to: arpSeqPatternParameter) { _, control in
+        for (notePosition, sequencerPatternSlider) in sliders.enumerated() {
+            let sequencerPatternParameter = sequencerPatternArray[notePosition]
+            conductor.bind(sequencerPatternSlider, to: sequencerPatternParameter) { _, control in
                 return { value in
 
                     // TODO: This is incomprehensible
                     let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
                     s.setPattern(forIndex: notePosition, tval)
-                    self.conductor.updateSingleUI(arpSeqPatternParameter,
-                                                  control: arpSeqPatternSlider,
+                    self.conductor.updateSingleUI(sequencerPatternParameter,
+                                                  control: sequencerPatternSlider,
                                                   value: Double(tval))
                 }
             }
         }
 
         // ARP/SEQ NOTE ON/OFF
-        let arpSeqNoteOnArray: [S1Parameter] = [.arpSeqNoteOn00, .arpSeqNoteOn01, .arpSeqNoteOn02,
-                                                .arpSeqNoteOn03, .arpSeqNoteOn04, .arpSeqNoteOn05,
-                                                .arpSeqNoteOn06, .arpSeqNoteOn07, .arpSeqNoteOn08,
-                                                .arpSeqNoteOn09, .arpSeqNoteOn10, .arpSeqNoteOn11,
-                                                .arpSeqNoteOn12, .arpSeqNoteOn13, .arpSeqNoteOn14,
-                                                .arpSeqNoteOn15]
+        let sequencerNoteOnArray: [S1Parameter] = [.sequencerNoteOn00, .sequencerNoteOn01, .sequencerNoteOn02,
+                                                   .sequencerNoteOn03, .sequencerNoteOn04, .sequencerNoteOn05,
+                                                   .sequencerNoteOn06, .sequencerNoteOn07, .sequencerNoteOn08,
+                                                   .sequencerNoteOn09, .sequencerNoteOn10, .sequencerNoteOn11,
+                                                   .sequencerNoteOn12, .sequencerNoteOn13, .sequencerNoteOn14,
+                                                   .sequencerNoteOn15]
 
         noteOnButtons.removeAll() // just in case we run this more than once
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {
@@ -116,13 +116,13 @@ class SequencerPanelController: PanelController {
             noteOnButtons.append(arpButton)
         }
 
-        for (notePosition, arpSeqNoteOnButton) in noteOnButtons.enumerated() {
-            let arpSeqPatternParameter = arpSeqNoteOnArray[notePosition]
-            conductor.bind(arpSeqNoteOnButton, to: arpSeqPatternParameter) { _, control in
+        for (notePosition, sequencerNoteOnButton) in noteOnButtons.enumerated() {
+            let sequencerPatternParameter = sequencerNoteOnArray[notePosition]
+            conductor.bind(sequencerNoteOnButton, to: sequencerPatternParameter) { _, control in
                 return { value in
                     let v = Double(truncating: value > 0 ? true : false)
                     s.setNoteOn(forIndex: notePosition, value > 0 ? true : false )
-                    self.conductor.updateSingleUI(arpSeqPatternParameter, control: arpSeqNoteOnButton, value: v)
+                    self.conductor.updateSingleUI(sequencerPatternParameter, control: sequencerNoteOnButton, value: v)
                 }
             }
         }

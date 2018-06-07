@@ -669,7 +669,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
-                        <outlet property="arpSeqToggle" destination="hLR-Kv-nmn" id="Xwl-cd-mhr"/>
                         <outlet property="cutoff" destination="sPn-F6-EfJ" id="WLh-d9-LNh"/>
                         <outlet property="displayContainer" destination="Nt4-z7-5HN" id="0zt-qF-Owp"/>
                         <outlet property="filterTypeToggle" destination="svc-Dm-tS3" id="prX-lr-HvU"/>
@@ -691,6 +690,7 @@
                         <outlet property="noiseVolume" destination="WwC-VK-0Xz" id="mJZ-0W-rfG"/>
                         <outlet property="resonance" destination="8bG-Oy-PkM" id="p13-cW-gjw"/>
                         <outlet property="rightNavButton" destination="jFg-ph-8JS" id="l8q-cd-aYl"/>
+                        <outlet property="sequencerToggle" destination="hLR-Kv-nmn" id="Xwl-cd-mhr"/>
                         <outlet property="subIsSquare" destination="d9F-Dn-rDa" id="sPc-IJ-65e"/>
                         <outlet property="subOctaveDown" destination="RfN-pt-vLT" id="E4J-Wj-UH3"/>
                         <outlet property="subVolume" destination="HbA-YN-8uf" id="2zM-al-Xtv"/>
@@ -2143,12 +2143,12 @@
                     <connections>
                         <outlet property="arpDirectionButton" destination="S6H-Sb-2ZV" id="YoG-pp-xOz"/>
                         <outlet property="arpInterval" destination="38E-i2-QVe" id="lAW-Sy-CIi"/>
-                        <outlet property="arpSeqToggle" destination="1KG-7D-uLS" id="DRN-Kb-MN1"/>
                         <outlet property="arpToggle" destination="l1q-wd-14L" id="qr6-Vd-70B"/>
                         <outlet property="leftNavButton" destination="nFz-u7-7Cx" id="p18-Kd-Pui"/>
                         <outlet property="octaveStepper" destination="EU0-WN-5ya" id="9yz-L2-biO"/>
                         <outlet property="rightNavButton" destination="NPl-4m-jiz" id="cpY-FC-H7x"/>
                         <outlet property="seqStepsStepper" destination="NFb-PZ-ajP" id="rQ3-fm-gDn"/>
+                        <outlet property="sequencerToggle" destination="1KG-7D-uLS" id="DRN-Kb-MN1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQk-sd-9z1" sceneMemberID="firstResponder"/>

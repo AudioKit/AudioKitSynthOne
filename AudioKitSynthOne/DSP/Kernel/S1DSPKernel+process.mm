@@ -87,11 +87,11 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         if (p[isMono] != previousProcessMonoPolyStatus ) {
             previousProcessMonoPolyStatus = p[isMono];
             reset(); // clears all mono and poly notes
-            arpSeqLastNotes.clear();
+            sequencerLastNotes.clear();
         }
 
         //MARK: ARP/SEQ
-        if (p[arpIsOn] == 1.f || arpSeqLastNotes.size() > 0) {
+        if (p[arpIsOn] == 1.f || sequencerLastNotes.size() > 0) {
             const double r0 = fmod(arpTime, secPerBeat);
             arpTime = arpSampleCounter/S1_SAMPLE_RATE;
             arpSampleCounter += 1.0;
@@ -99,17 +99,17 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
             if (r1 < r0) {
                 // NEW beatCounter
                 // turn Off previous beat's notes
-                for (std::list<int>::iterator arpLastNotesIterator = arpSeqLastNotes.begin(); arpLastNotesIterator != arpSeqLastNotes.end(); ++arpLastNotesIterator) {
+                for (std::list<int>::iterator arpLastNotesIterator = sequencerLastNotes.begin(); arpLastNotesIterator != sequencerLastNotes.end(); ++arpLastNotesIterator) {
                     turnOffKey(*arpLastNotesIterator);
                 }
-                arpSeqLastNotes.clear();
+                sequencerLastNotes.clear();
 
                 // Create Arp/Seq array based on held notes and/or sequence parameters
                 if (p[arpIsOn] == 1.f && heldNoteNumbersAE.count > 0) {
-                    arpSeqNotes.clear();
-                    arpSeqNotes2.clear();
+                    sequencerNotes.clear();
+                    sequencerNotes2.clear();
 
-                    // only update "notes per octave" when beat counter changes so arpSeqNotes and arpSeqLastNotes match
+                    // only update "notes per octave" when beat counter changes so sequencerNotes and sequencerLastNotes match
                     notesPerOctave = (int)AKPolyphonicNode.tuningTable.npo;
                     if (notesPerOctave <= 0) notesPerOctave = 12;
                     const float npof = (float)notesPerOctave/12.f; // 12ET ==> npof = 1
@@ -119,21 +119,21 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                         // SEQUENCER
                         const int numSteps = p[arpTotalSteps] > 16 ? 16 : (int)p[arpTotalSteps];
                         for(int i = 0; i < numSteps; i++) {
-                            const float onOff = p[(S1Parameter)(i + arpSeqNoteOn00)];
-                            const int octBoost = p[(S1Parameter)(i + arpSeqOctBoost00)];
-                            const int nn = p[(S1Parameter)(i + arpSeqPattern00)] * npof;
+                            const float onOff = p[(S1Parameter)(i + sequencerNoteOn00)];
+                            const int octBoost = p[(S1Parameter)(i + sequencerOctBoost00)];
+                            const int nn = p[(S1Parameter)(i + sequencerPattern00)] * npof;
                             const int nnob = (nn < 0) ? (nn - octBoost * notesPerOctave) : (nn + octBoost * notesPerOctave);
                             struct SeqNoteNumber snn;
                             snn.init(nnob, onOff);
-                            arpSeqNotes.push_back(snn);
+                            sequencerNotes.push_back(snn);
                         }
                     } else {
                         // ARP state
                         AEArrayEnumeratePointers(heldNoteNumbersAE, NoteNumber *, note) {
-                            std::vector<NoteNumber>::iterator it = arpSeqNotes2.begin();
-                            arpSeqNotes2.insert(it, *note);
+                            std::vector<NoteNumber>::iterator it = sequencerNotes2.begin();
+                            sequencerNotes2.insert(it, *note);
                         }
-                        const int heldNotesCount = (int)arpSeqNotes2.size();
+                        const int heldNotesCount = (int)sequencerNotes2.size();
                         const int arpIntervalUp = p[arpInterval] * npof;
                         const int onOff = 1;
                         const int arpOctaves = (int)p[arpOctave] + 1;
@@ -143,12 +143,12 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                             int index = 0;
                             for (int octave = 0; octave < arpOctaves; octave++) {
                                 for (int i = 0; i < heldNotesCount; i++) {
-                                    NoteNumber& note = arpSeqNotes2[i];
+                                    NoteNumber& note = sequencerNotes2[i];
                                     const int nn = note.noteNumber + (octave * arpIntervalUp);
                                     struct SeqNoteNumber snn;
                                     snn.init(nn, onOff);
-                                    std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
-                                    arpSeqNotes.insert(it, snn);
+                                    std::vector<SeqNoteNumber>::iterator it = sequencerNotes.begin() + index;
+                                    sequencerNotes.insert(it, snn);
                                     ++index;
                                 }
                             }
@@ -158,12 +158,12 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                             int index = 0;
                             for (int octave = 0; octave < arpOctaves; octave++) {
                                 for (int i = 0; i < heldNotesCount; i++) {
-                                    NoteNumber& note = arpSeqNotes2[i];
+                                    NoteNumber& note = sequencerNotes2[i];
                                     const int nn = note.noteNumber + (octave * arpIntervalUp);
                                     struct SeqNoteNumber snn;
                                     snn.init(nn, onOff);
-                                    std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
-                                    arpSeqNotes.insert(it, snn);
+                                    std::vector<SeqNoteNumber>::iterator it = sequencerNotes.begin() + index;
+                                    sequencerNotes.insert(it, snn);
                                     ++index;
                                 }
                             }
@@ -173,12 +173,12 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                                     const bool firstNote = (i == heldNotesCount - 1) && (octave == arpOctaves - 1);
                                     const bool lastNote = (i == 0) && (octave == 0);
                                     if (!firstNote && !lastNote) {
-                                        NoteNumber& note = arpSeqNotes2[i];
+                                        NoteNumber& note = sequencerNotes2[i];
                                         const int nn = note.noteNumber + (octave * arpIntervalUp);
                                         struct SeqNoteNumber snn;
                                         snn.init(nn, onOff);
-                                        std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
-                                        arpSeqNotes.insert(it, snn);
+                                        std::vector<SeqNoteNumber>::iterator it = sequencerNotes.begin() + index;
+                                        sequencerNotes.insert(it, snn);
                                         ++index;
                                     }
                                 }
@@ -188,12 +188,12 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                             int index = 0;
                             for (int octave = arpOctaves - 1; octave >= 0; octave--) {
                                 for (int i = heldNotesCount - 1; i >= 0; i--) {
-                                    NoteNumber& note = arpSeqNotes2[i];
+                                    NoteNumber& note = sequencerNotes2[i];
                                     const int nn = note.noteNumber + (octave * arpIntervalUp);
                                     struct SeqNoteNumber snn;
                                     snn.init(nn, onOff);
-                                    std::vector<SeqNoteNumber>::iterator it = arpSeqNotes.begin() + index;
-                                    arpSeqNotes.insert(it, snn);
+                                    std::vector<SeqNoteNumber>::iterator it = sequencerNotes.begin() + index;
+                                    sequencerNotes.insert(it, snn);
                                     ++index;
                                 }
                             }
@@ -207,18 +207,18 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                         arpBeatCounter = 0;
                         beatCounterDidChange();
                     }
-                } else if (arpSeqNotes.size() == 0) {
+                } else if (sequencerNotes.size() == 0) {
                     // NOP for zero-length arp/seq
                 } else {
                     // Advance arp/seq beatCounter, notify delegates
-                    const int seqNotePosition = arpBeatCounter % arpSeqNotes.size();
+                    const int seqNotePosition = arpBeatCounter % sequencerNotes.size();
                     ++arpBeatCounter;
                     beatCounterDidChange();
 
                     // Play the arp/seq
                     if (p[arpIsOn] > 0.f) {
                         // ARP+SEQ: turnOn the note of the sequence
-                        SeqNoteNumber& snn = arpSeqNotes[seqNotePosition];
+                        SeqNoteNumber& snn = sequencerNotes[seqNotePosition];
                         if (p[arpIsSequencer] == 1.f) {
                             // SEQUENCER
                             if (snn.onOff == 1) {
@@ -227,7 +227,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                                     const int note = baseNote + snn.noteNumber;
                                     if (note >= 0 && note < S1_NUM_MIDI_NOTES) {
                                         turnOnKey(note, 127);
-                                        arpSeqLastNotes.push_back(note);
+                                        sequencerLastNotes.push_back(note);
                                     }
                                 }
                             }
@@ -236,7 +236,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                             const int note = snn.noteNumber;
                             if (note >= 0 && note < S1_NUM_MIDI_NOTES) {
                                 turnOnKey(note, 127);
-                                arpSeqLastNotes.push_back(note);
+                                sequencerLastNotes.push_back(note);
                             }
                         }
                     }

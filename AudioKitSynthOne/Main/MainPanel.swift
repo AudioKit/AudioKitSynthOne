@@ -57,7 +57,7 @@ class MainPanel: Panel {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewType = .main
+        currentPanel = .main
 
         // Defaults, limits
         guard let s = conductor.synth else {

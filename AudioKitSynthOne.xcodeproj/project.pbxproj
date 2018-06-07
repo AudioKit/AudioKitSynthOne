@@ -421,8 +421,6 @@
 			isa = PBXGroup;
 			children = (
 				94F694C51F683D5D0061DA5E /* CallbackButton.swift */,
-				94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */,
-				94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */,
 				948C54C21F3A57C600DA6081 /* SynthUIButton.swift */,
 				C4F7ECAB1F2446960011B119 /* ToggleButton.swift */,
 				C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */,
@@ -459,6 +457,16 @@
 				94A6F30C1F687F3E007B083C /* icon_320.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		C432978720C896250063F795 /* Internet */ = {
+			isa = PBXGroup;
+			children = (
+				C4B4916220C7C72900FD565A /* AboutViewController.swift */,
+				C4B4916120C7C72900FD565A /* InfoViewController.swift */,
+				C4B4919520C7C81200FD565A /* Mailing List */,
+			);
+			path = Internet;
 			sourceTree = "<group>";
 		};
 		C435C50620C52BD800DAECCD /* Presets */ = {
@@ -689,15 +697,10 @@
 		C4B4915C20C7C72900FD565A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				C4B4916220C7C72900FD565A /* AboutViewController.swift */,
 				C4B4915F20C7C72900FD565A /* ChildPanel.swift */,
-				C4B4916120C7C72900FD565A /* InfoViewController.swift */,
 				94DB18D11F37D879008368AE /* NavButton.swift */,
 				94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */,
 				C4B4915D20C7C72900FD565A /* Panel.swift */,
-				C4B4916320C7C72900FD565A /* Manager */,
-				C4B4915E20C7C72900FD565A /* UIViewController+DisplayAlert.swift */,
-				C4B4916020C7C72900FD565A /* UpdatableViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -705,9 +708,11 @@
 		C4B4916320C7C72900FD565A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				C4B4916420C7C72900FD565A /* Manager+EmbeddedViewsDelegate.swift */,
 				C4B4916520C7C72900FD565A /* Manager.swift */,
+				C4B4916420C7C72900FD565A /* Manager+EmbeddedViewsDelegate.swift */,
 				C4B4916620C7C72900FD565A /* Manager+PushNotification.swift */,
+				C4B4916020C7C72900FD565A /* UpdatableViewController.swift */,
+				C4B4915E20C7C72900FD565A /* UIViewController+DisplayAlert.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -779,6 +784,7 @@
 				C4B491C420C7EC2E00FD565A /* README.md */,
 				C4B491BF20C7DF2A00FD565A /* StyleKits */,
 				948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */,
+				94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */,
 				C4B491A620C7C95900FD565A /* MainPanel.swift */,
 				C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */,
 				C4B491A820C7D10200FD565A /* MorphSelector.swift */,
@@ -800,6 +806,7 @@
 		C4B491BF20C7DF2A00FD565A /* StyleKits */ = {
 			isa = PBXGroup;
 			children = (
+				94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */,
 				C4B491C020C7DF2A00FD565A /* MorphSelectorStyleKit.swift */,
 				C4B491C120C7DF2A00FD565A /* LFOPickerStyleKit.swift */,
 			);
@@ -844,10 +851,11 @@
 				C435C55020C530C900DAECCD /* DSP */,
 				C4B491A220C7C94E00FD565A /* Effects */,
 				C4B4917520C7C75500FD565A /* Header */,
+				C432978720C896250063F795 /* Internet */,
 				C4B4911620C7C62A00FD565A /* Keyboard */,
-				C4B4919520C7C81200FD565A /* Mailing List */,
 				C435C52620C52D2E00DAECCD /* MIDI */,
 				C4B491A520C7C95900FD565A /* Main */,
+				C4B4916320C7C72900FD565A /* Manager */,
 				C4B4915C20C7C72900FD565A /* Navigation */,
 				C435C50620C52BD800DAECCD /* Presets */,
 				C4B4910A20C7C5E400FD565A /* Settings */,

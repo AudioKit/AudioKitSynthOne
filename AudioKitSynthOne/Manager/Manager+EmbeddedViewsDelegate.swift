@@ -66,14 +66,14 @@ extension Manager: EmbeddedViewsDelegate {
         let bottomPanel = synthPanels.filter { !$0.isTopContainer }.last
 
         // Update Bottom Panel NavButtons
-        topChildPanel = topPanel?.viewType
+        topChildPanel = topPanel?.currentPanel
         DispatchQueue.main.async {
             topPanel?.updateNavButtons()
         }
 
         // Update Bottom Panel NavButtons
         if keyboardToggle.value == 0 || isPresetsDisplayed {
-            bottomChildPanel = bottomPanel?.viewType
+            bottomChildPanel = bottomPanel?.currentPanel
             DispatchQueue.main.async {
                 bottomPanel?.updateNavButtons()
             }

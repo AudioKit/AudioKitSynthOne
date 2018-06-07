@@ -34,7 +34,6 @@ cyclomatic_complexity:
 
 excluded:
   - Pods
-  - AudioKitSynthOne/Controls/Buttons/FlatToggleButtonStyleKit.swift
   - AudioKitSynthOne/Controls/Buttons/ToggleButtonStyleKit.swift
   - AudioKitSynthOne/Controls/Buttons/ToggleSwitchStyleKit.swift
   - AudioKitSynthOne/Controls/Knobs/ColorKnobStyleKit.swift
@@ -44,7 +43,7 @@ excluded:
   - AudioKitSynthOne/Arpeggiator Sequencer/StyleKits/
   - AudioKitSynthOne/Effects/LfoBtnStyleKit.swift
   - AudioKitSynthOne/Keyboard/ModWheelStyleKit.swift
-  - AudioKitSynthOne/Mixer/StyleKits/
+  - AudioKitSynthOne/Main/StyleKits/
   - AudioKitSynthOne/Navigation/NavButtonStyleKit.swift
   - AudioKitSynthOne/Keyboard/BlackKeyStyleKit.swift
   - AudioKitSynthOne/TouchPad/TouchPointStyleKit.swift

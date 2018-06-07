@@ -39,14 +39,14 @@ excluded:
   - AudioKitSynthOne/Controls/Knobs/ColorKnobStyleKit.swift
   - AudioKitSynthOne/Controls/Knobs/KnobStyleKit.swift
   - AudioKitSynthOne/Controls/Stepper/StepperStyleKit.swift
-  - AudioKitSynthOne/Tunings/
-  - AudioKitSynthOne/Sequencer/UI Components/StyleKits/
   - AudioKitSynthOne/Effects/UI Components/LfoBtnStyleKit.swift
-  - AudioKitSynthOne/Keyboard/ModWheelStyleKit.swift
   - AudioKitSynthOne/Generators/UI Components/StyleKits/
+  - AudioKitSynthOne/Keyboard/UI Components/BlackKeyStyleKit.swift
+  - AudioKitSynthOne/Keyboard/UI Components/ModWheelStyleKit.swift
   - AudioKitSynthOne/Navigation/NavButtonStyleKit.swift
-  - AudioKitSynthOne/Keyboard/BlackKeyStyleKit.swift
+  - AudioKitSynthOne/Sequencer/UI Components/StyleKits/
   - AudioKitSynthOne/TouchPad/UI Components/TouchPointStyleKit.swift
+  - AudioKitSynthOne/Tunings/
 
 opt_in_rules:
   - legacy_constructor

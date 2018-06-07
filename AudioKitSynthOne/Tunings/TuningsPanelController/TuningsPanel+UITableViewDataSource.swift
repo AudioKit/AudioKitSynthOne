@@ -1,5 +1,5 @@
 //
-//  Tunings+UITableViewDataSource.swift
+//  TuningsPanel+UITableViewDataSource.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 6/3/18.

@@ -14,7 +14,7 @@ public protocol TuningsPitchWheelViewTuningDidChange {
 
 /// View controller for the Tunings Panel
 ///
-/// Erv Wilson is the man [website](http://aure.com/)
+/// Erv Wilson is the man [website](http://anaphoria.com/wilson.html)
 class TuningsPanelController: PanelController {
 
     @IBOutlet weak var tuningTableView: UITableView!
@@ -58,7 +58,6 @@ class TuningsPanelController: PanelController {
             self.tuningTableView.reloadData()
             self.selectRow(0)
             self.tuningDidChange()
-            AKLog("default tunings complete")
         }
     }
 

@@ -193,8 +193,8 @@ private extension AudioUnit {
     }
 
     func isConnectedToInterAppAudio(nodeOfType type: OSType) -> Bool {
-        let value: AudioComponentDescription = try! getValue(
-            forProperty: kAudioOutputUnitProperty_NodeComponentDescription)
+        guard let value: AudioComponentDescription = try? getValue(
+            forProperty: kAudioOutputUnitProperty_NodeComponentDescription) else { return false }
         return value.componentType == type
     }
 

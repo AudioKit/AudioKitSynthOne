@@ -14,11 +14,6 @@ protocol EmbeddedViewsDelegate: AnyObject {
     func switchToChildPanel(_ newView: ChildPanel, isOnTop: Bool)
 }
 
-// TODO: This does not appear to be used anywhere in the code
-protocol BottomEmbeddedViewsDelegate: AnyObject {
-    func switchToBottomChildPanel(_ newView: ChildPanel)
-}
-
 public class Manager: UpdatableViewController {
 
     @IBOutlet weak var topContainerView: UIView!

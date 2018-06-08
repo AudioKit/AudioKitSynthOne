@@ -26,7 +26,10 @@ class AppSettings: Codable {
     var freezeReverb = false // true = don't modify when preset changes
     var portamentoHalfTime = 0.1 // global portamento HALFTIME for dsp params that are smoothed
 
-    var saveTuningWithPreset = false
+    //Settings: "Save Tuning Panel w/Presets" -> saveTuningWithPreset = True/False
+    //True means: "DO load preset's tuning (nil = reset current tuning to 12et) when preset is loaded.  DO save current tuning (12et = nil) when preset is saved"
+    //False means: "DO NOT load preset's tuning when preset is loaded.  DO NOT save current tuning when preset is saved"
+    var saveTuningWithPreset = true
     var pushNotifications = true
     var userEmail = ""
     var launches = 0

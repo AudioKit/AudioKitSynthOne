@@ -27,9 +27,15 @@ extension TuningsPanelController: UITableViewDataSource {
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         let tuning = tuningModel.tunings[(indexPath as NSIndexPath).row]
         let title = tuning.name
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TuningCell") as? TuningCell ?? TuningCell()
-        cell.configureCell()
-        cell.textLabel?.text = title
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "TuningCell") as? TuningCell {
+            cell.configureCell()
+            cell.textLabel?.text = title
+            return cell
+        } else {
+            let cell = TuningCell()
+            cell.configureCell()
+            cell.textLabel?.text = title
+            return cell
+        }
     }
 }

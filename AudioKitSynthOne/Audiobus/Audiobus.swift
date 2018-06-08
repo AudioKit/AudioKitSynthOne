@@ -45,9 +45,11 @@ class Audiobus {
 
     var controller: ABAudiobusController
 
+    // swiftlint:disable force_unwrapping
     var audioUnit: AudioUnit {
         return AudioKit.engine.outputNode.audioUnit!
     }
+    // swiftlint:enable force_unwrapping
 
     init(apiKey: String) {
         self.controller = ABAudiobusController(apiKey: apiKey)

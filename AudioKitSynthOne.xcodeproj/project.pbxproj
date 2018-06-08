@@ -30,6 +30,10 @@
 		94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F694C51F683D5D0061DA5E /* CallbackButton.swift */; };
 		94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */; };
 		99902931E574C71B0CE5371C /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */; };
+		C432979120CB2AA00063F795 /* Presets+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432979020CB2AA00063F795 /* Presets+UITextViewDelegate.swift */; };
+		C432979320CB2BB20063F795 /* Presets+LoadSaveManipulate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432979220CB2BB20063F795 /* Presets+LoadSaveManipulate.swift */; };
+		C432979520CB2D620063F795 /* Manager+callbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432979420CB2D620063F795 /* Manager+callbacks.swift */; };
+		C432979720CB2E090063F795 /* Manager+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432979620CB2E090063F795 /* Manager+Navigation.swift */; };
 		C435C4F820C5234900DAECCD /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4F420C5234900DAECCD /* CategoryCell.swift */; };
 		C435C4F920C5234900DAECCD /* MIDICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4F520C5234900DAECCD /* MIDICell.swift */; };
 		C435C4FA20C5234900DAECCD /* TuningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C4F620C5234900DAECCD /* TuningCell.swift */; };
@@ -213,6 +217,10 @@
 		94F694C51F683D5D0061DA5E /* CallbackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackButton.swift; sourceTree = "<group>"; };
 		94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTransposeButton.swift; sourceTree = "<group>"; };
 		BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioKitSynthOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C432979020CB2AA00063F795 /* Presets+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presets+UITextViewDelegate.swift"; sourceTree = "<group>"; };
+		C432979220CB2BB20063F795 /* Presets+LoadSaveManipulate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presets+LoadSaveManipulate.swift"; sourceTree = "<group>"; };
+		C432979420CB2D620063F795 /* Manager+callbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Manager+callbacks.swift"; sourceTree = "<group>"; };
+		C432979620CB2E090063F795 /* Manager+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Manager+Navigation.swift"; sourceTree = "<group>"; };
 		C435C4D620C511DB00DAECCD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C435C4F420C5234900DAECCD /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		C435C4F520C5234900DAECCD /* MIDICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDICell.swift; sourceTree = "<group>"; };
@@ -759,6 +767,7 @@
 				94DB18D11F37D879008368AE /* NavButton.swift */,
 				94DB18CE1F37D7ED008368AE /* NavButtonStyleKit.swift */,
 				C4B4915D20C7C72900FD565A /* PanelController.swift */,
+				C432979620CB2E090063F795 /* Manager+Navigation.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -767,10 +776,11 @@
 			isa = PBXGroup;
 			children = (
 				C4B4916520C7C72900FD565A /* Manager.swift */,
+				C432979420CB2D620063F795 /* Manager+callbacks.swift */,
 				C4B4916420C7C72900FD565A /* Manager+EmbeddedViewsDelegate.swift */,
 				C4B4916620C7C72900FD565A /* Manager+PushNotification.swift */,
-				C4B4916020C7C72900FD565A /* UpdatableViewController.swift */,
 				C4B4915E20C7C72900FD565A /* UIViewController+DisplayAlert.swift */,
+				C4B4916020C7C72900FD565A /* UpdatableViewController.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -804,6 +814,8 @@
 				C4B4918220C7C79C00FD565A /* Presets+UIDocumentPickerDelegate.swift */,
 				C4B4918120C7C79C00FD565A /* Presets+UITableViewDataSource.swift */,
 				C4B4918420C7C79C00FD565A /* Presets+UITableViewDelegate.swift */,
+				C432979020CB2AA00063F795 /* Presets+UITextViewDelegate.swift */,
+				C432979220CB2BB20063F795 /* Presets+LoadSaveManipulate.swift */,
 				C4B4917D20C7C79C00FD565A /* PresetsViewController.swift */,
 			);
 			path = PresetsViewController;
@@ -1175,6 +1187,7 @@
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				C4B491A120C7C91A00FD565A /* EnvelopesPanelController.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
+				C432979320CB2BB20063F795 /* Presets+LoadSaveManipulate.swift in Sources */,
 				C435C53020C52D4C00DAECCD /* Tuning.swift in Sources */,
 				C4B4910E20C7C5E500FD565A /* Manager+AppSettings.swift in Sources */,
 				C4B4918A20C7C79C00FD565A /* Presets+UIDocumentPickerDelegate.swift in Sources */,
@@ -1198,11 +1211,13 @@
 				C4B4910920C7C5C500FD565A /* SequencerPanelController.swift in Sources */,
 				C4B4919820C7C81200FD565A /* Manager+MailingListDelegate.swift in Sources */,
 				C4B4919320C7C7C500FD565A /* PresetsCategoriesViewController.swift in Sources */,
+				C432979720CB2E090063F795 /* Manager+Navigation.swift in Sources */,
 				C4B4911D20C7C62A00FD565A /* KeyboardView.swift in Sources */,
 				C4B490ED20C64D8C00FD565A /* S1DSPKernel+getSetDependentParameters.mm in Sources */,
 				C4B491C320C7DF2A00FD565A /* LFOPickerStyleKit.swift in Sources */,
 				C4B4918720C7C79C00FD565A /* Presets+CategoryDelegate.swift in Sources */,
 				C4B490EF20C64E5600FD565A /* S1DSPKernel+didChanges.mm in Sources */,
+				C432979520CB2D620063F795 /* Manager+callbacks.swift in Sources */,
 				C4B4916B20C7C72A00FD565A /* InfoViewController.swift in Sources */,
 				948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */,
 				94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */,
@@ -1238,6 +1253,7 @@
 				94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */,
 				947956A91F329AB200FE5D9B /* Stepper.swift in Sources */,
 				C4B491A420C7C94E00FD565A /* EffectsPanelController.swift in Sources */,
+				C432979120CB2AA00063F795 /* Presets+UITextViewDelegate.swift in Sources */,
 				C4B490F120C64ED300FD565A /* S1DSPKernel+tapers.mm in Sources */,
 				C4B4915920C7C70D00FD565A /* TuningsPanel+UITableViewDelegate.swift in Sources */,
 				C435C4F920C5234900DAECCD /* MIDICell.swift in Sources */,

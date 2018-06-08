@@ -113,7 +113,7 @@ class Conductor: S1Protocol {
         #if false
             print("Logging is OFF")
         #else
-            //TODO:disable for release
+            // TODO: disable for release
             AKSettings.enableLogging = true
             AKLog("Logging is ON")
         #endif
@@ -141,7 +141,7 @@ class Conductor: S1Protocol {
             try AudioKit.start()
         } catch {
             AKLog("AudioKit did not start! \(error)")
-            //TODO:Handle synth start failure
+            // TODO: Handle synth start failure
         }
         started = true
 

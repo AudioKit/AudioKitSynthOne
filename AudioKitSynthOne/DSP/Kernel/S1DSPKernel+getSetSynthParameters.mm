@@ -18,7 +18,7 @@ float S1DSPKernel::getSynthParameter(S1Parameter param) {
         return p[param];
 }
 
-inline void S1DSPKernel::_setSynthParameter(S1Parameter param, float inputValue) {
+void S1DSPKernel::_setSynthParameter(S1Parameter param, float inputValue) {
     const float value = clampedValue(param, inputValue);
     S1ParameterInfo& s = s1p[param];
     if (s.usePortamento) {
@@ -32,7 +32,7 @@ void S1DSPKernel::setSynthParameter(S1Parameter param, float inputValue) {
     _setSynthParameterHelper(param, inputValue, true, 0);
 }
 
-inline void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bool notifyMainThread, int payload) {
+void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bool notifyMainThread, int payload) {
 
     // pitchbend
     if (parameter == pitchbend) {
@@ -112,7 +112,7 @@ inline void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bo
     }
 }
 
-inline void S1DSPKernel::_setSynthParameterHelper(S1Parameter parameter, float inputValue, bool notifyMainThread, int payload) {
+void S1DSPKernel::_setSynthParameterHelper(S1Parameter parameter, float inputValue, bool notifyMainThread, int payload) {
     if (parameter == tempoSyncToArpRate || parameter == arpRate) {
         _setSynthParameter(parameter, inputValue);
         _rateHelper(lfo1Rate, getSynthParameter(lfo1Rate), notifyMainThread, payload);

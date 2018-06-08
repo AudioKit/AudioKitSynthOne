@@ -23,7 +23,7 @@ extension PresetsViewController: CategoryDelegate {
         // Save bank presets to temp directory to be shared
         let bankLocation = "temp/\(bankName).json"
         try? Disk.save(bankPresetsToShare, to: .caches, as: bankLocation)
-        let path: URL? = try? Disk.getURL(for: bankLocation, in: .caches)
+        guard let path: URL = try? Disk.getURL(for: bankLocation, in: .caches) else { return }
 
         // Share
         let activityViewController = UIActivityViewController(

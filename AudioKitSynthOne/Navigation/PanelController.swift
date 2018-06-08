@@ -15,7 +15,6 @@ class PanelController: UpdatableViewController {
     @IBOutlet weak var rightNavButton: NavButton!
 
     weak var navDelegate: EmbeddedViewsDelegate?
-//    var bottomNavDelegate: BottomEmbeddedViewsDelegate?
     var isTopContainer: Bool = true
 
     var currentPanel = ChildPanel.generators

@@ -142,22 +142,23 @@ public:
 
 private:
 
-    inline void _setSynthParameter(S1Parameter param, float inputValue01);
-    
-    inline void _setSynthParameterHelper(S1Parameter param, float inputValue, bool notifyMainThread, int payload);
-    
-    inline void _rateHelper(S1Parameter param, float inputValue, bool notifyMainThread, int payload);
+    // moved the private functions to try to get rid of errors, I don't think we need to be that worried about privacy
 
-     // algebraic only
-    inline float taper01(float inputValue01, float taper);
-    inline float taper01Inverse(float inputValue01, float taper);
-
-     // > 0 algebraic, < 0 exponential
-    inline float taper(float inputValue01, float min, float max, float taper);
-    inline float taperInverse(float inputValue01, float min, float max, float taper);
-
-    // MARK: Member Variables
 public:
+
+    void _setSynthParameter(S1Parameter param, float inputValue01);
+
+    void _setSynthParameterHelper(S1Parameter param, float inputValue, bool notifyMainThread, int payload);
+
+    void _rateHelper(S1Parameter param, float inputValue, bool notifyMainThread, int payload);
+
+    // algebraic only
+    float taper01(float inputValue01, float taper);
+    float taper01Inverse(float inputValue01, float taper);
+
+    // > 0 algebraic, < 0 exponential
+    float taper(float inputValue01, float min, float max, float taper);
+    float taperInverse(float inputValue01, float min, float max, float taper);
 
     S1AudioUnit* audioUnit;
     

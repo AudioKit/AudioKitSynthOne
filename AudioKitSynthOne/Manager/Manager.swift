@@ -14,11 +14,6 @@ protocol EmbeddedViewsDelegate: AnyObject {
     func switchToChildPanel(_ newView: ChildPanel, isOnTop: Bool)
 }
 
-// TODO: This does not appear to be used anywhere in the code
-protocol BottomEmbeddedViewsDelegate: AnyObject {
-    func switchToBottomChildPanel(_ newView: ChildPanel)
-}
-
 public class Manager: UpdatableViewController {
 
     @IBOutlet weak var topContainerView: UIView!
@@ -68,6 +63,8 @@ public class Manager: UpdatableViewController {
 
     // MARK: - Define child view controllers
 
+    // swiftlint:disable force_cast
+
     lazy var envelopesPanel: EnvelopesPanelController = {
         return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.envelopes.identifier())
             as! EnvelopesPanelController
@@ -110,6 +107,8 @@ public class Manager: UpdatableViewController {
             as! PresetsViewController
     }()
 
+    // swiftlint:enable force_cast
+
     // MARK: - viewDidLoad
 
     public override func viewDidLoad() {
@@ -144,7 +143,6 @@ public class Manager: UpdatableViewController {
         displayPresetsController()
 
         // Temporary MIDI IN
-        //TODO:change .background to .utility?
         DispatchQueue.global(qos: .userInteractive).async {
             self.midi.createVirtualPorts()
             self.midi.openInput("Session 1")

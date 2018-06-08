@@ -17,7 +17,7 @@ class SequencerPanelController: PanelController {
     @IBOutlet weak var arpToggle: ToggleButton!
     @IBOutlet weak var arpInterval: MIDIKnob!
 
-    var sliderTransposeButtons = [SliderTransposeButton]()
+    var octBoostButtons = [SliderTransposeButton]()
     var sliders = [VerticalSlider]()
     var noteOnButtons = [ArpButton]()
 
@@ -55,20 +55,18 @@ class SequencerPanelController: PanelController {
                                                      .sequencerOctBoost12, .sequencerOctBoost13, .sequencerOctBoost14,
                                                      .sequencerOctBoost15]
 
-        sliderTransposeButtons.removeAll() // just in case we run this more than once
+        octBoostButtons.removeAll() // just in case we run this more than once
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {
             guard let sliderTransposeButton = view as? SliderTransposeButton else { continue }
-            sliderTransposeButtons.append(sliderTransposeButton)
+            octBoostButtons.append(sliderTransposeButton)
         }
 
-        for (notePosition, octBoostButton) in sliderTransposeButtons.enumerated() {
+        for (notePosition, octBoostButton) in octBoostButtons.enumerated() {
             let sequencerOctBoostParameter = sequencerOctBoostArray[notePosition]
             conductor.bind(octBoostButton, to: sequencerOctBoostParameter) { _, _ in
                 return { value in
                     s.setOctaveBoost(forIndex: notePosition, value)
-                    for i in 0...15 {
-                        self.updateOctBoostButton(notePosition: i)
-                    }
+                    self.updateOctBoostButton(notePosition: notePosition)
                 }
             }
         }
@@ -91,13 +89,12 @@ class SequencerPanelController: PanelController {
             let sequencerPatternParameter = sequencerPatternArray[notePosition]
             conductor.bind(sequencerPatternSlider, to: sequencerPatternParameter) { _, control in
                 return { value in
-
-                    // TODO: This is incomprehensible
-                    let tval = Int( (-12 ... 12).clamp(value * 24 - 12) )
-                    s.setPattern(forIndex: notePosition, tval)
+                    let r = self.conductor.synth.getRange(sequencerPatternParameter)
+                    let transpose = Int(Double(value).denormalized(to: r))
+                    s.setPattern(forIndex: notePosition, transpose)
                     self.conductor.updateSingleUI(sequencerPatternParameter,
                                                   control: sequencerPatternSlider,
-                                                  value: Double(tval))
+                                                  value: Double(transpose))
                 }
             }
         }
@@ -152,24 +149,23 @@ class SequencerPanelController: PanelController {
         let seqTotalSteps = Int(conductor.synth.getSynthParameter(.arpTotalSteps))
 
         // clear out all indicators
-        sliderTransposeButtons.forEach { $0.isActive = false }
+        octBoostButtons.forEach { $0.isActive = false }
 
         // if a non-trivial sequence is playing
         if arpIsOn && arpIsSequencer && seqTotalSteps > 0 {
             let notePosition = (beatCounter + seqTotalSteps - 1) % seqTotalSteps
             if heldNotes != 0 {
                 // change the outline current notePosition
-                sliderTransposeButtons[notePosition].isActive = true
+                octBoostButtons[notePosition].isActive = true
             } else {
                 // on
-                sliderTransposeButtons[0].isActive = true
+                octBoostButtons[0].isActive = true
             }
         }
     }
 
-    func updateOctBoostButton(notePosition: Int) {
-        // TOOD: Reconcile names "SliderTransposeBUtton" and "OctBoostButton"
-        let octBoostButton = sliderTransposeButtons[notePosition]
+    internal func updateOctBoostButton(notePosition: Int) {
+        let octBoostButton = octBoostButtons[notePosition]
         octBoostButton.transposeAmt = conductor.synth.getPattern(forIndex: notePosition)
         octBoostButton.value = conductor.synth.getOctaveBoost(forIndex: notePosition) == true ? 1 : 0
     }

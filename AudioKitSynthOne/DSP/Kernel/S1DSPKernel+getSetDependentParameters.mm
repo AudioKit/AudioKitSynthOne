@@ -8,14 +8,6 @@
 
 #import "S1DSPKernel.hpp"
 
-// algebraic taper and inverse for input range [0,1]
-inline float S1DSPKernel::taper01(float inputValue01, float taper) {
-    return powf(inputValue01, 1.f / taper);
-}
-inline float S1DSPKernel::taper01Inverse(float inputValue01, float taper) {
-    return powf(inputValue01, taper);
-}
-
 float S1DSPKernel::getDependentParameter(S1Parameter parameter) {
 
     if (parameter == pitchbend) {

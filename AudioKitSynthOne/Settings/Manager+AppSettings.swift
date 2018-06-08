@@ -79,8 +79,6 @@ extension Manager {
         keyboardView.labelMode = appSettings.labelMode
         keyboardView.octaveCount = appSettings.octaveRange
         keyboardView.darkMode = appSettings.darkMode
-
-        //TODO: Persist AudioPlot fill?
     }
 
     func saveAppSettingValues() {

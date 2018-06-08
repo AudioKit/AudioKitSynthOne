@@ -33,6 +33,7 @@ class FilterTypeButton: UIButton, S1Control {
                     self.setTitle("High Pass", for: .normal)
                 case 3:
                     // reset to low pass
+                    // swiftlint:disable fallthrough
                     fallthrough
                 default:
                     // low pass

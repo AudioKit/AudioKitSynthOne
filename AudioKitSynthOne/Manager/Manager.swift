@@ -68,6 +68,8 @@ public class Manager: UpdatableViewController {
 
     // MARK: - Define child view controllers
 
+    // swiftlint:disable force_cast
+
     lazy var envelopesPanel: EnvelopesPanelController = {
         return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.envelopes.identifier())
             as! EnvelopesPanelController
@@ -109,6 +111,8 @@ public class Manager: UpdatableViewController {
         return mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController")
             as! PresetsViewController
     }()
+
+    // swiftlint:enable force_cast
 
     // MARK: - viewDidLoad
 

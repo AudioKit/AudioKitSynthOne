@@ -148,7 +148,6 @@ public class Manager: UpdatableViewController {
         displayPresetsController()
 
         // Temporary MIDI IN
-        //TODO:change .background to .utility?
         DispatchQueue.global(qos: .userInteractive).async {
             self.midi.createVirtualPorts()
             self.midi.openInput("Session 1")

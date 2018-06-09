@@ -53,7 +53,13 @@ extension Double {
     // Logarithmically scale 0.0 to 1.0 to any range
     public static func scaleRangeLog(_ value: Double, rangeMin: Double, rangeMax: Double) -> Double {
         let scale = (log(rangeMax) - log(rangeMin))
-        return exp(log(rangeMin) + (scale * value))
+        return exp(log(rangeMin) + (scale * (0...1).clamp(value)))
+    }
+
+    // Logarithmically scale 0.0 to 1.0 to any range
+    public static func scaleRangeLog2(_ value: Double, rangeMin: Double, rangeMax: Double) -> Double {
+        let scale = (log2(rangeMax) - log2(rangeMin))
+        return exp2(log2(rangeMin) + (scale * (0...1).clamp(value)))
     }
 
 }

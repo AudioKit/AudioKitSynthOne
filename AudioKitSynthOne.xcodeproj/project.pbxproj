@@ -218,6 +218,8 @@
 		94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTransposeButton.swift; sourceTree = "<group>"; };
 		BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioKitSynthOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40CBA2620CDE2B000A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2720CDE72500A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2820CDE7DA00A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C432979020CB2AA00063F795 /* Presets+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presets+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		C432979220CB2BB20063F795 /* Presets+LoadSaveManipulate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presets+LoadSaveManipulate.swift"; sourceTree = "<group>"; };
 		C432979420CB2D620063F795 /* Manager+callbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Manager+callbacks.swift"; sourceTree = "<group>"; };
@@ -747,6 +749,7 @@
 				C4B4914320C7C6E300FD565A /* Audiobus.txt */,
 				C4B4914620C7C6E300FD565A /* Audiobus+MIDI.swift */,
 				C4B4914520C7C6E300FD565A /* Manager+Audiobus.swift */,
+				C40CBA2720CDE72500A8245F /* README.md */,
 			);
 			path = Audiobus;
 			sourceTree = "<group>";
@@ -935,6 +938,7 @@
 		C4F7ECA51F2446960011B119 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				C40CBA2820CDE7DA00A8245F /* README.md */,
 				945261441F2925860037662C /* Buttons */,
 				945261431F29256F0037662C /* Knobs */,
 				947956B11F329AB500FE5D9B /* Stepper */,

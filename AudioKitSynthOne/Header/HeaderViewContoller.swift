@@ -122,7 +122,7 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "" +
                 ADSRString(.filterAttackDuration, .filterDecayDuration, .filterSustainLevel, .filterReleaseDuration)
         case .filterADSRMix:
-            displayLabel.text = "Filter Envelope Amt: \(value.percentageString)"
+            displayLabel.text = "Filter Envelope: \(value.percentageString)"
         case .bitCrushDepth: //unused
             displayLabel.text = "Bit Crush Depth: \(value.decimalString)"
         case .bitCrushSampleRate:

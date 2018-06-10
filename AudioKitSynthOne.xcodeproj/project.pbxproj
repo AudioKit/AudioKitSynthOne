@@ -217,6 +217,14 @@
 		94F694C51F683D5D0061DA5E /* CallbackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackButton.swift; sourceTree = "<group>"; };
 		94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTransposeButton.swift; sourceTree = "<group>"; };
 		BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioKitSynthOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40CBA2620CDE2B000A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2720CDE72500A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2820CDE7DA00A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2920CDEBA200A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2A20CDEBDF00A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2B20CDEC0000A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2C20CDEC1E00A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2D20CDEC4800A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C432979020CB2AA00063F795 /* Presets+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presets+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		C432979220CB2BB20063F795 /* Presets+LoadSaveManipulate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presets+LoadSaveManipulate.swift"; sourceTree = "<group>"; };
 		C432979420CB2D620063F795 /* Manager+callbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Manager+callbacks.swift"; sourceTree = "<group>"; };
@@ -606,6 +614,7 @@
 				C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */,
 				C4B4915320C7C70D00FD565A /* TuningsPanelController */,
 				C432978A20C902290063F795 /* UI Components */,
+				C40CBA2A20CDEBDF00A8245F /* README.md */,
 			);
 			path = Tunings;
 			sourceTree = "<group>";
@@ -705,6 +714,7 @@
 				94E951341F3644E5009A8B00 /* Rate.swift */,
 				C4B4910420C7C5C500FD565A /* SequencerPanelController.swift */,
 				C432978820C900390063F795 /* UI Components */,
+				C40CBA2C20CDEC1E00A8245F /* README.md */,
 			);
 			path = Sequencer;
 			sourceTree = "<group>";
@@ -735,6 +745,7 @@
 			children = (
 				C4B4913920C7C69D00FD565A /* TouchPadPanelController.swift */,
 				C432978920C901530063F795 /* UI Components */,
+				C40CBA2B20CDEC0000A8245F /* README.md */,
 			);
 			path = TouchPad;
 			sourceTree = "<group>";
@@ -746,6 +757,7 @@
 				C4B4914320C7C6E300FD565A /* Audiobus.txt */,
 				C4B4914620C7C6E300FD565A /* Audiobus+MIDI.swift */,
 				C4B4914520C7C6E300FD565A /* Manager+Audiobus.swift */,
+				C40CBA2720CDE72500A8245F /* README.md */,
 			);
 			path = Audiobus;
 			sourceTree = "<group>";
@@ -834,6 +846,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B491A020C7C91900FD565A /* EnvelopesPanelController.swift */,
+				C40CBA2D20CDEC4800A8245F /* README.md */,
 			);
 			path = Envelopes;
 			sourceTree = "<group>";
@@ -843,6 +856,7 @@
 			children = (
 				C4B491A320C7C94E00FD565A /* EffectsPanelController.swift */,
 				C432978D20C902EC0063F795 /* UI Components */,
+				C40CBA2920CDEBA200A8245F /* README.md */,
 			);
 			path = Effects;
 			sourceTree = "<group>";
@@ -902,6 +916,7 @@
 		C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */ = {
 			isa = PBXGroup;
 			children = (
+				C40CBA2620CDE2B000A8245F /* README.md */,
 				94780FEF1F9B0108006D3710 /* AudioKitSynthOne.entitlements */,
 				C4D193D31F1187B500FF4FE4 /* Info.plist */,
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
@@ -933,6 +948,7 @@
 		C4F7ECA51F2446960011B119 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				C40CBA2820CDE7DA00A8245F /* README.md */,
 				945261441F2925860037662C /* Buttons */,
 				945261431F29256F0037662C /* Knobs */,
 				947956B11F329AB500FE5D9B /* Stepper */,

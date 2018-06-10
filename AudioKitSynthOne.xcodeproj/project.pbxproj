@@ -220,6 +220,11 @@
 		C40CBA2620CDE2B000A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C40CBA2720CDE72500A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C40CBA2820CDE7DA00A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2920CDEBA200A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2A20CDEBDF00A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2B20CDEC0000A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2C20CDEC1E00A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C40CBA2D20CDEC4800A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C432979020CB2AA00063F795 /* Presets+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presets+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		C432979220CB2BB20063F795 /* Presets+LoadSaveManipulate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presets+LoadSaveManipulate.swift"; sourceTree = "<group>"; };
 		C432979420CB2D620063F795 /* Manager+callbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Manager+callbacks.swift"; sourceTree = "<group>"; };
@@ -609,6 +614,7 @@
 				C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */,
 				C4B4915320C7C70D00FD565A /* TuningsPanelController */,
 				C432978A20C902290063F795 /* UI Components */,
+				C40CBA2A20CDEBDF00A8245F /* README.md */,
 			);
 			path = Tunings;
 			sourceTree = "<group>";
@@ -708,6 +714,7 @@
 				94E951341F3644E5009A8B00 /* Rate.swift */,
 				C4B4910420C7C5C500FD565A /* SequencerPanelController.swift */,
 				C432978820C900390063F795 /* UI Components */,
+				C40CBA2C20CDEC1E00A8245F /* README.md */,
 			);
 			path = Sequencer;
 			sourceTree = "<group>";
@@ -738,6 +745,7 @@
 			children = (
 				C4B4913920C7C69D00FD565A /* TouchPadPanelController.swift */,
 				C432978920C901530063F795 /* UI Components */,
+				C40CBA2B20CDEC0000A8245F /* README.md */,
 			);
 			path = TouchPad;
 			sourceTree = "<group>";
@@ -838,6 +846,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B491A020C7C91900FD565A /* EnvelopesPanelController.swift */,
+				C40CBA2D20CDEC4800A8245F /* README.md */,
 			);
 			path = Envelopes;
 			sourceTree = "<group>";
@@ -847,6 +856,7 @@
 			children = (
 				C4B491A320C7C94E00FD565A /* EffectsPanelController.swift */,
 				C432978D20C902EC0063F795 /* UI Components */,
+				C40CBA2920CDEBA200A8245F /* README.md */,
 			);
 			path = Effects;
 			sourceTree = "<group>";

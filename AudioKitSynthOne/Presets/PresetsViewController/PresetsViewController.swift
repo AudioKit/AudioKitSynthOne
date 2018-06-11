@@ -19,9 +19,9 @@ protocol PresetsDelegate: AnyObject {
 
 class PresetsViewController: UIViewController {
 
-    @IBOutlet weak var newButton: SynthUIButton!
-    @IBOutlet weak var importButton: SynthUIButton!
-    @IBOutlet weak var reorderButton: SynthUIButton!
+    @IBOutlet weak var newButton: SynthButton!
+    @IBOutlet weak var importButton: SynthButton!
+    @IBOutlet weak var reorderButton: SynthButton!
     @IBOutlet weak var importBankButton: PresetUIButton!
     @IBOutlet weak var newBankButton: PresetUIButton!
 

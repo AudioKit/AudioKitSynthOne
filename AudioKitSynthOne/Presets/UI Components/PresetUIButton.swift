@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PresetUIButton: SynthUIButton {
+class PresetUIButton: SynthButton {
 
     // MARK: - Handle Touches
 

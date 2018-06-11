@@ -1,5 +1,5 @@
 //
-//  SynthUIButton.swift
+//  SynthButton.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 8/8/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SynthUIButton: UIButton, S1Control {
+class SynthButton: UIButton, S1Control {
 
     var callback: (Double) -> Void = { _ in }
 

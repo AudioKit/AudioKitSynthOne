@@ -14,7 +14,7 @@ class TouchPadPanelController: PanelController {
     @IBOutlet weak var touchPad2: AKTouchPadView!
 
     @IBOutlet weak var touchPad1Label: UILabel!
-    @IBOutlet weak var snapToggle: SynthUIButton!
+    @IBOutlet weak var snapToggle: SynthButton!
 
     let particleEmitter1 = CAEmitterLayer()
     let particleEmitter2 = CAEmitterLayer()

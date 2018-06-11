@@ -17,8 +17,8 @@ class PresetEditorViewController: UIViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var bankPicker: UIPickerView!
-    @IBOutlet weak var saveButton: SynthUIButton!
-    @IBOutlet weak var cancelButton: SynthUIButton!
+    @IBOutlet weak var saveButton: SynthButton!
+    @IBOutlet weak var cancelButton: SynthButton!
 
     weak var delegate: PresetPopOverDelegate?
 

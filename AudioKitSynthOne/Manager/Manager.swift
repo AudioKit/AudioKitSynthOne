@@ -23,15 +23,15 @@ public class Manager: UpdatableViewController {
     @IBOutlet weak var keyboardBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var topPanelheight: NSLayoutConstraint!
 
-    @IBOutlet weak var midiButton: SynthUIButton!
-    @IBOutlet weak var holdButton: SynthUIButton!
-    @IBOutlet weak var monoButton: SynthUIButton!
-    @IBOutlet weak var keyboardToggle: SynthUIButton!
+    @IBOutlet weak var midiButton: SynthButton!
+    @IBOutlet weak var holdButton: SynthButton!
+    @IBOutlet weak var monoButton: SynthButton!
+    @IBOutlet weak var keyboardToggle: SynthButton!
     @IBOutlet weak var octaveStepper: Stepper!
-    @IBOutlet weak var configKeyboardButton: SynthUIButton!
+    @IBOutlet weak var configKeyboardButton: SynthButton!
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
-    @IBOutlet weak var modWheelSettings: SynthUIButton!
-    @IBOutlet weak var midiLearnToggle: SynthUIButton!
+    @IBOutlet weak var modWheelSettings: SynthButton!
+    @IBOutlet weak var midiLearnToggle: SynthButton!
     @IBOutlet weak var pitchBend: AKVerticalPad!
     @IBOutlet weak var modWheelPad: AKVerticalPad!
 

@@ -19,7 +19,7 @@
 		948C54C31F3A57C600DA6081 /* SynthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C54C21F3A57C600DA6081 /* SynthUIButton.swift */; };
 		948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */; };
 		949D93B71F2C188C007E657B /* LfoBtnStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */; };
-		949D93B91F2C188C007E657B /* LfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LfoButton.swift */; };
+		949D93B91F2C188C007E657B /* LFOToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LFOToggle.swift */; };
 		94A5039D1FF2F6E30097D37C /* ChannelStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */; };
 		94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */; };
 		94D917AF1F550D28006ACB4E /* FlatToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */; };
@@ -203,7 +203,7 @@
 		947956B51F32A72400FE5D9B /* ToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitch.swift; sourceTree = "<group>"; };
 		948C54C21F3A57C600DA6081 /* SynthUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthUIButton.swift; sourceTree = "<group>"; };
 		948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeButton.swift; sourceTree = "<group>"; };
-		949D93B51F2C188B007E657B /* LfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoButton.swift; sourceTree = "<group>"; };
+		949D93B51F2C188B007E657B /* LFOToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOToggle.swift; sourceTree = "<group>"; };
 		949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LfoBtnStyleKit.swift; sourceTree = "<group>"; };
 		94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStepper.swift; sourceTree = "<group>"; };
 		94A6F30B1F687F3E007B083C /* icon_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_64.png; sourceTree = "<group>"; };
@@ -544,7 +544,7 @@
 			children = (
 				C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */,
 				949D93B61F2C188B007E657B /* LfoBtnStyleKit.swift */,
-				949D93B51F2C188B007E657B /* LfoButton.swift */,
+				949D93B51F2C188B007E657B /* LFOToggle.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -1243,7 +1243,7 @@
 				C4B4916E20C7C72A00FD565A /* Manager.swift in Sources */,
 				C4B490E920C64AC600FD565A /* S1DSPKernel+MIDI.mm in Sources */,
 				C4B490E720C649D900FD565A /* S1DSPKernel+destroy.mm in Sources */,
-				949D93B91F2C188C007E657B /* LfoButton.swift in Sources */,
+				949D93B91F2C188C007E657B /* LFOToggle.swift in Sources */,
 				C435C4FB20C5234900DAECCD /* PresetCell.swift in Sources */,
 				C4B4915B20C7C70D00FD565A /* TuningsPanelController.swift in Sources */,
 				C4B4917320C7C73B00FD565A /* Manager+DevView.swift in Sources */,

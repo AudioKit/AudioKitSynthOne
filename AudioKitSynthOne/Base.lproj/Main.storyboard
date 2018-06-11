@@ -1415,7 +1415,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IAH-Z9-Sao" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IAH-Z9-Sao" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="10" y="175" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1423,7 +1423,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Cutoff"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-x5-m2h" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-x5-m2h" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="10" y="215" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1431,7 +1431,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Rez"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yMC-Nf-cet" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yMC-Nf-cet" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="10" y="255" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1439,7 +1439,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Osc Mix"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lNJ-vo-Ird" userLabel="Lfo Reverb Toggle" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lNJ-vo-Ird" userLabel="Lfo Reverb Toggle" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="121" y="175" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1447,7 +1447,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Reverb"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OiO-GY-Ebf" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OiO-GY-Ebf" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="121" y="215" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1455,7 +1455,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Decay"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZZ-WL-inO" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZZ-WL-inO" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="121" y="255" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1463,7 +1463,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Noise"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mbh-Az-jeK" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mbh-Az-jeK" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="233" y="175" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1471,7 +1471,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="FM Mod"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4fP-Q7-eqK" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4fP-Q7-eqK" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="233" y="215" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1479,7 +1479,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Detune"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7EN-gq-WHB" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7EN-gq-WHB" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="233" y="255" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1487,7 +1487,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="FilterEnv"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93V-FP-Ga6" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93V-FP-Ga6" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="344" y="175" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1495,7 +1495,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Pitch"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v1h-So-avW" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v1h-So-avW" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="344" y="215" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1503,7 +1503,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Bitcrush"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pda-Ea-Gzs" customClass="LfoButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pda-Ea-Gzs" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="344" y="255" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1699,10 +1699,16 @@
                     <connections>
                         <outlet property="autoPanAmount" destination="rdA-s1-Tlb" id="jWz-pZ-8AY"/>
                         <outlet property="autoPanRate" destination="eln-Mr-bHW" id="hA8-HD-3Ul"/>
+                        <outlet property="bitcrushLFOToggle" destination="v1h-So-avW" id="0U9-L1-Wnb"/>
+                        <outlet property="cutoffLFOToggle" destination="IAH-Z9-Sao" id="9ie-ol-fVs"/>
+                        <outlet property="decayLFOToggle" destination="OiO-GY-Ebf" id="JR7-1a-2ts"/>
                         <outlet property="delayFeedback" destination="Xlx-03-xVb" id="5lS-7D-SNF"/>
                         <outlet property="delayMix" destination="Llm-Od-P25" id="m4Q-YC-HzN"/>
                         <outlet property="delayTime" destination="NqQ-40-D7B" id="Exo-vV-rQm"/>
                         <outlet property="delayToggle" destination="dNU-Q8-hfi" id="o0T-2o-3gK"/>
+                        <outlet property="detuneLFOToggle" destination="4fP-Q7-eqK" id="fGY-A8-NP2"/>
+                        <outlet property="filterEnvLFOToggle" destination="7EN-gq-WHB" id="qci-vq-wBj"/>
+                        <outlet property="fmModLFOToggle" destination="Mbh-Az-jeK" id="5EK-eZ-aJA"/>
                         <outlet property="leftNavButton" destination="Xyj-Yj-OIq" id="5yl-Za-EH7"/>
                         <outlet property="lfo1Amp" destination="i2o-5u-jpE" id="ppX-wr-aBs"/>
                         <outlet property="lfo1Rate" destination="mn7-Xc-1Zo" id="yaS-MZ-WhG"/>
@@ -1710,29 +1716,23 @@
                         <outlet property="lfo2Amp" destination="yvG-Pl-PWp" id="Vv6-HH-Lyg"/>
                         <outlet property="lfo2Rate" destination="GiI-jY-k8h" id="rF9-PW-wCW"/>
                         <outlet property="lfo2WavePicker" destination="xKa-3e-MJQ" id="GRY-0D-cfA"/>
-                        <outlet property="lfoBitcrushToggle" destination="v1h-So-avW" id="0U9-L1-Wnb"/>
-                        <outlet property="lfoCutoffToggle" destination="IAH-Z9-Sao" id="9ie-ol-fVs"/>
-                        <outlet property="lfoDecayToggle" destination="OiO-GY-Ebf" id="JR7-1a-2ts"/>
-                        <outlet property="lfoDetuneToggle" destination="4fP-Q7-eqK" id="fGY-A8-NP2"/>
-                        <outlet property="lfoFMModToggle" destination="Mbh-Az-jeK" id="5EK-eZ-aJA"/>
-                        <outlet property="lfoFilterEnvToggle" destination="7EN-gq-WHB" id="qci-vq-wBj"/>
-                        <outlet property="lfoNoiseToggle" destination="eZZ-WL-inO" id="ZhF-1d-65b"/>
-                        <outlet property="lfoOscMixToggle" destination="yMC-Nf-cet" id="GXS-yJ-H9S"/>
-                        <outlet property="lfoPitchToggle" destination="93V-FP-Ga6" id="v5H-FX-Rci"/>
-                        <outlet property="lfoReverbMixToggle" destination="lNJ-vo-Ird" id="Trc-3a-b6c"/>
-                        <outlet property="lfoRezToggle" destination="Dd6-x5-m2h" id="h1j-xO-O7Q"/>
-                        <outlet property="lfoTremoloToggle" destination="Pda-Ea-Gzs" id="c5m-jp-Hrf"/>
+                        <outlet property="noiseLFOToggle" destination="eZZ-WL-inO" id="ZhF-1d-65b"/>
+                        <outlet property="oscMixLFOToggle" destination="yMC-Nf-cet" id="GXS-yJ-H9S"/>
                         <outlet property="phaserFeedback" destination="OG9-jw-6vI" id="cAp-2D-keT"/>
                         <outlet property="phaserMix" destination="lPR-OD-6eO" id="xjd-d7-0rU"/>
                         <outlet property="phaserNotchWidth" destination="3Nj-Pf-hOI" id="qdL-ZU-wBu"/>
                         <outlet property="phaserRate" destination="iAK-8S-H7J" id="hrd-XV-FgC"/>
+                        <outlet property="pitchLFOToggle" destination="93V-FP-Ga6" id="v5H-FX-Rci"/>
+                        <outlet property="resonanceLFOToggle" destination="Dd6-x5-m2h" id="h1j-xO-O7Q"/>
                         <outlet property="reverbLowCut" destination="bfj-OE-v6r" id="UDl-GH-1bc"/>
                         <outlet property="reverbMix" destination="Muy-Nf-8VP" id="mDk-cx-EaD"/>
+                        <outlet property="reverbMixLFOToggle" destination="lNJ-vo-Ird" id="Trc-3a-b6c"/>
                         <outlet property="reverbSize" destination="QPQ-yr-Oh3" id="xLh-46-Jo1"/>
                         <outlet property="reverbToggle" destination="lZX-P1-5MQ" id="uJL-2O-kdF"/>
                         <outlet property="rightNavButton" destination="8Wt-Tf-MdV" id="AbF-3S-Pte"/>
                         <outlet property="sampleRate" destination="2OJ-Aw-oQg" id="2gF-jY-WNw"/>
                         <outlet property="tempoSyncToggle" destination="FF0-4H-n45" id="Nz7-gW-oep"/>
+                        <outlet property="tremoloLFOToggle" destination="Pda-Ea-Gzs" id="c5m-jp-Hrf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7V-hT-z83" userLabel="First Responder" sceneMemberID="firstResponder"/>

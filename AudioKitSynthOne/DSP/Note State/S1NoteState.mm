@@ -210,11 +210,11 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     //FM LFO
     float fmOscIndx = getParam(fmAmount);
     if (getParam(fmLFO) == 1.f)
-        fmOscIndx = getParam(fmAmount) * lfo1_1_0;
+        fmOscIndx *= lfo1_1_0;
     else if (getParam(fmLFO) == 2.f)
-        fmOscIndx = getParam(fmAmount) * lfo2_1_0;
+        fmOscIndx *= lfo2_1_0;
     else if (getParam(fmLFO) == 3.f)
-        fmOscIndx = getParam(fmAmount) * lfo3_1_0;
+        fmOscIndx *= lfo3_1_0;
     fmOscIndx = kernel->clampedValue(fmAmount, fmOscIndx);
     fmOsc->indx = fmOscIndx;
     
@@ -246,11 +246,11 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     //OSCMORPH CROSSFADE
     float crossFadePos = getParam(morphBalance);
     if (getParam(oscMixLFO) == 1.f)
-        crossFadePos = getParam(morphBalance) + lfo1_0_1;
+        crossFadePos += lfo1_0_1;
     else if (getParam(oscMixLFO) == 2.f)
-        crossFadePos = getParam(morphBalance) + lfo2_0_1;
+        crossFadePos += lfo2_0_1;
     else if (getParam(oscMixLFO) == 3.f)
-        crossFadePos = getParam(morphBalance) + lfo3_0_1;
+        crossFadePos += lfo3_0_1;
     crossFadePos = clamp(crossFadePos, 0.f, 1.f);
     morphCrossFade->pos = crossFadePos;
     

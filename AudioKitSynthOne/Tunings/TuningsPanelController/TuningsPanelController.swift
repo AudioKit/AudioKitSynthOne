@@ -19,8 +19,8 @@ class TuningsPanelController: PanelController {
 
     @IBOutlet weak var tuningTableView: UITableView!
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
-    @IBOutlet weak var masterTuning: MIDIKnob!
-    @IBOutlet weak var resetTunings: SynthUIButton!
+    @IBOutlet weak var masterTuningKnob: MIDIKnob!
+    @IBOutlet weak var resetTuningsButton: SynthButton!
     @IBOutlet weak var diceButton: UIButton!
 
     let tuningModel = Tunings()
@@ -40,16 +40,16 @@ class TuningsPanelController: PanelController {
         tuningTableView.delegate = self
         tuningModel.tuningsDelegate = self
 
-        masterTuning.range = synth.getRange(.frequencyA4)
-        masterTuning.value = synth.getSynthParameter(.frequencyA4)
-        Conductor.sharedInstance.bind(masterTuning, to: .frequencyA4)
+        masterTuningKnob.range = synth.getRange(.frequencyA4)
+        masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
+        Conductor.sharedInstance.bind(masterTuningKnob, to: .frequencyA4)
 
-        resetTunings.callback = { value in
+        resetTuningsButton.callback = { value in
             if value == 1 {
                 let i = self.tuningModel.resetTuning()
-                self.masterTuning.value = synth.getSynthParameter(.frequencyA4)
+                self.masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
                 self.selectRow(i)
-                self.resetTunings.value = 0
+                self.resetTuningsButton.value = 0
             }
         }
 

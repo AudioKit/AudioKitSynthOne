@@ -23,31 +23,31 @@ class EffectsPanelController: PanelController {
     @IBOutlet weak var bitcrushLFOToggle: LFOToggle!
     @IBOutlet weak var tremoloLFOToggle: LFOToggle!
 
-    @IBOutlet weak var lfo1Amp: MIDIKnob!
-    @IBOutlet weak var lfo1Rate: MIDIKnob!
+    @IBOutlet weak var lfo1AmpKnob: MIDIKnob!
+    @IBOutlet weak var lfo1RateKnob: MIDIKnob!
 
-    @IBOutlet weak var lfo2Amp: MIDIKnob!
-    @IBOutlet weak var lfo2Rate: MIDIKnob!
+    @IBOutlet weak var lfo2AmpKnob: MIDIKnob!
+    @IBOutlet weak var lfo2RateKnob: MIDIKnob!
 
-    @IBOutlet weak var sampleRate: MIDIKnob!
+    @IBOutlet weak var sampleRateKnob: MIDIKnob!
 
-    @IBOutlet weak var autoPanAmount: Knob!
-    @IBOutlet weak var autoPanRate: MIDIKnob!
+    @IBOutlet weak var autoPanAmountKnob: Knob!
+    @IBOutlet weak var autoPanRateKnob: MIDIKnob!
 
-    @IBOutlet weak var reverbSize: MIDIKnob!
-    @IBOutlet weak var reverbLowCut: MIDIKnob!
-    @IBOutlet weak var reverbMix: MIDIKnob!
+    @IBOutlet weak var reverbSizeKnob: MIDIKnob!
+    @IBOutlet weak var reverbLowCutKnob: MIDIKnob!
+    @IBOutlet weak var reverbMixKnob: MIDIKnob!
     @IBOutlet weak var reverbToggle: ToggleButton!
 
-    @IBOutlet weak var delayTime: MIDIKnob!
-    @IBOutlet weak var delayFeedback: MIDIKnob!
-    @IBOutlet weak var delayMix: MIDIKnob!
+    @IBOutlet weak var delayTimeKnob: MIDIKnob!
+    @IBOutlet weak var delayFeedbackKnob: MIDIKnob!
+    @IBOutlet weak var delayMixKnob: MIDIKnob!
     @IBOutlet weak var delayToggle: ToggleButton!
 
-    @IBOutlet weak var phaserMix: MIDIKnob!
-    @IBOutlet weak var phaserRate: MIDIKnob!
-    @IBOutlet weak var phaserFeedback: MIDIKnob!
-    @IBOutlet weak var phaserNotchWidth: MIDIKnob!
+    @IBOutlet weak var phaserMixKnob: MIDIKnob!
+    @IBOutlet weak var phaserRateKnob: MIDIKnob!
+    @IBOutlet weak var phaserFeedbackKnob: MIDIKnob!
+    @IBOutlet weak var phaserNotchWidthKnob: MIDIKnob!
 
     @IBOutlet weak var lfo1WavePicker: LFOWavePicker!
     @IBOutlet weak var lfo2WavePicker: LFOWavePicker!
@@ -63,31 +63,31 @@ class EffectsPanelController: PanelController {
             return
         }
 
-        sampleRate.range = s.getRange(.bitCrushSampleRate)
-        sampleRate.taper = 4.6
-        conductor.bind(sampleRate, to: .bitCrushSampleRate)
+        sampleRateKnob.range = s.getRange(.bitCrushSampleRate)
+        sampleRateKnob.taper = 4.6
+        conductor.bind(sampleRateKnob, to: .bitCrushSampleRate)
 
-        reverbLowCut.range = s.getRange(.reverbHighPass)
-        reverbLowCut.taper = 1
-        conductor.bind(reverbLowCut, to: .reverbHighPass)
+        reverbLowCutKnob.range = s.getRange(.reverbHighPass)
+        reverbLowCutKnob.taper = 1
+        conductor.bind(reverbLowCutKnob, to: .reverbHighPass)
 
-        delayFeedback.range = s.getRange(.delayFeedback)
-        conductor.bind(delayFeedback, to: .delayFeedback)
+        delayFeedbackKnob.range = s.getRange(.delayFeedback)
+        conductor.bind(delayFeedbackKnob, to: .delayFeedback)
 
-        phaserMix.range = s.getRange(.phaserMix)
-        phaserRate.range = s.getRange(.phaserRate)
-        phaserRate.taper = 2
-        phaserFeedback.range = s.getRange(.phaserFeedback)
-        phaserNotchWidth.range = s.getRange(.phaserNotchWidth)
+        phaserMixKnob.range = s.getRange(.phaserMix)
+        phaserRateKnob.range = s.getRange(.phaserRate)
+        phaserRateKnob.taper = 2
+        phaserFeedbackKnob.range = s.getRange(.phaserFeedback)
+        phaserNotchWidthKnob.range = s.getRange(.phaserNotchWidth)
 
-        conductor.bind(autoPanAmount, to: .autoPanAmount)
-        conductor.bind(reverbSize, to: .reverbFeedback)
-        conductor.bind(reverbMix, to: .reverbMix)
+        conductor.bind(autoPanAmountKnob, to: .autoPanAmount)
+        conductor.bind(reverbSizeKnob, to: .reverbFeedback)
+        conductor.bind(reverbMixKnob, to: .reverbMix)
         conductor.bind(reverbToggle, to: .reverbOn)
-        conductor.bind(delayMix, to: .delayMix)
+        conductor.bind(delayMixKnob, to: .delayMix)
         conductor.bind(delayToggle, to: .delayOn)
-        conductor.bind(lfo1Amp, to: .lfo1Amplitude)
-        conductor.bind(lfo2Amp, to: .lfo2Amplitude)
+        conductor.bind(lfo1AmpKnob, to: .lfo1Amplitude)
+        conductor.bind(lfo2AmpKnob, to: .lfo2Amplitude)
         conductor.bind(cutoffLFOToggle, to: .cutoffLFO)
         conductor.bind(resonanceLFOToggle, to: .resonanceLFO)
         conductor.bind(oscMixLFOToggle, to: .oscMixLFO)
@@ -102,41 +102,41 @@ class EffectsPanelController: PanelController {
         conductor.bind(tremoloLFOToggle, to: .tremoloLFO)
         conductor.bind(lfo1WavePicker, to: .lfo1Index)
         conductor.bind(lfo2WavePicker, to: .lfo2Index)
-        conductor.bind(phaserMix, to: .phaserMix)
-        conductor.bind(phaserRate, to: .phaserRate)
-        conductor.bind(phaserFeedback, to: .phaserFeedback)
-        conductor.bind(phaserNotchWidth, to: .phaserNotchWidth)
+        conductor.bind(phaserMixKnob, to: .phaserMix)
+        conductor.bind(phaserRateKnob, to: .phaserRate)
+        conductor.bind(phaserFeedbackKnob, to: .phaserFeedback)
+        conductor.bind(phaserNotchWidthKnob, to: .phaserNotchWidth)
         conductor.bind(tempoSyncToggle, to: .tempoSyncToArpRate)
 
         // These 4 params are dependent on arpRate, and tempoSyncToArpRate, so can't use conductor binding scheme
-        lfo1Rate.range = 0...1
-        lfo1Rate.taper = 1
-        lfo1Rate.value = s.getDependentParameter(.lfo1Rate)
-        lfo1Rate.callback = { value in
+        lfo1RateKnob.range = 0...1
+        lfo1RateKnob.taper = 1
+        lfo1RateKnob.value = s.getDependentParameter(.lfo1Rate)
+        lfo1RateKnob.callback = { value in
             s.setDependentParameter(.lfo1Rate, value, self.conductor.lfo1RateEffectsPanelID)
             self.conductor.updateDisplayLabel(.lfo1Rate, value: s.getSynthParameter(.lfo1Rate))
         }
 
-        lfo2Rate.range = 0...1
-        lfo2Rate.taper = 1
-        lfo2Rate.value = s.getDependentParameter(.lfo2Rate)
-        lfo2Rate.callback = { value in
+        lfo2RateKnob.range = 0...1
+        lfo2RateKnob.taper = 1
+        lfo2RateKnob.value = s.getDependentParameter(.lfo2Rate)
+        lfo2RateKnob.callback = { value in
             s.setDependentParameter(.lfo2Rate, value, self.conductor.lfo2RateEffectsPanelID)
             self.conductor.updateDisplayLabel(.lfo2Rate, value: s.getSynthParameter(.lfo2Rate))
         }
 
-        autoPanRate.range = 0...1
-        autoPanRate.taper = 1
-        autoPanRate.value = s.getDependentParameter(.autoPanFrequency)
-        autoPanRate.callback = { value in
+        autoPanRateKnob.range = 0...1
+        autoPanRateKnob.taper = 1
+        autoPanRateKnob.value = s.getDependentParameter(.autoPanFrequency)
+        autoPanRateKnob.callback = { value in
             s.setDependentParameter(.autoPanFrequency, value, self.conductor.autoPanEffectsPanelID)
             self.conductor.updateDisplayLabel(.autoPanFrequency, value: s.getSynthParameter(.autoPanFrequency))
         }
 
-        delayTime.range = 0...1
-        delayTime.taper = 1
-        delayTime.value = s.getDependentParameter(.delayTime)
-        delayTime.callback = { value in
+        delayTimeKnob.range = 0...1
+        delayTimeKnob.taper = 1
+        delayTimeKnob.value = s.getDependentParameter(.delayTime)
+        delayTimeKnob.callback = { value in
             s.setDependentParameter(.delayTime, value, self.conductor.delayTimeEffectsPanelID)
             self.conductor.updateDisplayLabel(.delayTime, value: s.getSynthParameter(.delayTime))
         }
@@ -148,22 +148,22 @@ class EffectsPanelController: PanelController {
             if dependentParameter.payload == conductor.lfo1RateEffectsPanelID {
                 return
             }
-            lfo1Rate.value = Double(dependentParameter.normalizedValue)
+            lfo1RateKnob.value = Double(dependentParameter.normalizedValue)
         case .lfo2Rate:
             if dependentParameter.payload == conductor.lfo2RateEffectsPanelID {
                 return
             }
-            lfo2Rate.value = Double(dependentParameter.normalizedValue)
+            lfo2RateKnob.value = Double(dependentParameter.normalizedValue)
         case .autoPanFrequency:
             if dependentParameter.payload == conductor.autoPanEffectsPanelID {
                 return
             }
-            autoPanRate.value = Double(dependentParameter.normalizedValue)
+            autoPanRateKnob.value = Double(dependentParameter.normalizedValue)
         case .delayTime:
             if dependentParameter.payload == conductor.delayTimeEffectsPanelID {
                 return
             }
-            delayTime.value = Double(dependentParameter.normalizedValue)
+            delayTimeKnob.value = Double(dependentParameter.normalizedValue)
         default:
             _ = 0
         }

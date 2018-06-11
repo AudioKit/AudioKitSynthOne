@@ -86,30 +86,30 @@ public class HeaderViewController: UpdatableViewController {
         let lfoValue = LFOValue(rawValue: Int(value))
         switch parameter {
         case .index1:
-            displayLabel.text = "OSC1 Morph: \(value.decimalString)"
+            displayLabel.text = "Osc1 Morph: \(value.decimalString)"
         case .index2:
-            displayLabel.text = "OSC2 Morph: \(value.decimalString)"
+            displayLabel.text = "Osc2 Morph: \(value.decimalString)"
         case .morph1SemitoneOffset:
-            displayLabel.text = "DCO1: \(Int(value)) semitones"
+            displayLabel.text = "Osc1: \(Int(value)) semitones"
         case .morph2SemitoneOffset:
-            displayLabel.text = "DCO2: \(Int(value)) semitones"
+            displayLabel.text = "Osc2: \(Int(value)) semitones"
         case .morph2Detuning:
             displayLabel.text = "DCO2 Detune: \(value.decimalString)Hz"
         case .morphBalance:
-            displayLabel.text = "DCO Mix: \(value.decimalString)"
+            displayLabel.text = "Osc Mix: \(value.decimalString)"
         case .morph1Volume:
-            displayLabel.text = "DCO1 Vol: \(value.percentageString)"
+            displayLabel.text = "Osc1 Vol: \(value.percentageString)"
         case .morph2Volume:
-            displayLabel.text = "DCO2 Vol: \(value.percentageString)"
+            displayLabel.text = "Osc2 Vol: \(value.percentageString)"
         case .glide:
             displayLabel.text = "Glide: \(value.decimalString)"
         case .cutoff, .resonance:
             displayLabel.text = "Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, " +
-                                "Rez: \(s.getSynthParameter(.resonance).decimalString)"
+                                "Resonance: \(s.getSynthParameter(.resonance).decimalString)"
         case .subVolume:
             displayLabel.text = "Sub Mix: \(value.percentageString)"
         case .fmVolume:
-            displayLabel.text = "FM Mix: \(value.percentageString)"
+            displayLabel.text = "FM Amp: \(value.percentageString)"
         case .fmAmount:
             displayLabel.text = "FM Mod: \(value.decimalString)"
         case .noiseVolume:
@@ -124,7 +124,7 @@ public class HeaderViewController: UpdatableViewController {
         case .filterADSRMix:
             displayLabel.text = "Filter Envelope: \(value.percentageString)"
         case .bitCrushDepth: //unused
-            displayLabel.text = "Bit Crush Depth: \(value.decimalString)"
+            displayLabel.text = "Bitcrush Depth: \(value.decimalString)"
         case .bitCrushSampleRate:
             displayLabel.text = "Downsample Rate: \(Int(value)) Hz"
         case .autoPanAmount:

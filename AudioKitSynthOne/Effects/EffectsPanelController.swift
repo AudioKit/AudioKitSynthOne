@@ -10,18 +10,18 @@ import UIKit
 
 class EffectsPanelController: PanelController {
 
-    @IBOutlet weak var lfoCutoffToggle: LfoButton!
-    @IBOutlet weak var lfoRezToggle: LfoButton!
-    @IBOutlet weak var lfoOscMixToggle: LfoButton!
-    @IBOutlet weak var lfoReverbMixToggle: LfoButton!
-    @IBOutlet weak var lfoDecayToggle: LfoButton!
-    @IBOutlet weak var lfoNoiseToggle: LfoButton!
-    @IBOutlet weak var lfoFMModToggle: LfoButton!
-    @IBOutlet weak var lfoDetuneToggle: LfoButton!
-    @IBOutlet weak var lfoFilterEnvToggle: LfoButton!
-    @IBOutlet weak var lfoPitchToggle: LfoButton!
-    @IBOutlet weak var lfoBitcrushToggle: LfoButton!
-    @IBOutlet weak var lfoTremoloToggle: LfoButton!
+    @IBOutlet weak var cutoffLFOToggle: LFOToggle!
+    @IBOutlet weak var resonanceLFOToggle: LFOToggle!
+    @IBOutlet weak var oscMixLFOToggle: LFOToggle!
+    @IBOutlet weak var reverbMixLFOToggle: LFOToggle!
+    @IBOutlet weak var decayLFOToggle: LFOToggle!
+    @IBOutlet weak var noiseLFOToggle: LFOToggle!
+    @IBOutlet weak var fmModLFOToggle: LFOToggle!
+    @IBOutlet weak var detuneLFOToggle: LFOToggle!
+    @IBOutlet weak var filterEnvLFOToggle: LFOToggle!
+    @IBOutlet weak var pitchLFOToggle: LFOToggle!
+    @IBOutlet weak var bitcrushLFOToggle: LFOToggle!
+    @IBOutlet weak var tremoloLFOToggle: LFOToggle!
 
     @IBOutlet weak var lfo1Amp: MIDIKnob!
     @IBOutlet weak var lfo1Rate: MIDIKnob!
@@ -88,18 +88,18 @@ class EffectsPanelController: PanelController {
         conductor.bind(delayToggle, to: .delayOn)
         conductor.bind(lfo1Amp, to: .lfo1Amplitude)
         conductor.bind(lfo2Amp, to: .lfo2Amplitude)
-        conductor.bind(lfoCutoffToggle, to: .cutoffLFO)
-        conductor.bind(lfoRezToggle, to: .resonanceLFO)
-        conductor.bind(lfoOscMixToggle, to: .oscMixLFO)
-        conductor.bind(lfoReverbMixToggle, to: .reverbMixLFO)
-        conductor.bind(lfoDecayToggle, to: .decayLFO)
-        conductor.bind(lfoNoiseToggle, to: .noiseLFO)
-        conductor.bind(lfoFMModToggle, to: .fmLFO)
-        conductor.bind(lfoDetuneToggle, to: .detuneLFO)
-        conductor.bind(lfoFilterEnvToggle, to: .filterEnvLFO)
-        conductor.bind(lfoPitchToggle, to: .pitchLFO)
-        conductor.bind(lfoBitcrushToggle, to: .bitcrushLFO)
-        conductor.bind(lfoTremoloToggle, to: .tremoloLFO)
+        conductor.bind(cutoffLFOToggle, to: .cutoffLFO)
+        conductor.bind(resonanceLFOToggle, to: .resonanceLFO)
+        conductor.bind(oscMixLFOToggle, to: .oscMixLFO)
+        conductor.bind(reverbMixLFOToggle, to: .reverbMixLFO)
+        conductor.bind(decayLFOToggle, to: .decayLFO)
+        conductor.bind(noiseLFOToggle, to: .noiseLFO)
+        conductor.bind(fmModLFOToggle, to: .fmLFO)
+        conductor.bind(detuneLFOToggle, to: .detuneLFO)
+        conductor.bind(filterEnvLFOToggle, to: .filterEnvLFO)
+        conductor.bind(pitchLFOToggle, to: .pitchLFO)
+        conductor.bind(bitcrushLFOToggle, to: .bitcrushLFO)
+        conductor.bind(tremoloLFOToggle, to: .tremoloLFO)
         conductor.bind(lfo1WavePicker, to: .lfo1Index)
         conductor.bind(lfo2WavePicker, to: .lfo2Index)
         conductor.bind(phaserMix, to: .phaserMix)

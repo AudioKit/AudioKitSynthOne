@@ -1,5 +1,5 @@
 //
-//  LfoButton.swift
+//  LFOToggle.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 7/28/17.
@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class LfoButton: UIView, S1Control {
+class LFOToggle: UIView, S1Control {
 
     var callback: (Double) -> Void = { _ in }
     var value: Double = 0 {

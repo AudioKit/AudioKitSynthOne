@@ -1697,40 +1697,40 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
-                        <outlet property="autoPanAmount" destination="rdA-s1-Tlb" id="jWz-pZ-8AY"/>
-                        <outlet property="autoPanRate" destination="eln-Mr-bHW" id="hA8-HD-3Ul"/>
+                        <outlet property="autoPanAmountKnob" destination="rdA-s1-Tlb" id="jWz-pZ-8AY"/>
+                        <outlet property="autoPanRateKnob" destination="eln-Mr-bHW" id="hA8-HD-3Ul"/>
                         <outlet property="bitcrushLFOToggle" destination="v1h-So-avW" id="0U9-L1-Wnb"/>
                         <outlet property="cutoffLFOToggle" destination="IAH-Z9-Sao" id="9ie-ol-fVs"/>
                         <outlet property="decayLFOToggle" destination="OiO-GY-Ebf" id="JR7-1a-2ts"/>
-                        <outlet property="delayFeedback" destination="Xlx-03-xVb" id="5lS-7D-SNF"/>
-                        <outlet property="delayMix" destination="Llm-Od-P25" id="m4Q-YC-HzN"/>
-                        <outlet property="delayTime" destination="NqQ-40-D7B" id="Exo-vV-rQm"/>
+                        <outlet property="delayFeedbackKnob" destination="Xlx-03-xVb" id="5lS-7D-SNF"/>
+                        <outlet property="delayMixKnob" destination="Llm-Od-P25" id="m4Q-YC-HzN"/>
+                        <outlet property="delayTimeKnob" destination="NqQ-40-D7B" id="Exo-vV-rQm"/>
                         <outlet property="delayToggle" destination="dNU-Q8-hfi" id="o0T-2o-3gK"/>
                         <outlet property="detuneLFOToggle" destination="4fP-Q7-eqK" id="fGY-A8-NP2"/>
                         <outlet property="filterEnvLFOToggle" destination="7EN-gq-WHB" id="qci-vq-wBj"/>
                         <outlet property="fmModLFOToggle" destination="Mbh-Az-jeK" id="5EK-eZ-aJA"/>
                         <outlet property="leftNavButton" destination="Xyj-Yj-OIq" id="5yl-Za-EH7"/>
-                        <outlet property="lfo1Amp" destination="i2o-5u-jpE" id="ppX-wr-aBs"/>
-                        <outlet property="lfo1Rate" destination="mn7-Xc-1Zo" id="yaS-MZ-WhG"/>
+                        <outlet property="lfo1AmpKnob" destination="i2o-5u-jpE" id="ppX-wr-aBs"/>
+                        <outlet property="lfo1RateKnob" destination="mn7-Xc-1Zo" id="yaS-MZ-WhG"/>
                         <outlet property="lfo1WavePicker" destination="yaK-QY-gw2" id="BBl-0M-Xhd"/>
-                        <outlet property="lfo2Amp" destination="yvG-Pl-PWp" id="Vv6-HH-Lyg"/>
-                        <outlet property="lfo2Rate" destination="GiI-jY-k8h" id="rF9-PW-wCW"/>
+                        <outlet property="lfo2AmpKnob" destination="yvG-Pl-PWp" id="Vv6-HH-Lyg"/>
+                        <outlet property="lfo2RateKnob" destination="GiI-jY-k8h" id="rF9-PW-wCW"/>
                         <outlet property="lfo2WavePicker" destination="xKa-3e-MJQ" id="GRY-0D-cfA"/>
                         <outlet property="noiseLFOToggle" destination="eZZ-WL-inO" id="ZhF-1d-65b"/>
                         <outlet property="oscMixLFOToggle" destination="yMC-Nf-cet" id="GXS-yJ-H9S"/>
-                        <outlet property="phaserFeedback" destination="OG9-jw-6vI" id="cAp-2D-keT"/>
-                        <outlet property="phaserMix" destination="lPR-OD-6eO" id="xjd-d7-0rU"/>
-                        <outlet property="phaserNotchWidth" destination="3Nj-Pf-hOI" id="qdL-ZU-wBu"/>
-                        <outlet property="phaserRate" destination="iAK-8S-H7J" id="hrd-XV-FgC"/>
+                        <outlet property="phaserFeedbackKnob" destination="OG9-jw-6vI" id="cAp-2D-keT"/>
+                        <outlet property="phaserMixKnob" destination="lPR-OD-6eO" id="xjd-d7-0rU"/>
+                        <outlet property="phaserNotchWidthKnob" destination="3Nj-Pf-hOI" id="qdL-ZU-wBu"/>
+                        <outlet property="phaserRateKnob" destination="iAK-8S-H7J" id="hrd-XV-FgC"/>
                         <outlet property="pitchLFOToggle" destination="93V-FP-Ga6" id="v5H-FX-Rci"/>
                         <outlet property="resonanceLFOToggle" destination="Dd6-x5-m2h" id="h1j-xO-O7Q"/>
-                        <outlet property="reverbLowCut" destination="bfj-OE-v6r" id="UDl-GH-1bc"/>
-                        <outlet property="reverbMix" destination="Muy-Nf-8VP" id="mDk-cx-EaD"/>
+                        <outlet property="reverbLowCutKnob" destination="bfj-OE-v6r" id="UDl-GH-1bc"/>
+                        <outlet property="reverbMixKnob" destination="Muy-Nf-8VP" id="mDk-cx-EaD"/>
                         <outlet property="reverbMixLFOToggle" destination="lNJ-vo-Ird" id="Trc-3a-b6c"/>
-                        <outlet property="reverbSize" destination="QPQ-yr-Oh3" id="xLh-46-Jo1"/>
+                        <outlet property="reverbSizeKnob" destination="QPQ-yr-Oh3" id="xLh-46-Jo1"/>
                         <outlet property="reverbToggle" destination="lZX-P1-5MQ" id="uJL-2O-kdF"/>
                         <outlet property="rightNavButton" destination="8Wt-Tf-MdV" id="AbF-3S-Pte"/>
-                        <outlet property="sampleRate" destination="2OJ-Aw-oQg" id="2gF-jY-WNw"/>
+                        <outlet property="sampleRateKnob" destination="2OJ-Aw-oQg" id="2gF-jY-WNw"/>
                         <outlet property="tempoSyncToggle" destination="FF0-4H-n45" id="Nz7-gW-oep"/>
                         <outlet property="tremoloLFOToggle" destination="Pda-Ea-Gzs" id="c5m-jp-Hrf"/>
                     </connections>

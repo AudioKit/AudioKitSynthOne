@@ -1439,7 +1439,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Osc Mix"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lNJ-vo-Ird" userLabel="Lfo Reverb Toggle" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lNJ-vo-Ird" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="121" y="175" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

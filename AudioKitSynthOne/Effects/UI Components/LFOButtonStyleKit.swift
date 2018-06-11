@@ -1,5 +1,5 @@
 //
-//  LfoBtnStyleKit.swift
+//  LFOButtonStyleKit.swift
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 3/2/18.
@@ -11,12 +11,12 @@
 
 import UIKit
 
-public class LfoBtnStyleKit: NSObject {
+public class LFOButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
     @objc
-    dynamic public class func drawLfoButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 106, height: 38),
+    dynamic public class func drawLFOButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 106, height: 38),
                                             resizing: ResizingBehavior  = .aspectFit,
                                             lfoSelected: CGFloat = 5,
                                             buttonText: String = "Hello") {
@@ -79,13 +79,13 @@ public class LfoBtnStyleKit: NSObject {
             rightPressPath.fill()
         }
 
-        //// Lfo1Indicator Drawing
+        //// lfo1Indicator Drawing
         let lfo1IndicatorPath = UIBezierPath(rect: CGRect(x: 10, y: 9, width: 11, height: 18))
         offColor.setFill()
         lfo1IndicatorPath.fill()
 
         if (indicator1On) {
-            //// Lfo1Selected Drawing
+            //// lfo1Selected Drawing
             let lfo1SelectedPath = UIBezierPath(rect: CGRect(x: 10, y: 9, width: 11, height: 18))
             context.saveGState()
             context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
@@ -98,13 +98,13 @@ public class LfoBtnStyleKit: NSObject {
 
         }
 
-        //// Lfo2Indicator Drawing
+        //// lfo2Indicator Drawing
         let lfo2IndicatorPath = UIBezierPath(rect: CGRect(x: 83, y: 9, width: 11, height: 18))
         offColor.setFill()
         lfo2IndicatorPath.fill()
 
         if indicator2On {
-            //// Lfo2Selected Drawing
+            //// lfo2Selected Drawing
             let lfo2SelectedPath = UIBezierPath(rect: CGRect(x: 83, y: 9, width: 11, height: 18))
             context.saveGState()
             context.setShadow(offset: CGSize(width: shadow.shadowOffset.width * resizedShadowScale,
@@ -145,7 +145,7 @@ public class LfoBtnStyleKit: NSObject {
 
     }
 
-    @objc(LfoBtnStyleKitResizingBehavior)
+    @objc(LFOButtonStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.

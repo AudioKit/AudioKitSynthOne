@@ -143,7 +143,7 @@ extension Manager: AKMIDIListener {
     public func receivedMIDISetupChange() {
         // AKLog("midi setup change, midi.inputNames: \(midi.inputNames)")
 
-        let midiInputNames = midi.inputNames
+        let midiInputNames = AudioKit.midi.inputNames
         midiInputNames.forEach { inputName in
 
             // check to see if input exists
@@ -153,7 +153,7 @@ extension Manager: AKMIDIListener {
 
             let newMIDI = MIDIInput(name: inputName, isOpen: true)
             midiInputs.append(newMIDI)
-            midi.openInput(inputName)
+            AudioKit.midi.openInput(inputName)
         }
     }
 

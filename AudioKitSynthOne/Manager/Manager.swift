@@ -50,7 +50,6 @@ public class Manager: UpdatableViewController {
     var appSettings = AppSettings()
     var isDevView = false
 
-    let midi = AKMIDI()
     var sustainMode = false
     var sustainer: SDSustainer!
     var pcJustTriggered = false
@@ -144,9 +143,9 @@ public class Manager: UpdatableViewController {
 
         // TODO: This was marked as temporary, is it?
         DispatchQueue.global(qos: .userInteractive).async {
-            self.midi.createVirtualPorts()
-            self.midi.openInput("Session 1")
-            self.midi.addListener(self)
+            AudioKit.midi.createVirtualPorts(95433, name: "AudioKit Synth One")
+            AudioKit.midi.openInput("AudioKit Synth One")
+            AudioKit.midi.addListener(self)
         }
 
         // Pre-load views and Set initial subviews

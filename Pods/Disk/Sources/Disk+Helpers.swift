@@ -38,7 +38,7 @@ public extension Disk {
             throw error
         }
     }
-
+    
     /// Clear directory by removing all files
     ///
     /// - Parameter directory: directory to clear
@@ -54,7 +54,7 @@ public extension Disk {
             throw error
         }
     }
-
+    
     /// Remove file from the file system
     ///
     /// - Parameters:
@@ -69,7 +69,7 @@ public extension Disk {
             throw error
         }
     }
-
+    
     /// Checks if a file exists
     ///
     /// - Parameters:
@@ -82,7 +82,7 @@ public extension Disk {
         }
         return false
     }
-
+    
     /// Sets the 'do not backup' attribute of the file or folder on disk to true. This ensures that the file holding the object data does not get deleted when the user's device has low storage, but prevents this file from being stored in any backups made of the device on iTunes or iCloud.
     /// This is only useful for excluding cache and other application support files which are not needed in a backup. Some operations commonly made to user documents will cause the 'do not backup' property to be reset to false and so this should not be used on user documents.
     /// Warning: You must ensure that you will purge and handle any files created with this attribute appropriately, as these files will persist on the user's disk even in low storage situtations. If you don't handle these files appropriately, then you aren't following Apple's file system guidlines and can face App Store rejection.
@@ -99,7 +99,7 @@ public extension Disk {
             throw error
         }
     }
-
+    
     /// Sets the 'do not backup' attribute of the file or folder on disk to false. This is the default behaviour so you don't have to use this function unless you already called doNotBackup(name:directory:) on a specific file.
     /// This default backing up behaviour allows anything in the .documents and .caches directories to be stored in backups made of the user's device (on iCloud or iTunes)
     ///
@@ -114,7 +114,7 @@ public extension Disk {
             throw error
         }
     }
-
+    
     /// Move file to a new directory
     ///
     /// - Parameters:
@@ -134,7 +134,7 @@ public extension Disk {
             throw error
         }
     }
-
+    
     /// Rename a file
     ///
     /// - Parameters:

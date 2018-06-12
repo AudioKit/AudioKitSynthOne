@@ -17,8 +17,12 @@ class AboutViewController: UIViewController {
 
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var textContainer: UIView!
+    @IBOutlet weak var videoButton: SynthButton!
+    @IBOutlet weak var reviewButton: SynthButton!
+    @IBOutlet weak var githubButton: SynthButton!
+    
     weak var delegate: AboutDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,8 +35,7 @@ class AboutViewController: UIViewController {
         textContainer.layer.borderWidth = 2
         textContainer.layer.cornerRadius = 8
 
-        // background image
-        // view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
+        setupCallbacks()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -48,6 +51,31 @@ class AboutViewController: UIViewController {
         })
     }
 
+    func setupCallbacks() {
+        
+        githubButton.callback = { _ in
+            self.githubButton.value = 0
+            if let url = URL(string: "https://github.com/AudioKit/") {
+                UIApplication.shared.open(url)
+            }
+        }
+        
+        videoButton.callback = { _ in
+            self.videoButton.value = 0
+            if let url = URL(string: "http://youtu.be/hwDNgCYowYs") {
+                UIApplication.shared.open(url)
+            }
+        }
+        
+        reviewButton.callback = { _ in
+            self.reviewButton.value = 0
+            self.requestReview()
+            if let url = URL(string: "https://itunes.apple.com/us/app/audiokit-synth-one-synthesizer/id1371050497?ls=1&mt=8") {
+                UIApplication.shared.open(url)
+            }
+        }
+    }
+    
     // MARK: - IB Actions
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -59,31 +87,9 @@ class AboutViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func audioKitPressed(_ sender: UIButton) {
-        if let url = URL(string: "http://audiokitpro.com/") {
-            UIApplication.shared.open(url)
-        }
-    }
-
-    @IBAction func githubPressed(_ sender: UIButton) {
-        if let url = URL(string: "https://github.com/AudioKit/") {
-            UIApplication.shared.open(url)
-        }
-    }
-
-    @IBAction func reviewAppPressed(_ sender: UIButton) {
-        requestReview()
-    }
-
     @IBAction func devViewPressed(_ sender: UIButton) {
         delegate?.showDevView()
         dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func videoPressed(_ sender: UIButton) {
-        if let url = URL(string: "http://youtu.be/hwDNgCYowYs") {
-            UIApplication.shared.open(url)
-        }
     }
 
      @IBAction func emailPressed(_ sender: UIButton) {

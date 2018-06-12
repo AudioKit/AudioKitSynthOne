@@ -331,7 +331,7 @@ public class HeaderViewController: UpdatableViewController {
         }
 
         webButton.callback = { _ in
-            if let url = URL(string: "http://audiokitpro.com/") {
+            if let url = URL(string: "http://audiokitpro.com/synth") {
                 UIApplication.shared.open(url)
             }
         }

@@ -473,14 +473,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		C432978720C896250063F795 /* Internet */ = {
+		C432978720C896250063F795 /* About */ = {
 			isa = PBXGroup;
 			children = (
 				C4B4916220C7C72900FD565A /* AboutViewController.swift */,
 				C4B4916120C7C72900FD565A /* InfoViewController.swift */,
 				C4B4919520C7C81200FD565A /* Mailing List */,
 			);
-			path = Internet;
+			path = About;
 			sourceTree = "<group>";
 		};
 		C432978820C900390063F795 /* UI Components */ = {
@@ -922,6 +922,7 @@
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
 				C435C50220C5286B00DAECCD /* Helpers.swift */,
 				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
+				C432978720C896250063F795 /* About */,
 				947BADE71FB92D0000579BE6 /* Assets */,
 				C4B4914220C7C6E300FD565A /* Audiobus */,
 				C4F7ECA51F2446960011B119 /* Controls */,
@@ -931,7 +932,6 @@
 				C4B4919F20C7C91900FD565A /* Envelopes */,
 				C4B491A520C7C95900FD565A /* Generators */,
 				C4B4917520C7C75500FD565A /* Header */,
-				C432978720C896250063F795 /* Internet */,
 				C4B4911620C7C62A00FD565A /* Keyboard */,
 				C435C52620C52D2E00DAECCD /* MIDI */,
 				C4B4916320C7C72900FD565A /* Manager */,

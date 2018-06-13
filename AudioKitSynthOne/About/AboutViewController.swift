@@ -20,9 +20,9 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var videoButton: SynthButton!
     @IBOutlet weak var reviewButton: SynthButton!
     @IBOutlet weak var githubButton: SynthButton!
-    
+
     weak var delegate: AboutDelegate?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,30 +52,31 @@ class AboutViewController: UIViewController {
     }
 
     func setupCallbacks() {
-        
+
         githubButton.callback = { _ in
             self.githubButton.value = 0
             if let url = URL(string: "https://github.com/AudioKit/") {
                 UIApplication.shared.open(url)
             }
         }
-        
+
         videoButton.callback = { _ in
             self.videoButton.value = 0
             if let url = URL(string: "http://youtu.be/hwDNgCYowYs") {
                 UIApplication.shared.open(url)
             }
         }
-        
+
         reviewButton.callback = { _ in
             self.reviewButton.value = 0
             self.requestReview()
-            if let url = URL(string: "https://itunes.apple.com/us/app/audiokit-synth-one-synthesizer/id1371050497?ls=1&mt=8") {
+            if let url = URL(string:
+                "https://itunes.apple.com/us/app/audiokit-synth-one-synthesizer/id1371050497?ls=1&mt=8") {
                 UIApplication.shared.open(url)
             }
         }
     }
-    
+
     // MARK: - IB Actions
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

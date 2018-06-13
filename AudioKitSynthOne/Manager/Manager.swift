@@ -141,9 +141,8 @@ public class Manager: UpdatableViewController {
         // Load Presets
         displayPresetsController()
 
-        // TODO: This was marked as temporary, is it?
         DispatchQueue.global(qos: .userInteractive).async {
-            AudioKit.midi.createVirtualPorts(95433, name: "AudioKit Synth One")
+            AudioKit.midi.createVirtualPorts(95_433, name: "AudioKit Synth One")
             AudioKit.midi.openInput("AudioKit Synth One")
             AudioKit.midi.addListener(self)
         }

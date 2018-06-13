@@ -17,9 +17,9 @@ class BankEditorViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var cancelButton: SynthUIButton!
-    @IBOutlet weak var saveButton: SynthUIButton!
-    @IBOutlet weak var deleteButton: SynthUIButton!
+    @IBOutlet weak var cancelButton: SynthButton!
+    @IBOutlet weak var saveButton: SynthButton!
+    @IBOutlet weak var deleteButton: SynthButton!
 
     weak var delegate: BankPopOverDelegate?
 

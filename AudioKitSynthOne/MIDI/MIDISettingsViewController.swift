@@ -19,7 +19,7 @@ class MIDISettingsViewController: UIViewController {
 
     @IBOutlet weak var channelStepper: Stepper!
     @IBOutlet weak var channelLabel: UILabel!
-    @IBOutlet weak var resetButton: SynthUIButton!
+    @IBOutlet weak var resetButton: SynthButton!
     @IBOutlet weak var inputTable: UITableView!
     @IBOutlet weak var sleepToggle: ToggleSwitch!
     @IBOutlet weak var velocityToggle: ToggleSwitch!

@@ -23,15 +23,15 @@ public class Manager: UpdatableViewController {
     @IBOutlet weak var keyboardBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var topPanelheight: NSLayoutConstraint!
 
-    @IBOutlet weak var midiButton: SynthUIButton!
-    @IBOutlet weak var holdButton: SynthUIButton!
-    @IBOutlet weak var monoButton: SynthUIButton!
-    @IBOutlet weak var keyboardToggle: SynthUIButton!
+    @IBOutlet weak var midiButton: SynthButton!
+    @IBOutlet weak var holdButton: SynthButton!
+    @IBOutlet weak var monoButton: SynthButton!
+    @IBOutlet weak var keyboardToggle: SynthButton!
     @IBOutlet weak var octaveStepper: Stepper!
-    @IBOutlet weak var configKeyboardButton: SynthUIButton!
+    @IBOutlet weak var configKeyboardButton: SynthButton!
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
-    @IBOutlet weak var modWheelSettings: SynthUIButton!
-    @IBOutlet weak var midiLearnToggle: SynthUIButton!
+    @IBOutlet weak var modWheelSettings: SynthButton!
+    @IBOutlet weak var midiLearnToggle: SynthButton!
     @IBOutlet weak var pitchBend: AKVerticalPad!
     @IBOutlet weak var modWheelPad: AKVerticalPad!
 
@@ -50,7 +50,6 @@ public class Manager: UpdatableViewController {
     var appSettings = AppSettings()
     var isDevView = false
 
-    let midi = AKMIDI()
     var sustainMode = false
     var sustainer: SDSustainer!
     var pcJustTriggered = false
@@ -144,9 +143,9 @@ public class Manager: UpdatableViewController {
 
         // TODO: This was marked as temporary, is it?
         DispatchQueue.global(qos: .userInteractive).async {
-            self.midi.createVirtualPorts()
-            self.midi.openInput("Session 1")
-            self.midi.addListener(self)
+            AudioKit.midi.createVirtualPorts(95433, name: "AudioKit Synth One")
+            AudioKit.midi.openInput("AudioKit Synth One")
+            AudioKit.midi.addListener(self)
         }
 
         // Pre-load views and Set initial subviews

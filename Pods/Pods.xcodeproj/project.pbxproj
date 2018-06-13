@@ -64,7 +64,7 @@
 		06452771919788C5907219B718E02DD8 /* Audiobus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Audiobus.h; path = Audiobus/Audiobus.h; sourceTree = "<group>"; };
 		065B3CCACDB27892D2834438154019C5 /* Disk+[UIImage].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[UIImage].swift"; path = "Sources/Disk+[UIImage].swift"; sourceTree = "<group>"; };
 		09F632CB5FE667DD82396686904FACC2 /* ABMIDIFilterPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMIDIFilterPort.h; path = Audiobus/ABMIDIFilterPort.h; sourceTree = "<group>"; };
-		0B993D9493CECA59F2A2A634060E5C09 /* ChimpKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChimpKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B993D9493CECA59F2A2A634060E5C09 /* ChimpKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ChimpKit.framework; path = ChimpKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF783791536E9CFFEF68F919E1F0E1F /* ChimpKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ChimpKit.xcconfig; sourceTree = "<group>"; };
 		0F7F759CF811E86DF4EC64967CB85BF3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FA936B8910D1CE2C92ED1BE67B6BA4B /* Disk.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Disk.xcconfig; sourceTree = "<group>"; };
@@ -109,12 +109,12 @@
 		7DB53A52CD624F4C3ADACE93CABE6242 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B4BAD9565960422FC033430772F7F54 /* Disk+InternalHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+InternalHelpers.swift"; path = "Sources/Disk+InternalHelpers.swift"; sourceTree = "<group>"; };
 		91575ABE2757A29D52989AB9DF057871 /* CKScanViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CKScanViewController.h; path = "ChimpKit3/Helper Objects/CKScanViewController.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97013AA56CD9C839AE12329FCA285238 /* Pods-OneSignalNotificationServiceExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-OneSignalNotificationServiceExtension.modulemap"; sourceTree = "<group>"; };
 		988442AAC38C6D116D492CC34D5CDC4C /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = iOS_SDK/OneSignalSDK/Framework/OneSignal.framework; sourceTree = "<group>"; };
 		9EB82C1EA8709ACB7695A470602C4D9B /* ABButtonTrigger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABButtonTrigger.h; path = Audiobus/ABButtonTrigger.h; sourceTree = "<group>"; };
 		A057201B47432F967353E7569582AF38 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
-		A4E8E60B9A0B5A4693FDD79ED9B4C416 /* Disk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Disk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4E8E60B9A0B5A4693FDD79ED9B4C416 /* Disk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Disk.framework; path = Disk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55F7C2B92756A6B65420F5E29B65041 /* Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A92F5C8248E5AD3F534BDB84576BED05 /* Pods-AudioKitSynthOne-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AudioKitSynthOne-dummy.m"; sourceTree = "<group>"; };
 		AE7B926C797BFC705FD8738A91570352 /* Pods-AudioKitSynthOne-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AudioKitSynthOne-umbrella.h"; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		BC0287B91E45E9263D9736EA9AC5B636 /* Pods-OneSignalNotificationServiceExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OneSignalNotificationServiceExtension-dummy.m"; sourceTree = "<group>"; };
 		C89C69760AEDB61E3A7EF62A5AAB25D0 /* ABLocalPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABLocalPort.h; path = Audiobus/ABLocalPort.h; sourceTree = "<group>"; };
 		C941F48AB60F33D82C5E00682492C40D /* ABMIDIReceiverPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMIDIReceiverPort.h; path = Audiobus/ABMIDIReceiverPort.h; sourceTree = "<group>"; };
-		D79C6E5BB7901FC6C47ED50226E9CC1E /* Pods_AudioKitSynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioKitSynthOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D79C6E5BB7901FC6C47ED50226E9CC1E /* Pods_AudioKitSynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AudioKitSynthOne.framework; path = "Pods-AudioKitSynthOne.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBE258ECEA989FB53C8BEC5376A7943A /* CKAuthViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = CKAuthViewController.xib; path = "ChimpKit3/Helper Objects/CKAuthViewController.xib"; sourceTree = "<group>"; };
 		E336525DAF1E8763B79B000A3912C15D /* CKAuthViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CKAuthViewController.m; path = "ChimpKit3/Helper Objects/CKAuthViewController.m"; sourceTree = "<group>"; };
 		E4CCFF19BFB122F7A35D15D3351003EA /* ABSenderPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABSenderPort.h; path = Audiobus/ABSenderPort.h; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		E754921C6F44F65577823426F29B5C30 /* Disk+Codable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Codable.swift"; path = "Sources/Disk+Codable.swift"; sourceTree = "<group>"; };
 		E9AA0C7CDE107B2461181D0159D47F8D /* ChimpKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ChimpKit.modulemap; sourceTree = "<group>"; };
 		EACEA557B5A40B4ADDA52254A6CFC8F4 /* ChimpKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ChimpKit-dummy.m"; sourceTree = "<group>"; };
-		F1E3612F8E73C1FFB3220C61F8E482D0 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1E3612F8E73C1FFB3220C61F8E482D0 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_OneSignalNotificationServiceExtension.framework; path = "Pods-OneSignalNotificationServiceExtension.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F222185338883635869060621B219F5D /* ABPeer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPeer.h; path = Audiobus/ABPeer.h; sourceTree = "<group>"; };
 		F37709F3ED68B5BB5490660B903D2100 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F45CB80C780DB2A57285C5B7CDC289EB /* ABMultiStreamBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABMultiStreamBuffer.h; path = Audiobus/ABMultiStreamBuffer.h; sourceTree = "<group>"; };
@@ -192,6 +192,7 @@
 				6506561CA2109567A98D7896DDCEDAB7 /* Disk+VolumeInformation.swift */,
 				98F07748325AA6DE55C985DFBC1C43DA /* Support Files */,
 			);
+			name = Disk;
 			path = Disk;
 			sourceTree = "<group>";
 		};
@@ -219,6 +220,7 @@
 			children = (
 				15FCB3D03AD65105DBA2A04946FBC3C4 /* Frameworks */,
 			);
+			name = OneSignal;
 			path = OneSignal;
 			sourceTree = "<group>";
 		};
@@ -322,6 +324,7 @@
 				06452771919788C5907219B718E02DD8 /* Audiobus.h */,
 				6A269B8E59822BDDD2E3E16E3D167DEE /* Frameworks */,
 			);
+			name = Audiobus;
 			path = Audiobus;
 			sourceTree = "<group>";
 		};
@@ -379,6 +382,7 @@
 				9D7AFF6E531606E9AE8DD88C864DACA2 /* Resources */,
 				EA84A07F3CEF3BDA9978A11BB959FD88 /* Support Files */,
 			);
+			name = ChimpKit;
 			path = ChimpKit;
 			sourceTree = "<group>";
 		};
@@ -514,7 +518,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -996,7 +1000,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;

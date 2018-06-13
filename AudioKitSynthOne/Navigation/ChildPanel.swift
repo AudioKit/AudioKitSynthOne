@@ -38,7 +38,7 @@ public enum ChildPanel: Int {
     func buttonText() -> String {
         switch self {
         case .generators:
-            return "GEN"
+            return "MAIN"
         case .envelopes:
             return "ENV"
         case .touchPad:

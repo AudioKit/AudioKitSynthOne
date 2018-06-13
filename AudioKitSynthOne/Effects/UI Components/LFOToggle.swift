@@ -42,7 +42,7 @@ class LFOToggle: UIView, S1Control {
 
     // Draw Button
     override func draw(_ rect: CGRect) {
-        LfoBtnStyleKit.drawLfoButton(lfoSelected: CGFloat(value), buttonText: buttonText)
+        LFOButtonStyleKit.drawLFOButton(lfoSelected: CGFloat(value), buttonText: buttonText)
     }
 
     // MARK: - Handle Touches

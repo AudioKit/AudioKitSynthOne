@@ -240,7 +240,7 @@ class Tunings {
         retVal.append( ("14 Grady: Wilson pre-Sisiutl 17", { let s: [Double] = [ 1 / 1, 28 / 27, 9 / 8, 7 / 6, 14 / 11, 4 / 3, 11 / 8, 3 / 2, 14 / 9, 3 / 2, 14 / 9, 56 / 33, 7 / 4, 11 / 6]; return s }) )
         retVal.append( ("12 Grady: Beebalm 7-limit", { let s: [Double] = [ 1 / 1, 17 / 16, 9 / 8, 7 / 6, 5 / 4, 4 / 3, 17 / 12, 3 / 2, 14 / 9, 5 / 3, 16 / 9, 17 / 9]; return s }) )
         retVal.append( ("12 Grady: Schulter Zeta Centauri 12 tone", { let s: [Double] = [ 1 / 1, 13 / 12, 9 / 8, 7 / 6, 11 / 9, 4 / 3, 13 / 9, 3 / 2, 14 / 9, 13 / 8, 7 / 4, 11 / 6]; return s }) )
-        retVal.append( ("10 Grady: Shulter Shur", { let s: [Double] = [ 1 / 1, 27 / 26, 9 / 8, 27 / 22, 4 / 3, 18 / 13, 3 / 2, 18 / 11, 16 / 9, 24 / 13]; return s }) )
+        retVal.append( ("10 Grady: Schulter Shur", { let s: [Double] = [ 1 / 1, 27 / 26, 9 / 8, 27 / 22, 4 / 3, 18 / 13, 3 / 2, 18 / 11, 16 / 9, 24 / 13]; return s }) )
         retVal.append( ("17 Grady: Poole 17", { let s: [Double] = [ 1 / 1, 33 / 32, 13 / 12, 9 / 8, 7 / 6, 11 / 9, 14 / 11, 4 / 3, 11 / 8, 13 / 9, 3 / 2, 14 / 9, 44 / 27, 27 / 16, 7 / 4, 11 / 6, 21 / 11]; return s }) )
         retVal.append( ("10 Grady: 11-limit Helix Song", { let s: [Double] = [ 1 / 1, 9 / 8, 7 / 6, 5 / 4, 4 / 3, 11 / 8, 3 / 2, 5 / 3, 7 / 4, 11 / 6]; return s }) )
         retVal.append( ("12 David: Double 1-3-5-7 Hexany 12-Tone", { let s: [Double] = [ 1.0 / 1, 16 / 15, 35 / 32, 7 / 6, 5 / 4, 4 / 3, 7 / 5, 35 / 24, 8 / 5, 5 / 3, 7 / 4, 28 / 15]; return s }) )
@@ -253,6 +253,7 @@ class Tunings {
         retVal.append( (" 9 Grady: Wilson Meta-Pelog 1", { let s: [Double] = [ 1 / 1, 571 / 512, 153 / 128, 41 / 32, 4 / 3, 11 / 8, 209 / 128, 7 / 4, 15 / 8]; return s }) )
         retVal.append( (" 9 Grady: Wilson Meta-Pelog 2", { let s: [Double] = [ 1 / 1, 9 / 8, 19 / 16, 41 / 32, 11 / 8, 3 / 2, 13 / 8, 7 / 4, 15 / 8]; return s }) )
         retVal.append( ("10 Grady: Wilson Meta-Ptolemy 10", { let s: [Double] =  [ 1 / 1, 33 / 32, 9 / 8, 73 / 64, 5 / 4, 11 / 8, 3 / 2, 49 / 32, 27 / 16, 15 / 8]; return s }) )
+        retVal.append( ("12 Grady: Olympos Staircase", { let s: [Double] = [1/1, 28/27, 9/8, 7/6, 9/7, 4/3, 49/36, 3/2, 14/9, 12/7, 7/4, 49/27]; return s } ) )
 
         // Scales designed by Marcus Hobbs using Wilsonic
         retVal.append( (" 9 Hobbs MOS G:0.238186", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.238_186, level: 6, murchana: 0); return t.masterSet }) )
@@ -282,6 +283,10 @@ class Tunings {
         retVal.append( (" 5 Taylor MOS G: 0.232587", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.232_587, level: 5, murchana: 0 ); return t.masterSet }) )
         retVal.append( ("27 Taylor Pasadena JI 27", { let s: [Double] = [ 1.0 / 1, 81 / 80, 17 / 16, 16 / 15, 10 / 9, 9 / 8, 8 / 7, 7 / 6, 19 / 16, 6 / 5, 11 / 9, 5 / 4, 9 / 7, 21 / 16, 4 / 3, 11 / 8, 7 / 5, 3 / 2, 11 / 7, 8 / 5, 5 / 3, 13 / 8, 27 / 16, 7 / 4, 9 / 5, 11 / 6, 15 / 8 ]; return s }) )
 
+            // Harry Partch: PARTCH_43.scl Harry Partch's 43-tone pure scale
+        retVal.append( ("43 Partch", { let s: [Double] = [1/1, 81/80, 33/32, 21/20, 16/15, 12/11, 11/10, 10/9, 9/8, 8/7, 7/6, 32/27, 6/5, 11/9, 5/4, 14/11, 9/7, 21/16, 4/3, 27/20, 11/8, 7/5, 10/7, 16/11, 40/27, 3/2, 32/21, 14/9, 11/7, 8/5, 18/11, 5/3, 27/16, 12/7, 7/4, 16/9, 9/5, 20/11, 11/6, 15/8, 40/21, 64/33, 160/81]; return s } ) )
+
+        // ET
         retVal.append( (" 7 Tone Equal Temperament", { let t = AKTuningTable(); _ = t.equalTemperament(notesPerOctave: 7); return t.masterSet }) )
         retVal.append( ("31 Tone Equal Temperament", { let t = AKTuningTable(); _ = t.equalTemperament(notesPerOctave: 31); return t.masterSet }) )
         retVal.append( ("41 Tone Equal Temperament", { let t = AKTuningTable(); _ = t.equalTemperament(notesPerOctave: 41); return t.masterSet }) )

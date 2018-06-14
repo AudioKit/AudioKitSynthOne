@@ -224,8 +224,10 @@ class Tunings {
         retVal.append( ("17 Wilson North Indian:17", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian00_17(); return t.masterSet }) )
 
         /// Scales designed by Jose Garcia
+        retVal.append( ("16 Garcia: Meta Mavila (37-50-67-91)", { let s: [Double] =  [ 1/1, 1027/1024, 67/64, 559/512, 37/32, 153/128,
+            2539/2048, 167/128, 1389/1024, 91/64, 189/128, 25/16, 415/256, 225/128, 937/512, 31/16]; return s }) )
         retVal.append( ("22 Garcia: Wilson 7-limit marimba", { let s: [Double] =  [1 / 1, 28 / 27, 16 / 15, 10 / 9, 9 / 8, 7 / 6, 6 / 5, 5 / 4, 35 / 27, 4 / 3, 27 / 20, 45 / 32, 35 / 24, 3 / 2, 14 / 9, 8 / 5, 5 / 3, 27 / 16, 7 / 4, 9 / 5, 15 / 8, 35 / 18]; return s }) )
-        retVal.append( ("29 Garcia: linear 15/13-52/45 alternating", { let s: [Double] =  [1 / 1, 40 / 39, 27 / 26, 16 / 15, 128 / 117, 9 / 8, 15 / 13, 32 / 27, 6 / 5, 16 / 13, 81 / 64, 135 / 104, 4 / 3, 160 / 117, 18 / 13, 64 / 45, 512 / 351, 3 / 2, 20 / 13, 81 / 52, 8 / 5, 64 / 39, 27 / 16, 45 / 26, 16 / 9, 9 / 5, 24 / 13, 405 / 208]; return s }) )
+        retVal.append( ("29 Garcia: linear 15/13-52/45 alternating", { let s: [Double] =  [1 / 1,  40/39, 27/26, 16/15, 128/117, 9/8, 15/13, 32/27, 6/5, 16/13, 81/64, 135/104, 4/3, 160/117, 18/13, 64/45,  512/351,  3/2, 20/13, 81/52, 8/5,  64/39,  27/16,  45/26,  16/9,  9/5,  24/13,  256/135, 405/208]; return s }) )
 
         /// scales designed by Kraig Grady
         retVal.append( (" 5 Grady: S 7-limit Pentatonic", { let s: [Double] = [1 / 1, 7 / 6, 4 / 3, 3 / 2, 7 / 4]; return s }) )

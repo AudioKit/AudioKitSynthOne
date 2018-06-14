@@ -113,7 +113,7 @@ class Conductor: S1Protocol {
         #if false
             print("Logging is OFF")
         #else
-            // TODO: disable for release
+        // TODO: disable for release: @Aure is there a compiler directive to make this debug/release?
             AKSettings.enableLogging = true
             AKLog("Logging is ON")
         #endif

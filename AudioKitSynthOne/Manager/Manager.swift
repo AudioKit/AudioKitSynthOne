@@ -148,6 +148,8 @@ public class Manager: UpdatableViewController {
             AudioKit.midi.addListener(self)
         }
 
+        receivedMIDISetupChange()
+
         // Pre-load views and Set initial subviews
         switchToChildPanel(.effects, isOnTop: true)
         switchToChildPanel(.envelopes, isOnTop: true)

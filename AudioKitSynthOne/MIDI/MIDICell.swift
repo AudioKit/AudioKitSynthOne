@@ -9,13 +9,9 @@
 import UIKit
 
 class MIDICell: UITableViewCell {
-
-    // MARK: - Properties / Outlets
-
+    
     @IBOutlet weak var cellLabel: UILabel!
     var currentInput: MIDIInput?
-
-    // MARK: - Lifecycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,19 +40,14 @@ class MIDICell: UITableViewCell {
 
     }
 
-    // MARK: - Configure Cell
-
     func configureCell(midiInput: MIDIInput) {
         currentInput = midiInput
         cellLabel.text = "\(midiInput.name)"
-        //accessoryType = .checkmark
 
         if midiInput.isOpen {
             accessoryType = .checkmark
         } else {
             accessoryType = .none
         }
-
     }
-
 }

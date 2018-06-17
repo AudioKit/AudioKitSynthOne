@@ -153,7 +153,6 @@ extension Manager: AKMIDIListener {
 
             let newMIDI = MIDIInput(name: inputName, isOpen: true)
             midiInputs.append(newMIDI)
-            AudioKit.midi.openInput(inputName)
         }
     }
 

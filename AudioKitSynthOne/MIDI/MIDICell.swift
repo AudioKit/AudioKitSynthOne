@@ -9,7 +9,7 @@
 import UIKit
 
 class MIDICell: UITableViewCell {
-    
+
     @IBOutlet weak var cellLabel: UILabel!
     var currentInput: MIDIInput?
 
@@ -27,7 +27,6 @@ class MIDICell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
 
         if selected {
@@ -43,11 +42,6 @@ class MIDICell: UITableViewCell {
     func configureCell(midiInput: MIDIInput) {
         currentInput = midiInput
         cellLabel.text = "\(midiInput.name)"
-
-        if midiInput.isOpen {
-            accessoryType = .checkmark
-        } else {
-            accessoryType = .none
-        }
+        accessoryType = midiInput.isOpen ? .checkmark : .none
     }
 }

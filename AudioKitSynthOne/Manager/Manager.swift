@@ -144,7 +144,6 @@ public class Manager: UpdatableViewController {
         DispatchQueue.global(qos: .userInteractive).async {
             AudioKit.midi.createVirtualPorts(95_433, name: "AudioKit Synth One")
             AudioKit.midi.openInput("AudioKit Synth One")
-            AudioKit.midi.openInput("Session 1")
             AudioKit.midi.addListener(self)
         }
 

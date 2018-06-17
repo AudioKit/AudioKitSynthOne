@@ -151,9 +151,13 @@ extension Manager: AKMIDIListener {
                 midiInputs.remove(at: index)
             }
 
-            let newMIDI = MIDIInput(name: inputName, isOpen: true)
+            let newMIDI = MIDIInput(name: inputName, isOpen: false)
             midiInputs.append(newMIDI)
         }
+    }
+
+    public func receivedMIDISystemCommand(_ data: [MIDIByte]) {
+        // Suppress default logging - too verbose with clock messages
     }
 
 }

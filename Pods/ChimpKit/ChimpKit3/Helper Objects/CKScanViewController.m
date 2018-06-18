@@ -62,7 +62,6 @@
 																							  action:@selector(cancelButtonTapped:)];
 	}
 }
-
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
 	[CATransaction begin];
     [CATransaction setValue:[NSNumber numberWithFloat:duration] forKey:kCATransactionAnimationDuration];

@@ -9,27 +9,27 @@
 import Foundation
 
 public enum ChildPanel: Int {
-    case main = 0
-    case adsr = 1
+    case generators = 0
+    case envelopes = 1
     case touchPad = 2
-    case fx = 3
-    case arpSeq = 4
+    case effects = 3
+    case sequencer = 4
     case tunings = 5
 
     static let maxValue = 5
 
     func identifier() -> String {
         switch self {
-        case .main:
-            return "MainPanel"
-        case .adsr:
-            return "ADSRPanel"
+        case .generators:
+            return "GeneratorsPanel"
+        case .envelopes:
+            return "EnvelopesPanel"
         case .touchPad:
             return "TouchPadPanel"
-        case .fx:
-            return "FXPanel"
-        case .arpSeq:
-            return "ArpSeqPanel"
+        case .effects:
+            return "EffectsPanel"
+        case .sequencer:
+            return "SequencerPanel"
         case .tunings:
             return "TuningsPanel"
         }
@@ -37,16 +37,16 @@ public enum ChildPanel: Int {
 
     func buttonText() -> String {
         switch self {
-        case .main:
+        case .generators:
             return "MAIN"
-        case .adsr:
-            return "ADSR"
+        case .envelopes:
+            return "ENV"
         case .touchPad:
             return "PAD"
-        case .fx:
+        case .effects:
             return "FX"
-        case .arpSeq:
-            return "ARP"
+        case .sequencer:
+            return "SEQ"
         case .tunings:
             return "TUNE"
         }
@@ -55,12 +55,12 @@ public enum ChildPanel: Int {
     func leftPanel() -> ChildPanel {
         var leftValue = self.rawValue - 1
         if leftValue < 0 { leftValue = ChildPanel.maxValue }
-        return ChildPanel(rawValue: leftValue)!
+        return ChildPanel(rawValue: leftValue) ?? ChildPanel.generators
     }
 
     func rightPanel() -> ChildPanel {
         var rightValue = self.rawValue + 1
         if rightValue > ChildPanel.maxValue { rightValue = 0 }
-        return ChildPanel(rawValue: rightValue)!
+        return ChildPanel(rawValue: rightValue) ?? ChildPanel.generators
     }
 }

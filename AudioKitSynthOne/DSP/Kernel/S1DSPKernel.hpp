@@ -107,7 +107,7 @@ public:
     
     void destroy();
     
-    void updateDSPPortamento(float halfTime);
+    void updatePortamento(float halfTime);
 
     // initializeNoteStates() must be called AFTER init returns
     void initializeNoteStates();
@@ -117,47 +117,48 @@ public:
     void setWaveformValue(uint32_t waveform, uint32_t index, float value);
     
     ///parameter min
-    float parameterMin(S1Parameter i);
+    float minimum(S1Parameter i);
     
     ///parameter max
-    float parameterMax(S1Parameter i);
+    float maximum(S1Parameter i);
     
     ///parameter defaults
-    float parameterDefault(S1Parameter i);
+    float defaultValue(S1Parameter i);
     
     ///parameter unit
     AudioUnitParameterUnit parameterUnit(S1Parameter i);
     
     ///parameter clamp
-    float parameterClamp(S1Parameter i, float inputValue);
+    float clampedValue(S1Parameter i, float inputValue);
 
     ///friendly description of parameter
-    std::string parameterFriendlyName(S1Parameter i);
+    std::string friendlyName(S1Parameter i);
     
     ///C string friendly description of parameter
-    const char* parameterCStr(S1Parameter i);
+    const char* cString(S1Parameter i);
 
     ///parameter presetKey
-    std::string parameterPresetKey(S1Parameter i);
+    std::string presetKey(S1Parameter i);
 
 private:
 
-    inline void _setSynthParameter(S1Parameter param, float inputValue01);
-    
-    inline void _setSynthParameterHelper(S1Parameter param, float inputValue, bool notifyMainThread, int payload);
-    
-    inline void _rateHelper(S1Parameter param, float inputValue, bool notifyMainThread, int payload);
+    // moved the private functions to try to get rid of errors, I don't think we need to be that worried about privacy
 
-     // algebraic only
-    inline float taper01(float inputValue01, float taper);
-    inline float taper01Inverse(float inputValue01, float taper);
-
-     // > 0 algebraic, < 0 exponential
-    inline float taper(float inputValue01, float min, float max, float taper);
-    inline float taperInverse(float inputValue01, float min, float max, float taper);
-
-    // MARK: Member Variables
 public:
+
+    void _setSynthParameter(S1Parameter param, float inputValue01);
+
+    void _setSynthParameterHelper(S1Parameter param, float inputValue, bool notifyMainThread, int payload);
+
+    void _rateHelper(S1Parameter param, float inputValue, bool notifyMainThread, int payload);
+
+    // algebraic only
+    float taper01(float inputValue01, float taper);
+    float taper01Inverse(float inputValue01, float taper);
+
+    // > 0 algebraic, < 0 exponential
+    float taper(float inputValue01, float min, float max, float taper);
+    float taperInverse(float inputValue01, float min, float max, float taper);
 
     S1AudioUnit* audioUnit;
     
@@ -304,13 +305,13 @@ private:
     double arpTime = 0;
     int notesPerOctave = 12;
     
-    ///once init'd: arpSeqNotes can be accessed and mutated only within process and resetDSP
-    std::vector<SeqNoteNumber> arpSeqNotes;
-    std::vector<NoteNumber> arpSeqNotes2;
-    const int maxArpSeqNotes = 1024; // 128 midi note numbers * 4 arp octaves * up+down
+    ///once init'd: sequencerNotes can be accessed and mutated only within process and resetDSP
+    std::vector<SeqNoteNumber> sequencerNotes;
+    std::vector<NoteNumber> sequencerNotes2;
+    const int maxSequencerNotes = 1024; // 128 midi note numbers * 4 arp octaves * up+down
     
-    ///once init'd: arpSeqLastNotes can be accessed and mutated only within process and resetDSP
-    std::list<int> arpSeqLastNotes;
+    ///once init'd: sequencerLastNotes can be accessed and mutated only within process and resetDSP
+    std::list<int> sequencerLastNotes;
     
     // Array of midi note numbers of NoteState's which have had a noteOn event but not yet a noteOff event.
     NSMutableArray<NSNumber*>* heldNoteNumbers;
@@ -393,54 +394,54 @@ private:
         { arpRate,               bpm_min, 120, bpm_max, "arpRate", "arpRate", kAudioUnitParameterUnit_BPM, false, NULL},
         { arpIsSequencer,        0, 0, 1, "arpIsSequencer", "arpIsSequencer", kAudioUnitParameterUnit_Generic, false, NULL},
         { arpTotalSteps,         1, 4, 16, "arpTotalSteps", "arpTotalSteps" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern00,       -24, 0, 24, "arpSeqPattern00", "arpSeqPattern00" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern01,       -24, 0, 24, "arpSeqPattern01", "arpSeqPattern01" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern02,       -24, 0, 24, "arpSeqPattern02", "arpSeqPattern02" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern03,       -24, 0, 24, "arpSeqPattern03", "arpSeqPattern03" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern04,       -24, 0, 24, "arpSeqPattern04", "arpSeqPattern04" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern05,       -24, 0, 24, "arpSeqPattern05", "arpSeqPattern05" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern06,       -24, 0, 24, "arpSeqPattern06", "arpSeqPattern06" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern07,       -24, 0, 24, "arpSeqPattern07", "arpSeqPattern07" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern08,       -24, 0, 24, "arpSeqPattern08", "arpSeqPattern08" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern09,       -24, 0, 24, "arpSeqPattern09", "arpSeqPattern09" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern10,       -24, 0, 24, "arpSeqPattern10", "arpSeqPattern10" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern11,       -24, 0, 24, "arpSeqPattern11", "arpSeqPattern11" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern12,       -24, 0, 24, "arpSeqPattern12", "arpSeqPattern12" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern13,       -24, 0, 24, "arpSeqPattern13", "arpSeqPattern13" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern14,       -24, 0, 24, "arpSeqPattern14", "arpSeqPattern14" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqPattern15,       -24, 0, 24, "arpSeqPattern15", "arpSeqPattern15" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost00,      0, 0, 1, "arpSeqOctBoost00", "arpSeqOctBoost00" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost01,      0, 0, 1, "arpSeqOctBoost01", "arpSeqOctBoost01" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost02,      0, 0, 1, "arpSeqOctBoost02", "arpSeqOctBoost02" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost03,      0, 0, 1, "arpSeqOctBoost03", "arpSeqOctBoost03" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost04,      0, 0, 1, "arpSeqOctBoost04", "arpSeqOctBoost04" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost05,      0, 0, 1, "arpSeqOctBoost05", "arpSeqOctBoost05" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost06,      0, 0, 1, "arpSeqOctBoost06", "arpSeqOctBoost06" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost07,      0, 0, 1, "arpSeqOctBoost07", "arpSeqOctBoost07" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost08,      0, 0, 1, "arpSeqOctBoost08", "arpSeqOctBoost08" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost09,      0, 0, 1, "arpSeqOctBoost09", "arpSeqOctBoost09" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost10,      0, 0, 1, "arpSeqOctBoost10", "arpSeqOctBoost10" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost11,      0, 0, 1, "arpSeqOctBoost11", "arpSeqOctBoost11" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost12,      0, 0, 1, "arpSeqOctBoost12", "arpSeqOctBoost12" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost13,      0, 0, 1, "arpSeqOctBoost13", "arpSeqOctBoost13" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost14,      0, 0, 1, "arpSeqOctBoost14", "arpSeqOctBoost14" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqOctBoost15,      0, 0, 1, "arpSeqOctBoost15", "arpSeqOctBoost15" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn00,        0, 0, 1, "arpSeqNoteOn00", "arpSeqNoteOn00" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn01,        0, 0, 1, "arpSeqNoteOn01", "arpSeqNoteOn01" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn02,        0, 0, 1, "arpSeqNoteOn02", "arpSeqNoteOn02" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn03,        0, 0, 1, "arpSeqNoteOn03", "arpSeqNoteOn03" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn04,        0, 0, 1, "arpSeqNoteOn04", "arpSeqNoteOn04" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn05,        0, 0, 1, "arpSeqNoteOn05", "arpSeqNoteOn05" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn06,        0, 0, 1, "arpSeqNoteOn06", "arpSeqNoteOn06" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn07,        0, 0, 1, "arpSeqNoteOn07", "arpSeqNoteOn07" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn08,        0, 0, 1, "arpSeqNoteOn08", "arpSeqNoteOn08" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn09,        0, 0, 1, "arpSeqNoteOn09", "arpSeqNoteOn09" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn10,        0, 0, 1, "arpSeqNoteOn10", "arpSeqNoteOn10" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn11,        0, 0, 1, "arpSeqNoteOn11", "arpSeqNoteOn11" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn12,        0, 0, 1, "arpSeqNoteOn12", "arpSeqNoteOn12" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn13,        0, 0, 1, "arpSeqNoteOn13", "arpSeqNoteOn13" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn14,        0, 0, 1, "arpSeqNoteOn14", "arpSeqNoteOn14" , kAudioUnitParameterUnit_Generic, false, NULL},
-        { arpSeqNoteOn15,        0, 0, 1, "arpSeqNoteOn15", "arpSeqNoteOn15" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern00,       -12, 0, 12, "sequencerPattern00", "sequencerPattern00" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern01,       -12, 0, 12, "sequencerPattern01", "sequencerPattern01" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern02,       -12, 0, 12, "sequencerPattern02", "sequencerPattern02" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern03,       -12, 0, 12, "sequencerPattern03", "sequencerPattern03" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern04,       -12, 0, 12, "sequencerPattern04", "sequencerPattern04" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern05,       -12, 0, 12, "sequencerPattern05", "sequencerPattern05" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern06,       -12, 0, 12, "sequencerPattern06", "sequencerPattern06" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern07,       -12, 0, 12, "sequencerPattern07", "sequencerPattern07" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern08,       -12, 0, 12, "sequencerPattern08", "sequencerPattern08" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern09,       -12, 0, 12, "sequencerPattern09", "sequencerPattern09" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern10,       -12, 0, 12, "sequencerPattern10", "sequencerPattern10" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern11,       -12, 0, 12, "sequencerPattern11", "sequencerPattern11" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern12,       -12, 0, 12, "sequencerPattern12", "sequencerPattern12" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern13,       -12, 0, 12, "sequencerPattern13", "sequencerPattern13" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern14,       -12, 0, 12, "sequencerPattern14", "sequencerPattern14" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerPattern15,       -12, 0, 12, "sequencerPattern15", "sequencerPattern15" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost00,      0, 0, 1, "sequencerOctBoost00", "sequencerOctBoost00" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost01,      0, 0, 1, "sequencerOctBoost01", "sequencerOctBoost01" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost02,      0, 0, 1, "sequencerOctBoost02", "sequencerOctBoost02" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost03,      0, 0, 1, "sequencerOctBoost03", "sequencerOctBoost03" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost04,      0, 0, 1, "sequencerOctBoost04", "sequencerOctBoost04" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost05,      0, 0, 1, "sequencerOctBoost05", "sequencerOctBoost05" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost06,      0, 0, 1, "sequencerOctBoost06", "sequencerOctBoost06" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost07,      0, 0, 1, "sequencerOctBoost07", "sequencerOctBoost07" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost08,      0, 0, 1, "sequencerOctBoost08", "sequencerOctBoost08" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost09,      0, 0, 1, "sequencerOctBoost09", "sequencerOctBoost09" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost10,      0, 0, 1, "sequencerOctBoost10", "sequencerOctBoost10" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost11,      0, 0, 1, "sequencerOctBoost11", "sequencerOctBoost11" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost12,      0, 0, 1, "sequencerOctBoost12", "sequencerOctBoost12" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost13,      0, 0, 1, "sequencerOctBoost13", "sequencerOctBoost13" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost14,      0, 0, 1, "sequencerOctBoost14", "sequencerOctBoost14" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerOctBoost15,      0, 0, 1, "sequencerOctBoost15", "sequencerOctBoost15" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn00,        0, 0, 1, "sequencerNoteOn00", "sequencerNoteOn00" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn01,        0, 0, 1, "sequencerNoteOn01", "sequencerNoteOn01" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn02,        0, 0, 1, "sequencerNoteOn02", "sequencerNoteOn02" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn03,        0, 0, 1, "sequencerNoteOn03", "sequencerNoteOn03" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn04,        0, 0, 1, "sequencerNoteOn04", "sequencerNoteOn04" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn05,        0, 0, 1, "sequencerNoteOn05", "sequencerNoteOn05" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn06,        0, 0, 1, "sequencerNoteOn06", "sequencerNoteOn06" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn07,        0, 0, 1, "sequencerNoteOn07", "sequencerNoteOn07" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn08,        0, 0, 1, "sequencerNoteOn08", "sequencerNoteOn08" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn09,        0, 0, 1, "sequencerNoteOn09", "sequencerNoteOn09" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn10,        0, 0, 1, "sequencerNoteOn10", "sequencerNoteOn10" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn11,        0, 0, 1, "sequencerNoteOn11", "sequencerNoteOn11" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn12,        0, 0, 1, "sequencerNoteOn12", "sequencerNoteOn12" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn13,        0, 0, 1, "sequencerNoteOn13", "sequencerNoteOn13" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn14,        0, 0, 1, "sequencerNoteOn14", "sequencerNoteOn14" , kAudioUnitParameterUnit_Generic, false, NULL},
+        { sequencerNoteOn15,        0, 0, 1, "sequencerNoteOn15", "sequencerNoteOn15" , kAudioUnitParameterUnit_Generic, false, NULL},
         { filterType,            0, 0, 2, "filterType", "filterType" , kAudioUnitParameterUnit_Generic, false, NULL},
         { phaserMix,             0, 0, 1, "phaserMix", "phaserMix" , kAudioUnitParameterUnit_Generic, true, NULL},
         { phaserRate,            1, 12, 300, "phaserRate", "phaserRate" , kAudioUnitParameterUnit_Hertz, true, NULL},

@@ -8,8 +8,16 @@
 
 #import "S1DSPKernel.hpp"
 
+// algebraic taper and inverse for input range [0,1]
+float S1DSPKernel::taper01(float inputValue01, float taper) {
+    return powf(inputValue01, 1.f / taper);
+}
+float S1DSPKernel::taper01Inverse(float inputValue01, float taper) {
+    return powf(inputValue01, taper);
+}
+
 // algebraic and exponential taper and inverse generalized for all ranges
-inline float S1DSPKernel::taper(float inputValue01, float min, float max, float taper) {
+float S1DSPKernel::taper(float inputValue01, float min, float max, float taper) {
     if ( (min == 0.f || max == 0.f) && (taper < 0.f) ) {
         printf("can have a negative taper with a range that includes 0\n");
         return min;
@@ -24,7 +32,7 @@ inline float S1DSPKernel::taper(float inputValue01, float min, float max, float 
     }
 }
 
-inline float S1DSPKernel::taperInverse(float inputValue01, float min, float max, float taper) {
+float S1DSPKernel::taperInverse(float inputValue01, float min, float max, float taper) {
     if ((min == 0.f || max == 0.f) && taper < 0.f) {
         printf("can have a negative taper with a range that includes 0\n");
         return min;

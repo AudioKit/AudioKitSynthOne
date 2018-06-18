@@ -1,10 +1,11 @@
 # AudioKit Synth One
 
-![Screenshot](http://audiokitpro.com/images/ak1.gif)
+![screenshot](https://audiokitpro.com/wp-content/uploads/2018/04/top3.jpg)
 
 We've open-sourced the code for this synthesizer so that everyone is able to make changes to the code,
 introduce new features, fix bugs, improve efficiency, and keep the synthesizer up-to-date with all
-new capabilities of the base operating system.
+new capabilities of the base operating system.  
+![Screenshot](http://audiokitpro.com/images/ak1.gif)
 
 ## Master and Develop Branches
 

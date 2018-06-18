@@ -23,10 +23,10 @@ class Conductor: S1Protocol {
     var bindings: [(S1Parameter, S1Control)] = []
     var heldNoteCount: Int = 0
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
-    let lfo1RateFXPanelID: Int32 = 1
-    let lfo2RateFXPanelID: Int32 = 2
-    let autoPanFXPanelID: Int32 = 3
-    let delayTimeFXPanelID: Int32 = 4
+    let lfo1RateEffectsPanelID: Int32 = 1
+    let lfo2RateEffectsPanelID: Int32 = 2
+    let autoPanEffectsPanelID: Int32 = 3
+    let delayTimeEffectsPanelID: Int32 = 4
     let lfo1RateTouchPadID: Int32 = 5
     let lfo1RateModWheelID: Int32 = 6
     let lfo2RateModWheelID: Int32 = 7
@@ -84,7 +84,7 @@ class Conductor: S1Protocol {
         }
 
         // View controllers can own objects which are not updated by the bindings scheme.
-        // For example, ADSRPanel has AKADSRView's which do not conform to S1Control
+        // For example, EnvelopesPanel has AKADSRView's which do not conform to S1Control
         viewControllers.forEach {
             $0.updateUI(parameter, control: inputControl, value: inputValue)
         }
@@ -113,7 +113,7 @@ class Conductor: S1Protocol {
         #if false
             print("Logging is OFF")
         #else
-            //TODO:disable for release
+        // TODO: disable for release: @Aure is there a compiler directive to make this debug/release?
             AKSettings.enableLogging = true
             AKLog("Logging is ON")
         #endif
@@ -141,23 +141,26 @@ class Conductor: S1Protocol {
             try AudioKit.start()
         } catch {
             AKLog("AudioKit did not start! \(error)")
-            //TODO:Handle synth start failure
+            // TODO: Handle synth start failure
         }
         started = true
 
-        // IAA Host Icon
-        audioUnitPropertyListener = AudioUnitPropertyListener { (audioUnit, _) in
-            let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController }) as? HeaderViewController
-            headerVC?.hostAppIcon.image = AudioOutputUnitGetHostIcon(AudioKit.engine.outputNode.audioUnit!, 44)
-        }
+        if let au = AudioKit.engine.outputNode.audioUnit {
+            // IAA Host Icon
+            audioUnitPropertyListener = AudioUnitPropertyListener { (_, _) in
+                let headerVC = self.viewControllers.first(where: { $0 is HeaderViewController })
+                    as? HeaderViewController
 
-        do {
-            try AudioKit.engine.outputNode.audioUnit!.add(listener: audioUnitPropertyListener,
-                                                          toProperty: kAudioUnitProperty_IsInterAppConnected)
-        } catch {
-            AKLog("Unsuccessful")
-        }
+                headerVC?.hostAppIcon.image = AudioOutputUnitGetHostIcon(au, 44)
+            }
 
+            do {
+                try au.add(listener: audioUnitPropertyListener,
+                           toProperty: kAudioUnitProperty_IsInterAppConnected)
+            } catch {
+                AKLog("Unsuccessful")
+            }
+        }
         Audiobus.start()
     }
 
@@ -175,10 +178,12 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func dependentParameterDidChange(_ parameter: DependentParameter) {
-        let fxPanel = self.viewControllers.first(where: { $0 is FXPanel }) as? FXPanel
-        fxPanel?.dependentParameterDidChange(parameter)
+        let effectsPanel = self.viewControllers.first(where: { $0 is EffectsPanelController })
+            as? EffectsPanelController
+        effectsPanel?.dependentParameterDidChange(parameter)
 
-        let touchPadPanel = self.viewControllers.first(where: { $0 is TouchPadPanel }) as? TouchPadPanel
+        let touchPadPanel = self.viewControllers.first(where: { $0 is TouchPadPanelController })
+            as? TouchPadPanelController
         touchPadPanel?.dependentParameterDidChange(parameter)
 
         let manager = self.viewControllers.first(where: { $0 is Manager }) as? Manager
@@ -187,8 +192,9 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {
-        let arpSeqPanel = self.viewControllers.first(where: { $0 is ArpSeqPanel }) as? ArpSeqPanel
-        arpSeqPanel?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
+        let sequencerPanel = self.viewControllers.first(where: { $0 is SequencerPanelController })
+            as? SequencerPanelController
+        sequencerPanel?.updateLED(beatCounter: Int(beat.beatCounter), heldNotes: self.heldNoteCount)
     }
 
     // called by DSP on main thread
@@ -198,7 +204,8 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func playingNotesDidChange(_ playingNotes: PlayingNotes) {
-        let tuningsPanel = self.viewControllers.first(where: { $0 is TuningsPanel }) as? TuningsPanel
+        let tuningsPanel = self.viewControllers.first(where: { $0 is TuningsPanelController })
+            as? TuningsPanelController
         tuningsPanel?.playingNotesDidChange(playingNotes)
     }
 

@@ -8,14 +8,6 @@
 
 #import "S1DSPKernel.hpp"
 
-// algebraic taper and inverse for input range [0,1]
-inline float S1DSPKernel::taper01(float inputValue01, float taper) {
-    return powf(inputValue01, 1.f / taper);
-}
-inline float S1DSPKernel::taper01Inverse(float inputValue01, float taper) {
-    return powf(inputValue01, taper);
-}
-
 float S1DSPKernel::getDependentParameter(S1Parameter parameter) {
 
     if (parameter == pitchbend) {
@@ -50,8 +42,8 @@ void S1DSPKernel::setDependentParameter(S1Parameter param, float inputValue01, i
                 _setSynthParameterHelper(param, val, notify, payload);
             } else {
                 // no tempo sync
-                const float min = parameterMin(param);
-                const float max = parameterMax(param);
+                const float min = minimum(param);
+                const float max = maximum(param);
                 const float taperValue01 = taper01(inputValue01, S1_DEPENDENT_PARAM_TAPER);
                 const float val = min + taperValue01 * (max - min);
                 _setSynthParameterHelper(param, val, notify, payload);
@@ -66,8 +58,8 @@ void S1DSPKernel::setDependentParameter(S1Parameter param, float inputValue01, i
                 _setSynthParameterHelper(delayTime, val, notify, payload);
             } else {
                 // no tempo sync
-                const float min = parameterMin(delayTime);
-                const float max = parameterMax(delayTime);
+                const float min = minimum(delayTime);
+                const float max = maximum(delayTime);
                 const float taperValue01 = taper01(inputValue01, S1_DEPENDENT_PARAM_TAPER);
                 const float val = min + taperValue01 * (max - min);
                 _setSynthParameterHelper(delayTime, val, notify, payload);
@@ -75,8 +67,8 @@ void S1DSPKernel::setDependentParameter(S1Parameter param, float inputValue01, i
             break;
         case pitchbend:
         {
-            const float min = parameterMin(param);
-            const float max = parameterMax(param);
+            const float min = minimum(param);
+            const float max = maximum(param);
             const float val = min + inputValue01 * (max - min);
             _setSynthParameterHelper(pitchbend, val, notify, payload);
         }

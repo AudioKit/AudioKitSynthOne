@@ -90,7 +90,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
 
     // copy default dsp values
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
-        const float value = parameterDefault((S1Parameter)i);
+        const float value = defaultValue((S1Parameter)i);
         if (s1p[i].usePortamento) {
             s1p[i].portamentoTarget = value;
             sp_port_create(&s1p[i].portamento);
@@ -99,7 +99,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
         }
         p[i] = value;
     }
-    updateDSPPortamento(p[portamentoHalfTime]);
+    updatePortamento(p[portamentoHalfTime]);
     
     _lfo1Rate = {S1Parameter::lfo1Rate, getDependentParameter(lfo1Rate), getSynthParameter(lfo1Rate),0};
     _lfo2Rate = {S1Parameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};
@@ -149,9 +149,9 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     loPassInputDelayR->res = getSynthParameter(delayInputResonance);
 
     // Reserve arp note cache to reduce possibility of reallocation on audio thread.
-    arpSeqNotes.reserve(maxArpSeqNotes);
-    arpSeqNotes2.reserve(maxArpSeqNotes);
-    arpSeqLastNotes.resize(maxArpSeqNotes);
+    sequencerNotes.reserve(maxSequencerNotes);
+    sequencerNotes2.reserve(maxSequencerNotes);
+    sequencerLastNotes.resize(maxSequencerNotes);
     
     aePlayingNotes.polyphony = S1_MAX_POLYPHONY;
     

@@ -62,10 +62,10 @@ extension Manager: HeaderDelegate {
 
     func homePressed() {
         // Display Osc View when user clicks on AudioKit Synth One logo
-        if bottomChildPanel == .main {
-            switchToChildPanel(.adsr, isOnTop: false)
+        if bottomChildPanel == .generators {
+            switchToChildPanel(.envelopes, isOnTop: false)
         }
-        switchToChildPanel(.main, isOnTop: true)
+        switchToChildPanel(.generators, isOnTop: true)
     }
 
     func devPressed() {

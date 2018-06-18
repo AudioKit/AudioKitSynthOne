@@ -31,12 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                         settings: onesignalInitSettings)
 
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
-
-        // TODO: Remove these commented out lines or uncomment them
-//        OneSignal.promptForPushNotifications(userResponse: { accepted in
-//            print("User accepted notifications: \(accepted)")
-//        })
-
         return true
     }
 
@@ -48,25 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         UIApplication.shared.isIdleTimerDisabled = conductor.neverSleep
-
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // TODO: Remove these commented out lines or uncomment them
-//        if !conductor.backgroundAudioOn {
-//            conductor.stopEngine()
-//        }
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-
-        // TODO: Remove these commented out lines or uncomment them
-//        if !conductor.backgroundAudioOn {
-//            conductor.startEngine(completionHandler: {
-//                // Audiobus.start()
-//            })
-//        }
-
     }
 
     func toggleDontSleepOn() {

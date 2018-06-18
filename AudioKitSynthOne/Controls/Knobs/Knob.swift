@@ -73,7 +73,11 @@ public class Knob: UIView, S1Control {
     }
 
     public override func draw(_ rect: CGRect) {
-        KnobStyleKit.drawKnobOne(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height), knobValue: knobValue)
+        KnobStyleKit.drawKnobOne(frame: CGRect(x: 0,
+                                               y: 0,
+                                               width: self.bounds.width,
+                                               height: self.bounds.height),
+                                 knobValue: knobValue)
     }
 
     // Helper

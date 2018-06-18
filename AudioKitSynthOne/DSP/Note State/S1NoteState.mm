@@ -210,12 +210,12 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     //FM LFO
     float fmOscIndx = getParam(fmAmount);
     if (getParam(fmLFO) == 1.f)
-        fmOscIndx = getParam(fmAmount) * lfo1_1_0;
+        fmOscIndx *= lfo1_1_0;
     else if (getParam(fmLFO) == 2.f)
-        fmOscIndx = getParam(fmAmount) * lfo2_1_0;
+        fmOscIndx *= lfo2_1_0;
     else if (getParam(fmLFO) == 3.f)
-        fmOscIndx = getParam(fmAmount) * lfo3_1_0;
-    fmOscIndx = kernel->parameterClamp(fmAmount, fmOscIndx);
+        fmOscIndx *= lfo3_1_0;
+    fmOscIndx = kernel->clampedValue(fmAmount, fmOscIndx);
     fmOsc->indx = fmOscIndx;
     
     //ADSR
@@ -230,7 +230,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
         dec *= lfo2_1_0;
     else if (getParam(decayLFO) == 3.f)
         dec *= lfo3_1_0;
-    dec = kernel->parameterClamp(decayDuration, dec);
+    dec = kernel->clampedValue(decayDuration, dec);
     adsr->dec = dec;
     
     //ADSR sustain LFO
@@ -246,11 +246,11 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     //OSCMORPH CROSSFADE
     float crossFadePos = getParam(morphBalance);
     if (getParam(oscMixLFO) == 1.f)
-        crossFadePos = getParam(morphBalance) + lfo1_0_1;
+        crossFadePos += lfo1_0_1;
     else if (getParam(oscMixLFO) == 2.f)
-        crossFadePos = getParam(morphBalance) + lfo2_0_1;
+        crossFadePos += lfo2_0_1;
     else if (getParam(oscMixLFO) == 3.f)
-        crossFadePos = getParam(morphBalance) + lfo3_0_1;
+        crossFadePos += lfo3_0_1;
     crossFadePos = clamp(crossFadePos, 0.f, 1.f);
     morphCrossFade->pos = crossFadePos;
     
@@ -265,7 +265,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
         filterResonance *= lfo2_1_0;
     else if (getParam(resonanceLFO) == 3)
         filterResonance *= lfo3_1_0;
-    filterResonance = kernel->parameterClamp(resonance, filterResonance);
+    filterResonance = kernel->clampedValue(resonance, filterResonance);
     if (getParam(filterType) == 0) {
         loPass->res = filterResonance;
     } else if (getParam(filterType) == 1) {
@@ -311,7 +311,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     
     // filter frequency mixer
     filterCutoffFreq -= filterCutoffFreq * filterEnvLFOMix * (1.f - filter);
-    filterCutoffFreq = kernel->parameterClamp(cutoff, filterCutoffFreq);
+    filterCutoffFreq = kernel->clampedValue(cutoff, filterCutoffFreq);
     loPass->freq = filterCutoffFreq;
     bandPass->freq = filterCutoffFreq;
     hiPass->freq = filterCutoffFreq;

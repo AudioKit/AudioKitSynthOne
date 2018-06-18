@@ -10,12 +10,8 @@ import UIKit
 
 class MIDICell: UITableViewCell {
 
-    // MARK: - Properties / Outlets
-
     @IBOutlet weak var cellLabel: UILabel!
     var currentInput: MIDIInput?
-
-    // MARK: - Lifecycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +27,6 @@ class MIDICell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
 
         if selected {
@@ -44,19 +39,9 @@ class MIDICell: UITableViewCell {
 
     }
 
-    // MARK: - Configure Cell
-
     func configureCell(midiInput: MIDIInput) {
         currentInput = midiInput
         cellLabel.text = "\(midiInput.name)"
-        //accessoryType = .checkmark
-
-        if midiInput.isOpen {
-            accessoryType = .checkmark
-        } else {
-            accessoryType = .none
-        }
-
+        accessoryType = midiInput.isOpen ? .checkmark : .none
     }
-
 }

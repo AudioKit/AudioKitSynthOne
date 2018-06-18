@@ -14,9 +14,9 @@
 void S1DSPKernel::resetDSP() {
     [heldNoteNumbers removeAllObjects];
     [heldNoteNumbersAE updateWithContentsOfArray:heldNoteNumbers];
-    arpSeqLastNotes.clear();
-    arpSeqNotes.clear();
-    arpSeqNotes2.clear();
+    sequencerLastNotes.clear();
+    sequencerNotes.clear();
+    sequencerNotes2.clear();
     arpBeatCounter = 0;
     _setSynthParameter(arpIsOn, 0.f);
     monoNote->clear();

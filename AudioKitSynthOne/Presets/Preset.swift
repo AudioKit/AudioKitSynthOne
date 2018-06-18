@@ -37,7 +37,7 @@ class Preset: Codable {
     var vcoBalance = 0.5 // VCO1/VCO2 Mix
     var subVolume = 0.0 // SubOsc Mix
     var fmVolume = 0.0 // FM Mix
-    var fmAmount = 0.0 // FM Modulation Amt
+    var fmAmount = 0.0 // FM Modulation
     var noiseVolume = 0.0 // Noise Mix
 
     var cutoff = 2_000.0 // Cutoff Knob Position
@@ -155,7 +155,7 @@ class Preset: Codable {
     var tuningMasterSet: [Double]?
 
         // MARK: - Init
-    
+
     init() {}
 
     convenience init(position: Int) {

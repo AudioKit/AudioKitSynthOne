@@ -73,42 +73,42 @@ import AudioKit
 
     open func getPattern(forIndex inputIndex: Int) -> Int {
         let index = (0...15).clamp(inputIndex)
-        let aspi = Int32(Int(S1Parameter.arpSeqPattern00.rawValue) + index)
+        let aspi = Int32(Int(S1Parameter.sequencerPattern00.rawValue) + index)
         guard let aspp = S1Parameter(rawValue: aspi) else { return 0 }
         return Int(getSynthParameter(aspp))
     }
 
     open func setPattern(forIndex inputIndex: Int, _ value: Int) {
         let index = Int32((0...15).clamp(inputIndex))
-        let aspi = Int32(S1Parameter.arpSeqPattern00.rawValue + index)
+        let aspi = Int32(S1Parameter.sequencerPattern00.rawValue + index)
         guard let aspp = S1Parameter(rawValue: aspi) else { return }
         internalAU?.setSynthParameter(aspp, value: Float(value) )
     }
 
     open func getOctaveBoost(forIndex inputIndex: Int) -> Bool {
         let index = (0...15).clamp(inputIndex)
-        let asni = Int32(Int(S1Parameter.arpSeqOctBoost00.rawValue) + index)
+        let asni = Int32(Int(S1Parameter.sequencerOctBoost00.rawValue) + index)
         guard let asnp = S1Parameter(rawValue: asni) else { return false }
         return getSynthParameter(asnp) > 0 ? true : false
     }
 
     open func setOctaveBoost(forIndex inputIndex: Int, _ value: Double) {
         let index = Int32((0...15).clamp(inputIndex))
-        let aspi = Int32(S1Parameter.arpSeqOctBoost00.rawValue + index)
+        let aspi = Int32(S1Parameter.sequencerOctBoost00.rawValue + index)
         guard let aspp = S1Parameter(rawValue: aspi) else { return }
         internalAU?.setSynthParameter(aspp, value: Float(value) )
     }
 
     open func isNoteOn(forIndex inputIndex: Int) -> Bool {
         let index = (0...15).clamp(inputIndex)
-        let asoi = Int32(Int(S1Parameter.arpSeqNoteOn00.rawValue) + index)
+        let asoi = Int32(Int(S1Parameter.sequencerNoteOn00.rawValue) + index)
         guard let asop = S1Parameter(rawValue: asoi) else { return false }
         return ( getSynthParameter(asop) > 0 ) ? true : false
     }
 
     open func setNoteOn(forIndex inputIndex: Int, _ value: Bool) {
         let index = Int32((0...15).clamp(inputIndex))
-        let aspi = Int32(S1Parameter.arpSeqNoteOn00.rawValue + index)
+        let aspi = Int32(S1Parameter.sequencerNoteOn00.rawValue + index)
         guard let aspp = S1Parameter(rawValue: aspi) else { return }
         internalAU?.setSynthParameter(aspp, value: Float(value == true ? 1 : 0) )
     }

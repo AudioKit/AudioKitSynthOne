@@ -20,26 +20,26 @@ extension Manager: EmbeddedViewsDelegate {
         }
 
         switch newView {
-        case .adsr:
-            add(asChildViewController: adsrPanel, isTopContainer: isOnTop)
-            adsrPanel.navDelegate = self
-            adsrPanel.isTopContainer = isOnTop
-        case .main:
-            add(asChildViewController: mainPanel, isTopContainer: isOnTop)
-            mainPanel.navDelegate = self
-            mainPanel.isTopContainer = isOnTop
+        case .envelopes:
+            add(asChildViewController: envelopesPanel, isTopContainer: isOnTop)
+            envelopesPanel.navDelegate = self
+            envelopesPanel.isTopContainer = isOnTop
+        case .generators:
+            add(asChildViewController: generatorsPanel, isTopContainer: isOnTop)
+            generatorsPanel.navDelegate = self
+            generatorsPanel.isTopContainer = isOnTop
         case .touchPad:
             add(asChildViewController: touchPadPanel, isTopContainer: isOnTop)
             touchPadPanel.navDelegate = self
             touchPadPanel.isTopContainer = isOnTop
-        case .fx:
+        case .effects:
             add(asChildViewController: fxPanel, isTopContainer: isOnTop)
             fxPanel.navDelegate = self
             fxPanel.isTopContainer = isOnTop
-        case .arpSeq:
-            add(asChildViewController: arpSeqPanel, isTopContainer: isOnTop)
-            arpSeqPanel.navDelegate = self
-            arpSeqPanel.isTopContainer = isOnTop
+        case .sequencer:
+            add(asChildViewController: sequencerPanel, isTopContainer: isOnTop)
+            sequencerPanel.navDelegate = self
+            sequencerPanel.isTopContainer = isOnTop
         case .tunings:
             add(asChildViewController: tuningsPanel, isTopContainer: isOnTop)
             tuningsPanel.navDelegate = self
@@ -55,9 +55,9 @@ extension Manager: EmbeddedViewsDelegate {
         // Update NavButtons
 
         // Get all Child Synth Panels
-        var synthPanels = [Panel]()
+        var synthPanels = [PanelController]()
         for view in childViewControllers {
-            guard let synthPanel = view as? Panel else { continue }
+            guard let synthPanel = view as? PanelController else { continue }
             synthPanels.append(synthPanel)
         }
 

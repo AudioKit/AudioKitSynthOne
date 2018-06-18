@@ -9,18 +9,18 @@
 #import "S1DSPKernel.hpp"
 
 ///parameter min
-float S1DSPKernel::parameterMin(S1Parameter i) {
+float S1DSPKernel::minimum(S1Parameter i) {
     return s1p[i].minimum;
 }
 
 ///parameter max
-float S1DSPKernel::parameterMax(S1Parameter i) {
+float S1DSPKernel::maximum(S1Parameter i) {
     return s1p[i].maximum;
 }
 
 ///parameter defaults
-float S1DSPKernel::parameterDefault(S1Parameter i) {
-    return parameterClamp(i, s1p[i].defaultValue);
+float S1DSPKernel::defaultValue(S1Parameter i) {
+    return clampedValue(i, s1p[i].defaultValue);
 }
 
 AudioUnitParameterUnit S1DSPKernel::parameterUnit(S1Parameter i) {
@@ -28,25 +28,25 @@ AudioUnitParameterUnit S1DSPKernel::parameterUnit(S1Parameter i) {
 }
 
 ///return clamped value
-float S1DSPKernel::parameterClamp(S1Parameter i, float inputValue) {
-    const float paramMin = s1p[i].minimum;
-    const float paramMax = s1p[i].maximum;
-    const float retVal = std::min(std::max(inputValue, paramMin), paramMax);
-    return retVal;
+float S1DSPKernel::clampedValue(S1Parameter i, float inputValue) {
+    const float minimum = s1p[i].minimum;
+    const float maximum = s1p[i].maximum;
+    const float clampedValue = std::min(std::max(inputValue, minimum), maximum);
+    return clampedValue;
 }
 
 ///parameter friendly name as c string
-const char* S1DSPKernel::parameterCStr(S1Parameter i) {
+const char* S1DSPKernel::cString(S1Parameter i) {
     return s1p[i].friendlyName.c_str();
 }
 
 ///parameter friendly name
-std::string S1DSPKernel::parameterFriendlyName(S1Parameter i) {
+std::string S1DSPKernel::friendlyName(S1Parameter i) {
     return s1p[i].friendlyName;
 }
 
 ///parameter presetKey
-std::string S1DSPKernel::parameterPresetKey(S1Parameter i) {
+std::string S1DSPKernel::presetKey(S1Parameter i) {
     return s1p[i].presetKey;
 }
 
@@ -68,8 +68,8 @@ AUValue S1DSPKernel::getParameter(AUParameterAddress address) {
 
 void S1DSPKernel::startRamp(AUParameterAddress address, AUValue value, AUAudioFrameCount duration) {}
 
-void S1DSPKernel::updateDSPPortamento(float halfTime) {
-    const float ht = parameterClamp(portamentoHalfTime, halfTime);
+void S1DSPKernel::updatePortamento(float halfTime) {
+    const float ht = clampedValue(portamentoHalfTime, halfTime);
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
         if (s1p[i].usePortamento) {
             s1p[i].portamento->htime = ht;

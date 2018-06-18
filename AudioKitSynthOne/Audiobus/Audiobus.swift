@@ -45,9 +45,11 @@ class Audiobus {
 
     var controller: ABAudiobusController
 
+    // swiftlint:disable force_unwrapping
     var audioUnit: AudioUnit {
         return AudioKit.engine.outputNode.audioUnit!
     }
+    // swiftlint:enable force_unwrapping
 
     init(apiKey: String) {
         self.controller = ABAudiobusController(apiKey: apiKey)
@@ -193,8 +195,8 @@ private extension AudioUnit {
     }
 
     func isConnectedToInterAppAudio(nodeOfType type: OSType) -> Bool {
-        let value: AudioComponentDescription = try! getValue(
-            forProperty: kAudioOutputUnitProperty_NodeComponentDescription)
+        guard let value: AudioComponentDescription = try? getValue(
+            forProperty: kAudioOutputUnitProperty_NodeComponentDescription) else { return false }
         return value.componentType == type
     }
 

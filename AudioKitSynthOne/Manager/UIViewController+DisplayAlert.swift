@@ -9,8 +9,6 @@
 import UIKit
 import StoreKit
 
-// TODO: This poorly named or has too many different thing in it
-
 // Display AlertViewController (Pop-up message)
 extension UIViewController {
 
@@ -47,8 +45,8 @@ extension UIViewController {
             SKStoreReviewController.requestReview()
         } else {
             // Fallback on earlier versions
-            // TODO: Add Review URL
-            //openURL("https://itunes.apple.com/us/app/fm-player-classic-dx-synths/id1307785646?ls=1&mt=8")
+            // TODO: @MATT openURL doesn't exist anymore, can you check this?
+            // openURL("https://itunes.apple.com/us/app/audiokit-synth-one-synthesizer/id1371050497?ls=1&mt=8")
         }
     }
 

@@ -19,7 +19,7 @@ class MIDISettingsViewController: UIViewController {
 
     @IBOutlet weak var channelStepper: Stepper!
     @IBOutlet weak var channelLabel: UILabel!
-    @IBOutlet weak var resetButton: SynthUIButton!
+    @IBOutlet weak var resetButton: SynthButton!
     @IBOutlet weak var inputTable: UITableView!
     @IBOutlet weak var sleepToggle: ToggleSwitch!
     @IBOutlet weak var velocityToggle: ToggleSwitch!
@@ -59,7 +59,6 @@ class MIDISettingsViewController: UIViewController {
         sleepToggle.value = conductor.neverSleep ? 1 : 0
         velocityToggle.value = velocitySensitive ? 1 : 0
         saveTuningToggle.value = saveTuningWithPreset ? 1 : 0
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -184,15 +183,12 @@ extension MIDISettingsViewController: UITableViewDelegate {
         midiInput.isOpen = !midiInput.isOpen
         inputTable.reloadData()
 
-        /*
         // Open / Close MIDI Input
         if midiInput.isOpen {
-            conductor.midi.openInput(midiInput.name)
+            AudioKit.midi.openInput(midiInput.name)
         } else {
-            conductor.midi.closeInput(midiInput.name)
-            
+            AudioKit.midi.closeInput(midiInput.name)
         }
-        */
     }
 
 }

@@ -30,7 +30,7 @@ extension Manager {
                 }
             }
         }
-        
+       
         // DEV PANEL
         devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
         devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
@@ -156,6 +156,9 @@ extension Manager {
         appSettings.darkMode = keyboardView.darkMode
         appSettings.showKeyboard = keyboardToggle.value
 
+        // State
+        appSettings.currentBankIndex = presetsViewController.bankIndex
+        appSettings.currentPresetIndex = activePreset.position
         appSettings.plotFilled = generatorsPanel.isAudioPlotFilled
         saveAppSettings()
     }

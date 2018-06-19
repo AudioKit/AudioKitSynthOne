@@ -322,8 +322,6 @@ extension PresetsViewController {
         // Smoothly cycle through presets if MIDI input is greater than preset count
         let currentPresetIndex = index % (presetsInBank.count)
 
-        AKLog ("currentPresetIndex \(currentPresetIndex)")
-
         currentPreset = presetsInBank[currentPresetIndex]
         selectCurrentPreset()
     }

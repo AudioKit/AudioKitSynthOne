@@ -13,6 +13,7 @@ protocol MIDISettingsPopOverDelegate: AnyObject {
     func didSelectMIDIChannel(newChannel: Int)
     func didToggleVelocity()
     func storeTuningWithPresetDidChange(_ value: Bool)
+    func didChangeMIDISources(_ midiSources: [MIDIInput])
 }
 
 class MIDISettingsViewController: UIViewController {
@@ -189,6 +190,8 @@ extension MIDISettingsViewController: UITableViewDelegate {
         } else {
             AudioKit.midi.closeInput(midiInput.name)
         }
+        
+        delegate?.didChangeMIDISources(midiSources)
     }
 
 }

@@ -18,6 +18,7 @@
 		9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C3A0E1F31428B0086D58B /* VerticalSlider.swift */; };
 		948C54C31F3A57C600DA6081 /* SynthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C54C21F3A57C600DA6081 /* SynthButton.swift */; };
 		948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */; };
+		94985FF320D8899300D71239 /* Electronisounds.json in Resources */ = {isa = PBXBuildFile; fileRef = 94985FF220D8899300D71239 /* Electronisounds.json */; };
 		949D93B71F2C188C007E657B /* LFOButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B61F2C188B007E657B /* LFOButtonStyleKit.swift */; };
 		949D93B91F2C188C007E657B /* LFOToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LFOToggle.swift */; };
 		94A5039D1FF2F6E30097D37C /* ChannelStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */; };
@@ -203,6 +204,7 @@
 		947956B51F32A72400FE5D9B /* ToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitch.swift; sourceTree = "<group>"; };
 		948C54C21F3A57C600DA6081 /* SynthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthButton.swift; sourceTree = "<group>"; };
 		948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeButton.swift; sourceTree = "<group>"; };
+		94985FF220D8899300D71239 /* Electronisounds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Electronisounds.json; sourceTree = "<group>"; };
 		949D93B51F2C188B007E657B /* LFOToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOToggle.swift; sourceTree = "<group>"; };
 		949D93B61F2C188B007E657B /* LFOButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOButtonStyleKit.swift; sourceTree = "<group>"; };
 		94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStepper.swift; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 			children = (
 				C435C51620C52D1700DAECCD /* Brice Beasley.json */,
 				C435C51720C52D1700DAECCD /* DJ Puzzle.json */,
+				94985FF220D8899300D71239 /* Electronisounds.json */,
 				C435C51820C52D1700DAECCD /* Bonus.json */,
 				C435C51920C52D1700DAECCD /* User.json */,
 				C435C51A20C52D1700DAECCD /* Red Sky Lullaby.json */,
@@ -1072,6 +1075,7 @@
 				C435C52320C52D1700DAECCD /* Red Sky Lullaby.json in Resources */,
 				C435C52220C52D1700DAECCD /* User.json in Resources */,
 				C4B4913E20C7C6A000FD565A /* spark.png in Resources */,
+				94985FF320D8899300D71239 /* Electronisounds.json in Resources */,
 				C435C52420C52D1700DAECCD /* BankA.json in Resources */,
 				C4B4914720C7C6E300FD565A /* Audiobus.txt in Resources */,
 				C435C52120C52D1700DAECCD /* Bonus.json in Resources */,

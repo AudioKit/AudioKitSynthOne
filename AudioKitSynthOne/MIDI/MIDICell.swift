@@ -40,6 +40,7 @@ class MIDICell: UITableViewCell {
     }
 
     func configureCell(midiInput: MIDIInput) {
+        guard midiInput.name != "AudioKit Synth One" else { return }
         currentInput = midiInput
         cellLabel.text = "\(midiInput.name)"
         accessoryType = midiInput.isOpen ? .checkmark : .none

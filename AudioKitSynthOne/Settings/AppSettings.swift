@@ -18,6 +18,7 @@ class AppSettings: Codable {
     var signedMailingList = true
     var backgroundAudioOn = true
     var midiChannel = 0
+    var midiSources = ["AudioKit Synth One"]
     var omniMode = true
     var plotFilled = true
     var velocitySensitive = false
@@ -111,6 +112,7 @@ class AppSettings: Codable {
         backgroundAudioOn = dictionary["backgroundAudioOn"] as? Bool ?? backgroundAudioOn
         midiChannel = dictionary["midiChannel"] as? Int ?? midiChannel
         omniMode = dictionary["omniMode"] as? Bool ?? omniMode
+        midiSources = dictionary["midiSources"] as? [String] ?? midiSources
         plotFilled = dictionary["plotFilled"] as? Bool ?? plotFilled
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
         freezeArpRate = dictionary["freezeArpRate"] as? Bool ?? freezeArpRate

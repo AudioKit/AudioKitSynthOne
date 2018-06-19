@@ -170,32 +170,33 @@ public class HeaderViewController: UpdatableViewController {
             } else {
                 displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"
             }
+        // swiftlint:disable force_unwrapping
         case .lfo2Amplitude:
             displayLabel.text = "LFO 2 Amp: \(value.percentageString)"
         case .cutoffLFO:
-            displayLabel.text = "Cutoff LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Cutoff LFO ‣ \(lfoValue!)"
         case .resonanceLFO:
-            displayLabel.text = "Resonance LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Resonance LFO ‣ \(lfoValue!)"
         case .oscMixLFO:
-            displayLabel.text = "Osc Mix LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Osc Mix LFO ‣ \(lfoValue!)"
         case .reverbMixLFO:
-            displayLabel.text = "Reverb Mix LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Reverb Mix LFO ‣ \(lfoValue!)"
         case .decayLFO:
-            displayLabel.text = "Decay LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Decay LFO ‣ \(lfoValue!)"
         case .noiseLFO:
-            displayLabel.text = "Noise LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Noise LFO ‣ \(lfoValue!)"
         case .fmLFO:
-            displayLabel.text = "FM LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "FM LFO ‣ \(lfoValue!)"
         case .detuneLFO:
-            displayLabel.text = "Detune LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Detune LFO ‣ \(lfoValue!)"
         case .filterEnvLFO:
-            displayLabel.text = "Filter Env LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Filter Env LFO ‣ \(lfoValue!)"
         case .pitchLFO:
-            displayLabel.text = "Pitch LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Pitch LFO ‣ \(lfoValue!)"
         case .bitcrushLFO:
-            displayLabel.text = "Bitcrush LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Bitcrush LFO ‣ \(lfoValue!)"
         case .tremoloLFO:
-            displayLabel.text = "Tremolo LFO ‣ " + lfoValue.debugDescription
+            displayLabel.text = "Tremolo LFO ‣ \(lfoValue!)"
         case .filterType:
             var ftype = "Low Pass"
             if value == 1 {

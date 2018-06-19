@@ -1,8 +1,11 @@
 # AudioKit Synth One
 
+![screenshot](https://audiokitpro.com/wp-content/uploads/2018/04/top3.jpg)
+
 We've open-sourced the code for this synthesizer so that everyone is able to make changes to the code,
 introduce new features, fix bugs, improve efficiency, and keep the synthesizer up-to-date with all
-new capabilities of the base operating system.
+new capabilities of the base operating system.  
+![Screenshot](http://audiokitpro.com/images/ak1.gif)
 
 ## Master and Develop Branches
 
@@ -35,6 +38,28 @@ any hints about what could be improved.
 * .swiftlint.yml - Swiftlint configuration
 
 ## Opportunities for Contributing
+
+Here's a few ideas for you to contribute to this historic project:
+
+* Write a PDF Manual. We can help answer any questions. Write a manual for Synth One in your language. 
+
+
+* Have AUv3 development experience? Help with the AUv3 version! (Plus, we have a  Slack Channel for this topic)
+
+*  Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
+
+* Make TouchPads assignable 
+
+* Add an EQ Panel (8-band/16-band/etc)
+
+* Improve Arp (Add Gate, etc)
+
+* Add a trance/rhythm gate panel
+
+* Add a side chain/volume ducking panel
+
+
+If you have audio development experience and want to be more involved with Synth One, please email [hello@audiokitpro.com](mailto:hello@audiokitpro.com)
 
 There are a few major updates we intend for this synth:
 

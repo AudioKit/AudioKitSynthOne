@@ -8,7 +8,7 @@
 
 import Foundation
 
-let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
+let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby"]
 
 class AppSettings: Codable {
 
@@ -36,7 +36,7 @@ class AppSettings: Codable {
     var launches = 0
 
     // Presets version
-    var presetsVersion = 1.12
+    var presetsVersion = 1.14
 
     // MIDI Learn Settings
 

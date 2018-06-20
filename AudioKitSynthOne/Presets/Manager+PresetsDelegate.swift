@@ -36,7 +36,7 @@ extension Manager: PresetsDelegate {
             self.keyboardView.firstOctave = self.activePreset.octavePosition + 2
             self.octaveStepper.value = Double(self.activePreset.octavePosition)
         }
-        
+
         // Save Current Preset
         saveAppSettingValues()
     }

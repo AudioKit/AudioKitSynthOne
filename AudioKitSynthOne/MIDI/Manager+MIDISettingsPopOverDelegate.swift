@@ -30,7 +30,7 @@ extension Manager: MIDISettingsPopOverDelegate {
         appSettings.velocitySensitive = !appSettings.velocitySensitive
         saveAppSettingValues()
     }
-    
+
     func didChangeMIDISources(_ midiSources: [MIDIInput]) {
         midiInputs = midiSources
         saveAppSettingValues()

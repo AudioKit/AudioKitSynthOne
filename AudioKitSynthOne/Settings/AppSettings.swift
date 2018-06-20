@@ -96,7 +96,7 @@ class AppSettings: Codable {
     var octaveRange = 2
     var darkMode = false
     var showKeyboard = 1.0 // 1 show, 0 hide
-    
+
     // Save State
     var currentBankIndex = 0
     var currentPresetIndex = 0
@@ -175,7 +175,7 @@ class AppSettings: Codable {
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
         darkMode = dictionary["darkMode"] as? Bool ?? darkMode
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
-        
+
         // State
         currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex
         currentPresetIndex = dictionary["currentPresetIndex"] as? Int ?? currentPresetIndex

@@ -20,7 +20,7 @@ extension Manager {
         //conductor.backgroundAudioOn = appSettings.backgroundAudioOn
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
-        
+
         // Open MIDI Sources
         for input in AudioKit.midi.inputNames {
             if appSettings.midiSources.contains(input) {
@@ -30,7 +30,7 @@ extension Manager {
                 }
             }
         }
-       
+
         // DEV PANEL
         devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
         devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
@@ -100,9 +100,9 @@ extension Manager {
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
         appSettings.freezeDelay = (devViewController.freezeDelay.value == 1 ? true : false)
         appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)
-        
+
         appSettings.midiSources = midiInputs.filter { $0.isOpen }.compactMap { $0.name }
-        
+
         appSettings.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
         // MIDI Learn

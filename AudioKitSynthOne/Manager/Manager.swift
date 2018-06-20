@@ -196,7 +196,7 @@ public class Manager: UpdatableViewController {
             setDefaultsFromAppSettings()
             saveAppSettings()
         }
-        
+
         // Set Mailing List Button
         signedMailingList = appSettings.signedMailingList
         if let headerVC = self.childViewControllers.first as? HeaderViewController {
@@ -220,7 +220,7 @@ public class Manager: UpdatableViewController {
         }
 
         presetsViewController.loadBanks()
-        
+
         // Set Initial Preset from last used Bank & Preset
         self.presetsViewController.didSelectBank(index: self.appSettings.currentBankIndex)
         self.presetsViewController.didSelectPreset(index: self.appSettings.currentPresetIndex)
@@ -230,7 +230,7 @@ public class Manager: UpdatableViewController {
             performSegue(withIdentifier: "SegueToMailingList", sender: self)
             appSettings.firstRun = false
         }
-        
+
         // On four runs show dialog and request review
         if appSettings.launches == 5 && !appSettings.isPreRelease { reviewPopUp() }
         if appSettings.launches % 20 == 0 && !appSettings.isPreRelease { skRequestReview() }
@@ -245,7 +245,7 @@ public class Manager: UpdatableViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
             self.keyboardToggle.callback(self.appSettings.showKeyboard)
         }
-        
+
         // Increase number of launches
         appSettings.launches += 1
         saveAppSettingValues()

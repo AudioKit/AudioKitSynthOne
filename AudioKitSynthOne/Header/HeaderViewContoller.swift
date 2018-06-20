@@ -23,7 +23,7 @@ protocol HeaderDelegate: AnyObject {
 
 public class HeaderViewController: UpdatableViewController {
 
-    enum LFOValue: Int {
+    enum LFOSource: Int {
         case OFF
         case LFO1
         case LFO2
@@ -83,7 +83,7 @@ public class HeaderViewController: UpdatableViewController {
             AKLog("Can't update header displayLabel because synth is not instantiated")
             return
         }
-        let lfoValue = LFOValue(rawValue: Int(value))
+        let lfoSource = LFOSource(rawValue: Int(value))
         switch parameter {
         case .index1:
             displayLabel.text = "Osc1 Morph: \(value.decimalString)"
@@ -174,29 +174,29 @@ public class HeaderViewController: UpdatableViewController {
         case .lfo2Amplitude:
             displayLabel.text = "LFO 2 Amp: \(value.percentageString)"
         case .cutoffLFO:
-            displayLabel.text = "Cutoff LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Cutoff LFO ‣ \(lfoSource!)"
         case .resonanceLFO:
-            displayLabel.text = "Resonance LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Resonance LFO ‣ \(lfoSource!)"
         case .oscMixLFO:
-            displayLabel.text = "Osc Mix LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Osc Mix LFO ‣ \(lfoSource!)"
         case .reverbMixLFO:
-            displayLabel.text = "Reverb Mix LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Reverb Mix LFO ‣ \(lfoSource!)"
         case .decayLFO:
-            displayLabel.text = "Decay LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Decay LFO ‣ \(lfoSource!)"
         case .noiseLFO:
-            displayLabel.text = "Noise LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Noise LFO ‣ \(lfoSource!)"
         case .fmLFO:
-            displayLabel.text = "FM LFO ‣ \(lfoValue!)"
+            displayLabel.text = "FM LFO ‣ \(lfoSource!)"
         case .detuneLFO:
-            displayLabel.text = "Detune LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Detune LFO ‣ \(lfoSource!)"
         case .filterEnvLFO:
-            displayLabel.text = "Filter Env LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Filter Env LFO ‣ \(lfoSource!)"
         case .pitchLFO:
-            displayLabel.text = "Pitch LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Pitch LFO ‣ \(lfoSource!)"
         case .bitcrushLFO:
-            displayLabel.text = "Bitcrush LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Bitcrush LFO ‣ \(lfoSource!)"
         case .tremoloLFO:
-            displayLabel.text = "Tremolo LFO ‣ \(lfoValue!)"
+            displayLabel.text = "Tremolo LFO ‣ \(lfoSource!)"
         case .filterType:
             var ftype = "Low Pass"
             if value == 1 {

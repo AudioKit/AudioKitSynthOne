@@ -188,7 +188,7 @@ extension PresetsViewController {
 
         // Remove existing presets
         // let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = ["Electronisounds", "JEC", "Red Sky Lullaby"]
+        let banksToUpdate = ["DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby"]
         banksToUpdate.forEach { bankName in
             presets = presets.filter { $0.bank != bankName }
             loadFactoryPresets(bankName)

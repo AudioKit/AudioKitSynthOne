@@ -32,8 +32,8 @@ class Tuning: Codable, CustomStringConvertible {
         return t
     }
 
+    
     class public func encode(inputMasterSet: [Double]) -> String {
-        var retVal = ""
         let validF = inputMasterSet.filter { $0 > 0 }
         let l2 = validF.map({ (input: Double) -> Double in
             var f = input
@@ -42,6 +42,8 @@ class Tuning: Codable, CustomStringConvertible {
             let p = log2(f).truncatingRemainder(dividingBy: 1)
             return p
         }).sorted()
+
+        var retVal = ""
         for p in l2 {
             let msd = String(format: "%.12f_", p)
             retVal += msd

@@ -32,12 +32,12 @@ class AppSettings: Codable {
     //DO save current tuning (12et = nil) when preset is saved"
     //False means: "DO NOT load preset's tuning when preset is loaded.  DO NOT save current tuning when preset is saved"
     var saveTuningWithPreset = true
-    var pushNotifications = true
+    var pushNotifications = false
     var userEmail = ""
     var launches = 0
 
     // Presets version
-    var presetsVersion = 1.15
+    var presetsVersion = 1.16
 
     // MIDI Learn Settings
 

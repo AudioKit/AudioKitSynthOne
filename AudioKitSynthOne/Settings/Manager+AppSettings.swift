@@ -154,8 +154,7 @@ extension Manager {
         appSettings.labelMode = keyboardView.labelMode
         appSettings.octaveRange = keyboardView.octaveCount
         appSettings.darkMode = keyboardView.darkMode
-        appSettings.showKeyboard = keyboardToggle.value
-
+       
         // State
         appSettings.currentBankIndex = presetsViewController.bankIndex
         appSettings.currentPresetIndex = activePreset.position

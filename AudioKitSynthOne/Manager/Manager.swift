@@ -241,7 +241,7 @@ public class Manager: UpdatableViewController {
 
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard
-
+      
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
             self.keyboardToggle.callback(self.appSettings.showKeyboard)
         }

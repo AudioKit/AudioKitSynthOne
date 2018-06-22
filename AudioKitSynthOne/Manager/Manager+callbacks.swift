@@ -82,7 +82,8 @@ extension Manager {
                 self.view.layoutIfNeeded()
             })
 
-            self.saveAppSettingValues()
+            self.appSettings.showKeyboard = self.keyboardToggle.value
+            self.saveAppSettings()
         }
 
         modWheelPad.callback = { value in

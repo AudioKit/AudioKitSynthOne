@@ -93,7 +93,7 @@ class PresetsCategoriesViewController: UIViewController {
 
         // Add Banks to Table
         conductor.banks.forEach { bank in
-            choices[PresetCategory.bankStartingIndex + bank.position] = "Bank: \(bank.name)"
+            choices[PresetCategory.bankStartingIndex + bank.position] = "⌾ \(bank.name)"
         }
     }
 }

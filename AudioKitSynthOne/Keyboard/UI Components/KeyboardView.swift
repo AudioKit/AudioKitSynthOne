@@ -75,7 +75,7 @@ public protocol AKKeyboardDelegate: class {
     var isShown = true // used to persist keyboard position when presets panel is displayed
 
     /// Allows multiple notes to play concurrently
-    open var polyphonicMode = false {
+    open var polyphonicMode = true {
         didSet {
             allNotesOff()
         }
@@ -113,7 +113,7 @@ public protocol AKKeyboardDelegate: class {
 
     /// Initialize the keyboard
     public init(width: Int, height: Int, firstOctave: Int = 4, octaveCount: Int = 3,
-                polyphonic: Bool = false) {
+                polyphonic: Bool = true) {
         self.octaveCount = octaveCount
         self.firstOctave = firstOctave
         super.init(frame: CGRect(x: 0, y: 0, width: width, height: height))

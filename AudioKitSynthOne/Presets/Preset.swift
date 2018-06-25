@@ -225,7 +225,7 @@ class Preset: Codable {
         vcoBalance = dictionary["vcoBalance"] as? Double ?? p(.morphBalance)
         subVolume = dictionary["subVolume"] as? Double ?? p(.subVolume)
         fmVolume = dictionary["fmVolume"] as? Double ?? p(.fmVolume)
-        fmAmount = dictionary["fmMod"] as? Double ?? p(.fmAmount)
+        fmAmount = dictionary["fmAmount"] as? Double ?? p(.fmAmount)
         noiseVolume = dictionary["noiseVolume"] as? Double ?? p(.noiseVolume)
 
         cutoff = dictionary["cutoff"] as? Double ?? p(.cutoff)

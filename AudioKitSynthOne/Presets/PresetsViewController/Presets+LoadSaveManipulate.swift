@@ -126,7 +126,6 @@ extension PresetsViewController {
         if updateExistingPreset {
             // Remove currentPreset and replace it with activePreset
             if let position = presets.index(where: { $0.uid == currentPreset.uid }) {
-                 AKLog("Preset to remove \(presets[position].name)")
                 presets.remove(at: position)
                 presets.insert(activePreset, at: activePreset.position + 1)
             }
@@ -189,7 +188,7 @@ extension PresetsViewController {
 
         // Remove existing presets
         // let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = ["BankA", "Starter Bank", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby", "Sound of Izrael"]
+        let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby", "Sound of Izrael"]
         banksToUpdate.forEach { bankName in
             presets = presets.filter { $0.bank != bankName }
             loadFactoryPresets(bankName)

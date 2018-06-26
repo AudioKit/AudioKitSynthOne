@@ -8,7 +8,7 @@
 
 import Foundation
 
-let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby", "Sound of Izrael"]
+let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby", "Sound of Izrael", "Starter Bank"]
 
 class AppSettings: Codable {
 

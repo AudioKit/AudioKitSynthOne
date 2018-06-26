@@ -241,7 +241,7 @@ class Preset: Codable {
         midiBendRange = dictionary["midiBendRange"] as? Double ?? midiBendRange // unused
 
         crushFreq = dictionary["crushFreq"] as? Double ?? p(.bitCrushSampleRate)
-        autoPanFrequency = dictionary["autoPanRate"] as? Double ?? p(.autoPanFrequency)
+        autoPanFrequency = dictionary["autoPanFrequency"] as? Double ?? p(.autoPanFrequency)
         filterADSRMix = dictionary["filterADSRMix"] as? Double ?? p(.filterADSRMix)
         glide = dictionary["glide"] as? Double ?? p(.glide)
         widen = dictionary["widen"] as? Double ?? p(.widen)

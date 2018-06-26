@@ -54,7 +54,7 @@ extension Manager {
         generatorsPanel.noiseVolume.midiCC = MIDIByte(appSettings.noiseVolumeCC)
         generatorsPanel.glideKnob.midiCC = MIDIByte(appSettings.glideKnobCC)
         generatorsPanel.cutoff.midiCC = MIDIByte(appSettings.cutoffCC)
-        generatorsPanel.resonance.midiCC = MIDIByte(appSettings.rezCC)
+        generatorsPanel.resonance.midiCC = MIDIByte(appSettings.resonanceCC)
 
         sequencerPanel.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
 
@@ -119,7 +119,7 @@ extension Manager {
         appSettings.noiseVolumeCC = Int(generatorsPanel.noiseVolume.midiCC)
         appSettings.glideKnobCC = Int(generatorsPanel.glideKnob.midiCC)
         appSettings.cutoffCC = Int(generatorsPanel.cutoff.midiCC)
-        appSettings.rezCC = Int(generatorsPanel.resonance.midiCC)
+        appSettings.resonanceCC = Int(generatorsPanel.resonance.midiCC)
 
         appSettings.arpIntervalCC = Int(sequencerPanel.arpInterval.midiCC)
 

@@ -229,7 +229,7 @@ class Preset: Codable {
         noiseVolume = dictionary["noiseVolume"] as? Double ?? p(.noiseVolume)
 
         cutoff = dictionary["cutoff"] as? Double ?? p(.cutoff)
-        resonance = dictionary["rez"] as? Double ?? p(.resonance)
+        resonance = dictionary["resonance"] as? Double ?? p(.resonance)
         filterType = dictionary["filterType"] as? Double ?? p(.filterType)
         delayTime = dictionary["delayTime"] as? Double ?? p(.delayTime)
         delayFeedback = dictionary["delayFeedback"] as? Double ?? p(.delayFeedback)

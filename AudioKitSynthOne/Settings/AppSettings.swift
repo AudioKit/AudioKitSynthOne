@@ -52,7 +52,7 @@ class AppSettings: Codable {
     var morph1VolumeCC = 255
     var morph2VolumeCC = 255
     var cutoffCC = 74 // 74: MIDI Standard CC for filter cutoff
-    var rezCC = 71 // 71: MIDI Standard CC for filter res
+    var resonanceCC = 71 // 71: MIDI Standard CC for filter res
     var subVolumeCC = 255
     var fmVolumeCC = 255
     var fmAmountCC = 255
@@ -136,7 +136,7 @@ class AppSettings: Codable {
         morph2VolumeCC = dictionary["morph2VolumeCC"] as? Int ?? morph2VolumeCC
 
         cutoffCC = dictionary["cutoffCC"] as? Int ?? cutoffCC
-        rezCC = dictionary["rezCC"] as? Int ?? rezCC
+        resonanceCC = dictionary["resonanceCC"] as? Int ?? resonanceCC
         subVolumeCC = dictionary["subVolumeCC"] as? Int ?? subVolumeCC
         fmVolumeCC = dictionary["fmVolumeCC"] as? Int ?? fmVolumeCC
         noiseVolumeCC = dictionary["noiseVolumeCC"] as? Int ?? noiseVolumeCC

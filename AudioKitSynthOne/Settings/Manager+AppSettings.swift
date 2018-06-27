@@ -20,7 +20,7 @@ extension Manager {
         //conductor.backgroundAudioOn = appSettings.backgroundAudioOn
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
-        
+
         // Open MIDI Sources
         for input in AudioKit.midi.inputNames {
             if appSettings.midiSources.contains(input) {
@@ -30,7 +30,7 @@ extension Manager {
                 }
             }
         }
-        
+
         // DEV PANEL
         devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
         devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
@@ -54,7 +54,7 @@ extension Manager {
         generatorsPanel.noiseVolume.midiCC = MIDIByte(appSettings.noiseVolumeCC)
         generatorsPanel.glideKnob.midiCC = MIDIByte(appSettings.glideKnobCC)
         generatorsPanel.cutoff.midiCC = MIDIByte(appSettings.cutoffCC)
-        generatorsPanel.resonance.midiCC = MIDIByte(appSettings.rezCC)
+        generatorsPanel.resonance.midiCC = MIDIByte(appSettings.resonanceCC)
 
         sequencerPanel.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
 
@@ -100,9 +100,9 @@ extension Manager {
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
         appSettings.freezeDelay = (devViewController.freezeDelay.value == 1 ? true : false)
         appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)
-        
+
         appSettings.midiSources = midiInputs.filter { $0.isOpen }.compactMap { $0.name }
-        
+
         appSettings.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
         // MIDI Learn
@@ -119,7 +119,7 @@ extension Manager {
         appSettings.noiseVolumeCC = Int(generatorsPanel.noiseVolume.midiCC)
         appSettings.glideKnobCC = Int(generatorsPanel.glideKnob.midiCC)
         appSettings.cutoffCC = Int(generatorsPanel.cutoff.midiCC)
-        appSettings.rezCC = Int(generatorsPanel.resonance.midiCC)
+        appSettings.resonanceCC = Int(generatorsPanel.resonance.midiCC)
 
         appSettings.arpIntervalCC = Int(sequencerPanel.arpInterval.midiCC)
 
@@ -154,8 +154,10 @@ extension Manager {
         appSettings.labelMode = keyboardView.labelMode
         appSettings.octaveRange = keyboardView.octaveCount
         appSettings.darkMode = keyboardView.darkMode
-        appSettings.showKeyboard = keyboardToggle.value
-
+       
+        // State
+        appSettings.currentBankIndex = presetsViewController.bankIndex
+        appSettings.currentPresetIndex = activePreset.position
         appSettings.plotFilled = generatorsPanel.isAudioPlotFilled
         saveAppSettings()
     }

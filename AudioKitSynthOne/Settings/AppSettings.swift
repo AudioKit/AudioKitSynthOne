@@ -8,13 +8,13 @@
 
 import Foundation
 
-let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby"]
+let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby", "Sound of Izrael", "Starter Bank"]
 
 class AppSettings: Codable {
 
     var settingID = "main"
     var firstRun = true
-    var isPreRelease = true
+    var isPreRelease = false
     var signedMailingList = true
     var backgroundAudioOn = true
     var midiChannel = 0
@@ -32,12 +32,12 @@ class AppSettings: Codable {
     //DO save current tuning (12et = nil) when preset is saved"
     //False means: "DO NOT load preset's tuning when preset is loaded.  DO NOT save current tuning when preset is saved"
     var saveTuningWithPreset = true
-    var pushNotifications = true
+    var pushNotifications = false
     var userEmail = ""
     var launches = 0
 
     // Presets version
-    var presetsVersion = 1.14
+    var presetsVersion = 1.19
 
     // MIDI Learn Settings
 
@@ -52,7 +52,7 @@ class AppSettings: Codable {
     var morph1VolumeCC = 255
     var morph2VolumeCC = 255
     var cutoffCC = 74 // 74: MIDI Standard CC for filter cutoff
-    var rezCC = 71 // 71: MIDI Standard CC for filter res
+    var resonanceCC = 71 // 71: MIDI Standard CC for filter res
     var subVolumeCC = 255
     var fmVolumeCC = 255
     var fmAmountCC = 255
@@ -97,6 +97,10 @@ class AppSettings: Codable {
     var darkMode = false
     var showKeyboard = 1.0 // 1 show, 0 hide
 
+    // Save State
+    var currentBankIndex = 0
+    var currentPresetIndex = 0
+
     init() {
     }
 
@@ -132,7 +136,7 @@ class AppSettings: Codable {
         morph2VolumeCC = dictionary["morph2VolumeCC"] as? Int ?? morph2VolumeCC
 
         cutoffCC = dictionary["cutoffCC"] as? Int ?? cutoffCC
-        rezCC = dictionary["rezCC"] as? Int ?? rezCC
+        resonanceCC = dictionary["resonanceCC"] as? Int ?? resonanceCC
         subVolumeCC = dictionary["subVolumeCC"] as? Int ?? subVolumeCC
         fmVolumeCC = dictionary["fmVolumeCC"] as? Int ?? fmVolumeCC
         noiseVolumeCC = dictionary["noiseVolumeCC"] as? Int ?? noiseVolumeCC
@@ -171,6 +175,10 @@ class AppSettings: Codable {
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
         darkMode = dictionary["darkMode"] as? Bool ?? darkMode
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
+
+        // State
+        currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex
+        currentPresetIndex = dictionary["currentPresetIndex"] as? Int ?? currentPresetIndex
 
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
     }

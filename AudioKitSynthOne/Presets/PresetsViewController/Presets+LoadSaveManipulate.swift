@@ -127,7 +127,7 @@ extension PresetsViewController {
             // Remove currentPreset and replace it with activePreset
             if let position = presets.index(where: { $0.uid == currentPreset.uid }) {
                 presets.remove(at: position)
-                presets.insert(activePreset, at: activePreset.position)
+                presets.insert(activePreset, at: activePreset.position + 1)
             }
         } else {
             // create new preset
@@ -188,7 +188,7 @@ extension PresetsViewController {
 
         // Remove existing presets
         // let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = ["Electronisounds", "JEC"]
+        let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby", "Sound of Izrael", "Starter Bank"]
         banksToUpdate.forEach { bankName in
             presets = presets.filter { $0.bank != bankName }
             loadFactoryPresets(bankName)
@@ -321,8 +321,6 @@ extension PresetsViewController {
 
         // Smoothly cycle through presets if MIDI input is greater than preset count
         let currentPresetIndex = index % (presetsInBank.count)
-
-        AKLog ("currentPresetIndex \(currentPresetIndex)")
 
         currentPreset = presetsInBank[currentPresetIndex]
         selectCurrentPreset()

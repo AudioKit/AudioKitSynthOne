@@ -3748,7 +3748,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WELCOME! STEP 1 OF 1:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhC-vu-qAN">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WELCOME! " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhC-vu-qAN">
                                                 <rect key="frame" x="19" y="14" width="227" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
@@ -3780,7 +3780,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! 😀 Enter your Email Address below to receive 80+ Free presets and unlock all functionality (all 200+ presets). " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v71-HZ-TUa">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! 😀 Enter your Email Address below to receive 80+ Free presets  (all 300+ presets). " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v71-HZ-TUa">
                                                 <rect key="frame" x="38" y="36" width="454" height="71"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

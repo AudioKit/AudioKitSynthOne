@@ -208,7 +208,8 @@ extension PresetsViewController {
 
     func addBonusPresets() {
         let bankName = "BankA"
-        presets = presets.filter { $0.bank != bankName }
+        // presets = presets.filter { $0.bank != bankName } // uncomment this to replace banka w/ bonus.json
+        // Or, simply add Bonus presets to BankA
         loadFactoryPresets("Bonus")
         saveAllPresetsIn(bankName)
     }

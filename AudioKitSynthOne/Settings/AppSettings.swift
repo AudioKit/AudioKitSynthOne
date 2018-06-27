@@ -15,7 +15,7 @@ class AppSettings: Codable {
     var settingID = "main"
     var firstRun = true
     var isPreRelease = false
-    var signedMailingList = true
+    var signedMailingList = false
     var backgroundAudioOn = true
     var midiChannel = 0
     var midiSources = ["AudioKit Synth One"]

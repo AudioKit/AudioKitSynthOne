@@ -8,14 +8,14 @@
 
 import Foundation
 
-let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby", "Sound of Izrael"]
+let initBanks = ["BankA", "User", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby", "Sound of Izrael", "Starter Bank"]
 
 class AppSettings: Codable {
 
     var settingID = "main"
     var firstRun = true
-    var isPreRelease = true
-    var signedMailingList = true
+    var isPreRelease = false
+    var signedMailingList = false
     var backgroundAudioOn = true
     var midiChannel = 0
     var midiSources = ["AudioKit Synth One"]
@@ -37,7 +37,7 @@ class AppSettings: Codable {
     var launches = 0
 
     // Presets version
-    var presetsVersion = 1.18
+    var presetsVersion = 1.19
 
     // MIDI Learn Settings
 

@@ -49,11 +49,4 @@ extension UIViewController {
             // openURL("https://itunes.apple.com/us/app/audiokit-synth-one-synthesizer/id1371050497?ls=1&mt=8")
         }
     }
-
-    func skRequestReview() {
-        if #available(iOS 10.3, *) {
-            SKStoreReviewController.requestReview()
-        }
-    }
-
 }

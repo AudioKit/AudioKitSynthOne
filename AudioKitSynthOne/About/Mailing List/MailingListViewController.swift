@@ -70,8 +70,11 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(submitAction)
         alert.addAction(cancelAction)
 
-        self.present(alert, animated: true, completion: nil)
-
+        // Confirm they don't want to enter their email address
+        // self.present(alert, animated: true, completion: nil)
+ 
+        // Remove dismiss for the hard sell
+        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func signUpPressed(_ sender: UIButton) {
@@ -90,7 +93,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
         // Add pop up
         let alert = UIAlertController(title: "Almost Done",
-                                      message: "To receive your free presets,\n please confirm that " +
+                                      message: "Please confirm that " +
                                                " \n'\(emailAddress)' \n is your correct email address " +
                                                "and you consent to us emailing you?",
             preferredStyle: .alert)
@@ -127,7 +130,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
         // Create and display alert box
         let alert = UIAlertController(title: "Congrats! 🎉",
-                                      message: "All the presets have been unlocked. " +
+                                      message: "Bonus presets have been added to BankA. " +
                                                "We are all volunteers who made this app for free. " +
                                                "We hope you enjoy it & tell other musicians! 😎",
                                       preferredStyle: UIAlertControllerStyle.alert)

@@ -233,11 +233,11 @@ public class Manager: UpdatableViewController {
 
         // On four runs show dialog and request review
         if appSettings.launches == 5 && !appSettings.isPreRelease { reviewPopUp() }
-        if appSettings.launches % 20 == 0 && !appSettings.isPreRelease { skRequestReview() }
+        if appSettings.launches % 17 == 0 && !appSettings.isPreRelease && appSettings.launches > 0 { requestReview() }
 
         // Push Notifications request
         if appSettings.launches == 9 && !appSettings.pushNotifications { pushPopUp() }
-        if appSettings.launches % 15 == 0 && !appSettings.pushNotifications && !appSettings.isPreRelease { pushPopUp() }
+        if appSettings.launches % 18 == 0 && !appSettings.pushNotifications && !appSettings.isPreRelease { pushPopUp() }
 
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard

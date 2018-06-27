@@ -127,7 +127,7 @@ extension PresetsViewController {
             // Remove currentPreset and replace it with activePreset
             if let position = presets.index(where: { $0.uid == currentPreset.uid }) {
                 presets.remove(at: position)
-                presets.insert(activePreset, at: activePreset.position)
+                presets.insert(activePreset, at: activePreset.position + 1)
             }
         } else {
             // create new preset
@@ -188,7 +188,7 @@ extension PresetsViewController {
 
         // Remove existing presets
         // let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby", "Sound of Izrael"]
+        let banksToUpdate = ["BankA", "Brice Beasley", "DJ Puzzle", "Electronisounds", "JEC", "Red Sky Lullaby", "Sound of Izrael", "Starter Bank"]
         banksToUpdate.forEach { bankName in
             presets = presets.filter { $0.bank != bankName }
             loadFactoryPresets(bankName)
@@ -208,7 +208,8 @@ extension PresetsViewController {
 
     func addBonusPresets() {
         let bankName = "BankA"
-        presets = presets.filter { $0.bank != bankName }
+        // presets = presets.filter { $0.bank != bankName } // uncomment this to replace banka w/ bonus.json
+        // Or, simply add Bonus presets to BankA
         loadFactoryPresets("Bonus")
         saveAllPresetsIn(bankName)
     }

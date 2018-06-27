@@ -118,7 +118,7 @@ public class Manager: UpdatableViewController {
         sustainer = SDSustainer(conductor.synth)
 
         keyboardView?.delegate = self
-        keyboardView?.polyphonicMode = conductor.synth.getSynthParameter(.isMono) > 0 ? true : false
+        keyboardView?.polyphonicMode = conductor.synth.getSynthParameter(.isMono) < 1 ? true : false
 
         // Set Header as Delegate
         if let headerVC = self.childViewControllers.first as? HeaderViewController {
@@ -221,6 +221,10 @@ public class Manager: UpdatableViewController {
 
         presetsViewController.loadBanks()
 
+        // Set Initial Preset from last used Bank & Preset
+        self.presetsViewController.didSelectBank(index: self.appSettings.currentBankIndex)
+        self.presetsViewController.didSelectPreset(index: self.appSettings.currentPresetIndex)
+
         // Show email list if first run
         if appSettings.firstRun && !appSettings.signedMailingList {
             performSegue(withIdentifier: "SegueToMailingList", sender: self)
@@ -237,7 +241,7 @@ public class Manager: UpdatableViewController {
 
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard
-
+      
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
             self.keyboardToggle.callback(self.appSettings.showKeyboard)
         }
@@ -252,10 +256,6 @@ public class Manager: UpdatableViewController {
         appendMIDIKnobs(from: sequencerPanel)
         appendMIDIKnobs(from: devViewController)
         appendMIDIKnobs(from: tuningsPanel)
-
-        // Set initial preset
-        presetsViewController.didSelectPreset(index: 0)
-
     }
 
     private func appendMIDIKnobs(from controller: UIViewController) {
@@ -277,6 +277,7 @@ public class Manager: UpdatableViewController {
             return
         }
         let isMono = s.getSynthParameter(.isMono)
+    
         if isMono != monoButton.value {
             monoButton.value = isMono
             self.keyboardView.polyphonicMode = isMono > 0 ? false : true

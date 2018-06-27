@@ -190,7 +190,7 @@ extension MIDISettingsViewController: UITableViewDelegate {
         } else {
             AudioKit.midi.closeInput(midiInput.name)
         }
-        
+
         delegate?.didChangeMIDISources(midiSources)
     }
 

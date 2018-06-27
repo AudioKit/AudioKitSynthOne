@@ -225,11 +225,11 @@ class Preset: Codable {
         vcoBalance = dictionary["vcoBalance"] as? Double ?? p(.morphBalance)
         subVolume = dictionary["subVolume"] as? Double ?? p(.subVolume)
         fmVolume = dictionary["fmVolume"] as? Double ?? p(.fmVolume)
-        fmAmount = dictionary["fmMod"] as? Double ?? p(.fmAmount)
+        fmAmount = dictionary["fmAmount"] as? Double ?? p(.fmAmount)
         noiseVolume = dictionary["noiseVolume"] as? Double ?? p(.noiseVolume)
 
         cutoff = dictionary["cutoff"] as? Double ?? p(.cutoff)
-        resonance = dictionary["rez"] as? Double ?? p(.resonance)
+        resonance = dictionary["resonance"] as? Double ?? p(.resonance)
         filterType = dictionary["filterType"] as? Double ?? p(.filterType)
         delayTime = dictionary["delayTime"] as? Double ?? p(.delayTime)
         delayFeedback = dictionary["delayFeedback"] as? Double ?? p(.delayFeedback)
@@ -241,7 +241,7 @@ class Preset: Codable {
         midiBendRange = dictionary["midiBendRange"] as? Double ?? midiBendRange // unused
 
         crushFreq = dictionary["crushFreq"] as? Double ?? p(.bitCrushSampleRate)
-        autoPanFrequency = dictionary["autoPanRate"] as? Double ?? p(.autoPanFrequency)
+        autoPanFrequency = dictionary["autoPanFrequency"] as? Double ?? p(.autoPanFrequency)
         filterADSRMix = dictionary["filterADSRMix"] as? Double ?? p(.filterADSRMix)
         glide = dictionary["glide"] as? Double ?? p(.glide)
         widen = dictionary["widen"] as? Double ?? p(.widen)

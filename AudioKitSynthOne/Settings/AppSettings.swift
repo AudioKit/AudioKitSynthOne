@@ -14,7 +14,7 @@ class AppSettings: Codable {
 
     var settingID = "main"
     var firstRun = true
-    var isPreRelease = true
+    var isPreRelease = false
     var signedMailingList = true
     var backgroundAudioOn = true
     var midiChannel = 0

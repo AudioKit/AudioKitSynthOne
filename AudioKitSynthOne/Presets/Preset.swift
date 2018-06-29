@@ -74,7 +74,7 @@ class Preset: Codable {
 
     // Toggle Presets
     var delayToggled = 0.0
-    var reverbToggled = 1.0
+    var reverbToggled = 0.0
     var subOsc24Toggled = 0.0
     var subOscSquareToggled = 0.0
 

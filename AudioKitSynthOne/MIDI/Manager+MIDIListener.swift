@@ -41,9 +41,9 @@ extension Manager: AKMIDIListener {
     // Assign MIDI CC to active MIDI Learn knobs
     func assignMIDIControlToKnobs(cc: MIDIByte) {
         let activeMIDILearnKnobs = midiKnobs.filter { $0.isActive }
-        activeMIDILearnKnobs.forEach {
-            $0.midiCC = cc
-            $0.isActive = false
+        for knob in  activeMIDILearnKnobs {
+            knob.midiCC = cc
+            knob.isActive = false
         }
     }
 

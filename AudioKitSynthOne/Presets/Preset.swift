@@ -18,6 +18,8 @@ class Preset: Codable {
     var name = "Init"
     var bank = "User"
 
+    // You MUST match these property names with the dictionary key used by init (below) or you will forever lose the original preset.
+
     // Synth VC
     var octavePosition = 0
     var isMono = 0.0
@@ -190,6 +192,8 @@ class Preset: Codable {
     // MARK: - JSON Parsing into object
 
     // Init from Dictionary/JSON
+    // You MUST match the property name with the dictionary key or you will forever lose the original preset.
+    
     init(dictionary: [String: Any]) {
 
         guard let s = Conductor.sharedInstance.synth else {

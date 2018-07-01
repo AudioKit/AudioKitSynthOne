@@ -144,10 +144,9 @@ public class Manager: UpdatableViewController {
         DispatchQueue.global(qos: .userInteractive).async {
             AudioKit.midi.createVirtualInputPort(95_433, name: "AudioKit Synth One")
             AudioKit.midi.openInput()
+            AudioKit.midi.openOutput("AudioKit Synth One")
             AudioKit.midi.addListener(self)
         }
-
-        receivedMIDISetupChange()
 
         // Pre-load views and Set initial subviews
         switchToChildPanel(.effects, isOnTop: true)

@@ -23,6 +23,9 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Hide popup at first
+        moreView.alpha = 0
 
         moreView.layer.borderColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
         moreView.layer.borderWidth = 2
@@ -38,6 +41,13 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
         // MailChimp API Key
         ChimpKit.shared().apiKey = "c9fbe30105db8481664bdd9cf1559996-us15"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Fade in About Box
+        UIView.animate(withDuration: 1.5, animations: {
+            self.moreView.alpha = 1.0
+        })
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

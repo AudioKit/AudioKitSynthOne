@@ -2899,7 +2899,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m82-ut-aGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-737.109375" y="875.78125"/>
+            <point key="canvasLocation" x="-841" y="950"/>
         </scene>
         <!--Wheel Settings View Controller-->
         <scene sceneID="2nO-a2-8tJ">
@@ -3745,11 +3745,15 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                         <viewControllerLayoutGuide type="bottom" id="O0Z-dh-iS6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BIq-e0-er6">
-                        <rect key="frame" x="0.0" y="0.0" width="900" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="1b0-hf-px5">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="go2-mv-SEr">
-                                <rect key="frame" x="170" y="180" width="560" height="300"/>
+                                <rect key="frame" x="232" y="234" width="560" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWd-BH-UZY">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
@@ -3762,17 +3766,6 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                                 <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEl-0W-mPY">
-                                                <rect key="frame" x="495" y="8" width="49" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
-                                                <state key="normal" title="DONE">
-                                                    <color key="titleColor" red="0.82352941180000006" green="0.45098039220000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="closePressed:" destination="u9K-io-wc1" eventType="touchUpInside" id="gAh-io-7cx"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -3787,7 +3780,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! 😀 Enter your Email Address below to receive 80+ Free presets  (all 300+ presets). " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v71-HZ-TUa">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! Enter your Email Address to receive 80+ Free presets  (all 300+ presets). It's Free!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v71-HZ-TUa">
                                                 <rect key="frame" x="38" y="36" width="454" height="71"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3820,25 +3813,36 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                     <constraint firstAttribute="width" constant="560" id="q0M-Yj-EsN"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEl-0W-mPY">
+                                <rect key="frame" x="856" y="718" width="122" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                <state key="normal" title="Thanks, I'll do it later">
+                                    <color key="titleColor" red="0.82352941180000006" green="0.45098039220000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="closePressed:" destination="u9K-io-wc1" eventType="touchUpInside" id="gAh-io-7cx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="go2-mv-SEr" firstAttribute="top" secondItem="BIq-e0-er6" secondAttribute="top" constant="180" id="bLf-hc-Xdy"/>
+                            <constraint firstItem="go2-mv-SEr" firstAttribute="top" secondItem="lOf-sD-Nba" secondAttribute="bottom" constant="214" id="m2C-GL-6Ed"/>
                             <constraint firstItem="go2-mv-SEr" firstAttribute="centerX" secondItem="BIq-e0-er6" secondAttribute="centerX" id="naf-vG-X7K"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="900" height="568"/>
+                    <size key="freeformSize" width="1024" height="768"/>
                     <connections>
                         <outlet property="emailField" destination="Irj-fK-w1g" id="df8-wK-bQC"/>
                         <outlet property="moreView" destination="go2-mv-SEr" id="FsM-Hj-5lG"/>
-                        <outlet property="topConstraint" destination="bLf-hc-Xdy" id="tuO-jV-acQ"/>
+                        <outlet property="topConstraint" destination="m2C-GL-6Ed" id="dpZ-Nb-2gz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJM-8B-h7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="718.9453125" y="-764.0625"/>
+            <point key="canvasLocation" x="747.0703125" y="-764.84375"/>
         </scene>
         <!--More-->
         <scene sceneID="ySE-mC-Wfy">

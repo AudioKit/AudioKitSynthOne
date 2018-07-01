@@ -21,15 +21,15 @@ extension Manager {
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
 
-        // Open MIDI Sources
-        for input in AudioKit.midi.inputNames {
-            if appSettings.midiSources.contains(input) {
-                AudioKit.midi.openInput(input)
-                if let currentInput = midiInputs.first(where: { $0.name == input }) {
-                    currentInput.isOpen = true
-                }
-            }
-        }
+        // Open MIDI Sources from saved MIDI input checkboxes on settings Panel
+//        for input in AudioKit.midi.inputNames {
+//            if appSettings.midiSources.contains(input) {
+//                AudioKit.midi.openInput(input)
+//                if let currentInput = midiInputs.first(where: { $0.name == input }) {
+//                    currentInput.isOpen = true
+//                }
+//            }
+//        }
 
         // DEV PANEL
         devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)

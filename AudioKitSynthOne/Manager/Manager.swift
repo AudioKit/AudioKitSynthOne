@@ -257,6 +257,11 @@ public class Manager: UpdatableViewController {
         appendMIDIKnobs(from: devViewController)
         appendMIDIKnobs(from: tuningsPanel)
     }
+    
+    // Make edge gestures more responsive
+    public override func preferredScreenEdgesDeferringSystemGestures() -> UIRectEdge {
+        return UIRectEdge.all
+    }
 
     private func appendMIDIKnobs(from controller: UIViewController) {
         for view in controller.view.subviews {

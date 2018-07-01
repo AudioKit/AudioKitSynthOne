@@ -85,8 +85,8 @@ class Conductor: S1Protocol {
 
         // View controllers can own objects which are not updated by the bindings scheme.
         // For example, EnvelopesPanel has AKADSRView's which do not conform to S1Control
-        viewControllers.forEach {
-            $0.updateUI(parameter, control: inputControl, value: inputValue)
+        for vc in viewControllers {
+            vc.updateUI(parameter, control: inputControl, value: inputValue)
         }
     }
 

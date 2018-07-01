@@ -36,7 +36,7 @@ extension Manager {
         midiLearnToggle.callback = { _ in
 
             // Toggle MIDI Learn Knobs in subview
-            self.midiKnobs.forEach { $0.midiLearnMode = self.midiLearnToggle.isSelected }
+            for knob in self.midiKnobs { knob.midiLearnMode = self.midiLearnToggle.isSelected }
 
             // Update display label
             if self.midiLearnToggle.isSelected {

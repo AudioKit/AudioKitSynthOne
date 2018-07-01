@@ -149,7 +149,7 @@ class SequencerPanelController: PanelController {
         let seqTotalSteps = Int(conductor.synth.getSynthParameter(.arpTotalSteps))
 
         // clear out all indicators
-        octBoostButtons.forEach { $0.isActive = false }
+        for button in octBoostButtons { button.isActive = false }
 
         // if a non-trivial sequence is playing
         if arpIsOn && arpIsSequencer && seqTotalSteps > 0 {

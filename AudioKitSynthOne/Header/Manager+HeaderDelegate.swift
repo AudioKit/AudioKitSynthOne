@@ -72,7 +72,7 @@ extension Manager: HeaderDelegate {
         isDevView = !isDevView
 
         if isDevView {
-            topContainerView.subviews.forEach { $0.removeFromSuperview() }
+            for subview in topContainerView.subviews { subview.removeFromSuperview() }
             add(asChildViewController: devViewController)
         } else {
             if let cv = topChildPanel {

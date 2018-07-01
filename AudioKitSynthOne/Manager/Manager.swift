@@ -241,7 +241,7 @@ public class Manager: UpdatableViewController {
 
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard
-      
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
             self.keyboardToggle.callback(self.appSettings.showKeyboard)
         }
@@ -257,7 +257,7 @@ public class Manager: UpdatableViewController {
         appendMIDIKnobs(from: devViewController)
         appendMIDIKnobs(from: tuningsPanel)
     }
-    
+
     // Make edge gestures more responsive
     public override func preferredScreenEdgesDeferringSystemGestures() -> UIRectEdge {
         return UIRectEdge.all
@@ -282,7 +282,7 @@ public class Manager: UpdatableViewController {
             return
         }
         let isMono = s.getSynthParameter(.isMono)
-    
+
         if isMono != monoButton.value {
             monoButton.value = isMono
             self.keyboardView.polyphonicMode = isMono > 0 ? false : true

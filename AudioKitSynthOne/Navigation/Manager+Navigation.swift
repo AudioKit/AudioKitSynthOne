@@ -81,7 +81,7 @@ extension Manager {
     func displayPresetsController() {
 
         // Display Presets View
-        topContainerView.subviews.forEach({ $0.removeFromSuperview() })
+        topContainerView.subviews.forEach { $0.removeFromSuperview() }
         add(asChildViewController: presetsViewController)
         presetsViewController.presetsDelegate = self
         isPresetsDisplayed = true

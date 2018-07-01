@@ -139,6 +139,7 @@ class Conductor: S1Protocol {
 
         do {
             try AudioKit.start()
+            AKLog("AudioKit Started")
         } catch {
             AKLog("AudioKit did not start! \(error)")
             // TODO: Handle synth start failure

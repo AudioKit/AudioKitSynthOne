@@ -14,9 +14,9 @@ extension Manager: EmbeddedViewsDelegate {
 
         // remove all child views
         if isOnTop {
-            topContainerView.subviews.forEach({ $0.removeFromSuperview() })
+            topContainerView.subviews.forEach { $0.removeFromSuperview() }
         } else {
-            bottomContainerView.subviews.forEach({ $0.removeFromSuperview() })
+            bottomContainerView.subviews.forEach { $0.removeFromSuperview() }
         }
 
         switch newView {

@@ -15,7 +15,7 @@ extension PresetsViewController {
     func loadBanks() {
         presets.removeAll()
 
-        conductor.banks.forEach { bank in
+        for bank in conductor.banks {
             let fileName = bank.name + ".json"
 
             // Load presets
@@ -39,7 +39,7 @@ extension PresetsViewController {
         case 0:
             // All Presets, by Bank
             sortedPresets.removeAll()
-            conductor.banks.forEach { bank in
+            for bank in conductor.banks {
                 sortedPresets += presets.filter { $0.bank == bank.name }.sorted { $0.position < $1.position }
             }
 
@@ -47,7 +47,7 @@ extension PresetsViewController {
         case 1...PresetCategory.categoryCount:
             sortedPresets.removeAll()
             let categoryPresets = presets.filter { $0.category == categoryIndex }
-            conductor.banks.forEach { bank in
+            for bank in conductor.banks {
                 sortedPresets += categoryPresets.filter { $0.bank == bank.name }.sorted { $0.position < $1.position }
             }
 
@@ -189,7 +189,7 @@ extension PresetsViewController {
         // Remove existing presets
         // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
         let banksToUpdate = ["Sound of Izrael"]
-        banksToUpdate.forEach { bankName in
+        for bankName in banksToUpdate {
             presets = presets.filter { $0.bank != bankName }
             loadFactoryPresets(bankName)
             saveAllPresetsIn(bankName)
@@ -209,7 +209,6 @@ extension PresetsViewController {
     func addBonusPresets() {
         let bankName = "BankA"
         // presets = presets.filter { $0.bank != bankName } // This replaces smaller BankA with Bonus.json file
-        
         // Adds presets in Bonus.json to BankA
         loadFactoryPresets("Bonus")
         saveAllPresetsIn(bankName)

@@ -23,7 +23,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Hide popup at first
         moreView.alpha = 0
 
@@ -42,8 +42,10 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         // MailChimp API Key
         ChimpKit.shared().apiKey = "***REMOVED***"
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
         // Fade in About Box
         UIView.animate(withDuration: 1.5, animations: {
             self.moreView.alpha = 1.0
@@ -82,7 +84,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
         // Confirm they don't want to enter their email address
         // self.present(alert, animated: true, completion: nil)
- 
+
         // Remove dismiss for the hard sell
         self.dismiss(animated: true, completion: nil)
     }

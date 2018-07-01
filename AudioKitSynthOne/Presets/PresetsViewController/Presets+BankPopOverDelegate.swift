@@ -15,9 +15,7 @@ extension PresetsViewController: BankPopOverDelegate {
     func didFinishEditing(oldName: String, newName: String) {
         // update presets
         let presetsInBank = presets.filter { $0.bank == oldName }
-        presetsInBank.forEach {
-            $0.bank = newName
-        }
+        presetsInBank.forEach { $0.bank = newName }
 
         // Update Conductor
         guard let bank = conductor.banks.first(where: { $0.name == oldName }) else { return }

@@ -193,7 +193,7 @@ class Preset: Codable {
 
     // Init from Dictionary/JSON
     // You MUST match the property name with the dictionary key or you will forever lose the original preset.
-    
+
     init(dictionary: [String: Any]) {
 
         guard let s = Conductor.sharedInstance.synth else {

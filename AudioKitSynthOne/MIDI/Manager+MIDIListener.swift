@@ -97,7 +97,7 @@ extension Manager: AKMIDIListener {
         let matchingKnobs = midiKnobs.filter { $0.midiCC == controller }
 
         // Set new knob values from MIDI for matching knobs
-        matchingKnobs.forEach { midiKnob in
+        for midiKnob in matchingKnobs {
             DispatchQueue.main.async {
                 midiKnob.setKnobValueFrom(midiValue: value)
             }
@@ -144,7 +144,7 @@ extension Manager: AKMIDIListener {
         // AKLog("midi setup change, midi.inputNames: \(midi.inputNames)")
 
         let midiInputNames = AudioKit.midi.inputNames
-        midiInputNames.forEach { inputName in
+        for inputName in midiInputNames {
 
             // check to see if input exists
             if let index = midiInputs.index(where: { $0.name == inputName }) {

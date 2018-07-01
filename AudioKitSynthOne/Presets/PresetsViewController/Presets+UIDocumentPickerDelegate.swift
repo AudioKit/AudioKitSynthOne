@@ -39,7 +39,7 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                     }
 
                     // Update presets
-                    importBank.forEach { preset in
+                    for preset in importBank {
                         preset.uid = UUID().uuidString
                         preset.bank = bankName
                     }

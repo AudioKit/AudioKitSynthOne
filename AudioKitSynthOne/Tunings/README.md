@@ -27,16 +27,16 @@ AKPolyphonicNode.tuningTable.middleCFrequency = getSynthParameter(frequencyA4) *
 ### Common Microtonal Feature Requests
 * Add Scala support.  AudioKit does have Scala file support, but we have not implemented file import/management in Synth One.  Would love someone to implement this.
 * Add MPE support.  AudioKit implements the math to map an arbitrary frequency to a 12et note number plus pitch bend (search for "etNNPitchBend").  Next steps are to implement an MPE MIDI mode/configuration, local off, etc.
-* Keyboard mappings.  Synth One has a "linear" keyboard, and has no metadata of the current scale.  There are requests to provide keyboard mappings, but these requests cannot be generalized without metadata.
+* Keyboard mappings.  Synth One has a "linear" keyboard, and has no metadata of the current scale.  There are requests to provide linear keyboard mappings, but these requests cannot be generalized without metadata.
 
 
 ### Microtonal resources used in the implementation of Synth One Tuning panel
 
-* [Wilson](http://anaphoria.com/wilson.html)
-* [Wilson Basic](http://anaphoria.com/wilsonbasic.html)
-* [Wilson Calte Tree](http://anaphoria.com/wilsonscaletree.html)
-* [Wilson Diamond Coprime](http://anaphoria.com/wilsondiamondcoprime.html)
-* [Wilson CPS](http://anaphoria.com/wilsoncps.html)
-* [Wilson Meru](http://anaphoria.com/wilsonmeru.html)
-
+* [Wilson Archives](http://anaphoria.com/wilson.html)
+* [Wilson Basic Papers, Harmonic Series, MOS, Epimoria](http://anaphoria.com/wilsonbasic.html)
+* [Wilson Scale Tree, Nested 2-Interval Patterns (MOS)](http://anaphoria.com/wilsonscaletree.html)
+* [Wilson Diamonds, Lattices, CoPrime Grid](http://anaphoria.com/wilsondiamondcoprime.html)
+* [Wilson Combination Product Sets, Binomial Theorem, Pascal's Triangle](http://anaphoria.com/wilsoncps.html)
+* [Wilson Mt. Meru, Recurrence Relations](http://anaphoria.com/wilsonmeru.html)
+* [Wilson Purvi+Marwa Modulations](http://anaphoria.com/xen9mar.pdf)
 

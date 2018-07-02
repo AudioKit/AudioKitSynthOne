@@ -31,11 +31,12 @@ AKPolyphonicNode.tuningTable.middleCFrequency = getSynthParameter(frequencyA4) *
 
 
 ### Microtonal resources used in the implementation of Synth One Tuning panel
-[website](http://anaphoria.com/wilson.html)
-[website](http://anaphoria.com/wilsonbasic.html)
-[website](http://anaphoria.com/wilsonscaletree.html)
-[website](http://anaphoria.com/wilsondiamondcoprime.html)
-[website](http://anaphoria.com/wilsoncps.html)
-[website](http://anaphoria.com/wilsonmeru.html)
+
+* [Wilson](http://anaphoria.com/wilson.html)
+* [Wilson Basic](http://anaphoria.com/wilsonbasic.html)
+* [Wilson Calte Tree](http://anaphoria.com/wilsonscaletree.html)
+* [Wilson Diamond Coprime](http://anaphoria.com/wilsondiamondcoprime.html)
+* [Wilson CPS](http://anaphoria.com/wilsoncps.html)
+* [Wilson Meru](http://anaphoria.com/wilsonmeru.html)
 
 

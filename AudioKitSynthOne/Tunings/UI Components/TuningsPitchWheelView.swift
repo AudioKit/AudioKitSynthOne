@@ -9,6 +9,9 @@
 import UIKit
 import AudioKit
 
+
+/// Visualize an octave-based tuning as log2(frequency) modulo 1.  12 o'clock = middle C (note number 60)
+
 public class TuningsPitchWheelView: UIView {
 
     var overlayView: TuningsPitchWheelOverlayView
@@ -52,7 +55,7 @@ public class TuningsPitchWheelView: UIView {
     }
 
     public func updateFromGlobalTuningTable() {
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global(qos: .userInteractive).async {
             let gtt = self.masterFrequenciesFromGlobalTuningTable()
             self.masterFrequency = gtt.0
             self.masterPitch = gtt.1

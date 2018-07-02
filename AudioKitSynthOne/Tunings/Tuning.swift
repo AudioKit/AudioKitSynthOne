@@ -25,6 +25,7 @@ class Tuning: Codable, CustomStringConvertible {
         return "\(name): \(masterSet)"
     }
 
+    /// the default tuning is always 12ET
     class public func defaultTuning() -> Tuning {
         let t = Tuning()
         t.name = defaultName
@@ -32,7 +33,7 @@ class Tuning: Codable, CustomStringConvertible {
         return t
     }
 
-    
+    /// given a set of frequencies create a unique string to be used as the key in the tuning dictionary
     class public func encode(inputMasterSet: [Double]) -> String {
         let validF = inputMasterSet.filter { $0 > 0 }
         let l2 = validF.map({ (input: Double) -> Double in
@@ -54,6 +55,7 @@ class Tuning: Codable, CustomStringConvertible {
 
     init() {}
 
+    /// Codable: property names must match dictionary keys
     init(dictionary: [String: Any]) {
         name = dictionary["name"] as? String ?? Tuning.defaultName
         masterSet = dictionary["masterSet"] as? [Double] ?? Tuning.defaultMasterSet

@@ -14,8 +14,8 @@
 * UI Components/TuningsPitchWheelView.swift - This UI element can be reused in any AudioKit application because it draws itself based on AKPolyphonicNode's global tuning table.  It displays one octave of the tuning table as log2(frequency) modulo 1.  12 o'clock is middle C, one rotation = 1 octave.
 
 ### Scope of Synth One microtonal functionality
-* Synth One is not a scale design tool, although there are discussions about adding more design and metadata functionality.
-* The tuning library is curated from a panel of microtonalists with nearly 200 collective years of experience.
+* Synth One is not yet a scale design tool, although it could be.  There are discussions about adding more design and metadata functionality, and more.  See the #microtonality channel in the AudioKit Slack
+* The tuning library is curated from a panel of microtonalists with nearly 200 collective years of experience.  It features elementary harmonic/subharmonic series, theoretical approximations to ancient Persian/North Indian scales, recurrence relations,  combination product sets, equal temperaments, "moments of symmetry" (MOS, Brun 2-Interval Patterns), lattices.
 * Tunings are stored in a tuning table of size 128 (a mapping from midi note number to frequency)
 * Synth One tunings are octave-based, so there is always a well-defined notion of "notes-per-octave" used to scale sequencer patterns.  However, AudioKit AKTuningTable is generalized and has no limitation on whether a tuning is octave-based or not.
 * The keyboard has no metadata of the scale and is simply note-number-based. Every note on the keyboard maps to all 128 note numbers which maps to 128 frequencies of the tuning table.

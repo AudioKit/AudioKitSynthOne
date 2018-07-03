@@ -9,15 +9,37 @@
 import UIKit
 import AudioKit
 
+enum TuningsPitchWheelViewLabelMode: Int {
+    case frequency = 0
+    case pitch = 1
+    case cents = 2
+    case harmonic = 3
+    func simpleDescription() -> String {
+        switch self {
+        case .frequency:
+            return "frequency"
+        case .pitch:
+            return "pitch"
+        case .cents:
+            return "cents"
+        case .harmonic:
+            return "harmonic"
+        }
+    }
+}
 
 /// Visualize an octave-based tuning as log2(frequency) modulo 1.  12 o'clock = middle C (note number 60)
 
 public class TuningsPitchWheelView: UIView {
 
-    var overlayView: TuningsPitchWheelOverlayView
-    var masterPitch: [Double]?
     var masterFrequency: [Double]?
+    var masterPitch: [Double]?
+    var masterCents: [Double]?
     var pxy = [CGPoint]()
+    var labelMode: TuningsPitchWheelViewLabelMode = .harmonic
+
+
+    var overlayView: TuningsPitchWheelOverlayView
 
     public required init?(coder aDecoder: NSCoder) {
         self.overlayView = TuningsPitchWheelOverlayView(frame: CGRect())
@@ -40,18 +62,21 @@ public class TuningsPitchWheelView: UIView {
     }
 
     /// return tuple of ([master set of frequencies], [master set of pitches]) both arrays of length npo, normalized
-    internal func masterFrequenciesFromGlobalTuningTable() -> ([Double], [Double]) {
+    internal func masterFrequenciesFromGlobalTuningTable() -> ([Double], [Double], [Double]) {
         let mmm = AKPolyphonicNode.tuningTable.masterSet
         var mf: [Double] = [1]
         var mp: [Double] = [0]
-        if mmm.count < 1 { return (mf, mp) }
+        var mc: [Double] = [0]
+        if mmm.count < 1 { return (mf, mp, mc) }
         mf.removeAll()
         mp.removeAll()
+        mc.removeAll()
         for f in mmm {
             mf.append(f)
             mp.append(log2(f))
+            mc.append(log2(f) * 1_200)
         }
-        return (mf, mp)
+        return (mf, mp, mc)
     }
 
     public func updateFromGlobalTuningTable() {
@@ -59,6 +84,7 @@ public class TuningsPitchWheelView: UIView {
             let gtt = self.masterFrequenciesFromGlobalTuningTable()
             self.masterFrequency = gtt.0
             self.masterPitch = gtt.1
+            self.masterCents = gtt.2
             self.overlayView.masterPitch = gtt.1
 
             DispatchQueue.main.async {
@@ -125,9 +151,24 @@ public class TuningsPitchWheelView: UIView {
                                  width: bigR, height: bigR)
             context.fillEllipse(in: bigDotR)
 
-            // draw harmonic approximation of p
-            let harmonic = Tunings.approximateHarmonicFromPitch(p)
-            let msd = String(harmonic)
+            var msd: String
+            switch labelMode {
+            case .frequency:
+                let harmonic = pow(2, p)
+                msd = String(format: "%1.3f", harmonic)
+            case .pitch:
+                // draw pitch
+                let harmonic = p
+                msd = String(format: "%.4f", harmonic)
+            case .cents:
+                // draw pitch in cents
+                let harmonic = p * 1_200
+                msd = String(format: "%.0f", harmonic)
+            case .harmonic:
+                // draw harmonic approximation of pitch
+                let harmonic = Tunings.approximateHarmonicFromPitch(p)
+                msd = String(harmonic)
+            }
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
         }
         pxy = mspxy
@@ -143,6 +184,23 @@ public class TuningsPitchWheelView: UIView {
         // POP
         context.restoreGState()
     }
+
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for _ in touches {
+            switch labelMode {
+            case .frequency:
+                labelMode = .pitch
+            case .pitch:
+                labelMode = .cents
+            case .cents:
+                labelMode = .harmonic
+            case .harmonic:
+                labelMode = .frequency
+            }
+            setNeedsDisplay()
+        }
+    }
+
 }
 
 extension TuningsPitchWheelView {

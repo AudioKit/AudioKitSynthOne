@@ -26,7 +26,7 @@ AKPolyphonicNode.tuningTable.middleCFrequency = getSynthParameter(frequencyA4) *
 
 ### Common Microtonal Feature Requests
 * Add Scala support.  AudioKit does have Scala file support, but we have not implemented file import/management in Synth One.  Would love someone to implement this.
-* Add MPE support.  AudioKit implements the math to map an arbitrary frequency to a 12et note number plus pitch bend (search for "etNNPitchBend").  Next steps are to implement an MPE MIDI mode/configuration, local off, etc.
+* Add MPE support.  AudioKit implements the math to map an arbitrary frequency to a 12et note number plus pitch bend (search for "etNNPitchBend").  Next steps are to implement an MPE MIDI mode/configuration, local off, etc.  This will have to play nice with the more general request of implementing MIDI Out.
 * Keyboard mappings.  Synth One has a "linear" keyboard, and has no metadata of the current scale.  There are requests to provide linear keyboard mappings, but these requests cannot be generalized without metadata.
 
 

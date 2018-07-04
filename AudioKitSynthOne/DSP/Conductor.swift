@@ -110,12 +110,11 @@ class Conductor: S1Protocol {
     }
 
     func start() {
-        #if false
-            print("Logging is OFF")
+        #if DEBUG
+        AKSettings.enableLogging = true
+        AKLog("Logging is ON")
         #else
-        // TODO: disable for release: @Aure is there a compiler directive to make this debug/release?
-            AKSettings.enableLogging = true
-            AKLog("Logging is ON")
+        AKLog("Logging is OFF")
         #endif
 
         // Allow audio to play while the iOS device is muted.
@@ -139,7 +138,9 @@ class Conductor: S1Protocol {
 
         do {
             try AudioKit.start()
+            #if DEBUG
             AKLog("AudioKit Started")
+            #endif
         } catch {
             AKLog("AudioKit did not start! \(error)")
             // TODO: Handle synth start failure

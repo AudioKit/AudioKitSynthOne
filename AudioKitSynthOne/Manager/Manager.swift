@@ -162,9 +162,11 @@ public class Manager: UpdatableViewController {
         var callbackStruct = AudioOutputUnitMIDICallbacks(
             userData: nil,
             MIDIEventProc: { (_, status, data1, data2, _) in
-                AudioKit.midi.sendMessage([MIDIByte(status), MIDIByte(data1), MIDIByte(data2)]) },
+                AudioKit.midi.sendMessage([MIDIByte(status), MIDIByte(data1), MIDIByte(data2)])
+            },
             MIDISysExProc: { (_, _, _) in
-                print("Not handling sysex") }
+                print("Not handling sysex")
+            }
         )
 
         guard let outputAudioUnit = AudioKit.engine.outputNode.audioUnit else {

@@ -1,5 +1,0 @@
-framework module OneSignal {
-    umbrella header "OneSignal.h"
-    export *
-    module * { export * }
-}

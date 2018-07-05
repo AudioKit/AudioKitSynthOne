@@ -33,7 +33,6 @@ any hints about what could be improved.
 * AudioKitSynthOne.xcodeproj - This file is a part of the workspace, which you should open instead
 * AudioKitSynthOne.xcworkspace - This is the file you should open with Xcode, it contains reference to both the project files for the synth code and associated Pods
 * OneSignalNotificationServiceExtension/ - code for a third party extension we use
-* Pods/ - Where the third party Cocoapods are stores
 * Podfile and Podfile.lock - Cocoapods configuration files
 * .swiftlint.yml - Swiftlint configuration
 

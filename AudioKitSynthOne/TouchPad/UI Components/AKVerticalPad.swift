@@ -117,14 +117,16 @@ public class AKVerticalPad: UIView {
             delay: 0.0,
             options: UIViewAnimationOptions(),
             animations: { self.touchPointView.center = CGPoint(x: self.centerPointX,
-                                                               y: centerPointY + self.yVisualAdjust) },
+                                                               y: centerPointY + self.yVisualAdjust)
+            },
             completion: { _ in
                 self.x = CGFloat(newPercentX)
                 self.y = CGFloat(newPercentY)
 
                 self.verticalValue = Double(self.y).denormalized(to: self.verticalRange, taper: self.verticalTaper)
                 self.completionHandler(self.verticalValue, true, true)
-        })
+            }
+        )
     }
 
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint, began: Bool = false) {

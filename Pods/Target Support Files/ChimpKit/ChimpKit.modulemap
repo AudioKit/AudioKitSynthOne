@@ -1,6 +1,0 @@
-framework module ChimpKit {
-  umbrella header "ChimpKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

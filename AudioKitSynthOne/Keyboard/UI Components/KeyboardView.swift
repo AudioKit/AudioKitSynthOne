@@ -131,7 +131,6 @@ public protocol AKKeyboardDelegate: class {
 
     // MARK: - Storyboard Rendering
 
-    // swiftlint:disable overridden_super_call
     /// Set up the view for rendering in Interface Builder
     override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()

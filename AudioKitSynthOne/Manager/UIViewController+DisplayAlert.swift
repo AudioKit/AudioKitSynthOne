@@ -45,8 +45,9 @@ extension UIViewController {
             SKStoreReviewController.requestReview()
         } else {
             // Fallback on earlier versions
-            // TODO: @MATT openURL doesn't exist anymore, can you check this?
-            // openURL("https://itunes.apple.com/us/app/audiokit-synth-one-synthesizer/id1371050497?ls=1&mt=8")
+            if let url = URL(string: "https://itunes.apple.com/us/app/id1371050497?action=write-review") {
+                UIApplication.shared.open(url)
+            }
         }
     }
 }

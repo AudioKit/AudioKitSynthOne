@@ -152,27 +152,46 @@ public class TuningsPitchWheelView: UIView {
             context.fillEllipse(in: bigDotR)
 
             var msd: String
-            switch labelMode {
-            case .frequency:
-                let harmonic = pow(2, p)
-                msd = String(format: "%1.3f", harmonic)
-            case .pitch:
-                // draw pitch
-                let harmonic = p
-                msd = String(format: "%.4f", harmonic)
-            case .cents:
-                // draw pitch in cents
-                let harmonic = p * 1_200
-                msd = String(format: "%.0f", harmonic)
-            case .harmonic:
-                // draw harmonic approximation of pitch
-                let harmonic = Tunings.approximateHarmonicFromPitch(p)
-                msd = String(harmonic)
-            }
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
+
         }
         pxy = mspxy
         self.overlayView.pxy = pxy
+
+        // draw label mode
+        UIColor.darkGray.setStroke()
+        UIColor.lightGray.setFill()
+        let lmpt = CGPoint(x: 2 * fontSize, y: 2 * fontSize + fontSize)
+
+
+        var lmstr: String
+        switch labelMode {
+        case .frequency:
+            // draw frequency
+            let harmonic = pow(2, p)
+            msd = String(format: "%1.3f", harmonic)
+            lmstr = "frequency"
+        case .pitch:
+            // draw pitch
+            let harmonic = p
+            msd = String(format: "%.4f", harmonic)
+            lmstr = "pitch"
+        case .cents:
+            // draw pitch in cents
+            let harmonic = p * 1_200
+            msd = String(format: "%.0f", harmonic)
+            lmstr = "pitch"
+
+        case .harmonic:
+            // draw harmonic approximation of pitch
+            let harmonic = Tunings.approximateHarmonicFromPitch(p)
+            msd = String(harmonic)
+            lmstr = "pitch"
+        }
+        _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
+
+        _ = lmstr.drawCentered(atPoint: lmpt, font: bdf2, color: UIColor.lightGray, drawStroke: false)
+
 
         // draw NPO
         UIColor.darkGray.setStroke()

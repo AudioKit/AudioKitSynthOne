@@ -14,7 +14,7 @@ DelFCut: We have a low-pass butterworth filter on the delay input that tracks th
 
 DelFRes: Doesn't have an effect because we currently have the resonance of the delay input filter set to 0.
 
-PreGain is the gain on the input to the final master compressor.
+Master Volume is is the gain on the input to the final master compressor.  It is the same "master volume" on the "Main" panel.
 
 DSPParamHalftime: Almost all dsp parameters are "smoothed" to reduce artifacts when switching presets, or zippering when consuming UI events.  You can make this a fast or sllloooooowwww smooth with this parameter.
 

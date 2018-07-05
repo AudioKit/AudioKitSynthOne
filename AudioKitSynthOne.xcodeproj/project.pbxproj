@@ -815,8 +815,8 @@
 		C4B4917020C7C73A00FD565A /* Developer */ = {
 			isa = PBXGroup;
 			children = (
-				C4B4917220C7C73A00FD565A /* DevViewController.swift */,
 				F4CB749120EEE0AF00716B92 /* README.md */,
+				C4B4917220C7C73A00FD565A /* DevViewController.swift */,
 				C4B4917120C7C73A00FD565A /* Manager+DevView.swift */,
 			);
 			path = Developer;
@@ -1032,6 +1032,7 @@
 					};
 					C4D193C31F1187B500FF4FE4 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9W69ZP8S5F;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1545,7 +1546,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9W69ZP8S5F;
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)",
@@ -1585,7 +1586,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9W69ZP8S5F;
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)",

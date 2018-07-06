@@ -18,8 +18,13 @@ The two primary branches of this repository are intended to be used as follows:
 ## Installation
 
 Currently you must checkout the git repository for AudioKit parallel in folder structure to this repo.
-Then, you must go into AudioKit's frameworks folder and run ./buildFrameworks.sh.
+Then, you must go into AudioKit's `Frameworks` folder and run `./build-frameworks.sh`.
 This may change to a Cocoapods-based structure eventually.
+
+You must install the pods that we depend on before you can compile the project. To do so, run the following at the root of the project:
+
+`pod repo update`
+`pod install`
 
 ## Documentation
 

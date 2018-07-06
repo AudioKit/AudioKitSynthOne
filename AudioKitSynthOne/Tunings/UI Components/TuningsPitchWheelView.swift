@@ -138,6 +138,7 @@ public class TuningsPitchWheelView: UIView {
             let p1 = CGPoint(x: p11.x + xp, y: p11.y + yp)
             let p22 = horagram01ToCartesian01(p: CGPoint(x: p, y: Double(0.5 * r2)))
             let p2: CGPoint = CGPoint(x: p22.x + xp, y: p22.y + yp)
+
             mspxy.append(p2)
             generalLineP(context, p0, p2)
 
@@ -152,53 +153,55 @@ public class TuningsPitchWheelView: UIView {
             context.fillEllipse(in: bigDotR)
 
             var msd: String
+            switch labelMode {
+            case .frequency:
+                // draw frequency
+                let harmonic = pow(2, p)
+                msd = String(format: "%1.3f", harmonic)
+            case .pitch:
+                // draw pitch
+                let harmonic = p
+                msd = String(format: "%.4f", harmonic)
+            case .cents:
+                // draw pitch in cents
+                let harmonic = p * 1_200
+                msd = String(format: "%.0f", harmonic)
+            case .harmonic:
+                // draw harmonic approximation of pitch
+                let harmonic = Tunings.approximateHarmonicFromPitch(p)
+                msd = String(harmonic)
+            }
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
 
         }
+
         pxy = mspxy
         self.overlayView.pxy = pxy
-
-        // draw label mode
-        UIColor.darkGray.setStroke()
-        UIColor.lightGray.setFill()
-        let lmpt = CGPoint(x: 2 * fontSize, y: 2 * fontSize + fontSize)
-
-
-        var lmstr: String
-        switch labelMode {
-        case .frequency:
-            // draw frequency
-            let harmonic = pow(2, p)
-            msd = String(format: "%1.3f", harmonic)
-            lmstr = "frequency"
-        case .pitch:
-            // draw pitch
-            let harmonic = p
-            msd = String(format: "%.4f", harmonic)
-            lmstr = "pitch"
-        case .cents:
-            // draw pitch in cents
-            let harmonic = p * 1_200
-            msd = String(format: "%.0f", harmonic)
-            lmstr = "pitch"
-
-        case .harmonic:
-            // draw harmonic approximation of pitch
-            let harmonic = Tunings.approximateHarmonicFromPitch(p)
-            msd = String(harmonic)
-            lmstr = "pitch"
-        }
-        _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
-
-        _ = lmstr.drawCentered(atPoint: lmpt, font: bdf2, color: UIColor.lightGray, drawStroke: false)
-
 
         // draw NPO
         UIColor.darkGray.setStroke()
         UIColor.lightGray.setFill()
         let npostr = "\(masterSet.count)"
-        let npopt = CGPoint(x: 2 * fontSize, y: 2 * fontSize)
-        _ = npostr.drawCentered(atPoint: npopt, font: bdf2, color: UIColor.lightGray, drawStroke: false)
+        let npopt = CGPoint(x: 1 * fontSize, y: 1 * fontSize)
+        _ = npostr.drawLeft(atPoint: npopt, font: bdf2, color: UIColor.lightGray, drawStroke: false)
+
+        // draw label mode
+        UIColor.darkGray.setStroke()
+        UIColor.lightGray.setFill()
+        let lmpt = CGPoint(x: npopt.x, y: npopt.y + 2 * fontSize)
+
+        var lmstr: String
+        switch labelMode {
+        case .frequency:
+            lmstr = "Frequency"
+        case .pitch:
+            lmstr = "Pitch"
+        case .cents:
+            lmstr = "Cents"
+        case .harmonic:
+            lmstr = "Harmonic"
+        }
+        _ = lmstr.drawLeft(atPoint: lmpt, font: sdf, color: UIColor.darkGray, drawStroke: false)
 
         // POP
         context.restoreGState()
@@ -256,6 +259,8 @@ extension TuningsPitchWheelView {
     }
 }
 
+
+// please refactor this String extension to handle centered and left-justified
 private extension String {
 
     func drawCentered(atPoint point: CGPoint, font: UIFont, color: UIColor, drawStroke: Bool = true) -> CGSize {
@@ -278,6 +283,28 @@ private extension String {
 
         return labelSize
     }
+
+    func drawLeft(atPoint point: CGPoint, font: UIFont, color: UIColor, drawStroke: Bool = true) -> CGSize {
+        let labelSize = self.size(withAttributes: [.font: font, .strokeColor: color])
+        let centeredAvgP = CGPoint(x: point.x, y: point.y)
+
+        var attributes = [NSAttributedStringKey: Any]()
+        attributes[.font] = font
+        attributes[.strokeWidth] = 12
+
+        if drawStroke {
+            attributes[.strokeColor] = UIColor.black
+            self.draw(at: centeredAvgP, withAttributes: attributes)
+        }
+
+        attributes.removeValue(forKey: .strokeWidth)
+        attributes.removeValue(forKey: .strokeColor)
+        attributes[.foregroundColor] = color
+        self.draw(at: centeredAvgP, withAttributes: attributes)
+
+        return labelSize
+    }
+
 }
 
 ///transparent overlay for tuning view which displays amplitudes of playing notes

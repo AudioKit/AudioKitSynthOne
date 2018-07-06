@@ -12,7 +12,7 @@
 #import <vector>
 #import <list>
 #import <string>
-#import "AKSoundpipeKernel.hpp"
+#import "AudioKit/AKSoundpipeKernel.hpp"
 #import "S1AudioUnit.h"
 #import "S1Parameter.h"
 #import "S1Rate.hpp"

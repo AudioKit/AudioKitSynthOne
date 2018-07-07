@@ -35,6 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        conductor.checkIAAConnectionsEnterBackground()
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        conductor.checkIAAConnectionsEnterForeground()
+    }
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Prevent app from sleeping if never sleep is toggled on
         // Toggle back to sleep mode after 1 minutes

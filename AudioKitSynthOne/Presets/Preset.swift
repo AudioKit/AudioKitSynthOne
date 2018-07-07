@@ -18,7 +18,8 @@ class Preset: Codable {
     var name = "Init"
     var bank = "User"
 
-    // You MUST match these property names with the dictionary key used by init (below) or you will forever lose the original preset.
+    // You MUST match these property names with the dictionary key used by init (below)
+    // or you will forever lose the original preset.
 
     // Synth VC
     var octavePosition = 0

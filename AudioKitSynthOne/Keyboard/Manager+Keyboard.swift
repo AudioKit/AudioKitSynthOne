@@ -27,8 +27,9 @@ extension Manager: AKKeyboardDelegate {
     public func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity = 127) {
         guard note < 128 else {
             displayAlertController("Too High",
-                                   message: "Above MIDI Note 127. G8 is the highest playable key. Take it down a notch 😉")
-            return }
+                                   message: "MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉")
+            return
+        }
         sustainer.play(noteNumber: note, velocity: velocity)
     }
 

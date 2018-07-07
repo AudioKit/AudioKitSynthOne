@@ -32,6 +32,8 @@ class Conductor: S1Protocol {
     let lfo2RateModWheelID: Int32 = 7
     let pitchBendID: Int32 = 8
 
+    var iaaTimer: Timer = Timer()
+
     public var viewControllers: Set<UpdatableViewController> = []
     fileprivate var started = false
 
@@ -143,7 +145,6 @@ class Conductor: S1Protocol {
             #endif
         } catch {
             AKLog("AudioKit did not start! \(error)")
-            // TODO: Handle synth start failure
         }
         started = true
 
@@ -233,4 +234,47 @@ class Conductor: S1Protocol {
     func stopEngine() {
         AudioKit.engine.pause()
     }
+
+    func checkIAAConnectionsEnterBackground() {
+
+        if let audiobusClient = Audiobus.client {
+
+            if !audiobusClient.isConnected && !audiobusClient.isConnectedToInput {
+                deactivateSession()
+                AKLog("disconnected without timer")
+            } else {
+                iaaTimer.invalidate()
+                iaaTimer = Timer.scheduledTimer(timeInterval: 20 * 60,
+                                                target: self,
+                                                selector: #selector(self.handleConnectionTimer),
+                                                userInfo: nil, repeats: true)
+            }
+        }
+    }
+
+    func checkIAAConnectionsEnterForeground() {
+        iaaTimer.invalidate()
+        startEngine()
+    }
+
+    func deactivateSession() {
+
+        stopEngine()
+
+        do {
+            try AKSettings.session.setActive(false)
+        } catch let error as NSError {
+            print("pwd erro setting session: " + error.description)
+        }
+
+        iaaTimer.invalidate()
+
+        AKLog("disconnected with timer")
+    }
+
+    @objc func handleConnectionTimer() {
+        AKLog("should disconnect with timer")
+        deactivateSession()
+    }
+
 }

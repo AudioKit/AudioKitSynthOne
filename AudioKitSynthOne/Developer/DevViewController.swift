@@ -18,6 +18,7 @@ protocol DevViewDelegate: AnyObject {
 
 class DevViewController: UpdatableViewController {
 
+    @IBOutlet weak var backgroundImage: UIImageView!
     weak var delegate: DevViewDelegate?
 
     @IBOutlet weak var masterVolume: Knob! // i.e., gain before compressorMaster
@@ -62,6 +63,9 @@ class DevViewController: UpdatableViewController {
             AKLog("DevViewController view state is invalid because synth is not instantiated")
             return
         }
+        
+        backgroundImage.isHidden = false
+        backgroundImage.alpha = 0.15
 
         // masterVolume is the input gain to compressorMaster
         masterVolume.range = s.getRange(.masterVolume)

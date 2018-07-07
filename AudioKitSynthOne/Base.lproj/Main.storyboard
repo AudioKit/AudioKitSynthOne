@@ -111,7 +111,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9j-zW-Pky" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="9" y="5" width="106" height="34"/>
+                                        <rect key="frame" x="9" y="7" width="106" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.20010934770107269" green="0.20010487735271454" blue="0.20010755956172943" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
@@ -3323,7 +3323,7 @@ How can you help? Please share with your friends and leave a nice review in the 
 We're all volunteers. We're dozens of developers, sound designers, and music lovers across the globe who want to give back to the music-making community. We hope you enjoy it!
 
 Thanks to the following people (listed alphabetically):
-Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chase Dobson, Cheez da Producer, Chello Ward, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Geneş, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio</string>
+Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chase Dobson, Cheez da Producer, Chello Ward, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Geneş, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio</string>
                                                 <color key="textColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -3434,10 +3434,10 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                     <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLEASE send BUG REPORTS and IDEAS:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6y3-b6-M2O">
-                                <rect key="frame" x="259" y="726" width="243" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLEASE send BUG REPORTS:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6y3-b6-M2O">
+                                <rect key="frame" x="345" y="726" width="157" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -3486,6 +3486,10 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circuit" translatesAutoresizingMaskIntoConstraints="NO" id="6Yc-cz-vAK">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XLO-mz-L7w" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="20" y="41" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3550,21 +3554,21 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                 <rect key="frame" x="368" y="198" width="85" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reverb Wet Compressor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c52-uo-ctC">
                                 <rect key="frame" x="368" y="121" width="85" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reverb Input Compressor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cen-cD-pWK">
                                 <rect key="frame" x="368" y="41" width="85" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdi-Ns-Bh0" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -3573,10 +3577,10 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DelFRes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbq-4s-Dqy">
-                                <rect key="frame" x="529" y="168" width="50" height="22"/>
+                                <rect key="frame" x="529" y="169" width="50" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m3U-ug-O37" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -3595,20 +3599,20 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QFW-Eg-hdj" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="529" y="34" width="50" height="50"/>
+                                <rect key="frame" x="529" y="31" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y3q-zN-2jq" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="529" y="121" width="50" height="50"/>
+                                <rect key="frame" x="529" y="117" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DelFCut" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgD-ck-qga">
-                                <rect key="frame" x="524" y="79" width="60" height="27"/>
+                                <rect key="frame" x="524" y="82" width="60" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b44-CS-fgf" customClass="ToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -3617,10 +3621,10 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lock ArpRate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ma-ua-oCt">
-                                <rect key="frame" x="629" y="74" width="60" height="40"/>
+                                <rect key="frame" x="629" y="70" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bl8-Ac-O1T" customClass="ToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -3629,10 +3633,10 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lock Reverb" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wn-9c-ANc">
-                                <rect key="frame" x="629" y="160" width="60" height="40"/>
+                                <rect key="frame" x="629" y="159" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-SK-NQh" customClass="ToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -3641,64 +3645,71 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lock Delay" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjx-yc-c7K">
-                                <rect key="frame" x="629" y="239" width="60" height="40"/>
+                                <rect key="frame" x="629" y="235" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LOe-jg-3d6" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="726" y="35" width="50" height="50"/>
+                                <rect key="frame" x="726" y="31" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DSP Param Halftime" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDm-Z6-GYV">
-                                <rect key="frame" x="721" y="81" width="60" height="47"/>
+                                <rect key="frame" x="721" y="83" width="60" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ratio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXN-3T-wWR">
-                                <rect key="frame" x="91" y="254" width="50" height="21"/>
+                                <rect key="frame" x="89" y="254" width="50" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dt-rD-2EL">
-                                <rect key="frame" x="168" y="255" width="54" height="21"/>
+                                <rect key="frame" x="165" y="254" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Release" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YF1-Sf-Nwm">
-                                <rect key="frame" x="231" y="254" width="60" height="21"/>
+                                <rect key="frame" x="229" y="254" width="60" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PostGain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swO-LT-7Om">
-                                <rect key="frame" x="305" y="254" width="69" height="21"/>
+                                <rect key="frame" x="303" y="254" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thresh" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VA-Ob-nmj">
-                                <rect key="frame" x="20" y="253" width="54" height="21"/>
+                                <rect key="frame" x="20" y="254" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Master Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhk-Cj-6NZ">
                                 <rect key="frame" x="508" y="243" width="92" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HAQ PANEL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GH6-Xd-rXh">
+                                <rect key="frame" x="944" y="267" width="78" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                <color key="textColor" red="0.13725490196078433" green="0.14117647058823529" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -3708,6 +3719,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="6Yc-cz-vAK" id="Ag2-su-rda"/>
                         <outlet property="compressorMasterAttack" destination="eOd-C1-xpw" id="Ejg-ay-Ivb"/>
                         <outlet property="compressorMasterMakeupGain" destination="BCx-1L-HOa" id="XCO-Az-vRA"/>
                         <outlet property="compressorMasterRatio" destination="3qV-DN-K8I" id="1rG-Cn-Usm"/>
@@ -3734,7 +3746,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHH-7G-RZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67" y="138.5"/>
+            <point key="canvasLocation" x="66.796875" y="137.890625"/>
         </scene>
         <!--MailingList-->
         <scene sceneID="vhj-nS-HfJ">
@@ -3824,13 +3836,6 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                     <action selector="closePressed:" destination="u9K-io-wc1" eventType="touchUpInside" id="gAh-io-7cx"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We are an open-source project that respects your privacy. Enter your email above to stay informed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4k-ZK-9yH">
-                                <rect key="frame" x="339" y="542" width="347" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -3879,8 +3884,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <string key="text">Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
-Beautiful and lush sounding multi-instrument samples of 
-Electric Pianos, Tines, Basses, Keys and iconic 80s sounds. </string>
+Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Tines, Basses, Keys and 80s sounds. </string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

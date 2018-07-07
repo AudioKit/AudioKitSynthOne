@@ -983,6 +983,7 @@
 				941645C620B3597300D62851 /* Sources */,
 				941645C720B3597300D62851 /* Frameworks */,
 				941645C820B3597300D62851 /* Resources */,
+				3B934ABEB8F4F4E2365BC771 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1004,6 +1005,7 @@
 				A02F99CB702A38B4BC2953CB /* [CP] Embed Pods Frameworks */,
 				C474D95D1F13172B00946035 /* Embed App Extensions */,
 				C4421AA920B81D0500BE9F12 /* ShellScript */,
+				B01F67E91D126F4EC45E5B5B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1104,6 +1106,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3B934ABEB8F4F4E2365BC771 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		49E9B8C03D2127F41FFB0052 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1140,6 +1157,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B01F67E91D126F4EC45E5B5B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4421AA920B81D0500BE9F12 /* ShellScript */ = {

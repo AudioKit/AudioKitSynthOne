@@ -17,14 +17,12 @@ The two primary branches of this repository are intended to be used as follows:
 
 ## Installation
 
-Currently you must checkout the git repository for AudioKit parallel in folder structure to this repo.
-Then, you must go into AudioKit's `Frameworks` folder and run `./build-frameworks.sh`.
-This may change to a Cocoapods-based structure eventually.
-
 You must install the pods that we depend on before you can compile the project. To do so, run the following at the root of the project:
 
-`pod repo update`
-`pod install`
+* `pod repo update`
+* `pod install`
+
+You may uncomment the line in `Podfile` to switch to our cutting-edge staging (unstable) releases of AudioKit, as opposed to the stable releases in the mainstream CocoaPods specs.
 
 ## Documentation
 
@@ -34,19 +32,18 @@ any hints about what could be improved.
 
 ### This folder's contents
 
-* AudioKitSynthOne/ - This folder contains most of the source code
-* AudioKitSynthOne.xcodeproj - This file is a part of the workspace, which you should open instead
-* AudioKitSynthOne.xcworkspace - This is the file you should open with Xcode, it contains reference to both the project files for the synth code and associated Pods
-* OneSignalNotificationServiceExtension/ - code for a third party extension we use
-* Podfile and Podfile.lock - Cocoapods configuration files
-* .swiftlint.yml - Swiftlint configuration
+* `AudioKitSynthOne/` - This folder contains most of the source code
+* `AudioKitSynthOne.xcodeproj` - This file is a part of the workspace, which you should open instead
+* `AudioKitSynthOne.xcworkspace` - This is the file you should open with Xcode, it contains reference to both the project files for the synth code and associated Pods
+* `OneSignalNotificationServiceExtension/` - code for a third party extension we use
+* `Podfile` and `Podfile.lock` - Cocoapods configuration files
+* `.swiftlint.yml` - Swiftlint configuration
 
 ## Opportunities for Contributing
 
 Here's a few ideas for you to contribute to this historic project:
 
 * Write a PDF Manual. We can help answer any questions. Write a manual for Synth One in your language. 
-
 
 * Have AUv3 development experience? Help with the AUv3 version! (Plus, we have a  Slack Channel for this topic)
 
@@ -61,6 +58,8 @@ Here's a few ideas for you to contribute to this historic project:
 * Add a trance/rhythm gate panel
 
 * Add a side chain/volume ducking panel
+
+* Localizations
 
 
 If you have audio development experience and want to be more involved with Synth One, please email [hello@audiokitpro.com](mailto:hello@audiokitpro.com)

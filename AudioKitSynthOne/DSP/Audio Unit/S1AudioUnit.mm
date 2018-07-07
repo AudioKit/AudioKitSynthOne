@@ -8,8 +8,8 @@
 
 #import "S1AudioUnit.h"
 #import "S1DSPKernel.hpp"
-#import "BufferedAudioBus.hpp"
 #import "AEMessageQueue.h"
+#import "AudioKit/BufferedAudioBus.hpp"
 #import <AudioKit/AudioKit-swift.h>
 
 @implementation S1AudioUnit {

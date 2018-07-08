@@ -264,7 +264,7 @@ class Conductor: S1Protocol {
         do {
             try AKSettings.session.setActive(false)
         } catch let error as NSError {
-            print("pwd erro setting session: " + error.description)
+            AKLog("error setting session: " + error.description)
         }
 
         iaaTimer.invalidate()

@@ -145,8 +145,8 @@ public class Manager: UpdatableViewController {
             AudioKit.midi.createVirtualInputPort(95_433, name: "AudioKit Synth One")
             AudioKit.midi.openInput()
             AudioKit.midi.openOutput("AudioKit Synth One")
-            AudioKit.midi.addListener(self)
         }
+        AudioKit.midi.addListener(self)
 
         // Pre-load views and Set initial subviews
         switchToChildPanel(.effects, isOnTop: true)

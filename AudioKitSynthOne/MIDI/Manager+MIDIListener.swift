@@ -141,7 +141,7 @@ extension Manager: AKMIDIListener {
 
     // MIDI Setup Change
     public func receivedMIDISetupChange() {
-        // AKLog("midi setup change, midi.inputNames: \(midi.inputNames)")
+        AKLog("midi setup change, midi.inputNames: \(AudioKit.midi.inputNames)")
 
         let midiInputNames = AudioKit.midi.inputNames
         for inputName in midiInputNames {

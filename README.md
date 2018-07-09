@@ -5,7 +5,9 @@
 We've open-sourced the code for this synthesizer so that everyone is able to make changes to the code,
 introduce new features, fix bugs, improve efficiency, and keep the synthesizer up-to-date with all
 new capabilities of the base operating system.  
-![Screenshot](http://audiokitpro.com/images/ak1.gif)
+![Screenshot](http://audiokitpro.com/images/ak2.gif)
+
+If you're new to [AudioKit](https://audiokitpro.com/), you can learn more and view getting started links: [here](https://audiokitpro.com/audiokit/). This code and app is made possible by all the dozens of contributors to AudioKit. Many of the features of Synth One are availble as modules in AudioKit, allowing you easy access to filters, reverbs, effects, and other DSP processing. 
 
 ## Master and Develop Branches
 
@@ -24,7 +26,25 @@ You must install the pods that we depend on before you can compile the project. 
 
 You may uncomment the line in `Podfile` to switch to our cutting-edge staging (unstable) releases of AudioKit, as opposed to the stable releases in the mainstream CocoaPods specs.
 
+## App Store Location
+
+- Learn more about this project: [Synth One Details & Specs](https://audiokitpro.com/synth)  
+- Get app: [Download in App Store](https://itunes.apple.com/us/app/audiokit-synth-one-synthesizer/id1371050497?ls=1&mt=8)
+
+## Requirements
+
+- Mac or computer running Xcode ([Free Download](https://itunes.apple.com/us/app/xcode/id497799835?mt=12))
+- Knowledge of programming, specifically Swift, AudioKit, C/C++, & the iOS SDK
+
+If you are new to iOS development, we recommend the [Ray Wenderlich](https://www.raywenderlich.com/) videos. There is also a great tutorial on basic synthesis with AudioKit [here](https://www.raywenderlich.com/145770/audiokit-tutorial-getting-started).  
+
+Beginner? We have two additional code examples. There is a simple [Swift Synth](https://github.com/AudioKit/AnalogSynthX) and a [Sample Player](https://github.com/AudioKit/ROMPlayer). A fun exercise might be replacing the [sample player](https://github.com/AudioKit/ROMPlayer) code engine with synthesis. 
+
+
 ## Documentation
+
+Video introduction for this project:  
+AURE'S VIDEO INTRO
 
 We intend to have every major section of the code placed within its own folder, with an included
 README.md file, like this one. This file should explain the contents of the folder and give developers
@@ -43,31 +63,44 @@ any hints about what could be improved.
 
 Here's a few ideas for you to contribute to this historic project:
 
-* Write a PDF Manual. We can help answer any questions. Write a manual for Synth One in your language. 
-
-* Have AUv3 development experience? Help with the AUv3 version! (Plus, we have a  Slack Channel for this topic)
-
+* Add accessibility functionality to AudioKit Synth One. We have received multiple requests from visually impaired musicians. Help make Synth One accessible to all musicians.
 *  Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
-
+* Localizations in your language
+* Create iPhone or Universal interface
+* Ability to search presets
 * Make TouchPads assignable 
-
 * Add an EQ Panel (8-band/16-band/etc)
-
-* Improve Arp (Add Gate, etc)
-
+* Improve Arp (Add Gate, Beat Divisions, etc)
 * Add a trance/rhythm gate panel
-
 * Add a side chain/volume ducking panel
+* Add the ability for Sequencer to modulate more parameters
+* Double tap knobs to go to defaults
+* Filter key tracking options & settings
+* MIDI out
+* Sample & Hold
 
-* Localizations
-
-
-If you have audio development experience and want to be more involved with Synth One, please email [hello@audiokitpro.com](mailto:hello@audiokitpro.com)
+If you have audio development experience and want to be involved with contributing to the app store version of Synth One, please email [hello@audiokitpro.com](mailto:hello@audiokitpro.com)
 
 There are a few major updates we intend for this synth:
 
 * Storyboards are a source of bugs on large scale projects like this one.  We will replace storyboards with programmatically generated views.
-
 * Too much business logic is inside the "Manager" view controller.  We have done our best to separate out the functions of this view controller into well defined extensions, but more work could be done with this.
 
+## Code Usage
 
+You are free to:
+
+(1) Use this app as a learning tool.  
+(2) Re-skin this app (completely change the graphics), modify the controls, and upload to the app store.  
+(3) Change the graphics, and include this as part of a bigger app you are building.  
+(4) Contribute code back to this project and improve this code for other people
+
+If you use any code, it would be great if you gave this project some credit or a mention. The more love this code receives, the better we can make it for everyone. And, always give AudioKit a shout-out when you can! :) 
+
+If you make an app with this code, please let us know! We think you're awesome, and would love to hear from you and/or feature your app.
+
+IMPORTANT: You must change the graphics if you upload this to the app store.
+
+## Legal Notices
+
+This is an open-source project intended to bring joy and music to people, and enlighten people on how to build custom instruments and iOS apps. All product names and images, trademarks and artists names are the property of their respective owners, which are in no way associated or affiliated with the creators of this app, including AudioKit, AudioKit Pro, LLC, and the other contributors. Product names and images are used solely for the purpose of identifying the specific products related to synthesizers, iOS Music, sampling, sound design, and music making. 

@@ -7,14 +7,18 @@ introduce new features, fix bugs, improve efficiency, and keep the synthesizer u
 new capabilities of the base operating system.  
 ![Screenshot](http://audiokitpro.com/images/ak2.gif)
 
-If you're new to [AudioKit](https://audiokitpro.com/), you can learn more and view getting started links: [here](https://audiokitpro.com/audiokit/). This code and app is made possible by all the dozens of contributors to AudioKit. Many of the features of Synth One are availble as modules in AudioKit, allowing you easy access to filters, reverbs, effects, and other DSP processing. 
+If you're new to [AudioKit](https://audiokitpro.com/), you can learn more and view getting started links: [here](https://audiokitpro.com/audiokit/). This code and app is made possible by all the contributors to AudioKit. Many of the features of Synth One are availble as modules in AudioKit, allowing you easy access to filters, reverbs, effects, and other DSP processing. 
+
+## App Store Location
+
+- Learn more about this project: [AudioKit Synth One Features](https://audiokitpro.com/synth)  
+- Get app: [Download in App Store](https://itunes.apple.com/us/app/audiokit-synth-one-synthesizer/id1371050497?ls=1&mt=8)
 
 ## Master and Develop Branches
 
 The two primary branches of this repository are intended to be used as follows:
 
 * Master branch will work with the current release version of AudioKit - ie. AudioKit's "master" branch. Changes should not be made on this branch so that it can be kept as stable as possible.
-
 * Develop branch is intended to be built with code from Develop branch of AudioKit.  Pull requests should be made to this branch.
 
 ## Installation
@@ -26,10 +30,6 @@ You must install the pods that we depend on before you can compile the project. 
 
 You may uncomment the line in `Podfile` to switch to our cutting-edge staging (unstable) releases of AudioKit, as opposed to the stable releases in the mainstream CocoaPods specs.
 
-## App Store Location
-
-- Learn more about this project: [Synth One Details & Specs](https://audiokitpro.com/synth)  
-- Get app: [Download in App Store](https://itunes.apple.com/us/app/audiokit-synth-one-synthesizer/id1371050497?ls=1&mt=8)
 
 ## Requirements
 
@@ -88,12 +88,12 @@ There are a few major updates we intend for this synth:
 
 ## Code Usage
 
-You are free to:
+You are free to use this is code as follows:
 
-(1) Use this app as a learning tool.  
-(2) Re-skin this app (completely change the graphics), modify the controls, and upload to the app store.  
+(1) Use this code as a learning tool.  
+(2) Re-skin this app (change the graphics), modify the controls, and upload to the app store.  
 (3) Change the graphics, and include this as part of a bigger app you are building.  
-(4) Contribute code back to this project and improve this code for other people
+(4) Contribute code back to this project and improve the code for other people
 
 If you use any code, it would be great if you gave this project some credit or a mention. The more love this code receives, the better we can make it for everyone. And, always give AudioKit a shout-out when you can! :) 
 

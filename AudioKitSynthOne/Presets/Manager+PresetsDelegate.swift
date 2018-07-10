@@ -11,6 +11,8 @@
 extension Manager: PresetsDelegate {
 
     func presetDidChange(_ newActivePreset: Preset) {
+        conductor.synth.reset()
+
         activePreset = newActivePreset
 
         if let headerVC = self.childViewControllers.first as? HeaderViewController {

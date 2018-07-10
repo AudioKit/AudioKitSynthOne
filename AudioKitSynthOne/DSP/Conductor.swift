@@ -18,6 +18,7 @@ typealias S1ControlCallback = (S1Parameter, S1Control?) -> ((_: Double) -> Void)
 class Conductor: S1Protocol {
     static var sharedInstance = Conductor()
     var neverSleep = false
+    var backgroundAudio = false
     var banks: [Bank] = []
     var synth: AKSynthOne!
     var bindings: [(S1Parameter, S1Control)] = []
@@ -235,18 +236,18 @@ class Conductor: S1Protocol {
         AudioKit.engine.pause()
     }
 
-    func checkIAAConnectionsEnterBackground() {
-
+    @objc func checkIAAConnectionsEnterBackground() {
+        
         if let audiobusClient = Audiobus.client {
 
-            if !audiobusClient.isConnected && !audiobusClient.isConnectedToInput {
+            if !audiobusClient.isConnected && !audiobusClient.isConnectedToInput && !backgroundAudio {
                 deactivateSession()
                 AKLog("disconnected without timer")
             } else {
                 iaaTimer.invalidate()
                 iaaTimer = Timer.scheduledTimer(timeInterval: 20 * 60,
                                                 target: self,
-                                                selector: #selector(self.handleConnectionTimer),
+                                                selector: #selector(self.checkIAAConnectionsEnterBackground),
                                                 userInfo: nil, repeats: true)
             }
         }
@@ -270,11 +271,6 @@ class Conductor: S1Protocol {
         iaaTimer.invalidate()
 
         AKLog("disconnected with timer")
-    }
-
-    @objc func handleConnectionTimer() {
-        AKLog("should disconnect with timer")
-        deactivateSession()
     }
 
 }

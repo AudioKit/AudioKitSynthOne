@@ -14,14 +14,6 @@ DEPENDENCIES:
   - Disk (~> 0.3.2)
   - OneSignal (< 3.0, >= 2.6.2)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Audiobus
-    - AudioKit
-    - ChimpKit
-    - Disk
-    - OneSignal
-
 SPEC CHECKSUMS:
   Audiobus: 7e25081005aed75e8170ad3f5a904acf90e1d73b
   AudioKit: 95bd2427c1afa7954d71b0c6195a09b87b7448bc
@@ -31,4 +23,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 569cc4fd7c23f37bd9c2760368477c93ef67616f
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0

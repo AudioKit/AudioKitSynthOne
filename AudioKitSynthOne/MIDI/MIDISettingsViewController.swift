@@ -25,7 +25,8 @@ class MIDISettingsViewController: UIViewController {
     @IBOutlet weak var sleepToggle: ToggleSwitch!
     @IBOutlet weak var velocityToggle: ToggleSwitch!
     @IBOutlet weak var saveTuningToggle: ToggleSwitch!
-
+    @IBOutlet weak var backgroundAudioToggle: ToggleSwitch!
+    
     weak var delegate: MIDISettingsPopOverDelegate?
 
     var midiSources = [MIDIInput]() {
@@ -60,6 +61,7 @@ class MIDISettingsViewController: UIViewController {
         sleepToggle.value = conductor.neverSleep ? 1 : 0
         velocityToggle.value = velocitySensitive ? 1 : 0
         saveTuningToggle.value = saveTuningWithPreset ? 1 : 0
+        backgroundAudioToggle.value = conductor.backgroundAudio ? 1:0
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -96,11 +98,17 @@ class MIDISettingsViewController: UIViewController {
 
             if value == 1 {
                 self.conductor.neverSleep = true
-                self.displayAlertController("Info", message: "This mode is great for playing live. " +
-                    "Note: it will use more power and could drain your battery faster")
+                self.displayAlertController("Don't Sleep Mode", message: "This mode is great for playing live. Background audio will also stay on. " +
+                    "Note: It will use more power and could drain your battery faster")
+                
             } else {
                 self.conductor.neverSleep = false
+            
             }
+        }
+        
+        backgroundAudioToggle.callback = { value in
+            self.conductor.backgroundAudio = value == 1
         }
 
         velocityToggle.callback = { value in

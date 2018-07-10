@@ -15,26 +15,48 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AudioUnitViewController" customModule="AKS1Extension" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AudioKit Synth One UI Goes Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5c-MY-xUb">
-                                <rect key="frame" x="55" y="40" width="265" height="21"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGq-Gg-ZGJ" userLabel="Header View Container">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1024" id="5da-89-0hc"/>
+                                    <constraint firstAttribute="height" constant="38" id="nnq-Nm-EdQ"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="5zz-bh-bXp" kind="embed" id="AZA-8d-SW7"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA3-jZ-yZ5" userLabel="Panel View Container">
+                                <rect key="frame" x="0.0" y="38" width="1024" height="299"/>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="299" id="Lkn-aU-3Be"/>
+                                    <constraint firstAttribute="width" constant="1024" id="rjT-X2-64F"/>
+                                </constraints>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="j5c-MY-xUb" firstAttribute="centerX" secondItem="u2v-qu-mbu" secondAttribute="centerX" id="GEu-gu-ROi"/>
-                            <constraint firstItem="j5c-MY-xUb" firstAttribute="top" secondItem="u2v-qu-mbu" secondAttribute="top" constant="20" id="sbA-2i-4eA"/>
+                            <constraint firstItem="FA3-jZ-yZ5" firstAttribute="top" secondItem="MGq-Gg-ZGJ" secondAttribute="bottom" id="IIX-Md-XfE"/>
+                            <constraint firstItem="FA3-jZ-yZ5" firstAttribute="top" secondItem="MGq-Gg-ZGJ" secondAttribute="bottom" id="ufq-gO-pbE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u2v-qu-mbu"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="337"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Header-->
+        <scene sceneID="DXf-XT-uS7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Header" id="5zz-bh-bXp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yuy-tb-dmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58" y="313"/>
         </scene>
     </scenes>
 </document>

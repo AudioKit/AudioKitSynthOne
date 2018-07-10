@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RTG-qR-XhM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Header-->
+        <scene sceneID="i8W-CK-idX">
+            <objects>
+                <viewController storyboardIdentifier="Header" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RTG-qR-XhM" userLabel="Header" customClass="HeaderViewController" customModule="AKS1Extension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hTl-dt-ziy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ugq-TQ-QVH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cy9-AE-XeJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerback" translatesAutoresizingMaskIntoConstraints="NO" id="6Rp-Vw-08N">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1024" id="3M4-qe-i29"/>
+                                    <constraint firstAttribute="height" constant="38" id="yKV-4U-vGo"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZ2-15-D0A">
+                                <rect key="frame" x="799" y="6" width="28" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lci-E2-4Wt" userLabel="random">
+                                <rect key="frame" x="321" y="5" width="30" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="dice">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="randomPressed:" destination="RTG-qR-XhM" eventType="touchUpInside" id="FJS-7f-cgy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdt-WS-6OA">
+                                <rect key="frame" x="389" y="6" width="240" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYZ-51-Rpx">
+                                <rect key="frame" x="359" y="6" width="33" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="left-arrow">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="previousPresetPressed:" destination="RTG-qR-XhM" eventType="touchUpInside" id="1ng-Cn-mXV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnq-eJ-cmW">
+                                <rect key="frame" x="636" y="6" width="32" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="right-arrow">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPresetPressed:" destination="RTG-qR-XhM" eventType="touchUpInside" id="ndz-v5-Tcb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gif-au-vmS">
+                                <rect key="frame" x="7" y="3" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="homePressed:" destination="RTG-qR-XhM" eventType="touchUpInside" id="m4I-8w-Yj3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6Rp-Vw-08N" firstAttribute="leading" secondItem="Cy9-AE-XeJ" secondAttribute="leading" id="Hiw-Bb-4fE"/>
+                            <constraint firstItem="Ugq-TQ-QVH" firstAttribute="top" secondItem="6Rp-Vw-08N" secondAttribute="bottom" id="PFm-9f-BXs"/>
+                            <constraint firstItem="6Rp-Vw-08N" firstAttribute="top" secondItem="Cy9-AE-XeJ" secondAttribute="top" id="ZcY-Qv-B2X"/>
+                            <constraint firstAttribute="trailing" secondItem="6Rp-Vw-08N" secondAttribute="trailing" id="kMd-Z5-jLW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="17F-of-2W3"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="38"/>
+                    <connections>
+                        <outlet property="diceButton" destination="Lci-E2-4Wt" id="6PB-Z0-m3A"/>
+                        <outlet property="displayLabel" destination="kdt-WS-6OA" id="ucn-uI-dom"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gkO-08-EJx" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-813" y="-1163"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dice" width="19" height="18"/>
+        <image name="headerback" width="1024" height="38"/>
+        <image name="left-arrow" width="20" height="20"/>
+        <image name="right-arrow" width="20" height="20"/>
+    </resources>
+</document>

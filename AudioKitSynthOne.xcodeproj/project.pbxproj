@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */; };
+		68C7D17FDA9E6C5DA3A23C01 /* Pods_AKS1Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E1A7C3C54D27427C4A71B1 /* Pods_AKS1Extension.framework */; };
 		941645CD20B3597300D62851 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941645CC20B3597300D62851 /* NotificationService.swift */; };
 		941645D120B3597300D62851 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		941752BA20E2BD2E0076D953 /* Starter Bank.json in Resources */ = {isa = PBXBuildFile; fileRef = 941752B920E2BD2E0076D953 /* Starter Bank.json */; };
@@ -161,6 +162,34 @@
 		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
 		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
 		C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */; };
+		C4F3B19F20F44A800072FFF4 /* AudioUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3B19E20F44A800072FFF4 /* AudioUnitViewController.swift */; };
+		C4F3B1A220F44A800072FFF4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1A020F44A800072FFF4 /* MainInterface.storyboard */; };
+		C4F3B1A720F44A800072FFF4 /* AKS1Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4F3B19920F44A800072FFF4 /* AKS1Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C4F3B1AB20F44AC40072FFF4 /* Pods_AudioKitSynthOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */; };
+		C4F3B1AC20F45B070072FFF4 /* S1AudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57020C530C900DAECCD /* S1AudioUnit.mm */; };
+		C4F3B1AD20F45D810072FFF4 /* S1DSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57620C530C900DAECCD /* S1DSPKernel.mm */; };
+		C4F3B1AE20F45D870072FFF4 /* S1DSPKernel+destroy.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */; };
+		C4F3B1AF20F45D870072FFF4 /* S1DSPKernel+didChanges.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490EE20C64E5600FD565A /* S1DSPKernel+didChanges.mm */; };
+		C4F3B1B020F45D870072FFF4 /* S1DSPKernel+getSetDependentParameters.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490EC20C64D8C00FD565A /* S1DSPKernel+getSetDependentParameters.mm */; };
+		C4F3B1B120F45D870072FFF4 /* S1DSPKernel+getSetSynthParameters.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490EA20C64C8E00FD565A /* S1DSPKernel+getSetSynthParameters.mm */; };
+		C4F3B1B220F45D870072FFF4 /* S1DSPKernel+MIDI.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490E820C64AC600FD565A /* S1DSPKernel+MIDI.mm */; };
+		C4F3B1B320F45D870072FFF4 /* S1DSPKernel+parameters.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490F420C6542500FD565A /* S1DSPKernel+parameters.mm */; };
+		C4F3B1B420F45D870072FFF4 /* S1DSPKernel+process.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490F220C6539200FD565A /* S1DSPKernel+process.mm */; };
+		C4F3B1B520F45D870072FFF4 /* S1DSPKernel+reset.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490F620C654E600FD565A /* S1DSPKernel+reset.mm */; };
+		C4F3B1B620F45D870072FFF4 /* S1DSPKernel+setup.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490F820C655AF00FD565A /* S1DSPKernel+setup.mm */; };
+		C4F3B1B720F45D870072FFF4 /* S1DSPKernel+startStopNotes.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490FA20C6560000FD565A /* S1DSPKernel+startStopNotes.mm */; };
+		C4F3B1B820F45D870072FFF4 /* S1DSPKernel+tapers.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490F020C64ED200FD565A /* S1DSPKernel+tapers.mm */; };
+		C4F3B1B920F45D870072FFF4 /* S1DSPKernel+toggleKeys.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490FC20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm */; };
+		C4F3B1BA20F45DA50072FFF4 /* S1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C56D20C530C900DAECCD /* S1NoteState.mm */; };
+		C4F3B1BB20F45DBF0072FFF4 /* AEWeakRetainingProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C55820C530C900DAECCD /* AEWeakRetainingProxy.m */; };
+		C4F3B1BC20F45DBF0072FFF4 /* AEMessageQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C55920C530C900DAECCD /* AEMessageQueue.m */; };
+		C4F3B1BD20F45DBF0072FFF4 /* AEManagedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C55A20C530C900DAECCD /* AEManagedValue.m */; };
+		C4F3B1BE20F45DBF0072FFF4 /* AEArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C55D20C530C900DAECCD /* AEArray.m */; };
+		C4F3B1BF20F45DBF0072FFF4 /* AEUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C55F20C530C900DAECCD /* AEUtilities.m */; };
+		C4F3B1C020F45DBF0072FFF4 /* AETime.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56420C530C900DAECCD /* AETime.m */; };
+		C4F3B1C120F45DBF0072FFF4 /* AETypes.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56620C530C900DAECCD /* AETypes.m */; };
+		C4F3B1C220F45DBF0072FFF4 /* AEMainThreadEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56720C530C900DAECCD /* AEMainThreadEndpoint.m */; };
+		C4F3B1C320F45DBF0072FFF4 /* AEAudioThreadEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56920C530C900DAECCD /* AEAudioThreadEndpoint.m */; };
 		C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */; };
 		C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA81F2446960011B119 /* Knob+Touches.swift */; };
 		C4F7ECB61F244A510011B119 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA91F2446960011B119 /* Knob.swift */; };
@@ -176,6 +205,13 @@
 			remoteGlobalIDString = 941645C920B3597300D62851;
 			remoteInfo = OneSignalNotificationServiceExtension;
 		};
+		C4F3B1A520F44A800072FFF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4D193BC1F1187B500FF4FE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4F3B19820F44A800072FFF4;
+			remoteInfo = AKS1Extension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -185,6 +221,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				C4F3B1A720F44A800072FFF4 /* AKS1Extension.appex in Embed App Extensions */,
 				941645D120B3597300D62851 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -194,7 +231,10 @@
 
 /* Begin PBXFileReference section */
 		3A319653D44EC41DAFAEB963 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		45E1A7C3C54D27427C4A71B1 /* Pods_AKS1Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKS1Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
+		5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.release.xcconfig"; sourceTree = "<group>"; };
 		941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		941645CC20B3597300D62851 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		941645CE20B3597300D62851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -378,6 +418,10 @@
 		C4D193CC1F1187B500FF4FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4D193D31F1187B500FF4FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4F3B19920F44A800072FFF4 /* AKS1Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AKS1Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4F3B19E20F44A800072FFF4 /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
+		C4F3B1A120F44A800072FFF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C4F3B1A320F44A800072FFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonStyleKit.swift; sourceTree = "<group>"; };
 		C4F7ECA81F2446960011B119 /* Knob+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Knob+Touches.swift"; sourceTree = "<group>"; };
 		C4F7ECA91F2446960011B119 /* Knob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
@@ -408,6 +452,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4F3B19620F44A800072FFF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4F3B1AB20F44AC40072FFF4 /* Pods_AudioKitSynthOne.framework in Frameworks */,
+				68C7D17FDA9E6C5DA3A23C01 /* Pods_AKS1Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -418,6 +471,8 @@
 				E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */,
 				3A319653D44EC41DAFAEB963 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
 				D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+				5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */,
+				90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -460,6 +515,7 @@
 				C4B9C02A201D54D400D9833D /* AudioToolbox.framework */,
 				BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */,
 				CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */,
+				45E1A7C3C54D27427C4A71B1 /* Pods_AKS1Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -913,6 +969,7 @@
 			children = (
 				C435C4D620C511DB00DAECCD /* README.md */,
 				C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */,
+				C4F3B19A20F44A800072FFF4 /* AKS1Extension */,
 				9461F0371F5CAAE600EE226E /* Frameworks */,
 				941645CB20B3597300D62851 /* OneSignalNotificationServiceExtension */,
 				54056ADC83E937067BBBA387 /* Pods */,
@@ -925,6 +982,7 @@
 			children = (
 				C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */,
 				941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */,
+				C4F3B19920F44A800072FFF4 /* AKS1Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -961,6 +1019,16 @@
 			path = AudioKitSynthOne;
 			sourceTree = "<group>";
 		};
+		C4F3B19A20F44A800072FFF4 /* AKS1Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C4F3B19E20F44A800072FFF4 /* AudioUnitViewController.swift */,
+				C4F3B1A020F44A800072FFF4 /* MainInterface.storyboard */,
+				C4F3B1A320F44A800072FFF4 /* Info.plist */,
+			);
+			path = AKS1Extension;
+			sourceTree = "<group>";
+		};
 		C4F7ECA51F2446960011B119 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -983,7 +1051,6 @@
 				941645C620B3597300D62851 /* Sources */,
 				941645C720B3597300D62851 /* Frameworks */,
 				941645C820B3597300D62851 /* Resources */,
-				3B934ABEB8F4F4E2365BC771 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1005,17 +1072,35 @@
 				A02F99CB702A38B4BC2953CB /* [CP] Embed Pods Frameworks */,
 				C474D95D1F13172B00946035 /* Embed App Extensions */,
 				C4421AA920B81D0500BE9F12 /* ShellScript */,
-				B01F67E91D126F4EC45E5B5B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				941645D020B3597300D62851 /* PBXTargetDependency */,
+				C4F3B1A620F44A800072FFF4 /* PBXTargetDependency */,
 			);
 			name = AudioKitSynthOne;
 			productName = AudioKitSynthOne;
 			productReference = C4D193C41F1187B500FF4FE4 /* AudioKitSynthOne.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C4F3B19820F44A800072FFF4 /* AKS1Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4F3B1AA20F44A800072FFF4 /* Build configuration list for PBXNativeTarget "AKS1Extension" */;
+			buildPhases = (
+				5C0B9B3AB8B1B65DBCE4C2BA /* [CP] Check Pods Manifest.lock */,
+				C4F3B19520F44A800072FFF4 /* Sources */,
+				C4F3B19620F44A800072FFF4 /* Frameworks */,
+				C4F3B19720F44A800072FFF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AKS1Extension;
+			productName = AKS1Extension;
+			productReference = C4F3B19920F44A800072FFF4 /* AKS1Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -1023,7 +1108,7 @@
 		C4D193BC1F1187B500FF4FE4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = AudioKit;
 				TargetAttributes = {
@@ -1052,6 +1137,11 @@
 							};
 						};
 					};
+					C4F3B19820F44A800072FFF4 = {
+						CreatedOnToolsVersion = 9.4;
+						DevelopmentTeam = 9W69ZP8S5F;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = C4D193BF1F1187B500FF4FE4 /* Build configuration list for PBXProject "AudioKitSynthOne" */;
@@ -1069,6 +1159,7 @@
 			targets = (
 				C4D193C31F1187B500FF4FE4 /* AudioKitSynthOne */,
 				941645C920B3597300D62851 /* OneSignalNotificationServiceExtension */,
+				C4F3B19820F44A800072FFF4 /* AKS1Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -1103,24 +1194,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4F3B19720F44A800072FFF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4F3B1A220F44A800072FFF4 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3B934ABEB8F4F4E2365BC771 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		49E9B8C03D2127F41FFB0052 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1133,6 +1217,24 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C0B9B3AB8B1B65DBCE4C2BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AKS1Extension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1157,21 +1259,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B01F67E91D126F4EC45E5B5B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4421AA920B81D0500BE9F12 /* ShellScript */ = {
@@ -1362,6 +1449,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4F3B19520F44A800072FFF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4F3B1BD20F45DBF0072FFF4 /* AEManagedValue.m in Sources */,
+				C4F3B1B720F45D870072FFF4 /* S1DSPKernel+startStopNotes.mm in Sources */,
+				C4F3B1BA20F45DA50072FFF4 /* S1NoteState.mm in Sources */,
+				C4F3B1B820F45D870072FFF4 /* S1DSPKernel+tapers.mm in Sources */,
+				C4F3B1BF20F45DBF0072FFF4 /* AEUtilities.m in Sources */,
+				C4F3B1C120F45DBF0072FFF4 /* AETypes.m in Sources */,
+				C4F3B1AC20F45B070072FFF4 /* S1AudioUnit.mm in Sources */,
+				C4F3B1B120F45D870072FFF4 /* S1DSPKernel+getSetSynthParameters.mm in Sources */,
+				C4F3B19F20F44A800072FFF4 /* AudioUnitViewController.swift in Sources */,
+				C4F3B1AD20F45D810072FFF4 /* S1DSPKernel.mm in Sources */,
+				C4F3B1AF20F45D870072FFF4 /* S1DSPKernel+didChanges.mm in Sources */,
+				C4F3B1B220F45D870072FFF4 /* S1DSPKernel+MIDI.mm in Sources */,
+				C4F3B1B320F45D870072FFF4 /* S1DSPKernel+parameters.mm in Sources */,
+				C4F3B1B020F45D870072FFF4 /* S1DSPKernel+getSetDependentParameters.mm in Sources */,
+				C4F3B1BC20F45DBF0072FFF4 /* AEMessageQueue.m in Sources */,
+				C4F3B1BE20F45DBF0072FFF4 /* AEArray.m in Sources */,
+				C4F3B1C320F45DBF0072FFF4 /* AEAudioThreadEndpoint.m in Sources */,
+				C4F3B1B620F45D870072FFF4 /* S1DSPKernel+setup.mm in Sources */,
+				C4F3B1B420F45D870072FFF4 /* S1DSPKernel+process.mm in Sources */,
+				C4F3B1B920F45D870072FFF4 /* S1DSPKernel+toggleKeys.mm in Sources */,
+				C4F3B1BB20F45DBF0072FFF4 /* AEWeakRetainingProxy.m in Sources */,
+				C4F3B1AE20F45D870072FFF4 /* S1DSPKernel+destroy.mm in Sources */,
+				C4F3B1C220F45DBF0072FFF4 /* AEMainThreadEndpoint.m in Sources */,
+				C4F3B1C020F45DBF0072FFF4 /* AETime.m in Sources */,
+				C4F3B1B520F45D870072FFF4 /* S1DSPKernel+reset.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1369,6 +1488,11 @@
 			isa = PBXTargetDependency;
 			target = 941645C920B3597300D62851 /* OneSignalNotificationServiceExtension */;
 			targetProxy = 941645CF20B3597300D62851 /* PBXContainerItemProxy */;
+		};
+		C4F3B1A620F44A800072FFF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4F3B19820F44A800072FFF4 /* AKS1Extension */;
+			targetProxy = C4F3B1A520F44A800072FFF4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1379,6 +1503,14 @@
 				C4D193CC1F1187B500FF4FE4 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C4F3B1A020F44A800072FFF4 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4F3B1A120F44A800072FFF4 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1563,6 +1695,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1590,6 +1723,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1609,6 +1743,72 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		C4F3B1A820F44A800072FFF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9W69ZP8S5F;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AKS1Extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lstdc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.AKS1Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4F3B1A920F44A800072FFF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9W69ZP8S5F;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AKS1Extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lstdc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.AKS1Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1638,6 +1838,15 @@
 			buildConfigurations = (
 				C4D193D71F1187B500FF4FE4 /* Debug */,
 				C4D193D81F1187B500FF4FE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4F3B1AA20F44A800072FFF4 /* Build configuration list for PBXNativeTarget "AKS1Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4F3B1A820F44A800072FFF4 /* Debug */,
+				C4F3B1A920F44A800072FFF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

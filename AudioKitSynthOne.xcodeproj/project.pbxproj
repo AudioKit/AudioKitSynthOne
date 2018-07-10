@@ -171,6 +171,7 @@
 		C4F3B1D320F4828E0072FFF4 /* TouchPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1D220F4828E0072FFF4 /* TouchPad.storyboard */; };
 		C4F3B1D520F482A80072FFF4 /* Effects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1D420F482A80072FFF4 /* Effects.storyboard */; };
 		C4F3B1D720F482CF0072FFF4 /* Envelopes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1D620F482CF0072FFF4 /* Envelopes.storyboard */; };
+		C4F3B1D920F485260072FFF4 /* Header.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1D820F485260072FFF4 /* Header.storyboard */; };
 		C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */; };
 		C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA81F2446960011B119 /* Knob+Touches.swift */; };
 		C4F7ECB61F244A510011B119 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA91F2446960011B119 /* Knob.swift */; };
@@ -398,6 +399,7 @@
 		C4F3B1D220F4828E0072FFF4 /* TouchPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TouchPad.storyboard; sourceTree = "<group>"; };
 		C4F3B1D420F482A80072FFF4 /* Effects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Effects.storyboard; sourceTree = "<group>"; };
 		C4F3B1D620F482CF0072FFF4 /* Envelopes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Envelopes.storyboard; sourceTree = "<group>"; };
+		C4F3B1D820F485260072FFF4 /* Header.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Header.storyboard; sourceTree = "<group>"; };
 		C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonStyleKit.swift; sourceTree = "<group>"; };
 		C4F7ECA81F2446960011B119 /* Knob+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Knob+Touches.swift"; sourceTree = "<group>"; };
 		C4F7ECA91F2446960011B119 /* Knob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
@@ -854,6 +856,7 @@
 				C4B4917720C7C75500FD565A /* HeaderNavButton.swift */,
 				C4B4917820C7C75500FD565A /* HeaderViewContoller.swift */,
 				C4B4917620C7C75500FD565A /* Manager+HeaderDelegate.swift */,
+				C4F3B1D820F485260072FFF4 /* Header.storyboard */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -1122,6 +1125,7 @@
 				C4F3B1D720F482CF0072FFF4 /* Envelopes.storyboard in Resources */,
 				C4F3B1D320F4828E0072FFF4 /* TouchPad.storyboard in Resources */,
 				C435C52320C52D1700DAECCD /* Red Sky Lullaby.json in Resources */,
+				C4F3B1D920F485260072FFF4 /* Header.storyboard in Resources */,
 				C435C52220C52D1700DAECCD /* User.json in Resources */,
 				C4F3B1D520F482A80072FFF4 /* Effects.storyboard in Resources */,
 				C4F3B1CF20F482390072FFF4 /* Sequencer.storyboard in Resources */,

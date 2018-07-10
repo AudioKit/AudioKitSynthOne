@@ -67,51 +67,44 @@ public class Manager: UpdatableViewController {
 
     lazy var envelopesPanel: EnvelopesPanelController = {
         let envelopesStoryboard = UIStoryboard(name: "Envelopes", bundle: Bundle.main)
-        return envelopesStoryboard.instantiateViewController(withIdentifier: ChildPanel.envelopes.identifier())
-            as! EnvelopesPanelController
+        return envelopesStoryboard.instantiateInitialViewController() as! EnvelopesPanelController
     }()
 
     lazy var generatorsPanel: GeneratorsPanelController = {
         let generatorsStoryboard = UIStoryboard(name: "Generators", bundle: Bundle.main)
-        return generatorsStoryboard.instantiateViewController(withIdentifier: ChildPanel.generators.identifier())
-            as! GeneratorsPanelController
+        return generatorsStoryboard.instantiateInitialViewController() as! GeneratorsPanelController
     }()
 
     lazy var devViewController: DevViewController = {
         let devStoryboard = UIStoryboard(name: "Dev", bundle: Bundle.main)
-        var viewController = devStoryboard.instantiateViewController(withIdentifier: "Dev") as! DevViewController
+        var viewController = devStoryboard.instantiateInitialViewController() as! DevViewController
         viewController.delegate = self
         return viewController
     }()
 
     lazy var touchPadPanel: TouchPadPanelController = {
         let touchPadStoryboard = UIStoryboard(name: "TouchPad", bundle: Bundle.main)
-        return touchPadStoryboard.instantiateViewController(withIdentifier: ChildPanel.touchPad.identifier())
-            as! TouchPadPanelController
+        return touchPadStoryboard.instantiateInitialViewController() as! TouchPadPanelController
     }()
 
     lazy var fxPanel: EffectsPanelController = {
         let effectsStoryboard = UIStoryboard(name: "Effects", bundle: Bundle.main)
-        return effectsStoryboard.instantiateViewController(withIdentifier: ChildPanel.effects.identifier())
-            as! EffectsPanelController
+        return effectsStoryboard.instantiateInitialViewController() as! EffectsPanelController
     }()
 
     lazy var sequencerPanel: SequencerPanelController = {
         let sequencerStoryboard = UIStoryboard(name: "Sequencer", bundle: Bundle.main)
-        return sequencerStoryboard.instantiateViewController(withIdentifier: ChildPanel.sequencer.identifier())
-            as! SequencerPanelController
+        return sequencerStoryboard.instantiateInitialViewController() as! SequencerPanelController
     }()
 
     lazy var tuningsPanel: TuningsPanelController = {
         let tuningsStoryboard = UIStoryboard(name: "Tunings", bundle: Bundle.main)
-        return tuningsStoryboard.instantiateViewController(withIdentifier: ChildPanel.tunings.identifier())
-            as! TuningsPanelController
+        return tuningsStoryboard.instantiateInitialViewController() as! TuningsPanelController
     }()
 
     lazy var presetsViewController: PresetsViewController = {
         let presetsStoryboard = UIStoryboard(name: "Presets", bundle: Bundle.main)
-        return presetsStoryboard.instantiateViewController(withIdentifier: "Presets")
-            as! PresetsViewController
+        return presetsStoryboard.instantiateInitialViewController() as! PresetsViewController
     }()
 
     // swiftlint:enable force_cast

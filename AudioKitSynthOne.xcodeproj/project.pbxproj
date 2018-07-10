@@ -208,6 +208,8 @@
 		C4F3B1F320F4888D0072FFF4 /* TouchPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1F120F4888C0072FFF4 /* TouchPad.storyboard */; };
 		C4F3B1F520F4889D0072FFF4 /* Tunings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1F420F4889D0072FFF4 /* Tunings.storyboard */; };
 		C4F3B1F620F4889D0072FFF4 /* Tunings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1F420F4889D0072FFF4 /* Tunings.storyboard */; };
+		C4F3B1F820F489550072FFF4 /* Dev.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1F720F489550072FFF4 /* Dev.storyboard */; };
+		C4F3B1F920F489550072FFF4 /* Dev.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1F720F489550072FFF4 /* Dev.storyboard */; };
 		C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */; };
 		C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA81F2446960011B119 /* Knob+Touches.swift */; };
 		C4F7ECB61F244A510011B119 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA91F2446960011B119 /* Knob.swift */; };
@@ -450,6 +452,7 @@
 		C4F3B1EE20F4887E0072FFF4 /* Sequencer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sequencer.storyboard; sourceTree = "<group>"; };
 		C4F3B1F120F4888C0072FFF4 /* TouchPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TouchPad.storyboard; sourceTree = "<group>"; };
 		C4F3B1F420F4889D0072FFF4 /* Tunings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tunings.storyboard; sourceTree = "<group>"; };
+		C4F3B1F720F489550072FFF4 /* Dev.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dev.storyboard; sourceTree = "<group>"; };
 		C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonStyleKit.swift; sourceTree = "<group>"; };
 		C4F7ECA81F2446960011B119 /* Knob+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Knob+Touches.swift"; sourceTree = "<group>"; };
 		C4F7ECA91F2446960011B119 /* Knob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
@@ -905,6 +908,7 @@
 			isa = PBXGroup;
 			children = (
 				F4CB749120EEE0AF00716B92 /* README.md */,
+				C4F3B1F720F489550072FFF4 /* Dev.storyboard */,
 				C4B4917220C7C73A00FD565A /* DevViewController.swift */,
 				C4B4917120C7C73A00FD565A /* Manager+DevView.swift */,
 			);
@@ -1238,6 +1242,7 @@
 				C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */,
 				C4F3B1E620F488530072FFF4 /* Generators.storyboard in Resources */,
 				C4F3B1DE20F4882D0072FFF4 /* MailingList.storyboard in Resources */,
+				C4F3B1F820F489550072FFF4 /* Dev.storyboard in Resources */,
 				C4F3B1EC20F4886E0072FFF4 /* Presets.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1250,6 +1255,7 @@
 				C4F3B1F020F4887E0072FFF4 /* Sequencer.storyboard in Resources */,
 				C4F3B1F320F4888D0072FFF4 /* TouchPad.storyboard in Resources */,
 				C4F3B1EA20F4885C0072FFF4 /* Header.storyboard in Resources */,
+				C4F3B1F920F489550072FFF4 /* Dev.storyboard in Resources */,
 				C4F3B1E120F4883A0072FFF4 /* Effects.storyboard in Resources */,
 				C4F3B1F620F4889D0072FFF4 /* Tunings.storyboard in Resources */,
 				C4F3B1E720F488530072FFF4 /* Generators.storyboard in Resources */,

@@ -190,6 +190,24 @@
 		C4F3B1C120F45DBF0072FFF4 /* AETypes.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56620C530C900DAECCD /* AETypes.m */; };
 		C4F3B1C220F45DBF0072FFF4 /* AEMainThreadEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56720C530C900DAECCD /* AEMainThreadEndpoint.m */; };
 		C4F3B1C320F45DBF0072FFF4 /* AEAudioThreadEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C435C56920C530C900DAECCD /* AEAudioThreadEndpoint.m */; };
+		C4F3B1DB20F488060072FFF4 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1DA20F488060072FFF4 /* About.storyboard */; };
+		C4F3B1DE20F4882D0072FFF4 /* MailingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1DD20F4882D0072FFF4 /* MailingList.storyboard */; };
+		C4F3B1E020F4883A0072FFF4 /* Effects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1DF20F4883A0072FFF4 /* Effects.storyboard */; };
+		C4F3B1E120F4883A0072FFF4 /* Effects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1DF20F4883A0072FFF4 /* Effects.storyboard */; };
+		C4F3B1E320F488490072FFF4 /* Envelopes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1E220F488480072FFF4 /* Envelopes.storyboard */; };
+		C4F3B1E420F488490072FFF4 /* Envelopes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1E220F488480072FFF4 /* Envelopes.storyboard */; };
+		C4F3B1E620F488530072FFF4 /* Generators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1E520F488530072FFF4 /* Generators.storyboard */; };
+		C4F3B1E720F488530072FFF4 /* Generators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1E520F488530072FFF4 /* Generators.storyboard */; };
+		C4F3B1E920F4885C0072FFF4 /* Header.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1E820F4885C0072FFF4 /* Header.storyboard */; };
+		C4F3B1EA20F4885C0072FFF4 /* Header.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1E820F4885C0072FFF4 /* Header.storyboard */; };
+		C4F3B1EC20F4886E0072FFF4 /* Presets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1EB20F4886E0072FFF4 /* Presets.storyboard */; };
+		C4F3B1ED20F4886E0072FFF4 /* Presets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1EB20F4886E0072FFF4 /* Presets.storyboard */; };
+		C4F3B1EF20F4887E0072FFF4 /* Sequencer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1EE20F4887E0072FFF4 /* Sequencer.storyboard */; };
+		C4F3B1F020F4887E0072FFF4 /* Sequencer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1EE20F4887E0072FFF4 /* Sequencer.storyboard */; };
+		C4F3B1F220F4888D0072FFF4 /* TouchPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1F120F4888C0072FFF4 /* TouchPad.storyboard */; };
+		C4F3B1F320F4888D0072FFF4 /* TouchPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1F120F4888C0072FFF4 /* TouchPad.storyboard */; };
+		C4F3B1F520F4889D0072FFF4 /* Tunings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1F420F4889D0072FFF4 /* Tunings.storyboard */; };
+		C4F3B1F620F4889D0072FFF4 /* Tunings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1F420F4889D0072FFF4 /* Tunings.storyboard */; };
 		C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */; };
 		C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA81F2446960011B119 /* Knob+Touches.swift */; };
 		C4F7ECB61F244A510011B119 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA91F2446960011B119 /* Knob.swift */; };
@@ -422,6 +440,16 @@
 		C4F3B19E20F44A800072FFF4 /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
 		C4F3B1A120F44A800072FFF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C4F3B1A320F44A800072FFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4F3B1DA20F488060072FFF4 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		C4F3B1DD20F4882D0072FFF4 /* MailingList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MailingList.storyboard; sourceTree = "<group>"; };
+		C4F3B1DF20F4883A0072FFF4 /* Effects.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Effects.storyboard; sourceTree = "<group>"; };
+		C4F3B1E220F488480072FFF4 /* Envelopes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Envelopes.storyboard; sourceTree = "<group>"; };
+		C4F3B1E520F488530072FFF4 /* Generators.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Generators.storyboard; sourceTree = "<group>"; };
+		C4F3B1E820F4885C0072FFF4 /* Header.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Header.storyboard; sourceTree = "<group>"; };
+		C4F3B1EB20F4886E0072FFF4 /* Presets.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Presets.storyboard; sourceTree = "<group>"; };
+		C4F3B1EE20F4887E0072FFF4 /* Sequencer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sequencer.storyboard; sourceTree = "<group>"; };
+		C4F3B1F120F4888C0072FFF4 /* TouchPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TouchPad.storyboard; sourceTree = "<group>"; };
+		C4F3B1F420F4889D0072FFF4 /* Tunings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tunings.storyboard; sourceTree = "<group>"; };
 		C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonStyleKit.swift; sourceTree = "<group>"; };
 		C4F7ECA81F2446960011B119 /* Knob+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Knob+Touches.swift"; sourceTree = "<group>"; };
 		C4F7ECA91F2446960011B119 /* Knob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
@@ -542,6 +570,7 @@
 		C432978720C896250063F795 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				C4F3B1DA20F488060072FFF4 /* About.storyboard */,
 				C4B4916220C7C72900FD565A /* AboutViewController.swift */,
 				C4B4916120C7C72900FD565A /* InfoViewController.swift */,
 				C4B4919520C7C81200FD565A /* Mailing List */,
@@ -635,6 +664,7 @@
 				C435C51C20C52D1700DAECCD /* Preset.swift */,
 				C435C51320C52D1700DAECCD /* PresetDataManager.swift */,
 				C4B4919220C7C7C500FD565A /* PresetEditorViewController.swift */,
+				C4F3B1EB20F4886E0072FFF4 /* Presets.storyboard */,
 				C4B4919120C7C7C500FD565A /* PresetsCategoriesViewController.swift */,
 				C435C51520C52D1700DAECCD /* Data */,
 				C4B4917C20C7C79C00FD565A /* PresetsViewController */,
@@ -679,6 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				C435C52C20C52D4B00DAECCD /* Tuning.swift */,
+				C4F3B1F420F4889D0072FFF4 /* Tunings.storyboard */,
 				C435C52E20C52D4B00DAECCD /* Tunings.swift */,
 				C435C52F20C52D4B00DAECCD /* Tunings+Harmonic.swift */,
 				C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */,
@@ -783,6 +814,7 @@
 			isa = PBXGroup;
 			children = (
 				94E951341F3644E5009A8B00 /* Rate.swift */,
+				C4F3B1EE20F4887E0072FFF4 /* Sequencer.storyboard */,
 				C4B4910420C7C5C500FD565A /* SequencerPanelController.swift */,
 				C432978820C900390063F795 /* UI Components */,
 				C40CBA2C20CDEC1E00A8245F /* README.md */,
@@ -814,6 +846,7 @@
 		C4B4913520C7C69D00FD565A /* TouchPad */ = {
 			isa = PBXGroup;
 			children = (
+				C4F3B1F120F4888C0072FFF4 /* TouchPad.storyboard */,
 				C4B4913920C7C69D00FD565A /* TouchPadPanelController.swift */,
 				C432978920C901530063F795 /* UI Components */,
 				C40CBA2B20CDEC0000A8245F /* README.md */,
@@ -881,6 +914,7 @@
 		C4B4917520C7C75500FD565A /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				C4F3B1E820F4885C0072FFF4 /* Header.storyboard */,
 				C4B4917720C7C75500FD565A /* HeaderNavButton.swift */,
 				C4B4917820C7C75500FD565A /* HeaderViewContoller.swift */,
 				C4B4917620C7C75500FD565A /* Manager+HeaderDelegate.swift */,
@@ -908,6 +942,7 @@
 		C4B4919520C7C81200FD565A /* Mailing List */ = {
 			isa = PBXGroup;
 			children = (
+				C4F3B1DD20F4882D0072FFF4 /* MailingList.storyboard */,
 				C4B4919620C7C81200FD565A /* Manager+MailingListDelegate.swift */,
 				C4B4919720C7C81200FD565A /* MailingListViewController.swift */,
 			);
@@ -917,6 +952,7 @@
 		C4B4919F20C7C91900FD565A /* Envelopes */ = {
 			isa = PBXGroup;
 			children = (
+				C4F3B1E220F488480072FFF4 /* Envelopes.storyboard */,
 				C4B491A020C7C91900FD565A /* EnvelopesPanelController.swift */,
 				C40CBA2D20CDEC4800A8245F /* README.md */,
 			);
@@ -926,6 +962,7 @@
 		C4B491A220C7C94E00FD565A /* Effects */ = {
 			isa = PBXGroup;
 			children = (
+				C4F3B1DF20F4883A0072FFF4 /* Effects.storyboard */,
 				C4B491A320C7C94E00FD565A /* EffectsPanelController.swift */,
 				C432978D20C902EC0063F795 /* UI Components */,
 				C40CBA2920CDEBA200A8245F /* README.md */,
@@ -936,6 +973,7 @@
 		C4B491A520C7C95900FD565A /* Generators */ = {
 			isa = PBXGroup;
 			children = (
+				C4F3B1E520F488530072FFF4 /* Generators.storyboard */,
 				C4B491A620C7C95900FD565A /* GeneratorsPanelController.swift */,
 				C4B491C420C7EC2E00FD565A /* README.md */,
 				C432978C20C902C80063F795 /* UI Components */,
@@ -1178,19 +1216,29 @@
 			files = (
 				C435C51F20C52D1700DAECCD /* Brice Beasley.json in Resources */,
 				C435C52020C52D1700DAECCD /* DJ Puzzle.json in Resources */,
+				C4F3B1DB20F488060072FFF4 /* About.storyboard in Resources */,
+				C4F3B1E920F4885C0072FFF4 /* Header.storyboard in Resources */,
 				94985FF520D8908600D71239 /* JEC.json in Resources */,
 				C435C52320C52D1700DAECCD /* Red Sky Lullaby.json in Resources */,
 				C435C52220C52D1700DAECCD /* User.json in Resources */,
 				C4B4913E20C7C6A000FD565A /* spark.png in Resources */,
 				94985FF320D8899300D71239 /* Electronisounds.json in Resources */,
 				C435C52420C52D1700DAECCD /* BankA.json in Resources */,
+				C4F3B1F220F4888D0072FFF4 /* TouchPad.storyboard in Resources */,
+				C4F3B1F520F4889D0072FFF4 /* Tunings.storyboard in Resources */,
+				C4F3B1E020F4883A0072FFF4 /* Effects.storyboard in Resources */,
 				941752BA20E2BD2E0076D953 /* Starter Bank.json in Resources */,
 				C4B4914720C7C6E300FD565A /* Audiobus.txt in Resources */,
 				94D37DD420E06641002008A4 /* Sound of Izrael.json in Resources */,
 				C435C52120C52D1700DAECCD /* Bonus.json in Resources */,
 				C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */,
+				C4F3B1EF20F4887E0072FFF4 /* Sequencer.storyboard in Resources */,
+				C4F3B1E320F488490072FFF4 /* Envelopes.storyboard in Resources */,
 				C4B491C520C7EC2E00FD565A /* README.md in Resources */,
 				C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */,
+				C4F3B1E620F488530072FFF4 /* Generators.storyboard in Resources */,
+				C4F3B1DE20F4882D0072FFF4 /* MailingList.storyboard in Resources */,
+				C4F3B1EC20F4886E0072FFF4 /* Presets.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1199,6 +1247,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4F3B1A220F44A800072FFF4 /* MainInterface.storyboard in Resources */,
+				C4F3B1F020F4887E0072FFF4 /* Sequencer.storyboard in Resources */,
+				C4F3B1F320F4888D0072FFF4 /* TouchPad.storyboard in Resources */,
+				C4F3B1EA20F4885C0072FFF4 /* Header.storyboard in Resources */,
+				C4F3B1E120F4883A0072FFF4 /* Effects.storyboard in Resources */,
+				C4F3B1F620F4889D0072FFF4 /* Tunings.storyboard in Resources */,
+				C4F3B1E720F488530072FFF4 /* Generators.storyboard in Resources */,
+				C4F3B1E420F488490072FFF4 /* Envelopes.storyboard in Resources */,
+				C4F3B1ED20F4886E0072FFF4 /* Presets.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

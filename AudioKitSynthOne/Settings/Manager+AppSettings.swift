@@ -17,7 +17,7 @@ extension Manager {
     func setDefaultsFromAppSettings() {
 
         // MIDI
-        //conductor.backgroundAudioOn = appSettings.backgroundAudioOn
+        conductor.backgroundAudio = appSettings.backgroundAudio
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
 
@@ -94,7 +94,7 @@ extension Manager {
     func saveAppSettingValues() {
 
         // MIDI
-        // appSettings.backgroundAudioOn = conductor.backgroundAudioOn
+        appSettings.backgroundAudio = conductor.backgroundAudio
         appSettings.midiChannel = Int(midiChannelIn)
         appSettings.omniMode = omniMode
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)

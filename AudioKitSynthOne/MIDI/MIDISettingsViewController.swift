@@ -13,6 +13,7 @@ protocol MIDISettingsPopOverDelegate: AnyObject {
     func didSelectMIDIChannel(newChannel: Int)
     func didToggleVelocity()
     func storeTuningWithPresetDidChange(_ value: Bool)
+    func didToggleBackgroundAudio(_ value: Bool)
     func didChangeMIDISources(_ midiSources: [MIDIInput])
 }
 
@@ -100,7 +101,6 @@ class MIDISettingsViewController: UIViewController {
                 self.conductor.neverSleep = true
                 self.displayAlertController("Don't Sleep Mode", message: "This mode is great for playing live. Background audio will also stay on. " +
                     "Note: It will use more power and could drain your battery faster")
-                
             } else {
                 self.conductor.neverSleep = false
             
@@ -109,6 +109,7 @@ class MIDISettingsViewController: UIViewController {
         
         backgroundAudioToggle.callback = { value in
             self.conductor.backgroundAudio = value == 1
+            self.delegate?.didToggleBackgroundAudio(value == 1 ? true : false)
         }
 
         velocityToggle.callback = { value in

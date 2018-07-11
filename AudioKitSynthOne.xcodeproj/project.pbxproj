@@ -1880,6 +1880,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -1913,6 +1914,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;

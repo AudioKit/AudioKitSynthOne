@@ -35,6 +35,10 @@ extension Manager: MIDISettingsPopOverDelegate {
         midiInputs = midiSources
         saveAppSettingValues()
     }
+    
+    func didToggleBackgroundAudio(_ value: Bool) {
+        saveAppSettingValues()
+    }
 
     public func storeTuningWithPresetDidChange(_ value: Bool) {
         appSettings.saveTuningWithPreset = value

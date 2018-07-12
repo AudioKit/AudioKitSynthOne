@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Audio Unit View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AudioUnitViewController" customModule="AKS1Extension" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="337"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGq-Gg-ZGJ" userLabel="Header View Container">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1024" id="5da-89-0hc"/>
+                                    <constraint firstAttribute="height" constant="38" id="nnq-Nm-EdQ"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="5zz-bh-bXp" kind="embed" id="AZA-8d-SW7"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA3-jZ-yZ5" userLabel="Panel View Container">
+                                <rect key="frame" x="0.0" y="38" width="1024" height="299"/>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="299" id="Lkn-aU-3Be"/>
+                                    <constraint firstAttribute="width" constant="1024" id="rjT-X2-64F"/>
+                                </constraints>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FA3-jZ-yZ5" firstAttribute="top" secondItem="MGq-Gg-ZGJ" secondAttribute="bottom" id="IIX-Md-XfE"/>
+                            <constraint firstItem="FA3-jZ-yZ5" firstAttribute="top" secondItem="MGq-Gg-ZGJ" secondAttribute="bottom" id="ufq-gO-pbE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u2v-qu-mbu"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="337"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Header-->
+        <scene sceneID="DXf-XT-uS7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Header" id="5zz-bh-bXp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yuy-tb-dmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58" y="313"/>
+        </scene>
+    </scenes>
+</document>

@@ -22,6 +22,11 @@ void S1DSPKernel::resetDSP() {
     monoNote->clear();
     for(int i =0; i < S1_MAX_POLYPHONY; i++)
         noteStates[i].clear();
+
+    sp_vdelay_reset(sp, delayL);
+    sp_vdelay_reset(sp, delayR);
+    sp_vdelay_reset(sp, delayRR);
+    sp_vdelay_reset(sp, delayFillIn);
 }
 
 void S1DSPKernel::reset() {
@@ -29,6 +34,10 @@ void S1DSPKernel::reset() {
         noteStates[i].clear();
     monoNote->clear();
     resetted = true;
+    sp_vdelay_reset(sp, delayL);
+    sp_vdelay_reset(sp, delayR);
+    sp_vdelay_reset(sp, delayRR);
+    sp_vdelay_reset(sp, delayFillIn);
 }
 
 void S1DSPKernel::resetSequencer() {

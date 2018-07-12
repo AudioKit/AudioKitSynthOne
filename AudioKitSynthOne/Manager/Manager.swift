@@ -56,6 +56,7 @@ public class Manager: UpdatableViewController {
     var midiKnobs = [MIDIKnob]()
     var signedMailingList = false
     let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+
     // AudioBus
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
     var midiInput: ABMIDIReceiverPort?
@@ -65,45 +66,45 @@ public class Manager: UpdatableViewController {
     // swiftlint:disable force_cast
 
     lazy var envelopesPanel: EnvelopesPanelController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.envelopes.identifier())
-            as! EnvelopesPanelController
+        let envelopesStoryboard = UIStoryboard(name: "Envelopes", bundle: Bundle.main)
+        return envelopesStoryboard.instantiateInitialViewController() as! EnvelopesPanelController
     }()
 
     lazy var generatorsPanel: GeneratorsPanelController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.generators.identifier())
-            as! GeneratorsPanelController
+        let generatorsStoryboard = UIStoryboard(name: "Generators", bundle: Bundle.main)
+        return generatorsStoryboard.instantiateInitialViewController() as! GeneratorsPanelController
     }()
 
     lazy var devViewController: DevViewController = {
-        var viewController = mainStoryboard.instantiateViewController(withIdentifier: "DevViewController")
-            as! DevViewController
+        let devStoryboard = UIStoryboard(name: "Dev", bundle: Bundle.main)
+        var viewController = devStoryboard.instantiateInitialViewController() as! DevViewController
         viewController.delegate = self
         return viewController
     }()
 
     lazy var touchPadPanel: TouchPadPanelController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.touchPad.identifier())
-            as! TouchPadPanelController
+        let touchPadStoryboard = UIStoryboard(name: "TouchPad", bundle: Bundle.main)
+        return touchPadStoryboard.instantiateInitialViewController() as! TouchPadPanelController
     }()
 
     lazy var fxPanel: EffectsPanelController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.effects.identifier())
-            as! EffectsPanelController
+        let effectsStoryboard = UIStoryboard(name: "Effects", bundle: Bundle.main)
+        return effectsStoryboard.instantiateInitialViewController() as! EffectsPanelController
     }()
 
     lazy var sequencerPanel: SequencerPanelController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.sequencer.identifier())
-            as! SequencerPanelController
+        let sequencerStoryboard = UIStoryboard(name: "Sequencer", bundle: Bundle.main)
+        return sequencerStoryboard.instantiateInitialViewController() as! SequencerPanelController
     }()
 
     lazy var tuningsPanel: TuningsPanelController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: ChildPanel.tunings.identifier())
-            as! TuningsPanelController
+        let tuningsStoryboard = UIStoryboard(name: "Tunings", bundle: Bundle.main)
+        return tuningsStoryboard.instantiateInitialViewController() as! TuningsPanelController
     }()
 
     lazy var presetsViewController: PresetsViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: "PresetsViewController")
-            as! PresetsViewController
+        let presetsStoryboard = UIStoryboard(name: "Presets", bundle: Bundle.main)
+        return presetsStoryboard.instantiateInitialViewController() as! PresetsViewController
     }()
 
     // swiftlint:enable force_cast

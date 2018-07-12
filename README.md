@@ -7,7 +7,7 @@ introduce new features, fix bugs, improve efficiency, and keep the synthesizer u
 new capabilities of the base operating system.  
 ![Screenshot](http://audiokitpro.com/images/ak2.gif)
 
-If you're new to [AudioKit](https://audiokitpro.com/), you can learn more: [here](https://audiokitpro.com/audiokit/). This code and app is made possible by all the contributors to AudioKit. Many of the features of Synth One are availble as modules in AudioKit, allowing you easy access to filters, reverbs, effects, and other DSP processing. 
+If you're new to [AudioKit](https://audiokitpro.com/), you can learn more: [here](https://audiokitpro.com/audiokit/). This code and app is made possible by all the contributors to AudioKit, [code here](https://github.com/AudioKit/AudioKit). Many of the features of Synth One are availble as modules in AudioKit, allowing you easy access to filters, reverbs, effects, and other DSP processing. 
 
 ## App Store Location
 
@@ -42,9 +42,6 @@ Beginner? We have two additional code examples. There is a simple [Swift Synth](
 
 
 ## Documentation
-
-Video introduction for this project:  
-AURE'S VIDEO INTRO
 
 We intend to have every major section of the code placed within its own folder, with an included
 README.md file, like this one. This file should explain the contents of the folder and give developers
@@ -102,6 +99,12 @@ If you make an app with this code, please let us know! We think you're awesome, 
 IMPORTANT: You must change the graphics if you upload this to the app store.
 
 IMPORTANT: You must fill in your own private API keys for AudioBus and others in the Private.swift file to match your own project. The default placeholder values are not suitable for distribution.
+
+## Contributors
+
+Thanks to the countless sound designers and other volunteers. Plus, the developers listed below:
+
+<a href="https://github.com/AudioKit/AudioKit/graphs/contributors"><img src="https://opencollective.com/AudioKit/contributors.svg?width=890&button=false" /></a>
 
 ## Legal Notices
 

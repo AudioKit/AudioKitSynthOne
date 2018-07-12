@@ -101,6 +101,8 @@ If you make an app with this code, please let us know! We think you're awesome, 
 
 IMPORTANT: You must change the graphics if you upload this to the app store.
 
+IMPORTANT: You must fill in your own private API keys for AudioBus and others in the Private.swift file to match your own project. The default placeholder values are not suitable for distribution.
+
 ## Legal Notices
 
 This is an open-source project intended to bring joy and music to people, and enlighten people on how to build custom instruments and iOS apps. All product names and images, trademarks and artists names are the property of their respective owners, which are in no way associated or affiliated with the creators of this app, including AudioKit, AudioKit Pro, LLC, and the other contributors. Product names and images are used solely for the purpose of identifying the specific products related to synthesizers, iOS Music, sampling, sound design, and music making. 

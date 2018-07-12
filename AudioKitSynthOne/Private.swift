@@ -14,14 +14,13 @@ import Foundation
 
 class Private {
 
-    // API key for AudioBus (register your app at https://audiob.us)
+    //FIXME: API key for AudioBus (register your app at https://audiob.us)
     public static let AudioBusAPIKey = "***REMOVED***"
     
-    // API key for MailChimp
+    //FIXME: API key for MailChimp
     public static let MailChimpAPIKey = "***REMOVED***"
     public static let MailChimpID = "***REMOVED***"
     
-    // App ID for OneSignal
+    //FIXME: App ID for OneSignal
     public static let OneSignalAppID = "***REMOVED***"
-    
 }

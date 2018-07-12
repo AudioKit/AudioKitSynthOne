@@ -24,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
 
-        // Replace 'YOUR_APP_ID' with your OneSignal App ID.
+        // Set your OneSignal App ID in the Private.swift file.
         OneSignal.initWithLaunchOptions(launchOptions,
-                                        appId: "***REMOVED***",
+                                        appId: Private.OneSignalAppID,
                                         handleNotificationAction: nil,
                                         settings: onesignalInitSettings)
 

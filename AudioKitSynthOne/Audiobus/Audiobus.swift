@@ -25,20 +25,7 @@ class Audiobus {
             return
         }
 
-        if let apiKey = apiKey {
-            client = Audiobus(apiKey: apiKey)
-        }
-    }
-
-    private static var apiKey: String? {
-        guard let path = Bundle.main.path(forResource: "Audiobus", ofType: "txt") else {
-            return nil
-        }
-        do {
-            return try String(contentsOfFile: path).replacingOccurrences(of: "\n", with: "")
-        } catch {
-            return nil
-        }
+        client = Audiobus(apiKey: Private.AudioBusAPIKey)
     }
 
     // MARK: Initialization

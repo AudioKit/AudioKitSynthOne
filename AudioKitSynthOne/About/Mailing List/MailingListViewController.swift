@@ -40,7 +40,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
                                                object: nil)
 
         // MailChimp API Key
-        ChimpKit.shared().apiKey = "***REMOVED***"
+        ChimpKit.shared().apiKey = Private.MailChimpAPIKey
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -113,7 +113,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
             // Send to MailChimp
             let mailToSubscribe: [String: AnyObject] = ["email": emailAddress as AnyObject]
-            let params: [String: AnyObject] = ["id": "***REMOVED***" as AnyObject,
+            let params: [String: AnyObject] = ["id": Private.MailChimpID as AnyObject,
                                                "email": mailToSubscribe as AnyObject,
                                                "double_optin": false as AnyObject]
             ChimpKit.shared().callApiMethod("lists/subscribe", withParams: params) {(response, data, _) -> Void in

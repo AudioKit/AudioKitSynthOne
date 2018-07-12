@@ -109,7 +109,6 @@
 		C4B4913F20C7C6A000FD565A /* TouchPadPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4913920C7C69D00FD565A /* TouchPadPanelController.swift */; };
 		C4B4914020C7C6A000FD565A /* TouchPointStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4913A20C7C69D00FD565A /* TouchPointStyleKit.swift */; };
 		C4B4914120C7C6A000FD565A /* TouchPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4913B20C7C69D00FD565A /* TouchPoint.swift */; };
-		C4B4914720C7C6E300FD565A /* Audiobus.txt in Resources */ = {isa = PBXBuildFile; fileRef = C4B4914320C7C6E300FD565A /* Audiobus.txt */; };
 		C4B4914820C7C6E300FD565A /* Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4914420C7C6E300FD565A /* Audiobus.swift */; };
 		C4B4914920C7C6E300FD565A /* Manager+Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4914520C7C6E300FD565A /* Manager+Audiobus.swift */; };
 		C4B4914A20C7C6E300FD565A /* Audiobus+MIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B4914620C7C6E300FD565A /* Audiobus+MIDI.swift */; };
@@ -219,6 +218,7 @@
 		C4F7ECB61F244A510011B119 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA91F2446960011B119 /* Knob.swift */; };
 		C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */; };
 		C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECAB1F2446960011B119 /* ToggleButton.swift */; };
+		EA090E4420F74B0A0012A8F7 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA090E4320F74B0A0012A8F7 /* Private.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,7 +384,6 @@
 		C4B4913920C7C69D00FD565A /* TouchPadPanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchPadPanelController.swift; sourceTree = "<group>"; };
 		C4B4913A20C7C69D00FD565A /* TouchPointStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchPointStyleKit.swift; sourceTree = "<group>"; };
 		C4B4913B20C7C69D00FD565A /* TouchPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchPoint.swift; sourceTree = "<group>"; };
-		C4B4914320C7C6E300FD565A /* Audiobus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Audiobus.txt; sourceTree = "<group>"; };
 		C4B4914420C7C6E300FD565A /* Audiobus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audiobus.swift; sourceTree = "<group>"; };
 		C4B4914520C7C6E300FD565A /* Manager+Audiobus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Manager+Audiobus.swift"; sourceTree = "<group>"; };
 		C4B4914620C7C6E300FD565A /* Audiobus+MIDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Audiobus+MIDI.swift"; sourceTree = "<group>"; };
@@ -467,6 +466,7 @@
 		CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
+		EA090E4320F74B0A0012A8F7 /* Private.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
 		F437E99E20EB22D00096FEAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F4CB749120EEE0AF00716B92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -876,7 +876,6 @@
 			isa = PBXGroup;
 			children = (
 				C4B4914420C7C6E300FD565A /* Audiobus.swift */,
-				C4B4914320C7C6E300FD565A /* Audiobus.txt */,
 				C4B4914620C7C6E300FD565A /* Audiobus+MIDI.swift */,
 				C4B4914520C7C6E300FD565A /* Manager+Audiobus.swift */,
 				C40CBA2720CDE72500A8245F /* README.md */,
@@ -1052,6 +1051,7 @@
 				C4D193D31F1187B500FF4FE4 /* Info.plist */,
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
 				C435C50220C5286B00DAECCD /* Helpers.swift */,
+				EA090E4320F74B0A0012A8F7 /* Private.swift */,
 				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
 				C432978720C896250063F795 /* About */,
 				947BADE71FB92D0000579BE6 /* Assets */,
@@ -1109,7 +1109,6 @@
 				941645C620B3597300D62851 /* Sources */,
 				941645C720B3597300D62851 /* Frameworks */,
 				941645C820B3597300D62851 /* Resources */,
-				2A7E62077D1B80D039DB1727 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1131,7 +1130,6 @@
 				A02F99CB702A38B4BC2953CB /* [CP] Embed Pods Frameworks */,
 				C474D95D1F13172B00946035 /* Embed App Extensions */,
 				C4421AA920B81D0500BE9F12 /* ShellScript */,
-				D28434B9675FA4332E2368F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1152,7 +1150,6 @@
 				C4F3B19520F44A800072FFF4 /* Sources */,
 				C4F3B19620F44A800072FFF4 /* Frameworks */,
 				C4F3B19720F44A800072FFF4 /* Resources */,
-				F8084D923437DE1C2EC1E079 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1251,7 +1248,6 @@
 				C4F3B1F520F4889D0072FFF4 /* Tunings.storyboard in Resources */,
 				C4F3B1E020F4883A0072FFF4 /* Effects.storyboard in Resources */,
 				941752BA20E2BD2E0076D953 /* Starter Bank.json in Resources */,
-				C4B4914720C7C6E300FD565A /* Audiobus.txt in Resources */,
 				94D37DD420E06641002008A4 /* Sound of Izrael.json in Resources */,
 				C435C52120C52D1700DAECCD /* Bonus.json in Resources */,
 				C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */,
@@ -1287,21 +1283,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2A7E62077D1B80D039DB1727 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		49E9B8C03D2127F41FFB0052 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1371,21 +1352,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		D28434B9675FA4332E2368F3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F326D17312DDE12585405CB6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1402,21 +1368,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F8084D923437DE1C2EC1E079 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1541,6 +1492,7 @@
 				C435C4F920C5234900DAECCD /* MIDICell.swift in Sources */,
 				94A5039D1FF2F6E30097D37C /* ChannelStepper.swift in Sources */,
 				C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */,
+				EA090E4420F74B0A0012A8F7 /* Private.swift in Sources */,
 				C4B490F920C655AF00FD565A /* S1DSPKernel+setup.mm in Sources */,
 				C4B4911E20C7C62A00FD565A /* BlackKeyStyleKit.swift in Sources */,
 				C4B4910D20C7C5E500FD565A /* AppSettings.swift in Sources */,

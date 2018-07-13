@@ -237,7 +237,7 @@ class Conductor: S1Protocol {
     }
 
     @objc func checkIAAConnectionsEnterBackground() {
-        
+
         if let audiobusClient = Audiobus.client {
 
             if !audiobusClient.isConnected && !audiobusClient.isConnectedToInput && !backgroundAudio {

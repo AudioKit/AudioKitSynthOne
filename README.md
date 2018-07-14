@@ -1,6 +1,13 @@
 # AudioKit Synth One
 
-![screenshot](https://audiokitpro.com/wp-content/uploads/2018/04/top3.jpg)
+[![Build Status](https://travis-ci.org/AudioKit/AudioKitSynthOne.svg)](https://travis-ci.org/AudioKit/AudioKitSynthOne)
+[![License](https://img.shields.io/cocoapods/l/AudioKit.svg?style=flat)](https://github.com/AudioKit/AudioKitSynthOne/blob/master/LICENSE)
+[![Twitter Follow](https://img.shields.io/twitter/follow/AudioKitPro.svg?style=social)](http://twitter.com/AudioKitPro)
+
+We've open-sourced the code for this synthesizer so that everyone is able to make changes to the code,
+introduce new features, fix bugs, improve efficiency, and keep the synthesizer up-to-date with all
+new capabilities of the base operating system.  
+![Screenshot](http://audiokitpro.com/images/ak2.gif)
 
 We've open-sourced the code for this synthesizer so that everyone is able to make changes to the code,
 introduce new features, fix bugs, improve efficiency, and keep the synthesizer up-to-date with all
@@ -9,7 +16,7 @@ new capabilities of the base operating system.
 
 If you're new to [AudioKit](https://audiokitpro.com/), you can learn more: [here](https://audiokitpro.com/audiokit/). This code and app is made possible by all the contributors to AudioKit. Many of the features of Synth One are availble as modules in AudioKit, allowing you easy access to oscillators, filters, reverbs, effects, and other DSP processing: [code here](https://github.com/AudioKit/AudioKit). 
 
-## App Store Location
+## Features & App Store Location
 
 - Learn more about this project: [AudioKit Synth One Features](https://audiokitpro.com/synth)  
 - Get app: [Download in App Store](https://itunes.apple.com/us/app/audiokit-synth-one-synthesizer/id1371050497?ls=1&mt=8)

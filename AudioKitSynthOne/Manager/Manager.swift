@@ -228,7 +228,7 @@ public class Manager: UpdatableViewController {
         self.presetsViewController.didSelectPreset(index: self.appSettings.currentPresetIndex)
 
         // Show email list if first run
-        if appSettings.firstRun && !appSettings.signedMailingList {
+        if appSettings.firstRun && !appSettings.signedMailingList && Private.MailChimpAPIKey != "***REMOVED***" {
             performSegue(withIdentifier: "SegueToMailingList", sender: self)
             appSettings.firstRun = false
         }
@@ -239,7 +239,7 @@ public class Manager: UpdatableViewController {
 
         // Push Notifications request
         if appSettings.launches == 9 && !appSettings.pushNotifications { pushPopUp() }
-        if appSettings.launches % 18 == 0 && !appSettings.pushNotifications && !appSettings.isPreRelease { pushPopUp() }
+        if appSettings.launches % 18 == 0 && !appSettings.pushNotifications && !appSettings.isPreRelease && appSettings.launches > 0 { pushPopUp() }
 
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard

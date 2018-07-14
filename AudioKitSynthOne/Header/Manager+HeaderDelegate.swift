@@ -98,6 +98,15 @@ extension Manager: HeaderDelegate {
     }
 
     func morePressed() {
+        guard Private.MailChimpAPIKey != "***REMOVED***" else {
+           // Running source code with no mailchimp key
+           self.displayAlertController("Congrats! 🎉", message: "Bonus presets have been added to BankA. " +
+                "We are all volunteers who made this app for free. " +
+                "We hope you enjoy it & tell other musicians! 😎")
+           didSignMailingList(email: "test@audiokitpro.com")
+           return
+        }
+        
         if signedMailingList {
             performSegue(withIdentifier: "SegueToMore", sender: self)
         } else {

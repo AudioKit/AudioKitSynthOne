@@ -27,7 +27,7 @@ class MIDISettingsViewController: UIViewController {
     @IBOutlet weak var velocityToggle: ToggleSwitch!
     @IBOutlet weak var saveTuningToggle: ToggleSwitch!
     @IBOutlet weak var backgroundAudioToggle: ToggleSwitch!
-    
+
     weak var delegate: MIDISettingsPopOverDelegate?
 
     var midiSources = [MIDIInput]() {
@@ -103,11 +103,14 @@ class MIDISettingsViewController: UIViewController {
                     "Note: It will use more power and could drain your battery faster")
             } else {
                 self.conductor.neverSleep = false
-            
+
             }
         }
-        
+
         backgroundAudioToggle.callback = { value in
+            if value == 1 {
+                self.displayAlertController("Important", message: "Background audio will drain the battery faster. Please turn off when not in use.")
+            }
             self.conductor.backgroundAudio = value == 1
             self.delegate?.didToggleBackgroundAudio(value == 1 ? true : false)
         }

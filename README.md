@@ -9,11 +9,6 @@ introduce new features, fix bugs, improve efficiency, and keep the synthesizer u
 new capabilities of the base operating system.  
 ![Screenshot](http://audiokitpro.com/images/ak2.gif)
 
-We've open-sourced the code for this synthesizer so that everyone is able to make changes to the code,
-introduce new features, fix bugs, improve efficiency, and keep the synthesizer up-to-date with all
-new capabilities of the base operating system.  
-![Screenshot](http://audiokitpro.com/images/ak2.gif)
-
 If you're new to [AudioKit](https://audiokitpro.com/), you can learn more: [here](https://audiokitpro.com/audiokit/). This code and app is made possible by all the contributors to AudioKit. Many of the features of Synth One are availble as modules in AudioKit, allowing you easy access to oscillators, filters, reverbs, effects, and other DSP processing: [code here](https://github.com/AudioKit/AudioKit). 
 
 ## Features & App Store Location

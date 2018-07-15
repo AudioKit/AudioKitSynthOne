@@ -137,5 +137,10 @@ class DevViewController: UpdatableViewController {
         portamento.callback = { value in
             self.delegate?.portamentoChanged(value)
         }
+
+        // todo: freeze arp on
+
+        // todo: freeze arp is sequencer and sequence
+        
     }
 }

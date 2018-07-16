@@ -73,6 +73,8 @@
 		C435C58420C530C900DAECCD /* S1NoteState.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C56D20C530C900DAECCD /* S1NoteState.mm */; };
 		C435C58520C530C900DAECCD /* S1AudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57020C530C900DAECCD /* S1AudioUnit.mm */; };
 		C435C58920C530C900DAECCD /* S1DSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57620C530C900DAECCD /* S1DSPKernel.mm */; };
+		C43A13AE20FC4C7C009E2B30 /* ABLLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43A13AD20FC4C7C009E2B30 /* ABLLinkManager.swift */; };
+		C43A13B520FC4C92009E2B30 /* libABLLink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C43A13B020FC4C92009E2B30 /* libABLLink.a */; };
 		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
 		C4B490E720C649D900FD565A /* S1DSPKernel+destroy.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */; };
 		C4B490E920C64AC600FD565A /* S1DSPKernel+MIDI.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490E820C64AC600FD565A /* S1DSPKernel+MIDI.mm */; };
@@ -302,6 +304,11 @@
 		C435C57720C530C900DAECCD /* S1DSPKernel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1DSPKernel.hpp; sourceTree = "<group>"; };
 		C435C58C20C5336600DAECCD /* S1Rate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1Rate.hpp; sourceTree = "<group>"; };
 		C435C58D20C5336600DAECCD /* AKSynthOneRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
+		C43A13AD20FC4C7C009E2B30 /* ABLLinkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABLLinkManager.swift; sourceTree = "<group>"; };
+		C43A13B020FC4C92009E2B30 /* libABLLink.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libABLLink.a; sourceTree = "<group>"; };
+		C43A13B220FC4C92009E2B30 /* ABLLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLLink.h; sourceTree = "<group>"; };
+		C43A13B320FC4C92009E2B30 /* ABLLinkUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLLinkUtils.h; sourceTree = "<group>"; };
+		C43A13B420FC4C92009E2B30 /* ABLLinkSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLLinkSettingsViewController.h; sourceTree = "<group>"; };
 		C47FB3C21F36694300EF2F01 /* RateKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateKnob.swift; sourceTree = "<group>"; };
 		C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+destroy.mm"; sourceTree = "<group>"; };
 		C4B490E820C64AC600FD565A /* S1DSPKernel+MIDI.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+MIDI.mm"; sourceTree = "<group>"; };
@@ -428,6 +435,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C43A13B520FC4C92009E2B30 /* libABLLink.a in Frameworks */,
 				48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */,
 				C4B9C02B201D54D400D9833D /* AudioToolbox.framework in Frameworks */,
 			);
@@ -754,6 +762,34 @@
 			path = Rate;
 			sourceTree = "<group>";
 		};
+		C43A13AC20FC4B3A009E2B30 /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				C43A13AD20FC4C7C009E2B30 /* ABLLinkManager.swift */,
+				C43A13B120FC4C92009E2B30 /* include */,
+				C43A13AF20FC4C92009E2B30 /* lib */,
+			);
+			path = Link;
+			sourceTree = "<group>";
+		};
+		C43A13AF20FC4C92009E2B30 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				C43A13B020FC4C92009E2B30 /* libABLLink.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		C43A13B120FC4C92009E2B30 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				C43A13B220FC4C92009E2B30 /* ABLLink.h */,
+				C43A13B320FC4C92009E2B30 /* ABLLinkUtils.h */,
+				C43A13B420FC4C92009E2B30 /* ABLLinkSettingsViewController.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		C4B490FF20C7C5C500FD565A /* Sequencer */ = {
 			isa = PBXGroup;
 			children = (
@@ -988,6 +1024,7 @@
 				C4B491A520C7C95900FD565A /* Generators */,
 				C4B4917520C7C75500FD565A /* Header */,
 				C4B4911620C7C62A00FD565A /* Keyboard */,
+				C43A13AC20FC4B3A009E2B30 /* Link */,
 				C435C52620C52D2E00DAECCD /* MIDI */,
 				C4B4916320C7C72900FD565A /* Manager */,
 				C4B4915C20C7C72900FD565A /* Navigation */,
@@ -1251,6 +1288,7 @@
 				C4B4919920C7C81200FD565A /* MailingListViewController.swift in Sources */,
 				C4B4916920C7C72A00FD565A /* ChildPanel.swift in Sources */,
 				C435C57B20C530C900DAECCD /* AEWeakRetainingProxy.m in Sources */,
+				C43A13AE20FC4C7C009E2B30 /* ABLLinkManager.swift in Sources */,
 				C4B491B520C7D19F00FD565A /* TempoStepper.swift in Sources */,
 				C435C58220C530C900DAECCD /* AEMainThreadEndpoint.m in Sources */,
 				C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */,
@@ -1593,6 +1631,10 @@
 				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AudioKitSynthOne/Link/lib",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1621,6 +1663,10 @@
 				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AudioKitSynthOne/Link/lib",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -34,6 +34,7 @@ public class Manager: UpdatableViewController {
     @IBOutlet weak var midiLearnToggle: SynthButton!
     @IBOutlet weak var pitchBend: AKVerticalPad!
     @IBOutlet weak var modWheelPad: AKVerticalPad!
+    @IBOutlet weak var linkButton: AKLinkButton!
 
     weak var embeddedViewsDelegate: EmbeddedViewsDelegate?
 
@@ -135,6 +136,8 @@ public class Manager: UpdatableViewController {
         bluetoothButton.centerPopupIn(view: view)
         bluetoothButton.layer.cornerRadius = 2
         bluetoothButton.layer.borderWidth = 1
+
+        linkButton.centerPopupIn(view: view)
 
         // Setup Callbacks
         setupCallbacks()
@@ -258,6 +261,15 @@ public class Manager: UpdatableViewController {
         appendMIDIKnobs(from: sequencerPanel)
         appendMIDIKnobs(from: devViewController)
         appendMIDIKnobs(from: tuningsPanel)
+
+        // Setup Link
+        ABLLinkManager.shared.setup(bpm: 120, quantum: ABLLinkManager.QUANTUM_DEFAULT)
+
+        // Subscribe activation events
+        ABLLinkManager.shared.add(listener: .activation({ isActivated in
+            AKLog("Link Activated =  \(isActivated)")
+        }))
+
     }
 
     // Make edge gestures more responsive

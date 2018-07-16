@@ -112,6 +112,12 @@ class GeneratorsPanelController: PanelController {
 
         // Setup Audio Plot Display
         setupAudioPlot()
+
+        // Subscribe tempo change events
+        ABLLinkManager.shared.add(listener: .tempo({ bpm, quantum in
+            self.tempoStepper.value = bpm
+            self.conductor.synth.setSynthParameter(.arpRate, bpm)
+        }))
     }
 
     func setupAudioPlot() {

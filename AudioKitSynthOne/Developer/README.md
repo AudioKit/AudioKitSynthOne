@@ -22,8 +22,18 @@ Settings (stored in settings, not saved with presets):
 
 LockArpRate: OFF by default.  When enabled: loading a preset will ignore the preset's tempo.  This is great for when you want to jam at a constant tempo and blaze through presets.  When we add tempo sync (i.e., Ableton Link) we might have to change how this works.
 
-LockReverb: OFF by default: When enabled: Loading a preset will ignore the preset's reverb settings.  I like to use this when I want to record a dry signal.
+LockReverb: OFF by default: When enabled: Loading a preset will ignore the preset's reverb parameters in favor of the current parameters.
 
-LockDelay: OFF by default: When enabled: Loading a preset will ignore the preset's delay settings.
+LockDelay: OFF by default: When enabled: Loading a preset will ignore the preset's delay parameters in favor of the current parameters.
 
+Lock Arp+Seq: OFF by default.  When enabled: Loading a preset will ignore the preset's following parameters:
+arpIsOn
+arpIsSequencer
+arpDirection
+arpInterval
+arpOctave
+arpTotalSteps
+sequencerPattern00, ..., sequencerPattern15
+sequencerOctBoost00, ..., sequencerOctBoost15
+sequencerNoteOn00, ..., sequencerNoteOn15
 

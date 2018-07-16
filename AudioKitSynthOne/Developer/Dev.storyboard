@@ -188,12 +188,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geG-Iv-YXF" customClass="Knob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="726" y="31" width="50" height="50"/>
+                                <rect key="frame" x="845" y="31" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DSP Param Halftime" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slc-Pi-ahg">
-                                <rect key="frame" x="721" y="83" width="60" height="47"/>
+                                <rect key="frame" x="840" y="82" width="60" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                 <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -248,6 +248,18 @@
                                 <color key="textColor" red="0.13725490200000001" green="0.14117647059999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lock Arp+Seq" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ct1-IH-Yiw" userLabel="Lock Arp/Seq">
+                                <rect key="frame" x="716" y="72" width="70" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mwm-fx-zig" userLabel="Lock Arp/Seq" customClass="ToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="734" y="41" width="34" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="kf6-vc-yZB"/>
@@ -275,6 +287,7 @@
                         <outlet property="delayInputFilterCutoffFreqTrackingRatio" destination="gi9-Wu-alZ" id="Qt6-SQ-uPP"/>
                         <outlet property="delayInputFilterResonance" destination="8NL-71-pZV" id="9Ge-uT-1uJ"/>
                         <outlet property="freezeArpRate" destination="8h5-8l-ANW" id="Ojt-7O-Jq8"/>
+                        <outlet property="freezeArpSeq" destination="mwm-fx-zig" id="fFg-7N-w26"/>
                         <outlet property="freezeDelay" destination="zt4-Er-3QI" id="msm-IJ-vp0"/>
                         <outlet property="freezeReverb" destination="61c-fK-kgF" id="R2e-ED-HwI"/>
                         <outlet property="masterVolume" destination="dty-uU-oTK" id="ezH-mp-Y2r"/>
@@ -283,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dw-L5-b47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66.796875" y="137.890625"/>
+            <point key="canvasLocation" x="65.599999999999994" y="137.18140929535232"/>
         </scene>
     </scenes>
     <resources>

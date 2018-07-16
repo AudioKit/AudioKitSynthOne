@@ -24,12 +24,9 @@ class TempoStepper: Stepper {
         }
         set {
             internalValue = round(newValue)
-            range = (Double(minValue) ... Double(maxValue))
+            range = Double(minValue) ... Double(maxValue)
             internalValue = range.clamp(internalValue)
             knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
-
-            ABLLinkManager.shared.bpm = value
-            ABLLinkManager.shared.update()
         }
     }
 

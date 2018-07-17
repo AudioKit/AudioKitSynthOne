@@ -99,8 +99,9 @@ class MIDISettingsViewController: UIViewController {
 
             if value == 1 {
                 self.conductor.neverSleep = true
-                self.displayAlertController("Don't Sleep Mode", message: "This mode is great for playing live. Background audio will also stay on. " +
-                    "Note: It will use more power and could drain your battery faster")
+                self.displayAlertController("Don't Sleep Mode",
+                                            message: "This mode is great for playing live. Background audio will also stay on. " +
+                                                     "Note: It will use more power and could drain your battery faster")
             } else {
                 self.conductor.neverSleep = false
 
@@ -109,7 +110,8 @@ class MIDISettingsViewController: UIViewController {
 
         backgroundAudioToggle.callback = { value in
             if value == 1 {
-                self.displayAlertController("Important", message: "Background audio will drain the battery faster. Please turn off when not in use.")
+                self.displayAlertController("Important",
+                                            message: "Background audio will drain the battery faster. Please turn off when not in use.")
             }
             self.conductor.backgroundAudio = value == 1
             self.delegate?.didToggleBackgroundAudio(value == 1 ? true : false)

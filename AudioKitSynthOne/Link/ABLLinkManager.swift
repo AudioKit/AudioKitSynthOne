@@ -399,14 +399,14 @@ public class ABLLinkManager: NSObject {
         // Void pointer to self for C callbacks below
         // http://stackoverflow.com/questions/33260808/swift-proper-use-of-cfnotificationcenteraddobserver-w-callback
         let selfAsURP = UnsafeRawPointer(Unmanaged.passUnretained(self).toOpaque())
-        let selfAsUMRP = UnsafeMutableRawPointer(mutating:selfAsURP)
+        let selfAsUMRP = UnsafeMutableRawPointer(mutating: selfAsURP)
 
         // Add listerner to detect tempo changes from other devices
 
         ABLLinkSetSessionTempoCallback(ref, { sessionTempo, context in
             if let context = context {
                 let localSelf = Unmanaged<ABLLinkManager>.fromOpaque(context).takeUnretainedValue()
-                let localSelfAsUMRP = UnsafeMutableRawPointer(mutating:context)
+                let localSelfAsUMRP = UnsafeMutableRawPointer(mutating: context)
                 localSelf.onSessionTempoChanged(bpm: sessionTempo, context: localSelfAsUMRP)
             }
         }, selfAsUMRP)
@@ -414,7 +414,7 @@ public class ABLLinkManager: NSObject {
         ABLLinkSetIsEnabledCallback(ref, { isEnabled, context in
             if let context = context {
                 let localSelf = Unmanaged<ABLLinkManager>.fromOpaque(context).takeUnretainedValue()
-                let localSelfAsUMRP = UnsafeMutableRawPointer(mutating:context)
+                let localSelfAsUMRP = UnsafeMutableRawPointer(mutating: context)
                 localSelf.onLinkEnabled(isEnabled: isEnabled, context: localSelfAsUMRP)
             }
         }, selfAsUMRP)
@@ -422,7 +422,7 @@ public class ABLLinkManager: NSObject {
         ABLLinkSetIsConnectedCallback(ref, { isConnected, context in
             if let context = context {
                 let localSelf = Unmanaged<ABLLinkManager>.fromOpaque(context).takeUnretainedValue()
-                let localSelfAsUMRP = UnsafeMutableRawPointer(mutating:context)
+                let localSelfAsUMRP = UnsafeMutableRawPointer(mutating: context)
                 localSelf.onConnectionStatusChanged(isConnected: isConnected, context: localSelfAsUMRP)
             }
         }, selfAsUMRP)
@@ -471,7 +471,7 @@ public class ABLLinkManager: NSObject {
     }
 
     // Connection Status from ther devices changed
-    private func onConnectionStatusChanged(isConnected: Bool, context: Optional<UnsafeMutableRawPointer>) -> (){
+    private func onConnectionStatusChanged(isConnected: Bool, context: Optional<UnsafeMutableRawPointer>) -> () {
         debugMessage("ABL: onConnectionStatusChanged: isConnected = ", isConnected)
 
         // Inform listeners
@@ -533,9 +533,12 @@ class AKLinkButton: SynthButton {
 
     }
 
-    @objc public func doneAction() {
-        value = 0 // Turn off highlight on button
-        controller?.dismiss(animated: true, completion: nil)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Do nothing to avoid changing selected state
     }
 
+    @objc public func doneAction() {
+        controller?.dismiss(animated: true, completion: nil)
+        value = ABLLinkManager.shared.isEnabled ? 1 : 0
+    }
 }

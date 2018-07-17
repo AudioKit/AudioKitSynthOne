@@ -268,6 +268,7 @@ public class Manager: UpdatableViewController {
         // Subscribe activation events
         ABLLinkManager.shared.add(listener: .activation({ isActivated in
             AKLog("Link Activated =  \(isActivated)")
+            self.appSettings.freezeArpRate = isActivated
         }))
 
     }

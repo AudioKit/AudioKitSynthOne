@@ -113,7 +113,7 @@ class GeneratorsPanelController: PanelController {
         // Setup Audio Plot Display
         setupAudioPlot()
 
-        tempoStepper.callback = { value in 
+        tempoStepper.callback = { value in
             ABLLinkManager.shared.bpm = value
             ABLLinkManager.shared.update()
         }

@@ -171,11 +171,11 @@ public class ABLLinkManager: NSObject {
             return ABLLinkGetTempo(ABLLinkCaptureAppSessionState(linkRef))
         } set {
             guard var linkData = linkData else {
-                debugMessage("ABL: LinkData invalid when trying to set BPM")
+                AKLog("ABL: LinkData invalid when trying to set BPM")
                 return
             }
 
-            debugMessage("ABL: Set Bpm to", newValue)
+            AKLog("ABL: Set Bpm to", newValue)
             os_unfair_lock_lock(&lock)
             linkData.sharedEngineData.proposeBpm = newValue
             self.linkData = linkData
@@ -186,7 +186,7 @@ public class ABLLinkManager: NSObject {
     /// Current beat.
     public var beatTime: Float64 {
         guard let linkRef = linkRef else {
-            debugMessage("ABL: LinkData invalid when trying to get beat. Returning 0.")
+            AKLog("ABL: LinkData invalid when trying to get beat. Returning 0.")
             return 0
         }
 
@@ -200,7 +200,7 @@ public class ABLLinkManager: NSObject {
     public var quantum: Float64 {
         get {
             guard let linkData = linkData else {
-                debugMessage("ABL: LinkData invalid when trying to get quantum. Returning default.")
+                AKLog("ABL: LinkData invalid when trying to get quantum. Returning default.")
                 return ABLLinkManager.QUANTUM_DEFAULT
             }
             return linkData.sharedEngineData.quantum
@@ -216,7 +216,7 @@ public class ABLLinkManager: NSObject {
     /// Returns Link settings view controller initilized with Link reference.
     public var settingsViewController: ABLLinkSettingsViewController? {
         guard let linkData = linkData else {
-            debugMessage("ABL: Error casting ABL vc as UIViewController")
+            AKLog("ABL: Error casting ABL vc as UIViewController")
             return nil
         }
         return ABLLinkSettingsViewController.instance(linkData.linkRef)
@@ -228,7 +228,7 @@ public class ABLLinkManager: NSObject {
     ///   - bpm: Tempo.
     ///   - quantum: Quantum.
     public func setup(bpm: Double, quantum: Float64) {
-        debugMessage("ABL: Init")
+        AKLog("ABL: Init")
 
         var timeInfo = mach_timebase_info_data_t()
         mach_timebase_info(&timeInfo)
@@ -324,7 +324,7 @@ public class ABLLinkManager: NSObject {
         output.quantum = linkData.localEngineData.quantum
 
         if output.proposeBpm != ABLLinkManager.INVALID_BEAT_TIME {
-            debugMessage("ABL: output propose bpm = ", output.proposeBpm)
+            AKLog("ABL: output propose bpm = ", output.proposeBpm)
         }
 
         return output
@@ -372,13 +372,13 @@ public class ABLLinkManager: NSObject {
         if engineData.proposeBpm != ABLLinkManager.INVALID_BPM {
             // Propose that the new tempo takes effect at the beginning of this buffer.
             ABLLinkSetTempo(sessionState, engineData.proposeBpm, hostTimeAtBufferBegin)
-            debugMessage("ABL: Proposed BPM = ", engineData.proposeBpm)
+            AKLog("ABL: Proposed BPM = ", engineData.proposeBpm)
         }
 
         //post the current position after doing the updates
         ABLLinkCommitAudioSessionState(linkData.linkRef, sessionState)
         self.linkData = linkData
-        debugMessage("ABL: Current beat = ", beatTime)
+        AKLog("ABL: Current beat = ", beatTime)
     }
 
     // MARK: Listeners
@@ -392,7 +392,7 @@ public class ABLLinkManager: NSObject {
             object: AVAudioSession.sharedInstance())
 
         guard let ref = linkData?.linkRef else {
-            debugMessage("ABL: Error getting linkRef when adding listeners")
+            AKLog("ABL: Error getting linkRef when adding listeners")
             return
         }
 
@@ -431,7 +431,7 @@ public class ABLLinkManager: NSObject {
     // Route change
     @objc internal func handleRouteChange() {
         guard var linkData = linkData else {
-            debugMessage("ABL: Error accesing LinkData during route change")
+            AKLog("ABL: Error accesing LinkData during route change")
             return
         }
 
@@ -440,15 +440,15 @@ public class ABLLinkManager: NSObject {
         linkData.sharedEngineData.outputLatency = outputLatency
         self.linkData = linkData
         os_unfair_lock_unlock(&lock)
-        debugMessage("ABL: Route change")
+        AKLog("ABL: Route change")
     }
 
     // Tempo changes from other Link devices
     private func onSessionTempoChanged(bpm: Double, context: Optional<UnsafeMutableRawPointer>) {
-        debugMessage("ABL: onSessionTempoChanged")
+        AKLog("ABL: onSessionTempoChanged")
         //update local var
         self.bpm = bpm
-        debugMessage("ABL: curr bpm", bpm)
+        AKLog("ABL: curr bpm", bpm)
 
         // Inform listeners
         for listener in listeners {
@@ -460,7 +460,7 @@ public class ABLLinkManager: NSObject {
 
     // On Link enabled
     private func onLinkEnabled(isEnabled: Bool, context: Optional<UnsafeMutableRawPointer>) {
-        debugMessage("ABL: Link is", isEnabled)
+        AKLog("ABL: Link is", isEnabled)
 
         // Inform listeners
         for listener in listeners {
@@ -472,21 +472,13 @@ public class ABLLinkManager: NSObject {
 
     // Connection Status from ther devices changed
     private func onConnectionStatusChanged(isConnected: Bool, context: Optional<UnsafeMutableRawPointer>) -> () {
-        debugMessage("ABL: onConnectionStatusChanged: isConnected = ", isConnected)
+        AKLog("ABL: onConnectionStatusChanged: isConnected = ", isConnected)
 
         // Inform listeners
         for listener in listeners {
             if case .connection(let callback) = listener.type {
                 callback(isConnected)
             }
-        }
-    }
-
-    // MARK: Utils
-
-    private func debugMessage(_ message: Any ...) {
-        if isDebugging {
-            print(message)
         }
     }
 }

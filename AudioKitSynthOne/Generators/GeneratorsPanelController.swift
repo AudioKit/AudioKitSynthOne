@@ -118,6 +118,9 @@ class GeneratorsPanelController: PanelController {
             ABLLinkManager.shared.update()
         }
 
+        // Setup Link
+        ABLLinkManager.shared.setup(bpm: tempoStepper.value, quantum: ABLLinkManager.QUANTUM_DEFAULT)
+
         // Subscribe tempo change events
         ABLLinkManager.shared.add(listener: .tempo({ bpm, quantum in
             self.tempoStepper.value = bpm

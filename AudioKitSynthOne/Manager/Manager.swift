@@ -266,6 +266,7 @@ public class Manager: UpdatableViewController {
         ABLLinkManager.shared.setup(bpm: 120, quantum: ABLLinkManager.QUANTUM_DEFAULT)
 
         linkButton.value = ABLLinkManager.shared.isEnabled ? 1 : 0
+        appSettings.freezeArpRate = ABLLinkManager.shared.isEnabled
 
         // Subscribe activation events
         ABLLinkManager.shared.add(listener: .activation({ isActivated in

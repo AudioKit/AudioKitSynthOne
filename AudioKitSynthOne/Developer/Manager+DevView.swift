@@ -33,6 +33,11 @@ extension Manager: DevViewDelegate {
         Conductor.sharedInstance.updateDisplayLabel("Freeze Delay: \(value == false ? "false" : "true")")
     }
 
+    func freezeArpSeqChanged(_ value: Bool) {
+        appSettings.freezeArpSeq = value
+        Conductor.sharedInstance.updateDisplayLabel("Freeze Arp+Sequencer: \(value == false ? "false" : "true")")
+    }
+
     func portamentoChanged(_ value: Double) {
         appSettings.portamentoHalfTime = value
         Conductor.sharedInstance.updateDisplayLabel("dsp smoothing half time: \(value.decimalString)")

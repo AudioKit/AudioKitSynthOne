@@ -262,23 +262,7 @@ public class Manager: UpdatableViewController {
         appendMIDIKnobs(from: devViewController)
         appendMIDIKnobs(from: tuningsPanel)
 
-        let freezeIt = ABLLinkManager.shared.isConnected || ABLLinkManager.shared.isEnabled
-        linkButton.value = freezeIt ? 1 : 0
-        appSettings.freezeArpRate = freezeIt
-
-        // Subscribe activation events
-        ABLLinkManager.shared.add(listener: .activation({ isActivated in
-            AKLog("Link Activated =  \(isActivated)")
-            self.appSettings.freezeArpRate = isActivated
-            self.linkButton.value = isActivated ? 1 : 0
-        }))
-
-        ABLLinkManager.shared.add(listener: .connection({ isConnected in
-            AKLog("Link Connected =  \(isConnected)")
-            self.appSettings.freezeArpRate = isConnected
-            self.linkButton.value = isConnected ? 1 : 0
-        }))
-
+        setupLinkStuff()
     }
 
     // Make edge gestures more responsive

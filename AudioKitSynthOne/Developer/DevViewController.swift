@@ -157,12 +157,6 @@ class DevViewController: UpdatableViewController {
             self.delegate?.portamentoChanged(value)
         }
 
-        ABLLinkManager.shared.add(listener: .activation({ isActivated in
-            self.freezeArpRate.value = isActivated ? 1 : 0
-        }))
-
-        ABLLinkManager.shared.add(listener: .connection({ isConnected in
-            self.freezeArpRate.value = isConnected ? 1 : 0
-        }))
+        setupLinkStuff()
     }
 }

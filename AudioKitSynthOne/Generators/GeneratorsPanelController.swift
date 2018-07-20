@@ -113,19 +113,7 @@ class GeneratorsPanelController: PanelController {
         // Setup Audio Plot Display
         setupAudioPlot()
 
-        tempoStepper.callback = { value in
-            ABLLinkManager.shared.bpm = value
-            ABLLinkManager.shared.update()
-        }
-
-        // Setup Link
-        ABLLinkManager.shared.setup(bpm: tempoStepper.value, quantum: ABLLinkManager.QUANTUM_DEFAULT)
-
-        // Subscribe tempo change events
-        ABLLinkManager.shared.add(listener: .tempo({ bpm, quantum in
-            self.tempoStepper.value = bpm
-            self.conductor.synth.setSynthParameter(.arpRate, bpm)
-        }))
+        setupLinkStuff()
     }
 
     func setupAudioPlot() {

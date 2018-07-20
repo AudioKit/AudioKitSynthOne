@@ -196,7 +196,7 @@
         state->setBuffer(outputData);
         state->processWithEvents(timestamp, frameCount, realtimeEventListHead);
         double currentTempo;
-        if ( self->_musicalContext ) {
+        if (self->_musicalContext) {
             if (self->_musicalContext( &currentTempo, NULL, NULL, NULL, NULL, NULL ) ) {
                 self->_kernel.handleTempoSetting(currentTempo);
             }

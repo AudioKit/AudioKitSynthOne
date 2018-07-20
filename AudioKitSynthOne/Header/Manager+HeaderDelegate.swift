@@ -106,7 +106,7 @@ extension Manager: HeaderDelegate {
            didSignMailingList(email: "test@audiokitpro.com")
            return
         }
-        
+
         if signedMailingList {
             performSegue(withIdentifier: "SegueToMore", sender: self)
         } else {

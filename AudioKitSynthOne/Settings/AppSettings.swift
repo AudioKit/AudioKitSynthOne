@@ -31,8 +31,9 @@ class AppSettings: Codable {
     var plotFilled = true
     var velocitySensitive = false
     var freezeArpRate = false // true = don't modify when preset changes
-    var freezeDelay = false // true = don't modify when preset changes
-    var freezeReverb = false // true = don't modify when preset changes
+    var freezeDelay = false // true = don't modify current delay parameters when preset changes
+    var freezeReverb = false // true = don't modify current reverb parameters when preset changes
+    var freezeArpSeq = false // true = don't modify current arp+seq parameters when preset changes
     var portamentoHalfTime = 0.1 // global portamento HALFTIME for dsp params that are smoothed
 
     //Settings: "Save Tuning Panel w/Presets" -> saveTuningWithPreset = True/False
@@ -130,6 +131,7 @@ class AppSettings: Codable {
         freezeArpRate = dictionary["freezeArpRate"] as? Bool ?? freezeArpRate
         freezeDelay = dictionary["freezeDelay"] as? Bool ?? freezeDelay
         freezeReverb = dictionary["freezeReverb"] as? Bool ?? freezeReverb
+        freezeArpSeq = dictionary["freezeArpSeq"] as? Bool ?? freezeArpSeq
         saveTuningWithPreset = dictionary["saveTuningWithPreset"] as? Bool ?? saveTuningWithPreset
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
 

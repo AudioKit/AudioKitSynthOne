@@ -19,10 +19,12 @@ extension Manager {
             return
         }
 
-        s.setSynthParameter(.tempoSyncToArpRate, activePreset.tempoSyncToArpRate)
+        // The DEV panel has toggles (stored in settings) that impact loading of subsets of parameters of a Preset
+
         if !appSettings.freezeArpRate {
             s.setSynthParameter(.arpRate, activePreset.arpRate)
         }
+
         if !appSettings.freezeDelay {
             s.setSynthParameter(.delayOn, activePreset.delayToggled)
             s.setSynthParameter(.delayFeedback, activePreset.delayFeedback)
@@ -31,12 +33,32 @@ extension Manager {
             s.setSynthParameter(.delayInputCutoffTrackingRatio, activePreset.delayInputCutoffTrackingRatio)
             s.setSynthParameter(.delayInputResonance, activePreset.delayInputResonance)
         }
+
         if !appSettings.freezeReverb {
             s.setSynthParameter(.reverbOn, activePreset.reverbToggled)
             s.setSynthParameter(.reverbFeedback, activePreset.reverbFeedback)
             s.setSynthParameter(.reverbHighPass, activePreset.reverbHighPass)
             s.setSynthParameter(.reverbMix, activePreset.reverbMix)
         }
+
+        if !appSettings.freezeArpSeq {
+            s.setSynthParameter(.arpIsOn, activePreset.isArpMode)
+            s.setSynthParameter(.arpIsSequencer, activePreset.arpIsSequencer ? 1 : 0 )
+            for i in 0..<16 {
+                s.setPattern(forIndex: i, activePreset.seqPatternNote[i])
+                s.setOctaveBoost(forIndex: i, activePreset.seqOctBoost[i] ? 1 : 0)
+                s.setNoteOn(forIndex: i, activePreset.seqNoteOn[i])
+            }
+        }
+
+        if appSettings.saveTuningWithPreset {
+            if let m = activePreset.tuningMasterSet {
+                tuningsPanel.setTuning(name: activePreset.tuningName, masterArray: m)
+            } else {
+                tuningsPanel.setDefaultTuning()
+            }
+        }
+
         s.setSynthParameter(.tempoSyncToArpRate, activePreset.tempoSyncToArpRate)
         s.setSynthParameter(.lfo1Rate, activePreset.lfoRate)
         s.setSynthParameter(.lfo2Rate, activePreset.lfo2Rate)
@@ -98,20 +120,13 @@ extension Manager {
         s.setSynthParameter(.tremoloLFO, activePreset.tremoloLFO)
         s.setSynthParameter(.arpDirection, activePreset.arpDirection)
         s.setSynthParameter(.arpInterval, activePreset.arpInterval)
-        s.setSynthParameter(.arpIsOn, activePreset.isArpMode)
         s.setSynthParameter(.arpOctave, activePreset.arpOctave)
-        s.setSynthParameter(.arpIsSequencer, activePreset.arpIsSequencer ? 1 : 0 )
         s.setSynthParameter(.arpTotalSteps, activePreset.arpTotalSteps )
         s.setSynthParameter(.monoIsLegato, activePreset.isLegato )
         s.setSynthParameter(.phaserMix, activePreset.phaserMix)
         s.setSynthParameter(.phaserRate, activePreset.phaserRate)
         s.setSynthParameter(.phaserFeedback, activePreset.phaserFeedback)
         s.setSynthParameter(.phaserNotchWidth, activePreset.phaserNotchWidth)
-        for i in 0..<16 {
-            s.setPattern(forIndex: i, activePreset.seqPatternNote[i])
-            s.setOctaveBoost(forIndex: i, activePreset.seqOctBoost[i] ? 1 : 0)
-            s.setNoteOn(forIndex: i, activePreset.seqNoteOn[i])
-        }
         s.setSynthParameter(.filterType, activePreset.filterType)
         s.setSynthParameter(.compressorMasterRatio, activePreset.compressorMasterRatio)
         s.setSynthParameter(.compressorReverbInputRatio, activePreset.compressorReverbInputRatio)
@@ -132,15 +147,7 @@ extension Manager {
         s.setSynthParameter(.delayInputResonance, activePreset.delayInputResonance)
         s.setSynthParameter(.pitchbendMinSemitones, activePreset.pitchbendMinSemitones)
         s.setSynthParameter(.pitchbendMaxSemitones, activePreset.pitchbendMaxSemitones)
-
         s.setSynthParameter(.frequencyA4, activePreset.frequencyA4)
-        if appSettings.saveTuningWithPreset {
-            if let m = activePreset.tuningMasterSet {
-                tuningsPanel.setTuning(name: activePreset.tuningName, masterArray: m)
-            } else {
-                tuningsPanel.setDefaultTuning()
-            }
-        }
 
         s.resetSequencer()
     }
@@ -151,21 +158,15 @@ extension Manager {
             return
         }
 
-        if !appSettings.freezeArpRate {
-            activePreset.arpRate = s.getSynthParameter(.arpRate)
-        }
-        if !appSettings.freezeDelay {
-            activePreset.delayToggled = s.getSynthParameter(.delayOn)
-            activePreset.delayFeedback = s.getSynthParameter(.delayFeedback)
-            activePreset.delayTime = s.getSynthParameter(.delayTime)
-            activePreset.delayMix = s.getSynthParameter(.delayMix)
-        }
-        if !appSettings.freezeReverb {
-            activePreset.reverbToggled = s.getSynthParameter(.reverbOn)
-            activePreset.reverbFeedback = s.getSynthParameter(.reverbFeedback)
-            activePreset.reverbHighPass = s.getSynthParameter(.reverbHighPass)
-            activePreset.reverbMix = s.getSynthParameter(.reverbMix)
-        }
+        activePreset.arpRate = s.getSynthParameter(.arpRate)
+        activePreset.delayToggled = s.getSynthParameter(.delayOn)
+        activePreset.delayFeedback = s.getSynthParameter(.delayFeedback)
+        activePreset.delayTime = s.getSynthParameter(.delayTime)
+        activePreset.delayMix = s.getSynthParameter(.delayMix)
+        activePreset.reverbToggled = s.getSynthParameter(.reverbOn)
+        activePreset.reverbFeedback = s.getSynthParameter(.reverbFeedback)
+        activePreset.reverbHighPass = s.getSynthParameter(.reverbHighPass)
+        activePreset.reverbMix = s.getSynthParameter(.reverbMix)
         activePreset.tempoSyncToArpRate = s.getSynthParameter(.tempoSyncToArpRate)
         activePreset.masterVolume = s.getSynthParameter(.masterVolume)
         activePreset.isMono = s.getSynthParameter(.isMono)

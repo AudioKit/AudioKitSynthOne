@@ -75,6 +75,7 @@
 		C435C58920C530C900DAECCD /* S1DSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57620C530C900DAECCD /* S1DSPKernel.mm */; };
 		C43A13AE20FC4C7C009E2B30 /* ABLLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43A13AD20FC4C7C009E2B30 /* ABLLinkManager.swift */; };
 		C45DF29C21016A0E000AB3FD /* LinkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45DF29B21016A0E000AB3FD /* LinkExtensions.swift */; };
+		C45DF2A7210176AC000AB3FD /* libABLLink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C45DF2A2210176AB000AB3FD /* libABLLink.a */; };
 		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
 		C4B490E720C649D900FD565A /* S1DSPKernel+destroy.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */; };
 		C4B490E920C64AC600FD565A /* S1DSPKernel+MIDI.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490E820C64AC600FD565A /* S1DSPKernel+MIDI.mm */; };
@@ -306,6 +307,10 @@
 		C435C58D20C5336600DAECCD /* AKSynthOneRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
 		C43A13AD20FC4C7C009E2B30 /* ABLLinkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABLLinkManager.swift; sourceTree = "<group>"; };
 		C45DF29B21016A0E000AB3FD /* LinkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkExtensions.swift; sourceTree = "<group>"; };
+		C45DF2A2210176AB000AB3FD /* libABLLink.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libABLLink.a; sourceTree = "<group>"; };
+		C45DF2A4210176AB000AB3FD /* ABLLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLLink.h; sourceTree = "<group>"; };
+		C45DF2A5210176AB000AB3FD /* ABLLinkUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLLinkUtils.h; sourceTree = "<group>"; };
+		C45DF2A6210176AB000AB3FD /* ABLLinkSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLLinkSettingsViewController.h; sourceTree = "<group>"; };
 		C47FB3C21F36694300EF2F01 /* RateKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateKnob.swift; sourceTree = "<group>"; };
 		C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+destroy.mm"; sourceTree = "<group>"; };
 		C4B490E820C64AC600FD565A /* S1DSPKernel+MIDI.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+MIDI.mm"; sourceTree = "<group>"; };
@@ -432,6 +437,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C45DF2A7210176AC000AB3FD /* libABLLink.a in Frameworks */,
 				48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */,
 				C4B9C02B201D54D400D9833D /* AudioToolbox.framework in Frameworks */,
 			);
@@ -763,8 +769,28 @@
 			children = (
 				C43A13AD20FC4C7C009E2B30 /* ABLLinkManager.swift */,
 				C45DF29B21016A0E000AB3FD /* LinkExtensions.swift */,
+				C45DF2A3210176AB000AB3FD /* include */,
+				C45DF2A1210176AB000AB3FD /* lib */,
 			);
 			path = Link;
+			sourceTree = "<group>";
+		};
+		C45DF2A1210176AB000AB3FD /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				C45DF2A2210176AB000AB3FD /* libABLLink.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		C45DF2A3210176AB000AB3FD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				C45DF2A4210176AB000AB3FD /* ABLLink.h */,
+				C45DF2A5210176AB000AB3FD /* ABLLinkUtils.h */,
+				C45DF2A6210176AB000AB3FD /* ABLLinkSettingsViewController.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		C4B490FF20C7C5C500FD565A /* Sequencer */ = {

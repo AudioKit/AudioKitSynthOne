@@ -95,7 +95,7 @@ class AboutViewController: UIViewController {
 
      @IBAction func emailPressed(_ sender: UIButton) {
 
-     let receipients = ["team@audiokitpro.com"]
+     let receipients = ["hello@audiokitpro.com"]
      let subject = "From AudioKit Synth App"
      let messageBody = ""
 

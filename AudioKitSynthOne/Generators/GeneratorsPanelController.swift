@@ -112,6 +112,8 @@ class GeneratorsPanelController: PanelController {
 
         // Setup Audio Plot Display
         setupAudioPlot()
+
+        setupLinkStuff()
     }
 
     func setupAudioPlot() {

@@ -24,16 +24,17 @@ class TempoStepper: Stepper {
         }
         set {
             internalValue = round(newValue)
-            range = (Double(minValue) ... Double(maxValue))
+            range = Double(minValue) ... Double(maxValue)
             internalValue = range.clamp(internalValue)
             knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
+            setNeedsDisplay()
         }
     }
 
     // Knob properties
     var knobValue: CGFloat = 0.5 {
         didSet {
-            self.setNeedsDisplay()
+            setNeedsDisplay()
         }
     }
 

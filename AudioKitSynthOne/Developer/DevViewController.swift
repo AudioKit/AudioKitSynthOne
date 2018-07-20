@@ -13,6 +13,7 @@ protocol DevViewDelegate: AnyObject {
     func freezeArpRateChanged(_ value: Bool)
     func freezeReverbChanged(_ value: Bool)
     func freezeDelayChanged(_ value: Bool)
+    func freezeArpSeqChanged(_ value: Bool)
     func portamentoChanged(_ value: Double)
 }
 
@@ -51,6 +52,8 @@ class DevViewController: UpdatableViewController {
     var freezeReverbValue = false
     @IBOutlet weak var freezeDelay: ToggleButton!
     var freezeDelayValue = false
+    @IBOutlet weak var freezeArpSeq: ToggleButton!
+    var freezeArpSeqValue = false
 
     @IBOutlet weak var portamento: Knob!
     var portamentoHalfTime = 0.1
@@ -114,7 +117,8 @@ class DevViewController: UpdatableViewController {
         conductor.bind(delayInputFilterResonance, to: .delayInputResonance)
 
         // freeze arp rate, i.e., ignore Preset updates
-        freezeArpRate.value = freezeArpRateValue ? 1 : 0
+        let freezeIt = freezeArpRateValue || ABLLinkManager.shared.isConnected || ABLLinkManager.shared.isEnabled
+        freezeArpRate.value = freezeIt ? 1 : 0
         freezeArpRate.callback = { value in
             self.delegate?.freezeArpRateChanged(value == 1 ? true : false)
         }
@@ -131,11 +135,28 @@ class DevViewController: UpdatableViewController {
             self.delegate?.freezeReverbChanged(value == 1 ? true : false)
         }
 
+        // freeze arp+sequencer: ignore Preset updates for the following parameters:
+        // arpIsOn
+        // arpIsSequencer
+        // arpDirection
+        // arpInterval
+        // arpOctave
+        // arpTotalSteps
+        // sequencerPattern00, ..., sequencerPattern15
+        // sequencerOctBoost00, ..., sequencerOctBoost15
+        // sequencerNoteOn00, ..., sequencerNoteOn15
+        freezeArpSeq.value = freezeArpSeqValue ? 1 : 0
+        freezeArpSeq.callback = { value in
+            self.delegate?.freezeArpSeqChanged(value == 1 ? true : false)
+        }
+
         // portamentoHalfTime (dsp parameter stored in app settings not presets)
         portamento.range = s.getRange(.portamentoHalfTime)
         portamento.value = portamentoHalfTime
         portamento.callback = { value in
             self.delegate?.portamentoChanged(value)
         }
+
+        setupLinkStuff()
     }
 }

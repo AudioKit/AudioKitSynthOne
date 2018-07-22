@@ -3,4 +3,4 @@
 
 set -o pipefail
 
-xcodebuild -workspace AudioKitSynthOne.xcworkspace -scheme AudioKitSynthOne -sdk iphonesimulator | xcpretty || return 1
+xcodebuild -workspace AudioKitSynthOne.xcworkspace -scheme AudioKitSynthOne -sdk iphonesimulator | xcpretty || exit 1

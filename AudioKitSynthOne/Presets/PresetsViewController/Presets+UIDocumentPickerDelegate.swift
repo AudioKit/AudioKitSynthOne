@@ -32,11 +32,11 @@ extension PresetsViewController: UIDocumentPickerDelegate {
 
                     // check for duplicate bank name already in system
                     if conductor.banks.contains(where: { $0.name == bankName }) {
-                        let title = NSLocalizedString("MIDI Learn Reset", comment: "Alert Title: MIDI Learn Reset")
-                        let message = NSLocalizedString("All MIDI learn knob assignments have been removed.", comment: "Alert Message:  MIDI Learn Reset")
-                        displayAlertController("Oh my!",
-                                               message: "There is already a bank with the name '\(bankName)'. "  +
-                                                        "Please rename one of them to keep things working smoothly.")
+                        let title = NSLocalizedString("Notice", comment: "Alert Title: Duplicate Bank Name")
+                        let message = NSLocalizedString("There is already a bank with the name '\(bankName)'. "  +
+                            "Please rename one of them to keep things working smoothly.", comment: "Alert Message: Duplicate Bank Name")
+                        displayAlertController(title,
+                                               message: message)
                         bankName += " [rename]"
                     }
 

@@ -27,10 +27,10 @@ extension Manager: AKKeyboardDelegate {
     public func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity = 127) {
         guard note < 128 else {
             let title = NSLocalizedString("Too High", comment: "Alert Title: Too High")
-            let message = NSLocalizedString("MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉", comment: "Alert Message: Too High")
-            
-            displayAlertController(title,
-                                   message: message)
+            let message = NSLocalizedString("MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉",
+                                            comment: "Alert Message: Too High")
+
+            displayAlertController(title, message: message)
             return
         }
         sustainer.play(noteNumber: note, velocity: velocity)

@@ -100,8 +100,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         let message = NSLocalizedString("🎹 Please enter your real email address so that " +
             "you can receive all the presets for free. Thank you.", comment: "Alert Message: Invalid Email Address")
         guard emailAddress.isEmail else {
-            displayAlertController(title,
-                                   message: message)
+            displayAlertController(title, message: message)
             return
         }
 
@@ -110,10 +109,8 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         let alertMessage = NSLocalizedString("Please confirm that " +
             " \n'\(emailAddress)' \n is your correct email address " +
             "and you consent to us emailing you?", comment: "Alert Message: Confirm Email Address")
-        
-        let alert = UIAlertController(title: alertTitle,
-                                      message: alertMessage,
-            preferredStyle: .alert)
+
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         let submitAction = UIAlertAction(title: "Yes 👍🏼", style: .default) { (_) in
 
             // Send to MailChimp

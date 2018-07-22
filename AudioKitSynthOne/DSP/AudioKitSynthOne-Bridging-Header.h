@@ -13,7 +13,11 @@
 #import "AKSynthOneRate.h"
 #import "Audiobus.h"
 
-#include "ABLLink.h"
-#include "ABLLinkUtils.h"
-#include "ABLLinkSettingsViewController.h"
+// Set the ABLETON_ENABLED user setting to 1 (at the project level) to enable Ableton Link support
+// Note: you will need the files from their SDK!
+#if ABLETON_LINK
+# include "ABLLink.h"
+# include "ABLLinkUtils.h"
+# include "ABLLinkSettingsViewController.h"
+#endif
 

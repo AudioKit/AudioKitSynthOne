@@ -42,6 +42,12 @@ If you are new to iOS development, we recommend the [Ray Wenderlich](https://www
 
 Beginner? We have two additional code examples. There is a simple [Swift Synth](https://github.com/AudioKit/AnalogSynthX) and a [Sample Player](https://github.com/AudioKit/ROMPlayer). A fun exercise might be replacing the [sample player](https://github.com/AudioKit/ROMPlayer) code engine with synthesis. 
 
+### Ableton Link Support
+
+We now include optional support for the (Ableton Link)[https://www.ableton.com/en/link/] SDK. Because files from this private SDK are required to compile this code,
+it is turned off by default.
+
+You may enable this code by copying the SDK to your copy of Synth One and setting the `ABLETON_ENABLED` user setting to 1 in the project settings in Xcode.
 
 ## Documentation
 

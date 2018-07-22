@@ -96,20 +96,25 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
     func signUpAction() {
         guard let emailAddress = emailField.text else { return }
 
+        let title = NSLocalizedString("Oops!", comment: "Alert Title: Invalid Email Address")
+        let message = NSLocalizedString("🎹 Please enter your real email address so that " +
+            "you can receive all the presets for free. Thank you.", comment: "Alert Message: Invalid Email Address")
         guard emailAddress.isEmail else {
-            displayAlertController("Oops!",
-                                   message: "🎹 Please enter your real email address so that " +
-                                            "you can receive all the presets for free. Thank you.")
+            displayAlertController(title,
+                                   message: message)
             return
         }
 
         // Add pop up
-        let alert = UIAlertController(title: "Almost Done",
-                                      message: "Please confirm that " +
-                                               " \n'\(emailAddress)' \n is your correct email address " +
-                                               "and you consent to us emailing you?",
+        let alertTitle = NSLocalizedString("Almost done!", comment: "Alert Title: Confirm Email Address")
+        let alertMessage = NSLocalizedString("Please confirm that " +
+            " \n'\(emailAddress)' \n is your correct email address " +
+            "and you consent to us emailing you?", comment: "Alert Message: Confirm Email Address")
+        
+        let alert = UIAlertController(title: alertTitle,
+                                      message: alertMessage,
             preferredStyle: .alert)
-        let submitAction = UIAlertAction(title: "Yes, that is correct 👍🏼", style: .default) { (_) in
+        let submitAction = UIAlertAction(title: "Yes 👍🏼", style: .default) { (_) in
 
             // Send to MailChimp
             let mailToSubscribe: [String: AnyObject] = ["email": emailAddress as AnyObject]
@@ -129,7 +134,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
             self.emailSubmitted()
         }
 
-        let cancelAction = UIAlertAction(title: "Oops, Go back", style: .default) { (_) in
+        let cancelAction = UIAlertAction(title: "No", style: .default) { (_) in
         }
 
         alert.addAction(submitAction)
@@ -141,10 +146,12 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
     func emailSubmitted() {
 
         // Create and display alert box
-        let alert = UIAlertController(title: "Congrats! 🎉",
-                                      message: "Bonus presets have been added to BankA. " +
-                                               "We are all volunteers who made this app for free. " +
-                                               "We hope you enjoy it & tell other musicians! 😎",
+        let title = NSLocalizedString("Congratulations! 🎉", comment: "Alert Title: Presets Added")
+        let message = NSLocalizedString("Bonus presets have been added to BankA. " +
+            "We are all volunteers who made this app for free. " +
+            "We hope you enjoy it & tell other musicians! 😎", comment: "Alert Message: Presets Added")
+        let alert = UIAlertController(title: title,
+                                      message: message,
                                       preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "Thanks!", style: .default) { _ in
 

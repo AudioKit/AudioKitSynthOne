@@ -22,11 +22,13 @@ extension UIViewController {
 
     func reviewPopUp() {
         // Add pop up
-        let alert = UIAlertController(title: "Thank you",
-                                      message: "This is a FREE effort. Please help with a Great rating so we can " +
-                                               "make more apps! Thanks for being awesome.",
+        let alertTitle = NSLocalizedString("Thank you", comment: "Alert Title: Rate App")
+        let alertMessage = NSLocalizedString("This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.", comment: "Alert Message: Rate App")
+        
+        let alert = UIAlertController(title: alertTitle,
+                                      message: alertMessage,
                                       preferredStyle: .alert)
-        let submitAction = UIAlertAction(title: "Cool 👍🏼", style: .default) { (_) in
+        let submitAction = UIAlertAction(title: "Yes 👍🏼", style: .default) { (_) in
             self.requestReview()
         }
 

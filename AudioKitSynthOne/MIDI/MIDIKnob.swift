@@ -51,7 +51,8 @@ public class MIDIKnob: Knob, MIDILearnable {
             isActive = !isActive // Toggles knob to be active & ready to receive CC
 
             // Update Display label
-            if isActive { conductor.updateDisplayLabel("Twist Knob on your MIDI Controller") }
+            let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
+            if isActive { conductor.updateDisplayLabel(message) }
         }
 
     }

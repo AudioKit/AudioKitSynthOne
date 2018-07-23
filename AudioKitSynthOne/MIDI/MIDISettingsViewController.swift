@@ -62,7 +62,7 @@ class MIDISettingsViewController: UIViewController {
         sleepToggle.value = conductor.neverSleep ? 1 : 0
         velocityToggle.value = velocitySensitive ? 1 : 0
         saveTuningToggle.value = saveTuningWithPreset ? 1 : 0
-        backgroundAudioToggle.value = conductor.backgroundAudio ? 1:0
+        backgroundAudioToggle.value = conductor.backgroundAudio ? 1 : 0
     }
 
     override func viewDidAppear(_ animated: Bool) {

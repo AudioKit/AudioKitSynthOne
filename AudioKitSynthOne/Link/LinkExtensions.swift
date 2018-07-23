@@ -6,7 +6,7 @@
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-#if ABLETON_ENABLED
+#if ABLETON_ENABLED_1
 
 extension Manager {
     override func setupLinkStuff() {

@@ -137,7 +137,7 @@ public class Manager: UpdatableViewController {
         bluetoothButton.layer.cornerRadius = 2
         bluetoothButton.layer.borderWidth = 1
 
-        #if ABLETON_ENABLED
+        #if ABLETON_ENABLED_1
         linkButton.centerPopupIn(view: view)
         #endif
         

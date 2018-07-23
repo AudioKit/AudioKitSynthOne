@@ -35,7 +35,7 @@ public struct ABLEngineData {
 
 /// Structure that stores all data needed by the audio callback.
 public struct ABLLinkData {
-    #if ABLETON_ENABLED
+    #if ABLETON_ENABLED_1
     public var linkRef: ABLLinkRef
     /// Shared between threads. Only write when engine not running.
     public var sampleRate: Float64
@@ -98,7 +98,7 @@ public struct ABLLinkManagerListener: Equatable {
 public class ABLLinkManager: NSObject {
 
     public static let shared = ABLLinkManager()
-#if ABLETON_ENABLED
+#if ABLETON_ENABLED_1
     //swiftlint:disable identifier_name
     // Constants
     public static let INVALID_BEAT_TIME: Double = Double.leastNormalMagnitude
@@ -490,7 +490,7 @@ public class ABLLinkManager: NSObject {
 
 class AKLinkButton: SynthButton {
 
-    #if ABLETON_ENABLED
+    #if ABLETON_ENABLED_1
     private var realSuperView: UIView?
     private var controller: UIViewController?
     private var linkViewController: ABLLinkSettingsViewController?

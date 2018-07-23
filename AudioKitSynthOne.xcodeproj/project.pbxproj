@@ -75,7 +75,6 @@
 		C435C58920C530C900DAECCD /* S1DSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435C57620C530C900DAECCD /* S1DSPKernel.mm */; };
 		C43A13AE20FC4C7C009E2B30 /* ABLLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43A13AD20FC4C7C009E2B30 /* ABLLinkManager.swift */; };
 		C45DF29C21016A0E000AB3FD /* LinkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45DF29B21016A0E000AB3FD /* LinkExtensions.swift */; };
-		C45DF2A7210176AC000AB3FD /* libABLLink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C45DF2A2210176AB000AB3FD /* libABLLink.a */; };
 		C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FB3C21F36694300EF2F01 /* RateKnob.swift */; };
 		C4B490E720C649D900FD565A /* S1DSPKernel+destroy.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */; };
 		C4B490E920C64AC600FD565A /* S1DSPKernel+MIDI.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4B490E820C64AC600FD565A /* S1DSPKernel+MIDI.mm */; };
@@ -447,7 +446,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C45DF2A7210176AC000AB3FD /* libABLLink.a in Frameworks */,
 				48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */,
 				C4B9C02B201D54D400D9833D /* AudioToolbox.framework in Frameworks */,
 			);
@@ -1605,6 +1603,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ABLETON_ENABLED = 0;
+				ABLETON_LIB_1 = "-lABLLink.a";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1645,7 +1644,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
-					"ABLETON_LINK=$(ABLETON_ENABLED)",
+					"ABLETON_ENABLED=$(ABLETON_ENABLED)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1662,7 +1661,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG ABLETON_ENABLED=$(ABLETON_ENABLED)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG ABLETON_ENABLED_$(ABLETON_ENABLED)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1674,6 +1673,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ABLETON_ENABLED = 0;
+				ABLETON_LIB_1 = "-lABLLink.a";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1709,7 +1709,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "ABLETON_LINK=$(ABLETON_ENABLED)";
+				GCC_PREPROCESSOR_DEFINITIONS = "ABLETON_ENABLED=$(ABLETON_ENABLED)";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1724,7 +1724,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "ABLETON_ENABLED=$(ABLETON_ENABLED)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "ABLETON_ENABLED_$(ABLETON_ENABLED)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1753,7 +1753,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AudioKitSynthOne/Link/lib",
 				);
-				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(ABLETON_LIB_$(ABLETON_ENABLED))",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1785,7 +1788,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AudioKitSynthOne/Link/lib",
 				);
-				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(ABLETON_LIB_$(ABLETON_ENABLED))",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

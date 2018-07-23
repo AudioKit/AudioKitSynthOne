@@ -34,7 +34,8 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                     if conductor.banks.contains(where: { $0.name == bankName }) {
                         let title = NSLocalizedString("Notice", comment: "Alert Title: Duplicate Bank Name")
                         let message = NSLocalizedString("There is already a bank with the name '\(bankName)'. "  +
-                            "Please rename one of them to keep things working smoothly.", comment: "Alert Message: Duplicate Bank Name")
+                            "Please rename one of them to keep things working smoothly.",
+                                                        comment: "Alert Message: Duplicate Bank Name")
                         displayAlertController(title,
                                                message: message)
                         bankName += " [rename]"

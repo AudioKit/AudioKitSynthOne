@@ -163,7 +163,6 @@
 		C4D193C81F1187B500FF4FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */; };
 		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
 		C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */; };
-		C4F3B1F820F489550072FFF4 /* Dev.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3B1F720F489550072FFF4 /* Dev.storyboard */; };
 		C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */; };
 		C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA81F2446960011B119 /* Knob+Touches.swift */; };
 		C4F7ECB61F244A510011B119 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA91F2446960011B119 /* Knob.swift */; };
@@ -180,6 +179,7 @@
 		EA388CF32104991C0026C0C0 /* Envelopes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA388CF52104991C0026C0C0 /* Envelopes.storyboard */; };
 		EA388CF6210499530026C0C0 /* Generators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA388CF8210499530026C0C0 /* Generators.storyboard */; };
 		EA388CF92104995B0026C0C0 /* MailingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA388CFB2104995B0026C0C0 /* MailingList.storyboard */; };
+		EA388CFC210548460026C0C0 /* Dev.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA388CFE210548460026C0C0 /* Dev.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +212,16 @@
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.release.xcconfig"; sourceTree = "<group>"; };
+		9405503A210556C20039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		9405503B210556C80039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
+		9405503C210556F20039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Effects.strings; sourceTree = "<group>"; };
+		9405503D210556FA0039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Envelopes.strings; sourceTree = "<group>"; };
+		9405503E210557040039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Generators.strings; sourceTree = "<group>"; };
+		9405503F2105570F0039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Header.strings; sourceTree = "<group>"; };
+		94055040210557470039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Presets.strings; sourceTree = "<group>"; };
+		940550412105574F0039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Sequencer.strings; sourceTree = "<group>"; };
+		94055042210557580039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TouchPad.strings; sourceTree = "<group>"; };
+		94055043210557600039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Tunings.strings; sourceTree = "<group>"; };
 		941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		941645CC20B3597300D62851 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		941645CE20B3597300D62851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -400,7 +410,6 @@
 		C4D193CC1F1187B500FF4FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4D193D31F1187B500FF4FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C4F3B1F720F489550072FFF4 /* Dev.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dev.storyboard; sourceTree = "<group>"; };
 		C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonStyleKit.swift; sourceTree = "<group>"; };
 		C4F7ECA81F2446960011B119 /* Knob+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Knob+Touches.swift"; sourceTree = "<group>"; };
 		C4F7ECA91F2446960011B119 /* Knob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
@@ -420,6 +429,7 @@
 		EA388CF42104991C0026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Envelopes.storyboard; sourceTree = "<group>"; };
 		EA388CF7210499530026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Generators.storyboard; sourceTree = "<group>"; };
 		EA388CFA2104995B0026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MailingList.storyboard; sourceTree = "<group>"; };
+		EA388CFD210548460026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dev.storyboard; sourceTree = "<group>"; };
 		F437E99E20EB22D00096FEAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F4CB749120EEE0AF00716B92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -887,7 +897,7 @@
 			isa = PBXGroup;
 			children = (
 				F4CB749120EEE0AF00716B92 /* README.md */,
-				C4F3B1F720F489550072FFF4 /* Dev.storyboard */,
+				EA388CFE210548460026C0C0 /* Dev.storyboard */,
 				C4B4917220C7C73A00FD565A /* DevViewController.swift */,
 				C4B4917120C7C73A00FD565A /* Manager+DevView.swift */,
 			);
@@ -1185,7 +1195,7 @@
 				C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */,
 				EA388CF6210499530026C0C0 /* Generators.storyboard in Resources */,
 				EA388CF92104995B0026C0C0 /* MailingList.storyboard in Resources */,
-				C4F3B1F820F489550072FFF4 /* Dev.storyboard in Resources */,
+				EA388CFC210548460026C0C0 /* Dev.storyboard in Resources */,
 				EA388CE7210498F20026C0C0 /* Presets.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1437,6 +1447,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4D193CC1F1187B500FF4FE4 /* Base */,
+				9405503A210556C20039F101 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1445,6 +1456,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CDF210498AC0026C0C0 /* Base */,
+				9405503B210556C80039F101 /* en */,
 			);
 			name = About.storyboard;
 			sourceTree = "<group>";
@@ -1453,6 +1465,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CE2210498DD0026C0C0 /* Base */,
+				9405503F2105570F0039F101 /* en */,
 			);
 			name = Header.storyboard;
 			sourceTree = "<group>";
@@ -1461,6 +1474,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CE5210498E90026C0C0 /* Base */,
+				9405503C210556F20039F101 /* en */,
 			);
 			name = Effects.storyboard;
 			sourceTree = "<group>";
@@ -1469,6 +1483,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CE8210498F20026C0C0 /* Base */,
+				94055040210557470039F101 /* en */,
 			);
 			name = Presets.storyboard;
 			sourceTree = "<group>";
@@ -1477,6 +1492,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CEB210498FD0026C0C0 /* Base */,
+				94055043210557600039F101 /* en */,
 			);
 			name = Tunings.storyboard;
 			sourceTree = "<group>";
@@ -1485,6 +1501,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CEE210499070026C0C0 /* Base */,
+				94055042210557580039F101 /* en */,
 			);
 			name = TouchPad.storyboard;
 			sourceTree = "<group>";
@@ -1493,6 +1510,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CF1210499110026C0C0 /* Base */,
+				940550412105574F0039F101 /* en */,
 			);
 			name = Sequencer.storyboard;
 			sourceTree = "<group>";
@@ -1501,6 +1519,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CF42104991C0026C0C0 /* Base */,
+				9405503D210556FA0039F101 /* en */,
 			);
 			name = Envelopes.storyboard;
 			sourceTree = "<group>";
@@ -1509,6 +1528,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CF7210499530026C0C0 /* Base */,
+				9405503E210557040039F101 /* en */,
 			);
 			name = Generators.storyboard;
 			sourceTree = "<group>";
@@ -1519,6 +1539,15 @@
 				EA388CFA2104995B0026C0C0 /* Base */,
 			);
 			name = MailingList.storyboard;
+			sourceTree = "<group>";
+		};
+		EA388CFE210548460026C0C0 /* Dev.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA388CFD210548460026C0C0 /* Base */,
+			);
+			name = Dev.storyboard;
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

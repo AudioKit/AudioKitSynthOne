@@ -242,7 +242,12 @@ public class Manager: UpdatableViewController {
 
         // Push Notifications request
         if appSettings.launches == 9 && !appSettings.pushNotifications { pushPopUp() }
-        if appSettings.launches % 18 == 0 && !appSettings.pushNotifications && !appSettings.isPreRelease && appSettings.launches > 0 { pushPopUp() }
+        if appSettings.launches % 18 == 0 &&
+            !appSettings.pushNotifications &&
+            !appSettings.isPreRelease &&
+            appSettings.launches > 0 {
+            pushPopUp()
+        }
 
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard

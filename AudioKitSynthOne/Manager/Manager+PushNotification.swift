@@ -14,7 +14,8 @@ extension Manager {
     func pushPopUp() {
         // Add pop up
         let title = NSLocalizedString("Stay informed!", comment: "Alert Title: Allow notifications")
-        let message = NSLocalizedString("We'll send Free updates, sounds, and apps. Allow notifications!", comment: "Alert Message: Allow notifications")
+        let message = NSLocalizedString("We'll send Free updates, sounds, and apps. Allow notifications!",
+                                        comment: "Alert Message: Allow notifications")
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)

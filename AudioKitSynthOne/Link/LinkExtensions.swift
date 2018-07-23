@@ -6,6 +6,8 @@
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
+#if ABLETON_ENABLED
+
 extension Manager {
     override func setupLinkStuff() {
         let freezeIt = ABLLinkManager.shared.isConnected || ABLLinkManager.shared.isEnabled
@@ -57,4 +59,5 @@ extension DevViewController {
             self.freezeArpRate.value = isConnected ? 1 : 0
         }))
     }
-} 
+}
+#endif

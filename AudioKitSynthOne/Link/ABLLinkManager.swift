@@ -32,8 +32,10 @@ public struct ABLEngineData {
     }
 }
 
+
 /// Structure that stores all data needed by the audio callback.
 public struct ABLLinkData {
+    #if ABLETON_ENABLED
     public var linkRef: ABLLinkRef
     /// Shared between threads. Only write when engine not running.
     public var sampleRate: Float64
@@ -64,6 +66,7 @@ public struct ABLLinkData {
         self.timeAtLastClick = timeAtLastClick
         self.isPlaying = isPlaying
     }
+    #endif
 }
 
 public typealias ABLLinkManagerTempoCallback = (_ bpm: Double, _ quantum: Double) -> Void
@@ -93,8 +96,9 @@ public struct ABLLinkManagerListener: Equatable {
 }
 
 public class ABLLinkManager: NSObject {
-    public static let shared = ABLLinkManager()
 
+    public static let shared = ABLLinkManager()
+#if ABLETON_ENABLED
     //swiftlint:disable identifier_name
     // Constants
     public static let INVALID_BEAT_TIME: Double = Double.leastNormalMagnitude
@@ -481,10 +485,12 @@ public class ABLLinkManager: NSObject {
             }
         }
     }
+    #endif
 }
 
 class AKLinkButton: SynthButton {
 
+    #if ABLETON_ENABLED
     private var realSuperView: UIView?
     private var controller: UIViewController?
     private var linkViewController: ABLLinkSettingsViewController?
@@ -532,4 +538,6 @@ class AKLinkButton: SynthButton {
         controller?.dismiss(animated: true, completion: nil)
         value = ABLLinkManager.shared.isEnabled ? 1 : 0
     }
+    #endif
+
 }

@@ -484,5 +484,52 @@ public class ABLLinkManager: NSObject {
 }
 
 class AKLinkButton: SynthButton {
-    func centerPopupIn(view: UIView) {}
+
+    private var realSuperView: UIView?
+    private var controller: UIViewController?
+    private var linkViewController: ABLLinkSettingsViewController?
+
+    /// Use this when your button's superview is not the entire screen, or when you prefer
+    /// the aesthetics of a centered popup window to one with an arrow pointing to your button
+    public func centerPopupIn(view: UIView) {
+        realSuperView = view
+    }
+
+    /// Handle touches
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+
+        let linkViewController = ABLLinkSettingsViewController.instance(ABLLinkManager.shared.linkRef)
+        let navController = UINavigationController(rootViewController: linkViewController!)
+
+        navController.modalPresentationStyle = .popover
+
+        let popC = navController.popoverPresentationController
+        let centerPopup = realSuperView != nil
+        let displayView = realSuperView ?? self.superview
+
+        popC?.permittedArrowDirections = centerPopup ? [] : .any
+        popC?.sourceRect = centerPopup ? CGRect(x: displayView!.bounds.midX,
+                                                y: displayView!.bounds.midY,
+                                                width: 0,
+                                                height: 0) : self.frame
+
+        controller = displayView!.next as? UIViewController
+        controller?.present(navController, animated: true, completion: nil)
+
+        popC?.sourceView = controller?.view
+        linkViewController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                                                target: self,
+                                                                                action: #selector(doneAction))
+
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Do nothing to avoid changing selected state
+    }
+
+    @objc public func doneAction() {
+        controller?.dismiss(animated: true, completion: nil)
+        value = ABLLinkManager.shared.isEnabled ? 1 : 0
+    }
 }

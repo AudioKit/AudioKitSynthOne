@@ -211,6 +211,16 @@
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.release.xcconfig"; sourceTree = "<group>"; };
+		9405503A210556C20039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		9405503B210556C80039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
+		9405503C210556F20039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Effects.strings; sourceTree = "<group>"; };
+		9405503D210556FA0039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Envelopes.strings; sourceTree = "<group>"; };
+		9405503E210557040039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Generators.strings; sourceTree = "<group>"; };
+		9405503F2105570F0039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Header.strings; sourceTree = "<group>"; };
+		94055040210557470039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Presets.strings; sourceTree = "<group>"; };
+		940550412105574F0039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Sequencer.strings; sourceTree = "<group>"; };
+		94055042210557580039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TouchPad.strings; sourceTree = "<group>"; };
+		94055043210557600039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Tunings.strings; sourceTree = "<group>"; };
 		941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		941645CC20B3597300D62851 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		941645CE20B3597300D62851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1411,6 +1421,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4D193CC1F1187B500FF4FE4 /* Base */,
+				9405503A210556C20039F101 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1419,6 +1430,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CDF210498AC0026C0C0 /* Base */,
+				9405503B210556C80039F101 /* en */,
 			);
 			name = About.storyboard;
 			sourceTree = "<group>";
@@ -1427,6 +1439,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CE2210498DD0026C0C0 /* Base */,
+				9405503F2105570F0039F101 /* en */,
 			);
 			name = Header.storyboard;
 			sourceTree = "<group>";
@@ -1435,6 +1448,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CE5210498E90026C0C0 /* Base */,
+				9405503C210556F20039F101 /* en */,
 			);
 			name = Effects.storyboard;
 			sourceTree = "<group>";
@@ -1443,6 +1457,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CE8210498F20026C0C0 /* Base */,
+				94055040210557470039F101 /* en */,
 			);
 			name = Presets.storyboard;
 			sourceTree = "<group>";
@@ -1451,6 +1466,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CEB210498FD0026C0C0 /* Base */,
+				94055043210557600039F101 /* en */,
 			);
 			name = Tunings.storyboard;
 			sourceTree = "<group>";
@@ -1459,6 +1475,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CEE210499070026C0C0 /* Base */,
+				94055042210557580039F101 /* en */,
 			);
 			name = TouchPad.storyboard;
 			sourceTree = "<group>";
@@ -1467,6 +1484,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CF1210499110026C0C0 /* Base */,
+				940550412105574F0039F101 /* en */,
 			);
 			name = Sequencer.storyboard;
 			sourceTree = "<group>";
@@ -1475,6 +1493,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CF42104991C0026C0C0 /* Base */,
+				9405503D210556FA0039F101 /* en */,
 			);
 			name = Envelopes.storyboard;
 			sourceTree = "<group>";
@@ -1483,6 +1502,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388CF7210499530026C0C0 /* Base */,
+				9405503E210557040039F101 /* en */,
 			);
 			name = Generators.storyboard;
 			sourceTree = "<group>";

@@ -70,7 +70,7 @@ Here's a few ideas for you to contribute to this historic project:
 
 * Add accessibility functionality to AudioKit Synth One. We have received multiple requests from visually impaired musicians. Help make Synth One accessible to all musicians.
 *  Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
-* Localizations in your language
+* Localizations in your language (contribute one on our [POEditor page](https://poeditor.com/join/project/j1Zs2M0huT))
 * Create iPhone or Universal interface
 * Ability to search presets
 * Make TouchPads assignable 

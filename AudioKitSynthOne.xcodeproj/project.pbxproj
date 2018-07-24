@@ -319,6 +319,10 @@
 		C435C58D20C5336600DAECCD /* AKSynthOneRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSynthOneRate.h; sourceTree = "<group>"; };
 		C43A13AD20FC4C7C009E2B30 /* ABLLinkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABLLinkManager.swift; sourceTree = "<group>"; };
 		C45DF29B21016A0E000AB3FD /* LinkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkExtensions.swift; sourceTree = "<group>"; };
+		C45DF2A2210176AB000AB3FD /* libABLLink.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libABLLink.a; sourceTree = "<group>"; };
+		C45DF2A4210176AB000AB3FD /* ABLLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLLink.h; sourceTree = "<group>"; };
+		C45DF2A5210176AB000AB3FD /* ABLLinkUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLLinkUtils.h; sourceTree = "<group>"; };
+		C45DF2A6210176AB000AB3FD /* ABLLinkSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLLinkSettingsViewController.h; sourceTree = "<group>"; };
 		C47FB3C21F36694300EF2F01 /* RateKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateKnob.swift; sourceTree = "<group>"; };
 		C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+destroy.mm"; sourceTree = "<group>"; };
 		C4B490E820C64AC600FD565A /* S1DSPKernel+MIDI.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "S1DSPKernel+MIDI.mm"; sourceTree = "<group>"; };
@@ -809,8 +813,28 @@
 			children = (
 				C43A13AD20FC4C7C009E2B30 /* ABLLinkManager.swift */,
 				C45DF29B21016A0E000AB3FD /* LinkExtensions.swift */,
+				C45DF2A3210176AB000AB3FD /* include */,
+				C45DF2A1210176AB000AB3FD /* lib */,
 			);
 			path = Link;
+			sourceTree = "<group>";
+		};
+		C45DF2A1210176AB000AB3FD /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				C45DF2A2210176AB000AB3FD /* libABLLink.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		C45DF2A3210176AB000AB3FD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				C45DF2A4210176AB000AB3FD /* ABLLink.h */,
+				C45DF2A5210176AB000AB3FD /* ABLLinkUtils.h */,
+				C45DF2A6210176AB000AB3FD /* ABLLinkSettingsViewController.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		C4B490FF20C7C5C500FD565A /* Sequencer */ = {
@@ -1684,6 +1708,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ABLETON_ENABLED = 0;
+				ABLETON_LIB_1 = "-lABLLink";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1725,7 +1750,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
-					"ABLETON_LINK=$(ABLETON_ENABLED)",
+					"ABLETON_ENABLED=$(ABLETON_ENABLED)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1742,7 +1767,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG ABLETON_ENABLED_$(ABLETON_ENABLED)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1754,6 +1779,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ABLETON_ENABLED = 0;
+				ABLETON_LIB_1 = "-lABLLink";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1790,7 +1816,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "ABLETON_LINK=$(ABLETON_ENABLED)";
+				GCC_PREPROCESSOR_DEFINITIONS = "ABLETON_ENABLED=$(ABLETON_ENABLED)";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1805,6 +1831,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "ABLETON_ENABLED_$(ABLETON_ENABLED)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AudioKitSynthOne/DSP/AudioKitSynthOne-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1833,7 +1860,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AudioKitSynthOne/Link/lib",
 				);
-				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(ABLETON_LIB_$(ABLETON_ENABLED))",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1865,7 +1895,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AudioKitSynthOne/Link/lib",
 				);
-				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(ABLETON_LIB_$(ABLETON_ENABLED))",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/AudioKit/AudioKitSynthOne.svg)](https://travis-ci.org/AudioKit/AudioKitSynthOne)
 [![License](https://img.shields.io/cocoapods/l/AudioKit.svg?style=flat)](https://github.com/AudioKit/AudioKitSynthOne/blob/master/LICENSE)
 [![Twitter Follow](https://img.shields.io/twitter/follow/AudioKitPro.svg?style=social)](http://twitter.com/AudioKitPro)
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/audiokit-synth-one/localized.svg)](https://crowdin.com/project/audiokit-synth-one)
 
 We've open-sourced the code for this synthesizer so that everyone is able to make changes to the code,
 introduce new features, fix bugs, improve efficiency, and keep the synthesizer up-to-date with all
@@ -70,7 +71,7 @@ Here's a few ideas for you to contribute to this historic project:
 
 * Add accessibility functionality to AudioKit Synth One. We have received multiple requests from visually impaired musicians. Help make Synth One accessible to all musicians.
 *  Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
-* Localizations in your language (contribute one on our [POEditor page](https://poeditor.com/join/project/j1Zs2M0huT))
+* Localizations in your language (contribute one on our [CrowdIn page](https://crowdin.com/project/audiokit-synth-one))
 * Create iPhone or Universal interface
 * Ability to search presets
 * Make TouchPads assignable 

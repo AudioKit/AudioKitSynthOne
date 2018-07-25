@@ -39,14 +39,14 @@ class InfoViewController: UIViewController {
     }
 
     @IBAction func fmWebSite(_ sender: Any) {
-        if let url = URL(string: "http://audiokitpro.com/fmplayer/") {
+        if let url = URL(string: "https://audiokitpro.com/fmplayer/") {
             UIApplication.shared.open(url)
         }
     }
 
     @IBAction func getFMPlayerPressed(_ sender: Any) {
 
-         if let url = URL(string: "http://itunes.apple.com/us/app/fm-player-classic-dx-synths/id1307785646?ls=1&mt=8") {
+         if let url = URL(string: "https://itunes.apple.com/us/app/fm-player-classic-dx-synths/id1307785646?ls=1&mt=8") {
             UIApplication.shared.open(url)
          }
     }

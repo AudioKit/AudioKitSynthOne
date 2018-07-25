@@ -62,7 +62,7 @@ class AboutViewController: UIViewController {
 
         videoButton.callback = { _ in
             self.videoButton.value = 0
-            if let url = URL(string: "http://youtu.be/hwDNgCYowYs") {
+            if let url = URL(string: "https://youtu.be/hwDNgCYowYs") {
                 UIApplication.shared.open(url)
             }
         }
@@ -93,22 +93,22 @@ class AboutViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-     @IBAction func emailPressed(_ sender: UIButton) {
-
-     let receipients = ["hello@audiokitpro.com"]
-     let subject = "From AudioKit Synth App"
-     let messageBody = ""
-
-     let configuredMailComposeViewController = configureMailComposeViewController(recepients: receipients,
-                                                                                  subject: subject,
-                                                                                  messageBody: messageBody)
-
-     if canSendMail() {
-     self.present(configuredMailComposeViewController, animated: true, completion: nil)
-     } else {
-     showSendMailErrorAlert()
-     }
-     }
+    @IBAction func emailPressed(_ sender: UIButton) {
+        
+        let receipients = ["hello@audiokitpro.com"]
+        let subject = "From AudioKit Synth App"
+        let messageBody = ""
+        
+        let configuredMailComposeViewController = configureMailComposeViewController(recepients: receipients,
+                                                                                     subject: subject,
+                                                                                     messageBody: messageBody)
+        
+        if canSendMail() {
+            self.present(configuredMailComposeViewController, animated: true, completion: nil)
+        } else {
+            showSendMailErrorAlert()
+        }
+    }
 
 }
 
@@ -141,11 +141,11 @@ extension AboutViewController: MFMailComposeViewControllerDelegate {
     }
 
     func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email",
-                                                   message: "Your device could not send e-mail.  " +
-                                                            "Please check e-mail configuration and try again.",
+        let sendMailErrorAlert = UIAlertController(title: NSLocalizedString("Could Not Send Email", comment: "Title") ,
+                                                   message: NSLocalizedString("Your device could not send e-mail.  " +
+                                                    "Please check e-mail configuration and try again.", comment: "Alert Message"),
                                                    preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Button"), style: .cancel, handler: nil)
 
         sendMailErrorAlert.addAction(cancelAction)
         present(sendMailErrorAlert, animated: true, completion: nil)

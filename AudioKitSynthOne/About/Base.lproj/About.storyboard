@@ -22,12 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="NIZ-ai-yeU">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="NIZ-ai-yeU">
+                                <rect key="frame" x="0.0" y="10" width="1024" height="768"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YcU-Sg-lR2">
-                                <rect key="frame" x="44" y="50" width="932" height="501"/>
+                                <rect key="frame" x="46" y="50" width="932" height="501"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PTm-MK-dhI">
                                         <rect key="frame" x="60" y="67" width="813" height="426"/>
@@ -37,7 +36,7 @@
                                                 <rect key="frame" x="16" y="7" width="777" height="399"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <mutableString key="text">AudioKit Synth One is the first completely free &amp; open-source full-featured professional iOS synthesizer app in history. Everyone working on this app volunteered their time to create this awesome app.
+                                                <string key="text">AudioKit Synth One is the first completely free &amp; open-source full-featured professional iOS synthesizer app in history. Everyone working on this app volunteered their time to create this awesome app.
 
 Plus, it’s completely open-source. You can use the code to learn how to build your own synth app or modify the app to build the synth of your dreams. This app is a labor of love. 
 
@@ -46,7 +45,7 @@ How can you help? Please share with your friends and leave a nice review in the 
 We're all volunteers. We're dozens of developers, sound designers, and music lovers across the globe who want to give back to the music-making community. We hope you enjoy it!
 
 Thanks to the following people (listed alphabetically):
-Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chase Dobson, Cheez da Producer, Chello Ward, Clayton Miller, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Geneş, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio</mutableString>
+Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chase Dobson, Cheez da Producer, Chello Ward, Clayton Miller, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Geneş, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio</string>
                                                 <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -76,17 +75,18 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                     <constraint firstAttribute="height" constant="501" id="SvC-MP-mH9"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIDEO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rad-NL-GFv">
-                                <rect key="frame" x="159" y="585" width="68" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIDEO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rad-NL-GFv">
+                                <rect key="frame" x="170" y="593" width="43" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLF-QF-HMs" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="44" y="618" width="299" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLF-QF-HMs" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="42" y="626" width="300" height="42"/>
                                 <color key="backgroundColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="FcI-hT-jcG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Watch the Amazing Synth One Video">
@@ -96,38 +96,36 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                     <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Learn how this app was made" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGp-jS-eWl">
-                                <rect key="frame" x="111" y="668" width="165" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn how this app was made" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGp-jS-eWl">
+                                <rect key="frame" x="109.5" y="676" width="165" height="22"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="REVIEW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M92-zU-EUI">
-                                <rect key="frame" x="487" y="585" width="53" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REVIEW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M92-zU-EUI">
+                                <rect key="frame" x="485.5" y="593" width="53" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AudioKit is free &amp; open-source" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jS-Ub-cCT">
-                                <rect key="frame" x="430" y="668" width="168" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AudioKit is free &amp; open-source" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jS-Ub-cCT">
+                                <rect key="frame" x="428" y="676" width="168" height="22"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SOURCE CODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeK-lZ-M5v">
-                                <rect key="frame" x="778" y="585" width="96" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOURCE CODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeK-lZ-M5v">
+                                <rect key="frame" x="779" y="593" width="96" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dll-2U-dYG" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="677" y="618" width="299" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dll-2U-dYG" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="677" y="626" width="300" height="42"/>
                                 <color key="backgroundColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ynf-82-lSb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="AudioKit Github">
@@ -137,17 +135,19 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                     <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Learn from these code examples" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4n-VN-XPq">
-                                <rect key="frame" x="737" y="668" width="180" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn from these code examples" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4n-VN-XPq">
+                                <rect key="frame" x="737" y="676" width="180" height="22"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE1-2S-HqW" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="363" y="618" width="299" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE1-2S-HqW" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="362" y="626" width="300" height="42"/>
                                 <color key="backgroundColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Xpi-az-cAO"/>
+                                    <constraint firstAttribute="height" constant="42" id="xtR-ow-LEJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Be kind 👍🏼 Review this app!  ">
@@ -157,16 +157,14 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                     <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLEASE send BUG REPORTS:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJq-it-GbF">
-                                <rect key="frame" x="345" y="726" width="157" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLEASE send BUG REPORTS:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJq-it-GbF">
+                                <rect key="frame" x="352" y="725" width="157" height="22"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etI-kL-v1E">
-                                <rect key="frame" x="508" y="718" width="160" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etI-kL-v1E">
+                                <rect key="frame" x="515" y="718" width="160" height="36"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="17"/>
                                 <state key="normal" title="hello@audiokitpro.com">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -178,8 +176,37 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="dll-2U-dYG" firstAttribute="centerX" secondItem="jeK-lZ-M5v" secondAttribute="centerX" id="0x3-L2-7MB"/>
                             <constraint firstItem="YcU-Sg-lR2" firstAttribute="top" secondItem="1jl-Ui-wni" secondAttribute="bottom" constant="30" id="5le-wV-xcv"/>
-                            <constraint firstItem="YcU-Sg-lR2" firstAttribute="centerX" secondItem="co2-cc-PX8" secondAttribute="centerX" constant="-1.5" id="MGN-I7-6BE"/>
+                            <constraint firstItem="VE1-2S-HqW" firstAttribute="centerY" secondItem="dll-2U-dYG" secondAttribute="centerY" id="6Oa-Ml-G91"/>
+                            <constraint firstItem="2jS-Ub-cCT" firstAttribute="bottom" secondItem="NIZ-ai-yeU" secondAttribute="bottom" constant="-80" id="AXK-dh-LcO"/>
+                            <constraint firstItem="VE1-2S-HqW" firstAttribute="leading" secondItem="yLF-QF-HMs" secondAttribute="trailing" constant="20" id="EDt-Q4-cRY"/>
+                            <constraint firstItem="VE1-2S-HqW" firstAttribute="top" secondItem="M92-zU-EUI" secondAttribute="bottom" constant="8" id="G2W-Xa-Mib"/>
+                            <constraint firstItem="yLF-QF-HMs" firstAttribute="height" secondItem="VE1-2S-HqW" secondAttribute="height" id="Grf-oT-1FU"/>
+                            <constraint firstItem="NIZ-ai-yeU" firstAttribute="centerY" secondItem="djy-Cg-wPM" secondAttribute="centerY" id="ID1-rb-bZD"/>
+                            <constraint firstItem="SJq-it-GbF" firstAttribute="leading" secondItem="VE1-2S-HqW" secondAttribute="leading" constant="-10" id="J2B-hD-Ima"/>
+                            <constraint firstItem="YcU-Sg-lR2" firstAttribute="centerX" secondItem="co2-cc-PX8" secondAttribute="centerX" id="MGN-I7-6BE"/>
+                            <constraint firstItem="NIZ-ai-yeU" firstAttribute="height" secondItem="co2-cc-PX8" secondAttribute="height" id="MHL-5Y-Zt3"/>
+                            <constraint firstItem="etI-kL-v1E" firstAttribute="centerY" secondItem="SJq-it-GbF" secondAttribute="centerY" id="Oxl-S1-9gG"/>
+                            <constraint firstItem="yLF-QF-HMs" firstAttribute="centerY" secondItem="VE1-2S-HqW" secondAttribute="centerY" id="QY7-Fx-SzR"/>
+                            <constraint firstItem="dll-2U-dYG" firstAttribute="leading" secondItem="VE1-2S-HqW" secondAttribute="trailing" constant="15" id="SYr-2b-7tS"/>
+                            <constraint firstItem="2jS-Ub-cCT" firstAttribute="centerX" secondItem="VE1-2S-HqW" secondAttribute="centerX" id="UZw-mp-WXt"/>
+                            <constraint firstItem="VE1-2S-HqW" firstAttribute="centerX" secondItem="M92-zU-EUI" secondAttribute="centerX" id="WvI-8k-Evv"/>
+                            <constraint firstItem="VE1-2S-HqW" firstAttribute="height" secondItem="dll-2U-dYG" secondAttribute="height" id="ag4-AL-iB4"/>
+                            <constraint firstItem="M92-zU-EUI" firstAttribute="centerX" secondItem="YcU-Sg-lR2" secondAttribute="centerX" id="aiZ-TR-4sP"/>
+                            <constraint firstItem="rad-NL-GFv" firstAttribute="centerX" secondItem="yLF-QF-HMs" secondAttribute="centerX" id="bcd-ba-18z"/>
+                            <constraint firstItem="GGp-jS-eWl" firstAttribute="top" secondItem="yLF-QF-HMs" secondAttribute="bottom" constant="8" id="gqo-nb-Nrc"/>
+                            <constraint firstItem="dll-2U-dYG" firstAttribute="top" secondItem="jeK-lZ-M5v" secondAttribute="bottom" constant="8" id="heT-3B-dgu"/>
+                            <constraint firstItem="dll-2U-dYG" firstAttribute="centerX" secondItem="F4n-VN-XPq" secondAttribute="centerX" id="kkR-tr-4kX"/>
+                            <constraint firstItem="etI-kL-v1E" firstAttribute="leading" secondItem="SJq-it-GbF" secondAttribute="trailing" constant="6" id="qfB-ew-esi"/>
+                            <constraint firstItem="2jS-Ub-cCT" firstAttribute="top" secondItem="VE1-2S-HqW" secondAttribute="bottom" constant="8" id="qiy-QX-kMI"/>
+                            <constraint firstItem="NIZ-ai-yeU" firstAttribute="centerX" secondItem="djy-Cg-wPM" secondAttribute="centerX" id="t1W-sN-iQi"/>
+                            <constraint firstItem="djy-Cg-wPM" firstAttribute="bottom" secondItem="etI-kL-v1E" secondAttribute="bottom" constant="14" id="uZZ-Ot-YJC"/>
+                            <constraint firstItem="F4n-VN-XPq" firstAttribute="top" secondItem="dll-2U-dYG" secondAttribute="bottom" constant="8" id="uaa-e3-Tpw"/>
+                            <constraint firstItem="djy-Cg-wPM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="etI-kL-v1E" secondAttribute="trailing" constant="10" id="vwU-Ss-l3M"/>
+                            <constraint firstItem="NIZ-ai-yeU" firstAttribute="width" secondItem="co2-cc-PX8" secondAttribute="width" id="xT3-OU-2DO"/>
+                            <constraint firstItem="yLF-QF-HMs" firstAttribute="top" secondItem="rad-NL-GFv" secondAttribute="bottom" constant="8" id="yAw-ns-f3G"/>
+                            <constraint firstItem="yLF-QF-HMs" firstAttribute="centerX" secondItem="GGp-jS-eWl" secondAttribute="centerX" id="zML-E3-XSG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="djy-Cg-wPM"/>
                     </view>

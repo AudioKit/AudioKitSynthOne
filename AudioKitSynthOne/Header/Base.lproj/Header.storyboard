@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,13 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerback" translatesAutoresizingMaskIntoConstraints="NO" id="RxF-dm-Me4">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="1024" id="Wh8-lb-Yga"/>
-                                    <constraint firstAttribute="height" constant="38" id="gcz-qY-LeH"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNe-oC-Axb">
                                 <rect key="frame" x="799" y="6" width="28" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -37,9 +31,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBE-Qa-9nu">
-                                        <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBE-Qa-9nu">
+                                        <rect key="frame" x="797" y="4" width="30" height="30"/>
                                         <connections>
                                             <action selector="openHostApp:" destination="rcc-ic-tm2" eventType="touchUpInside" id="kiD-bp-jse"/>
                                         </connections>
@@ -47,9 +40,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPo-K7-EQJ" userLabel="random">
-                                <rect key="frame" x="321" y="5" width="30" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPo-K7-EQJ" userLabel="random">
+                                <rect key="frame" x="321" y="8" width="19" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="dice">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,46 +50,72 @@
                                     <action selector="randomPressed:" destination="rcc-ic-tm2" eventType="touchUpInside" id="M74-qj-fwK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggs-qy-ExU">
-                                <rect key="frame" x="389" y="6" width="240" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
-                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eA-sE-oZx">
-                                <rect key="frame" x="359" y="6" width="33" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="left-arrow">
-                                    <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="previousPresetPressed:" destination="rcc-ic-tm2" eventType="touchUpInside" id="PKv-Os-pRY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJC-Lz-2mU">
-                                <rect key="frame" x="636" y="6" width="32" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="right-arrow">
-                                    <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextPresetPressed:" destination="rcc-ic-tm2" eventType="touchUpInside" id="ZUE-TD-MCn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYe-rI-Wt1">
-                                <rect key="frame" x="7" y="3" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rh-FE-mZt" userLabel="Preset View">
+                                <rect key="frame" x="348" y="3" width="317" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eA-sE-oZx" userLabel="&lt; Button">
+                                        <rect key="frame" x="2" y="3" width="33" height="26"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="33" id="Ba7-ba-cmM"/>
+                                            <constraint firstAttribute="height" constant="26" id="jjO-4A-0NJ"/>
+                                        </constraints>
+                                        <state key="normal" image="left-arrow">
+                                            <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="previousPresetPressed:" destination="rcc-ic-tm2" eventType="touchUpInside" id="PKv-Os-pRY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggs-qy-ExU">
+                                        <rect key="frame" x="38" y="5" width="242" height="22"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                        <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJC-Lz-2mU" userLabel="&gt; Button">
+                                        <rect key="frame" x="283" y="3" width="32" height="26"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="BVW-bN-Acg"/>
+                                            <constraint firstAttribute="height" constant="26" id="RgZ-Yq-E21"/>
+                                        </constraints>
+                                        <state key="normal" image="right-arrow">
+                                            <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextPresetPressed:" destination="rcc-ic-tm2" eventType="touchUpInside" id="ZUE-TD-MCn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="317" id="8jf-lf-LJe"/>
+                                    <constraint firstItem="Ggs-qy-ExU" firstAttribute="leading" secondItem="3eA-sE-oZx" secondAttribute="trailing" constant="3" id="ApD-Fg-mUg"/>
+                                    <constraint firstItem="zJC-Lz-2mU" firstAttribute="centerY" secondItem="0rh-FE-mZt" secondAttribute="centerY" id="Eoj-0X-ST0"/>
+                                    <constraint firstItem="3eA-sE-oZx" firstAttribute="leading" secondItem="0rh-FE-mZt" secondAttribute="leading" constant="2" id="QZE-if-0PQ"/>
+                                    <constraint firstItem="Ggs-qy-ExU" firstAttribute="centerY" secondItem="3eA-sE-oZx" secondAttribute="centerY" id="TkA-Ce-Qw2"/>
+                                    <constraint firstItem="3eA-sE-oZx" firstAttribute="centerY" secondItem="0rh-FE-mZt" secondAttribute="centerY" id="XWu-tw-e31"/>
+                                    <constraint firstAttribute="trailing" secondItem="zJC-Lz-2mU" secondAttribute="trailing" constant="2" id="cKl-R4-b8V"/>
+                                    <constraint firstItem="zJC-Lz-2mU" firstAttribute="leading" secondItem="Ggs-qy-ExU" secondAttribute="trailing" constant="3" id="jz6-oE-vCj"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYe-rI-Wt1">
+                                <rect key="frame" x="7" y="0.0" width="200" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="XOH-r0-2Sp"/>
+                                </constraints>
+                                <state key="normal" image="SynthOneLogo"/>
                                 <connections>
                                     <action selector="homePressed:" destination="rcc-ic-tm2" eventType="touchUpInside" id="cow-z9-cCx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9q-RV-KkX" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="898" y="6" width="54" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9q-RV-KkX" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="898" y="2.5" width="54" height="33"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="CYo-nR-52h"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Panic">
@@ -107,10 +125,12 @@
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEb-n7-p0M" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="960" y="6" width="54" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEb-n7-p0M" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="960" y="2.5" width="54" height="33"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="4DR-Uf-3zA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="About">
@@ -120,10 +140,12 @@
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NL0-Jf-tHi" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="679" y="6" width="54" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NL0-Jf-tHi" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="668" y="2.5" width="54" height="33"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="wJB-jH-gye"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save">
@@ -133,10 +155,12 @@
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXZ-Yq-KK5" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="836" y="6" width="54" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXZ-Yq-KK5" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="836" y="2.5" width="54" height="33"/>
                                 <color key="backgroundColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="OYV-AT-9AG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Apps">
@@ -159,10 +183,12 @@
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpV-eX-q12" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="213" y="6" width="54" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpV-eX-q12" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="213" y="2.5" width="54" height="33"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="fhq-AT-8BI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Web">
@@ -173,12 +199,27 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RxF-dm-Me4" firstAttribute="top" secondItem="g4h-Z4-Ts6" secondAttribute="top" id="0X1-ND-EGg"/>
-                            <constraint firstItem="yeX-oQ-m8U" firstAttribute="top" secondItem="RxF-dm-Me4" secondAttribute="bottom" id="FMO-5Y-kay"/>
-                            <constraint firstItem="RxF-dm-Me4" firstAttribute="leading" secondItem="g4h-Z4-Ts6" secondAttribute="leading" id="fRS-Gu-5yL"/>
-                            <constraint firstAttribute="trailing" secondItem="RxF-dm-Me4" secondAttribute="trailing" id="xie-fB-wiK"/>
+                            <constraint firstItem="NL0-Jf-tHi" firstAttribute="centerY" secondItem="0rh-FE-mZt" secondAttribute="centerY" id="13U-A7-viS"/>
+                            <constraint firstItem="0rh-FE-mZt" firstAttribute="centerY" secondItem="sPo-K7-EQJ" secondAttribute="centerY" id="3bU-yY-G2r"/>
+                            <constraint firstItem="hBE-Qa-9nu" firstAttribute="centerY" secondItem="qXZ-Yq-KK5" secondAttribute="centerY" id="4z8-Tx-bkT"/>
+                            <constraint firstItem="qXZ-Yq-KK5" firstAttribute="leading" secondItem="hBE-Qa-9nu" secondAttribute="trailing" constant="9" id="6q4-4K-g4s"/>
+                            <constraint firstItem="0rh-FE-mZt" firstAttribute="height" secondItem="g4h-Z4-Ts6" secondAttribute="height" multiplier="0.85" id="A9i-Hn-xUR"/>
+                            <constraint firstItem="vEb-n7-p0M" firstAttribute="leading" secondItem="l9q-RV-KkX" secondAttribute="trailing" constant="8" id="DcU-83-0Ye"/>
+                            <constraint firstItem="sPo-K7-EQJ" firstAttribute="centerY" secondItem="PpV-eX-q12" secondAttribute="centerY" id="H04-Sb-FwK"/>
+                            <constraint firstItem="PpV-eX-q12" firstAttribute="centerY" secondItem="XYe-rI-Wt1" secondAttribute="centerY" id="Nai-Vd-5lu"/>
+                            <constraint firstItem="NL0-Jf-tHi" firstAttribute="leading" secondItem="0rh-FE-mZt" secondAttribute="trailing" constant="3" id="Npz-kT-FfE"/>
+                            <constraint firstItem="qXZ-Yq-KK5" firstAttribute="centerY" secondItem="l9q-RV-KkX" secondAttribute="centerY" id="P6d-uZ-Ofk"/>
+                            <constraint firstItem="l9q-RV-KkX" firstAttribute="centerY" secondItem="vEb-n7-p0M" secondAttribute="centerY" id="QXI-v6-I9z"/>
+                            <constraint firstItem="nR4-yq-zPM" firstAttribute="trailing" secondItem="vEb-n7-p0M" secondAttribute="trailing" constant="10" id="QuL-cs-bVb"/>
+                            <constraint firstItem="XYe-rI-Wt1" firstAttribute="leading" secondItem="nR4-yq-zPM" secondAttribute="leading" constant="7" id="TSb-ZC-Uf1"/>
+                            <constraint firstItem="sPo-K7-EQJ" firstAttribute="leading" secondItem="PpV-eX-q12" secondAttribute="trailing" constant="54" id="VPV-rh-fT6"/>
+                            <constraint firstItem="vEb-n7-p0M" firstAttribute="centerY" secondItem="nR4-yq-zPM" secondAttribute="centerY" id="lFk-oB-APX"/>
+                            <constraint firstItem="0rh-FE-mZt" firstAttribute="leading" secondItem="sPo-K7-EQJ" secondAttribute="trailing" constant="8" id="lhe-n3-2lh"/>
+                            <constraint firstItem="l9q-RV-KkX" firstAttribute="leading" secondItem="qXZ-Yq-KK5" secondAttribute="trailing" constant="8" id="mNh-HI-WaS"/>
+                            <constraint firstItem="PpV-eX-q12" firstAttribute="leading" secondItem="XYe-rI-Wt1" secondAttribute="trailing" constant="6" id="srT-5P-Tav"/>
+                            <constraint firstItem="XYe-rI-Wt1" firstAttribute="centerY" secondItem="nR4-yq-zPM" secondAttribute="centerY" id="zsW-ap-eCw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nR4-yq-zPM"/>
                     </view>
@@ -199,12 +240,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whh-ej-td2" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-813" y="-1163"/>
+            <point key="canvasLocation" x="-814.39999999999998" y="-1163.1184407796102"/>
         </scene>
     </scenes>
     <resources>
+        <image name="SynthOneLogo" width="216" height="38"/>
         <image name="dice" width="19" height="18"/>
-        <image name="headerback" width="1024" height="38"/>
         <image name="left-arrow" width="20" height="20"/>
         <image name="right-arrow" width="20" height="20"/>
     </resources>

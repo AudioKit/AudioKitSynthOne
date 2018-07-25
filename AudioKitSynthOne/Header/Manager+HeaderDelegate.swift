@@ -118,7 +118,7 @@ extension Manager: HeaderDelegate {
         conductor.synth.reset() // kinder, gentler panic
         // conductor.synth.resetDSP() // nuclear panic option
 
-        // Turn off held notes on keybaord
+        // Turn off held notes on keyboard
         keyboardView.allNotesOff()
 
         let title = NSLocalizedString("Midi Panic", comment: "Alert Title: MIDI Panic")

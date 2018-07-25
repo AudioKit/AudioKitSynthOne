@@ -168,7 +168,6 @@
 		C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */; };
 		C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECAB1F2446960011B119 /* ToggleButton.swift */; };
 		EA090E4420F74B0A0012A8F7 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA090E4320F74B0A0012A8F7 /* Private.swift */; };
-		EA2354C72107D6D60018E035 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA2354C92107D6D60018E035 /* Launch Screen.storyboard */; };
 		EA388CDE210498AC0026C0C0 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA388CE0210498AC0026C0C0 /* About.storyboard */; };
 		EA388CE1210498DD0026C0C0 /* Header.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA388CE3210498DD0026C0C0 /* Header.storyboard */; };
 		EA388CE4210498E90026C0C0 /* Effects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA388CE6210498E90026C0C0 /* Effects.storyboard */; };
@@ -422,9 +421,6 @@
 		D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		EA090E4320F74B0A0012A8F7 /* Private.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
-		EA2354C82107D6D60018E035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
-		EA2354CB2107E1780018E035 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = "tr.lproj/Launch Screen.strings"; sourceTree = "<group>"; };
-		EA2354CD2107E1790018E035 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Launch Screen.strings"; sourceTree = "<group>"; };
 		EA388CDF210498AC0026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		EA388CE2210498DD0026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Header.storyboard; sourceTree = "<group>"; };
 		EA388CE5210498E90026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Effects.storyboard; sourceTree = "<group>"; };
@@ -565,7 +561,6 @@
 				C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */,
 				94A6F30B1F687F3E007B083C /* icon_64.png */,
 				94A6F30C1F687F3E007B083C /* icon_320.png */,
-				EA2354C92107D6D60018E035 /* Launch Screen.storyboard */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -1223,7 +1218,6 @@
 				EA388D1C21071BD50026C0C0 /* InfoPlist.strings in Resources */,
 				EA388D1F21071BD50026C0C0 /* Localizable.strings in Resources */,
 				EA388CE1210498DD0026C0C0 /* Header.storyboard in Resources */,
-				EA2354C72107D6D60018E035 /* Launch Screen.storyboard in Resources */,
 				94985FF520D8908600D71239 /* JEC.json in Resources */,
 				C435C52320C52D1700DAECCD /* Red Sky Lullaby.json in Resources */,
 				C435C52220C52D1700DAECCD /* User.json in Resources */,
@@ -1500,16 +1494,6 @@
 				EA388D0B2106A2E50026C0C0 /* tr */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EA2354C92107D6D60018E035 /* Launch Screen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EA2354C82107D6D60018E035 /* Base */,
-				EA2354CB2107E1780018E035 /* tr */,
-				EA2354CD2107E1790018E035 /* fr */,
-			);
-			name = "Launch Screen.storyboard";
 			sourceTree = "<group>";
 		};
 		EA388CE0210498AC0026C0C0 /* About.storyboard */ = {
@@ -1862,6 +1846,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AudioKitSynthOne/AudioKitSynthOne.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1896,6 +1881,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AudioKitSynthOne/AudioKitSynthOne.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

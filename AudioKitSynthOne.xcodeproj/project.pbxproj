@@ -421,6 +421,10 @@
 		D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		EA090E4320F74B0A0012A8F7 /* Private.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
+		EA2354D1210879AC0018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MailingList.strings; sourceTree = "<group>"; };
+		EA2354D2210879DF0018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Dev.strings; sourceTree = "<group>"; };
+		EA2354D421087C500018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EA2354D521087C8D0018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA388CDF210498AC0026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		EA388CE2210498DD0026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Header.storyboard; sourceTree = "<group>"; };
 		EA388CE5210498E90026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Effects.storyboard; sourceTree = "<group>"; };
@@ -459,7 +463,6 @@
 		EA388D1821071BD50026C0C0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA388D1B21071BD50026C0C0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA388D1E21071BD50026C0C0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EA388D2121071BD50026C0C0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Dev.strings; sourceTree = "<group>"; };
 		EA388D2221071C170026C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EA388D2421071C230026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA388D2521071C260026C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1032,7 +1035,6 @@
 		C4D193BB1F1187B500FF4FE4 = {
 			isa = PBXGroup;
 			children = (
-				EA388D2021071BD50026C0C0 /* Dev.strings */,
 				C435C4D620C511DB00DAECCD /* README.md */,
 				C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */,
 				9461F0371F5CAAE600EE226E /* Frameworks */,
@@ -1601,6 +1603,7 @@
 				EA388CFA2104995B0026C0C0 /* Base */,
 				EA388D012106A2D60026C0C0 /* fr */,
 				EA388D0D2106A2E50026C0C0 /* tr */,
+				EA2354D1210879AC0018E035 /* en */,
 			);
 			name = MailingList.storyboard;
 			sourceTree = "<group>";
@@ -1611,6 +1614,7 @@
 				EA388CFD210548460026C0C0 /* Base */,
 				EA388D022106A2D60026C0C0 /* fr */,
 				EA388D0E2106A2E50026C0C0 /* tr */,
+				EA2354D2210879DF0018E035 /* en */,
 			);
 			name = Dev.storyboard;
 			path = Base.lproj;
@@ -1630,6 +1634,7 @@
 				EA388D1B21071BD50026C0C0 /* tr */,
 				EA388D2421071C230026C0C0 /* Base */,
 				EA388D2521071C260026C0C0 /* fr */,
+				EA2354D521087C8D0018E035 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1640,17 +1645,9 @@
 				EA388D1E21071BD50026C0C0 /* tr */,
 				EA388D2221071C170026C0C0 /* fr */,
 				EA388D2721071C330026C0C0 /* Base */,
+				EA2354D421087C500018E035 /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		EA388D2021071BD50026C0C0 /* Dev.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EA388D2121071BD50026C0C0 /* tr */,
-			);
-			name = Dev.strings;
-			path = AudioKitSynthOne/Developer/tr.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

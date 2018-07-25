@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/AudioKit/AudioKitSynthOne.svg)](https://travis-ci.org/AudioKit/AudioKitSynthOne)
 [![License](https://img.shields.io/cocoapods/l/AudioKit.svg?style=flat)](https://github.com/AudioKit/AudioKitSynthOne/blob/master/LICENSE)
-[![Twitter Follow](https://img.shields.io/twitter/follow/AudioKitPro.svg?style=social)](http://twitter.com/AudioKitPro)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/audiokit-synth-one/localized.svg)](https://crowdin.com/project/audiokit-synth-one)
+[![Twitter Follow](https://img.shields.io/twitter/follow/AudioKitPro.svg?style=social)](http://twitter.com/AudioKitPro)
 
 We've open-sourced the code for this synthesizer so that everyone is able to make changes to the code,
 introduce new features, fix bugs, improve efficiency, and keep the synthesizer up-to-date with all

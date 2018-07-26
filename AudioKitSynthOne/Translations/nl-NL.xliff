@@ -43,8 +43,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
         <source>Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
 Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </source>
         <note>Class = "UITextView"; text = "Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. \nPerfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. "; ObjectID = "IAn-lv-O7m";</note>
-        <target xml:lang="nl" state="needs-translation">Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
-Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </target>
+        <target xml:lang="nl" state="translated">Bekroond gratis iPad-instrument geïnspireerd op de DX7 &amp; DX7II. Perfect met een MIDI-toetsenbord. Mooi klinkende meerlagige samples van elektrische piano's, bells, bassen, toetsen en 80s-geluiden. </target>
       </trans-unit>
       <trans-unit id="M92-zU-EUI.text">
         <source>REVIEW</source>
@@ -148,17 +147,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="CFBundleDisplayName">
         <source>Synth One</source>
         <note>Bundle display name</note>
-        <target xml:lang="nl" state="needs-translation">Synth One</target>
+        <target xml:lang="nl" state="translated">Synth One</target>
       </trans-unit>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
         <note>Bundle name</note>
-        <target xml:lang="nl" state="needs-translation">$(PRODUCT_NAME)</target>
+        <target xml:lang="nl" state="translated">$(PRODUCT_NAME)</target>
       </trans-unit>
       <trans-unit id="NSCameraUsageDescription">
         <source>$(PRODUCT_NAME) camera use.</source>
         <note>Privacy - Camera Usage Description</note>
-        <target xml:lang="nl" state="needs-translation">$(PRODUCT_NAME) camera use.</target>
+        <target xml:lang="nl" state="translated">$(PRODUCT_NAME) cameragebruik.</target>
       </trans-unit>
     </body>
   </file>
@@ -170,447 +169,447 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="All MIDI learn knob assignments have been removed.">
         <source>All MIDI learn knob assignments have been removed.</source>
         <note>Alert Message:  MIDI Learn Reset</note>
-        <target xml:lang="nl" state="needs-translation">All MIDI learn knob assignments have been removed.</target>
+        <target xml:lang="nl" state="translated">Alle MIDI-leerknoptoewijzingen zijn verwijderd.</target>
       </trans-unit>
       <trans-unit id="All notes have been turned off.">
         <source>All notes have been turned off.</source>
         <note>Alert Message: MIDI Panic</note>
-        <target xml:lang="nl" state="needs-translation">All notes have been turned off.</target>
+        <target xml:lang="nl" state="translated">Alle tonen zijn uitgeschakeld.</target>
       </trans-unit>
       <trans-unit id="Almost done!">
         <source>Almost done!</source>
         <note>Alert Title: Confirm Email Address</note>
-        <target xml:lang="nl" state="needs-translation">Almost done!</target>
+        <target xml:lang="nl" state="translated">Bijna klaar!</target>
       </trans-unit>
       <trans-unit id="Arp/Sequencer Off">
         <source>Arp/Sequencer Off</source>
         <note>Arpeggiator Off</note>
-        <target xml:lang="nl" state="needs-translation">Arp/Sequencer Off</target>
+        <target xml:lang="nl" state="translated">Arp / Sequencer uit</target>
       </trans-unit>
       <trans-unit id="Arp/Sequencer On">
         <source>Arp/Sequencer On</source>
         <note>Arpeggiator On</note>
-        <target xml:lang="nl" state="needs-translation">Arp/Sequencer On</target>
+        <target xml:lang="nl" state="translated">Arp / Sequencer aan</target>
       </trans-unit>
       <trans-unit id="Arpeggiator Interval: \(Int(value))">
         <source>Arpeggiator Interval: \(Int(value))</source>
         <note>Arpeggiator Interval</note>
-        <target xml:lang="nl" state="needs-translation">Arpeggiator Interval: \(Int(value))</target>
+        <target xml:lang="nl" state="translated">Arpeggiator-interval: \ (Int (waarde))</target>
       </trans-unit>
       <trans-unit id="Arpeggiator Mode">
         <source>Arpeggiator Mode</source>
         <note>Arpeggiator Mode On</note>
-        <target xml:lang="nl" state="needs-translation">Arpeggiator Mode</target>
+        <target xml:lang="nl" state="translated">Arpeggiator-modus</target>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>AutoPan Rate tempo-syncd</note>
-        <target xml:lang="nl" state="needs-translation">AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+        <target xml:lang="nl" state="translated">AutoPan Rate: \ (Rate.fromFrequency (value)), \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(value.decimalString) Hz">
         <source>AutoPan Rate: \(value.decimalString) Hz</source>
         <note>AutoPan Rate</note>
-        <target xml:lang="nl" state="needs-translation">AutoPan Rate: \(value.decimalString) Hz</target>
+        <target xml:lang="nl" state="translated">AutoPan Rate: \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="AutoPan Strength: \(value.percentageString)">
         <source>AutoPan Strength: \(value.percentageString)</source>
         <note>AutoPan Amount/Strength</note>
-        <target xml:lang="nl" state="needs-translation">AutoPan Strength: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">AutoPan-sterkte: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
         <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
         <note>Alert Message: Background Audio</note>
-        <target xml:lang="nl" state="needs-translation">Background audio will drain the battery faster. Please turn off when not in use.</target>
+        <target xml:lang="nl" state="translated">Door achtergrondaudio wordt de batterij sneller leeg. Schakel uit als u deze niet gebruikt.</target>
       </trans-unit>
       <trans-unit id="Band Pass">
         <source>Band Pass</source>
         <note>Band Pass Filter</note>
-        <target xml:lang="nl" state="needs-translation">Band Pass</target>
+        <target xml:lang="nl" state="translated">Band Pass</target>
       </trans-unit>
       <trans-unit id="Bitcrush LFO ‣ \(lfoSource!)">
         <source>Bitcrush LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Bitcrush</note>
-        <target xml:lang="nl" state="needs-translation">Bitcrush LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Bitcrush LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Congratulations! 🎉">
         <source>Congratulations! 🎉</source>
         <note>Alert Title: Presets Added</note>
-        <target xml:lang="nl" state="needs-translation">Congratulations! 🎉</target>
+        <target xml:lang="nl" state="translated">Hartelijk gefeliciteerd! 🎉</target>
       </trans-unit>
       <trans-unit id="Couldn't configure the file writer">
         <source>Couldn't configure the file writer</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="nl" state="needs-translation">Couldn't configure the file writer</target>
+        <target xml:lang="nl" state="translated">Kon de bestandsschrijver niet configureren</target>
       </trans-unit>
       <trans-unit id="Couldn't open the output file">
         <source>Couldn't open the output file</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="nl" state="needs-translation">Couldn't open the output file</target>
+        <target xml:lang="nl" state="translated">Kon het uitvoerbestand niet openen</target>
       </trans-unit>
       <trans-unit id="Couldn't prepare the output format (error %d/%4.4s)">
         <source>Couldn't prepare the output format (error %1$d/%2$.4s)</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="nl" state="needs-translation">Couldn't prepare the output format (error %1$d/%2$.4s)</target>
+        <target xml:lang="nl" state="translated">Kon niet de voorbereiding van de output formaat (fout %1$d/%2$.4s)</target>
       </trans-unit>
       <trans-unit id="Cutoff LFO ‣ \(lfoSource!)">
         <source>Cutoff LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Cutoff</note>
-        <target xml:lang="nl" state="needs-translation">Cutoff LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Cutoff LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)">
         <source>Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</source>
         <note>Filter Cutoff &amp; Resonance</note>
-        <target xml:lang="nl" state="needs-translation">Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</target>
+        <target xml:lang="nl" state="translated">Cutoff: \ (s.getSynthParameter (.cutoff) .decimalString) Hz, Resonance: \ (s.getSynthParameter (.resonance) .decimalString)</target>
       </trans-unit>
       <trans-unit id="DCO 1 Morph: \(value.decimalString)">
         <source>DCO 1 Morph: \(value.decimalString)</source>
         <note>Oscillator 1 Waveform Morph Index</note>
-        <target xml:lang="nl" state="needs-translation">DCO 1 Morph: \(value.decimalString)</target>
+        <target xml:lang="nl" state="translated">DCO 1 Morph: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="DCO 1 Volume: \(value.percentageString)">
         <source>DCO 1 Volume: \(value.percentageString)</source>
         <note>Oscillator 1 Volume</note>
-        <target xml:lang="nl" state="needs-translation">DCO 1 Volume: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">DCO 1 Volume: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="DCO 1: \(Int(value)) semitones">
         <source>DCO 1: \(Int(value)) semitones</source>
         <note>Oscillator 1 semitone offset</note>
-        <target xml:lang="nl" state="needs-translation">DCO 1: \(Int(value)) semitones</target>
+        <target xml:lang="nl" state="translated">DCO 1: \ (Int (waarde)) halve tonen</target>
       </trans-unit>
       <trans-unit id="DCO 2 Morph: \(value.decimalString)">
         <source>DCO 2 Morph: \(value.decimalString)</source>
         <note>Oscillator 2 Waveform Morph Index</note>
-        <target xml:lang="nl" state="needs-translation">DCO 2 Morph: \(value.decimalString)</target>
+        <target xml:lang="nl" state="translated">DCO 2 Morph: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="DCO 2 Volume: \(value.percentageString)">
         <source>DCO 2 Volume: \(value.percentageString)</source>
         <note>Oscillator 2 Volume</note>
-        <target xml:lang="nl" state="needs-translation">DCO 2 Volume: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">DCO 2 Volume: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) detune">
         <source>DCO 2: \(Int(value)) detune</source>
         <note>Oscillator 2 detune</note>
-        <target xml:lang="nl" state="needs-translation">DCO 2: \(Int(value)) detune</target>
+        <target xml:lang="nl" state="translated">DCO 2: \ (Int (waarde)) Detune</target>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) semitones">
         <source>DCO 2: \(Int(value)) semitones</source>
         <note>Oscillator 2 semitone offset</note>
-        <target xml:lang="nl" state="needs-translation">DCO 2: \(Int(value)) semitones</target>
+        <target xml:lang="nl" state="translated">DCO 2: \ (Int (waarde)) halve tonen</target>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value))">
         <source>DCO Mix: \(Int(value))</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="nl" state="needs-translation">DCO Mix: \(Int(value))</target>
+        <target xml:lang="nl" state="translated">DCO-mix: \ (Int (waarde))</target>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value)) detune">
         <source>DCO Mix: \(Int(value)) detune</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="nl" state="needs-translation">DCO Mix: \(Int(value)) detune</target>
+        <target xml:lang="nl" state="translated">DCO-mix: \ (Int (waarde)) Detune</target>
       </trans-unit>
       <trans-unit id="Decay LFO ‣ \(lfoSource!)">
         <source>Decay LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Decay</note>
-        <target xml:lang="nl" state="needs-translation">Decay LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Verval LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Delay  Off">
         <source>Delay  Off</source>
         <note>Delay Off</note>
-        <target xml:lang="nl" state="needs-translation">Delay  Off</target>
+        <target xml:lang="nl" state="translated">Vertraging uit</target>
       </trans-unit>
       <trans-unit id="Delay Feedback/Taps: \(value.percentageString)">
         <source>Delay Feedback/Taps: \(value.percentageString)</source>
         <note>Delay Feedback</note>
-        <target xml:lang="nl" state="needs-translation">Delay Feedback/Taps: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">Vertraag Feedback / Taps: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Delay Mix: \(value.percentageString)">
         <source>Delay Mix: \(value.percentageString)</source>
         <note>Delay Mix</note>
-        <target xml:lang="nl" state="needs-translation">Delay Mix: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">Vertragingsmix: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Delay On">
         <source>Delay On</source>
         <note>Delay On</note>
-        <target xml:lang="nl" state="needs-translation">Delay On</target>
+        <target xml:lang="nl" state="translated">Vertraging op</target>
       </trans-unit>
       <trans-unit id="Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s">
         <source>Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</source>
         <note>Delay Time tempo-syncd</note>
-        <target xml:lang="nl" state="needs-translation">Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</target>
+        <target xml:lang="nl" state="translated">Vertragingstijd: \ (Rate.fromTime (waarde)), \ (value.decimalString) s</target>
       </trans-unit>
       <trans-unit id="Delay Time: \(value.decimalString) s">
         <source>Delay Time: \(value.decimalString) s</source>
         <note>Delay Time</note>
-        <target xml:lang="nl" state="needs-translation">Delay Time: \(value.decimalString) s</target>
+        <target xml:lang="nl" state="translated">Vertragingstijd: \ (value.decimalString) s</target>
       </trans-unit>
       <trans-unit id="Detune LFO ‣ \(lfoSource!)">
         <source>Detune LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Detune</note>
-        <target xml:lang="nl" state="needs-translation">Detune LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Detune LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Don't Sleep Mode">
         <source>Don't Sleep Mode</source>
         <note>Alert Title: Allows On Mode</note>
-        <target xml:lang="nl" state="needs-translation">Don't Sleep Mode</target>
+        <target xml:lang="nl" state="translated">Slaapstand niet</target>
       </trans-unit>
       <trans-unit id="FM LFO ‣ \(lfoSource!)">
         <source>FM LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] FM Modulation</note>
-        <target xml:lang="nl" state="needs-translation">FM LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">FM LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="FM Mod: \(value.percentageString)">
         <source>FM Mod: \(value.percentageString)</source>
         <note>FM Modulation Amount</note>
-        <target xml:lang="nl" state="needs-translation">FM Mod: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">FM Mod: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="FM Volume: \(value.percentageString)">
         <source>FM Volume: \(value.percentageString)</source>
         <note>FM Oscillator Volume</note>
-        <target xml:lang="nl" state="needs-translation">FM Volume: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">FM-volume: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Filter Env LFO ‣ \(lfoSource!)">
         <source>Filter Env LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Filter Envelope</note>
-        <target xml:lang="nl" state="needs-translation">Filter Env LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Filter Env LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Filter Envelope: \(value.percentageString)">
         <source>Filter Envelope: \(value.percentageString)</source>
         <note>Filter Envelope Amount</note>
-        <target xml:lang="nl" state="needs-translation">Filter Envelope: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">Filter-envelop: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Filter Type: \(ftype)">
         <source>Filter Type: \(ftype)</source>
         <note>Main Filter Type</note>
-        <target xml:lang="nl" state="needs-translation">Filter Type: \(ftype)</target>
+        <target xml:lang="nl" state="translated">Filtertype: \(ftype)</target>
       </trans-unit>
       <trans-unit id="Glide: \(value.decimalString)">
         <source>Glide: \(value.decimalString)</source>
         <note>Mono Glide Amount</note>
-        <target xml:lang="nl" state="needs-translation">Glide: \(value.decimalString)</target>
+        <target xml:lang="nl" state="translated">Glide: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="High Pass">
         <source>High Pass</source>
         <note>High Pass Filter</note>
-        <target xml:lang="nl" state="needs-translation">High Pass</target>
+        <target xml:lang="nl" state="translated">High Pass</target>
       </trans-unit>
       <trans-unit id="Important">
         <source>Important</source>
         <note>Alert Title: Background Audio</note>
-        <target xml:lang="nl" state="needs-translation">Important</target>
+        <target xml:lang="nl" state="translated">Belangrijk</target>
       </trans-unit>
       <trans-unit id="LFO 2 Amp: \(value.percentageString)">
         <source>LFO 2 Amp: \(value.percentageString)</source>
         <note>LFO 2 [low frequency oscillator] Amplitude</note>
-        <target xml:lang="nl" state="needs-translation">LFO 2 Amp: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">LFO 2 Amp: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
-        <target xml:lang="nl" state="needs-translation">LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+        <target xml:lang="nl" state="translated">LFO 2 Rate: \ (Rate.fromFrequency (value)), \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
-        <target xml:lang="nl" state="needs-translation">LFO 2 Rate: \(value.decimalString) Hz</target>
+        <target xml:lang="nl" state="translated">LFO 2 Rate: \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate tempo-syncd</note>
-        <target xml:lang="nl" state="needs-translation">LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <target xml:lang="nl" state="translated">LFO1-snelheid: \ (Rate.fromFrequency (s.getSynthParameter (.lfo1Rate))), LFO1 Amp: \ (s.getSynthParameter (.lfo1Aplplitude) .percentageString)</target>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate</note>
-        <target xml:lang="nl" state="needs-translation">LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <target xml:lang="nl" state="translated">LFO1-snelheid: \ (s.getSynthParameter (.lfo1Rate) .decimalString) Hz, LFO1 Amp: \ (s.getSynthParameter (.lfo1Aplplitude) .percentageString)</target>
       </trans-unit>
       <trans-unit id="Low Pass">
         <source>Low Pass</source>
         <note>Low Pass Filter</note>
-        <target xml:lang="nl" state="needs-translation">Low Pass</target>
+        <target xml:lang="nl" state="translated">Low Pass</target>
       </trans-unit>
       <trans-unit id="MIDI Learn Off">
         <source>MIDI Learn Off</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="nl" state="needs-translation">MIDI Learn Off</target>
+        <target xml:lang="nl" state="translated">MIDI Learn Off</target>
       </trans-unit>
       <trans-unit id="MIDI Learn Reset">
         <source>MIDI Learn Reset</source>
         <note>Alert Title: MIDI Learn Reset</note>
-        <target xml:lang="nl" state="needs-translation">MIDI Learn Reset</target>
+        <target xml:lang="nl" state="translated">MIDI Learn Reset</target>
       </trans-unit>
       <trans-unit id="MIDI Learn: Touch a knob to assign">
         <source>MIDI Learn: Touch a knob to assign</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="nl" state="needs-translation">MIDI Learn: Touch a knob to assign</target>
+        <target xml:lang="nl" state="translated">MIDI Learn: Raak een knop aan om toe te wijzen</target>
       </trans-unit>
       <trans-unit id="MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉">
         <source>MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</source>
         <note>Alert Message: Too High</note>
-        <target xml:lang="nl" state="needs-translation">MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</target>
+        <target xml:lang="nl" state="translated">MIDI Note &gt; 127. G8 is de hoogst speelbare toets. Neem het een tandje 😉</target>
       </trans-unit>
       <trans-unit id="Master Volume: \(value.percentageString)">
         <source>Master Volume: \(value.percentageString)</source>
         <note>Master Volume</note>
-        <target xml:lang="nl" state="needs-translation">Master Volume: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">Hoofdvolume: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Midi Panic">
         <source>Midi Panic</source>
         <note>Alert Title: MIDI Panic</note>
-        <target xml:lang="nl" state="needs-translation">Midi Panic</target>
+        <target xml:lang="nl" state="translated">Midi Panic</target>
       </trans-unit>
       <trans-unit id="Noise LFO ‣ \(lfoSource!)">
         <source>Noise LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Noise</note>
-        <target xml:lang="nl" state="needs-translation">Noise LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Ruis LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Noise Volume: \((value * 4).percentageString)">
         <source>Noise Volume: \((value * 4).percentageString)</source>
         <note>Noise Volume</note>
-        <target xml:lang="nl" state="needs-translation">Noise Volume: \((value * 4).percentageString)</target>
+        <target xml:lang="nl" state="translated">Geluidsvolume: \ ((waarde * 4) .percentageString)</target>
       </trans-unit>
       <trans-unit id="Notice">
         <source>Notice</source>
         <note>Alert Title: Duplicate Bank Name</note>
-        <target xml:lang="nl" state="needs-translation">Notice</target>
+        <target xml:lang="nl" state="translated">Merk op</target>
       </trans-unit>
       <trans-unit id="Oops!">
         <source>Oops!</source>
         <note>Alert Title: Invalid Email Address</note>
-        <target xml:lang="nl" state="needs-translation">Oops!</target>
+        <target xml:lang="nl" state="translated">Oops!</target>
       </trans-unit>
       <trans-unit id="Osc Mix LFO ‣ \(lfoSource!)">
         <source>Osc Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Oscillator Mix</note>
-        <target xml:lang="nl" state="needs-translation">Osc Mix LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Osc Mix LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Phaser Feedback: \(value.decimalString)">
         <source>Phaser Feedback: \(value.decimalString)</source>
         <note>Phaser Feedback</note>
-        <target xml:lang="nl" state="needs-translation">Phaser Feedback: \(value.decimalString)</target>
+        <target xml:lang="nl" state="translated">Phaser Feedback: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Phaser Mix: \(value.decimalString)">
         <source>Phaser Mix: \(value.decimalString)</source>
         <note>Phaser Mix</note>
-        <target xml:lang="nl" state="needs-translation">Phaser Mix: \(value.decimalString)</target>
+        <target xml:lang="nl" state="translated">Phaser Mix: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Phaser Notch Width: \(value.decimalString)">
         <source>Phaser Notch Width: \(value.decimalString)</source>
         <note>Phaser Notch Width</note>
-        <target xml:lang="nl" state="needs-translation">Phaser Notch Width: \(value.decimalString)</target>
+        <target xml:lang="nl" state="translated">Phaser Notch-breedte: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Phaser Rate: \(value.decimalString)">
         <source>Phaser Rate: \(value.decimalString)</source>
         <note>Phaser Rate</note>
-        <target xml:lang="nl" state="needs-translation">Phaser Rate: \(value.decimalString)</target>
+        <target xml:lang="nl" state="translated">Phaser-snelheid: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Pitch LFO ‣ \(lfoSource!)">
         <source>Pitch LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Pitch</note>
-        <target xml:lang="nl" state="needs-translation">Pitch LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Pitch LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Resonance LFO ‣ \(lfoSource!)">
         <source>Resonance LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Resonance</note>
-        <target xml:lang="nl" state="needs-translation">Resonance LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Resonantie LFO ‣ \ (lfoBron!)</target>
       </trans-unit>
       <trans-unit id="Reverb Low-cut: \(value.decimalString) Hz">
         <source>Reverb Low-cut: \(value.decimalString) Hz</source>
         <note>Reverb Low-cut/Highpass</note>
-        <target xml:lang="nl" state="needs-translation">Reverb Low-cut: \(value.decimalString) Hz</target>
+        <target xml:lang="nl" state="translated">Reverb Low-cut: \ (waarde.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="Reverb Mix LFO ‣ \(lfoSource!)">
         <source>Reverb Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Reverb Mix</note>
-        <target xml:lang="nl" state="needs-translation">Reverb Mix LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Reverb Mix LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Reverb Mix: \(value.percentageString)">
         <source>Reverb Mix: \(value.percentageString)</source>
         <note>Reverb Mix</note>
-        <target xml:lang="nl" state="needs-translation">Reverb Mix: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">Reverb Mix: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Reverb Off">
         <source>Reverb Off</source>
         <note>Reverb Off</note>
-        <target xml:lang="nl" state="needs-translation">Reverb Off</target>
+        <target xml:lang="nl" state="translated">Reverb Off</target>
       </trans-unit>
       <trans-unit id="Reverb On">
         <source>Reverb On</source>
         <note>Reverb On</note>
-        <target xml:lang="nl" state="needs-translation">Reverb On</target>
+        <target xml:lang="nl" state="translated">Reverb On</target>
       </trans-unit>
       <trans-unit id="Reverb Size: \(value.percentageString)">
         <source>Reverb Size: \(value.percentageString)</source>
         <note>Reverb Size</note>
-        <target xml:lang="nl" state="needs-translation">Reverb Size: \(value.percentageString)</target>
+        <target xml:lang="nl" state="translated">Reverb-maat: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Sample Rate: \(Int(value)) Hz">
         <source>Sample Rate: \(Int(value)) Hz</source>
         <note>Bitcrush Sample Rate</note>
-        <target xml:lang="nl" state="needs-translation">Sample Rate: \(Int(value)) Hz</target>
+        <target xml:lang="nl" state="translated">Sample Rate: \ (Int (waarde)) Hz</target>
       </trans-unit>
       <trans-unit id="Sequencer Mode">
         <source>Sequencer Mode</source>
         <note>Sequencer Mode On</note>
-        <target xml:lang="nl" state="needs-translation">Sequencer Mode</target>
+        <target xml:lang="nl" state="translated">Sequencer-modus</target>
       </trans-unit>
       <trans-unit id="Stay informed!">
         <source>Stay informed!</source>
         <note>Alert Title: Allow notifications</note>
-        <target xml:lang="nl" state="needs-translation">Stay informed!</target>
+        <target xml:lang="nl" state="translated">Blijf geïnformeerd!</target>
       </trans-unit>
       <trans-unit id="Sub Osc Volume: \(value.decimalString)">
         <source>Sub Osc Volume: \(value.decimalString)</source>
         <note>Sub Oscillator Volume</note>
-        <target xml:lang="nl" state="needs-translation">Sub Osc Volume: \(value.decimalString)</target>
+        <target xml:lang="nl" state="translated">Sub Osc Volume: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Tempo: \(value) BPM">
         <source>Tempo: \(value) BPM</source>
         <note>Tempo (Beats Per Minute)</note>
-        <target xml:lang="nl" state="needs-translation">Tempo: \(value) BPM</target>
+        <target xml:lang="nl" state="translated">Tempo: \(value) BPM</target>
       </trans-unit>
       <trans-unit id="Thank you">
         <source>Thank you</source>
         <note>Alert Title: Rate App</note>
-        <target xml:lang="nl" state="needs-translation">Thank you</target>
+        <target xml:lang="nl" state="translated">Dank je</target>
       </trans-unit>
       <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
         <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>
         <note>Alert Message: Duplicate Bank Name</note>
-        <target xml:lang="nl" state="needs-translation">There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</target>
+        <target xml:lang="nl" state="translated">Er is al een bank met de naam '\(bankName)'. Wijzig de naam van een van hen om de zaken soepel te laten verlopen.</target>
       </trans-unit>
       <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
         <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
         <note>Alert Message: Rate App</note>
-        <target xml:lang="nl" state="needs-translation">This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</target>
+        <target xml:lang="nl" state="translated">Dit is een GRATIS app gebouwd door vrijwilligers. Help alsjeblieft met een goede beoordeling, zodat we meer apps kunnen maken! Bedankt dat je geweldig bent.</target>
       </trans-unit>
       <trans-unit id="This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster">
         <source>This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</source>
         <note>Alert Message: Allows On Mode</note>
-        <target xml:lang="nl" state="needs-translation">This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</target>
+        <target xml:lang="nl" state="translated">Deze modus is geweldig om live te spelen. Achtergrondaudio blijft ook aan. Opmerking: het gebruikt meer stroom en kan uw batterij sneller leegmaken</target>
       </trans-unit>
       <trans-unit id="Too High">
         <source>Too High</source>
         <note>Alert Title: Too High</note>
-        <target xml:lang="nl" state="needs-translation">Too High</target>
+        <target xml:lang="nl" state="translated">Te hoog</target>
       </trans-unit>
       <trans-unit id="Tremolo LFO ‣ \(lfoSource!)">
         <source>Tremolo LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Tremolo</note>
-        <target xml:lang="nl" state="needs-translation">Tremolo LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="nl" state="translated">Tremolo LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Twist knob on your MIDI Controller">
         <source>Twist knob on your MIDI Controller</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="nl" state="needs-translation">Twist knob on your MIDI Controller</target>
+        <target xml:lang="nl" state="translated">Draai de knop op uw MIDI-controller</target>
       </trans-unit>
       <trans-unit id="We'll send Free updates, sounds, and apps. Allow notifications!">
         <source>We'll send Free updates, sounds, and apps. Allow notifications!</source>
         <note>Alert Message: Allow notifications</note>
-        <target xml:lang="nl" state="needs-translation">We'll send Free updates, sounds, and apps. Allow notifications!</target>
+        <target xml:lang="nl" state="translated">We sturen gratis updates, geluiden en apps. Meldingen toestaan!</target>
       </trans-unit>
       <trans-unit id="Widen: \(value.decimalString)">
         <source>Widen: \(value.decimalString)</source>
         <note>Stereo Widen</note>
-        <target xml:lang="nl" state="needs-translation">Widen: \(value.decimalString)</target>
+        <target xml:lang="nl" state="translated">Widen: \ (value.decimalString)</target>
       </trans-unit>
     </body>
   </file>

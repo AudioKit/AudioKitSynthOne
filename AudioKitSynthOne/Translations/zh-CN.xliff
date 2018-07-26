@@ -43,8 +43,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
         <source>Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
 Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </source>
         <note>Class = "UITextView"; text = "Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. \nPerfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. "; ObjectID = "IAn-lv-O7m";</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
-Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </target>
+        <target xml:lang="zh-Hans" state="translated">屡获殊荣的免费iPad乐器灵感来自DX7 &amp; DX7II。完美的MIDI键盘。电钢琴，贝尔，贝司，键和80年代声音的美丽听起来多层样本。 </target>
       </trans-unit>
       <trans-unit id="M92-zU-EUI.text">
         <source>REVIEW</source>
@@ -148,17 +147,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="CFBundleDisplayName">
         <source>Synth One</source>
         <note>Bundle display name</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Synth One</target>
+        <target xml:lang="zh-Hans" state="translated">Synth One</target>
       </trans-unit>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
         <note>Bundle name</note>
-        <target xml:lang="zh-Hans" state="needs-translation">$(PRODUCT_NAME)</target>
+        <target xml:lang="zh-Hans" state="translated">$(PRODUCT_NAME)</target>
       </trans-unit>
       <trans-unit id="NSCameraUsageDescription">
         <source>$(PRODUCT_NAME) camera use.</source>
         <note>Privacy - Camera Usage Description</note>
-        <target xml:lang="zh-Hans" state="needs-translation">$(PRODUCT_NAME) camera use.</target>
+        <target xml:lang="zh-Hans" state="translated">$(PRODUCT_NAME) 相机使用。</target>
       </trans-unit>
     </body>
   </file>
@@ -170,447 +169,447 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="All MIDI learn knob assignments have been removed.">
         <source>All MIDI learn knob assignments have been removed.</source>
         <note>Alert Message:  MIDI Learn Reset</note>
-        <target xml:lang="zh-Hans" state="needs-translation">All MIDI learn knob assignments have been removed.</target>
+        <target xml:lang="zh-Hans" state="translated">所有MIDI学习旋钮分配均已删除。</target>
       </trans-unit>
       <trans-unit id="All notes have been turned off.">
         <source>All notes have been turned off.</source>
         <note>Alert Message: MIDI Panic</note>
-        <target xml:lang="zh-Hans" state="needs-translation">All notes have been turned off.</target>
+        <target xml:lang="zh-Hans" state="translated">所有笔记都已关闭。</target>
       </trans-unit>
       <trans-unit id="Almost done!">
         <source>Almost done!</source>
         <note>Alert Title: Confirm Email Address</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Almost done!</target>
+        <target xml:lang="zh-Hans" state="translated">几乎完成了！</target>
       </trans-unit>
       <trans-unit id="Arp/Sequencer Off">
         <source>Arp/Sequencer Off</source>
         <note>Arpeggiator Off</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Arp/Sequencer Off</target>
+        <target xml:lang="zh-Hans" state="translated">Arp / Sequencer关闭</target>
       </trans-unit>
       <trans-unit id="Arp/Sequencer On">
         <source>Arp/Sequencer On</source>
         <note>Arpeggiator On</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Arp/Sequencer On</target>
+        <target xml:lang="zh-Hans" state="translated">Arp /音序器开启</target>
       </trans-unit>
       <trans-unit id="Arpeggiator Interval: \(Int(value))">
         <source>Arpeggiator Interval: \(Int(value))</source>
         <note>Arpeggiator Interval</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Arpeggiator Interval: \(Int(value))</target>
+        <target xml:lang="zh-Hans" state="translated">琶音间隔：\（Int（值））</target>
       </trans-unit>
       <trans-unit id="Arpeggiator Mode">
         <source>Arpeggiator Mode</source>
         <note>Arpeggiator Mode On</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Arpeggiator Mode</target>
+        <target xml:lang="zh-Hans" state="translated">琶音器模式</target>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>AutoPan Rate tempo-syncd</note>
-        <target xml:lang="zh-Hans" state="needs-translation">AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+        <target xml:lang="zh-Hans" state="translated">AutoPan Rate：\（Rate.fromFrequency（value）），\（value.decimalString）Hz</target>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(value.decimalString) Hz">
         <source>AutoPan Rate: \(value.decimalString) Hz</source>
         <note>AutoPan Rate</note>
-        <target xml:lang="zh-Hans" state="needs-translation">AutoPan Rate: \(value.decimalString) Hz</target>
+        <target xml:lang="zh-Hans" state="translated">AutoPan Rate：\（value.decimalString）Hz</target>
       </trans-unit>
       <trans-unit id="AutoPan Strength: \(value.percentageString)">
         <source>AutoPan Strength: \(value.percentageString)</source>
         <note>AutoPan Amount/Strength</note>
-        <target xml:lang="zh-Hans" state="needs-translation">AutoPan Strength: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">AutoPan强度：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
         <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
         <note>Alert Message: Background Audio</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Background audio will drain the battery faster. Please turn off when not in use.</target>
+        <target xml:lang="zh-Hans" state="translated">背景音频将更快地耗尽电池。请勿在不使用时关闭。</target>
       </trans-unit>
       <trans-unit id="Band Pass">
         <source>Band Pass</source>
         <note>Band Pass Filter</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Band Pass</target>
+        <target xml:lang="zh-Hans" state="translated">乐队通行证</target>
       </trans-unit>
       <trans-unit id="Bitcrush LFO ‣ \(lfoSource!)">
         <source>Bitcrush LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Bitcrush</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Bitcrush LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">Bitcrush LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Congratulations! 🎉">
         <source>Congratulations! 🎉</source>
         <note>Alert Title: Presets Added</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Congratulations! 🎉</target>
+        <target xml:lang="zh-Hans" state="translated">恭喜！ 🎉</target>
       </trans-unit>
       <trans-unit id="Couldn't configure the file writer">
         <source>Couldn't configure the file writer</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Couldn't configure the file writer</target>
+        <target xml:lang="zh-Hans" state="translated">无法配置文件编写器</target>
       </trans-unit>
       <trans-unit id="Couldn't open the output file">
         <source>Couldn't open the output file</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Couldn't open the output file</target>
+        <target xml:lang="zh-Hans" state="translated">无法打开输出文件</target>
       </trans-unit>
       <trans-unit id="Couldn't prepare the output format (error %d/%4.4s)">
         <source>Couldn't prepare the output format (error %1$d/%2$.4s)</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Couldn't prepare the output format (error %1$d/%2$.4s)</target>
+        <target xml:lang="zh-Hans" state="translated">无法准备输出格式（错误 %1$d/%2$.4s）</target>
       </trans-unit>
       <trans-unit id="Cutoff LFO ‣ \(lfoSource!)">
         <source>Cutoff LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Cutoff</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Cutoff LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">截止LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)">
         <source>Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</source>
         <note>Filter Cutoff &amp; Resonance</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</target>
+        <target xml:lang="zh-Hans" state="translated">截止：\（s.getSynthParameter（.cutoff）.decimalString）Hz，Resonance：\（s.getSynthParameter（.resonance）.decimalString）</target>
       </trans-unit>
       <trans-unit id="DCO 1 Morph: \(value.decimalString)">
         <source>DCO 1 Morph: \(value.decimalString)</source>
         <note>Oscillator 1 Waveform Morph Index</note>
-        <target xml:lang="zh-Hans" state="needs-translation">DCO 1 Morph: \(value.decimalString)</target>
+        <target xml:lang="zh-Hans" state="translated">DCO 1变形：\（value.decimalString）</target>
       </trans-unit>
       <trans-unit id="DCO 1 Volume: \(value.percentageString)">
         <source>DCO 1 Volume: \(value.percentageString)</source>
         <note>Oscillator 1 Volume</note>
-        <target xml:lang="zh-Hans" state="needs-translation">DCO 1 Volume: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">DCO 1卷：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="DCO 1: \(Int(value)) semitones">
         <source>DCO 1: \(Int(value)) semitones</source>
         <note>Oscillator 1 semitone offset</note>
-        <target xml:lang="zh-Hans" state="needs-translation">DCO 1: \(Int(value)) semitones</target>
+        <target xml:lang="zh-Hans" state="translated">DCO 1：\（Int（value））半音</target>
       </trans-unit>
       <trans-unit id="DCO 2 Morph: \(value.decimalString)">
         <source>DCO 2 Morph: \(value.decimalString)</source>
         <note>Oscillator 2 Waveform Morph Index</note>
-        <target xml:lang="zh-Hans" state="needs-translation">DCO 2 Morph: \(value.decimalString)</target>
+        <target xml:lang="zh-Hans" state="translated">DCO 2变形：\（value.decimalString）</target>
       </trans-unit>
       <trans-unit id="DCO 2 Volume: \(value.percentageString)">
         <source>DCO 2 Volume: \(value.percentageString)</source>
         <note>Oscillator 2 Volume</note>
-        <target xml:lang="zh-Hans" state="needs-translation">DCO 2 Volume: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">DCO 2卷：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) detune">
         <source>DCO 2: \(Int(value)) detune</source>
         <note>Oscillator 2 detune</note>
-        <target xml:lang="zh-Hans" state="needs-translation">DCO 2: \(Int(value)) detune</target>
+        <target xml:lang="zh-Hans" state="translated">DCO 2：\（Int（值））失谐</target>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) semitones">
         <source>DCO 2: \(Int(value)) semitones</source>
         <note>Oscillator 2 semitone offset</note>
-        <target xml:lang="zh-Hans" state="needs-translation">DCO 2: \(Int(value)) semitones</target>
+        <target xml:lang="zh-Hans" state="translated">DCO 2：\（Int（值））半音</target>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value))">
         <source>DCO Mix: \(Int(value))</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="zh-Hans" state="needs-translation">DCO Mix: \(Int(value))</target>
+        <target xml:lang="zh-Hans" state="translated">DCO Mix：\（Int（value））</target>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value)) detune">
         <source>DCO Mix: \(Int(value)) detune</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="zh-Hans" state="needs-translation">DCO Mix: \(Int(value)) detune</target>
+        <target xml:lang="zh-Hans" state="translated">DCO Mix：\（Int（value））失谐</target>
       </trans-unit>
       <trans-unit id="Decay LFO ‣ \(lfoSource!)">
         <source>Decay LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Decay</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Decay LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">衰变LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Delay  Off">
         <source>Delay  Off</source>
         <note>Delay Off</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Delay  Off</target>
+        <target xml:lang="zh-Hans" state="translated">延迟关闭</target>
       </trans-unit>
       <trans-unit id="Delay Feedback/Taps: \(value.percentageString)">
         <source>Delay Feedback/Taps: \(value.percentageString)</source>
         <note>Delay Feedback</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Delay Feedback/Taps: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">延迟反馈/点击：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="Delay Mix: \(value.percentageString)">
         <source>Delay Mix: \(value.percentageString)</source>
         <note>Delay Mix</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Delay Mix: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">延迟混合：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="Delay On">
         <source>Delay On</source>
         <note>Delay On</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Delay On</target>
+        <target xml:lang="zh-Hans" state="translated">延迟</target>
       </trans-unit>
       <trans-unit id="Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s">
         <source>Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</source>
         <note>Delay Time tempo-syncd</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</target>
+        <target xml:lang="zh-Hans" state="translated">延迟时间：\（Rate.fromTime（value）），\（value.decimalString）s</target>
       </trans-unit>
       <trans-unit id="Delay Time: \(value.decimalString) s">
         <source>Delay Time: \(value.decimalString) s</source>
         <note>Delay Time</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Delay Time: \(value.decimalString) s</target>
+        <target xml:lang="zh-Hans" state="translated">延迟时间：\（value.decimalString）s</target>
       </trans-unit>
       <trans-unit id="Detune LFO ‣ \(lfoSource!)">
         <source>Detune LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Detune</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Detune LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">Detune LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Don't Sleep Mode">
         <source>Don't Sleep Mode</source>
         <note>Alert Title: Allows On Mode</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Don't Sleep Mode</target>
+        <target xml:lang="zh-Hans" state="translated">不要睡觉模式</target>
       </trans-unit>
       <trans-unit id="FM LFO ‣ \(lfoSource!)">
         <source>FM LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] FM Modulation</note>
-        <target xml:lang="zh-Hans" state="needs-translation">FM LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">FM LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="FM Mod: \(value.percentageString)">
         <source>FM Mod: \(value.percentageString)</source>
         <note>FM Modulation Amount</note>
-        <target xml:lang="zh-Hans" state="needs-translation">FM Mod: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">FM Mod：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="FM Volume: \(value.percentageString)">
         <source>FM Volume: \(value.percentageString)</source>
         <note>FM Oscillator Volume</note>
-        <target xml:lang="zh-Hans" state="needs-translation">FM Volume: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">FM音量：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="Filter Env LFO ‣ \(lfoSource!)">
         <source>Filter Env LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Filter Envelope</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Filter Env LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">过滤Env LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Filter Envelope: \(value.percentageString)">
         <source>Filter Envelope: \(value.percentageString)</source>
         <note>Filter Envelope Amount</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Filter Envelope: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">过滤信封：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="Filter Type: \(ftype)">
         <source>Filter Type: \(ftype)</source>
         <note>Main Filter Type</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Filter Type: \(ftype)</target>
+        <target xml:lang="zh-Hans" state="translated">过滤器类型： \(ftype)</target>
       </trans-unit>
       <trans-unit id="Glide: \(value.decimalString)">
         <source>Glide: \(value.decimalString)</source>
         <note>Mono Glide Amount</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Glide: \(value.decimalString)</target>
+        <target xml:lang="zh-Hans" state="translated">Glide：\（value.decimalString）</target>
       </trans-unit>
       <trans-unit id="High Pass">
         <source>High Pass</source>
         <note>High Pass Filter</note>
-        <target xml:lang="zh-Hans" state="needs-translation">High Pass</target>
+        <target xml:lang="zh-Hans" state="translated">高通</target>
       </trans-unit>
       <trans-unit id="Important">
         <source>Important</source>
         <note>Alert Title: Background Audio</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Important</target>
+        <target xml:lang="zh-Hans" state="translated">重要</target>
       </trans-unit>
       <trans-unit id="LFO 2 Amp: \(value.percentageString)">
         <source>LFO 2 Amp: \(value.percentageString)</source>
         <note>LFO 2 [low frequency oscillator] Amplitude</note>
-        <target xml:lang="zh-Hans" state="needs-translation">LFO 2 Amp: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">LFO 2 Amp：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
-        <target xml:lang="zh-Hans" state="needs-translation">LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+        <target xml:lang="zh-Hans" state="translated">LFO 2 Rate：\（Rate.fromFrequency（value）），\（value.decimalString）Hz</target>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
-        <target xml:lang="zh-Hans" state="needs-translation">LFO 2 Rate: \(value.decimalString) Hz</target>
+        <target xml:lang="zh-Hans" state="translated">LFO 2速率：\（value.decimalString）Hz</target>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate tempo-syncd</note>
-        <target xml:lang="zh-Hans" state="needs-translation">LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">LFO1速率：\（Rate.fromFrequency（s.getSynthParameter（.lfo1Rate））），LFO1 Amp：\（s.getSynthParameter（.lfo1Amplitude）.percentageString）</target>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate</note>
-        <target xml:lang="zh-Hans" state="needs-translation">LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">LFO1速率：\（s.getSynthParameter（.lfo1Rate）.decimalString）Hz，LFO1 Amp：\（s.getSynthParameter（.lfo1Amplitude）.percentageString）</target>
       </trans-unit>
       <trans-unit id="Low Pass">
         <source>Low Pass</source>
         <note>Low Pass Filter</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Low Pass</target>
+        <target xml:lang="zh-Hans" state="translated">低通</target>
       </trans-unit>
       <trans-unit id="MIDI Learn Off">
         <source>MIDI Learn Off</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="zh-Hans" state="needs-translation">MIDI Learn Off</target>
+        <target xml:lang="zh-Hans" state="translated">MIDI学习</target>
       </trans-unit>
       <trans-unit id="MIDI Learn Reset">
         <source>MIDI Learn Reset</source>
         <note>Alert Title: MIDI Learn Reset</note>
-        <target xml:lang="zh-Hans" state="needs-translation">MIDI Learn Reset</target>
+        <target xml:lang="zh-Hans" state="translated">MIDI学习重置</target>
       </trans-unit>
       <trans-unit id="MIDI Learn: Touch a knob to assign">
         <source>MIDI Learn: Touch a knob to assign</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="zh-Hans" state="needs-translation">MIDI Learn: Touch a knob to assign</target>
+        <target xml:lang="zh-Hans" state="translated">MIDI学习：触摸旋钮进行分配</target>
       </trans-unit>
       <trans-unit id="MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉">
         <source>MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</source>
         <note>Alert Message: Too High</note>
-        <target xml:lang="zh-Hans" state="needs-translation">MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</target>
+        <target xml:lang="zh-Hans" state="translated">MIDI Note &gt; 127. G8是可播放的最高键。把它拿下一个档次😉</target>
       </trans-unit>
       <trans-unit id="Master Volume: \(value.percentageString)">
         <source>Master Volume: \(value.percentageString)</source>
         <note>Master Volume</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Master Volume: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">主卷：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="Midi Panic">
         <source>Midi Panic</source>
         <note>Alert Title: MIDI Panic</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Midi Panic</target>
+        <target xml:lang="zh-Hans" state="translated">Midi恐慌</target>
       </trans-unit>
       <trans-unit id="Noise LFO ‣ \(lfoSource!)">
         <source>Noise LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Noise</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Noise LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">噪音LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Noise Volume: \((value * 4).percentageString)">
         <source>Noise Volume: \((value * 4).percentageString)</source>
         <note>Noise Volume</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Noise Volume: \((value * 4).percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">噪音量：\（（值* 4）.percentageString）</target>
       </trans-unit>
       <trans-unit id="Notice">
         <source>Notice</source>
         <note>Alert Title: Duplicate Bank Name</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Notice</target>
+        <target xml:lang="zh-Hans" state="translated">注意</target>
       </trans-unit>
       <trans-unit id="Oops!">
         <source>Oops!</source>
         <note>Alert Title: Invalid Email Address</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Oops!</target>
+        <target xml:lang="zh-Hans" state="translated">哎呀！</target>
       </trans-unit>
       <trans-unit id="Osc Mix LFO ‣ \(lfoSource!)">
         <source>Osc Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Oscillator Mix</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Osc Mix LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">Osc Mix LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Phaser Feedback: \(value.decimalString)">
         <source>Phaser Feedback: \(value.decimalString)</source>
         <note>Phaser Feedback</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Phaser Feedback: \(value.decimalString)</target>
+        <target xml:lang="zh-Hans" state="translated">Phaser反馈：\（value.decimalString）</target>
       </trans-unit>
       <trans-unit id="Phaser Mix: \(value.decimalString)">
         <source>Phaser Mix: \(value.decimalString)</source>
         <note>Phaser Mix</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Phaser Mix: \(value.decimalString)</target>
+        <target xml:lang="zh-Hans" state="translated">Phaser Mix：\（value.decimalString）</target>
       </trans-unit>
       <trans-unit id="Phaser Notch Width: \(value.decimalString)">
         <source>Phaser Notch Width: \(value.decimalString)</source>
         <note>Phaser Notch Width</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Phaser Notch Width: \(value.decimalString)</target>
+        <target xml:lang="zh-Hans" state="translated">Phaser Notch宽度：\（value.decimalString）</target>
       </trans-unit>
       <trans-unit id="Phaser Rate: \(value.decimalString)">
         <source>Phaser Rate: \(value.decimalString)</source>
         <note>Phaser Rate</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Phaser Rate: \(value.decimalString)</target>
+        <target xml:lang="zh-Hans" state="translated">移相器速率：\（value.decimalString）</target>
       </trans-unit>
       <trans-unit id="Pitch LFO ‣ \(lfoSource!)">
         <source>Pitch LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Pitch</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Pitch LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">PFO LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Resonance LFO ‣ \(lfoSource!)">
         <source>Resonance LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Resonance</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Resonance LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">共振LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Reverb Low-cut: \(value.decimalString) Hz">
         <source>Reverb Low-cut: \(value.decimalString) Hz</source>
         <note>Reverb Low-cut/Highpass</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Reverb Low-cut: \(value.decimalString) Hz</target>
+        <target xml:lang="zh-Hans" state="translated">Reverb Low-cut：\（value.decimalString）Hz</target>
       </trans-unit>
       <trans-unit id="Reverb Mix LFO ‣ \(lfoSource!)">
         <source>Reverb Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Reverb Mix</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Reverb Mix LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">Reverb Mix LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Reverb Mix: \(value.percentageString)">
         <source>Reverb Mix: \(value.percentageString)</source>
         <note>Reverb Mix</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Reverb Mix: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">混响混音：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="Reverb Off">
         <source>Reverb Off</source>
         <note>Reverb Off</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Reverb Off</target>
+        <target xml:lang="zh-Hans" state="translated">混响关闭</target>
       </trans-unit>
       <trans-unit id="Reverb On">
         <source>Reverb On</source>
         <note>Reverb On</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Reverb On</target>
+        <target xml:lang="zh-Hans" state="translated">混响开</target>
       </trans-unit>
       <trans-unit id="Reverb Size: \(value.percentageString)">
         <source>Reverb Size: \(value.percentageString)</source>
         <note>Reverb Size</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Reverb Size: \(value.percentageString)</target>
+        <target xml:lang="zh-Hans" state="translated">混响大小：\（value.percentageString）</target>
       </trans-unit>
       <trans-unit id="Sample Rate: \(Int(value)) Hz">
         <source>Sample Rate: \(Int(value)) Hz</source>
         <note>Bitcrush Sample Rate</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Sample Rate: \(Int(value)) Hz</target>
+        <target xml:lang="zh-Hans" state="translated">采样率：\（Int（值））Hz</target>
       </trans-unit>
       <trans-unit id="Sequencer Mode">
         <source>Sequencer Mode</source>
         <note>Sequencer Mode On</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Sequencer Mode</target>
+        <target xml:lang="zh-Hans" state="translated">音序器模式</target>
       </trans-unit>
       <trans-unit id="Stay informed!">
         <source>Stay informed!</source>
         <note>Alert Title: Allow notifications</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Stay informed!</target>
+        <target xml:lang="zh-Hans" state="translated">随时了解！</target>
       </trans-unit>
       <trans-unit id="Sub Osc Volume: \(value.decimalString)">
         <source>Sub Osc Volume: \(value.decimalString)</source>
         <note>Sub Oscillator Volume</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Sub Osc Volume: \(value.decimalString)</target>
+        <target xml:lang="zh-Hans" state="translated">Sub Osc卷：\（value.decimalString）</target>
       </trans-unit>
       <trans-unit id="Tempo: \(value) BPM">
         <source>Tempo: \(value) BPM</source>
         <note>Tempo (Beats Per Minute)</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Tempo: \(value) BPM</target>
+        <target xml:lang="zh-Hans" state="translated">速度： \(value) BPM</target>
       </trans-unit>
       <trans-unit id="Thank you">
         <source>Thank you</source>
         <note>Alert Title: Rate App</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Thank you</target>
+        <target xml:lang="zh-Hans" state="translated">谢谢</target>
       </trans-unit>
       <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
         <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>
         <note>Alert Message: Duplicate Bank Name</note>
-        <target xml:lang="zh-Hans" state="needs-translation">There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</target>
+        <target xml:lang="zh-Hans" state="translated">已经有一家名为“\(bankName)”的银行。请重命名其中一个以保持工作顺利进行。</target>
       </trans-unit>
       <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
         <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
         <note>Alert Message: Rate App</note>
-        <target xml:lang="zh-Hans" state="needs-translation">This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</target>
+        <target xml:lang="zh-Hans" state="translated">这是一个由志愿者建立的免费应用程序。请帮助评价很高，以便我们制作更多应用！谢谢你真棒。</target>
       </trans-unit>
       <trans-unit id="This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster">
         <source>This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</source>
         <note>Alert Message: Allows On Mode</note>
-        <target xml:lang="zh-Hans" state="needs-translation">This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</target>
+        <target xml:lang="zh-Hans" state="translated">这种模式非常适合现场演奏。背景音频也将保持不变。注意：它将使用更多电量，并可能更快地耗尽电池</target>
       </trans-unit>
       <trans-unit id="Too High">
         <source>Too High</source>
         <note>Alert Title: Too High</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Too High</target>
+        <target xml:lang="zh-Hans" state="translated">太高</target>
       </trans-unit>
       <trans-unit id="Tremolo LFO ‣ \(lfoSource!)">
         <source>Tremolo LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Tremolo</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Tremolo LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="zh-Hans" state="translated">Tremolo LFO‣\（lfoSource！）</target>
       </trans-unit>
       <trans-unit id="Twist knob on your MIDI Controller">
         <source>Twist knob on your MIDI Controller</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Twist knob on your MIDI Controller</target>
+        <target xml:lang="zh-Hans" state="translated">MIDI控制器上的旋转旋钮</target>
       </trans-unit>
       <trans-unit id="We'll send Free updates, sounds, and apps. Allow notifications!">
         <source>We'll send Free updates, sounds, and apps. Allow notifications!</source>
         <note>Alert Message: Allow notifications</note>
-        <target xml:lang="zh-Hans" state="needs-translation">We'll send Free updates, sounds, and apps. Allow notifications!</target>
+        <target xml:lang="zh-Hans" state="translated">我们将发送免费更新，声音和应用程序。允许通知！</target>
       </trans-unit>
       <trans-unit id="Widen: \(value.decimalString)">
         <source>Widen: \(value.decimalString)</source>
         <note>Stereo Widen</note>
-        <target xml:lang="zh-Hans" state="needs-translation">Widen: \(value.decimalString)</target>
+        <target xml:lang="zh-Hans" state="translated">加宽：\（value.decimalString）</target>
       </trans-unit>
     </body>
   </file>

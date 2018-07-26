@@ -512,72 +512,72 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Pitch LFO ‣ \(lfoSource!)">
         <source>Pitch LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Pitch</note>
-        <target xml:lang="pt-BR" state="needs-translation">Pitch LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="pt-BR" state="translated">Passo LFO ‣ \(lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Resonance LFO ‣ \(lfoSource!)">
         <source>Resonance LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Resonance</note>
-        <target xml:lang="pt-BR" state="needs-translation">Resonance LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="pt-BR" state="translated">Ressonância LFO ‣ \(lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Reverb Low-cut: \(value.decimalString) Hz">
         <source>Reverb Low-cut: \(value.decimalString) Hz</source>
         <note>Reverb Low-cut/Highpass</note>
-        <target xml:lang="pt-BR" state="needs-translation">Reverb Low-cut: \(value.decimalString) Hz</target>
+        <target xml:lang="pt-BR" state="translated">Reverb decotado: \(value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="Reverb Mix LFO ‣ \(lfoSource!)">
         <source>Reverb Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Reverb Mix</note>
-        <target xml:lang="pt-BR" state="needs-translation">Reverb Mix LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="pt-BR" state="translated">Reverb misturar LFO ‣ \(lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Reverb Mix: \(value.percentageString)">
         <source>Reverb Mix: \(value.percentageString)</source>
         <note>Reverb Mix</note>
-        <target xml:lang="pt-BR" state="needs-translation">Reverb Mix: \(value.percentageString)</target>
+        <target xml:lang="pt-BR" state="translated">Mix de reverb: \(value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Reverb Off">
         <source>Reverb Off</source>
         <note>Reverb Off</note>
-        <target xml:lang="pt-BR" state="needs-translation">Reverb Off</target>
+        <target xml:lang="pt-BR" state="translated">Reverb fora</target>
       </trans-unit>
       <trans-unit id="Reverb On">
         <source>Reverb On</source>
         <note>Reverb On</note>
-        <target xml:lang="pt-BR" state="needs-translation">Reverb On</target>
+        <target xml:lang="pt-BR" state="translated">Reverb na</target>
       </trans-unit>
       <trans-unit id="Reverb Size: \(value.percentageString)">
         <source>Reverb Size: \(value.percentageString)</source>
         <note>Reverb Size</note>
-        <target xml:lang="pt-BR" state="needs-translation">Reverb Size: \(value.percentageString)</target>
+        <target xml:lang="pt-BR" state="translated">Reverb tamanho: \(value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Sample Rate: \(Int(value)) Hz">
         <source>Sample Rate: \(Int(value)) Hz</source>
         <note>Bitcrush Sample Rate</note>
-        <target xml:lang="pt-BR" state="needs-translation">Sample Rate: \(Int(value)) Hz</target>
+        <target xml:lang="pt-BR" state="translated">Taxa de amostragem: \(Int(value)) Hz</target>
       </trans-unit>
       <trans-unit id="Sequencer Mode">
         <source>Sequencer Mode</source>
         <note>Sequencer Mode On</note>
-        <target xml:lang="pt-BR" state="needs-translation">Sequencer Mode</target>
+        <target xml:lang="pt-BR" state="translated">Modo do seqüenciador</target>
       </trans-unit>
       <trans-unit id="Stay informed!">
         <source>Stay informed!</source>
         <note>Alert Title: Allow notifications</note>
-        <target xml:lang="pt-BR" state="needs-translation">Stay informed!</target>
+        <target xml:lang="pt-BR" state="translated">Mantenha-se informado!</target>
       </trans-unit>
       <trans-unit id="Sub Osc Volume: \(value.decimalString)">
         <source>Sub Osc Volume: \(value.decimalString)</source>
         <note>Sub Oscillator Volume</note>
-        <target xml:lang="pt-BR" state="needs-translation">Sub Osc Volume: \(value.decimalString)</target>
+        <target xml:lang="pt-BR" state="translated">Volume Sub Osc: \(value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Tempo: \(value) BPM">
         <source>Tempo: \(value) BPM</source>
         <note>Tempo (Beats Per Minute)</note>
-        <target xml:lang="pt-BR" state="needs-translation">Tempo: \(value) BPM</target>
+        <target xml:lang="pt-BR" state="translated">Ritmo: \(value) BPM</target>
       </trans-unit>
       <trans-unit id="Thank you">
         <source>Thank you</source>
         <note>Alert Title: Rate App</note>
-        <target xml:lang="pt-BR" state="needs-translation">Thank you</target>
+        <target xml:lang="pt-BR" state="translated">Obrigado</target>
       </trans-unit>
       <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
         <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>
@@ -597,27 +597,27 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Too High">
         <source>Too High</source>
         <note>Alert Title: Too High</note>
-        <target xml:lang="pt-BR" state="needs-translation">Too High</target>
+        <target xml:lang="pt-BR" state="translated">Muito alta</target>
       </trans-unit>
       <trans-unit id="Tremolo LFO ‣ \(lfoSource!)">
         <source>Tremolo LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Tremolo</note>
-        <target xml:lang="pt-BR" state="needs-translation">Tremolo LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="pt-BR" state="translated">Tremolo LFO ‣ \(lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Twist knob on your MIDI Controller">
         <source>Twist knob on your MIDI Controller</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="pt-BR" state="needs-translation">Twist knob on your MIDI Controller</target>
+        <target xml:lang="pt-BR" state="translated">Botão Twist no seu controlador MIDI</target>
       </trans-unit>
       <trans-unit id="We'll send Free updates, sounds, and apps. Allow notifications!">
         <source>We'll send Free updates, sounds, and apps. Allow notifications!</source>
         <note>Alert Message: Allow notifications</note>
-        <target xml:lang="pt-BR" state="needs-translation">We'll send Free updates, sounds, and apps. Allow notifications!</target>
+        <target xml:lang="pt-BR" state="translated">Enviaremos atualizações, sons e aplicativos gratuitos. Permitir notificações!</target>
       </trans-unit>
       <trans-unit id="Widen: \(value.decimalString)">
         <source>Widen: \(value.decimalString)</source>
         <note>Stereo Widen</note>
-        <target xml:lang="pt-BR" state="needs-translation">Widen: \(value.decimalString)</target>
+        <target xml:lang="pt-BR" state="translated">Widen: \(value.decimalString)</target>
       </trans-unit>
     </body>
   </file>

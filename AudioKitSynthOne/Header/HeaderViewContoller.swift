@@ -101,7 +101,7 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("DCO 2: \(Int(value)) detune", comment: "Oscillator 2 detune")
             displayLabel.text = message
         case .morphBalance:
-            let message = NSLocalizedString("DCO Mix: \(Int(value)) detune", comment: "Oscillator 1 & 2 Mix")
+            let message = NSLocalizedString("DCO Mix: \(Int(value))", comment: "Oscillator 1 & 2 Mix")
             displayLabel.text = message
         case .morph1Volume:
             let message = NSLocalizedString("DCO 1 Volume: \(value.percentageString)", comment: "Oscillator 1 Volume")

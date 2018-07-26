@@ -421,10 +421,46 @@
 		D96BC33C5D07149EC2FAB8CE /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.release.xcconfig"; sourceTree = "<group>"; };
 		EA090E4320F74B0A0012A8F7 /* Private.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
+		EA143DC4210A83D600543E17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143DC5210A83DF00543E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143DC6210A842E00543E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143DC7210A843000543E17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143DC8210A843500543E17 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143DC9210A844100543E17 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143DCA210A844400543E17 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143DCB210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		EA143DCC210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/About.strings"; sourceTree = "<group>"; };
+		EA143DCD210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/MailingList.strings"; sourceTree = "<group>"; };
+		EA143DCE210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Dev.strings"; sourceTree = "<group>"; };
+		EA143DCF210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Effects.strings"; sourceTree = "<group>"; };
+		EA143DD0210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Envelopes.strings"; sourceTree = "<group>"; };
+		EA143DD1210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Generators.strings"; sourceTree = "<group>"; };
+		EA143DD2210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Header.strings"; sourceTree = "<group>"; };
+		EA143DD3210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Presets.strings"; sourceTree = "<group>"; };
+		EA143DD4210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Sequencer.strings"; sourceTree = "<group>"; };
+		EA143DD5210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/TouchPad.strings"; sourceTree = "<group>"; };
+		EA143DD6210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Tunings.strings"; sourceTree = "<group>"; };
+		EA143DD7210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EA143DD8210A846100543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		EA143DD9210A846200543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		EA143DDA210A846E00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		EA143DDB210A846E00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/About.strings"; sourceTree = "<group>"; };
+		EA143DDC210A846E00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MailingList.strings"; sourceTree = "<group>"; };
+		EA143DDD210A846E00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Dev.strings"; sourceTree = "<group>"; };
+		EA143DDE210A846E00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Effects.strings"; sourceTree = "<group>"; };
+		EA143DDF210A846E00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Envelopes.strings"; sourceTree = "<group>"; };
+		EA143DE0210A846E00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Generators.strings"; sourceTree = "<group>"; };
+		EA143DE1210A846E00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Header.strings"; sourceTree = "<group>"; };
+		EA143DE2210A846E00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Presets.strings"; sourceTree = "<group>"; };
+		EA143DE3210A846F00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Sequencer.strings"; sourceTree = "<group>"; };
+		EA143DE4210A846F00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TouchPad.strings"; sourceTree = "<group>"; };
+		EA143DE5210A846F00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Tunings.strings"; sourceTree = "<group>"; };
+		EA143DE6210A846F00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EA143DE7210A846F00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		EA143DE8210A846F00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		EA2354D1210879AC0018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MailingList.strings; sourceTree = "<group>"; };
 		EA2354D2210879DF0018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Dev.strings; sourceTree = "<group>"; };
 		EA2354D421087C500018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EA2354D521087C8D0018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA388CDF210498AC0026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		EA388CE2210498DD0026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Header.storyboard; sourceTree = "<group>"; };
 		EA388CE5210498E90026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Effects.storyboard; sourceTree = "<group>"; };
@@ -461,11 +497,8 @@
 		EA388D152106A2E60026C0C0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/TouchPad.strings; sourceTree = "<group>"; };
 		EA388D162106A2E60026C0C0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Tunings.strings; sourceTree = "<group>"; };
 		EA388D1821071BD50026C0C0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		EA388D1B21071BD50026C0C0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA388D1E21071BD50026C0C0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EA388D2221071C170026C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EA388D2421071C230026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		EA388D2521071C260026C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA388D2721071C330026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F437E99E20EB22D00096FEAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F4CB749120EEE0AF00716B92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -1189,6 +1222,8 @@
 				Base,
 				tr,
 				fr,
+				"pt-BR",
+				"zh-Hans",
 			);
 			mainGroup = C4D193BB1F1187B500FF4FE4;
 			productRefGroup = C4D193C51F1187B500FF4FE4 /* Products */;
@@ -1494,6 +1529,8 @@
 				9405503A210556C20039F101 /* en */,
 				EA388CFF2106A2D60026C0C0 /* fr */,
 				EA388D0B2106A2E50026C0C0 /* tr */,
+				EA143DCB210A846100543E17 /* pt-BR */,
+				EA143DDA210A846E00543E17 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1505,6 +1542,8 @@
 				9405503B210556C80039F101 /* en */,
 				EA388D002106A2D60026C0C0 /* fr */,
 				EA388D0C2106A2E50026C0C0 /* tr */,
+				EA143DCC210A846100543E17 /* pt-BR */,
+				EA143DDB210A846E00543E17 /* zh-Hans */,
 			);
 			name = About.storyboard;
 			sourceTree = "<group>";
@@ -1516,6 +1555,8 @@
 				9405503F2105570F0039F101 /* en */,
 				EA388D062106A2D60026C0C0 /* fr */,
 				EA388D122106A2E50026C0C0 /* tr */,
+				EA143DD2210A846100543E17 /* pt-BR */,
+				EA143DE1210A846E00543E17 /* zh-Hans */,
 			);
 			name = Header.storyboard;
 			sourceTree = "<group>";
@@ -1527,6 +1568,8 @@
 				9405503C210556F20039F101 /* en */,
 				EA388D032106A2D60026C0C0 /* fr */,
 				EA388D0F2106A2E50026C0C0 /* tr */,
+				EA143DCF210A846100543E17 /* pt-BR */,
+				EA143DDE210A846E00543E17 /* zh-Hans */,
 			);
 			name = Effects.storyboard;
 			sourceTree = "<group>";
@@ -1538,6 +1581,8 @@
 				94055040210557470039F101 /* en */,
 				EA388D072106A2D70026C0C0 /* fr */,
 				EA388D132106A2E60026C0C0 /* tr */,
+				EA143DD3210A846100543E17 /* pt-BR */,
+				EA143DE2210A846E00543E17 /* zh-Hans */,
 			);
 			name = Presets.storyboard;
 			sourceTree = "<group>";
@@ -1549,6 +1594,8 @@
 				94055043210557600039F101 /* en */,
 				EA388D0A2106A2D70026C0C0 /* fr */,
 				EA388D162106A2E60026C0C0 /* tr */,
+				EA143DD6210A846100543E17 /* pt-BR */,
+				EA143DE5210A846F00543E17 /* zh-Hans */,
 			);
 			name = Tunings.storyboard;
 			sourceTree = "<group>";
@@ -1560,6 +1607,8 @@
 				94055042210557580039F101 /* en */,
 				EA388D092106A2D70026C0C0 /* fr */,
 				EA388D152106A2E60026C0C0 /* tr */,
+				EA143DD5210A846100543E17 /* pt-BR */,
+				EA143DE4210A846F00543E17 /* zh-Hans */,
 			);
 			name = TouchPad.storyboard;
 			sourceTree = "<group>";
@@ -1571,6 +1620,8 @@
 				940550412105574F0039F101 /* en */,
 				EA388D082106A2D70026C0C0 /* fr */,
 				EA388D142106A2E60026C0C0 /* tr */,
+				EA143DD4210A846100543E17 /* pt-BR */,
+				EA143DE3210A846F00543E17 /* zh-Hans */,
 			);
 			name = Sequencer.storyboard;
 			sourceTree = "<group>";
@@ -1582,6 +1633,8 @@
 				9405503D210556FA0039F101 /* en */,
 				EA388D042106A2D60026C0C0 /* fr */,
 				EA388D102106A2E50026C0C0 /* tr */,
+				EA143DD0210A846100543E17 /* pt-BR */,
+				EA143DDF210A846E00543E17 /* zh-Hans */,
 			);
 			name = Envelopes.storyboard;
 			sourceTree = "<group>";
@@ -1593,6 +1646,8 @@
 				9405503E210557040039F101 /* en */,
 				EA388D052106A2D60026C0C0 /* fr */,
 				EA388D112106A2E50026C0C0 /* tr */,
+				EA143DD1210A846100543E17 /* pt-BR */,
+				EA143DE0210A846E00543E17 /* zh-Hans */,
 			);
 			name = Generators.storyboard;
 			sourceTree = "<group>";
@@ -1604,6 +1659,8 @@
 				EA388D012106A2D60026C0C0 /* fr */,
 				EA388D0D2106A2E50026C0C0 /* tr */,
 				EA2354D1210879AC0018E035 /* en */,
+				EA143DCD210A846100543E17 /* pt-BR */,
+				EA143DDC210A846E00543E17 /* zh-Hans */,
 			);
 			name = MailingList.storyboard;
 			sourceTree = "<group>";
@@ -1615,6 +1672,8 @@
 				EA388D022106A2D60026C0C0 /* fr */,
 				EA388D0E2106A2E50026C0C0 /* tr */,
 				EA2354D2210879DF0018E035 /* en */,
+				EA143DCE210A846100543E17 /* pt-BR */,
+				EA143DDD210A846E00543E17 /* zh-Hans */,
 			);
 			name = Dev.storyboard;
 			path = Base.lproj;
@@ -1624,6 +1683,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				EA388D1821071BD50026C0C0 /* tr */,
+				EA143DC6210A842E00543E17 /* Base */,
+				EA143DC7210A843000543E17 /* en */,
+				EA143DC8210A843500543E17 /* fr */,
+				EA143DD9210A846200543E17 /* pt-BR */,
+				EA143DE8210A846F00543E17 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1631,10 +1695,12 @@
 		EA388D1A21071BD50026C0C0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EA388D1B21071BD50026C0C0 /* tr */,
-				EA388D2421071C230026C0C0 /* Base */,
-				EA388D2521071C260026C0C0 /* fr */,
-				EA2354D521087C8D0018E035 /* en */,
+				EA143DC4210A83D600543E17 /* en */,
+				EA143DC5210A83DF00543E17 /* Base */,
+				EA143DC9210A844100543E17 /* tr */,
+				EA143DCA210A844400543E17 /* fr */,
+				EA143DD8210A846100543E17 /* pt-BR */,
+				EA143DE7210A846F00543E17 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1646,6 +1712,8 @@
 				EA388D2221071C170026C0C0 /* fr */,
 				EA388D2721071C330026C0C0 /* Base */,
 				EA2354D421087C500018E035 /* en */,
+				EA143DD7210A846100543E17 /* pt-BR */,
+				EA143DE6210A846F00543E17 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

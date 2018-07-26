@@ -152,6 +152,12 @@ import AudioKit
 
     /// Initialize the synth with defaults
     public convenience override init() {
+
+        let t0 = Date().timeIntervalSinceReferenceDate
+        AKLog("initializing oscillators: \(0)")
+
+        //TODO: production code
+        #if false
         let squareWithHighPWM = AKTable()
         let size = squareWithHighPWM.count
         for i in 0..<size {
@@ -161,7 +167,37 @@ import AudioKit
                 squareWithHighPWM[i] = 1.0
             }
         }
+
         self.init(waveformArray: [AKTable(.triangle), AKTable(.square), squareWithHighPWM, AKTable(.sawtooth)])
+        #else
+
+        //TODO: antialias morphing oscillator
+//        let h = 1348 // 12nn 016.3515978312875  1348 harmonics
+        let h = 337 // 36  65.40639132515004 337
+//        let h =  168 // 48nn 130.81278265030022 168
+//        let h =   42 // 72nn 523.2511306011984  42
+//        let h = 21 // 84nn 1046.502261202394    21
+
+        let triangle = AKTable(.triangle)
+        triangle.triangle(numberOfHarmonics: h)
+
+        let square = AKTable(.square)
+        square.square(numberOfHarmonics: h)
+
+        let pwm = AKTable(.sine)
+        pwm.pwm(numberOfHarmonics: h, period: 1 / 8)
+
+        let saw = AKTable(.sawtooth)
+        saw.saw(numberOfHarmonics: h)
+
+        self.init(waveformArray: [triangle, square, pwm, saw])
+
+//        var sine = AKTable(.sine)
+//        self.init(waveformArray: [sine, sine, sine, sine])
+        let t1 = Date().timeIntervalSinceReferenceDate - t0
+        AKLog("initializing #\(h) oscillators COMPLETE: \(t1)") // bring this back to the outside somehow
+        #endif
+
     }
 
     /// Initialize this synth

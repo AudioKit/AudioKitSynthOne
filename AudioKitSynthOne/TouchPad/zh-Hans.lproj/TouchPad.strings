@@ -1,9 +1,5 @@
-
 /* Class = "UILabel"; text = "FILTER RESONANCE"; ObjectID = "4Xu-ES-Jtr"; */
-"4Xu-ES-Jtr.text" = "FILTER RESONANCE";
-
-/* Class = "UIButton"; normalTitle = "Snap"; ObjectID = "SVY-05-J4t"; */
-"SVY-05-J4t.normalTitle" = "Snap";
+"4Xu-ES-Jtr.text" = "过滤器共振";
 
 /* Class = "UILabel"; text = "LFO 1 AMPLITUDE"; ObjectID = "cxh-gH-dY1"; */
 "cxh-gH-dY1.text" = "LFO 1 AMPLITUDE";
@@ -12,4 +8,8 @@
 "gH1-9e-vhR.text" = "FILTER CUTOFF";
 
 /* Class = "UILabel"; text = "LFO 1 RATE"; ObjectID = "qXN-sO-KUB"; */
-"qXN-sO-KUB.text" = "LFO 1 RATE";
+"qXN-sO-KUB.text" = "LFO 1率";
+
+/* Class = "UIButton"; normalTitle = "Snap"; ObjectID = "SVY-05-J4t"; */
+"SVY-05-J4t.normalTitle" = "快照";
+

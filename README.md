@@ -32,6 +32,15 @@ You must install the pods that we depend on before you can compile the project. 
 
 You may uncomment the line in `Podfile` to switch to our cutting-edge staging (unstable) releases of AudioKit, as opposed to the stable releases in the mainstream CocoaPods specs.
 
+## Link Installation
+
+The repository builds and runs without modification, but the Link functionality will be missing.
+
+Because of the way Ableton distributes their Link SDK, we can not simply include the Link files here.  Instead, we include our Link wrapping files and expect you to do two things to get Link working on your machine:
+
+* Change ABLETON_ENABLED from 0 to 1 in the Build Settings
+* Sign up for teh Ableton Link SDK and download the prebuilt binary LinkKit.zip.  Uncompress it and find the include and lib directories (inside LinkHut) and place the folders under our "Link" directory.  There should be three files in include and one in lib.
+
 
 ## Requirements
 

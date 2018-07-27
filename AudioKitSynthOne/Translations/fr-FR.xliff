@@ -588,12 +588,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
         <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
         <note>Alert Message: Rate App</note>
-        <target xml:lang="fr" state="needs-translation">This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</target>
+        <target xml:lang="fr" state="translated">Ceci est une application gratuite développée par des bénévoles. Veuillez nous aider avec une bonne note afin que nous puissions faire plus d'applications! Merci, vous êtes génial(e).</target>
       </trans-unit>
       <trans-unit id="This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster">
         <source>This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</source>
         <note>Alert Message: Allows On Mode</note>
-        <target xml:lang="fr" state="needs-translation">This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</target>
+        <target xml:lang="fr" state="translated">Ce mode est idéal pour jouer en live. L'audio de fond restera également activé. Note: Il utilisera plus de courant et pourrait vider votre batterie plus rapidement</target>
       </trans-unit>
       <trans-unit id="Too High">
         <source>Too High</source>
@@ -603,7 +603,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Tremolo LFO ‣ \(lfoSource!)">
         <source>Tremolo LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Tremolo</note>
-        <target xml:lang="fr" state="needs-translation">Tremolo LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="fr" state="translated">Trémolo LFO ‣ \(lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Twist knob on your MIDI Controller">
         <source>Twist knob on your MIDI Controller</source>
@@ -613,12 +613,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="We'll send Free updates, sounds, and apps. Allow notifications!">
         <source>We'll send Free updates, sounds, and apps. Allow notifications!</source>
         <note>Alert Message: Allow notifications</note>
-        <target xml:lang="fr" state="needs-translation">We'll send Free updates, sounds, and apps. Allow notifications!</target>
+        <target xml:lang="fr" state="translated">Nous vous enverrons des mises à jour gratuites, des sons et des applications. Autorisez les notifications !</target>
       </trans-unit>
       <trans-unit id="Widen: \(value.decimalString)">
         <source>Widen: \(value.decimalString)</source>
         <note>Stereo Widen</note>
-        <target xml:lang="fr" state="needs-translation">Widen: \(value.decimalString)</target>
+        <target xml:lang="fr" state="translated">Élargir: \ (value.decimalString)</target>
       </trans-unit>
     </body>
   </file>
@@ -630,7 +630,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="2ZX-Ka-zjh.text">
         <source>Pitch Bend range is saved with each preset.</source>
         <note>Class = "UILabel"; text = "Pitch Bend range is saved with each preset."; ObjectID = "2ZX-Ka-zjh";</note>
-        <target xml:lang="fr" state="needs-translation">Pitch Bend range is saved with each preset.</target>
+        <target xml:lang="fr" state="translated">La plage Pitch Bend est enregistrée avec chaque préréglage.</target>
       </trans-unit>
       <trans-unit id="3ac-lw-QYe.text">
         <source>Pitch Bend Lower Limit:</source>
@@ -640,12 +640,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="9Nq-KG-x1Y.segmentTitles[0]">
         <source>White</source>
         <note>Class = "UISegmentedControl"; 9Nq-KG-x1Y.segmentTitles[0] = "White"; ObjectID = "9Nq-KG-x1Y";</note>
-        <target xml:lang="fr" state="needs-translation">White</target>
+        <target xml:lang="fr" state="translated">Blanc</target>
       </trans-unit>
       <trans-unit id="9Nq-KG-x1Y.segmentTitles[1]">
         <source>Dark</source>
         <note>Class = "UISegmentedControl"; 9Nq-KG-x1Y.segmentTitles[1] = "Dark"; ObjectID = "9Nq-KG-x1Y";</note>
-        <target xml:lang="fr" state="needs-translation">Dark</target>
+        <target xml:lang="fr" state="translated">Sombre</target>
       </trans-unit>
       <trans-unit id="39J-5A-Jtm.normalTitle">
         <source>Hold</source>
@@ -660,37 +660,37 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Ai9-6v-51K.segmentTitles[0]">
         <source>1</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[0] = "1"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="fr" state="needs-translation">1</target>
+        <target xml:lang="fr" state="translated">1</target>
       </trans-unit>
       <trans-unit id="Ai9-6v-51K.segmentTitles[1]">
         <source>2</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[1] = "2"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="fr" state="needs-translation">2</target>
+        <target xml:lang="fr" state="translated">2</target>
       </trans-unit>
       <trans-unit id="Ai9-6v-51K.segmentTitles[2]">
         <source>3</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[2] = "3"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="fr" state="needs-translation">3</target>
+        <target xml:lang="fr" state="translated">3</target>
       </trans-unit>
       <trans-unit id="C9j-zW-Pky.normalTitle">
         <source>Settings</source>
         <note>Class = "UIButton"; normalTitle = "Settings"; ObjectID = "C9j-zW-Pky";</note>
-        <target xml:lang="fr" state="needs-translation">Settings</target>
+        <target xml:lang="fr" state="translated">Paramètres</target>
       </trans-unit>
       <trans-unit id="FTi-x2-zwk.normalTitle">
         <source>Mono</source>
         <note>Class = "UIButton"; normalTitle = "Mono"; ObjectID = "FTi-x2-zwk";</note>
-        <target xml:lang="fr" state="needs-translation">Mono</target>
+        <target xml:lang="fr" state="translated">Mono</target>
       </trans-unit>
       <trans-unit id="GdY-Af-kY1.text">
         <source>Mod</source>
         <note>Class = "UILabel"; text = "Mod"; ObjectID = "GdY-Af-kY1";</note>
-        <target xml:lang="fr" state="needs-translation">Mod</target>
+        <target xml:lang="fr" state="translated">Mod</target>
       </trans-unit>
       <trans-unit id="IUb-c8-F17.text">
         <source>KEYBOARD SETTINGS</source>
         <note>Class = "UILabel"; text = "KEYBOARD SETTINGS"; ObjectID = "IUb-c8-F17";</note>
-        <target xml:lang="fr" state="needs-translation">KEYBOARD SETTINGS</target>
+        <target xml:lang="fr" state="translated">PARAMÈTRES DU CLAVIER</target>
       </trans-unit>
       <trans-unit id="MQe-Qa-FAj.normalTitle">
         <source>Reset MIDI Learn Knobs</source>
@@ -705,7 +705,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="O7h-tw-s2d.normalTitle">
         <source>Hide</source>
         <note>Class = "UIButton"; normalTitle = "Hide"; ObjectID = "O7h-tw-s2d";</note>
-        <target xml:lang="fr" state="needs-translation">Hide</target>
+        <target xml:lang="fr" state="translated">Cacher</target>
       </trans-unit>
       <trans-unit id="OMU-nM-0hz.text">
         <source>Key Color:</source>
@@ -850,7 +850,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="xv6-Gi-7B2.normalTitle">
         <source>Link</source>
         <note>Class = "UIButton"; normalTitle = "Link"; ObjectID = "xv6-Gi-7B2";</note>
-        <target xml:lang="fr" state="needs-translation">Link</target>
+        <target xml:lang="fr" state="translated">Lien</target>
       </trans-unit>
     </body>
   </file>
@@ -964,7 +964,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="7mr-cL-dIt.text">
         <source>Effects Rack</source>
         <note>Class = "UILabel"; text = "Effects Rack"; ObjectID = "7mr-cL-dIt";</note>
-        <target xml:lang="fr" state="needs-translation">Effects Rack</target>
+        <target xml:lang="fr" state="translated">Rack d'effets</target>
       </trans-unit>
       <trans-unit id="34d-F0-qxp.text">
         <source>Notch</source>
@@ -1004,17 +1004,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="OZa-4e-uR2.text">
         <source>Mix</source>
         <note>Class = "UILabel"; text = "Mix"; ObjectID = "OZa-4e-uR2";</note>
-        <target xml:lang="fr" state="needs-translation">Mix</target>
+        <target xml:lang="fr" state="translated">Mix</target>
       </trans-unit>
       <trans-unit id="Oip-7I-GYL.text">
         <source>Delay</source>
         <note>Class = "UILabel"; text = "Delay"; ObjectID = "Oip-7I-GYL";</note>
-        <target xml:lang="fr" state="needs-translation">Delay</target>
+        <target xml:lang="fr" state="translated">Délai</target>
       </trans-unit>
       <trans-unit id="UiA-5l-0H8.text">
         <source>Amp</source>
         <note>Class = "UILabel"; text = "Amp"; ObjectID = "UiA-5l-0H8";</note>
-        <target xml:lang="fr" state="needs-translation">Amp</target>
+        <target xml:lang="fr" state="translated">Amp</target>
       </trans-unit>
       <trans-unit id="VX2-1Q-SUX.text">
         <source>Size</source>
@@ -1054,7 +1054,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="go0-UQ-ltt.text">
         <source>Tempo Sync</source>
         <note>Class = "UILabel"; text = "Tempo Sync"; ObjectID = "go0-UQ-ltt";</note>
-        <target xml:lang="fr" state="needs-translation">Tempo Sync</target>
+        <target xml:lang="fr" state="translated">Synchronisation au tempo</target>
       </trans-unit>
       <trans-unit id="gzX-jx-4y6.text">
         <source>Rate</source>
@@ -1064,7 +1064,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="nWW-Un-BcO.text">
         <source>Mix</source>
         <note>Class = "UILabel"; text = "Mix"; ObjectID = "nWW-Un-BcO";</note>
-        <target xml:lang="fr" state="needs-translation">Mix</target>
+        <target xml:lang="fr" state="translated">Mix</target>
       </trans-unit>
       <trans-unit id="qxc-oN-mY8.text">
         <source>Phaser</source>
@@ -1086,12 +1086,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="1iB-yg-YcK.text">
         <source>Attack</source>
         <note>Class = "UILabel"; text = "Attack"; ObjectID = "1iB-yg-YcK";</note>
-        <target xml:lang="fr" state="needs-translation">Attack</target>
+        <target xml:lang="fr" state="translated">Attaque</target>
       </trans-unit>
       <trans-unit id="5Ie-DT-yvl.text">
         <source>Attack</source>
         <note>Class = "UILabel"; text = "Attack"; ObjectID = "5Ie-DT-yvl";</note>
-        <target xml:lang="fr" state="needs-translation">Attack</target>
+        <target xml:lang="fr" state="translated">Attaque</target>
       </trans-unit>
       <trans-unit id="9Ne-rF-Cd5.text">
         <source>Sustain</source>
@@ -1268,22 +1268,22 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="ppL-x8-d0i.text">
         <source>Widen</source>
         <note>Class = "UILabel"; text = "Widen"; ObjectID = "ppL-x8-d0i";</note>
-        <target xml:lang="fr" state="needs-translation">Widen</target>
+        <target xml:lang="fr" state="translated">Élargir</target>
       </trans-unit>
       <trans-unit id="rCL-wA-mRJ.text">
         <source>DCO 1</source>
         <note>Class = "UILabel"; text = "DCO 1"; ObjectID = "rCL-wA-mRJ";</note>
-        <target xml:lang="fr" state="needs-translation">DCO 1</target>
+        <target xml:lang="fr" state="translated">DCO 1</target>
       </trans-unit>
       <trans-unit id="uby-Uc-YpS.text">
         <source>Semitones</source>
         <note>Class = "UILabel"; text = "Semitones"; ObjectID = "uby-Uc-YpS";</note>
-        <target xml:lang="fr" state="needs-translation">Semitones</target>
+        <target xml:lang="fr" state="translated">Demi-tons</target>
       </trans-unit>
       <trans-unit id="wBf-gS-1RL.text">
         <source>DCO 1-2</source>
         <note>Class = "UILabel"; text = "DCO 1-2"; ObjectID = "wBf-gS-1RL";</note>
-        <target xml:lang="fr" state="needs-translation">DCO 1-2</target>
+        <target xml:lang="fr" state="translated">DCO 1-2</target>
       </trans-unit>
       <trans-unit id="y2a-dN-P74.text">
         <source>Detune</source>
@@ -1300,37 +1300,37 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="4uE-Js-e46.normalTitle">
         <source>Dev</source>
         <note>Class = "UIButton"; normalTitle = "Dev"; ObjectID = "4uE-Js-e46";</note>
-        <target xml:lang="fr" state="needs-translation">Dev</target>
+        <target xml:lang="fr" state="translated">Dév</target>
       </trans-unit>
       <trans-unit id="Ggs-qy-ExU.text">
         <source>Loading...</source>
         <note>Class = "UILabel"; text = "Loading..."; ObjectID = "Ggs-qy-ExU";</note>
-        <target xml:lang="fr" state="needs-translation">Loading...</target>
+        <target xml:lang="fr" state="translated">Chargement ...</target>
       </trans-unit>
       <trans-unit id="NL0-Jf-tHi.normalTitle">
         <source>Save</source>
         <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "NL0-Jf-tHi";</note>
-        <target xml:lang="fr" state="needs-translation">Save</target>
+        <target xml:lang="fr" state="translated">Sauvegarder</target>
       </trans-unit>
       <trans-unit id="PpV-eX-q12.normalTitle">
         <source>Web</source>
         <note>Class = "UIButton"; normalTitle = "Web"; ObjectID = "PpV-eX-q12";</note>
-        <target xml:lang="fr" state="needs-translation">Web</target>
+        <target xml:lang="fr" state="translated">Web</target>
       </trans-unit>
       <trans-unit id="l9q-RV-KkX.normalTitle">
         <source>Panic</source>
         <note>Class = "UIButton"; normalTitle = "Panic"; ObjectID = "l9q-RV-KkX";</note>
-        <target xml:lang="fr" state="needs-translation">Panic</target>
+        <target xml:lang="fr" state="translated">Panique</target>
       </trans-unit>
       <trans-unit id="qXZ-Yq-KK5.normalTitle">
         <source>Apps</source>
         <note>Class = "UIButton"; normalTitle = "Apps"; ObjectID = "qXZ-Yq-KK5";</note>
-        <target xml:lang="fr" state="needs-translation">Apps</target>
+        <target xml:lang="fr" state="translated">Applis</target>
       </trans-unit>
       <trans-unit id="vEb-n7-p0M.normalTitle">
         <source>About</source>
         <note>Class = "UIButton"; normalTitle = "About"; ObjectID = "vEb-n7-p0M";</note>
-        <target xml:lang="fr" state="needs-translation">About</target>
+        <target xml:lang="fr" state="translated">À propos</target>
       </trans-unit>
     </body>
   </file>
@@ -1342,12 +1342,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="3lr-kd-bYo.normalTitle">
         <source>Cancel</source>
         <note>Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "3lr-kd-bYo";</note>
-        <target xml:lang="fr" state="needs-translation">Cancel</target>
+        <target xml:lang="fr" state="translated">Annuler</target>
       </trans-unit>
       <trans-unit id="4I7-1e-dMK.normalTitle">
         <source>New Preset</source>
         <note>Class = "UIButton"; normalTitle = "New Preset"; ObjectID = "4I7-1e-dMK";</note>
-        <target xml:lang="fr" state="needs-translation">New Preset</target>
+        <target xml:lang="fr" state="translated">Nouveau préréglage</target>
       </trans-unit>
       <trans-unit id="8dj-SF-Pxt.text">
         <source>SAVE / RENAME PRESET:</source>
@@ -1357,22 +1357,22 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="8tM-pA-eD2.text">
         <source>Preset Description Here</source>
         <note>Class = "UITextView"; text = "Preset Description Here"; ObjectID = "8tM-pA-eD2";</note>
-        <target xml:lang="fr" state="needs-translation">Preset Description Here</target>
+        <target xml:lang="fr" state="translated">Description du préréglage ici</target>
       </trans-unit>
       <trans-unit id="EyQ-H5-8Yr.text">
         <source>RENAME BANK:</source>
         <note>Class = "UILabel"; text = "RENAME BANK:"; ObjectID = "EyQ-H5-8Yr";</note>
-        <target xml:lang="fr" state="needs-translation">RENAME BANK:</target>
+        <target xml:lang="fr" state="translated">RENOMMER LA BANQUE :</target>
       </trans-unit>
       <trans-unit id="Jut-wm-dt0.text">
         <source>Category</source>
         <note>Class = "UILabel"; text = "Category"; ObjectID = "Jut-wm-dt0";</note>
-        <target xml:lang="fr" state="needs-translation">Category</target>
+        <target xml:lang="fr" state="translated">Catégorie</target>
       </trans-unit>
       <trans-unit id="LTK-sn-l0B.text">
         <source>Select a bank for the preset:</source>
         <note>Class = "UILabel"; text = "Select a bank for the preset:"; ObjectID = "LTK-sn-l0B";</note>
-        <target xml:lang="fr" state="needs-translation">Select a bank for the preset:</target>
+        <target xml:lang="fr" state="translated">Sélectionnez une banque pour le préréglage :</target>
       </trans-unit>
       <trans-unit id="M5g-gJ-LgP.text">
         <source>Pad</source>
@@ -1397,7 +1397,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="ZCE-zi-tsi.normalTitle">
         <source>Import Preset</source>
         <note>Class = "UIButton"; normalTitle = "Import Preset"; ObjectID = "ZCE-zi-tsi";</note>
-        <target xml:lang="fr" state="needs-translation">Import Preset</target>
+        <target xml:lang="fr" state="translated">Importer préréglage</target>
       </trans-unit>
       <trans-unit id="c61-bJ-zsz.normalTitle">
         <source>DONE EDITING</source>
@@ -1407,7 +1407,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="cs5-5n-k8U.normalTitle">
         <source>+</source>
         <note>Class = "UIButton"; normalTitle = "+"; ObjectID = "cs5-5n-k8U";</note>
-        <target xml:lang="fr" state="needs-translation">+</target>
+        <target xml:lang="fr" state="translated">+</target>
       </trans-unit>
       <trans-unit id="dSC-DB-ods.text">
         <source>Preset Name</source>
@@ -1514,37 +1514,37 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="N6g-lA-Pmi.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "N6g-lA-Pmi";</note>
-        <target xml:lang="fr" state="needs-translation">0</target>
+        <target xml:lang="fr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="P9q-rs-3Sq.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "P9q-rs-3Sq";</note>
-        <target xml:lang="fr" state="needs-translation">0</target>
+        <target xml:lang="fr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="QTm-h5-dGt.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "QTm-h5-dGt";</note>
-        <target xml:lang="fr" state="needs-translation">0</target>
+        <target xml:lang="fr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="Tlc-ZL-pSj.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "Tlc-ZL-pSj";</note>
-        <target xml:lang="fr" state="needs-translation">0</target>
+        <target xml:lang="fr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="UQ8-P1-5c9.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "UQ8-P1-5c9";</note>
-        <target xml:lang="fr" state="needs-translation">0</target>
+        <target xml:lang="fr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="USV-ak-yaz.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "USV-ak-yaz";</note>
-        <target xml:lang="fr" state="needs-translation">0</target>
+        <target xml:lang="fr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="X6a-NW-xsn.text">
         <source>Seq</source>
         <note>Class = "UILabel"; text = "Seq"; ObjectID = "X6a-NW-xsn";</note>
-        <target xml:lang="fr" state="needs-translation">Seq</target>
+        <target xml:lang="fr" state="translated">Seq</target>
       </trans-unit>
       <trans-unit id="bgM-Rm-Fpn.text">
         <source>Arp</source>
@@ -1554,22 +1554,22 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="f7D-Z3-yNc.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "f7D-Z3-yNc";</note>
-        <target xml:lang="fr" state="needs-translation">0</target>
+        <target xml:lang="fr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="gH8-vf-85d.text">
         <source>Interval</source>
         <note>Class = "UILabel"; text = "Interval"; ObjectID = "gH8-vf-85d";</note>
-        <target xml:lang="fr" state="needs-translation">Interval</target>
+        <target xml:lang="fr" state="translated">Intervalle</target>
       </trans-unit>
       <trans-unit id="hPX-vI-eXD.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "hPX-vI-eXD";</note>
-        <target xml:lang="fr" state="needs-translation">0</target>
+        <target xml:lang="fr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="oHV-it-EtQ.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "oHV-it-EtQ";</note>
-        <target xml:lang="fr" state="needs-translation">0</target>
+        <target xml:lang="fr" state="translated">0</target>
       </trans-unit>
     </body>
   </file>
@@ -1581,7 +1581,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="4Xu-ES-Jtr.text">
         <source>FILTER RESONANCE</source>
         <note>Class = "UILabel"; text = "FILTER RESONANCE"; ObjectID = "4Xu-ES-Jtr";</note>
-        <target xml:lang="fr" state="needs-translation">FILTER RESONANCE</target>
+        <target xml:lang="fr" state="translated">FILTRE DE RÉSONANCE</target>
       </trans-unit>
       <trans-unit id="SVY-05-J4t.normalTitle">
         <source>Snap</source>
@@ -1623,7 +1623,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="JBk-V2-c4I.normalTitle">
         <source>Reset</source>
         <note>Class = "UIButton"; normalTitle = "Reset"; ObjectID = "JBk-V2-c4I";</note>
-        <target xml:lang="fr" state="needs-translation">Reset</target>
+        <target xml:lang="fr" state="translated">Réinitialiser</target>
       </trans-unit>
       <trans-unit id="ipV-Bb-omK.text">
         <source>PITCH</source>
@@ -1640,12 +1640,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="CFBundleDisplayName">
         <source>OneSignalNotificationServiceExtension</source>
         <note>Bundle display name</note>
-        <target xml:lang="fr" state="needs-translation">OneSignalNotificationServiceExtension</target>
+        <target xml:lang="fr" state="translated">OneSignalNotificationServiceExtension</target>
       </trans-unit>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
         <note>Bundle name</note>
-        <target xml:lang="fr" state="needs-translation">$(PRODUCT_NAME)</target>
+        <target xml:lang="fr" state="translated">$(PRODUCT_NAME)</target>
       </trans-unit>
     </body>
   </file>

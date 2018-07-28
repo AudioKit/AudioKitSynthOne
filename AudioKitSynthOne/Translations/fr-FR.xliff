@@ -745,7 +745,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="WyC-Si-j7H.text">
         <source>MOD / PITCH WHEELS</source>
         <note>Class = "UILabel"; text = "MOD / PITCH WHEELS"; ObjectID = "WyC-Si-j7H";</note>
-        <target xml:lang="fr" state="needs-translation">MOD / PITCH WHEELS</target>
+        <target xml:lang="fr" state="translated">ROUES MOD / PITCH</target>
       </trans-unit>
       <trans-unit id="Z4W-Gh-RiQ.normalTitle">
         <source>Keys</source>
@@ -810,7 +810,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="ksJ-GG-fPC.text">
         <source>MIDI / SETTINGS</source>
         <note>Class = "UILabel"; text = "MIDI / SETTINGS"; ObjectID = "ksJ-GG-fPC";</note>
-        <target xml:lang="fr" state="needs-translation">MIDI / SETTINGS</target>
+        <target xml:lang="fr" state="translated">MIDI / PARAMÈTRES</target>
       </trans-unit>
       <trans-unit id="lW8-Xt-97c.normalTitle">
         <source>DONE</source>
@@ -902,7 +902,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Zr2-3d-n6e.text">
         <source>Ratio</source>
         <note>Class = "UILabel"; text = "Ratio"; ObjectID = "Zr2-3d-n6e";</note>
-        <target xml:lang="fr" state="needs-translation">Ratio</target>
+        <target xml:lang="fr" state="translated">Ratio</target>
       </trans-unit>
       <trans-unit id="bwY-pS-LEC.text">
         <source>Thresh</source>
@@ -1024,7 +1024,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="agt-nZ-1YG.text">
         <source>Feedback</source>
         <note>Class = "UILabel"; text = "Feedback"; ObjectID = "agt-nZ-1YG";</note>
-        <target xml:lang="fr" state="needs-translation">Feedback</target>
+        <target xml:lang="fr" state="translated">Retour</target>
       </trans-unit>
       <trans-unit id="ccC-ll-23n.text">
         <source>Rate</source>
@@ -1039,12 +1039,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="cxn-Wb-RuK.text">
         <source>Reverb</source>
         <note>Class = "UILabel"; text = "Reverb"; ObjectID = "cxn-Wb-RuK";</note>
-        <target xml:lang="fr" state="needs-translation">Reverb</target>
+        <target xml:lang="fr" state="translated">Réverbération</target>
       </trans-unit>
       <trans-unit id="e3I-8e-T8m.text">
         <source>Mix</source>
         <note>Class = "UILabel"; text = "Mix"; ObjectID = "e3I-8e-T8m";</note>
-        <target xml:lang="fr" state="needs-translation">Mix</target>
+        <target xml:lang="fr" state="translated">Mix</target>
       </trans-unit>
       <trans-unit id="eeQ-UE-T6J.text">
         <source>LFO 2</source>
@@ -1069,12 +1069,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="qxc-oN-mY8.text">
         <source>Phaser</source>
         <note>Class = "UILabel"; text = "Phaser"; ObjectID = "qxc-oN-mY8";</note>
-        <target xml:lang="fr" state="needs-translation">Phaser</target>
+        <target xml:lang="fr" state="translated">Phaser</target>
       </trans-unit>
       <trans-unit id="rIz-r7-GtW.text">
         <source>Feedback</source>
         <note>Class = "UILabel"; text = "Feedback"; ObjectID = "rIz-r7-GtW";</note>
-        <target xml:lang="fr" state="needs-translation">Feedback</target>
+        <target xml:lang="fr" state="translated">Retour</target>
       </trans-unit>
     </body>
   </file>
@@ -1096,12 +1096,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="9Ne-rF-Cd5.text">
         <source>Sustain</source>
         <note>Class = "UILabel"; text = "Sustain"; ObjectID = "9Ne-rF-Cd5";</note>
-        <target xml:lang="fr" state="needs-translation">Sustain</target>
+        <target xml:lang="fr" state="translated">Soutien</target>
       </trans-unit>
       <trans-unit id="NPM-Ga-czS.text">
         <source>Sustain</source>
         <note>Class = "UILabel"; text = "Sustain"; ObjectID = "NPM-Ga-czS";</note>
-        <target xml:lang="fr" state="needs-translation">Sustain</target>
+        <target xml:lang="fr" state="translated">Soutien</target>
       </trans-unit>
       <trans-unit id="QwS-x7-Tqo.text">
         <source>Decay</source>
@@ -1116,7 +1116,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="jpD-fo-QNO.text">
         <source>Amplitude Envelope</source>
         <note>Class = "UILabel"; text = "Amplitude Envelope"; ObjectID = "jpD-fo-QNO";</note>
-        <target xml:lang="fr" state="needs-translation">Amplitude Envelope</target>
+        <target xml:lang="fr" state="translated">Enveloppe d'amplitude</target>
       </trans-unit>
       <trans-unit id="tyt-Qx-CmV.text">
         <source>Decay</source>
@@ -1253,7 +1253,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="nLD-gy-Y0z.text">
         <source>Noise</source>
         <note>Class = "UILabel"; text = "Noise"; ObjectID = "nLD-gy-Y0z";</note>
-        <target xml:lang="fr" state="needs-translation">Noise</target>
+        <target xml:lang="fr" state="translated">Bruit</target>
       </trans-unit>
       <trans-unit id="ozs-aS-dKc.normalTitle">
         <source>Low Pass</source>
@@ -1352,7 +1352,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="8dj-SF-Pxt.text">
         <source>SAVE / RENAME PRESET:</source>
         <note>Class = "UILabel"; text = "SAVE / RENAME PRESET:"; ObjectID = "8dj-SF-Pxt";</note>
-        <target xml:lang="fr" state="needs-translation">SAVE / RENAME PRESET:</target>
+        <target xml:lang="fr" state="translated">ENREGISTRER / RENOMMER LE PRÉRÉGLAGE :</target>
       </trans-unit>
       <trans-unit id="8tM-pA-eD2.text">
         <source>Preset Description Here</source>
@@ -1509,7 +1509,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="MCo-Uv-ex2.text">
         <source>Steps</source>
         <note>Class = "UILabel"; text = "Steps"; ObjectID = "MCo-Uv-ex2";</note>
-        <target xml:lang="fr" state="needs-translation">Steps</target>
+        <target xml:lang="fr" state="translated">Étapes</target>
       </trans-unit>
       <trans-unit id="N6g-lA-Pmi.text">
         <source>0</source>

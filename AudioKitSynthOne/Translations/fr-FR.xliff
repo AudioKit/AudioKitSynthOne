@@ -715,7 +715,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="OTn-XD-KmQ.text">
         <source>Pitch</source>
         <note>Class = "UILabel"; text = "Pitch"; ObjectID = "OTn-XD-KmQ";</note>
-        <target xml:lang="fr" state="needs-translation">Pitch</target>
+        <target xml:lang="fr" state="translated">Ton</target>
       </trans-unit>
       <trans-unit id="OxM-Pu-Zba.normalTitle">
         <source>Wheels</source>
@@ -979,7 +979,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Kzx-ck-MJn.text">
         <source>Amp</source>
         <note>Class = "UILabel"; text = "Amp"; ObjectID = "Kzx-ck-MJn";</note>
-        <target xml:lang="fr" state="needs-translation">Amp</target>
+        <target xml:lang="fr" state="translated">Amp</target>
       </trans-unit>
       <trans-unit id="MMf-RB-gf7.text">
         <source>Low Cut</source>
@@ -1183,7 +1183,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="B0S-va-FqH.text">
         <source>Legato</source>
         <note>Class = "UILabel"; text = "Legato"; ObjectID = "B0S-va-FqH";</note>
-        <target xml:lang="fr" state="needs-translation">Legato</target>
+        <target xml:lang="fr" state="translated">Legato</target>
       </trans-unit>
       <trans-unit id="ECo-F0-jfe.text">
         <source>DCO 1</source>
@@ -1387,12 +1387,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Qv6-hQ-4wE.normalTitle">
         <source>Delete Bank</source>
         <note>Class = "UIButton"; normalTitle = "Delete Bank"; ObjectID = "Qv6-hQ-4wE";</note>
-        <target xml:lang="fr" state="needs-translation">Delete Bank</target>
+        <target xml:lang="fr" state="translated">Supprimer la banque</target>
       </trans-unit>
       <trans-unit id="VL7-Y3-hxn.normalTitle">
         <source>SAVE PRESET</source>
         <note>Class = "UIButton"; normalTitle = "SAVE PRESET"; ObjectID = "VL7-Y3-hxn";</note>
-        <target xml:lang="fr" state="needs-translation">SAVE PRESET</target>
+        <target xml:lang="fr" state="translated">ENREGISTRER PRÉRÉGLAGE</target>
       </trans-unit>
       <trans-unit id="ZCE-zi-tsi.normalTitle">
         <source>Import Preset</source>
@@ -1402,7 +1402,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="c61-bJ-zsz.normalTitle">
         <source>DONE EDITING</source>
         <note>Class = "UIButton"; normalTitle = "DONE EDITING"; ObjectID = "c61-bJ-zsz";</note>
-        <target xml:lang="fr" state="needs-translation">DONE EDITING</target>
+        <target xml:lang="fr" state="translated">FINI D'ÉDITER</target>
       </trans-unit>
       <trans-unit id="cs5-5n-k8U.normalTitle">
         <source>+</source>
@@ -1412,37 +1412,37 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="dSC-DB-ods.text">
         <source>Preset Name</source>
         <note>Class = "UILabel"; text = "Preset Name"; ObjectID = "dSC-DB-ods";</note>
-        <target xml:lang="fr" state="needs-translation">Preset Name</target>
+        <target xml:lang="fr" state="translated">Nom du préréglage</target>
       </trans-unit>
       <trans-unit id="dvq-vN-oxQ.normalTitle">
         <source>Cancel</source>
         <note>Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "dvq-vN-oxQ";</note>
-        <target xml:lang="fr" state="needs-translation">Cancel</target>
+        <target xml:lang="fr" state="translated">Annuler</target>
       </trans-unit>
       <trans-unit id="eGC-CV-RRm.normalTitle">
         <source>Import Bank</source>
         <note>Class = "UIButton"; normalTitle = "Import Bank"; ObjectID = "eGC-CV-RRm";</note>
-        <target xml:lang="fr" state="needs-translation">Import Bank</target>
+        <target xml:lang="fr" state="translated">Importer une banque</target>
       </trans-unit>
       <trans-unit id="eI7-vK-ARE.normalTitle">
         <source>Save</source>
         <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "eI7-vK-ARE";</note>
-        <target xml:lang="fr" state="needs-translation">Save</target>
+        <target xml:lang="fr" state="translated">Sauvegarder</target>
       </trans-unit>
       <trans-unit id="mZQ-N0-bdr.text">
         <source>SYNTH ONE PRESETS</source>
         <note>Class = "UILabel"; text = "SYNTH ONE PRESETS"; ObjectID = "mZQ-N0-bdr";</note>
-        <target xml:lang="fr" state="needs-translation">SYNTH ONE PRESETS</target>
+        <target xml:lang="fr" state="translated">PRÉRÉGLAGES SYNTH ONE</target>
       </trans-unit>
       <trans-unit id="rSO-zc-3Ba.normalTitle">
         <source>Save</source>
         <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "rSO-zc-3Ba";</note>
-        <target xml:lang="fr" state="needs-translation">Save</target>
+        <target xml:lang="fr" state="translated">Sauvegarder</target>
       </trans-unit>
       <trans-unit id="uLS-HA-DTu.text">
         <source>Category:</source>
         <note>Class = "UILabel"; text = "Category:"; ObjectID = "uLS-HA-DTu";</note>
-        <target xml:lang="fr" state="needs-translation">Category:</target>
+        <target xml:lang="fr" state="translated">Catégorie :</target>
       </trans-unit>
       <trans-unit id="v81-AR-cdF.normalTitle">
         <source>Reorder</source>
@@ -1452,7 +1452,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="xCe-zx-CAI.text">
         <source>Free &amp; open-source synthesizer. Browse presets &amp; banks below. </source>
         <note>Class = "UILabel"; text = "Free &amp; open-source synthesizer. Browse presets &amp; banks below. "; ObjectID = "xCe-zx-CAI";</note>
-        <target xml:lang="fr" state="needs-translation">Free &amp; open-source synthesizer. Browse presets &amp; banks below. </target>
+        <target xml:lang="fr" state="translated">Synthétiseur gratuit &amp; open-source. Parcourez les préréglages &amp; banques ci-dessous. </target>
       </trans-unit>
     </body>
   </file>

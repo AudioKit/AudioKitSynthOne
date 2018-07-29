@@ -193,12 +193,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Arp/Sequencer Off">
         <source>Arp/Sequencer Off</source>
         <note>Arpeggiator Off</note>
-        <target xml:lang="fr" state="needs-translation">Arp/Sequencer Off</target>
+        <target xml:lang="fr" state="translated">Arp / Séquenceur Off</target>
       </trans-unit>
       <trans-unit id="Arp/Sequencer On">
         <source>Arp/Sequencer On</source>
         <note>Arpeggiator On</note>
-        <target xml:lang="fr" state="needs-translation">Arp/Sequencer On</target>
+        <target xml:lang="fr" state="translated">Arp / Séquenceur On</target>
       </trans-unit>
       <trans-unit id="Arpeggiator Interval: \(Int(value))">
         <source>Arpeggiator Interval: \(Int(value))</source>
@@ -258,7 +258,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Couldn't prepare the output format (error %d/%4.4s)">
         <source>Couldn't prepare the output format (error %1$d/%2$.4s)</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="fr" state="needs-translation">Couldn't prepare the output format (error %1$d/%2$.4s)</target>
+        <target xml:lang="fr" state="translated">N'a pas pu préparer le format de sortie (erreur %1$d/%2$.4s)</target>
       </trans-unit>
       <trans-unit id="Cutoff LFO ‣ \(lfoSource!)">
         <source>Cutoff LFO ‣ \(lfoSource!)</source>
@@ -398,7 +398,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="High Pass">
         <source>High Pass</source>
         <note>High Pass Filter</note>
-        <target xml:lang="fr" state="needs-translation">High Pass</target>
+        <target xml:lang="fr" state="translated">Passe-haut</target>
       </trans-unit>
       <trans-unit id="Important">
         <source>Important</source>
@@ -433,12 +433,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Low Pass">
         <source>Low Pass</source>
         <note>Low Pass Filter</note>
-        <target xml:lang="fr" state="needs-translation">Low Pass</target>
+        <target xml:lang="fr" state="translated">Passe-bas</target>
       </trans-unit>
-      <trans-unit id="MIDI Learn Off">
+      <trans-unit id="MIDI Learn Off" approved="yes">
         <source>MIDI Learn Off</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="fr" state="needs-translation">MIDI Learn Off</target>
+        <target xml:lang="fr">Apprentissage MIDI désactivé</target>
       </trans-unit>
       <trans-unit id="MIDI Learn Reset">
         <source>MIDI Learn Reset</source>

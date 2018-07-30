@@ -460,6 +460,7 @@
 		EA143DE8210A846F00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		EA143DF9210A86DC00543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Dev.strings"; sourceTree = "<group>"; };
 		EA143DFA210A873B00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "AudioKitSynthOne/Developer/zh-Hans.lproj/zh-Hans.lproj/Dev.strings"; sourceTree = SOURCE_ROOT; };
+		EA143E05210FDA3C00543E17 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = AudioKitSynthOne/Developer/fr.lproj/fr.lproj/Dev.strings; sourceTree = SOURCE_ROOT; };
 		EA2354D1210879AC0018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MailingList.strings; sourceTree = "<group>"; };
 		EA2354D2210879DF0018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Dev.strings; sourceTree = "<group>"; };
 		EA2354D421087C500018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1543,6 +1544,7 @@
 			children = (
 				EA143DF9210A86DC00543E17 /* pt-BR */,
 				EA143DFA210A873B00543E17 /* zh-Hans */,
+				EA143E05210FDA3C00543E17 /* fr */,
 			);
 			name = Dev.strings;
 			path = "AudioKitSynthOne/Developer/pt-BR.lproj";

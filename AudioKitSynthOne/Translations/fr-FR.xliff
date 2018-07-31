@@ -148,28 +148,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Base.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="fr">
-    <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
-    </header>
-    <body>
-      <trans-unit id="CFBundleDisplayName">
-        <source>Synth One</source>
-        <note>Bundle display name</note>
-        <target xml:lang="fr" state="translated">Synth One</target>
-      </trans-unit>
-      <trans-unit id="CFBundleName">
-        <source>$(PRODUCT_NAME)</source>
-        <note>Bundle name</note>
-        <target xml:lang="fr" state="translated">$(PRODUCT_NAME)</target>
-      </trans-unit>
-      <trans-unit id="NSCameraUsageDescription">
-        <source>$(PRODUCT_NAME) camera use.</source>
-        <note>Privacy - Camera Usage Description</note>
-        <target xml:lang="fr" state="translated">$(PRODUCT_NAME) utilisation de la caméra.</target>
-      </trans-unit>
-    </body>
-  </file>
   <file original="AudioKitSynthOne/Base.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="fr">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
@@ -360,6 +338,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Alert Title: Allows On Mode</note>
         <target xml:lang="fr" state="translated">Ne pas mettre en veille</target>
       </trans-unit>
+      <trans-unit id="ENV">
+        <source>ENV</source>
+        <note>Envelope Panel Abbreviation</note>
+        <target xml:lang="fr" state="needs-translation">ENV</target>
+      </trans-unit>
       <trans-unit id="FM LFO ‣ \(lfoSource!)">
         <source>FM LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] FM Modulation</note>
@@ -374,6 +357,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>FM Volume: \(value.percentageString)</source>
         <note>FM Oscillator Volume</note>
         <target xml:lang="fr" state="needs-translation">FM Volume: \(value.percentageString)</target>
+      </trans-unit>
+      <trans-unit id="FX">
+        <source>FX</source>
+        <note>FX/LFO Panel Abbreviation</note>
+        <target xml:lang="fr" state="needs-translation">FX</target>
       </trans-unit>
       <trans-unit id="Filter Env LFO ‣ \(lfoSource!)">
         <source>Filter Env LFO ‣ \(lfoSource!)</source>
@@ -435,6 +423,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Low Pass Filter</note>
         <target xml:lang="fr" state="translated">Passe-bas</target>
       </trans-unit>
+      <trans-unit id="MAIN">
+        <source>MAIN</source>
+        <note>Main Panel Abbreviation</note>
+        <target xml:lang="fr" state="needs-translation">MAIN</target>
+      </trans-unit>
       <trans-unit id="MIDI Learn Off" approved="yes">
         <source>MIDI Learn Off</source>
         <note>MIDI Learn Instructions</note>
@@ -489,6 +482,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Osc Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Oscillator Mix</note>
         <target xml:lang="fr" state="needs-translation">Osc Mix LFO ‣ \(lfoSource!)</target>
+      </trans-unit>
+      <trans-unit id="PAD">
+        <source>PAD</source>
+        <note>TouchPad Panel Abbreviation</note>
+        <target xml:lang="fr" state="needs-translation">PAD</target>
       </trans-unit>
       <trans-unit id="Phaser Feedback: \(value.decimalString)">
         <source>Phaser Feedback: \(value.decimalString)</source>
@@ -550,6 +548,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Reverb Size</note>
         <target xml:lang="fr" state="needs-translation">Reverb Size: \(value.percentageString)</target>
       </trans-unit>
+      <trans-unit id="SEQ">
+        <source>SEQ</source>
+        <note>Arp/Sequencer Panel Abbreviation</note>
+        <target xml:lang="fr" state="needs-translation">SEQ</target>
+      </trans-unit>
       <trans-unit id="Sample Rate: \(Int(value)) Hz">
         <source>Sample Rate: \(Int(value)) Hz</source>
         <note>Bitcrush Sample Rate</note>
@@ -569,6 +572,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Sub Osc Volume: \(value.decimalString)</source>
         <note>Sub Oscillator Volume</note>
         <target xml:lang="fr" state="needs-translation">Sub Osc Volume: \(value.decimalString)</target>
+      </trans-unit>
+      <trans-unit id="TUNE">
+        <source>TUNE</source>
+        <note>Tuning Panel Abbreviation</note>
+        <target xml:lang="fr" state="needs-translation">TUNE</target>
       </trans-unit>
       <trans-unit id="Tempo: \(value) BPM">
         <source>Tempo: \(value) BPM</source>
@@ -1075,6 +1083,28 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Feedback</source>
         <note>Class = "UILabel"; text = "Feedback"; ObjectID = "rIz-r7-GtW";</note>
         <target xml:lang="fr" state="translated">Retour</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="fr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName">
+        <source>Synth One</source>
+        <note>Bundle display name</note>
+        <target xml:lang="fr" state="needs-translation">Synth One</target>
+      </trans-unit>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+        <note>Bundle name</note>
+        <target xml:lang="fr" state="needs-translation">$(PRODUCT_NAME)</target>
+      </trans-unit>
+      <trans-unit id="NSCameraUsageDescription">
+        <source>$(PRODUCT_NAME) camera use.</source>
+        <note>Privacy - Camera Usage Description</note>
+        <target xml:lang="fr" state="needs-translation">$(PRODUCT_NAME) camera use.</target>
       </trans-unit>
     </body>
   </file>
@@ -1632,7 +1662,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="OneSignalNotificationServiceExtension/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="fr">
+  <file original="OneSignalNotificationServiceExtension/Base.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="fr">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -1640,12 +1670,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="CFBundleDisplayName">
         <source>OneSignalNotificationServiceExtension</source>
         <note>Bundle display name</note>
-        <target xml:lang="fr" state="translated">OneSignalNotificationServiceExtension</target>
+        <target xml:lang="fr" state="needs-translation">OneSignalNotificationServiceExtension</target>
       </trans-unit>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
         <note>Bundle name</note>
-        <target xml:lang="fr" state="translated">$(PRODUCT_NAME)</target>
+        <target xml:lang="fr" state="needs-translation">$(PRODUCT_NAME)</target>
       </trans-unit>
     </body>
   </file>

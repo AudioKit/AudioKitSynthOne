@@ -68,17 +68,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="dll-2U-dYG.normalTitle">
         <source>AudioKit Github</source>
         <note>Class = "UIButton"; normalTitle = "AudioKit Github"; ObjectID = "dll-2U-dYG";</note>
-        <target xml:lang="tr" state="needs-translation">AudioKit Github</target>
+        <target xml:lang="tr" state="translated">AudioKit Github</target>
       </trans-unit>
       <trans-unit id="etI-kL-v1E.normalTitle">
         <source>hello@audiokitpro.com</source>
         <note>Class = "UIButton"; normalTitle = "hello@audiokitpro.com"; ObjectID = "etI-kL-v1E";</note>
-        <target xml:lang="tr" state="needs-translation">hello@audiokitpro.com</target>
+        <target xml:lang="tr" state="translated">hello@audiokitpro.com</target>
       </trans-unit>
       <trans-unit id="g34-af-uEZ.text">
         <source>FM PLAYER: CLASSIC DX</source>
         <note>Class = "UILabel"; text = "FM PLAYER: CLASSIC DX"; ObjectID = "g34-af-uEZ";</note>
-        <target xml:lang="tr" state="needs-translation">FM PLAYER: CLASSIC DX</target>
+        <target xml:lang="tr" state="translated">FM OYUNCU: CLASSIC DX</target>
       </trans-unit>
       <trans-unit id="jeK-lZ-M5v.text">
         <source>SOURCE CODE</source>
@@ -147,67 +147,67 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="All MIDI learn knob assignments have been removed.">
         <source>All MIDI learn knob assignments have been removed.</source>
         <note>Alert Message:  MIDI Learn Reset</note>
-        <target xml:lang="tr" state="needs-translation">All MIDI learn knob assignments have been removed.</target>
+        <target xml:lang="tr" state="translated">Tüm MIDI Öğren eşleşmeleri kaldırıldı.</target>
       </trans-unit>
       <trans-unit id="All notes have been turned off.">
         <source>All notes have been turned off.</source>
         <note>Alert Message: MIDI Panic</note>
-        <target xml:lang="tr" state="needs-translation">All notes have been turned off.</target>
+        <target xml:lang="tr" state="translated">Tüm notalar susturuldu.</target>
       </trans-unit>
       <trans-unit id="Almost done!">
         <source>Almost done!</source>
         <note>Alert Title: Confirm Email Address</note>
-        <target xml:lang="tr" state="needs-translation">Almost done!</target>
+        <target xml:lang="tr" state="translated">Neredeyse tamam!</target>
       </trans-unit>
       <trans-unit id="Arp/Sequencer Off">
         <source>Arp/Sequencer Off</source>
         <note>Arpeggiator Off</note>
-        <target xml:lang="tr" state="needs-translation">Arp/Sequencer Off</target>
+        <target xml:lang="tr" state="translated">Sıralayıcı Kapalı</target>
       </trans-unit>
       <trans-unit id="Arp/Sequencer On">
         <source>Arp/Sequencer On</source>
         <note>Arpeggiator On</note>
-        <target xml:lang="tr" state="needs-translation">Arp/Sequencer On</target>
+        <target xml:lang="tr" state="translated">Sıralayıcı Açık</target>
       </trans-unit>
       <trans-unit id="Arpeggiator Interval: \(Int(value))">
         <source>Arpeggiator Interval: \(Int(value))</source>
         <note>Arpeggiator Interval</note>
-        <target xml:lang="tr" state="needs-translation">Arpeggiator Interval: \(Int(value))</target>
+        <target xml:lang="tr" state="translated">Arpeggiator Aralığı: \ (Int (değer))</target>
       </trans-unit>
       <trans-unit id="Arpeggiator Mode">
         <source>Arpeggiator Mode</source>
         <note>Arpeggiator Mode On</note>
-        <target xml:lang="tr" state="needs-translation">Arpeggiator Mode</target>
+        <target xml:lang="tr" state="translated">Arpejleyici Modu</target>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>AutoPan Rate tempo-syncd</note>
-        <target xml:lang="tr" state="needs-translation">AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+        <target xml:lang="tr" state="translated">AutoPan Hızı: \ (Rate.fromFrequency (value)), \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(value.decimalString) Hz">
         <source>AutoPan Rate: \(value.decimalString) Hz</source>
         <note>AutoPan Rate</note>
-        <target xml:lang="tr" state="needs-translation">AutoPan Rate: \(value.decimalString) Hz</target>
+        <target xml:lang="tr" state="translated">AutoPan Hızı: \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="AutoPan Strength: \(value.percentageString)">
         <source>AutoPan Strength: \(value.percentageString)</source>
         <note>AutoPan Amount/Strength</note>
-        <target xml:lang="tr" state="needs-translation">AutoPan Strength: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">AutoPan Gücü: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
         <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
         <note>Alert Message: Background Audio</note>
-        <target xml:lang="tr" state="needs-translation">Background audio will drain the battery faster. Please turn off when not in use.</target>
+        <target xml:lang="tr" state="translated">Arkaplanda çalıştığı sürece pilinizi tüketir. Lütfen kullanmadığınızda kapatmaya dikkat edin.</target>
       </trans-unit>
       <trans-unit id="Band Pass">
         <source>Band Pass</source>
         <note>Band Pass Filter</note>
-        <target xml:lang="tr" state="needs-translation">Band Pass</target>
+        <target xml:lang="tr" state="translated">Bant Geçişi</target>
       </trans-unit>
       <trans-unit id="Bitcrush LFO ‣ \(lfoSource!)">
         <source>Bitcrush LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Bitcrush</note>
-        <target xml:lang="tr" state="needs-translation">Bitcrush LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Bitcrush LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Congratulations! 🎉">
         <source>Congratulations! 🎉</source>
@@ -217,407 +217,407 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Couldn't configure the file writer">
         <source>Couldn't configure the file writer</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="tr" state="needs-translation">Couldn't configure the file writer</target>
+        <target xml:lang="tr" state="translated">Dosya yazıcı ayarlanamadı</target>
       </trans-unit>
       <trans-unit id="Couldn't open the output file">
         <source>Couldn't open the output file</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="tr" state="needs-translation">Couldn't open the output file</target>
+        <target xml:lang="tr" state="translated">Dosya açılamadı</target>
       </trans-unit>
       <trans-unit id="Couldn't prepare the output format (error %d/%4.4s)">
         <source>Couldn't prepare the output format (error %1$d/%2$.4s)</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="tr" state="needs-translation">Couldn't prepare the output format (error %1$d/%2$.4s)</target>
+        <target xml:lang="tr" state="translated">Çıktı formatı hazırlanamadı (hata (error %1$d/%2$.4s))</target>
       </trans-unit>
       <trans-unit id="Cutoff LFO ‣ \(lfoSource!)">
         <source>Cutoff LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Cutoff</note>
-        <target xml:lang="tr" state="needs-translation">Cutoff LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Cutoff LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)">
         <source>Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</source>
         <note>Filter Cutoff &amp; Resonance</note>
-        <target xml:lang="tr" state="needs-translation">Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</target>
+        <target xml:lang="tr" state="translated">Kesim: \ (s.getSynthParameter (.cutoff) .decimalString) Hz, Rezonans: \ (s.getSynthParameter (.resonance) .decimalString)</target>
       </trans-unit>
       <trans-unit id="DCO 1 Morph: \(value.decimalString)">
         <source>DCO 1 Morph: \(value.decimalString)</source>
         <note>Oscillator 1 Waveform Morph Index</note>
-        <target xml:lang="tr" state="needs-translation">DCO 1 Morph: \(value.decimalString)</target>
+        <target xml:lang="tr" state="translated">DCO 1 Morph: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="DCO 1 Volume: \(value.percentageString)">
         <source>DCO 1 Volume: \(value.percentageString)</source>
         <note>Oscillator 1 Volume</note>
-        <target xml:lang="tr" state="needs-translation">DCO 1 Volume: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">DCO 1 Birim: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="DCO 1: \(Int(value)) semitones">
         <source>DCO 1: \(Int(value)) semitones</source>
         <note>Oscillator 1 semitone offset</note>
-        <target xml:lang="tr" state="needs-translation">DCO 1: \(Int(value)) semitones</target>
+        <target xml:lang="tr" state="translated">DCO 1: \ (Int (value)) yarı tonları</target>
       </trans-unit>
       <trans-unit id="DCO 2 Morph: \(value.decimalString)">
         <source>DCO 2 Morph: \(value.decimalString)</source>
         <note>Oscillator 2 Waveform Morph Index</note>
-        <target xml:lang="tr" state="needs-translation">DCO 2 Morph: \(value.decimalString)</target>
+        <target xml:lang="tr" state="translated">DCO 2 Morph: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="DCO 2 Volume: \(value.percentageString)">
         <source>DCO 2 Volume: \(value.percentageString)</source>
         <note>Oscillator 2 Volume</note>
-        <target xml:lang="tr" state="needs-translation">DCO 2 Volume: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">DCO 2 Birim: \ (değer.percentageString)</target>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) detune">
         <source>DCO 2: \(Int(value)) detune</source>
         <note>Oscillator 2 detune</note>
-        <target xml:lang="tr" state="needs-translation">DCO 2: \(Int(value)) detune</target>
+        <target xml:lang="tr" state="translated">DCO 2: \ (Int (value)) belirleme</target>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) semitones">
         <source>DCO 2: \(Int(value)) semitones</source>
         <note>Oscillator 2 semitone offset</note>
-        <target xml:lang="tr" state="needs-translation">DCO 2: \(Int(value)) semitones</target>
+        <target xml:lang="tr" state="translated">DCO 2: \ (Int (value)) yarı tonları</target>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value))">
         <source>DCO Mix: \(Int(value))</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="tr" state="needs-translation">DCO Mix: \(Int(value))</target>
+        <target xml:lang="tr" state="translated">DCO Mix: \ (Int (değer))</target>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value)) detune">
         <source>DCO Mix: \(Int(value)) detune</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="tr" state="needs-translation">DCO Mix: \(Int(value)) detune</target>
+        <target xml:lang="tr" state="translated">DCO Mix: \ (Int (değer)) cüce</target>
       </trans-unit>
       <trans-unit id="Decay LFO ‣ \(lfoSource!)">
         <source>Decay LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Decay</note>
-        <target xml:lang="tr" state="needs-translation">Decay LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Çürüme LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Delay  Off">
         <source>Delay  Off</source>
         <note>Delay Off</note>
-        <target xml:lang="tr" state="needs-translation">Delay  Off</target>
+        <target xml:lang="tr" state="translated">Yineleyici Kapalı</target>
       </trans-unit>
       <trans-unit id="Delay Feedback/Taps: \(value.percentageString)">
         <source>Delay Feedback/Taps: \(value.percentageString)</source>
         <note>Delay Feedback</note>
-        <target xml:lang="tr" state="needs-translation">Delay Feedback/Taps: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">Gecikme Geri Bildirimi / Musluklar: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Delay Mix: \(value.percentageString)">
         <source>Delay Mix: \(value.percentageString)</source>
         <note>Delay Mix</note>
-        <target xml:lang="tr" state="needs-translation">Delay Mix: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">Gecikme Karışımı: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Delay On">
         <source>Delay On</source>
         <note>Delay On</note>
-        <target xml:lang="tr" state="needs-translation">Delay On</target>
+        <target xml:lang="tr" state="translated">Yineleyici Açık</target>
       </trans-unit>
       <trans-unit id="Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s">
         <source>Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</source>
         <note>Delay Time tempo-syncd</note>
-        <target xml:lang="tr" state="needs-translation">Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</target>
+        <target xml:lang="tr" state="translated">Gecikme Süresi: \ (Rate.fromTime (value)), \ (value.decimalString) s</target>
       </trans-unit>
       <trans-unit id="Delay Time: \(value.decimalString) s">
         <source>Delay Time: \(value.decimalString) s</source>
         <note>Delay Time</note>
-        <target xml:lang="tr" state="needs-translation">Delay Time: \(value.decimalString) s</target>
+        <target xml:lang="tr" state="translated">Gecikme Süresi: \ (value.decimalString) s</target>
       </trans-unit>
       <trans-unit id="Detune LFO ‣ \(lfoSource!)">
         <source>Detune LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Detune</note>
-        <target xml:lang="tr" state="needs-translation">Detune LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Detune LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Don't Sleep Mode">
         <source>Don't Sleep Mode</source>
         <note>Alert Title: Allows On Mode</note>
-        <target xml:lang="tr" state="needs-translation">Don't Sleep Mode</target>
+        <target xml:lang="tr" state="translated">Uyumama Modu</target>
       </trans-unit>
       <trans-unit id="ENV">
         <source>ENV</source>
         <note>Envelope Panel Abbreviation</note>
-        <target xml:lang="tr" state="needs-translation">ENV</target>
+        <target xml:lang="tr" state="translated">ENV</target>
       </trans-unit>
       <trans-unit id="FM LFO ‣ \(lfoSource!)">
         <source>FM LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] FM Modulation</note>
-        <target xml:lang="tr" state="needs-translation">FM LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">FM LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="FM Mod: \(value.percentageString)">
         <source>FM Mod: \(value.percentageString)</source>
         <note>FM Modulation Amount</note>
-        <target xml:lang="tr" state="needs-translation">FM Mod: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">FM Mod: \ (değer.percentageString)</target>
       </trans-unit>
       <trans-unit id="FM Volume: \(value.percentageString)">
         <source>FM Volume: \(value.percentageString)</source>
         <note>FM Oscillator Volume</note>
-        <target xml:lang="tr" state="needs-translation">FM Volume: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">FM Ses Düzeyi: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="FX">
         <source>FX</source>
         <note>FX/LFO Panel Abbreviation</note>
-        <target xml:lang="tr" state="needs-translation">FX</target>
+        <target xml:lang="tr" state="translated">FX</target>
       </trans-unit>
       <trans-unit id="Filter Env LFO ‣ \(lfoSource!)">
         <source>Filter Env LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Filter Envelope</note>
-        <target xml:lang="tr" state="needs-translation">Filter Env LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Filtre Env LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Filter Envelope: \(value.percentageString)">
         <source>Filter Envelope: \(value.percentageString)</source>
         <note>Filter Envelope Amount</note>
-        <target xml:lang="tr" state="needs-translation">Filter Envelope: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">Filtre Zarfı: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Filter Type: \(ftype)">
         <source>Filter Type: \(ftype)</source>
         <note>Main Filter Type</note>
-        <target xml:lang="tr" state="needs-translation">Filter Type: \(ftype)</target>
+        <target xml:lang="tr" state="translated">Filtre Türü: \(ftype)</target>
       </trans-unit>
       <trans-unit id="Glide: \(value.decimalString)">
         <source>Glide: \(value.decimalString)</source>
         <note>Mono Glide Amount</note>
-        <target xml:lang="tr" state="needs-translation">Glide: \(value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Glide: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="High Pass">
         <source>High Pass</source>
         <note>High Pass Filter</note>
-        <target xml:lang="tr" state="needs-translation">High Pass</target>
+        <target xml:lang="tr" state="translated">Yüksek Geçişi</target>
       </trans-unit>
       <trans-unit id="Important">
         <source>Important</source>
         <note>Alert Title: Background Audio</note>
-        <target xml:lang="tr" state="needs-translation">Important</target>
+        <target xml:lang="tr" state="translated">Önemli</target>
       </trans-unit>
       <trans-unit id="LFO 2 Amp: \(value.percentageString)">
         <source>LFO 2 Amp: \(value.percentageString)</source>
         <note>LFO 2 [low frequency oscillator] Amplitude</note>
-        <target xml:lang="tr" state="needs-translation">LFO 2 Amp: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">LFO 2 Amp: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
-        <target xml:lang="tr" state="needs-translation">LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+        <target xml:lang="tr" state="translated">LFO 2 Oranı: \ (Rate.fromFrequency (değer)), \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
-        <target xml:lang="tr" state="needs-translation">LFO 2 Rate: \(value.decimalString) Hz</target>
+        <target xml:lang="tr" state="translated">LFO 2 Oranı: \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate tempo-syncd</note>
-        <target xml:lang="tr" state="needs-translation">LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <target xml:lang="tr" state="translated">LFO1 Hızı: \ (Rate.fromFrequency (s.getSynthParameter (.lfo1Rate))), LFO1 Amp: \ (s.getSynthParameter (.lfo1Amplitude) .percentageString)</target>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate</note>
-        <target xml:lang="tr" state="needs-translation">LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <target xml:lang="tr" state="translated">LFO1 Hızı: \ (s.getSynthParameter (.lfo1Rate) .decimalString) Hz, LFO1 Amp: \ (s.getSynthParameter (.lfo1Amplitude) .percentageString)</target>
       </trans-unit>
       <trans-unit id="Low Pass">
         <source>Low Pass</source>
         <note>Low Pass Filter</note>
-        <target xml:lang="tr" state="needs-translation">Low Pass</target>
+        <target xml:lang="tr" state="translated">Alt Geçiş</target>
       </trans-unit>
       <trans-unit id="MAIN">
         <source>MAIN</source>
         <note>Main Panel Abbreviation</note>
-        <target xml:lang="tr" state="needs-translation">MAIN</target>
+        <target xml:lang="tr" state="translated">ANA</target>
       </trans-unit>
       <trans-unit id="MIDI Learn Off">
         <source>MIDI Learn Off</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="tr" state="needs-translation">MIDI Learn Off</target>
+        <target xml:lang="tr" state="translated">MIDI Öğren Kapalı</target>
       </trans-unit>
       <trans-unit id="MIDI Learn Reset">
         <source>MIDI Learn Reset</source>
         <note>Alert Title: MIDI Learn Reset</note>
-        <target xml:lang="tr" state="needs-translation">MIDI Learn Reset</target>
+        <target xml:lang="tr" state="translated">MIDI Öğren'i Sıfırla</target>
       </trans-unit>
       <trans-unit id="MIDI Learn: Touch a knob to assign">
         <source>MIDI Learn: Touch a knob to assign</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="tr" state="needs-translation">MIDI Learn: Touch a knob to assign</target>
+        <target xml:lang="tr" state="translated">MIDI Öğren: Eşleştirmek için herhangi bir düğmeye dokunun</target>
       </trans-unit>
       <trans-unit id="MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉">
         <source>MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</source>
         <note>Alert Message: Too High</note>
-        <target xml:lang="tr" state="needs-translation">MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</target>
+        <target xml:lang="tr" state="translated">MIDI Notası &gt; 127. G8 En yüksek çalınabilir notadır. Biraz alttan alın 😉</target>
       </trans-unit>
       <trans-unit id="Master Volume: \(value.percentageString)">
         <source>Master Volume: \(value.percentageString)</source>
         <note>Master Volume</note>
-        <target xml:lang="tr" state="needs-translation">Master Volume: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">Ana Birim: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Midi Panic">
         <source>Midi Panic</source>
         <note>Alert Title: MIDI Panic</note>
-        <target xml:lang="tr" state="needs-translation">Midi Panic</target>
+        <target xml:lang="tr" state="translated">MIDI Panik</target>
       </trans-unit>
       <trans-unit id="Noise LFO ‣ \(lfoSource!)">
         <source>Noise LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Noise</note>
-        <target xml:lang="tr" state="needs-translation">Noise LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Gürültü LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Noise Volume: \((value * 4).percentageString)">
         <source>Noise Volume: \((value * 4).percentageString)</source>
         <note>Noise Volume</note>
-        <target xml:lang="tr" state="needs-translation">Noise Volume: \((value * 4).percentageString)</target>
+        <target xml:lang="tr" state="translated">Gürültü Hacmi: \ ((value * 4) .percentageString)</target>
       </trans-unit>
       <trans-unit id="Notice">
         <source>Notice</source>
         <note>Alert Title: Duplicate Bank Name</note>
-        <target xml:lang="tr" state="needs-translation">Notice</target>
+        <target xml:lang="tr" state="translated">Dikkat Edin</target>
       </trans-unit>
       <trans-unit id="Oops!">
         <source>Oops!</source>
         <note>Alert Title: Invalid Email Address</note>
-        <target xml:lang="tr" state="needs-translation">Oops!</target>
+        <target xml:lang="tr" state="translated">Ups!</target>
       </trans-unit>
       <trans-unit id="Osc Mix LFO ‣ \(lfoSource!)">
         <source>Osc Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Oscillator Mix</note>
-        <target xml:lang="tr" state="needs-translation">Osc Mix LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Osc Mix LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="PAD">
         <source>PAD</source>
         <note>TouchPad Panel Abbreviation</note>
-        <target xml:lang="tr" state="needs-translation">PAD</target>
+        <target xml:lang="tr" state="translated">PAD</target>
       </trans-unit>
       <trans-unit id="Phaser Feedback: \(value.decimalString)">
         <source>Phaser Feedback: \(value.decimalString)</source>
         <note>Phaser Feedback</note>
-        <target xml:lang="tr" state="needs-translation">Phaser Feedback: \(value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Phaser Feedback: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Phaser Mix: \(value.decimalString)">
         <source>Phaser Mix: \(value.decimalString)</source>
         <note>Phaser Mix</note>
-        <target xml:lang="tr" state="needs-translation">Phaser Mix: \(value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Phaser Mix: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Phaser Notch Width: \(value.decimalString)">
         <source>Phaser Notch Width: \(value.decimalString)</source>
         <note>Phaser Notch Width</note>
-        <target xml:lang="tr" state="needs-translation">Phaser Notch Width: \(value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Phaser Notch Genişliği: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Phaser Rate: \(value.decimalString)">
         <source>Phaser Rate: \(value.decimalString)</source>
         <note>Phaser Rate</note>
-        <target xml:lang="tr" state="needs-translation">Phaser Rate: \(value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Faz Hızı: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Pitch LFO ‣ \(lfoSource!)">
         <source>Pitch LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Pitch</note>
-        <target xml:lang="tr" state="needs-translation">Pitch LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Pitch LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Resonance LFO ‣ \(lfoSource!)">
         <source>Resonance LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Resonance</note>
-        <target xml:lang="tr" state="needs-translation">Resonance LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Rezonans LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Reverb Low-cut: \(value.decimalString) Hz">
         <source>Reverb Low-cut: \(value.decimalString) Hz</source>
         <note>Reverb Low-cut/Highpass</note>
-        <target xml:lang="tr" state="needs-translation">Reverb Low-cut: \(value.decimalString) Hz</target>
+        <target xml:lang="tr" state="translated">Yankı Düşük kesim: \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="Reverb Mix LFO ‣ \(lfoSource!)">
         <source>Reverb Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Reverb Mix</note>
-        <target xml:lang="tr" state="needs-translation">Reverb Mix LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Reverb Mix LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Reverb Mix: \(value.percentageString)">
         <source>Reverb Mix: \(value.percentageString)</source>
         <note>Reverb Mix</note>
-        <target xml:lang="tr" state="needs-translation">Reverb Mix: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">Reverb Mix: \ (değer.percentageString)</target>
       </trans-unit>
       <trans-unit id="Reverb Off">
         <source>Reverb Off</source>
         <note>Reverb Off</note>
-        <target xml:lang="tr" state="needs-translation">Reverb Off</target>
+        <target xml:lang="tr" state="translated">Yankılayıcı Kapalı</target>
       </trans-unit>
       <trans-unit id="Reverb On">
         <source>Reverb On</source>
         <note>Reverb On</note>
-        <target xml:lang="tr" state="needs-translation">Reverb On</target>
+        <target xml:lang="tr" state="translated">Yankılayıcı Açık</target>
       </trans-unit>
       <trans-unit id="Reverb Size: \(value.percentageString)">
         <source>Reverb Size: \(value.percentageString)</source>
         <note>Reverb Size</note>
-        <target xml:lang="tr" state="needs-translation">Reverb Size: \(value.percentageString)</target>
+        <target xml:lang="tr" state="translated">Yankı Boyutu: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="SEQ">
         <source>SEQ</source>
         <note>Arp/Sequencer Panel Abbreviation</note>
-        <target xml:lang="tr" state="needs-translation">SEQ</target>
+        <target xml:lang="tr" state="translated">DİZİ</target>
       </trans-unit>
       <trans-unit id="Sample Rate: \(Int(value)) Hz">
         <source>Sample Rate: \(Int(value)) Hz</source>
         <note>Bitcrush Sample Rate</note>
-        <target xml:lang="tr" state="needs-translation">Sample Rate: \(Int(value)) Hz</target>
+        <target xml:lang="tr" state="translated">Örnek Oranı: \ (Int (değer)) Hz</target>
       </trans-unit>
       <trans-unit id="Sequencer Mode">
         <source>Sequencer Mode</source>
         <note>Sequencer Mode On</note>
-        <target xml:lang="tr" state="needs-translation">Sequencer Mode</target>
+        <target xml:lang="tr" state="translated">Sekanslayıcı Modu</target>
       </trans-unit>
       <trans-unit id="Stay informed!">
         <source>Stay informed!</source>
         <note>Alert Title: Allow notifications</note>
-        <target xml:lang="tr" state="needs-translation">Stay informed!</target>
+        <target xml:lang="tr" state="translated">Haberiniz olsun!</target>
       </trans-unit>
       <trans-unit id="Sub Osc Volume: \(value.decimalString)">
         <source>Sub Osc Volume: \(value.decimalString)</source>
         <note>Sub Oscillator Volume</note>
-        <target xml:lang="tr" state="needs-translation">Sub Osc Volume: \(value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Sub Osc Volume: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="TUNE">
         <source>TUNE</source>
         <note>Tuning Panel Abbreviation</note>
-        <target xml:lang="tr" state="needs-translation">TUNE</target>
+        <target xml:lang="tr" state="translated">TUNE</target>
       </trans-unit>
       <trans-unit id="Tempo: \(value) BPM">
         <source>Tempo: \(value) BPM</source>
         <note>Tempo (Beats Per Minute)</note>
-        <target xml:lang="tr" state="needs-translation">Tempo: \(value) BPM</target>
+        <target xml:lang="tr" state="translated">Tempo: \(value) BPM</target>
       </trans-unit>
       <trans-unit id="Thank you">
         <source>Thank you</source>
         <note>Alert Title: Rate App</note>
-        <target xml:lang="tr" state="needs-translation">Thank you</target>
+        <target xml:lang="tr" state="translated">Teşekkürler</target>
       </trans-unit>
       <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
         <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>
         <note>Alert Message: Duplicate Bank Name</note>
-        <target xml:lang="tr" state="needs-translation">There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</target>
+        <target xml:lang="tr" state="translated">Zaten\(bankName)olan bir banka var. Lütfen işleri düzgün bir şekilde sürdürmek için bunlardan birini yeniden adlandırın.</target>
       </trans-unit>
       <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
         <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
         <note>Alert Message: Rate App</note>
-        <target xml:lang="tr" state="needs-translation">This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</target>
+        <target xml:lang="tr" state="translated">Bu gönüllüler tarafından yapılan ÜCRETSİZ uygulama. Daha fazla uygulama yapabilmemiz için lütfen Büyük bir derecelendirmeyle ilgili yardım edin! Harika olduğun için teşekkürler.</target>
       </trans-unit>
       <trans-unit id="This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster">
         <source>This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</source>
         <note>Alert Message: Allows On Mode</note>
-        <target xml:lang="tr" state="needs-translation">This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</target>
+        <target xml:lang="tr" state="translated">Bu mod canlı çalmak için harika. Arkaplan ses de açık kalacaktır. Not: Daha fazla güç kullanır ve pilinizi daha hızlı boşaltabilir</target>
       </trans-unit>
       <trans-unit id="Too High">
         <source>Too High</source>
         <note>Alert Title: Too High</note>
-        <target xml:lang="tr" state="needs-translation">Too High</target>
+        <target xml:lang="tr" state="translated">Çok Yüksek</target>
       </trans-unit>
       <trans-unit id="Tremolo LFO ‣ \(lfoSource!)">
         <source>Tremolo LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Tremolo</note>
-        <target xml:lang="tr" state="needs-translation">Tremolo LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Tremolo LFO ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Twist knob on your MIDI Controller">
         <source>Twist knob on your MIDI Controller</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="tr" state="needs-translation">Twist knob on your MIDI Controller</target>
+        <target xml:lang="tr" state="translated">MIDI donanımızdaki düğmeyi tetikleyin</target>
       </trans-unit>
       <trans-unit id="We'll send Free updates, sounds, and apps. Allow notifications!">
         <source>We'll send Free updates, sounds, and apps. Allow notifications!</source>
         <note>Alert Message: Allow notifications</note>
-        <target xml:lang="tr" state="needs-translation">We'll send Free updates, sounds, and apps. Allow notifications!</target>
+        <target xml:lang="tr" state="translated">Bildirimleri Açın! Size yeni uygulamalar, sesler ve güncellemeler göndereceğiz!</target>
       </trans-unit>
       <trans-unit id="Widen: \(value.decimalString)">
         <source>Widen: \(value.decimalString)</source>
         <note>Stereo Widen</note>
-        <target xml:lang="tr" state="needs-translation">Widen: \(value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Widen: \ (value.decimalString)</target>
       </trans-unit>
     </body>
   </file>
@@ -659,17 +659,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Ai9-6v-51K.segmentTitles[0]">
         <source>1</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[0] = "1"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="tr" state="needs-translation">1</target>
+        <target xml:lang="tr" state="translated">1</target>
       </trans-unit>
       <trans-unit id="Ai9-6v-51K.segmentTitles[1]">
         <source>2</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[1] = "2"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="tr" state="needs-translation">2</target>
+        <target xml:lang="tr" state="translated">2</target>
       </trans-unit>
       <trans-unit id="Ai9-6v-51K.segmentTitles[2]">
         <source>3</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[2] = "3"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="tr" state="needs-translation">3</target>
+        <target xml:lang="tr" state="translated">3</target>
       </trans-unit>
       <trans-unit id="C9j-zW-Pky.normalTitle">
         <source>Settings</source>
@@ -679,12 +679,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="FTi-x2-zwk.normalTitle">
         <source>Mono</source>
         <note>Class = "UIButton"; normalTitle = "Mono"; ObjectID = "FTi-x2-zwk";</note>
-        <target xml:lang="tr" state="needs-translation">Mono</target>
+        <target xml:lang="tr" state="translated">Mono</target>
       </trans-unit>
       <trans-unit id="GdY-Af-kY1.text">
         <source>Mod</source>
         <note>Class = "UILabel"; text = "Mod"; ObjectID = "GdY-Af-kY1";</note>
-        <target xml:lang="tr" state="needs-translation">Mod</target>
+        <target xml:lang="tr" state="translated">şık</target>
       </trans-unit>
       <trans-unit id="IUb-c8-F17.text">
         <source>KEYBOARD SETTINGS</source>
@@ -774,17 +774,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="iLo-Gv-XoX.segmentTitles[0]">
         <source>Cutoff</source>
         <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[0] = "Cutoff"; ObjectID = "iLo-Gv-XoX";</note>
-        <target xml:lang="tr" state="needs-translation">Cutoff</target>
+        <target xml:lang="tr" state="translated">Ayırmak</target>
       </trans-unit>
       <trans-unit id="iLo-Gv-XoX.segmentTitles[1]">
         <source>LFO 1</source>
         <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[1] = "LFO 1"; ObjectID = "iLo-Gv-XoX";</note>
-        <target xml:lang="tr" state="needs-translation">LFO 1</target>
+        <target xml:lang="tr" state="translated">LFO 1</target>
       </trans-unit>
       <trans-unit id="iLo-Gv-XoX.segmentTitles[2]">
         <source>LFO 2</source>
         <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[2] = "LFO 2"; ObjectID = "iLo-Gv-XoX";</note>
-        <target xml:lang="tr" state="needs-translation">LFO 2</target>
+        <target xml:lang="tr" state="translated">LFO 2</target>
       </trans-unit>
       <trans-unit id="icQ-Ei-YHr.text">
         <source>Octave Range:</source>
@@ -799,7 +799,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="kgu-qC-jCb.segmentTitles[1]">
         <source>C</source>
         <note>Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[1] = "C"; ObjectID = "kgu-qC-jCb";</note>
-        <target xml:lang="tr" state="needs-translation">C</target>
+        <target xml:lang="tr" state="translated">C</target>
       </trans-unit>
       <trans-unit id="kgu-qC-jCb.segmentTitles[2]">
         <source>All</source>
@@ -849,7 +849,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="xv6-Gi-7B2.normalTitle">
         <source>Link</source>
         <note>Class = "UIButton"; normalTitle = "Link"; ObjectID = "xv6-Gi-7B2";</note>
-        <target xml:lang="tr" state="needs-translation">Link</target>
+        <target xml:lang="tr" state="translated">bağlantı</target>
       </trans-unit>
     </body>
   </file>
@@ -871,7 +871,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="AIL-8o-L1E.text">
         <source>DelFCut</source>
         <note>Class = "UILabel"; text = "DelFCut"; ObjectID = "AIL-8o-L1E";</note>
-        <target xml:lang="tr" state="needs-translation">DelFCut</target>
+        <target xml:lang="tr" state="translated">DelFCut</target>
       </trans-unit>
       <trans-unit id="Acb-r3-neV.text">
         <source>Reverb Input Compressor</source>
@@ -881,7 +881,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="GRS-H5-GyB.text">
         <source>PostGain</source>
         <note>Class = "UILabel"; text = "PostGain"; ObjectID = "GRS-H5-GyB";</note>
-        <target xml:lang="tr" state="needs-translation">PostGain</target>
+        <target xml:lang="tr" state="translated">PostGain</target>
       </trans-unit>
       <trans-unit id="O3q-m2-cp5.text">
         <source>Release</source>
@@ -931,7 +931,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="slc-Pi-ahg.text">
         <source>DSP Param Halftime</source>
         <note>Class = "UILabel"; text = "DSP Param Halftime"; ObjectID = "slc-Pi-ahg";</note>
-        <target xml:lang="tr" state="needs-translation">DSP Param Halftime</target>
+        <target xml:lang="tr" state="translated">DSP Param Halftime</target>
       </trans-unit>
       <trans-unit id="tLJ-xr-40E.text">
         <source>Lock Delay</source>
@@ -941,7 +941,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="tRH-wD-RtM.text">
         <source>DelFRes</source>
         <note>Class = "UILabel"; text = "DelFRes"; ObjectID = "tRH-wD-RtM";</note>
-        <target xml:lang="tr" state="needs-translation">DelFRes</target>
+        <target xml:lang="tr" state="translated">DelFRes</target>
       </trans-unit>
     </body>
   </file>
@@ -958,7 +958,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="7Ru-Fu-LT1.text">
         <source>LFO 1</source>
         <note>Class = "UILabel"; text = "LFO 1"; ObjectID = "7Ru-Fu-LT1";</note>
-        <target xml:lang="tr" state="needs-translation">LFO 1</target>
+        <target xml:lang="tr" state="translated">LFO 1</target>
       </trans-unit>
       <trans-unit id="7mr-cL-dIt.text">
         <source>Effects Rack</source>
@@ -983,7 +983,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="MMf-RB-gf7.text">
         <source>Low Cut</source>
         <note>Class = "UILabel"; text = "Low Cut"; ObjectID = "MMf-RB-gf7";</note>
-        <target xml:lang="tr" state="needs-translation">Low Cut</target>
+        <target xml:lang="tr" state="translated">Düşük kesim</target>
       </trans-unit>
       <trans-unit id="Md3-mc-eyV.text">
         <source>Amp</source>
@@ -993,7 +993,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="NJ9-DE-qUL.text">
         <source>Bitrate Crusher</source>
         <note>Class = "UILabel"; text = "Bitrate Crusher"; ObjectID = "NJ9-DE-qUL";</note>
-        <target xml:lang="tr" state="needs-translation">Bitrate Crusher</target>
+        <target xml:lang="tr" state="translated">Bitrate Kırıcı</target>
       </trans-unit>
       <trans-unit id="O2o-2A-IsV.text">
         <source>Rate</source>
@@ -1048,7 +1048,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="eeQ-UE-T6J.text">
         <source>LFO 2</source>
         <note>Class = "UILabel"; text = "LFO 2"; ObjectID = "eeQ-UE-T6J";</note>
-        <target xml:lang="tr" state="needs-translation">LFO 2</target>
+        <target xml:lang="tr" state="translated">LFO 2</target>
       </trans-unit>
       <trans-unit id="go0-UQ-ltt.text">
         <source>Tempo Sync</source>
@@ -1085,17 +1085,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="CFBundleDisplayName">
         <source>Synth One</source>
         <note>Bundle display name</note>
-        <target xml:lang="tr" state="needs-translation">Synth One</target>
+        <target xml:lang="tr" state="translated">Synth Bir</target>
       </trans-unit>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
         <note>Bundle name</note>
-        <target xml:lang="tr" state="needs-translation">$(PRODUCT_NAME)</target>
+        <target xml:lang="tr" state="translated">$(PRODUCT_NAME)</target>
       </trans-unit>
       <trans-unit id="NSCameraUsageDescription">
         <source>$(PRODUCT_NAME) camera use.</source>
         <note>Privacy - Camera Usage Description</note>
-        <target xml:lang="tr" state="needs-translation">$(PRODUCT_NAME) camera use.</target>
+        <target xml:lang="tr" state="translated">$(PRODUCT_NAME) kamera kullanımı.</target>
       </trans-unit>
     </body>
   </file>
@@ -1157,7 +1157,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="yuw-Hz-d5o.text">
         <source>Env Amt</source>
         <note>Class = "UILabel"; text = "Env Amt"; ObjectID = "yuw-Hz-d5o";</note>
-        <target xml:lang="tr" state="needs-translation">Env Amt</target>
+        <target xml:lang="tr" state="translated">Env Amt</target>
       </trans-unit>
     </body>
   </file>
@@ -1174,7 +1174,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="8Uq-gf-6UI.text">
         <source>Global</source>
         <note>Class = "UILabel"; text = "Global"; ObjectID = "8Uq-gf-6UI";</note>
-        <target xml:lang="tr" state="needs-translation">Global</target>
+        <target xml:lang="tr" state="translated">global</target>
       </trans-unit>
       <trans-unit id="9r6-eL-FL5.text">
         <source>Filter</source>
@@ -1194,7 +1194,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="310-I5-RBg.text">
         <source>DCO 2</source>
         <note>Class = "UILabel"; text = "DCO 2"; ObjectID = "310-I5-RBg";</note>
-        <target xml:lang="tr" state="needs-translation">DCO 2</target>
+        <target xml:lang="tr" state="translated">DCO 2</target>
       </trans-unit>
       <trans-unit id="AjD-Sk-cQQ.text">
         <source>Glide</source>
@@ -1209,12 +1209,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="ECo-F0-jfe.text">
         <source>DCO 1</source>
         <note>Class = "UILabel"; text = "DCO 1"; ObjectID = "ECo-F0-jfe";</note>
-        <target xml:lang="tr" state="needs-translation">DCO 1</target>
+        <target xml:lang="tr" state="translated">DCO 1</target>
       </trans-unit>
       <trans-unit id="F86-bv-0H1.text">
         <source>Mono</source>
         <note>Class = "UILabel"; text = "Mono"; ObjectID = "F86-bv-0H1";</note>
-        <target xml:lang="tr" state="needs-translation">Mono</target>
+        <target xml:lang="tr" state="translated">Mono</target>
       </trans-unit>
       <trans-unit id="Hw6-cM-mlo.text">
         <source>Amp</source>
@@ -1229,12 +1229,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="OEr-fz-3io.text">
         <source>FM</source>
         <note>Class = "UILabel"; text = "FM"; ObjectID = "OEr-fz-3io";</note>
-        <target xml:lang="tr" state="needs-translation">FM</target>
+        <target xml:lang="tr" state="translated">FM</target>
       </trans-unit>
       <trans-unit id="TPy-ml-QQS.text">
         <source>-24</source>
         <note>Class = "UILabel"; text = "-24"; ObjectID = "TPy-ml-QQS";</note>
-        <target xml:lang="tr" state="needs-translation">-24</target>
+        <target xml:lang="tr" state="translated">-24</target>
       </trans-unit>
       <trans-unit id="XfT-ym-RWb.text">
         <source>Mix</source>
@@ -1269,7 +1269,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="jl7-1K-mc7.text">
         <source>DCO 2</source>
         <note>Class = "UILabel"; text = "DCO 2"; ObjectID = "jl7-1K-mc7";</note>
-        <target xml:lang="tr" state="needs-translation">DCO 2</target>
+        <target xml:lang="tr" state="translated">DCO 2</target>
       </trans-unit>
       <trans-unit id="nLD-gy-Y0z.text">
         <source>Noise</source>
@@ -1284,7 +1284,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="pkg-m0-5sO.text">
         <source>Mod</source>
         <note>Class = "UILabel"; text = "Mod"; ObjectID = "pkg-m0-5sO";</note>
-        <target xml:lang="tr" state="needs-translation">Mod</target>
+        <target xml:lang="tr" state="translated">şık</target>
       </trans-unit>
       <trans-unit id="ppL-x8-d0i.text">
         <source>Widen</source>
@@ -1294,7 +1294,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="rCL-wA-mRJ.text">
         <source>DCO 1</source>
         <note>Class = "UILabel"; text = "DCO 1"; ObjectID = "rCL-wA-mRJ";</note>
-        <target xml:lang="tr" state="needs-translation">DCO 1</target>
+        <target xml:lang="tr" state="translated">DCO 1</target>
       </trans-unit>
       <trans-unit id="uby-Uc-YpS.text">
         <source>Semitones</source>
@@ -1304,7 +1304,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="wBf-gS-1RL.text">
         <source>DCO 1-2</source>
         <note>Class = "UILabel"; text = "DCO 1-2"; ObjectID = "wBf-gS-1RL";</note>
-        <target xml:lang="tr" state="needs-translation">DCO 1-2</target>
+        <target xml:lang="tr" state="translated">DCO 1-2</target>
       </trans-unit>
       <trans-unit id="y2a-dN-P74.text">
         <source>Detune</source>
@@ -1336,7 +1336,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="PpV-eX-q12.normalTitle">
         <source>Web</source>
         <note>Class = "UIButton"; normalTitle = "Web"; ObjectID = "PpV-eX-q12";</note>
-        <target xml:lang="tr" state="needs-translation">Web</target>
+        <target xml:lang="tr" state="translated">ağ</target>
       </trans-unit>
       <trans-unit id="l9q-RV-KkX.normalTitle">
         <source>Panic</source>
@@ -1398,7 +1398,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="M5g-gJ-LgP.text">
         <source>Pad</source>
         <note>Class = "UILabel"; text = "Pad"; ObjectID = "M5g-gJ-LgP";</note>
-        <target xml:lang="tr" state="needs-translation">Pad</target>
+        <target xml:lang="tr" state="translated">ped</target>
       </trans-unit>
       <trans-unit id="Pax-NO-iPl.text">
         <source>Rename the preset to save a new copy. Press "Save" to save the current preset. </source>
@@ -1428,7 +1428,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="cs5-5n-k8U.normalTitle">
         <source>+</source>
         <note>Class = "UIButton"; normalTitle = "+"; ObjectID = "cs5-5n-k8U";</note>
-        <target xml:lang="tr" state="needs-translation">+</target>
+        <target xml:lang="tr" state="translated">+</target>
       </trans-unit>
       <trans-unit id="dSC-DB-ods.text">
         <source>Preset Name</source>
@@ -1485,7 +1485,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="1kh-G3-Dao.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "1kh-G3-Dao";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="2kx-k3-hsp.text">
         <source>Style</source>
@@ -1500,32 +1500,32 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="6WL-SP-3jX.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "6WL-SP-3jX";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="7TS-So-8Ku.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "7TS-So-8Ku";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="8ys-6F-5Ct.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "8ys-6F-5Ct";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="22z-fI-i6o.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "22z-fI-i6o";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="FJP-5X-i7T.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "FJP-5X-i7T";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="IL2-Ai-3GG.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "IL2-Ai-3GG";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="MCo-Uv-ex2.text">
         <source>Steps</source>
@@ -1535,32 +1535,32 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="N6g-lA-Pmi.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "N6g-lA-Pmi";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="P9q-rs-3Sq.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "P9q-rs-3Sq";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="QTm-h5-dGt.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "QTm-h5-dGt";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="Tlc-ZL-pSj.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "Tlc-ZL-pSj";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="UQ8-P1-5c9.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "UQ8-P1-5c9";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="USV-ak-yaz.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "USV-ak-yaz";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="X6a-NW-xsn.text">
         <source>Seq</source>
@@ -1575,7 +1575,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="f7D-Z3-yNc.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "f7D-Z3-yNc";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="gH8-vf-85d.text">
         <source>Interval</source>
@@ -1585,12 +1585,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="hPX-vI-eXD.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "hPX-vI-eXD";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
       <trans-unit id="oHV-it-EtQ.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "oHV-it-EtQ";</note>
-        <target xml:lang="tr" state="needs-translation">0</target>
+        <target xml:lang="tr" state="translated">0</target>
       </trans-unit>
     </body>
   </file>
@@ -1602,7 +1602,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="4Xu-ES-Jtr.text">
         <source>FILTER RESONANCE</source>
         <note>Class = "UILabel"; text = "FILTER RESONANCE"; ObjectID = "4Xu-ES-Jtr";</note>
-        <target xml:lang="tr" state="needs-translation">FILTER RESONANCE</target>
+        <target xml:lang="tr" state="translated">FİLTRE RESONANSI</target>
       </trans-unit>
       <trans-unit id="SVY-05-J4t.normalTitle">
         <source>Snap</source>
@@ -1661,12 +1661,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="CFBundleDisplayName">
         <source>OneSignalNotificationServiceExtension</source>
         <note>Bundle display name</note>
-        <target xml:lang="tr" state="needs-translation">OneSignalNotificationServiceExtension</target>
+        <target xml:lang="tr" state="translated">Synth One</target>
       </trans-unit>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
         <note>Bundle name</note>
-        <target xml:lang="tr" state="needs-translation">$(PRODUCT_NAME)</target>
+        <target xml:lang="tr" state="translated">$(PRODUCT_NAME)</target>
       </trans-unit>
     </body>
   </file>

@@ -181,7 +181,13 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Arpeggiator Interval: \(Int(value))">
         <source>Arpeggiator Interval: \(Int(value))</source>
         <note>Arpeggiator Interval</note>
-        <target xml:lang="fr" state="translated">Arpeggiator Interval: \ (Int (valeur))</target>
+        <target xml:lang="fr" state="translated">Intervalle arpégiateur: \(Int(value))</target>
+        <alt-trans>
+          <target xml:lang="fr">Intervalle arpégiateur: \(Int(valeur))</target>
+        </alt-trans>
+        <alt-trans>
+          <target xml:lang="fr">Arpeggiator Interval: \ (Int (valeur))</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Arpeggiator Mode">
         <source>Arpeggiator Mode</source>
@@ -191,17 +197,29 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>AutoPan Rate tempo-syncd</note>
-        <target xml:lang="fr" state="translated">AutoPan Rate: \ (Rate.fromFrequency (valeur)), \ (valeur.decimalString) Hz</target>
+        <target xml:lang="fr" state="translated">AutoPan Rate: \(Rate.fromFrequency(valeur)), \(valeur.decimalString) Hz</target>
+        <alt-trans>
+          <target xml:lang="fr">AutoPan Rate: \ (Rate.fromFrequency (valeur)), \ (valeur.decimalString) Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(value.decimalString) Hz">
         <source>AutoPan Rate: \(value.decimalString) Hz</source>
         <note>AutoPan Rate</note>
-        <target xml:lang="fr" state="translated">AutoPan Rate: \ (valeur.decimalString) Hz</target>
+        <target xml:lang="fr" state="translated">AutoPan Rate: \(value.decimalString) Hz</target>
+        <alt-trans>
+          <target xml:lang="fr">AutoPan Rate: \(valeur.decimalString) Hz</target>
+        </alt-trans>
+        <alt-trans>
+          <target xml:lang="fr">AutoPan Rate: \ (valeur.decimalString) Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="AutoPan Strength: \(value.percentageString)">
         <source>AutoPan Strength: \(value.percentageString)</source>
         <note>AutoPan Amount/Strength</note>
-        <target xml:lang="fr" state="translated">Force AutoPan: \ (value.percentageString)</target>
+        <target xml:lang="fr" state="translated">Force d'AutoPan: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="fr">Force AutoPan: \ (value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
         <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
@@ -216,7 +234,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Bitcrush LFO ‣ \(lfoSource!)">
         <source>Bitcrush LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Bitcrush</note>
-        <target xml:lang="fr" state="translated">Bitcrush LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="fr" state="translated">Bitcrush LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="fr">Bitcrush LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Congratulations! 🎉">
         <source>Congratulations! 🎉</source>
@@ -241,82 +262,130 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Cutoff LFO ‣ \(lfoSource!)">
         <source>Cutoff LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Cutoff</note>
-        <target xml:lang="fr" state="translated">Cutoff LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="fr" state="translated">Coupure LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="fr">Cutoff LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)">
         <source>Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</source>
         <note>Filter Cutoff &amp; Resonance</note>
-        <target xml:lang="fr" state="translated">Cutoff: \ (s.getSynthParameter (.cutoff) .decimalString) Hz, Résonance: \ (s.getSynthParameter (.resonance) .decimalString)</target>
+        <target xml:lang="fr" state="translated">Coupure : \(s.getSynthParameter(.cutoff) .decimalString) Hz, Résonance : \(s.getSynthParameter(.resonance) .decimalString)</target>
+        <alt-trans>
+          <target xml:lang="fr">Cutoff: \ (s.getSynthParameter (.cutoff) .decimalString) Hz, Résonance: \ (s.getSynthParameter (.resonance) .decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 1 Morph: \(value.decimalString)">
         <source>DCO 1 Morph: \(value.decimalString)</source>
         <note>Oscillator 1 Waveform Morph Index</note>
-        <target xml:lang="fr" state="translated">DCO 1 Morph: \ (value.decimalString)</target>
+        <target xml:lang="fr" state="translated">DCO 1 Morph: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="fr">DCO 1 Morph: \ (value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 1 Volume: \(value.percentageString)">
         <source>DCO 1 Volume: \(value.percentageString)</source>
         <note>Oscillator 1 Volume</note>
-        <target xml:lang="fr" state="translated">Volume DCO 1: \ (value.percentageString)</target>
+        <target xml:lang="fr" state="translated">Volume DCO 1: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="fr">Volume DCO 1: \ (value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 1: \(Int(value)) semitones">
         <source>DCO 1: \(Int(value)) semitones</source>
         <note>Oscillator 1 semitone offset</note>
-        <target xml:lang="fr" state="translated">DCO 1: \ (Int(value)) demi-tons</target>
+        <target xml:lang="fr" state="translated">DCO 1: \(Int(value)) demi-tons</target>
+        <alt-trans>
+          <target xml:lang="fr">DCO 1: \ (Int(value)) demi-tons</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 2 Morph: \(value.decimalString)">
         <source>DCO 2 Morph: \(value.decimalString)</source>
         <note>Oscillator 2 Waveform Morph Index</note>
-        <target xml:lang="fr" state="translated">DCO 2 Morph: \ (value.decimalString)</target>
+        <target xml:lang="fr" state="translated">DCO 2 Morph: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="fr">DCO 2 Morph: \ (value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 2 Volume: \(value.percentageString)">
         <source>DCO 2 Volume: \(value.percentageString)</source>
         <note>Oscillator 2 Volume</note>
-        <target xml:lang="fr" state="translated">Volume DCO 2: \ (value.percentageString)</target>
+        <target xml:lang="fr" state="translated">Volume DCO 2: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="fr">Volume DCO 2: \ (value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) detune">
         <source>DCO 2: \(Int(value)) detune</source>
         <note>Oscillator 2 detune</note>
-        <target xml:lang="fr" state="translated">DCO 2: \ (Int (valeur))</target>
+        <target xml:lang="fr" state="translated">DCO 2: \(Int(value)) désaccord</target>
+        <alt-trans>
+          <target xml:lang="fr">DCO 2: \ (Int (valeur))</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) semitones">
         <source>DCO 2: \(Int(value)) semitones</source>
         <note>Oscillator 2 semitone offset</note>
-        <target xml:lang="fr" state="translated">DCO 2: \ (Int(value)) demi-tons</target>
+        <target xml:lang="fr" state="translated">DCO 2: \(Int(value)) demi-tons</target>
+        <alt-trans>
+          <target xml:lang="fr">DCO 2: \ (Int(value)) demi-tons</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value))">
         <source>DCO Mix: \(Int(value))</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="fr" state="translated">DCO Mix: \ (Int (valeur))</target>
+        <target xml:lang="fr" state="translated">DCO Mix: \(Int(value))</target>
+        <alt-trans>
+          <target xml:lang="fr">DCO Mix: \ (Int (valeur))</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value)) detune">
         <source>DCO Mix: \(Int(value)) detune</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="fr" state="translated">DCO Mix: \ (Int (valeur)) désaccord</target>
+        <target xml:lang="fr" state="translated">DCO Mix: \(Int(value)) désaccord</target>
+        <alt-trans>
+          <target xml:lang="fr">DCO Mix: \ (Int (valeur)) désaccord</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Decay LFO ‣ \(lfoSource!)">
         <source>Decay LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Decay</note>
-        <target xml:lang="fr" state="translated">Decay LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="fr" state="translated">Decay LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="fr">Decay LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay  Off">
         <source>Delay  Off</source>
         <note>Delay Off</note>
-        <target xml:lang="fr" state="translated">Retarder</target>
+        <target xml:lang="fr" state="translated">Pas de délai</target>
+        <alt-trans>
+          <target xml:lang="fr">Retarder</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay Feedback/Taps: \(value.percentageString)">
         <source>Delay Feedback/Taps: \(value.percentageString)</source>
         <note>Delay Feedback</note>
-        <target xml:lang="fr" state="translated">Retarder les commentaires / Taps: \ (value.percentageString)</target>
+        <target xml:lang="fr" state="translated">Délai de retour / Taps: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="fr">Retarder les commentaires / Taps: \ (value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay Mix: \(value.percentageString)">
         <source>Delay Mix: \(value.percentageString)</source>
         <note>Delay Mix</note>
-        <target xml:lang="fr" state="translated">Delay Mix: \ (value.percentageString)</target>
+        <target xml:lang="fr" state="translated">Délai Mix: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="fr">Delay Mix: \ (value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay On">
         <source>Delay On</source>
         <note>Delay On</note>
-        <target xml:lang="fr" state="translated">Retard sur</target>
+        <target xml:lang="fr" state="translated">Délai activé</target>
+        <alt-trans>
+          <target xml:lang="fr">Retard sur</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s">
         <source>Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</source>

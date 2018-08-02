@@ -1,267 +1,285 @@
 /* Alert Message:  MIDI Learn Reset */
-"All MIDI learn knob assignments have been removed." = "All MIDI learn knob assignments have been removed.";
+"All MIDI learn knob assignments have been removed." = "所有MIDI学习旋钮分配均已删除。";
 
 /* Alert Message: MIDI Panic */
-"All notes have been turned off." = "All notes have been turned off.";
+"All notes have been turned off." = "所有笔记都已关闭。";
 
 /* Alert Title: Confirm Email Address */
-"Almost done!" = "Almost done!";
+"Almost done!" = "几乎完成了！";
 
 /* Arpeggiator Off */
-"Arp/Sequencer Off" = "Arp/Sequencer Off";
+"Arp/Sequencer Off" = "Arp / Sequencer关闭";
 
 /* Arpeggiator On */
-"Arp/Sequencer On" = "Arp/Sequencer On";
+"Arp/Sequencer On" = "Arp /音序器开启";
 
 /* Arpeggiator Interval */
-"Arpeggiator Interval: \(Int(value))" = "Arpeggiator Interval: \(Int(value))";
+"Arpeggiator Interval: \(Int(value))" = "琶音间隔：\（Int（值））";
 
 /* Arpeggiator Mode On */
-"Arpeggiator Mode" = "Arpeggiator Mode";
+"Arpeggiator Mode" = "琶音器模式";
 
 /* AutoPan Rate tempo-syncd */
-"AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz";
+"AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "AutoPan Rate：\（Rate.fromFrequency（value）），\（value.decimalString）Hz";
 
 /* AutoPan Rate */
-"AutoPan Rate: \(value.decimalString) Hz" = "AutoPan Rate: \(value.decimalString) Hz";
+"AutoPan Rate: \(value.decimalString) Hz" = "AutoPan Rate：\（value.decimalString）Hz";
 
 /* AutoPan Amount/Strength */
-"AutoPan Strength: \(value.percentageString)" = "AutoPan Strength: \(value.percentageString)";
+"AutoPan Strength: \(value.percentageString)" = "AutoPan强度：\（value.percentageString）";
 
 /* Alert Message: Background Audio */
-"Background audio will drain the battery faster. Please turn off when not in use." = "Background audio will drain the battery faster. Please turn off when not in use.";
+"Background audio will drain the battery faster. Please turn off when not in use." = "背景音频将更快地耗尽电池。请勿在不使用时关闭。";
 
 /* Band Pass Filter */
-"Band Pass" = "Band Pass";
+"Band Pass" = "乐队通行证";
 
 /* LFO [low frequency oscillator] Bitcrush */
-"Bitcrush LFO ‣ \(lfoSource!)" = "Bitcrush LFO ‣ \(lfoSource!)";
+"Bitcrush LFO ‣ \(lfoSource!)" = "Bitcrush LFO‣\（lfoSource！）";
 
 /* Alert Title: Presets Added */
-"Congratulations! 🎉" = "Congratulations! 🎉";
+"Congratulations! 🎉" = "恭喜！ 🎉";
 
 /* No comment provided by engineer. */
-"Couldn't configure the file writer" = "Couldn't configure the file writer";
+"Couldn't configure the file writer" = "无法配置文件编写器";
 
 /* No comment provided by engineer. */
-"Couldn't open the output file" = "Couldn't open the output file";
+"Couldn't open the output file" = "无法打开输出文件";
 
 /* No comment provided by engineer. */
-"Couldn't prepare the output format (error %d/%4.4s)" = "Couldn't prepare the output format (error %1$d/%2$.4s)";
+"Couldn't prepare the output format (error %d/%4.4s)" = "无法准备输出格式（错误 %1$d/%2$.4s）";
 
 /* LFO [low frequency oscillator] Cutoff */
-"Cutoff LFO ‣ \(lfoSource!)" = "Cutoff LFO ‣ \(lfoSource!)";
+"Cutoff LFO ‣ \(lfoSource!)" = "截止LFO‣\（lfoSource！）";
 
 /* Filter Cutoff & Resonance */
-"Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)";
+"Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "截止：\（s.getSynthParameter（.cutoff）.decimalString）Hz，Resonance：\（s.getSynthParameter（.resonance）.decimalString）";
 
 /* Oscillator 1 Waveform Morph Index */
-"DCO 1 Morph: \(value.decimalString)" = "DCO 1 Morph: \(value.decimalString)";
+"DCO 1 Morph: \(value.decimalString)" = "DCO 1变形：\（value.decimalString）";
 
 /* Oscillator 1 Volume */
-"DCO 1 Volume: \(value.percentageString)" = "DCO 1 Volume: \(value.percentageString)";
+"DCO 1 Volume: \(value.percentageString)" = "DCO 1卷：\（value.percentageString）";
 
 /* Oscillator 1 semitone offset */
-"DCO 1: \(Int(value)) semitones" = "DCO 1: \(Int(value)) semitones";
+"DCO 1: \(Int(value)) semitones" = "DCO 1：\（Int（value））半音";
 
 /* Oscillator 2 Waveform Morph Index */
-"DCO 2 Morph: \(value.decimalString)" = "DCO 2 Morph: \(value.decimalString)";
+"DCO 2 Morph: \(value.decimalString)" = "DCO 2变形：\（value.decimalString）";
 
 /* Oscillator 2 Volume */
-"DCO 2 Volume: \(value.percentageString)" = "DCO 2 Volume: \(value.percentageString)";
+"DCO 2 Volume: \(value.percentageString)" = "DCO 2卷：\（value.percentageString）";
 
 /* Oscillator 2 detune */
-"DCO 2: \(Int(value)) detune" = "DCO 2: \(Int(value)) detune";
+"DCO 2: \(Int(value)) detune" = "DCO 2：\（Int（值））失谐";
 
 /* Oscillator 2 semitone offset */
-"DCO 2: \(Int(value)) semitones" = "DCO 2: \(Int(value)) semitones";
+"DCO 2: \(Int(value)) semitones" = "DCO 2：\（Int（值））半音";
 
 /* Oscillator 1 & 2 Mix */
-"DCO Mix: \(Int(value))" = "DCO Mix: \(Int(value))";
+"DCO Mix: \(Int(value))" = "DCO Mix：\（Int（value））";
 
 /* Oscillator 1 & 2 Mix */
-"DCO Mix: \(Int(value)) detune" = "DCO Mix: \(Int(value)) detune";
+"DCO Mix: \(Int(value)) detune" = "DCO Mix：\（Int（value））失谐";
 
 /* LFO [low frequency oscillator] Decay */
-"Decay LFO ‣ \(lfoSource!)" = "Decay LFO ‣ \(lfoSource!)";
+"Decay LFO ‣ \(lfoSource!)" = "衰变LFO‣\（lfoSource！）";
 
 /* Delay Off */
-"Delay  Off" = "Delay  Off";
+"Delay  Off" = "延迟关闭";
 
 /* Delay Feedback */
-"Delay Feedback/Taps: \(value.percentageString)" = "Delay Feedback/Taps: \(value.percentageString)";
+"Delay Feedback/Taps: \(value.percentageString)" = "延迟反馈/点击：\（value.percentageString）";
 
 /* Delay Mix */
-"Delay Mix: \(value.percentageString)" = "Delay Mix: \(value.percentageString)";
+"Delay Mix: \(value.percentageString)" = "延迟混合：\（value.percentageString）";
 
 /* Delay On */
-"Delay On" = "Delay On";
+"Delay On" = "延迟";
 
 /* Delay Time tempo-syncd */
-"Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s" = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s";
+"Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s" = "延迟时间：\（Rate.fromTime（value）），\（value.decimalString）s";
 
 /* Delay Time */
-"Delay Time: \(value.decimalString) s" = "Delay Time: \(value.decimalString) s";
+"Delay Time: \(value.decimalString) s" = "延迟时间：\（value.decimalString）s";
 
 /* LFO [low frequency oscillator] Detune */
-"Detune LFO ‣ \(lfoSource!)" = "Detune LFO ‣ \(lfoSource!)";
+"Detune LFO ‣ \(lfoSource!)" = "Detune LFO‣\（lfoSource！）";
 
 /* Alert Title: Allows On Mode */
-"Don't Sleep Mode" = "Don't Sleep Mode";
+"Don't Sleep Mode" = "不要睡觉模式";
+
+/* Envelope Panel Abbreviation */
+"ENV" = "ENV";
 
 /* LFO [low frequency oscillator] Filter Envelope */
-"Filter Env LFO ‣ \(lfoSource!)" = "Filter Env LFO ‣ \(lfoSource!)";
+"Filter Env LFO ‣ \(lfoSource!)" = "过滤Env LFO‣\（lfoSource！）";
 
 /* Filter Envelope Amount */
-"Filter Envelope: \(value.percentageString)" = "Filter Envelope: \(value.percentageString)";
+"Filter Envelope: \(value.percentageString)" = "过滤信封：\（value.percentageString）";
 
 /* Main Filter Type */
-"Filter Type: \(ftype)" = "Filter Type: \(ftype)";
+"Filter Type: \(ftype)" = "过滤器类型： \(ftype)";
 
 /* LFO [low frequency oscillator] FM Modulation */
-"FM LFO ‣ \(lfoSource!)" = "FM LFO ‣ \(lfoSource!)";
+"FM LFO ‣ \(lfoSource!)" = "FM LFO‣\（lfoSource！）";
 
 /* FM Modulation Amount */
-"FM Mod: \(value.percentageString)" = "FM Mod: \(value.percentageString)";
+"FM Mod: \(value.percentageString)" = "FM Mod：\（value.percentageString）";
 
 /* FM Oscillator Volume */
-"FM Volume: \(value.percentageString)" = "FM Volume: \(value.percentageString)";
+"FM Volume: \(value.percentageString)" = "FM音量：\（value.percentageString）";
+
+/* FX/LFO Panel Abbreviation */
+"FX" = "FX";
 
 /* Mono Glide Amount */
-"Glide: \(value.decimalString)" = "Glide: \(value.decimalString)";
+"Glide: \(value.decimalString)" = "Glide：\（value.decimalString）";
 
 /* High Pass Filter */
-"High Pass" = "High Pass";
+"High Pass" = "高通";
 
 /* Alert Title: Background Audio */
-"Important" = "Important";
+"Important" = "重要";
 
 /* LFO 2 [low frequency oscillator] Amplitude */
-"LFO 2 Amp: \(value.percentageString)" = "LFO 2 Amp: \(value.percentageString)";
+"LFO 2 Amp: \(value.percentageString)" = "LFO 2 Amp：\（value.percentageString）";
 
 /* LFO 2 [low frequency oscillator] Rate tempo-syncd */
-"LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz";
+"LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "LFO 2 Rate：\（Rate.fromFrequency（value）），\（value.decimalString）Hz";
 
 /* LFO 2 [low frequency oscillator] Rate tempo-syncd */
-"LFO 2 Rate: \(value.decimalString) Hz" = "LFO 2 Rate: \(value.decimalString) Hz";
+"LFO 2 Rate: \(value.decimalString) Hz" = "LFO 2速率：\（value.decimalString）Hz";
 
 /* LFO [low frequency oscillator] Amplitude & Rate tempo-syncd */
-"LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)";
+"LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1速率：\（Rate.fromFrequency（s.getSynthParameter（.lfo1Rate））），LFO1 Amp：\（s.getSynthParameter（.lfo1Amplitude）.percentageString）";
 
 /* LFO [low frequency oscillator] Amplitude & Rate */
-"LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)";
+"LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1速率：\（s.getSynthParameter（.lfo1Rate）.decimalString）Hz，LFO1 Amp：\（s.getSynthParameter（.lfo1Amplitude）.percentageString）";
 
 /* Low Pass Filter */
-"Low Pass" = "Low Pass";
+"Low Pass" = "低通";
+
+/* Main Panel Abbreviation */
+"MAIN" = "主要";
 
 /* Master Volume */
-"Master Volume: \(value.percentageString)" = "Master Volume: \(value.percentageString)";
+"Master Volume: \(value.percentageString)" = "主卷：\（value.percentageString）";
 
 /* MIDI Learn Instructions */
-"MIDI Learn Off" = "MIDI Learn Off";
+"MIDI Learn Off" = "MIDI学习";
 
 /* Alert Title: MIDI Learn Reset */
-"MIDI Learn Reset" = "MIDI Learn Reset";
+"MIDI Learn Reset" = "MIDI学习重置";
 
 /* MIDI Learn Instructions */
-"MIDI Learn: Touch a knob to assign" = "MIDI Learn: Touch a knob to assign";
+"MIDI Learn: Touch a knob to assign" = "MIDI学习：触摸旋钮进行分配";
 
 /* Alert Message: Too High */
-"MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉" = "MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉";
+"MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉" = "MIDI Note > 127. G8是可播放的最高键。把它拿下一个档次😉";
 
 /* Alert Title: MIDI Panic */
-"Midi Panic" = "Midi Panic";
+"Midi Panic" = "Midi恐慌";
 
 /* LFO [low frequency oscillator] Noise */
-"Noise LFO ‣ \(lfoSource!)" = "Noise LFO ‣ \(lfoSource!)";
+"Noise LFO ‣ \(lfoSource!)" = "噪音LFO‣\（lfoSource！）";
 
 /* Noise Volume */
-"Noise Volume: \((value * 4).percentageString)" = "Noise Volume: \((value * 4).percentageString)";
+"Noise Volume: \((value * 4).percentageString)" = "噪音量：\（（值* 4）.percentageString）";
 
 /* Alert Title: Duplicate Bank Name */
-"Notice" = "Notice";
+"Notice" = "注意";
 
 /* Alert Title: Invalid Email Address */
-"Oops!" = "Oops!";
+"Oops!" = "哎呀！";
 
 /* LFO [low frequency oscillator] Oscillator Mix */
-"Osc Mix LFO ‣ \(lfoSource!)" = "Osc Mix LFO ‣ \(lfoSource!)";
+"Osc Mix LFO ‣ \(lfoSource!)" = "Osc Mix LFO‣\（lfoSource！）";
+
+/* TouchPad Panel Abbreviation */
+"PAD" = "垫";
 
 /* Phaser Feedback */
-"Phaser Feedback: \(value.decimalString)" = "Phaser Feedback: \(value.decimalString)";
+"Phaser Feedback: \(value.decimalString)" = "Phaser反馈：\（value.decimalString）";
 
 /* Phaser Mix */
-"Phaser Mix: \(value.decimalString)" = "Phaser Mix: \(value.decimalString)";
+"Phaser Mix: \(value.decimalString)" = "Phaser Mix：\（value.decimalString）";
 
 /* Phaser Notch Width */
-"Phaser Notch Width: \(value.decimalString)" = "Phaser Notch Width: \(value.decimalString)";
+"Phaser Notch Width: \(value.decimalString)" = "Phaser Notch宽度：\（value.decimalString）";
 
 /* Phaser Rate */
-"Phaser Rate: \(value.decimalString)" = "Phaser Rate: \(value.decimalString)";
+"Phaser Rate: \(value.decimalString)" = "移相器速率：\（value.decimalString）";
 
 /* LFO [low frequency oscillator] Pitch */
-"Pitch LFO ‣ \(lfoSource!)" = "Pitch LFO ‣ \(lfoSource!)";
+"Pitch LFO ‣ \(lfoSource!)" = "PFO LFO‣\（lfoSource！）";
 
 /* LFO [low frequency oscillator] Resonance */
-"Resonance LFO ‣ \(lfoSource!)" = "Resonance LFO ‣ \(lfoSource!)";
+"Resonance LFO ‣ \(lfoSource!)" = "共振LFO‣\（lfoSource！）";
 
 /* Reverb Low-cut/Highpass */
-"Reverb Low-cut: \(value.decimalString) Hz" = "Reverb Low-cut: \(value.decimalString) Hz";
+"Reverb Low-cut: \(value.decimalString) Hz" = "Reverb Low-cut：\（value.decimalString）Hz";
 
 /* LFO [low frequency oscillator] Reverb Mix */
-"Reverb Mix LFO ‣ \(lfoSource!)" = "Reverb Mix LFO ‣ \(lfoSource!)";
+"Reverb Mix LFO ‣ \(lfoSource!)" = "Reverb Mix LFO‣\（lfoSource！）";
 
 /* Reverb Mix */
-"Reverb Mix: \(value.percentageString)" = "Reverb Mix: \(value.percentageString)";
+"Reverb Mix: \(value.percentageString)" = "混响混音：\（value.percentageString）";
 
 /* Reverb Off */
-"Reverb Off" = "Reverb Off";
+"Reverb Off" = "混响关闭";
 
 /* Reverb On */
-"Reverb On" = "Reverb On";
+"Reverb On" = "混响开";
 
 /* Reverb Size */
-"Reverb Size: \(value.percentageString)" = "Reverb Size: \(value.percentageString)";
+"Reverb Size: \(value.percentageString)" = "混响大小：\（value.percentageString）";
 
 /* Bitcrush Sample Rate */
-"Sample Rate: \(Int(value)) Hz" = "Sample Rate: \(Int(value)) Hz";
+"Sample Rate: \(Int(value)) Hz" = "采样率：\（Int（值））Hz";
+
+/* Arp/Sequencer Panel Abbreviation */
+"SEQ" = "SEQ";
 
 /* Sequencer Mode On */
-"Sequencer Mode" = "Sequencer Mode";
+"Sequencer Mode" = "音序器模式";
 
 /* Alert Title: Allow notifications */
-"Stay informed!" = "Stay informed!";
+"Stay informed!" = "随时了解！";
 
 /* Sub Oscillator Volume */
-"Sub Osc Volume: \(value.decimalString)" = "Sub Osc Volume: \(value.decimalString)";
+"Sub Osc Volume: \(value.decimalString)" = "Sub Osc卷：\（value.decimalString）";
 
 /* Tempo (Beats Per Minute) */
-"Tempo: \(value) BPM" = "Tempo: \(value) BPM";
+"Tempo: \(value) BPM" = "速度： \(value) BPM";
 
 /* Alert Title: Rate App */
-"Thank you" = "Thank you";
+"Thank you" = "谢谢";
 
 /* Alert Message: Duplicate Bank Name */
-"There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly." = "There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.";
+"There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly." = "已经有一家名为“\(bankName)”的银行。请重命名其中一个以保持工作顺利进行。";
 
 /* Alert Message: Rate App */
-"This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome." = "This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.";
+"This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome." = "这是一个由志愿者建立的免费应用程序。请帮助评价很高，以便我们制作更多应用！谢谢你真棒。";
 
 /* Alert Message: Allows On Mode */
-"This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster" = "This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster";
+"This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster" = "这种模式非常适合现场演奏。背景音频也将保持不变。注意：它将使用更多电量，并可能更快地耗尽电池";
 
 /* Alert Title: Too High */
-"Too High" = "Too High";
+"Too High" = "太高";
 
 /* LFO [low frequency oscillator] Tremolo */
-"Tremolo LFO ‣ \(lfoSource!)" = "Tremolo LFO ‣ \(lfoSource!)";
+"Tremolo LFO ‣ \(lfoSource!)" = "Tremolo LFO‣\（lfoSource！）";
+
+/* Tuning Panel Abbreviation */
+"TUNE" = "调";
 
 /* MIDI Learn Instructions */
-"Twist knob on your MIDI Controller" = "Twist knob on your MIDI Controller";
+"Twist knob on your MIDI Controller" = "MIDI控制器上的旋转旋钮";
 
 /* Alert Message: Allow notifications */
-"We'll send Free updates, sounds, and apps. Allow notifications!" = "We'll send Free updates, sounds, and apps. Allow notifications!";
+"We'll send Free updates, sounds, and apps. Allow notifications!" = "我们将发送免费更新，声音和应用程序。允许通知！";
 
 /* Stereo Widen */
-"Widen: \(value.decimalString)" = "Widen: \(value.decimalString)";
+"Widen: \(value.decimalString)" = "加宽：\（value.decimalString）";
 

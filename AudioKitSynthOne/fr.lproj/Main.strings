@@ -1,8 +1,8 @@
 /* Class = "UILabel"; text = "Pitch Bend range is saved with each preset."; ObjectID = "2ZX-Ka-zjh"; */
 "2ZX-Ka-zjh.text" = "La plage Pitch Bend est enregistrée avec chaque préréglage.";
 
-/* Class = "UILabel"; text = "Pitch Bend Lower Limit:"; ObjectID = "3ac-lw-QYe"; */
-"3ac-lw-QYe.text" = "Pitch Bend Lower Limit:";
+/* Class = "UILabel"; text = "Pitch Bend Lower Limit:"; ObjectID = "3ac-lw-QYe"; Note = "Pitch Bend Wheel minimum"; */
+"3ac-lw-QYe.text" = "Pitch Bend Limite inférieure:";
 
 /* Class = "UISegmentedControl"; 9Nq-KG-x1Y.segmentTitles[0] = "White"; ObjectID = "9Nq-KG-x1Y"; */
 "9Nq-KG-x1Y.segmentTitles[0]" = "Blanc";
@@ -10,8 +10,8 @@
 /* Class = "UISegmentedControl"; 9Nq-KG-x1Y.segmentTitles[1] = "Dark"; ObjectID = "9Nq-KG-x1Y"; */
 "9Nq-KG-x1Y.segmentTitles[1]" = "Sombre";
 
-/* Class = "UIButton"; normalTitle = "Hold"; ObjectID = "39J-5A-Jtm"; */
-"39J-5A-Jtm.normalTitle" = "Hold";
+/* Class = "UIButton"; normalTitle = "Hold"; ObjectID = "39J-5A-Jtm"; Note = "Keyboard hold button (keep this text as short as possible)"; */
+"39J-5A-Jtm.normalTitle" = "Tenir";
 
 /* Class = "UILabel"; text = "Octave:"; ObjectID = "ACV-Ri-7nN"; */
 "ACV-Ri-7nN.text" = "Octave :";
@@ -25,16 +25,16 @@
 /* Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[2] = "3"; ObjectID = "Ai9-6v-51K"; */
 "Ai9-6v-51K.segmentTitles[2]" = "3";
 
-/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "C9j-zW-Pky"; */
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "C9j-zW-Pky"; Note = "Settings button (keep this text as short as possible)"; */
 "C9j-zW-Pky.normalTitle" = "Paramètres";
 
-/* Class = "UILabel"; text = "MOD WHEEL DESTINATION:"; ObjectID = "dKG-AP-qCg"; */
-"dKG-AP-qCg.text" = "MOD WHEEL DESTINATION:";
+/* Class = "UILabel"; text = "MOD WHEEL DESTINATION:"; ObjectID = "dKG-AP-qCg"; Note = "Routing for Mod Wheel"; */
+"dKG-AP-qCg.text" = "DESTINATION DES ROUES MOD:";
 
-/* Class = "UILabel"; text = "Key Labels:"; ObjectID = "fmL-Ud-aaA"; */
+/* Class = "UILabel"; text = "Key Labels:"; ObjectID = "fmL-Ud-aaA"; Note = "Note labels on keyboard keys"; */
 "fmL-Ud-aaA.text" = "Étiquettes touches :";
 
-/* Class = "UIButton"; normalTitle = "Mono"; ObjectID = "FTi-x2-zwk"; */
+/* Class = "UIButton"; normalTitle = "Mono"; ObjectID = "FTi-x2-zwk"; Note = "Mono/Poly toggle button (keep this text as short as possible)"; */
 "FTi-x2-zwk.normalTitle" = "Mono";
 
 /* Class = "UILabel"; text = "Mod"; ObjectID = "GdY-Af-kY1"; */
@@ -43,11 +43,11 @@
 /* Class = "UIButton"; normalTitle = "DONE"; ObjectID = "hNP-KG-OgZ"; */
 "hNP-KG-OgZ.normalTitle" = "TERMINÉ";
 
-/* Class = "UILabel"; text = "Octave Range:"; ObjectID = "icQ-Ei-YHr"; */
-"icQ-Ei-YHr.text" = "Octave Range:";
+/* Class = "UILabel"; text = "Octave Range:"; ObjectID = "icQ-Ei-YHr"; Note = "Octaves displayed in keyboard"; */
+"icQ-Ei-YHr.text" = "Gamme Octave:";
 
 /* Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[0] = "Cutoff"; ObjectID = "iLo-Gv-XoX"; */
-"iLo-Gv-XoX.segmentTitles[0]" = "Cutoff";
+"iLo-Gv-XoX.segmentTitles[0]" = "Couper";
 
 /* Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[1] = "LFO 1"; ObjectID = "iLo-Gv-XoX"; */
 "iLo-Gv-XoX.segmentTitles[1]" = "LFO 1";
@@ -59,7 +59,7 @@
 "IUb-c8-F17.text" = "PARAMÈTRES DU CLAVIER";
 
 /* Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[0] = "None"; ObjectID = "kgu-qC-jCb"; */
-"kgu-qC-jCb.segmentTitles[0]" = "None";
+"kgu-qC-jCb.segmentTitles[0]" = "Aucun";
 
 /* Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[1] = "C"; ObjectID = "kgu-qC-jCb"; */
 "kgu-qC-jCb.segmentTitles[1]" = "C";
@@ -74,7 +74,7 @@
 "lW8-Xt-97c.normalTitle" = "TERMINÉ";
 
 /* Class = "UILabel"; text = "Save Tuning Panel w/ Presets:"; ObjectID = "MlE-O3-Ji5"; */
-"MlE-O3-Ji5.text" = "Save Tuning Panel w/ Presets:";
+"MlE-O3-Ji5.text" = "Enregistrer le panneau de configuration w / Presets:";
 
 /* Class = "UIButton"; normalTitle = "Reset MIDI Learn Knobs"; ObjectID = "MQe-Qa-FAj"; */
 "MQe-Qa-FAj.normalTitle" = "Réinitialiser les boutons d'apprentissage MIDI";
@@ -82,19 +82,19 @@
 /* Class = "UILabel"; text = "MIDI Input"; ObjectID = "mUh-rB-ciV"; */
 "mUh-rB-ciV.text" = "Entrée MIDI";
 
-/* Class = "UILabel"; text = "Velocity Sensitive MIDI: "; ObjectID = "nzb-kU-xl1"; */
+/* Class = "UILabel"; text = "Velocity Sensitive MIDI: "; ObjectID = "nzb-kU-xl1"; Note = "MIDI input velocity sensitive"; */
 "nzb-kU-xl1.text" = "Velocity Sensitive MIDI: ";
 
 /* Class = "UIButton"; normalTitle = "Hide"; ObjectID = "O7h-tw-s2d"; */
 "O7h-tw-s2d.normalTitle" = "Cacher";
 
-/* Class = "UILabel"; text = "Key Color:"; ObjectID = "OMU-nM-0hz"; */
+/* Class = "UILabel"; text = "Key Color:"; ObjectID = "OMU-nM-0hz"; Note = "Color for keyboard keys (black or white)"; */
 "OMU-nM-0hz.text" = "Couleur de touche :";
 
 /* Class = "UILabel"; text = "Pitch"; ObjectID = "OTn-XD-KmQ"; */
 "OTn-XD-KmQ.text" = "Ton";
 
-/* Class = "UIButton"; normalTitle = "Wheels"; ObjectID = "OxM-Pu-Zba"; */
+/* Class = "UIButton"; normalTitle = "Wheels"; ObjectID = "OxM-Pu-Zba"; Note = "Mod Wheel & Pitch Wheel button (keep this text as short as possible)"; */
 "OxM-Pu-Zba.normalTitle" = "Roulettes";
 
 /* Class = "UIButton"; normalTitle = "DONE"; ObjectID = "OyT-Kr-q8s"; */
@@ -104,32 +104,32 @@
 "pI1-4q-bLo.text" = "Canal d'entrée MIDI: Omni";
 
 /* Class = "UILabel"; text = "Mod Wheel Routing is saved with each preset."; ObjectID = "r3w-Dk-TAj"; */
-"r3w-Dk-TAj.text" = "Mod Wheel Routing is saved with each preset.";
+"r3w-Dk-TAj.text" = "Le routage de la molette de modulation est enregistré avec chaque préréglage.";
 
-/* Class = "UILabel"; text = "Pitch Bend Upper Limit:"; ObjectID = "sdT-EI-8gk"; */
-"sdT-EI-8gk.text" = "Pitch Bend Upper Limit:";
+/* Class = "UILabel"; text = "Pitch Bend Upper Limit:"; ObjectID = "sdT-EI-8gk"; Note = "Pitch Bend Wheel maximum "; */
+"sdT-EI-8gk.text" = "Limite supérieure de pitch bend:";
 
 /* Class = "UILabel"; text = "Background Audio Always On:"; ObjectID = "sxO-Cg-8JK"; */
-"sxO-Cg-8JK.text" = "Background Audio Always On:";
+"sxO-Cg-8JK.text" = "Arrière-plan audio toujours activé:";
 
-/* Class = "UILabel"; text = "App Always on / Don't sleep:"; ObjectID = "UeB-Ec-gRc"; */
+/* Class = "UILabel"; text = "App Always on / Don't sleep:"; ObjectID = "UeB-Ec-gRc"; Note = "App will not go into background mode toggle"; */
 "UeB-Ec-gRc.text" = "App Toujours activée / Pas de veille :";
 
 /* Class = "UILabel"; text = "MIDI Learn Knobs:"; ObjectID = "VLa-3E-3Kt"; */
 "VLa-3E-3Kt.text" = "Boutons d'apprentissage MIDI:";
 
-/* Class = "UIButton"; normalTitle = "MIDI Learn"; ObjectID = "VNg-MV-vHn"; */
+/* Class = "UIButton"; normalTitle = "MIDI Learn"; ObjectID = "VNg-MV-vHn"; Note = "Midi Learn button (keep this text as short as possible)"; */
 "VNg-MV-vHn.normalTitle" = "Apprentissage MIDI";
 
 /* Class = "UILabel"; text = "MOD / PITCH WHEELS"; ObjectID = "WyC-Si-j7H"; */
 "WyC-Si-j7H.text" = "ROUES MOD / PITCH";
 
-/* Class = "UIButton"; normalTitle = "Link"; ObjectID = "xv6-Gi-7B2"; */
+/* Class = "UIButton"; normalTitle = "Link"; ObjectID = "xv6-Gi-7B2"; Note = "Ableton Link button (keep this text as short as possible)"; */
 "xv6-Gi-7B2.normalTitle" = "Lien";
 
-/* Class = "UIButton"; normalTitle = "Keys"; ObjectID = "Z4W-Gh-RiQ"; */
+/* Class = "UIButton"; normalTitle = "Keys"; ObjectID = "Z4W-Gh-RiQ"; Note = "Keyboard Keys settings  button (keep this text as short as possible)"; */
 "Z4W-Gh-RiQ.normalTitle" = "Touches";
 
 /* Class = "UILabel"; text = "MIDI Inputs (tap to toggle on/off):"; ObjectID = "ZV6-Yu-spa"; */
-"ZV6-Yu-spa.text" = "MIDI Inputs (tap to toggle on/off):";
+"ZV6-Yu-spa.text" = "Entrées MIDI (appuyez pour activer / désactiver):";
 

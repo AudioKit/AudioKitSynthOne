@@ -38,13 +38,13 @@
 "LTK-sn-l0B.text" = "Önayar için bir banka seçin:";
 
 /* Class = "UILabel"; text = "Pad"; ObjectID = "M5g-gJ-LgP"; */
-"M5g-gJ-LgP.text" = "Pad";
+"M5g-gJ-LgP.text" = "ped";
 
 /* Class = "UILabel"; text = "SYNTH ONE PRESETS"; ObjectID = "mZQ-N0-bdr"; */
 "mZQ-N0-bdr.text" = "SYNTH ONE ÖNAYARLARI";
 
-/* Class = "UILabel"; text = "Rename the preset to save a new copy. Press "Save" to save the current preset. "; ObjectID = "Pax-NO-iPl"; */
-"Pax-NO-iPl.text" = "Önayarı kaydetmek için adını değiştirin. Bu hali ile kaydetmek için "Kaydet"e basın.";
+/* Class = "UILabel"; text = "Rename the preset to save a new copy. Press \"Save\" to save the current preset. "; ObjectID = "Pax-NO-iPl"; */
+"Pax-NO-iPl.text" = "Önayarı kaydetmek için adını değiştirin. Bu hali ile kaydetmek için "Kaydet"e basın. ";
 
 /* Class = "UIButton"; normalTitle = "Delete Bank"; ObjectID = "Qv6-hQ-4wE"; */
 "Qv6-hQ-4wE.normalTitle" = "Bankayı Sil";
@@ -62,7 +62,7 @@
 "VL7-Y3-hxn.normalTitle" = "ÖNAYARI KAYDET";
 
 /* Class = "UILabel"; text = "Free & open-source synthesizer. Browse presets & banks below. "; ObjectID = "xCe-zx-CAI"; */
-"xCe-zx-CAI.text" = "Bedava ve açık kaynaklı sentezleyici. Aşağıdaki önayarlara ve bankalara göz atın.";
+"xCe-zx-CAI.text" = "Bedava ve açık kaynaklı sentezleyici. Aşağıdaki önayarlara ve bankalara göz atın. ";
 
 /* Class = "UIButton"; normalTitle = "Import Preset"; ObjectID = "ZCE-zi-tsi"; */
 "ZCE-zi-tsi.normalTitle" = "Dışarıdan Önayar Aktar";

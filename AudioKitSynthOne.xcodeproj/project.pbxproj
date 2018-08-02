@@ -461,6 +461,34 @@
 		EA143DF9210A86DC00543E17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Dev.strings"; sourceTree = "<group>"; };
 		EA143DFA210A873B00543E17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "AudioKitSynthOne/Developer/zh-Hans.lproj/zh-Hans.lproj/Dev.strings"; sourceTree = SOURCE_ROOT; };
 		EA143E05210FDA3C00543E17 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = AudioKitSynthOne/Developer/fr.lproj/fr.lproj/Dev.strings; sourceTree = SOURCE_ROOT; };
+		EA143E29211289E100543E17 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = AudioKitSynthOne/Developer/tr.lproj/tr.lproj/Dev.strings; sourceTree = SOURCE_ROOT; };
+		EA143E2A21128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143E2B21128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143E2C21128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EA143E2D21128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Header.strings; sourceTree = "<group>"; };
+		EA143E2E21128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/TouchPad.strings; sourceTree = "<group>"; };
+		EA143E2F21128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/About.strings; sourceTree = "<group>"; };
+		EA143E3021128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Envelopes.strings; sourceTree = "<group>"; };
+		EA143E3121128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Effects.strings; sourceTree = "<group>"; };
+		EA143E3221128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MailingList.strings; sourceTree = "<group>"; };
+		EA143E3321128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Generators.strings; sourceTree = "<group>"; };
+		EA143E3421128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = AudioKitSynthOne/Developer/ja.lproj/ja.lproj/Dev.strings; sourceTree = SOURCE_ROOT; };
+		EA143E3521128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Sequencer.strings; sourceTree = "<group>"; };
+		EA143E3621128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		EA143E3721128A1B00543E17 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Tunings.strings; sourceTree = "<group>"; };
+		EA143E3821128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143E3921128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA143E3A21128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EA143E3B21128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Header.strings; sourceTree = "<group>"; };
+		EA143E3C21128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/About.strings; sourceTree = "<group>"; };
+		EA143E3D21128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TouchPad.strings; sourceTree = "<group>"; };
+		EA143E3E21128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Envelopes.strings; sourceTree = "<group>"; };
+		EA143E3F21128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Effects.strings; sourceTree = "<group>"; };
+		EA143E4021128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Generators.strings; sourceTree = "<group>"; };
+		EA143E4121128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = AudioKitSynthOne/Developer/de.lproj/de.lproj/Dev.strings; sourceTree = SOURCE_ROOT; };
+		EA143E4221128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Sequencer.strings; sourceTree = "<group>"; };
+		EA143E4321128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		EA143E4421128A7400543E17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Tunings.strings; sourceTree = "<group>"; };
 		EA2354D1210879AC0018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MailingList.strings; sourceTree = "<group>"; };
 		EA2354D2210879DF0018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Dev.strings; sourceTree = "<group>"; };
 		EA2354D421087C500018E035 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1228,6 +1256,8 @@
 				fr,
 				"pt-BR",
 				"zh-Hans",
+				ja,
+				de,
 			);
 			mainGroup = C4D193BB1F1187B500FF4FE4;
 			productRefGroup = C4D193C51F1187B500FF4FE4 /* Products */;
@@ -1535,6 +1565,8 @@
 				EA388D0B2106A2E50026C0C0 /* tr */,
 				EA143DCB210A846100543E17 /* pt-BR */,
 				EA143DDA210A846E00543E17 /* zh-Hans */,
+				EA143E3621128A1B00543E17 /* ja */,
+				EA143E4321128A7400543E17 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1545,6 +1577,9 @@
 				EA143DF9210A86DC00543E17 /* pt-BR */,
 				EA143DFA210A873B00543E17 /* zh-Hans */,
 				EA143E05210FDA3C00543E17 /* fr */,
+				EA143E29211289E100543E17 /* tr */,
+				EA143E3421128A1B00543E17 /* ja */,
+				EA143E4121128A7400543E17 /* de */,
 			);
 			name = Dev.strings;
 			path = "AudioKitSynthOne/Developer/pt-BR.lproj";
@@ -1559,6 +1594,8 @@
 				EA388D0C2106A2E50026C0C0 /* tr */,
 				EA143DCC210A846100543E17 /* pt-BR */,
 				EA143DDB210A846E00543E17 /* zh-Hans */,
+				EA143E2F21128A1B00543E17 /* ja */,
+				EA143E3C21128A7400543E17 /* de */,
 			);
 			name = About.storyboard;
 			sourceTree = "<group>";
@@ -1572,6 +1609,8 @@
 				EA388D122106A2E50026C0C0 /* tr */,
 				EA143DD2210A846100543E17 /* pt-BR */,
 				EA143DE1210A846E00543E17 /* zh-Hans */,
+				EA143E2D21128A1B00543E17 /* ja */,
+				EA143E3B21128A7400543E17 /* de */,
 			);
 			name = Header.storyboard;
 			sourceTree = "<group>";
@@ -1585,6 +1624,8 @@
 				EA388D0F2106A2E50026C0C0 /* tr */,
 				EA143DCF210A846100543E17 /* pt-BR */,
 				EA143DDE210A846E00543E17 /* zh-Hans */,
+				EA143E3121128A1B00543E17 /* ja */,
+				EA143E3F21128A7400543E17 /* de */,
 			);
 			name = Effects.storyboard;
 			sourceTree = "<group>";
@@ -1611,6 +1652,8 @@
 				EA388D162106A2E60026C0C0 /* tr */,
 				EA143DD6210A846100543E17 /* pt-BR */,
 				EA143DE5210A846F00543E17 /* zh-Hans */,
+				EA143E3721128A1B00543E17 /* ja */,
+				EA143E4421128A7400543E17 /* de */,
 			);
 			name = Tunings.storyboard;
 			sourceTree = "<group>";
@@ -1624,6 +1667,8 @@
 				EA388D152106A2E60026C0C0 /* tr */,
 				EA143DD5210A846100543E17 /* pt-BR */,
 				EA143DE4210A846F00543E17 /* zh-Hans */,
+				EA143E2E21128A1B00543E17 /* ja */,
+				EA143E3D21128A7400543E17 /* de */,
 			);
 			name = TouchPad.storyboard;
 			sourceTree = "<group>";
@@ -1637,6 +1682,8 @@
 				EA388D142106A2E60026C0C0 /* tr */,
 				EA143DD4210A846100543E17 /* pt-BR */,
 				EA143DE3210A846F00543E17 /* zh-Hans */,
+				EA143E3521128A1B00543E17 /* ja */,
+				EA143E4221128A7400543E17 /* de */,
 			);
 			name = Sequencer.storyboard;
 			sourceTree = "<group>";
@@ -1650,6 +1697,8 @@
 				EA388D102106A2E50026C0C0 /* tr */,
 				EA143DD0210A846100543E17 /* pt-BR */,
 				EA143DDF210A846E00543E17 /* zh-Hans */,
+				EA143E3021128A1B00543E17 /* ja */,
+				EA143E3E21128A7400543E17 /* de */,
 			);
 			name = Envelopes.storyboard;
 			sourceTree = "<group>";
@@ -1663,6 +1712,8 @@
 				EA388D112106A2E50026C0C0 /* tr */,
 				EA143DD1210A846100543E17 /* pt-BR */,
 				EA143DE0210A846E00543E17 /* zh-Hans */,
+				EA143E3321128A1B00543E17 /* ja */,
+				EA143E4021128A7400543E17 /* de */,
 			);
 			name = Generators.storyboard;
 			sourceTree = "<group>";
@@ -1676,6 +1727,7 @@
 				EA2354D1210879AC0018E035 /* en */,
 				EA143DCD210A846100543E17 /* pt-BR */,
 				EA143DDC210A846E00543E17 /* zh-Hans */,
+				EA143E3221128A1B00543E17 /* ja */,
 			);
 			name = MailingList.storyboard;
 			sourceTree = "<group>";
@@ -1703,6 +1755,8 @@
 				EA143DC8210A843500543E17 /* fr */,
 				EA143DD9210A846200543E17 /* pt-BR */,
 				EA143DE8210A846F00543E17 /* zh-Hans */,
+				EA143E2A21128A1B00543E17 /* ja */,
+				EA143E3821128A7400543E17 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1716,6 +1770,8 @@
 				EA143DCA210A844400543E17 /* fr */,
 				EA143DD8210A846100543E17 /* pt-BR */,
 				EA143DE7210A846F00543E17 /* zh-Hans */,
+				EA143E2B21128A1B00543E17 /* ja */,
+				EA143E3921128A7400543E17 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1729,6 +1785,8 @@
 				EA2354D421087C500018E035 /* en */,
 				EA143DD7210A846100543E17 /* pt-BR */,
 				EA143DE6210A846F00543E17 /* zh-Hans */,
+				EA143E2C21128A1B00543E17 /* ja */,
+				EA143E3A21128A7400543E17 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

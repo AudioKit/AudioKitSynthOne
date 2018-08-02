@@ -109,6 +109,9 @@
 /* Alert Title: Allows On Mode */
 "Don't Sleep Mode" = "Não durma o modo";
 
+/* Envelope Panel Abbreviation */
+"ENV" = "ENV";
+
 /* LFO [low frequency oscillator] Filter Envelope */
 "Filter Env LFO ‣ \(lfoSource!)" = "Filtrar Env LFO \(lfoSource!)";
 
@@ -126,6 +129,9 @@
 
 /* FM Oscillator Volume */
 "FM Volume: \(value.percentageString)" = "Volume de FM: \(value.percentageString)";
+
+/* FX/LFO Panel Abbreviation */
+"FX" = "FX";
 
 /* Mono Glide Amount */
 "Glide: \(value.decimalString)" = "Glide: \(value.decimalString)";
@@ -153,6 +159,9 @@
 
 /* Low Pass Filter */
 "Low Pass" = "Passa baixa";
+
+/* Main Panel Abbreviation */
+"MAIN" = "MAIN";
 
 /* Master Volume */
 "Master Volume: \(value.percentageString)" = "Volume mestre: \(value.percentageString)";
@@ -187,6 +196,9 @@
 /* LFO [low frequency oscillator] Oscillator Mix */
 "Osc Mix LFO ‣ \(lfoSource!)" = "Mix de OSC LFO ‣ \(lfoSource!)";
 
+/* TouchPad Panel Abbreviation */
+"PAD" = "PAD";
+
 /* Phaser Feedback */
 "Phaser Feedback: \(value.decimalString)" = "Feedback do Phaser: \(value.decimalString)";
 
@@ -200,46 +212,49 @@
 "Phaser Rate: \(value.decimalString)" = "Taxa Phaser: \(value.decimalString)";
 
 /* LFO [low frequency oscillator] Pitch */
-"Pitch LFO ‣ \(lfoSource!)" = "Pitch LFO ‣ \(lfoSource!)";
+"Pitch LFO ‣ \(lfoSource!)" = "Passo LFO ‣ \(lfoSource!)";
 
 /* LFO [low frequency oscillator] Resonance */
-"Resonance LFO ‣ \(lfoSource!)" = "Resonance LFO ‣ \(lfoSource!)";
+"Resonance LFO ‣ \(lfoSource!)" = "Ressonância LFO ‣ \(lfoSource!)";
 
 /* Reverb Low-cut/Highpass */
-"Reverb Low-cut: \(value.decimalString) Hz" = "Reverb Low-cut: \(value.decimalString) Hz";
+"Reverb Low-cut: \(value.decimalString) Hz" = "Reverb decotado: \(value.decimalString) Hz";
 
 /* LFO [low frequency oscillator] Reverb Mix */
-"Reverb Mix LFO ‣ \(lfoSource!)" = "Reverb Mix LFO ‣ \(lfoSource!)";
+"Reverb Mix LFO ‣ \(lfoSource!)" = "Reverb misturar LFO ‣ \(lfoSource!)";
 
 /* Reverb Mix */
-"Reverb Mix: \(value.percentageString)" = "Reverb Mix: \(value.percentageString)";
+"Reverb Mix: \(value.percentageString)" = "Mix de reverb: \(value.percentageString)";
 
 /* Reverb Off */
-"Reverb Off" = "Reverb Off";
+"Reverb Off" = "Reverb fora";
 
 /* Reverb On */
-"Reverb On" = "Reverb On";
+"Reverb On" = "Reverb na";
 
 /* Reverb Size */
-"Reverb Size: \(value.percentageString)" = "Reverb Size: \(value.percentageString)";
+"Reverb Size: \(value.percentageString)" = "Reverb tamanho: \(value.percentageString)";
 
 /* Bitcrush Sample Rate */
-"Sample Rate: \(Int(value)) Hz" = "Sample Rate: \(Int(value)) Hz";
+"Sample Rate: \(Int(value)) Hz" = "Taxa de amostragem: \(Int(value)) Hz";
+
+/* Arp/Sequencer Panel Abbreviation */
+"SEQ" = "SEQ";
 
 /* Sequencer Mode On */
-"Sequencer Mode" = "Sequencer Mode";
+"Sequencer Mode" = "Modo do seqüenciador";
 
 /* Alert Title: Allow notifications */
-"Stay informed!" = "Stay informed!";
+"Stay informed!" = "Mantenha-se informado!";
 
 /* Sub Oscillator Volume */
-"Sub Osc Volume: \(value.decimalString)" = "Sub Osc Volume: \(value.decimalString)";
+"Sub Osc Volume: \(value.decimalString)" = "Volume Sub Osc: \(value.decimalString)";
 
 /* Tempo (Beats Per Minute) */
-"Tempo: \(value) BPM" = "Tempo: \(value) BPM";
+"Tempo: \(value) BPM" = "Ritmo: \(value) BPM";
 
 /* Alert Title: Rate App */
-"Thank you" = "Thank you";
+"Thank you" = "Obrigado";
 
 /* Alert Message: Duplicate Bank Name */
 "There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly." = "There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.";
@@ -251,16 +266,19 @@
 "This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster" = "This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster";
 
 /* Alert Title: Too High */
-"Too High" = "Too High";
+"Too High" = "Muito alta";
 
 /* LFO [low frequency oscillator] Tremolo */
 "Tremolo LFO ‣ \(lfoSource!)" = "Tremolo LFO ‣ \(lfoSource!)";
 
+/* Tuning Panel Abbreviation */
+"TUNE" = "TUNE";
+
 /* MIDI Learn Instructions */
-"Twist knob on your MIDI Controller" = "Twist knob on your MIDI Controller";
+"Twist knob on your MIDI Controller" = "Botão Twist no seu controlador MIDI";
 
 /* Alert Message: Allow notifications */
-"We'll send Free updates, sounds, and apps. Allow notifications!" = "We'll send Free updates, sounds, and apps. Allow notifications!";
+"We'll send Free updates, sounds, and apps. Allow notifications!" = "Enviaremos atualizações, sons e aplicativos gratuitos. Permitir notificações!";
 
 /* Stereo Widen */
 "Widen: \(value.decimalString)" = "Widen: \(value.decimalString)";

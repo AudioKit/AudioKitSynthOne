@@ -105,9 +105,9 @@ If you use any code, it would be great if you gave this project some credit or a
 
 If you make an app with this code, please let us know! We think you're awesome, and would love to hear from you and/or feature your app.
 
-IMPORTANT: You must change the graphics if you upload this to the app store.
+*IMPORTANT:* You must change the graphics if you upload this to the app store.
 
-IMPORTANT: You must fill in your own private API keys for AudioBus and others in the Private.swift file to match your own project. The default placeholder values are not suitable for distribution.
+*IMPORTANT:* You must fill in your own private API keys for AudioBus and others in the Private.swift file to match your own project. The default placeholder values are not suitable for distribution.
 
 ## Contributors
 

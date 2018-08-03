@@ -33,7 +33,7 @@ You can then commit and push the updated `en.xliff` file to GitHub on the `devel
 
 Each language is stored in a `locale.xliff` file exported by CrowdIn as new translations are submitted. These updates are sent in realtime on the `l10n_develop` branch only, and a special pull request is also open automatically.
 
-For each of the supportef locales, new strings need to be imported in the project from the corresponding XLIFF file. The process is as follows:
+For each of the supported locales, new strings need to be imported in the project from the corresponding XLIFF file. The process is as follows:
 
 - In Xcode, select the AudioKitSynthOne project at the root of the tree.
 - Go to the `Editor` menu and select `Import Localizations...`

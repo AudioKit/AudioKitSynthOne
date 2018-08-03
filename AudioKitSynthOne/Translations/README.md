@@ -14,14 +14,14 @@ As the database of strings is updated, translations are automatically added to t
 
 ## Updating the Database of Strings
 
-The original English strings from the project are extracted by Xcode as an XLIFF file, `en.xliff`. Xcode automatically gathers translatable strings from the project's storyboards, as well as from code where they are marked by the `NSLocalizedString()` call in Swift or Objective-C.
+The original English strings from the project are extracted by Xcode as an XLIFF file, [en.xliff](en.xliff). Xcode automatically gathers translatable strings from the project's storyboards, as well as from code where they are marked by [NSLocalizedString()](https://developer.apple.com/documentation/foundation/nslocalizedstring) calls in Swift or Objective-C.
 
 To update these strings the procedure is the following:
 
 - In Xcode, make sure to select the AudioKitSynthOne project at the root of the tree. The localization options will not show in the menu otherwise!
 - Go to the `Editor` menu and select `Export for Localization...`
 - In the file selection window, change to include the Development Language Only.
-- Save as Translations inside the AudioKitSynthOne directory.
+- Save as Translations inside the `AudioKitSynthOne` directory.
 
 ![The Export Dialog](images/export.jpg)
 

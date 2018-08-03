@@ -45,7 +45,7 @@ Beginner? We have two additional code examples. There is a simple [Swift Synth](
 
 ### Ableton Link Support
 
-We now include optional support for the (Ableton Link)[https://www.ableton.com/en/link/] SDK. Because files from this private SDK are required to compile this code,
+We now include optional support for the [Ableton Link](https://www.ableton.com/en/link/) SDK. Because files from this private SDK are required to compile this code,
 it is turned off by default.
 
 You may enable this code by copying the SDK to your copy of Synth One and setting the `ABLETON_ENABLED` user setting to 1 in the project settings in Xcode.

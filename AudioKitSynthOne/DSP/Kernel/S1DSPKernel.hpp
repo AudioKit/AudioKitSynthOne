@@ -182,8 +182,13 @@ public:
     PlayingNotes aePlayingNotes;
     
     HeldNotes aeHeldNotes;
-    
+
+    //TODO:make ft_array 3d array
     sp_ftbl *ft_array[S1_NUM_FTABLES];
+    // i.e.:
+    //sp_ftbl *ft_array[S1_NUM_FTABLES][S1_NUM_WAVETABLES];
+    //float   *ft_frequencyBand[S1_NUM_WAVETABLES]
+    //TODO: production wavetables as first, generic "safe" 1-harmonic for nyquist assumption implemented by oscillator
 
     sp_ftbl *sine;
     

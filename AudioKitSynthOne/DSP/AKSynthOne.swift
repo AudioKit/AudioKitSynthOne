@@ -153,8 +153,24 @@ import AudioKit
     /// Initialize the synth with defaults
     public convenience override init() {
 
+//        DispatchQueue.global(qos: .background).async {
+//            let analysisPitch = AKTable.harmonicPitchRange()
+//            AKLog("harmonicPitchRange:\(analysisPitch)")
+//
+//            let analysisFrequency = AKTable.harmonicFrequencyRange(wavetableCount: 10)
+//            AKLog("harmonicFrequencyRange:\(analysisFrequency)")
+//
+//            let analysisFrequency00 = AKTable.harmonicFrequencyRange(f0: 65.40639132515, f1: 9807, wavetableCount: 10)
+//            AKLog("harmonicFrequencyRange:\(analysisFrequency00)")
+//        }
+
+        let printStats = {(wt: AKTable) -> Void in
+            let s = wt.minMax()
+            AKLog("min:\(s.0), max:\(s.1), abs:\(s.2)")
+        }
+        
         let t0 = Date().timeIntervalSinceReferenceDate
-        AKLog("initializing oscillators: \(0)")
+        AKLog("initializing oscillators: \(t0)")
 
         //TODO: production code
         #if false
@@ -168,36 +184,115 @@ import AudioKit
             }
         }
 
+        let triangleFilename = String(format: "triangle_%.4d", 9_999)
+        let triangleTable = AKTable(.triangle)
+        printStats(triangleTable)
+        try! triangleTable.write(triangleFilename)
+
+        let squareFilename = String(format: "square_%.4d", 9_999)
+        let squareTable = AKTable(.square)
+        printStats(squareTable)
+        try! squareTable.write(squareFilename)
+
+        let pwmFilename = String(format: "pwm_%.4d", 9_999)
+        try! squareWithHighPWM.write(pwmFilename)
+        printStats(squareWithHighPWM)
+        try! squareWithHighPWM.write(pwmFilename)
+
+        let sawtoothFilename = String(format: "sawtooth_%.4d", 9_999)
+        let sawtoothTable = AKTable(.sawtooth)
+        printStats(sawtoothTable)
+        try! sawtoothTable.write(sawtoothFilename)
+
+        let t1 = Date().timeIntervalSinceReferenceDate - t0
+        AKLog("initializing 4 oscillators COMPLETE: \(t1)")
         self.init(waveformArray: [AKTable(.triangle), AKTable(.square), squareWithHighPWM, AKTable(.sawtooth)])
+
         #else
 
-        //TODO: antialias morphing oscillator
-//        let h = 1348 // 12nn 016.3515978312875  1348 harmonics
-        let h = 337 // 36  65.40639132515004 337
-//        let h =  168 // 48nn 130.81278265030022 168
-//        let h =   42 // 72nn 523.2511306011984  42
-//        let h = 21 // 84nn 1046.502261202394    21
+        let analysisPitch = AKTable.harmonicPitchRange()
+        AKLog("harmonicPitchRange:\(analysisPitch)\n")
 
-        let triangle = AKTable(.triangle)
-        triangle.triangle(numberOfHarmonics: h)
+        var triangles = [AKTable]()
+        var trianglesFrequency = [Double]()
+        var squares = [AKTable]()
+        var squaresFrequency = [Double]()
+        var pwms = [AKTable]()
+        var pwmsFrequency = [Double]()
+        var sawtooths = [AKTable]()
+        var sawtoothsFrequency = [Double]()
+        var validateTable = AKTable()
+        var msd: Float = 0
 
-        let square = AKTable(.square)
-        square.square(numberOfHarmonics: h)
+        for ap in analysisPitch {
+            let f = ap.0
+            let h = ap.1
+            AKLog("synthesizing 4 tables for f=\(f), h=\(h)\n")
 
-        let pwm = AKTable(.sine)
-        pwm.pwm(numberOfHarmonics: h, period: 1 / 8)
+            let triangle = AKTable(.zero)
+            let triangleFilename = String(format: "triangle_%.4d", h)
+            triangle.triangle(harmonicCount: h, clear: true)
+            triangle.normalize()
+            triangle.phase(offset: 0.25)
+            AKLog("\(triangleFilename)\n")
+            triangles.append(triangle)
+            trianglesFrequency.append(f)
+            try! triangle.write(triangleFilename)
+//            let turl = URL(string: triangleFilename)!
+//            validateTable = AKTable.fromAudioFile(turl)!
+//            msd = triangle.msd(t: validateTable)
+//            AKLog("TRIANGLE: validating table: write vs. read: msd = \(msd)")
 
-        let saw = AKTable(.sawtooth)
-        saw.saw(numberOfHarmonics: h)
+            let square = AKTable(.zero)
+            let squareFilename = String(format: "square_%.4d", h)
+            square.square(harmonicCount: h, clear: true)
+            square.normalize()
+            square.reverse()
+            AKLog("\(squareFilename)\n")
+            squares.append(square)
+            squaresFrequency.append(f)
+            try! square.write(squareFilename)
+//            let squrl = URL.init(string: squareFilename)!
+//            validateTable = AKTable.fromAudioFile(squrl)!
+//            msd = square.msd(t: validateTable)
+//            AKLog("SQUARE: validating table: write vs. read: msd = \(msd)")
 
-        self.init(waveformArray: [triangle, square, pwm, saw])
+            let pwm = AKTable(.zero)
+            let pwmFilename = String(format: "pwm_%.4d", h)
+            pwm.pwm(harmonicCount: h, period: 1 / 8)
+            pwm.normalize()
+            pwm.reverse()
+            pwm.invert()
+            AKLog("\(pwmFilename)\n")
+            pwms.append(pwm)
+            pwmsFrequency.append(f)
+            try! pwm.write(pwmFilename)
+//            let purl = URL.init(string: pwmFilename)!
+//            validateTable = AKTable.fromAudioFile(purl)!
+//            msd = pwm.msd(t: validateTable)
+//            AKLog("PWM: validating table: write vs. read: msd = \(msd)")
 
-//        var sine = AKTable(.sine)
-//        self.init(waveformArray: [sine, sine, sine, sine])
+            let sawtooth = AKTable(.zero)
+            let sawtoothFilename = String(format: "sawtooth_%.4d", h)
+            sawtooth.sawtooth(harmonicCount: h, clear: true)
+            sawtooth.normalize()
+            sawtooth.reverse()
+            AKLog("\(sawtoothFilename)\n")
+            sawtooths.append(sawtooth)
+            sawtoothsFrequency.append(f)
+            try! sawtooth.write(sawtoothFilename)
+//            let surl = URL.init(string: sawtoothFilename)!
+//            validateTable = AKTable.fromAudioFile(surl)!
+//            msd = sawtooth.msd(t: validateTable)
+//            AKLog("SAWTOOTH: validating table: write vs. read: msd = \(msd)")
+        }
         let t1 = Date().timeIntervalSinceReferenceDate - t0
-        AKLog("initializing #\(h) oscillators COMPLETE: \(t1)") // bring this back to the outside somehow
+        AKLog("Initializing #\(analysisPitch.count * 4) oscillators: COMPLETE IN SEC: \(t1)\n")
+        self.init(waveformArray: [triangles[0], squares[0], pwms[0], sawtooths[0]])
         #endif
 
+        let dd = NSTemporaryDirectory()
+        AKLog("Files written to \(dd)\n")
     }
 
     /// Initialize this synth

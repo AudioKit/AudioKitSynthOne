@@ -9,11 +9,13 @@
 #import "S1DSPKernel.hpp"
 #import "S1NoteState.hpp"
 
+//TODO:make ft_array 3d array
 void S1DSPKernel::setupWaveform(uint32_t waveform, uint32_t size) {
     tbl_size = size;
     sp_ftbl_create(sp, &ft_array[waveform], tbl_size);
 }
 
+//TODO:make ft_array 3d array
 void S1DSPKernel::setWaveformValue(uint32_t waveform, uint32_t index, float value) {
     ft_array[waveform]->tbl[index] = value;
 }

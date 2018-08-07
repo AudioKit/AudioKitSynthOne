@@ -188,11 +188,30 @@ extension PresetsViewController {
 
         // Remove existing presets
         // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = ["DJ Puzzle", "JEC", "Sound of Izrael"]
+        let banksToUpdate = ["Sound of Izrael"]
         for bankName in banksToUpdate {
-            presets = presets.filter { $0.bank != bankName }
-            loadFactoryPresets(bankName)
-            saveAllPresetsIn(bankName)
+            
+            let fileName = bankName + ".json"
+            if let filePath = Bundle.main.path(forResource: fileName, ofType: "json") {
+                guard let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
+                    else { return }
+                let presetsJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                guard let jsonArray = presetsJSON as? [Any] else { return }
+                
+                let bundlePresets = Preset.parseDataToPresets(jsonArray: jsonArray)
+                
+                var newPresets: [Preset] = []
+                bundlePresets.forEach { preset in
+                    // Check if preset name exists
+                    if !presets.contains(where: { $0.name == preset.name }) {
+                        newPresets.append(preset)
+                    }
+                }
+                
+                presets = presets + newPresets
+                saveAllPresetsIn(bankName)
+            }
+
         }
 
         // If the bankName is not in conductorBanks, add bank to conductor banks

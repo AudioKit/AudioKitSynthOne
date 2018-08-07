@@ -191,8 +191,7 @@ extension PresetsViewController {
         let banksToUpdate = ["Sound of Izrael"]
         for bankName in banksToUpdate {
             
-            let fileName = bankName + ".json"
-            if let filePath = Bundle.main.path(forResource: fileName, ofType: "json") {
+             if let filePath = Bundle.main.path(forResource: bankName, ofType: "json") {
                 guard let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
                     else { return }
                 let presetsJSON = try? JSONSerialization.jsonObject(with: data, options: [])

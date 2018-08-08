@@ -327,7 +327,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="DCO Mix: \(Int(value)) detune">
         <source>DCO Mix: \(Int(value)) detune</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="tr" state="translated">DCO Mix: \ (Int (değer)) cüce</target>
+        <target xml:lang="tr" state="translated">DCO Mix: \(Int(value)) cüce</target>
+        <alt-trans>
+          <target xml:lang="tr">DCO Mix: \ (Int (değer)) cüce</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Decay LFO ‣ \(lfoSource!)">
         <source>Decay LFO ‣ \(lfoSource!)</source>
@@ -400,17 +403,26 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="FM LFO ‣ \(lfoSource!)">
         <source>FM LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] FM Modulation</note>
-        <target xml:lang="tr" state="translated">FM LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="tr" state="translated">FM LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="tr">FM LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="FM Mod: \(value.percentageString)">
         <source>FM Mod: \(value.percentageString)</source>
         <note>FM Modulation Amount</note>
-        <target xml:lang="tr" state="translated">FM Mod: \ (değer.percentageString)</target>
+        <target xml:lang="tr" state="translated">FM Mod: \(değer.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="tr">FM Mod: \ (değer.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="FM Volume: \(value.percentageString)">
         <source>FM Volume: \(value.percentageString)</source>
         <note>FM Oscillator Volume</note>
-        <target xml:lang="tr" state="translated">FM Ses Düzeyi: \ (value.percentageString)</target>
+        <target xml:lang="tr" state="translated">FM Ses Düzeyi: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="tr">FM Ses Düzeyi: \ (value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="FX">
         <source>FX</source>
@@ -420,12 +432,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Filter Env LFO ‣ \(lfoSource!)">
         <source>Filter Env LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Filter Envelope</note>
-        <target xml:lang="tr" state="translated">Filtre Env LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Filtre Env LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="tr">Filtre Env LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Filter Envelope: \(value.percentageString)">
         <source>Filter Envelope: \(value.percentageString)</source>
         <note>Filter Envelope Amount</note>
-        <target xml:lang="tr" state="translated">Filtre Zarfı: \ (value.percentageString)</target>
+        <target xml:lang="tr" state="translated">Filtre Zarfı: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Filtre Zarfı: \ (value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Filter Type: \(ftype)">
         <source>Filter Type: \(ftype)</source>
@@ -435,7 +453,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Glide: \(value.decimalString)">
         <source>Glide: \(value.decimalString)</source>
         <note>Mono Glide Amount</note>
-        <target xml:lang="tr" state="translated">Glide: \ (value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Glide: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Glide: \ (value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="High Pass">
         <source>High Pass</source>
@@ -450,27 +471,45 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="LFO 2 Amp: \(value.percentageString)">
         <source>LFO 2 Amp: \(value.percentageString)</source>
         <note>LFO 2 [low frequency oscillator] Amplitude</note>
-        <target xml:lang="tr" state="translated">LFO 2 Amp: \ (value.percentageString)</target>
+        <target xml:lang="tr" state="translated">LFO 2 Amp: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="tr">LFO 2 Amp: \ (value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
-        <target xml:lang="tr" state="translated">LFO 2 Oranı: \ (Rate.fromFrequency (değer)), \ (value.decimalString) Hz</target>
+        <target xml:lang="tr" state="translated">LFO 2 Oranı: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+        <alt-trans>
+          <target xml:lang="tr">LFO 2 Oranı: \(Rate.fromFrequency(değer)), \(value.decimalString) Hz</target>
+        </alt-trans>
+        <alt-trans>
+          <target xml:lang="tr">LFO 2 Oranı: \ (Rate.fromFrequency (değer)), \ (value.decimalString) Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
-        <target xml:lang="tr" state="translated">LFO 2 Oranı: \ (value.decimalString) Hz</target>
+        <target xml:lang="tr" state="translated">LFO 2 Oranı: \(value.decimalString) Hz</target>
+        <alt-trans>
+          <target xml:lang="tr">LFO 2 Oranı: \ (value.decimalString) Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate tempo-syncd</note>
-        <target xml:lang="tr" state="translated">LFO1 Hızı: \ (Rate.fromFrequency (s.getSynthParameter (.lfo1Rate))), LFO1 Amp: \ (s.getSynthParameter (.lfo1Amplitude) .percentageString)</target>
+        <target xml:lang="tr" state="translated">LFO1 Hızı: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <alt-trans>
+          <target xml:lang="tr">LFO1 Hızı: \ (Rate.fromFrequency (s.getSynthParameter (.lfo1Rate))), LFO1 Amp: \ (s.getSynthParameter (.lfo1Amplitude) .percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate</note>
-        <target xml:lang="tr" state="translated">LFO1 Hızı: \ (s.getSynthParameter (.lfo1Rate) .decimalString) Hz, LFO1 Amp: \ (s.getSynthParameter (.lfo1Amplitude) .percentageString)</target>
+        <target xml:lang="tr" state="translated">LFO1 Hızı: \(s.getSynthParameter(.lfo1Rate).decimalString) Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <alt-trans>
+          <target xml:lang="tr">LFO1 Hızı: \ (s.getSynthParameter (.lfo1Rate) .decimalString) Hz, LFO1 Amp: \ (s.getSynthParameter (.lfo1Amplitude) .percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Low Pass">
         <source>Low Pass</source>
@@ -505,7 +544,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Master Volume: \(value.percentageString)">
         <source>Master Volume: \(value.percentageString)</source>
         <note>Master Volume</note>
-        <target xml:lang="tr" state="translated">Ana Birim: \ (value.percentageString)</target>
+        <target xml:lang="tr" state="translated">Ana Birim: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Ana Birim: \ (value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Midi Panic">
         <source>Midi Panic</source>
@@ -515,12 +557,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Noise LFO ‣ \(lfoSource!)">
         <source>Noise LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Noise</note>
-        <target xml:lang="tr" state="translated">Gürültü LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Gürültü LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="tr">Gürültü LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Noise Volume: \((value * 4).percentageString)">
         <source>Noise Volume: \((value * 4).percentageString)</source>
         <note>Noise Volume</note>
-        <target xml:lang="tr" state="translated">Gürültü Hacmi: \ ((value * 4) .percentageString)</target>
+        <target xml:lang="tr" state="translated">Gürültü Hacmi: \((value*4).percentageString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Gürültü Hacmi: \ ((value * 4) .percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Notice">
         <source>Notice</source>
@@ -535,7 +583,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Osc Mix LFO ‣ \(lfoSource!)">
         <source>Osc Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Oscillator Mix</note>
-        <target xml:lang="tr" state="translated">Osc Mix LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Osc Mix LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="tr">Osc Mix LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="PAD">
         <source>PAD</source>
@@ -545,47 +596,77 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Phaser Feedback: \(value.decimalString)">
         <source>Phaser Feedback: \(value.decimalString)</source>
         <note>Phaser Feedback</note>
-        <target xml:lang="tr" state="translated">Phaser Feedback: \ (value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Phaser Feedback: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Phaser Feedback: \ (value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Mix: \(value.decimalString)">
         <source>Phaser Mix: \(value.decimalString)</source>
         <note>Phaser Mix</note>
-        <target xml:lang="tr" state="translated">Phaser Mix: \ (value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Phaser Mix: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Phaser Mix: \ (value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Notch Width: \(value.decimalString)">
         <source>Phaser Notch Width: \(value.decimalString)</source>
         <note>Phaser Notch Width</note>
-        <target xml:lang="tr" state="translated">Phaser Notch Genişliği: \ (value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Phaser Notch Genişliği: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Phaser Notch Genişliği: \ (value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Rate: \(value.decimalString)">
         <source>Phaser Rate: \(value.decimalString)</source>
         <note>Phaser Rate</note>
-        <target xml:lang="tr" state="translated">Faz Hızı: \ (value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Faz Hızı: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Faz Hızı: \ (value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Pitch LFO ‣ \(lfoSource!)">
         <source>Pitch LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Pitch</note>
-        <target xml:lang="tr" state="translated">Pitch LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Pitch LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="tr">Pitch LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Resonance LFO ‣ \(lfoSource!)">
         <source>Resonance LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Resonance</note>
-        <target xml:lang="tr" state="translated">Rezonans LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Rezonans LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="tr">Rezonans LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Low-cut: \(value.decimalString) Hz">
         <source>Reverb Low-cut: \(value.decimalString) Hz</source>
         <note>Reverb Low-cut/Highpass</note>
-        <target xml:lang="tr" state="translated">Yankı Düşük kesim: \ (value.decimalString) Hz</target>
+        <target xml:lang="tr" state="translated">Yankı Düşük kesim: \(value.decimalString) Hz</target>
+        <alt-trans>
+          <target xml:lang="tr">Yankı Düşük kesim: \ (value.decimalString) Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Mix LFO ‣ \(lfoSource!)">
         <source>Reverb Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Reverb Mix</note>
-        <target xml:lang="tr" state="translated">Reverb Mix LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Reverb Mix LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="tr">Reverb Mix LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Mix: \(value.percentageString)">
         <source>Reverb Mix: \(value.percentageString)</source>
         <note>Reverb Mix</note>
-        <target xml:lang="tr" state="translated">Reverb Mix: \ (değer.percentageString)</target>
+        <target xml:lang="tr" state="translated">Reverb Mix: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Reverb Mix: \(değer.percentageString)</target>
+        </alt-trans>
+        <alt-trans>
+          <target xml:lang="tr">Reverb Mix: \ (değer.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Off">
         <source>Reverb Off</source>
@@ -600,7 +681,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Reverb Size: \(value.percentageString)">
         <source>Reverb Size: \(value.percentageString)</source>
         <note>Reverb Size</note>
-        <target xml:lang="tr" state="translated">Yankı Boyutu: \ (value.percentageString)</target>
+        <target xml:lang="tr" state="translated">Yankı Boyutu: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Yankı Boyutu: \ (value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="SEQ">
         <source>SEQ</source>
@@ -610,7 +694,13 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Sample Rate: \(Int(value)) Hz">
         <source>Sample Rate: \(Int(value)) Hz</source>
         <note>Bitcrush Sample Rate</note>
-        <target xml:lang="tr" state="translated">Örnek Oranı: \ (Int (değer)) Hz</target>
+        <target xml:lang="tr" state="translated">Örnek Oranı: \(Int(value)) Hz</target>
+        <alt-trans>
+          <target xml:lang="tr">Örnek Oranı: \(Int(değer)) Hz</target>
+        </alt-trans>
+        <alt-trans>
+          <target xml:lang="tr">Örnek Oranı: \ (Int (değer)) Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Sequencer Mode">
         <source>Sequencer Mode</source>
@@ -625,7 +715,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Sub Osc Volume: \(value.decimalString)">
         <source>Sub Osc Volume: \(value.decimalString)</source>
         <note>Sub Oscillator Volume</note>
-        <target xml:lang="tr" state="translated">Sub Osc Volume: \ (value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Sub Osc Volume: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Sub Osc Volume: \ (value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="TUNE">
         <source>TUNE</source>
@@ -645,7 +738,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
         <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>
         <note>Alert Message: Duplicate Bank Name</note>
-        <target xml:lang="tr" state="translated">Zaten\(bankName)olan bir banka var. Lütfen işleri düzgün bir şekilde sürdürmek için bunlardan birini yeniden adlandırın.</target>
+        <target xml:lang="tr" state="translated">Zaten \(bankName) olan bir banka var. Lütfen işleri düzgün bir şekilde sürdürmek için bunlardan birini yeniden adlandırın.</target>
+        <alt-trans>
+          <target xml:lang="tr">Zaten\(bankName)olan bir banka var. Lütfen işleri düzgün bir şekilde sürdürmek için bunlardan birini yeniden adlandırın.</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
         <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
@@ -665,7 +761,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Tremolo LFO ‣ \(lfoSource!)">
         <source>Tremolo LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Tremolo</note>
-        <target xml:lang="tr" state="translated">Tremolo LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="tr" state="translated">Tremolo LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="tr">Tremolo LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Twist knob on your MIDI Controller">
         <source>Twist knob on your MIDI Controller</source>
@@ -680,7 +779,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Widen: \(value.decimalString)">
         <source>Widen: \(value.decimalString)</source>
         <note>Stereo Widen</note>
-        <target xml:lang="tr" state="translated">Widen: \ (value.decimalString)</target>
+        <target xml:lang="tr" state="translated">Widen: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="tr">Widen: \ (value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
     </body>
   </file>

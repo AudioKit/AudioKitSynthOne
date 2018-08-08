@@ -64,25 +64,25 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Class = "UILabel"; text = "PLEASE send BUG REPORTS:"; ObjectID = "SJq-it-GbF";</note>
         <target xml:lang="fr" state="translated">SVP envoyez des rapports de BOGUES :</target>
       </trans-unit>
-      <trans-unit id="VE1-2S-HqW.normalTitle">
+      <trans-unit id="VE1-2S-HqW.normalTitle" approved="yes">
         <source>Be kind 👍🏼 Review this app!  </source>
         <note>Class = "UIButton"; normalTitle = "Be kind 👍🏼 Review this app!  "; ObjectID = "VE1-2S-HqW";</note>
-        <target xml:lang="fr" state="translated">Soyez gentil 👍🏼 Passez en revue cette appli !  </target>
+        <target xml:lang="fr">Soyez gentil 👍🏼 Passez en revue cette appli !  </target>
       </trans-unit>
-      <trans-unit id="Whk-km-WmE.normalTitle">
+      <trans-unit id="Whk-km-WmE.normalTitle" approved="yes">
         <source>DONE</source>
         <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "Whk-km-WmE";</note>
-        <target xml:lang="fr" state="translated">TERMINÉ</target>
+        <target xml:lang="fr">TERMINÉ</target>
       </trans-unit>
       <trans-unit id="dll-2U-dYG.normalTitle">
         <source>AudioKit Github</source>
         <note>Class = "UIButton"; normalTitle = "AudioKit Github"; ObjectID = "dll-2U-dYG";</note>
         <target xml:lang="fr" state="translated">AudioKit sur Github</target>
       </trans-unit>
-      <trans-unit id="etI-kL-v1E.normalTitle">
+      <trans-unit id="etI-kL-v1E.normalTitle" approved="yes">
         <source>hello@audiokitpro.com</source>
         <note>Class = "UIButton"; normalTitle = "hello@audiokitpro.com"; ObjectID = "etI-kL-v1E";</note>
-        <target xml:lang="fr" state="translated">hello@audiokitpro.com</target>
+        <target xml:lang="fr">hello@audiokitpro.com</target>
       </trans-unit>
       <trans-unit id="g34-af-uEZ.text">
         <source>FM PLAYER: CLASSIC DX</source>

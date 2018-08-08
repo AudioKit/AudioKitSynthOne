@@ -190,15 +190,15 @@ extension PresetsViewController {
         // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
         let banksToUpdate = ["Sound of Izrael"]
         for bankName in banksToUpdate {
-            
+
              if let filePath = Bundle.main.path(forResource: bankName, ofType: "json") {
                 guard let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
                     else { return }
                 let presetsJSON = try? JSONSerialization.jsonObject(with: data, options: [])
                 guard let jsonArray = presetsJSON as? [Any] else { return }
-                
+
                 let bundlePresets = Preset.parseDataToPresets(jsonArray: jsonArray)
-                
+
                 var newPresets: [Preset] = []
                 bundlePresets.forEach { preset in
                     // Check if preset name exists
@@ -206,8 +206,8 @@ extension PresetsViewController {
                         newPresets.append(preset)
                     }
                 }
-                
-                presets = presets + newPresets
+
+                presets += newPresets
                 saveAllPresetsIn(bankName)
             }
 

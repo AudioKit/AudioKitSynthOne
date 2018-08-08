@@ -112,7 +112,7 @@ public class AKTouchPadView: UIView {
                                                                    taper: self.horizontalTaper)
                 self.verticalValue = Double(self.y).denormalized(to: self.verticalRange, taper: self.verticalTaper)
                 self.completionHandler(self.horizontalValue, self.verticalValue, true, true)
-        })
+            })
     }
 
     func updateTouchPoint(_ newX: Double, _ newY: Double) {

@@ -107,10 +107,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Class = "UIButton"; normalTitle = "Get FREE in App Store!"; ObjectID = "oBP-Wz-rvL";</note>
         <target xml:lang="es" state="translated">¡Obtén GRATIS en App Store!</target>
       </trans-unit>
-      <trans-unit id="rad-NL-GFv.text">
+      <trans-unit id="rad-NL-GFv.text" approved="yes">
         <source>VIDEO</source>
         <note>Class = "UILabel"; text = "VIDEO"; ObjectID = "rad-NL-GFv";</note>
-        <target xml:lang="es" state="translated">VÍDEO</target>
+        <target xml:lang="es">VÍDEO</target>
       </trans-unit>
       <trans-unit id="s4D-if-VhP.text">
         <source>World's First Free &amp; Open-Source Pro iOS Synth</source>
@@ -139,10 +139,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Class = "UILabel"; text = "SETUP: Step 1 of 1"; ObjectID = "FJY-lQ-hbA";</note>
         <target xml:lang="es" state="translated">INSTALACIÓN: Paso 1 de 1</target>
       </trans-unit>
-      <trans-unit id="sAM-3i-F3Z.placeholder">
+      <trans-unit id="sAM-3i-F3Z.placeholder" approved="yes">
         <source>you@email.com</source>
         <note>Class = "UITextField"; placeholder = "you@email.com"; ObjectID = "sAM-3i-F3Z";</note>
-        <target xml:lang="es" state="translated">tu@email.com</target>
+        <target xml:lang="es">tu@email.com</target>
       </trans-unit>
       <trans-unit id="wbX-qe-bHr.normalTitle">
         <source>Get Presets!</source>
@@ -199,12 +199,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>AutoPan Rate tempo-syncd</note>
-        <target xml:lang="es" state="translated">Frecuencia de AutoPan: \ (Rate.fromFrequency (value)), \ (value.decimalString) Hz</target>
+        <target xml:lang="es" state="translated">Frecuencia de AutoPan: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+        <alt-trans>
+          <target xml:lang="es">Frecuencia de AutoPan: \ (Rate.fromFrequency (value)), \ (value.decimalString) Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(value.decimalString) Hz">
         <source>AutoPan Rate: \(value.decimalString) Hz</source>
         <note>AutoPan Rate</note>
-        <target xml:lang="es" state="translated">Frecuencia de AutoPan: \ (value.decimalString) Hz</target>
+        <target xml:lang="es" state="translated">Frecuencia de AutoPan: \(value.decimalString) Hz</target>
+        <alt-trans>
+          <target xml:lang="es">Frecuencia de AutoPan: \ (value.decimalString) Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="AutoPan Strength: \(value.percentageString)">
         <source>AutoPan Strength: \(value.percentageString)</source>
@@ -224,7 +230,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Bitcrush LFO ‣ \(lfoSource!)">
         <source>Bitcrush LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Bitcrush</note>
-        <target xml:lang="es" state="translated">Bitcrush LFO ‣ \ (lfoSource!)</target>
+        <target xml:lang="es" state="translated">Bitcrush LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="es">Bitcrush LFO ‣ \ (lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Congratulations! 🎉">
         <source>Congratulations! 🎉</source>

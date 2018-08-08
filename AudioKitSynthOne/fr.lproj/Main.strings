@@ -47,7 +47,7 @@
 "icQ-Ei-YHr.text" = "Gamme Octave:";
 
 /* Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[0] = "Cutoff"; ObjectID = "iLo-Gv-XoX"; */
-"iLo-Gv-XoX.segmentTitles[0]" = "Couper";
+"iLo-Gv-XoX.segmentTitles[0]" = "Coupure";
 
 /* Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[1] = "LFO 1"; ObjectID = "iLo-Gv-XoX"; */
 "iLo-Gv-XoX.segmentTitles[1]" = "LFO 1";
@@ -83,7 +83,7 @@
 "mUh-rB-ciV.text" = "Entrée MIDI";
 
 /* Class = "UILabel"; text = "Velocity Sensitive MIDI: "; ObjectID = "nzb-kU-xl1"; Note = "MIDI input velocity sensitive"; */
-"nzb-kU-xl1.text" = "Velocity Sensitive MIDI: ";
+"nzb-kU-xl1.text" = "Vélocité MIDI sensibles : ";
 
 /* Class = "UIButton"; normalTitle = "Hide"; ObjectID = "O7h-tw-s2d"; */
 "O7h-tw-s2d.normalTitle" = "Cacher";
@@ -119,13 +119,13 @@
 "VLa-3E-3Kt.text" = "Boutons d'apprentissage MIDI:";
 
 /* Class = "UIButton"; normalTitle = "MIDI Learn"; ObjectID = "VNg-MV-vHn"; Note = "Midi Learn button (keep this text as short as possible)"; */
-"VNg-MV-vHn.normalTitle" = "Apprentissage MIDI";
+"VNg-MV-vHn.normalTitle" = "Apprend MIDI";
 
 /* Class = "UILabel"; text = "MOD / PITCH WHEELS"; ObjectID = "WyC-Si-j7H"; */
 "WyC-Si-j7H.text" = "ROUES MOD / PITCH";
 
 /* Class = "UIButton"; normalTitle = "Link"; ObjectID = "xv6-Gi-7B2"; Note = "Ableton Link button (keep this text as short as possible)"; */
-"xv6-Gi-7B2.normalTitle" = "Lien";
+"xv6-Gi-7B2.normalTitle" = "Link";
 
 /* Class = "UIButton"; normalTitle = "Keys"; ObjectID = "Z4W-Gh-RiQ"; Note = "Keyboard Keys settings  button (keep this text as short as possible)"; */
 "Z4W-Gh-RiQ.normalTitle" = "Touches";

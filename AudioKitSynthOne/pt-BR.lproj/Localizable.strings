@@ -53,7 +53,7 @@
 "Cutoff LFO ‣ \(lfoSource!)" = "LFO corte ‣ \(lfoSource!)";
 
 /* Filter Cutoff & Resonance */
-"Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)";
+"Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "Corte: \(s.getSynthParameter(.cutoff).decimalString) Hz, ressonância: \(s.getSynthParameter(.resonance).decimalString)";
 
 /* Oscillator 1 Waveform Morph Index */
 "DCO 1 Morph: \(value.decimalString)" = "DCO 1 Morph: \(value.decimalString)";
@@ -152,10 +152,10 @@
 "LFO 2 Rate: \(value.decimalString) Hz" = "LFO 2 taxa: \(value.decimalString) Hz";
 
 /* LFO [low frequency oscillator] Amplitude & Rate tempo-syncd */
-"LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)";
+"LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1 Taxa: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)";
 
 /* LFO [low frequency oscillator] Amplitude & Rate */
-"LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)";
+"LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "Taxa LFO1: \(s.getSynthParameter (.lfo1Rate).decimalString) Hz, LFO1 Amp: \(s.getSynthParameter (.lfo1Amplitude).percentageString)";
 
 /* Low Pass Filter */
 "Low Pass" = "Passa baixa";
@@ -257,13 +257,13 @@
 "Thank you" = "Obrigado";
 
 /* Alert Message: Duplicate Bank Name */
-"There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly." = "There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.";
+"There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly." = "Já existe um banco com o nome '\(bankName)'. Por favor, renomeie um deles para manter as coisas funcionando sem problemas.";
 
 /* Alert Message: Rate App */
-"This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome." = "This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.";
+"This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome." = "Este é um aplicativo gratuito construído por voluntários. Por favor, ajudem com uma excelente classificação para que possamos fazer mais aplicativos! Obrigado por ser incrível.";
 
 /* Alert Message: Allows On Mode */
-"This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster" = "This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster";
+"This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster" = "Este modo é ótimo para tocar ao vivo. O áudio de fundo também permanecerá ligado. Nota: Ele vai usar mais energia e pode drenar sua bateria mais rápido";
 
 /* Alert Title: Too High */
 "Too High" = "Muito alta";

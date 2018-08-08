@@ -50,8 +50,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
         <source>Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
 Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </source>
         <note>Class = "UITextView"; text = "Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. \nPerfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. "; ObjectID = "IAn-lv-O7m";</note>
-        <target xml:lang="pt-BR" state="needs-translation">Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
-Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </target>
+        <target xml:lang="pt-BR" state="translated">Instrumento iPad gratuito premiado inspirado no DX7 &amp; DX7II. Perfeito com um teclado MIDI. Amostras de multi-camadas soando bonitas de Pianos Elétricos, Tines, Baixos, Chaves e sons de 80s. </target>
       </trans-unit>
       <trans-unit id="M92-zU-EUI.text">
         <source>REVIEW</source>
@@ -245,7 +244,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)">
         <source>Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</source>
         <note>Filter Cutoff &amp; Resonance</note>
-        <target xml:lang="pt-BR" state="needs-translation">Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</target>
+        <target xml:lang="pt-BR" state="translated">Corte: \(s.getSynthParameter(.cutoff).decimalString) Hz, ressonância: \(s.getSynthParameter(.resonance).decimalString)</target>
       </trans-unit>
       <trans-unit id="DCO 1 Morph: \(value.decimalString)">
         <source>DCO 1 Morph: \(value.decimalString)</source>
@@ -285,7 +284,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="DCO Mix: \(Int(value))">
         <source>DCO Mix: \(Int(value))</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="pt-BR" state="needs-translation">DCO Mix: \(Int(value))</target>
+        <target xml:lang="pt-BR" state="translated">DCO Mix: \(Int(value))</target>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value)) detune">
         <source>DCO Mix: \(Int(value)) detune</source>
@@ -340,7 +339,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="ENV">
         <source>ENV</source>
         <note>Envelope Panel Abbreviation</note>
-        <target xml:lang="pt-BR" state="needs-translation">ENV</target>
+        <target xml:lang="pt-BR" state="translated">ENV</target>
       </trans-unit>
       <trans-unit id="FM LFO ‣ \(lfoSource!)">
         <source>FM LFO ‣ \(lfoSource!)</source>
@@ -360,7 +359,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="FX">
         <source>FX</source>
         <note>FX/LFO Panel Abbreviation</note>
-        <target xml:lang="pt-BR" state="needs-translation">FX</target>
+        <target xml:lang="pt-BR" state="translated">FX</target>
       </trans-unit>
       <trans-unit id="Filter Env LFO ‣ \(lfoSource!)">
         <source>Filter Env LFO ‣ \(lfoSource!)</source>
@@ -410,12 +409,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate tempo-syncd</note>
-        <target xml:lang="pt-BR" state="needs-translation">LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <target xml:lang="pt-BR" state="translated">LFO1 Taxa: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate</note>
-        <target xml:lang="pt-BR" state="needs-translation">LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <target xml:lang="pt-BR" state="translated">Taxa LFO1: \(s.getSynthParameter (.lfo1Rate).decimalString) Hz, LFO1 Amp: \(s.getSynthParameter (.lfo1Amplitude).percentageString)</target>
       </trans-unit>
       <trans-unit id="Low Pass">
         <source>Low Pass</source>
@@ -425,7 +424,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="MAIN">
         <source>MAIN</source>
         <note>Main Panel Abbreviation</note>
-        <target xml:lang="pt-BR" state="needs-translation">MAIN</target>
+        <target xml:lang="pt-BR" state="translated">MAIN</target>
       </trans-unit>
       <trans-unit id="MIDI Learn Off">
         <source>MIDI Learn Off</source>
@@ -485,7 +484,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="PAD">
         <source>PAD</source>
         <note>TouchPad Panel Abbreviation</note>
-        <target xml:lang="pt-BR" state="needs-translation">PAD</target>
+        <target xml:lang="pt-BR" state="translated">PAD</target>
       </trans-unit>
       <trans-unit id="Phaser Feedback: \(value.decimalString)">
         <source>Phaser Feedback: \(value.decimalString)</source>
@@ -550,7 +549,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="SEQ">
         <source>SEQ</source>
         <note>Arp/Sequencer Panel Abbreviation</note>
-        <target xml:lang="pt-BR" state="needs-translation">SEQ</target>
+        <target xml:lang="pt-BR" state="translated">SEQ</target>
       </trans-unit>
       <trans-unit id="Sample Rate: \(Int(value)) Hz">
         <source>Sample Rate: \(Int(value)) Hz</source>
@@ -575,7 +574,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="TUNE">
         <source>TUNE</source>
         <note>Tuning Panel Abbreviation</note>
-        <target xml:lang="pt-BR" state="needs-translation">TUNE</target>
+        <target xml:lang="pt-BR" state="translated">TUNE</target>
       </trans-unit>
       <trans-unit id="Tempo: \(value) BPM">
         <source>Tempo: \(value) BPM</source>
@@ -590,17 +589,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
         <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>
         <note>Alert Message: Duplicate Bank Name</note>
-        <target xml:lang="pt-BR" state="needs-translation">There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</target>
+        <target xml:lang="pt-BR" state="translated">Já existe um banco com o nome '\(bankName)'. Por favor, renomeie um deles para manter as coisas funcionando sem problemas.</target>
       </trans-unit>
       <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
         <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
         <note>Alert Message: Rate App</note>
-        <target xml:lang="pt-BR" state="needs-translation">This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</target>
+        <target xml:lang="pt-BR" state="translated">Este é um aplicativo gratuito construído por voluntários. Por favor, ajudem com uma excelente classificação para que possamos fazer mais aplicativos! Obrigado por ser incrível.</target>
       </trans-unit>
       <trans-unit id="This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster">
         <source>This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</source>
         <note>Alert Message: Allows On Mode</note>
-        <target xml:lang="pt-BR" state="needs-translation">This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</target>
+        <target xml:lang="pt-BR" state="translated">Este modo é ótimo para tocar ao vivo. O áudio de fundo também permanecerá ligado. Nota: Ele vai usar mais energia e pode drenar sua bateria mais rápido</target>
       </trans-unit>
       <trans-unit id="Too High">
         <source>Too High</source>
@@ -1436,7 +1435,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="cs5-5n-k8U.normalTitle">
         <source>+</source>
         <note>Class = "UIButton"; normalTitle = "+"; ObjectID = "cs5-5n-k8U";</note>
-        <target xml:lang="pt-BR" state="needs-translation">+</target>
+        <target xml:lang="pt-BR" state="translated">+</target>
       </trans-unit>
       <trans-unit id="dSC-DB-ods.text">
         <source>Preset Name</source>

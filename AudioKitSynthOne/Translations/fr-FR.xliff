@@ -97,7 +97,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="oBP-Wz-rvL.normalTitle">
         <source>Get FREE in App Store!</source>
         <note>Class = "UIButton"; normalTitle = "Get FREE in App Store!"; ObjectID = "oBP-Wz-rvL";</note>
-        <target xml:lang="fr" state="translated">Obtenez GRATUITEMENT dans l'App Store!</target>
+        <target xml:lang="fr" state="translated">Obtenez GRATUITEMENT dans l'App Store !</target>
+        <alt-trans>
+          <target xml:lang="fr">Obtenez GRATUITEMENT dans l'App Store!</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="rad-NL-GFv.text">
         <source>VIDEO</source>
@@ -129,12 +132,15 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="FJY-lQ-hbA.text">
         <source>SETUP: Step 1 of 1</source>
         <note>Class = "UILabel"; text = "SETUP: Step 1 of 1"; ObjectID = "FJY-lQ-hbA";</note>
-        <target xml:lang="fr" state="translated">CONFIGURATION : Etape 1 de 1</target>
+        <target xml:lang="fr" state="translated">CONFIGURATION : Étape 1 de 1</target>
+        <alt-trans>
+          <target xml:lang="fr">CONFIGURATION : Etape 1 de 1</target>
+        </alt-trans>
       </trans-unit>
-      <trans-unit id="sAM-3i-F3Z.placeholder">
+      <trans-unit id="sAM-3i-F3Z.placeholder" approved="yes">
         <source>you@email.com</source>
         <note>Class = "UITextField"; placeholder = "you@email.com"; ObjectID = "sAM-3i-F3Z";</note>
-        <target xml:lang="fr" state="translated">votre@email.com</target>
+        <target xml:lang="fr">votre@email.com</target>
       </trans-unit>
       <trans-unit id="wbX-qe-bHr.normalTitle">
         <source>Get Presets!</source>
@@ -830,20 +836,20 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Class = "UILabel"; text = "Octave:"; ObjectID = "ACV-Ri-7nN";</note>
         <target xml:lang="fr" state="translated">Octave :</target>
       </trans-unit>
-      <trans-unit id="Ai9-6v-51K.segmentTitles[0]">
+      <trans-unit id="Ai9-6v-51K.segmentTitles[0]" approved="yes">
         <source>1</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[0] = "1"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="fr" state="translated">1</target>
+        <target xml:lang="fr">1</target>
       </trans-unit>
-      <trans-unit id="Ai9-6v-51K.segmentTitles[1]">
+      <trans-unit id="Ai9-6v-51K.segmentTitles[1]" approved="yes">
         <source>2</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[1] = "2"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="fr" state="translated">2</target>
+        <target xml:lang="fr">2</target>
       </trans-unit>
-      <trans-unit id="Ai9-6v-51K.segmentTitles[2]">
+      <trans-unit id="Ai9-6v-51K.segmentTitles[2]" approved="yes">
         <source>3</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[2] = "3"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="fr" state="translated">3</target>
+        <target xml:lang="fr">3</target>
       </trans-unit>
       <trans-unit id="C9j-zW-Pky.normalTitle">
         <source>Settings</source>
@@ -913,7 +919,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="VNg-MV-vHn.normalTitle">
         <source>MIDI Learn</source>
         <note>Class = "UIButton"; normalTitle = "MIDI Learn"; ObjectID = "VNg-MV-vHn"; Note = "Midi Learn button (keep this text as short as possible)";</note>
-        <target xml:lang="fr" state="translated">Apprentissage MIDI</target>
+        <target xml:lang="fr" state="translated">Apprend MIDI</target>
+        <alt-trans>
+          <target xml:lang="fr">Apprentissage MIDI</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="WyC-Si-j7H.text">
         <source>MOD / PITCH WHEELS</source>
@@ -948,7 +957,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="iLo-Gv-XoX.segmentTitles[0]">
         <source>Cutoff</source>
         <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[0] = "Cutoff"; ObjectID = "iLo-Gv-XoX";</note>
-        <target xml:lang="fr" state="translated">Couper</target>
+        <target xml:lang="fr" state="translated">Coupure</target>
+        <alt-trans>
+          <target xml:lang="fr">Couper</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="iLo-Gv-XoX.segmentTitles[1]">
         <source>LFO 1</source>
@@ -998,7 +1010,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="nzb-kU-xl1.text">
         <source>Velocity Sensitive MIDI: </source>
         <note>Class = "UILabel"; text = "Velocity Sensitive MIDI: "; ObjectID = "nzb-kU-xl1"; Note = "MIDI input velocity sensitive";</note>
-        <target xml:lang="fr" state="translated">Velocity Sensitive MIDI: </target>
+        <target xml:lang="fr" state="translated">Vélocité MIDI sensibles : </target>
+        <alt-trans>
+          <target xml:lang="fr">Velocity Sensitive MIDI: </target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="pI1-4q-bLo.text">
         <source>MIDI Input Channel: Omni</source>
@@ -1023,7 +1038,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="xv6-Gi-7B2.normalTitle">
         <source>Link</source>
         <note>Class = "UIButton"; normalTitle = "Link"; ObjectID = "xv6-Gi-7B2"; Note = "Ableton Link button (keep this text as short as possible)";</note>
-        <target xml:lang="fr" state="translated">Lien</target>
+        <target xml:lang="fr" state="translated">Link</target>
+        <alt-trans>
+          <target xml:lang="fr">Lien</target>
+        </alt-trans>
       </trans-unit>
     </body>
   </file>
@@ -1035,7 +1053,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="4x3-IO-hYz.text">
         <source>Master Compressor</source>
         <note>Class = "UILabel"; text = "Master Compressor"; ObjectID = "4x3-IO-hYz";</note>
-        <target xml:lang="fr" state="translated">Maître compresseur</target>
+        <target xml:lang="fr" state="translated">Compresseur Maître</target>
+        <alt-trans>
+          <target xml:lang="fr">Maître compresseur</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="8du-td-RcA.text">
         <source>Lock ArpRate</source>

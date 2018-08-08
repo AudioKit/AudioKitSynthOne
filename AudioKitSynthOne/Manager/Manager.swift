@@ -140,7 +140,7 @@ public class Manager: UpdatableViewController {
         #if ABLETON_ENABLED_1
         linkButton.centerPopupIn(view: view)
         #endif
-        
+
         // Setup Callbacks
         setupCallbacks()
 

@@ -45,7 +45,7 @@ Beginner? We have two additional code examples. There is a simple [Swift Synth](
 
 ### Ableton Link Support
 
-We now include optional support for the (Ableton Link)[https://www.ableton.com/en/link/] SDK. Because files from this private SDK are required to compile this code,
+We now include optional support for the [Ableton Link](https://www.ableton.com/en/link/) SDK. Because files from this private SDK are required to compile this code,
 it is turned off by default.
 
 You may enable this code by copying the SDK to your copy of Synth One and setting the `ABLETON_ENABLED` user setting to 1 in the project settings in Xcode.
@@ -71,7 +71,7 @@ Here's a few ideas for you to contribute to this historic project:
 
 * Add accessibility functionality to AudioKit Synth One. We have received multiple requests from visually impaired musicians. Help make Synth One accessible to all musicians.
 *  Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
-* Localizations in your language (contribute one on our [CrowdIn page](https://crowdin.com/project/audiokit-synth-one))
+* Localizations in your language, see [our docs](AudioKitSynthOne/Translations/README.md) for more information.
 * Create iPhone or Universal interface
 * Ability to search presets
 * Make TouchPads assignable 
@@ -105,9 +105,9 @@ If you use any code, it would be great if you gave this project some credit or a
 
 If you make an app with this code, please let us know! We think you're awesome, and would love to hear from you and/or feature your app.
 
-IMPORTANT: You must change the graphics if you upload this to the app store.
+*IMPORTANT:* You must change the graphics if you upload this to the app store.
 
-IMPORTANT: You must fill in your own private API keys for AudioBus and others in the Private.swift file to match your own project. The default placeholder values are not suitable for distribution.
+*IMPORTANT:* You must fill in your own private API keys for AudioBus and others in the Private.swift file to match your own project. The default placeholder values are not suitable for distribution.
 
 ## Contributors
 

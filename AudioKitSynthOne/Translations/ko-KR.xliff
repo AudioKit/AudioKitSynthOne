@@ -144,6 +144,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
     <body>
+      <trans-unit id="%.00f ms">
+        <source>%.00f ms</source>
+        <note>Number of milliseconds</note>
+        <target xml:lang="ko" state="needs-translation">%.00f ms</target>
+      </trans-unit>
       <trans-unit id="All MIDI learn knob assignments have been removed.">
         <source>All MIDI learn knob assignments have been removed.</source>
         <note>Alert Message:  MIDI Learn Reset</note>

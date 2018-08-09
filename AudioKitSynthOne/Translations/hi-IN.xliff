@@ -52,8 +52,8 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
         <source>Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
 Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </source>
         <note>Class = "UITextView"; text = "Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. \nPerfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. "; ObjectID = "IAn-lv-O7m";</note>
-        <target xml:lang="hi" state="needs-translation">Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
-Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </target>
+        <target xml:lang="hi" state="translated">डीएक्स 7 &amp; डीएक्स 7II द्वारा प्रेरित पुरस्कार विजेता मुफ्त आईपैड इंस्ट्रूमेंट। मिडी कीबोर्ड के साथ 
+बिल्कुल सही। इलेक्ट्रिक पियानो, बेल, बेस, कीज और 80 के ध्वनि के सुंदर ध्वनि बहु-स्तर वाले नमूने। </target>
       </trans-unit>
       <trans-unit id="M92-zU-EUI.text">
         <source>REVIEW</source>
@@ -157,482 +157,482 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="%.00f ms">
         <source>%.00f ms</source>
         <note>Number of milliseconds</note>
-        <target xml:lang="hi" state="needs-translation">%.00f ms</target>
+        <target xml:lang="hi" state="translated">%.00f एमएस</target>
       </trans-unit>
       <trans-unit id="All MIDI learn knob assignments have been removed.">
         <source>All MIDI learn knob assignments have been removed.</source>
         <note>Alert Message:  MIDI Learn Reset</note>
-        <target xml:lang="hi" state="needs-translation">All MIDI learn knob assignments have been removed.</target>
+        <target xml:lang="hi" state="translated">सभी MIDI सीखने के लिए knob असाइनमेंट हटा दिया गया है।</target>
       </trans-unit>
       <trans-unit id="All notes have been turned off.">
         <source>All notes have been turned off.</source>
         <note>Alert Message: MIDI Panic</note>
-        <target xml:lang="hi" state="needs-translation">All notes have been turned off.</target>
+        <target xml:lang="hi" state="translated">सभी नोट बंद कर दिए गए हैं।</target>
       </trans-unit>
       <trans-unit id="Almost done!">
         <source>Almost done!</source>
         <note>Alert Title: Confirm Email Address</note>
-        <target xml:lang="hi" state="needs-translation">Almost done!</target>
+        <target xml:lang="hi" state="translated">लगभग हो गया!</target>
       </trans-unit>
       <trans-unit id="Arp/Sequencer Off">
         <source>Arp/Sequencer Off</source>
         <note>Arpeggiator Off</note>
-        <target xml:lang="hi" state="needs-translation">Arp/Sequencer Off</target>
+        <target xml:lang="hi" state="translated">एआरपी / सीक्वेंसर ऑफ</target>
       </trans-unit>
       <trans-unit id="Arp/Sequencer On">
         <source>Arp/Sequencer On</source>
         <note>Arpeggiator On</note>
-        <target xml:lang="hi" state="needs-translation">Arp/Sequencer On</target>
+        <target xml:lang="hi" state="translated">एआरपी / सीक्वेंसर ऑन</target>
       </trans-unit>
       <trans-unit id="Arpeggiator Interval: \(Int(value))">
         <source>Arpeggiator Interval: \(Int(value))</source>
         <note>Arpeggiator Interval</note>
-        <target xml:lang="hi" state="needs-translation">Arpeggiator Interval: \(Int(value))</target>
+        <target xml:lang="hi" state="translated">Arpeggiator अंतराल: \ (Int (मूल्य))</target>
       </trans-unit>
       <trans-unit id="Arpeggiator Mode">
         <source>Arpeggiator Mode</source>
         <note>Arpeggiator Mode On</note>
-        <target xml:lang="hi" state="needs-translation">Arpeggiator Mode</target>
+        <target xml:lang="hi" state="translated">Arpeggiator मोड</target>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>AutoPan Rate tempo-syncd</note>
-        <target xml:lang="hi" state="needs-translation">AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+        <target xml:lang="hi" state="translated">ऑटोपैन दर: \ (दर। फ्रॉम फ़्रिक्वेंसी (मान)), \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(value.decimalString) Hz">
         <source>AutoPan Rate: \(value.decimalString) Hz</source>
         <note>AutoPan Rate</note>
-        <target xml:lang="hi" state="needs-translation">AutoPan Rate: \(value.decimalString) Hz</target>
+        <target xml:lang="hi" state="translated">ऑटोपैन दर: \ (value.decimalString) हर्ट्ज</target>
       </trans-unit>
       <trans-unit id="AutoPan Strength: \(value.percentageString)">
         <source>AutoPan Strength: \(value.percentageString)</source>
         <note>AutoPan Amount/Strength</note>
-        <target xml:lang="hi" state="needs-translation">AutoPan Strength: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">ऑटोपैन शक्ति: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
         <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
         <note>Alert Message: Background Audio</note>
-        <target xml:lang="hi" state="needs-translation">Background audio will drain the battery faster. Please turn off when not in use.</target>
+        <target xml:lang="hi" state="translated">पृष्ठभूमि ऑडियो बैटरी को तेजी से निकाल देगा। उपयोग में नहीं होने पर कृपया बंद करें।</target>
       </trans-unit>
       <trans-unit id="Band Pass">
         <source>Band Pass</source>
         <note>Band Pass Filter</note>
-        <target xml:lang="hi" state="needs-translation">Band Pass</target>
+        <target xml:lang="hi" state="translated">बैंड पास</target>
       </trans-unit>
       <trans-unit id="Bitcrush LFO ‣ \(lfoSource!)">
         <source>Bitcrush LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Bitcrush</note>
-        <target xml:lang="hi" state="needs-translation">Bitcrush LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">बिटक्रश एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="Congratulations! 🎉">
         <source>Congratulations! 🎉</source>
         <note>Alert Title: Presets Added</note>
-        <target xml:lang="hi" state="needs-translation">Congratulations! 🎉</target>
+        <target xml:lang="hi" state="translated">बधाई हो! 🎉</target>
       </trans-unit>
       <trans-unit id="Couldn't configure the file writer">
         <source>Couldn't configure the file writer</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="hi" state="needs-translation">Couldn't configure the file writer</target>
+        <target xml:lang="hi" state="translated">फ़ाइल लेखक को कॉन्फ़िगर नहीं किया जा सका</target>
       </trans-unit>
       <trans-unit id="Couldn't open the output file">
         <source>Couldn't open the output file</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="hi" state="needs-translation">Couldn't open the output file</target>
+        <target xml:lang="hi" state="translated">आउटपुट फ़ाइल नहीं खोल सका</target>
       </trans-unit>
       <trans-unit id="Couldn't prepare the output format (error %d/%4.4s)">
         <source>Couldn't prepare the output format (error %1$d/%2$.4s)</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="hi" state="needs-translation">Couldn't prepare the output format (error %1$d/%2$.4s)</target>
+        <target xml:lang="hi" state="translated">उत्पादन प्रारूप (त्रुटि नहीं बनाया जा सका %1$d/%2$.4s)</target>
       </trans-unit>
       <trans-unit id="Cutoff LFO ‣ \(lfoSource!)">
         <source>Cutoff LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Cutoff</note>
-        <target xml:lang="hi" state="needs-translation">Cutoff LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">कटऑफ एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)">
         <source>Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</source>
         <note>Filter Cutoff &amp; Resonance</note>
-        <target xml:lang="hi" state="needs-translation">Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</target>
+        <target xml:lang="hi" state="translated">कटऑफ: \ (s.getSynthParameter (.cutoff) .decimalString) हर्ट्ज, अनुनाद: \ (s.getSynth पैरामीटर (.resonance) .decimalString)</target>
       </trans-unit>
       <trans-unit id="DCO 1 Morph: \(value.decimalString)">
         <source>DCO 1 Morph: \(value.decimalString)</source>
         <note>Oscillator 1 Waveform Morph Index</note>
-        <target xml:lang="hi" state="needs-translation">DCO 1 Morph: \(value.decimalString)</target>
+        <target xml:lang="hi" state="translated">डीसीओ 1 मॉर्फ: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="DCO 1 Volume: \(value.percentageString)">
         <source>DCO 1 Volume: \(value.percentageString)</source>
         <note>Oscillator 1 Volume</note>
-        <target xml:lang="hi" state="needs-translation">DCO 1 Volume: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">डीसीओ 1 वॉल्यूम: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="DCO 1: \(Int(value)) semitones">
         <source>DCO 1: \(Int(value)) semitones</source>
         <note>Oscillator 1 semitone offset</note>
-        <target xml:lang="hi" state="needs-translation">DCO 1: \(Int(value)) semitones</target>
+        <target xml:lang="hi" state="translated">डीसीओ 1: \ (इंट (वैल्यू)) सेमिटोन</target>
       </trans-unit>
       <trans-unit id="DCO 2 Morph: \(value.decimalString)">
         <source>DCO 2 Morph: \(value.decimalString)</source>
         <note>Oscillator 2 Waveform Morph Index</note>
-        <target xml:lang="hi" state="needs-translation">DCO 2 Morph: \(value.decimalString)</target>
+        <target xml:lang="hi" state="translated">डीसीओ 2 मॉर्फ: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="DCO 2 Volume: \(value.percentageString)">
         <source>DCO 2 Volume: \(value.percentageString)</source>
         <note>Oscillator 2 Volume</note>
-        <target xml:lang="hi" state="needs-translation">DCO 2 Volume: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">डीसीओ 2 वॉल्यूम: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) detune">
         <source>DCO 2: \(Int(value)) detune</source>
         <note>Oscillator 2 detune</note>
-        <target xml:lang="hi" state="needs-translation">DCO 2: \(Int(value)) detune</target>
+        <target xml:lang="hi" state="translated">डीसीओ 2: \ (इंट (वैल्यू)) डिट्यून</target>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) semitones">
         <source>DCO 2: \(Int(value)) semitones</source>
         <note>Oscillator 2 semitone offset</note>
-        <target xml:lang="hi" state="needs-translation">DCO 2: \(Int(value)) semitones</target>
+        <target xml:lang="hi" state="translated">डीसीओ 2: \ (इंट (वैल्यू)) सेमिटोन</target>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value))">
         <source>DCO Mix: \(Int(value))</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="hi" state="needs-translation">DCO Mix: \(Int(value))</target>
+        <target xml:lang="hi" state="translated">डीसीओ मिक्स: \ (इंट (वैल्यू))</target>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value)) detune">
         <source>DCO Mix: \(Int(value)) detune</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="hi" state="needs-translation">DCO Mix: \(Int(value)) detune</target>
+        <target xml:lang="hi" state="translated">डीसीओ मिक्स: \ (इंट (वैल्यू)) डिट्यून</target>
       </trans-unit>
       <trans-unit id="Decay LFO ‣ \(lfoSource!)">
         <source>Decay LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Decay</note>
-        <target xml:lang="hi" state="needs-translation">Decay LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">क्षय एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="Delay  Off">
         <source>Delay  Off</source>
         <note>Delay Off</note>
-        <target xml:lang="hi" state="needs-translation">Delay  Off</target>
+        <target xml:lang="hi" state="translated">देरी बंद</target>
       </trans-unit>
       <trans-unit id="Delay Feedback/Taps: \(value.percentageString)">
         <source>Delay Feedback/Taps: \(value.percentageString)</source>
         <note>Delay Feedback</note>
-        <target xml:lang="hi" state="needs-translation">Delay Feedback/Taps: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">विलंब प्रतिक्रिया / नलियां: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Delay Mix: \(value.percentageString)">
         <source>Delay Mix: \(value.percentageString)</source>
         <note>Delay Mix</note>
-        <target xml:lang="hi" state="needs-translation">Delay Mix: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">देरी मिक्स: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Delay On">
         <source>Delay On</source>
         <note>Delay On</note>
-        <target xml:lang="hi" state="needs-translation">Delay On</target>
+        <target xml:lang="hi" state="translated">देरी</target>
       </trans-unit>
       <trans-unit id="Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s">
         <source>Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</source>
         <note>Delay Time tempo-syncd</note>
-        <target xml:lang="hi" state="needs-translation">Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</target>
+        <target xml:lang="hi" state="translated">देरी का समय: \ (दर .fromTime (मान)), \ (value.decimalString) एस</target>
       </trans-unit>
       <trans-unit id="Delay Time: \(value.decimalString) s">
         <source>Delay Time: \(value.decimalString) s</source>
         <note>Delay Time</note>
-        <target xml:lang="hi" state="needs-translation">Delay Time: \(value.decimalString) s</target>
+        <target xml:lang="hi" state="translated">विलंब समय: \ (value.decimalString) एस</target>
       </trans-unit>
       <trans-unit id="Detune LFO ‣ \(lfoSource!)">
         <source>Detune LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Detune</note>
-        <target xml:lang="hi" state="needs-translation">Detune LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">डेट्यून एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="Don't Sleep Mode">
         <source>Don't Sleep Mode</source>
         <note>Alert Title: Allows On Mode</note>
-        <target xml:lang="hi" state="needs-translation">Don't Sleep Mode</target>
+        <target xml:lang="hi" state="translated">नींद मोड मत करो</target>
       </trans-unit>
       <trans-unit id="ENV">
         <source>ENV</source>
         <note>Envelope Panel Abbreviation</note>
-        <target xml:lang="hi" state="needs-translation">ENV</target>
+        <target xml:lang="hi" state="translated">ENV</target>
       </trans-unit>
       <trans-unit id="FM LFO ‣ \(lfoSource!)">
         <source>FM LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] FM Modulation</note>
-        <target xml:lang="hi" state="needs-translation">FM LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">एफएम एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="FM Mod: \(value.percentageString)">
         <source>FM Mod: \(value.percentageString)</source>
         <note>FM Modulation Amount</note>
-        <target xml:lang="hi" state="needs-translation">FM Mod: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">एफएम मॉड: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="FM Volume: \(value.percentageString)">
         <source>FM Volume: \(value.percentageString)</source>
         <note>FM Oscillator Volume</note>
-        <target xml:lang="hi" state="needs-translation">FM Volume: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">एफएम वॉल्यूम: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="FX">
         <source>FX</source>
         <note>FX/LFO Panel Abbreviation</note>
-        <target xml:lang="hi" state="needs-translation">FX</target>
+        <target xml:lang="hi" state="translated">FX</target>
       </trans-unit>
       <trans-unit id="Filter Env LFO ‣ \(lfoSource!)">
         <source>Filter Env LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Filter Envelope</note>
-        <target xml:lang="hi" state="needs-translation">Filter Env LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">फ़िल्टर एनवी एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="Filter Envelope: \(value.percentageString)">
         <source>Filter Envelope: \(value.percentageString)</source>
         <note>Filter Envelope Amount</note>
-        <target xml:lang="hi" state="needs-translation">Filter Envelope: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">फ़िल्टर लिफाफा: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Filter Type: \(ftype)">
         <source>Filter Type: \(ftype)</source>
         <note>Main Filter Type</note>
-        <target xml:lang="hi" state="needs-translation">Filter Type: \(ftype)</target>
+        <target xml:lang="hi" state="translated">फ़िल्टर का प्रकार: \(ftype)</target>
       </trans-unit>
       <trans-unit id="Glide: \(value.decimalString)">
         <source>Glide: \(value.decimalString)</source>
         <note>Mono Glide Amount</note>
-        <target xml:lang="hi" state="needs-translation">Glide: \(value.decimalString)</target>
+        <target xml:lang="hi" state="translated">ग्लाइड: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="High Pass">
         <source>High Pass</source>
         <note>High Pass Filter</note>
-        <target xml:lang="hi" state="needs-translation">High Pass</target>
+        <target xml:lang="hi" state="translated">उच्च मार्ग</target>
       </trans-unit>
       <trans-unit id="Important">
         <source>Important</source>
         <note>Alert Title: Background Audio</note>
-        <target xml:lang="hi" state="needs-translation">Important</target>
+        <target xml:lang="hi" state="translated">जरूरी</target>
       </trans-unit>
       <trans-unit id="LFO 2 Amp: \(value.percentageString)">
         <source>LFO 2 Amp: \(value.percentageString)</source>
         <note>LFO 2 [low frequency oscillator] Amplitude</note>
-        <target xml:lang="hi" state="needs-translation">LFO 2 Amp: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">एलएफओ 2 एएमपी: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
-        <target xml:lang="hi" state="needs-translation">LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+        <target xml:lang="hi" state="translated">एलएफओ 2 दर: \ (दर। फ्रॉम फ़्रिक्वेंसी (मान)), \ (value.decimalString) Hz</target>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
-        <target xml:lang="hi" state="needs-translation">LFO 2 Rate: \(value.decimalString) Hz</target>
+        <target xml:lang="hi" state="translated">एलएफओ 2 दर: \ (value.decimalString) एचजे</target>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate tempo-syncd</note>
-        <target xml:lang="hi" state="needs-translation">LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <target xml:lang="hi" state="translated">एलएफओ 1 दर: \ (दर। फ्रॉम फ्रीक्वेंसी (एस .getSynthParameter (.lfo1Rate))), एलएफओ 1 एएमपी: \ (s.getSynthParameter (.lfo1Amplitude) .percentageString)</target>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate</note>
-        <target xml:lang="hi" state="needs-translation">LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <target xml:lang="hi" state="translated">एलएफओ 1 दर: \ (s.getSynthParameter (.lfo1Rate) .decimalString) एचजे, एलएफओ 1 एएमपी: \ (s.getSynthParameter (.lfo1Amplitude) .percentageString)</target>
       </trans-unit>
       <trans-unit id="Low Pass">
         <source>Low Pass</source>
         <note>Low Pass Filter</note>
-        <target xml:lang="hi" state="needs-translation">Low Pass</target>
+        <target xml:lang="hi" state="translated">कम उत्तीर्ण</target>
       </trans-unit>
       <trans-unit id="MAIN">
         <source>MAIN</source>
         <note>Main Panel Abbreviation</note>
-        <target xml:lang="hi" state="needs-translation">MAIN</target>
+        <target xml:lang="hi" state="translated">मुख्य</target>
       </trans-unit>
       <trans-unit id="MIDI Learn Off">
         <source>MIDI Learn Off</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="hi" state="needs-translation">MIDI Learn Off</target>
+        <target xml:lang="hi" state="translated">मिडी सीखो</target>
       </trans-unit>
       <trans-unit id="MIDI Learn Reset">
         <source>MIDI Learn Reset</source>
         <note>Alert Title: MIDI Learn Reset</note>
-        <target xml:lang="hi" state="needs-translation">MIDI Learn Reset</target>
+        <target xml:lang="hi" state="translated">MIDI रीसेट जानें</target>
       </trans-unit>
       <trans-unit id="MIDI Learn: Touch a knob to assign">
         <source>MIDI Learn: Touch a knob to assign</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="hi" state="needs-translation">MIDI Learn: Touch a knob to assign</target>
+        <target xml:lang="hi" state="translated">MIDI जानें: असाइन करने के लिए एक घुंडी स्पर्श करें</target>
       </trans-unit>
       <trans-unit id="MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉">
         <source>MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</source>
         <note>Alert Message: Too High</note>
-        <target xml:lang="hi" state="needs-translation">MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</target>
+        <target xml:lang="hi" state="translated">MIDI नोट &gt; 127. जी 8 उच्चतम बजाने योग्य कुंजी है। इसे एक पायदान नीचे ले लो 😉</target>
       </trans-unit>
       <trans-unit id="Master Volume: \(value.percentageString)">
         <source>Master Volume: \(value.percentageString)</source>
         <note>Master Volume</note>
-        <target xml:lang="hi" state="needs-translation">Master Volume: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">मास्टर वॉल्यूम: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Midi Panic">
         <source>Midi Panic</source>
         <note>Alert Title: MIDI Panic</note>
-        <target xml:lang="hi" state="needs-translation">Midi Panic</target>
+        <target xml:lang="hi" state="translated">मिडी आतंक</target>
       </trans-unit>
       <trans-unit id="Noise LFO ‣ \(lfoSource!)">
         <source>Noise LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Noise</note>
-        <target xml:lang="hi" state="needs-translation">Noise LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">शोर एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="Noise Volume: \((value * 4).percentageString)">
         <source>Noise Volume: \((value * 4).percentageString)</source>
         <note>Noise Volume</note>
-        <target xml:lang="hi" state="needs-translation">Noise Volume: \((value * 4).percentageString)</target>
+        <target xml:lang="hi" state="translated">शोर मात्रा: \ ((मान * 4) .percentageString)</target>
       </trans-unit>
       <trans-unit id="Notice">
         <source>Notice</source>
         <note>Alert Title: Duplicate Bank Name</note>
-        <target xml:lang="hi" state="needs-translation">Notice</target>
+        <target xml:lang="hi" state="translated">नोटिस</target>
       </trans-unit>
       <trans-unit id="Oops!">
         <source>Oops!</source>
         <note>Alert Title: Invalid Email Address</note>
-        <target xml:lang="hi" state="needs-translation">Oops!</target>
+        <target xml:lang="hi" state="translated">ऊप्स!</target>
       </trans-unit>
       <trans-unit id="Osc Mix LFO ‣ \(lfoSource!)">
         <source>Osc Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Oscillator Mix</note>
-        <target xml:lang="hi" state="needs-translation">Osc Mix LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">ओएससी मिक्स एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="PAD">
         <source>PAD</source>
         <note>TouchPad Panel Abbreviation</note>
-        <target xml:lang="hi" state="needs-translation">PAD</target>
+        <target xml:lang="hi" state="translated">तकती</target>
       </trans-unit>
       <trans-unit id="Phaser Feedback: \(value.decimalString)">
         <source>Phaser Feedback: \(value.decimalString)</source>
         <note>Phaser Feedback</note>
-        <target xml:lang="hi" state="needs-translation">Phaser Feedback: \(value.decimalString)</target>
+        <target xml:lang="hi" state="translated">फ़ेज़र फीडबैक: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Phaser Mix: \(value.decimalString)">
         <source>Phaser Mix: \(value.decimalString)</source>
         <note>Phaser Mix</note>
-        <target xml:lang="hi" state="needs-translation">Phaser Mix: \(value.decimalString)</target>
+        <target xml:lang="hi" state="translated">फ़ेज़र मिक्स: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Phaser Notch Width: \(value.decimalString)">
         <source>Phaser Notch Width: \(value.decimalString)</source>
         <note>Phaser Notch Width</note>
-        <target xml:lang="hi" state="needs-translation">Phaser Notch Width: \(value.decimalString)</target>
+        <target xml:lang="hi" state="translated">फ़ेसर नोटच चौड़ाई: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Phaser Rate: \(value.decimalString)">
         <source>Phaser Rate: \(value.decimalString)</source>
         <note>Phaser Rate</note>
-        <target xml:lang="hi" state="needs-translation">Phaser Rate: \(value.decimalString)</target>
+        <target xml:lang="hi" state="translated">फ़ेज़र दर: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="Pitch LFO ‣ \(lfoSource!)">
         <source>Pitch LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Pitch</note>
-        <target xml:lang="hi" state="needs-translation">Pitch LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">पिच एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="Resonance LFO ‣ \(lfoSource!)">
         <source>Resonance LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Resonance</note>
-        <target xml:lang="hi" state="needs-translation">Resonance LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">अनुनाद एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="Reverb Low-cut: \(value.decimalString) Hz">
         <source>Reverb Low-cut: \(value.decimalString) Hz</source>
         <note>Reverb Low-cut/Highpass</note>
-        <target xml:lang="hi" state="needs-translation">Reverb Low-cut: \(value.decimalString) Hz</target>
+        <target xml:lang="hi" state="translated">Reverb कम कट: \ (value.decimalString) हर्ट्ज</target>
       </trans-unit>
       <trans-unit id="Reverb Mix LFO ‣ \(lfoSource!)">
         <source>Reverb Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Reverb Mix</note>
-        <target xml:lang="hi" state="needs-translation">Reverb Mix LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">रीवरब मिक्स एलएफओ ‣ \ (एलएफओ स्रोत!)</target>
       </trans-unit>
       <trans-unit id="Reverb Mix: \(value.percentageString)">
         <source>Reverb Mix: \(value.percentageString)</source>
         <note>Reverb Mix</note>
-        <target xml:lang="hi" state="needs-translation">Reverb Mix: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">Reverb मिक्स: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="Reverb Off">
         <source>Reverb Off</source>
         <note>Reverb Off</note>
-        <target xml:lang="hi" state="needs-translation">Reverb Off</target>
+        <target xml:lang="hi" state="translated">रिवरब ऑफ</target>
       </trans-unit>
       <trans-unit id="Reverb On">
         <source>Reverb On</source>
         <note>Reverb On</note>
-        <target xml:lang="hi" state="needs-translation">Reverb On</target>
+        <target xml:lang="hi" state="translated">पर reverb चालू</target>
       </trans-unit>
       <trans-unit id="Reverb Size: \(value.percentageString)">
         <source>Reverb Size: \(value.percentageString)</source>
         <note>Reverb Size</note>
-        <target xml:lang="hi" state="needs-translation">Reverb Size: \(value.percentageString)</target>
+        <target xml:lang="hi" state="translated">Reverb आकार: \ (value.percentageString)</target>
       </trans-unit>
       <trans-unit id="SEQ">
         <source>SEQ</source>
         <note>Arp/Sequencer Panel Abbreviation</note>
-        <target xml:lang="hi" state="needs-translation">SEQ</target>
+        <target xml:lang="hi" state="translated">स्व-परीक्षा प्रश्न</target>
       </trans-unit>
       <trans-unit id="Sample Rate: \(Int(value)) Hz">
         <source>Sample Rate: \(Int(value)) Hz</source>
         <note>Bitcrush Sample Rate</note>
-        <target xml:lang="hi" state="needs-translation">Sample Rate: \(Int(value)) Hz</target>
+        <target xml:lang="hi" state="translated">नमूना दर: \ (Int (मान)) हर्ट्ज</target>
       </trans-unit>
       <trans-unit id="Sequencer Mode">
         <source>Sequencer Mode</source>
         <note>Sequencer Mode On</note>
-        <target xml:lang="hi" state="needs-translation">Sequencer Mode</target>
+        <target xml:lang="hi" state="translated">सीक्वेंसर मोड</target>
       </trans-unit>
       <trans-unit id="Stay informed!">
         <source>Stay informed!</source>
         <note>Alert Title: Allow notifications</note>
-        <target xml:lang="hi" state="needs-translation">Stay informed!</target>
+        <target xml:lang="hi" state="translated">सूचित रहें!</target>
       </trans-unit>
       <trans-unit id="Sub Osc Volume: \(value.decimalString)">
         <source>Sub Osc Volume: \(value.decimalString)</source>
         <note>Sub Oscillator Volume</note>
-        <target xml:lang="hi" state="needs-translation">Sub Osc Volume: \(value.decimalString)</target>
+        <target xml:lang="hi" state="translated">उप ओएससी वॉल्यूम: \ (value.decimalString)</target>
       </trans-unit>
       <trans-unit id="TUNE">
         <source>TUNE</source>
         <note>Tuning Panel Abbreviation</note>
-        <target xml:lang="hi" state="needs-translation">TUNE</target>
+        <target xml:lang="hi" state="translated">तराना</target>
       </trans-unit>
       <trans-unit id="Tempo: \(value) BPM">
         <source>Tempo: \(value) BPM</source>
         <note>Tempo (Beats Per Minute)</note>
-        <target xml:lang="hi" state="needs-translation">Tempo: \(value) BPM</target>
+        <target xml:lang="hi" state="translated">टेम्पो: \(value) बीपीएम</target>
       </trans-unit>
       <trans-unit id="Thank you">
         <source>Thank you</source>
         <note>Alert Title: Rate App</note>
-        <target xml:lang="hi" state="needs-translation">Thank you</target>
+        <target xml:lang="hi" state="translated">धन्यवाद</target>
       </trans-unit>
       <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
         <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>
         <note>Alert Message: Duplicate Bank Name</note>
-        <target xml:lang="hi" state="needs-translation">There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</target>
+        <target xml:lang="hi" state="translated">पहले से ही '\(bankName)' नाम वाला एक बैंक है। चीजों को आसानी से काम करने के लिए कृपया उनमें से एक का नाम बदलें।</target>
       </trans-unit>
       <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
         <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
         <note>Alert Message: Rate App</note>
-        <target xml:lang="hi" state="needs-translation">This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</target>
+        <target xml:lang="hi" state="translated">यह स्वयंसेवकों द्वारा निर्मित एक मुफ़्त ऐप है। कृपया एक महान रेटिंग के साथ मदद करें ताकि हम और ऐप्स बना सकें! भयानक होने के लिए धन्यवाद।</target>
       </trans-unit>
       <trans-unit id="This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster">
         <source>This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</source>
         <note>Alert Message: Allows On Mode</note>
-        <target xml:lang="hi" state="needs-translation">This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</target>
+        <target xml:lang="hi" state="translated">यह मोड लाइव खेलने के लिए बहुत अच्छा है। पृष्ठभूमि ऑडियो भी जारी रहेगा। नोट: यह अधिक शक्ति का उपयोग करेगा और आपकी बैटरी को तेज़ी से निकाल सकता है</target>
       </trans-unit>
       <trans-unit id="Too High">
         <source>Too High</source>
         <note>Alert Title: Too High</note>
-        <target xml:lang="hi" state="needs-translation">Too High</target>
+        <target xml:lang="hi" state="translated">बहुत ऊँचा</target>
       </trans-unit>
       <trans-unit id="Tremolo LFO ‣ \(lfoSource!)">
         <source>Tremolo LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Tremolo</note>
-        <target xml:lang="hi" state="needs-translation">Tremolo LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="hi" state="translated">Tremolo एलएफओ ‣ \ (lfoSource!)</target>
       </trans-unit>
       <trans-unit id="Twist knob on your MIDI Controller">
         <source>Twist knob on your MIDI Controller</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="hi" state="needs-translation">Twist knob on your MIDI Controller</target>
+        <target xml:lang="hi" state="translated">अपने MIDI नियंत्रक पर ट्विस्ट घुंडी</target>
       </trans-unit>
       <trans-unit id="We'll send Free updates, sounds, and apps. Allow notifications!">
         <source>We'll send Free updates, sounds, and apps. Allow notifications!</source>
         <note>Alert Message: Allow notifications</note>
-        <target xml:lang="hi" state="needs-translation">We'll send Free updates, sounds, and apps. Allow notifications!</target>
+        <target xml:lang="hi" state="translated">हम मुफ्त अपडेट, ध्वनियां और ऐप्स भेज देंगे। नोटिफिकेशन की अनुमति दें!</target>
       </trans-unit>
       <trans-unit id="Widen: \(value.decimalString)">
         <source>Widen: \(value.decimalString)</source>
         <note>Stereo Widen</note>
-        <target xml:lang="hi" state="needs-translation">Widen: \(value.decimalString)</target>
+        <target xml:lang="hi" state="translated">विस्तृत करें: \ (value.decimalString)</target>
       </trans-unit>
     </body>
   </file>
@@ -774,97 +774,97 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="dKG-AP-qCg.text">
         <source>MOD WHEEL DESTINATION:</source>
         <note>Class = "UILabel"; text = "MOD WHEEL DESTINATION:"; ObjectID = "dKG-AP-qCg"; Note = "Routing for Mod Wheel";</note>
-        <target xml:lang="hi" state="needs-translation">MOD WHEEL DESTINATION:</target>
+        <target xml:lang="hi" state="translated">एमओडी व्हील वितरण:</target>
       </trans-unit>
       <trans-unit id="fmL-Ud-aaA.text">
         <source>Key Labels:</source>
         <note>Class = "UILabel"; text = "Key Labels:"; ObjectID = "fmL-Ud-aaA"; Note = "Note labels on keyboard keys";</note>
-        <target xml:lang="hi" state="needs-translation">Key Labels:</target>
+        <target xml:lang="hi" state="translated">कुंजी लेबल:</target>
       </trans-unit>
       <trans-unit id="hNP-KG-OgZ.normalTitle">
         <source>DONE</source>
         <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "hNP-KG-OgZ";</note>
-        <target xml:lang="hi" state="needs-translation">DONE</target>
+        <target xml:lang="hi" state="translated">किया हुआ</target>
       </trans-unit>
       <trans-unit id="iLo-Gv-XoX.segmentTitles[0]">
         <source>Cutoff</source>
         <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[0] = "Cutoff"; ObjectID = "iLo-Gv-XoX";</note>
-        <target xml:lang="hi" state="needs-translation">Cutoff</target>
+        <target xml:lang="hi" state="translated">कट जाना</target>
       </trans-unit>
       <trans-unit id="iLo-Gv-XoX.segmentTitles[1]">
         <source>LFO 1</source>
         <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[1] = "LFO 1"; ObjectID = "iLo-Gv-XoX";</note>
-        <target xml:lang="hi" state="needs-translation">LFO 1</target>
+        <target xml:lang="hi" state="translated">एलएफओ 1</target>
       </trans-unit>
       <trans-unit id="iLo-Gv-XoX.segmentTitles[2]">
         <source>LFO 2</source>
         <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[2] = "LFO 2"; ObjectID = "iLo-Gv-XoX";</note>
-        <target xml:lang="hi" state="needs-translation">LFO 2</target>
+        <target xml:lang="hi" state="translated">एलएफओ 2</target>
       </trans-unit>
       <trans-unit id="icQ-Ei-YHr.text">
         <source>Octave Range:</source>
         <note>Class = "UILabel"; text = "Octave Range:"; ObjectID = "icQ-Ei-YHr"; Note = "Octaves displayed in keyboard";</note>
-        <target xml:lang="hi" state="needs-translation">Octave Range:</target>
+        <target xml:lang="hi" state="translated">ऑक्टवे रेंज:</target>
       </trans-unit>
       <trans-unit id="kgu-qC-jCb.segmentTitles[0]">
         <source>None</source>
         <note>Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[0] = "None"; ObjectID = "kgu-qC-jCb";</note>
-        <target xml:lang="hi" state="needs-translation">None</target>
+        <target xml:lang="hi" state="translated">कोई नहीं</target>
       </trans-unit>
       <trans-unit id="kgu-qC-jCb.segmentTitles[1]">
         <source>C</source>
         <note>Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[1] = "C"; ObjectID = "kgu-qC-jCb";</note>
-        <target xml:lang="hi" state="needs-translation">C</target>
+        <target xml:lang="hi" state="translated">सी</target>
       </trans-unit>
       <trans-unit id="kgu-qC-jCb.segmentTitles[2]">
         <source>All</source>
         <note>Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[2] = "All"; ObjectID = "kgu-qC-jCb";</note>
-        <target xml:lang="hi" state="needs-translation">All</target>
+        <target xml:lang="hi" state="translated">सब</target>
       </trans-unit>
       <trans-unit id="ksJ-GG-fPC.text">
         <source>MIDI / SETTINGS</source>
         <note>Class = "UILabel"; text = "MIDI / SETTINGS"; ObjectID = "ksJ-GG-fPC";</note>
-        <target xml:lang="hi" state="needs-translation">MIDI / SETTINGS</target>
+        <target xml:lang="hi" state="translated">मिडी / सेटिंग</target>
       </trans-unit>
       <trans-unit id="lW8-Xt-97c.normalTitle">
         <source>DONE</source>
         <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "lW8-Xt-97c";</note>
-        <target xml:lang="hi" state="needs-translation">DONE</target>
+        <target xml:lang="hi" state="translated">किया हुआ</target>
       </trans-unit>
       <trans-unit id="mUh-rB-ciV.text">
         <source>MIDI Input</source>
         <note>Class = "UILabel"; text = "MIDI Input"; ObjectID = "mUh-rB-ciV";</note>
-        <target xml:lang="hi" state="needs-translation">MIDI Input</target>
+        <target xml:lang="hi" state="translated">मिडी इनपुट</target>
       </trans-unit>
       <trans-unit id="nzb-kU-xl1.text">
         <source>Velocity Sensitive MIDI: </source>
         <note>Class = "UILabel"; text = "Velocity Sensitive MIDI: "; ObjectID = "nzb-kU-xl1"; Note = "MIDI input velocity sensitive";</note>
-        <target xml:lang="hi" state="needs-translation">Velocity Sensitive MIDI: </target>
+        <target xml:lang="hi" state="translated">वेग संवेदनशील मिडी: </target>
       </trans-unit>
       <trans-unit id="pI1-4q-bLo.text">
         <source>MIDI Input Channel: Omni</source>
         <note>Class = "UILabel"; text = "MIDI Input Channel: Omni"; ObjectID = "pI1-4q-bLo";</note>
-        <target xml:lang="hi" state="needs-translation">MIDI Input Channel: Omni</target>
+        <target xml:lang="hi" state="translated">मिडी इनपुट चैनल: ओमनी</target>
       </trans-unit>
       <trans-unit id="r3w-Dk-TAj.text">
         <source>Mod Wheel Routing is saved with each preset.</source>
         <note>Class = "UILabel"; text = "Mod Wheel Routing is saved with each preset."; ObjectID = "r3w-Dk-TAj";</note>
-        <target xml:lang="hi" state="needs-translation">Mod Wheel Routing is saved with each preset.</target>
+        <target xml:lang="hi" state="translated">मॉड व्हील रूटिंग प्रत्येक प्रीसेट के साथ सहेजा जाता है।</target>
       </trans-unit>
       <trans-unit id="sdT-EI-8gk.text">
         <source>Pitch Bend Upper Limit:</source>
         <note>Class = "UILabel"; text = "Pitch Bend Upper Limit:"; ObjectID = "sdT-EI-8gk"; Note = "Pitch Bend Wheel maximum ";</note>
-        <target xml:lang="hi" state="needs-translation">Pitch Bend Upper Limit:</target>
+        <target xml:lang="hi" state="translated">पिच बेंड ऊपरी सीमा:</target>
       </trans-unit>
       <trans-unit id="sxO-Cg-8JK.text">
         <source>Background Audio Always On:</source>
         <note>Class = "UILabel"; text = "Background Audio Always On:"; ObjectID = "sxO-Cg-8JK";</note>
-        <target xml:lang="hi" state="needs-translation">Background Audio Always On:</target>
+        <target xml:lang="hi" state="translated">पृष्ठभूमि ऑडियो हमेशा पर:</target>
       </trans-unit>
       <trans-unit id="xv6-Gi-7B2.normalTitle">
         <source>Link</source>
         <note>Class = "UIButton"; normalTitle = "Link"; ObjectID = "xv6-Gi-7B2"; Note = "Ableton Link button (keep this text as short as possible)";</note>
-        <target xml:lang="hi" state="needs-translation">Link</target>
+        <target xml:lang="hi" state="translated">संपर्क</target>
       </trans-unit>
     </body>
   </file>
@@ -876,87 +876,87 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="4x3-IO-hYz.text">
         <source>Master Compressor</source>
         <note>Class = "UILabel"; text = "Master Compressor"; ObjectID = "4x3-IO-hYz";</note>
-        <target xml:lang="hi" state="needs-translation">Master Compressor</target>
+        <target xml:lang="hi" state="translated">मास्टर कंप्रेसर</target>
       </trans-unit>
       <trans-unit id="8du-td-RcA.text">
         <source>Lock ArpRate</source>
         <note>Class = "UILabel"; text = "Lock ArpRate"; ObjectID = "8du-td-RcA";</note>
-        <target xml:lang="hi" state="needs-translation">Lock ArpRate</target>
+        <target xml:lang="hi" state="translated">ArpRate लॉक करें</target>
       </trans-unit>
       <trans-unit id="AIL-8o-L1E.text">
         <source>DelFCut</source>
         <note>Class = "UILabel"; text = "DelFCut"; ObjectID = "AIL-8o-L1E";</note>
-        <target xml:lang="hi" state="needs-translation">DelFCut</target>
+        <target xml:lang="hi" state="translated">DelFCut</target>
       </trans-unit>
       <trans-unit id="Acb-r3-neV.text">
         <source>Reverb Input Compressor</source>
         <note>Class = "UILabel"; text = "Reverb Input Compressor"; ObjectID = "Acb-r3-neV";</note>
-        <target xml:lang="hi" state="needs-translation">Reverb Input Compressor</target>
+        <target xml:lang="hi" state="translated">Reverb इनपुट कंप्रेसर</target>
       </trans-unit>
       <trans-unit id="GRS-H5-GyB.text">
         <source>PostGain</source>
         <note>Class = "UILabel"; text = "PostGain"; ObjectID = "GRS-H5-GyB";</note>
-        <target xml:lang="hi" state="needs-translation">PostGain</target>
+        <target xml:lang="hi" state="translated">PostGain</target>
       </trans-unit>
       <trans-unit id="O3q-m2-cp5.text">
         <source>Release</source>
         <note>Class = "UILabel"; text = "Release"; ObjectID = "O3q-m2-cp5";</note>
-        <target xml:lang="hi" state="needs-translation">Release</target>
+        <target xml:lang="hi" state="translated">रिहाई</target>
       </trans-unit>
       <trans-unit id="U8L-qY-a4j.text">
         <source>Lock Reverb</source>
         <note>Class = "UILabel"; text = "Lock Reverb"; ObjectID = "U8L-qY-a4j";</note>
-        <target xml:lang="hi" state="needs-translation">Lock Reverb</target>
+        <target xml:lang="hi" state="translated">लॉक Reverb</target>
       </trans-unit>
       <trans-unit id="Yqu-Zu-SxM.text">
         <source>HAQ PANEL</source>
         <note>Class = "UILabel"; text = "HAQ PANEL"; ObjectID = "Yqu-Zu-SxM";</note>
-        <target xml:lang="hi" state="needs-translation">HAQ PANEL</target>
+        <target xml:lang="hi" state="translated">HAQ पैनल</target>
       </trans-unit>
       <trans-unit id="Zr2-3d-n6e.text">
         <source>Ratio</source>
         <note>Class = "UILabel"; text = "Ratio"; ObjectID = "Zr2-3d-n6e";</note>
-        <target xml:lang="hi" state="needs-translation">Ratio</target>
+        <target xml:lang="hi" state="translated">अनुपात</target>
       </trans-unit>
       <trans-unit id="bwY-pS-LEC.text">
         <source>Thresh</source>
         <note>Class = "UILabel"; text = "Thresh"; ObjectID = "bwY-pS-LEC";</note>
-        <target xml:lang="hi" state="needs-translation">Thresh</target>
+        <target xml:lang="hi" state="translated">ताड़ना</target>
       </trans-unit>
       <trans-unit id="ct1-IH-Yiw.text">
         <source>Lock Arp+Seq</source>
         <note>Class = "UILabel"; text = "Lock Arp+Seq"; ObjectID = "ct1-IH-Yiw";</note>
-        <target xml:lang="hi" state="needs-translation">Lock Arp+Seq</target>
+        <target xml:lang="hi" state="translated">लॉक अर्प + सेक</target>
       </trans-unit>
       <trans-unit id="hU8-IN-aa4.text">
         <source>Master Volume</source>
         <note>Class = "UILabel"; text = "Master Volume"; ObjectID = "hU8-IN-aa4";</note>
-        <target xml:lang="hi" state="needs-translation">Master Volume</target>
+        <target xml:lang="hi" state="translated">मूल संस्करण</target>
       </trans-unit>
       <trans-unit id="oPw-gV-Wod.text">
         <source>Attack</source>
         <note>Class = "UILabel"; text = "Attack"; ObjectID = "oPw-gV-Wod";</note>
-        <target xml:lang="hi" state="needs-translation">Attack</target>
+        <target xml:lang="hi" state="translated">आक्रमण</target>
       </trans-unit>
       <trans-unit id="rEb-j6-MNs.text">
         <source>Reverb Wet Compressor</source>
         <note>Class = "UILabel"; text = "Reverb Wet Compressor"; ObjectID = "rEb-j6-MNs";</note>
-        <target xml:lang="hi" state="needs-translation">Reverb Wet Compressor</target>
+        <target xml:lang="hi" state="translated">Reverb गीले कंप्रेसर</target>
       </trans-unit>
       <trans-unit id="slc-Pi-ahg.text">
         <source>DSP Param Halftime</source>
         <note>Class = "UILabel"; text = "DSP Param Halftime"; ObjectID = "slc-Pi-ahg";</note>
-        <target xml:lang="hi" state="needs-translation">DSP Param Halftime</target>
+        <target xml:lang="hi" state="translated">डीएसपी परम Halftime</target>
       </trans-unit>
       <trans-unit id="tLJ-xr-40E.text">
         <source>Lock Delay</source>
         <note>Class = "UILabel"; text = "Lock Delay"; ObjectID = "tLJ-xr-40E";</note>
-        <target xml:lang="hi" state="needs-translation">Lock Delay</target>
+        <target xml:lang="hi" state="translated">लॉक विलंब</target>
       </trans-unit>
       <trans-unit id="tRH-wD-RtM.text">
         <source>DelFRes</source>
         <note>Class = "UILabel"; text = "DelFRes"; ObjectID = "tRH-wD-RtM";</note>
-        <target xml:lang="hi" state="needs-translation">DelFRes</target>
+        <target xml:lang="hi" state="translated">DelFRes</target>
       </trans-unit>
     </body>
   </file>
@@ -968,127 +968,127 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="0WI-5Q-ep5.text">
         <source>Time</source>
         <note>Class = "UILabel"; text = "Time"; ObjectID = "0WI-5Q-ep5"; Note = "Delay Time/Length";</note>
-        <target xml:lang="hi" state="needs-translation">Time</target>
+        <target xml:lang="hi" state="translated">पहर</target>
       </trans-unit>
       <trans-unit id="7Ru-Fu-LT1.text">
         <source>LFO 1</source>
         <note>Class = "UILabel"; text = "LFO 1"; ObjectID = "7Ru-Fu-LT1"; Note = "Low Frequency Oscillator";</note>
-        <target xml:lang="hi" state="needs-translation">LFO 1</target>
+        <target xml:lang="hi" state="translated">एलएफओ 1</target>
       </trans-unit>
       <trans-unit id="7mr-cL-dIt.text">
         <source>Effects Rack</source>
         <note>Class = "UILabel"; text = "Effects Rack"; ObjectID = "7mr-cL-dIt";</note>
-        <target xml:lang="hi" state="needs-translation">Effects Rack</target>
+        <target xml:lang="hi" state="translated">प्रभाव रैक</target>
       </trans-unit>
       <trans-unit id="34d-F0-qxp.text">
         <source>Notch</source>
         <note>Class = "UILabel"; text = "Notch"; ObjectID = "34d-F0-qxp"; Note = "Phaser Notch Width";</note>
-        <target xml:lang="hi" state="needs-translation">Notch</target>
+        <target xml:lang="hi" state="translated">निशान</target>
       </trans-unit>
       <trans-unit id="41y-Db-NY3.text">
         <source>Rate</source>
         <note>Class = "UILabel"; text = "Rate"; ObjectID = "41y-Db-NY3";</note>
-        <target xml:lang="hi" state="needs-translation">Rate</target>
+        <target xml:lang="hi" state="translated">मूल्यांकन करें</target>
       </trans-unit>
       <trans-unit id="Kzx-ck-MJn.text">
         <source>Amp</source>
         <note>Class = "UILabel"; text = "Amp"; ObjectID = "Kzx-ck-MJn"; Note = "LFO Amp/Level/Amount";</note>
-        <target xml:lang="hi" state="needs-translation">Amp</target>
+        <target xml:lang="hi" state="translated">एम्प</target>
       </trans-unit>
       <trans-unit id="MMf-RB-gf7.text">
         <source>Low Cut</source>
         <note>Class = "UILabel"; text = "Low Cut"; ObjectID = "MMf-RB-gf7"; Note = "Reverb Low cut/High Pass";</note>
-        <target xml:lang="hi" state="needs-translation">Low Cut</target>
+        <target xml:lang="hi" state="translated">कम कटाई</target>
       </trans-unit>
       <trans-unit id="Md3-mc-eyV.text">
         <source>Amp</source>
         <note>Class = "UILabel"; text = "Amp"; ObjectID = "Md3-mc-eyV"; Note = "Auto Pan Amplification/ Amount";</note>
-        <target xml:lang="hi" state="needs-translation">Amp</target>
+        <target xml:lang="hi" state="translated">एम्प</target>
       </trans-unit>
       <trans-unit id="NJ9-DE-qUL.text">
         <source>Bitrate Crusher</source>
         <note>Class = "UILabel"; text = "Bitrate Crusher"; ObjectID = "NJ9-DE-qUL";</note>
-        <target xml:lang="hi" state="needs-translation">Bitrate Crusher</target>
+        <target xml:lang="hi" state="translated">बिटरेट कोल्हू</target>
       </trans-unit>
       <trans-unit id="O2o-2A-IsV.text">
         <source>Rate</source>
         <note>Class = "UILabel"; text = "Rate"; ObjectID = "O2o-2A-IsV"; Note = "LFO Rate";</note>
-        <target xml:lang="hi" state="needs-translation">Rate</target>
+        <target xml:lang="hi" state="translated">मूल्यांकन करें</target>
       </trans-unit>
       <trans-unit id="OZa-4e-uR2.text">
         <source>Mix</source>
         <note>Class = "UILabel"; text = "Mix"; ObjectID = "OZa-4e-uR2"; Note = "Reverb Dry/Wet Mix";</note>
-        <target xml:lang="hi" state="needs-translation">Mix</target>
+        <target xml:lang="hi" state="translated">मिश्रण</target>
       </trans-unit>
       <trans-unit id="Oip-7I-GYL.text">
         <source>Delay</source>
         <note>Class = "UILabel"; text = "Delay"; ObjectID = "Oip-7I-GYL";</note>
-        <target xml:lang="hi" state="needs-translation">Delay</target>
+        <target xml:lang="hi" state="translated">विलंब</target>
       </trans-unit>
       <trans-unit id="UiA-5l-0H8.text">
         <source>Amp</source>
         <note>Class = "UILabel"; text = "Amp"; ObjectID = "UiA-5l-0H8"; Note = "LFO Amp/Level/Amount";</note>
-        <target xml:lang="hi" state="needs-translation">Amp</target>
+        <target xml:lang="hi" state="translated">एम्प</target>
       </trans-unit>
       <trans-unit id="VX2-1Q-SUX.text">
         <source>Size</source>
         <note>Class = "UILabel"; text = "Size"; ObjectID = "VX2-1Q-SUX"; Note = "Reverb Size/Amount";</note>
-        <target xml:lang="hi" state="needs-translation">Size</target>
+        <target xml:lang="hi" state="translated">आकार</target>
       </trans-unit>
       <trans-unit id="agt-nZ-1YG.text">
         <source>Feedback</source>
         <note>Class = "UILabel"; text = "Feedback"; ObjectID = "agt-nZ-1YG"; Note = "Delay Feedback/Taps";</note>
-        <target xml:lang="hi" state="needs-translation">Feedback</target>
+        <target xml:lang="hi" state="translated">प्रतिक्रिया</target>
       </trans-unit>
       <trans-unit id="ccC-ll-23n.text">
         <source>Rate</source>
         <note>Class = "UILabel"; text = "Rate"; ObjectID = "ccC-ll-23n"; Note = "LFO Rate";</note>
-        <target xml:lang="hi" state="needs-translation">Rate</target>
+        <target xml:lang="hi" state="translated">मूल्यांकन करें</target>
       </trans-unit>
       <trans-unit id="cwq-zJ-1kk.text">
         <source>Auto Pan</source>
         <note>Class = "UILabel"; text = "Auto Pan"; ObjectID = "cwq-zJ-1kk";</note>
-        <target xml:lang="hi" state="needs-translation">Auto Pan</target>
+        <target xml:lang="hi" state="translated">ऑटो पैन</target>
       </trans-unit>
       <trans-unit id="cxn-Wb-RuK.text">
         <source>Reverb</source>
         <note>Class = "UILabel"; text = "Reverb"; ObjectID = "cxn-Wb-RuK";</note>
-        <target xml:lang="hi" state="needs-translation">Reverb</target>
+        <target xml:lang="hi" state="translated">गूंज</target>
       </trans-unit>
       <trans-unit id="e3I-8e-T8m.text">
         <source>Mix</source>
         <note>Class = "UILabel"; text = "Mix"; ObjectID = "e3I-8e-T8m"; Note = "Phaser Dry/Wet Mix";</note>
-        <target xml:lang="hi" state="needs-translation">Mix</target>
+        <target xml:lang="hi" state="translated">मिश्रण</target>
       </trans-unit>
       <trans-unit id="eeQ-UE-T6J.text">
         <source>LFO 2</source>
         <note>Class = "UILabel"; text = "LFO 2"; ObjectID = "eeQ-UE-T6J"; Note = "Low Frequency Oscillator";</note>
-        <target xml:lang="hi" state="needs-translation">LFO 2</target>
+        <target xml:lang="hi" state="translated">एलएफओ 2</target>
       </trans-unit>
       <trans-unit id="go0-UQ-ltt.text">
         <source>Tempo Sync</source>
         <note>Class = "UILabel"; text = "Tempo Sync"; ObjectID = "go0-UQ-ltt";</note>
-        <target xml:lang="hi" state="needs-translation">Tempo Sync</target>
+        <target xml:lang="hi" state="translated">टेम्पो सिंक</target>
       </trans-unit>
       <trans-unit id="gzX-jx-4y6.text">
         <source>Rate</source>
         <note>Class = "UILabel"; text = "Rate"; ObjectID = "gzX-jx-4y6";</note>
-        <target xml:lang="hi" state="needs-translation">Rate</target>
+        <target xml:lang="hi" state="translated">मूल्यांकन करें</target>
       </trans-unit>
       <trans-unit id="nWW-Un-BcO.text">
         <source>Mix</source>
         <note>Class = "UILabel"; text = "Mix"; ObjectID = "nWW-Un-BcO"; Note = "Delay Dry/Wet Mix";</note>
-        <target xml:lang="hi" state="needs-translation">Mix</target>
+        <target xml:lang="hi" state="translated">मिश्रण</target>
       </trans-unit>
       <trans-unit id="qxc-oN-mY8.text">
         <source>Phaser</source>
         <note>Class = "UILabel"; text = "Phaser"; ObjectID = "qxc-oN-mY8";</note>
-        <target xml:lang="hi" state="needs-translation">Phaser</target>
+        <target xml:lang="hi" state="translated">Phaser</target>
       </trans-unit>
       <trans-unit id="rIz-r7-GtW.text">
         <source>Feedback</source>
         <note>Class = "UILabel"; text = "Feedback"; ObjectID = "rIz-r7-GtW"; Note = "Phaser Feedback/Taps";</note>
-        <target xml:lang="hi" state="needs-translation">Feedback</target>
+        <target xml:lang="hi" state="translated">प्रतिक्रिया</target>
       </trans-unit>
     </body>
   </file>
@@ -1100,17 +1100,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="CFBundleDisplayName">
         <source>Synth One</source>
         <note>Bundle display name</note>
-        <target xml:lang="hi" state="needs-translation">Synth One</target>
+        <target xml:lang="hi" state="translated">सिंथ वन</target>
       </trans-unit>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
         <note>Bundle name</note>
-        <target xml:lang="hi" state="needs-translation">$(PRODUCT_NAME)</target>
+        <target xml:lang="hi" state="translated">$(PRODUCT_NAME)</target>
       </trans-unit>
       <trans-unit id="NSCameraUsageDescription">
         <source>$(PRODUCT_NAME) camera use.</source>
         <note>Privacy - Camera Usage Description</note>
-        <target xml:lang="hi" state="needs-translation">$(PRODUCT_NAME) camera use.</target>
+        <target xml:lang="hi" state="translated">$(PRODUCT_NAME) कैमरा उपयोग।</target>
       </trans-unit>
     </body>
   </file>
@@ -1122,57 +1122,57 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="1iB-yg-YcK.text">
         <source>Attack</source>
         <note>Class = "UILabel"; text = "Attack"; ObjectID = "1iB-yg-YcK";</note>
-        <target xml:lang="hi" state="needs-translation">Attack</target>
+        <target xml:lang="hi" state="translated">आक्रमण</target>
       </trans-unit>
       <trans-unit id="5Ie-DT-yvl.text">
         <source>Attack</source>
         <note>Class = "UILabel"; text = "Attack"; ObjectID = "5Ie-DT-yvl";</note>
-        <target xml:lang="hi" state="needs-translation">Attack</target>
+        <target xml:lang="hi" state="translated">आक्रमण</target>
       </trans-unit>
       <trans-unit id="9Ne-rF-Cd5.text">
         <source>Sustain</source>
         <note>Class = "UILabel"; text = "Sustain"; ObjectID = "9Ne-rF-Cd5";</note>
-        <target xml:lang="hi" state="needs-translation">Sustain</target>
+        <target xml:lang="hi" state="translated">बनाए रखना</target>
       </trans-unit>
       <trans-unit id="NPM-Ga-czS.text">
         <source>Sustain</source>
         <note>Class = "UILabel"; text = "Sustain"; ObjectID = "NPM-Ga-czS";</note>
-        <target xml:lang="hi" state="needs-translation">Sustain</target>
+        <target xml:lang="hi" state="translated">बनाए रखना</target>
       </trans-unit>
       <trans-unit id="QwS-x7-Tqo.text">
         <source>Decay</source>
         <note>Class = "UILabel"; text = "Decay"; ObjectID = "QwS-x7-Tqo";</note>
-        <target xml:lang="hi" state="needs-translation">Decay</target>
+        <target xml:lang="hi" state="translated">क्षय</target>
       </trans-unit>
       <trans-unit id="TwY-KM-KRE.text">
         <source>Release</source>
         <note>Class = "UILabel"; text = "Release"; ObjectID = "TwY-KM-KRE";</note>
-        <target xml:lang="hi" state="needs-translation">Release</target>
+        <target xml:lang="hi" state="translated">रिहाई</target>
       </trans-unit>
       <trans-unit id="jpD-fo-QNO.text">
         <source>Amplitude Envelope</source>
         <note>Class = "UILabel"; text = "Amplitude Envelope"; ObjectID = "jpD-fo-QNO";</note>
-        <target xml:lang="hi" state="needs-translation">Amplitude Envelope</target>
+        <target xml:lang="hi" state="translated">आयाम लिफाफा</target>
       </trans-unit>
       <trans-unit id="tyt-Qx-CmV.text">
         <source>Decay</source>
         <note>Class = "UILabel"; text = "Decay"; ObjectID = "tyt-Qx-CmV";</note>
-        <target xml:lang="hi" state="needs-translation">Decay</target>
+        <target xml:lang="hi" state="translated">क्षय</target>
       </trans-unit>
       <trans-unit id="u2H-uf-fdc.text">
         <source>Filter Envelope</source>
         <note>Class = "UILabel"; text = "Filter Envelope"; ObjectID = "u2H-uf-fdc";</note>
-        <target xml:lang="hi" state="needs-translation">Filter Envelope</target>
+        <target xml:lang="hi" state="translated">फ़िल्टर लिफाफा</target>
       </trans-unit>
       <trans-unit id="yjc-MW-jcO.text">
         <source>Release</source>
         <note>Class = "UILabel"; text = "Release"; ObjectID = "yjc-MW-jcO";</note>
-        <target xml:lang="hi" state="needs-translation">Release</target>
+        <target xml:lang="hi" state="translated">रिहाई</target>
       </trans-unit>
       <trans-unit id="yuw-Hz-d5o.text">
         <source>Env Amt</source>
         <note>Class = "UILabel"; text = "Env Amt"; ObjectID = "yuw-Hz-d5o";</note>
-        <target xml:lang="hi" state="needs-translation">Env Amt</target>
+        <target xml:lang="hi" state="translated">एनवी एमएमटी</target>
       </trans-unit>
     </body>
   </file>
@@ -1184,147 +1184,147 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="0Mf-dH-wy0.text">
         <source>Arp/Seq</source>
         <note>Class = "UILabel"; text = "Arp/Seq"; ObjectID = "0Mf-dH-wy0"; Note = "arpeggiator/Sequencer (Perhaps one Abbreviation or the other, please keep short)";</note>
-        <target xml:lang="hi" state="needs-translation">Arp/Seq</target>
+        <target xml:lang="hi" state="translated">Arp / Seq</target>
       </trans-unit>
       <trans-unit id="8Uq-gf-6UI.text">
         <source>Global</source>
         <note>Class = "UILabel"; text = "Global"; ObjectID = "8Uq-gf-6UI";</note>
-        <target xml:lang="hi" state="needs-translation">Global</target>
+        <target xml:lang="hi" state="translated">वैश्विक</target>
       </trans-unit>
       <trans-unit id="9r6-eL-FL5.text">
         <source>Filter</source>
         <note>Class = "UILabel"; text = "Filter"; ObjectID = "9r6-eL-FL5";</note>
-        <target xml:lang="hi" state="needs-translation">Filter</target>
+        <target xml:lang="hi" state="translated">फ़िल्टर</target>
       </trans-unit>
       <trans-unit id="62k-94-Rv3.text">
         <source>Amp</source>
         <note>Class = "UILabel"; text = "Amp"; ObjectID = "62k-94-Rv3"; Note = "Amplification/Volume";</note>
-        <target xml:lang="hi" state="needs-translation">Amp</target>
+        <target xml:lang="hi" state="translated">एम्प</target>
       </trans-unit>
       <trans-unit id="91z-3O-akH.text">
         <source>Volume</source>
         <note>Class = "UILabel"; text = "Volume"; ObjectID = "91z-3O-akH";</note>
-        <target xml:lang="hi" state="needs-translation">Volume</target>
+        <target xml:lang="hi" state="translated">आयतन</target>
       </trans-unit>
       <trans-unit id="310-I5-RBg.text">
         <source>DCO 2</source>
         <note>Class = "UILabel"; text = "DCO 2"; ObjectID = "310-I5-RBg"; Note = "Oscillator / Digital Controlled Oscillator ";</note>
-        <target xml:lang="hi" state="needs-translation">DCO 2</target>
+        <target xml:lang="hi" state="translated">डीसीओ 2</target>
       </trans-unit>
       <trans-unit id="AjD-Sk-cQQ.text">
         <source>Glide</source>
         <note>Class = "UILabel"; text = "Glide"; ObjectID = "AjD-Sk-cQQ";</note>
-        <target xml:lang="hi" state="needs-translation">Glide</target>
+        <target xml:lang="hi" state="translated">फिसलन</target>
       </trans-unit>
       <trans-unit id="B0S-va-FqH.text">
         <source>Legato</source>
         <note>Class = "UILabel"; text = "Legato"; ObjectID = "B0S-va-FqH";</note>
-        <target xml:lang="hi" state="needs-translation">Legato</target>
+        <target xml:lang="hi" state="translated">लोगाटो</target>
       </trans-unit>
       <trans-unit id="ECo-F0-jfe.text">
         <source>DCO 1</source>
         <note>Class = "UILabel"; text = "DCO 1"; ObjectID = "ECo-F0-jfe"; Note = "Oscillator 1 / Digital Controlled Oscillator ";</note>
-        <target xml:lang="hi" state="needs-translation">DCO 1</target>
+        <target xml:lang="hi" state="translated">डीसीओ 1</target>
       </trans-unit>
       <trans-unit id="F86-bv-0H1.text">
         <source>Mono</source>
         <note>Class = "UILabel"; text = "Mono"; ObjectID = "F86-bv-0H1";</note>
-        <target xml:lang="hi" state="needs-translation">Mono</target>
+        <target xml:lang="hi" state="translated">मोनो</target>
       </trans-unit>
       <trans-unit id="Hw6-cM-mlo.text">
         <source>Amp</source>
         <note>Class = "UILabel"; text = "Amp"; ObjectID = "Hw6-cM-mlo"; Note = "Amplification/Volume";</note>
-        <target xml:lang="hi" state="needs-translation">Amp</target>
+        <target xml:lang="hi" state="translated">एम्प</target>
       </trans-unit>
       <trans-unit id="KMe-b8-yaN.text">
         <source>Resonance</source>
         <note>Class = "UILabel"; text = "Resonance"; ObjectID = "KMe-b8-yaN"; Note = "Filter Resonance/Q ";</note>
-        <target xml:lang="hi" state="needs-translation">Resonance</target>
+        <target xml:lang="hi" state="translated">गूंज</target>
       </trans-unit>
       <trans-unit id="OEr-fz-3io.text">
         <source>FM</source>
         <note>Class = "UILabel"; text = "FM"; ObjectID = "OEr-fz-3io"; Note = "Frequency Modulation / FM Synthesis";</note>
-        <target xml:lang="hi" state="needs-translation">FM</target>
+        <target xml:lang="hi" state="translated">एफएम</target>
       </trans-unit>
       <trans-unit id="TPy-ml-QQS.text">
         <source>-24</source>
         <note>Class = "UILabel"; text = "-24"; ObjectID = "TPy-ml-QQS";</note>
-        <target xml:lang="hi" state="needs-translation">-24</target>
+        <target xml:lang="hi" state="translated">-24</target>
       </trans-unit>
       <trans-unit id="XfT-ym-RWb.text">
         <source>Mix</source>
         <note>Class = "UILabel"; text = "Mix"; ObjectID = "XfT-ym-RWb";</note>
-        <target xml:lang="hi" state="needs-translation">Mix</target>
+        <target xml:lang="hi" state="translated">मिश्रण</target>
       </trans-unit>
       <trans-unit id="eYP-ap-6Ia.text">
         <source>Master Volume</source>
         <note>Class = "UILabel"; text = "Master Volume"; ObjectID = "eYP-ap-6Ia";</note>
-        <target xml:lang="hi" state="needs-translation">Master Volume</target>
+        <target xml:lang="hi" state="translated">मूल संस्करण</target>
       </trans-unit>
       <trans-unit id="exT-Rq-dxj.text">
         <source>Sub</source>
         <note>Class = "UILabel"; text = "Sub"; ObjectID = "exT-Rq-dxj";</note>
-        <target xml:lang="hi" state="needs-translation">Sub</target>
+        <target xml:lang="hi" state="translated">उप</target>
       </trans-unit>
       <trans-unit id="fhH-Ee-rSO.text">
         <source>Frequency</source>
         <note>Class = "UILabel"; text = "Frequency"; ObjectID = "fhH-Ee-rSO"; Note = "Filter Frequency";</note>
-        <target xml:lang="hi" state="needs-translation">Frequency</target>
+        <target xml:lang="hi" state="translated">आवृत्ति</target>
       </trans-unit>
       <trans-unit id="iz9-qo-den.text">
         <source>Semitones</source>
         <note>Class = "UILabel"; text = "Semitones"; ObjectID = "iz9-qo-den";</note>
-        <target xml:lang="hi" state="needs-translation">Semitones</target>
+        <target xml:lang="hi" state="translated">semitones</target>
       </trans-unit>
       <trans-unit id="jIr-eA-H5o.text">
         <source>Amp</source>
         <note>Class = "UILabel"; text = "Amp"; ObjectID = "jIr-eA-H5o"; Note = "Amplification/Volume";</note>
-        <target xml:lang="hi" state="needs-translation">Amp</target>
+        <target xml:lang="hi" state="translated">एम्प</target>
       </trans-unit>
       <trans-unit id="jl7-1K-mc7.text">
         <source>DCO 2</source>
         <note>Class = "UILabel"; text = "DCO 2"; ObjectID = "jl7-1K-mc7"; Note = "Oscillator 2 / Digital Controlled Oscillator ";</note>
-        <target xml:lang="hi" state="needs-translation">DCO 2</target>
+        <target xml:lang="hi" state="translated">डीसीओ 2</target>
       </trans-unit>
       <trans-unit id="nLD-gy-Y0z.text">
         <source>Noise</source>
         <note>Class = "UILabel"; text = "Noise"; ObjectID = "nLD-gy-Y0z";</note>
-        <target xml:lang="hi" state="needs-translation">Noise</target>
+        <target xml:lang="hi" state="translated">शोर</target>
       </trans-unit>
       <trans-unit id="ozs-aS-dKc.normalTitle">
         <source>Low Pass</source>
         <note>Class = "UIButton"; normalTitle = "Low Pass"; ObjectID = "ozs-aS-dKc";</note>
-        <target xml:lang="hi" state="needs-translation">Low Pass</target>
+        <target xml:lang="hi" state="translated">कम उत्तीर्ण</target>
       </trans-unit>
       <trans-unit id="pkg-m0-5sO.text">
         <source>Mod</source>
         <note>Class = "UILabel"; text = "Mod"; ObjectID = "pkg-m0-5sO"; Note = "Modulation";</note>
-        <target xml:lang="hi" state="needs-translation">Mod</target>
+        <target xml:lang="hi" state="translated">मॉड</target>
       </trans-unit>
       <trans-unit id="ppL-x8-d0i.text">
         <source>Widen</source>
         <note>Class = "UILabel"; text = "Widen"; ObjectID = "ppL-x8-d0i"; Note = "Stereo Widen";</note>
-        <target xml:lang="hi" state="needs-translation">Widen</target>
+        <target xml:lang="hi" state="translated">प्रसार किया गया</target>
       </trans-unit>
       <trans-unit id="rCL-wA-mRJ.text">
         <source>DCO 1</source>
         <note>Class = "UILabel"; text = "DCO 1"; ObjectID = "rCL-wA-mRJ"; Note = "Oscillator 1 / Digital Controlled Oscillator ";</note>
-        <target xml:lang="hi" state="needs-translation">DCO 1</target>
+        <target xml:lang="hi" state="translated">डीसीओ 1</target>
       </trans-unit>
       <trans-unit id="uby-Uc-YpS.text">
         <source>Semitones</source>
         <note>Class = "UILabel"; text = "Semitones"; ObjectID = "uby-Uc-YpS";</note>
-        <target xml:lang="hi" state="needs-translation">Semitones</target>
+        <target xml:lang="hi" state="translated">semitones</target>
       </trans-unit>
       <trans-unit id="wBf-gS-1RL.text">
         <source>DCO 1-2</source>
         <note>Class = "UILabel"; text = "DCO 1-2"; ObjectID = "wBf-gS-1RL"; Note = "Oscillator / Digital Controlled Oscillator ";</note>
-        <target xml:lang="hi" state="needs-translation">DCO 1-2</target>
+        <target xml:lang="hi" state="translated">डीसीओ 1-2</target>
       </trans-unit>
       <trans-unit id="y2a-dN-P74.text">
         <source>Detune</source>
         <note>Class = "UILabel"; text = "Detune"; ObjectID = "y2a-dN-P74";</note>
-        <target xml:lang="hi" state="needs-translation">Detune</target>
+        <target xml:lang="hi" state="translated">बेसूरा करना</target>
       </trans-unit>
     </body>
   </file>
@@ -1336,37 +1336,37 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="4uE-Js-e46.normalTitle">
         <source>Dev</source>
         <note>Class = "UIButton"; normalTitle = "Dev"; ObjectID = "4uE-Js-e46";</note>
-        <target xml:lang="hi" state="needs-translation">Dev</target>
+        <target xml:lang="hi" state="translated">देव</target>
       </trans-unit>
       <trans-unit id="Ggs-qy-ExU.text">
         <source>Loading...</source>
         <note>Class = "UILabel"; text = "Loading..."; ObjectID = "Ggs-qy-ExU";</note>
-        <target xml:lang="hi" state="needs-translation">Loading...</target>
+        <target xml:lang="hi" state="translated">लोड हो रहा है...</target>
       </trans-unit>
       <trans-unit id="NL0-Jf-tHi.normalTitle">
         <source>Save</source>
         <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "NL0-Jf-tHi"; Note = "Save Preset Button (keep short)";</note>
-        <target xml:lang="hi" state="needs-translation">Save</target>
+        <target xml:lang="hi" state="translated">बचाना</target>
       </trans-unit>
       <trans-unit id="PpV-eX-q12.normalTitle">
         <source>Web</source>
         <note>Class = "UIButton"; normalTitle = "Web"; ObjectID = "PpV-eX-q12"; Note = "Website button (keep short)";</note>
-        <target xml:lang="hi" state="needs-translation">Web</target>
+        <target xml:lang="hi" state="translated">वेब</target>
       </trans-unit>
       <trans-unit id="l9q-RV-KkX.normalTitle">
         <source>Panic</source>
         <note>Class = "UIButton"; normalTitle = "Panic"; ObjectID = "l9q-RV-KkX"; Note = "MIDI Panic / All notes off (Keep short)";</note>
-        <target xml:lang="hi" state="needs-translation">Panic</target>
+        <target xml:lang="hi" state="translated">आतंक</target>
       </trans-unit>
       <trans-unit id="qXZ-Yq-KK5.normalTitle">
         <source>Apps</source>
         <note>Class = "UIButton"; normalTitle = "Apps"; ObjectID = "qXZ-Yq-KK5"; Note = "Apps button, keep short";</note>
-        <target xml:lang="hi" state="needs-translation">Apps</target>
+        <target xml:lang="hi" state="translated">ऐप्स</target>
       </trans-unit>
       <trans-unit id="vEb-n7-p0M.normalTitle">
         <source>About</source>
         <note>Class = "UIButton"; normalTitle = "About"; ObjectID = "vEb-n7-p0M"; Note = "About button (keep short)";</note>
-        <target xml:lang="hi" state="needs-translation">About</target>
+        <target xml:lang="hi" state="translated">के बारे में</target>
       </trans-unit>
     </body>
   </file>
@@ -1378,117 +1378,117 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="3lr-kd-bYo.normalTitle">
         <source>Cancel</source>
         <note>Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "3lr-kd-bYo";</note>
-        <target xml:lang="hi" state="needs-translation">Cancel</target>
+        <target xml:lang="hi" state="translated">रद्द करना</target>
       </trans-unit>
       <trans-unit id="4I7-1e-dMK.normalTitle">
         <source>New Preset</source>
         <note>Class = "UIButton"; normalTitle = "New Preset"; ObjectID = "4I7-1e-dMK";</note>
-        <target xml:lang="hi" state="needs-translation">New Preset</target>
+        <target xml:lang="hi" state="translated">नया प्रीसेट</target>
       </trans-unit>
       <trans-unit id="8dj-SF-Pxt.text">
         <source>SAVE / RENAME PRESET:</source>
         <note>Class = "UILabel"; text = "SAVE / RENAME PRESET:"; ObjectID = "8dj-SF-Pxt";</note>
-        <target xml:lang="hi" state="needs-translation">SAVE / RENAME PRESET:</target>
+        <target xml:lang="hi" state="translated">बचाएं / नाम दें:</target>
       </trans-unit>
       <trans-unit id="8tM-pA-eD2.text">
         <source>Preset Description Here</source>
         <note>Class = "UITextView"; text = "Preset Description Here"; ObjectID = "8tM-pA-eD2";</note>
-        <target xml:lang="hi" state="needs-translation">Preset Description Here</target>
+        <target xml:lang="hi" state="translated">प्रीसेट विवरण यहाँ</target>
       </trans-unit>
       <trans-unit id="EyQ-H5-8Yr.text">
         <source>RENAME BANK:</source>
         <note>Class = "UILabel"; text = "RENAME BANK:"; ObjectID = "EyQ-H5-8Yr";</note>
-        <target xml:lang="hi" state="needs-translation">RENAME BANK:</target>
+        <target xml:lang="hi" state="translated">नाम बैंक:</target>
       </trans-unit>
       <trans-unit id="Jut-wm-dt0.text">
         <source>Category</source>
         <note>Class = "UILabel"; text = "Category"; ObjectID = "Jut-wm-dt0";</note>
-        <target xml:lang="hi" state="needs-translation">Category</target>
+        <target xml:lang="hi" state="translated">वर्ग</target>
       </trans-unit>
       <trans-unit id="LTK-sn-l0B.text">
         <source>Select a bank for the preset:</source>
         <note>Class = "UILabel"; text = "Select a bank for the preset:"; ObjectID = "LTK-sn-l0B";</note>
-        <target xml:lang="hi" state="needs-translation">Select a bank for the preset:</target>
+        <target xml:lang="hi" state="translated">प्रीसेट के लिए एक बैंक का चयन करें:</target>
       </trans-unit>
       <trans-unit id="M5g-gJ-LgP.text">
         <source>Pad</source>
         <note>Class = "UILabel"; text = "Pad"; ObjectID = "M5g-gJ-LgP";</note>
-        <target xml:lang="hi" state="needs-translation">Pad</target>
+        <target xml:lang="hi" state="translated">तकती</target>
       </trans-unit>
       <trans-unit id="Pax-NO-iPl.text">
         <source>Rename the preset to save a new copy. Press "Save" to save the current preset. </source>
         <note>Class = "UILabel"; text = "Rename the preset to save a new copy. Press \"Save\" to save the current preset. "; ObjectID = "Pax-NO-iPl";</note>
-        <target xml:lang="hi" state="needs-translation">Rename the preset to save a new copy. Press "Save" to save the current preset. </target>
+        <target xml:lang="hi" state="translated">एक नई प्रति सहेजने के लिए प्रीसेट का नाम बदलें। वर्तमान प्रीसेट को सहेजने के लिए "सहेजें" दबाएं। </target>
       </trans-unit>
       <trans-unit id="Qv6-hQ-4wE.normalTitle">
         <source>Delete Bank</source>
         <note>Class = "UIButton"; normalTitle = "Delete Bank"; ObjectID = "Qv6-hQ-4wE";</note>
-        <target xml:lang="hi" state="needs-translation">Delete Bank</target>
+        <target xml:lang="hi" state="translated">बैंक हटाएं</target>
       </trans-unit>
       <trans-unit id="VL7-Y3-hxn.normalTitle">
         <source>SAVE PRESET</source>
         <note>Class = "UIButton"; normalTitle = "SAVE PRESET"; ObjectID = "VL7-Y3-hxn";</note>
-        <target xml:lang="hi" state="needs-translation">SAVE PRESET</target>
+        <target xml:lang="hi" state="translated">प्रीसेट बचाओ</target>
       </trans-unit>
       <trans-unit id="ZCE-zi-tsi.normalTitle">
         <source>Import Preset</source>
         <note>Class = "UIButton"; normalTitle = "Import Preset"; ObjectID = "ZCE-zi-tsi";</note>
-        <target xml:lang="hi" state="needs-translation">Import Preset</target>
+        <target xml:lang="hi" state="translated">प्रीसेट आयात करें</target>
       </trans-unit>
       <trans-unit id="c61-bJ-zsz.normalTitle">
         <source>DONE EDITING</source>
         <note>Class = "UIButton"; normalTitle = "DONE EDITING"; ObjectID = "c61-bJ-zsz";</note>
-        <target xml:lang="hi" state="needs-translation">DONE EDITING</target>
+        <target xml:lang="hi" state="translated">सम्पादन संपन्न, संपादन संपन्न किया</target>
       </trans-unit>
       <trans-unit id="cs5-5n-k8U.normalTitle">
         <source>+</source>
         <note>Class = "UIButton"; normalTitle = "+"; ObjectID = "cs5-5n-k8U";</note>
-        <target xml:lang="hi" state="needs-translation">+</target>
+        <target xml:lang="hi" state="translated">+</target>
       </trans-unit>
       <trans-unit id="dSC-DB-ods.text">
         <source>Preset Name</source>
         <note>Class = "UILabel"; text = "Preset Name"; ObjectID = "dSC-DB-ods";</note>
-        <target xml:lang="hi" state="needs-translation">Preset Name</target>
+        <target xml:lang="hi" state="translated">प्रीसेट नाम</target>
       </trans-unit>
       <trans-unit id="dvq-vN-oxQ.normalTitle">
         <source>Cancel</source>
         <note>Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "dvq-vN-oxQ";</note>
-        <target xml:lang="hi" state="needs-translation">Cancel</target>
+        <target xml:lang="hi" state="translated">रद्द करना</target>
       </trans-unit>
       <trans-unit id="eGC-CV-RRm.normalTitle">
         <source>Import Bank</source>
         <note>Class = "UIButton"; normalTitle = "Import Bank"; ObjectID = "eGC-CV-RRm";</note>
-        <target xml:lang="hi" state="needs-translation">Import Bank</target>
+        <target xml:lang="hi" state="translated">आयात बैंक</target>
       </trans-unit>
       <trans-unit id="eI7-vK-ARE.normalTitle">
         <source>Save</source>
         <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "eI7-vK-ARE";</note>
-        <target xml:lang="hi" state="needs-translation">Save</target>
+        <target xml:lang="hi" state="translated">बचाना</target>
       </trans-unit>
       <trans-unit id="mZQ-N0-bdr.text">
         <source>SYNTH ONE PRESETS</source>
         <note>Class = "UILabel"; text = "SYNTH ONE PRESETS"; ObjectID = "mZQ-N0-bdr";</note>
-        <target xml:lang="hi" state="needs-translation">SYNTH ONE PRESETS</target>
+        <target xml:lang="hi" state="translated">सिथ एक प्रीसेट्स</target>
       </trans-unit>
       <trans-unit id="rSO-zc-3Ba.normalTitle">
         <source>Save</source>
         <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "rSO-zc-3Ba";</note>
-        <target xml:lang="hi" state="needs-translation">Save</target>
+        <target xml:lang="hi" state="translated">बचाना</target>
       </trans-unit>
       <trans-unit id="uLS-HA-DTu.text">
         <source>Category:</source>
         <note>Class = "UILabel"; text = "Category:"; ObjectID = "uLS-HA-DTu";</note>
-        <target xml:lang="hi" state="needs-translation">Category:</target>
+        <target xml:lang="hi" state="translated">वर्ग:</target>
       </trans-unit>
       <trans-unit id="v81-AR-cdF.normalTitle">
         <source>Reorder</source>
         <note>Class = "UIButton"; normalTitle = "Reorder"; ObjectID = "v81-AR-cdF";</note>
-        <target xml:lang="hi" state="needs-translation">Reorder</target>
+        <target xml:lang="hi" state="translated">पुन: व्यवस्थित करें</target>
       </trans-unit>
       <trans-unit id="xCe-zx-CAI.text">
         <source>Free &amp; open-source synthesizer. Browse presets &amp; banks below. </source>
         <note>Class = "UILabel"; text = "Free &amp; open-source synthesizer. Browse presets &amp; banks below. "; ObjectID = "xCe-zx-CAI";</note>
-        <target xml:lang="hi" state="needs-translation">Free &amp; open-source synthesizer. Browse presets &amp; banks below. </target>
+        <target xml:lang="hi" state="translated">मुफ्त &amp; ओपन-सोर्स सिंथेसाइज़र। नीचे प्रीसेट &amp; बैंक ब्राउज़ करें। </target>
       </trans-unit>
     </body>
   </file>
@@ -1500,112 +1500,112 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="1kh-G3-Dao.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "1kh-G3-Dao";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="2kx-k3-hsp.text">
         <source>Style</source>
         <note>Class = "UILabel"; text = "Style"; ObjectID = "2kx-k3-hsp"; Note = "Arp Kind (up/down)";</note>
-        <target xml:lang="hi" state="needs-translation">Style</target>
+        <target xml:lang="hi" state="translated">अंदाज</target>
       </trans-unit>
       <trans-unit id="5Zf-zW-Iav.text">
         <source>Octave</source>
         <note>Class = "UILabel"; text = "Octave"; ObjectID = "5Zf-zW-Iav";</note>
-        <target xml:lang="hi" state="needs-translation">Octave</target>
+        <target xml:lang="hi" state="translated">सप्टक</target>
       </trans-unit>
       <trans-unit id="6WL-SP-3jX.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "6WL-SP-3jX";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="7TS-So-8Ku.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "7TS-So-8Ku";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="8ys-6F-5Ct.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "8ys-6F-5Ct";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="22z-fI-i6o.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "22z-fI-i6o";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="FJP-5X-i7T.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "FJP-5X-i7T";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="IL2-Ai-3GG.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "IL2-Ai-3GG";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="MCo-Uv-ex2.text">
         <source>Steps</source>
         <note>Class = "UILabel"; text = "Steps"; ObjectID = "MCo-Uv-ex2"; Note = "Sequencer Steps";</note>
-        <target xml:lang="hi" state="needs-translation">Steps</target>
+        <target xml:lang="hi" state="translated">कदम</target>
       </trans-unit>
       <trans-unit id="N6g-lA-Pmi.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "N6g-lA-Pmi";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="P9q-rs-3Sq.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "P9q-rs-3Sq";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="QTm-h5-dGt.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "QTm-h5-dGt";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="Tlc-ZL-pSj.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "Tlc-ZL-pSj";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="UQ8-P1-5c9.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "UQ8-P1-5c9";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="USV-ak-yaz.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "USV-ak-yaz";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="X6a-NW-xsn.text">
         <source>Seq</source>
         <note>Class = "UILabel"; text = "Seq"; ObjectID = "X6a-NW-xsn"; Note = "Sequencer (keep short)";</note>
-        <target xml:lang="hi" state="needs-translation">Seq</target>
+        <target xml:lang="hi" state="translated">seq</target>
       </trans-unit>
       <trans-unit id="bgM-Rm-Fpn.text">
         <source>Arp</source>
         <note>Class = "UILabel"; text = "Arp"; ObjectID = "bgM-Rm-Fpn"; Note = "arpeggiator (keep short)";</note>
-        <target xml:lang="hi" state="needs-translation">Arp</target>
+        <target xml:lang="hi" state="translated">Arp</target>
       </trans-unit>
       <trans-unit id="f7D-Z3-yNc.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "f7D-Z3-yNc";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="gH8-vf-85d.text">
         <source>Interval</source>
         <note>Class = "UILabel"; text = "Interval"; ObjectID = "gH8-vf-85d"; Note = "Arp Semitone Intervals";</note>
-        <target xml:lang="hi" state="needs-translation">Interval</target>
+        <target xml:lang="hi" state="translated">मध्यान्तर</target>
       </trans-unit>
       <trans-unit id="hPX-vI-eXD.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "hPX-vI-eXD";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
       <trans-unit id="oHV-it-EtQ.text">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "oHV-it-EtQ";</note>
-        <target xml:lang="hi" state="needs-translation">0</target>
+        <target xml:lang="hi" state="translated">0</target>
       </trans-unit>
     </body>
   </file>
@@ -1617,27 +1617,27 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="4Xu-ES-Jtr.text">
         <source>FILTER RESONANCE</source>
         <note>Class = "UILabel"; text = "FILTER RESONANCE"; ObjectID = "4Xu-ES-Jtr";</note>
-        <target xml:lang="hi" state="needs-translation">FILTER RESONANCE</target>
+        <target xml:lang="hi" state="translated">फ़िल्टर अनुनाद</target>
       </trans-unit>
       <trans-unit id="SVY-05-J4t.normalTitle">
         <source>Snap</source>
         <note>Class = "UIButton"; normalTitle = "Snap"; ObjectID = "SVY-05-J4t";</note>
-        <target xml:lang="hi" state="needs-translation">Snap</target>
+        <target xml:lang="hi" state="translated">स्नैप</target>
       </trans-unit>
       <trans-unit id="cxh-gH-dY1.text">
         <source>LFO 1 AMPLITUDE</source>
         <note>Class = "UILabel"; text = "LFO 1 AMPLITUDE"; ObjectID = "cxh-gH-dY1";</note>
-        <target xml:lang="hi" state="needs-translation">LFO 1 AMPLITUDE</target>
+        <target xml:lang="hi" state="translated">एलएफओ 1 एम्पलीट्यूड</target>
       </trans-unit>
       <trans-unit id="gH1-9e-vhR.text">
         <source>FILTER CUTOFF</source>
         <note>Class = "UILabel"; text = "FILTER CUTOFF"; ObjectID = "gH1-9e-vhR";</note>
-        <target xml:lang="hi" state="needs-translation">FILTER CUTOFF</target>
+        <target xml:lang="hi" state="translated">फ़िल्टर कटऑफ</target>
       </trans-unit>
       <trans-unit id="qXN-sO-KUB.text">
         <source>LFO 1 RATE</source>
         <note>Class = "UILabel"; text = "LFO 1 RATE"; ObjectID = "qXN-sO-KUB";</note>
-        <target xml:lang="hi" state="needs-translation">LFO 1 RATE</target>
+        <target xml:lang="hi" state="translated">एलएफओ 1 दर</target>
       </trans-unit>
     </body>
   </file>
@@ -1649,22 +1649,22 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="AqK-kK-Iaf.text">
         <source>Master Tuning</source>
         <note>Class = "UILabel"; text = "Master Tuning"; ObjectID = "AqK-kK-Iaf";</note>
-        <target xml:lang="hi" state="needs-translation">Master Tuning</target>
+        <target xml:lang="hi" state="translated">मास्टर ट्यूनिंग</target>
       </trans-unit>
       <trans-unit id="Cm9-Xa-WqW.text">
         <source>TUNING</source>
         <note>Class = "UILabel"; text = "TUNING"; ObjectID = "Cm9-Xa-WqW";</note>
-        <target xml:lang="hi" state="needs-translation">TUNING</target>
+        <target xml:lang="hi" state="translated">ट्यूनिंग</target>
       </trans-unit>
       <trans-unit id="JBk-V2-c4I.normalTitle">
         <source>Reset</source>
         <note>Class = "UIButton"; normalTitle = "Reset"; ObjectID = "JBk-V2-c4I";</note>
-        <target xml:lang="hi" state="needs-translation">Reset</target>
+        <target xml:lang="hi" state="translated">रीसेट</target>
       </trans-unit>
       <trans-unit id="ipV-Bb-omK.text">
         <source>PITCH</source>
         <note>Class = "UILabel"; text = "PITCH"; ObjectID = "ipV-Bb-omK";</note>
-        <target xml:lang="hi" state="needs-translation">PITCH</target>
+        <target xml:lang="hi" state="translated">पिच</target>
       </trans-unit>
     </body>
   </file>
@@ -1676,12 +1676,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="CFBundleDisplayName">
         <source>OneSignalNotificationServiceExtension</source>
         <note>Bundle display name</note>
-        <target xml:lang="hi" state="needs-translation">OneSignalNotificationServiceExtension</target>
+        <target xml:lang="hi" state="translated">OneSignalNotificationServiceExtension</target>
       </trans-unit>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
         <note>Bundle name</note>
-        <target xml:lang="hi" state="needs-translation">$(PRODUCT_NAME)</target>
+        <target xml:lang="hi" state="translated">$(PRODUCT_NAME)</target>
       </trans-unit>
     </body>
   </file>

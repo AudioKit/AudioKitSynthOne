@@ -58,6 +58,9 @@ class DevViewController: UpdatableViewController {
     @IBOutlet weak var portamento: Knob!
     var portamentoHalfTime = 0.1
 
+    @IBOutlet weak var oscBandlimitIndexOverrideKnob: Knob!
+    @IBOutlet weak var oscBandlimitEnable: ToggleButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -156,6 +159,11 @@ class DevViewController: UpdatableViewController {
         portamento.callback = { value in
             self.delegate?.portamentoChanged(value)
         }
+
+        //
+        oscBandlimitIndexOverrideKnob.range = s.getRange(.oscBandlimitIndexOverride)
+        conductor.bind(oscBandlimitIndexOverrideKnob, to: .oscBandlimitIndexOverride)
+        conductor.bind(oscBandlimitEnable, to: .oscBandlimitEnable)
 
         setupLinkStuff()
     }

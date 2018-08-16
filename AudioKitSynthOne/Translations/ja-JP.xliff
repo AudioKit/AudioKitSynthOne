@@ -23,6 +23,9 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
         <source>AudioKit is free &amp; open-source</source>
         <note>Class = "UILabel"; text = "AudioKit is free &amp; open-source"; ObjectID = "2jS-Ub-cCT";</note>
         <target xml:lang="ja" state="translated">AudioKitは無料です &amp; オープンソース</target>
+        <alt-trans>
+          <target xml:lang="ja">AudioKitは無料で、オープンソースです。</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="A1r-GN-8if.text">
         <source>MORE AUDIOKIT APPS</source>

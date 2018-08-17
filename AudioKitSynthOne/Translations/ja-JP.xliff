@@ -159,7 +159,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="yhG-s7-4JE.text">
         <source>Welcome! Enter your Email Address below to receive 80+ Free presets  (all 300+ presets). Then press "Get Presets!"</source>
         <note>Class = "UITextView"; text = "Welcome! Enter your Email Address below to receive 80+ Free presets  (all 300+ presets). Then press \"Get Presets!\""; ObjectID = "yhG-s7-4JE";</note>
-        <target xml:lang="ja" state="translated">ようこそ！以下のメールアドレスを入力して80以上の無料プリセット（300以上のプリセット）を受信します。次に、「プリセットを取得！」を押します。</target>
+        <target xml:lang="ja" state="translated">ようこそ！メールアドレスを記入するだけで、80以上の無料プリセット効果（つまりは300以上の全てのプリセット）を受信出来ます。次に、メールアドレスを記入し、「プリセットを取得！」を押してください。</target>
+        <alt-trans>
+          <target xml:lang="ja">ようこそ！以下のメールアドレスを入力して80以上の無料プリセット（300以上のプリセット）を受信します。次に、「プリセットを取得！」を押します。</target>
+        </alt-trans>
       </trans-unit>
     </body>
   </file>
@@ -191,7 +194,13 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Arp/Sequencer Off">
         <source>Arp/Sequencer Off</source>
         <note>Arpeggiator Off</note>
-        <target xml:lang="ja" state="translated">Arp /シーケンサーオフ</target>
+        <target xml:lang="ja" state="translated">Arp/シーケンサー・オフ</target>
+        <alt-trans>
+          <target xml:lang="ja">Arp /シーケンサー・オフ</target>
+        </alt-trans>
+        <alt-trans>
+          <target xml:lang="ja">Arp /シーケンサーオフ</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Arp/Sequencer On">
         <source>Arp/Sequencer On</source>
@@ -226,7 +235,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
         <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
         <note>Alert Message: Background Audio</note>
-        <target xml:lang="ja" state="translated">バックグラウンドオーディオはバッテリーをより早く消耗します。使用していないときは電源を切ってください。</target>
+        <target xml:lang="ja" state="translated">バックグラウンド・オーディオの使用により、バッテリーが早く消耗されます。使用していない時、電源を切ってください。</target>
+        <alt-trans>
+          <target xml:lang="ja">バックグラウンドオーディオはバッテリーをより早く消耗します。使用していないときは電源を切ってください。</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Band Pass">
         <source>Band Pass</source>

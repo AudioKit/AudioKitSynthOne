@@ -121,7 +121,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="yLF-QF-HMs.normalTitle">
         <source>Watch the Amazing Synth One Video</source>
         <note>Class = "UIButton"; normalTitle = "Watch the Amazing Synth One Video"; ObjectID = "yLF-QF-HMs";</note>
-        <target xml:lang="ja" state="translated">驚くべきシンセ・ワン・ビデオを見る</target>
+        <target xml:lang="ja" state="translated">驚くべき！「シンセ・ワン」のビデオを見る</target>
+        <alt-trans>
+          <target xml:lang="ja">驚くべきシンセ・ワン・ビデオを見る</target>
+        </alt-trans>
       </trans-unit>
     </body>
   </file>
@@ -133,7 +136,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="B52-X8-pfB.normalTitle">
         <source>Thanks, I'll do it later</source>
         <note>Class = "UIButton"; normalTitle = "Thanks, I'll do it later"; ObjectID = "B52-X8-pfB";</note>
-        <target xml:lang="ja" state="translated">ありがとう、後でやるよ</target>
+        <target xml:lang="ja" state="translated">いいえ、後でやる</target>
+        <alt-trans>
+          <target xml:lang="ja">ありがとう、後でやるよ</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="FJY-lQ-hbA.text">
         <source>SETUP: Step 1 of 1</source>

@@ -551,12 +551,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="MIDI Learn: Touch a knob to assign">
         <source>MIDI Learn: Touch a knob to assign</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="ja" state="translated">MIDI学習：ノブをタッチして</target>
+        <target xml:lang="ja" state="translated">MIDI学習：ノブをタッチして割当てる</target>
+        <alt-trans>
+          <target xml:lang="ja">MIDI学習：ノブをタッチして</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉">
         <source>MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</source>
         <note>Alert Message: Too High</note>
-        <target xml:lang="ja" state="translated">MIDIノート &gt; 127. G8は再生可能な最高の鍵です。それをノッチダウン😉</target>
+        <target xml:lang="ja" state="translated">MIDIノート ＞ 127. G8は再生可能な最高のキーです。それを１ノッチ下げて下さい😉</target>
+        <alt-trans>
+          <target xml:lang="ja">MIDIノート &gt; 127. G8は再生可能な最高の鍵です。それをノッチダウン😉</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Master Volume: \(value.percentageString)">
         <source>Master Volume: \(value.percentageString)</source>
@@ -566,7 +572,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Midi Panic">
         <source>Midi Panic</source>
         <note>Alert Title: MIDI Panic</note>
-        <target xml:lang="ja" state="translated">ミディパニック</target>
+        <target xml:lang="ja" state="translated">ミディ・パニック</target>
+        <alt-trans>
+          <target xml:lang="ja">ミディパニック</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Noise LFO ‣ \(lfoSource!)">
         <source>Noise LFO ‣ \(lfoSource!)</source>
@@ -576,7 +585,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Noise Volume: \((value * 4).percentageString)">
         <source>Noise Volume: \((value * 4).percentageString)</source>
         <note>Noise Volume</note>
-        <target xml:lang="ja" state="translated">ノイズ量：\（（値* 4）.percentageString）</target>
+        <target xml:lang="ja" state="translated">ノイズ量：\（（value* 4）.percentageString）</target>
+        <alt-trans>
+          <target xml:lang="ja">ノイズ量：\（（値* 4）.percentageString）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Notice">
         <source>Notice</source>

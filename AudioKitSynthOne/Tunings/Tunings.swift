@@ -260,21 +260,24 @@ class Tunings {
         // Scales designed by Marcus Hobbs using Wilsonic
         retVal.append( (" 9 Hobbs MOS G:0.238186", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.238_186, level: 6, murchana: 0); return t.masterSet }) )
         retVal.append( (" 6 Hobbs Hexany(9, 25, 49, 81)", { return Tunings.hexany( [9, 25, 49, 81] ) }) )
+        
+        //    •    Hexany Fibonacci Triplets (X-3, 3, X, X+3) where X=[3,6]
         retVal.append( (" 6 Hobbs Hexany(3, 2.111, 5.111, 8.111)", { return Tunings.hexany( [3, 2.111, 5.111, 8.111] ) }) )
         retVal.append( (" 6 Hobbs Hexany(3, 1.346, 4.346, 7.346)", { return Tunings.hexany( [3, 1.346, 4.346, 7.346] ) }) )
-        retVal.append( (" 5 Hobbs Recurrence Relation", { let s: [Double] = [1, 19, 5, 3, 15]; return s }) )
-        retVal.append( (" 5 Hobbs Recurrence Relation", { let s: [Double] = [35, 74, 23, 51, 61]; return s }) )
-        retVal.append( (" 6 Hobbs Recurrence Relation", { let s: [Double] = [74, 150, 85, 106, 120, 61]; return s }) )
-        retVal.append( (" 6 Hobbs Recurrence Relation", { let s: [Double] = [1, 9, 5, 23, 48, 7]; return s }) )
-        retVal.append( (" 6 Hobbs Recurrence Relation", { let s: [Double] = [1, 9, 21, 3, 25, 15]; return s }) )
-        retVal.append( (" 6 Hobbs Recurrence Relation", { let s: [Double] = [1, 75, 19, 5, 3, 15]; return s }) )
-        retVal.append( (" 7 Hobbs Recurrence Relation", { let s: [Double] = [1, 17, 10, 47, 3, 13, 7]; return s }) )
-        retVal.append( (" 7 Hobbs Recurrence Relation", { let s: [Double] = [1, 9, 5, 21, 3, 27, 7]; return s }) )
-        retVal.append( (" 7 Hobbs Recurrence Relation", { let s: [Double] = [1, 9, 21, 3, 25, 15, 31]; return s }) )
-        retVal.append( (" 7 Hobbs Recurrence Relation", { let s: [Double] = [1, 75, 19, 5, 94, 3, 15]; return s }) )
-        retVal.append( (" 7 Hobbs Recurrence Relation", { let s: [Double] = [9, 40, 21, 25, 52, 15, 31]; return s }) )
-        retVal.append( (" 7 Hobbs Recurrence Relation", { let s: [Double] = [1, 18, 5, 21, 3, 25, 15]; return s }) )
-        retVal.append( ("12 Hobbs Recurrence Relation", { let s: [Double] = [1, 65, 9, 37, 151, 21, 86, 12, 49, 200, 28, 114]; return s }) )
+
+        retVal.append( (" 5 Hobbs Recurrence Relation 1", { let s: [Double] = [1, 19, 5, 3, 15]; return s }) )
+        retVal.append( (" 5 Hobbs Recurrence Relation 2", { let s: [Double] = [35, 74, 23, 51, 61]; return s }) )
+        retVal.append( (" 6 Hobbs Recurrence Relation 1", { let s: [Double] = [74, 150, 85, 106, 120, 61]; return s }) )
+        retVal.append( (" 6 Hobbs Recurrence Relation 2", { let s: [Double] = [1, 9, 5, 23, 48, 7]; return s }) )
+        retVal.append( (" 6 Hobbs Recurrence Relation 3", { let s: [Double] = [1, 9, 21, 3, 25, 15]; return s }) )
+        retVal.append( (" 6 Hobbs Recurrence Relation 4", { let s: [Double] = [1, 75, 19, 5, 3, 15]; return s }) )
+        retVal.append( (" 7 Hobbs Recurrence Relation 1", { let s: [Double] = [1, 17, 10, 47, 3, 13, 7]; return s }) )
+        retVal.append( (" 7 Hobbs Recurrence Relation 2", { let s: [Double] = [1, 9, 5, 21, 3, 27, 7]; return s }) )
+        retVal.append( (" 7 Hobbs Recurrence Relation 3", { let s: [Double] = [1, 9, 21, 3, 25, 15, 31]; return s }) )
+        retVal.append( (" 7 Hobbs Recurrence Relation 4", { let s: [Double] = [1, 75, 19, 5, 94, 3, 15]; return s }) )
+        retVal.append( (" 7 Hobbs Recurrence Relation 5", { let s: [Double] = [9, 40, 21, 25, 52, 15, 31]; return s }) )
+        retVal.append( (" 7 Hobbs Recurrence Relation 6", { let s: [Double] = [1, 18, 5, 21, 3, 25, 15]; return s }) )
+        retVal.append( ("12 Hobbs Recurrence Relation 1", { let s: [Double] = [1, 65, 9, 37, 151, 21, 86, 12, 49, 200, 28, 114]; return s }) )
 
         /// scales designed by Stephen Taylor
         retVal.append( (" 6 Taylor MOS G: 0.855088", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.855_088, level: 6, murchana: 0 ); return t.masterSet }) )

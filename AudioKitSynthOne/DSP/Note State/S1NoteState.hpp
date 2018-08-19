@@ -40,8 +40,9 @@ struct S1NoteState {
     sp_adsr *fadsr;
     
     //Morphing Oscillator 1 & 2
-    sp_oscmorph *oscmorph1;
-    sp_oscmorph *oscmorph2;
+    sp_oscmorph2d *oscmorph1;
+    sp_oscmorph2d *oscmorph2;
+
     sp_crossfade *morphCrossFade;
     
     //Subwoofer OSC

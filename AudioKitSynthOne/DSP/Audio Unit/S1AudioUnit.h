@@ -81,8 +81,9 @@ typedef struct S1ArpBeatCounter {
 - (float)getMaximum:(S1Parameter)param;
 - (float)getDefault:(S1Parameter)param;
 
-- (void)setupWaveform:(UInt32)waveform size:(int)size;
-- (void)setWaveform:(UInt32)waveform withValue:(float)value atIndex:(UInt32)index;
+- (void)setupWaveform:(UInt32)tableIndex size:(int)size;
+- (void)setWaveform:(UInt32)tableIndex withValue:(float)value atIndex:(UInt32)sampleIndex;
+- (void)setBandlimitFrequency:(UInt32)blIndex withFrequency:(float)frequency;
 
 - (void)stopNote:(uint8_t)note;
 - (void)startNote:(uint8_t)note velocity:(uint8_t)velocity;

@@ -603,7 +603,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Osc Mix LFO ‣ \(lfoSource!)">
         <source>Osc Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Oscillator Mix</note>
-        <target xml:lang="ja" state="translated">Osc Mix LFO‣\（lfoSource！）</target>
+        <target xml:lang="ja" state="translated">Osc ミックス LFO‣\（lfoSource！）</target>
+        <alt-trans>
+          <target xml:lang="ja">Osc Mix LFO‣\（lfoSource！）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="PAD">
         <source>PAD</source>
@@ -613,17 +616,26 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Phaser Feedback: \(value.decimalString)">
         <source>Phaser Feedback: \(value.decimalString)</source>
         <note>Phaser Feedback</note>
-        <target xml:lang="ja" state="translated">フェイザーフィードバック：\（value.decimalString）</target>
+        <target xml:lang="ja" state="translated">フェイザー・フィードバック：\（value.decimalString）</target>
+        <alt-trans>
+          <target xml:lang="ja">フェイザーフィードバック：\（value.decimalString）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Mix: \(value.decimalString)">
         <source>Phaser Mix: \(value.decimalString)</source>
         <note>Phaser Mix</note>
-        <target xml:lang="ja" state="translated">フェイザーミックス：\（value.decimalString）</target>
+        <target xml:lang="ja" state="translated">フェイザー・ミックス：\（value.decimalString）</target>
+        <alt-trans>
+          <target xml:lang="ja">フェイザーミックス：\（value.decimalString）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Notch Width: \(value.decimalString)">
         <source>Phaser Notch Width: \(value.decimalString)</source>
         <note>Phaser Notch Width</note>
-        <target xml:lang="ja" state="translated">フェイザーノッチ幅：\（value.decimalString）</target>
+        <target xml:lang="ja" state="translated">フェイザー・ノッチ幅：\（value.decimalString）</target>
+        <alt-trans>
+          <target xml:lang="ja">フェイザーノッチ幅：\（value.decimalString）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Rate: \(value.decimalString)">
         <source>Phaser Rate: \(value.decimalString)</source>
@@ -643,32 +655,50 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Reverb Low-cut: \(value.decimalString) Hz">
         <source>Reverb Low-cut: \(value.decimalString) Hz</source>
         <note>Reverb Low-cut/Highpass</note>
-        <target xml:lang="ja" state="translated">リバーブローカット：\（value.decimalString）Hz</target>
+        <target xml:lang="ja" state="translated">リバーブ・ローカット：\（value.decimalString）Hz</target>
+        <alt-trans>
+          <target xml:lang="ja">リバーブローカット：\（value.decimalString）Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Mix LFO ‣ \(lfoSource!)">
         <source>Reverb Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Reverb Mix</note>
-        <target xml:lang="ja" state="translated">リバーブミックスLFO‣\（lfoSource！）</target>
+        <target xml:lang="ja" state="translated">リバーブ・ミックスLFO‣\（lfoSource！）</target>
+        <alt-trans>
+          <target xml:lang="ja">リバーブミックスLFO‣\（lfoSource！）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Mix: \(value.percentageString)">
         <source>Reverb Mix: \(value.percentageString)</source>
         <note>Reverb Mix</note>
-        <target xml:lang="ja" state="translated">リバーブミックス：\（value.percentageString）</target>
+        <target xml:lang="ja" state="translated">リバーブ・ミックス：\（value.percentageString）</target>
+        <alt-trans>
+          <target xml:lang="ja">リバーブミックス：\（value.percentageString）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Off">
         <source>Reverb Off</source>
         <note>Reverb Off</note>
-        <target xml:lang="ja" state="translated">リバーブオフ</target>
+        <target xml:lang="ja" state="translated">リバーブ・オフ</target>
+        <alt-trans>
+          <target xml:lang="ja">リバーブオフ</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb On">
         <source>Reverb On</source>
         <note>Reverb On</note>
-        <target xml:lang="ja" state="translated">リバーブオン</target>
+        <target xml:lang="ja" state="translated">リバーブ・オン</target>
+        <alt-trans>
+          <target xml:lang="ja">リバーブオン</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Size: \(value.percentageString)">
         <source>Reverb Size: \(value.percentageString)</source>
         <note>Reverb Size</note>
-        <target xml:lang="ja" state="translated">リバーブサイズ：\（value.percentageString）</target>
+        <target xml:lang="ja" state="translated">リバーブ・サイズ：\（value.percentageString）</target>
+        <alt-trans>
+          <target xml:lang="ja">リバーブサイズ：\（value.percentageString）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="SEQ">
         <source>SEQ</source>
@@ -678,17 +708,26 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Sample Rate: \(Int(value)) Hz">
         <source>Sample Rate: \(Int(value)) Hz</source>
         <note>Bitcrush Sample Rate</note>
-        <target xml:lang="ja" state="translated">サンプルレート：\（Int（value））Hz</target>
+        <target xml:lang="ja" state="translated">サンプル・レート：\（Int（value））Hz</target>
+        <alt-trans>
+          <target xml:lang="ja">サンプルレート：\（Int（value））Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Sequencer Mode">
         <source>Sequencer Mode</source>
         <note>Sequencer Mode On</note>
-        <target xml:lang="ja" state="translated">シーケンサーモード</target>
+        <target xml:lang="ja" state="translated">シーケンサー・モード</target>
+        <alt-trans>
+          <target xml:lang="ja">シーケンサーモード</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Stay informed!">
         <source>Stay informed!</source>
         <note>Alert Title: Allow notifications</note>
-        <target xml:lang="ja" state="translated">情報に気をつけろ！</target>
+        <target xml:lang="ja" state="translated">最新情報を常にゲット！</target>
+        <alt-trans>
+          <target xml:lang="ja">情報に気をつけろ！</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Sub Osc Volume: \(value.decimalString)">
         <source>Sub Osc Volume: \(value.decimalString)</source>
@@ -698,7 +737,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="TUNE">
         <source>TUNE</source>
         <note>Tuning Panel Abbreviation</note>
-        <target xml:lang="ja" state="translated">曲</target>
+        <target xml:lang="ja" state="translated">チューン</target>
+        <alt-trans>
+          <target xml:lang="ja">曲</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Tempo: \(value) BPM">
         <source>Tempo: \(value) BPM</source>
@@ -708,7 +750,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Thank you">
         <source>Thank you</source>
         <note>Alert Title: Rate App</note>
-        <target xml:lang="ja" state="translated">ありがとうございました</target>
+        <target xml:lang="ja" state="translated">ありがとうございました！</target>
+        <alt-trans>
+          <target xml:lang="ja">ありがとうございました</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
         <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>

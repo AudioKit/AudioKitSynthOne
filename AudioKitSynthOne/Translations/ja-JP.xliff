@@ -99,7 +99,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="VE1-2S-HqW.normalTitle">
         <source>Be kind 👍🏼 Review this app!  </source>
         <note>Class = "UIButton"; normalTitle = "Be kind 👍🏼 Review this app!  "; ObjectID = "VE1-2S-HqW";</note>
-        <target xml:lang="ja" state="translated">親切な👍🏼このアプリを見直す！  </target>
+        <target xml:lang="ja" state="translated">このアプリのレビュー、宜しくお願いします👍🏼！  </target>
+        <alt-trans>
+          <target xml:lang="ja">親切な👍🏼このアプリを見直す！  </target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Whk-km-WmE.normalTitle">
         <source>DONE</source>
@@ -222,26 +225,32 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Arpeggiator Off</note>
         <target xml:lang="ja" state="translated">Arp/シーケンサー・オフ</target>
         <alt-trans>
-          <target xml:lang="ja">Arp /シーケンサー・オフ</target>
-        </alt-trans>
-        <alt-trans>
           <target xml:lang="ja">Arp /シーケンサーオフ</target>
         </alt-trans>
       </trans-unit>
       <trans-unit id="Arp/Sequencer On">
         <source>Arp/Sequencer On</source>
         <note>Arpeggiator On</note>
-        <target xml:lang="ja" state="translated">Arp / Sequencer On</target>
+        <target xml:lang="ja" state="translated">Arp/シーケンサー・オン</target>
+        <alt-trans>
+          <target xml:lang="ja">Arp / Sequencer On</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Arpeggiator Interval: \(Int(value))">
         <source>Arpeggiator Interval: \(Int(value))</source>
         <note>Arpeggiator Interval</note>
-        <target xml:lang="ja" state="translated">アルペジエーターのインターバル：\（Int（value））</target>
+        <target xml:lang="ja" state="translated">アルペジエーター・インターバル：\（Int（value））</target>
+        <alt-trans>
+          <target xml:lang="ja">アルペジエーターのインターバル：\（Int（value））</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Arpeggiator Mode">
         <source>Arpeggiator Mode</source>
         <note>Arpeggiator Mode On</note>
-        <target xml:lang="ja" state="translated">アルペジエーターモード</target>
+        <target xml:lang="ja" state="translated">アルペジエーター・モード</target>
+        <alt-trans>
+          <target xml:lang="ja">アルペジエーターモード</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
@@ -256,7 +265,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="AutoPan Strength: \(value.percentageString)">
         <source>AutoPan Strength: \(value.percentageString)</source>
         <note>AutoPan Amount/Strength</note>
-        <target xml:lang="ja" state="translated">オートパンの強さ：\（value.percentageString）</target>
+        <target xml:lang="ja" state="translated">オートパンの強度：\（value.percentageString）</target>
+        <alt-trans>
+          <target xml:lang="ja">オートパンの強さ：\（value.percentageString）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
         <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
@@ -300,7 +312,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Couldn't prepare the output format (error %d/%4.4s)">
         <source>Couldn't prepare the output format (error %1$d/%2$.4s)</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="ja" state="translated">（エラー：出力形式の準備が出来ませんでした %1$d/%2$.4s）</target>
+        <target xml:lang="ja" state="translated">出力形式の準備が出来ませんでした（エラー： %1$d/%2$.4s）</target>
         <alt-trans>
           <target xml:lang="ja">（エラー出力形式を準備できませんでした %1$d/%2$.4s）</target>
         </alt-trans>
@@ -326,7 +338,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="DCO 1 Volume: \(value.percentageString)">
         <source>DCO 1 Volume: \(value.percentageString)</source>
         <note>Oscillator 1 Volume</note>
-        <target xml:lang="ja" state="translated">DCO 1ボリューム：\（value.percentageString）</target>
+        <target xml:lang="ja" state="translated">DCO 1 ボリューム：\（value.percentageString）</target>
+        <alt-trans>
+          <target xml:lang="ja">DCO 1ボリューム：\（value.percentageString）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 1: \(Int(value)) semitones">
         <source>DCO 1: \(Int(value)) semitones</source>
@@ -344,7 +359,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="DCO 2 Volume: \(value.percentageString)">
         <source>DCO 2 Volume: \(value.percentageString)</source>
         <note>Oscillator 2 Volume</note>
-        <target xml:lang="ja" state="translated">DCO 2ボリューム：\（value.percentageString）</target>
+        <target xml:lang="ja" state="translated">DCO 2 ボリューム：\（value.percentageString）</target>
+        <alt-trans>
+          <target xml:lang="ja">DCO 2ボリューム：\（value.percentageString）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) detune">
         <source>DCO 2: \(Int(value)) detune</source>
@@ -367,7 +385,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="DCO Mix: \(Int(value)) detune">
         <source>DCO Mix: \(Int(value)) detune</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
-        <target xml:lang="ja" state="translated">DCOミックス：\（Int（value））detune</target>
+        <target xml:lang="ja" state="translated">DCO 2：\（Int（value））デチューン</target>
+        <alt-trans>
+          <target xml:lang="ja">DCOミックス：\（Int（value））detune</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Decay LFO ‣ \(lfoSource!)">
         <source>Decay LFO ‣ \(lfoSource!)</source>
@@ -377,7 +398,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Delay  Off">
         <source>Delay  Off</source>
         <note>Delay Off</note>
-        <target xml:lang="ja" state="translated">遅延オフ</target>
+        <target xml:lang="ja" state="translated">遅延オフ
+（This is correct by dictionary. Will check a synthesizer manual to see if they use a different term for delay）</target>
+        <alt-trans>
+          <target xml:lang="ja">遅延オフ</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay Feedback/Taps: \(value.percentageString)">
         <source>Delay Feedback/Taps: \(value.percentageString)</source>

@@ -148,6 +148,8 @@ extension Manager {
         s.setSynthParameter(.pitchbendMinSemitones, activePreset.pitchbendMinSemitones)
         s.setSynthParameter(.pitchbendMaxSemitones, activePreset.pitchbendMaxSemitones)
         s.setSynthParameter(.frequencyA4, activePreset.frequencyA4)
+        s.setSynthParameter(.oscBandlimitIndexOverride, activePreset.oscBandlimitIndexOverride)
+        s.setSynthParameter(.oscBandlimitEnable, activePreset.oscBandlimitEnable)
 
         s.resetSequencer()
     }
@@ -262,6 +264,8 @@ extension Manager {
         activePreset.delayInputResonance = s.getSynthParameter(.delayInputResonance)
         activePreset.pitchbendMinSemitones = s.getSynthParameter(.pitchbendMinSemitones)
         activePreset.pitchbendMaxSemitones = s.getSynthParameter(.pitchbendMaxSemitones)
+        activePreset.oscBandlimitIndexOverride = s.getSynthParameter(.oscBandlimitIndexOverride)
+        activePreset.oscBandlimitEnable = s.getSynthParameter(.oscBandlimitEnable)
 
         // tuning
         activePreset.frequencyA4 = s.getSynthParameter(.frequencyA4)

@@ -758,22 +758,34 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
         <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>
         <note>Alert Message: Duplicate Bank Name</note>
-        <target xml:lang="ja" state="translated">すでに名前が「\(bankName)」の銀行があります。物事をスムーズに保つために、その名前を変更してください。</target>
+        <target xml:lang="ja" state="translated">バンク名「\(bankName)」が既に使われています。アプリをスムーズに起動出来るように、一つの名前を変更してください。</target>
+        <alt-trans>
+          <target xml:lang="ja">すでに名前が「\(bankName)」の銀行があります。物事をスムーズに保つために、その名前を変更してください。</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
         <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
         <note>Alert Message: Rate App</note>
-        <target xml:lang="ja" state="translated">これはボランティアによって構築された無料アプリです。我々はより多くのアプリを作ることができるように素晴らしい評価で助けてください！素晴らしいことに感謝します。</target>
+        <target xml:lang="ja" state="translated">このアプリは、ボランティアによって構築された無料アプリです。これからもアプリを造りつづけられるように、良い評価で応援してあげて下さい！素晴らしい評価に予め感謝します。</target>
+        <alt-trans>
+          <target xml:lang="ja">これはボランティアによって構築された無料アプリです。我々はより多くのアプリを作ることができるように素晴らしい評価で助けてください！素晴らしいことに感謝します。</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster">
         <source>This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</source>
         <note>Alert Message: Allows On Mode</note>
-        <target xml:lang="ja" state="translated">このモードはライブ演奏に最適です。バックグラウンドの音声もそのまま残ります。注：これはより多くの電力を使用し、バッテリーをより早く消耗させる可能性があります</target>
+        <target xml:lang="ja" state="translated">このモードはライブ演奏に最適です。バックグラウンド音声もそのまま残ります。注：この場合には、より多くの電力を使用し、バッテリーをより早く消耗させる恐れがあります</target>
+        <alt-trans>
+          <target xml:lang="ja">このモードはライブ演奏に最適です。バックグラウンドの音声もそのまま残ります。注：これはより多くの電力を使用し、バッテリーをより早く消耗させる可能性があります</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Too High">
         <source>Too High</source>
         <note>Alert Title: Too High</note>
-        <target xml:lang="ja" state="translated">高すぎる</target>
+        <target xml:lang="ja" state="translated">高すぎます。</target>
+        <alt-trans>
+          <target xml:lang="ja">高すぎる</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Tremolo LFO ‣ \(lfoSource!)">
         <source>Tremolo LFO ‣ \(lfoSource!)</source>
@@ -783,12 +795,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Twist knob on your MIDI Controller">
         <source>Twist knob on your MIDI Controller</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="ja" state="translated">MIDIコントローラーのツイストノブ</target>
+        <target xml:lang="ja" state="translated">MIDIコントローラーのノブを回して下さい。</target>
+        <alt-trans>
+          <target xml:lang="ja">MIDIコントローラーのツイストノブ</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="We'll send Free updates, sounds, and apps. Allow notifications!">
         <source>We'll send Free updates, sounds, and apps. Allow notifications!</source>
         <note>Alert Message: Allow notifications</note>
-        <target xml:lang="ja" state="translated">無料のアップデート、サウンド、アプリを送信します。通知を許可する！</target>
+        <target xml:lang="ja" state="translated">無料アップデート、サウンド、アプリ情報を送信します。通知を許可して下さい！</target>
+        <alt-trans>
+          <target xml:lang="ja">無料のアップデート、サウンド、アプリを送信します。通知を許可する！</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Widen: \(value.decimalString)">
         <source>Widen: \(value.decimalString)</source>

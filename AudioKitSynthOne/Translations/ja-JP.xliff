@@ -1702,12 +1702,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="8dj-SF-Pxt.text">
         <source>SAVE / RENAME PRESET:</source>
         <note>Class = "UILabel"; text = "SAVE / RENAME PRESET:"; ObjectID = "8dj-SF-Pxt";</note>
-        <target xml:lang="ja" state="translated">SAVE / RENAME PRESET：</target>
+        <target xml:lang="ja" state="translated">プリセット保存又は名の変更</target>
+        <alt-trans>
+          <target xml:lang="ja">SAVE / RENAME PRESET：</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="8tM-pA-eD2.text">
         <source>Preset Description Here</source>
         <note>Class = "UITextView"; text = "Preset Description Here"; ObjectID = "8tM-pA-eD2";</note>
         <target xml:lang="ja" state="translated">プリセットの説明はこちら</target>
+        <alt-trans>
+          <target xml:lang="ja">プリセットの詳細はこちら</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="EyQ-H5-8Yr.text">
         <source>RENAME BANK:</source>
@@ -1722,7 +1728,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="LTK-sn-l0B.text">
         <source>Select a bank for the preset:</source>
         <note>Class = "UILabel"; text = "Select a bank for the preset:"; ObjectID = "LTK-sn-l0B";</note>
-        <target xml:lang="ja" state="translated">プリセットのバンクを選択します。</target>
+        <target xml:lang="ja" state="translated">プリセットのバンクを選択する</target>
+        <alt-trans>
+          <target xml:lang="ja">プリセットのバンクを選択します。</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="M5g-gJ-LgP.text">
         <source>Pad</source>
@@ -1732,12 +1741,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Pax-NO-iPl.text">
         <source>Rename the preset to save a new copy. Press "Save" to save the current preset. </source>
         <note>Class = "UILabel"; text = "Rename the preset to save a new copy. Press \"Save\" to save the current preset. "; ObjectID = "Pax-NO-iPl";</note>
-        <target xml:lang="ja" state="translated">プリセットの名前を変更して新しいコピーを保存します。 "Save"を押すと、現在のプリセットが保存されます。 </target>
+        <target xml:lang="ja" state="translated">新しいコピーを保存するなら、プリセット名を変更して下さい。このプリセットを保存したいなら、Saveを押して下さい。 </target>
+        <alt-trans>
+          <target xml:lang="ja">プリセットの名前を変更して新しいコピーを保存します。 "Save"を押すと、現在のプリセットが保存されます。 </target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Qv6-hQ-4wE.normalTitle">
         <source>Delete Bank</source>
         <note>Class = "UIButton"; normalTitle = "Delete Bank"; ObjectID = "Qv6-hQ-4wE";</note>
-        <target xml:lang="ja" state="translated">銀行を削除する</target>
+        <target xml:lang="ja" state="translated">バンクを削除する</target>
+        <alt-trans>
+          <target xml:lang="ja">銀行を削除する</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="VL7-Y3-hxn.normalTitle">
         <source>SAVE PRESET</source>
@@ -1752,7 +1767,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="c61-bJ-zsz.normalTitle">
         <source>DONE EDITING</source>
         <note>Class = "UIButton"; normalTitle = "DONE EDITING"; ObjectID = "c61-bJ-zsz";</note>
-        <target xml:lang="ja" state="translated">編集が完了しました</target>
+        <target xml:lang="ja" state="translated">編集が完了</target>
+        <alt-trans>
+          <target xml:lang="ja">編集が完了しました</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="cs5-5n-k8U.normalTitle">
         <source>+</source>
@@ -1772,22 +1790,34 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="eGC-CV-RRm.normalTitle">
         <source>Import Bank</source>
         <note>Class = "UIButton"; normalTitle = "Import Bank"; ObjectID = "eGC-CV-RRm";</note>
-        <target xml:lang="ja" state="translated">輸入銀行</target>
+        <target xml:lang="ja" state="translated">バンクをインポート</target>
+        <alt-trans>
+          <target xml:lang="ja">輸入銀行</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="eI7-vK-ARE.normalTitle">
         <source>Save</source>
         <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "eI7-vK-ARE";</note>
-        <target xml:lang="ja" state="translated">セーブ</target>
+        <target xml:lang="ja" state="translated">保存</target>
+        <alt-trans>
+          <target xml:lang="ja">セーブ</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="mZQ-N0-bdr.text">
         <source>SYNTH ONE PRESETS</source>
         <note>Class = "UILabel"; text = "SYNTH ONE PRESETS"; ObjectID = "mZQ-N0-bdr";</note>
-        <target xml:lang="ja" state="translated">1つのプリセットの合成</target>
+        <target xml:lang="ja" state="translated">SYNTH ONEのプリセット</target>
+        <alt-trans>
+          <target xml:lang="ja">1つのプリセットの合成</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="rSO-zc-3Ba.normalTitle">
         <source>Save</source>
         <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "rSO-zc-3Ba";</note>
-        <target xml:lang="ja" state="translated">セーブ</target>
+        <target xml:lang="ja" state="translated">保存</target>
+        <alt-trans>
+          <target xml:lang="ja">セーブ</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="uLS-HA-DTu.text">
         <source>Category:</source>
@@ -1802,7 +1832,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="xCe-zx-CAI.text">
         <source>Free &amp; open-source synthesizer. Browse presets &amp; banks below. </source>
         <note>Class = "UILabel"; text = "Free &amp; open-source synthesizer. Browse presets &amp; banks below. "; ObjectID = "xCe-zx-CAI";</note>
-        <target xml:lang="ja" state="translated">無料 &amp; オープンソース・シンセサイザー。プリセット &amp; バンクを下に表示します。 </target>
+        <target xml:lang="ja" state="translated">無料 でオープンソース・シンセサイザー。プリセットとバンクが下に表示されます。 </target>
+        <alt-trans>
+          <target xml:lang="ja">無料 &amp; オープンソース・シンセサイザー。プリセット &amp; バンクを下に表示します。 </target>
+        </alt-trans>
       </trans-unit>
     </body>
   </file>
@@ -1931,7 +1964,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="4Xu-ES-Jtr.text">
         <source>FILTER RESONANCE</source>
         <note>Class = "UILabel"; text = "FILTER RESONANCE"; ObjectID = "4Xu-ES-Jtr";</note>
-        <target xml:lang="ja" state="translated">フィルターレゾナンス</target>
+        <target xml:lang="ja" state="translated">フィルター・レゾナンス</target>
+        <alt-trans>
+          <target xml:lang="ja">フィルターレゾナンス</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="SVY-05-J4t.normalTitle">
         <source>Snap</source>
@@ -1946,7 +1982,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="gH1-9e-vhR.text">
         <source>FILTER CUTOFF</source>
         <note>Class = "UILabel"; text = "FILTER CUTOFF"; ObjectID = "gH1-9e-vhR";</note>
-        <target xml:lang="ja" state="translated">フィルターカットオフ</target>
+        <target xml:lang="ja" state="translated">フィルター・カットオフ</target>
+        <alt-trans>
+          <target xml:lang="ja">フィルターカットオフ</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="qXN-sO-KUB.text">
         <source>LFO 1 RATE</source>
@@ -1963,7 +2002,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="AqK-kK-Iaf.text">
         <source>Master Tuning</source>
         <note>Class = "UILabel"; text = "Master Tuning"; ObjectID = "AqK-kK-Iaf";</note>
-        <target xml:lang="ja" state="translated">マスターチューニング</target>
+        <target xml:lang="ja" state="translated">マスター・チューニング</target>
+        <alt-trans>
+          <target xml:lang="ja">マスターチューニング</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Cm9-Xa-WqW.text">
         <source>TUNING</source>

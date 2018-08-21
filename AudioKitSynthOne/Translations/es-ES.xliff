@@ -278,12 +278,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
         <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
         <note>Alert Message: Background Audio</note>
-        <target xml:lang="es" state="translated">El audio de fondo drenará la batería más rápido. Por favor, apague cuando no esté en uso.</target>
+        <target xml:lang="es" state="translated">El audio de fondo gastará la batería más rápido. Por favor, desactívalo cuando no lo estés usando.</target>
+        <alt-trans>
+          <target xml:lang="es">El audio de fondo drenará la batería más rápido. Por favor, apague cuando no esté en uso.</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Band Pass">
         <source>Band Pass</source>
         <note>Band Pass Filter</note>
-        <target xml:lang="es" state="translated">Pase de banda</target>
+        <target xml:lang="es" state="translated">Filtro Band Pass</target>
+        <alt-trans>
+          <target xml:lang="es">Pase de banda</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Bitcrush LFO ‣ \(lfoSource!)">
         <source>Bitcrush LFO ‣ \(lfoSource!)</source>
@@ -301,7 +307,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Couldn't configure the file writer">
         <source>Couldn't configure the file writer</source>
         <note>No comment provided by engineer.</note>
-        <target xml:lang="es" state="translated">No se pudo configurar el escritor del archivo</target>
+        <target xml:lang="es" state="translated">No se pudo configurar el archivo writer</target>
+        <alt-trans>
+          <target xml:lang="es">No se pudo configurar el escritor del archivo</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Couldn't open the output file">
         <source>Couldn't open the output file</source>
@@ -411,7 +420,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Delay Feedback/Taps: \(value.percentageString)">
         <source>Delay Feedback/Taps: \(value.percentageString)</source>
         <note>Delay Feedback</note>
-        <target xml:lang="es" state="translated">Feedback / Taps de retardo: \(value.percentageString)</target>
+        <target xml:lang="es" state="translated">Feedback del Delay / Taps: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="es">Feedback / Taps de retardo: \(value.percentageString)</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="es">Feedback / Taps de retardo: \ (value.percentageString)</target>
         </alt-trans>
@@ -427,12 +439,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Delay On">
         <source>Delay On</source>
         <note>Delay On</note>
-        <target xml:lang="es" state="translated">Retraso en</target>
+        <target xml:lang="es" state="translated">Delay On</target>
+        <alt-trans>
+          <target xml:lang="es">Retraso en</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s">
         <source>Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</source>
         <note>Delay Time tempo-syncd</note>
-        <target xml:lang="es" state="translated">Tiempo de retardo: \(Rate.fromTime(value)), \(value.decimalString) s</target>
+        <target xml:lang="es" state="translated">Tiempo de Delay: \(Rate.fromTime(value)), \(value.decimalString) s</target>
+        <alt-trans>
+          <target xml:lang="es">Tiempo de retardo: \(Rate.fromTime(value)), \(value.decimalString) s</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="es">Tiempo de retardo: \ (Rate.fromTime (value)), \ (value.decimalString) s</target>
         </alt-trans>
@@ -440,7 +458,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Delay Time: \(value.decimalString) s">
         <source>Delay Time: \(value.decimalString) s</source>
         <note>Delay Time</note>
-        <target xml:lang="es" state="translated">Tiempo de retardo: \(value.decimalString) s</target>
+        <target xml:lang="es" state="translated">Tiempo de Delay: \(value.decimalString) s</target>
+        <alt-trans>
+          <target xml:lang="es">Tiempo de retardo: \(value.decimalString) s</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="es">Tiempo de retardo: \ (value.decimalString) s</target>
         </alt-trans>
@@ -497,7 +518,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Filter Envelope: \(value.percentageString)">
         <source>Filter Envelope: \(value.percentageString)</source>
         <note>Filter Envelope Amount</note>
-        <target xml:lang="es" state="translated">Sobre de filtro: \(value.percentageString)</target>
+        <target xml:lang="es" state="translated">Envolvente de filtro: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="es">Sobre de filtro: \(value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Filter Type: \(ftype)">
         <source>Filter Type: \(ftype)</source>
@@ -512,7 +536,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="High Pass">
         <source>High Pass</source>
         <note>High Pass Filter</note>
-        <target xml:lang="es" state="translated">Paso alto</target>
+        <target xml:lang="es" state="translated">Filtro Paso alto</target>
+        <alt-trans>
+          <target xml:lang="es">Paso alto</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Important">
         <source>Important</source>
@@ -553,7 +580,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Low Pass">
         <source>Low Pass</source>
         <note>Low Pass Filter</note>
-        <target xml:lang="es" state="translated">Paso bajo</target>
+        <target xml:lang="es" state="translated">Filtro paso bajo</target>
+        <alt-trans>
+          <target xml:lang="es">Paso bajo</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="MAIN">
         <source>MAIN</source>
@@ -563,7 +593,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="MIDI Learn Off">
         <source>MIDI Learn Off</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="es" state="translated">MIDI Learn apagado</target>
+        <target xml:lang="es" state="translated">MIDI Learn Off</target>
+        <alt-trans>
+          <target xml:lang="es">MIDI Learn apagado</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="MIDI Learn Reset">
         <source>MIDI Learn Reset</source>
@@ -578,17 +611,26 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉">
         <source>MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</source>
         <note>Alert Message: Too High</note>
-        <target xml:lang="es" state="translated">Nota MIDI &gt; 127. G8 es la tecla jugable más alta. Tómelo abajo de una muesca 😉</target>
+        <target xml:lang="es" state="translated">Nota MIDI &gt; 127. G8 es la tecla más alta que se puede tocar. Toca un poco más abajo 😉</target>
+        <alt-trans>
+          <target xml:lang="es">Nota MIDI &gt; 127. G8 es la tecla jugable más alta. Tómelo abajo de una muesca 😉</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Master Volume: \(value.percentageString)">
         <source>Master Volume: \(value.percentageString)</source>
         <note>Master Volume</note>
-        <target xml:lang="es" state="translated">Volumen: \(value.percentageString)</target>
+        <target xml:lang="es" state="translated">Volumen Master: \(value.percentageString)</target>
+        <alt-trans>
+          <target xml:lang="es">Volumen: \(value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Midi Panic">
         <source>Midi Panic</source>
         <note>Alert Title: MIDI Panic</note>
-        <target xml:lang="es" state="translated">Pánico de Midi</target>
+        <target xml:lang="es" state="translated">Botón de pánico</target>
+        <alt-trans>
+          <target xml:lang="es">Pánico de Midi</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Noise LFO ‣ \(lfoSource!)">
         <source>Noise LFO ‣ \(lfoSource!)</source>
@@ -613,17 +655,26 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Osc Mix LFO ‣ \(lfoSource!)">
         <source>Osc Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Oscillator Mix</note>
-        <target xml:lang="es" state="translated">Mezcla de oscilador LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="es" state="translated">Osc Mix LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="es">Mezcla de oscilador LFO ‣ \(lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="PAD">
         <source>PAD</source>
         <note>TouchPad Panel Abbreviation</note>
-        <target xml:lang="es" state="translated">ALMOHADILLA</target>
+        <target xml:lang="es" state="translated">PAD</target>
+        <alt-trans>
+          <target xml:lang="es">ALMOHADILLA</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Feedback: \(value.decimalString)">
         <source>Phaser Feedback: \(value.decimalString)</source>
         <note>Phaser Feedback</note>
-        <target xml:lang="es" state="translated">Comentarios de Phaser: \(value.decimalString)</target>
+        <target xml:lang="es" state="translated">Phaser Feedback: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="es">Comentarios de Phaser: \(value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Mix: \(value.decimalString)">
         <source>Phaser Mix: \(value.decimalString)</source>
@@ -633,12 +684,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Phaser Notch Width: \(value.decimalString)">
         <source>Phaser Notch Width: \(value.decimalString)</source>
         <note>Phaser Notch Width</note>
-        <target xml:lang="es" state="translated">Anchura de ranura de Phaser: \(value.decimalString)</target>
+        <target xml:lang="es" state="translated">Phaser Notch Width: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="es">Anchura de ranura de Phaser: \(value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Rate: \(value.decimalString)">
         <source>Phaser Rate: \(value.decimalString)</source>
         <note>Phaser Rate</note>
-        <target xml:lang="es" state="translated">Phaser de tipo: \(value.decimalString)</target>
+        <target xml:lang="es" state="translated">Phaser Rate: \(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="es">Phaser de tipo: \(value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Pitch LFO ‣ \(lfoSource!)">
         <source>Pitch LFO ‣ \(lfoSource!)</source>
@@ -653,12 +710,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Reverb Low-cut: \(value.decimalString) Hz">
         <source>Reverb Low-cut: \(value.decimalString) Hz</source>
         <note>Reverb Low-cut/Highpass</note>
-        <target xml:lang="es" state="translated">Graves de la reverberación: \(value.decimalString) Hz</target>
+        <target xml:lang="es" state="translated">Corte de graves de la Reverb: \(value.decimalString) Hz</target>
+        <alt-trans>
+          <target xml:lang="es">Graves de la reverberación: \(value.decimalString) Hz</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Mix LFO ‣ \(lfoSource!)">
         <source>Reverb Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Reverb Mix</note>
-        <target xml:lang="es" state="translated">Reverb mezcla LFO ‣ \(lfoSource!)</target>
+        <target xml:lang="es" state="translated">Reverb Mix LFO ‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="es">Reverb mezcla LFO ‣ \(lfoSource!)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Mix: \(value.percentageString)">
         <source>Reverb Mix: \(value.percentageString)</source>
@@ -668,12 +731,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Reverb Off">
         <source>Reverb Off</source>
         <note>Reverb Off</note>
-        <target xml:lang="es" state="translated">Reverb de</target>
+        <target xml:lang="es" state="translated">Reverb Off</target>
+        <alt-trans>
+          <target xml:lang="es">Reverb de</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb On">
         <source>Reverb On</source>
         <note>Reverb On</note>
-        <target xml:lang="es" state="translated">Reverb encendido</target>
+        <target xml:lang="es" state="translated">Reverb On</target>
+        <alt-trans>
+          <target xml:lang="es">Reverb encendido</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Size: \(value.percentageString)">
         <source>Reverb Size: \(value.percentageString)</source>
@@ -698,7 +767,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Stay informed!">
         <source>Stay informed!</source>
         <note>Alert Title: Allow notifications</note>
-        <target xml:lang="es" state="translated">Manténgase al tanto!</target>
+        <target xml:lang="es" state="translated">¡Mantente al tanto!</target>
+        <alt-trans>
+          <target xml:lang="es">Manténgase al tanto!</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Sub Osc Volume: \(value.decimalString)">
         <source>Sub Osc Volume: \(value.decimalString)</source>
@@ -711,7 +783,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="TUNE">
         <source>TUNE</source>
         <note>Tuning Panel Abbreviation</note>
-        <target xml:lang="es" state="translated">MELODÍA</target>
+        <target xml:lang="es" state="translated">TONO</target>
+        <alt-trans>
+          <target xml:lang="es">MELODÍA</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Tempo: \(value) BPM">
         <source>Tempo: \(value) BPM</source>
@@ -726,17 +801,26 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
         <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>
         <note>Alert Message: Duplicate Bank Name</note>
-        <target xml:lang="es" state="translated">Ya hay un banco con el nombre '\(bankName)'. Cambie el nombre de uno de ellos para que las cosas funcionen sin problemas.</target>
+        <target xml:lang="es" state="translated">Ya hay un banco con el nombre '\(bankName)'. Cambia el nombre de uno de ellos para que las cosas funcionen sin problemas.</target>
+        <alt-trans>
+          <target xml:lang="es">Ya hay un banco con el nombre '\(bankName)'. Cambie el nombre de uno de ellos para que las cosas funcionen sin problemas.</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
         <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
         <note>Alert Message: Rate App</note>
-        <target xml:lang="es" state="translated">Esta es una aplicación GRATUITA construida por voluntarios. Ayúdenos con una calificación excelente para que podamos crear más aplicaciones. Gracias por ser increíble.</target>
+        <target xml:lang="es" state="translated">Esta es una aplicación GRATUITA construida por voluntarios. Ayúdanos con una calificación excelente para que podamos crear más aplicaciones. Gracias por ser increíble.</target>
+        <alt-trans>
+          <target xml:lang="es">Esta es una aplicación GRATUITA construida por voluntarios. Ayúdenos con una calificación excelente para que podamos crear más aplicaciones. Gracias por ser increíble.</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster">
         <source>This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</source>
         <note>Alert Message: Allows On Mode</note>
-        <target xml:lang="es" state="translated">Este modo es ideal para tocar en vivo. El audio de fondo también permanecerá encendido. Nota: Utilizará más energía y podría drenar su batería más rápido</target>
+        <target xml:lang="es" state="translated">Este modo es ideal para tocar en vivo. El audio de fondo también permanecerá encendido. Nota: Utilizará más energía y podría gastar la batería más rápido</target>
+        <alt-trans>
+          <target xml:lang="es">Este modo es ideal para tocar en vivo. El audio de fondo también permanecerá encendido. Nota: Utilizará más energía y podría drenar su batería más rápido</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Too High">
         <source>Too High</source>
@@ -754,7 +838,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Twist knob on your MIDI Controller">
         <source>Twist knob on your MIDI Controller</source>
         <note>MIDI Learn Instructions</note>
-        <target xml:lang="es" state="translated">Gire la perilla en su controlador MIDI</target>
+        <target xml:lang="es" state="translated">Gira la perilla en tu controlador MIDI</target>
+        <alt-trans>
+          <target xml:lang="es">Gire la perilla en su controlador MIDI</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="We'll send Free updates, sounds, and apps. Allow notifications!">
         <source>We'll send Free updates, sounds, and apps. Allow notifications!</source>

@@ -38,17 +38,17 @@ public enum ChildPanel: Int {
     func buttonText() -> String {
         switch self {
         case .generators:
-            return "MAIN"
+            return NSLocalizedString("MAIN", comment: "Main Panel Abbreviation")
         case .envelopes:
-            return "ENV"
+            return NSLocalizedString("ENV", comment: "Envelope Panel Abbreviation")
         case .touchPad:
-            return "PAD"
+            return NSLocalizedString("PAD", comment: "TouchPad Panel Abbreviation")
         case .effects:
-            return "FX"
+            return NSLocalizedString("FX", comment: "FX/LFO Panel Abbreviation")
         case .sequencer:
-            return "SEQ"
+            return NSLocalizedString("SEQ", comment: "Arp/Sequencer Panel Abbreviation")
         case .tunings:
-            return "TUNE"
+            return NSLocalizedString("TUNE", comment: "Tuning Panel Abbreviation")
         }
     }
 

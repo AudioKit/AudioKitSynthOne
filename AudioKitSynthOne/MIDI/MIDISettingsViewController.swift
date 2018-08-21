@@ -62,7 +62,7 @@ class MIDISettingsViewController: UIViewController {
         sleepToggle.value = conductor.neverSleep ? 1 : 0
         velocityToggle.value = velocitySensitive ? 1 : 0
         saveTuningToggle.value = saveTuningWithPreset ? 1 : 0
-        backgroundAudioToggle.value = conductor.backgroundAudio ? 1:0
+        backgroundAudioToggle.value = conductor.backgroundAudio ? 1 : 0
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -91,17 +91,23 @@ class MIDISettingsViewController: UIViewController {
         resetButton.callback = { value in
             self.delegate?.resetMIDILearn()
             self.resetButton.value = 0
-            self.displayAlertController("MIDI Learn Reset",
-                                        message: "All MIDI learn knob assignments have been removed.")
+            let title = NSLocalizedString("MIDI Learn Reset", comment: "Alert Title: MIDI Learn Reset")
+            let message = NSLocalizedString("All MIDI learn knob assignments have been removed.",
+                                            comment: "Alert Message:  MIDI Learn Reset")
+            self.displayAlertController(title, message: message)
         }
 
         sleepToggle.callback = { value in
 
             if value == 1 {
                 self.conductor.neverSleep = true
-                self.displayAlertController("Don't Sleep Mode",
-                                            message: "This mode is great for playing live. Background audio will also stay on. " +
-                                                     "Note: It will use more power and could drain your battery faster")
+                let title = NSLocalizedString("Don't Sleep Mode", comment: "Alert Title: Allows On Mode")
+                let message = NSLocalizedString("This mode is great for playing live. " +
+                    "Background audio will also stay on. " +
+                    "Note: It will use more power and could drain your battery faster",
+                                                comment: "Alert Message: Allows On Mode")
+
+                self.displayAlertController(title, message: message)
             } else {
                 self.conductor.neverSleep = false
 
@@ -110,8 +116,11 @@ class MIDISettingsViewController: UIViewController {
 
         backgroundAudioToggle.callback = { value in
             if value == 1 {
-                self.displayAlertController("Important",
-                                            message: "Background audio will drain the battery faster. Please turn off when not in use.")
+                let title = NSLocalizedString("Important", comment: "Alert Title: Background Audio")
+                let message = NSLocalizedString(
+                    "Background audio will drain the battery faster. Please turn off when not in use.",
+                    comment: "Alert Message: Background Audio")
+                self.displayAlertController(title, message: message)
             }
             self.conductor.backgroundAudio = value == 1
             self.delegate?.didToggleBackgroundAudio(value == 1 ? true : false)

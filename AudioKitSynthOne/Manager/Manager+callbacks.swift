@@ -40,9 +40,11 @@ extension Manager {
 
             // Update display label
             if self.midiLearnToggle.isSelected {
-                self.updateDisplay("MIDI Learn: Touch a knob to assign")
+                let message = NSLocalizedString("MIDI Learn: Touch a knob to assign", comment: "MIDI Learn Instructions")
+                self.updateDisplay(message)
             } else {
-                self.updateDisplay("MIDI Learn Off")
+                let message = NSLocalizedString("MIDI Learn Off", comment: "MIDI Learn Instructions")
+                self.updateDisplay(message)
                 self.saveAppSettingValues()
             }
         }

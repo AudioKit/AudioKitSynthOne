@@ -63,15 +63,16 @@ public class NavButtonStyleKit: NSObject {
         context.restoreGState()
 
         //// label Drawing
-        let labelRect = CGRect(x: 5, y: 36, width: 50, height: 21)
+        let labelRect = CGRect(x: 5, y: 36, width: 50, height: 42)
         let labelStyle = NSMutableParagraphStyle()
         labelStyle.alignment = .center
+       
         let labelFontAttributes = [
             .font: UIFont(name: "AvenirNextCondensed-Regular", size: UIFont.labelFontSize)!,
             .foregroundColor: labelColor,
             .paragraphStyle: labelStyle
         ] as [NSAttributedStringKey: Any]
-
+        
         let labelTextHeight: CGFloat = text.boundingRect(with: CGSize(width: labelRect.width, height: CGFloat.infinity),
                                                          options: .usesLineFragmentOrigin,
                                                          attributes: labelFontAttributes,

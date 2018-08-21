@@ -117,7 +117,12 @@ class DevViewController: UpdatableViewController {
         conductor.bind(delayInputFilterResonance, to: .delayInputResonance)
 
         // freeze arp rate, i.e., ignore Preset updates
-        let freezeIt = freezeArpRateValue || ABLLinkManager.shared.isConnected || ABLLinkManager.shared.isEnabled
+        #if ABLETON_ENABLED_1
+            let freezeIt = freezeArpRateValue || ABLLinkManager.shared.isConnected || ABLLinkManager.shared.isEnabled
+        #else
+            let freezeIt = freezeArpRateValue
+        #endif
+
         freezeArpRate.value = freezeIt ? 1 : 0
         freezeArpRate.callback = { value in
             self.delegate?.freezeArpRateChanged(value == 1 ? true : false)

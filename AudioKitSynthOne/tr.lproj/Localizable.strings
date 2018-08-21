@@ -1,0 +1,285 @@
+/* Alert Message:  MIDI Learn Reset */
+"All MIDI learn knob assignments have been removed." = "Tüm MIDI Öğren eşleşmeleri kaldırıldı.";
+
+/* Alert Message: MIDI Panic */
+"All notes have been turned off." = "Tüm notalar susturuldu.";
+
+/* Alert Title: Confirm Email Address */
+"Almost done!" = "Neredeyse tamam!";
+
+/* Arpeggiator Off */
+"Arp/Sequencer Off" = "Sıralayıcı Kapalı";
+
+/* Arpeggiator On */
+"Arp/Sequencer On" = "Sıralayıcı Açık";
+
+/* Arpeggiator Interval */
+"Arpeggiator Interval: \(Int(value))" = "Arpeggiator Aralığı: \(Int(değer))";
+
+/* Arpeggiator Mode On */
+"Arpeggiator Mode" = "Arpejleyici Modu";
+
+/* AutoPan Rate tempo-syncd */
+"AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "AutoPan Hızı: \(Rate.fromFrequency(value)), \(value.decimalString) Hz";
+
+/* AutoPan Rate */
+"AutoPan Rate: \(value.decimalString) Hz" = "AutoPan Hızı: \(value.decimalString) Hz";
+
+/* AutoPan Amount/Strength */
+"AutoPan Strength: \(value.percentageString)" = "AutoPan Gücü: \(value.percentageString)";
+
+/* Alert Message: Background Audio */
+"Background audio will drain the battery faster. Please turn off when not in use." = "Arkaplanda çalıştığı sürece pilinizi tüketir. Lütfen kullanmadığınızda kapatmaya dikkat edin.";
+
+/* Band Pass Filter */
+"Band Pass" = "Bant Geçişi";
+
+/* LFO [low frequency oscillator] Bitcrush */
+"Bitcrush LFO ‣ \(lfoSource!)" = "Bitcrush LFO ‣ \(lfoSource!)";
+
+/* Alert Title: Presets Added */
+"Congratulations! 🎉" = "Tebrikler! 🎉";
+
+/* No comment provided by engineer. */
+"Couldn't configure the file writer" = "Dosya yazıcı ayarlanamadı";
+
+/* No comment provided by engineer. */
+"Couldn't open the output file" = "Dosya açılamadı";
+
+/* No comment provided by engineer. */
+"Couldn't prepare the output format (error %d/%4.4s)" = "Çıktı formatı hazırlanamadı (hata (error %1$d/%2$.4s))";
+
+/* LFO [low frequency oscillator] Cutoff */
+"Cutoff LFO ‣ \(lfoSource!)" = "Cutoff LFO ‣ \(lfoSource!)";
+
+/* Filter Cutoff & Resonance */
+"Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "Kesim: \(s.getSynthParameter(.cutoff).decimalString) Hz, Rezonans: \(s.getSynthParameter(.resonance).decimalString)";
+
+/* Oscillator 1 Waveform Morph Index */
+"DCO 1 Morph: \(value.decimalString)" = "DCO 1 Morph: \(value.decimalString)";
+
+/* Oscillator 1 Volume */
+"DCO 1 Volume: \(value.percentageString)" = "DCO 1 Birim: \(value.percentageString)";
+
+/* Oscillator 1 semitone offset */
+"DCO 1: \(Int(value)) semitones" = "DCO 1: \(Int(value)) yarı tonları";
+
+/* Oscillator 2 Waveform Morph Index */
+"DCO 2 Morph: \(value.decimalString)" = "DCO 2 Morph: \(value.decimalString)";
+
+/* Oscillator 2 Volume */
+"DCO 2 Volume: \(value.percentageString)" = "DCO 2 Birim: \(value.percentageString)";
+
+/* Oscillator 2 detune */
+"DCO 2: \(Int(value)) detune" = "DCO 2: \(Int(value)) belirleme";
+
+/* Oscillator 2 semitone offset */
+"DCO 2: \(Int(value)) semitones" = "DCO 2: \(Int(value)) yarı tonları";
+
+/* Oscillator 1 & 2 Mix */
+"DCO Mix: \(Int(value))" = "DCO Mix: \(Int(value))";
+
+/* Oscillator 1 & 2 Mix */
+"DCO Mix: \(Int(value)) detune" = "DCO Mix: \(Int(value)) cüce";
+
+/* LFO [low frequency oscillator] Decay */
+"Decay LFO ‣ \(lfoSource!)" = "Çürüme LFO ‣ \(lfoSource!)";
+
+/* Delay Off */
+"Delay  Off" = "Yineleyici Kapalı";
+
+/* Delay Feedback */
+"Delay Feedback/Taps: \(value.percentageString)" = "Gecikme Geri Bildirimi / Musluklar: \(value.percentageString)";
+
+/* Delay Mix */
+"Delay Mix: \(value.percentageString)" = "Gecikme Karışımı: \(value.percentageString)";
+
+/* Delay On */
+"Delay On" = "Yineleyici Açık";
+
+/* Delay Time tempo-syncd */
+"Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s" = "Gecikme Süresi: \(Rate.fromTime(value)), \(value.decimalString) s";
+
+/* Delay Time */
+"Delay Time: \(value.decimalString) s" = "Gecikme Süresi: \(value.decimalString) s";
+
+/* LFO [low frequency oscillator] Detune */
+"Detune LFO ‣ \(lfoSource!)" = "Detune LFO ‣ \(lfoSource!)";
+
+/* Alert Title: Allows On Mode */
+"Don't Sleep Mode" = "Uyumama Modu";
+
+/* Envelope Panel Abbreviation */
+"ENV" = "ENV";
+
+/* LFO [low frequency oscillator] Filter Envelope */
+"Filter Env LFO ‣ \(lfoSource!)" = "Filtre Env LFO ‣ \(lfoSource!)";
+
+/* Filter Envelope Amount */
+"Filter Envelope: \(value.percentageString)" = "Filtre Zarfı: \(value.percentageString)";
+
+/* Main Filter Type */
+"Filter Type: \(ftype)" = "Filtre Türü: \(ftype)";
+
+/* LFO [low frequency oscillator] FM Modulation */
+"FM LFO ‣ \(lfoSource!)" = "FM LFO ‣ \(lfoSource!)";
+
+/* FM Modulation Amount */
+"FM Mod: \(value.percentageString)" = "FM Mod: \(value.percentageString)";
+
+/* FM Oscillator Volume */
+"FM Volume: \(value.percentageString)" = "FM Ses Düzeyi: \(value.percentageString)";
+
+/* FX/LFO Panel Abbreviation */
+"FX" = "FX";
+
+/* Mono Glide Amount */
+"Glide: \(value.decimalString)" = "Glide: \(value.decimalString)";
+
+/* High Pass Filter */
+"High Pass" = "Yüksek Geçişi";
+
+/* Alert Title: Background Audio */
+"Important" = "Önemli";
+
+/* LFO 2 [low frequency oscillator] Amplitude */
+"LFO 2 Amp: \(value.percentageString)" = "LFO 2 Amp: \(value.percentageString)";
+
+/* LFO 2 [low frequency oscillator] Rate tempo-syncd */
+"LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "LFO 2 Oranı: \(Rate.fromFrequency(value)), \(value.decimalString) Hz";
+
+/* LFO 2 [low frequency oscillator] Rate tempo-syncd */
+"LFO 2 Rate: \(value.decimalString) Hz" = "LFO 2 Oranı: \(value.decimalString) Hz";
+
+/* LFO [low frequency oscillator] Amplitude & Rate tempo-syncd */
+"LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1 Hızı: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)";
+
+/* LFO [low frequency oscillator] Amplitude & Rate */
+"LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1 Hızı: \(s.getSynthParameter(.lfo1Rate).decimalString) Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)";
+
+/* Low Pass Filter */
+"Low Pass" = "Alt Geçiş";
+
+/* Main Panel Abbreviation */
+"MAIN" = "ANA";
+
+/* Master Volume */
+"Master Volume: \(value.percentageString)" = "Ana Birim: \(value.percentageString)";
+
+/* MIDI Learn Instructions */
+"MIDI Learn Off" = "MIDI Öğren Kapalı";
+
+/* Alert Title: MIDI Learn Reset */
+"MIDI Learn Reset" = "MIDI Öğren'i Sıfırla";
+
+/* MIDI Learn Instructions */
+"MIDI Learn: Touch a knob to assign" = "MIDI Öğren: Eşleştirmek için herhangi bir düğmeye dokunun";
+
+/* Alert Message: Too High */
+"MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉" = "MIDI Notası > 127. G8 En yüksek çalınabilir notadır. Biraz alttan alın 😉";
+
+/* Alert Title: MIDI Panic */
+"Midi Panic" = "MIDI Panik";
+
+/* LFO [low frequency oscillator] Noise */
+"Noise LFO ‣ \(lfoSource!)" = "Gürültü LFO ‣ \(lfoSource!)";
+
+/* Noise Volume */
+"Noise Volume: \((value * 4).percentageString)" = "Gürültü Hacmi: \((value*4).percentageString)";
+
+/* Alert Title: Duplicate Bank Name */
+"Notice" = "Dikkat Edin";
+
+/* Alert Title: Invalid Email Address */
+"Oops!" = "Ups!";
+
+/* LFO [low frequency oscillator] Oscillator Mix */
+"Osc Mix LFO ‣ \(lfoSource!)" = "Osc Mix LFO ‣ \(lfoSource!)";
+
+/* TouchPad Panel Abbreviation */
+"PAD" = "PAD";
+
+/* Phaser Feedback */
+"Phaser Feedback: \(value.decimalString)" = "Phaser Feedback: \(value.decimalString)";
+
+/* Phaser Mix */
+"Phaser Mix: \(value.decimalString)" = "Phaser Mix: \(value.decimalString)";
+
+/* Phaser Notch Width */
+"Phaser Notch Width: \(value.decimalString)" = "Phaser Notch Genişliği: \(value.decimalString)";
+
+/* Phaser Rate */
+"Phaser Rate: \(value.decimalString)" = "Faz Hızı: \(value.decimalString)";
+
+/* LFO [low frequency oscillator] Pitch */
+"Pitch LFO ‣ \(lfoSource!)" = "Pitch LFO ‣ \(lfoSource!)";
+
+/* LFO [low frequency oscillator] Resonance */
+"Resonance LFO ‣ \(lfoSource!)" = "Rezonans LFO ‣ \(lfoSource!)";
+
+/* Reverb Low-cut/Highpass */
+"Reverb Low-cut: \(value.decimalString) Hz" = "Yankı Düşük kesim: \(value.decimalString) Hz";
+
+/* LFO [low frequency oscillator] Reverb Mix */
+"Reverb Mix LFO ‣ \(lfoSource!)" = "Reverb Mix LFO ‣ \(lfoSource!)";
+
+/* Reverb Mix */
+"Reverb Mix: \(value.percentageString)" = "Reverb Mix: \(value.percentageString)";
+
+/* Reverb Off */
+"Reverb Off" = "Yankılayıcı Kapalı";
+
+/* Reverb On */
+"Reverb On" = "Yankılayıcı Açık";
+
+/* Reverb Size */
+"Reverb Size: \(value.percentageString)" = "Yankı Boyutu: \(value.percentageString)";
+
+/* Bitcrush Sample Rate */
+"Sample Rate: \(Int(value)) Hz" = "Örnek Oranı: \(Int(value)) Hz";
+
+/* Arp/Sequencer Panel Abbreviation */
+"SEQ" = "DİZİ";
+
+/* Sequencer Mode On */
+"Sequencer Mode" = "Sekanslayıcı Modu";
+
+/* Alert Title: Allow notifications */
+"Stay informed!" = "Haberiniz olsun!";
+
+/* Sub Oscillator Volume */
+"Sub Osc Volume: \(value.decimalString)" = "Sub Osc Volume: \(value.decimalString)";
+
+/* Tempo (Beats Per Minute) */
+"Tempo: \(value) BPM" = "Tempo: \(value) BPM";
+
+/* Alert Title: Rate App */
+"Thank you" = "Teşekkürler";
+
+/* Alert Message: Duplicate Bank Name */
+"There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly." = "Zaten \(bankName) olan bir banka var. Lütfen işleri düzgün bir şekilde sürdürmek için bunlardan birini yeniden adlandırın.";
+
+/* Alert Message: Rate App */
+"This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome." = "Bu gönüllüler tarafından yapılan ÜCRETSİZ uygulama. Daha fazla uygulama yapabilmemiz için lütfen Büyük bir derecelendirmeyle ilgili yardım edin! Harika olduğun için teşekkürler.";
+
+/* Alert Message: Allows On Mode */
+"This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster" = "Bu mod canlı çalmak için harika. Arkaplan ses de açık kalacaktır. Not: Daha fazla güç kullanır ve pilinizi daha hızlı boşaltabilir";
+
+/* Alert Title: Too High */
+"Too High" = "Çok Yüksek";
+
+/* LFO [low frequency oscillator] Tremolo */
+"Tremolo LFO ‣ \(lfoSource!)" = "Tremolo LFO ‣ \(lfoSource!)";
+
+/* Tuning Panel Abbreviation */
+"TUNE" = "TUNE";
+
+/* MIDI Learn Instructions */
+"Twist knob on your MIDI Controller" = "MIDI donanımızdaki düğmeyi tetikleyin";
+
+/* Alert Message: Allow notifications */
+"We'll send Free updates, sounds, and apps. Allow notifications!" = "Bildirimleri Açın! Size yeni uygulamalar, sesler ve güncellemeler göndereceğiz!";
+
+/* Stereo Widen */
+"Widen: \(value.decimalString)" = "Widen: \(value.decimalString)";
+

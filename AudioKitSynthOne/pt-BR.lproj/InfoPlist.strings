@@ -1,0 +1,9 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Synth One";
+
+/* Bundle name */
+"CFBundleName" = "$(PRODUCT_NAME)";
+
+/* Privacy - Camera Usage Description */
+"NSCameraUsageDescription" = "$(PRODUCT_NAME) uso da câmera.";
+

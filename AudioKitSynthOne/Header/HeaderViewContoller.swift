@@ -86,145 +86,209 @@ public class HeaderViewController: UpdatableViewController {
         let lfoSource = LFOSource(rawValue: Int(value))
         switch parameter {
         case .index1:
-            displayLabel.text = "Osc1 Morph: \(value.decimalString)"
+            let message = NSLocalizedString("DCO 1 Morph: \(value.decimalString)", comment: "Oscillator 1 Waveform Morph Index")
+            displayLabel.text = message
         case .index2:
-            displayLabel.text = "Osc2 Morph: \(value.decimalString)"
+            let message = NSLocalizedString("DCO 2 Morph: \(value.decimalString)", comment: "Oscillator 2 Waveform Morph Index")
+            displayLabel.text = message
         case .morph1SemitoneOffset:
-            displayLabel.text = "Osc1: \(Int(value)) semitones"
+            let message = NSLocalizedString("DCO 1: \(Int(value)) semitones", comment: "Oscillator 1 semitone offset")
+            displayLabel.text = message
         case .morph2SemitoneOffset:
-            displayLabel.text = "Osc2: \(Int(value)) semitones"
+            let message = NSLocalizedString("DCO 2: \(Int(value)) semitones", comment: "Oscillator 2 semitone offset")
+            displayLabel.text = message
         case .morph2Detuning:
-            displayLabel.text = "DCO2 Detune: \(value.decimalString)Hz"
+            let message = NSLocalizedString("DCO 2: \(Int(value)) detune", comment: "Oscillator 2 detune")
+            displayLabel.text = message
         case .morphBalance:
-            displayLabel.text = "Osc Mix: \(value.decimalString)"
+            let message = NSLocalizedString("DCO Mix: \(Int(value))", comment: "Oscillator 1 & 2 Mix")
+            displayLabel.text = message
         case .morph1Volume:
-            displayLabel.text = "Osc1 Vol: \(value.percentageString)"
+            let message = NSLocalizedString("DCO 1 Volume: \(value.percentageString)", comment: "Oscillator 1 Volume")
+            displayLabel.text = message
         case .morph2Volume:
-            displayLabel.text = "Osc2 Vol: \(value.percentageString)"
+            let message = NSLocalizedString("DCO 2 Volume: \(value.percentageString)", comment: "Oscillator 2 Volume")
+            displayLabel.text = message
         case .glide:
-            displayLabel.text = "Glide: \(value.decimalString)"
+            let message = NSLocalizedString("Glide: \(value.decimalString)", comment: "Mono Glide Amount")
+            displayLabel.text = message
         case .cutoff, .resonance:
-            displayLabel.text = "Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, " +
-                                "Resonance: \(s.getSynthParameter(.resonance).decimalString)"
+            let message = NSLocalizedString("Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, " +
+                "Resonance: \(s.getSynthParameter(.resonance).decimalString)", comment: "Filter Cutoff & Resonance")
+            displayLabel.text = message
         case .subVolume:
-            displayLabel.text = "Sub Mix: \(value.percentageString)"
+            let message = NSLocalizedString("Sub Osc Volume: \(value.decimalString)", comment: "Sub Oscillator Volume")
+            displayLabel.text = message
         case .fmVolume:
-            displayLabel.text = "FM Amp: \(value.percentageString)"
+            let message = NSLocalizedString("FM Volume: \(value.percentageString)", comment: "FM Oscillator Volume")
+            displayLabel.text = message
         case .fmAmount:
-            displayLabel.text = "FM Mod: \(value.decimalString)"
+            let message = NSLocalizedString("FM Mod: \(value.percentageString)", comment: "FM Modulation Amount")
+            displayLabel.text = message
         case .noiseVolume:
-            displayLabel.text = "Noise Mix: \((value * 4).percentageString)"
+            let message = NSLocalizedString("Noise Volume: \((value * 4).percentageString)", comment: "Noise Volume")
+            displayLabel.text = message
         case .masterVolume:
-            displayLabel.text = "Master Vol: \(value.percentageString)"
+            let message = NSLocalizedString("Master Volume: \(value.percentageString)", comment: "Master Volume")
+            displayLabel.text = message
         case .attackDuration, .decayDuration, .sustainLevel, .releaseDuration:
             displayLabel.text = ADSRString(.attackDuration, .decayDuration, .sustainLevel, .releaseDuration)
         case .filterAttackDuration, .filterDecayDuration, .filterSustainLevel, .filterReleaseDuration:
             displayLabel.text = "" +
                 ADSRString(.filterAttackDuration, .filterDecayDuration, .filterSustainLevel, .filterReleaseDuration)
         case .filterADSRMix:
-            displayLabel.text = "Filter Envelope: \(value.percentageString)"
+            let message = NSLocalizedString("Filter Envelope: \(value.percentageString)", comment: "Filter Envelope Amount")
+            displayLabel.text = message
         case .bitCrushDepth: //unused
             displayLabel.text = "Bitcrush Depth: \(value.decimalString)"
         case .bitCrushSampleRate:
-            displayLabel.text = "Downsample Rate: \(Int(value)) Hz"
+            let message = NSLocalizedString("Sample Rate: \(Int(value)) Hz", comment: "Bitcrush Sample Rate")
+            displayLabel.text = message
         case .autoPanAmount:
-            displayLabel.text = "AutoPan Amp: \(value.percentageString)"
+            let message = NSLocalizedString("AutoPan Strength: \(value.percentageString)", comment: "AutoPan Amount/Strength")
+            displayLabel.text = message
         case .autoPanFrequency:
+            let message = NSLocalizedString("AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz", comment: "AutoPan Rate tempo-syncd")
+            let message2 = NSLocalizedString("AutoPan Rate: \(value.decimalString) Hz", comment: "AutoPan Rate")
             if s.getSynthParameter(.tempoSyncToArpRate) > 0 {
-                displayLabel.text = "AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz"
+                displayLabel.text = message
             } else {
-                displayLabel.text = "AutoPan Rate: \(value.decimalString) Hz"
+                displayLabel.text = message2
             }
         case .reverbOn:
-            displayLabel.text = value == 1 ? "Reverb On" : "Reverb Off"
+            let message = NSLocalizedString("Reverb On", comment: "Reverb On")
+            let message2 = NSLocalizedString("Reverb Off", comment: "Reverb Off")
+            displayLabel.text = value == 1 ? message : message2
         case .reverbFeedback:
-            displayLabel.text = "Reverb Size: \(value.percentageString)"
+            let message = NSLocalizedString("Reverb Size: \(value.percentageString)", comment: "Reverb Size")
+            displayLabel.text = message
         case .reverbHighPass:
-            displayLabel.text = "Reverb Low-cut: \(value.decimalString) Hz"
+            let message = NSLocalizedString("Reverb Low-cut: \(value.decimalString) Hz", comment: "Reverb Low-cut/Highpass")
+            displayLabel.text = message
         case .reverbMix:
-            displayLabel.text = "Reverb Mix: \(value.percentageString)"
+            let message = NSLocalizedString("Reverb Mix: \(value.percentageString)", comment: "Reverb Mix")
+            displayLabel.text = message
         case .delayOn:
-            displayLabel.text = value == 1 ? "Delay On" : "Delay Off"
+            let message = NSLocalizedString("Delay On", comment: "Delay On")
+            let message2 = NSLocalizedString("Delay  Off", comment: "Delay Off")
+            displayLabel.text = value == 1 ? message : message2
         case .delayFeedback:
-            displayLabel.text = "Delay Taps: \(value.percentageString)"
+            let message = NSLocalizedString("Delay Feedback/Taps: \(value.percentageString)", comment: "Delay Feedback")
+            displayLabel.text = message
         case .delayTime:
+            let message = NSLocalizedString("Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s", comment: "Delay Time tempo-syncd")
+            let message2 = NSLocalizedString("Delay Time: \(value.decimalString) s", comment: "Delay Time")
             if s.getSynthParameter(.tempoSyncToArpRate) > 0 {
-                displayLabel.text = "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s"
+                displayLabel.text = message
             } else {
-               displayLabel.text = "Delay Time: \(value.decimalString) s"
+               displayLabel.text = message2
             }
-
         case .delayMix:
-            displayLabel.text = "Delay Mix: \(value.percentageString)"
+            let message = NSLocalizedString("Delay Mix: \(value.percentageString)", comment: "Delay Mix")
+            displayLabel.text = message
         case .lfo1Rate, .lfo1Amplitude:
+            let message = NSLocalizedString("LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), " +
+                "LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)", comment: "LFO [low frequency oscillator] Amplitude & Rate tempo-syncd")
+            let message2 = NSLocalizedString("LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, " +
+                "LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)", comment: "LFO [low frequency oscillator] Amplitude & Rate")
             if s.getSynthParameter(.tempoSyncToArpRate) > 0 {
-                displayLabel.text = "LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), " +
-                                    "LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)"
+                displayLabel.text = message
             } else {
-                displayLabel.text = "LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, " +
-                                    "LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)"
+                displayLabel.text = message2
             }
         case .lfo2Rate:
+            let message = NSLocalizedString("LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz", comment: "LFO 2 [low frequency oscillator] Rate tempo-syncd")
+            let message2 = NSLocalizedString("LFO 2 Rate: \(value.decimalString) Hz", comment: "LFO 2 [low frequency oscillator] Rate tempo-syncd")
             if s.getSynthParameter(.tempoSyncToArpRate) > 0 {
-                displayLabel.text = "LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz"
+                displayLabel.text = message
             } else {
-                displayLabel.text = "LFO 2 Rate: \(value.decimalString) Hz"
+                displayLabel.text = message2
             }
         // swiftlint:disable force_unwrapping
         case .lfo2Amplitude:
-            displayLabel.text = "LFO 2 Amp: \(value.percentageString)"
+            let message = NSLocalizedString("LFO 2 Amp: \(value.percentageString)", comment: "LFO 2 [low frequency oscillator] Amplitude")
+            displayLabel.text = message
         case .cutoffLFO:
-            displayLabel.text = "Cutoff LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("Cutoff LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Cutoff")
+            displayLabel.text = message
         case .resonanceLFO:
-            displayLabel.text = "Resonance LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("Resonance LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Resonance")
+            displayLabel.text = message
         case .oscMixLFO:
-            displayLabel.text = "Osc Mix LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("Osc Mix LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Oscillator Mix")
+            displayLabel.text = message
         case .reverbMixLFO:
-            displayLabel.text = "Reverb Mix LFO ‣ \(lfoSource!)"
+             let message = NSLocalizedString("Reverb Mix LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Reverb Mix")
+            displayLabel.text = message
         case .decayLFO:
-            displayLabel.text = "Decay LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("Decay LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Decay")
+            displayLabel.text = message
         case .noiseLFO:
-            displayLabel.text = "Noise LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("Noise LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Noise")
+            displayLabel.text = message
         case .fmLFO:
-            displayLabel.text = "FM LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("FM LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] FM Modulation")
+            displayLabel.text = message
         case .detuneLFO:
-            displayLabel.text = "Detune LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("Detune LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Detune")
+            displayLabel.text = message
         case .filterEnvLFO:
-            displayLabel.text = "Filter Env LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("Filter Env LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Filter Envelope")
+            displayLabel.text = message
         case .pitchLFO:
-            displayLabel.text = "Pitch LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("Pitch LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Pitch")
+            displayLabel.text = message
         case .bitcrushLFO:
-            displayLabel.text = "Bitcrush LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("Bitcrush LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Bitcrush")
+            displayLabel.text = message
         case .tremoloLFO:
-            displayLabel.text = "Tremolo LFO ‣ \(lfoSource!)"
+            let message = NSLocalizedString("Tremolo LFO ‣ \(lfoSource!)", comment: "LFO [low frequency oscillator] Tremolo")
+            displayLabel.text = message
         case .filterType:
-            var ftype = "Low Pass"
+            let message = NSLocalizedString("Low Pass", comment: "Low Pass Filter")
+            let message2 = NSLocalizedString("Band Pass", comment: "Band Pass Filter")
+            let message3 = NSLocalizedString("High Pass", comment: "High Pass Filter")
+            
+            var ftype = message
             if value == 1 {
-                ftype = "Band Pass"
+                ftype = message2
             } else if value == 2 {
-                ftype = "High Pass"
+                ftype = message3
             }
-            displayLabel.text = "Filter Type : \(ftype)"
+            
+            let message4 = NSLocalizedString("Filter Type: \(ftype)", comment: "Main Filter Type")
+            displayLabel.text = message4
         case .phaserMix:
-            displayLabel.text = "Phaser Mix: \(value.decimalString)"
+            let message = NSLocalizedString("Phaser Mix: \(value.decimalString)", comment: "Phaser Mix")
+            displayLabel.text = message
         case .phaserRate:
-            displayLabel.text = "Phaser Rate: \(value.decimalString)"
+            let message = NSLocalizedString("Phaser Rate: \(value.decimalString)", comment: "Phaser Rate")
+            displayLabel.text = message
         case .phaserFeedback:
-            displayLabel.text = "Phaser Feedback: \(value.decimalString)"
+            let message = NSLocalizedString("Phaser Feedback: \(value.decimalString)", comment: "Phaser Feedback")
+            displayLabel.text = message
         case .phaserNotchWidth:
-            displayLabel.text = "Phaser Notch Width: \(value.decimalString)"
+            let message = NSLocalizedString("Phaser Notch Width: \(value.decimalString)", comment: "Phaser Notch Width")
+            displayLabel.text = message
         case .arpInterval:
-            displayLabel.text = "Arpeggiator Interval: \(Int(value))"
+            let message = NSLocalizedString("Arpeggiator Interval: \(Int(value))", comment: "Arpeggiator Interval")
+            displayLabel.text = message
         case .arpIsOn:
-            displayLabel.text = value == 1 ? "Arp/Sequencer On" : "Arpeggiator/Sequencer Off"
+            let message = NSLocalizedString("Arp/Sequencer On", comment: "Arpeggiator On")
+            let message2 = NSLocalizedString("Arp/Sequencer Off", comment: "Arpeggiator Off")
+            displayLabel.text = value == 1 ? message : message2
         case .arpIsSequencer:
-            displayLabel.text = value == 1 ? "Sequencer Mode" : "Arpeggiator Mode"
+            let message = NSLocalizedString("Sequencer Mode", comment: "Sequencer Mode On")
+            let message2 = NSLocalizedString("Arpeggiator Mode", comment: "Arpeggiator Mode On")
+            displayLabel.text = value == 1 ? message : message2
         case .arpRate:
-            displayLabel.text = "Arp/Sequencer Tempo: \(value) BPM"
+            let message = NSLocalizedString("Tempo: \(value) BPM", comment: "Tempo (Beats Per Minute)")
+            displayLabel.text = message
         case .widen:
-            displayLabel.text = "Widen: \(value.decimalString)"
+            let message = NSLocalizedString("Widen: \(value.decimalString)", comment: "Stereo Widen")
+            displayLabel.text = message
 
-            // visible on dev panel only
+        // visible on dev panel only
         case .compressorMasterRatio:
             displayLabel.text = "compressorMasterRatio: \(value.decimalString)"
         case .compressorReverbInputRatio:

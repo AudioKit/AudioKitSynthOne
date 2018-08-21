@@ -137,7 +137,9 @@ public class Manager: UpdatableViewController {
         bluetoothButton.layer.cornerRadius = 2
         bluetoothButton.layer.borderWidth = 1
 
+        #if ABLETON_ENABLED_1
         linkButton.centerPopupIn(view: view)
+        #endif
 
         // Setup Callbacks
         setupCallbacks()
@@ -242,7 +244,12 @@ public class Manager: UpdatableViewController {
 
         // Push Notifications request
         if appSettings.launches == 9 && !appSettings.pushNotifications { pushPopUp() }
-        if appSettings.launches % 18 == 0 && !appSettings.pushNotifications && !appSettings.isPreRelease && appSettings.launches > 0 { pushPopUp() }
+        if appSettings.launches % 18 == 0 &&
+            !appSettings.pushNotifications &&
+            !appSettings.isPreRelease &&
+            appSettings.launches > 0 {
+            pushPopUp()
+        }
 
         // Keyboard show or hide on launch
         keyboardToggle.value = appSettings.showKeyboard

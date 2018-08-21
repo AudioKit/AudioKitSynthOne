@@ -9,6 +9,7 @@
 // Mailing List PopOver Delegate
 
 extension Manager: MailingListDelegate {
+  
     func didSignMailingList(email: String) {
 
         signedMailingList = true

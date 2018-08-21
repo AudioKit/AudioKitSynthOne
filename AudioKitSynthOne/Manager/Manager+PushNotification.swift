@@ -13,10 +13,13 @@ extension Manager {
 
     func pushPopUp() {
         // Add pop up
-        let alert = UIAlertController(title: "Stay Informed",
-                                      message: "We'll send Free updates, sounds, and apps. Allow notifications!",
+        let title = NSLocalizedString("Stay informed!", comment: "Alert Title: Allow notifications")
+        let message = NSLocalizedString("We'll send Free updates, sounds, and apps. Allow notifications!",
+                                        comment: "Alert Message: Allow notifications")
+        let alert = UIAlertController(title: title,
+                                      message: message,
                                       preferredStyle: .alert)
-        let submitAction = UIAlertAction(title: "Awesome! 👍🏼", style: .default) { (_) in
+        let submitAction = UIAlertAction(title: "Yes! 👍🏼", style: .default) { (_) in
             self.appSettings.pushNotifications = true
             self.saveAppSettingValues()
             OneSignal.promptForPushNotifications(userResponse: { accepted in

@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/AudioKit/AudioKitSynthOne.svg)](https://travis-ci.org/AudioKit/AudioKitSynthOne)
 [![License](https://img.shields.io/cocoapods/l/AudioKit.svg?style=flat)](https://github.com/AudioKit/AudioKitSynthOne/blob/master/LICENSE)
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/audiokit-synth-one/localized.svg)](https://crowdin.com/project/audiokit-synth-one)
 [![Twitter Follow](https://img.shields.io/twitter/follow/AudioKitPro.svg?style=social)](http://twitter.com/AudioKitPro)
 
 We've open-sourced the code for this synthesizer so that everyone is able to make changes to the code,
@@ -51,6 +52,12 @@ If you are new to iOS development, we recommend the [Ray Wenderlich](https://www
 
 Beginner? We have two additional code examples. There is a simple [Swift Synth](https://github.com/AudioKit/AnalogSynthX) and a [Sample Player](https://github.com/AudioKit/ROMPlayer). A fun exercise might be replacing the [sample player](https://github.com/AudioKit/ROMPlayer) code engine with synthesis. 
 
+### Ableton Link Support
+
+We now include optional support for the [Ableton Link](https://www.ableton.com/en/link/) SDK. Because files from this private SDK are required to compile this code,
+it is turned off by default.
+
+You may enable this code by copying the SDK to your copy of Synth One and setting the `ABLETON_ENABLED` user setting to 1 in the project settings in Xcode.
 
 ## Documentation
 
@@ -73,7 +80,7 @@ Here's a few ideas for you to contribute to this historic project:
 
 * Add accessibility functionality to AudioKit Synth One. We have received multiple requests from visually impaired musicians. Help make Synth One accessible to all musicians.
 *  Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
-* Localizations in your language
+* Localizations in your language, see [our docs](AudioKitSynthOne/Translations/README.md) for more information.
 * Create iPhone or Universal interface
 * Ability to search presets
 * Make TouchPads assignable 
@@ -107,9 +114,9 @@ If you use any code, it would be great if you gave this project some credit or a
 
 If you make an app with this code, please let us know! We think you're awesome, and would love to hear from you and/or feature your app.
 
-IMPORTANT: You must change the graphics if you upload this to the app store.
+*IMPORTANT:* You must change the graphics if you upload this to the app store.
 
-IMPORTANT: You must fill in your own private API keys for AudioBus and others in the Private.swift file to match your own project. The default placeholder values are not suitable for distribution.
+*IMPORTANT:* You must fill in your own private API keys for AudioBus and others in the Private.swift file to match your own project. The default placeholder values are not suitable for distribution.
 
 ## Contributors
 

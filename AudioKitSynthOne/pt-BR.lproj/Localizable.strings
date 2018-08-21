@@ -1,0 +1,285 @@
+/* Alert Message:  MIDI Learn Reset */
+"All MIDI learn knob assignments have been removed." = "Todas as atribuições do botão MIDI learn foram removidas.";
+
+/* Alert Message: MIDI Panic */
+"All notes have been turned off." = "Todas as notas foram desativadas.";
+
+/* Alert Title: Confirm Email Address */
+"Almost done!" = "Quase pronto!";
+
+/* Arpeggiator Off */
+"Arp/Sequencer Off" = "Arp / sequenciador desativado";
+
+/* Arpeggiator On */
+"Arp/Sequencer On" = "ARP/Sequencer em";
+
+/* Arpeggiator Interval */
+"Arpeggiator Interval: \(Int(value))" = "Intervalo de Arpeggiator: \(Int(value))";
+
+/* Arpeggiator Mode On */
+"Arpeggiator Mode" = "Modo Arpejador";
+
+/* AutoPan Rate tempo-syncd */
+"AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "AutoPan taxa: \(Rate.fromFrequency(value)), \(value.decimalString) Hz";
+
+/* AutoPan Rate */
+"AutoPan Rate: \(value.decimalString) Hz" = "AutoPan taxa: \(value.decimalString) Hz";
+
+/* AutoPan Amount/Strength */
+"AutoPan Strength: \(value.percentageString)" = "AutoPan força: \(value.percentageString)";
+
+/* Alert Message: Background Audio */
+"Background audio will drain the battery faster. Please turn off when not in use." = "O áudio de fundo drena a bateria mais rapidamente. Por favor, desligue quando não estiver em uso.";
+
+/* Band Pass Filter */
+"Band Pass" = "Passa-banda";
+
+/* LFO [low frequency oscillator] Bitcrush */
+"Bitcrush LFO ‣ \(lfoSource!)" = "Bitcrush LFO ‣ \(lfoSource!)";
+
+/* Alert Title: Presets Added */
+"Congratulations! 🎉" = "Parabéns!";
+
+/* No comment provided by engineer. */
+"Couldn't configure the file writer" = "Não foi possível configurar o gravador de arquivos";
+
+/* No comment provided by engineer. */
+"Couldn't open the output file" = "Não foi possível abrir o arquivo selecionado";
+
+/* No comment provided by engineer. */
+"Couldn't prepare the output format (error %d/%4.4s)" = "Couldn't prepare the output format (error %1$d/%2$.4s)";
+
+/* LFO [low frequency oscillator] Cutoff */
+"Cutoff LFO ‣ \(lfoSource!)" = "LFO corte ‣ \(lfoSource!)";
+
+/* Filter Cutoff & Resonance */
+"Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "Corte: \(s.getSynthParameter(.cutoff).decimalString) Hz, ressonância: \(s.getSynthParameter(.resonance).decimalString)";
+
+/* Oscillator 1 Waveform Morph Index */
+"DCO 1 Morph: \(value.decimalString)" = "DCO 1 Morph: \(value.decimalString)";
+
+/* Oscillator 1 Volume */
+"DCO 1 Volume: \(value.percentageString)" = "DCO 1 Volume: \(value.percentageString)";
+
+/* Oscillator 1 semitone offset */
+"DCO 1: \(Int(value)) semitones" = "DCO 1: semitons \(Int(value))";
+
+/* Oscillator 2 Waveform Morph Index */
+"DCO 2 Morph: \(value.decimalString)" = "DCO 2 Morph: \(value.decimalString)";
+
+/* Oscillator 2 Volume */
+"DCO 2 Volume: \(value.percentageString)" = "DCO 2 Volume: \(value.percentageString)";
+
+/* Oscillator 2 detune */
+"DCO 2: \(Int(value)) detune" = "DCO 2: \(Int(value)) desregular";
+
+/* Oscillator 2 semitone offset */
+"DCO 2: \(Int(value)) semitones" = "DCO 2: semitons \(Int(value))";
+
+/* Oscillator 1 & 2 Mix */
+"DCO Mix: \(Int(value))" = "DCO Mix: \(Int(value))";
+
+/* Oscillator 1 & 2 Mix */
+"DCO Mix: \(Int(value)) detune" = "DCO 2: \(Int(value)) desregular";
+
+/* LFO [low frequency oscillator] Decay */
+"Decay LFO ‣ \(lfoSource!)" = "LFO corte ‣ \(lfoSource!)";
+
+/* Delay Off */
+"Delay  Off" = "Atraso desligado";
+
+/* Delay Feedback */
+"Delay Feedback/Taps: \(value.percentageString)" = "Feedback/torneiras de atraso: \(value.percentageString)";
+
+/* Delay Mix */
+"Delay Mix: \(value.percentageString)" = "Atrasar o Mix: \(value.percentageString)";
+
+/* Delay On */
+"Delay On" = "Atraso em";
+
+/* Delay Time tempo-syncd */
+"Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s" = "Tempo de atraso: \(Rate.fromTime(value)), \(value.decimalString) s";
+
+/* Delay Time */
+"Delay Time: \(value.decimalString) s" = "Tempo de atraso: \(value.decimalString) s";
+
+/* LFO [low frequency oscillator] Detune */
+"Detune LFO ‣ \(lfoSource!)" = "Desregular LFO ‣ \(lfoSource!)";
+
+/* Alert Title: Allows On Mode */
+"Don't Sleep Mode" = "Não durma o modo";
+
+/* Envelope Panel Abbreviation */
+"ENV" = "ENV";
+
+/* LFO [low frequency oscillator] Filter Envelope */
+"Filter Env LFO ‣ \(lfoSource!)" = "Filtrar Env LFO \(lfoSource!)";
+
+/* Filter Envelope Amount */
+"Filter Envelope: \(value.percentageString)" = "Envelope de Filtro: \(value.percentageString)";
+
+/* Main Filter Type */
+"Filter Type: \(ftype)" = "Tipo de Filtro: \(ftype)";
+
+/* LFO [low frequency oscillator] FM Modulation */
+"FM LFO ‣ \(lfoSource!)" = "FM LFO ‣ \(lfoSource!)";
+
+/* FM Modulation Amount */
+"FM Mod: \(value.percentageString)" = "FM Mod: \(value.percentageString)";
+
+/* FM Oscillator Volume */
+"FM Volume: \(value.percentageString)" = "Volume de FM: \(value.percentageString)";
+
+/* FX/LFO Panel Abbreviation */
+"FX" = "FX";
+
+/* Mono Glide Amount */
+"Glide: \(value.decimalString)" = "Glide: \(value.decimalString)";
+
+/* High Pass Filter */
+"High Pass" = "Passe alto";
+
+/* Alert Title: Background Audio */
+"Important" = "Importante";
+
+/* LFO 2 [low frequency oscillator] Amplitude */
+"LFO 2 Amp: \(value.percentageString)" = "LFO 2 Amp: \(value.percentageString)";
+
+/* LFO 2 [low frequency oscillator] Rate tempo-syncd */
+"LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "Taxa de LFO 2: \(Rate.fromFrequency(value)), \(value.decimalString) Hz";
+
+/* LFO 2 [low frequency oscillator] Rate tempo-syncd */
+"LFO 2 Rate: \(value.decimalString) Hz" = "LFO 2 taxa: \(value.decimalString) Hz";
+
+/* LFO [low frequency oscillator] Amplitude & Rate tempo-syncd */
+"LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1 Taxa: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)";
+
+/* LFO [low frequency oscillator] Amplitude & Rate */
+"LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "Taxa LFO1: \(s.getSynthParameter (.lfo1Rate).decimalString) Hz, LFO1 Amp: \(s.getSynthParameter (.lfo1Amplitude).percentageString)";
+
+/* Low Pass Filter */
+"Low Pass" = "Passa baixa";
+
+/* Main Panel Abbreviation */
+"MAIN" = "MAIN";
+
+/* Master Volume */
+"Master Volume: \(value.percentageString)" = "Volume mestre: \(value.percentageString)";
+
+/* MIDI Learn Instructions */
+"MIDI Learn Off" = "MIDI aprender fora";
+
+/* Alert Title: MIDI Learn Reset */
+"MIDI Learn Reset" = "MIDI aprender Reset";
+
+/* MIDI Learn Instructions */
+"MIDI Learn: Touch a knob to assign" = "MIDI Learn: toque em um botão para atribuir";
+
+/* Alert Message: Too High */
+"MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉" = "Nota MIDI 127. G8 é a maior chave jogável. Pegue um entalhe 😉";
+
+/* Alert Title: MIDI Panic */
+"Midi Panic" = "Pânico de Midi";
+
+/* LFO [low frequency oscillator] Noise */
+"Noise LFO ‣ \(lfoSource!)" = "Ruído LFO ‣ \(lfoSource!)";
+
+/* Noise Volume */
+"Noise Volume: \((value * 4).percentageString)" = "Volume de ruído: \((value * 4).percentageString)";
+
+/* Alert Title: Duplicate Bank Name */
+"Notice" = "Noticia";
+
+/* Alert Title: Invalid Email Address */
+"Oops!" = "Opa!";
+
+/* LFO [low frequency oscillator] Oscillator Mix */
+"Osc Mix LFO ‣ \(lfoSource!)" = "Mix de OSC LFO ‣ \(lfoSource!)";
+
+/* TouchPad Panel Abbreviation */
+"PAD" = "PAD";
+
+/* Phaser Feedback */
+"Phaser Feedback: \(value.decimalString)" = "Feedback do Phaser: \(value.decimalString)";
+
+/* Phaser Mix */
+"Phaser Mix: \(value.decimalString)" = "Mix de Phaser: \(value.decimalString)";
+
+/* Phaser Notch Width */
+"Phaser Notch Width: \(value.decimalString)" = "Phaser entalhe largura: \(value.decimalString)";
+
+/* Phaser Rate */
+"Phaser Rate: \(value.decimalString)" = "Taxa Phaser: \(value.decimalString)";
+
+/* LFO [low frequency oscillator] Pitch */
+"Pitch LFO ‣ \(lfoSource!)" = "Passo LFO ‣ \(lfoSource!)";
+
+/* LFO [low frequency oscillator] Resonance */
+"Resonance LFO ‣ \(lfoSource!)" = "Ressonância LFO ‣ \(lfoSource!)";
+
+/* Reverb Low-cut/Highpass */
+"Reverb Low-cut: \(value.decimalString) Hz" = "Reverb decotado: \(value.decimalString) Hz";
+
+/* LFO [low frequency oscillator] Reverb Mix */
+"Reverb Mix LFO ‣ \(lfoSource!)" = "Reverb misturar LFO ‣ \(lfoSource!)";
+
+/* Reverb Mix */
+"Reverb Mix: \(value.percentageString)" = "Mix de reverb: \(value.percentageString)";
+
+/* Reverb Off */
+"Reverb Off" = "Reverb fora";
+
+/* Reverb On */
+"Reverb On" = "Reverb na";
+
+/* Reverb Size */
+"Reverb Size: \(value.percentageString)" = "Reverb tamanho: \(value.percentageString)";
+
+/* Bitcrush Sample Rate */
+"Sample Rate: \(Int(value)) Hz" = "Taxa de amostragem: \(Int(value)) Hz";
+
+/* Arp/Sequencer Panel Abbreviation */
+"SEQ" = "SEQ";
+
+/* Sequencer Mode On */
+"Sequencer Mode" = "Modo do seqüenciador";
+
+/* Alert Title: Allow notifications */
+"Stay informed!" = "Mantenha-se informado!";
+
+/* Sub Oscillator Volume */
+"Sub Osc Volume: \(value.decimalString)" = "Volume Sub Osc: \(value.decimalString)";
+
+/* Tempo (Beats Per Minute) */
+"Tempo: \(value) BPM" = "Ritmo: \(value) BPM";
+
+/* Alert Title: Rate App */
+"Thank you" = "Obrigado";
+
+/* Alert Message: Duplicate Bank Name */
+"There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly." = "Já existe um banco com o nome '\(bankName)'. Por favor, renomeie um deles para manter as coisas funcionando sem problemas.";
+
+/* Alert Message: Rate App */
+"This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome." = "Este é um aplicativo gratuito construído por voluntários. Por favor, ajudem com uma excelente classificação para que possamos fazer mais aplicativos! Obrigado por ser incrível.";
+
+/* Alert Message: Allows On Mode */
+"This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster" = "Este modo é ótimo para tocar ao vivo. O áudio de fundo também permanecerá ligado. Nota: Ele vai usar mais energia e pode drenar sua bateria mais rápido";
+
+/* Alert Title: Too High */
+"Too High" = "Muito alta";
+
+/* LFO [low frequency oscillator] Tremolo */
+"Tremolo LFO ‣ \(lfoSource!)" = "Tremolo LFO ‣ \(lfoSource!)";
+
+/* Tuning Panel Abbreviation */
+"TUNE" = "TUNE";
+
+/* MIDI Learn Instructions */
+"Twist knob on your MIDI Controller" = "Botão Twist no seu controlador MIDI";
+
+/* Alert Message: Allow notifications */
+"We'll send Free updates, sounds, and apps. Allow notifications!" = "Enviaremos atualizações, sons e aplicativos gratuitos. Permitir notificações!";
+
+/* Stereo Widen */
+"Widen: \(value.decimalString)" = "Widen: \(value.decimalString)";
+

@@ -1,0 +1,11 @@
+files:
+  - source: /AudioKitSynthOne/Translations/en.xliff
+    translation: /AudioKitSynthOne/Translations/%locale%.xliff
+  - source: /AudioKitSynthOne/Translations/Metadata/changelog-en.txt
+    translation: /AudioKitSynthOne/Translations/Metadata/changelog-%locale%.txt
+  - source: /AudioKitSynthOne/Translations/Metadata/description-en.txt
+    translation: /AudioKitSynthOne/Translations/Metadata/description-%locale%.txt
+  - source: /AudioKitSynthOne/Translations/Metadata/keywords-en.txt
+    translation: /AudioKitSynthOne/Translations/Metadata/keywords-%locale%.txt
+  - source: /AudioKitSynthOne/Translations/Metadata/subtitle-en.txt
+    translation: /AudioKitSynthOne/Translations/Metadata/subtitle-%locale%.txt

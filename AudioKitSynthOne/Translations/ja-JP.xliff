@@ -420,11 +420,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Delay Feedback/Taps: \(value.percentageString)</source>
         <note>Delay Feedback</note>
         <target xml:lang="ja" state="translated">遅延フィードバック/タップ：\（value.percentageString）</target>
+        <alt-trans>
+          <target xml:lang="ja">Delay Feedback/Taps: \(value.percentageString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay Mix: \(value.percentageString)">
         <source>Delay Mix: \(value.percentageString)</source>
         <note>Delay Mix</note>
         <target xml:lang="ja" state="translated">遅延ミックス：\（value.percentageString）</target>
+        <alt-trans>
+          <target xml:lang="ja">Delay Mix: \（value.percentageString）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay On">
         <source>Delay On</source>
@@ -868,6 +874,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Hold</source>
         <note>Class = "UIButton"; normalTitle = "Hold"; ObjectID = "39J-5A-Jtm"; Note = "Keyboard hold button (keep this text as short as possible)";</note>
         <target xml:lang="ja" state="translated">ホールド</target>
+        <alt-trans>
+          <target xml:lang="ja">Hold</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="ACV-Ri-7nN.text">
         <source>Octave:</source>
@@ -898,6 +907,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Mono</source>
         <note>Class = "UIButton"; normalTitle = "Mono"; ObjectID = "FTi-x2-zwk"; Note = "Mono/Poly toggle button (keep this text as short as possible)";</note>
         <target xml:lang="ja" state="translated">モノ</target>
+        <alt-trans>
+          <target xml:lang="ja">Mono</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="GdY-Af-kY1.text">
         <source>Mod</source>
@@ -946,7 +958,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="OxM-Pu-Zba.normalTitle">
         <source>Wheels</source>
         <note>Class = "UIButton"; normalTitle = "Wheels"; ObjectID = "OxM-Pu-Zba"; Note = "Mod Wheel &amp; Pitch Wheel button (keep this text as short as possible)";</note>
-        <target xml:lang="ja" state="translated">ホイール</target>
+        <target xml:lang="ja" state="translated">Wheels</target>
+        <alt-trans>
+          <target xml:lang="ja">ホイール</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="OyT-Kr-q8s.normalTitle">
         <source>DONE</source>
@@ -970,6 +985,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>MIDI Learn</source>
         <note>Class = "UIButton"; normalTitle = "MIDI Learn"; ObjectID = "VNg-MV-vHn"; Note = "Midi Learn button (keep this text as short as possible)";</note>
         <target xml:lang="ja" state="translated">MIDI学習</target>
+        <alt-trans>
+          <target xml:lang="ja">MIDI Learn</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="WyC-Si-j7H.text">
         <source>MOD / PITCH WHEELS</source>
@@ -982,7 +1000,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Z4W-Gh-RiQ.normalTitle">
         <source>Keys</source>
         <note>Class = "UIButton"; normalTitle = "Keys"; ObjectID = "Z4W-Gh-RiQ"; Note = "Keyboard Keys settings  button (keep this text as short as possible)";</note>
-        <target xml:lang="ja" state="translated">キー</target>
+        <target xml:lang="ja" state="translated">Keys</target>
+        <alt-trans>
+          <target xml:lang="ja">キー</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="ZV6-Yu-spa.text">
         <source>MIDI Inputs (tap to toggle on/off):</source>
@@ -1109,7 +1130,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="xv6-Gi-7B2.normalTitle">
         <source>Link</source>
         <note>Class = "UIButton"; normalTitle = "Link"; ObjectID = "xv6-Gi-7B2"; Note = "Ableton Link button (keep this text as short as possible)";</note>
-        <target xml:lang="ja" state="translated">リンク</target>
+        <target xml:lang="ja" state="translated">Link</target>
+        <alt-trans>
+          <target xml:lang="ja">リンク</target>
+        </alt-trans>
       </trans-unit>
     </body>
   </file>
@@ -1184,6 +1208,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Lock Arp+Seq</source>
         <note>Class = "UILabel"; text = "Lock Arp+Seq"; ObjectID = "ct1-IH-Yiw";</note>
         <target xml:lang="ja" state="translated">ロックArp + Seq</target>
+        <alt-trans>
+          <target xml:lang="ja">Lock Arp + Seq</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="hU8-IN-aa4.text">
         <source>Master Volume</source>
@@ -1218,6 +1245,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Lock Delay</source>
         <note>Class = "UILabel"; text = "Lock Delay"; ObjectID = "tLJ-xr-40E";</note>
         <target xml:lang="ja" state="translated">ロック遅延</target>
+        <alt-trans>
+          <target xml:lang="ja">Lock Delay</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="tRH-wD-RtM.text">
         <source>DelFRes</source>
@@ -1253,6 +1283,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Notch</source>
         <note>Class = "UILabel"; text = "Notch"; ObjectID = "34d-F0-qxp"; Note = "Phaser Notch Width";</note>
         <target xml:lang="ja" state="translated">ノッチ</target>
+        <alt-trans>
+          <target xml:lang="ja">Notch</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="41y-Db-NY3.text">
         <source>Rate</source>

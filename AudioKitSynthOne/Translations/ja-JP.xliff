@@ -334,6 +334,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>DCO 1 Morph: \(value.decimalString)</source>
         <note>Oscillator 1 Waveform Morph Index</note>
         <target xml:lang="ja" state="translated">DCO 1 Morph：\（value.decimalString）</target>
+        <alt-trans>
+          <target xml:lang="ja">DCO 1 Morph: \(value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 1 Volume: \(value.percentageString)">
         <source>DCO 1 Volume: \(value.percentageString)</source>
@@ -376,11 +379,17 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>DCO 2: \(Int(value)) semitones</source>
         <note>Oscillator 2 semitone offset</note>
         <target xml:lang="ja" state="translated">DCO 2：\（Int（value））半音</target>
+        <alt-trans>
+          <target xml:lang="ja">DCO 2: \(Int(value)) 半音</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value))">
         <source>DCO Mix: \(Int(value))</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
         <target xml:lang="ja" state="translated">DCOミックス：\（Int（value））</target>
+        <alt-trans>
+          <target xml:lang="ja">DCO Mix: \(Int(value))</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value)) detune">
         <source>DCO Mix: \(Int(value)) detune</source>
@@ -394,6 +403,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Decay LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Decay</note>
         <target xml:lang="ja" state="translated">ディケイLFO‣\（lfoSource！）</target>
+        <alt-trans>
+          <target xml:lang="ja">Decay LFO‣\（lfoSource！）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay  Off">
         <source>Delay  Off</source>

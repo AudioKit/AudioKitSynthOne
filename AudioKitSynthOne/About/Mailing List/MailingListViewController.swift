@@ -118,6 +118,9 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
             let params: [String: AnyObject] = ["id": Private.MailChimpID as AnyObject,
                                                "email": mailToSubscribe as AnyObject,
                                                "double_optin": false as AnyObject]
+            
+            // let userLanguage = NSLocale.current.languageCode
+            
             ChimpKit.shared().callApiMethod("lists/subscribe", withParams: params) {(response, data, _) -> Void in
                 if let httpResponse = response as? HTTPURLResponse {
                     NSLog("Reponse status code: %d", httpResponse.statusCode)

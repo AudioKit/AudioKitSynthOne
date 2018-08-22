@@ -98,7 +98,7 @@
 "Delay On" = "Atraso em";
 
 /* Delay Time tempo-syncd */
-"Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s" = "Tempo de atraso: \(Rate.fromTime (value)), \(value.decimalString) s";
+"Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s" = "Tempo de atraso: \(Rate.fromTime(value)), \(value.decimalString) s";
 
 /* Delay Time */
 "Delay Time: \(value.decimalString) s" = "Tempo de atraso: \(value.decimalString) s";

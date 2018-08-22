@@ -1184,7 +1184,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="U8L-qY-a4j.text">
         <source>Lock Reverb</source>
         <note>Class = "UILabel"; text = "Lock Reverb"; ObjectID = "U8L-qY-a4j";</note>
-        <target xml:lang="ja" state="translated">ロック・リバーブ</target>
+        <target xml:lang="ja" state="translated">Lock Reverb</target>
+        <alt-trans>
+          <target xml:lang="ja">ロック・リバーブ</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">ロックリバーブ</target>
         </alt-trans>
@@ -1197,7 +1200,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Zr2-3d-n6e.text">
         <source>Ratio</source>
         <note>Class = "UILabel"; text = "Ratio"; ObjectID = "Zr2-3d-n6e";</note>
-        <target xml:lang="ja" state="translated">比率</target>
+        <target xml:lang="ja" state="translated">Ratio</target>
+        <alt-trans>
+          <target xml:lang="ja">比率</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">比</target>
         </alt-trans>
@@ -1218,7 +1224,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="hU8-IN-aa4.text">
         <source>Master Volume</source>
         <note>Class = "UILabel"; text = "Master Volume"; ObjectID = "hU8-IN-aa4";</note>
-        <target xml:lang="ja" state="translated">マスター・ボリューム</target>
+        <target xml:lang="ja" state="translated">Master Volume</target>
+        <alt-trans>
+          <target xml:lang="ja">マスター・ボリューム</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">マスターボリューム</target>
         </alt-trans>
@@ -1226,7 +1235,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="oPw-gV-Wod.text">
         <source>Attack</source>
         <note>Class = "UILabel"; text = "Attack"; ObjectID = "oPw-gV-Wod";</note>
-        <target xml:lang="ja" state="translated">アタック</target>
+        <target xml:lang="ja" state="translated">Attack</target>
+        <alt-trans>
+          <target xml:lang="ja">アタック</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">攻撃</target>
         </alt-trans>
@@ -1234,7 +1246,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="rEb-j6-MNs.text">
         <source>Reverb Wet Compressor</source>
         <note>Class = "UILabel"; text = "Reverb Wet Compressor"; ObjectID = "rEb-j6-MNs";</note>
-        <target xml:lang="ja" state="translated">リバーブ・ウェット・コンプレッサー</target>
+        <target xml:lang="ja" state="translated">Reverb Wet Compressor</target>
+        <alt-trans>
+          <target xml:lang="ja">リバーブ・ウェット・コンプレッサー</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">リバーブウェットコンプレッサー</target>
         </alt-trans>
@@ -1802,10 +1817,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="M5g-gJ-LgP.text">
         <source>Pad</source>
         <note>Class = "UILabel"; text = "Pad"; ObjectID = "M5g-gJ-LgP";</note>
-        <target xml:lang="ja" state="translated">Pad</target>
-        <alt-trans>
-          <target xml:lang="ja">パッド</target>
-        </alt-trans>
+        <target xml:lang="ja" state="translated">パッド</target>
       </trans-unit>
       <trans-unit id="Pax-NO-iPl.text">
         <source>Rename the preset to save a new copy. Press "Save" to save the current preset. </source>
@@ -1926,10 +1938,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="5Zf-zW-Iav.text">
         <source>Octave</source>
         <note>Class = "UILabel"; text = "Octave"; ObjectID = "5Zf-zW-Iav";</note>
-        <target xml:lang="ja" state="translated">Octave</target>
-        <alt-trans>
-          <target xml:lang="ja">オクターブ</target>
-        </alt-trans>
+        <target xml:lang="ja" state="translated">オクターブ</target>
       </trans-unit>
       <trans-unit id="6WL-SP-3jX.text">
         <source>0</source>
@@ -2036,7 +2045,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="4Xu-ES-Jtr.text">
         <source>FILTER RESONANCE</source>
         <note>Class = "UILabel"; text = "FILTER RESONANCE"; ObjectID = "4Xu-ES-Jtr";</note>
-        <target xml:lang="ja" state="translated">フィルター・レゾナンス</target>
+        <target xml:lang="ja" state="translated">Filter Resonance</target>
+        <alt-trans>
+          <target xml:lang="ja">フィルター・レゾナンス</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">フィルターレゾナンス</target>
         </alt-trans>
@@ -2054,7 +2066,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="gH1-9e-vhR.text">
         <source>FILTER CUTOFF</source>
         <note>Class = "UILabel"; text = "FILTER CUTOFF"; ObjectID = "gH1-9e-vhR";</note>
-        <target xml:lang="ja" state="translated">フィルター・カットオフ</target>
+        <target xml:lang="ja" state="translated">Filter Cutoff</target>
+        <alt-trans>
+          <target xml:lang="ja">フィルター・カットオフ</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">フィルターカットオフ</target>
         </alt-trans>
@@ -2074,7 +2089,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="AqK-kK-Iaf.text">
         <source>Master Tuning</source>
         <note>Class = "UILabel"; text = "Master Tuning"; ObjectID = "AqK-kK-Iaf";</note>
-        <target xml:lang="ja" state="translated">マスター・チューニング</target>
+        <target xml:lang="ja" state="translated">Master Tuning</target>
+        <alt-trans>
+          <target xml:lang="ja">マスター・チューニング</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">マスターチューニング</target>
         </alt-trans>

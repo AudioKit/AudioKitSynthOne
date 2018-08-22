@@ -89,7 +89,6 @@ If you have audio development experience and want to be involved with contributi
 
 There are a few major updates we intend for this synth:
 
-* Storyboards are a source of bugs on large scale projects like this one.  We will replace storyboards with programmatically generated views.
 * Too much business logic is inside the "Manager" view controller.  We have done our best to separate out the functions of this view controller into well defined extensions, but more work could be done with this.
 
 ## Code Usage

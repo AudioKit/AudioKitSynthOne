@@ -45,9 +45,9 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
       <trans-unit id="2jS-Ub-cCT.text">
         <source>AudioKit is free &amp; open-source</source>
         <note>Class = "UILabel"; text = "AudioKit is free &amp; open-source"; ObjectID = "2jS-Ub-cCT";</note>
-        <target xml:lang="ja" state="translated">AudioKitは無料です &amp; オープンソース</target>
+        <target xml:lang="ja" state="translated">AudioKitは無料で、オープンソースです。</target>
         <alt-trans>
-          <target xml:lang="ja">AudioKitは無料で、オープンソースです。</target>
+          <target xml:lang="ja">AudioKitは無料です &amp; オープンソース</target>
         </alt-trans>
       </trans-unit>
       <trans-unit id="A1r-GN-8if.text">
@@ -112,9 +112,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="dll-2U-dYG.normalTitle">
         <source>AudioKit Github</source>
         <note>Class = "UIButton"; normalTitle = "AudioKit Github"; ObjectID = "dll-2U-dYG";</note>
-        <target xml:lang="ja" state="translated">AudioKit Github</target>
+        <target xml:lang="ja" state="translated">AudioKit＠Github</target>
         <alt-trans>
-          <target xml:lang="ja">AudioKit＠Github</target>
+          <target xml:lang="ja">AudioKit Github</target>
         </alt-trans>
       </trans-unit>
       <trans-unit id="etI-kL-v1E.normalTitle">
@@ -623,7 +623,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="PAD">
         <source>PAD</source>
         <note>TouchPad Panel Abbreviation</note>
-        <target xml:lang="ja" state="translated">パッド</target>
+        <target xml:lang="ja" state="translated">Pad</target>
+        <alt-trans>
+          <target xml:lang="ja">パッド</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Feedback: \(value.decimalString)">
         <source>Phaser Feedback: \(value.decimalString)</source>
@@ -1502,6 +1505,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Synth One</source>
         <note>Bundle display name</note>
         <target xml:lang="ja" state="translated">シンセ1</target>
+        <alt-trans>
+          <target xml:lang="ja">Synth One</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
@@ -1610,9 +1616,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="yjc-MW-jcO.text">
         <source>Release</source>
         <note>Class = "UILabel"; text = "Release"; ObjectID = "yjc-MW-jcO";</note>
-        <target xml:lang="ja" state="translated">リリース</target>
+        <target xml:lang="ja" state="translated">Release</target>
         <alt-trans>
-          <target xml:lang="ja">Release</target>
+          <target xml:lang="ja">リリース</target>
         </alt-trans>
       </trans-unit>
       <trans-unit id="yuw-Hz-d5o.text">

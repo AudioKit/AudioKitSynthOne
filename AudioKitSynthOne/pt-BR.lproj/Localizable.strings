@@ -1,5 +1,8 @@
+/* Number of milliseconds */
+"%.00f ms" = "%.00f ms";
+
 /* Alert Message:  MIDI Learn Reset */
-"All MIDI learn knob assignments have been removed." = "Todas as atribuições do botão MIDI learn foram removidas.";
+"All MIDI learn knob assignments have been removed." = "Todas as atribuições de MIDI learn foram removidas.";
 
 /* Alert Message: MIDI Panic */
 "All notes have been turned off." = "Todas as notas foram desativadas.";
@@ -8,49 +11,49 @@
 "Almost done!" = "Quase pronto!";
 
 /* Arpeggiator Off */
-"Arp/Sequencer Off" = "Arp / sequenciador desativado";
+"Arp/Sequencer Off" = "Arp/Sequenciador Desativados";
 
 /* Arpeggiator On */
-"Arp/Sequencer On" = "ARP/Sequencer em";
+"Arp/Sequencer On" = "Arp/Sequenciador Ativados";
 
 /* Arpeggiator Interval */
-"Arpeggiator Interval: \(Int(value))" = "Intervalo de Arpeggiator: \(Int(value))";
+"Arpeggiator Interval: \(Int(value))" = "Intervalo do Arpejador: \ (Int (valor))";
 
 /* Arpeggiator Mode On */
 "Arpeggiator Mode" = "Modo Arpejador";
 
 /* AutoPan Rate tempo-syncd */
-"AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "AutoPan taxa: \(Rate.fromFrequency(value)), \(value.decimalString) Hz";
+"AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "Velocidade de AutoPan: \(Rate.fromFrequency(value)), \(value.decimalString) Hz";
 
 /* AutoPan Rate */
 "AutoPan Rate: \(value.decimalString) Hz" = "AutoPan taxa: \(value.decimalString) Hz";
 
 /* AutoPan Amount/Strength */
-"AutoPan Strength: \(value.percentageString)" = "AutoPan força: \(value.percentageString)";
+"AutoPan Strength: \(value.percentageString)" = "Força do AutoPan: \(value.percentageString)";
 
 /* Alert Message: Background Audio */
 "Background audio will drain the battery faster. Please turn off when not in use." = "O áudio de fundo drena a bateria mais rapidamente. Por favor, desligue quando não estiver em uso.";
 
 /* Band Pass Filter */
-"Band Pass" = "Passa-banda";
+"Band Pass" = "Band Pass";
 
 /* LFO [low frequency oscillator] Bitcrush */
 "Bitcrush LFO ‣ \(lfoSource!)" = "Bitcrush LFO ‣ \(lfoSource!)";
 
 /* Alert Title: Presets Added */
-"Congratulations! 🎉" = "Parabéns!";
+"Congratulations! 🎉" = "Parabéns! 🎉";
 
 /* No comment provided by engineer. */
 "Couldn't configure the file writer" = "Não foi possível configurar o gravador de arquivos";
 
 /* No comment provided by engineer. */
-"Couldn't open the output file" = "Não foi possível abrir o arquivo selecionado";
+"Couldn't open the output file" = "Não foi possível abrir o arquivo de saída selecionado";
 
 /* No comment provided by engineer. */
-"Couldn't prepare the output format (error %d/%4.4s)" = "Couldn't prepare the output format (error %1$d/%2$.4s)";
+"Couldn't prepare the output format (error %d/%4.4s)" = "Não foi possível preparar o formato de saída (erro %1$d/%2$.4s)";
 
 /* LFO [low frequency oscillator] Cutoff */
-"Cutoff LFO ‣ \(lfoSource!)" = "LFO corte ‣ \(lfoSource!)";
+"Cutoff LFO ‣ \(lfoSource!)" = "Corte de LFO ‣ \(lfoSource!)";
 
 /* Filter Cutoff & Resonance */
 "Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "Corte: \(s.getSynthParameter(.cutoff).decimalString) Hz, ressonância: \(s.getSynthParameter(.resonance).decimalString)";

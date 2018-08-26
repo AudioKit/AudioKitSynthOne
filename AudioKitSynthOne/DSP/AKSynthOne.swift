@@ -11,6 +11,10 @@ import AudioKit
 
 @objc open class AKSynthOne: AKPolyphonicNode, AKComponent, S1Protocol {
 
+    static let SFTABLESIZE = 4_096
+    static let SNUMWAVEFORMS = 4
+    static let SNUMBANDLIMITEDFTABLES = 13
+
     public typealias AKAudioUnitType = S1AudioUnit
 
     /// Four letter unique description of the node
@@ -152,23 +156,90 @@ import AudioKit
 
     /// Initialize the synth with defaults
     public convenience override init() {
-        let squareWithHighPWM = AKTable()
-        let size = squareWithHighPWM.count
-        for i in 0..<size {
-            if i < size / 8 {
-                squareWithHighPWM[i] = -1.0
+        let t0 = Date().timeIntervalSinceReferenceDate
+        AKLog("initializing oscillators: \(t0)")
+
+        /// read list of bandlimited waveform filenames stored as an array of Strings
+        var finalFileNames = [String]()
+        if let path = Bundle.main.path(forResource: "bandlimitedWaveforms", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+
+                if let jsonResult = jsonResult as? [String] {
+                    for s in jsonResult {
+                        finalFileNames.append(s)
+                    }
+                } else {
+                    // FATAL
+                    AKLog("Can't decode bandlimited waveform filenames into array of strings")
+                }
+            } catch let error as NSError {
+                // FATAL
+                AKLog("Can't read bandlimited waveform filenames: error: \(error)")
+            }
+        } else {
+            // FATAL
+            AKLog("Can't find bandlimitedWaveforms.json in bundle")
+        }
+
+        // load wavetables
+        let decoder = JSONDecoder()
+        var finalArray = [AKTable]()
+        for fn in finalFileNames {
+            if let path = Bundle.main.path(forResource: fn, ofType: "json") {
+                do {
+                    let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                    let jsonResult = try decoder.decode(AKTable.self, from: data)
+                    if let jsonResult = jsonResult as? AKTable {
+                        finalArray.append(jsonResult)
+                    } else {
+                        // FATAL
+                        AKLog("Can't decode bandlimited waveform into AKTable: \(fn)")
+                    }
+                } catch let error as NSError {
+                    // FATAL
+                    AKLog("Can't read bandlimited waveform into AKTable: \(fn), error:\(error)")
+                }
             } else {
-                squareWithHighPWM[i] = 1.0
+                // FATAL ERROR
+                AKLog("Can't find bandlimited waveform file in bundle: \(fn)")
             }
         }
-        self.init(waveformArray: [AKTable(.triangle), AKTable(.square), squareWithHighPWM, AKTable(.sawtooth)])
+
+        /// read bandlimited waveform frequencies stored as an AKTable
+        var finalFrequencies = [Float]()
+        if let path = Bundle.main.path(forResource: "bandlimitedWaveformFrequencies", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonResult = try decoder.decode(AKTable.self, from: data)
+                if let blTable = jsonResult as? AKTable {
+                    for f in blTable {
+                        finalFrequencies.append(f)
+                    }
+                } else {
+                    // FATAL
+                    AKLog("Can't decode bandlimited waveform frequencies into AKTable")
+                }
+            } catch let error as NSError {
+                // FATAL
+                AKLog("Can't decode bandlimited waveform frequencies into AKTable: error:\(error)")
+            }
+        } else {
+            // FATAL ERROR
+            AKLog("Can't locate bandlimited waveform frequencies in the bundle")
+        }
+
+        let t1 = Date().timeIntervalSinceReferenceDate - t0
+        AKLog("Initializing #\(finalFileNames.count) wavetables: COMPLETE IN SEC: \(t1)\n")
+        self.init(waveformArray: finalArray, bandlimitArray: finalFrequencies)
     }
 
     /// Initialize this synth
     ///
     /// - parameter waveformArray: An array of 4 waveforms
     ///
-    public init(waveformArray: [AKTable]) {
+    public init(waveformArray: [AKTable], bandlimitArray: [Float]) {
 
         self.waveformArray = waveformArray
         _Self.register()
@@ -179,11 +250,15 @@ import AudioKit
             self?.avAudioNode = avAudioUnit
             self?.midiInstrument = avAudioUnit as? AVAudioUnitMIDIInstrument
             self?.internalAU = avAudioUnit.auAudioUnit as? AKAudioUnitType
-
-            for (i, waveform) in waveformArray.enumerated() {
-                self?.internalAU?.setupWaveform(UInt32(i), size: Int32(UInt32(waveform.count)))
-                for (j, sample) in waveform.enumerated() {
-                    self?.internalAU?.setWaveform(UInt32(i), withValue: sample, at: UInt32(j))
+            for i in 0..<AKSynthOne.SNUMBANDLIMITEDFTABLES {
+                self?.internalAU?.setBandlimitFrequency(UInt32(i), withFrequency: bandlimitArray[i])
+                for j in 0..<AKSynthOne.SNUMWAVEFORMS {
+                    let tableIndex = i * AKSynthOne.SNUMWAVEFORMS + j
+                    self?.internalAU?.setupWaveform(UInt32(tableIndex), size: Int32(AKSynthOne.SFTABLESIZE))
+                    let waveform: AKTable = waveformArray[tableIndex]
+                    for (k, sample) in waveform.enumerated() {
+                        self?.internalAU?.setWaveform(UInt32(tableIndex), withValue: sample, at: UInt32(k))
+                    }
                 }
             }
             self?.internalAU?.parameters = self?.parameters

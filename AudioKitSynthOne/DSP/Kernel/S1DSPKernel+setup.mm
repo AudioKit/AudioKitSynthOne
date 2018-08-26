@@ -9,15 +9,21 @@
 #import "S1DSPKernel.hpp"
 #import "S1NoteState.hpp"
 
-void S1DSPKernel::setupWaveform(uint32_t waveform, uint32_t size) {
+/// tableIndex is on [0, S1_NUM_WAVEFORMS * S1_NUM_BANDLIMITED_FTABLES)
+void S1DSPKernel::setupWaveform(uint32_t tableIndex, uint32_t size) {
     tbl_size = size;
-    sp_ftbl_create(sp, &ft_array[waveform], tbl_size);
+    sp_ftbl_create(sp, &ft_array[tableIndex], tbl_size);
 }
 
-void S1DSPKernel::setWaveformValue(uint32_t waveform, uint32_t index, float value) {
-    ft_array[waveform]->tbl[index] = value;
+/// tableIndex is on [0, S1_NUM_WAVEFORMS * S1_NUM_BANDLIMITED_FTABLES)
+/// sampleIndex is on [0, S1_FTABLE_SIZE)
+void S1DSPKernel::setWaveformValue(uint32_t tableIndex, uint32_t sampleIndex, float value) {
+    ft_array[tableIndex]->tbl[sampleIndex] = value;
 }
 
+void S1DSPKernel::setBandlimitFrequency(uint32_t blIndex, float frequency) {
+    ft_frequencyBand[blIndex] = frequency;
+}
 
 // initializeNoteStates() must be called AFTER init returns
 void S1DSPKernel::initializeNoteStates() {

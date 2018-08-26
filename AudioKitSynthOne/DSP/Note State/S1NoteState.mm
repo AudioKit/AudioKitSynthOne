@@ -36,19 +36,23 @@ void S1NoteState::init() {
     sp_adsr_init(kernel->spp(), fadsr);
     
     // OSC1
-    sp_oscmorph_create(&oscmorph1);
-    sp_oscmorph_init(kernel->spp(), oscmorph1, kernel->ft_array, S1_NUM_FTABLES, 0);
+    sp_oscmorph2d_create(&oscmorph1);
+    sp_oscmorph2d_init(kernel->spp(), oscmorph1, kernel->ft_array, S1_NUM_WAVEFORMS, S1_NUM_BANDLIMITED_FTABLES, kernel->ft_frequencyBand, 0);
     oscmorph1->freq = 0;
     oscmorph1->amp = 0;
     oscmorph1->wtpos = 0;
+    oscmorph1->enableBandlimit = getParam(oscBandlimitEnable);
+    oscmorph1->bandlimitIndexOverride = getParam(oscBandlimitIndexOverride);
     
     // OSC2
-    sp_oscmorph_create(&oscmorph2);
-    sp_oscmorph_init(kernel->spp(), oscmorph2, kernel->ft_array, S1_NUM_FTABLES, 0);
+    sp_oscmorph2d_create(&oscmorph2);
+    sp_oscmorph2d_init(kernel->spp(), oscmorph2, kernel->ft_array, S1_NUM_WAVEFORMS, S1_NUM_BANDLIMITED_FTABLES, kernel->ft_frequencyBand, 0);
     oscmorph2->freq = 0;
     oscmorph2->amp = 0;
     oscmorph2->wtpos = 0;
-    
+    oscmorph2->enableBandlimit = getParam(oscBandlimitEnable);
+    oscmorph2->bandlimitIndexOverride = getParam(oscBandlimitIndexOverride);
+
     // CROSSFADE OSC1 and OSC2
     sp_crossfade_create(&morphCrossFade);
     sp_crossfade_init(kernel->spp(), morphCrossFade);
@@ -81,8 +85,9 @@ void S1NoteState::init() {
 void S1NoteState::destroy() {
     sp_adsr_destroy(&adsr);
     sp_adsr_destroy(&fadsr);
-    sp_oscmorph_destroy(&oscmorph1);
-    sp_oscmorph_destroy(&oscmorph2);
+    sp_oscmorph2d_destroy(&oscmorph1);
+    sp_oscmorph2d_destroy(&oscmorph2);
+
     sp_crossfade_destroy(&morphCrossFade);
     sp_crossfade_destroy(&filterCrossFade);
     sp_osc_destroy(&subOsc);
@@ -167,14 +172,16 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     
     //OSC1: wavetable
     oscmorph1->wtpos = getParam(index1);
-    
+    oscmorph1->enableBandlimit = getParam(oscBandlimitEnable);
+    oscmorph1->bandlimitIndexOverride = getParam(oscBandlimitIndexOverride);
+
     //OSC2 frequency
     const float cachedFrequencyOsc2 = oscmorph2->freq;
     float newFrequencyOsc2 = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyOsc2;
     newFrequencyOsc2 *= nnToHz((int)getParam(morph2SemitoneOffset));
     newFrequencyOsc2 *= getParam(detuningMultiplier) * pitchLFOCoefficient;
     newFrequencyOsc2 *= pitchbendCoefficient;
-    
+
     //LFO DETUNE OSC2
     const float magicDetune = cachedFrequencyOsc2/261.6255653006f;
     if (getParam(detuneLFO) == 1.f)
@@ -187,10 +194,12 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
         newFrequencyOsc2 += getParam(morph2Detuning) * magicDetune;
     newFrequencyOsc2 = clamp(newFrequencyOsc2, 0.f, 0.5f*S1_SAMPLE_RATE);
     oscmorph2->freq = newFrequencyOsc2;
-    
+
     //OSC2: wavetable
     oscmorph2->wtpos = getParam(index2);
-    
+    oscmorph2->enableBandlimit = getParam(oscBandlimitEnable);
+    oscmorph2->bandlimitIndexOverride = getParam(oscBandlimitIndexOverride);
+
     //SUB OSC FREQ
     const float cachedFrequencySub = subOsc->freq;
     float newFrequencySub = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencySub;
@@ -317,13 +326,13 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     hiPass->freq = filterCutoffFreq;
     
     //oscmorph1_out
-    sp_oscmorph_compute(kernel->spp(), oscmorph1, nil, &oscmorph1_out);
+    sp_oscmorph2d_compute(kernel->spp(), oscmorph1, nil, &oscmorph1_out);
     oscmorph1_out *= getParam(morph1Volume);
     
     //oscmorph2_out
-    sp_oscmorph_compute(kernel->spp(), oscmorph2, nil, &oscmorph2_out);
+    sp_oscmorph2d_compute(kernel->spp(), oscmorph2, nil, &oscmorph2_out);
     oscmorph2_out *= getParam(morph2Volume);
-    
+
     //osc_morph_out
     sp_crossfade_compute(kernel->spp(), morphCrossFade, &oscmorph1_out, &oscmorph2_out, &osc_morph_out);
     

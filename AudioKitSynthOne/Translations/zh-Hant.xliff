@@ -1,0 +1,1689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="AudioKitSynthOne/About/Base.lproj/About.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="1Nf-2H-Scf.text">
+        <source>AudioKit Synth One is the first completely free &amp; open-source full-featured professional iOS synthesizer app in history. Everyone working on this app volunteered their time to create this awesome app.
+
+Plus, it’s completely open-source. You can use the code to learn how to build your own synth app or modify the app to build the synth of your dreams. This app is a labor of love. 
+
+How can you help? Please share with your friends and leave a nice review in the app store.
+
+We're all volunteers. We're dozens of developers, sound designers, and music lovers across the globe who want to give back to the music-making community. We hope you enjoy it!
+
+Thanks to the following people (listed alphabetically):
+Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chase Dobson, Cheez da Producer, Chello Ward, Clayton Miller, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Gene?, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio</source>
+        <note>Class = "UITextView"; text = "AudioKit Synth One is the first completely free &amp; open-source full-featured professional iOS synthesizer app in history. Everyone working on this app volunteered their time to create this awesome app.\n\nPlus, it’s completely open-source. You can use the code to learn how to build your own synth app or modify the app to build the synth of your dreams. This app is a labor of love. \n\nHow can you help? Please share with your friends and leave a nice review in the app store.\n\nWe're all volunteers. We're dozens of developers, sound designers, and music lovers across the globe who want to give back to the music-making community. We hope you enjoy it!\n\nThanks to the following people (listed alphabetically):\nAdam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chase Dobson, Cheez da Producer, Chello Ward, Clayton Miller, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Gene?, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio"; ObjectID = "1Nf-2H-Scf";</note>
+        <target xml:lang="zh-Hant" state="translated">AudioKit Synth One是历史上第一款完全免费并且开源的全功能专业iOS电子音合成器应用程序，这个应用程序完全是志愿者自愿花时间创建的。
+
+您可以使用该程序的源代码来学习如何构建自己的合成器程序，也可以修改此应用程序以构建您梦想的合成器。
+
+如果想支持我们，请与您的朋友分享，并在应用商店中留下好评。
+
+我们都是志愿者。我们在全球有数十位想要回馈音乐制作社区的开发者，音响设计师和音乐爱好者。我们希望您能喜欢它！
+
+感谢以下人员（按字母顺序排列）：
+
+Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chase Dobson, Cheez da Producer, Chello Ward, Clayton Miller, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Geneş, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio </target>
+      </trans-unit>
+      <trans-unit id="2jS-Ub-cCT.text">
+        <source>AudioKit is free &amp; open-source</source>
+        <note>Class = "UILabel"; text = "AudioKit is free &amp; open-source"; ObjectID = "2jS-Ub-cCT";</note>
+        <target xml:lang="zh-Hant" state="translated">AudioKit是免费并且开源的</target>
+      </trans-unit>
+      <trans-unit id="A1r-GN-8if.text">
+        <source>MORE AUDIOKIT APPS</source>
+        <note>Class = "UILabel"; text = "MORE AUDIOKIT APPS"; ObjectID = "A1r-GN-8if";</note>
+        <target xml:lang="zh-Hant" state="translated">更多AudioKit应用程序</target>
+      </trans-unit>
+      <trans-unit id="F4n-VN-XPq.text">
+        <source>Learn from these code examples</source>
+        <note>Class = "UILabel"; text = "Learn from these code examples"; ObjectID = "F4n-VN-XPq";</note>
+        <target xml:lang="zh-Hant" state="translated">从这些代码示例中学习</target>
+      </trans-unit>
+      <trans-unit id="GGp-jS-eWl.text">
+        <source>Learn how this app was made</source>
+        <note>Class = "UILabel"; text = "Learn how this app was made"; ObjectID = "GGp-jS-eWl";</note>
+        <target xml:lang="zh-Hant" state="translated">了解此应用程序是如何制作的</target>
+      </trans-unit>
+      <trans-unit id="IAn-lv-O7m.text">
+        <source>Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
+Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </source>
+        <note>Class = "UITextView"; text = "Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. \nPerfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. "; ObjectID = "IAn-lv-O7m";</note>
+        <target xml:lang="zh-Hant" state="translated">屡获殊荣的免费iPad乐器灵感来自于DX7 &amp; DX7II。
+完美适配MIDI键盘。拥有音效优美的多层次样本，包含电钢琴，贝尔，贝司，键和80年代声音。 </target>
+      </trans-unit>
+      <trans-unit id="M92-zU-EUI.text">
+        <source>REVIEW</source>
+        <note>Class = "UILabel"; text = "REVIEW"; ObjectID = "M92-zU-EUI";</note>
+        <target xml:lang="zh-Hant" state="translated">评论</target>
+      </trans-unit>
+      <trans-unit id="SJq-it-GbF.text">
+        <source>PLEASE send BUG REPORTS:</source>
+        <note>Class = "UILabel"; text = "PLEASE send BUG REPORTS:"; ObjectID = "SJq-it-GbF";</note>
+        <target xml:lang="zh-Hant" state="translated">请发送错误报告：</target>
+      </trans-unit>
+      <trans-unit id="VE1-2S-HqW.normalTitle">
+        <source>Be kind ?? Review this app!  </source>
+        <note>Class = "UIButton"; normalTitle = "Be kind ?? Review this app!  "; ObjectID = "VE1-2S-HqW";</note>
+        <target xml:lang="zh-Hant" state="translated">请支持👍🏼评论这个应用程序！  </target>
+      </trans-unit>
+      <trans-unit id="Whk-km-WmE.normalTitle">
+        <source>DONE</source>
+        <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "Whk-km-WmE";</note>
+        <target xml:lang="zh-Hant" state="translated">完成</target>
+      </trans-unit>
+      <trans-unit id="dll-2U-dYG.normalTitle">
+        <source>AudioKit Github</source>
+        <note>Class = "UIButton"; normalTitle = "AudioKit Github"; ObjectID = "dll-2U-dYG";</note>
+        <target xml:lang="zh-Hant" state="translated">AudioKit Github</target>
+      </trans-unit>
+      <trans-unit id="etI-kL-v1E.normalTitle">
+        <source>hello@audiokitpro.com</source>
+        <note>Class = "UIButton"; normalTitle = "hello@audiokitpro.com"; ObjectID = "etI-kL-v1E";</note>
+        <target xml:lang="zh-Hant" state="translated">hello@audiokitpro.com</target>
+      </trans-unit>
+      <trans-unit id="g34-af-uEZ.text">
+        <source>FM PLAYER: CLASSIC DX</source>
+        <note>Class = "UILabel"; text = "FM PLAYER: CLASSIC DX"; ObjectID = "g34-af-uEZ";</note>
+        <target xml:lang="zh-Hant" state="translated">调频播放器：经典 DX</target>
+      </trans-unit>
+      <trans-unit id="jeK-lZ-M5v.text">
+        <source>SOURCE CODE</source>
+        <note>Class = "UILabel"; text = "SOURCE CODE"; ObjectID = "jeK-lZ-M5v";</note>
+        <target xml:lang="zh-Hant" state="translated">源代码</target>
+      </trans-unit>
+      <trans-unit id="oBP-Wz-rvL.normalTitle">
+        <source>Get FREE in App Store!</source>
+        <note>Class = "UIButton"; normalTitle = "Get FREE in App Store!"; ObjectID = "oBP-Wz-rvL";</note>
+        <target xml:lang="zh-Hant" state="translated">在应用商店免费获取！</target>
+      </trans-unit>
+      <trans-unit id="rad-NL-GFv.text">
+        <source>VIDEO</source>
+        <note>Class = "UILabel"; text = "VIDEO"; ObjectID = "rad-NL-GFv";</note>
+        <target xml:lang="zh-Hant" state="translated">视频</target>
+      </trans-unit>
+      <trans-unit id="s4D-if-VhP.text">
+        <source>World's First Free &amp; Open-Source Pro iOS Synth</source>
+        <note>Class = "UILabel"; text = "World's First Free &amp; Open-Source Pro iOS Synth"; ObjectID = "s4D-if-VhP";</note>
+        <target xml:lang="zh-Hant" state="translated">全球首款免费及开源的专业iOS电音合成器</target>
+      </trans-unit>
+      <trans-unit id="yLF-QF-HMs.normalTitle">
+        <source>Watch the Amazing Synth One Video</source>
+        <note>Class = "UIButton"; normalTitle = "Watch the Amazing Synth One Video"; ObjectID = "yLF-QF-HMs";</note>
+        <target xml:lang="zh-Hant" state="translated">观看很棒的Synth One视频</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/About/Mailing List/Base.lproj/MailingList.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="B52-X8-pfB.normalTitle">
+        <source>Thanks, I'll do it later</source>
+        <note>Class = "UIButton"; normalTitle = "Thanks, I'll do it later"; ObjectID = "B52-X8-pfB";</note>
+        <target xml:lang="zh-Hant" state="translated">谢谢，我稍后再做</target>
+      </trans-unit>
+      <trans-unit id="FJY-lQ-hbA.text">
+        <source>SETUP: Step 1 of 1</source>
+        <note>Class = "UILabel"; text = "SETUP: Step 1 of 1"; ObjectID = "FJY-lQ-hbA";</note>
+        <target xml:lang="zh-Hant" state="translated">设置：第1步</target>
+      </trans-unit>
+      <trans-unit id="sAM-3i-F3Z.placeholder">
+        <source>you@email.com</source>
+        <note>Class = "UITextField"; placeholder = "you@email.com"; ObjectID = "sAM-3i-F3Z";</note>
+        <target xml:lang="zh-Hant" state="translated">you@email.com</target>
+      </trans-unit>
+      <trans-unit id="wbX-qe-bHr.normalTitle">
+        <source>Get Presets!</source>
+        <note>Class = "UIButton"; normalTitle = "Get Presets!"; ObjectID = "wbX-qe-bHr";</note>
+        <target xml:lang="zh-Hant" state="translated">获取预设！</target>
+      </trans-unit>
+      <trans-unit id="yhG-s7-4JE.text">
+        <source>Welcome! Enter your Email Address below to receive 80+ Free presets  (all 300+ presets). Then press "Get Presets!"</source>
+        <note>Class = "UITextView"; text = "Welcome! Enter your Email Address below to receive 80+ Free presets  (all 300+ presets). Then press \"Get Presets!\""; ObjectID = "yhG-s7-4JE";</note>
+        <target xml:lang="zh-Hant" state="translated">欢迎！在下面输入您的电子邮件地址，即可获得80多个免费预设（总共有300多个预设）。然后点击“获取预设！”</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Base.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="%.00f ms">
+        <source>%.00f ms</source>
+        <note>Number of milliseconds</note>
+        <target xml:lang="zh-Hant" state="translated">%.00f 毫秒</target>
+      </trans-unit>
+      <trans-unit id="All MIDI learn knob assignments have been removed.">
+        <source>All MIDI learn knob assignments have been removed.</source>
+        <note>Alert Message:  MIDI Learn Reset</note>
+        <target xml:lang="zh-Hant" state="translated">所有MIDI学习旋钮任务均已删除。</target>
+      </trans-unit>
+      <trans-unit id="All notes have been turned off.">
+        <source>All notes have been turned off.</source>
+        <note>Alert Message: MIDI Panic</note>
+        <target xml:lang="zh-Hant" state="translated">所有笔记都已关闭。</target>
+      </trans-unit>
+      <trans-unit id="Almost done!">
+        <source>Almost done!</source>
+        <note>Alert Title: Confirm Email Address</note>
+        <target xml:lang="zh-Hant" state="translated">马上就完成了！</target>
+      </trans-unit>
+      <trans-unit id="Arp/Sequencer Off">
+        <source>Arp/Sequencer Off</source>
+        <note>Arpeggiator Off</note>
+        <target xml:lang="zh-Hant" state="translated">Arp/音序器 关闭</target>
+      </trans-unit>
+      <trans-unit id="Arp/Sequencer On">
+        <source>Arp/Sequencer On</source>
+        <note>Arpeggiator On</note>
+        <target xml:lang="zh-Hant" state="translated">Arp/音序器 开启</target>
+      </trans-unit>
+      <trans-unit id="Arpeggiator Interval: \(Int(value))">
+        <source>Arpeggiator Interval: \(Int(value))</source>
+        <note>Arpeggiator Interval</note>
+        <target xml:lang="zh-Hant" state="translated">琶音间隔： \(Int(value)）</target>
+      </trans-unit>
+      <trans-unit id="Arpeggiator Mode">
+        <source>Arpeggiator Mode</source>
+        <note>Arpeggiator Mode On</note>
+        <target xml:lang="zh-Hant" state="translated">琶音器模式</target>
+      </trans-unit>
+      <trans-unit id="AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
+        <source>AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
+        <note>AutoPan Rate tempo-syncd</note>
+        <target xml:lang="zh-Hant" state="translated">AutoPan 速率：\(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
+      </trans-unit>
+      <trans-unit id="AutoPan Rate: \(value.decimalString) Hz">
+        <source>AutoPan Rate: \(value.decimalString) Hz</source>
+        <note>AutoPan Rate</note>
+        <target xml:lang="zh-Hant" state="translated">AutoPan 速率：\(value.decimalString)Hz</target>
+      </trans-unit>
+      <trans-unit id="AutoPan Strength: \(value.percentageString)">
+        <source>AutoPan Strength: \(value.percentageString)</source>
+        <note>AutoPan Amount/Strength</note>
+        <target xml:lang="zh-Hant" state="translated">AutoPan强度：\（value.percentageString）</target>
+      </trans-unit>
+      <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
+        <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
+        <note>Alert Message: Background Audio</note>
+        <target xml:lang="zh-Hant" state="translated">背景音频将加速电池消耗。请在不使用时关闭。</target>
+      </trans-unit>
+      <trans-unit id="Band Pass">
+        <source>Band Pass</source>
+        <note>Band Pass Filter</note>
+        <target xml:lang="zh-Hant" state="translated">带通</target>
+      </trans-unit>
+      <trans-unit id="Bitcrush LFO ‣ \(lfoSource!)">
+        <source>Bitcrush LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Bitcrush</note>
+        <target xml:lang="zh-Hant" state="translated">Bitcrush低频振荡器 ‣ \(lfoSource!) </target>
+      </trans-unit>
+      <trans-unit id="Congratulations! ?">
+        <source>Congratulations! ?</source>
+        <note>Alert Title: Presets Added</note>
+        <target xml:lang="zh-Hant" state="translated">恭喜！ 🎉</target>
+      </trans-unit>
+      <trans-unit id="Couldn't configure the file writer">
+        <source>Couldn't configure the file writer</source>
+        <note>No comment provided by engineer.</note>
+        <target xml:lang="zh-Hant" state="translated">无法配置文件编写器</target>
+      </trans-unit>
+      <trans-unit id="Couldn't open the output file">
+        <source>Couldn't open the output file</source>
+        <note>No comment provided by engineer.</note>
+        <target xml:lang="zh-Hant" state="translated">无法打开输出文件</target>
+      </trans-unit>
+      <trans-unit id="Couldn't prepare the output format (error %d/%4.4s)">
+        <source>Couldn't prepare the output format (error %1$d/%2$.4s)</source>
+        <note>No comment provided by engineer.</note>
+        <target xml:lang="zh-Hant" state="translated">无法准备输出格式（错误%1$d/%2$.4s）</target>
+      </trans-unit>
+      <trans-unit id="Cutoff LFO ‣ \(lfoSource!)">
+        <source>Cutoff LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Cutoff</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器中断‣ \(lfoSource!) </target>
+      </trans-unit>
+      <trans-unit id="Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)">
+        <source>Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</source>
+        <note>Filter Cutoff &amp; Resonance</note>
+        <target xml:lang="zh-Hant" state="translated">截止：\(s.getSynthParameter(.cutoff).decimalString) Hz, 波峰: \(s.getSynthParameter(.resonance).decimalString) </target>
+      </trans-unit>
+      <trans-unit id="DCO 1 Morph: \(value.decimalString)">
+        <source>DCO 1 Morph: \(value.decimalString)</source>
+        <note>Oscillator 1 Waveform Morph Index</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1变形：\(value.decimalString) </target>
+      </trans-unit>
+      <trans-unit id="DCO 1 Volume: \(value.percentageString)">
+        <source>DCO 1 Volume: \(value.percentageString)</source>
+        <note>Oscillator 1 Volume</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1音量：\(value.percentageString)</target>
+      </trans-unit>
+      <trans-unit id="DCO 1: \(Int(value)) semitones">
+        <source>DCO 1: \(Int(value)) semitones</source>
+        <note>Oscillator 1 semitone offset</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1：\(Int(value))半音</target>
+      </trans-unit>
+      <trans-unit id="DCO 2 Morph: \(value.decimalString)">
+        <source>DCO 2 Morph: \(value.decimalString)</source>
+        <note>Oscillator 2 Waveform Morph Index</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2变形：\(value.decimalString) </target>
+      </trans-unit>
+      <trans-unit id="DCO 2 Volume: \(value.percentageString)">
+        <source>DCO 2 Volume: \(value.percentageString)</source>
+        <note>Oscillator 2 Volume</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2音量：\(value.percentageString)</target>
+      </trans-unit>
+      <trans-unit id="DCO 2: \(Int(value)) detune">
+        <source>DCO 2: \(Int(value)) detune</source>
+        <note>Oscillator 2 detune</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2：\(Int(value)) 失谐</target>
+      </trans-unit>
+      <trans-unit id="DCO 2: \(Int(value)) semitones">
+        <source>DCO 2: \(Int(value)) semitones</source>
+        <note>Oscillator 2 semitone offset</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2：\(Int(value))半音</target>
+      </trans-unit>
+      <trans-unit id="DCO Mix: \(Int(value))">
+        <source>DCO Mix: \(Int(value))</source>
+        <note>Oscillator 1 &amp; 2 Mix</note>
+        <target xml:lang="zh-Hant" state="translated">DCO 混音：\(Int(value)) </target>
+      </trans-unit>
+      <trans-unit id="DCO Mix: \(Int(value)) detune">
+        <source>DCO Mix: \(Int(value)) detune</source>
+        <note>Oscillator 1 &amp; 2 Mix</note>
+        <target xml:lang="zh-Hant" state="translated">DCO 混音：\(Int(value))失谐</target>
+      </trans-unit>
+      <trans-unit id="Decay LFO ‣ \(lfoSource!)">
+        <source>Decay LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Decay</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器衰减‣\(lfoSource!)</target>
+      </trans-unit>
+      <trans-unit id="Delay  Off">
+        <source>Delay  Off</source>
+        <note>Delay Off</note>
+        <target xml:lang="zh-Hant" state="translated">延迟关闭</target>
+      </trans-unit>
+      <trans-unit id="Delay Feedback/Taps: \(value.percentageString)">
+        <source>Delay Feedback/Taps: \(value.percentageString)</source>
+        <note>Delay Feedback</note>
+        <target xml:lang="zh-Hant" state="translated">延迟反馈/点击：\(value.percentageString) </target>
+      </trans-unit>
+      <trans-unit id="Delay Mix: \(value.percentageString)">
+        <source>Delay Mix: \(value.percentageString)</source>
+        <note>Delay Mix</note>
+        <target xml:lang="zh-Hant" state="translated">延迟混合：\(value.percentageString) </target>
+      </trans-unit>
+      <trans-unit id="Delay On">
+        <source>Delay On</source>
+        <note>Delay On</note>
+        <target xml:lang="zh-Hant" state="translated">延迟打开</target>
+      </trans-unit>
+      <trans-unit id="Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s">
+        <source>Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</source>
+        <note>Delay Time tempo-syncd</note>
+        <target xml:lang="zh-Hant" state="translated">延迟时间： \(Rate.fromTime(value)), \(value.decimalString)s </target>
+      </trans-unit>
+      <trans-unit id="Delay Time: \(value.decimalString) s">
+        <source>Delay Time: \(value.decimalString) s</source>
+        <note>Delay Time</note>
+        <target xml:lang="zh-Hant" state="translated">延迟时间：\(value.decimalString) s </target>
+      </trans-unit>
+      <trans-unit id="Detune LFO ‣ \(lfoSource!)">
+        <source>Detune LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Detune</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器失谐‣\（lfoSource！）</target>
+      </trans-unit>
+      <trans-unit id="Don't Sleep Mode">
+        <source>Don't Sleep Mode</source>
+        <note>Alert Title: Allows On Mode</note>
+        <target xml:lang="zh-Hant" state="translated">无睡眠模式</target>
+      </trans-unit>
+      <trans-unit id="ENV">
+        <source>ENV</source>
+        <note>Envelope Panel Abbreviation</note>
+        <target xml:lang="zh-Hant" state="translated">波封</target>
+      </trans-unit>
+      <trans-unit id="FM LFO ‣ \(lfoSource!)">
+        <source>FM LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] FM Modulation</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器调频‣\(lfoSource!) </target>
+      </trans-unit>
+      <trans-unit id="FM Mod: \(value.percentageString)">
+        <source>FM Mod: \(value.percentageString)</source>
+        <note>FM Modulation Amount</note>
+        <target xml:lang="zh-Hant" state="translated">调频元件：\(value.percentageString) </target>
+      </trans-unit>
+      <trans-unit id="FM Volume: \(value.percentageString)">
+        <source>FM Volume: \(value.percentageString)</source>
+        <note>FM Oscillator Volume</note>
+        <target xml:lang="zh-Hant" state="translated">调频音量：\(value.percentageString) </target>
+      </trans-unit>
+      <trans-unit id="FX">
+        <source>FX</source>
+        <note>FX/LFO Panel Abbreviation</note>
+        <target xml:lang="zh-Hant" state="translated">FX</target>
+      </trans-unit>
+      <trans-unit id="Filter Env LFO ‣ \(lfoSource!)">
+        <source>Filter Env LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Filter Envelope</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器过滤波封‣\(lfoSource!) </target>
+      </trans-unit>
+      <trans-unit id="Filter Envelope: \(value.percentageString)">
+        <source>Filter Envelope: \(value.percentageString)</source>
+        <note>Filter Envelope Amount</note>
+        <target xml:lang="zh-Hant" state="translated">包络过滤：\(value.percentageString) </target>
+      </trans-unit>
+      <trans-unit id="Filter Type: \(ftype)">
+        <source>Filter Type: \(ftype)</source>
+        <note>Main Filter Type</note>
+        <target xml:lang="zh-Hant" state="translated">过滤器类型：\(ftype) </target>
+      </trans-unit>
+      <trans-unit id="Glide: \(value.decimalString)">
+        <source>Glide: \(value.decimalString)</source>
+        <note>Mono Glide Amount</note>
+        <target xml:lang="zh-Hant" state="translated">滑音：\(value.decimalString) </target>
+      </trans-unit>
+      <trans-unit id="High Pass">
+        <source>High Pass</source>
+        <note>High Pass Filter</note>
+        <target xml:lang="zh-Hant" state="translated">高通</target>
+      </trans-unit>
+      <trans-unit id="Important">
+        <source>Important</source>
+        <note>Alert Title: Background Audio</note>
+        <target xml:lang="zh-Hant" state="translated">重要</target>
+      </trans-unit>
+      <trans-unit id="LFO 2 Amp: \(value.percentageString)">
+        <source>LFO 2 Amp: \(value.percentageString)</source>
+        <note>LFO 2 [low frequency oscillator] Amplitude</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2振幅：\(value.percentageString) </target>
+      </trans-unit>
+      <trans-unit id="LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
+        <source>LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
+        <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2速率：\(Rate.fromFrequency(value)), \(value.decimalString) Hz </target>
+      </trans-unit>
+      <trans-unit id="LFO 2 Rate: \(value.decimalString) Hz">
+        <source>LFO 2 Rate: \(value.decimalString) Hz</source>
+        <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2速率：\(value.decimalString) Hz </target>
+      </trans-unit>
+      <trans-unit id="LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
+        <source>LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
+        <note>LFO [low frequency oscillator] Amplitude &amp; Rate tempo-syncd</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1速率：\(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), 低频振荡器1 振幅: \(s.getSynthParameter(.lfo1Amplitude).percentageString) </target>
+      </trans-unit>
+      <trans-unit id="LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
+        <source>LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
+        <note>LFO [low frequency oscillator] Amplitude &amp; Rate</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1速率：\(s.getSynthParameter(.lfo1Rate).decimalString)Hz, 低频振荡器1 振幅: \(s.getSynthParameter(.lfo1Amplitude).percentageString) </target>
+      </trans-unit>
+      <trans-unit id="Low Pass">
+        <source>Low Pass</source>
+        <note>Low Pass Filter</note>
+        <target xml:lang="zh-Hant" state="translated">低通</target>
+      </trans-unit>
+      <trans-unit id="MAIN">
+        <source>MAIN</source>
+        <note>Main Panel Abbreviation</note>
+        <target xml:lang="zh-Hant" state="translated">主面板</target>
+      </trans-unit>
+      <trans-unit id="MIDI Learn Off">
+        <source>MIDI Learn Off</source>
+        <note>MIDI Learn Instructions</note>
+        <target xml:lang="zh-Hant" state="translated">MIDI学习关闭</target>
+      </trans-unit>
+      <trans-unit id="MIDI Learn Reset">
+        <source>MIDI Learn Reset</source>
+        <note>Alert Title: MIDI Learn Reset</note>
+        <target xml:lang="zh-Hant" state="translated">MIDI学习重置</target>
+      </trans-unit>
+      <trans-unit id="MIDI Learn: Touch a knob to assign">
+        <source>MIDI Learn: Touch a knob to assign</source>
+        <note>MIDI Learn Instructions</note>
+        <target xml:lang="zh-Hant" state="translated">MIDI学习：点击旋钮进行分配</target>
+      </trans-unit>
+      <trans-unit id="MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch ?">
+        <source>MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch ?</source>
+        <note>Alert Message: Too High</note>
+        <target xml:lang="zh-Hant" state="translated">MIDI通知 &gt; 127. G8是可播放的最高键。将它降一个等级</target>
+      </trans-unit>
+      <trans-unit id="Master Volume: \(value.percentageString)">
+        <source>Master Volume: \(value.percentageString)</source>
+        <note>Master Volume</note>
+        <target xml:lang="zh-Hant" state="translated">主音量：\(value.percentageString) </target>
+      </trans-unit>
+      <trans-unit id="Midi Panic">
+        <source>Midi Panic</source>
+        <note>Alert Title: MIDI Panic</note>
+        <target xml:lang="zh-Hant" state="translated">Midi终止</target>
+      </trans-unit>
+      <trans-unit id="Noise LFO ‣ \(lfoSource!)">
+        <source>Noise LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Noise</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器噪音‣ \(lfoSource!) </target>
+      </trans-unit>
+      <trans-unit id="Noise Volume: \((value * 4).percentageString)">
+        <source>Noise Volume: \((value * 4).percentageString)</source>
+        <note>Noise Volume</note>
+        <target xml:lang="zh-Hant" state="translated">噪音量：\((value * 4).percentageString) </target>
+      </trans-unit>
+      <trans-unit id="Notice">
+        <source>Notice</source>
+        <note>Alert Title: Duplicate Bank Name</note>
+        <target xml:lang="zh-Hant" state="translated">注意</target>
+      </trans-unit>
+      <trans-unit id="Oops!">
+        <source>Oops!</source>
+        <note>Alert Title: Invalid Email Address</note>
+        <target xml:lang="zh-Hant" state="translated">啊哦！</target>
+      </trans-unit>
+      <trans-unit id="Osc Mix LFO ‣ \(lfoSource!)">
+        <source>Osc Mix LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Oscillator Mix</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器振荡混音‣\(lfoSource!) </target>
+      </trans-unit>
+      <trans-unit id="PAD">
+        <source>PAD</source>
+        <note>TouchPad Panel Abbreviation</note>
+        <target xml:lang="zh-Hant" state="translated">面板</target>
+      </trans-unit>
+      <trans-unit id="Phaser Feedback: \(value.decimalString)">
+        <source>Phaser Feedback: \(value.decimalString)</source>
+        <note>Phaser Feedback</note>
+        <target xml:lang="zh-Hant" state="translated">移相器反馈： \(value.decimalString) </target>
+      </trans-unit>
+      <trans-unit id="Phaser Mix: \(value.decimalString)">
+        <source>Phaser Mix: \(value.decimalString)</source>
+        <note>Phaser Mix</note>
+        <target xml:lang="zh-Hant" state="translated">移相器混音：\(value.decimalString) </target>
+      </trans-unit>
+      <trans-unit id="Phaser Notch Width: \(value.decimalString)">
+        <source>Phaser Notch Width: \(value.decimalString)</source>
+        <note>Phaser Notch Width</note>
+        <target xml:lang="zh-Hant" state="translated">移相器等级宽度：\(value.decimalString) </target>
+      </trans-unit>
+      <trans-unit id="Phaser Rate: \(value.decimalString)">
+        <source>Phaser Rate: \(value.decimalString)</source>
+        <note>Phaser Rate</note>
+        <target xml:lang="zh-Hant" state="translated">移相器速率：\(value.decimalString) </target>
+      </trans-unit>
+      <trans-unit id="Pitch LFO ‣ \(lfoSource!)">
+        <source>Pitch LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Pitch</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器音高‣\(lfoSource!) </target>
+      </trans-unit>
+      <trans-unit id="Resonance LFO ‣ \(lfoSource!)">
+        <source>Resonance LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Resonance</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器波峰‣\(lfoSource!) </target>
+      </trans-unit>
+      <trans-unit id="Reverb Low-cut: \(value.decimalString) Hz">
+        <source>Reverb Low-cut: \(value.decimalString) Hz</source>
+        <note>Reverb Low-cut/Highpass</note>
+        <target xml:lang="zh-Hant" state="translated">残响低频切除：\(value.decimalString) Hz </target>
+      </trans-unit>
+      <trans-unit id="Reverb Mix LFO ‣ \(lfoSource!)">
+        <source>Reverb Mix LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Reverb Mix</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器残响混音‣\(lfoSource!) </target>
+      </trans-unit>
+      <trans-unit id="Reverb Mix: \(value.percentageString)">
+        <source>Reverb Mix: \(value.percentageString)</source>
+        <note>Reverb Mix</note>
+        <target xml:lang="zh-Hant" state="translated">残响混音：\(value.percentageString) </target>
+      </trans-unit>
+      <trans-unit id="Reverb Off">
+        <source>Reverb Off</source>
+        <note>Reverb Off</note>
+        <target xml:lang="zh-Hant" state="translated">残响关闭</target>
+      </trans-unit>
+      <trans-unit id="Reverb On">
+        <source>Reverb On</source>
+        <note>Reverb On</note>
+        <target xml:lang="zh-Hant" state="translated">残响开启</target>
+      </trans-unit>
+      <trans-unit id="Reverb Size: \(value.percentageString)">
+        <source>Reverb Size: \(value.percentageString)</source>
+        <note>Reverb Size</note>
+        <target xml:lang="zh-Hant" state="translated">残响大小：\(value.percentageString) </target>
+      </trans-unit>
+      <trans-unit id="SEQ">
+        <source>SEQ</source>
+        <note>Arp/Sequencer Panel Abbreviation</note>
+        <target xml:lang="zh-Hant" state="translated">音序器</target>
+      </trans-unit>
+      <trans-unit id="Sample Rate: \(Int(value)) Hz">
+        <source>Sample Rate: \(Int(value)) Hz</source>
+        <note>Bitcrush Sample Rate</note>
+        <target xml:lang="zh-Hant" state="translated">样本速率：\(Int(value)) Hz </target>
+      </trans-unit>
+      <trans-unit id="Sequencer Mode">
+        <source>Sequencer Mode</source>
+        <note>Sequencer Mode On</note>
+        <target xml:lang="zh-Hant" state="translated">音序器模式</target>
+      </trans-unit>
+      <trans-unit id="Stay informed!">
+        <source>Stay informed!</source>
+        <note>Alert Title: Allow notifications</note>
+        <target xml:lang="zh-Hant" state="translated">随时了解情况！</target>
+      </trans-unit>
+      <trans-unit id="Sub Osc Volume: \(value.decimalString)">
+        <source>Sub Osc Volume: \(value.decimalString)</source>
+        <note>Sub Oscillator Volume</note>
+        <target xml:lang="zh-Hant" state="translated">次振荡器音量：\(value.decimalString) </target>
+      </trans-unit>
+      <trans-unit id="TUNE">
+        <source>TUNE</source>
+        <note>Tuning Panel Abbreviation</note>
+        <target xml:lang="zh-Hant" state="translated">协调</target>
+      </trans-unit>
+      <trans-unit id="Tempo: \(value) BPM">
+        <source>Tempo: \(value) BPM</source>
+        <note>Tempo (Beats Per Minute)</note>
+        <target xml:lang="zh-Hant" state="translated">节拍：\(value) BPM </target>
+      </trans-unit>
+      <trans-unit id="Thank you">
+        <source>Thank you</source>
+        <note>Alert Title: Rate App</note>
+        <target xml:lang="zh-Hant" state="translated">谢谢</target>
+      </trans-unit>
+      <trans-unit id="There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.">
+        <source>There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly.</source>
+        <note>Alert Message: Duplicate Bank Name</note>
+        <target xml:lang="zh-Hant" state="translated">已经有一个名为“\(bankName)”的库。请重命名其中一个以确保顺利进行。</target>
+      </trans-unit>
+      <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
+        <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
+        <note>Alert Message: Rate App</note>
+        <target xml:lang="zh-Hant" state="translated">这是一个由志愿者创建的免费应用程序。请给我们五星好评以便我们能创建更多应用！谢谢您的支持。</target>
+      </trans-unit>
+      <trans-unit id="This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster">
+        <source>This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</source>
+        <note>Alert Message: Allows On Mode</note>
+        <target xml:lang="zh-Hant" state="translated">这种模式非常适合现场演奏。背景音频也将保持开启。注意：它将使用更多电量，并可能更快地耗尽电池</target>
+      </trans-unit>
+      <trans-unit id="Too High">
+        <source>Too High</source>
+        <note>Alert Title: Too High</note>
+        <target xml:lang="zh-Hant" state="translated">过高</target>
+      </trans-unit>
+      <trans-unit id="Tremolo LFO ‣ \(lfoSource!)">
+        <source>Tremolo LFO ‣ \(lfoSource!)</source>
+        <note>LFO [low frequency oscillator] Tremolo</note>
+        <target xml:lang="zh-Hant" state="translated">颤音低频振荡器‣\(lfoSource!) </target>
+      </trans-unit>
+      <trans-unit id="Twist knob on your MIDI Controller">
+        <source>Twist knob on your MIDI Controller</source>
+        <note>MIDI Learn Instructions</note>
+        <target xml:lang="zh-Hant" state="translated">旋转MIDI控制器上的旋钮</target>
+      </trans-unit>
+      <trans-unit id="We'll send Free updates, sounds, and apps. Allow notifications!">
+        <source>We'll send Free updates, sounds, and apps. Allow notifications!</source>
+        <note>Alert Message: Allow notifications</note>
+        <target xml:lang="zh-Hant" state="translated">我们将发送免费更新，声音和应用程序。请允许消息通知！</target>
+      </trans-unit>
+      <trans-unit id="Widen: \(value.decimalString)">
+        <source>Widen: \(value.decimalString)</source>
+        <note>Stereo Widen</note>
+        <target xml:lang="zh-Hant" state="translated">加宽：\(value.decimalString) </target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Base.lproj/Main.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="2ZX-Ka-zjh.text">
+        <source>Pitch Bend range is saved with each preset.</source>
+        <note>Class = "UILabel"; text = "Pitch Bend range is saved with each preset."; ObjectID = "2ZX-Ka-zjh";</note>
+        <target xml:lang="zh-Hant" state="translated">每个预设都会保存弯音范围。</target>
+      </trans-unit>
+      <trans-unit id="3ac-lw-QYe.text">
+        <source>Pitch Bend Lower Limit:</source>
+        <note>Class = "UILabel"; text = "Pitch Bend Lower Limit:"; ObjectID = "3ac-lw-QYe"; Note = "Pitch Bend Wheel minimum";</note>
+        <target xml:lang="zh-Hant" state="translated">弯音下限：</target>
+      </trans-unit>
+      <trans-unit id="9Nq-KG-x1Y.segmentTitles[0]">
+        <source>White</source>
+        <note>Class = "UISegmentedControl"; 9Nq-KG-x1Y.segmentTitles[0] = "White"; ObjectID = "9Nq-KG-x1Y";</note>
+        <target xml:lang="zh-Hant" state="translated">白色</target>
+      </trans-unit>
+      <trans-unit id="9Nq-KG-x1Y.segmentTitles[1]">
+        <source>Dark</source>
+        <note>Class = "UISegmentedControl"; 9Nq-KG-x1Y.segmentTitles[1] = "Dark"; ObjectID = "9Nq-KG-x1Y";</note>
+        <target xml:lang="zh-Hant" state="translated">黑色</target>
+      </trans-unit>
+      <trans-unit id="39J-5A-Jtm.normalTitle">
+        <source>Hold</source>
+        <note>Class = "UIButton"; normalTitle = "Hold"; ObjectID = "39J-5A-Jtm"; Note = "Keyboard hold button (keep this text as short as possible)";</note>
+        <target xml:lang="zh-Hant" state="translated">保持</target>
+      </trans-unit>
+      <trans-unit id="ACV-Ri-7nN.text">
+        <source>Octave:</source>
+        <note>Class = "UILabel"; text = "Octave:"; ObjectID = "ACV-Ri-7nN";</note>
+        <target xml:lang="zh-Hant" state="translated">八度：</target>
+      </trans-unit>
+      <trans-unit id="Ai9-6v-51K.segmentTitles[0]">
+        <source>1</source>
+        <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[0] = "1"; ObjectID = "Ai9-6v-51K";</note>
+        <target xml:lang="zh-Hant" state="translated">1</target>
+      </trans-unit>
+      <trans-unit id="Ai9-6v-51K.segmentTitles[1]">
+        <source>2</source>
+        <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[1] = "2"; ObjectID = "Ai9-6v-51K";</note>
+        <target xml:lang="zh-Hant" state="translated">2</target>
+      </trans-unit>
+      <trans-unit id="Ai9-6v-51K.segmentTitles[2]">
+        <source>3</source>
+        <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[2] = "3"; ObjectID = "Ai9-6v-51K";</note>
+        <target xml:lang="zh-Hant" state="translated">3</target>
+      </trans-unit>
+      <trans-unit id="C9j-zW-Pky.normalTitle">
+        <source>Settings</source>
+        <note>Class = "UIButton"; normalTitle = "Settings"; ObjectID = "C9j-zW-Pky"; Note = "Settings button (keep this text as short as possible)";</note>
+        <target xml:lang="zh-Hant" state="translated">设置</target>
+      </trans-unit>
+      <trans-unit id="FTi-x2-zwk.normalTitle">
+        <source>Mono</source>
+        <note>Class = "UIButton"; normalTitle = "Mono"; ObjectID = "FTi-x2-zwk"; Note = "Mono/Poly toggle button (keep this text as short as possible)";</note>
+        <target xml:lang="zh-Hant" state="translated">单声道</target>
+      </trans-unit>
+      <trans-unit id="GdY-Af-kY1.text">
+        <source>Mod</source>
+        <note>Class = "UILabel"; text = "Mod"; ObjectID = "GdY-Af-kY1";</note>
+        <target xml:lang="zh-Hant" state="translated">元件</target>
+      </trans-unit>
+      <trans-unit id="IUb-c8-F17.text">
+        <source>KEYBOARD SETTINGS</source>
+        <note>Class = "UILabel"; text = "KEYBOARD SETTINGS"; ObjectID = "IUb-c8-F17";</note>
+        <target xml:lang="zh-Hant" state="translated">键盘设置</target>
+      </trans-unit>
+      <trans-unit id="MQe-Qa-FAj.normalTitle">
+        <source>Reset MIDI Learn Knobs</source>
+        <note>Class = "UIButton"; normalTitle = "Reset MIDI Learn Knobs"; ObjectID = "MQe-Qa-FAj";</note>
+        <target xml:lang="zh-Hant" state="translated">重置MIDI学习旋钮</target>
+      </trans-unit>
+      <trans-unit id="MlE-O3-Ji5.text">
+        <source>Save Tuning Panel w/ Presets:</source>
+        <note>Class = "UILabel"; text = "Save Tuning Panel w/ Presets:"; ObjectID = "MlE-O3-Ji5";</note>
+        <target xml:lang="zh-Hant" state="translated">保存调谐面板预设：</target>
+      </trans-unit>
+      <trans-unit id="O7h-tw-s2d.normalTitle">
+        <source>Hide</source>
+        <note>Class = "UIButton"; normalTitle = "Hide"; ObjectID = "O7h-tw-s2d";</note>
+        <target xml:lang="zh-Hant" state="translated">隐藏</target>
+      </trans-unit>
+      <trans-unit id="OMU-nM-0hz.text">
+        <source>Key Color:</source>
+        <note>Class = "UILabel"; text = "Key Color:"; ObjectID = "OMU-nM-0hz"; Note = "Color for keyboard keys (black or white)";</note>
+        <target xml:lang="zh-Hant" state="translated">键盘颜色：</target>
+      </trans-unit>
+      <trans-unit id="OTn-XD-KmQ.text">
+        <source>Pitch</source>
+        <note>Class = "UILabel"; text = "Pitch"; ObjectID = "OTn-XD-KmQ";</note>
+        <target xml:lang="zh-Hant" state="translated">音高</target>
+      </trans-unit>
+      <trans-unit id="OxM-Pu-Zba.normalTitle">
+        <source>Wheels</source>
+        <note>Class = "UIButton"; normalTitle = "Wheels"; ObjectID = "OxM-Pu-Zba"; Note = "Mod Wheel &amp; Pitch Wheel button (keep this text as short as possible)";</note>
+        <target xml:lang="zh-Hant" state="translated">旋钮</target>
+      </trans-unit>
+      <trans-unit id="OyT-Kr-q8s.normalTitle">
+        <source>DONE</source>
+        <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "OyT-Kr-q8s";</note>
+        <target xml:lang="zh-Hant" state="translated">完成</target>
+      </trans-unit>
+      <trans-unit id="UeB-Ec-gRc.text">
+        <source>App Always on / Don't sleep:</source>
+        <note>Class = "UILabel"; text = "App Always on / Don't sleep:"; ObjectID = "UeB-Ec-gRc"; Note = "App will not go into background mode toggle";</note>
+        <target xml:lang="zh-Hant" state="translated">应用程序始终打开/不要睡眠：</target>
+      </trans-unit>
+      <trans-unit id="VLa-3E-3Kt.text">
+        <source>MIDI Learn Knobs:</source>
+        <note>Class = "UILabel"; text = "MIDI Learn Knobs:"; ObjectID = "VLa-3E-3Kt";</note>
+        <target xml:lang="zh-Hant" state="translated">MIDI学习旋钮：</target>
+      </trans-unit>
+      <trans-unit id="VNg-MV-vHn.normalTitle">
+        <source>MIDI Learn</source>
+        <note>Class = "UIButton"; normalTitle = "MIDI Learn"; ObjectID = "VNg-MV-vHn"; Note = "Midi Learn button (keep this text as short as possible)";</note>
+        <target xml:lang="zh-Hant" state="translated">MIDI学习</target>
+      </trans-unit>
+      <trans-unit id="WyC-Si-j7H.text">
+        <source>MOD / PITCH WHEELS</source>
+        <note>Class = "UILabel"; text = "MOD / PITCH WHEELS"; ObjectID = "WyC-Si-j7H";</note>
+        <target xml:lang="zh-Hant" state="translated">元件/音高 旋钮</target>
+      </trans-unit>
+      <trans-unit id="Z4W-Gh-RiQ.normalTitle">
+        <source>Keys</source>
+        <note>Class = "UIButton"; normalTitle = "Keys"; ObjectID = "Z4W-Gh-RiQ"; Note = "Keyboard Keys settings  button (keep this text as short as possible)";</note>
+        <target xml:lang="zh-Hant" state="translated">键</target>
+      </trans-unit>
+      <trans-unit id="ZV6-Yu-spa.text">
+        <source>MIDI Inputs (tap to toggle on/off):</source>
+        <note>Class = "UILabel"; text = "MIDI Inputs (tap to toggle on/off):"; ObjectID = "ZV6-Yu-spa";</note>
+        <target xml:lang="zh-Hant" state="translated">MIDI输入（点击以打开/关闭）：</target>
+      </trans-unit>
+      <trans-unit id="dKG-AP-qCg.text">
+        <source>MOD WHEEL DESTINATION:</source>
+        <note>Class = "UILabel"; text = "MOD WHEEL DESTINATION:"; ObjectID = "dKG-AP-qCg"; Note = "Routing for Mod Wheel";</note>
+        <target xml:lang="zh-Hant" state="translated">元件旋钮目标：</target>
+      </trans-unit>
+      <trans-unit id="fmL-Ud-aaA.text">
+        <source>Key Labels:</source>
+        <note>Class = "UILabel"; text = "Key Labels:"; ObjectID = "fmL-Ud-aaA"; Note = "Note labels on keyboard keys";</note>
+        <target xml:lang="zh-Hant" state="translated">键盘标签：</target>
+      </trans-unit>
+      <trans-unit id="hNP-KG-OgZ.normalTitle">
+        <source>DONE</source>
+        <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "hNP-KG-OgZ";</note>
+        <target xml:lang="zh-Hant" state="translated">完成</target>
+      </trans-unit>
+      <trans-unit id="iLo-Gv-XoX.segmentTitles[0]">
+        <source>Cutoff</source>
+        <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[0] = "Cutoff"; ObjectID = "iLo-Gv-XoX";</note>
+        <target xml:lang="zh-Hant" state="translated">终止</target>
+      </trans-unit>
+      <trans-unit id="iLo-Gv-XoX.segmentTitles[1]">
+        <source>LFO 1</source>
+        <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[1] = "LFO 1"; ObjectID = "iLo-Gv-XoX";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1</target>
+      </trans-unit>
+      <trans-unit id="iLo-Gv-XoX.segmentTitles[2]">
+        <source>LFO 2</source>
+        <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[2] = "LFO 2"; ObjectID = "iLo-Gv-XoX";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2</target>
+      </trans-unit>
+      <trans-unit id="icQ-Ei-YHr.text">
+        <source>Octave Range:</source>
+        <note>Class = "UILabel"; text = "Octave Range:"; ObjectID = "icQ-Ei-YHr"; Note = "Octaves displayed in keyboard";</note>
+        <target xml:lang="zh-Hant" state="translated">八度范围：</target>
+      </trans-unit>
+      <trans-unit id="kgu-qC-jCb.segmentTitles[0]">
+        <source>None</source>
+        <note>Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[0] = "None"; ObjectID = "kgu-qC-jCb";</note>
+        <target xml:lang="zh-Hant" state="translated">没有</target>
+      </trans-unit>
+      <trans-unit id="kgu-qC-jCb.segmentTitles[1]">
+        <source>C</source>
+        <note>Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[1] = "C"; ObjectID = "kgu-qC-jCb";</note>
+        <target xml:lang="zh-Hant" state="translated">C</target>
+      </trans-unit>
+      <trans-unit id="kgu-qC-jCb.segmentTitles[2]">
+        <source>All</source>
+        <note>Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[2] = "All"; ObjectID = "kgu-qC-jCb";</note>
+        <target xml:lang="zh-Hant" state="translated">所有</target>
+      </trans-unit>
+      <trans-unit id="ksJ-GG-fPC.text">
+        <source>MIDI / SETTINGS</source>
+        <note>Class = "UILabel"; text = "MIDI / SETTINGS"; ObjectID = "ksJ-GG-fPC";</note>
+        <target xml:lang="zh-Hant" state="translated">MIDI /设置</target>
+      </trans-unit>
+      <trans-unit id="lW8-Xt-97c.normalTitle">
+        <source>DONE</source>
+        <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "lW8-Xt-97c";</note>
+        <target xml:lang="zh-Hant" state="translated">完成</target>
+      </trans-unit>
+      <trans-unit id="mUh-rB-ciV.text">
+        <source>MIDI Input</source>
+        <note>Class = "UILabel"; text = "MIDI Input"; ObjectID = "mUh-rB-ciV";</note>
+        <target xml:lang="zh-Hant" state="translated">MIDI输入</target>
+      </trans-unit>
+      <trans-unit id="nzb-kU-xl1.text">
+        <source>Velocity Sensitive MIDI: </source>
+        <note>Class = "UILabel"; text = "Velocity Sensitive MIDI: "; ObjectID = "nzb-kU-xl1"; Note = "MIDI input velocity sensitive";</note>
+        <target xml:lang="zh-Hant" state="translated">速度敏感MIDI： </target>
+      </trans-unit>
+      <trans-unit id="pI1-4q-bLo.text">
+        <source>MIDI Input Channel: Omni</source>
+        <note>Class = "UILabel"; text = "MIDI Input Channel: Omni"; ObjectID = "pI1-4q-bLo";</note>
+        <target xml:lang="zh-Hant" state="translated">MIDI输入通道：Omni</target>
+      </trans-unit>
+      <trans-unit id="r3w-Dk-TAj.text">
+        <source>Mod Wheel Routing is saved with each preset.</source>
+        <note>Class = "UILabel"; text = "Mod Wheel Routing is saved with each preset."; ObjectID = "r3w-Dk-TAj";</note>
+        <target xml:lang="zh-Hant" state="translated">元件旋钮线路已与每个预设一起保存。</target>
+      </trans-unit>
+      <trans-unit id="sdT-EI-8gk.text">
+        <source>Pitch Bend Upper Limit:</source>
+        <note>Class = "UILabel"; text = "Pitch Bend Upper Limit:"; ObjectID = "sdT-EI-8gk"; Note = "Pitch Bend Wheel maximum ";</note>
+        <target xml:lang="zh-Hant" state="translated">弯音上限：</target>
+      </trans-unit>
+      <trans-unit id="sxO-Cg-8JK.text">
+        <source>Background Audio Always On:</source>
+        <note>Class = "UILabel"; text = "Background Audio Always On:"; ObjectID = "sxO-Cg-8JK";</note>
+        <target xml:lang="zh-Hant" state="translated">背景音频始终开启：</target>
+      </trans-unit>
+      <trans-unit id="xv6-Gi-7B2.normalTitle">
+        <source>Link</source>
+        <note>Class = "UIButton"; normalTitle = "Link"; ObjectID = "xv6-Gi-7B2"; Note = "Ableton Link button (keep this text as short as possible)";</note>
+        <target xml:lang="zh-Hant" state="translated">链接</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Developer/Base.lproj/Base.lproj/Dev.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="4x3-IO-hYz.text">
+        <source>Master Compressor</source>
+        <note>Class = "UILabel"; text = "Master Compressor"; ObjectID = "4x3-IO-hYz";</note>
+        <target xml:lang="zh-Hant" state="translated">主压缩器</target>
+      </trans-unit>
+      <trans-unit id="8du-td-RcA.text">
+        <source>Lock ArpRate</source>
+        <note>Class = "UILabel"; text = "Lock ArpRate"; ObjectID = "8du-td-RcA";</note>
+        <target xml:lang="zh-Hant" state="translated">锁定琶音器速率</target>
+      </trans-unit>
+      <trans-unit id="AIL-8o-L1E.text">
+        <source>DelFCut</source>
+        <note>Class = "UILabel"; text = "DelFCut"; ObjectID = "AIL-8o-L1E";</note>
+        <target xml:lang="zh-Hant" state="translated">延迟频率截点</target>
+      </trans-unit>
+      <trans-unit id="Acb-r3-neV.text">
+        <source>Reverb Input Compressor</source>
+        <note>Class = "UILabel"; text = "Reverb Input Compressor"; ObjectID = "Acb-r3-neV";</note>
+        <target xml:lang="zh-Hant" state="translated">混响输入压缩器</target>
+      </trans-unit>
+      <trans-unit id="GRS-H5-GyB.text">
+        <source>PostGain</source>
+        <note>Class = "UILabel"; text = "PostGain"; ObjectID = "GRS-H5-GyB";</note>
+        <target xml:lang="zh-Hant" state="translated">后置增益</target>
+      </trans-unit>
+      <trans-unit id="O3q-m2-cp5.text">
+        <source>Release</source>
+        <note>Class = "UILabel"; text = "Release"; ObjectID = "O3q-m2-cp5";</note>
+        <target xml:lang="zh-Hant" state="translated">释音</target>
+      </trans-unit>
+      <trans-unit id="U8L-qY-a4j.text">
+        <source>Lock Reverb</source>
+        <note>Class = "UILabel"; text = "Lock Reverb"; ObjectID = "U8L-qY-a4j";</note>
+        <target xml:lang="zh-Hant" state="translated">锁定混响</target>
+      </trans-unit>
+      <trans-unit id="Yqu-Zu-SxM.text">
+        <source>HAQ PANEL</source>
+        <note>Class = "UILabel"; text = "HAQ PANEL"; ObjectID = "Yqu-Zu-SxM";</note>
+        <target xml:lang="zh-Hant" state="translated">开发者面板</target>
+      </trans-unit>
+      <trans-unit id="Zr2-3d-n6e.text">
+        <source>Ratio</source>
+        <note>Class = "UILabel"; text = "Ratio"; ObjectID = "Zr2-3d-n6e";</note>
+        <target xml:lang="zh-Hant" state="translated">比率</target>
+      </trans-unit>
+      <trans-unit id="bwY-pS-LEC.text">
+        <source>Thresh</source>
+        <note>Class = "UILabel"; text = "Thresh"; ObjectID = "bwY-pS-LEC";</note>
+        <target xml:lang="zh-Hant" state="translated">阈值</target>
+      </trans-unit>
+      <trans-unit id="ct1-IH-Yiw.text">
+        <source>Lock Arp+Seq</source>
+        <note>Class = "UILabel"; text = "Lock Arp+Seq"; ObjectID = "ct1-IH-Yiw";</note>
+        <target xml:lang="zh-Hant" state="translated">锁定琶音器和音序器</target>
+      </trans-unit>
+      <trans-unit id="hU8-IN-aa4.text">
+        <source>Master Volume</source>
+        <note>Class = "UILabel"; text = "Master Volume"; ObjectID = "hU8-IN-aa4";</note>
+        <target xml:lang="zh-Hant" state="translated">主音量</target>
+      </trans-unit>
+      <trans-unit id="oPw-gV-Wod.text">
+        <source>Attack</source>
+        <note>Class = "UILabel"; text = "Attack"; ObjectID = "oPw-gV-Wod";</note>
+        <target xml:lang="zh-Hant" state="translated">起音</target>
+      </trans-unit>
+      <trans-unit id="rEb-j6-MNs.text">
+        <source>Reverb Wet Compressor</source>
+        <note>Class = "UILabel"; text = "Reverb Wet Compressor"; ObjectID = "rEb-j6-MNs";</note>
+        <target xml:lang="zh-Hant" state="translated">混响湿式压缩器</target>
+      </trans-unit>
+      <trans-unit id="slc-Pi-ahg.text">
+        <source>DSP Param Halftime</source>
+        <note>Class = "UILabel"; text = "DSP Param Halftime"; ObjectID = "slc-Pi-ahg";</note>
+        <target xml:lang="zh-Hant" state="translated">DSP参数半周期</target>
+      </trans-unit>
+      <trans-unit id="tLJ-xr-40E.text">
+        <source>Lock Delay</source>
+        <note>Class = "UILabel"; text = "Lock Delay"; ObjectID = "tLJ-xr-40E";</note>
+        <target xml:lang="zh-Hant" state="translated">锁定延迟</target>
+      </trans-unit>
+      <trans-unit id="tRH-wD-RtM.text">
+        <source>DelFRes</source>
+        <note>Class = "UILabel"; text = "DelFRes"; ObjectID = "tRH-wD-RtM";</note>
+        <target xml:lang="zh-Hant" state="translated">延迟频率波峰</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Effects/Base.lproj/Effects.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="0WI-5Q-ep5.text">
+        <source>Time</source>
+        <note>Class = "UILabel"; text = "Time"; ObjectID = "0WI-5Q-ep5"; Note = "Delay Time/Length";</note>
+        <target xml:lang="zh-Hant" state="translated">时间</target>
+      </trans-unit>
+      <trans-unit id="7Ru-Fu-LT1.text">
+        <source>LFO 1</source>
+        <note>Class = "UILabel"; text = "LFO 1"; ObjectID = "7Ru-Fu-LT1"; Note = "Low Frequency Oscillator";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1</target>
+      </trans-unit>
+      <trans-unit id="7mr-cL-dIt.text">
+        <source>Effects Rack</source>
+        <note>Class = "UILabel"; text = "Effects Rack"; ObjectID = "7mr-cL-dIt";</note>
+        <target xml:lang="zh-Hant" state="translated">效果架</target>
+      </trans-unit>
+      <trans-unit id="34d-F0-qxp.text">
+        <source>Notch</source>
+        <note>Class = "UILabel"; text = "Notch"; ObjectID = "34d-F0-qxp"; Note = "Phaser Notch Width";</note>
+        <target xml:lang="zh-Hant" state="translated">等级</target>
+      </trans-unit>
+      <trans-unit id="41y-Db-NY3.text">
+        <source>Rate</source>
+        <note>Class = "UILabel"; text = "Rate"; ObjectID = "41y-Db-NY3";</note>
+        <target xml:lang="zh-Hant" state="translated">速率</target>
+      </trans-unit>
+      <trans-unit id="Kzx-ck-MJn.text">
+        <source>Amp</source>
+        <note>Class = "UILabel"; text = "Amp"; ObjectID = "Kzx-ck-MJn"; Note = "LFO Amp/Level/Amount";</note>
+        <target xml:lang="zh-Hant" state="translated">振幅</target>
+      </trans-unit>
+      <trans-unit id="MMf-RB-gf7.text">
+        <source>Low Cut</source>
+        <note>Class = "UILabel"; text = "Low Cut"; ObjectID = "MMf-RB-gf7"; Note = "Reverb Low cut/High Pass";</note>
+        <target xml:lang="zh-Hant" state="translated">低频切除</target>
+      </trans-unit>
+      <trans-unit id="Md3-mc-eyV.text">
+        <source>Amp</source>
+        <note>Class = "UILabel"; text = "Amp"; ObjectID = "Md3-mc-eyV"; Note = "Auto Pan Amplification/ Amount";</note>
+        <target xml:lang="zh-Hant" state="translated">振幅</target>
+      </trans-unit>
+      <trans-unit id="NJ9-DE-qUL.text">
+        <source>Bitrate Crusher</source>
+        <note>Class = "UILabel"; text = "Bitrate Crusher"; ObjectID = "NJ9-DE-qUL";</note>
+        <target xml:lang="zh-Hant" state="translated">降比特率效果器</target>
+      </trans-unit>
+      <trans-unit id="O2o-2A-IsV.text">
+        <source>Rate</source>
+        <note>Class = "UILabel"; text = "Rate"; ObjectID = "O2o-2A-IsV"; Note = "LFO Rate";</note>
+        <target xml:lang="zh-Hant" state="translated">速率</target>
+      </trans-unit>
+      <trans-unit id="OZa-4e-uR2.text">
+        <source>Mix</source>
+        <note>Class = "UILabel"; text = "Mix"; ObjectID = "OZa-4e-uR2"; Note = "Reverb Dry/Wet Mix";</note>
+        <target xml:lang="zh-Hant" state="translated">混音</target>
+      </trans-unit>
+      <trans-unit id="Oip-7I-GYL.text">
+        <source>Delay</source>
+        <note>Class = "UILabel"; text = "Delay"; ObjectID = "Oip-7I-GYL";</note>
+        <target xml:lang="zh-Hant" state="translated">延迟</target>
+      </trans-unit>
+      <trans-unit id="UiA-5l-0H8.text">
+        <source>Amp</source>
+        <note>Class = "UILabel"; text = "Amp"; ObjectID = "UiA-5l-0H8"; Note = "LFO Amp/Level/Amount";</note>
+        <target xml:lang="zh-Hant" state="translated">振幅</target>
+      </trans-unit>
+      <trans-unit id="VX2-1Q-SUX.text">
+        <source>Size</source>
+        <note>Class = "UILabel"; text = "Size"; ObjectID = "VX2-1Q-SUX"; Note = "Reverb Size/Amount";</note>
+        <target xml:lang="zh-Hant" state="translated">大小</target>
+      </trans-unit>
+      <trans-unit id="agt-nZ-1YG.text">
+        <source>Feedback</source>
+        <note>Class = "UILabel"; text = "Feedback"; ObjectID = "agt-nZ-1YG"; Note = "Delay Feedback/Taps";</note>
+        <target xml:lang="zh-Hant" state="translated">反馈</target>
+      </trans-unit>
+      <trans-unit id="ccC-ll-23n.text">
+        <source>Rate</source>
+        <note>Class = "UILabel"; text = "Rate"; ObjectID = "ccC-ll-23n"; Note = "LFO Rate";</note>
+        <target xml:lang="zh-Hant" state="translated">速率</target>
+      </trans-unit>
+      <trans-unit id="cwq-zJ-1kk.text">
+        <source>Auto Pan</source>
+        <note>Class = "UILabel"; text = "Auto Pan"; ObjectID = "cwq-zJ-1kk";</note>
+        <target xml:lang="zh-Hant" state="translated">Auto Pan</target>
+      </trans-unit>
+      <trans-unit id="cxn-Wb-RuK.text">
+        <source>Reverb</source>
+        <note>Class = "UILabel"; text = "Reverb"; ObjectID = "cxn-Wb-RuK";</note>
+        <target xml:lang="zh-Hant" state="translated">混响</target>
+      </trans-unit>
+      <trans-unit id="e3I-8e-T8m.text">
+        <source>Mix</source>
+        <note>Class = "UILabel"; text = "Mix"; ObjectID = "e3I-8e-T8m"; Note = "Phaser Dry/Wet Mix";</note>
+        <target xml:lang="zh-Hant" state="translated">混音</target>
+      </trans-unit>
+      <trans-unit id="eeQ-UE-T6J.text">
+        <source>LFO 2</source>
+        <note>Class = "UILabel"; text = "LFO 2"; ObjectID = "eeQ-UE-T6J"; Note = "Low Frequency Oscillator";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2</target>
+      </trans-unit>
+      <trans-unit id="go0-UQ-ltt.text">
+        <source>Tempo Sync</source>
+        <note>Class = "UILabel"; text = "Tempo Sync"; ObjectID = "go0-UQ-ltt";</note>
+        <target xml:lang="zh-Hant" state="translated">速度同步</target>
+      </trans-unit>
+      <trans-unit id="gzX-jx-4y6.text">
+        <source>Rate</source>
+        <note>Class = "UILabel"; text = "Rate"; ObjectID = "gzX-jx-4y6";</note>
+        <target xml:lang="zh-Hant" state="translated">速率</target>
+      </trans-unit>
+      <trans-unit id="nWW-Un-BcO.text">
+        <source>Mix</source>
+        <note>Class = "UILabel"; text = "Mix"; ObjectID = "nWW-Un-BcO"; Note = "Delay Dry/Wet Mix";</note>
+        <target xml:lang="zh-Hant" state="translated">混音</target>
+      </trans-unit>
+      <trans-unit id="qxc-oN-mY8.text">
+        <source>Phaser</source>
+        <note>Class = "UILabel"; text = "Phaser"; ObjectID = "qxc-oN-mY8";</note>
+        <target xml:lang="zh-Hant" state="translated">移相器</target>
+      </trans-unit>
+      <trans-unit id="rIz-r7-GtW.text">
+        <source>Feedback</source>
+        <note>Class = "UILabel"; text = "Feedback"; ObjectID = "rIz-r7-GtW"; Note = "Phaser Feedback/Taps";</note>
+        <target xml:lang="zh-Hant" state="translated">反馈</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName">
+        <source>Synth One</source>
+        <note>Bundle display name</note>
+        <target xml:lang="zh-Hant" state="translated">Synth One</target>
+      </trans-unit>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+        <note>Bundle name</note>
+        <target xml:lang="zh-Hant" state="translated">$(PRODUCT_NAME)</target>
+      </trans-unit>
+      <trans-unit id="NSCameraUsageDescription">
+        <source>$(PRODUCT_NAME) camera use.</source>
+        <note>Privacy - Camera Usage Description</note>
+        <target xml:lang="zh-Hant" state="translated">$(PRODUCT_NAME) 相机使用</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Envelopes/Base.lproj/Envelopes.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="1iB-yg-YcK.text">
+        <source>Attack</source>
+        <note>Class = "UILabel"; text = "Attack"; ObjectID = "1iB-yg-YcK";</note>
+        <target xml:lang="zh-Hant" state="translated">起音</target>
+      </trans-unit>
+      <trans-unit id="5Ie-DT-yvl.text">
+        <source>Attack</source>
+        <note>Class = "UILabel"; text = "Attack"; ObjectID = "5Ie-DT-yvl";</note>
+        <target xml:lang="zh-Hant" state="translated">起音</target>
+      </trans-unit>
+      <trans-unit id="9Ne-rF-Cd5.text">
+        <source>Sustain</source>
+        <note>Class = "UILabel"; text = "Sustain"; ObjectID = "9Ne-rF-Cd5";</note>
+        <target xml:lang="zh-Hant" state="translated">延持</target>
+      </trans-unit>
+      <trans-unit id="NPM-Ga-czS.text">
+        <source>Sustain</source>
+        <note>Class = "UILabel"; text = "Sustain"; ObjectID = "NPM-Ga-czS";</note>
+        <target xml:lang="zh-Hant" state="translated">延持</target>
+      </trans-unit>
+      <trans-unit id="QwS-x7-Tqo.text">
+        <source>Decay</source>
+        <note>Class = "UILabel"; text = "Decay"; ObjectID = "QwS-x7-Tqo";</note>
+        <target xml:lang="zh-Hant" state="translated">衰減</target>
+      </trans-unit>
+      <trans-unit id="TwY-KM-KRE.text">
+        <source>Release</source>
+        <note>Class = "UILabel"; text = "Release"; ObjectID = "TwY-KM-KRE";</note>
+        <target xml:lang="zh-Hant" state="translated">释音</target>
+      </trans-unit>
+      <trans-unit id="jpD-fo-QNO.text">
+        <source>Amplitude Envelope</source>
+        <note>Class = "UILabel"; text = "Amplitude Envelope"; ObjectID = "jpD-fo-QNO";</note>
+        <target xml:lang="zh-Hant" state="translated">振幅波封</target>
+      </trans-unit>
+      <trans-unit id="tyt-Qx-CmV.text">
+        <source>Decay</source>
+        <note>Class = "UILabel"; text = "Decay"; ObjectID = "tyt-Qx-CmV";</note>
+        <target xml:lang="zh-Hant" state="translated">衰减</target>
+      </trans-unit>
+      <trans-unit id="u2H-uf-fdc.text">
+        <source>Filter Envelope</source>
+        <note>Class = "UILabel"; text = "Filter Envelope"; ObjectID = "u2H-uf-fdc";</note>
+        <target xml:lang="zh-Hant" state="translated">过滤波封</target>
+      </trans-unit>
+      <trans-unit id="yjc-MW-jcO.text">
+        <source>Release</source>
+        <note>Class = "UILabel"; text = "Release"; ObjectID = "yjc-MW-jcO";</note>
+        <target xml:lang="zh-Hant" state="translated">释音</target>
+      </trans-unit>
+      <trans-unit id="yuw-Hz-d5o.text">
+        <source>Env Amt</source>
+        <note>Class = "UILabel"; text = "Env Amt"; ObjectID = "yuw-Hz-d5o";</note>
+        <target xml:lang="zh-Hant" state="translated">波封数值</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Generators/Base.lproj/Generators.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="0Mf-dH-wy0.text">
+        <source>Arp/Seq</source>
+        <note>Class = "UILabel"; text = "Arp/Seq"; ObjectID = "0Mf-dH-wy0"; Note = "arpeggiator/Sequencer (Perhaps one Abbreviation or the other, please keep short)";</note>
+        <target xml:lang="zh-Hant" state="translated">琶音器/音序器</target>
+      </trans-unit>
+      <trans-unit id="8Uq-gf-6UI.text">
+        <source>Global</source>
+        <note>Class = "UILabel"; text = "Global"; ObjectID = "8Uq-gf-6UI";</note>
+        <target xml:lang="zh-Hant" state="translated">全局</target>
+      </trans-unit>
+      <trans-unit id="9r6-eL-FL5.text">
+        <source>Filter</source>
+        <note>Class = "UILabel"; text = "Filter"; ObjectID = "9r6-eL-FL5";</note>
+        <target xml:lang="zh-Hant" state="translated">过滤</target>
+      </trans-unit>
+      <trans-unit id="62k-94-Rv3.text">
+        <source>Amp</source>
+        <note>Class = "UILabel"; text = "Amp"; ObjectID = "62k-94-Rv3"; Note = "Amplification/Volume";</note>
+        <target xml:lang="zh-Hant" state="translated">振幅</target>
+      </trans-unit>
+      <trans-unit id="91z-3O-akH.text">
+        <source>Volume</source>
+        <note>Class = "UILabel"; text = "Volume"; ObjectID = "91z-3O-akH";</note>
+        <target xml:lang="zh-Hant" state="translated">音量</target>
+      </trans-unit>
+      <trans-unit id="310-I5-RBg.text">
+        <source>DCO 2</source>
+        <note>Class = "UILabel"; text = "DCO 2"; ObjectID = "310-I5-RBg"; Note = "Oscillator / Digital Controlled Oscillator ";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2</target>
+      </trans-unit>
+      <trans-unit id="AjD-Sk-cQQ.text">
+        <source>Glide</source>
+        <note>Class = "UILabel"; text = "Glide"; ObjectID = "AjD-Sk-cQQ";</note>
+        <target xml:lang="zh-Hant" state="translated">滑音</target>
+      </trans-unit>
+      <trans-unit id="B0S-va-FqH.text">
+        <source>Legato</source>
+        <note>Class = "UILabel"; text = "Legato"; ObjectID = "B0S-va-FqH";</note>
+        <target xml:lang="zh-Hant" state="translated">连奏</target>
+      </trans-unit>
+      <trans-unit id="ECo-F0-jfe.text">
+        <source>DCO 1</source>
+        <note>Class = "UILabel"; text = "DCO 1"; ObjectID = "ECo-F0-jfe"; Note = "Oscillator 1 / Digital Controlled Oscillator ";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1</target>
+      </trans-unit>
+      <trans-unit id="F86-bv-0H1.text">
+        <source>Mono</source>
+        <note>Class = "UILabel"; text = "Mono"; ObjectID = "F86-bv-0H1";</note>
+        <target xml:lang="zh-Hant" state="translated">单声道</target>
+      </trans-unit>
+      <trans-unit id="Hw6-cM-mlo.text">
+        <source>Amp</source>
+        <note>Class = "UILabel"; text = "Amp"; ObjectID = "Hw6-cM-mlo"; Note = "Amplification/Volume";</note>
+        <target xml:lang="zh-Hant" state="translated">振幅</target>
+      </trans-unit>
+      <trans-unit id="KMe-b8-yaN.text">
+        <source>Resonance</source>
+        <note>Class = "UILabel"; text = "Resonance"; ObjectID = "KMe-b8-yaN"; Note = "Filter Resonance/Q ";</note>
+        <target xml:lang="zh-Hant" state="translated">波峰</target>
+      </trans-unit>
+      <trans-unit id="OEr-fz-3io.text">
+        <source>FM</source>
+        <note>Class = "UILabel"; text = "FM"; ObjectID = "OEr-fz-3io"; Note = "Frequency Modulation / FM Synthesis";</note>
+        <target xml:lang="zh-Hant" state="translated">调频</target>
+      </trans-unit>
+      <trans-unit id="TPy-ml-QQS.text">
+        <source>-24</source>
+        <note>Class = "UILabel"; text = "-24"; ObjectID = "TPy-ml-QQS";</note>
+        <target xml:lang="zh-Hant" state="translated">-24</target>
+      </trans-unit>
+      <trans-unit id="XfT-ym-RWb.text">
+        <source>Mix</source>
+        <note>Class = "UILabel"; text = "Mix"; ObjectID = "XfT-ym-RWb";</note>
+        <target xml:lang="zh-Hant" state="translated">混音</target>
+      </trans-unit>
+      <trans-unit id="eYP-ap-6Ia.text">
+        <source>Master Volume</source>
+        <note>Class = "UILabel"; text = "Master Volume"; ObjectID = "eYP-ap-6Ia";</note>
+        <target xml:lang="zh-Hant" state="translated">主音量</target>
+      </trans-unit>
+      <trans-unit id="exT-Rq-dxj.text">
+        <source>Sub</source>
+        <note>Class = "UILabel"; text = "Sub"; ObjectID = "exT-Rq-dxj";</note>
+        <target xml:lang="zh-Hant" state="translated">次</target>
+      </trans-unit>
+      <trans-unit id="fhH-Ee-rSO.text">
+        <source>Frequency</source>
+        <note>Class = "UILabel"; text = "Frequency"; ObjectID = "fhH-Ee-rSO"; Note = "Filter Frequency";</note>
+        <target xml:lang="zh-Hant" state="translated">频率</target>
+      </trans-unit>
+      <trans-unit id="iz9-qo-den.text">
+        <source>Semitones</source>
+        <note>Class = "UILabel"; text = "Semitones"; ObjectID = "iz9-qo-den";</note>
+        <target xml:lang="zh-Hant" state="translated">半音</target>
+      </trans-unit>
+      <trans-unit id="jIr-eA-H5o.text">
+        <source>Amp</source>
+        <note>Class = "UILabel"; text = "Amp"; ObjectID = "jIr-eA-H5o"; Note = "Amplification/Volume";</note>
+        <target xml:lang="zh-Hant" state="translated">振幅</target>
+      </trans-unit>
+      <trans-unit id="jl7-1K-mc7.text">
+        <source>DCO 2</source>
+        <note>Class = "UILabel"; text = "DCO 2"; ObjectID = "jl7-1K-mc7"; Note = "Oscillator 2 / Digital Controlled Oscillator ";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器2</target>
+      </trans-unit>
+      <trans-unit id="nLD-gy-Y0z.text">
+        <source>Noise</source>
+        <note>Class = "UILabel"; text = "Noise"; ObjectID = "nLD-gy-Y0z";</note>
+        <target xml:lang="zh-Hant" state="translated">噪声</target>
+      </trans-unit>
+      <trans-unit id="ozs-aS-dKc.normalTitle">
+        <source>Low Pass</source>
+        <note>Class = "UIButton"; normalTitle = "Low Pass"; ObjectID = "ozs-aS-dKc";</note>
+        <target xml:lang="zh-Hant" state="translated">低通</target>
+      </trans-unit>
+      <trans-unit id="pkg-m0-5sO.text">
+        <source>Mod</source>
+        <note>Class = "UILabel"; text = "Mod"; ObjectID = "pkg-m0-5sO"; Note = "Modulation";</note>
+        <target xml:lang="zh-Hant" state="translated">元件</target>
+      </trans-unit>
+      <trans-unit id="ppL-x8-d0i.text">
+        <source>Widen</source>
+        <note>Class = "UILabel"; text = "Widen"; ObjectID = "ppL-x8-d0i"; Note = "Stereo Widen";</note>
+        <target xml:lang="zh-Hant" state="translated">扩大</target>
+      </trans-unit>
+      <trans-unit id="rCL-wA-mRJ.text">
+        <source>DCO 1</source>
+        <note>Class = "UILabel"; text = "DCO 1"; ObjectID = "rCL-wA-mRJ"; Note = "Oscillator 1 / Digital Controlled Oscillator ";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1</target>
+      </trans-unit>
+      <trans-unit id="uby-Uc-YpS.text">
+        <source>Semitones</source>
+        <note>Class = "UILabel"; text = "Semitones"; ObjectID = "uby-Uc-YpS";</note>
+        <target xml:lang="zh-Hant" state="translated">半音</target>
+      </trans-unit>
+      <trans-unit id="wBf-gS-1RL.text">
+        <source>DCO 1-2</source>
+        <note>Class = "UILabel"; text = "DCO 1-2"; ObjectID = "wBf-gS-1RL"; Note = "Oscillator / Digital Controlled Oscillator ";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1-2</target>
+      </trans-unit>
+      <trans-unit id="y2a-dN-P74.text">
+        <source>Detune</source>
+        <note>Class = "UILabel"; text = "Detune"; ObjectID = "y2a-dN-P74";</note>
+        <target xml:lang="zh-Hant" state="translated">失谐</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Header/Base.lproj/Header.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="4uE-Js-e46.normalTitle">
+        <source>Dev</source>
+        <note>Class = "UIButton"; normalTitle = "Dev"; ObjectID = "4uE-Js-e46";</note>
+        <target xml:lang="zh-Hant" state="translated">开发</target>
+      </trans-unit>
+      <trans-unit id="Ggs-qy-ExU.text">
+        <source>Loading...</source>
+        <note>Class = "UILabel"; text = "Loading..."; ObjectID = "Ggs-qy-ExU";</note>
+        <target xml:lang="zh-Hant" state="translated">载入中...</target>
+      </trans-unit>
+      <trans-unit id="NL0-Jf-tHi.normalTitle">
+        <source>Save</source>
+        <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "NL0-Jf-tHi"; Note = "Save Preset Button (keep short)";</note>
+        <target xml:lang="zh-Hant" state="translated">保存</target>
+      </trans-unit>
+      <trans-unit id="PpV-eX-q12.normalTitle">
+        <source>Web</source>
+        <note>Class = "UIButton"; normalTitle = "Web"; ObjectID = "PpV-eX-q12"; Note = "Website button (keep short)";</note>
+        <target xml:lang="zh-Hant" state="translated">网站</target>
+      </trans-unit>
+      <trans-unit id="l9q-RV-KkX.normalTitle">
+        <source>Panic</source>
+        <note>Class = "UIButton"; normalTitle = "Panic"; ObjectID = "l9q-RV-KkX"; Note = "MIDI Panic / All notes off (Keep short)";</note>
+        <target xml:lang="zh-Hant" state="translated">终止</target>
+      </trans-unit>
+      <trans-unit id="qXZ-Yq-KK5.normalTitle">
+        <source>Apps</source>
+        <note>Class = "UIButton"; normalTitle = "Apps"; ObjectID = "qXZ-Yq-KK5"; Note = "Apps button, keep short";</note>
+        <target xml:lang="zh-Hant" state="translated">应用</target>
+      </trans-unit>
+      <trans-unit id="vEb-n7-p0M.normalTitle">
+        <source>About</source>
+        <note>Class = "UIButton"; normalTitle = "About"; ObjectID = "vEb-n7-p0M"; Note = "About button (keep short)";</note>
+        <target xml:lang="zh-Hant" state="translated">关于</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Presets/Base.lproj/Presets.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="3lr-kd-bYo.normalTitle">
+        <source>Cancel</source>
+        <note>Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "3lr-kd-bYo";</note>
+        <target xml:lang="zh-Hant" state="translated">取消</target>
+      </trans-unit>
+      <trans-unit id="4I7-1e-dMK.normalTitle">
+        <source>New Preset</source>
+        <note>Class = "UIButton"; normalTitle = "New Preset"; ObjectID = "4I7-1e-dMK";</note>
+        <target xml:lang="zh-Hant" state="translated">新预设</target>
+      </trans-unit>
+      <trans-unit id="8dj-SF-Pxt.text">
+        <source>SAVE / RENAME PRESET:</source>
+        <note>Class = "UILabel"; text = "SAVE / RENAME PRESET:"; ObjectID = "8dj-SF-Pxt";</note>
+        <target xml:lang="zh-Hant" state="translated">保存/重命名预设：</target>
+      </trans-unit>
+      <trans-unit id="8tM-pA-eD2.text">
+        <source>Preset Description Here</source>
+        <note>Class = "UITextView"; text = "Preset Description Here"; ObjectID = "8tM-pA-eD2";</note>
+        <target xml:lang="zh-Hant" state="translated">预设说明</target>
+      </trans-unit>
+      <trans-unit id="EyQ-H5-8Yr.text">
+        <source>RENAME BANK:</source>
+        <note>Class = "UILabel"; text = "RENAME BANK:"; ObjectID = "EyQ-H5-8Yr";</note>
+        <target xml:lang="zh-Hant" state="translated">重命名库：</target>
+      </trans-unit>
+      <trans-unit id="Jut-wm-dt0.text">
+        <source>Category</source>
+        <note>Class = "UILabel"; text = "Category"; ObjectID = "Jut-wm-dt0";</note>
+        <target xml:lang="zh-Hant" state="translated">类别</target>
+      </trans-unit>
+      <trans-unit id="LTK-sn-l0B.text">
+        <source>Select a bank for the preset:</source>
+        <note>Class = "UILabel"; text = "Select a bank for the preset:"; ObjectID = "LTK-sn-l0B";</note>
+        <target xml:lang="zh-Hant" state="translated">选择预设的库：</target>
+      </trans-unit>
+      <trans-unit id="M5g-gJ-LgP.text">
+        <source>Pad</source>
+        <note>Class = "UILabel"; text = "Pad"; ObjectID = "M5g-gJ-LgP";</note>
+        <target xml:lang="zh-Hant" state="translated">面板</target>
+      </trans-unit>
+      <trans-unit id="Pax-NO-iPl.text">
+        <source>Rename the preset to save a new copy. Press "Save" to save the current preset. </source>
+        <note>Class = "UILabel"; text = "Rename the preset to save a new copy. Press \"Save\" to save the current preset. "; ObjectID = "Pax-NO-iPl";</note>
+        <target xml:lang="zh-Hant" state="translated">重命名预设以保存新副本。按“保存”以保存当前预设。 </target>
+      </trans-unit>
+      <trans-unit id="Qv6-hQ-4wE.normalTitle">
+        <source>Delete Bank</source>
+        <note>Class = "UIButton"; normalTitle = "Delete Bank"; ObjectID = "Qv6-hQ-4wE";</note>
+        <target xml:lang="zh-Hant" state="translated">删除库</target>
+      </trans-unit>
+      <trans-unit id="VL7-Y3-hxn.normalTitle">
+        <source>SAVE PRESET</source>
+        <note>Class = "UIButton"; normalTitle = "SAVE PRESET"; ObjectID = "VL7-Y3-hxn";</note>
+        <target xml:lang="zh-Hant" state="translated">保存预设</target>
+      </trans-unit>
+      <trans-unit id="ZCE-zi-tsi.normalTitle">
+        <source>Import Preset</source>
+        <note>Class = "UIButton"; normalTitle = "Import Preset"; ObjectID = "ZCE-zi-tsi";</note>
+        <target xml:lang="zh-Hant" state="translated">导入预设</target>
+      </trans-unit>
+      <trans-unit id="c61-bJ-zsz.normalTitle">
+        <source>DONE EDITING</source>
+        <note>Class = "UIButton"; normalTitle = "DONE EDITING"; ObjectID = "c61-bJ-zsz";</note>
+        <target xml:lang="zh-Hant" state="translated">完成编辑</target>
+      </trans-unit>
+      <trans-unit id="cs5-5n-k8U.normalTitle">
+        <source>+</source>
+        <note>Class = "UIButton"; normalTitle = "+"; ObjectID = "cs5-5n-k8U";</note>
+        <target xml:lang="zh-Hant" state="translated">+</target>
+      </trans-unit>
+      <trans-unit id="dSC-DB-ods.text">
+        <source>Preset Name</source>
+        <note>Class = "UILabel"; text = "Preset Name"; ObjectID = "dSC-DB-ods";</note>
+        <target xml:lang="zh-Hant" state="translated">预设名称</target>
+      </trans-unit>
+      <trans-unit id="dvq-vN-oxQ.normalTitle">
+        <source>Cancel</source>
+        <note>Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "dvq-vN-oxQ";</note>
+        <target xml:lang="zh-Hant" state="translated">取消</target>
+      </trans-unit>
+      <trans-unit id="eGC-CV-RRm.normalTitle">
+        <source>Import Bank</source>
+        <note>Class = "UIButton"; normalTitle = "Import Bank"; ObjectID = "eGC-CV-RRm";</note>
+        <target xml:lang="zh-Hant" state="translated">导入库</target>
+      </trans-unit>
+      <trans-unit id="eI7-vK-ARE.normalTitle">
+        <source>Save</source>
+        <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "eI7-vK-ARE";</note>
+        <target xml:lang="zh-Hant" state="translated">保存</target>
+      </trans-unit>
+      <trans-unit id="mZQ-N0-bdr.text">
+        <source>SYNTH ONE PRESETS</source>
+        <note>Class = "UILabel"; text = "SYNTH ONE PRESETS"; ObjectID = "mZQ-N0-bdr";</note>
+        <target xml:lang="zh-Hant" state="translated">SYNTH ONE预设</target>
+      </trans-unit>
+      <trans-unit id="rSO-zc-3Ba.normalTitle">
+        <source>Save</source>
+        <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "rSO-zc-3Ba";</note>
+        <target xml:lang="zh-Hant" state="translated">保存</target>
+      </trans-unit>
+      <trans-unit id="uLS-HA-DTu.text">
+        <source>Category:</source>
+        <note>Class = "UILabel"; text = "Category:"; ObjectID = "uLS-HA-DTu";</note>
+        <target xml:lang="zh-Hant" state="translated">类别：</target>
+      </trans-unit>
+      <trans-unit id="v81-AR-cdF.normalTitle">
+        <source>Reorder</source>
+        <note>Class = "UIButton"; normalTitle = "Reorder"; ObjectID = "v81-AR-cdF";</note>
+        <target xml:lang="zh-Hant" state="translated">重新排序</target>
+      </trans-unit>
+      <trans-unit id="xCe-zx-CAI.text">
+        <source>Free &amp; open-source synthesizer. Browse presets &amp; banks below. </source>
+        <note>Class = "UILabel"; text = "Free &amp; open-source synthesizer. Browse presets &amp; banks below. "; ObjectID = "xCe-zx-CAI";</note>
+        <target xml:lang="zh-Hant" state="translated">免费并且开源的合成器。浏览以下的预设和库。 </target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Sequencer/Base.lproj/Sequencer.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="1kh-G3-Dao.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "1kh-G3-Dao";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="2kx-k3-hsp.text">
+        <source>Style</source>
+        <note>Class = "UILabel"; text = "Style"; ObjectID = "2kx-k3-hsp"; Note = "Arp Kind (up/down)";</note>
+        <target xml:lang="zh-Hant" state="translated">样式</target>
+      </trans-unit>
+      <trans-unit id="5Zf-zW-Iav.text">
+        <source>Octave</source>
+        <note>Class = "UILabel"; text = "Octave"; ObjectID = "5Zf-zW-Iav";</note>
+        <target xml:lang="zh-Hant" state="translated">八度</target>
+      </trans-unit>
+      <trans-unit id="6WL-SP-3jX.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "6WL-SP-3jX";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="7TS-So-8Ku.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "7TS-So-8Ku";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="8ys-6F-5Ct.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "8ys-6F-5Ct";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="22z-fI-i6o.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "22z-fI-i6o";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="FJP-5X-i7T.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "FJP-5X-i7T";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="IL2-Ai-3GG.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "IL2-Ai-3GG";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="MCo-Uv-ex2.text">
+        <source>Steps</source>
+        <note>Class = "UILabel"; text = "Steps"; ObjectID = "MCo-Uv-ex2"; Note = "Sequencer Steps";</note>
+        <target xml:lang="zh-Hant" state="translated">梯级</target>
+      </trans-unit>
+      <trans-unit id="N6g-lA-Pmi.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "N6g-lA-Pmi";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="P9q-rs-3Sq.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "P9q-rs-3Sq";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="QTm-h5-dGt.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "QTm-h5-dGt";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="Tlc-ZL-pSj.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "Tlc-ZL-pSj";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="UQ8-P1-5c9.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "UQ8-P1-5c9";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="USV-ak-yaz.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "USV-ak-yaz";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="X6a-NW-xsn.text">
+        <source>Seq</source>
+        <note>Class = "UILabel"; text = "Seq"; ObjectID = "X6a-NW-xsn"; Note = "Sequencer (keep short)";</note>
+        <target xml:lang="zh-Hant" state="translated">音序器</target>
+      </trans-unit>
+      <trans-unit id="bgM-Rm-Fpn.text">
+        <source>Arp</source>
+        <note>Class = "UILabel"; text = "Arp"; ObjectID = "bgM-Rm-Fpn"; Note = "arpeggiator (keep short)";</note>
+        <target xml:lang="zh-Hant" state="translated">琶音器</target>
+      </trans-unit>
+      <trans-unit id="f7D-Z3-yNc.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "f7D-Z3-yNc";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="gH8-vf-85d.text">
+        <source>Interval</source>
+        <note>Class = "UILabel"; text = "Interval"; ObjectID = "gH8-vf-85d"; Note = "Arp Semitone Intervals";</note>
+        <target xml:lang="zh-Hant" state="translated">间隔</target>
+      </trans-unit>
+      <trans-unit id="hPX-vI-eXD.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "hPX-vI-eXD";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+      <trans-unit id="oHV-it-EtQ.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "oHV-it-EtQ";</note>
+        <target xml:lang="zh-Hant" state="translated">0</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/TouchPad/Base.lproj/TouchPad.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="4Xu-ES-Jtr.text">
+        <source>FILTER RESONANCE</source>
+        <note>Class = "UILabel"; text = "FILTER RESONANCE"; ObjectID = "4Xu-ES-Jtr";</note>
+        <target xml:lang="zh-Hant" state="translated">过滤器波峰</target>
+      </trans-unit>
+      <trans-unit id="SVY-05-J4t.normalTitle">
+        <source>Snap</source>
+        <note>Class = "UIButton"; normalTitle = "Snap"; ObjectID = "SVY-05-J4t";</note>
+        <target xml:lang="zh-Hant" state="translated">快照</target>
+      </trans-unit>
+      <trans-unit id="cxh-gH-dY1.text">
+        <source>LFO 1 AMPLITUDE</source>
+        <note>Class = "UILabel"; text = "LFO 1 AMPLITUDE"; ObjectID = "cxh-gH-dY1";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1振幅</target>
+      </trans-unit>
+      <trans-unit id="gH1-9e-vhR.text">
+        <source>FILTER CUTOFF</source>
+        <note>Class = "UILabel"; text = "FILTER CUTOFF"; ObjectID = "gH1-9e-vhR";</note>
+        <target xml:lang="zh-Hant" state="translated">过滤器终止</target>
+      </trans-unit>
+      <trans-unit id="qXN-sO-KUB.text">
+        <source>LFO 1 RATE</source>
+        <note>Class = "UILabel"; text = "LFO 1 RATE"; ObjectID = "qXN-sO-KUB";</note>
+        <target xml:lang="zh-Hant" state="translated">低频振荡器1速率</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Tunings/Base.lproj/Tunings.storyboard" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="AqK-kK-Iaf.text">
+        <source>Master Tuning</source>
+        <note>Class = "UILabel"; text = "Master Tuning"; ObjectID = "AqK-kK-Iaf";</note>
+        <target xml:lang="zh-Hant" state="translated">大师调谐</target>
+      </trans-unit>
+      <trans-unit id="Cm9-Xa-WqW.text">
+        <source>TUNING</source>
+        <note>Class = "UILabel"; text = "TUNING"; ObjectID = "Cm9-Xa-WqW";</note>
+        <target xml:lang="zh-Hant" state="translated">调谐</target>
+      </trans-unit>
+      <trans-unit id="JBk-V2-c4I.normalTitle">
+        <source>Reset</source>
+        <note>Class = "UIButton"; normalTitle = "Reset"; ObjectID = "JBk-V2-c4I";</note>
+        <target xml:lang="zh-Hant" state="translated">重置</target>
+      </trans-unit>
+      <trans-unit id="ipV-Bb-omK.text">
+        <source>PITCH</source>
+        <note>Class = "UILabel"; text = "PITCH"; ObjectID = "ipV-Bb-omK";</note>
+        <target xml:lang="zh-Hant" state="translated">音高</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="OneSignalNotificationServiceExtension/Base.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName">
+        <source>OneSignalNotificationServiceExtension</source>
+        <note>Bundle display name</note>
+        <target xml:lang="zh-Hant" state="translated">OneSignalNotificationServiceExtension</target>
+      </trans-unit>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+        <note>Bundle name</note>
+        <target xml:lang="zh-Hant" state="translated">$(PRODUCT_NAME)</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

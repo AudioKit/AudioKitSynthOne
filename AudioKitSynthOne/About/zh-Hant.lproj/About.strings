@@ -1,0 +1,65 @@
+/* Class = "UITextView"; text = "AudioKit Synth One is the first completely free & open-source full-featured professional iOS synthesizer app in history. Everyone working on this app volunteered their time to create this awesome app.\n\nPlus, it’s completely open-source. You can use the code to learn how to build your own synth app or modify the app to build the synth of your dreams. This app is a labor of love. \n\nHow can you help? Please share with your friends and leave a nice review in the app store.\n\nWe're all volunteers. We're dozens of developers, sound designers, and music lovers across the globe who want to give back to the music-making community. We hope you enjoy it!\n\nThanks to the following people (listed alphabetically):\nAdam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chase Dobson, Cheez da Producer, Chello Ward, Clayton Miller, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Gene?, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio"; ObjectID = "1Nf-2H-Scf"; */
+"1Nf-2H-Scf.text" = "AudioKit Synth One是历史上第一款完全免费并且开源的全功能专业iOS电子音合成器应用程序，这个应用程序完全是志愿者自愿花时间创建的。
+
+您可以使用该程序的源代码来学习如何构建自己的合成器程序，也可以修改此应用程序以构建您梦想的合成器。
+
+如果想支持我们，请与您的朋友分享，并在应用商店中留下好评。
+
+我们都是志愿者。我们在全球有数十位想要回馈音乐制作社区的开发者，音响设计师和音乐爱好者。我们希望您能喜欢它！
+
+感谢以下人员（按字母顺序排列）：
+
+Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chase Dobson, Cheez da Producer, Chello Ward, Clayton Miller, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Geneş, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio ";
+
+/* Class = "UILabel"; text = "AudioKit is free & open-source"; ObjectID = "2jS-Ub-cCT"; */
+"2jS-Ub-cCT.text" = "AudioKit是免费并且开源的";
+
+/* Class = "UILabel"; text = "MORE AUDIOKIT APPS"; ObjectID = "A1r-GN-8if"; */
+"A1r-GN-8if.text" = "更多AudioKit应用程序";
+
+/* Class = "UIButton"; normalTitle = "AudioKit Github"; ObjectID = "dll-2U-dYG"; */
+"dll-2U-dYG.normalTitle" = "AudioKit Github";
+
+/* Class = "UIButton"; normalTitle = "hello@audiokitpro.com"; ObjectID = "etI-kL-v1E"; */
+"etI-kL-v1E.normalTitle" = "hello@audiokitpro.com";
+
+/* Class = "UILabel"; text = "Learn from these code examples"; ObjectID = "F4n-VN-XPq"; */
+"F4n-VN-XPq.text" = "从这些代码示例中学习";
+
+/* Class = "UILabel"; text = "FM PLAYER: CLASSIC DX"; ObjectID = "g34-af-uEZ"; */
+"g34-af-uEZ.text" = "调频播放器：经典 DX";
+
+/* Class = "UILabel"; text = "Learn how this app was made"; ObjectID = "GGp-jS-eWl"; */
+"GGp-jS-eWl.text" = "了解此应用程序是如何制作的";
+
+/* Class = "UITextView"; text = "Award-winning Free iPad Instrument inspired by the DX7 & DX7II. \nPerfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. "; ObjectID = "IAn-lv-O7m"; */
+"IAn-lv-O7m.text" = "屡获殊荣的免费iPad乐器灵感来自于DX7 & DX7II。
+完美适配MIDI键盘。拥有音效优美的多层次样本，包含电钢琴，贝尔，贝司，键和80年代声音。 ";
+
+/* Class = "UILabel"; text = "SOURCE CODE"; ObjectID = "jeK-lZ-M5v"; */
+"jeK-lZ-M5v.text" = "源代码";
+
+/* Class = "UILabel"; text = "REVIEW"; ObjectID = "M92-zU-EUI"; */
+"M92-zU-EUI.text" = "评论";
+
+/* Class = "UIButton"; normalTitle = "Get FREE in App Store!"; ObjectID = "oBP-Wz-rvL"; */
+"oBP-Wz-rvL.normalTitle" = "在应用商店免费获取！";
+
+/* Class = "UILabel"; text = "VIDEO"; ObjectID = "rad-NL-GFv"; */
+"rad-NL-GFv.text" = "视频";
+
+/* Class = "UILabel"; text = "World's First Free & Open-Source Pro iOS Synth"; ObjectID = "s4D-if-VhP"; */
+"s4D-if-VhP.text" = "全球首款免费及开源的专业iOS电音合成器";
+
+/* Class = "UILabel"; text = "PLEASE send BUG REPORTS:"; ObjectID = "SJq-it-GbF"; */
+"SJq-it-GbF.text" = "请发送错误报告：";
+
+/* Class = "UIButton"; normalTitle = "Be kind ?? Review this app!  "; ObjectID = "VE1-2S-HqW"; */
+"VE1-2S-HqW.normalTitle" = "请支持👍🏼评论这个应用程序！  ";
+
+/* Class = "UIButton"; normalTitle = "DONE"; ObjectID = "Whk-km-WmE"; */
+"Whk-km-WmE.normalTitle" = "完成";
+
+/* Class = "UIButton"; normalTitle = "Watch the Amazing Synth One Video"; ObjectID = "yLF-QF-HMs"; */
+"yLF-QF-HMs.normalTitle" = "观看很棒的Synth One视频";
+

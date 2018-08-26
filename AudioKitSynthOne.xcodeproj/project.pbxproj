@@ -308,6 +308,38 @@
 		94DB18D11F37D879008368AE /* NavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButton.swift; sourceTree = "<group>"; };
 		94DB3FDF1FC8C0EA007F8081 /* PresetUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetUIButton.swift; sourceTree = "<group>"; };
 		94E951341F3644E5009A8B00 /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		94F53E4F212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		94F53E50212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/About.strings"; sourceTree = "<group>"; };
+		94F53E51212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MailingList.strings"; sourceTree = "<group>"; };
+		94F53E52212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Dev.strings"; sourceTree = "<group>"; };
+		94F53E53212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Effects.strings"; sourceTree = "<group>"; };
+		94F53E54212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Envelopes.strings"; sourceTree = "<group>"; };
+		94F53E55212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Generators.strings"; sourceTree = "<group>"; };
+		94F53E56212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Header.strings"; sourceTree = "<group>"; };
+		94F53E57212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Presets.strings"; sourceTree = "<group>"; };
+		94F53E58212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Sequencer.strings"; sourceTree = "<group>"; };
+		94F53E59212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TouchPad.strings"; sourceTree = "<group>"; };
+		94F53E5A212F0C4D0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Tunings.strings"; sourceTree = "<group>"; };
+		94F53E5B212F0C4E0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Dev.strings"; sourceTree = "<group>"; };
+		94F53E5C212F0C4E0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		94F53E5D212F0C4E0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		94F53E5E212F0C4E0012C0DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		94F53E7D212F11620012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		94F53E7E212F11620012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/About.strings"; sourceTree = "<group>"; };
+		94F53E7F212F11620012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MailingList.strings"; sourceTree = "<group>"; };
+		94F53E80212F11620012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Dev.strings"; sourceTree = "<group>"; };
+		94F53E81212F11620012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Effects.strings"; sourceTree = "<group>"; };
+		94F53E82212F11620012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Envelopes.strings"; sourceTree = "<group>"; };
+		94F53E83212F11620012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Generators.strings"; sourceTree = "<group>"; };
+		94F53E84212F11630012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Header.strings"; sourceTree = "<group>"; };
+		94F53E85212F11630012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Presets.strings"; sourceTree = "<group>"; };
+		94F53E86212F11630012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Sequencer.strings"; sourceTree = "<group>"; };
+		94F53E87212F11630012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TouchPad.strings"; sourceTree = "<group>"; };
+		94F53E88212F11630012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Tunings.strings"; sourceTree = "<group>"; };
+		94F53E89212F11790012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		94F53E8A212F11790012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		94F53E8B212F11790012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		94F53E8C212F11A90012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "AudioKitSynthOne/Developer/zh-Hans.lproj/zh-Hans.lproj/Dev.strings"; sourceTree = SOURCE_ROOT; };
 		94F694C51F683D5D0061DA5E /* CallbackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackButton.swift; sourceTree = "<group>"; };
 		94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTransposeButton.swift; sourceTree = "<group>"; };
 		BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioKitSynthOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1391,6 +1423,8 @@
 				fr,
 				"pt-BR",
 				ja,
+				"zh-Hant",
+				"zh-Hans",
 			);
 			mainGroup = C4D193BB1F1187B500FF4FE4;
 			productRefGroup = C4D193C51F1187B500FF4FE4 /* Products */;
@@ -1717,6 +1751,8 @@
 				EA388D0B2106A2E50026C0C0 /* tr */,
 				EA143DCB210A846100543E17 /* pt-BR */,
 				9441B8402126618C003A5163 /* ja */,
+				94F53E4F212F0C4D0012C0DE /* zh-Hant */,
+				94F53E7D212F11620012C0DE /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1728,6 +1764,8 @@
 				EA143E05210FDA3C00543E17 /* fr */,
 				EA143E29211289E100543E17 /* tr */,
 				9441B84B2126618D003A5163 /* ja */,
+				94F53E5B212F0C4E0012C0DE /* zh-Hant */,
+				94F53E8C212F11A90012C0DE /* zh-Hans */,
 			);
 			name = Dev.strings;
 			path = "AudioKitSynthOne/Developer/pt-BR.lproj";
@@ -1742,6 +1780,8 @@
 				EA388D0C2106A2E50026C0C0 /* tr */,
 				EA143DCC210A846100543E17 /* pt-BR */,
 				9441B8412126618D003A5163 /* ja */,
+				94F53E50212F0C4D0012C0DE /* zh-Hant */,
+				94F53E7E212F11620012C0DE /* zh-Hans */,
 			);
 			name = About.storyboard;
 			sourceTree = "<group>";
@@ -1755,6 +1795,8 @@
 				EA388D122106A2E50026C0C0 /* tr */,
 				EA143DD2210A846100543E17 /* pt-BR */,
 				9441B8472126618D003A5163 /* ja */,
+				94F53E56212F0C4D0012C0DE /* zh-Hant */,
+				94F53E84212F11630012C0DE /* zh-Hans */,
 			);
 			name = Header.storyboard;
 			sourceTree = "<group>";
@@ -1768,6 +1810,8 @@
 				EA388D0F2106A2E50026C0C0 /* tr */,
 				EA143DCF210A846100543E17 /* pt-BR */,
 				9441B8442126618D003A5163 /* ja */,
+				94F53E53212F0C4D0012C0DE /* zh-Hant */,
+				94F53E81212F11620012C0DE /* zh-Hans */,
 			);
 			name = Effects.storyboard;
 			sourceTree = "<group>";
@@ -1781,6 +1825,8 @@
 				EA388D132106A2E60026C0C0 /* tr */,
 				EA143DD3210A846100543E17 /* pt-BR */,
 				9441B83D2126618C003A5163 /* ja */,
+				94F53E57212F0C4D0012C0DE /* zh-Hant */,
+				94F53E85212F11630012C0DE /* zh-Hans */,
 			);
 			name = Presets.storyboard;
 			sourceTree = "<group>";
@@ -1794,6 +1840,8 @@
 				EA388D162106A2E60026C0C0 /* tr */,
 				EA143DD6210A846100543E17 /* pt-BR */,
 				9441B84A2126618D003A5163 /* ja */,
+				94F53E5A212F0C4D0012C0DE /* zh-Hant */,
+				94F53E88212F11630012C0DE /* zh-Hans */,
 			);
 			name = Tunings.storyboard;
 			sourceTree = "<group>";
@@ -1807,6 +1855,8 @@
 				EA388D152106A2E60026C0C0 /* tr */,
 				EA143DD5210A846100543E17 /* pt-BR */,
 				9441B8492126618D003A5163 /* ja */,
+				94F53E59212F0C4D0012C0DE /* zh-Hant */,
+				94F53E87212F11630012C0DE /* zh-Hans */,
 			);
 			name = TouchPad.storyboard;
 			sourceTree = "<group>";
@@ -1820,6 +1870,8 @@
 				EA388D142106A2E60026C0C0 /* tr */,
 				EA143DD4210A846100543E17 /* pt-BR */,
 				9441B8482126618D003A5163 /* ja */,
+				94F53E58212F0C4D0012C0DE /* zh-Hant */,
+				94F53E86212F11630012C0DE /* zh-Hans */,
 			);
 			name = Sequencer.storyboard;
 			sourceTree = "<group>";
@@ -1833,6 +1885,8 @@
 				EA388D102106A2E50026C0C0 /* tr */,
 				EA143DD0210A846100543E17 /* pt-BR */,
 				9441B8452126618D003A5163 /* ja */,
+				94F53E54212F0C4D0012C0DE /* zh-Hant */,
+				94F53E82212F11620012C0DE /* zh-Hans */,
 			);
 			name = Envelopes.storyboard;
 			sourceTree = "<group>";
@@ -1846,6 +1900,8 @@
 				EA388D112106A2E50026C0C0 /* tr */,
 				EA143DD1210A846100543E17 /* pt-BR */,
 				9441B8462126618D003A5163 /* ja */,
+				94F53E55212F0C4D0012C0DE /* zh-Hant */,
+				94F53E83212F11620012C0DE /* zh-Hans */,
 			);
 			name = Generators.storyboard;
 			sourceTree = "<group>";
@@ -1859,6 +1915,8 @@
 				EA2354D1210879AC0018E035 /* en */,
 				EA143DCD210A846100543E17 /* pt-BR */,
 				9441B8422126618D003A5163 /* ja */,
+				94F53E51212F0C4D0012C0DE /* zh-Hant */,
+				94F53E7F212F11620012C0DE /* zh-Hans */,
 			);
 			name = MailingList.storyboard;
 			sourceTree = "<group>";
@@ -1872,6 +1930,8 @@
 				EA2354D2210879DF0018E035 /* en */,
 				EA143DCE210A846100543E17 /* pt-BR */,
 				9441B8432126618D003A5163 /* ja */,
+				94F53E52212F0C4D0012C0DE /* zh-Hant */,
+				94F53E80212F11620012C0DE /* zh-Hans */,
 			);
 			name = Dev.storyboard;
 			path = Base.lproj;
@@ -1886,6 +1946,8 @@
 				EA143DC8210A843500543E17 /* fr */,
 				EA143DD9210A846200543E17 /* pt-BR */,
 				9441B84C2126618E003A5163 /* ja */,
+				94F53E5E212F0C4E0012C0DE /* zh-Hant */,
+				94F53E8B212F11790012C0DE /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1899,6 +1961,8 @@
 				EA143DCA210A844400543E17 /* fr */,
 				EA143DD8210A846100543E17 /* pt-BR */,
 				9441B83F2126618C003A5163 /* ja */,
+				94F53E5D212F0C4E0012C0DE /* zh-Hant */,
+				94F53E8A212F11790012C0DE /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1912,6 +1976,8 @@
 				EA2354D421087C500018E035 /* en */,
 				EA143DD7210A846100543E17 /* pt-BR */,
 				9441B83E2126618C003A5163 /* ja */,
+				94F53E5C212F0C4E0012C0DE /* zh-Hant */,
+				94F53E89212F11790012C0DE /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

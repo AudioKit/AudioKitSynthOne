@@ -29,7 +29,10 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
       <trans-unit id="2jS-Ub-cCT.text">
         <source>AudioKit is free &amp; open-source</source>
         <note>Class = "UILabel"; text = "AudioKit is free &amp; open-source"; ObjectID = "2jS-Ub-cCT";</note>
-        <target xml:lang="pt-BR" state="translated">AudioKit é grátis &amp; open-source</target>
+        <target xml:lang="pt-BR" state="translated">AudioKit é grátis e open-source</target>
+        <alt-trans>
+          <target xml:lang="pt-BR">AudioKit é grátis &amp; open-source</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="A1r-GN-8if.text">
         <source>MORE AUDIOKIT APPS</source>
@@ -50,7 +53,10 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
         <source>Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
 Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </source>
         <note>Class = "UITextView"; text = "Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. \nPerfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. "; ObjectID = "IAn-lv-O7m";</note>
-        <target xml:lang="pt-BR" state="translated">Instrumento iPad gratuito premiado inspirado no DX7 &amp; DX7II. Perfeito com um teclado MIDI. Amostras de multi-camadas soando bonitas de Pianos Elétricos, Tines, Baixos, Chaves e sons de 80s. </target>
+        <target xml:lang="pt-BR" state="translated">Instrumento iPad gratuito premiado inspirado no DX7 e DX7II. Perfeito com um teclado MIDI. Amostras de multi-camadas soando bonitas de Pianos Elétricos, Tines, Baixos, Chaves e sons de 80s. </target>
+        <alt-trans>
+          <target xml:lang="pt-BR">Instrumento iPad gratuito premiado inspirado no DX7 &amp; DX7II. Perfeito com um teclado MIDI. Amostras de multi-camadas soando bonitas de Pianos Elétricos, Tines, Baixos, Chaves e sons de 80s. </target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="M92-zU-EUI.text">
         <source>REVIEW</source>
@@ -60,7 +66,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="SJq-it-GbF.text">
         <source>PLEASE send BUG REPORTS:</source>
         <note>Class = "UILabel"; text = "PLEASE send BUG REPORTS:"; ObjectID = "SJq-it-GbF";</note>
-        <target xml:lang="pt-BR" state="translated">Por favor, envie relatórios de bugs:</target>
+        <target xml:lang="pt-BR" state="translated">Por favor, envie seus bugs:</target>
+        <alt-trans>
+          <target xml:lang="pt-BR">Por favor, envie relatórios de bugs:</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="VE1-2S-HqW.normalTitle">
         <source>Be kind 👍🏼 Review this app!  </source>
@@ -70,7 +79,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Whk-km-WmE.normalTitle">
         <source>DONE</source>
         <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "Whk-km-WmE";</note>
-        <target xml:lang="pt-BR" state="translated">FEITO</target>
+        <target xml:lang="pt-BR" state="translated">CONCLUÍDO</target>
+        <alt-trans>
+          <target xml:lang="pt-BR">FEITO</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="dll-2U-dYG.normalTitle">
         <source>AudioKit Github</source>
@@ -95,7 +107,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="oBP-Wz-rvL.normalTitle">
         <source>Get FREE in App Store!</source>
         <note>Class = "UIButton"; normalTitle = "Get FREE in App Store!"; ObjectID = "oBP-Wz-rvL";</note>
-        <target xml:lang="pt-BR" state="translated">Receba GRÁTIS na App Store!</target>
+        <target xml:lang="pt-BR" state="translated">GRÁTIS na App Store!</target>
+        <alt-trans>
+          <target xml:lang="pt-BR">Receba GRÁTIS na App Store!</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="rad-NL-GFv.text">
         <source>VIDEO</source>
@@ -105,12 +120,18 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="s4D-if-VhP.text">
         <source>World's First Free &amp; Open-Source Pro iOS Synth</source>
         <note>Class = "UILabel"; text = "World's First Free &amp; Open-Source Pro iOS Synth"; ObjectID = "s4D-if-VhP";</note>
-        <target xml:lang="pt-BR" state="translated">O primeiro iOS gratuito de &amp; código aberto do mundo para iOS</target>
+        <target xml:lang="pt-BR" state="translated">O primeiro sintetizador para iOS gratuito e com código aberto do mundo</target>
+        <alt-trans>
+          <target xml:lang="pt-BR">O primeiro iOS gratuito de &amp; código aberto do mundo para iOS</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="yLF-QF-HMs.normalTitle">
         <source>Watch the Amazing Synth One Video</source>
         <note>Class = "UIButton"; normalTitle = "Watch the Amazing Synth One Video"; ObjectID = "yLF-QF-HMs";</note>
-        <target xml:lang="pt-BR" state="translated">Assista ao Incrível Synth One Video</target>
+        <target xml:lang="pt-BR" state="translated">Assista ao Vídeo Incrível do Synth One</target>
+        <alt-trans>
+          <target xml:lang="pt-BR">Assista ao Incrível Synth One Video</target>
+        </alt-trans>
       </trans-unit>
     </body>
   </file>
@@ -122,7 +143,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="B52-X8-pfB.normalTitle">
         <source>Thanks, I'll do it later</source>
         <note>Class = "UIButton"; normalTitle = "Thanks, I'll do it later"; ObjectID = "B52-X8-pfB";</note>
-        <target xml:lang="pt-BR" state="translated">Obrigado, farei depois</target>
+        <target xml:lang="pt-BR" state="translated">Obrigado, farei mais tarde</target>
+        <alt-trans>
+          <target xml:lang="pt-BR">Obrigado, farei depois</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="FJY-lQ-hbA.text">
         <source>SETUP: Step 1 of 1</source>
@@ -154,7 +178,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="%.00f ms">
         <source>%.00f ms</source>
         <note>Number of milliseconds</note>
-        <target xml:lang="pt-BR" state="needs-translation">%.00f ms</target>
+        <target xml:lang="pt-BR" state="translated">%.00f ms</target>
       </trans-unit>
       <trans-unit id="All MIDI learn knob assignments have been removed.">
         <source>All MIDI learn knob assignments have been removed.</source>

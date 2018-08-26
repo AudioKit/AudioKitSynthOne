@@ -154,6 +154,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
     <body>
+      <trans-unit id="%.00f ms">
+        <source>%.00f ms</source>
+        <note>Number of milliseconds</note>
+        <target xml:lang="lol" state="needs-translation">%.00f ms</target>
+      </trans-unit>
       <trans-unit id="All MIDI learn knob assignments have been removed.">
         <source>All MIDI learn knob assignments have been removed.</source>
         <note>Alert Message:  MIDI Learn Reset</note>
@@ -734,7 +739,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="OyT-Kr-q8s.normalTitle">
         <source>DONE</source>
         <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "OyT-Kr-q8s";</note>
-        <target xml:lang="lol" state="needs-translation">DONE</target>
+        <target xml:lang="lol" state="translated">MEOW</target>
       </trans-unit>
       <trans-unit id="UeB-Ec-gRc.text">
         <source>App Always on / Don't sleep:</source>
@@ -779,7 +784,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="hNP-KG-OgZ.normalTitle">
         <source>DONE</source>
         <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "hNP-KG-OgZ";</note>
-        <target xml:lang="lol" state="needs-translation">DONE</target>
+        <target xml:lang="lol" state="translated">MEOW</target>
       </trans-unit>
       <trans-unit id="iLo-Gv-XoX.segmentTitles[0]">
         <source>Cutoff</source>
@@ -824,7 +829,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="lW8-Xt-97c.normalTitle">
         <source>DONE</source>
         <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "lW8-Xt-97c";</note>
-        <target xml:lang="lol" state="needs-translation">DONE</target>
+        <target xml:lang="lol" state="translated">MEOW</target>
       </trans-unit>
       <trans-unit id="mUh-rB-ciV.text">
         <source>MIDI Input</source>

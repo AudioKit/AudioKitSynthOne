@@ -155,6 +155,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
     <body>
+      <trans-unit id="%.00f ms">
+        <source>%.00f ms</source>
+        <note>Number of milliseconds</note>
+        <target xml:lang="zh-Hans" state="translated">%.00f 毫秒</target>
+      </trans-unit>
       <trans-unit id="All MIDI learn knob assignments have been removed.">
         <source>All MIDI learn knob assignments have been removed.</source>
         <note>Alert Message:  MIDI Learn Reset</note>
@@ -218,7 +223,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Bitcrush LFO ‣ \(lfoSource!)">
         <source>Bitcrush LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Bitcrush</note>
-        <target xml:lang="zh-Hans" state="translated">Bitcrush低频振荡器 ‣ \(lfoSource!) </target>
+        <target xml:lang="zh-Hans" state="translated">Bitcrush LFO‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="zh-Hans">Bitcrush LFO‣\（lfoSource！）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Congratulations! ?">
         <source>Congratulations! ?</source>
@@ -243,7 +251,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Cutoff LFO ‣ \(lfoSource!)">
         <source>Cutoff LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Cutoff</note>
-        <target xml:lang="zh-Hans" state="translated">低频振荡器中断‣ \(lfoSource!) </target>
+        <target xml:lang="zh-Hans" state="translated">截止LFO‣ \(lfoSource!)</target>
+        <alt-trans>
+          <target xml:lang="zh-Hans">截止LFO‣\（lfoSource！）</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)">
         <source>Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</source>
@@ -667,20 +678,20 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Class = "UILabel"; text = "Octave:"; ObjectID = "ACV-Ri-7nN";</note>
         <target xml:lang="zh-Hans" state="translated">八度：</target>
       </trans-unit>
-      <trans-unit id="Ai9-6v-51K.segmentTitles[0]">
+      <trans-unit id="Ai9-6v-51K.segmentTitles[0]" approved="yes">
         <source>1</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[0] = "1"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="zh-Hans" state="translated">1</target>
+        <target xml:lang="zh-Hans">1</target>
       </trans-unit>
-      <trans-unit id="Ai9-6v-51K.segmentTitles[1]">
+      <trans-unit id="Ai9-6v-51K.segmentTitles[1]" approved="yes">
         <source>2</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[1] = "2"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="zh-Hans" state="translated">2</target>
+        <target xml:lang="zh-Hans">2</target>
       </trans-unit>
-      <trans-unit id="Ai9-6v-51K.segmentTitles[2]">
+      <trans-unit id="Ai9-6v-51K.segmentTitles[2]" approved="yes">
         <source>3</source>
         <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[2] = "3"; ObjectID = "Ai9-6v-51K";</note>
-        <target xml:lang="zh-Hans" state="translated">3</target>
+        <target xml:lang="zh-Hans">3</target>
       </trans-unit>
       <trans-unit id="C9j-zW-Pky.normalTitle">
         <source>Settings</source>
@@ -1493,10 +1504,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
     <body>
-      <trans-unit id="1kh-G3-Dao.text">
+      <trans-unit id="1kh-G3-Dao.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "1kh-G3-Dao";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
       <trans-unit id="2kx-k3-hsp.text">
         <source>Style</source>
@@ -1508,70 +1519,70 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Class = "UILabel"; text = "Octave"; ObjectID = "5Zf-zW-Iav";</note>
         <target xml:lang="zh-Hans" state="translated">八度</target>
       </trans-unit>
-      <trans-unit id="6WL-SP-3jX.text">
+      <trans-unit id="6WL-SP-3jX.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "6WL-SP-3jX";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="7TS-So-8Ku.text">
+      <trans-unit id="7TS-So-8Ku.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "7TS-So-8Ku";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="8ys-6F-5Ct.text">
+      <trans-unit id="8ys-6F-5Ct.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "8ys-6F-5Ct";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="22z-fI-i6o.text">
+      <trans-unit id="22z-fI-i6o.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "22z-fI-i6o";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="FJP-5X-i7T.text">
+      <trans-unit id="FJP-5X-i7T.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "FJP-5X-i7T";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="IL2-Ai-3GG.text">
+      <trans-unit id="IL2-Ai-3GG.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "IL2-Ai-3GG";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
       <trans-unit id="MCo-Uv-ex2.text">
         <source>Steps</source>
         <note>Class = "UILabel"; text = "Steps"; ObjectID = "MCo-Uv-ex2"; Note = "Sequencer Steps";</note>
         <target xml:lang="zh-Hans" state="translated">梯级</target>
       </trans-unit>
-      <trans-unit id="N6g-lA-Pmi.text">
+      <trans-unit id="N6g-lA-Pmi.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "N6g-lA-Pmi";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="P9q-rs-3Sq.text">
+      <trans-unit id="P9q-rs-3Sq.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "P9q-rs-3Sq";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="QTm-h5-dGt.text">
+      <trans-unit id="QTm-h5-dGt.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "QTm-h5-dGt";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="Tlc-ZL-pSj.text">
+      <trans-unit id="Tlc-ZL-pSj.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "Tlc-ZL-pSj";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="UQ8-P1-5c9.text">
+      <trans-unit id="UQ8-P1-5c9.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "UQ8-P1-5c9";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="USV-ak-yaz.text">
+      <trans-unit id="USV-ak-yaz.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "USV-ak-yaz";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
       <trans-unit id="X6a-NW-xsn.text">
         <source>Seq</source>
@@ -1583,25 +1594,25 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Class = "UILabel"; text = "Arp"; ObjectID = "bgM-Rm-Fpn"; Note = "arpeggiator (keep short)";</note>
         <target xml:lang="zh-Hans" state="translated">琶音器</target>
       </trans-unit>
-      <trans-unit id="f7D-Z3-yNc.text">
+      <trans-unit id="f7D-Z3-yNc.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "f7D-Z3-yNc";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
       <trans-unit id="gH8-vf-85d.text">
         <source>Interval</source>
         <note>Class = "UILabel"; text = "Interval"; ObjectID = "gH8-vf-85d"; Note = "Arp Semitone Intervals";</note>
         <target xml:lang="zh-Hans" state="translated">间隔</target>
       </trans-unit>
-      <trans-unit id="hPX-vI-eXD.text">
+      <trans-unit id="hPX-vI-eXD.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "hPX-vI-eXD";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
-      <trans-unit id="oHV-it-EtQ.text">
+      <trans-unit id="oHV-it-EtQ.text" approved="yes">
         <source>0</source>
         <note>Class = "UILabel"; text = "0"; ObjectID = "oHV-it-EtQ";</note>
-        <target xml:lang="zh-Hans" state="translated">0</target>
+        <target xml:lang="zh-Hans">0</target>
       </trans-unit>
     </body>
   </file>

@@ -123,10 +123,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <note>Class = "UILabel"; text = "SOURCE CODE"; ObjectID = "jeK-lZ-M5v";</note>
         <target xml:lang="pt-BR" state="translated">CÓDIGO FONTE</target>
       </trans-unit>
-      <trans-unit id="oBP-Wz-rvL.normalTitle">
+      <trans-unit id="oBP-Wz-rvL.normalTitle" approved="yes">
         <source>Get FREE in App Store!</source>
         <note>Class = "UIButton"; normalTitle = "Get FREE in App Store!"; ObjectID = "oBP-Wz-rvL";</note>
-        <target xml:lang="pt-BR" state="translated">GRÁTIS na App Store!</target>
+        <target xml:lang="pt-BR">GRÁTIS na App Store!</target>
         <alt-trans>
           <target xml:lang="pt-BR">Receba GRÁTIS na App Store!</target>
         </alt-trans>

@@ -156,7 +156,10 @@ typedef AK_ENUM(S1Parameter) {
     pitchbendMaxSemitones = 142,
     frequencyA4 = 143,
     portamentoHalfTime = 144,
-    
-    S1ParameterCount = 145
+
+    oscBandlimitIndexOverride = 145,
+    oscBandlimitEnable = 146,
+
+    S1ParameterCount = 147
 } S1Parameter;
 

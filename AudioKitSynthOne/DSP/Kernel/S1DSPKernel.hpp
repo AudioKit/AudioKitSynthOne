@@ -21,7 +21,9 @@
 @class AEMessageQueue;
 
 #define S1_FTABLE_SIZE (4096)
-#define S1_NUM_FTABLES (4)
+#define S1_NUM_WAVEFORMS (4)
+#define S1_NUM_BANDLIMITED_FTABLES (13)
+
 #define S1_SAMPLE_RATE (44100.f)
 
 #define S1_RELEASE_AMPLITUDE_THRESHOLD (0.01f)
@@ -112,10 +114,12 @@ public:
     // initializeNoteStates() must be called AFTER init returns
     void initializeNoteStates();
     
-    void setupWaveform(uint32_t waveform, uint32_t size);
-    
-    void setWaveformValue(uint32_t waveform, uint32_t index, float value);
-    
+    void setupWaveform(uint32_t tableIndex, uint32_t size);
+
+    void setWaveformValue(uint32_t tableIndex, uint32_t sampleIndex, float value);
+
+    void setBandlimitFrequency(uint32_t blIndex, float frequency);
+
     ///parameter min
     float minimum(S1Parameter i);
     
@@ -182,8 +186,9 @@ public:
     PlayingNotes aePlayingNotes;
     
     HeldNotes aeHeldNotes;
-    
-    sp_ftbl *ft_array[S1_NUM_FTABLES];
+
+    sp_ftbl *ft_array[S1_NUM_WAVEFORMS * S1_NUM_BANDLIMITED_FTABLES];
+    float   ft_frequencyBand[S1_NUM_BANDLIMITED_FTABLES];
 
     sp_ftbl *sine;
     
@@ -479,7 +484,11 @@ private:
         { pitchbendMaxSemitones,  0, 12, 24, "pitchbendMaxSemitones", "pitchbendMaxSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         
         { frequencyA4,  410, 440, 470, "frequencyA4", "frequencyA4", kAudioUnitParameterUnit_Hertz, false, NULL},
-        { portamentoHalfTime, 0.000001, 0.1, 0.99, "portamentoHalfTime", "portamentoHalfTime", kAudioUnitParameterUnit_Generic, false, NULL }
+        { portamentoHalfTime, 0.000001, 0.1, 0.99, "portamentoHalfTime", "portamentoHalfTime", kAudioUnitParameterUnit_Generic, false, NULL },
+
+        /* -1 = no override, else = index into bandlimited wavetable */
+        { oscBandlimitIndexOverride, -1, -1, (S1_NUM_BANDLIMITED_FTABLES-1), "oscBandlimitIndexOverride", "oscBandlimitIndexOverride", kAudioUnitParameterUnit_Generic, false, NULL },
+        { oscBandlimitEnable, 0, 0, 1, "oscBandlimitEnable", "oscBandlimitEnable", kAudioUnitParameterUnit_Generic, false, NULL}
     };
 };
 #endif

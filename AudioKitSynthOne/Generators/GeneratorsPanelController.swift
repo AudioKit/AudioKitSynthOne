@@ -46,7 +46,8 @@ class GeneratorsPanelController: PanelController {
 
     @IBOutlet weak var legatoModeToggle: ToggleButton!
     @IBOutlet weak var widenToggle: FlatToggleButton!
-
+    @IBOutlet weak var oscBandlimitEnable: ToggleButton!
+    
     var audioPlot: AKNodeOutputPlot!
     var isAudioPlotFilled: Bool = false
     var midiKnobs = [MIDIKnob]()
@@ -109,6 +110,7 @@ class GeneratorsPanelController: PanelController {
         conductor.bind(widenToggle, to: .widen)
         conductor.bind(sequencerToggle, to: .arpIsOn)
         conductor.bind(tempoStepper, to: .arpRate)
+        conductor.bind(oscBandlimitEnable, to: .oscBandlimitEnable)
 
         // Setup Audio Plot Display
         setupAudioPlot()

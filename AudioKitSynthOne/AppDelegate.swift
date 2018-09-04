@@ -46,19 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         // Prevent app from sleeping if never sleep is toggled on
         // Toggle back to sleep mode after 1 minutes
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
             UIApplication.shared.isIdleTimerDisabled = false
         }
-
+        
         UIApplication.shared.isIdleTimerDisabled = conductor.neverSleep
-    }
-
-    func toggleDontSleepOn() {
-        UIApplication.shared.isIdleTimerDisabled = true
-    }
-
-    func toggleDontSleepOff() {
-        UIApplication.shared.isIdleTimerDisabled = false
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

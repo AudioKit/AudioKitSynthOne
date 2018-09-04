@@ -17,7 +17,11 @@ typealias S1ControlCallback = (S1Parameter, S1Control?) -> ((_: Double) -> Void)
 
 class Conductor: S1Protocol {
     static var sharedInstance = Conductor()
-    var neverSleep = false
+    var neverSleep = false {
+        didSet {
+            UIApplication.shared.isIdleTimerDisabled = neverSleep
+        }
+    }
     var backgroundAudio = false
     var banks: [Bank] = []
     var synth: AKSynthOne!

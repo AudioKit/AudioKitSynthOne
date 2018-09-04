@@ -1956,7 +1956,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="LTK-sn-l0B.text">
         <source>Select a bank for the preset:</source>
         <note>Class = "UILabel"; text = "Select a bank for the preset:"; ObjectID = "LTK-sn-l0B";</note>
-        <target xml:lang="ja" state="translated">プリセットのバンクを選択する</target>
+        <target xml:lang="ja" state="translated">Preset Bank:</target>
+        <alt-trans>
+          <target xml:lang="ja">プリセットのバンクを選択する</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">プリセットのバンクを選択します。</target>
         </alt-trans>
@@ -1972,7 +1975,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="Pax-NO-iPl.text">
         <source>Rename the preset to save a new copy. Press "Save" to save the current preset. </source>
         <note>Class = "UILabel"; text = "Rename the preset to save a new copy. Press \"Save\" to save the current preset. "; ObjectID = "Pax-NO-iPl";</note>
-        <target xml:lang="ja" state="translated">新しいコピーを保存するなら、プリセット名を変更して下さい。このプリセットを保存したいなら、Saveを押して下さい。 </target>
+        <target xml:lang="ja" state="translated">新しいコピーを保存するなら、プリセット名を変更して下さい。 </target>
+        <alt-trans>
+          <target xml:lang="ja">新しいコピーを保存するなら、プリセット名を変更して下さい。このプリセットを保存したいなら、Saveを押して下さい。 </target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">プリセットの名前を変更して新しいコピーを保存します。 "Save"を押すと、現在のプリセットが保存されます。 </target>
         </alt-trans>

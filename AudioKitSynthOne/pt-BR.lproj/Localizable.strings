@@ -80,9 +80,6 @@
 "DCO 2: \(Int(value)) semitones" = "DCO 2: semitons \(Int(value))";
 
 /* Oscillator 1 & 2 Mix */
-"DCO Mix: \(Int(value))" = "DCO Mix: \(Int(value))";
-
-/* Oscillator 1 & 2 Mix */
 "DCO Mix: \(Int(value)) detune" = "DCO 2: \(Int(value)) desregular";
 
 /* LFO [low frequency oscillator] Decay */
@@ -282,7 +279,4 @@
 
 /* Alert Message: Allow notifications */
 "We'll send Free updates, sounds, and apps. Allow notifications!" = "Enviaremos atualizações, sons e aplicativos gratuitos. Permitir notificações!";
-
-/* Stereo Widen */
-"Widen: \(value.decimalString)" = "Widen: \(value.decimalString)";
 

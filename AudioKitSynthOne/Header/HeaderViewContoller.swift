@@ -285,7 +285,8 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("Tempo: \(value) BPM", comment: "Tempo (Beats Per Minute)")
             displayLabel.text = message
         case .widen:
-            let message = NSLocalizedString("Widen: \(value.decimalString)", comment: "Stereo Widen")
+            let stateDisplay = value == 1 ? "On" : "Off"
+            let message = NSLocalizedString("Stereo Widen: \(stateDisplay)", comment: "Stereo Widen")
             displayLabel.text = message
 
         // visible on dev panel only
@@ -343,7 +344,7 @@ public class HeaderViewController: UpdatableViewController {
                 displayLabel.text = "oscBandlimitIndexOverride: \(oblio)"
             }
         case .oscBandlimitEnable:
-            let obe = s.getSynthParameter(.oscBandlimitEnable) > 0 ? "ON" : "OFF"
+            let obe = s.getSynthParameter(.oscBandlimitEnable) > 0 ? "On" : "Off"
             displayLabel.text = "Anti-Aliasing: \(obe)"
 
         default:

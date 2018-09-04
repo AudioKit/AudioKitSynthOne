@@ -318,10 +318,13 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
           <target xml:lang="ja">Cutoff：\（s.getSynthParameter（.cutoff）.decimalString）Hz、Resonance：\（s.getSynthParameter（.resonance）.decimalString）</target>
         </alt-trans>
       </trans-unit>
-      <trans-unit id="DCO 1 Morph: \(value.decimalString)">
+      <trans-unit id="DCO 1 Morph: \(value.decimalString)" approved="yes">
         <source>DCO 1 Morph: \(value.decimalString)</source>
         <note>Oscillator 1 Waveform Morph Index</note>
-        <target xml:lang="ja" state="translated">DCO 1 Morph：\（value.decimalString）</target>
+        <target xml:lang="ja">DCO 1 Morph：\(value.decimalString)</target>
+        <alt-trans>
+          <target xml:lang="ja">DCO 1 Morph：\（value.decimalString）</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">DCO 1 Morph: \(value.decimalString)</target>
         </alt-trans>
@@ -343,6 +346,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>DCO 2 Morph: \(value.decimalString)</source>
         <note>Oscillator 2 Waveform Morph Index</note>
         <target xml:lang="ja" state="translated">DCO 2 Morph：\（value.decimalString）</target>
+        <alt-trans>
+          <target xml:lang="ja">DCO 2 Morph：\(value.decimalString)</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 2 Volume: \(value.percentageString)">
         <source>DCO 2 Volume: \(value.percentageString)</source>
@@ -1543,7 +1549,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="5Ie-DT-yvl.text">
         <source>Attack</source>
         <note>Class = "UILabel"; text = "Attack"; ObjectID = "5Ie-DT-yvl";</note>
-        <target xml:lang="ja" state="translated">アタック</target>
+        <target xml:lang="ja" state="translated">Attack</target>
+        <alt-trans>
+          <target xml:lang="ja">アタック</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">攻撃</target>
         </alt-trans>
@@ -1600,7 +1609,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="tyt-Qx-CmV.text">
         <source>Decay</source>
         <note>Class = "UILabel"; text = "Decay"; ObjectID = "tyt-Qx-CmV";</note>
-        <target xml:lang="ja" state="translated">ディケー</target>
+        <target xml:lang="ja" state="translated">Decay</target>
+        <alt-trans>
+          <target xml:lang="ja">ディケー</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">減衰</target>
         </alt-trans>
@@ -1925,7 +1937,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="4I7-1e-dMK.normalTitle">
         <source>New Preset</source>
         <note>Class = "UIButton"; normalTitle = "New Preset"; ObjectID = "4I7-1e-dMK";</note>
-        <target xml:lang="ja" state="translated">新しいプリセット</target>
+        <target xml:lang="ja" state="translated">Init</target>
+        <alt-trans>
+          <target xml:lang="ja">新しいプリセット</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="8dj-SF-Pxt.text">
         <source>SAVE / RENAME PRESET:</source>
@@ -1999,7 +2014,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="ZCE-zi-tsi.normalTitle">
         <source>Import Preset</source>
         <note>Class = "UIButton"; normalTitle = "Import Preset"; ObjectID = "ZCE-zi-tsi";</note>
-        <target xml:lang="ja" state="translated">プリセットをインポート</target>
+        <target xml:lang="ja" state="translated">Import Preset</target>
+        <alt-trans>
+          <target xml:lang="ja">プリセットをインポート</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="c61-bJ-zsz.normalTitle">
         <source>DONE EDITING</source>
@@ -2027,7 +2045,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="eGC-CV-RRm.normalTitle">
         <source>Import Bank</source>
         <note>Class = "UIButton"; normalTitle = "Import Bank"; ObjectID = "eGC-CV-RRm";</note>
-        <target xml:lang="ja" state="translated">バンクをインポート</target>
+        <target xml:lang="ja" state="translated">Import Bank</target>
+        <alt-trans>
+          <target xml:lang="ja">バンクをインポート</target>
+        </alt-trans>
         <alt-trans>
           <target xml:lang="ja">輸入銀行</target>
         </alt-trans>

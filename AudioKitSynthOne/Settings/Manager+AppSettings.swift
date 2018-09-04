@@ -18,6 +18,7 @@ extension Manager {
 
         // MIDI
         conductor.backgroundAudio = appSettings.backgroundAudio
+        conductor.neverSleep = appSettings.neverSleep 
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
 
@@ -95,6 +96,7 @@ extension Manager {
 
         // MIDI
         appSettings.backgroundAudio = conductor.backgroundAudio
+        appSettings.neverSleep = conductor.neverSleep
         appSettings.midiChannel = Int(midiChannelIn)
         appSettings.omniMode = omniMode
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)

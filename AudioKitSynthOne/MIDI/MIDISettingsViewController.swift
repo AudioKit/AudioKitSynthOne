@@ -15,6 +15,7 @@ protocol MIDISettingsPopOverDelegate: AnyObject {
     func storeTuningWithPresetDidChange(_ value: Bool)
     func didToggleBackgroundAudio(_ value: Bool)
     func didChangeMIDISources(_ midiSources: [MIDIInput])
+    func didToggleNeverSleep()
 }
 
 class MIDISettingsViewController: UIViewController {
@@ -110,8 +111,9 @@ class MIDISettingsViewController: UIViewController {
                 self.displayAlertController(title, message: message)
             } else {
                 self.conductor.neverSleep = false
-
             }
+            
+            self.delegate?.didToggleNeverSleep()
         }
 
         backgroundAudioToggle.callback = { value in

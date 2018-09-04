@@ -25,6 +25,7 @@ class AppSettings: Codable {
     var isPreRelease = false
     var signedMailingList = false
     var backgroundAudio = false
+    var neverSleep = false
     var midiChannel = 0
     var midiSources = ["AudioKit Synth One"]
     var omniMode = true
@@ -123,6 +124,7 @@ class AppSettings: Codable {
         isPreRelease = dictionary["isPreRelease"] as? Bool ?? isPreRelease
         signedMailingList = dictionary["signedMailingList"] as? Bool ?? signedMailingList
         backgroundAudio = dictionary["backgroundAudio"] as? Bool ?? backgroundAudio
+        neverSleep = dictionary["neverSleep"] as? Bool ?? neverSleep
         midiChannel = dictionary["midiChannel"] as? Int ?? midiChannel
         omniMode = dictionary["omniMode"] as? Bool ?? omniMode
         midiSources = dictionary["midiSources"] as? [String] ?? midiSources

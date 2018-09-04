@@ -1,3 +1,6 @@
+/* Number of milliseconds */
+"%.00f ms" = "%.00f ms";
+
 /* Alert Message:  MIDI Learn Reset */
 "All MIDI learn knob assignments have been removed." = "すべてのMIDI学習ノブの割り当てが削除されました。";
 
@@ -8,16 +11,16 @@
 "Almost done!" = "ほぼ完了！";
 
 /* Arpeggiator Off */
-"Arp/Sequencer Off" = "Arp /シーケンサーオフ";
+"Arp/Sequencer Off" = "Arp/シーケンサー・オフ";
 
 /* Arpeggiator On */
-"Arp/Sequencer On" = "Arp / Sequencer On";
+"Arp/Sequencer On" = "Arp/シーケンサー・オン";
 
 /* Arpeggiator Interval */
-"Arpeggiator Interval: \(Int(value))" = "アルペジエーターのインターバル：\（Int（value））";
+"Arpeggiator Interval: \(Int(value))" = "アルペジエーター・インターバル：\（Int（value））";
 
 /* Arpeggiator Mode On */
-"Arpeggiator Mode" = "アルペジエーターモード";
+"Arpeggiator Mode" = "アルペジエーター・モード";
 
 /* AutoPan Rate tempo-syncd */
 "AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "AutoPan Rate：\（Rate.fromFrequency（value））、\（value.decimalString）Hz";
@@ -26,10 +29,10 @@
 "AutoPan Rate: \(value.decimalString) Hz" = "オートパンレート：\（value.decimalString）Hz";
 
 /* AutoPan Amount/Strength */
-"AutoPan Strength: \(value.percentageString)" = "オートパンの強さ：\（value.percentageString）";
+"AutoPan Strength: \(value.percentageString)" = "オートパンの強度：\（value.percentageString）";
 
 /* Alert Message: Background Audio */
-"Background audio will drain the battery faster. Please turn off when not in use." = "バックグラウンドオーディオはバッテリーをより早く消耗します。使用していないときは電源を切ってください。";
+"Background audio will drain the battery faster. Please turn off when not in use." = "バックグラウンド・オーディオの使用により、バッテリーが早く消耗されます。使用していない時、電源を切ってください。";
 
 /* Band Pass Filter */
 "Band Pass" = "バンドパス";
@@ -41,25 +44,25 @@
 "Congratulations! 🎉" = "おめでとう！ 🎉";
 
 /* No comment provided by engineer. */
-"Couldn't configure the file writer" = "ファイルライターを構成できませんでした";
+"Couldn't configure the file writer" = "ファイル・ライターの構成が出来ませんでした";
 
 /* No comment provided by engineer. */
-"Couldn't open the output file" = "出力ファイルを開くことができませんでした";
+"Couldn't open the output file" = "出力ファイルを開くことが出来ませんでした";
 
 /* No comment provided by engineer. */
-"Couldn't prepare the output format (error %d/%4.4s)" = "（エラー出力形式を準備できませんでした %1$d/%2$.4s）";
+"Couldn't prepare the output format (error %d/%4.4s)" = "出力形式の準備が出来ませんでした（エラー： %1$d/%2$.4s）";
 
 /* LFO [low frequency oscillator] Cutoff */
 "Cutoff LFO ‣ \(lfoSource!)" = "カットオフLFO‣\（lfoSource！）";
 
 /* Filter Cutoff & Resonance */
-"Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "Cutoff：\（s.getSynthParameter（.cutoff）.decimalString）Hz、Resonance：\（s.getSynthParameter（.resonance）.decimalString）";
+"Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "カットオフ：\（s.getSynthParameter（.cutoff）.decimalString）Hz、Resonance：\（s.getSynthParameter（.resonance）.decimalString）";
 
 /* Oscillator 1 Waveform Morph Index */
 "DCO 1 Morph: \(value.decimalString)" = "DCO 1 Morph：\（value.decimalString）";
 
 /* Oscillator 1 Volume */
-"DCO 1 Volume: \(value.percentageString)" = "DCO 1ボリューム：\（value.percentageString）";
+"DCO 1 Volume: \(value.percentageString)" = "DCO 1 ボリューム：\（value.percentageString）";
 
 /* Oscillator 1 semitone offset */
 "DCO 1: \(Int(value)) semitones" = "DCO 1：\（Int（value））半音";
@@ -68,7 +71,7 @@
 "DCO 2 Morph: \(value.decimalString)" = "DCO 2 Morph：\（value.decimalString）";
 
 /* Oscillator 2 Volume */
-"DCO 2 Volume: \(value.percentageString)" = "DCO 2ボリューム：\（value.percentageString）";
+"DCO 2 Volume: \(value.percentageString)" = "DCO 2 ボリューム：\（value.percentageString）";
 
 /* Oscillator 2 detune */
 "DCO 2: \(Int(value)) detune" = "DCO 2：\（Int（value））detune";
@@ -86,7 +89,7 @@
 "Decay LFO ‣ \(lfoSource!)" = "ディケイLFO‣\（lfoSource！）";
 
 /* Delay Off */
-"Delay  Off" = "遅延オフ";
+"Delay  Off" = "Delay Off";
 
 /* Delay Feedback */
 "Delay Feedback/Taps: \(value.percentageString)" = "遅延フィードバック/タップ：\（value.percentageString）";
@@ -95,7 +98,7 @@
 "Delay Mix: \(value.percentageString)" = "遅延ミックス：\（value.percentageString）";
 
 /* Delay On */
-"Delay On" = "遅延オン";
+"Delay On" = "Delay On";
 
 /* Delay Time tempo-syncd */
 "Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s" = "遅延時間：\（Rate.fromTime（value））、\（value.decimalString）s";
@@ -116,10 +119,10 @@
 "Filter Env LFO ‣ \(lfoSource!)" = "Filter Env LFO‣\（lfoSource！）";
 
 /* Filter Envelope Amount */
-"Filter Envelope: \(value.percentageString)" = "フィルタエンベロープ：\（value.percentageString）";
+"Filter Envelope: \(value.percentageString)" = "フィルター・エンベロープ：\（value.percentageString）";
 
 /* Main Filter Type */
-"Filter Type: \(ftype)" = "フィルタタイプ： \(ftype)";
+"Filter Type: \(ftype)" = "フィルター・タイプ： \(ftype)";
 
 /* LFO [low frequency oscillator] FM Modulation */
 "FM LFO ‣ \(lfoSource!)" = "FM LFO‣\（lfoSource！）";
@@ -155,7 +158,7 @@
 "LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1：\（s.getSynthParameter（.lfo1Rate）））、LFO1 Amp：";
 
 /* LFO [low frequency oscillator] Amplitude & Rate */
-"LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1レート：\（s.getSynthParameter（.lfo1Rate）.decimalString）Hz、LFO1アンプ：\（s.getSynthParameter（.lfo1Amplitude）.percentageString）";
+"LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1レート：\（s.getSynthParameter（.lfo1Rate）.decimalString）Hz、LFO1 Amp：\（s.getSynthParameter（.lfo1Amplitude）.percentageString）";
 
 /* Low Pass Filter */
 "Low Pass" = "ローパス";
@@ -173,19 +176,19 @@
 "MIDI Learn Reset" = "MIDI学習リセット";
 
 /* MIDI Learn Instructions */
-"MIDI Learn: Touch a knob to assign" = "MIDI学習：ノブをタッチして";
+"MIDI Learn: Touch a knob to assign" = "MIDI学習：ノブをタッチして割当てる";
 
 /* Alert Message: Too High */
-"MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉" = "MIDIノート > 127. G8は再生可能な最高の鍵です。それをノッチダウン😉";
+"MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉" = "MIDIノート ＞ 127. G8は再生可能な最高のキーです。それを１ノッチ下げて下さい😉";
 
 /* Alert Title: MIDI Panic */
-"Midi Panic" = "ミディパニック";
+"Midi Panic" = "ミディ・パニック";
 
 /* LFO [low frequency oscillator] Noise */
 "Noise LFO ‣ \(lfoSource!)" = "ノイズLFO‣\（lfoSource！）";
 
 /* Noise Volume */
-"Noise Volume: \((value * 4).percentageString)" = "ノイズ量：\（（値* 4）.percentageString）";
+"Noise Volume: \((value * 4).percentageString)" = "ノイズ量：\（（value* 4）.percentageString）";
 
 /* Alert Title: Duplicate Bank Name */
 "Notice" = "通知";
@@ -197,16 +200,16 @@
 "Osc Mix LFO ‣ \(lfoSource!)" = "Osc Mix LFO‣\（lfoSource！）";
 
 /* TouchPad Panel Abbreviation */
-"PAD" = "パッド";
+"PAD" = "Pad";
 
 /* Phaser Feedback */
-"Phaser Feedback: \(value.decimalString)" = "フェイザーフィードバック：\（value.decimalString）";
+"Phaser Feedback: \(value.decimalString)" = "フェイザー・フィードバック：\（value.decimalString）";
 
 /* Phaser Mix */
-"Phaser Mix: \(value.decimalString)" = "フェイザーミックス：\（value.decimalString）";
+"Phaser Mix: \(value.decimalString)" = "フェイザー・ミックス：\（value.decimalString）";
 
 /* Phaser Notch Width */
-"Phaser Notch Width: \(value.decimalString)" = "フェイザーノッチ幅：\（value.decimalString）";
+"Phaser Notch Width: \(value.decimalString)" = "フェイザー・ノッチ幅：\（value.decimalString）";
 
 /* Phaser Rate */
 "Phaser Rate: \(value.decimalString)" = "フェイザーレート：\（value.decimalString）";
@@ -218,34 +221,34 @@
 "Resonance LFO ‣ \(lfoSource!)" = "レゾナンスLFO‣\（lfoSource！）";
 
 /* Reverb Low-cut/Highpass */
-"Reverb Low-cut: \(value.decimalString) Hz" = "リバーブローカット：\（value.decimalString）Hz";
+"Reverb Low-cut: \(value.decimalString) Hz" = "リバーブ・ローカット：\（value.decimalString）Hz";
 
 /* LFO [low frequency oscillator] Reverb Mix */
-"Reverb Mix LFO ‣ \(lfoSource!)" = "リバーブミックスLFO‣\（lfoSource！）";
+"Reverb Mix LFO ‣ \(lfoSource!)" = "リバーブ・ミックスLFO‣\（lfoSource！）";
 
 /* Reverb Mix */
-"Reverb Mix: \(value.percentageString)" = "リバーブミックス：\（value.percentageString）";
+"Reverb Mix: \(value.percentageString)" = "リバーブ・ミックス：\（value.percentageString）";
 
 /* Reverb Off */
-"Reverb Off" = "リバーブオフ";
+"Reverb Off" = "リバーブ・オフ";
 
 /* Reverb On */
-"Reverb On" = "リバーブオン";
+"Reverb On" = "リバーブ・オン";
 
 /* Reverb Size */
-"Reverb Size: \(value.percentageString)" = "リバーブサイズ：\（value.percentageString）";
+"Reverb Size: \(value.percentageString)" = "リバーブ・サイズ：\（value.percentageString）";
 
 /* Bitcrush Sample Rate */
-"Sample Rate: \(Int(value)) Hz" = "サンプルレート：\（Int（value））Hz";
+"Sample Rate: \(Int(value)) Hz" = "サンプル・レート：\（Int（value））Hz";
 
 /* Arp/Sequencer Panel Abbreviation */
 "SEQ" = "SEQ";
 
 /* Sequencer Mode On */
-"Sequencer Mode" = "シーケンサーモード";
+"Sequencer Mode" = "シーケンサー・モード";
 
 /* Alert Title: Allow notifications */
-"Stay informed!" = "情報に気をつけろ！";
+"Stay informed!" = "最新情報を常にゲット！";
 
 /* Sub Oscillator Volume */
 "Sub Osc Volume: \(value.decimalString)" = "サブOscボリューム：\（value.decimalString）";
@@ -254,32 +257,29 @@
 "Tempo: \(value) BPM" = "テンポ： \(value) BPM";
 
 /* Alert Title: Rate App */
-"Thank you" = "ありがとうございました";
+"Thank you" = "ありがとうございました！";
 
 /* Alert Message: Duplicate Bank Name */
-"There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly." = "すでに名前が「\(bankName)」の銀行があります。物事をスムーズに保つために、その名前を変更してください。";
+"There is already a bank with the name '\(bankName)'. Please rename one of them to keep things working smoothly." = "バンク名「\(bankName)」が既に使われています。アプリをスムーズに起動出来るように、一つの名前を変更してください。";
 
 /* Alert Message: Rate App */
-"This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome." = "これはボランティアによって構築された無料アプリです。我々はより多くのアプリを作ることができるように素晴らしい評価で助けてください！素晴らしいことに感謝します。";
+"This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome." = "このアプリは、ボランティアによって構築された無料アプリです。これからもアプリを造りつづけられるように、良い評価で応援してあげて下さい！素晴らしい評価に予め感謝します。";
 
 /* Alert Message: Allows On Mode */
-"This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster" = "このモードはライブ演奏に最適です。バックグラウンドの音声もそのまま残ります。注：これはより多くの電力を使用し、バッテリーをより早く消耗させる可能性があります";
+"This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster" = "このモードはライブ演奏に最適です。バックグラウンド音声もそのまま残ります。注：この場合には、より多くの電力を使用し、バッテリーをより早く消耗させる恐れがあります";
 
 /* Alert Title: Too High */
-"Too High" = "高すぎる";
+"Too High" = "高すぎます。";
 
 /* LFO [low frequency oscillator] Tremolo */
 "Tremolo LFO ‣ \(lfoSource!)" = "トレモロLFO‣\（lfoSource！）";
 
 /* Tuning Panel Abbreviation */
-"TUNE" = "曲";
+"TUNE" = "TUNE";
 
 /* MIDI Learn Instructions */
-"Twist knob on your MIDI Controller" = "MIDIコントローラーのツイストノブ";
+"Twist knob on your MIDI Controller" = "MIDIコントローラーのノブを回して下さい。";
 
 /* Alert Message: Allow notifications */
-"We'll send Free updates, sounds, and apps. Allow notifications!" = "無料のアップデート、サウンド、アプリを送信します。通知を許可する！";
-
-/* Stereo Widen */
-"Widen: \(value.decimalString)" = "Widen：\（value.decimalString）";
+"We'll send Free updates, sounds, and apps. Allow notifications!" = "無料アップデート、サウンド、アプリ情報を送信します。通知を許可して下さい！";
 

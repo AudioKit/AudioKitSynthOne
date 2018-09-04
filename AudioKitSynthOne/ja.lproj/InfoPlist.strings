@@ -1,9 +1,9 @@
 /* Bundle display name */
-"CFBundleDisplayName" = "Synth One";
+"CFBundleDisplayName" = "シンセ1";
 
 /* Bundle name */
 "CFBundleName" = "$(PRODUCT_NAME)";
 
 /* Privacy - Camera Usage Description */
-"NSCameraUsageDescription" = "$(PRODUCT_NAME) camera use.";
+"NSCameraUsageDescription" = "$(PRODUCT_NAME) カメラの使用。";
 

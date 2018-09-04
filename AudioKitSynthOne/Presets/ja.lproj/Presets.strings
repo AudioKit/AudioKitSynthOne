@@ -5,13 +5,13 @@
 "4I7-1e-dMK.normalTitle" = "新しいプリセット";
 
 /* Class = "UILabel"; text = "SAVE / RENAME PRESET:"; ObjectID = "8dj-SF-Pxt"; */
-"8dj-SF-Pxt.text" = "SAVE / RENAME PRESET：";
+"8dj-SF-Pxt.text" = "プリセット保存又は名の変更";
 
 /* Class = "UITextView"; text = "Preset Description Here"; ObjectID = "8tM-pA-eD2"; */
-"8tM-pA-eD2.text" = "プリセットの説明はこちら";
+"8tM-pA-eD2.text" = "プリセットの詳細はこちら";
 
 /* Class = "UIButton"; normalTitle = "DONE EDITING"; ObjectID = "c61-bJ-zsz"; */
-"c61-bJ-zsz.normalTitle" = "編集が完了しました";
+"c61-bJ-zsz.normalTitle" = "編集が完了";
 
 /* Class = "UIButton"; normalTitle = "+"; ObjectID = "cs5-5n-k8U"; */
 "cs5-5n-k8U.normalTitle" = "+";
@@ -23,10 +23,10 @@
 "dvq-vN-oxQ.normalTitle" = "キャンセル";
 
 /* Class = "UIButton"; normalTitle = "Import Bank"; ObjectID = "eGC-CV-RRm"; */
-"eGC-CV-RRm.normalTitle" = "輸入銀行";
+"eGC-CV-RRm.normalTitle" = "バンクをインポート";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "eI7-vK-ARE"; */
-"eI7-vK-ARE.normalTitle" = "セーブ";
+"eI7-vK-ARE.normalTitle" = "保存";
 
 /* Class = "UILabel"; text = "RENAME BANK:"; ObjectID = "EyQ-H5-8Yr"; */
 "EyQ-H5-8Yr.text" = "RENAME BANK：";
@@ -35,22 +35,22 @@
 "Jut-wm-dt0.text" = "カテゴリー";
 
 /* Class = "UILabel"; text = "Select a bank for the preset:"; ObjectID = "LTK-sn-l0B"; */
-"LTK-sn-l0B.text" = "プリセットのバンクを選択します。";
+"LTK-sn-l0B.text" = "プリセットのバンクを選択する";
 
 /* Class = "UILabel"; text = "Pad"; ObjectID = "M5g-gJ-LgP"; */
-"M5g-gJ-LgP.text" = "パッド";
+"M5g-gJ-LgP.text" = "Pad";
 
 /* Class = "UILabel"; text = "SYNTH ONE PRESETS"; ObjectID = "mZQ-N0-bdr"; */
-"mZQ-N0-bdr.text" = "1つのプリセットの合成";
+"mZQ-N0-bdr.text" = "SYNTH ONEのプリセット";
 
 /* Class = "UILabel"; text = "Rename the preset to save a new copy. Press \"Save\" to save the current preset. "; ObjectID = "Pax-NO-iPl"; */
-"Pax-NO-iPl.text" = "プリセットの名前を変更して新しいコピーを保存します。 "Save"を押すと、現在のプリセットが保存されます。 ";
+"Pax-NO-iPl.text" = "新しいコピーを保存するなら、プリセット名を変更して下さい。このプリセットを保存したいなら、Saveを押して下さい。 ";
 
 /* Class = "UIButton"; normalTitle = "Delete Bank"; ObjectID = "Qv6-hQ-4wE"; */
-"Qv6-hQ-4wE.normalTitle" = "銀行を削除する";
+"Qv6-hQ-4wE.normalTitle" = "バンクを削除する";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "rSO-zc-3Ba"; */
-"rSO-zc-3Ba.normalTitle" = "セーブ";
+"rSO-zc-3Ba.normalTitle" = "保存";
 
 /* Class = "UILabel"; text = "Category:"; ObjectID = "uLS-HA-DTu"; */
 "uLS-HA-DTu.text" = "カテゴリー：";
@@ -62,7 +62,7 @@
 "VL7-Y3-hxn.normalTitle" = "プリセットを保存";
 
 /* Class = "UILabel"; text = "Free & open-source synthesizer. Browse presets & banks below. "; ObjectID = "xCe-zx-CAI"; */
-"xCe-zx-CAI.text" = "無料 & オープンソース・シンセサイザー。プリセット & バンクを下に表示します。 ";
+"xCe-zx-CAI.text" = "無料 でオープンソース・シンセサイザー。プリセットとバンクが下に表示されます。 ";
 
 /* Class = "UIButton"; normalTitle = "Import Preset"; ObjectID = "ZCE-zi-tsi"; */
 "ZCE-zi-tsi.normalTitle" = "プリセットをインポート";

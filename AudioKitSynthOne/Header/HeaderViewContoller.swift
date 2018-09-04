@@ -98,10 +98,10 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("DCO 2: \(Int(value)) semitones", comment: "Oscillator 2 semitone offset")
             displayLabel.text = message
         case .morph2Detuning:
-            let message = NSLocalizedString("DCO 2: \(Int(value)) detune", comment: "Oscillator 2 detune")
+            let message = NSLocalizedString("DCO 2: \(value.decimalString) detune", comment: "Oscillator 2 detune")
             displayLabel.text = message
         case .morphBalance:
-            let message = NSLocalizedString("DCO Mix: \(Int(value))", comment: "Oscillator 1 & 2 Mix")
+            let message = NSLocalizedString("DCO Mix: \(value.decimalString)", comment: "Oscillator 1 & 2 Mix")
             displayLabel.text = message
         case .morph1Volume:
             let message = NSLocalizedString("DCO 1 Volume: \(value.percentageString)", comment: "Oscillator 1 Volume")

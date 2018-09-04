@@ -14,7 +14,7 @@
 "39J-5A-Jtm.normalTitle" = "Hold";
 
 /* Class = "UILabel"; text = "Octave:"; ObjectID = "ACV-Ri-7nN"; */
-"ACV-Ri-7nN.text" = "Octave";
+"ACV-Ri-7nN.text" = "Octave:";
 
 /* Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[0] = "1"; ObjectID = "Ai9-6v-51K"; */
 "Ai9-6v-51K.segmentTitles[0]" = "1";
@@ -44,7 +44,7 @@
 "hNP-KG-OgZ.normalTitle" = "完了";
 
 /* Class = "UILabel"; text = "Octave Range:"; ObjectID = "icQ-Ei-YHr"; Note = "Octaves displayed in keyboard"; */
-"icQ-Ei-YHr.text" = "オクターブ・レンジ：";
+"icQ-Ei-YHr.text" = "Octave Range:";
 
 /* Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[0] = "Cutoff"; ObjectID = "iLo-Gv-XoX"; */
 "iLo-Gv-XoX.segmentTitles[0]" = "Cutoff";
@@ -116,7 +116,7 @@
 "UeB-Ec-gRc.text" = "アプリは常時オン/スリープしない：";
 
 /* Class = "UILabel"; text = "MIDI Learn Knobs:"; ObjectID = "VLa-3E-3Kt"; */
-"VLa-3E-3Kt.text" = "MIDI学習ノブ：";
+"VLa-3E-3Kt.text" = "MIDI Learn:";
 
 /* Class = "UIButton"; normalTitle = "MIDI Learn"; ObjectID = "VNg-MV-vHn"; Note = "Midi Learn button (keep this text as short as possible)"; */
 "VNg-MV-vHn.normalTitle" = "MIDI Learn";

@@ -59,7 +59,7 @@
 "Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "カットオフ：\（s.getSynthParameter（.cutoff）.decimalString）Hz、Resonance：\（s.getSynthParameter（.resonance）.decimalString）";
 
 /* Oscillator 1 Waveform Morph Index */
-"DCO 1 Morph: \(value.decimalString)" = "DCO 1 Morph：\（value.decimalString）";
+"DCO 1 Morph: \(value.decimalString)" = "DCO 1 Morph：\(value.decimalString)";
 
 /* Oscillator 1 Volume */
 "DCO 1 Volume: \(value.percentageString)" = "DCO 1 ボリューム：\（value.percentageString）";
@@ -78,9 +78,6 @@
 
 /* Oscillator 2 semitone offset */
 "DCO 2: \(Int(value)) semitones" = "DCO 2：\（Int（value））半音";
-
-/* Oscillator 1 & 2 Mix */
-"DCO Mix: \(Int(value))" = "DCOミックス：\（Int（value））";
 
 /* Oscillator 1 & 2 Mix */
 "DCO Mix: \(Int(value)) detune" = "DCOミックス：\（Int（value））detune";
@@ -164,7 +161,7 @@
 "Low Pass" = "ローパス";
 
 /* Main Panel Abbreviation */
-"MAIN" = "メイン";
+"MAIN" = "MAIN";
 
 /* Master Volume */
 "Master Volume: \(value.percentageString)" = "マスターボリューム：\（value.percentageString）";
@@ -176,7 +173,7 @@
 "MIDI Learn Reset" = "MIDI学習リセット";
 
 /* MIDI Learn Instructions */
-"MIDI Learn: Touch a knob to assign" = "MIDI学習：ノブをタッチして割当てる";
+"MIDI Learn: Touch a knob to assign" = "ノブをタッチして割当てる";
 
 /* Alert Message: Too High */
 "MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉" = "MIDIノート ＞ 127. G8は再生可能な最高のキーです。それを１ノッチ下げて下さい😉";

@@ -75,3 +75,28 @@ class KeyboardSettingsViewController: UIViewController {
 
     }
 }
+
+/**
+Accessibility Functions
+*/
+extension KeyboardSettingsViewController {
+	
+	private func setOctaveRangeSegmentAccessibility() {
+		octaveRangeSegment.subviews[0].accessibilityLabel = "1"
+		octaveRangeSegment.subviews[1].accessibilityLabel = "2"
+		octaveRangeSegment.subviews[1].accessibilityLabel = "3"
+	}
+	
+	private func setLabelModeSegment() {
+		labelModeSegment.subviews[0].accessibilityLabel = "None"
+		labelModeSegment.subviews[1].accessibilityLabel = "C"
+		labelModeSegment.subviews[2].accessibilityLabel = "All"
+		
+	}
+	
+	private func setKeyboardModeSegment() {
+		keyboardModeSegment.subviews[0].accessibilityLabel = "White"
+		keyboardModeSegment.subviews[1].accessibilityLabel = "Black"
+	}
+	
+}

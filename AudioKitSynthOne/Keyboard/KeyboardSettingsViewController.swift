@@ -31,6 +31,8 @@ class KeyboardSettingsViewController: UIViewController {
         octaveRangeSegment.selectedSegmentIndex = octaveRange - 1
         labelModeSegment.selectedSegmentIndex = labelMode
         keyboardModeSegment.selectedSegmentIndex = darkMode ? 1 : 0
+		
+		setupAccessibility()
 
     }
 
@@ -80,6 +82,14 @@ class KeyboardSettingsViewController: UIViewController {
 Accessibility Functions
 */
 extension KeyboardSettingsViewController {
+	
+	
+	private func setupAccessibility() {
+		setOctaveRangeSegmentAccessibility()
+		setLabelModeSegment()
+		setKeyboardModeSegment()
+	}
+	
 	
 	private func setOctaveRangeSegmentAccessibility() {
 		octaveRangeSegment.subviews[0].accessibilityLabel = "1"

@@ -40,6 +40,8 @@ class WheelSettingsViewController: UIViewController {
         pitchLowerRange.minValue = s.getMinimum(.pitchbendMinSemitones)
         pitchLowerRange.value = s.getSynthParameter(.pitchbendMinSemitones)
         c.bind(pitchLowerRange, to: .pitchbendMinSemitones)
+		
+		setModWheelSegmentAccessibiliyLabels()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -60,4 +62,19 @@ class WheelSettingsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+}
+
+
+/**
+Accessibility Functions
+*/
+extension WheelSettingsViewController {
+	
+	private func setModWheelSegmentAccessibiliyLabels() {
+		modWheelSegment.subviews[0].accessibilityLabel = "Cutoff"
+		modWheelSegment.subviews[1].accessibilityLabel = "L F O 1"
+		modWheelSegment.subviews[1].accessibilityLabel = "L F O 2"
+	}
+	
+	
 }

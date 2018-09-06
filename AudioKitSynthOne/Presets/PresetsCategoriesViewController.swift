@@ -129,6 +129,9 @@ extension PresetsCategoriesViewController: UITableViewDataSource {
             // Cell updated in CategoryCell.swift
             cell.delegate = self
             cell.configureCell(category: category)
+			
+			cell.accessibilityLabel = category.replacingOccurrences(of: "⌾ ", with: "")
+			
             return cell
 
         } else {

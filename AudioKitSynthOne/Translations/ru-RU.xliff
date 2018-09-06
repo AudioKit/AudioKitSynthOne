@@ -42,7 +42,10 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
       <trans-unit id="A1r-GN-8if.text">
         <source>MORE AUDIOKIT APPS</source>
         <note>Class = "UILabel"; text = "MORE AUDIOKIT APPS"; ObjectID = "A1r-GN-8if";</note>
-        <target xml:lang="ru" state="translated">БОЛЬШЕ AUDIOKIT APPS</target>
+        <target xml:lang="ru" state="translated">БОЛЬШЕ ПРИЛОЖЕНИЙ AUDIOKIT</target>
+        <alt-trans>
+          <target xml:lang="ru">БОЛЬШЕ AUDIOKIT APPS</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="F4n-VN-XPq.text">
         <source>Learn from these code examples</source>
@@ -58,7 +61,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
         <source>Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
 Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </source>
         <note>Class = "UITextView"; text = "Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. \nPerfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. "; ObjectID = "IAn-lv-O7m";</note>
-        <target xml:lang="ru" state="translated">Превосходный бесплатный iPad-инструмент, вдохновленный DX7 &amp; DX7II. Идеально подходит для MIDI-клавиатуры. Красиво звучащие многослойные сэмплы электро-пианино, колоколов, басов, клавиш и звуков 80-х. </target>
+        <target xml:lang="ru" state="translated">Превосходный бесплатный iPad-инструмент, вдохновленный DX7 и DX7II. Идеально подходит для MIDI-клавиатуры. Красиво звучащие многослойные сэмплы электро-пианино, колоколов, басов, клавиш и звуков 80-х. </target>
         <alt-trans>
           <target xml:lang="ru">Превосходный бесплатный iPad-инструмент, вдохновленный DX7 &amp; DX7II. Идеально подходит для MIDI-клавиатуры. Красивые звучащие многослойные образцы электрических пианино, колоколов, басов, клавиш и 80-х звуков. </target>
         </alt-trans>
@@ -115,7 +118,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="oBP-Wz-rvL.normalTitle">
         <source>Get FREE in App Store!</source>
         <note>Class = "UIButton"; normalTitle = "Get FREE in App Store!"; ObjectID = "oBP-Wz-rvL";</note>
-        <target xml:lang="ru" state="translated">БЕСПЛАТНО в магазине приложений!</target>
+        <target xml:lang="ru" state="translated">Скачать бесплатно в App Store!</target>
+        <alt-trans>
+          <target xml:lang="ru">БЕСПЛАТНО в магазине приложений!</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="rad-NL-GFv.text">
         <source>VIDEO</source>
@@ -147,7 +153,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="FJY-lQ-hbA.text">
         <source>SETUP: Step 1 of 1</source>
         <note>Class = "UILabel"; text = "SETUP: Step 1 of 1"; ObjectID = "FJY-lQ-hbA";</note>
-        <target xml:lang="ru" state="translated">SETUP: Шаг 1 из 1</target>
+        <target xml:lang="ru" state="translated">УСТАНОВКА: Шаг 1 из 1</target>
+        <alt-trans>
+          <target xml:lang="ru">SETUP: Шаг 1 из 1</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="sAM-3i-F3Z.placeholder">
         <source>you@email.com</source>

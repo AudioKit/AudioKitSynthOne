@@ -1190,7 +1190,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="NSCameraUsageDescription">
         <source>$(PRODUCT_NAME) camera use.</source>
         <note>Privacy - Camera Usage Description</note>
-        <target xml:lang="ru" state="translated">$(PRODUCT_NAME) камера использование.</target>
+        <target xml:lang="ru" state="translated">$(PRODUCT_NAME) использование камеры.</target>
+        <alt-trans>
+          <target xml:lang="ru">$(PRODUCT_NAME) камера использование.</target>
+        </alt-trans>
       </trans-unit>
     </body>
   </file>
@@ -1212,22 +1215,34 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="9Ne-rF-Cd5.text">
         <source>Sustain</source>
         <note>Class = "UILabel"; text = "Sustain"; ObjectID = "9Ne-rF-Cd5";</note>
-        <target xml:lang="ru" state="translated">поддерживать</target>
+        <target xml:lang="ru" state="translated">Поддержка</target>
+        <alt-trans>
+          <target xml:lang="ru">поддерживать</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="NPM-Ga-czS.text">
         <source>Sustain</source>
         <note>Class = "UILabel"; text = "Sustain"; ObjectID = "NPM-Ga-czS";</note>
-        <target xml:lang="ru" state="translated">поддерживать</target>
+        <target xml:lang="ru" state="translated">Поддержка</target>
+        <alt-trans>
+          <target xml:lang="ru">поддерживать</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="QwS-x7-Tqo.text">
         <source>Decay</source>
         <note>Class = "UILabel"; text = "Decay"; ObjectID = "QwS-x7-Tqo";</note>
-        <target xml:lang="ru" state="translated">распадаться</target>
+        <target xml:lang="ru" state="translated">Спад</target>
+        <alt-trans>
+          <target xml:lang="ru">распадаться</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="TwY-KM-KRE.text">
         <source>Release</source>
         <note>Class = "UILabel"; text = "Release"; ObjectID = "TwY-KM-KRE";</note>
-        <target xml:lang="ru" state="translated">Выпуск</target>
+        <target xml:lang="ru" state="translated">Затухание</target>
+        <alt-trans>
+          <target xml:lang="ru">Выпуск</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="jpD-fo-QNO.text">
         <source>Amplitude Envelope</source>
@@ -1237,7 +1252,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="tyt-Qx-CmV.text">
         <source>Decay</source>
         <note>Class = "UILabel"; text = "Decay"; ObjectID = "tyt-Qx-CmV";</note>
-        <target xml:lang="ru" state="translated">распадаться</target>
+        <target xml:lang="ru" state="translated">Спад</target>
+        <alt-trans>
+          <target xml:lang="ru">распадаться</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="u2H-uf-fdc.text">
         <source>Filter Envelope</source>
@@ -1247,7 +1265,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="yjc-MW-jcO.text">
         <source>Release</source>
         <note>Class = "UILabel"; text = "Release"; ObjectID = "yjc-MW-jcO";</note>
-        <target xml:lang="ru" state="translated">Выпуск</target>
+        <target xml:lang="ru" state="translated">Затухание</target>
+        <alt-trans>
+          <target xml:lang="ru">Выпуск</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="yuw-Hz-d5o.text">
         <source>Env Amt</source>

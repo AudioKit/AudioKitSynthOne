@@ -1247,7 +1247,13 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="jpD-fo-QNO.text">
         <source>Amplitude Envelope</source>
         <note>Class = "UILabel"; text = "Amplitude Envelope"; ObjectID = "jpD-fo-QNO";</note>
-        <target xml:lang="ru" state="translated">Амплитудная конверт</target>
+        <target xml:lang="ru" state="translated">Амплитуда огибающей</target>
+        <alt-trans>
+          <target xml:lang="ru">Амплитудная огибающая</target>
+        </alt-trans>
+        <alt-trans>
+          <target xml:lang="ru">Амплитудная конверт</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="tyt-Qx-CmV.text">
         <source>Decay</source>
@@ -1260,7 +1266,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="u2H-uf-fdc.text">
         <source>Filter Envelope</source>
         <note>Class = "UILabel"; text = "Filter Envelope"; ObjectID = "u2H-uf-fdc";</note>
-        <target xml:lang="ru" state="translated">Фильтр-конверт</target>
+        <target xml:lang="ru" state="translated">Фильтр огибающей</target>
+        <alt-trans>
+          <target xml:lang="ru">Фильтр-конверт</target>
+        </alt-trans>
       </trans-unit>
       <trans-unit id="yjc-MW-jcO.text">
         <source>Release</source>

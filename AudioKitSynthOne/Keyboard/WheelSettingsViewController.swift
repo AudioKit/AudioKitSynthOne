@@ -40,6 +40,11 @@ class WheelSettingsViewController: UIViewController {
         pitchLowerRange.minValue = s.getMinimum(.pitchbendMinSemitones)
         pitchLowerRange.value = s.getSynthParameter(.pitchbendMinSemitones)
         c.bind(pitchLowerRange, to: .pitchbendMinSemitones)
+		
+		modWheelSegment.subviews[0].accessibilityLabel = NSLocalizedString("Cutoff", comment: "Cutoff")
+		modWheelSegment.subviews[0].accessibilityLabel = NSLocalizedString("L F O 1", comment: "LFO 1")
+		modWheelSegment.subviews[0].accessibilityLabel = NSLocalizedString("L F O 2", comment: "LFO 2")
+		
     }
 
     override func viewDidAppear(_ animated: Bool) {

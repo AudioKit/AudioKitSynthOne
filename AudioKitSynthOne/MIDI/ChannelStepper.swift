@@ -15,6 +15,7 @@ class ChannelStepper: Stepper {
 
     override func draw(_ rect: CGRect) {
         let displayText = (value == 0) ? "∞" : String(Int(value))
+		accessibilityValue = (value == 0 ? NSLocalizedString("Omni", comment: "Omni") : String(Int(value)))
         StepperStyleKit.drawStepper(valuePressed: valuePressed, text: displayText)
     }
 

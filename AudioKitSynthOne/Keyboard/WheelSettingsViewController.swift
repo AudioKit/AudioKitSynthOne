@@ -41,9 +41,9 @@ class WheelSettingsViewController: UIViewController {
         pitchLowerRange.value = s.getSynthParameter(.pitchbendMinSemitones)
         c.bind(pitchLowerRange, to: .pitchbendMinSemitones)
 		
-		modWheelSegment.subviews[0].accessibilityLabel = NSLocalizedString("Cutoff", comment: "Cutoff")
-		modWheelSegment.subviews[0].accessibilityLabel = NSLocalizedString("L F O 1", comment: "LFO 1")
-		modWheelSegment.subviews[0].accessibilityLabel = NSLocalizedString("L F O 2", comment: "LFO 2")
+		modWheelSegment.subviews[0].accessibilityLabel = NSLocalizedString("Cut-off", comment: "Cutoff (Word is hyphenated for proper VoiceOver pronunciation.  Do not consider for localization.)")
+		modWheelSegment.subviews[1].accessibilityLabel = NSLocalizedString("L F O 1", comment: "LFO 1 (Word is seperated for proper VoiceOver pronunciation.  Do not consider for localization.)")
+		modWheelSegment.subviews[2].accessibilityLabel = NSLocalizedString("L F O 2", comment: "LFO 2 (Word is seperated for proper VoiceOver pronunciation.  Do not consider for localization.)")
 		
     }
 

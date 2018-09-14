@@ -37,13 +37,13 @@ class Preset: Codable {
     var vco1Semitone = 0.0 // VCO1 Semitones
     var vco2Semitone = 0.0 // VCO2 Semitones
     var vco2Detuning = 0.0 // VCO2 Detune (Hz)
-    var vcoBalance = 0.5 // VCO1/VCO2 Mix
+    var vcoBalance = 0.0 // VCO1/VCO2 Mix
     var subVolume = 0.0 // SubOsc Mix
     var fmVolume = 0.0 // FM Mix
     var fmAmount = 0.0 // FM Modulation
     var noiseVolume = 0.0 // Noise Mix
 
-    var cutoff = 2_000.0 // Cutoff Knob Position
+    var cutoff = 4_000.0 // Cutoff Knob Position
     var resonance = 0.1 // Filter Q/Rez
     var filterType = 0.0 // 0 = lopass, 1=bandpass, 2=hipassh.s
     var delayTime = 0.5 // Delay (seconds)
@@ -154,7 +154,7 @@ class Preset: Codable {
 
     // bandlimiting
     var oscBandlimitIndexOverride = -1.0
-    var oscBandlimitEnable = 0.0
+    var oscBandlimitEnable = 1.0
 
     // tuning
     var frequencyA4 = 440.0

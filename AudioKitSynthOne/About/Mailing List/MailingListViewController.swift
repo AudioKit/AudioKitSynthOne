@@ -36,7 +36,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         // add notification for when keyboard appears
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardWasShown(notification:)),
-                                               name: NSNotification.Name.UIKeyboardWillChangeFrame,
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
                                                object: nil)
 
         // MailChimp API Key
@@ -152,7 +152,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
             "We hope you enjoy it & tell other musicians! 😎", comment: "Alert Message: Presets Added")
         let alert = UIAlertController(title: title,
                                       message: message,
-                                      preferredStyle: UIAlertControllerStyle.alert)
+                                      preferredStyle: UIAlertController.Style.alert)
         let action = UIAlertAction(title: "Thanks!", style: .default) { _ in
 
             self.dismiss(animated: true, completion: nil)

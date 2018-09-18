@@ -65,7 +65,7 @@ public class StepperStyleKit: NSObject {
             .font: UIFont(name: "AvenirNextCondensed-Regular", size: UIFont.systemFontSize)!,
             .foregroundColor: textColor,
             .paragraphStyle: backgroundStyle
-        ] as [NSAttributedStringKey: Any]
+        ] as [NSAttributedString.Key: Any]
 
         let backgroundTextHeight: CGFloat = text.boundingRect(with: CGSize(width: backgroundRect.width,
                                                                            height: CGFloat.infinity),

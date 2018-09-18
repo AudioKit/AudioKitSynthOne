@@ -63,7 +63,7 @@ extension Manager {
 
     func add(asChildViewController viewController: UIViewController, isTopContainer: Bool = true) {
         // Add Child View Controller
-        addChildViewController(viewController)
+        addChild(viewController)
 
         // Add Child View as Subview
         if isTopContainer {
@@ -75,7 +75,7 @@ extension Manager {
         }
 
         viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
     }
 
     func displayPresetsController() {

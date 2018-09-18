@@ -267,7 +267,7 @@ private extension String {
         let labelSize = self.size(withAttributes: [.font: font, .strokeColor: color])
         let centeredAvgP = CGPoint(x: point.x - labelSize.width / 2.0, y: point.y - labelSize.height / 2.0)
 
-        var attributes = [NSAttributedStringKey: Any]()
+        var attributes = [NSAttributedString.Key: Any]()
         attributes[.font] = font
         attributes[.strokeWidth] = 12
 
@@ -288,7 +288,7 @@ private extension String {
         let labelSize = self.size(withAttributes: [.font: font, .strokeColor: color])
         let centeredAvgP = CGPoint(x: point.x, y: point.y)
 
-        var attributes = [NSAttributedStringKey: Any]()
+        var attributes = [NSAttributedString.Key: Any]()
         attributes[.font] = font
         attributes[.strokeWidth] = 12
 

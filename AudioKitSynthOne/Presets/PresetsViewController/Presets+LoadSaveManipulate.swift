@@ -144,14 +144,14 @@ extension PresetsViewController {
     }
 
     func selectCategory(_ newIndex: Int) {
-        guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesViewController else { return }
+        guard let categoriesVC = self.children.first as? PresetsCategoriesViewController else { return }
         categoriesVC.categoryTableView.selectRow(at: IndexPath(row: newIndex, section: 0),
                                                  animated: false,
                                                  scrollPosition: .top)
     }
 
     func updateCategoryTable() {
-        guard let categoriesVC = self.childViewControllers.first as? PresetsCategoriesViewController else { return }
+        guard let categoriesVC = self.children.first as? PresetsCategoriesViewController else { return }
         categoriesVC.updateChoices()
     }
 
@@ -287,13 +287,13 @@ extension PresetsViewController {
             self.selectCategory(self.categoryIndex) // select category in category table
 
             if self.tableView.isEditing {
-                self.reorderButton.setTitle("I'M DONE!", for: UIControlState())
+                self.reorderButton.setTitle("I'M DONE!", for: UIControl.State())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
                 self.reorderButton.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1)
                 self.categoryEmbeddedView.isUserInteractionEnabled = false
 
             } else {
-                self.reorderButton.setTitle("Reorder", for: UIControlState())
+                self.reorderButton.setTitle("Reorder", for: UIControl.State())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1), for: .normal)
                 self.reorderButton.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
                 self.categoryEmbeddedView.isUserInteractionEnabled = true

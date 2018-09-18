@@ -37,11 +37,10 @@ class KeyboardSettingsViewController: UIViewController {
     // Set fonts for UISegmentedControls
     override func viewDidLayoutSubviews() {
         guard let font = UIFont(name: "Avenir Next Condensed", size: 15.0) else { return }
-        let attr = NSDictionary(object: font,
-                                forKey: NSAttributedStringKey.font as NSCopying)
-        labelModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
-        keyboardModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
-        octaveRangeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
+        let attr = [NSAttributedString.Key.font: font]
+        labelModeSegment.setTitleTextAttributes(attr, for: .normal)
+        keyboardModeSegment.setTitleTextAttributes(attr, for: .normal)
+        octaveRangeSegment.setTitleTextAttributes(attr, for: .normal)
     }
 
     @IBAction func octaveRangeDidChange(_ sender: UISegmentedControl) {

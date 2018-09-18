@@ -125,7 +125,7 @@ public class LFOButtonStyleKit: NSObject {
             .font: UIFont(name: "AvenirNextCondensed-Regular", size: 16)!,
             .foregroundColor: textColor,
             .paragraphStyle: textStyle
-        ] as [NSAttributedStringKey: Any]
+        ] as [NSAttributedString.Key: Any]
 
         let textTextHeight: CGFloat = buttonText.boundingRect(with: CGSize(width: textRect.width,
                                                                            height: CGFloat.infinity),

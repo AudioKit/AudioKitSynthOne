@@ -115,7 +115,7 @@ public class AKVerticalPad: UIView {
         UIView.animate(
             withDuration: 0.05,
             delay: 0.0,
-            options: UIViewAnimationOptions(),
+            options: UIView.AnimationOptions(),
             animations: { self.touchPointView.center = CGPoint(x: self.centerPointX,
                                                                y: centerPointY + self.yVisualAdjust)
             },

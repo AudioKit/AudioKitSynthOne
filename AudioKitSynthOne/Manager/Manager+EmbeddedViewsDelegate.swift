@@ -56,7 +56,7 @@ extension Manager: EmbeddedViewsDelegate {
 
         // Get all Child Synth Panels
         var synthPanels = [PanelController]()
-        for view in childViewControllers {
+        for view in children {
             guard let synthPanel = view as? PanelController else { continue }
             synthPanels.append(synthPanel)
         }

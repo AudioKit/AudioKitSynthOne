@@ -71,7 +71,7 @@ public class NavButtonStyleKit: NSObject {
             .font: UIFont(name: "AvenirNextCondensed-Regular", size: UIFont.labelFontSize)!,
             .foregroundColor: labelColor,
             .paragraphStyle: labelStyle
-        ] as [NSAttributedStringKey: Any]
+        ] as [NSAttributedString.Key: Any]
         
         let labelTextHeight: CGFloat = text.boundingRect(with: CGSize(width: labelRect.width, height: CGFloat.infinity),
                                                          options: .usesLineFragmentOrigin,

@@ -123,7 +123,7 @@ public class Manager: UpdatableViewController {
         keyboardView?.polyphonicMode = conductor.synth.getSynthParameter(.isMono) < 1 ? true : false
 
         // Set Header as Delegate
-        if let headerVC = self.childViewControllers.first as? HeaderViewController {
+        if let headerVC = self.children.first as? HeaderViewController {
             headerVC.delegate = self
             headerVC.headerDelegate = self
         }
@@ -206,7 +206,7 @@ public class Manager: UpdatableViewController {
 
         // Set Mailing List Button
         signedMailingList = appSettings.signedMailingList
-        if let headerVC = self.childViewControllers.first as? HeaderViewController {
+        if let headerVC = self.children.first as? HeaderViewController {
             headerVC.updateMailingListButton(appSettings.signedMailingList)
         }
 
@@ -273,7 +273,7 @@ public class Manager: UpdatableViewController {
     }
 
     // Make edge gestures more responsive
-    public override func preferredScreenEdgesDeferringSystemGestures() -> UIRectEdge {
+    public override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
         return UIRectEdge.all
     }
 

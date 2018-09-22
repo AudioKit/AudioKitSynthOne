@@ -53,6 +53,13 @@ public class Knob: UIView, S1Control {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentMode = .redraw
+		
+		accessibilityTraits = [
+			.adjustable,
+			.allowsDirectInteraction,
+			.updatesFrequently,
+		]
+		
     }
 
     required public init?(coder: NSCoder) {

@@ -22,6 +22,8 @@ class ToggleButton: UIView, S1Control {
     var value: Double = 0.0 {
         didSet {
             setNeedsDisplay()
+
+			accessibilityValue = isOn ? "On" : "Off"
         }
     }
 

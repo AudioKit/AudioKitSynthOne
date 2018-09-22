@@ -28,6 +28,8 @@ class TempoStepper: Stepper {
             internalValue = range.clamp(internalValue)
             knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
             setNeedsDisplay()
+
+			accessibilityValue = String(format: "%.0f", value) + NSLocalizedString("B P M", comment: "BPM, Beats Per Minute")
         }
     }
 
@@ -125,4 +127,12 @@ class TempoStepper: Stepper {
             self.setNeedsDisplay()
         }
     }
+
+	override func accessibilityIncrement() {
+		value += 1.0
+	}
+
+	override func accessibilityDecrement() {
+		value -= 1.0
+	}
 }

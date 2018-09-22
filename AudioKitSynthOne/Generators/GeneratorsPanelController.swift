@@ -117,7 +117,7 @@ class GeneratorsPanelController: PanelController {
 
         setupLinkStuff()
 
-		// Sets the read order for VO
+		// Sets the read order for VoiceOver
 		view.accessibilityElements = [
 			morph1Selector,
 			morph1SemitoneOffset,

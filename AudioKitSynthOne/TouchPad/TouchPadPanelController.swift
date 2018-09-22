@@ -49,6 +49,15 @@ class TouchPadPanelController: PanelController {
 
         touchPad1.resetToPosition(lfoRate, lfoAmp)
         touchPad2.resetToPosition(pad2X, rez)
+
+		// Sets the read order for VoiceOver
+		view.accessibilityElements = [
+			touchPad1,
+			snapToggle,
+			touchPad2,
+			leftNavButton,
+			rightNavButton
+		]
     }
 
     public override func viewDidAppear(_ animated: Bool) {

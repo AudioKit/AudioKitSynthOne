@@ -87,7 +87,7 @@
                                 <rect key="frame" x="200" y="206" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="Knob" label="Oscillator 1 Volume">
+                                <accessibility key="accessibilityConfiguration" identifier="Oscillator1VolumeKnob" label="Oscillator 1 Volume">
                                     <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
@@ -96,7 +96,7 @@
                                 <rect key="frame" x="19" y="206" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="SubOscillatorAmplifier" label="Sub Oscillator Amplifier">
+                                <accessibility key="accessibilityConfiguration" identifier="SubOscillatorAmplifierKnob" label="Sub Oscillator Amplifier">
                                     <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
@@ -159,7 +159,7 @@
                                 <rect key="frame" x="851" y="13" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="PortamentoGlide" label="Portamento Glide">
+                                <accessibility key="accessibilityConfiguration" identifier="PortamentoGlideKnob" label="Portamento Glide">
                                     <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
@@ -202,7 +202,7 @@
                                 <rect key="frame" x="965" y="-1" width="60" height="151"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="TuningsPage" label="Tunings Page">
+                                <accessibility key="accessibilityConfiguration" identifier="PreviousTuningsPage" label="Previous Tunings Page">
                                     <accessibilityTraits key="traits" button="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
@@ -214,7 +214,7 @@
                                 <rect key="frame" x="965" y="149" width="60" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="EnvelopePage" label="Envelope Page">
+                                <accessibility key="accessibilityConfiguration" identifier="NextEnvelopePage" label="Next Envelope Page">
                                     <accessibilityTraits key="traits" button="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>

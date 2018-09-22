@@ -29,16 +29,33 @@ class LFOToggle: UIView, S1Control {
                 break
             }
             setNeedsDisplay()
+
         }
     }
 
-    var lfo1Active: Bool = false
-    var lfo2Active: Bool = false
+	var lfo1Active: Bool = false {
+		didSet {
+			updateAccessibilityValue()
+		}
+	}
+	var lfo2Active: Bool = false {
+		didSet {
+			updateAccessibilityValue()
+		}
+	}
 
     let width: CGFloat = 100
 
     // Make Button Text Editable in IB
     @IBInspectable open var buttonText: String = "Hello"
+
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		accessibilityHint = NSLocalizedString(
+			"Up for L F O 1, Down for toggle L F O 2.",
+			comment: ("Up for L F O 1, Down for toggle L F O 2." )
+		)
+	}
 
     // Draw Button
     override func draw(_ rect: CGRect) {
@@ -68,4 +85,28 @@ class LFOToggle: UIView, S1Control {
         }
     }
 
+	override func accessibilityIncrement() {
+		lfo1Active = !lfo1Active
+		var newValue = 0.00
+		if lfo1Active { newValue += 1 }
+		if lfo2Active { newValue += 2 }
+
+		value = newValue
+	}
+
+	override func accessibilityDecrement() {
+		lfo2Active = !lfo2Active
+		var newValue = 0.00
+		if lfo1Active { newValue += 1 }
+		if lfo2Active { newValue += 2 }
+
+		value = newValue
+	}
+
+	func updateAccessibilityValue() {
+		accessibilityValue = NSLocalizedString("L F O 1 ", comment: "L F O 1, Low Frequency Oscillator") +
+			(lfo1Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off,")) +
+			NSLocalizedString("L F O 2 ", comment: "L F O 2, Low Frequency Oscillator") +
+			(lfo2Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off"))
+	}
 }

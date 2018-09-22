@@ -53,7 +53,7 @@ class Stepper: UIView, S1Control {
     override init(frame: CGRect) {
         super.init(frame: frame)
 		
-		accessibilityTraits = UIAccessibilityTraitAdjustable
+		accessibilityTraits = UIAccessibilityTraits.adjustable
 		
     }
 

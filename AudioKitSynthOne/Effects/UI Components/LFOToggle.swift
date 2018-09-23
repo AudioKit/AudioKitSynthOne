@@ -52,8 +52,8 @@ class LFOToggle: UIView, S1Control {
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		accessibilityHint = NSLocalizedString(
-			"Up for L F O 1, Down for toggle L F O 2.",
-			comment: ("Up for L F O 1, Down for toggle L F O 2." )
+			"Up for toggle 1, Down for toggle 2.",
+			comment: ("Up for toggle 1, Down for toggle 2." )
 		)
 	}
 
@@ -104,9 +104,9 @@ class LFOToggle: UIView, S1Control {
 	}
 
 	func updateAccessibilityValue() {
-		accessibilityValue = NSLocalizedString("L F O 1 ", comment: "L F O 1, Low Frequency Oscillator") +
+		accessibilityValue = NSLocalizedString("L F O Toggle 1 ", comment: "L F O Toggle 1, (LFO) Low Frequency Oscillator") +
 			(lfo1Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off,")) +
-			NSLocalizedString("L F O 2 ", comment: "L F O 2, Low Frequency Oscillator") +
+			NSLocalizedString("L F O Toggle 2 ", comment: "L F O Toggle 1, (LFO) Low Frequency Oscillator") +
 			(lfo2Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off"))
 	}
 }

@@ -86,6 +86,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="DelayTimeKnob" label="Delay Time in Milliseconds">
                                     <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
                             <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXl-vY-6vJ" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
@@ -353,6 +354,10 @@
                                 <rect key="frame" x="965" y="-1" width="60" height="151"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="PreviousXPadPage" label="Previous XPad Page">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="ADSR"/>
                                 </userDefinedRuntimeAttributes>
@@ -361,6 +366,10 @@
                                 <rect key="frame" x="965" y="149" width="60" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="NextSequencerPage" label="Next Sequencer Page">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="PAD"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rotation">

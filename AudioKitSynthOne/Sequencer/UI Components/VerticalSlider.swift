@@ -22,16 +22,18 @@ class VerticalSlider: UIControl, S1Control {
                 currentValue = maxValue
             }
             self.sliderValue = CGFloat((currentValue - minValue) / (maxValue - minValue))
+			accessibilityValue = String(format: "%.f", round((currentValue - 0.5) * 24.0))
             setupView()
         }
     }
 
+	lazy var accessibilityChangeAmount: CGFloat = 1.0 / 24.0
     let knobSize = CGSize(width: 40, height: 28)
     let barMargin: CGFloat = 20.0
     var knobRect: CGRect!
     var barLength: CGFloat = 132.0
     var isSliding = false
-    var sliderY: CGFloat = 0.0
+	var sliderY: CGFloat = 0.0
     var sliderValue: CGFloat = 0.5 {
         didSet {
             sliderY = convertValueToY(currentValue) - knobSize.height / 2
@@ -46,6 +48,7 @@ class VerticalSlider: UIControl, S1Control {
             currentValue = actualToInternalValue(newValue)
             setNeedsDisplay()
         }
+
     }
 
     override init(frame: CGRect) {
@@ -101,11 +104,13 @@ extension VerticalSlider {
     }
 
     func currentToActualValue(_ value: CGFloat) -> Double {
-        return Double(value).normalized(from: -12...12)
+		let temp = Double(value).normalized(from: -12...12)
+        return temp
     }
 
     func actualToInternalValue(_ actualValue: Double) -> CGFloat {
-        return CGFloat(actualValue.normalized(from: -12...12))
+		let temp = CGFloat(actualValue.normalized(from: -12...12))
+        return temp
     }
 
 }
@@ -132,6 +137,24 @@ extension VerticalSlider {
 
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         isSliding = false
+		UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: accessibilityValue)
     }
 
+
+	/**
+	Ac
+	*/
+	override func accessibilityIncrement() {
+		currentValue += accessibilityChangeAmount
+		callback( Double(currentValue) )
+		self.setNeedsDisplay()
+	}
+
+	/**
+	*/
+	override func accessibilityDecrement() {
+		currentValue -= accessibilityChangeAmount
+		callback( Double(currentValue) )
+		self.setNeedsDisplay()
+	}
 }

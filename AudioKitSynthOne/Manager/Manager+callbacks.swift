@@ -66,8 +66,19 @@ extension Manager {
         keyboardToggle.callback = { value in
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
+
+				// Tell VoiceOver to NOT read elements in bottomContainerView if hidden by keyboard.
+				for subview in self.bottomContainerView.subviews {
+					subview.accessibilityElementsHidden = true
+				}
+
             } else {
                 self.keyboardToggle.setTitle("Show", for: .normal)
+
+				// Tell VoiceOver to read elements in bottomContainerView as the keyboard is not hidden.
+				for subview in self.bottomContainerView.subviews {
+					subview.accessibilityElementsHidden = false
+				}
 
                 // Add panel to bottom
                 if self.bottomChildPanel == self.topChildPanel {

@@ -26,7 +26,7 @@ public class Manager: UpdatableViewController {
     @IBOutlet weak var midiButton: SynthButton!
     @IBOutlet weak var holdButton: SynthButton!
     @IBOutlet weak var monoButton: SynthButton!
-    @IBOutlet weak var keyboardToggle: SynthButton!
+	@IBOutlet weak var keyboardToggle: SynthButton!
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var configKeyboardButton: SynthButton!
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!

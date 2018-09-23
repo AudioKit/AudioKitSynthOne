@@ -59,6 +59,18 @@ class TuningsPanelController: PanelController {
             self.selectRow(0)
             self.tuningDidChange()
         }
+
+		tuningTableView.accessibilityLabel = "Tunings Table"
+
+		view.accessibilityElements = [
+			tuningTableView,
+			masterTuningKnob,
+			diceButton,
+			resetTuningsButton,
+			leftNavButton,
+			rightNavButton
+		]
+
     }
 
     public override func viewDidAppear(_ animated: Bool) {

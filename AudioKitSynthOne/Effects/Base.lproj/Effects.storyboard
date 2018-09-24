@@ -336,8 +336,8 @@
                                 <rect key="frame" x="13" y="23" width="210" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="LFO1WaveFormSlider" label="L F O 1 WaveForm ">
-                                    <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="LFO1WaveFormPicker" label="L F O 1 WaveForm ">
+                                    <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -345,8 +345,8 @@
                                 <rect key="frame" x="240" y="23" width="210" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="LFO2WaveFormSlider" label="L F O 2 WaveForm">
-                                    <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="LFO2WaveFormPicker" label="L F O 2 WaveForm">
+                                    <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>

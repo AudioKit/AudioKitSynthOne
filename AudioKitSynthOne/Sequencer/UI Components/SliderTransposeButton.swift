@@ -38,6 +38,7 @@ class SliderTransposeButton: UILabel, S1Control {
     var transposeAmt = 0 {
         didSet {
             self.text = String(transposeAmt)
+			accessibilityValue = self.text
         }
     }
 

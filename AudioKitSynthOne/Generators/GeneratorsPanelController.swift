@@ -116,6 +116,38 @@ class GeneratorsPanelController: PanelController {
         setupAudioPlot()
 
         setupLinkStuff()
+
+		// Sets the read order for VoiceOver
+		view.accessibilityElements = [
+			morph1Selector,
+			morph1SemitoneOffset,
+			morph2Selector,
+			morph2SemitoneOffset,
+			morph2Detuning,
+			subVolume,
+			subOctaveDown,
+			subIsSquare,
+			morph1Volume,
+			morph2Volume,
+			morphBalance,
+			masterVolume,
+			fmVolume,
+			fmAmount,
+			filterTypeToggle,
+			cutoff,
+			resonance,
+			noiseVolume,
+			glideKnob,
+			isMonoToggle,
+			legatoModeToggle,
+			oscBandlimitEnable,
+			widenToggle,
+			sequencerToggle,
+			tempoStepper,
+			leftNavButton,
+			rightNavButton
+		]
+
     }
 
     func setupAudioPlot() {

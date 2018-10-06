@@ -140,6 +140,50 @@ class EffectsPanelController: PanelController {
             s.setDependentParameter(.delayTime, value, self.conductor.delayTimeEffectsPanelID)
             self.conductor.updateDisplayLabel(.delayTime, value: s.getSynthParameter(.delayTime))
         }
+
+
+		view.accessibilityElements = [
+			lfo1WavePicker,
+			lfo1RateKnob,
+			lfo1AmpKnob,
+			lfo2WavePicker,
+			lfo2RateKnob,
+			lfo2AmpKnob,
+			cutoffLFOToggle,
+			resonanceLFOToggle,
+			oscMixLFOToggle,
+			reverbMixLFOToggle,
+			decayLFOToggle,
+			noiseLFOToggle,
+			fmModLFOToggle,
+			detuneLFOToggle,
+			filterEnvLFOToggle,
+			pitchLFOToggle,
+			bitcrushLFOToggle,
+			tremoloLFOToggle,
+			tempoSyncToggle,
+			sampleRateKnob,
+			autoPanRateKnob,
+			autoPanAmountKnob,
+			reverbToggle,
+			reverbSizeKnob,
+			reverbLowCutKnob,
+			reverbMixKnob,
+			delayToggle,
+			delayTimeKnob,
+			delayFeedbackKnob,
+			delayMixKnob,
+			phaserRateKnob,
+			phaserNotchWidthKnob,
+			phaserFeedbackKnob,
+			phaserMixKnob,
+			leftNavButton,
+			rightNavButton
+		]
+
+
+
+
     }
 
     func dependentParameterDidChange(_ dependentParameter: DependentParameter) {

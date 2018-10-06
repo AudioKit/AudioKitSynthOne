@@ -29,7 +29,11 @@ class Stepper: UIView, S1Control {
         }
     }
 
-    internal var internalValue: Double = 0
+	internal var internalValue: Double = 0 {
+		didSet {
+			accessibilityValue = String(format: "%.0f", internalValue)
+		}
+	}
 
     public internal(set) var value: Double {
         get {
@@ -105,29 +109,25 @@ class Stepper: UIView, S1Control {
             self.setNeedsDisplay()
         }
     }
-	
+
 	
 	/**
 	Accessibility Functions needed for Accessibile Adjustable Trait
 	*/
+
 	override func accessibilityIncrement() {
 		if value < maxValue {
 			value += 1
 			valuePressed = 2
 		}
-		let newValue = String(format: "%.00f", value)
-		accessibilityValue = newValue
-		self.callback(value)
-	}
-	
+  }
+
+
 	override func accessibilityDecrement() {
 		if value > minValue {
 			value -= 1
 			valuePressed = 1
-			
-			let newValue = String(format: "%.00f", value)
-			accessibilityValue = newValue
-			self.callback(value)
+
 		}
 	}
 }

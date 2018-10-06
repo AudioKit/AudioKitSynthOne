@@ -15,6 +15,16 @@ class LFOWavePicker: UIView, S1Control {
     var value: Double = 0 {
         didSet {
            setNeedsDisplay()
+			switch value {
+			case 0:
+				accessibilityValue = NSLocalizedString("Sine Wave", comment: "Sine Wave")
+			case 1:
+				accessibilityValue = NSLocalizedString("Square Wave", comment: "Square Wave")
+			case 2:
+				accessibilityValue = NSLocalizedString("Ramp Up Saw Wave", comment: "Ramp Up Saw Wave")
+			default:
+				accessibilityValue = NSLocalizedString("Ramp Down Saw Wave", comment: "Ramp Down Saw Wave")
+			}
         }
     }
 
@@ -45,4 +55,26 @@ class LFOWavePicker: UIView, S1Control {
             callback(value)
         }
     }
+
+	override func accessibilityActivate() -> Bool {
+		if value < 3 {
+			value += 1
+		} else {
+			value = 0
+		}
+		return true
+	}
+
+	override func accessibilityIncrement() {
+		if value < 3 {
+			value += 1
+		}
+	}
+
+	override func accessibilityDecrement() {
+		if value > 0 {
+			value -= 1
+		}
+	}
+
 }

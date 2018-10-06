@@ -14,13 +14,28 @@ class MorphSelector: UIView, S1Control {
 
     var callback: (Double) -> Void = { _ in }
 
-    var value: Double = 0 {
-        didSet {
-            if value < 0.0 { value = 0.0 }
-            if value > 1.0 { value = 1.0 }
-            setNeedsDisplay()
-        }
-    }
+	var value: Double = 0 {
+		didSet {
+			if value < 0.0 { value = 0.0 }
+			if value > 1.0 { value = 1.0 }
+			setNeedsDisplay()
+
+			let valueAsString = String(format: "%.2f", value)
+
+			switch valueAsString {
+			case "0.00":
+				accessibilityValue = valueAsString + NSLocalizedString(", Pure Triangle Wave", comment: ", Pure Triangle Wave")
+			case "0.33":
+				accessibilityValue = valueAsString + NSLocalizedString(", Pulse 50% Wave", comment: ", Pulse 50% Wave")
+			case "0.66":
+				accessibilityValue = valueAsString + NSLocalizedString(", Pulse 10% Wave", comment: ", Pulse 10% Wave")
+			case "1.00":
+				accessibilityValue = valueAsString + NSLocalizedString(", Pure Saw Wave", comment: ", Pure Saw Wave")
+			default:
+				accessibilityValue = valueAsString
+			}
+		}
+	}
 
     //// Color Declarations
     @IBInspectable open var color: UIColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
@@ -41,11 +56,21 @@ class MorphSelector: UIView, S1Control {
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
+		accessibilityInit()
     }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+		accessibilityInit()
     }
+
+	func accessibilityInit() {
+		accessibilityTraits = [
+			.adjustable,
+			.allowsDirectInteraction,
+			.updatesFrequently
+		]
+	}
 
     override open func draw(_ rect: CGRect) {
         MorphSelectorStyleKit.drawMorphSelector(value: CGFloat(value),
@@ -71,4 +96,17 @@ class MorphSelector: UIView, S1Control {
         }
         setNeedsDisplay()
     }
+
+	override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+		UIAccessibility.post(notification: .announcement, argument: nil)
+	}
+
+	override func accessibilityIncrement() {
+		value += 0.01
+	}
+
+	override func accessibilityDecrement() {
+		value -= 0.01
+	}
+
 }

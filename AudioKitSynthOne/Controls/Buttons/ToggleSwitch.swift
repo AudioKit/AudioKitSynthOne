@@ -16,6 +16,8 @@ class ToggleSwitch: UIView, S1Control {
     var isOn = false {
         didSet {
             setNeedsDisplay()
+			accessibilityValue = isOn ? NSLocalizedString("Toggled On", comment: "Toggled On")
+				: NSLocalizedString("Toggled Off", comment: "Toggled Off") 
         }
     }
 

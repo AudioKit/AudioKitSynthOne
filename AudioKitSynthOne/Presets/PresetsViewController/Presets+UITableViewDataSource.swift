@@ -33,9 +33,12 @@ extension PresetsViewController: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PresetCell") as? PresetCell {
 
             cell.delegate = self
+            
+            var alphabetical = false
+            if categoryIndex == PresetCategory.categoryCount + 1 { alphabetical = true }
 
             // Cell updated in PresetCell.swift
-            cell.configureCell(preset: preset)
+            cell.configureCell(preset: preset, alpha: alphabetical)
 
             return cell
 

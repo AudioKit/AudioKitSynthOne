@@ -1,0 +1,1676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="AudioKitSynthOne/About/Base.lproj/About.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="1Nf-2H-Scf.text">
+        <source>AudioKit Synth One is the first completely free &amp; open-source full-featured professional iOS synthesizer app in history. Everyone working on this app volunteered their time to create this awesome app.
+
+Plus, it’s completely open-source. You can use the code to learn how to build your own synth app or modify the app to build the synth of your dreams. This app is a labor of love. 
+
+How can you help? Please share with your friends and leave a nice review in the app store.
+
+We're all volunteers. We're dozens of developers, sound designers, and music lovers across the globe who want to give back to the music-making community. We hope you enjoy it!
+
+Thanks to the following people (listed alphabetically):
+Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chamin Morikawa, Chase Dobson, Cheez da Producer, Chello Ward, Clayton Miller, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jennifer Li, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Geneş, Paulo Ribeiro, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio</source>
+        <target>AudioKit Synth One tarihin ilk tamamen açık kaynak kodlu ve bedava, profesyonel iOS synthesizer uygulamasıdır. Bu uygulamaya katkıda bulunan herkes gönülülük esasına dayanarak çalışmıştır. Uygulama tamamen açık kaynaklı olduğu için siz de kendi geliştirmelerinizi yaparak uygulamaya katkıda bulunabilir yada kodu kullanarak hayallerinizdeki synthesizer uygulamanızı geliştirebilirsiniz. Bu uygulama tamamen bir emek aşkı ile oluşturuldu. 
+
+Peki siz nasıl yardım edebilirsiniz? Bu uygulamayı arkadaşlarınız ile paylaşabilir, etrafınıza yayabilir veya App Store üzerinden oylayarak yada güzel sözler bırakarak bize destek olabilirsiniz. Hepimiz, dünyanın dört bir yanından, yüzlerce gönüllü geliştirici, ses tasarımcısı ve müziksever olarak müzik dünyasına katkıda bulunan insanlarız. Hoş vakit geçirmeniz dileği ile! 
+
+Teşekkür etmek istediğimiz arkadaşlarımız (isimler alfabetik sıralanmıştır):
+Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chase Dobson, Cheez da Producer, Chello Ward, Clayton Miller, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Geneş, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio</target>
+        <note>Class = "UITextView"; text = "AudioKit Synth One is the first completely free &amp; open-source full-featured professional iOS synthesizer app in history. Everyone working on this app volunteered their time to create this awesome app.\n\nPlus, it’s completely open-source. You can use the code to learn how to build your own synth app or modify the app to build the synth of your dreams. This app is a labor of love. \n\nHow can you help? Please share with your friends and leave a nice review in the app store.\n\nWe're all volunteers. We're dozens of developers, sound designers, and music lovers across the globe who want to give back to the music-making community. We hope you enjoy it!\n\nThanks to the following people (listed alphabetically):\nAdam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice Beasley, Cem Olcay, Chamin Morikawa, Chase Dobson, Cheez da Producer, Chello Ward, Clayton Miller, Damon Law, Daniel Clelland, Dave Gibson, Dave O'Neill, Daveypoo, David Biedny, Dawei, Dean Daughters, Derek Lee, Devon C Johnson, Doug Woods, Dylan Wreggelsworth, Eric George, Eric Ross (eross), Francis Preve, Gene De Lisa, Gray Smith, Greg Cerveny, Haris Ali, Henri Hagenow, James Edward Cosby, Jason Donnelly, Jeff Holtzkener, Jeffrey Cooper, Jennifer Li, Jeroen (When The Rush Comes), Jim McMillan, Jim W. Mooney, Joe Zeno, John Groenhof, Jon Rawlinson, Jose Hales-Garcia, Joshua Hodge, Just Plain Paul, Justin Gitlin, Juan Maserati, Kevin Loustau, Marcus Hobbs, Mark Bellot, Mark Jeschke, Martin Halter, Mathieu Garcia, Matrix Synth, Matthew Fecher, Michael Tyson, Mike Gazzaruso, Mitch Slayton, Nick Arner, Nicolas Silesi (Lord Gogo), Oke Scheel, Onur Geneş, Paulo Ribeiro, Power DX7, Randy Weinstein, Red Sky Lullaby (Stuart Kilbride), Rolf Seese, RUST(i)ck, Ryan Francesconi, Ryan McLeod, saintjoe (soundsandgear.com), Sean Costello, Serafin Sanchez, Shane Dunne, Shazamm the iPad Producer, Sound Of Izrael, Stephen James Taylor, Stéphane Peter, Yaron Karasik, Ze Osorio"; ObjectID = "1Nf-2H-Scf";</note>
+      </trans-unit>
+      <trans-unit id="2jS-Ub-cCT.text">
+        <source>AudioKit is free &amp; open-source</source>
+        <target>AudioKit tamamen bedava ve açık kaynak kodlu</target>
+        <note>Class = "UILabel"; text = "AudioKit is free &amp; open-source"; ObjectID = "2jS-Ub-cCT";</note>
+      </trans-unit>
+      <trans-unit id="A1r-GN-8if.text">
+        <source>MORE AUDIOKIT APPS</source>
+        <target>DAHA FAZLA AUDIOKIT UYGULAMASI</target>
+        <note>Class = "UILabel"; text = "MORE AUDIOKIT APPS"; ObjectID = "A1r-GN-8if";</note>
+      </trans-unit>
+      <trans-unit id="F4n-VN-XPq.text">
+        <source>Learn from these code examples</source>
+        <target>Bu kod örneklerinden öğrenin</target>
+        <note>Class = "UILabel"; text = "Learn from these code examples"; ObjectID = "F4n-VN-XPq";</note>
+      </trans-unit>
+      <trans-unit id="GGp-jS-eWl.text">
+        <source>Learn how this app was made</source>
+        <target>Bu uygulamanın nasıl geliştirildiğini öğrenin</target>
+        <note>Class = "UILabel"; text = "Learn how this app was made"; ObjectID = "GGp-jS-eWl";</note>
+      </trans-unit>
+      <trans-unit id="IAn-lv-O7m.text">
+        <source>Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
+Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </source>
+        <target>DX7 ve DX7II'den esinlenilen, ödüllü ve bedava iPad uygulaması. MIDI Klavyeniz ile harika bir şekilde çalışır. Çok katmanlı harika sesleri ile elektronik piyano, bas, lead ve 80'lerin tonlarını yakalayın. </target>
+        <note>Class = "UITextView"; text = "Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. \nPerfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. "; ObjectID = "IAn-lv-O7m";</note>
+      </trans-unit>
+      <trans-unit id="M92-zU-EUI.text">
+        <source>REVIEW</source>
+        <target>DEĞERLENDİR</target>
+        <note>Class = "UILabel"; text = "REVIEW"; ObjectID = "M92-zU-EUI";</note>
+      </trans-unit>
+      <trans-unit id="SJq-it-GbF.text">
+        <source>PLEASE send BUG REPORTS:</source>
+        <target>LÜTFEN BİZE HATALARI BİLDİRİN</target>
+        <note>Class = "UILabel"; text = "PLEASE send BUG REPORTS:"; ObjectID = "SJq-it-GbF";</note>
+      </trans-unit>
+      <trans-unit id="VE1-2S-HqW.normalTitle">
+        <source>Be kind 👍🏼 Review this app!  </source>
+        <target>Teveccühünüz 👍🏼 Uygulamayı değerlendirin!  </target>
+        <note>Class = "UIButton"; normalTitle = "Be kind 👍🏼 Review this app!  "; ObjectID = "VE1-2S-HqW";</note>
+      </trans-unit>
+      <trans-unit id="Whk-km-WmE.normalTitle">
+        <source>DONE</source>
+        <target>TAMAM</target>
+        <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "Whk-km-WmE";</note>
+      </trans-unit>
+      <trans-unit id="dll-2U-dYG.normalTitle">
+        <source>AudioKit Github</source>
+        <target>AudioKit Github</target>
+        <note>Class = "UIButton"; normalTitle = "AudioKit Github"; ObjectID = "dll-2U-dYG";</note>
+      </trans-unit>
+      <trans-unit id="etI-kL-v1E.normalTitle">
+        <source>hello@audiokitpro.com</source>
+        <target>hello@audiokitpro.com</target>
+        <note>Class = "UIButton"; normalTitle = "hello@audiokitpro.com"; ObjectID = "etI-kL-v1E";</note>
+      </trans-unit>
+      <trans-unit id="g34-af-uEZ.text">
+        <source>FM PLAYER: CLASSIC DX</source>
+        <target>FM OYUNCU: CLASSIC DX</target>
+        <note>Class = "UILabel"; text = "FM PLAYER: CLASSIC DX"; ObjectID = "g34-af-uEZ";</note>
+      </trans-unit>
+      <trans-unit id="jeK-lZ-M5v.text">
+        <source>SOURCE CODE</source>
+        <target>KAYNAK KODU</target>
+        <note>Class = "UILabel"; text = "SOURCE CODE"; ObjectID = "jeK-lZ-M5v";</note>
+      </trans-unit>
+      <trans-unit id="oBP-Wz-rvL.normalTitle">
+        <source>Get FREE in App Store!</source>
+        <target>App Store'dan bedava indirin!</target>
+        <note>Class = "UIButton"; normalTitle = "Get FREE in App Store!"; ObjectID = "oBP-Wz-rvL";</note>
+      </trans-unit>
+      <trans-unit id="rad-NL-GFv.text">
+        <source>VIDEO</source>
+        <target>VİDYO</target>
+        <note>Class = "UILabel"; text = "VIDEO"; ObjectID = "rad-NL-GFv";</note>
+      </trans-unit>
+      <trans-unit id="s4D-if-VhP.text">
+        <source>World's First Free &amp; Open-Source Pro iOS Synth</source>
+        <target>Dünyanın ilk bedava ve açık kaynak kodlu profesyonel iOS Synthesizer uygulaması</target>
+        <note>Class = "UILabel"; text = "World's First Free &amp; Open-Source Pro iOS Synth"; ObjectID = "s4D-if-VhP";</note>
+      </trans-unit>
+      <trans-unit id="yLF-QF-HMs.normalTitle">
+        <source>Watch the Amazing Synth One Video</source>
+        <target>Synth One Vidyosunu İzleyin</target>
+        <note>Class = "UIButton"; normalTitle = "Watch the Amazing Synth One Video"; ObjectID = "yLF-QF-HMs";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/About/Mailing List/Base.lproj/MailingList.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="B52-X8-pfB.normalTitle">
+        <source>Thanks, I'll do it later</source>
+        <note>Class = "UIButton"; normalTitle = "Thanks, I'll do it later"; ObjectID = "B52-X8-pfB";</note>
+      </trans-unit>
+      <trans-unit id="FJY-lQ-hbA.text">
+        <source>SETUP: Step 1 of 1</source>
+        <note>Class = "UILabel"; text = "SETUP: Step 1 of 1"; ObjectID = "FJY-lQ-hbA";</note>
+      </trans-unit>
+      <trans-unit id="sAM-3i-F3Z.placeholder">
+        <source>you@email.com</source>
+        <note>Class = "UITextField"; placeholder = "you@email.com"; ObjectID = "sAM-3i-F3Z";</note>
+      </trans-unit>
+      <trans-unit id="wbX-qe-bHr.normalTitle">
+        <source>Get Presets!</source>
+        <note>Class = "UIButton"; normalTitle = "Get Presets!"; ObjectID = "wbX-qe-bHr";</note>
+      </trans-unit>
+      <trans-unit id="yhG-s7-4JE.text">
+        <source>Welcome! Enter your Email Address below to receive 80+ Free presets  (all 300+ presets). Then press "Get Presets!"</source>
+        <note>Class = "UITextView"; text = "Welcome! Enter your Email Address below to receive 80+ Free presets  (all 300+ presets). Then press \"Get Presets!\""; ObjectID = "yhG-s7-4JE";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Base.lproj/Localizable.strings" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="%.00f ms">
+        <source>%.00f ms</source>
+        <note>Number of milliseconds</note>
+      </trans-unit>
+      <trans-unit id="All MIDI learn knob assignments have been removed.">
+        <source>All MIDI learn knob assignments have been removed.</source>
+        <target>Tüm MIDI Öğren eşleşmeleri kaldırıldı.</target>
+        <note>Alert Message:  MIDI Learn Reset</note>
+      </trans-unit>
+      <trans-unit id="All notes have been turned off.">
+        <source>All notes have been turned off.</source>
+        <target>Tüm notalar susturuldu.</target>
+        <note>Alert Message: MIDI Panic</note>
+      </trans-unit>
+      <trans-unit id="Almost done!">
+        <source>Almost done!</source>
+        <target>Neredeyse tamam!</target>
+        <note>Alert Title: Confirm Email Address</note>
+      </trans-unit>
+      <trans-unit id="Arp/Sequencer Off">
+        <source>Arp/Sequencer Off</source>
+        <target>Sıralayıcı Kapalı</target>
+        <note>Arpeggiator Off</note>
+      </trans-unit>
+      <trans-unit id="Arp/Sequencer On">
+        <source>Arp/Sequencer On</source>
+        <target>Sıralayıcı Açık</target>
+        <note>Arpeggiator On</note>
+      </trans-unit>
+      <trans-unit id="Arpeggiator Interval: (Int(value))">
+        <source>Arpeggiator Interval: (Int(value))</source>
+        <target>Arpeggiator Aralığı: (Int(değer))</target>
+        <note>Arpeggiator Interval</note>
+      </trans-unit>
+      <trans-unit id="Arpeggiator Mode">
+        <source>Arpeggiator Mode</source>
+        <target>Arpejleyici Modu</target>
+        <note>Arpeggiator Mode On</note>
+      </trans-unit>
+      <trans-unit id="AutoPan Rate: (Rate.fromFrequency(value)), (value.decimalString) Hz">
+        <source>AutoPan Rate: (Rate.fromFrequency(value)), (value.decimalString) Hz</source>
+        <target>AutoPan Hızı: (Rate.fromFrequency(value)), (value.decimalString) Hz</target>
+        <note>AutoPan Rate tempo-syncd</note>
+      </trans-unit>
+      <trans-unit id="AutoPan Rate: (value.decimalString) Hz">
+        <source>AutoPan Rate: (value.decimalString) Hz</source>
+        <target>AutoPan Hızı: (value.decimalString) Hz</target>
+        <note>AutoPan Rate</note>
+      </trans-unit>
+      <trans-unit id="AutoPan Strength: (value.percentageString)">
+        <source>AutoPan Strength: (value.percentageString)</source>
+        <target>AutoPan Gücü: (value.percentageString)</target>
+        <note>AutoPan Amount/Strength</note>
+      </trans-unit>
+      <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
+        <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
+        <target>Arkaplanda çalıştığı sürece pilinizi tüketir. Lütfen kullanmadığınızda kapatmaya dikkat edin.</target>
+        <note>Alert Message: Background Audio</note>
+      </trans-unit>
+      <trans-unit id="Band Pass">
+        <source>Band Pass</source>
+        <target>Bant Geçişi</target>
+        <note>Band Pass Filter</note>
+      </trans-unit>
+      <trans-unit id="Bitcrush LFO ‣ (lfoSource!)">
+        <source>Bitcrush LFO ‣ (lfoSource!)</source>
+        <target>Bitcrush LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Bitcrush</note>
+      </trans-unit>
+      <trans-unit id="Congratulations! 🎉">
+        <source>Congratulations! 🎉</source>
+        <target>Tebrikler! 🎉</target>
+        <note>Alert Title: Presets Added</note>
+      </trans-unit>
+      <trans-unit id="Couldn't configure the file writer">
+        <source>Couldn't configure the file writer</source>
+        <target>Dosya yazıcı ayarlanamadı</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Couldn't open the output file">
+        <source>Couldn't open the output file</source>
+        <target>Dosya açılamadı</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Couldn't prepare the output format (error %d/%4.4s)">
+        <source>Couldn't prepare the output format (error %1$d/%2$.4s)</source>
+        <target>Çıktı formatı hazırlanamadı (hata (error %1$d/%2$.4s))</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cutoff LFO ‣ (lfoSource!)">
+        <source>Cutoff LFO ‣ (lfoSource!)</source>
+        <target>Cutoff LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Cutoff</note>
+      </trans-unit>
+      <trans-unit id="Cutoff: (s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: (s.getSynthParameter(.resonance).decimalString)">
+        <source>Cutoff: (s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: (s.getSynthParameter(.resonance).decimalString)</source>
+        <target>Kesim: (s.getSynthParameter(.cutoff).decimalString) Hz, Rezonans: (s.getSynthParameter(.resonance).decimalString)</target>
+        <note>Filter Cutoff &amp; Resonance</note>
+      </trans-unit>
+      <trans-unit id="DCO 1 Morph: (value.decimalString)">
+        <source>DCO 1 Morph: (value.decimalString)</source>
+        <target>DCO 1 Morph: (value.decimalString)</target>
+        <note>Oscillator 1 Waveform Morph Index</note>
+      </trans-unit>
+      <trans-unit id="DCO 1 Volume: (value.percentageString)">
+        <source>DCO 1 Volume: (value.percentageString)</source>
+        <target>DCO 1 Birim: (value.percentageString)</target>
+        <note>Oscillator 1 Volume</note>
+      </trans-unit>
+      <trans-unit id="DCO 1: (Int(value)) semitones">
+        <source>DCO 1: (Int(value)) semitones</source>
+        <target>DCO 1: (Int(value)) yarı tonları</target>
+        <note>Oscillator 1 semitone offset</note>
+      </trans-unit>
+      <trans-unit id="DCO 2 Morph: (value.decimalString)">
+        <source>DCO 2 Morph: (value.decimalString)</source>
+        <target>DCO 2 Morph: (value.decimalString)</target>
+        <note>Oscillator 2 Waveform Morph Index</note>
+      </trans-unit>
+      <trans-unit id="DCO 2 Volume: (value.percentageString)">
+        <source>DCO 2 Volume: (value.percentageString)</source>
+        <target>DCO 2 Birim: (value.percentageString)</target>
+        <note>Oscillator 2 Volume</note>
+      </trans-unit>
+      <trans-unit id="DCO 2: (Int(value)) detune">
+        <source>DCO 2: (Int(value)) detune</source>
+        <target>DCO 2: (Int(value)) belirleme</target>
+        <note>Oscillator 2 detune</note>
+      </trans-unit>
+      <trans-unit id="DCO 2: (Int(value)) semitones">
+        <source>DCO 2: (Int(value)) semitones</source>
+        <target>DCO 2: (Int(value)) yarı tonları</target>
+        <note>Oscillator 2 semitone offset</note>
+      </trans-unit>
+      <trans-unit id="DCO 2: (value.decimalString) detune">
+        <source>DCO 2: (value.decimalString) detune</source>
+        <note>Oscillator 2 detune</note>
+      </trans-unit>
+      <trans-unit id="DCO Mix: (Int(value)) detune">
+        <source>DCO Mix: (Int(value)) detune</source>
+        <target>DCO Mix: (Int(value)) cüce</target>
+        <note>Oscillator 1 &amp; 2 Mix</note>
+      </trans-unit>
+      <trans-unit id="DCO Mix: (value.decimalString)">
+        <source>DCO Mix: (value.decimalString)</source>
+        <note>Oscillator 1 &amp; 2 Mix</note>
+      </trans-unit>
+      <trans-unit id="Decay LFO ‣ (lfoSource!)">
+        <source>Decay LFO ‣ (lfoSource!)</source>
+        <target>Çürüme LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Decay</note>
+      </trans-unit>
+      <trans-unit id="Delay  Off">
+        <source>Delay  Off</source>
+        <target>Yineleyici Kapalı</target>
+        <note>Delay Off</note>
+      </trans-unit>
+      <trans-unit id="Delay Feedback/Taps: (value.percentageString)">
+        <source>Delay Feedback/Taps: (value.percentageString)</source>
+        <target>Gecikme Geri Bildirimi / Musluklar: (value.percentageString)</target>
+        <note>Delay Feedback</note>
+      </trans-unit>
+      <trans-unit id="Delay Mix: (value.percentageString)">
+        <source>Delay Mix: (value.percentageString)</source>
+        <target>Gecikme Karışımı: (value.percentageString)</target>
+        <note>Delay Mix</note>
+      </trans-unit>
+      <trans-unit id="Delay On">
+        <source>Delay On</source>
+        <target>Yineleyici Açık</target>
+        <note>Delay On</note>
+      </trans-unit>
+      <trans-unit id="Delay Time: (Rate.fromTime(value)), (value.decimalString)s">
+        <source>Delay Time: (Rate.fromTime(value)), (value.decimalString)s</source>
+        <target>Gecikme Süresi: (Rate.fromTime(value)), (value.decimalString) s</target>
+        <note>Delay Time tempo-syncd</note>
+      </trans-unit>
+      <trans-unit id="Delay Time: (value.decimalString) s">
+        <source>Delay Time: (value.decimalString) s</source>
+        <target>Gecikme Süresi: (value.decimalString) s</target>
+        <note>Delay Time</note>
+      </trans-unit>
+      <trans-unit id="Detune LFO ‣ (lfoSource!)">
+        <source>Detune LFO ‣ (lfoSource!)</source>
+        <target>Detune LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Detune</note>
+      </trans-unit>
+      <trans-unit id="Don't Sleep Mode">
+        <source>Don't Sleep Mode</source>
+        <target>Uyumama Modu</target>
+        <note>Alert Title: Allows On Mode</note>
+      </trans-unit>
+      <trans-unit id="ENV">
+        <source>ENV</source>
+        <target>ENV</target>
+        <note>Envelope Panel Abbreviation</note>
+      </trans-unit>
+      <trans-unit id="FM LFO ‣ (lfoSource!)">
+        <source>FM LFO ‣ (lfoSource!)</source>
+        <target>FM LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] FM Modulation</note>
+      </trans-unit>
+      <trans-unit id="FM Mod: (value.percentageString)">
+        <source>FM Mod: (value.percentageString)</source>
+        <target>FM Mod: (value.percentageString)</target>
+        <note>FM Modulation Amount</note>
+      </trans-unit>
+      <trans-unit id="FM Volume: (value.percentageString)">
+        <source>FM Volume: (value.percentageString)</source>
+        <target>FM Ses Düzeyi: (value.percentageString)</target>
+        <note>FM Oscillator Volume</note>
+      </trans-unit>
+      <trans-unit id="FX">
+        <source>FX</source>
+        <target>FX</target>
+        <note>FX/LFO Panel Abbreviation</note>
+      </trans-unit>
+      <trans-unit id="Filter Env LFO ‣ (lfoSource!)">
+        <source>Filter Env LFO ‣ (lfoSource!)</source>
+        <target>Filtre Env LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Filter Envelope</note>
+      </trans-unit>
+      <trans-unit id="Filter Envelope: (value.percentageString)">
+        <source>Filter Envelope: (value.percentageString)</source>
+        <target>Filtre Zarfı: (value.percentageString)</target>
+        <note>Filter Envelope Amount</note>
+      </trans-unit>
+      <trans-unit id="Filter Type: (ftype)">
+        <source>Filter Type: (ftype)</source>
+        <target>Filtre Türü: (ftype)</target>
+        <note>Main Filter Type</note>
+      </trans-unit>
+      <trans-unit id="Glide: (value.decimalString)">
+        <source>Glide: (value.decimalString)</source>
+        <target>Glide: (value.decimalString)</target>
+        <note>Mono Glide Amount</note>
+      </trans-unit>
+      <trans-unit id="High Pass">
+        <source>High Pass</source>
+        <target>Yüksek Geçişi</target>
+        <note>High Pass Filter</note>
+      </trans-unit>
+      <trans-unit id="Important">
+        <source>Important</source>
+        <target>Önemli</target>
+        <note>Alert Title: Background Audio</note>
+      </trans-unit>
+      <trans-unit id="LFO 2 Amp: (value.percentageString)">
+        <source>LFO 2 Amp: (value.percentageString)</source>
+        <target>LFO 2 Amp: (value.percentageString)</target>
+        <note>LFO 2 [low frequency oscillator] Amplitude</note>
+      </trans-unit>
+      <trans-unit id="LFO 2 Rate: (Rate.fromFrequency(value)), (value.decimalString) Hz">
+        <source>LFO 2 Rate: (Rate.fromFrequency(value)), (value.decimalString) Hz</source>
+        <target>LFO 2 Oranı: (Rate.fromFrequency(value)), (value.decimalString) Hz</target>
+        <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
+      </trans-unit>
+      <trans-unit id="LFO 2 Rate: (value.decimalString) Hz">
+        <source>LFO 2 Rate: (value.decimalString) Hz</source>
+        <target>LFO 2 Oranı: (value.decimalString) Hz</target>
+        <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
+      </trans-unit>
+      <trans-unit id="LFO1 Rate: (Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: (s.getSynthParameter(.lfo1Amplitude).percentageString)">
+        <source>LFO1 Rate: (Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: (s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
+        <target>LFO1 Hızı: (Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: (s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <note>LFO [low frequency oscillator] Amplitude &amp; Rate tempo-syncd</note>
+      </trans-unit>
+      <trans-unit id="LFO1 Rate: (s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: (s.getSynthParameter(.lfo1Amplitude).percentageString)">
+        <source>LFO1 Rate: (s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: (s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
+        <target>LFO1 Hızı: (s.getSynthParameter(.lfo1Rate).decimalString) Hz, LFO1 Amp: (s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
+        <note>LFO [low frequency oscillator] Amplitude &amp; Rate</note>
+      </trans-unit>
+      <trans-unit id="Low Pass">
+        <source>Low Pass</source>
+        <target>Alt Geçiş</target>
+        <note>Low Pass Filter</note>
+      </trans-unit>
+      <trans-unit id="MAIN">
+        <source>MAIN</source>
+        <target>ANA</target>
+        <note>Main Panel Abbreviation</note>
+      </trans-unit>
+      <trans-unit id="MIDI Learn Off">
+        <source>MIDI Learn Off</source>
+        <target>MIDI Öğren Kapalı</target>
+        <note>MIDI Learn Instructions</note>
+      </trans-unit>
+      <trans-unit id="MIDI Learn Reset">
+        <source>MIDI Learn Reset</source>
+        <target>MIDI Öğren'i Sıfırla</target>
+        <note>Alert Title: MIDI Learn Reset</note>
+      </trans-unit>
+      <trans-unit id="MIDI Learn: Touch a knob to assign">
+        <source>MIDI Learn: Touch a knob to assign</source>
+        <target>MIDI Öğren: Eşleştirmek için herhangi bir düğmeye dokunun</target>
+        <note>MIDI Learn Instructions</note>
+      </trans-unit>
+      <trans-unit id="MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉">
+        <source>MIDI Note &gt; 127. G8 is the highest playable key. Take it down a notch 😉</source>
+        <target>MIDI Notası &gt; 127. G8 En yüksek çalınabilir notadır. Biraz alttan alın 😉</target>
+        <note>Alert Message: Too High</note>
+      </trans-unit>
+      <trans-unit id="Master Volume: (value.percentageString)">
+        <source>Master Volume: (value.percentageString)</source>
+        <target>Ana Birim: (value.percentageString)</target>
+        <note>Master Volume</note>
+      </trans-unit>
+      <trans-unit id="Midi Panic">
+        <source>Midi Panic</source>
+        <target>MIDI Panik</target>
+        <note>Alert Title: MIDI Panic</note>
+      </trans-unit>
+      <trans-unit id="Noise LFO ‣ (lfoSource!)">
+        <source>Noise LFO ‣ (lfoSource!)</source>
+        <target>Gürültü LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Noise</note>
+      </trans-unit>
+      <trans-unit id="Noise Volume: ((value * 4).percentageString)">
+        <source>Noise Volume: ((value * 4).percentageString)</source>
+        <target>Gürültü Hacmi: ((value*4).percentageString)</target>
+        <note>Noise Volume</note>
+      </trans-unit>
+      <trans-unit id="Notice">
+        <source>Notice</source>
+        <target>Dikkat Edin</target>
+        <note>Alert Title: Duplicate Bank Name</note>
+      </trans-unit>
+      <trans-unit id="Oops!">
+        <source>Oops!</source>
+        <target>Ups!</target>
+        <note>Alert Title: Invalid Email Address</note>
+      </trans-unit>
+      <trans-unit id="Osc Mix LFO ‣ (lfoSource!)">
+        <source>Osc Mix LFO ‣ (lfoSource!)</source>
+        <target>Osc Mix LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Oscillator Mix</note>
+      </trans-unit>
+      <trans-unit id="PAD">
+        <source>PAD</source>
+        <target>PAD</target>
+        <note>TouchPad Panel Abbreviation</note>
+      </trans-unit>
+      <trans-unit id="Phaser Feedback: (value.decimalString)">
+        <source>Phaser Feedback: (value.decimalString)</source>
+        <target>Phaser Feedback: (value.decimalString)</target>
+        <note>Phaser Feedback</note>
+      </trans-unit>
+      <trans-unit id="Phaser Mix: (value.decimalString)">
+        <source>Phaser Mix: (value.decimalString)</source>
+        <target>Phaser Mix: (value.decimalString)</target>
+        <note>Phaser Mix</note>
+      </trans-unit>
+      <trans-unit id="Phaser Notch Width: (value.decimalString)">
+        <source>Phaser Notch Width: (value.decimalString)</source>
+        <target>Phaser Notch Genişliği: (value.decimalString)</target>
+        <note>Phaser Notch Width</note>
+      </trans-unit>
+      <trans-unit id="Phaser Rate: (value.decimalString)">
+        <source>Phaser Rate: (value.decimalString)</source>
+        <target>Faz Hızı: (value.decimalString)</target>
+        <note>Phaser Rate</note>
+      </trans-unit>
+      <trans-unit id="Pitch LFO ‣ (lfoSource!)">
+        <source>Pitch LFO ‣ (lfoSource!)</source>
+        <target>Pitch LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Pitch</note>
+      </trans-unit>
+      <trans-unit id="Resonance LFO ‣ (lfoSource!)">
+        <source>Resonance LFO ‣ (lfoSource!)</source>
+        <target>Rezonans LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Resonance</note>
+      </trans-unit>
+      <trans-unit id="Reverb Low-cut: (value.decimalString) Hz">
+        <source>Reverb Low-cut: (value.decimalString) Hz</source>
+        <target>Yankı Düşük kesim: (value.decimalString) Hz</target>
+        <note>Reverb Low-cut/Highpass</note>
+      </trans-unit>
+      <trans-unit id="Reverb Mix LFO ‣ (lfoSource!)">
+        <source>Reverb Mix LFO ‣ (lfoSource!)</source>
+        <target>Reverb Mix LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Reverb Mix</note>
+      </trans-unit>
+      <trans-unit id="Reverb Mix: (value.percentageString)">
+        <source>Reverb Mix: (value.percentageString)</source>
+        <target>Reverb Mix: (value.percentageString)</target>
+        <note>Reverb Mix</note>
+      </trans-unit>
+      <trans-unit id="Reverb Off">
+        <source>Reverb Off</source>
+        <target>Yankılayıcı Kapalı</target>
+        <note>Reverb Off</note>
+      </trans-unit>
+      <trans-unit id="Reverb On">
+        <source>Reverb On</source>
+        <target>Yankılayıcı Açık</target>
+        <note>Reverb On</note>
+      </trans-unit>
+      <trans-unit id="Reverb Size: (value.percentageString)">
+        <source>Reverb Size: (value.percentageString)</source>
+        <target>Yankı Boyutu: (value.percentageString)</target>
+        <note>Reverb Size</note>
+      </trans-unit>
+      <trans-unit id="SEQ">
+        <source>SEQ</source>
+        <target>DİZİ</target>
+        <note>Arp/Sequencer Panel Abbreviation</note>
+      </trans-unit>
+      <trans-unit id="Sample Rate: (Int(value)) Hz">
+        <source>Sample Rate: (Int(value)) Hz</source>
+        <target>Örnek Oranı: (Int(value)) Hz</target>
+        <note>Bitcrush Sample Rate</note>
+      </trans-unit>
+      <trans-unit id="Sequencer Mode">
+        <source>Sequencer Mode</source>
+        <target>Sekanslayıcı Modu</target>
+        <note>Sequencer Mode On</note>
+      </trans-unit>
+      <trans-unit id="Stay informed!">
+        <source>Stay informed!</source>
+        <target>Haberiniz olsun!</target>
+        <note>Alert Title: Allow notifications</note>
+      </trans-unit>
+      <trans-unit id="Stereo Widen: (stateDisplay)">
+        <source>Stereo Widen: (stateDisplay)</source>
+        <note>Stereo Widen</note>
+      </trans-unit>
+      <trans-unit id="Stereo Widen: (value.decimalString)">
+        <source>Stereo Widen: (value.decimalString)</source>
+        <note>Stereo Widen</note>
+      </trans-unit>
+      <trans-unit id="Sub Osc Volume: (value.decimalString)">
+        <source>Sub Osc Volume: (value.decimalString)</source>
+        <target>Sub Osc Volume: (value.decimalString)</target>
+        <note>Sub Oscillator Volume</note>
+      </trans-unit>
+      <trans-unit id="TUNE">
+        <source>TUNE</source>
+        <target>TUNE</target>
+        <note>Tuning Panel Abbreviation</note>
+      </trans-unit>
+      <trans-unit id="Tempo: (value) BPM">
+        <source>Tempo: (value) BPM</source>
+        <target>Tempo: (value) BPM</target>
+        <note>Tempo (Beats Per Minute)</note>
+      </trans-unit>
+      <trans-unit id="Thank you">
+        <source>Thank you</source>
+        <target>Teşekkürler</target>
+        <note>Alert Title: Rate App</note>
+      </trans-unit>
+      <trans-unit id="There is already a bank with the name '(bankName)'. Please rename one of them to keep things working smoothly.">
+        <source>There is already a bank with the name '(bankName)'. Please rename one of them to keep things working smoothly.</source>
+        <target>Zaten (bankName) olan bir banka var. Lütfen işleri düzgün bir şekilde sürdürmek için bunlardan birini yeniden adlandırın.</target>
+        <note>Alert Message: Duplicate Bank Name</note>
+      </trans-unit>
+      <trans-unit id="This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.">
+        <source>This is a FREE app built by volunteers. Please help with a Great rating so we can make more apps! Thanks for being awesome.</source>
+        <target>Bu gönüllüler tarafından yapılan ÜCRETSİZ uygulama. Daha fazla uygulama yapabilmemiz için lütfen Büyük bir derecelendirmeyle ilgili yardım edin! Harika olduğun için teşekkürler.</target>
+        <note>Alert Message: Rate App</note>
+      </trans-unit>
+      <trans-unit id="This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster">
+        <source>This mode is great for playing live. Background audio will also stay on. Note: It will use more power and could drain your battery faster</source>
+        <target>Bu mod canlı çalmak için harika. Arkaplan ses de açık kalacaktır. Not: Daha fazla güç kullanır ve pilinizi daha hızlı boşaltabilir</target>
+        <note>Alert Message: Allows On Mode</note>
+      </trans-unit>
+      <trans-unit id="Too High">
+        <source>Too High</source>
+        <target>Çok Yüksek</target>
+        <note>Alert Title: Too High</note>
+      </trans-unit>
+      <trans-unit id="Tremolo LFO ‣ (lfoSource!)">
+        <source>Tremolo LFO ‣ (lfoSource!)</source>
+        <target>Tremolo LFO ‣ (lfoSource!)</target>
+        <note>LFO [low frequency oscillator] Tremolo</note>
+      </trans-unit>
+      <trans-unit id="Twist knob on your MIDI Controller">
+        <source>Twist knob on your MIDI Controller</source>
+        <target>MIDI donanımızdaki düğmeyi tetikleyin</target>
+        <note>MIDI Learn Instructions</note>
+      </trans-unit>
+      <trans-unit id="We'll send Free updates, sounds, and apps. Allow notifications!">
+        <source>We'll send Free updates, sounds, and apps. Allow notifications!</source>
+        <target>Bildirimleri Açın! Size yeni uygulamalar, sesler ve güncellemeler göndereceğiz!</target>
+        <note>Alert Message: Allow notifications</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="2ZX-Ka-zjh.text">
+        <source>Pitch Bend range is saved with each preset.</source>
+        <target>Perde kaydırma aralığı tüm önayarlar için kaydedildi.</target>
+        <note>Class = "UILabel"; text = "Pitch Bend range is saved with each preset."; ObjectID = "2ZX-Ka-zjh";</note>
+      </trans-unit>
+      <trans-unit id="3ac-lw-QYe.text">
+        <source>Pitch Bend Lower Limit:</source>
+        <target>Perde kaydırma alt limiti:</target>
+        <note>Class = "UILabel"; text = "Pitch Bend Lower Limit:"; ObjectID = "3ac-lw-QYe"; Note = "Pitch Bend Wheel minimum";</note>
+      </trans-unit>
+      <trans-unit id="9Nq-KG-x1Y.segmentTitles[0]">
+        <source>White</source>
+        <target>Beyaz</target>
+        <note>Class = "UISegmentedControl"; 9Nq-KG-x1Y.segmentTitles[0] = "White"; ObjectID = "9Nq-KG-x1Y";</note>
+      </trans-unit>
+      <trans-unit id="9Nq-KG-x1Y.segmentTitles[1]">
+        <source>Dark</source>
+        <target>Kara</target>
+        <note>Class = "UISegmentedControl"; 9Nq-KG-x1Y.segmentTitles[1] = "Dark"; ObjectID = "9Nq-KG-x1Y";</note>
+      </trans-unit>
+      <trans-unit id="39J-5A-Jtm.normalTitle">
+        <source>Hold</source>
+        <target>Tut</target>
+        <note>Class = "UIButton"; normalTitle = "Hold"; ObjectID = "39J-5A-Jtm"; Note = "Keyboard hold button (keep this text as short as possible)";</note>
+      </trans-unit>
+      <trans-unit id="ACV-Ri-7nN.text">
+        <source>Octave:</source>
+        <target>Oktav:</target>
+        <note>Class = "UILabel"; text = "Octave:"; ObjectID = "ACV-Ri-7nN";</note>
+      </trans-unit>
+      <trans-unit id="Ai9-6v-51K.segmentTitles[0]">
+        <source>1</source>
+        <target>1</target>
+        <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[0] = "1"; ObjectID = "Ai9-6v-51K";</note>
+      </trans-unit>
+      <trans-unit id="Ai9-6v-51K.segmentTitles[1]">
+        <source>2</source>
+        <target>2</target>
+        <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[1] = "2"; ObjectID = "Ai9-6v-51K";</note>
+      </trans-unit>
+      <trans-unit id="Ai9-6v-51K.segmentTitles[2]">
+        <source>3</source>
+        <target>3</target>
+        <note>Class = "UISegmentedControl"; Ai9-6v-51K.segmentTitles[2] = "3"; ObjectID = "Ai9-6v-51K";</note>
+      </trans-unit>
+      <trans-unit id="C9j-zW-Pky.normalTitle">
+        <source>Settings</source>
+        <target>Ayarlar</target>
+        <note>Class = "UIButton"; normalTitle = "Settings"; ObjectID = "C9j-zW-Pky"; Note = "Settings button (keep this text as short as possible)";</note>
+      </trans-unit>
+      <trans-unit id="FTi-x2-zwk.normalTitle">
+        <source>Mono</source>
+        <target>Mono</target>
+        <note>Class = "UIButton"; normalTitle = "Mono"; ObjectID = "FTi-x2-zwk"; Note = "Mono/Poly toggle button (keep this text as short as possible)";</note>
+      </trans-unit>
+      <trans-unit id="GdY-Af-kY1.text">
+        <source>Mod</source>
+        <target>şık</target>
+        <note>Class = "UILabel"; text = "Mod"; ObjectID = "GdY-Af-kY1";</note>
+      </trans-unit>
+      <trans-unit id="IUb-c8-F17.text">
+        <source>KEYBOARD SETTINGS</source>
+        <target>KLAVYE AYARLARI</target>
+        <note>Class = "UILabel"; text = "KEYBOARD SETTINGS"; ObjectID = "IUb-c8-F17";</note>
+      </trans-unit>
+      <trans-unit id="MQe-Qa-FAj.normalTitle">
+        <source>Reset MIDI Learn Knobs</source>
+        <target>MIDI Öğren düğmelerini sıfırlayın</target>
+        <note>Class = "UIButton"; normalTitle = "Reset MIDI Learn Knobs"; ObjectID = "MQe-Qa-FAj";</note>
+      </trans-unit>
+      <trans-unit id="MlE-O3-Ji5.text">
+        <source>Save Tuning Panel w/ Presets:</source>
+        <target>Akort Panelini Önayarlar ile Kaydet</target>
+        <note>Class = "UILabel"; text = "Save Tuning Panel w/ Presets:"; ObjectID = "MlE-O3-Ji5";</note>
+      </trans-unit>
+      <trans-unit id="O7h-tw-s2d.normalTitle">
+        <source>Hide</source>
+        <target>Sakla</target>
+        <note>Class = "UIButton"; normalTitle = "Hide"; ObjectID = "O7h-tw-s2d";</note>
+      </trans-unit>
+      <trans-unit id="OMU-nM-0hz.text">
+        <source>Key Color:</source>
+        <target>Tuş Rengi:</target>
+        <note>Class = "UILabel"; text = "Key Color:"; ObjectID = "OMU-nM-0hz"; Note = "Color for keyboard keys (black or white)";</note>
+      </trans-unit>
+      <trans-unit id="OTn-XD-KmQ.text">
+        <source>Pitch</source>
+        <target>Nota</target>
+        <note>Class = "UILabel"; text = "Pitch"; ObjectID = "OTn-XD-KmQ";</note>
+      </trans-unit>
+      <trans-unit id="OxM-Pu-Zba.normalTitle">
+        <source>Wheels</source>
+        <target>Tekerlekler</target>
+        <note>Class = "UIButton"; normalTitle = "Wheels"; ObjectID = "OxM-Pu-Zba"; Note = "Mod Wheel &amp; Pitch Wheel button (keep this text as short as possible)";</note>
+      </trans-unit>
+      <trans-unit id="OyT-Kr-q8s.normalTitle">
+        <source>DONE</source>
+        <target>TAMAM</target>
+        <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "OyT-Kr-q8s";</note>
+      </trans-unit>
+      <trans-unit id="UeB-Ec-gRc.text">
+        <source>App Always on / Don't sleep:</source>
+        <target>Uygulama hep açık kalsın:</target>
+        <note>Class = "UILabel"; text = "App Always on / Don't sleep:"; ObjectID = "UeB-Ec-gRc"; Note = "App will not go into background mode toggle";</note>
+      </trans-unit>
+      <trans-unit id="VLa-3E-3Kt.text">
+        <source>MIDI Learn Knobs:</source>
+        <target>MIDI Öğren Düğmeleri:</target>
+        <note>Class = "UILabel"; text = "MIDI Learn Knobs:"; ObjectID = "VLa-3E-3Kt";</note>
+      </trans-unit>
+      <trans-unit id="VNg-MV-vHn.normalTitle">
+        <source>MIDI Learn</source>
+        <target>MIDI Öğren</target>
+        <note>Class = "UIButton"; normalTitle = "MIDI Learn"; ObjectID = "VNg-MV-vHn"; Note = "Midi Learn button (keep this text as short as possible)";</note>
+      </trans-unit>
+      <trans-unit id="WyC-Si-j7H.text">
+        <source>MOD / PITCH WHEELS</source>
+        <target>MOD / PERDE TEKERLEKLERİ</target>
+        <note>Class = "UILabel"; text = "MOD / PITCH WHEELS"; ObjectID = "WyC-Si-j7H";</note>
+      </trans-unit>
+      <trans-unit id="Z4W-Gh-RiQ.normalTitle">
+        <source>Keys</source>
+        <target>Tuşlar</target>
+        <note>Class = "UIButton"; normalTitle = "Keys"; ObjectID = "Z4W-Gh-RiQ"; Note = "Keyboard Keys settings  button (keep this text as short as possible)";</note>
+      </trans-unit>
+      <trans-unit id="ZV6-Yu-spa.text">
+        <source>MIDI Inputs (tap to toggle on/off):</source>
+        <target>MIDI Girişleri (açıp kapamak için dokunun):</target>
+        <note>Class = "UILabel"; text = "MIDI Inputs (tap to toggle on/off):"; ObjectID = "ZV6-Yu-spa";</note>
+      </trans-unit>
+      <trans-unit id="dKG-AP-qCg.text">
+        <source>MOD WHEEL DESTINATION:</source>
+        <target>MOD TEKERLEĞİ ADRESİ</target>
+        <note>Class = "UILabel"; text = "MOD WHEEL DESTINATION:"; ObjectID = "dKG-AP-qCg"; Note = "Routing for Mod Wheel";</note>
+      </trans-unit>
+      <trans-unit id="fmL-Ud-aaA.text">
+        <source>Key Labels:</source>
+        <target>Tuş İsimleri:</target>
+        <note>Class = "UILabel"; text = "Key Labels:"; ObjectID = "fmL-Ud-aaA"; Note = "Note labels on keyboard keys";</note>
+      </trans-unit>
+      <trans-unit id="hNP-KG-OgZ.normalTitle">
+        <source>DONE</source>
+        <target>TAMAM</target>
+        <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "hNP-KG-OgZ";</note>
+      </trans-unit>
+      <trans-unit id="iLo-Gv-XoX.segmentTitles[0]">
+        <source>Cutoff</source>
+        <target>Ayırmak</target>
+        <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[0] = "Cutoff"; ObjectID = "iLo-Gv-XoX";</note>
+      </trans-unit>
+      <trans-unit id="iLo-Gv-XoX.segmentTitles[1]">
+        <source>LFO 1</source>
+        <target>LFO 1</target>
+        <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[1] = "LFO 1"; ObjectID = "iLo-Gv-XoX";</note>
+      </trans-unit>
+      <trans-unit id="iLo-Gv-XoX.segmentTitles[2]">
+        <source>LFO 2</source>
+        <target>LFO 2</target>
+        <note>Class = "UISegmentedControl"; iLo-Gv-XoX.segmentTitles[2] = "LFO 2"; ObjectID = "iLo-Gv-XoX";</note>
+      </trans-unit>
+      <trans-unit id="icQ-Ei-YHr.text">
+        <source>Octave Range:</source>
+        <target>Oktav Aralığı:</target>
+        <note>Class = "UILabel"; text = "Octave Range:"; ObjectID = "icQ-Ei-YHr"; Note = "Octaves displayed in keyboard";</note>
+      </trans-unit>
+      <trans-unit id="kgu-qC-jCb.segmentTitles[0]">
+        <source>None</source>
+        <target>Hiçbiri</target>
+        <note>Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[0] = "None"; ObjectID = "kgu-qC-jCb";</note>
+      </trans-unit>
+      <trans-unit id="kgu-qC-jCb.segmentTitles[1]">
+        <source>C</source>
+        <target>C</target>
+        <note>Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[1] = "C"; ObjectID = "kgu-qC-jCb";</note>
+      </trans-unit>
+      <trans-unit id="kgu-qC-jCb.segmentTitles[2]">
+        <source>All</source>
+        <target>Hepsi</target>
+        <note>Class = "UISegmentedControl"; kgu-qC-jCb.segmentTitles[2] = "All"; ObjectID = "kgu-qC-jCb";</note>
+      </trans-unit>
+      <trans-unit id="ksJ-GG-fPC.text">
+        <source>MIDI / SETTINGS</source>
+        <target>MIDI / AYARLAR</target>
+        <note>Class = "UILabel"; text = "MIDI / SETTINGS"; ObjectID = "ksJ-GG-fPC";</note>
+      </trans-unit>
+      <trans-unit id="lW8-Xt-97c.normalTitle">
+        <source>DONE</source>
+        <target>TAMAM</target>
+        <note>Class = "UIButton"; normalTitle = "DONE"; ObjectID = "lW8-Xt-97c";</note>
+      </trans-unit>
+      <trans-unit id="mUh-rB-ciV.text">
+        <source>MIDI Input</source>
+        <target>MIDI Girişi</target>
+        <note>Class = "UILabel"; text = "MIDI Input"; ObjectID = "mUh-rB-ciV";</note>
+      </trans-unit>
+      <trans-unit id="nzb-kU-xl1.text">
+        <source>Velocity Sensitive MIDI: </source>
+        <target>MIDI Ses Yüksekliği Hassaslığı: </target>
+        <note>Class = "UILabel"; text = "Velocity Sensitive MIDI: "; ObjectID = "nzb-kU-xl1"; Note = "MIDI input velocity sensitive";</note>
+      </trans-unit>
+      <trans-unit id="pI1-4q-bLo.text">
+        <source>MIDI Input Channel: Omni</source>
+        <target>MIDI Giriş Kanalı: Omni</target>
+        <note>Class = "UILabel"; text = "MIDI Input Channel: Omni"; ObjectID = "pI1-4q-bLo";</note>
+      </trans-unit>
+      <trans-unit id="r3w-Dk-TAj.text">
+        <source>Mod Wheel Routing is saved with each preset.</source>
+        <target>Mod Tekerlerği Adresi tüm önayarlar için kaydedildi.</target>
+        <note>Class = "UILabel"; text = "Mod Wheel Routing is saved with each preset."; ObjectID = "r3w-Dk-TAj";</note>
+      </trans-unit>
+      <trans-unit id="sdT-EI-8gk.text">
+        <source>Pitch Bend Upper Limit:</source>
+        <target>Perde Kaydırma Üst Limiti:</target>
+        <note>Class = "UILabel"; text = "Pitch Bend Upper Limit:"; ObjectID = "sdT-EI-8gk"; Note = "Pitch Bend Wheel maximum ";</note>
+      </trans-unit>
+      <trans-unit id="sxO-Cg-8JK.text">
+        <source>Background Audio Always On:</source>
+        <target>Arkaplanda çalıştırmaya devam et:</target>
+        <note>Class = "UILabel"; text = "Background Audio Always On:"; ObjectID = "sxO-Cg-8JK";</note>
+      </trans-unit>
+      <trans-unit id="xv6-Gi-7B2.normalTitle">
+        <source>Link</source>
+        <target>bağlantı</target>
+        <note>Class = "UIButton"; normalTitle = "Link"; ObjectID = "xv6-Gi-7B2"; Note = "Ableton Link button (keep this text as short as possible)";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Developer/Base.lproj/Base.lproj/Dev.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="4x3-IO-hYz.text">
+        <source>Master Compressor</source>
+        <target>Ana Kompresör</target>
+        <note>Class = "UILabel"; text = "Master Compressor"; ObjectID = "4x3-IO-hYz";</note>
+      </trans-unit>
+      <trans-unit id="8du-td-RcA.text">
+        <source>Lock ArpRate</source>
+        <target>ArpRate'i Kilitle</target>
+        <note>Class = "UILabel"; text = "Lock ArpRate"; ObjectID = "8du-td-RcA";</note>
+      </trans-unit>
+      <trans-unit id="AIL-8o-L1E.text">
+        <source>DelFCut</source>
+        <target>DelFCut</target>
+        <note>Class = "UILabel"; text = "DelFCut"; ObjectID = "AIL-8o-L1E";</note>
+      </trans-unit>
+      <trans-unit id="Acb-r3-neV.text">
+        <source>Reverb Input Compressor</source>
+        <target>Yankı Girişi Kompresörü</target>
+        <note>Class = "UILabel"; text = "Reverb Input Compressor"; ObjectID = "Acb-r3-neV";</note>
+      </trans-unit>
+      <trans-unit id="GRS-H5-GyB.text">
+        <source>PostGain</source>
+        <target>PostGain</target>
+        <note>Class = "UILabel"; text = "PostGain"; ObjectID = "GRS-H5-GyB";</note>
+      </trans-unit>
+      <trans-unit id="LH4-DE-ZEi.text">
+        <source>BandlLimit Index Override</source>
+        <note>Class = "UILabel"; text = "BandlLimit Index Override"; ObjectID = "LH4-DE-ZEi";</note>
+      </trans-unit>
+      <trans-unit id="O3q-m2-cp5.text">
+        <source>Release</source>
+        <target>Bırak</target>
+        <note>Class = "UILabel"; text = "Release"; ObjectID = "O3q-m2-cp5";</note>
+      </trans-unit>
+      <trans-unit id="TVX-9O-IeZ.text">
+        <source>Anti-Aliasing</source>
+        <note>Class = "UILabel"; text = "Anti-Aliasing"; ObjectID = "TVX-9O-IeZ";</note>
+      </trans-unit>
+      <trans-unit id="U8L-qY-a4j.text">
+        <source>Lock Reverb</source>
+        <target>Yankıyı Kilitle</target>
+        <note>Class = "UILabel"; text = "Lock Reverb"; ObjectID = "U8L-qY-a4j";</note>
+      </trans-unit>
+      <trans-unit id="Yqu-Zu-SxM.text">
+        <source>HAQ PANEL</source>
+        <target>HAQ PANELİ</target>
+        <note>Class = "UILabel"; text = "HAQ PANEL"; ObjectID = "Yqu-Zu-SxM";</note>
+      </trans-unit>
+      <trans-unit id="Zr2-3d-n6e.text">
+        <source>Ratio</source>
+        <target>Oran</target>
+        <note>Class = "UILabel"; text = "Ratio"; ObjectID = "Zr2-3d-n6e";</note>
+      </trans-unit>
+      <trans-unit id="bwY-pS-LEC.text">
+        <source>Thresh</source>
+        <target>Aralık</target>
+        <note>Class = "UILabel"; text = "Thresh"; ObjectID = "bwY-pS-LEC";</note>
+      </trans-unit>
+      <trans-unit id="ct1-IH-Yiw.text">
+        <source>Lock Arp+Seq</source>
+        <target>Sıralayıcıyı Kitle</target>
+        <note>Class = "UILabel"; text = "Lock Arp+Seq"; ObjectID = "ct1-IH-Yiw";</note>
+      </trans-unit>
+      <trans-unit id="hU8-IN-aa4.text">
+        <source>Master Volume</source>
+        <target>Ana Ses</target>
+        <note>Class = "UILabel"; text = "Master Volume"; ObjectID = "hU8-IN-aa4";</note>
+      </trans-unit>
+      <trans-unit id="oPw-gV-Wod.text">
+        <source>Attack</source>
+        <target>Atak</target>
+        <note>Class = "UILabel"; text = "Attack"; ObjectID = "oPw-gV-Wod";</note>
+      </trans-unit>
+      <trans-unit id="rEb-j6-MNs.text">
+        <source>Reverb Wet Compressor</source>
+        <target>Yankı Islaklık Kompresörü</target>
+        <note>Class = "UILabel"; text = "Reverb Wet Compressor"; ObjectID = "rEb-j6-MNs";</note>
+      </trans-unit>
+      <trans-unit id="slc-Pi-ahg.text">
+        <source>DSP Param Halftime</source>
+        <target>DSP Param Halftime</target>
+        <note>Class = "UILabel"; text = "DSP Param Halftime"; ObjectID = "slc-Pi-ahg";</note>
+      </trans-unit>
+      <trans-unit id="tLJ-xr-40E.text">
+        <source>Lock Delay</source>
+        <target>Yineleyiciyi Kilitle</target>
+        <note>Class = "UILabel"; text = "Lock Delay"; ObjectID = "tLJ-xr-40E";</note>
+      </trans-unit>
+      <trans-unit id="tRH-wD-RtM.text">
+        <source>DelFRes</source>
+        <target>DelFRes</target>
+        <note>Class = "UILabel"; text = "DelFRes"; ObjectID = "tRH-wD-RtM";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Effects/Base.lproj/Effects.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="0WI-5Q-ep5.text">
+        <source>Time</source>
+        <target>Zaman</target>
+        <note>Class = "UILabel"; text = "Time"; ObjectID = "0WI-5Q-ep5"; Note = "Delay Time/Length";</note>
+      </trans-unit>
+      <trans-unit id="7Ru-Fu-LT1.text">
+        <source>LFO 1</source>
+        <target>LFO 1</target>
+        <note>Class = "UILabel"; text = "LFO 1"; ObjectID = "7Ru-Fu-LT1"; Note = "Low Frequency Oscillator";</note>
+      </trans-unit>
+      <trans-unit id="7mr-cL-dIt.text">
+        <source>Effects Rack</source>
+        <target>Efekt Bölümü</target>
+        <note>Class = "UILabel"; text = "Effects Rack"; ObjectID = "7mr-cL-dIt";</note>
+      </trans-unit>
+      <trans-unit id="34d-F0-qxp.text">
+        <source>Notch</source>
+        <target>Çentik</target>
+        <note>Class = "UILabel"; text = "Notch"; ObjectID = "34d-F0-qxp"; Note = "Phaser Notch Width";</note>
+      </trans-unit>
+      <trans-unit id="41y-Db-NY3.text">
+        <source>Rate</source>
+        <target>Sıklık</target>
+        <note>Class = "UILabel"; text = "Rate"; ObjectID = "41y-Db-NY3";</note>
+      </trans-unit>
+      <trans-unit id="Kzx-ck-MJn.text">
+        <source>Amount</source>
+        <target>Amfi</target>
+        <note>Class = "UILabel"; text = "Amount"; ObjectID = "Kzx-ck-MJn"; Note = "LFO Amp/Level/Amount";</note>
+      </trans-unit>
+      <trans-unit id="MMf-RB-gf7.text">
+        <source>Low Cut</source>
+        <target>Düşük kesim</target>
+        <note>Class = "UILabel"; text = "Low Cut"; ObjectID = "MMf-RB-gf7"; Note = "Reverb Low cut/High Pass";</note>
+      </trans-unit>
+      <trans-unit id="Md3-mc-eyV.text">
+        <source>Amount</source>
+        <target>Amfi</target>
+        <note>Class = "UILabel"; text = "Amount"; ObjectID = "Md3-mc-eyV"; Note = "Auto Pan Amplification/ Amount";</note>
+      </trans-unit>
+      <trans-unit id="NJ9-DE-qUL.text">
+        <source>Bitrate Crusher</source>
+        <target>Bitrate Kırıcı</target>
+        <note>Class = "UILabel"; text = "Bitrate Crusher"; ObjectID = "NJ9-DE-qUL";</note>
+      </trans-unit>
+      <trans-unit id="O2o-2A-IsV.text">
+        <source>Rate</source>
+        <target>Sıklık</target>
+        <note>Class = "UILabel"; text = "Rate"; ObjectID = "O2o-2A-IsV"; Note = "LFO Rate";</note>
+      </trans-unit>
+      <trans-unit id="OZa-4e-uR2.text">
+        <source>Mix</source>
+        <target>Miks</target>
+        <note>Class = "UILabel"; text = "Mix"; ObjectID = "OZa-4e-uR2"; Note = "Reverb Dry/Wet Mix";</note>
+      </trans-unit>
+      <trans-unit id="Oip-7I-GYL.text">
+        <source>Delay</source>
+        <target>Yineleyici</target>
+        <note>Class = "UILabel"; text = "Delay"; ObjectID = "Oip-7I-GYL";</note>
+      </trans-unit>
+      <trans-unit id="UiA-5l-0H8.text">
+        <source>Amount</source>
+        <target>Amfi</target>
+        <note>Class = "UILabel"; text = "Amount"; ObjectID = "UiA-5l-0H8"; Note = "LFO Amp/Level/Amount";</note>
+      </trans-unit>
+      <trans-unit id="VX2-1Q-SUX.text">
+        <source>Size</source>
+        <target>Büyüklük</target>
+        <note>Class = "UILabel"; text = "Size"; ObjectID = "VX2-1Q-SUX"; Note = "Reverb Size/Amount";</note>
+      </trans-unit>
+      <trans-unit id="agt-nZ-1YG.text">
+        <source>Feedback</source>
+        <target>Geribildirim</target>
+        <note>Class = "UILabel"; text = "Feedback"; ObjectID = "agt-nZ-1YG"; Note = "Delay Feedback/Taps";</note>
+      </trans-unit>
+      <trans-unit id="ccC-ll-23n.text">
+        <source>Rate</source>
+        <target>Sıklık</target>
+        <note>Class = "UILabel"; text = "Rate"; ObjectID = "ccC-ll-23n"; Note = "LFO Rate";</note>
+      </trans-unit>
+      <trans-unit id="cwq-zJ-1kk.text">
+        <source>Auto Pan</source>
+        <target>Otomatik Denge</target>
+        <note>Class = "UILabel"; text = "Auto Pan"; ObjectID = "cwq-zJ-1kk";</note>
+      </trans-unit>
+      <trans-unit id="cxn-Wb-RuK.text">
+        <source>Reverb</source>
+        <target>Yankı</target>
+        <note>Class = "UILabel"; text = "Reverb"; ObjectID = "cxn-Wb-RuK";</note>
+      </trans-unit>
+      <trans-unit id="e3I-8e-T8m.text">
+        <source>Mix</source>
+        <target>Miks</target>
+        <note>Class = "UILabel"; text = "Mix"; ObjectID = "e3I-8e-T8m"; Note = "Phaser Dry/Wet Mix";</note>
+      </trans-unit>
+      <trans-unit id="eeQ-UE-T6J.text">
+        <source>LFO 2</source>
+        <target>LFO 2</target>
+        <note>Class = "UILabel"; text = "LFO 2"; ObjectID = "eeQ-UE-T6J"; Note = "Low Frequency Oscillator";</note>
+      </trans-unit>
+      <trans-unit id="go0-UQ-ltt.text">
+        <source>Tempo Sync</source>
+        <target>Tempo Senkronu</target>
+        <note>Class = "UILabel"; text = "Tempo Sync"; ObjectID = "go0-UQ-ltt";</note>
+      </trans-unit>
+      <trans-unit id="gzX-jx-4y6.text">
+        <source>Rate</source>
+        <target>Sıklık</target>
+        <note>Class = "UILabel"; text = "Rate"; ObjectID = "gzX-jx-4y6";</note>
+      </trans-unit>
+      <trans-unit id="nWW-Un-BcO.text">
+        <source>Mix</source>
+        <target>Miks</target>
+        <note>Class = "UILabel"; text = "Mix"; ObjectID = "nWW-Un-BcO"; Note = "Delay Dry/Wet Mix";</note>
+      </trans-unit>
+      <trans-unit id="qxc-oN-mY8.text">
+        <source>Phaser</source>
+        <target>Fazör</target>
+        <note>Class = "UILabel"; text = "Phaser"; ObjectID = "qxc-oN-mY8";</note>
+      </trans-unit>
+      <trans-unit id="rIz-r7-GtW.text">
+        <source>Feedback</source>
+        <target>Geribesleme</target>
+        <note>Class = "UILabel"; text = "Feedback"; ObjectID = "rIz-r7-GtW"; Note = "Phaser Feedback/Taps";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/en.lproj/InfoPlist.strings" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="AudioKit Synth Presest">
+        <source>AudioKit Synth Presest</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="CFBundleDisplayName">
+        <source>Synth One</source>
+        <target>Synth Bir</target>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+        <target>$(PRODUCT_NAME)</target>
+        <note>Bundle name</note>
+      </trans-unit>
+      <trans-unit id="NSCameraUsageDescription">
+        <source>$(PRODUCT_NAME) camera use.</source>
+        <target>$(PRODUCT_NAME) kamera kullanımı.</target>
+        <note>Privacy - Camera Usage Description</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Envelopes/Base.lproj/Envelopes.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="1iB-yg-YcK.text">
+        <source>Attack</source>
+        <target>Atak</target>
+        <note>Class = "UILabel"; text = "Attack"; ObjectID = "1iB-yg-YcK";</note>
+      </trans-unit>
+      <trans-unit id="5Ie-DT-yvl.text">
+        <source>Attack</source>
+        <target>Atak</target>
+        <note>Class = "UILabel"; text = "Attack"; ObjectID = "5Ie-DT-yvl";</note>
+      </trans-unit>
+      <trans-unit id="9Ne-rF-Cd5.text">
+        <source>Sustain</source>
+        <target>Sürdürme</target>
+        <note>Class = "UILabel"; text = "Sustain"; ObjectID = "9Ne-rF-Cd5";</note>
+      </trans-unit>
+      <trans-unit id="NPM-Ga-czS.text">
+        <source>Sustain</source>
+        <target>Sürdürme</target>
+        <note>Class = "UILabel"; text = "Sustain"; ObjectID = "NPM-Ga-czS";</note>
+      </trans-unit>
+      <trans-unit id="QwS-x7-Tqo.text">
+        <source>Decay</source>
+        <target>Düşüş</target>
+        <note>Class = "UILabel"; text = "Decay"; ObjectID = "QwS-x7-Tqo";</note>
+      </trans-unit>
+      <trans-unit id="TwY-KM-KRE.text">
+        <source>Release</source>
+        <target>Bırakma</target>
+        <note>Class = "UILabel"; text = "Release"; ObjectID = "TwY-KM-KRE";</note>
+      </trans-unit>
+      <trans-unit id="jpD-fo-QNO.text">
+        <source>Amplitude Envelope</source>
+        <target>Amfi Zarfı</target>
+        <note>Class = "UILabel"; text = "Amplitude Envelope"; ObjectID = "jpD-fo-QNO";</note>
+      </trans-unit>
+      <trans-unit id="tyt-Qx-CmV.text">
+        <source>Decay</source>
+        <target>Düşüş</target>
+        <note>Class = "UILabel"; text = "Decay"; ObjectID = "tyt-Qx-CmV";</note>
+      </trans-unit>
+      <trans-unit id="u2H-uf-fdc.text">
+        <source>Filter Envelope</source>
+        <target>Filitre Zarfı</target>
+        <note>Class = "UILabel"; text = "Filter Envelope"; ObjectID = "u2H-uf-fdc";</note>
+      </trans-unit>
+      <trans-unit id="yjc-MW-jcO.text">
+        <source>Release</source>
+        <target>Bırakma</target>
+        <note>Class = "UILabel"; text = "Release"; ObjectID = "yjc-MW-jcO";</note>
+      </trans-unit>
+      <trans-unit id="yuw-Hz-d5o.text">
+        <source>Env Amt</source>
+        <target>Env Amt</target>
+        <note>Class = "UILabel"; text = "Env Amt"; ObjectID = "yuw-Hz-d5o";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Generators/Base.lproj/Generators.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="0Mf-dH-wy0.text">
+        <source>Arp</source>
+        <target>Sıralayıcı</target>
+        <note>Class = "UILabel"; text = "Arp"; ObjectID = "0Mf-dH-wy0"; Note = "arpeggiator/Sequencer (Perhaps one Abbreviation or the other, please keep short)";</note>
+      </trans-unit>
+      <trans-unit id="8Uq-gf-6UI.text">
+        <source>Global</source>
+        <target>global</target>
+        <note>Class = "UILabel"; text = "Global"; ObjectID = "8Uq-gf-6UI";</note>
+      </trans-unit>
+      <trans-unit id="9r6-eL-FL5.text">
+        <source>Filter</source>
+        <target>Filitre</target>
+        <note>Class = "UILabel"; text = "Filter"; ObjectID = "9r6-eL-FL5";</note>
+      </trans-unit>
+      <trans-unit id="62k-94-Rv3.text">
+        <source>Volume</source>
+        <target>Amfi</target>
+        <note>Class = "UILabel"; text = "Volume"; ObjectID = "62k-94-Rv3"; Note = "Amplification/Volume";</note>
+      </trans-unit>
+      <trans-unit id="91z-3O-akH.text">
+        <source>Volume</source>
+        <target>Ses</target>
+        <note>Class = "UILabel"; text = "Volume"; ObjectID = "91z-3O-akH";</note>
+      </trans-unit>
+      <trans-unit id="310-I5-RBg.text">
+        <source>OSC 2</source>
+        <target>DCO 2</target>
+        <note>Class = "UILabel"; text = "OSC 2"; ObjectID = "310-I5-RBg"; Note = "Oscillator / Digital Controlled Oscillator ";</note>
+      </trans-unit>
+      <trans-unit id="AjD-Sk-cQQ.text">
+        <source>Glide</source>
+        <target>Kaydırıcı</target>
+        <note>Class = "UILabel"; text = "Glide"; ObjectID = "AjD-Sk-cQQ";</note>
+      </trans-unit>
+      <trans-unit id="B0S-va-FqH.text">
+        <source>Legato</source>
+        <target>Bağlılık</target>
+        <note>Class = "UILabel"; text = "Legato"; ObjectID = "B0S-va-FqH";</note>
+      </trans-unit>
+      <trans-unit id="ECo-F0-jfe.text">
+        <source>OSC 1</source>
+        <target>DCO 1</target>
+        <note>Class = "UILabel"; text = "OSC 1"; ObjectID = "ECo-F0-jfe"; Note = "Oscillator 1 / Digital Controlled Oscillator ";</note>
+      </trans-unit>
+      <trans-unit id="F86-bv-0H1.text">
+        <source>Mono</source>
+        <target>Mono</target>
+        <note>Class = "UILabel"; text = "Mono"; ObjectID = "F86-bv-0H1";</note>
+      </trans-unit>
+      <trans-unit id="Hw6-cM-mlo.text">
+        <source>Volume</source>
+        <target>Anfi</target>
+        <note>Class = "UILabel"; text = "Volume"; ObjectID = "Hw6-cM-mlo"; Note = "Amplification/Volume";</note>
+      </trans-unit>
+      <trans-unit id="KMe-b8-yaN.text">
+        <source>Resonance</source>
+        <target>Rezonans</target>
+        <note>Class = "UILabel"; text = "Resonance"; ObjectID = "KMe-b8-yaN"; Note = "Filter Resonance/Q ";</note>
+      </trans-unit>
+      <trans-unit id="OEr-fz-3io.text">
+        <source>FM</source>
+        <target>FM</target>
+        <note>Class = "UILabel"; text = "FM"; ObjectID = "OEr-fz-3io"; Note = "Frequency Modulation / FM Synthesis";</note>
+      </trans-unit>
+      <trans-unit id="TPy-ml-QQS.text">
+        <source>-24</source>
+        <target>-24</target>
+        <note>Class = "UILabel"; text = "-24"; ObjectID = "TPy-ml-QQS";</note>
+      </trans-unit>
+      <trans-unit id="XfT-ym-RWb.text">
+        <source>Mix</source>
+        <target>Miks</target>
+        <note>Class = "UILabel"; text = "Mix"; ObjectID = "XfT-ym-RWb";</note>
+      </trans-unit>
+      <trans-unit id="Z0B-Hd-qT1.text">
+        <source>Anti-Aliasing</source>
+        <note>Class = "UILabel"; text = "Anti-Aliasing"; ObjectID = "Z0B-Hd-qT1"; Note = "Stereo Widen";</note>
+      </trans-unit>
+      <trans-unit id="eYP-ap-6Ia.text">
+        <source>Master Volume</source>
+        <target>Ana Ses</target>
+        <note>Class = "UILabel"; text = "Master Volume"; ObjectID = "eYP-ap-6Ia";</note>
+      </trans-unit>
+      <trans-unit id="exT-Rq-dxj.text">
+        <source>Sub</source>
+        <target>Alt</target>
+        <note>Class = "UILabel"; text = "Sub"; ObjectID = "exT-Rq-dxj";</note>
+      </trans-unit>
+      <trans-unit id="fhH-Ee-rSO.text">
+        <source>Frequency</source>
+        <target>Frekans</target>
+        <note>Class = "UILabel"; text = "Frequency"; ObjectID = "fhH-Ee-rSO"; Note = "Filter Frequency";</note>
+      </trans-unit>
+      <trans-unit id="iz9-qo-den.text">
+        <source>Semitones</source>
+        <target>Yarım ton</target>
+        <note>Class = "UILabel"; text = "Semitones"; ObjectID = "iz9-qo-den";</note>
+      </trans-unit>
+      <trans-unit id="jIr-eA-H5o.text">
+        <source>Voume</source>
+        <target>Anfi</target>
+        <note>Class = "UILabel"; text = "Voume"; ObjectID = "jIr-eA-H5o"; Note = "Amplification/Volume";</note>
+      </trans-unit>
+      <trans-unit id="jl7-1K-mc7.text">
+        <source>OSC 2</source>
+        <target>DCO 2</target>
+        <note>Class = "UILabel"; text = "OSC 2"; ObjectID = "jl7-1K-mc7"; Note = "Oscillator 2 / Digital Controlled Oscillator ";</note>
+      </trans-unit>
+      <trans-unit id="nLD-gy-Y0z.text">
+        <source>Noise</source>
+        <target>Gürültü</target>
+        <note>Class = "UILabel"; text = "Noise"; ObjectID = "nLD-gy-Y0z";</note>
+      </trans-unit>
+      <trans-unit id="ozs-aS-dKc.normalTitle">
+        <source>Low Pass</source>
+        <target>Alt Geçiş</target>
+        <note>Class = "UIButton"; normalTitle = "Low Pass"; ObjectID = "ozs-aS-dKc";</note>
+      </trans-unit>
+      <trans-unit id="pkg-m0-5sO.text">
+        <source>Mod</source>
+        <target>şık</target>
+        <note>Class = "UILabel"; text = "Mod"; ObjectID = "pkg-m0-5sO"; Note = "Modulation";</note>
+      </trans-unit>
+      <trans-unit id="ppL-x8-d0i.text">
+        <source>Widen</source>
+        <target>Genişlik</target>
+        <note>Class = "UILabel"; text = "Widen"; ObjectID = "ppL-x8-d0i"; Note = "Stereo Widen";</note>
+      </trans-unit>
+      <trans-unit id="rCL-wA-mRJ.text">
+        <source>OSC 1</source>
+        <target>DCO 1</target>
+        <note>Class = "UILabel"; text = "OSC 1"; ObjectID = "rCL-wA-mRJ"; Note = "Oscillator 1 / Digital Controlled Oscillator ";</note>
+      </trans-unit>
+      <trans-unit id="uby-Uc-YpS.text">
+        <source>Semitones</source>
+        <target>Yarım ton</target>
+        <note>Class = "UILabel"; text = "Semitones"; ObjectID = "uby-Uc-YpS";</note>
+      </trans-unit>
+      <trans-unit id="wBf-gS-1RL.text">
+        <source>OSC 1-2</source>
+        <target>DCO 1-2</target>
+        <note>Class = "UILabel"; text = "OSC 1-2"; ObjectID = "wBf-gS-1RL"; Note = "Oscillator / Digital Controlled Oscillator ";</note>
+      </trans-unit>
+      <trans-unit id="y2a-dN-P74.text">
+        <source>Detune</source>
+        <target>Ton Bozukluğu</target>
+        <note>Class = "UILabel"; text = "Detune"; ObjectID = "y2a-dN-P74";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Header/Base.lproj/Header.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="4uE-Js-e46.normalTitle">
+        <source>Dev</source>
+        <target>Geliştirici</target>
+        <note>Class = "UIButton"; normalTitle = "Dev"; ObjectID = "4uE-Js-e46";</note>
+      </trans-unit>
+      <trans-unit id="Ggs-qy-ExU.text">
+        <source>Loading...</source>
+        <target>Yükleniyor...</target>
+        <note>Class = "UILabel"; text = "Loading..."; ObjectID = "Ggs-qy-ExU";</note>
+      </trans-unit>
+      <trans-unit id="NL0-Jf-tHi.normalTitle">
+        <source>Save</source>
+        <target>Kaydet</target>
+        <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "NL0-Jf-tHi"; Note = "Save Preset Button (keep short)";</note>
+      </trans-unit>
+      <trans-unit id="PpV-eX-q12.normalTitle">
+        <source>Web</source>
+        <target>ağ</target>
+        <note>Class = "UIButton"; normalTitle = "Web"; ObjectID = "PpV-eX-q12"; Note = "Website button (keep short)";</note>
+      </trans-unit>
+      <trans-unit id="l9q-RV-KkX.normalTitle">
+        <source>Panic</source>
+        <target>Panik</target>
+        <note>Class = "UIButton"; normalTitle = "Panic"; ObjectID = "l9q-RV-KkX"; Note = "MIDI Panic / All notes off (Keep short)";</note>
+      </trans-unit>
+      <trans-unit id="qXZ-Yq-KK5.normalTitle">
+        <source>Apps</source>
+        <target>Uygulamalar</target>
+        <note>Class = "UIButton"; normalTitle = "Apps"; ObjectID = "qXZ-Yq-KK5"; Note = "Apps button, keep short";</note>
+      </trans-unit>
+      <trans-unit id="vEb-n7-p0M.normalTitle">
+        <source>About</source>
+        <target>Hakkında</target>
+        <note>Class = "UIButton"; normalTitle = "About"; ObjectID = "vEb-n7-p0M"; Note = "About button (keep short)";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Presets/Base.lproj/Presets.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="3lr-kd-bYo.normalTitle">
+        <source>Cancel</source>
+        <note>Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "3lr-kd-bYo";</note>
+      </trans-unit>
+      <trans-unit id="4I7-1e-dMK.normalTitle">
+        <source>New Preset</source>
+        <note>Class = "UIButton"; normalTitle = "New Preset"; ObjectID = "4I7-1e-dMK";</note>
+      </trans-unit>
+      <trans-unit id="8dj-SF-Pxt.text">
+        <source>SAVE / RENAME PRESET:</source>
+        <note>Class = "UILabel"; text = "SAVE / RENAME PRESET:"; ObjectID = "8dj-SF-Pxt";</note>
+      </trans-unit>
+      <trans-unit id="8tM-pA-eD2.text">
+        <source>Preset Description Here</source>
+        <note>Class = "UITextView"; text = "Preset Description Here"; ObjectID = "8tM-pA-eD2";</note>
+      </trans-unit>
+      <trans-unit id="EyQ-H5-8Yr.text">
+        <source>RENAME BANK:</source>
+        <note>Class = "UILabel"; text = "RENAME BANK:"; ObjectID = "EyQ-H5-8Yr";</note>
+      </trans-unit>
+      <trans-unit id="Jut-wm-dt0.text">
+        <source>Category</source>
+        <note>Class = "UILabel"; text = "Category"; ObjectID = "Jut-wm-dt0";</note>
+      </trans-unit>
+      <trans-unit id="LTK-sn-l0B.text">
+        <source>Select a bank for the preset:</source>
+        <note>Class = "UILabel"; text = "Select a bank for the preset:"; ObjectID = "LTK-sn-l0B";</note>
+      </trans-unit>
+      <trans-unit id="M5g-gJ-LgP.text">
+        <source>Pad</source>
+        <note>Class = "UILabel"; text = "Pad"; ObjectID = "M5g-gJ-LgP";</note>
+      </trans-unit>
+      <trans-unit id="Pax-NO-iPl.text">
+        <source>Rename the preset to save a new copy. Press "Save" to save the current preset. </source>
+        <note>Class = "UILabel"; text = "Rename the preset to save a new copy. Press \"Save\" to save the current preset. "; ObjectID = "Pax-NO-iPl";</note>
+      </trans-unit>
+      <trans-unit id="Qv6-hQ-4wE.normalTitle">
+        <source>Delete Bank</source>
+        <note>Class = "UIButton"; normalTitle = "Delete Bank"; ObjectID = "Qv6-hQ-4wE";</note>
+      </trans-unit>
+      <trans-unit id="VL7-Y3-hxn.normalTitle">
+        <source>SAVE PRESET</source>
+        <note>Class = "UIButton"; normalTitle = "SAVE PRESET"; ObjectID = "VL7-Y3-hxn";</note>
+      </trans-unit>
+      <trans-unit id="ZCE-zi-tsi.normalTitle">
+        <source>Import Preset</source>
+        <note>Class = "UIButton"; normalTitle = "Import Preset"; ObjectID = "ZCE-zi-tsi";</note>
+      </trans-unit>
+      <trans-unit id="c61-bJ-zsz.normalTitle">
+        <source>DONE EDITING</source>
+        <note>Class = "UIButton"; normalTitle = "DONE EDITING"; ObjectID = "c61-bJ-zsz";</note>
+      </trans-unit>
+      <trans-unit id="cs5-5n-k8U.normalTitle">
+        <source>+</source>
+        <note>Class = "UIButton"; normalTitle = "+"; ObjectID = "cs5-5n-k8U";</note>
+      </trans-unit>
+      <trans-unit id="dSC-DB-ods.text">
+        <source>Preset Name</source>
+        <note>Class = "UILabel"; text = "Preset Name"; ObjectID = "dSC-DB-ods";</note>
+      </trans-unit>
+      <trans-unit id="dvq-vN-oxQ.normalTitle">
+        <source>Cancel</source>
+        <note>Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "dvq-vN-oxQ";</note>
+      </trans-unit>
+      <trans-unit id="eGC-CV-RRm.normalTitle">
+        <source>Import Bank</source>
+        <note>Class = "UIButton"; normalTitle = "Import Bank"; ObjectID = "eGC-CV-RRm";</note>
+      </trans-unit>
+      <trans-unit id="eI7-vK-ARE.normalTitle">
+        <source>Save</source>
+        <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "eI7-vK-ARE";</note>
+      </trans-unit>
+      <trans-unit id="mZQ-N0-bdr.text">
+        <source>SYNTH ONE PRESETS</source>
+        <note>Class = "UILabel"; text = "SYNTH ONE PRESETS"; ObjectID = "mZQ-N0-bdr";</note>
+      </trans-unit>
+      <trans-unit id="rSO-zc-3Ba.normalTitle">
+        <source>Save</source>
+        <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "rSO-zc-3Ba";</note>
+      </trans-unit>
+      <trans-unit id="uLS-HA-DTu.text">
+        <source>Category:</source>
+        <note>Class = "UILabel"; text = "Category:"; ObjectID = "uLS-HA-DTu";</note>
+      </trans-unit>
+      <trans-unit id="v81-AR-cdF.normalTitle">
+        <source>Reorder</source>
+        <note>Class = "UIButton"; normalTitle = "Reorder"; ObjectID = "v81-AR-cdF";</note>
+      </trans-unit>
+      <trans-unit id="xCe-zx-CAI.text">
+        <source>Free &amp; open-source synthesizer. Browse presets &amp; banks below. </source>
+        <note>Class = "UILabel"; text = "Free &amp; open-source synthesizer. Browse presets &amp; banks below. "; ObjectID = "xCe-zx-CAI";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Sequencer/Base.lproj/Sequencer.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="1kh-G3-Dao.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "1kh-G3-Dao";</note>
+      </trans-unit>
+      <trans-unit id="2kx-k3-hsp.text">
+        <source>Style</source>
+        <target>Stil</target>
+        <note>Class = "UILabel"; text = "Style"; ObjectID = "2kx-k3-hsp"; Note = "Arp Kind (up/down)";</note>
+      </trans-unit>
+      <trans-unit id="5Zf-zW-Iav.text">
+        <source>Octave</source>
+        <target>Oktav</target>
+        <note>Class = "UILabel"; text = "Octave"; ObjectID = "5Zf-zW-Iav";</note>
+      </trans-unit>
+      <trans-unit id="6WL-SP-3jX.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "6WL-SP-3jX";</note>
+      </trans-unit>
+      <trans-unit id="7TS-So-8Ku.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "7TS-So-8Ku";</note>
+      </trans-unit>
+      <trans-unit id="8ys-6F-5Ct.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "8ys-6F-5Ct";</note>
+      </trans-unit>
+      <trans-unit id="22z-fI-i6o.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "22z-fI-i6o";</note>
+      </trans-unit>
+      <trans-unit id="FJP-5X-i7T.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "FJP-5X-i7T";</note>
+      </trans-unit>
+      <trans-unit id="IL2-Ai-3GG.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "IL2-Ai-3GG";</note>
+      </trans-unit>
+      <trans-unit id="MCo-Uv-ex2.text">
+        <source>Steps</source>
+        <target>Adımlar</target>
+        <note>Class = "UILabel"; text = "Steps"; ObjectID = "MCo-Uv-ex2"; Note = "Sequencer Steps";</note>
+      </trans-unit>
+      <trans-unit id="N6g-lA-Pmi.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "N6g-lA-Pmi";</note>
+      </trans-unit>
+      <trans-unit id="P9q-rs-3Sq.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "P9q-rs-3Sq";</note>
+      </trans-unit>
+      <trans-unit id="QTm-h5-dGt.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "QTm-h5-dGt";</note>
+      </trans-unit>
+      <trans-unit id="Tlc-ZL-pSj.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "Tlc-ZL-pSj";</note>
+      </trans-unit>
+      <trans-unit id="UQ8-P1-5c9.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "UQ8-P1-5c9";</note>
+      </trans-unit>
+      <trans-unit id="USV-ak-yaz.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "USV-ak-yaz";</note>
+      </trans-unit>
+      <trans-unit id="X6a-NW-xsn.text">
+        <source>Seq</source>
+        <target>Sıralayıcı</target>
+        <note>Class = "UILabel"; text = "Seq"; ObjectID = "X6a-NW-xsn"; Note = "Sequencer (keep short)";</note>
+      </trans-unit>
+      <trans-unit id="bgM-Rm-Fpn.text">
+        <source>Arp</source>
+        <target>Arpejleyici</target>
+        <note>Class = "UILabel"; text = "Arp"; ObjectID = "bgM-Rm-Fpn"; Note = "arpeggiator (keep short)";</note>
+      </trans-unit>
+      <trans-unit id="f7D-Z3-yNc.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "f7D-Z3-yNc";</note>
+      </trans-unit>
+      <trans-unit id="gH8-vf-85d.text">
+        <source>Interval</source>
+        <target>Aralık</target>
+        <note>Class = "UILabel"; text = "Interval"; ObjectID = "gH8-vf-85d"; Note = "Arp Semitone Intervals";</note>
+      </trans-unit>
+      <trans-unit id="hPX-vI-eXD.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "hPX-vI-eXD";</note>
+      </trans-unit>
+      <trans-unit id="oHV-it-EtQ.text">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "oHV-it-EtQ";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/TouchPad/Base.lproj/TouchPad.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="4Xu-ES-Jtr.text">
+        <source>FILTER RESONANCE</source>
+        <target>FİLTRE RESONANSI</target>
+        <note>Class = "UILabel"; text = "FILTER RESONANCE"; ObjectID = "4Xu-ES-Jtr";</note>
+      </trans-unit>
+      <trans-unit id="SVY-05-J4t.normalTitle">
+        <source>Snap</source>
+        <target>Tuttur</target>
+        <note>Class = "UIButton"; normalTitle = "Snap"; ObjectID = "SVY-05-J4t";</note>
+      </trans-unit>
+      <trans-unit id="cxh-gH-dY1.text">
+        <source>LFO 1 AMPLITUDE</source>
+        <target>LFO 1 SES YÜKSEKLİĞİ</target>
+        <note>Class = "UILabel"; text = "LFO 1 AMPLITUDE"; ObjectID = "cxh-gH-dY1";</note>
+      </trans-unit>
+      <trans-unit id="gH1-9e-vhR.text">
+        <source>FILTER CUTOFF</source>
+        <target>FİLİTRE KESİMİ</target>
+        <note>Class = "UILabel"; text = "FILTER CUTOFF"; ObjectID = "gH1-9e-vhR";</note>
+      </trans-unit>
+      <trans-unit id="qXN-sO-KUB.text">
+        <source>LFO 1 RATE</source>
+        <target>LFO 1 SIKLIĞI</target>
+        <note>Class = "UILabel"; text = "LFO 1 RATE"; ObjectID = "qXN-sO-KUB";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="AudioKitSynthOne/Tunings/Base.lproj/Tunings.storyboard" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="AqK-kK-Iaf.text">
+        <source>Master Tuning</source>
+        <target>Ana Akort</target>
+        <note>Class = "UILabel"; text = "Master Tuning"; ObjectID = "AqK-kK-Iaf";</note>
+      </trans-unit>
+      <trans-unit id="Cm9-Xa-WqW.text">
+        <source>TUNING</source>
+        <target>AKORT</target>
+        <note>Class = "UILabel"; text = "TUNING"; ObjectID = "Cm9-Xa-WqW";</note>
+      </trans-unit>
+      <trans-unit id="JBk-V2-c4I.normalTitle">
+        <source>Reset</source>
+        <target>Sıfırla</target>
+        <note>Class = "UIButton"; normalTitle = "Reset"; ObjectID = "JBk-V2-c4I";</note>
+      </trans-unit>
+      <trans-unit id="ipV-Bb-omK.text">
+        <source>PITCH</source>
+        <target>NOTA</target>
+        <note>Class = "UILabel"; text = "PITCH"; ObjectID = "ipV-Bb-omK";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="OneSignalNotificationServiceExtension/en.lproj/InfoPlist.strings" source-language="en" datatype="plaintext" target-language="tr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10A255"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName">
+        <source>OneSignalNotificationServiceExtension</source>
+        <target>Synth One</target>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+        <target>$(PRODUCT_NAME)</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

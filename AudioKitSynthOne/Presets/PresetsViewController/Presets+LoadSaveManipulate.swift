@@ -50,9 +50,14 @@ extension PresetsViewController {
             for bank in conductor.banks {
                 sortedPresets += categoryPresets.filter { $0.bank == bank.name }.sorted { $0.position < $1.position }
             }
-
-        // Sort by Favorites
+            
+        // Sort by Alphabetically
         case PresetCategory.categoryCount + 1:
+            presets.forEach { $0.name.capitalizeFirstLetter() }
+            sortedPresets = presets.sorted { $0.name < $1.name }
+            
+        // Sort by Favorites
+        case PresetCategory.categoryCount + 2:
             sortedPresets = presets.filter { $0.isFavorite }
 
         // Display Banks

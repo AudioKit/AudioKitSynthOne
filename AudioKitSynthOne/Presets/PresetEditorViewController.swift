@@ -23,7 +23,7 @@ class PresetEditorViewController: UIViewController {
     weak var delegate: PresetPopOverDelegate?
 
     var preset = Preset()
-    var categories = ["none", "arp/seq", "poly", "pad", "lead", "bass", "pluck"]
+    var categories = [""]
     let cellReuseIdentifier = "PopUpCell"
     var categoryIndex = 0
 
@@ -52,6 +52,12 @@ class PresetEditorViewController: UIViewController {
             bankPicker.selectRow(index, inComponent: 0, animated: true)
             bankSelected = preset.bank
         }
+        
+        // pull all preset categories
+        categories.removeAll()
+        for i in 0...PresetCategory.categoryCount {
+            categories.append((PresetCategory(rawValue: i)?.description())!)
+        }
 
         setupCallbacks()
     }
@@ -62,8 +68,10 @@ class PresetEditorViewController: UIViewController {
         categoryTableView.reloadData()
 
         // Populate Preset current values
-        categoryIndex = preset.category.hashValue
+        categoryIndex = preset.category
+        
         let indexPath = IndexPath(row: categoryIndex, section: 0)
+        guard preset.category >= 0 && preset.category < PresetCategory.categoryCount else { return }
         categoryTableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
     }
 

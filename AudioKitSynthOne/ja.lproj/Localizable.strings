@@ -10,167 +10,23 @@
 /* Alert Title: Confirm Email Address */
 "Almost done!" = "ほぼ完了！";
 
-/* Arpeggiator Off */
-"Arp/Sequencer Off" = "Arp/シーケンサー・オフ";
-
-/* Arpeggiator On */
-"Arp/Sequencer On" = "Arp/シーケンサー・オン";
-
-/* Arpeggiator Interval */
-"Arpeggiator Interval: \(Int(value))" = "アルペジエーター・インターバル：\（Int（value））";
-
-/* Arpeggiator Mode On */
-"Arpeggiator Mode" = "アルペジエーター・モード";
-
-/* AutoPan Rate tempo-syncd */
-"AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "AutoPan Rate：\（Rate.fromFrequency（value））、\（value.decimalString）Hz";
-
-/* AutoPan Rate */
-"AutoPan Rate: \(value.decimalString) Hz" = "オートパンレート：\（value.decimalString）Hz";
-
-/* AutoPan Amount/Strength */
-"AutoPan Strength: \(value.percentageString)" = "オートパンの強度：\（value.percentageString）";
-
 /* Alert Message: Background Audio */
 "Background audio will drain the battery faster. Please turn off when not in use." = "バックグラウンド・オーディオの使用により、バッテリーが早く消耗されます。使用していない時、電源を切ってください。";
-
-/* Band Pass Filter */
-"Band Pass" = "バンドパス";
-
-/* LFO [low frequency oscillator] Bitcrush */
-"Bitcrush LFO ‣ \(lfoSource!)" = "Bitcrush LFO‣\（lfoSource！）";
 
 /* Alert Title: Presets Added */
 "Congratulations! 🎉" = "おめでとう！ 🎉";
 
 /* No comment provided by engineer. */
-"Couldn't configure the file writer" = "ファイル・ライターの構成が出来ませんでした";
-
-/* No comment provided by engineer. */
-"Couldn't open the output file" = "出力ファイルを開くことが出来ませんでした";
-
-/* No comment provided by engineer. */
 "Couldn't prepare the output format (error %d/%4.4s)" = "出力形式の準備が出来ませんでした（エラー： %1$d/%2$.4s）";
-
-/* LFO [low frequency oscillator] Cutoff */
-"Cutoff LFO ‣ \(lfoSource!)" = "カットオフLFO‣\（lfoSource！）";
-
-/* Filter Cutoff & Resonance */
-"Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)" = "カットオフ：\（s.getSynthParameter（.cutoff）.decimalString）Hz、Resonance：\（s.getSynthParameter（.resonance）.decimalString）";
-
-/* Oscillator 1 Waveform Morph Index */
-"DCO 1 Morph: \(value.decimalString)" = "DCO 1 Morph：\(value.decimalString)";
-
-/* Oscillator 1 Volume */
-"DCO 1 Volume: \(value.percentageString)" = "DCO 1 ボリューム：\（value.percentageString）";
-
-/* Oscillator 1 semitone offset */
-"DCO 1: \(Int(value)) semitones" = "DCO 1：\（Int（value））半音";
-
-/* Oscillator 2 Waveform Morph Index */
-"DCO 2 Morph: \(value.decimalString)" = "DCO 2 Morph：\（value.decimalString）";
-
-/* Oscillator 2 Volume */
-"DCO 2 Volume: \(value.percentageString)" = "DCO 2 ボリューム：\（value.percentageString）";
-
-/* Oscillator 2 detune */
-"DCO 2: \(Int(value)) detune" = "DCO 2：\（Int（value））detune";
-
-/* Oscillator 2 semitone offset */
-"DCO 2: \(Int(value)) semitones" = "DCO 2：\（Int（value））半音";
-
-/* Oscillator 1 & 2 Mix */
-"DCO Mix: \(Int(value)) detune" = "DCOミックス：\（Int（value））detune";
-
-/* LFO [low frequency oscillator] Decay */
-"Decay LFO ‣ \(lfoSource!)" = "ディケイLFO‣\（lfoSource！）";
-
-/* Delay Off */
-"Delay  Off" = "Delay Off";
-
-/* Delay Feedback */
-"Delay Feedback/Taps: \(value.percentageString)" = "遅延フィードバック/タップ：\（value.percentageString）";
-
-/* Delay Mix */
-"Delay Mix: \(value.percentageString)" = "遅延ミックス：\（value.percentageString）";
-
-/* Delay On */
-"Delay On" = "Delay On";
-
-/* Delay Time tempo-syncd */
-"Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s" = "遅延時間：\（Rate.fromTime（value））、\（value.decimalString）s";
-
-/* Delay Time */
-"Delay Time: \(value.decimalString) s" = "遅延時間：\（value.decimalString）s";
-
-/* LFO [low frequency oscillator] Detune */
-"Detune LFO ‣ \(lfoSource!)" = "Detune LFO‣\（lfoSource！）";
 
 /* Alert Title: Allows On Mode */
 "Don't Sleep Mode" = "スリープモードをしない";
 
-/* Envelope Panel Abbreviation */
-"ENV" = "ENV";
-
-/* LFO [low frequency oscillator] Filter Envelope */
-"Filter Env LFO ‣ \(lfoSource!)" = "Filter Env LFO‣\（lfoSource！）";
-
-/* Filter Envelope Amount */
-"Filter Envelope: \(value.percentageString)" = "フィルター・エンベロープ：\（value.percentageString）";
-
-/* Main Filter Type */
-"Filter Type: \(ftype)" = "フィルター・タイプ： \(ftype)";
-
-/* LFO [low frequency oscillator] FM Modulation */
-"FM LFO ‣ \(lfoSource!)" = "FM LFO‣\（lfoSource！）";
-
-/* FM Modulation Amount */
-"FM Mod: \(value.percentageString)" = "FM Mod：\（value.percentageString）";
-
-/* FM Oscillator Volume */
-"FM Volume: \(value.percentageString)" = "FM音量：\（value.percentageString）";
-
-/* FX/LFO Panel Abbreviation */
-"FX" = "FX";
-
-/* Mono Glide Amount */
-"Glide: \(value.decimalString)" = "グライド：\（value.decimalString）";
-
-/* High Pass Filter */
-"High Pass" = "ハイパス";
-
 /* Alert Title: Background Audio */
 "Important" = "重要";
 
-/* LFO 2 [low frequency oscillator] Amplitude */
-"LFO 2 Amp: \(value.percentageString)" = "LFO 2 Amp：\（value.percentageString）";
-
-/* LFO 2 [low frequency oscillator] Rate tempo-syncd */
-"LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz" = "LFO 2レート：\（Rate.fromFrequency（value））、\（value.decimalString）Hz";
-
-/* LFO 2 [low frequency oscillator] Rate tempo-syncd */
-"LFO 2 Rate: \(value.decimalString) Hz" = "LFO 2レート：\（value.decimalString）Hz";
-
-/* LFO [low frequency oscillator] Amplitude & Rate tempo-syncd */
-"LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1：\（s.getSynthParameter（.lfo1Rate）））、LFO1 Amp：";
-
-/* LFO [low frequency oscillator] Amplitude & Rate */
-"LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)" = "LFO1レート：\（s.getSynthParameter（.lfo1Rate）.decimalString）Hz、LFO1 Amp：\（s.getSynthParameter（.lfo1Amplitude）.percentageString）";
-
-/* Low Pass Filter */
-"Low Pass" = "ローパス";
-
 /* Main Panel Abbreviation */
 "MAIN" = "MAIN";
-
-/* Master Volume */
-"Master Volume: \(value.percentageString)" = "マスターボリューム：\（value.percentageString）";
-
-/* MIDI Learn Instructions */
-"MIDI Learn Off" = "MIDI学習";
-
-/* Alert Title: MIDI Learn Reset */
-"MIDI Learn Reset" = "MIDI学習リセット";
 
 /* MIDI Learn Instructions */
 "MIDI Learn: Touch a knob to assign" = "ノブをタッチして割当てる";
@@ -178,80 +34,11 @@
 /* Alert Message: Too High */
 "MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉" = "MIDIノート ＞ 127. G8は再生可能な最高のキーです。それを１ノッチ下げて下さい😉";
 
-/* Alert Title: MIDI Panic */
-"Midi Panic" = "ミディ・パニック";
-
-/* LFO [low frequency oscillator] Noise */
-"Noise LFO ‣ \(lfoSource!)" = "ノイズLFO‣\（lfoSource！）";
-
-/* Noise Volume */
-"Noise Volume: \((value * 4).percentageString)" = "ノイズ量：\（（value* 4）.percentageString）";
-
-/* Alert Title: Duplicate Bank Name */
-"Notice" = "通知";
-
 /* Alert Title: Invalid Email Address */
 "Oops!" = "おっとっと！";
 
-/* LFO [low frequency oscillator] Oscillator Mix */
-"Osc Mix LFO ‣ \(lfoSource!)" = "Osc Mix LFO‣\（lfoSource！）";
-
-/* TouchPad Panel Abbreviation */
-"PAD" = "Pad";
-
-/* Phaser Feedback */
-"Phaser Feedback: \(value.decimalString)" = "フェイザー・フィードバック：\（value.decimalString）";
-
-/* Phaser Mix */
-"Phaser Mix: \(value.decimalString)" = "フェイザー・ミックス：\（value.decimalString）";
-
-/* Phaser Notch Width */
-"Phaser Notch Width: \(value.decimalString)" = "フェイザー・ノッチ幅：\（value.decimalString）";
-
-/* Phaser Rate */
-"Phaser Rate: \(value.decimalString)" = "フェイザーレート：\（value.decimalString）";
-
-/* LFO [low frequency oscillator] Pitch */
-"Pitch LFO ‣ \(lfoSource!)" = "ピッチLFO‣\（lfoSource！）";
-
-/* LFO [low frequency oscillator] Resonance */
-"Resonance LFO ‣ \(lfoSource!)" = "レゾナンスLFO‣\（lfoSource！）";
-
-/* Reverb Low-cut/Highpass */
-"Reverb Low-cut: \(value.decimalString) Hz" = "リバーブ・ローカット：\（value.decimalString）Hz";
-
-/* LFO [low frequency oscillator] Reverb Mix */
-"Reverb Mix LFO ‣ \(lfoSource!)" = "リバーブ・ミックスLFO‣\（lfoSource！）";
-
-/* Reverb Mix */
-"Reverb Mix: \(value.percentageString)" = "リバーブ・ミックス：\（value.percentageString）";
-
-/* Reverb Off */
-"Reverb Off" = "リバーブ・オフ";
-
-/* Reverb On */
-"Reverb On" = "リバーブ・オン";
-
-/* Reverb Size */
-"Reverb Size: \(value.percentageString)" = "リバーブ・サイズ：\（value.percentageString）";
-
-/* Bitcrush Sample Rate */
-"Sample Rate: \(Int(value)) Hz" = "サンプル・レート：\（Int（value））Hz";
-
-/* Arp/Sequencer Panel Abbreviation */
-"SEQ" = "SEQ";
-
-/* Sequencer Mode On */
-"Sequencer Mode" = "シーケンサー・モード";
-
 /* Alert Title: Allow notifications */
 "Stay informed!" = "最新情報を常にゲット！";
-
-/* Sub Oscillator Volume */
-"Sub Osc Volume: \(value.decimalString)" = "サブOscボリューム：\（value.decimalString）";
-
-/* Tempo (Beats Per Minute) */
-"Tempo: \(value) BPM" = "テンポ： \(value) BPM";
 
 /* Alert Title: Rate App */
 "Thank you" = "ありがとうございました！";
@@ -267,12 +54,6 @@
 
 /* Alert Title: Too High */
 "Too High" = "高すぎます。";
-
-/* LFO [low frequency oscillator] Tremolo */
-"Tremolo LFO ‣ \(lfoSource!)" = "トレモロLFO‣\（lfoSource！）";
-
-/* Tuning Panel Abbreviation */
-"TUNE" = "TUNE";
 
 /* MIDI Learn Instructions */
 "Twist knob on your MIDI Controller" = "MIDIコントローラーのノブを回して下さい。";

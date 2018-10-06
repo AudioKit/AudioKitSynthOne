@@ -20,7 +20,7 @@ enum PresetCategory: Int {
     case pluck
 
     static let categoryCount = 6
-    static let bankStartingIndex = categoryCount + 2
+    static let bankStartingIndex = categoryCount + 3
 
     func description() -> String {
         switch self {
@@ -87,9 +87,12 @@ class PresetsCategoriesViewController: UIViewController {
         for i in 0...PresetCategory.categoryCount {
             choices[i] = PresetCategory(rawValue: i)?.description()
         }
+        
+        // Add Alphabetical bank
+        choices[PresetCategory.categoryCount + 1] = "Alphabetical"
 
         // Add Favorites bank
-        choices[PresetCategory.categoryCount + 1] = "Favorites"
+        choices[PresetCategory.categoryCount + 2] = "Favorites"
 
         // Add Banks to Table
         for bank in conductor.banks {
@@ -129,6 +132,9 @@ extension PresetsCategoriesViewController: UITableViewDataSource {
             // Cell updated in CategoryCell.swift
             cell.delegate = self
             cell.configureCell(category: category)
+			
+			cell.accessibilityLabel = category.replacingOccurrences(of: "⌾ " , with: "")
+			
             return cell
 
         } else {

@@ -54,6 +54,7 @@ extension Manager {
             if value == 0.0 {
                 self.stopAllNotes()
             }
+			self.holdButton.accessibilityValue = self.keyboardView.holdMode ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
         }
 
         monoButton.callback = { value in
@@ -61,6 +62,7 @@ extension Manager {
             self.keyboardView.polyphonicMode = !monoMode
             s.setSynthParameter(.isMono, value)
             self.conductor.updateSingleUI(.isMono, control: self.monoButton, value: value)
+			self.monoButton.accessibilityValue = self.keyboardView.polyphonicMode ? NSLocalizedString("Off", comment: "Off") : NSLocalizedString("On", comment: "On")
         }
 
         keyboardToggle.callback = { value in

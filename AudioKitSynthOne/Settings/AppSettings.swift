@@ -151,6 +151,7 @@ class AppSettings: Codable {
         resonanceCC = dictionary["resonanceCC"] as? Int ?? resonanceCC
         subVolumeCC = dictionary["subVolumeCC"] as? Int ?? subVolumeCC
         fmVolumeCC = dictionary["fmVolumeCC"] as? Int ?? fmVolumeCC
+        fmAmountCC = dictionary["fmAmountCC"] as? Int ?? fmAmountCC 
         noiseVolumeCC = dictionary["noiseVolumeCC"] as? Int ?? noiseVolumeCC
         glideKnobCC = dictionary["glideKnobCC"] as? Int ?? glideKnobCC
 

@@ -70,14 +70,19 @@ class PresetCell: UITableViewCell {
         }
     }
 
-    func configureCell(preset: Preset) {
+    func configureCell(preset: Preset, alpha: Bool) {
         currentPreset = preset
 
         guard let bank = conductor.banks.first(where: { $0.name == preset.bank }) else { return }
-        if preset.bank != "BankA" {
-            presetNameLabel.text = "[\(bank.position)] \(preset.position): \(preset.name)"
+        
+        if alpha {
+            presetNameLabel.text = "\(preset.name) (#\(preset.position))"
         } else {
-            presetNameLabel.text = "\(preset.position): \(preset.name)"
+            if preset.bank != "BankA" {
+                presetNameLabel.text = "[\(bank.position)] \(preset.position): \(preset.name)"
+            } else {
+                presetNameLabel.text = "\(preset.position): \(preset.name)"
+            }
         }
 
         if preset.isFavorite {

@@ -51,11 +51,25 @@ class LFOToggle: UIView, S1Control {
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
+        self.isUserInteractionEnabled = true
+        contentMode = .redraw
+
 		accessibilityHint = NSLocalizedString(
 			"Up for toggle 1, Down for toggle 2.",
 			comment: ("Up for toggle 1, Down for toggle 2." )
 		)
 	}
+
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+
+        contentMode = .scaleAspectFit
+        clipsToBounds = true
+    }
+
+    public class override var requiresConstraintBasedLayout: Bool {
+        return true
+    }
 
     // Draw Button
     override func draw(_ rect: CGRect) {

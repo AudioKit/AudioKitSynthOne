@@ -48,4 +48,22 @@ class ArpButton: UIView, S1Control {
             callback(value)
         }
     }
+
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.isUserInteractionEnabled = true
+        contentMode = .redraw
+    }
+
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+
+        contentMode = .scaleAspectFit
+        clipsToBounds = true
+    }
+
+    public class override var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+
 }

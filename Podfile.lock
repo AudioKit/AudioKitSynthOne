@@ -1,17 +1,18 @@
 PODS:
   - Audiobus (3.0.5)
-  - AudioKit (4.4.0):
-    - AudioKit/Core (= 4.4.0)
-    - AudioKit/UI (= 4.4.0)
-  - AudioKit/Core (4.4.0)
-  - AudioKit/UI (4.4.0)
+  - AudioKit (4.5.1):
+    - AudioKit/Core (= 4.5.1)
+    - AudioKit/UI (= 4.5.1)
+  - AudioKit/Core (4.5.1)
+  - AudioKit/UI (4.5.1):
+    - AudioKit/Core
   - ChimpKit (3.1.1)
   - Disk (0.3.3)
   - OneSignal (2.9.0)
 
 DEPENDENCIES:
   - Audiobus
-  - AudioKit
+  - AudioKit (>= 4.5)
   - ChimpKit
   - Disk (~> 0.3.2)
   - OneSignal (< 3.0, >= 2.6.2)
@@ -26,11 +27,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Audiobus: 7e25081005aed75e8170ad3f5a904acf90e1d73b
-  AudioKit: 79c2b23cd00beb656938aa0b81b614391f17eaa3
+  AudioKit: 8154f343a24daed3ab77b76a0a45739c5f3147e5
   ChimpKit: d020126089544daa349397a91f1489a3f271b791
   Disk: d1f55cd61f6ca20f368232d0c6e37e3c3dfcb63e
   OneSignal: fc816c9dc308ea4f60348a02500db8198b43cf69
 
-PODFILE CHECKSUM: 8bd4e722f3ddc0891e279e1b71568220fb8e2636
+PODFILE CHECKSUM: b87c0d1dc3c5357248305a9e238888104526417b
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.1

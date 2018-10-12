@@ -81,4 +81,17 @@ class SliderTransposeButton: UILabel, S1Control {
             callback(value)
         }
     }
+
+
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+
+        contentMode = .scaleAspectFit
+        clipsToBounds = true
+    }
+
+    public class override var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+
 }

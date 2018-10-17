@@ -284,6 +284,7 @@ public class Manager: UpdatableViewController {
     private func appendMIDIKnobs(from controller: UIViewController) {
         for view in controller.view.subviews {
             guard let midiKnob = view as? MIDIKnob else { continue }
+            midiKnob.addHotspot()
             midiKnobs.append(midiKnob)
         }
     }

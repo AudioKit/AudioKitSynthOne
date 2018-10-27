@@ -34,9 +34,9 @@ public class MIDIKnob: Knob, MIDILearnable {
     var midiLearnMode = false {
         didSet {
             if midiLearnMode {
-                addHotspot()
+                showHotspot()
             } else {
-                removeHotspot()
+                hideHotspot()
                 isActive = false
             }
         }
@@ -65,11 +65,16 @@ public class MIDIKnob: Knob, MIDILearnable {
         hotspotView.layer.borderColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
         hotspotView.layer.borderWidth = 2
         hotspotView.layer.cornerRadius = 10
+        hotspotView.isHidden = true
         self.addSubview(hotspotView)
     }
 
-    func removeHotspot() {
-        hotspotView.removeFromSuperview()
+    func hideHotspot() {
+        hotspotView.isHidden = true
+    }
+    
+    func showHotspot() {
+        hotspotView.isHidden = false
     }
 
     // Helper Function

@@ -1596,13 +1596,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
-				"${PODS_ROOT}/AudioKit/iOS/AudioKitUI.framework",
 				"${BUILT_PRODUCTS_DIR}/ChimpKit/ChimpKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioKitUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChimpKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
 			);

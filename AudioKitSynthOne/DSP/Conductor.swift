@@ -244,7 +244,7 @@ class Conductor: S1Protocol {
 
         if let audiobusClient = Audiobus.client {
 
-            if !audiobusClient.isConnectedToInput && !backgroundAudio {
+            if !audiobusClient.isConnected && !audiobusClient.isConnectedToInput && !backgroundAudio {
                 deactivateSession()
                 AKLog("disconnected without timer")
             } else {

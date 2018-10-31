@@ -15,7 +15,7 @@ class Stepper: UIView, S1Control {
 
     var minusPath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 2, width: 35, height: 32), cornerRadius: 1)
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)
-
+	
     var minValue = 0.0 {
         didSet {
             range = (Double(minValue) ... Double(maxValue))
@@ -29,7 +29,11 @@ class Stepper: UIView, S1Control {
         }
     }
 
-    internal var internalValue: Double = 0
+	internal var internalValue: Double = 0 {
+		didSet {
+			accessibilityValue = String(format: "%.0f", internalValue)
+		}
+	}
 
     public internal(set) var value: Double {
         get {
@@ -52,6 +56,9 @@ class Stepper: UIView, S1Control {
     // Init / Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+		
+		accessibilityTraits = UIAccessibilityTraits.adjustable
+		
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -102,4 +109,25 @@ class Stepper: UIView, S1Control {
             self.setNeedsDisplay()
         }
     }
+
+	
+	/**
+	Accessibility Functions needed for Accessibile Adjustable Trait
+	*/
+
+	override func accessibilityIncrement() {
+		if value < maxValue {
+			value += 1
+			valuePressed = 2
+		}
+  }
+
+
+	override func accessibilityDecrement() {
+		if value > minValue {
+			value -= 1
+			valuePressed = 1
+
+		}
+	}
 }

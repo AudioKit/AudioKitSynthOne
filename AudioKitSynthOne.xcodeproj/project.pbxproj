@@ -12,6 +12,7 @@
 		941645D120B3597300D62851 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		941752BA20E2BD2E0076D953 /* Starter Bank.json in Resources */ = {isa = PBXBuildFile; fileRef = 941752B920E2BD2E0076D953 /* Starter Bank.json */; };
 		94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94656AEC205F410900634B2C /* KeyboardShowButton.swift */; };
+		946980572169258A007EAA5B /* String+CapitalizeFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946980562169258A007EAA5B /* String+CapitalizeFirst.swift */; };
 		947956A91F329AB200FE5D9B /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A81F329AB100FE5D9B /* Stepper.swift */; };
 		947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A51F329AB100FE5D9B /* StepperStyleKit.swift */; };
 		947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */; };
@@ -299,6 +300,7 @@
 		9441B84C2126618E003A5163 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		945C3A0E1F31428B0086D58B /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
 		94656AEC205F410900634B2C /* KeyboardShowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShowButton.swift; sourceTree = "<group>"; };
+		946980562169258A007EAA5B /* String+CapitalizeFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizeFirst.swift"; sourceTree = "<group>"; };
 		94780FEF1F9B0108006D3710 /* AudioKitSynthOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudioKitSynthOne.entitlements; sourceTree = "<group>"; };
 		947956A51F329AB100FE5D9B /* StepperStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperStyleKit.swift; sourceTree = "<group>"; };
 		947956A81F329AB100FE5D9B /* Stepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
@@ -796,6 +798,7 @@
 				C435C4F420C5234900DAECCD /* CategoryCell.swift */,
 				C435C4F720C5234900DAECCD /* PresetCell.swift */,
 				94DB3FDF1FC8C0EA007F8081 /* PresetUIButton.swift */,
+				946980562169258A007EAA5B /* String+CapitalizeFirst.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -1592,20 +1595,18 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
-				"${PODS_ROOT}/AudioKit/iOS/AudioKitUI.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChimpKit/ChimpKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioKitUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChimpKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4421AA920B81D0500BE9F12 /* ShellScript */ = {
@@ -1746,6 +1747,7 @@
 				947956B31F32A70400FE5D9B /* ToggleSwitchStyleKit.swift in Sources */,
 				C4B491B120C7D11500FD565A /* MIDIKnob.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
+				946980572169258A007EAA5B /* String+CapitalizeFirst.swift in Sources */,
 				C4B491BC20C7DEB100FD565A /* ArpButtonStyleKit.swift in Sources */,
 				C4B4919420C7C7C500FD565A /* PresetEditorViewController.swift in Sources */,
 				C4B4918620C7C79C00FD565A /* Presets+PresetCellDelegate.swift in Sources */,

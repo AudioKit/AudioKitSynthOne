@@ -46,6 +46,7 @@ class SequencerPanelController: PanelController {
         conductor.bind(arpDirectionButton, to: .arpDirection)
         conductor.bind(sequencerToggle, to: .arpIsSequencer)
         conductor.bind(seqStepsStepper, to: .arpTotalSteps)
+		
 
         // ARP/SEQ OCTAVE BOOST
         let sequencerOctBoostArray: [S1Parameter] = [.sequencerOctBoost00, .sequencerOctBoost01, .sequencerOctBoost02,
@@ -123,6 +124,10 @@ class SequencerPanelController: PanelController {
                 }
             }
         }
+
+
+		setAccessibilityReadOrder()
+
     }
 
     override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {
@@ -169,4 +174,32 @@ class SequencerPanelController: PanelController {
         octBoostButton.transposeAmt = conductor.synth.getPattern(forIndex: notePosition)
         octBoostButton.value = conductor.synth.getOctaveBoost(forIndex: notePosition) == true ? 1 : 0
     }
+
+	/**
+	Lot of controls in this view. This is to make it easier.
+	*/
+	private func setAccessibilityReadOrder() {
+
+		// Sets the read order for VoiceOver
+		view.accessibilityElements = [
+			arpToggle,
+			arpInterval,
+			octaveStepper,
+			arpDirectionButton,
+			sequencerToggle,
+			seqStepsStepper
+		]
+
+		for index in 0...15 {
+			view.accessibilityElements?.append(octBoostButtons[index])
+			view.accessibilityElements?.append(sliders[index])
+			view.accessibilityElements?.append(noteOnButtons[index])
+
+		}
+
+		view.accessibilityElements?.append(leftNavButton)
+		view.accessibilityElements?.append(rightNavButton)
+
+	}
+
 }

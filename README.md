@@ -74,46 +74,54 @@ any hints about what could be improved.
 * `Podfile` and `Podfile.lock` - Cocoapods configuration files
 * `.swiftlint.yml` - Swiftlint configuration
 
+### Localizations 
+* See [our localization docs](AudioKitSynthOne/Translations/README.md) for more information.
+
 ## Opportunities for Contributing
 
 Here's a few ideas for you to contribute to this historic project:
 
-* Add accessibility functionality to AudioKit Synth One. We have received multiple requests from visually impaired musicians. Help make Synth One accessible to all musicians.
-*  Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
-* Localizations in your language, see [our docs](AudioKitSynthOne/Translations/README.md) for more information.
-* Create iPhone or Universal interface
 * Ability to search presets
+* Double tap knobs to go to defaults
+*  Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
+* Create iPhone or Universal interface
 * Make TouchPads assignable 
 * Add an EQ Panel (8-band/16-band/etc)
 * Improve Arp (Add Gate, Beat Divisions, etc)
 * Add a trance/rhythm gate panel
 * Add a side chain/volume ducking panel
 * Add the ability for Sequencer to modulate more parameters
-* Double tap knobs to go to defaults
 * Filter key tracking options & settings
+* Filter velocity settings
 * MIDI out
 * Sample & Hold
+
+✓ DONE: Add accessibility functionality to AudioKit Synth One. Thanks to Stanley Rosenbaum for making Synth One accessible all musicians. 
 
 If you have audio development experience and want to be involved with contributing to the app store version of Synth One, please email [hello@audiokitpro.com](mailto:hello@audiokitpro.com)
 
 There are a few major updates we intend for this synth:
 
 * Too much business logic is inside the "Manager" view controller.  We have done our best to separate out the functions of this view controller into well defined extensions, but more work could be done with this.
+* AUV3 Plugin support
+* MPE
 
 ## Code Usage
 
 You are free to:
 
 (1) Use this code as a learning tool.  
-(2) Re-skin this app (change the graphics), modify the controls, and upload to the app store.  
-(3) Change the graphics, and include this as part of a bigger app you are building.  
+(2) Change the graphics, and include this as part of a bigger app you are building.  
+(3) Re-skin this app (change all the UI graphics/controls), and upload to the app store.   
 (4) Contribute code back to this project and improve the code for other people
 
 If you use any code, it would be great if you gave this project some credit or a mention. The more love this code receives, the better we can make it for everyone. And, always give AudioKit a shout-out when you can! :) 
 
 If you make an app with this code, please let us know! We think you're awesome, and would love to hear from you and/or feature your app.
 
-*IMPORTANT:* You must change the graphics if you upload this to the app store.
+We have most of the cool stuff (Filters, Oscillators, Effects, etc) abstracted out into the main [AudioKit](https://audiokitpro.com/audiokit/) library. Use those building blocks to create your own app!  
+
+*IMPORTANT:* You must change the graphics if you upload this to the app store. 
 
 *IMPORTANT:* You must fill in your own private API keys for AudioBus and others in the Private.swift file to match your own project. The default placeholder values are not suitable for distribution.
 

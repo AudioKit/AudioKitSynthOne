@@ -54,6 +54,7 @@ extension Manager {
             if value == 0.0 {
                 self.stopAllNotes()
             }
+			self.holdButton.accessibilityValue = self.keyboardView.holdMode ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
         }
 
         monoButton.callback = { value in
@@ -61,13 +62,25 @@ extension Manager {
             self.keyboardView.polyphonicMode = !monoMode
             s.setSynthParameter(.isMono, value)
             self.conductor.updateSingleUI(.isMono, control: self.monoButton, value: value)
+			self.monoButton.accessibilityValue = self.keyboardView.polyphonicMode ? NSLocalizedString("Off", comment: "Off") : NSLocalizedString("On", comment: "On")
         }
 
         keyboardToggle.callback = { value in
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
+
+				// Tell VoiceOver to NOT read elements in bottomContainerView if hidden by keyboard.
+				for subview in self.bottomContainerView.subviews {
+					subview.accessibilityElementsHidden = true
+				}
+
             } else {
                 self.keyboardToggle.setTitle("Show", for: .normal)
+
+				// Tell VoiceOver to read elements in bottomContainerView as the keyboard is not hidden.
+				for subview in self.bottomContainerView.subviews {
+					subview.accessibilityElementsHidden = false
+				}
 
                 // Add panel to bottom
                 if self.bottomChildPanel == self.topChildPanel {

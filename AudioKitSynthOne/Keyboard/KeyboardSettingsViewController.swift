@@ -37,11 +37,10 @@ class KeyboardSettingsViewController: UIViewController {
     // Set fonts for UISegmentedControls
     override func viewDidLayoutSubviews() {
         guard let font = UIFont(name: "Avenir Next Condensed", size: 15.0) else { return }
-        let attr = NSDictionary(object: font,
-                                forKey: NSAttributedStringKey.font as NSCopying)
-        labelModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
-        keyboardModeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
-        octaveRangeSegment.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
+        let attr = [NSAttributedString.Key.font: font]
+        labelModeSegment.setTitleTextAttributes(attr, for: .normal)
+        keyboardModeSegment.setTitleTextAttributes(attr, for: .normal)
+        octaveRangeSegment.setTitleTextAttributes(attr, for: .normal)
     }
 
     @IBAction func octaveRangeDidChange(_ sender: UISegmentedControl) {
@@ -74,4 +73,23 @@ class KeyboardSettingsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
 
     }
+}
+
+/**
+Accessibility Functionality
+*/
+extension KeyboardSettingsViewController {
+	func setUpAccessibility() {
+
+		keyboardModeSegment.subviews[0].accessibilityLabel = NSLocalizedString("White", comment: "White")
+		keyboardModeSegment.subviews[2].accessibilityLabel = NSLocalizedString("Dark", comment: "Dark")
+		
+		octaveRangeSegment.subviews[0].accessibilityLabel = NSLocalizedString("1", comment: "1")
+		octaveRangeSegment.subviews[1].accessibilityLabel = NSLocalizedString("2", comment: "2")
+		octaveRangeSegment.subviews[2].accessibilityLabel = NSLocalizedString("3", comment: "3")
+		
+		labelModeSegment.subviews[0].accessibilityLabel = NSLocalizedString("None", comment: "None")
+		labelModeSegment.subviews[1].accessibilityLabel = NSLocalizedString("C", comment: "C")
+		labelModeSegment.subviews[2].accessibilityLabel = NSLocalizedString("All", comment: "All")
+	}
 }

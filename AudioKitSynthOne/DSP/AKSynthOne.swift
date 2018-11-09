@@ -191,12 +191,7 @@ import AudioKit
                 do {
                     let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                     let jsonResult = try decoder.decode(AKTable.self, from: data)
-                    if let jsonResult = jsonResult as? AKTable {
-                        finalArray.append(jsonResult)
-                    } else {
-                        // FATAL
-                        AKLog("Can't decode bandlimited waveform into AKTable: \(fn)")
-                    }
+                    finalArray.append(jsonResult)
                 } catch let error as NSError {
                     // FATAL
                     AKLog("Can't read bandlimited waveform into AKTable: \(fn), error:\(error)")
@@ -213,13 +208,8 @@ import AudioKit
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try decoder.decode(AKTable.self, from: data)
-                if let blTable = jsonResult as? AKTable {
-                    for f in blTable {
-                        finalFrequencies.append(f)
-                    }
-                } else {
-                    // FATAL
-                    AKLog("Can't decode bandlimited waveform frequencies into AKTable")
+                for f in jsonResult {
+                    finalFrequencies.append(f)
                 }
             } catch let error as NSError {
                 // FATAL

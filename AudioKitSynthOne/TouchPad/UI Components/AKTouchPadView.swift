@@ -101,7 +101,7 @@ public class AKTouchPadView: UIView {
         UIView.animate(
             withDuration: 0.2,
             delay: 0.0,
-            options: UIViewAnimationOptions(),
+            options: UIView.AnimationOptions(),
             animations: {
                 self.touchPointView.center = CGPoint(x: centerPointX, y: centerPointY)
             },

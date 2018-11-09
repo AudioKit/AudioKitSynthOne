@@ -30,7 +30,7 @@ extension PresetsViewController: CategoryDelegate {
             activityItems: [path],
             applicationActivities: nil)
         activityViewController.excludedActivityTypes = [
-            UIActivityType.copyToPasteboard
+            UIActivity.ActivityType.copyToPasteboard
         ]
 
         if let popoverPresentationController = activityViewController.popoverPresentationController {

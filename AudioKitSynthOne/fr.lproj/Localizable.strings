@@ -160,9 +160,6 @@
 /* Low Pass Filter */
 "Low Pass" = "Passe-bas";
 
-/* Main Panel Abbreviation */
-"MAIN" = "PRINCIPAL";
-
 /* Master Volume */
 "Master Volume: \(value.percentageString)" = "Volume principal: \(value.percentageString)";
 
@@ -270,9 +267,6 @@
 
 /* LFO [low frequency oscillator] Tremolo */
 "Tremolo LFO ‣ \(lfoSource!)" = "Trémolo LFO ‣ \(lfoSource!)";
-
-/* Tuning Panel Abbreviation */
-"TUNE" = "RÉGLER";
 
 /* MIDI Learn Instructions */
 "Twist knob on your MIDI Controller" = "Bouton Twist sur votre contrôleur MIDI";

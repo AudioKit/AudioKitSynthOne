@@ -13,7 +13,13 @@ class ArpButton: UIView, S1Control {
 
     // MARK: - ToggleButton
 
-    private var _value: Double = 0
+	private var _value: Double = 0 {
+		didSet {
+			accessibilityValue = (_value == 1.0) ?
+				NSLocalizedString("On", comment: "On") :
+				NSLocalizedString("Off", comment: "Off")
+		}
+	}
     var value: Double {
         get {
             return _value
@@ -42,4 +48,22 @@ class ArpButton: UIView, S1Control {
             callback(value)
         }
     }
+
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.isUserInteractionEnabled = true
+        contentMode = .redraw
+    }
+
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+
+        contentMode = .scaleAspectFit
+        clipsToBounds = true
+    }
+
+    public class override var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+
 }

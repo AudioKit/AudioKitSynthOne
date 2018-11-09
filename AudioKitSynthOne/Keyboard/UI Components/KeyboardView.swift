@@ -255,10 +255,10 @@ public protocol AKKeyboardDelegate: class {
             let whiteKeysStyle = NSMutableParagraphStyle()
             whiteKeysStyle.alignment = .center
             let whiteKeysFontAttributes  = [
-                NSAttributedStringKey.font: font,
-                NSAttributedStringKey.foregroundColor: textColor,
-                NSAttributedStringKey.paragraphStyle: whiteKeysStyle
-                ] as [NSAttributedStringKey: Any]
+                NSAttributedString.Key.font: font,
+                NSAttributedString.Key.foregroundColor: textColor,
+                NSAttributedString.Key.paragraphStyle: whiteKeysStyle
+                ] as [NSAttributedString.Key: Any]
 
             let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(
                 with: CGSize(width: whiteKeysRect.width,

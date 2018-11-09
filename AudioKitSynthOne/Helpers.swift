@@ -18,7 +18,7 @@ extension Dictionary where Value: Equatable {
 extension CGFloat {
     // Formatted percentage string e.g. 0.55 -> 55%
     var percentageString: String {
-        return NumberFormatter.localizedString(from: NSNumber(value: 100 * Int(self)), number: .percent)
+        return NumberFormatter.localizedString(from: NSNumber(value: Double(self)), number: .percent)
     }
 }
 
@@ -38,12 +38,12 @@ extension Double {
     // Return ms 3 decimal places to left
     var msFormattedString: String {
         let newValue = 1_000 * self
-        return String(format: NSLocalizedString("%.00f ms", comment:"Number of milliseconds"), newValue)
+        return String(format: NSLocalizedString("%.00f ms", comment: "Number of milliseconds"), newValue)
     }
 
     // Formatted percentage string e.g. 0.55 -> 55%
     var percentageString: String {
-        return NumberFormatter.localizedString(from: NSNumber(value: 100 * Int(self)), number: .percent)
+        return NumberFormatter.localizedString(from: NSNumber(value: self), number: .percent)
     }
 }
 

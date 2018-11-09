@@ -392,7 +392,7 @@ public class ABLLinkManager: NSObject {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleRouteChange),
-            name: NSNotification.Name.AVAudioSessionRouteChange,
+            name: AVAudioSession.routeChangeNotification,
             object: AVAudioSession.sharedInstance())
 
         guard let ref = linkData?.linkRef else {

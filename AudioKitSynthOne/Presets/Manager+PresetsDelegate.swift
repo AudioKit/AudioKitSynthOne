@@ -15,7 +15,7 @@ extension Manager: PresetsDelegate {
 
         activePreset = newActivePreset
 
-        if let headerVC = self.childViewControllers.first as? HeaderViewController {
+        if let headerVC = self.children.first as? HeaderViewController {
             headerVC.activePreset = activePreset
         }
 
@@ -44,7 +44,7 @@ extension Manager: PresetsDelegate {
     }
 
     func updateDisplay(_ message: String) {
-        if let headerVC = self.childViewControllers.first as? HeaderViewController {
+        if let headerVC = self.children.first as? HeaderViewController {
             headerVC.displayLabel.text = message
         }
     }

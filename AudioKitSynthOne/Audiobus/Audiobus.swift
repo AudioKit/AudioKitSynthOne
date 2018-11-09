@@ -15,16 +15,13 @@ import CoreAudio
 class Audiobus {
 
     // MARK: Client
-
     static var client: Audiobus?
 
     // MARK: Actions
-
     static func start() {
         guard client == nil else {
             return
         }
-
         client = Audiobus(apiKey: Private.AudioBusAPIKey)
     }
 
@@ -131,7 +128,7 @@ class Audiobus {
             self.updateConnections()
         }
 
-        try? audioUnit.add(listener: audioUnitPropertyListener, toProperty: kAudioUnitProperty_IsInterAppConnected)
+        try! audioUnit.add(listener: audioUnitPropertyListener, toProperty: kAudioUnitProperty_IsInterAppConnected)
     }
 
     private func stopObservingInterAppAudioConnections() {
@@ -178,12 +175,12 @@ private extension ABAudiobusController {
 private extension AudioUnit {
 
     var isConnectedToInterAppAudio: Bool {
-        return (try? getValue(forProperty: kAudioUnitProperty_IsInterAppConnected) ?? 1) != 0
+        let value: UInt32 = try! getValue(forProperty: kAudioUnitProperty_IsInterAppConnected)
+        return value != 0
     }
 
     func isConnectedToInterAppAudio(nodeOfType type: OSType) -> Bool {
-        guard let value: AudioComponentDescription = try? getValue(
-            forProperty: kAudioOutputUnitProperty_NodeComponentDescription) else { return false }
+        let value: AudioComponentDescription = try! getValue(forProperty: kAudioOutputUnitProperty_NodeComponentDescription)
         return value.componentType == type
     }
 

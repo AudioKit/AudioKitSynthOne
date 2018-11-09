@@ -74,6 +74,21 @@ class EnvelopesPanelController: PanelController {
             self.conductor.synth.setSynthParameter(.filterReleaseDuration, rel)
             self.conductor.updateAllUI()
         }
+
+		// Sets the read order for VoiceOver
+		view.accessibilityElements = [
+			filterAttackKnob,
+			filterDecayKnob,
+			filterSustainKnob,
+			filterReleaseKnob,
+			filterADSRMixKnob,
+			attackKnob,
+			decayKnob,
+			sustainKnob,
+			releaseKnob,
+			leftNavButton,
+			rightNavButton
+		]
     }
 
     override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {

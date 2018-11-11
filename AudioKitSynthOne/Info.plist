@@ -64,6 +64,16 @@
 				<string>Synth1-1.0.audiobus</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.audiokitpro.AudioKitSynthOne</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>synth1</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>0.9.6</string>

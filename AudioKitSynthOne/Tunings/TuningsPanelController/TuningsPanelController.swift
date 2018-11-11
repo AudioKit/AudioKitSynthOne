@@ -88,16 +88,14 @@ class TuningsPanelController: PanelController {
         for f in masterSet {
             urlStr += "&f=\(f)"
         }
-        AKLog("urlStr:\(urlStr)")
+
         if let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            if let url = URL.init(string: urlStr) {
+            if let url = URL(string: urlStr) {
                 // is D1 installed on device?
                 if UIApplication.shared.canOpenURL(url) {
-                    print("opnening D1 we think")
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 } else {
                     // Redirect to app store
-                    print("Opening Itunes")
                     if let appStoreURL = URL.init(string: "https://itunes.apple.com/us/app/audiokit-digital-d1-synth/id1436905540?mt=8") {
                         UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
                     }

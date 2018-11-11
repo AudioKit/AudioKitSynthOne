@@ -84,7 +84,7 @@ class TuningsPanelController: PanelController {
         let host = "digitald1://tune?"
         let masterSet = AKPolyphonicNode.tuningTable.masterSet
         let npo = masterSet.count
-        let tuningName = "fake tuning name"
+        let tuningName = tuningTableView.cellForRow(at: tuningTableView.indexPathForSelectedRow!)?.textLabel?.text ?? "None"
         var urlStr = "\(host)tuningName=\(tuningName)&npo=\(npo)"
         for f in masterSet {
             urlStr += "&f=\(f)"

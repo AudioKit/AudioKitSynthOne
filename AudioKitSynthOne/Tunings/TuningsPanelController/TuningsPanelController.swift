@@ -55,9 +55,8 @@ class TuningsPanelController: PanelController {
         }
 
         d1LaunchButton.callback = { value in
-            if value == 1 {
-                self.launchD1()
-            }
+            self.launchD1()
+            self.d1LaunchButton.value = 0
         }
 
         // callback called on main thread

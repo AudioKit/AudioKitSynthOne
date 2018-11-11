@@ -67,6 +67,10 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>0.9.6</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>digitald1</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>

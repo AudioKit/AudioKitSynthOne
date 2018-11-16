@@ -23,6 +23,16 @@ extension Manager {
         omniMode = appSettings.omniMode
         AKSettings.bufferLength = AKSettings.BufferLength(rawValue:appSettings.bufferLengthRawValue) ?? .short
 
+        do {
+            try AKTry {
+                try AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
+            }
+        } catch let error as NSError {
+            AKLog("AKSettings Error: Cannot set Preferred IOBufferDuration to " +
+                "\(AKSettings.bufferLength.duration) ( = \(AKSettings.bufferLength.samplesCount) samples)")
+            AKLog("AKSettings Error: \(error))")
+        }
+        
         // Open MIDI Sources from saved MIDI input checkboxes on settings Panel
 //        for input in AudioKit.midi.inputNames {
 //            if appSettings.midiSources.contains(input) {

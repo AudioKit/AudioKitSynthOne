@@ -21,6 +21,7 @@ class TuningsPanelController: PanelController {
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
     @IBOutlet weak var masterTuningKnob: MIDIKnob!
     @IBOutlet weak var resetTuningsButton: SynthButton!
+    @IBOutlet weak var d1LaunchButton: SynthButton!
     @IBOutlet weak var diceButton: UIButton!
 
     let tuningModel = Tunings()
@@ -53,6 +54,11 @@ class TuningsPanelController: PanelController {
             }
         }
 
+        d1LaunchButton.callback = { value in
+            self.launchD1()
+            self.d1LaunchButton.value = 0
+        }
+
         // callback called on main thread
         tuningModel.loadTunings {
             self.tuningTableView.reloadData()
@@ -71,6 +77,31 @@ class TuningsPanelController: PanelController {
 			rightNavButton
 		]
 
+    }
+
+    func launchD1() {
+        let host = "digitald1://tune?"
+        let masterSet = AKPolyphonicNode.tuningTable.masterSet
+        let npo = masterSet.count
+        let tuningName = tuningTableView.cellForRow(at: tuningTableView.indexPathForSelectedRow!)?.textLabel?.text ?? "None"
+        var urlStr = "\(host)tuningName=\(tuningName)&npo=\(npo)"
+        for f in masterSet {
+            urlStr += "&f=\(f)"
+        }
+
+        if let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            if let url = URL(string: urlStr) {
+                // is D1 installed on device?
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    // Redirect to app store
+                    if let appStoreURL = URL.init(string: "https://itunes.apple.com/us/app/audiokit-digital-d1-synth/id1436905540?mt=8") {
+                        UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        }
     }
 
     public override func viewDidAppear(_ animated: Bool) {

@@ -379,6 +379,7 @@
                         <segue destination="vru-hZ-pY9" kind="presentation" identifier="SegueToAbout" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="aOL-Mc-Pza"/>
                         <segue destination="MLy-jo-gU4" kind="presentation" identifier="SegueToMailingList" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="o4F-0u-K2y"/>
                         <segue destination="0bp-Jd-82Y" kind="presentation" identifier="SegueToMore" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="1BH-Lq-qpz"/>
+                        <segue destination="PKD-Zy-awT" kind="presentation" identifier="SegueToApps" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="NQT-0p-RfY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -531,7 +532,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCz-Ja-PHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1867" y="-116"/>
+            <point key="canvasLocation" x="-1883" y="-152"/>
         </scene>
         <!--Presets-->
         <scene sceneID="LMX-EE-nfA">
@@ -994,7 +995,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKD-rW-qhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1500" y="210"/>
+            <point key="canvasLocation" x="-1590" y="26"/>
         </scene>
         <!--About-->
         <scene sceneID="VcE-Ju-YHE">
@@ -1018,7 +1019,15 @@
                 <viewControllerPlaceholder storyboardIdentifier="I" storyboardName="About" referencedIdentifier="InfoView" id="0bp-Jd-82Y" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB9-h0-oem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-985" y="-839"/>
+            <point key="canvasLocation" x="-985" y="-791"/>
+        </scene>
+        <!--Apps-->
+        <scene sceneID="HZF-Kd-ZjS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="Apps" id="PKD-Zy-awT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahp-6b-fVQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1025" y="-722"/>
         </scene>
         <!--Header-->
         <scene sceneID="GZ3-G8-AZd">

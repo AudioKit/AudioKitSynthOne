@@ -43,6 +43,10 @@ extension Manager: MIDISettingsPopOverDelegate {
     func didToggleNeverSleep() {
         saveAppSettingValues()
     }
+    
+    func didSetBuffer() {
+        saveAppSettingValues()
+    }
 
     public func storeTuningWithPresetDidChange(_ value: Bool) {
         appSettings.saveTuningWithPreset = value

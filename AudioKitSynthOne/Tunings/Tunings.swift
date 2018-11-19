@@ -99,12 +99,17 @@ class Tunings {
         tunings = t
     }
 
+    public var tuningName = ""
+    public var masterSet: [Double] = [1]
+
     public func setTuning(name: String?, masterArray master: [Double]?) -> (Int?, Bool) {
         guard let name = name, let masterFrequencies = master else { return (nil, false) }
         if masterFrequencies.count == 0 { return (nil, false) }
         let t = Tuning()
         t.name = name
         t.masterSet = masterFrequencies
+        tuningName = name
+        masterSet = masterFrequencies
 
         var index: Int?
         var refreshDatasource: Bool = false

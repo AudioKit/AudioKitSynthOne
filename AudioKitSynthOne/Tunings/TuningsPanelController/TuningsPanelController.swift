@@ -81,18 +81,18 @@ class TuningsPanelController: PanelController {
 
     func launchD1() {
         let host = "digitald1://tune?"
-        let masterSet = AKPolyphonicNode.tuningTable.masterSet
+        let masterSet = tuningModel.masterSet
         let npo = masterSet.count
-        let tuningName = tuningTableView.cellForRow(at: tuningTableView.indexPathForSelectedRow!)?.textLabel?.text ?? "None"
+        let tuningName = tuningModel.tuningName
         var urlStr = "\(host)tuningName=\(tuningName)&npo=\(npo)"
         for f in masterSet {
             urlStr += "&f=\(f)"
         }
-
         if let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             if let url = URL(string: urlStr) {
                 // is D1 installed on device?
                 if UIApplication.shared.canOpenURL(url) {
+                    print(url)
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 } else {
                     // Redirect to app store

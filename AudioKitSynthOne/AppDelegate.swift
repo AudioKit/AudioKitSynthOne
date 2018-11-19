@@ -60,4 +60,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         conductor.stopEngine()
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let urlStr = url.absoluteString
+        let host = URLComponents(string: urlStr)?.host
+        if host == "tune" {
+            //TODO:need to handle Tuning panel UI
+            let queryItems = URLComponents(string: urlStr)?.queryItems
+            let tuningName = queryItems?.filter({$0.name == "tuningName"}).first?.value ?? ""
+            if let fArray = queryItems?.filter({$0.name == "f"}).map({ Double($0.value ?? "1.0") ?? 1.0 }) {
+                AKLog("tuningName:\(tuningName), fArray:\(fArray)")
+                let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
+                    as? TuningsPanelController
+                _ = tuningsPanel?.tuningModel.setTuning(name: tuningName, masterArray: fArray)
+            }
+            return true
+        } else if host == "open" {
+            // simply Open
+            return true
+        } else {
+            // can't handle this command
+            AKLog("can't handle url: \(String(describing: host))")
+            return false
+        }
+    }
+
 }

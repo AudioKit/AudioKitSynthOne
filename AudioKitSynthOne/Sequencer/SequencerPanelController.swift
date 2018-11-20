@@ -129,20 +129,6 @@ class SequencerPanelController: PanelController {
 
     }
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		print("")
-		print("I CAN SEE YOU")
-		print("")
-	}
-
-	override func viewDidDisappear(_ animated: Bool) {
-		super.viewDidDisappear(animated)
-		print("")
-		print("I went BYE BYE")
-		print("")
-	}
-
     override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {
         for i in 0...15 {
             updateOctBoostButton(notePosition: i)

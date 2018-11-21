@@ -92,7 +92,6 @@ class TuningsPanelController: PanelController {
             if let url = URL(string: urlStr) {
                 // is D1 installed on device?
                 if UIApplication.shared.canOpenURL(url) {
-                    print(url)
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 } else {
                     // Redirect to app store

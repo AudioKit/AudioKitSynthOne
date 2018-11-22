@@ -2,18 +2,21 @@
 //  S1Tuning.swift
 //  AudioKitSynthOne
 //
-//  Created by AudioKit Contributors on 5/12/18.
+//  Created by Marcus Hobbbs on 5/12/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 class Tuning: Codable, CustomStringConvertible {
 
-    static let defaultName = "12 ET"
+    // conforming to Codable means don't change these property names
     var name = defaultName
+    var masterSet = defaultMasterSet
 
+    // 12 ET default name
+    static let defaultName = "12 ET"
+    
     // 12 ET masterSet as [Double]
     static let defaultMasterSet: [Double] = [1.0, 1.059_463_094_359_295_3, 1.122_462_048_309_373, 1.189_207_115_002_721, 1.259_921_049_894_873_2, 1.334_839_854_170_034_4, 1.414_213_562_373_095_1, 1.498_307_076_876_681_5, 1.587_401_051_968_199_4, 1.681_792_830_507_429, 1.781_797_436_280_678_5, 1.887_748_625_363_386_8]
-    var masterSet = defaultMasterSet
 
     var encoding: String {
         get {

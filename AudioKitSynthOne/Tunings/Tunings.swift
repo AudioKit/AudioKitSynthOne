@@ -2,7 +2,7 @@
 //  Tunings.swift
 //  AudioKitSynthOne
 //
-//  Created by AudioKit Contributors on 5/12/18.
+//  Created by Marcus Hobbs on 5/12/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
@@ -12,19 +12,19 @@ import Disk
 
 class Tunings {
 
+    public typealias S1TuningCallback = () -> [Double]
+    public typealias Frequency = Double
+    public typealias S1TuningLoadCallback = () -> (Void)
+
     var isTuningReady = false
     var tunings = [Tuning]()
     var tuningsDelegate: TuningsPitchWheelViewTuningDidChange?
     var tuningName = ""
     var masterSet: [Double] = [1]
     private let tuningFilename = "tunings.json"
-    public typealias S1TuningCallback = () -> [Double]
-    public typealias Frequency = Double
-    public typealias S1TuningLoadCallback = () -> (Void)
 
     init() {}
 
-    //
     func loadTunings(completionHandler: @escaping S1TuningLoadCallback) {
         DispatchQueue.global(qos: .userInitiated).async {
             self.tunings.removeAll()

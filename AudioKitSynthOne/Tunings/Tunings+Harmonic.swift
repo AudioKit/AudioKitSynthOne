@@ -2,7 +2,7 @@
 //  Tunings+Harmonic.swift
 //  AudioKitSynthOne
 //
-//  Created by AudioKit Contributors on 5/20/18.
+//  Created by Marcus Hobbs on 5/20/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 

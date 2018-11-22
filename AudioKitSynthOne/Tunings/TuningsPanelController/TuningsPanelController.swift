@@ -2,7 +2,7 @@
 //  TuningsPanelController.swift
 //  AudioKitSynthOne
 //
-//  Created by AudioKit Contributors on 5/6/18.
+//  Created by Marcus Hobbs on 5/6/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
@@ -95,7 +95,7 @@ class TuningsPanelController: PanelController {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 } else {
                     // Redirect to app store
-                    if let appStoreURL = URL.init(string: "https://itunes.apple.com/us/app/audiokit-digital-d1-synth/id1436905540?mt=8") {
+                    if let appStoreURL = URL.init(string: "https://itunes.apple.com/us/app/audiokit-digital-d1-synth/id1436905540") {
                         UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
                     }
                 }

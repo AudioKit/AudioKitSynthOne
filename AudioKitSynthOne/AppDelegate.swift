@@ -60,26 +60,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         conductor.stopEngine()
     }
 
+    /// Custom URL Scheme for importing octave-based tunings
+    /// query host = "tune"
+    /// args are Strings
+    /// tuningName
+    /// f frequency
+    /// frequencyMiddleC
+    ///
+    /// query host = "open"
+    /// no args
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         let urlStr = url.absoluteString
         let host = URLComponents(string: urlStr)?.host
+
         if host == "tune" {
-            //TODO:need to handle Tuning panel UI
+            // parse shared tuning
             let queryItems = URLComponents(string: urlStr)?.queryItems
-            let tuningName = queryItems?.filter({$0.name == "tuningName"}).first?.value ?? ""
             if let fArray = queryItems?.filter({$0.name == "f"}).map({ Double($0.value ?? "1.0") ?? 1.0 }) {
-                AKLog("tuningName:\(tuningName), fArray:\(fArray)")
-                let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
-                    as? TuningsPanelController
-                _ = tuningsPanel?.tuningModel.setTuning(name: tuningName, masterArray: fArray)
+                // only valid if non-zero length frequency array
+                if fArray.count > 0 {
+                    let tuningName = queryItems?.filter({$0.name == "tuningName"}).first?.value ?? ""
+                    let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
+                        as? TuningsPanelController
+                    tuningsPanel?.setTuning(name: tuningName, masterArray: fArray)
+                    if let frequencyMiddleCStr = queryItems?.filter({$0.name == "frequencyMiddleC"}).first?.value {
+                        if let frequencyMiddleC = Double(frequencyMiddleCStr) {
+                            if let s = conductor.synth {
+                                let frequencyA4 = frequencyMiddleC * exp2((69-60)/12)
+                                s.setSynthParameter(.frequencyA4, frequencyA4)
+                            } else {
+                                AKLog("ERROR:can't set frequencyA4 because synth is not initialized")
+                            }
+                        }
+                    }
+                } else {
+                    // if you want to alert the user that the tuning is invalid this is the place
+                    AKLog("tuning not set because input frequency array is empty")
+                }
             }
             return true
         } else if host == "open" {
             // simply Open
             return true
         } else {
-            // can't handle this command
-            AKLog("can't handle url: \(String(describing: host))")
+            // can't handle this url scheme
+            AKLog("unsupported custom url scheme: \(url)")
             return false
         }
     }

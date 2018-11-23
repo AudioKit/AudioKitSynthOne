@@ -39,6 +39,23 @@
 				<string>com.audiokitpro.AudioKitSynthOne.synth1</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>icon_320.png</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>AudioKit Synth1 Scala File</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.audiokitpro.AudioKitSynthOne.scl</string>
+			</array>
+		</dict>
+		<dict/>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
@@ -134,6 +151,27 @@
 				<array>
 					<string>synth1</string>
 				</array>
+				<key>public.mime-type</key>
+				<string>application/SynthOne</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.text</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>AudioKit Scala File</string>
+			<key>UTTypeIconFiles</key>
+			<array>
+				<string>icon_320.png</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.audiokitpro.AudioKitSynthOne.scl</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>scl</string>
 				<key>public.mime-type</key>
 				<string>application/SynthOne</string>
 			</dict>

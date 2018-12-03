@@ -270,6 +270,7 @@ class Tunings {
         retVal.append( (" 6 Hobbs Hexany(3, 2.111, 5.111, 8.111)", { return Tunings.hexany( [3, 2.111, 5.111, 8.111] ) }) )
         retVal.append( (" 6 Hobbs Hexany(3, 1.346, 4.346, 7.346)", { return Tunings.hexany( [3, 1.346, 4.346, 7.346] ) }) )
 
+        //H[n] = H[n-1] + H[n-7], seeds (2,2,2,1,1,1,1) 5: 1,19,5,3,15, 7: 1,75,19,5,47,3,15
         retVal.append( (" 5 Hobbs Recurrence Relation 1", { let s: [Double] = [1, 19, 5, 3, 15]; return s }) )
         retVal.append( (" 5 Hobbs Recurrence Relation 2", { let s: [Double] = [35, 74, 23, 51, 61]; return s }) )
         retVal.append( (" 6 Hobbs Recurrence Relation 1", { let s: [Double] = [74, 150, 85, 106, 120, 61]; return s }) )

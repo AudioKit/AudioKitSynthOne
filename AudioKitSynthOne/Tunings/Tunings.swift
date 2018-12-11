@@ -26,6 +26,7 @@ class Tunings {
     init() {}
 
     func loadTunings(completionHandler: @escaping S1TuningLoadCallback) {
+        // Don't block main thread
         DispatchQueue.global(qos: .userInitiated).async {
             self.tunings.removeAll()
 

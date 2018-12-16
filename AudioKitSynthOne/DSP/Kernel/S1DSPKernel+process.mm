@@ -14,7 +14,7 @@
 void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount bufferOffset) {
     initializeNoteStates();
 
-    // PREPARE FOR RENDER LOOP...updates here happen at (typically) 44100/512 HZ, or 44100/1024 HZ
+    // PREPARE FOR RENDER LOOP...updates here happen at (typically) 44100/bufferSize (i.e., 512, 1024 HZ)
     float* outL = (float*)outBufferListPtr->mBuffers[0].mData + bufferOffset;
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
 
@@ -203,8 +203,14 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
 
                 // No keys held down
                 if (heldNoteNumbersAE.count == 0) {
+                    // reset arp beat counter, the "origin" of the sequence
                     if (arpBeatCounter > 0) {
                         arpBeatCounter = 0;
+                        beatCounterDidChange();
+                    }
+                    // reset arp sample counter, the "origin" of time
+                    if (arpSampleCounter > 0) {
+                        arpSampleCounter = 0;
                         beatCounterDidChange();
                     }
                 } else if (sequencerNotes.size() == 0) {

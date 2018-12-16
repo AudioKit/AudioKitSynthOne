@@ -17,11 +17,17 @@ extension TuningsPanelController: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tuningIndex = (indexPath as NSIndexPath).row
-        tuningModel.selectTuning(atRow: tuningIndex)
-        if let selectedCell = tableView.cellForRow(at: indexPath) {
-            selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        if tableView == tuningTableView {
+            tuningIndex = (indexPath as NSIndexPath).row
+            tuningModel.selectTuning(atRow: tuningIndex)
+            if let selectedCell = tableView.cellForRow(at: indexPath) {
+                selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+            }
+            tuningDidChange()
+        } else if tableView == tuningBankTableView {
+            
+        } else {
+            AKLog("error: no such tableview")
         }
-        tuningDidChange()
     }
 }

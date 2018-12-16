@@ -18,6 +18,7 @@ public protocol TuningsPitchWheelViewTuningDidChange {
 class TuningsPanelController: PanelController {
 
     @IBOutlet weak var tuningTableView: UITableView!
+    @IBOutlet weak var tuningBankTableView: UITableView!
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
     @IBOutlet weak var masterTuningKnob: MIDIKnob!
     @IBOutlet weak var resetTuningsButton: SynthButton!
@@ -33,12 +34,21 @@ class TuningsPanelController: PanelController {
 
         guard let synth = Conductor.sharedInstance.synth else { return }
         currentPanel = .tunings
+        
         tuningTableView.backgroundColor = UIColor.clear
         tuningTableView.isOpaque = false
         tuningTableView.allowsSelection = true
         tuningTableView.allowsMultipleSelection = false
         tuningTableView.dataSource = self
         tuningTableView.delegate = self
+
+        tuningBankTableView.backgroundColor = UIColor.clear
+        tuningBankTableView.isOpaque = false
+        tuningBankTableView.allowsSelection = true
+        tuningBankTableView.allowsMultipleSelection = false
+        tuningBankTableView.dataSource = self
+        tuningBankTableView.delegate = self
+
         tuningModel.tuningsDelegate = self
 
         masterTuningKnob.range = synth.getRange(.frequencyA4)

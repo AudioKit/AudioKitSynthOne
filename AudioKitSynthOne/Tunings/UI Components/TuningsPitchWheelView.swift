@@ -260,7 +260,6 @@ extension TuningsPitchWheelView {
 }
 
 
-// please refactor this String extension to handle centered and left-justified
 private extension String {
 
     func drawCentered(atPoint point: CGPoint, font: UIFont, color: UIColor, drawStroke: Bool = true) -> CGSize {

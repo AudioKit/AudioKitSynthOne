@@ -30,26 +30,38 @@ extension TuningsPanelController: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
-        
+        let row = (indexPath as NSIndexPath).row
+
         let cell: TuningCell
-        if let reusableCell = tableView.dequeueReusableCell(withIdentifier: "TuningCell") as? TuningCell {
-            cell = reusableCell
+        if true {
+            // reuse cell
+            if let reusableCell = tableView.dequeueReusableCell(withIdentifier: "TuningCell") as? TuningCell {
+                cell = reusableCell
+            } else {
+                cell = TuningCell()
+            }
+            cell.configureCell()
         } else {
+            // TODO: test don't reuse
             cell = TuningCell()
+            cell.configureCell()
         }
-        cell.configureCell()
 
         let title: String
         if tableView == tuningBankTableView {
-            title = tuningModel.tuningBank.name
+            let bank = tuningModel.tuningBanks[row]
+            title = bank.name
+            AKLog("Bank:\(bank)")
         } else if tableView == tuningTableView {
-            let tuning = tuningModel.tunings[(indexPath as NSIndexPath).row]
-            title = tuning.name
+            let tuning = tuningModel.tunings[row]
+            title = tuning.nameForCell
+            AKLog("Tuning:\(tuning)")
         } else {
             title = "error"
         }
 
         cell.textLabel?.text = title
+        AKLog("row:\(row), title:\(title)")
         return cell
     }
 }

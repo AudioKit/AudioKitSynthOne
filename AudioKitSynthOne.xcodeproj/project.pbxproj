@@ -237,6 +237,7 @@
 		F482CC602123CDE70093ADC8 /* sawtooth_0021.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CC2A2123CDE70093ADC8 /* sawtooth_0021.json */; };
 		F482CC612123CDE70093ADC8 /* pwm_0042.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CC2B2123CDE70093ADC8 /* pwm_0042.json */; };
 		F4E4D00421C5B9F2005B2FAF /* TuningBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */; };
+		F4E4D00721C81E34005B2FAF /* tunings_v0_upgrade_path_test.json in Resources */ = {isa = PBXBuildFile; fileRef = F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -649,6 +650,7 @@
 		F482CC2B2123CDE70093ADC8 /* pwm_0042.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pwm_0042.json; sourceTree = "<group>"; };
 		F4CB749120EEE0AF00716B92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningBank.swift; sourceTree = "<group>"; };
+		F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tunings_v0_upgrade_path_test.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -890,6 +892,7 @@
 		C435C52B20C52D4B00DAECCD /* Tunings */ = {
 			isa = PBXGroup;
 			children = (
+				F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */,
 				C435C52C20C52D4B00DAECCD /* Tuning.swift */,
 				F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */,
 				EA388CEC210498FD0026C0C0 /* Tunings.storyboard */,
@@ -1563,6 +1566,7 @@
 				EA388CF92104995B0026C0C0 /* MailingList.storyboard in Resources */,
 				F482CC3A2123CDE70093ADC8 /* triangle_0337.json in Resources */,
 				F482CC4A2123CDE70093ADC8 /* sawtooth_0010.json in Resources */,
+				F4E4D00721C81E34005B2FAF /* tunings_v0_upgrade_path_test.json in Resources */,
 				F482CC592123CDE70093ADC8 /* square_0084.json in Resources */,
 				EA388CFC210548460026C0C0 /* Dev.storyboard in Resources */,
 				F482CC472123CDE70093ADC8 /* square_0001.json in Resources */,

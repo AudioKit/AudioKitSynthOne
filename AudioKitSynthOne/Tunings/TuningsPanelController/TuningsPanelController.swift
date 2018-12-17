@@ -27,7 +27,6 @@ class TuningsPanelController: PanelController {
 
     let tuningModel = Tunings()
     var getStoreTuningWithPresetValue = false
-    internal var tuningIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +35,16 @@ class TuningsPanelController: PanelController {
         currentPanel = .tunings
         
         tuningTableView.backgroundColor = UIColor.clear
-        tuningTableView.isOpaque = false
+        //tuningTableView.isOpaque = false
+        tuningTableView.isOpaque = true
         tuningTableView.allowsSelection = true
         tuningTableView.allowsMultipleSelection = false
         tuningTableView.dataSource = self
         tuningTableView.delegate = self
 
         tuningBankTableView.backgroundColor = UIColor.clear
-        tuningBankTableView.isOpaque = false
+        //tuningBankTableView.isOpaque = false
+        tuningBankTableView.isOpaque = true
         tuningBankTableView.allowsSelection = true
         tuningBankTableView.allowsMultipleSelection = false
         tuningBankTableView.dataSource = self
@@ -57,9 +58,9 @@ class TuningsPanelController: PanelController {
 
         resetTuningsButton.callback = { value in
             if value == 1 {
-                let i = self.tuningModel.resetTuning()
+                self.tuningModel.resetTuning()
                 self.masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
-                self.selectRow(i)
+                //self.selectRow()
                 self.resetTuningsButton.value = 0
             }
         }
@@ -71,18 +72,24 @@ class TuningsPanelController: PanelController {
 
         // callback called on main thread
         tuningModel.loadTunings {
+            AKLog("BEGIN: load tunings")
+            self.tuningBankTableView.reloadData()
             self.tuningTableView.reloadData()
-            self.selectRow(0)
+            //self.selectRow()
+            AKLog("END  : load tunings")
             self.tuningDidChange()
         }
 
+        tuningBankTableView.accessibilityLabel = "Tuning Banks Table"
 		tuningTableView.accessibilityLabel = "Tunings Table"
 
 		view.accessibilityElements = [
+            tuningBankTableView,
 			tuningTableView,
 			masterTuningKnob,
 			diceButton,
 			resetTuningsButton,
+            d1LaunchButton,
 			leftNavButton,
 			rightNavButton
 		]
@@ -128,8 +135,8 @@ class TuningsPanelController: PanelController {
 
     @IBAction func randomPressed(_ sender: UIButton) {
         guard tuningModel.isTuningReady else { return }
-        tuningIndex = tuningModel.randomTuning()
-        selectRow(tuningIndex)
+        tuningModel.randomTuning()
+        //selectRow()
         tuningDidChange()
         UIView.animate(withDuration: 0.4, animations: {
             for _ in 0 ... 1 {
@@ -138,35 +145,42 @@ class TuningsPanelController: PanelController {
         })
     }
 
-    internal func selectRow(_ index: Int) {
+    internal func selectRow() {
         guard tuningModel.isTuningReady else { return }
-        tuningIndex = index
-        let path = IndexPath(row: index, section: 0)
-        tuningTableView.selectRow(at: path, animated: true, scrollPosition: .middle)
-        tableView(tuningTableView, didSelectRowAt: path)
+
+        AKLog("BEGIN selectRow")
+
+        let bankPath = IndexPath(row: tuningModel.selectedBankIndex, section: 0)
+        AKLog("bankPath:\(bankPath)")
+        tuningBankTableView.selectRow(at: bankPath, animated: true, scrollPosition: .top)
+        tableView(tuningBankTableView, didSelectRowAt: bankPath)
+
+        let tuningPath = IndexPath(row: tuningModel.selectedTuningIndex, section: 0)
+        AKLog("tuningPath:\(tuningPath)")
+        tuningTableView.selectRow(at: tuningPath, animated: true, scrollPosition: .middle)
+        tableView(tuningTableView, didSelectRowAt: tuningPath)
+
+        AKLog("END   selectRow")
     }
 
     public func setTuning(name: String?, masterArray master: [Double]?) {
         guard tuningModel.isTuningReady else { return }
-        let i = tuningModel.setTuning(name: name, masterArray: master)
-        if i.1 {
+        let reload = tuningModel.setTuning(name: name, masterArray: master)
+        if reload {
             tuningTableView.reloadData()
         }
-        if let row = i.0 {
-            selectRow(row)
-        }
+        //selectRow()
     }
 
     public func setDefaultTuning() {
         guard tuningModel.isTuningReady else { return }
-        tuningIndex = tuningModel.resetTuning()
-        selectRow(tuningIndex)
+        tuningModel.resetTuning()
+        //selectRow()
     }
 
     public func getTuning() -> (String, [Double]) {
         guard tuningModel.isTuningReady else { return ("", [1]) }
-        let t = tuningModel.getTuning(index: tuningIndex)
-        return t
+        return tuningModel.getTuning()
     }
 }
 
@@ -174,6 +188,7 @@ class TuningsPanelController: PanelController {
 
 extension TuningsPanelController: TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange() {
+        AKLog("")
         tuningsPitchWheelView.updateFromGlobalTuningTable()
     }
 }

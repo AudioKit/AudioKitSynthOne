@@ -13,10 +13,12 @@ class TuningBank: Codable, CustomStringConvertible {
     var name = "Bundled"
     var isEditable = false
     var tunings = [Tuning]()
+    var selectedTuningIndex = Int(0)
     var order = 0
 
     var description: String {
-        return "name:\(name), isEditable:\(isEditable), tunings:\(tunings), order:\(order)"
+        //return "name:\(name), isEditable:\(isEditable), tunings:\(tunings), order:\(order)"
+        return "name:\(name), isEditable:\(isEditable), order:\(order), selectedTuningIndex:\(selectedTuningIndex), tunings <not shown>"
     }
 
     init() {}
@@ -26,7 +28,7 @@ class TuningBank: Codable, CustomStringConvertible {
         name = dictionary["name"] as? String ?? "Bundled"
         isEditable = dictionary["masterSet"] as? Bool ?? false
         tunings = dictionary["tunings"] as? [Tuning] ?? [Tuning]()
+        selectedTuningIndex = dictionary["selectedTuningIndex"] as? Int ?? 0
         order = dictionary["order"] as? Int ?? 0
     }
-
 }

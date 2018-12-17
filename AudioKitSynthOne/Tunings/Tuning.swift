@@ -10,6 +10,19 @@ class Tuning: Codable, CustomStringConvertible {
 
     // Don't change these property names
     var name = defaultName
+    var nameForCell: String {
+        get {
+            // prepend padded npo
+            let npoString = String(npo)
+            var retVal = npoString
+            let toLength = 3 - npoString.count
+            for _ in 0..<toLength {
+                retVal = " " + retVal
+            }
+            retVal += " " + name
+            return retVal
+        }
+    }
     var masterSet = defaultMasterSet
     var order: Int = defaultOrder
     var npo: Int {
@@ -33,7 +46,7 @@ class Tuning: Codable, CustomStringConvertible {
 
     ///
     var description: String {
-        return "\(name): \(masterSet)"
+        return "name:\(name), nameForCell:\(nameForCell), masterSet:\(masterSet)"
     }
 
     /// The default tuning is always 12ET

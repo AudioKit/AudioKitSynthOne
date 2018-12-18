@@ -249,11 +249,11 @@ public class Manager: UpdatableViewController {
 
         // On four runs show dialog and request review
         if appSettings.launches == 5 && !appSettings.isPreRelease { reviewPopUp() }
-        if appSettings.launches % 17 == 0 && !appSettings.isPreRelease && appSettings.launches > 0 { requestReview() }
+        if appSettings.launches % 21 == 0 && !appSettings.isPreRelease && appSettings.launches > 0 { requestReview() }
 
         // Push Notifications request
         if appSettings.launches == 9 && !appSettings.pushNotifications { pushPopUp() }
-        if appSettings.launches % 18 == 0 &&
+        if appSettings.launches % 75 == 0 &&
             !appSettings.pushNotifications &&
             !appSettings.isPreRelease &&
             appSettings.launches > 0 {

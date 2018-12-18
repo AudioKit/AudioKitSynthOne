@@ -69,7 +69,7 @@ class Tunings {
             self.tuningBanks.removeAll()
 
             //TODO:remove test code
-            self.testUpgradeV1Path()
+            //self.testUpgradeV1Path()
             //self.testFreshInstallV1Path()
 
             if Disk.exists(self.tuningFilenameV1, in: .documents) {

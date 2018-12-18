@@ -68,7 +68,7 @@ class Tunings {
         DispatchQueue.global(qos: .userInitiated).async {
             self.tuningBanks.removeAll()
 
-            //TODO:remove test code
+            // uncomment to test upgrade paths
             //self.testUpgradeV1Path()
             //self.testFreshInstallV1Path()
 

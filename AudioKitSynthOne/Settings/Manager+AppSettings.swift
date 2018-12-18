@@ -21,7 +21,18 @@ extension Manager {
         conductor.neverSleep = appSettings.neverSleep 
         midiChannelIn = MIDIByte(appSettings.midiChannel)
         omniMode = appSettings.omniMode
+        AKSettings.bufferLength = AKSettings.BufferLength(rawValue:appSettings.bufferLengthRawValue) ?? .short
 
+        do {
+            try AKTry {
+                try AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
+            }
+        } catch let error as NSError {
+            AKLog("AKSettings Error: Cannot set Preferred IOBufferDuration to " +
+                "\(AKSettings.bufferLength.duration) ( = \(AKSettings.bufferLength.samplesCount) samples)")
+            AKLog("AKSettings Error: \(error))")
+        }
+        
         // Open MIDI Sources from saved MIDI input checkboxes on settings Panel
 //        for input in AudioKit.midi.inputNames {
 //            if appSettings.midiSources.contains(input) {
@@ -99,6 +110,8 @@ extension Manager {
         appSettings.neverSleep = conductor.neverSleep
         appSettings.midiChannel = Int(midiChannelIn)
         appSettings.omniMode = omniMode
+        appSettings.bufferLengthRawValue = AKSettings.bufferLength.rawValue
+        
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
         appSettings.freezeDelay = (devViewController.freezeDelay.value == 1 ? true : false)
         appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)

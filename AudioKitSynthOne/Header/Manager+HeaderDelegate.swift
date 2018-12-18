@@ -96,6 +96,10 @@ extension Manager: HeaderDelegate {
     func savePresetPressed() {
         presetsViewController.editPressed()
     }
+    
+    func appsPressed() {
+         performSegue(withIdentifier: "SegueToApps", sender: self)
+    }
 
     func morePressed() {
         guard Private.MailChimpAPIKey != "***REMOVED***" || appSettings.signedMailingList else {

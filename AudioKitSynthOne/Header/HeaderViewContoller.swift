@@ -19,6 +19,7 @@ protocol HeaderDelegate: AnyObject {
     func devPressed()
     func aboutPressed()
     func morePressed()
+    func appsPressed()
 }
 
 public class HeaderViewController: UpdatableViewController {
@@ -39,6 +40,7 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var hostAppIcon: UIImageView!
     @IBOutlet weak var morePresetsButton: PresetUIButton!
     @IBOutlet weak var webButton: PresetUIButton!
+    @IBOutlet weak var appsButton: PresetUIButton!
 
     weak var delegate: EmbeddedViewsDelegate?
     weak var headerDelegate: HeaderDelegate?
@@ -406,6 +408,10 @@ public class HeaderViewController: UpdatableViewController {
         morePresetsButton.callback = { _ in
             self.headerDelegate?.morePressed()
         }
+        
+        appsButton.callback = { _ in
+            self.headerDelegate?.appsPressed()
+        }
 
         webButton.callback = { _ in
             if let url = URL(string: "http://audiokitpro.com/synth") {
@@ -436,7 +442,7 @@ public class HeaderViewController: UpdatableViewController {
     func updateMailingListButton(_ signedMailingList: Bool) {
         // Mailing List Button
         if signedMailingList {
-            morePresetsButton.setTitle("Apps", for: .normal)
+            morePresetsButton.setTitle("More", for: .normal)
             morePresetsButton.setTitleColor(#colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1), for: .normal)
             morePresetsButton.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
         } else {

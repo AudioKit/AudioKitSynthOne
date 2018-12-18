@@ -125,7 +125,6 @@ class SequencerPanelController: PanelController {
             }
         }
 
-
 		setAccessibilityReadOrder()
 
     }

@@ -192,10 +192,15 @@ public class Manager: UpdatableViewController {
 
         // Setup AudioBus MIDI Input
         setupAudioBusInput()
-		
-		holdButton.accessibilityValue = self.keyboardView.holdMode ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
-		monoButton.accessibilityValue = self.keyboardView.polyphonicMode ? NSLocalizedString("Off", comment: "Off") : NSLocalizedString("On", comment: "On")
-		
+
+		holdButton.accessibilityValue = self.keyboardView.holdMode ?
+			NSLocalizedString("On", comment: "On") :
+			NSLocalizedString("Off", comment: "Off")
+
+		monoButton.accessibilityValue = self.keyboardView.polyphonicMode ?
+			NSLocalizedString("Off", comment: "Off") :
+			NSLocalizedString("On", comment: "On")
+
     }
 
     public override func viewDidAppear(_ animated: Bool) {

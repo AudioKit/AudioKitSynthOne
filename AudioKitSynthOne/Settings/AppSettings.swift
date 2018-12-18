@@ -36,6 +36,7 @@ class AppSettings: Codable {
     var freezeReverb = false // true = don't modify current reverb parameters when preset changes
     var freezeArpSeq = false // true = don't modify current arp+seq parameters when preset changes
     var portamentoHalfTime = 0.1 // global portamento HALFTIME for dsp params that are smoothed
+    var bufferLengthRawValue = 7 // short
 
     //Settings: "Save Tuning Panel w/Presets" -> saveTuningWithPreset = True/False
     //True means: "DO load preset's tuning (nil = reset current tuning to 12et) when preset is loaded.
@@ -127,6 +128,7 @@ class AppSettings: Codable {
         neverSleep = dictionary["neverSleep"] as? Bool ?? neverSleep
         midiChannel = dictionary["midiChannel"] as? Int ?? midiChannel
         omniMode = dictionary["omniMode"] as? Bool ?? omniMode
+        bufferLengthRawValue = dictionary["bufferLengthRawValue"] as? Int ?? bufferLengthRawValue
         midiSources = dictionary["midiSources"] as? [String] ?? midiSources
         plotFilled = dictionary["plotFilled"] as? Bool ?? plotFilled
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
@@ -192,7 +194,6 @@ class AppSettings: Codable {
         // State
         currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex
         currentPresetIndex = dictionary["currentPresetIndex"] as? Int ?? currentPresetIndex
-
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
     }
 }

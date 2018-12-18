@@ -11,6 +11,7 @@
 		941645CD20B3597300D62851 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941645CC20B3597300D62851 /* NotificationService.swift */; };
 		941645D120B3597300D62851 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		941752BA20E2BD2E0076D953 /* Starter Bank.json in Resources */ = {isa = PBXBuildFile; fileRef = 941752B920E2BD2E0076D953 /* Starter Bank.json */; };
+		94189CB8219F27130004C28B /* MoreAppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94189CB7219F27130004C28B /* MoreAppsController.swift */; };
 		94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94656AEC205F410900634B2C /* KeyboardShowButton.swift */; };
 		946980572169258A007EAA5B /* String+CapitalizeFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946980562169258A007EAA5B /* String+CapitalizeFirst.swift */; };
 		947956A91F329AB200FE5D9B /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A81F329AB100FE5D9B /* Stepper.swift */; };
@@ -285,6 +286,7 @@
 		941645CC20B3597300D62851 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		941645CE20B3597300D62851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941752B920E2BD2E0076D953 /* Starter Bank.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Starter Bank.json"; sourceTree = "<group>"; };
+		94189CB7219F27130004C28B /* MoreAppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsController.swift; sourceTree = "<group>"; };
 		9441B83D2126618C003A5163 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Presets.strings; sourceTree = "<group>"; };
 		9441B83E2126618C003A5163 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9441B83F2126618C003A5163 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -759,6 +761,7 @@
 				C4B4916220C7C72900FD565A /* AboutViewController.swift */,
 				C4B4916120C7C72900FD565A /* InfoViewController.swift */,
 				C4B4919520C7C81200FD565A /* Mailing List */,
+				94189CB7219F27130004C28B /* MoreAppsController.swift */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -1445,13 +1448,13 @@
 				TargetAttributes = {
 					941645C920B3597300D62851 = {
 						CreatedOnToolsVersion = 9.3.1;
-						DevelopmentTeam = 9W69ZP8S5F;
+						DevelopmentTeam = 69WU6LWMSQ;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					C4D193C31F1187B500FF4FE4 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 9W69ZP8S5F;
+						DevelopmentTeam = 69WU6LWMSQ;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1719,6 +1722,7 @@
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
 				C435C57F20C530C900DAECCD /* AEUtilities.m in Sources */,
 				C435C57920C530C900DAECCD /* AKSynthOne.swift in Sources */,
+				94189CB8219F27130004C28B /* MoreAppsController.swift in Sources */,
 				C4B4914020C7C6A000FD565A /* TouchPointStyleKit.swift in Sources */,
 				C435C4F820C5234900DAECCD /* CategoryCell.swift in Sources */,
 				C435C53120C52D4C00DAECCD /* Tunings+Math.swift in Sources */,
@@ -2086,12 +2090,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W69ZP8S5F;
+				DEVELOPMENT_TEAM = 69WU6LWMSQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.staque.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -2110,12 +2114,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W69ZP8S5F;
+				DEVELOPMENT_TEAM = 69WU6LWMSQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.staque.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -2271,7 +2275,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W69ZP8S5F;
+				DEVELOPMENT_TEAM = 69WU6LWMSQ;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -2284,7 +2288,7 @@
 					"$(inherited)",
 					"$(ABLETON_LIB_$(ABLETON_ENABLED))",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.staque;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2307,7 +2311,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W69ZP8S5F;
+				DEVELOPMENT_TEAM = 69WU6LWMSQ;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -2320,7 +2324,7 @@
 					"$(inherited)",
 					"$(ABLETON_LIB_$(ABLETON_ENABLED))",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audiokitpro.AudioKitSynthOne.staque;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

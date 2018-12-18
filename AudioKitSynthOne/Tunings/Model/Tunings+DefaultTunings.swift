@@ -1,343 +1,14 @@
 //
-//  Tunings.swift
+//  Tunings+DefaultTunings.swift
 //  AudioKitSynthOne
 //
-//  Created by Marcus Hobbs on 5/12/18.
+//  Created by Marcus W. Hobbs on 12/17/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-import UIKit
-import AudioKit
-import Disk
+import Foundation
 
-/// Tuning Model
-class Tunings {
-
-    enum TuningSortType {
-        case npo
-        case name
-        case order // user order
-        // eventually put tuning type here, i.e., mos, cps hexany, scala, unknown, etc.
-    }
-
-    public typealias S1TuningCallback = () -> [Double]
-    public typealias Frequency = Double
-    public typealias S1TuningLoadCallback = () -> (Void)
-
-    var isTuningReady = false
-    var tuningsDelegate: TuningsPitchWheelViewTuningDidChange?
-
-    private static let bundleBankIndex = 0
-    private static let userBankIndex = 1
-    private(set) var tuningBanks = [TuningBank]()
-    private(set) var selectedBankIndex: Int = 0
-
-    // convenience property: returns selected bank
-    var tuningBank: TuningBank {
-        get {
-            return tuningBanks[selectedBankIndex]
-        }
-    }
-
-    // convenience property: returns index of selected tuning in selected bank
-    var selectedTuningIndex: Int {
-        get {
-            return tuningBank.selectedTuningIndex
-        }
-    }
-
-    // convenience property: returns array of tunings of selected bank
-    var tunings: [Tuning] {
-        get {
-            return tuningBank.tunings
-        }
-    }
-
-    // exposed for sharing tunings with D1
-    var tuningName = Tuning.defaultName
-    var masterSet = Tuning.defaultMasterSet
-
-    private var tuningSortType = TuningSortType.npo
-    private let tuningFilenameV0 = "tunings.json"
-    private let tuningFilenameV1 = "tunings_v1.json"
-
-    init() {}
-
-    ///
-    func loadTunings(completionHandler: @escaping S1TuningLoadCallback) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.tuningBanks.removeAll()
-
-            //TODO:remove test code
-            //self.testUpgradeV1Path()
-            //self.testFreshInstallV1Path()
-            self.testUpgradeV1Path()
-
-            if Disk.exists(self.tuningFilenameV1, in: .documents) {
-                // tunings have been installed and/or upgraded
-                self.loadTuningsFromDevice()
-            } else if Disk.exists(self.tuningFilenameV0, in: .documents) {
-                // tunings need to be upgraded
-                self.upgradeTuningsFromV0ToV1()
-            } else {
-                // fresh install
-                self.loadTuningFactoryPresets()
-            }
-            self.sortTunings(forBank: self.tuningBanks[Tunings.bundleBankIndex])
-            self.sortTunings(forBank: self.tuningBanks[Tunings.userBankIndex])
-            self.saveTunings()
-
-            // select user bank if it's not empty
-            if self.tuningBanks[Tunings.userBankIndex].tunings.count > 1 {
-                self.selectedBankIndex = Tunings.userBankIndex
-            } else {
-                self.selectedBankIndex = Tunings.bundleBankIndex
-            }
-
-            self.isTuningReady = true
-
-            //AKLog("tuningBanks:\(self.tuningBanks)")
-
-            DispatchQueue.main.async {
-                completionHandler()
-            }
-        }
-    }
-
-    // for testing...resets file system state with bundled+user v0 tunings
-    private func testUpgradeV1Path() {
-        // copy test v0 file from bundle to documents
-        if let pathStr = Bundle.main.path(forResource: "tunings_v0_upgrade_path_test", ofType: "json") {
-            let fromUrl = URL(fileURLWithPath: pathStr)
-            try? Disk.remove(tuningFilenameV0, from: .documents)
-            let docUrl = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create:false)
-            if let toUrl = docUrl?.appendingPathComponent(tuningFilenameV0) {
-                try? FileManager.default.copyItem(at: fromUrl, to: toUrl)
-            }
-        }
-        // remove v1 file
-        try? Disk.remove(tuningFilenameV1, from: .documents)
-    }
-
-    // for testing...tests case new v1 user
-    private func testFreshInstallV1Path() {
-        try? Disk.remove(tuningFilenameV0, from: .documents)
-        try? Disk.remove(tuningFilenameV1, from: .documents)
-    }
-
-    /// reads array of banks, each of which has an array of tunings
-    private func loadTuningsFromDevice() {
-        do {
-            let tuningBankData = try Disk.retrieve(tuningFilenameV1, from: .documents, as: Data.self)
-            let tuningBankJSON = try? JSONSerialization.jsonObject(with: tuningBankData, options: [])
-            guard let jsonArray = tuningBankJSON as? [Any] else {
-                AKLog("*** error parsing tuning banks from JSON")
-                return
-            }
-            for bankJSON in jsonArray {
-                if let bankDictionary = bankJSON as? [String: Any] {
-                    let retrievedBank = TuningBank(dictionary: bankDictionary)
-                    tuningBanks.append(retrievedBank)
-                }
-            }
-            tuningBanks.sort { $0.order < $1.order }
-        } catch {
-            AKLog("*** error loading tuning banks from device")
-        }
-    }
-
-    /// Upgrade path from Tunings v0 to v1
-    private func upgradeTuningsFromV0ToV1() {
-
-        AKLog("*** BEGIN: upgrading from V0 to V1")
-
-        // create bundled bank, and an empty user bank
-        loadTuningFactoryPresets()
-
-        do {
-            // read v0 file
-            let retrievedTuningData = try Disk.retrieve(tuningFilenameV0, from: .documents, as: Data.self)
-            let tuningsJSON = try? JSONSerialization.jsonObject(with: retrievedTuningData, options: [])
-            guard let jsonArray = tuningsJSON as? [Any] else {
-                AKLog("*** error parsing v0 tuning array from JSON while upgrading to v1")
-                return
-            }
-            var tuningsV0 = [Tuning]()
-            for tuningJSON in jsonArray {
-                if let tuningDictionary = tuningJSON as? [String: Any] {
-                    let retrievedTuning = Tuning(dictionary: tuningDictionary)
-                    tuningsV0.append(retrievedTuning)
-                }
-            }
-
-            // uniquify encodings of v0 tunings
-            var v1BundledTuningEncodings = [String:String]()
-            for t in Tunings.defaultTunings() {
-                let tt = Tuning()
-                tt.masterSet = t.1()
-                let e = tt.encoding
-                v1BundledTuningEncodings[e] = e
-            }
-            // filter 12ET
-            let t = Tuning()
-            v1BundledTuningEncodings[t.encoding] = t.encoding
-
-            // compare v0 tuning encodings to bundled v1 tuning encodings
-            for t in tuningsV0 {
-                if v1BundledTuningEncodings[t.encoding] == nil {
-                    // t is a v0 custom tuning not in v1 bundled tunings
-                    tuningBanks[Tunings.userBankIndex].tunings.append(t)
-                }
-            }
-
-            // remove v0 file so next launch will skip this upgrade path
-            try? Disk.remove(tuningFilenameV0, from: .documents)
-        } catch let error as NSError {
-            AKLog("*** error upgrading from V0 to V1:\(error)")
-        }
-        AKLog("*** END: upgrading from V0 to V1")
-    }
-
-    // Fresh Install: create bundled bank, and an empty user bank
-    private func loadTuningFactoryPresets() {
-        AKLog("*** BEGIN: create bundled bank")
-        tuningBanks.removeAll()
-        tuningBanks.append(TuningBank())
-        tuningBanks.append(TuningBank())
-
-        let bundledBank = tuningBanks[Tunings.bundleBankIndex]
-        bundledBank.name = "Curated"
-        bundledBank.isEditable = false
-        bundledBank.order = Tunings.bundleBankIndex
-        for t in Tunings.defaultTunings() {
-            let newTuning = Tuning()
-            newTuning.name = t.0
-            newTuning.masterSet = t.1()
-            bundledBank.tunings.append(newTuning)
-        }
-
-        let userBank = tuningBanks[Tunings.userBankIndex]
-        userBank.name = "User"
-        userBank.isEditable = false // for now
-        userBank.order = Tunings.userBankIndex
-        AKLog("*** END  : create bundled bank")
-    }
-
-    private func saveTunings() {
-        do {
-            AKLog("BEGIN: save tuningBanks: bank0.count:\(tuningBanks[0].tunings.count), bank1.count:\(tuningBanks[1].tunings.count)")
-            try Disk.save(tuningBanks, to: .documents, as: tuningFilenameV1)
-        } catch {
-            AKLog("error saving tuning banks")
-        }
-        AKLog("END  : save tuningBanks")
-    }
-
-    ///TODO: do you want user bank to have 12et on top?
-    private func sortTunings(forBank tuningBank: TuningBank) {
-        AKLog("BEGIN SORT")
-        let twelve = Tuning()
-        // remove 12ET, then sort
-        var t = tuningBank.tunings.filter { $0.name + $0.encoding != twelve.name + twelve.encoding }
-        switch tuningSortType {
-        case .npo:
-            //t.sort { String($0.npo) + $0.name + $0.encoding < String($1.npo) + $1.name + $1.encoding }
-            t.sort { $0.nameForCell + $0.encoding < $1.nameForCell + $1.encoding }
-        case .name:
-            t.sort { $0.name + $0.nameForCell + $0.encoding < $1.name + $1.nameForCell + $1.encoding }
-        case .order:
-            t.sort { $0.order < $1.order }
-        }
-        // Insert 12ET at top
-        t.insert(twelve, at: 0)
-        tuningBank.tunings = t
-        AKLog("END   SORT")
-    }
-
-    // adds tuning to user bank if it does not exist
-    public func setTuning(name: String?, masterArray master: [Double]?) -> Bool {
-        guard let name = name, let masterFrequencies = master else { return false }
-        if masterFrequencies.count == 0 { return false }
-        let t = Tuning()
-        t.name = name
-        tuningName = name
-        t.masterSet = masterFrequencies
-        masterSet = masterFrequencies
-        AKLog("name:\(name), masterArray:<not shown>")
-
-        var refreshDatasource = false
-        let b = tuningBanks[Tunings.userBankIndex]
-        let matchingIndices = b.tunings.indices.filter { b.tunings[$0].name + b.tunings[$0].encoding == t.name + t.encoding }
-        if matchingIndices.count == 0 {
-            // If this is a new tuning: add, sort, save
-            b.tunings.append(t)
-            sortTunings(forBank: b)
-            let sortedIndices = b.tunings.indices.filter { b.tunings[$0].name + b.tunings[$0].encoding == t.name + t.encoding }
-            if sortedIndices.count > 0 {
-                selectedBankIndex = Tunings.userBankIndex
-                b.selectedTuningIndex = sortedIndices[0]
-                refreshDatasource = true
-                _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: masterFrequencies)
-                tuningsDelegate?.tuningDidChange()
-                saveTunings()
-            } else {
-                AKLog("error inserting/sorting new tuning")
-            }
-        } else {
-            // existing tuning...do nothing.  Or, if you want to alert user this is the place
-        }
-
-        return refreshDatasource
-    }
-
-    /// select the tuning at row for selected bank
-    public func selectTuning(atRow row: Int) {
-        let b = tuningBank
-        b.selectedTuningIndex = Int((0 ... b.tunings.count).clamp(row))
-        let tuning = b.tunings[b.selectedTuningIndex]
-        AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        tuningsDelegate?.tuningDidChange()
-        AKLog("row:\(row), tuning:\(tuning)")
-    }
-
-    /// select the bank at row
-    public func selectBank(atRow row: Int) {
-        let c = tuningBanks.count
-        selectedBankIndex = Int((0 ... c).clamp(row))
-        let b = tuningBank
-        let tuning = b.tunings[b.selectedTuningIndex]
-        AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        tuningsDelegate?.tuningDidChange()
-        AKLog("row:\(row), tuning:\(tuning)")
-    }
-
-    // Assumes tuning[0] is twelve et for all tuningBanks
-    public func resetTuning() {
-        selectedBankIndex = Tunings.bundleBankIndex
-        let b = tuningBank
-        let tuning = b.tunings[b.selectedTuningIndex]
-        _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        let f = Conductor.sharedInstance.synth!.getDefault(.frequencyA4)
-        Conductor.sharedInstance.synth!.setSynthParameter(.frequencyA4, f)
-        tuningsDelegate?.tuningDidChange()
-        AKLog("tuning:\(tuning)")
-    }
-
-    public func randomTuning() {
-        let b = tuningBanks[selectedBankIndex]
-        b.selectedTuningIndex = Int(arc4random() % UInt32(b.tunings.count))
-        let tuning = b.tunings[b.selectedTuningIndex]
-        _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        tuningsDelegate?.tuningDidChange()
-        AKLog("tuning:\(tuning)")
-    }
-
-    public func getTuning() -> (String, [Double]) {
-        let b = tuningBank
-        let tuning = b.tunings[b.selectedTuningIndex]
-        AKLog("tuning:\(tuning)")
-        return (tuning.name, tuning.masterSet)
-    }
+extension Tunings {
 
     internal static func defaultTunings() -> [(String, S1TuningCallback)] {
         var retVal = [(String, S1TuningCallback)]()
@@ -387,7 +58,7 @@ class Tunings {
         retVal.append( ("Wilson MOS G:0.415226", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.415_226, level: 5, murchana: 0); return t.masterSet }) )
         retVal.append( ("Wilson MOS G:0.436385", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.436_385, level: 5, murchana: 0); return t.masterSet }) )
         retVal.append( ("Wilson MOS G:0.328173", { return [1.0, 1.139_858_796_310_911, 1.152_155_087_458_816_5, 1.164_584_025_542_011_2, 1.177_147_041_496_803_5, 1.189_845_581_695_805_6, 1.202_681_108_114_456_6, 1.215_655_098_499_338_2, 1.228_769_046_538_307_4, 1.242_024_462_032_462_8, 1.255_422_871_069_967_7, 1.431_004_802_679_001_4, 1.446_441_847_815_417_1, 1.462_045_420_948_172_4, 1.477_817_318_507_435_5, 1.493_759_356_302_464, 1.509_873_369_730_661_2, 1.526_161_213_988_883_4, 1.542_624_764_287_028_8, 1.559_265_916_063_926_6, 1.576_086_585_205_560_8, 1.796_516_157_894_184_6, 1.815_896_177_420_180_3, 1.835_485_260_001_455_1, 1.855_285_660_917_525_4, 1.875_299_659_776_866_1, 1.895_529_560_779_353_6, 1.915_977_692_981_552, 1.936_646_410_564_853_8, 1.957_538_093_106_518_3, 1.978_655_145_853_626_8] }) )
-        
+
         retVal.append( ("Wilson Evangelina", { let s: [Double] =  [1 / 1, 135 / 128, 13 / 12, 10 / 9, 9 / 8, 7 / 6, 11 / 9, 5 / 4, 81 / 64, 4 / 3, 11 / 8, 45 / 32, 17 / 12, 3 / 2, 19 / 12, 13 / 8, 5 / 3, 27 / 16, 7 / 4, 11 / 6, 15 / 8, 243 / 128]; return s }) )
         retVal.append( ("Wilson North Indian:Kafi", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian05Kafi(); return t.masterSet }) )
         retVal.append( ("Wilson North Indian:Bhairavi", { let t = AKTuningTable(); _ = t.presetPersian17NorthIndian07Bhairavi(); return t.masterSet }) )
@@ -407,7 +78,7 @@ class Tunings {
 
         /// Scales designed by Jose Garcia
         retVal.append( ("Garcia: Meta Mavila (37-50-67-91)", { let s: [Double] =  [ 1/1, 1027/1024, 67/64, 559/512, 37/32, 153/128,
-            2539/2048, 167/128, 1389/1024, 91/64, 189/128, 25/16, 415/256, 225/128, 937/512, 31/16]; return s }) )
+                                                                                    2539/2048, 167/128, 1389/1024, 91/64, 189/128, 25/16, 415/256, 225/128, 937/512, 31/16]; return s }) )
         retVal.append( ("Garcia: Wilson 7-limit marimba", { let s: [Double] =  [1 / 1, 28 / 27, 16 / 15, 10 / 9, 9 / 8, 7 / 6, 6 / 5, 5 / 4, 35 / 27, 4 / 3, 27 / 20, 45 / 32, 35 / 24, 3 / 2, 14 / 9, 8 / 5, 5 / 3, 27 / 16, 7 / 4, 9 / 5, 15 / 8, 35 / 18]; return s }) )
         retVal.append( ("Garcia: linear 15/13-52/45 alternating", { let s: [Double] =  [1 / 1,  40/39, 27/26, 16/15, 128/117, 9/8, 15/13, 32/27, 6/5, 16/13, 81/64, 135/104, 4/3, 160/117, 18/13, 64/45,  512/351,  3/2, 20/13, 81/52, 8/5,  64/39,  27/16,  45/26,  16/9,  9/5,  24/13,  256/135, 405/208]; return s }) )
 
@@ -442,7 +113,7 @@ class Tunings {
         // Scales designed by Marcus Hobbs using Wilsonic
         retVal.append( ("Hobbs MOS G:0.238186", { let t = AKTuningTable(); _ = t.momentOfSymmetry(generator: 0.238_186, level: 6, murchana: 0); return t.masterSet }) )
         retVal.append( ("Hobbs Hexany(9, 25, 49, 81)", { return Tunings.hexany( [9, 25, 49, 81] ) }) )
-        
+
         //    •    Hexany Fibonacci Triplets (X-3, 3, X, X+3) where X=[3,6]
         retVal.append( ("Hobbs Hexany(3, 2.111, 5.111, 8.111)", { return Tunings.hexany( [3, 2.111, 5.111, 8.111] ) }) )
         retVal.append( ("Hobbs Hexany(3, 1.346, 4.346, 7.346)", { return Tunings.hexany( [3, 1.346, 4.346, 7.346] ) }) )

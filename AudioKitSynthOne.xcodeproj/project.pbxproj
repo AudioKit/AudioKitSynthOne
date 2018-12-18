@@ -238,6 +238,7 @@
 		F482CC612123CDE70093ADC8 /* pwm_0042.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CC2B2123CDE70093ADC8 /* pwm_0042.json */; };
 		F4E4D00421C5B9F2005B2FAF /* TuningBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */; };
 		F4E4D00721C81E34005B2FAF /* tunings_v0_upgrade_path_test.json in Resources */ = {isa = PBXBuildFile; fileRef = F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */; };
+		F4E4D00921C87B9F005B2FAF /* Tunings+DefaultTunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4D00821C87B9F005B2FAF /* Tunings+DefaultTunings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -651,6 +652,7 @@
 		F4CB749120EEE0AF00716B92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningBank.swift; sourceTree = "<group>"; };
 		F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tunings_v0_upgrade_path_test.json; sourceTree = "<group>"; };
+		F4E4D00821C87B9F005B2FAF /* Tunings+DefaultTunings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+DefaultTunings.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -892,13 +894,8 @@
 		C435C52B20C52D4B00DAECCD /* Tunings */ = {
 			isa = PBXGroup;
 			children = (
-				F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */,
-				C435C52C20C52D4B00DAECCD /* Tuning.swift */,
-				F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */,
+				F4E4D00A21C87CC7005B2FAF /* Model */,
 				EA388CEC210498FD0026C0C0 /* Tunings.storyboard */,
-				C435C52E20C52D4B00DAECCD /* Tunings.swift */,
-				C435C52F20C52D4B00DAECCD /* Tunings+Harmonic.swift */,
-				C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */,
 				C4B4915320C7C70D00FD565A /* TuningsPanelController */,
 				C432978A20C902290063F795 /* UI Components */,
 				C40CBA2A20CDEBDF00A8245F /* README.md */,
@@ -1380,6 +1377,20 @@
 			path = Triangle;
 			sourceTree = "<group>";
 		};
+		F4E4D00A21C87CC7005B2FAF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C435C52E20C52D4B00DAECCD /* Tunings.swift */,
+				F4E4D00821C87B9F005B2FAF /* Tunings+DefaultTunings.swift */,
+				C435C52F20C52D4B00DAECCD /* Tunings+Harmonic.swift */,
+				C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */,
+				C435C52C20C52D4B00DAECCD /* Tuning.swift */,
+				F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */,
+				F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1741,6 +1752,7 @@
 				F4E4D00421C5B9F2005B2FAF /* TuningBank.swift in Sources */,
 				949D93B91F2C188C007E657B /* LFOToggle.swift in Sources */,
 				C435C4FB20C5234900DAECCD /* PresetCell.swift in Sources */,
+				F4E4D00921C87B9F005B2FAF /* Tunings+DefaultTunings.swift in Sources */,
 				C4B4915B20C7C70D00FD565A /* TuningsPanelController.swift in Sources */,
 				C4B4917320C7C73B00FD565A /* Manager+DevView.swift in Sources */,
 				94DB18D21F37D879008368AE /* NavButton.swift in Sources */,

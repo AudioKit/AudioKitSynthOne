@@ -30,39 +30,50 @@ class TuningsPanelController: PanelController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityElements = [
+            tuningBankTableView,
+            tuningTableView,
+            masterTuningKnob,
+            diceButton,
+            resetTuningsButton,
+            d1LaunchButton,
+            leftNavButton,
+            rightNavButton
+        ]
 
-        guard let synth = Conductor.sharedInstance.synth else { return }
         currentPanel = .tunings
-        
+
         tuningTableView.backgroundColor = UIColor.clear
-        //tuningTableView.isOpaque = false
         tuningTableView.isOpaque = true
         tuningTableView.allowsSelection = true
         tuningTableView.allowsMultipleSelection = false
         tuningTableView.dataSource = self
         tuningTableView.delegate = self
+        tuningTableView.accessibilityLabel = "Tunings Table"
 
         tuningBankTableView.backgroundColor = UIColor.clear
-        //tuningBankTableView.isOpaque = false
         tuningBankTableView.isOpaque = true
         tuningBankTableView.allowsSelection = true
         tuningBankTableView.allowsMultipleSelection = false
         tuningBankTableView.dataSource = self
         tuningBankTableView.delegate = self
+        tuningBankTableView.accessibilityLabel = "Tuning Banks Table"
 
-        tuningModel.tuningsDelegate = self
+        if let synth = Conductor.sharedInstance.synth {
+            masterTuningKnob.range = synth.getRange(.frequencyA4)
+            masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
+            Conductor.sharedInstance.bind(masterTuningKnob, to: .frequencyA4)
 
-        masterTuningKnob.range = synth.getRange(.frequencyA4)
-        masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
-        Conductor.sharedInstance.bind(masterTuningKnob, to: .frequencyA4)
-
-        resetTuningsButton.callback = { value in
-            if value == 1 {
-                self.tuningModel.resetTuning()
-                self.masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
-                //self.selectRow()
-                self.resetTuningsButton.value = 0
+            resetTuningsButton.callback = { value in
+                if value == 1 {
+                    self.tuningModel.resetTuning()
+                    self.masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
+                    self.selectRow()
+                    self.resetTuningsButton.value = 0
+                }
             }
+        } else {
+            AKLog("race condition: synth not yet created")
         }
 
         d1LaunchButton.callback = { value in
@@ -70,30 +81,13 @@ class TuningsPanelController: PanelController {
             self.d1LaunchButton.value = 0
         }
 
-        // callback called on main thread
+        tuningModel.tuningsDelegate = self
         tuningModel.loadTunings {
-            AKLog("BEGIN: load tunings")
+            // callback called on main thread
             self.tuningBankTableView.reloadData()
             self.tuningTableView.reloadData()
-            //self.selectRow()
-            AKLog("END  : load tunings")
-            self.tuningDidChange()
+            self.selectRow()
         }
-
-        tuningBankTableView.accessibilityLabel = "Tuning Banks Table"
-		tuningTableView.accessibilityLabel = "Tunings Table"
-
-		view.accessibilityElements = [
-            tuningBankTableView,
-			tuningTableView,
-			masterTuningKnob,
-			diceButton,
-			resetTuningsButton,
-            d1LaunchButton,
-			leftNavButton,
-			rightNavButton
-		]
-
     }
 
     func launchD1() {
@@ -136,8 +130,7 @@ class TuningsPanelController: PanelController {
     @IBAction func randomPressed(_ sender: UIButton) {
         guard tuningModel.isTuningReady else { return }
         tuningModel.randomTuning()
-        //selectRow()
-        tuningDidChange()
+        selectRow()
         UIView.animate(withDuration: 0.4, animations: {
             for _ in 0 ... 1 {
                 self.diceButton.transform = self.diceButton.transform.rotated(by: CGFloat(Double.pi))
@@ -148,19 +141,11 @@ class TuningsPanelController: PanelController {
     internal func selectRow() {
         guard tuningModel.isTuningReady else { return }
 
-        AKLog("BEGIN selectRow")
-
         let bankPath = IndexPath(row: tuningModel.selectedBankIndex, section: 0)
-        AKLog("bankPath:\(bankPath)")
-        tuningBankTableView.selectRow(at: bankPath, animated: true, scrollPosition: .top)
         tableView(tuningBankTableView, didSelectRowAt: bankPath)
 
         let tuningPath = IndexPath(row: tuningModel.selectedTuningIndex, section: 0)
-        AKLog("tuningPath:\(tuningPath)")
-        tuningTableView.selectRow(at: tuningPath, animated: true, scrollPosition: .middle)
         tableView(tuningTableView, didSelectRowAt: tuningPath)
-
-        AKLog("END   selectRow")
     }
 
     public func setTuning(name: String?, masterArray master: [Double]?) {
@@ -169,13 +154,13 @@ class TuningsPanelController: PanelController {
         if reload {
             tuningTableView.reloadData()
         }
-        //selectRow()
+        selectRow()
     }
 
     public func setDefaultTuning() {
         guard tuningModel.isTuningReady else { return }
         tuningModel.resetTuning()
-        //selectRow()
+        selectRow()
     }
 
     public func getTuning() -> (String, [Double]) {
@@ -188,7 +173,6 @@ class TuningsPanelController: PanelController {
 
 extension TuningsPanelController: TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange() {
-        AKLog("")
         tuningsPitchWheelView.updateFromGlobalTuningTable()
     }
 }

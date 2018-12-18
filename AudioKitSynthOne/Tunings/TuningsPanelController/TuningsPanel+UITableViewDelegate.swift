@@ -10,30 +10,17 @@
 
 extension TuningsPanelController: UITableViewDelegate {
 
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if cell.isSelected {
-            cell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-        }
-    }
-
-    //TODO: finish
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tuningIndex = (indexPath as NSIndexPath).row
+        let selectedRow = (indexPath as NSIndexPath).row
         if tableView == tuningTableView {
-            tuningModel.selectTuning(atRow: tuningIndex)
-            if let selectedCell = tableView.cellForRow(at: indexPath) {
-                selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-            }
-            AKLog("Tuning: tuningIndex:\(tuningIndex)")
-            tuningDidChange()
+            tuningModel.selectTuning(atRow: selectedRow)
+            tuningTableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
         } else if tableView == tuningBankTableView {
-            tuningModel.selectBank(atRow: tuningIndex)
-            if let selectedCell = tableView.cellForRow(at: indexPath) {
-                selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-            }
+            tuningModel.selectBank(atRow: selectedRow)
+            tuningBankTableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
             tuningTableView.reloadData()
-            AKLog("Bank: tuningIndex:\(tuningIndex)")
-            //tuningDidChange()
+            let tuningPath = IndexPath(row: tuningModel.selectedTuningIndex, section: 0)
+            tuningTableView.selectRow(at: tuningPath, animated: false, scrollPosition: .middle)
         } else {
             AKLog("error: no such tableview")
         }

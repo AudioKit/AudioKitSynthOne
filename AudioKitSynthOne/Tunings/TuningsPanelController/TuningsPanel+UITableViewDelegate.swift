@@ -20,7 +20,7 @@ extension TuningsPanelController: UITableViewDelegate {
             tuningBankTableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
             tuningTableView.reloadData()
             let tuningPath = IndexPath(row: tuningModel.selectedTuningIndex, section: 0)
-            tuningTableView.selectRow(at: tuningPath, animated: false, scrollPosition: .middle)
+            tuningTableView.selectRow(at: tuningPath, animated: true, scrollPosition: .middle)
         } else {
             AKLog("error: no such tableview")
         }

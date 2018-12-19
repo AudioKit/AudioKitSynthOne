@@ -19,6 +19,8 @@ class Tunings {
         case order // user order
         // eventually put tuning type here, i.e., mos, cps hexany, scala, unknown, etc.
     }
+    private var tuningSortType = TuningSortType.npo
+
 
     public typealias S1TuningCallback = () -> [Double]
     public typealias Frequency = Double
@@ -29,6 +31,7 @@ class Tunings {
 
     private static let bundleBankIndex = 0
     private static let userBankIndex = 1
+    private static let hexanyTriadIndex = 2
     private(set) var tuningBanks = [TuningBank]()
     private(set) var selectedBankIndex: Int = 0
 
@@ -57,9 +60,9 @@ class Tunings {
     var tuningName = Tuning.defaultName
     var masterSet = Tuning.defaultMasterSet
 
-    private var tuningSortType = TuningSortType.npo
     private let tuningFilenameV0 = "tunings.json"
     private let tuningFilenameV1 = "tunings_v1.json"
+    //private let tuningFilenameHexanyTriads = "hexany_triads_tunings.json"
 
     init() {}
 
@@ -72,6 +75,7 @@ class Tunings {
             //self.testUpgradeV1Path()
             //self.testFreshInstallV1Path()
 
+            // pick a load path for tuningBanks
             if Disk.exists(self.tuningFilenameV1, in: .documents) {
                 // tunings have been installed and/or upgraded
                 self.loadTuningsFromDevice()
@@ -82,8 +86,14 @@ class Tunings {
                 // fresh install
                 self.loadTuningFactoryPresets()
             }
-            self.sortTunings(forBank: self.tuningBanks[Tunings.bundleBankIndex])
+
+            // sort
+            self.tuningBanks.sort { $0.order < $1.order }
+            //self.sortTunings(forBank: self.tuningBanks[Tunings.bundleBankIndex])
             self.sortTunings(forBank: self.tuningBanks[Tunings.userBankIndex])
+            //self.sortTunings(forBank: self.tuningBanks[Tunings.hexanyTriadIndex])
+
+            // save
             self.saveTunings()
 
             // select user bank if it's not empty
@@ -93,6 +103,7 @@ class Tunings {
                 self.selectedBankIndex = Tunings.bundleBankIndex
             }
 
+            // model is initialized
             self.isTuningReady = true
             self.tuningsDelegate?.tuningDidChange()
 
@@ -188,23 +199,42 @@ class Tunings {
         tuningBanks.removeAll()
         tuningBanks.append(TuningBank())
         tuningBanks.append(TuningBank())
+        tuningBanks.append(TuningBank())
 
+        // bundled bank
         let bundledBank = tuningBanks[Tunings.bundleBankIndex]
         bundledBank.name = "Curated"
         bundledBank.isEditable = false
         bundledBank.order = Tunings.bundleBankIndex
-        for t in Tunings.defaultTunings() {
+        for (order, t) in Tunings.defaultTunings().enumerated() {
             let newTuning = Tuning()
             newTuning.name = t.0
             newTuning.masterSet = t.1()
+            newTuning.order = order
             bundledBank.tunings.append(newTuning)
         }
 
+        // user bank
         let userBank = tuningBanks[Tunings.userBankIndex]
         userBank.name = "User"
         userBank.isEditable = false // for now
         userBank.order = Tunings.userBankIndex
+
+        // hexany triads bank
+        let hexanyTriadsBank = tuningBanks[Tunings.hexanyTriadIndex]
+        hexanyTriadsBank.name = Tunings.hexanyTriadTuningsBankName
+        hexanyTriadsBank.isEditable = false
+        hexanyTriadsBank.order = Tunings.hexanyTriadIndex
+        for (order, t) in Tunings.hexanyTriadTunings().enumerated() {
+            let hexanyTuning = Tuning()
+            hexanyTuning.name = t.0
+            hexanyTuning.masterSet = t.1()
+            hexanyTuning.order = order
+            hexanyTriadsBank.tunings.append(hexanyTuning)
+        }
     }
+
+    private static let hexanyTriadTuningsBankName = "Hexany Triads"
 
     private func saveTunings() {
         do {

@@ -18,12 +18,10 @@ class TuningCell: UITableViewCell {
         // Configure the view for the selected state
         if selected {
             textLabel?.textColor = UIColor.white
-            //backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 0.7547865317)
             contentView.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 0.7547865317)
 
         } else {
             textLabel?.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
-            //backgroundColor = UIColor.clear
             contentView.backgroundColor = UIColor.clear
         }
     }

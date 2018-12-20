@@ -89,9 +89,7 @@ class Tunings {
 
             // sort
             self.tuningBanks.sort { $0.order < $1.order }
-            //self.sortTunings(forBank: self.tuningBanks[Tunings.bundleBankIndex])
             self.sortTunings(forBank: self.tuningBanks[Tunings.userBankIndex])
-            //self.sortTunings(forBank: self.tuningBanks[Tunings.hexanyTriadIndex])
 
             // save
             self.saveTunings()
@@ -234,7 +232,7 @@ class Tunings {
         }
     }
 
-    private static let hexanyTriadTuningsBankName = "Hexany Triads"
+    private static let hexanyTriadTuningsBankName = "Hexanies With Proportional Triads"
 
     private func saveTunings() {
         do {

@@ -154,4 +154,253 @@ extension Tunings {
 
         return retVal
     }
+
+    internal static func hexanyTriadTunings() -> [(String, S1TuningCallback)] {
+        var retVal = [(String, S1TuningCallback)]()
+
+        // HEXANY:[1, 3, 5, 25] = [3, 5, 25, 15, 75, 125]
+        // Tuning:
+        // NPO:6, master set:[1.078125, 1.25, 1.4375, 1.5, 1.796875, 1.875]
+        // Proportional Triads: [[(0, 3, 5)], [(1, 3, 4)], [(3, 5, 0)], [(4, 1, 3)]]
+        // Subcontrary Triads: [[(1, 2, 4)], [(2, 4, 1)], [(3, 4, 0)], [(4, 0, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[1, 3, 5, 25]", { return [1, 3, 5, 25] } ) )
+        retVal.append( ( "TETRANY MINOR:[1, 3, 5, 25]", { return [375, 125, 75, 15] } ) )
+        retVal.append( ( "HEXANY:[1, 3, 5, 25]", { return [3, 5, 25, 15, 75, 125] } ) )
+
+        // HEXANY:[1, 3, 9, 15] = [3, 9, 15, 27, 45, 135]
+        // Tuning:
+        // NPO:6, master set:[1.125, 1.21875, 1.5, 1.625, 1.6875, 1.828125]
+        // Proportional Triads: [[(1, 2, 4)], [(1, 3, 5)], [(3, 4, 5)], [(3, 5, 1)], [(4, 1, 2)]]
+        // Subcontrary Triads: [[(1, 2, 5)], [(2, 4, 0)], [(4, 5, 0)], [(4, 0, 2)], [(5, 1, 2)]]
+        retVal.append( ( "TETRANY MAJOR:[1, 3, 9, 15]", { return [1, 3, 9, 15] } ) )
+        retVal.append( ( "TETRANY MINOR:[1, 3, 9, 15]", { return [405, 135, 45, 27] } ) )
+        retVal.append( ( "HEXANY:[1, 3, 9, 15]", { return [3, 9, 15, 27, 45, 135] } ) )
+
+        // HEXANY:[1, 5, 15, 25] = [5, 15, 25, 75, 125, 375]
+        // Tuning:
+        // NPO:6, master set:[1.171875, 1.25, 1.34765625, 1.4375, 1.796875, 1.875]
+        // Proportional Triads: [[(0, 3, 5)], [(1, 3, 4)], [(3, 5, 0)], [(4, 1, 3)]]
+        // Subcontrary Triads: [[(0, 2, 5)], [(3, 4, 0)], [(4, 0, 3)], [(5, 0, 2)]]
+        retVal.append( ( "TETRANY MAJOR:[1, 5, 15, 25]", { return [1, 5, 15, 25] } ) )
+        retVal.append( ( "TETRANY MINOR:[1, 5, 15, 25]", { return [1875, 375, 125, 75] } ) )
+        retVal.append( ( "HEXANY:[1, 5, 15, 25]", { return [5, 15, 25, 75, 125, 375] } ) )
+
+        // HEXANY:[3, 5, 7, 15] = [15, 21, 45, 35, 75, 105]
+        // Tuning:
+        // NPO:6, master set:[1.015625, 1.09375, 1.21875, 1.3125, 1.421875, 1.875]
+        // Proportional Triads: [[(1, 3, 4)], [(3, 4, 5)], [(3, 5, 1)], [(5, 1, 3)]]
+        // Subcontrary Triads: [[(0, 2, 4)], [(2, 4, 0)], [(4, 5, 0)], [(5, 0, 2)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 5, 7, 15]", { return [3, 5, 7, 15] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 5, 7, 15]", { return [525, 315, 225, 105] } ) )
+        retVal.append( ( "HEXANY:[3, 5, 7, 15]", { return [15, 21, 45, 35, 75, 105] } ) )
+
+        // HEXANY:[3, 5, 7, 21] = [15, 21, 63, 35, 105, 147]
+        // Tuning:
+        // NPO:6, master set:[1.0390625, 1.09375, 1.3125, 1.484375, 1.78125, 1.875]
+        // Proportional Triads: [[(2, 3, 5)], [(3, 5, 1)], [(5, 1, 2)], [(5, 2, 3)]]
+        // Subcontrary Triads: [[(0, 2, 3)], [(2, 3, 0)], [(3, 4, 0)], [(4, 0, 2)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 5, 7, 21]", { return [3, 5, 7, 21] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 5, 7, 21]", { return [735, 441, 315, 105] } ) )
+        retVal.append( ( "HEXANY:[3, 5, 7, 21]", { return [15, 21, 63, 35, 105, 147] } ) )
+
+        // HEXANY:[3, 5, 7, 35] = [15, 21, 105, 35, 175, 245]
+        // Tuning:
+        // NPO:6, master set:[1.09375, 1.2890625, 1.3125, 1.546875, 1.8046875, 1.875]
+        // Proportional Triads: [[(0, 2, 3)], [(2, 3, 5)], [(3, 5, 0)], [(3, 0, 2)]]
+        // Subcontrary Triads: [[(0, 1, 3)], [(1, 3, 0)], [(3, 4, 0)], [(4, 0, 1)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 5, 7, 35]", { return [3, 5, 7, 35] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 5, 7, 35]", { return [1225, 735, 525, 105] } ) )
+        retVal.append( ( "HEXANY:[3, 5, 7, 35]", { return [15, 21, 105, 35, 175, 245] } ) )
+
+        // HEXANY:[3, 5, 15, 21] = [15, 45, 63, 75, 105, 315]
+        // Tuning:
+        // NPO:6, master set:[1.11328125, 1.171875, 1.40625, 1.484375, 1.78125, 1.875]
+        // Proportional Triads: [[(0, 2, 3)], [(2, 3, 4)], [(2, 4, 0)], [(4, 0, 2)]]
+        // Subcontrary Triads: [[(1, 2, 3)], [(2, 3, 5)], [(3, 5, 1)], [(5, 1, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 5, 15, 21]", { return [3, 5, 15, 21] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 5, 15, 21]", { return [1575, 945, 315, 225] } ) )
+        retVal.append( ( "HEXANY:[3, 5, 15, 21]", { return [15, 45, 63, 75, 105, 315] } ) )
+
+        // HEXANY:[3, 5, 15, 35] = [15, 45, 105, 75, 175, 525]
+        // Tuning:
+        // NPO:6, master set:[1.171875, 1.2890625, 1.40625, 1.546875, 1.875, 1.93359375]
+        // Proportional Triads: [[(1, 3, 4)], [(3, 4, 5)], [(3, 5, 1)], [(5, 1, 3)]]
+        // Subcontrary Triads: [[(0, 1, 2)], [(1, 2, 4)], [(2, 4, 0)], [(4, 0, 2)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 5, 15, 35]", { return [3, 5, 15, 35] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 5, 15, 35]", { return [2625, 1575, 525, 225] } ) )
+        retVal.append( ( "HEXANY:[3, 5, 15, 35]", { return [15, 45, 105, 75, 175, 525] } ) )
+
+        // HEXANY:[3, 5, 15, 45] = [15, 45, 135, 75, 225, 675]
+        // Tuning:
+        // NPO:6, master set:[1.0078125, 1.171875, 1.259765625, 1.40625, 1.6796875, 1.875]
+        // Proportional Triads: [[(0, 3, 4)], [(3, 4, 0)], [(3, 5, 1)], [(5, 0, 1)], [(5, 1, 3)]]
+        // Subcontrary Triads: [[(0, 1, 2)], [(0, 2, 4)], [(1, 3, 4)], [(3, 4, 1)], [(4, 0, 2)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 5, 15, 45]", { return [3, 5, 15, 45] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 5, 15, 45]", { return [3375, 2025, 675, 225] } ) )
+        retVal.append( ( "HEXANY:[3, 5, 15, 45]", { return [15, 45, 135, 75, 225, 675] } ) )
+
+        // HEXANY:[3, 5, 15, 75] = [15, 45, 225, 75, 375, 1125]
+        // Tuning:
+        // NPO:6, master set:[1.0693359375, 1.171875, 1.40625, 1.42578125, 1.7109375, 1.875]
+        // Proportional Triads: [[(1, 3, 4)], [(2, 5, 1)], [(4, 1, 3)], [(5, 1, 2)]]
+        // Subcontrary Triads: [[(1, 2, 4)], [(2, 4, 1)], [(3, 4, 0)], [(4, 0, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 5, 15, 75]", { return [3, 5, 15, 75] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 5, 15, 75]", { return [5625, 3375, 1125, 225] } ) )
+        retVal.append( ( "HEXANY:[3, 5, 15, 75]", { return [15, 45, 225, 75, 375, 1125] } ) )
+
+        // HEXANY:[3, 7, 21, 35] = [21, 63, 105, 147, 245, 735]
+        // Tuning:
+        // NPO:6, master set:[1.1484375, 1.3125, 1.353515625, 1.546875, 1.8046875, 1.96875]
+        // Proportional Triads: [[(1, 3, 5)], [(3, 5, 0)], [(5, 0, 1)], [(5, 1, 3)]]
+        // Subcontrary Triads: [[(0, 2, 4)], [(2, 3, 4)], [(3, 4, 0)], [(4, 0, 2)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 7, 21, 35]", { return [3, 7, 21, 35] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 7, 21, 35]", { return [5145, 2205, 735, 441] } ) )
+        retVal.append( ( "HEXANY:[3, 7, 21, 35]", { return [21, 63, 105, 147, 245, 735] } ) )
+
+        // HEXANY:[3, 9, 15, 25] = [27, 45, 75, 135, 225, 375]
+        // Tuning:
+        // NPO:6, master set:[1.0546875, 1.078125, 1.34765625, 1.40625, 1.6171875, 1.6875]
+        // Proportional Triads: [[(0, 2, 5)], [(1, 3, 5)], [(2, 5, 0)], [(5, 1, 3)]]
+        // Subcontrary Triads: [[(1, 2, 5)], [(2, 4, 0)], [(2, 5, 1)], [(4, 0, 2)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 9, 15, 25]", { return [3, 9, 15, 25] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 9, 15, 25]", { return [3375, 1125, 675, 405] } ) )
+        retVal.append( ( "HEXANY:[3, 9, 15, 25]", { return [27, 45, 75, 135, 225, 375] } ) )
+
+        // HEXANY:[3, 15, 21, 35] = [45, 63, 105, 315, 525, 735]
+        // Tuning:
+        // NPO:6, master set:[1.23046875, 1.271484375, 1.40625, 1.453125, 1.81640625, 1.96875]
+        // Proportional Triads: [[(0, 1, 3)], [(1, 3, 4)], [(1, 4, 0)], [(4, 0, 1)]]
+        // Subcontrary Triads: [[(1, 2, 4)], [(2, 4, 5)], [(4, 5, 1)], [(5, 1, 4)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 15, 21, 35]", { return [3, 15, 21, 35] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 15, 21, 35]", { return [11025, 2205, 1575, 945] } ) )
+        retVal.append( ( "HEXANY:[3, 15, 21, 35]", { return [45, 63, 105, 315, 525, 735] } ) )
+
+        // HEXANY:[3, 15, 25, 75] = [45, 75, 225, 375, 1125, 1875]
+        // Tuning:
+        // NPO:6, master set:[1.0693359375, 1.171875, 1.40625, 1.46484375, 1.7109375, 1.7822265625]
+        // Proportional Triads: [[(0, 3, 5)], [(1, 3, 4)], [(3, 5, 0)], [(4, 1, 3)]]
+        // Subcontrary Triads: [[(1, 2, 4)], [(2, 4, 1)], [(3, 4, 0)], [(4, 0, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[3, 15, 25, 75]", { return [3, 15, 25, 75] } ) )
+        retVal.append( ( "TETRANY MINOR:[3, 15, 25, 75]", { return [28125, 5625, 3375, 1125] } ) )
+        retVal.append( ( "HEXANY:[3, 15, 25, 75]", { return [45, 75, 225, 375, 1125, 1875] } ) )
+
+        // HEXANY:[5, 7, 15, 35] = [35, 75, 175, 105, 245, 525]
+        // Tuning:
+        // NPO:6, master set:[1.09375, 1.171875, 1.2890625, 1.640625, 1.8046875, 1.93359375]
+        // Proportional Triads: [[(1, 3, 4)], [(3, 4, 5)], [(4, 5, 1)], [(4, 1, 3)], [(5, 0, 1)]]
+        // Subcontrary Triads: [[(0, 1, 2)], [(0, 2, 3)], [(2, 3, 4)], [(3, 4, 0)], [(4, 0, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[5, 7, 15, 35]", { return [5, 7, 15, 35] } ) )
+        retVal.append( ( "TETRANY MINOR:[5, 7, 15, 35]", { return [3675, 2625, 1225, 525] } ) )
+        retVal.append( ( "HEXANY:[5, 7, 15, 35]", { return [35, 75, 175, 105, 245, 525] } ) )
+
+        // HEXANY:[5, 7, 21, 35] = [35, 105, 175, 147, 245, 735]
+        // Tuning:
+        // NPO:6, master set:[1.09375, 1.1484375, 1.2890625, 1.353515625, 1.640625, 1.8046875]
+        // Proportional Triads: [[(0, 2, 4)], [(2, 4, 5)], [(4, 5, 0)], [(4, 0, 2)]]
+        // Subcontrary Triads: [[(1, 3, 5)], [(3, 4, 5)], [(4, 5, 1)], [(5, 1, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[5, 7, 21, 35]", { return [5, 7, 21, 35] } ) )
+        retVal.append( ( "TETRANY MINOR:[5, 7, 21, 35]", { return [5145, 3675, 1225, 735] } ) )
+        retVal.append( ( "HEXANY:[5, 7, 21, 35]", { return [35, 105, 175, 147, 245, 735] } ) )
+
+        // HEXANY:[5, 9, 15, 25] = [45, 75, 125, 135, 225, 375]
+        // Tuning:
+        // NPO:6, master set:[1.0546875, 1.171875, 1.34765625, 1.40625, 1.6171875, 1.796875]
+        // Proportional Triads: [[(0, 2, 4)], [(1, 3, 4)], [(2, 4, 0)], [(4, 1, 3)]]
+        // Subcontrary Triads: [[(1, 2, 4)], [(1, 3, 5)], [(2, 4, 1)], [(5, 1, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[5, 9, 15, 25]", { return [5, 9, 15, 25] } ) )
+        retVal.append( ( "TETRANY MINOR:[5, 9, 15, 25]", { return [3375, 1875, 1125, 675] } ) )
+        retVal.append( ( "HEXANY:[5, 9, 15, 25]", { return [45, 75, 125, 135, 225, 375] } ) )
+
+        // HEXANY:[5, 9, 15, 45] = [45, 75, 225, 135, 405, 675]
+        // Tuning:
+        // NPO:6, master set:[1.0546875, 1.171875, 1.259765625, 1.40625, 1.51171875, 1.6796875]
+        // Proportional Triads: [[(0, 2, 4)], [(0, 3, 5)], [(3, 4, 5)], [(3, 5, 0)], [(4, 0, 2)]]
+        // Subcontrary Triads: [[(0, 1, 2)], [(0, 2, 5)], [(1, 3, 5)], [(3, 5, 1)], [(5, 0, 2)]]
+        retVal.append( ( "TETRANY MAJOR:[5, 9, 15, 45]", { return [5, 9, 15, 45] } ) )
+        retVal.append( ( "TETRANY MINOR:[5, 9, 15, 45]", { return [6075, 3375, 2025, 675] } ) )
+        retVal.append( ( "HEXANY:[5, 9, 15, 45]", { return [45, 75, 225, 135, 405, 675] } ) )
+
+        // HEXANY:[7, 15, 21, 35] = [105, 147, 245, 315, 525, 735]
+        // Tuning:
+        // NPO:6, master set:[1.1484375, 1.23046875, 1.353515625, 1.640625, 1.8046875, 1.93359375]
+        // Proportional Triads: [[(0, 2, 3)], [(2, 3, 4)], [(2, 4, 0)], [(4, 0, 2)]]
+        // Subcontrary Triads: [[(1, 3, 5)], [(3, 4, 5)], [(4, 5, 1)], [(5, 1, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[7, 15, 21, 35]", { return [7, 15, 21, 35] } ) )
+        retVal.append( ( "TETRANY MINOR:[7, 15, 21, 35]", { return [11025, 5145, 3675, 2205] } ) )
+        retVal.append( ( "HEXANY:[7, 15, 21, 35]", { return [105, 147, 245, 315, 525, 735] } ) )
+
+        // HEXANY:[9, 11, 15, 33] = [99, 135, 297, 165, 363, 495]
+        // Tuning:
+        // NPO:6, master set:[1.0546875, 1.08984375, 1.2890625, 1.33203125, 1.546875, 1.81640625]
+        // Proportional Triads: [[(1, 2, 3)], [(1, 4, 5)], [(2, 3, 4)], [(4, 5, 1)]]
+        // Subcontrary Triads: [[(0, 1, 2)], [(2, 4, 5)], [(4, 5, 2)], [(5, 0, 1)]]
+        retVal.append( ( "TETRANY MAJOR:[9, 11, 15, 33]", { return [9, 11, 15, 33] } ) )
+        retVal.append( ( "TETRANY MINOR:[9, 11, 15, 33]", { return [5445, 4455, 3267, 1485] } ) )
+        retVal.append( ( "HEXANY:[9, 11, 15, 33]", { return [99, 135, 297, 165, 363, 495] } ) )
+
+        // HEXANY:[9, 15, 25, 45] = [135, 225, 405, 375, 675, 1125]
+        // Tuning:
+        // NPO:6, master set:[1.0498046875, 1.0546875, 1.259765625, 1.46484375, 1.51171875, 1.7578125]
+        // Proportional Triads: [[(0, 2, 4)], [(2, 5, 1)], [(4, 0, 2)], [(5, 1, 2)]]
+        // Subcontrary Triads: [[(0, 2, 5)], [(3, 5, 1)], [(5, 0, 2)], [(5, 1, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[9, 15, 25, 45]", { return [9, 15, 25, 45] } ) )
+        retVal.append( ( "TETRANY MINOR:[9, 15, 25, 45]", { return [16875, 10125, 6075, 3375] } ) )
+        retVal.append( ( "HEXANY:[9, 15, 25, 45]", { return [135, 225, 405, 375, 675, 1125] } ) )
+
+        // HEXANY:[9, 15, 25, 75] = [135, 225, 675, 375, 1125, 1875]
+        // Tuning:
+        // NPO:6, master set:[1.0546875, 1.0693359375, 1.283203125, 1.46484375, 1.7578125, 1.7822265625]
+        // Proportional Triads: [[(1, 3, 5)], [(2, 4, 1)], [(3, 5, 1)], [(4, 1, 2)]]
+        // Subcontrary Triads: [[(0, 2, 4)], [(3, 4, 1)], [(4, 0, 2)], [(4, 1, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[9, 15, 25, 75]", { return [9, 15, 25, 75] } ) )
+        retVal.append( ( "TETRANY MINOR:[9, 15, 25, 75]", { return [28125, 16875, 10125, 3375] } ) )
+        retVal.append( ( "HEXANY:[9, 15, 25, 75]", { return [135, 225, 675, 375, 1125, 1875] } ) )
+
+        // HEXANY:[15, 21, 35, 45] = [315, 525, 675, 735, 945, 1575]
+        // Tuning:
+        // NPO:6, master set:[1.025390625, 1.23046875, 1.259765625, 1.435546875, 1.4697265625, 1.763671875]
+        // Proportional Triads: [[(0, 1, 3)], [(0, 3, 5)], [(1, 4, 5)], [(5, 1, 4)]]
+        // Subcontrary Triads: [[(0, 1, 4)], [(0, 2, 5)], [(1, 4, 0)], [(2, 4, 5)]]
+        retVal.append( ( "TETRANY MAJOR:[15, 21, 35, 45]", { return [15, 21, 35, 45] } ) )
+        retVal.append( ( "TETRANY MINOR:[15, 21, 35, 45]", { return [33075, 23625, 14175, 11025] } ) )
+        retVal.append( ( "HEXANY:[15, 21, 35, 45]", { return [315, 525, 675, 735, 945, 1575] } ) )
+
+        // HEXANY:[15, 33, 45, 55] = [495, 675, 825, 1485, 1815, 2475]
+        // Tuning:
+        // NPO:6, master set:[1.16455078125, 1.318359375, 1.4501953125, 1.552734375, 1.7080078125, 1.93359375]
+        // Proportional Triads: [[(2, 3, 4)], [(2, 5, 0)], [(3, 4, 5)], [(5, 0, 2)]]
+        // Subcontrary Triads: [[(0, 1, 2)], [(1, 2, 3)], [(3, 5, 0)], [(5, 0, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[15, 33, 45, 55]", { return [15, 33, 45, 55] } ) )
+        retVal.append( ( "TETRANY MINOR:[15, 33, 45, 55]", { return [81675, 37125, 27225, 22275] } ) )
+        retVal.append( ( "HEXANY:[15, 33, 45, 55]", { return [495, 675, 825, 1485, 1815, 2475] } ) )
+
+        // HEXANY:[41, 67, 97, 127] = [2747, 3977, 5207, 6499, 8509, 12319]
+        // Tuning:
+        // NPO:6, master set:[1.211181640625, 1.34130859375, 1.4327392578125, 1.586669921875, 1.94189453125, 1.979248046875]
+        // Proportional Triads: [[(0, 1, 3)], [(2, 5, 1)]]
+        // Subcontrary Triads: [[(2, 4, 5)], [(4, 0, 3)]]
+        retVal.append( ( "TETRANY MAJOR:[41, 67, 97, 127]", { return [41, 67, 97, 127] } ) )
+        retVal.append( ( "TETRANY MINOR:[41, 67, 97, 127]", { return [825373, 505079, 348869, 266459] } ) )
+        retVal.append( ( "HEXANY:[41, 67, 97, 127]", { return [2747, 3977, 5207, 6499, 8509, 12319] } ) )
+
+        // HEXANY:[31, 41, 61, 103] = [1271, 1891, 3193, 2501, 4223, 6283]
+        // Tuning:
+        // NPO:6, master set:[1.010986328125, 1.22119140625, 1.2412109375, 1.504150390625, 1.52880859375, 1.8466796875]
+        // Proportional Triads: [[(1, 3, 5)], [(5, 2, 4)]]
+        // Subcontrary Triads: [[(0, 2, 4)], [(1, 3, 0)]]
+        retVal.append( ( "TETRANY MAJOR:[31, 41, 61, 103]", { return [31, 41, 61, 103] } ) )
+        retVal.append( ( "TETRANY MINOR:[31, 41, 61, 103]", { return [257603, 194773, 130913, 77531] } ) )
+        retVal.append( ( "HEXANY:[31, 41, 61, 103]", { return [1271, 1891, 3193, 2501, 4223, 6283] } ) )
+
+        // HEXANY:[19, 23, 31, 61] = [437, 589, 1159, 713, 1403, 1891]
+        // Tuning:
+        // NPO:6, master set:[1.0947265625, 1.150390625, 1.3251953125, 1.392578125, 1.70703125, 1.7861328125]
+        // Proportional Triads: [[(1, 4, 0)], [(3, 5, 1)]]
+        // Subcontrary Triads: [[(2, 4, 0)], [(3, 5, 2)]]
+        retVal.append( ( "TETRANY MAJOR:[19, 23, 31, 61]", { return [19, 23, 31, 61] } ) )
+        retVal.append( ( "TETRANY MINOR:[19, 23, 31, 61]", { return [43493, 35929, 26657, 13547] } ) )
+        retVal.append( ( "HEXANY:[19, 23, 31, 61]", { return [437, 589, 1159, 713, 1403, 1891] } ) )
+
+        return retVal
+    }
 }

@@ -16,7 +16,11 @@ extension TuningsPanelController: UITableViewDataSource {
 
     @objc(tableView:heightForRowAtIndexPath:) public func tableView(_ tableView: UITableView,
                                                                     heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        if tableView == tuningBankTableView {
+            return 66
+        } else {
+            return 44
+        }
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,13 +35,26 @@ extension TuningsPanelController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         let row = (indexPath as NSIndexPath).row
+
+        let reuseID: String
+        if tableView == tuningBankTableView {
+            reuseID = "TuningBankCell"
+        } else {
+            reuseID = "TuningCell"
+        }
+
         let cell: TuningCell
-        if let reusableCell = tableView.dequeueReusableCell(withIdentifier: "TuningCell") as? TuningCell {
+        if let reusableCell = tableView.dequeueReusableCell(withIdentifier: reuseID) as? TuningCell {
             cell = reusableCell
         } else {
             cell = TuningCell()
         }
         cell.configureCell()
+        if tableView == tuningBankTableView {
+            cell.textLabel?.numberOfLines = 3
+        } else {
+            cell.textLabel?.numberOfLines = 1
+        }
 
         let title: String
         if tableView == tuningBankTableView {
@@ -51,6 +68,7 @@ extension TuningsPanelController: UITableViewDataSource {
         }
 
         cell.textLabel?.text = title
+
         return cell
     }
 }

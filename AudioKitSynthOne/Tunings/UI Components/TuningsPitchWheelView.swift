@@ -130,7 +130,7 @@ public class TuningsPitchWheelView: UIView {
             // Scale degree line: polar (origin...p2, log2 f % 1)
             let r0: CGFloat = 0
             let r1f: CGFloat = 1 - 0.25 + 0.1
-            let r1: CGFloat = r * r1f
+            let r1: CGFloat = r * r1f * 1.1
             let r2: CGFloat = r * r1f * (0.75 - 0.05 - 0.05)
             let p00: CGPoint = horagram01ToCartesian01(p: CGPoint(x: p, y: Double(0.5 * r0)))
             let p0 = CGPoint(x: p00.x + xp, y: p00.y + yp)
@@ -168,8 +168,7 @@ public class TuningsPitchWheelView: UIView {
                 msd = String(format: "%.0f", harmonic)
             case .harmonic:
                 // draw harmonic approximation of pitch
-                let harmonic = Tunings.approximateHarmonicFromPitch(p)
-                msd = String(harmonic)
+                msd = Tunings.approximateHarmonicFromPitch(p)
             }
             _ = msd.drawCentered(atPoint: p1, font: sdf, color: cfp)
 

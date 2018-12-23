@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CloudKit
+import MobileCoreServices
 
 public protocol TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange()
@@ -24,7 +26,8 @@ class TuningsPanelController: PanelController {
     @IBOutlet weak var resetTuningsButton: SynthButton!
     @IBOutlet weak var d1LaunchButton: SynthButton!
     @IBOutlet weak var diceButton: UIButton!
-
+    @IBOutlet weak var importButton: SynthButton!
+    
     let tuningModel = Tunings()
     var getStoreTuningWithPresetValue = false
 
@@ -36,6 +39,7 @@ class TuningsPanelController: PanelController {
             masterTuningKnob,
             diceButton,
             resetTuningsButton,
+            importButton,
             d1LaunchButton,
             leftNavButton,
             rightNavButton
@@ -71,6 +75,12 @@ class TuningsPanelController: PanelController {
                     self.selectRow()
                     self.resetTuningsButton.value = 0
                 }
+            }
+            
+            importButton.callback = { _ in
+                let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
+                documentPicker.delegate = self
+                self.present(documentPicker, animated: true, completion: nil)
             }
         } else {
             AKLog("race condition: synth not yet created")
@@ -175,4 +185,27 @@ extension TuningsPanelController: TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange() {
         tuningsPitchWheelView.updateFromGlobalTuningTable()
     }
+}
+
+// MARK: - Import Scala File
+
+extension TuningsPanelController: UIDocumentPickerDelegate {
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+        AKLog("**** url: \(url) ")
+        
+        let fileName = String(describing: url.lastPathComponent)
+
+        // Marcus: Run load procedure with "fileName" here
+        
+        // OR, add the logic right here
+//        do {
+//            //
+//
+//        } catch {
+//            AKLog("*** error loading")
+//        }
+        
+    }
+    
 }

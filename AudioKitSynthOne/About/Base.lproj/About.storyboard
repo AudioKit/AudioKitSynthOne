@@ -406,12 +406,10 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d3V-mf-zCG">
-                                                <rect key="frame" x="40" y="76" width="454" height="68"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="This app is completely optional if you want to support AudioKit. No obligation. And, we won't bother you again. Thanks!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d3V-mf-zCG">
+                                                <rect key="frame" x="40" y="76" width="434" height="68"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <string key="text">Epic 64-voice Dual-Layer Hybrid VA / PCM Synthesizer
-Inspired by the Digital Synths of the 80s and 90s</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -434,8 +432,8 @@ Inspired by the Digital Synths of the 80s and 90s</string>
                                                     <action selector="closePressed:" destination="cNT-J6-CgK" eventType="touchUpInside" id="zGr-t9-JVh"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NEW APP: AUDIOKIT DIGITAL D1!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMf-TX-4hf">
-                                                <rect key="frame" x="287" y="12" width="227" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FUNDRAISER APP: AUDIOKIT DIGITAL D1!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMf-TX-4hf">
+                                                <rect key="frame" x="279" y="12" width="244" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
                                                 <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -445,10 +443,10 @@ Inspired by the Digital Synths of the 80s and 90s</string>
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RJW-vJ-MBG">
-                                        <rect key="frame" x="526" y="358" width="248" height="114"/>
+                                        <rect key="frame" x="526" y="358" width="248" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">FULLY LOADED w/ 300+ presets by Brice Beasley, Matthew Fecher, 
+                                        <string key="text">FULLY LOADED w/ 400+ presets by Brice Beasley, Matthew Fecher, 
 Red Sky Lullaby, Jakob Haq, Electronisounds, and more...</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
@@ -513,7 +511,7 @@ Red Sky Lullaby, Jakob Haq, Electronisounds, and more...</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSw-pK-NbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1166" y="-523"/>
+            <point key="canvasLocation" x="-1166.4000000000001" y="-523.53823088455772"/>
         </scene>
     </scenes>
     <resources>

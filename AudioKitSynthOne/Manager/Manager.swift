@@ -229,6 +229,10 @@ public class Manager: UpdatableViewController {
         // Check preset versions
         let currentPresetVersion = AppSettings().presetsVersion
         if appSettings.presetsVersion < currentPresetVersion {
+            if appSettings.presetsVersion < 1.24 && !appSettings.firstRun {
+                performSegue(withIdentifier: "SegueToApps", sender: nil) 
+            }
+            
             presetsViewController.upgradePresets()
             // Save appSettings
             appSettings.presetsVersion = currentPresetVersion

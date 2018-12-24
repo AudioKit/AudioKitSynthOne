@@ -87,7 +87,7 @@
                                 </accessibility>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOY-l3-Rd7">
-                                <rect key="frame" x="916" y="130" width="23" height="27"/>
+                                <rect key="frame" x="916" y="120" width="23" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" hint="Selects Random Tuning" identifier="RandomTuningButton" label="Random Tuning"/>
                                 <state key="normal" image="dice"/>
@@ -96,7 +96,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBk-V2-c4I" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="899" y="192" width="57" height="21"/>
+                                <rect key="frame" x="900" y="173" width="57" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Resets Tuning to Equal temperament" identifier="ResetButton" label="Reset"/>
@@ -207,6 +207,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd7-wT-cU5" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="901" y="213" width="57" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" hint="Resets Tuning to Equal temperament" identifier="ResetButton" label="Reset"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Import">
+                                    <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="B3S-PY-LDN"/>
@@ -217,6 +228,7 @@
                     <connections>
                         <outlet property="d1LaunchButton" destination="rFt-bJ-BU4" id="J6X-10-dFA"/>
                         <outlet property="diceButton" destination="NOY-l3-Rd7" id="Zvn-3w-3Jq"/>
+                        <outlet property="importButton" destination="wd7-wT-cU5" id="97w-b0-WRg"/>
                         <outlet property="leftNavButton" destination="kPv-DU-63Y" id="OKr-Zc-PBb"/>
                         <outlet property="masterTuningKnob" destination="Y5D-jL-Vmv" id="ktU-dP-Crw"/>
                         <outlet property="resetTuningsButton" destination="JBk-V2-c4I" id="6fT-M8-JwU"/>

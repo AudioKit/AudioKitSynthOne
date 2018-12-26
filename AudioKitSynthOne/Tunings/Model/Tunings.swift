@@ -62,20 +62,20 @@ class Tunings {
 
     private let tuningFilenameV0 = "tunings.json"
     private let tuningFilenameV1 = "tunings_v1.json"
-    //private let tuningFilenameHexanyTriads = "hexany_triads_tunings.json"
 
     init() {}
 
     ///
     func loadTunings(completionHandler: @escaping S1TuningLoadCallback) {
         DispatchQueue.global(qos: .userInitiated).async {
+            // CLEAR
             self.tuningBanks.removeAll()
 
             // uncomment to test upgrade paths
             //self.testUpgradeV1Path()
             //self.testFreshInstallV1Path()
 
-            // pick a load path for tuningBanks
+            // LOAD PATH
             if Disk.exists(self.tuningFilenameV1, in: .documents) {
                 // tunings have been installed and/or upgraded
                 self.loadTuningsFromDevice()
@@ -87,24 +87,26 @@ class Tunings {
                 self.loadTuningFactoryPresets()
             }
 
-            // sort
-            self.tuningBanks.sort { $0.order < $1.order }
-            self.sortTunings(forBank: self.tuningBanks[Tunings.userBankIndex])
+            // SORT
+            for b in [Tunings.bundleBankIndex, Tunings.hexanyTriadIndex, Tunings.userBankIndex] {
+                self.sortTunings(forBank: self.tuningBanks[b])
+            }
 
-            // save
+            // SAVE
             self.saveTunings()
 
-            // select user bank if it's not empty
+            // SELECT user bank if it's not empty
             if self.tuningBanks[Tunings.userBankIndex].tunings.count > 1 {
                 self.selectedBankIndex = Tunings.userBankIndex
             } else {
                 self.selectedBankIndex = Tunings.bundleBankIndex
             }
 
-            // model is initialized
+            // MODEL IS INITIALIZED
             self.isTuningReady = true
             self.tuningsDelegate?.tuningDidChange()
 
+            // CALLBACK
             DispatchQueue.main.async {
                 completionHandler()
             }
@@ -138,7 +140,6 @@ class Tunings {
             let tuningBankData = try Disk.retrieve(tuningFilenameV1, from: .documents, as: Data.self)
             let jsonArray = try JSONDecoder().decode([TuningBank].self, from: tuningBankData)
             tuningBanks.append(contentsOf: jsonArray)
-            tuningBanks.sort { $0.order < $1.order }
         } catch let error as NSError {
             AKLog("*** error loading tuning banks from device: \(error)")
         }
@@ -192,6 +193,9 @@ class Tunings {
         }
     }
 
+    ///
+    private static let hexanyTriadTuningsBankName = "Hexanies With Proportional Triads"
+
     // Fresh Install: create bundled bank, and an empty user bank
     private func loadTuningFactoryPresets() {
         tuningBanks.removeAll()
@@ -232,8 +236,7 @@ class Tunings {
         }
     }
 
-    private static let hexanyTriadTuningsBankName = "Hexanies With Proportional Triads"
-
+    ///
     private func saveTunings() {
         do {
             try Disk.save(tuningBanks, to: .documents, as: tuningFilenameV1)
@@ -242,11 +245,18 @@ class Tunings {
         }
     }
 
-    ///TODO: do you want user bank to have 12et on top?
+    ///
     private func sortTunings(forBank tuningBank: TuningBank) {
+
+        var t = tuningBank.tunings
         let twelve = Tuning()
-        // remove 12ET, then sort
-        var t = tuningBank.tunings.filter { $0.name + $0.encoding != twelve.name + twelve.encoding }
+
+        // BUNDLED BANK: remove 12ET
+        if tuningBank === tuningBanks[Tunings.bundleBankIndex] {
+            t = tuningBank.tunings.filter { $0.name + $0.encoding != twelve.name + twelve.encoding }
+        }
+
+        // SORT TYPE
         switch tuningSortType {
         case .npo:
             //t.sort { String($0.npo) + $0.name + $0.encoding < String($1.npo) + $1.name + $1.encoding }
@@ -256,42 +266,63 @@ class Tunings {
         case .order:
             t.sort { $0.order < $1.order }
         }
-        // Insert 12ET at top
-        t.insert(twelve, at: 0)
+
+        // BUNDLED BANK: Insert 12ET first
+        if tuningBank === tuningBanks[Tunings.bundleBankIndex] {
+            t.insert(twelve, at: 0)
+        }
+
+        // IN-PLACE
         tuningBank.tunings = t
     }
 
-    // adds tuning to user bank if it does not exist
+    /// adds tuning to user bank if it does not exist
     public func setTuning(name: String?, masterArray master: [Double]?) -> Bool {
         guard let name = name, let masterFrequencies = master else { return false }
         if masterFrequencies.count == 0 { return false }
+        var refreshDatasource = false
+
+        // NEW TUNING
         let t = Tuning()
         t.name = name
         tuningName = name
         t.masterSet = masterFrequencies
         masterSet = masterFrequencies
 
-        var refreshDatasource = false
-        let b = tuningBanks[Tunings.userBankIndex]
-        let matchingIndices = b.tunings.indices.filter { b.tunings[$0].name + b.tunings[$0].encoding == t.name + t.encoding }
-        if matchingIndices.count == 0 {
-            // If this is a new tuning: add, sort, save
-            b.tunings.append(t)
-            sortTunings(forBank: b)
-            let sortedIndices = b.tunings.indices.filter { b.tunings[$0].name + b.tunings[$0].encoding == t.name + t.encoding }
-            if sortedIndices.count > 0 {
-                selectedBankIndex = Tunings.userBankIndex
-                b.selectedTuningIndex = sortedIndices[0]
+        // SEARCH EACH TUNING BANK
+        let bankIndices = [Tunings.bundleBankIndex, Tunings.hexanyTriadIndex, Tunings.userBankIndex]
+        for bi in bankIndices {
+            let b = tuningBanks[bi]
+            let matchingIndices = b.tunings.indices.filter { b.tunings[$0].name + b.tunings[$0].encoding == t.name + t.encoding }
+
+            // EXISTING TUNING
+            if matchingIndices.count > 0 {
+                selectedBankIndex = bi
+                b.selectedTuningIndex = matchingIndices[0]
                 refreshDatasource = true
-                _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: masterFrequencies)
-                tuningsDelegate?.tuningDidChange()
-                saveTunings()
+                break
             } else {
-                AKLog("error inserting/sorting new tuning")
+                // NEW TUNING FOR USER BANK: add to user bank, sort, save
+                if bi == Tunings.userBankIndex {
+                    b.tunings.append(t)
+                    sortTunings(forBank: b)
+                    let sortedIndices = b.tunings.indices.filter { b.tunings[$0].name + b.tunings[$0].encoding == t.name + t.encoding } // do not optimize
+                    if sortedIndices.count > 0 {
+                        selectedBankIndex = bi
+                        b.selectedTuningIndex = sortedIndices[0]
+                        refreshDatasource = true
+                        saveTunings()
+                    }
+                } else {
+                    // New Tuning for a bundled bank.
+                    // This is an option for an upgrade path: add new tuning to bundled bank.
+                }
             }
-        } else {
-            // existing tuning...do nothing.  Or, if you want to alert user this is the place
         }
+
+        // Update global tuning table no matter what
+        _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: masterFrequencies)
+        tuningsDelegate?.tuningDidChange()
 
         return refreshDatasource
     }
@@ -319,6 +350,7 @@ class Tunings {
     public func resetTuning() {
         selectedBankIndex = Tunings.bundleBankIndex
         let b = tuningBank
+        b.selectedTuningIndex = 0
         let tuning = b.tunings[b.selectedTuningIndex]
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
         let f = Conductor.sharedInstance.synth!.getDefault(.frequencyA4)

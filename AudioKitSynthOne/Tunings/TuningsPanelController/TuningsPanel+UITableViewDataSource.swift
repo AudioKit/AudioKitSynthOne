@@ -53,8 +53,9 @@ extension TuningsPanelController: UITableViewDataSource {
         if tableView == tuningBankTableView {
             cell.textLabel?.numberOfLines = 3
         } else {
-            cell.textLabel?.numberOfLines = 1
+            cell.textLabel?.numberOfLines = 3
         }
+
 
         let title: String
         if tableView == tuningBankTableView {

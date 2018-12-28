@@ -24,7 +24,7 @@ void S1DSPKernel::turnOnKey(int noteNumber, int velocity) {
     if (noteNumber < 0 || noteNumber >= S1_NUM_MIDI_NOTES)
         return;
 
-    const float frequency = tuningTableNoteToHz(noteNumber);
+    const float frequency = tuningTableNoteToHz(noteNumber + (int)p[transpose]);
     turnOnKey(noteNumber, velocity, frequency);
 }
 
@@ -107,9 +107,9 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
             AEArrayToken token = AEArrayGetToken(heldNoteNumbersAE);
             NoteNumber* nn = (NoteNumber*)AEArrayGetItem(token, 0);
             const int headNN = nn->noteNumber;
-            monoFrequency = tuningTableNoteToHz(headNN);
+            monoFrequency = tuningTableNoteToHz(headNN + (int)p[transpose]);
             monoNote->rootNoteNumber = headNN;
-            monoFrequency = tuningTableNoteToHz(headNN);
+            monoFrequency = tuningTableNoteToHz(headNN + (int)p[transpose]);
             monoNote->oscmorph1->freq = monoFrequency;
             monoNote->oscmorph2->freq = monoFrequency;
             monoNote->subOsc->freq = monoFrequency;

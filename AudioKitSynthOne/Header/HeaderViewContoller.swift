@@ -275,6 +275,10 @@ public class HeaderViewController: UpdatableViewController {
         case .arpInterval:
             let message = NSLocalizedString("Arpeggiator Interval: \(Int(value))", comment: "Arpeggiator Interval")
             displayLabel.text = message
+        case .arpSeqTempoMultiplier:
+            //TODO: localize
+            let message = "Divisions: \(value)"
+            displayLabel.text = message
         case .arpIsOn:
             let message = NSLocalizedString("Arp/Sequencer On", comment: "Arpeggiator On")
             let message2 = NSLocalizedString("Arp/Sequencer Off", comment: "Arpeggiator Off")

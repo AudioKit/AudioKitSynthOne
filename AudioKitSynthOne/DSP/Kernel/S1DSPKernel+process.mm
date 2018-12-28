@@ -44,7 +44,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
     *compressorReverbWetL->rel = p[compressorReverbWetRelease];
     *compressorReverbWetR->rel = p[compressorReverbWetRelease];
 
-    // transition playing notes from release to off
+    /// transition playing notes from release to off
     if (p[isMono] > 0.f) {
         if (monoNote->stage == S1NoteState::stageRelease && monoNote->amp < S1_RELEASE_AMPLITUDE_THRESHOLD) {
             monoNote->clear();
@@ -58,20 +58,21 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         }
     }
 
-    // throttle main thread notification to < 30hz
-    sampleCounter += frameCount;
-    if (sampleCounter > 2048.0) {
+    /// throttle main thread notification to < 30hz
+    processSampleCounter += frameCount;
+    if (processSampleCounter > 2048.0) {
         playingNotesDidChange();
-        sampleCounter = 0;
+        processSampleCounter = 0;
     }
 
-    const float arpTempo = p[arpRate];
-    const double secPerBeat = 0.5f * 0.5f * 60.f / arpTempo;
 
-    // RENDER LOOP: Render one audio frame at sample rate, i.e. 44100 HZ
+    /// RENDER LOOP: Render one audio frame at sample rate, i.e. 44100 HZ
     for (AUAudioFrameCount frameIndex = 0; frameIndex < frameCount; ++frameIndex) {
 
-        //PORTAMENTO
+        // CLEAR BUFFER
+        outL[frameIndex] = outR[frameIndex] = 0.f;
+
+        // PORTAMENTO
         for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
             if (s1p[i].usePortamento) {
                 sp_port_compute(sp, s1p[i].portamento, &s1p[i].portamentoTarget, &p[i]);
@@ -80,8 +81,11 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         monoFrequencyPort->htime = p[glide];
         sp_port_compute(sp, monoFrequencyPort, &monoFrequency, &monoFrequencySmooth);
 
-        // CLEAR BUFFER
-        outL[frameIndex] = outR[frameIndex] = 0.f;
+        // TEMPO
+        const float arpTempo = p[arpRate];
+        //const float multiplier = powf(2.0f, p[arpSeqTempoMultiplier]);
+        const float multiplier = floorf(powf(2.0f, p[arpSeqTempoMultiplier]));
+        const double secPerBeat = multiplier * 0.5f * 0.5f * 60.f / arpTempo; // looks like 1/4 notes
 
         // Clear all notes when toggling Mono <==> Poly
         if (p[isMono] != previousProcessMonoPolyStatus ) {
@@ -90,14 +94,17 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
             sequencerLastNotes.clear();
         }
 
-        //MARK: ARP/SEQ
+        /// MARK: ARPEGGIATOR + SEQUENCER
         if (p[arpIsOn] == 1.f || sequencerLastNotes.size() > 0) {
             const double r0 = fmod(arpTime, secPerBeat);
             arpTime = arpSampleCounter/S1_SAMPLE_RATE;
+
+            // arpSampleCounter is set to 0 when there are no held keys
             arpSampleCounter += 1.0;
+
             const double r1 = fmod(arpTime, secPerBeat);
             if (r1 < r0) {
-                // NEW beatCounter
+                /// NEW beatCounter
                 // turn Off previous beat's notes
                 for (std::list<int>::iterator arpLastNotesIterator = sequencerLastNotes.begin(); arpLastNotesIterator != sequencerLastNotes.end(); ++arpLastNotesIterator) {
                     turnOffKey(*arpLastNotesIterator);
@@ -208,7 +215,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                         arpBeatCounter = 0;
                         beatCounterDidChange();
                     }
-                    // reset arp sample counter, the "origin" of time
+                    // reset arp sample counter, the "origin" of time, or ABLLink: "phase"
                     if (arpSampleCounter > 0) {
                         arpSampleCounter = 0;
                         beatCounterDidChange();
@@ -250,7 +257,10 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
             }
         }
 
-        //LFO1 on [-1, 1]
+
+        /// EFX CHAIN:
+
+        ///LFO1 on [-1, 1]
         lfo1Phasor->freq = p[lfo1Rate];
         sp_phasor_compute(sp, lfo1Phasor, nil, &lfo1); // sp_phasor_compute [0,1]
         if (p[lfo1Index] == 0) { // Sine
@@ -318,7 +328,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         bitcrushSrate = exp2(bitcrushSrate);
         bitcrushSrate = clampedValue(bitCrushSampleRate, bitcrushSrate); // clamp
 
-        //BITCRUSH
+        ///BITCRUSH
         float bitCrushOut = synthOut;
         bitcrushIncr = S1_SAMPLE_RATE / bitcrushSrate; //TODO:use live sample rate, not hard-coded
         if (bitcrushIncr < 1.f) bitcrushIncr = 1.f; // for the case where the audio engine samplerate > 44100 (i.e., 48000)
@@ -332,7 +342,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         }
         bitcrushSampleIndex += 1.f;
 
-        //TREMOLO
+        ///TREMOLO
         if (p[tremoloLFO] == 1.f)
             bitCrushOut *= lfo1_1_0;
         else if (p[tremoloLFO] == 2.f)

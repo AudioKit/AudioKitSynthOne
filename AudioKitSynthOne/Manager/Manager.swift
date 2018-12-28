@@ -28,6 +28,7 @@ public class Manager: UpdatableViewController {
     @IBOutlet weak var monoButton: SynthButton!
 	@IBOutlet weak var keyboardToggle: SynthButton!
     @IBOutlet weak var octaveStepper: Stepper!
+    @IBOutlet weak var transposeStepper: Stepper!
     @IBOutlet weak var configKeyboardButton: SynthButton!
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
     @IBOutlet weak var modWheelSettings: SynthButton!
@@ -117,10 +118,11 @@ public class Manager: UpdatableViewController {
 
         // Conductor start
         conductor.start()
-        sustainer = SDSustainer(conductor.synth)
+        let s = conductor.synth!
+        sustainer = SDSustainer(s)
 
         keyboardView?.delegate = self
-        keyboardView?.polyphonicMode = conductor.synth.getSynthParameter(.isMono) < 1 ? true : false
+        keyboardView?.polyphonicMode = s.getSynthParameter(.isMono) < 1 ? true : false
 
         // Set Header as Delegate
         if let headerVC = self.children.first as? HeaderViewController {
@@ -131,6 +133,11 @@ public class Manager: UpdatableViewController {
         // Set AKKeyboard octave range
         octaveStepper.minValue = -2
         octaveStepper.maxValue = 4
+
+        /// transpose
+        transposeStepper.minValue = s.getMinimum(.transpose)
+        transposeStepper.maxValue = s.getMaximum(.transpose)
+        transposeStepper.value = s.getDefault(.transpose)
 
         // Make bluetooth button look pretty
         bluetoothButton.centerPopupIn(view: view)

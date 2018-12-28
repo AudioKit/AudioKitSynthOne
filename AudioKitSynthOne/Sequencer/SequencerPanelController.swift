@@ -10,12 +10,14 @@ import UIKit
 
 class SequencerPanelController: PanelController {
 
-    @IBOutlet weak var seqStepsStepper: Stepper!
+    @IBOutlet weak var arpInterval: MIDIKnob!
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
     @IBOutlet weak var sequencerToggle: ToggleSwitch!
     @IBOutlet weak var arpToggle: ToggleButton!
-    @IBOutlet weak var arpInterval: MIDIKnob!
+    @IBOutlet weak var seqStepsStepper: Stepper!
+    @IBOutlet weak var arpSeqTempoMultiplier: MIDIKnob!
+
 
     var octBoostButtons = [SliderTransposeButton]()
     var sliders = [VerticalSlider]()
@@ -38,6 +40,7 @@ class SequencerPanelController: PanelController {
         octaveStepper.minValue = s.getMinimum(.arpOctave)
         octaveStepper.maxValue = s.getMaximum(.arpOctave)
         arpInterval.range = s.getRange(.arpInterval)
+        arpSeqTempoMultiplier.range = s.getRange(.arpSeqTempoMultiplier)
 
         // Bindings
         conductor.bind(arpToggle, to: .arpIsOn)
@@ -46,6 +49,7 @@ class SequencerPanelController: PanelController {
         conductor.bind(arpDirectionButton, to: .arpDirection)
         conductor.bind(sequencerToggle, to: .arpIsSequencer)
         conductor.bind(seqStepsStepper, to: .arpTotalSteps)
+        conductor.bind(arpSeqTempoMultiplier, to:.arpSeqTempoMultiplier)
 		
 
         // ARP/SEQ OCTAVE BOOST
@@ -138,12 +142,12 @@ class SequencerPanelController: PanelController {
         switch parameter {
 
         case .arpIsSequencer, .arpIsOn:
-             updateLED(beatCounter: 0, heldNotes: 0)
+            updateLED(beatCounter: 0, heldNotes: 0)
         default:
             _ = 0
         }
-
     }
+
 
     // MARK: - Helpers
 

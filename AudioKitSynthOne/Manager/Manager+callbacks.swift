@@ -18,6 +18,10 @@ extension Manager {
             self.keyboardView.firstOctave = Int(value) + 2
         }
 
+        transposeStepper.callback = { value in
+            s.setSynthParameter(.transpose, value)
+        }
+
         configKeyboardButton.callback = { _ in
             self.configKeyboardButton.value = 0
             self.performSegue(withIdentifier: "SegueToKeyboardSettings", sender: self)

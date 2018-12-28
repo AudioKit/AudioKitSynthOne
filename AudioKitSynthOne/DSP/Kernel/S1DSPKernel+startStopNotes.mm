@@ -12,9 +12,10 @@
 
 // Convert note number to [possibly] microtonal frequency.  12ET is the default.
 // Profiling shows that while this takes a special Swift lock it still resolves to ~0% of CPU on a device
-//TODO: make an instance method
+//TODO: make an instance method.  also, clamping sucks
 static inline double tuningTableNoteToHz(int noteNumber) {
-    return [AKPolyphonicNode.tuningTable frequencyForNoteNumber:noteNumber];
+    const int nn = clamp(noteNumber, 0, 127);
+    return [AKPolyphonicNode.tuningTable frequencyForNoteNumber:nn];
 }
 
 // NOTE ON
@@ -23,7 +24,7 @@ void S1DSPKernel::startNote(int noteNumber, int velocity) {
     if (noteNumber < 0 || noteNumber >= S1_NUM_MIDI_NOTES)
         return;
 
-    const float frequency = tuningTableNoteToHz(noteNumber);
+    const float frequency = tuningTableNoteToHz(noteNumber + (int)p[transpose]);
     startNote(noteNumber, velocity, frequency);
 }
 

@@ -956,7 +956,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aHe-gl-BT6">
-                                <rect key="frame" x="34" y="420" width="229" height="29"/>
+                                <rect key="frame" x="24" y="420" width="249" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="32"/>
@@ -964,6 +964,7 @@
                                     <segment title="128"/>
                                     <segment title="256"/>
                                     <segment title="512"/>
+                                    <segment title="1024"/>
                                 </segments>
                                 <color key="tintColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>

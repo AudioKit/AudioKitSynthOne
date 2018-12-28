@@ -174,6 +174,9 @@ class MIDISettingsViewController: UIViewController {
         case 4:
             conductor.updateDisplayLabel("Buffer Size: 512")
             AKSettings.bufferLength = .long
+        case 5:
+            self.conductor.updateDisplayLabel("Buffer Size: 1024")
+            AKSettings.bufferLength = .veryLong
         default:
             break
         }

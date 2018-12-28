@@ -13,7 +13,6 @@ extension Tunings {
     internal static func defaultTunings() -> [(String, S1TuningCallback)] {
         var retVal = [(String, S1TuningCallback)]()
 
-        retVal.append( ("Twelve Tone Equal Temperament", {let t = AKTuningTable(); _ = t.defaultTuning(); return t.masterSet }) )
         retVal.append( ("Chain of pure fifths", { return [1, 3, 9, 27, 81, 243, 729, 2_187, 6_561, 19_683, 59_049, 177_147] }) )
 
         // See http://anaphoria.com/harm&Subharm.pdf

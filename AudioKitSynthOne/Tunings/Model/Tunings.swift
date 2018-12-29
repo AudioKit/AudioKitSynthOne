@@ -29,9 +29,9 @@ class Tunings {
     var isTuningReady = false
     var tuningsDelegate: TuningsPitchWheelViewTuningDidChange?
 
-    private static let bundleBankIndex = 0
-    private static let userBankIndex = 1
-    private static let hexanyTriadIndex = 2
+    internal static let bundleBankIndex = 0
+    internal static let userBankIndex = 1
+    internal static let hexanyTriadIndex = 2
     private(set) var tuningBanks = [TuningBank]()
     private(set) var selectedBankIndex: Int = 0
 
@@ -60,8 +60,10 @@ class Tunings {
     var tuningName = Tuning.defaultName
     var masterSet = Tuning.defaultMasterSet
 
-    private let tuningFilenameV0 = "tunings.json"
-    private let tuningFilenameV1 = "tunings_v1.json"
+    internal let tuningFilenameV0 = "tunings.json"
+    internal let tuningFilenameV1 = "tunings_v1.json"
+    internal static let hexanyTriadTuningsBankName = "Hexanies With Proportional Triads"
+
 
     init() {}
 
@@ -88,9 +90,9 @@ class Tunings {
             }
 
             // SORT
-            for b in [Tunings.bundleBankIndex, Tunings.hexanyTriadIndex, Tunings.userBankIndex] {
-                self.sortTunings(forBank: self.tuningBanks[b])
-            }
+            self.sortTunings(forBank: self.tuningBanks[Tunings.userBankIndex], sortType: self.tuningSortType)
+            self.sortTunings(forBank: self.tuningBanks[Tunings.bundleBankIndex], sortType: .order)
+            self.sortTunings(forBank: self.tuningBanks[Tunings.hexanyTriadIndex], sortType: .order)
 
             // SAVE
             self.saveTunings()
@@ -113,26 +115,6 @@ class Tunings {
         }
     }
 
-    // for testing...resets file system state with bundled+user v0 tunings
-    private func testUpgradeV1Path() {
-        // copy test v0 file from bundle to documents
-        if let pathStr = Bundle.main.path(forResource: "tunings_v0_upgrade_path_test", ofType: "json") {
-            let fromUrl = URL(fileURLWithPath: pathStr)
-            try? Disk.remove(tuningFilenameV0, from: .documents)
-            let docUrl = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create:false)
-            if let toUrl = docUrl?.appendingPathComponent(tuningFilenameV0) {
-                try? FileManager.default.copyItem(at: fromUrl, to: toUrl)
-            }
-        }
-        // remove v1 file
-        try? Disk.remove(tuningFilenameV1, from: .documents)
-    }
-
-    // for testing...tests case new v1 user
-    private func testFreshInstallV1Path() {
-        try? Disk.remove(tuningFilenameV0, from: .documents)
-        try? Disk.remove(tuningFilenameV1, from: .documents)
-    }
 
     /// reads array of banks, each of which has an array of tunings
     private func loadTuningsFromDevice() {
@@ -145,59 +127,8 @@ class Tunings {
         }
     }
 
-    /// Upgrade path from Tunings v0 to v1
-    private func upgradeTuningsFromV0ToV1() {
-        // create bundled bank, and an empty user bank
-        loadTuningFactoryPresets()
-
-        do {
-            // read v0 file
-            let retrievedTuningData = try Disk.retrieve(tuningFilenameV0, from: .documents, as: Data.self)
-            let tuningsJSON = try? JSONSerialization.jsonObject(with: retrievedTuningData, options: [])
-            guard let jsonArray = tuningsJSON as? [Any] else {
-                AKLog("*** error parsing v0 tuning array from JSON while upgrading to v1")
-                return
-            }
-            var tuningsV0 = [Tuning]()
-            for tuningJSON in jsonArray {
-                if let tuningDictionary = tuningJSON as? [String: Any] {
-                    let retrievedTuning = Tuning(dictionary: tuningDictionary)
-                    tuningsV0.append(retrievedTuning)
-                }
-            }
-
-            // uniquify encodings of v0 tunings
-            var v1BundledTuningEncodings = [String:String]()
-            for t in Tunings.defaultTunings() {
-                let tt = Tuning()
-                tt.masterSet = t.1()
-                let e = tt.encoding
-                v1BundledTuningEncodings[e] = e
-            }
-            // filter 12ET
-            let t = Tuning()
-            v1BundledTuningEncodings[t.encoding] = t.encoding
-
-            // compare v0 tuning encodings to bundled v1 tuning encodings
-            for t in tuningsV0 {
-                if v1BundledTuningEncodings[t.encoding] == nil {
-                    // t is a v0 custom tuning not in v1 bundled tunings
-                    tuningBanks[Tunings.userBankIndex].tunings.append(t)
-                }
-            }
-
-            // remove v0 file so next launch will skip this upgrade path
-            try? Disk.remove(tuningFilenameV0, from: .documents)
-        } catch let error as NSError {
-            AKLog("*** error upgrading from V0 to V1:\(error)")
-        }
-    }
-
-    ///
-    private static let hexanyTriadTuningsBankName = "Hexanies With Proportional Triads"
-
-    // Fresh Install: create bundled bank, and an empty user bank
-    private func loadTuningFactoryPresets() {
+    /// Fresh Install
+    internal func loadTuningFactoryPresets() {
         tuningBanks.removeAll()
         tuningBanks.append(TuningBank())
         tuningBanks.append(TuningBank())
@@ -246,20 +177,20 @@ class Tunings {
     }
 
     ///
-    private func sortTunings(forBank tuningBank: TuningBank) {
+    private func sortTunings(forBank tuningBank: TuningBank, sortType: TuningSortType) {
 
         var t = tuningBank.tunings
-        let twelve = Tuning()
+        let twelveET = Tuning()
+        let insertTwelveET = tuningBank === tuningBanks[Tunings.bundleBankIndex] || tuningBank === tuningBanks[Tunings.userBankIndex]
 
-        // BUNDLED BANK: remove 12ET
-        if tuningBank === tuningBanks[Tunings.bundleBankIndex] {
-            t = tuningBank.tunings.filter { $0.name + $0.encoding != twelve.name + twelve.encoding }
+        if insertTwelveET {
+            t = tuningBank.tunings.filter { $0.name + $0.encoding != twelveET.name + twelveET.encoding }
+            t = t.filter {$0.name != "Twelve Tone Equal Temperament" }
         }
 
         // SORT TYPE
-        switch tuningSortType {
+        switch sortType {
         case .npo:
-            //t.sort { String($0.npo) + $0.name + $0.encoding < String($1.npo) + $1.name + $1.encoding }
             t.sort { $0.nameForCell + $0.encoding < $1.nameForCell + $1.encoding }
         case .name:
             t.sort { $0.name + $0.nameForCell + $0.encoding < $1.name + $1.nameForCell + $1.encoding }
@@ -267,9 +198,8 @@ class Tunings {
             t.sort { $0.order < $1.order }
         }
 
-        // BUNDLED BANK: Insert 12ET first
-        if tuningBank === tuningBanks[Tunings.bundleBankIndex] {
-            t.insert(twelve, at: 0)
+        if insertTwelveET {
+            t.insert(twelveET, at: 0)
         }
 
         // IN-PLACE
@@ -305,7 +235,7 @@ class Tunings {
                 // NEW TUNING FOR USER BANK: add to user bank, sort, save
                 if bi == Tunings.userBankIndex {
                     b.tunings.append(t)
-                    sortTunings(forBank: b)
+                    sortTunings(forBank: b, sortType: tuningSortType)
                     let sortedIndices = b.tunings.indices.filter { b.tunings[$0].name + b.tunings[$0].encoding == t.name + t.encoding } // do not optimize
                     if sortedIndices.count > 0 {
                         selectedBankIndex = bi

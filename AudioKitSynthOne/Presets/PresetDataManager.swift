@@ -150,6 +150,8 @@ extension Manager {
         s.setSynthParameter(.frequencyA4, activePreset.frequencyA4)
         s.setSynthParameter(.oscBandlimitIndexOverride, activePreset.oscBandlimitIndexOverride)
         s.setSynthParameter(.oscBandlimitEnable, activePreset.oscBandlimitEnable)
+        s.setSynthParameter(.arpSeqTempoMultiplier, activePreset.arpSeqTempoMultiplier)
+        s.setSynthParameter(.transpose, Double(activePreset.transpose))
 
         s.resetSequencer()
     }
@@ -266,6 +268,8 @@ extension Manager {
         activePreset.pitchbendMaxSemitones = s.getSynthParameter(.pitchbendMaxSemitones)
         activePreset.oscBandlimitIndexOverride = s.getSynthParameter(.oscBandlimitIndexOverride)
         activePreset.oscBandlimitEnable = s.getSynthParameter(.oscBandlimitEnable)
+        activePreset.arpSeqTempoMultiplier = s.getSynthParameter(.arpSeqTempoMultiplier)
+        activePreset.transpose = Int(s.getSynthParameter(.transpose))
 
         // tuning
         activePreset.frequencyA4 = s.getSynthParameter(.frequencyA4)

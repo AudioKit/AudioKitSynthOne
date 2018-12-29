@@ -20,6 +20,7 @@ extension Manager {
 
         transposeStepper.callback = { value in
             s.setSynthParameter(.transpose, value)
+            self.conductor.updateDisplayLabel(.transpose, value: s.getSynthParameter(.transpose))
         }
 
         configKeyboardButton.callback = { _ in

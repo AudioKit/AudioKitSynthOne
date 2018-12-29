@@ -316,6 +316,7 @@ public class Manager: UpdatableViewController {
             AKLog("ParentViewController can't update global UI because synth is not instantiated")
             return
         }
+
         let isMono = s.getSynthParameter(.isMono)
 
         if isMono != monoButton.value {
@@ -332,6 +333,10 @@ public class Manager: UpdatableViewController {
             let mmax = 7_600.0
             let scaledValue01 = (0...1).clamp(1 - ((log(value) - log(mmin)) / (log(mmax) - log(mmin))))
             modWheelPad.setVerticalValue01(scaledValue01)
+        }
+
+        if parameter == .transpose {
+            transposeStepper.value = Double(activePreset.transpose)
         }
     }
 

@@ -178,13 +178,13 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("Delay Feedback/Taps: \(value.percentageString)", comment: "Delay Feedback")
             displayLabel.text = message
         case .delayTime:
-            let message = NSLocalizedString("Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s", comment: "Delay Time tempo-syncd")
-            let message2 = NSLocalizedString("Delay Time: \(value.decimalString) s", comment: "Delay Time")
             if s.getSynthParameter(.tempoSyncToArpRate) > 0 {
-                displayLabel.text = message
+                displayLabel.text = NSLocalizedString("Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s", comment: "Delay Time tempo-syncd")
             } else {
-               displayLabel.text = message2
+                displayLabel.text = NSLocalizedString("Delay Time: \(value.decimalString) s", comment: "Delay Time")
             }
+        case .arpSeqTempoMultiplier:
+            displayLabel.text = NSLocalizedString("Divisions: \(Rate.fromFactor(value))", comment: "Divisions")
         case .delayMix:
             let message = NSLocalizedString("Delay Mix: \(value.percentageString)", comment: "Delay Mix")
             displayLabel.text = message
@@ -275,9 +275,9 @@ public class HeaderViewController: UpdatableViewController {
         case .arpInterval:
             let message = NSLocalizedString("Arpeggiator Interval: \(Int(value))", comment: "Arpeggiator Interval")
             displayLabel.text = message
-        case .arpSeqTempoMultiplier:
+        case .transpose:
             //TODO: localize
-            let message = "Divisions: \(value)"
+            let message = "Transpose: \(Int(value))"
             displayLabel.text = message
         case .arpIsOn:
             let message = NSLocalizedString("Arp/Sequencer On", comment: "Arpeggiator On")

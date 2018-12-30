@@ -20,6 +20,7 @@ float S1DSPKernel::getDependentParameter(S1Parameter parameter) {
         case lfo2Rate: dp = _lfo2Rate; break;
         case autoPanFrequency: dp = _autoPanRate; break;
         case delayTime: dp = _delayTime; break;
+        case arpSeqTempoMultiplier: dp = _arpSeqTempoMultiplier; break;
         default:printf("error\n");break;
     }
 
@@ -64,6 +65,14 @@ void S1DSPKernel::setDependentParameter(S1Parameter param, float inputValue01, i
                 const float val = min + taperValue01 * (max - min);
                 _setSynthParameterHelper(delayTime, val, notify, payload);
             }
+            break;
+        case arpSeqTempoMultiplier:
+        {
+            const float valInvert = 1.f - inputValue01;
+            AKSynthOneRate rate = _rate.rateFromFactor01(valInvert);
+            const float val = _rate.factorForRate(rate);
+            _setSynthParameterHelper(arpSeqTempoMultiplier, val, notify, payload);
+        }
             break;
         case pitchbend:
         {

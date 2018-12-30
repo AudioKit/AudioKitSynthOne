@@ -107,8 +107,8 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
             AEArrayToken token = AEArrayGetToken(heldNoteNumbersAE);
             NoteNumber* nn = (NoteNumber*)AEArrayGetItem(token, 0);
             const int headNN = nn->noteNumber;
-            monoFrequency = tuningTableNoteToHz(headNN + (int)p[transpose]);
             monoNote->rootNoteNumber = headNN;
+            monoNote->transpose = (int)p[transpose];
             monoFrequency = tuningTableNoteToHz(headNN + (int)p[transpose]);
             monoNote->oscmorph1->freq = monoFrequency;
             monoNote->oscmorph2->freq = monoFrequency;

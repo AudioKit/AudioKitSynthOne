@@ -101,6 +101,7 @@ class AppSettings: Codable {
     var phaserRateCC = 255
     var phaserFeedbackCC = 255
     var phaserNotchWidthCC = 255
+    var arpSeqTempoMultiplierCC = 255
 
     // Keyboard
     var labelMode = 1
@@ -171,6 +172,7 @@ class AppSettings: Codable {
 
         sampleRateCC = dictionary["sampleRateCC"] as? Int ?? sampleRateCC
         delayTimeCC = dictionary["delayTimeCC"] as? Int ?? delayTimeCC
+        arpSeqTempoMultiplierCC = dictionary["arpSeqTempoMultiplierCC"] as? Int ?? arpSeqTempoMultiplierCC
         delayFeedbackCC = dictionary["delayFeedbackCC"] as? Int ?? delayFeedbackCC
         delayMixCC = dictionary["delayMixCC"] as? Int ?? delayMixCC
         lfo1AmpCC = dictionary["lfo1AmpCC"] as? Int ?? lfo1AmpCC

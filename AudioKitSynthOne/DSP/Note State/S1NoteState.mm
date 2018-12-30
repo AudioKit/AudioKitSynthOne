@@ -123,8 +123,7 @@ void S1NoteState::startNoteHelper(int noteNumber, int velocity, float frequency)
     stage = S1NoteState::stageOn;
     internalGate = 1;
     rootNoteNumber = noteNumber;
-    //transpose = getParam(transpose);
-    ///TODO: left off here.  to tranpose from kernel or not?
+    transpose = getParam(S1Parameter::transpose);
 }
 
 //called at SampleRate for each S1NoteState.  Polyphony of 6 = 264,000 times per second

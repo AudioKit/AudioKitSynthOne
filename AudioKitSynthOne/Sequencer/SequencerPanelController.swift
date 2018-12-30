@@ -40,7 +40,6 @@ class SequencerPanelController: PanelController {
         octaveStepper.minValue = s.getMinimum(.arpOctave)
         octaveStepper.maxValue = s.getMaximum(.arpOctave)
         arpInterval.range = s.getRange(.arpInterval)
-        arpSeqTempoMultiplier.range = s.getRange(.arpSeqTempoMultiplier)
 
         // Bindings
         conductor.bind(arpToggle, to: .arpIsOn)
@@ -50,7 +49,16 @@ class SequencerPanelController: PanelController {
         conductor.bind(sequencerToggle, to: .arpIsSequencer)
         conductor.bind(seqStepsStepper, to: .arpTotalSteps)
         conductor.bind(arpSeqTempoMultiplier, to:.arpSeqTempoMultiplier)
-		
+
+        // dependent param needs custom callback
+        arpSeqTempoMultiplier.range = 0...1
+        arpSeqTempoMultiplier.taper = 1
+        arpSeqTempoMultiplier.value = s.getDependentParameter(.arpSeqTempoMultiplier)
+        arpSeqTempoMultiplier.callback = { value in
+            s.setDependentParameter(.arpSeqTempoMultiplier, value, self.conductor.arpSeqTempoMultiplierID)
+            self.conductor.updateDisplayLabel(.arpSeqTempoMultiplier, value: s.getSynthParameter(.arpSeqTempoMultiplier))
+        }
+
 
         // ARP/SEQ OCTAVE BOOST
         let sequencerOctBoostArray: [S1Parameter] = [.sequencerOctBoost00, .sequencerOctBoost01, .sequencerOctBoost02,
@@ -130,7 +138,6 @@ class SequencerPanelController: PanelController {
         }
 
 		setAccessibilityReadOrder()
-
     }
 
     override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {
@@ -202,7 +209,5 @@ class SequencerPanelController: PanelController {
 
 		view.accessibilityElements?.append(leftNavButton)
 		view.accessibilityElements?.append(rightNavButton)
-
 	}
-
 }

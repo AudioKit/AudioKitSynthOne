@@ -36,6 +36,7 @@ class Conductor: S1Protocol {
     let lfo1RateModWheelID: Int32 = 6
     let lfo2RateModWheelID: Int32 = 7
     let pitchBendID: Int32 = 8
+    let arpSeqTempoMultiplierID: Int32 = 9
 
     var iaaTimer: Timer = Timer()
 

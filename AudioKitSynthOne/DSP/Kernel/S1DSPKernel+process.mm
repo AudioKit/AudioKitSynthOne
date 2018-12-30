@@ -14,7 +14,7 @@
 void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount bufferOffset) {
     initializeNoteStates();
 
-    // PREPARE FOR RENDER LOOP...updates here happen at (typically) 44100/bufferSize (i.e., 512, 1024 HZ)
+    // PREPARE FOR RENDER LOOP...updates here happen at 44100/frameCount Hz
     float* outL = (float*)outBufferListPtr->mBuffers[0].mData + bufferOffset;
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
 
@@ -81,11 +81,8 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         monoFrequencyPort->htime = p[glide];
         sp_port_compute(sp, monoFrequencyPort, &monoFrequency, &monoFrequencySmooth);
 
-        // TEMPO
-        const float arpTempo = p[arpRate];
-        //const float multiplier = powf(2.0f, p[arpSeqTempoMultiplier]);
-        const float multiplier = floorf(powf(2.0f, p[arpSeqTempoMultiplier]));
-        const double secPerBeat = multiplier * 0.5f * 0.5f * 60.f / arpTempo; // looks like 1/4 notes
+        // Seconds per Beat
+        const double secPerBeat = 60.f * p[arpSeqTempoMultiplier] / p[arpRate];
 
         // Clear all notes when toggling Mono <==> Poly
         if (p[isMono] != previousProcessMonoPolyStatus ) {

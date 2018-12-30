@@ -128,6 +128,49 @@ public enum Rate: Int, CustomStringConvertible {
         }
     }
 
+    var factor: Double {
+        switch self {
+        case .eightBars:
+            return 8
+        case .sixBars:
+            return 6
+        case .fourBars:
+            return 4
+        case .threeBars:
+            return 3
+        case .twoBars:
+            return 2
+        case .bar:
+            return 1
+        case .barTriplet:
+            return 1 / 1.5
+        case .half:
+            return 1 / 2
+        case .halfTriplet:
+            return 1 / 2 / 1.5
+        case .quarter:
+            return 1 / 4
+        case .quarterTriplet:
+            return 1 / 4 / 1.5
+        case .eighth:
+            return 1 / 8
+        case .eighthTriplet:
+            return 1 / 8 / 1.5
+        case .sixteenth:
+            return 1 / 16
+        case .sixteenthTriplet:
+            return 1 / 16 / 1.5
+        case .thirtySecondth:
+            return 1 / 32
+        case .thirtySecondthTriplet:
+            return 1 / 32 / 1.5
+        case .sixtyFourth:
+            return 1 / 64
+        case .sixtyFourthTriplet:
+            return 1 / 64 / 1.5
+        }
+    }
+
     func seconds(bars: Double = 1.0, triplet: Bool = false) -> Double {
         guard let s = Conductor.sharedInstance.synth else { return 0.0 }
         let minutesPerSecond = 1.0 / 60.0
@@ -157,6 +200,12 @@ public enum Rate: Int, CustomStringConvertible {
     static func fromTime(_ time: Double) -> Rate {
         return(Rate.findMinimum(time, comparator: { (i) -> Double in
             (Rate(rawValue: i) ?? Rate.sixtyFourth).time
+        }))
+    }
+
+    static func fromFactor(_ factor: Double) -> Rate {
+        return(Rate.findMinimum(factor, comparator: { (i) -> Double in
+            (Rate(rawValue: i) ?? Rate.sixtyFourth).factor
         }))
     }
 }

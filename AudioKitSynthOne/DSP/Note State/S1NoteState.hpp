@@ -32,7 +32,7 @@ struct S1NoteState {
     float amp = 0;
     float filter = 0;
     int rootNoteNumber = 0; // -1 denotes an invalid note number
-    int transpose = 0;
+    int transpose = 0; // used for frequency look up and UI
     
     //Amplitude ADSR
     sp_adsr *adsr;

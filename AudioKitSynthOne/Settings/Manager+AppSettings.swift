@@ -69,6 +69,7 @@ extension Manager {
         generatorsPanel.resonance.midiCC = MIDIByte(appSettings.resonanceCC)
 
         sequencerPanel.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
+        sequencerPanel.arpSeqTempoMultiplier.midiCC = MIDIByte(appSettings.arpSeqTempoMultiplierCC)
 
         envelopesPanel.attackKnob.midiCC = MIDIByte(appSettings.attackKnobCC)
         envelopesPanel.decayKnob.midiCC = MIDIByte(appSettings.decayKnobCC)
@@ -137,6 +138,7 @@ extension Manager {
         appSettings.resonanceCC = Int(generatorsPanel.resonance.midiCC)
 
         appSettings.arpIntervalCC = Int(sequencerPanel.arpInterval.midiCC)
+        appSettings.arpSeqTempoMultiplierCC = Int(sequencerPanel.arpSeqTempoMultiplier.midiCC)
 
         appSettings.attackKnobCC = Int(envelopesPanel.attackKnob.midiCC)
         appSettings.decayKnobCC = Int(envelopesPanel.decayKnob.midiCC)

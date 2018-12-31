@@ -31,6 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                         settings: onesignalInitSettings)
 
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
+        
+        // Determine iPhone or iPad
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        if conductor.device == .pad {
+             window?.rootViewController = mainStoryboard.instantiateInitialViewController()
+        } else {
+             window?.rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "iPhoneParentVC")
+        }
+        window?.makeKeyAndVisible()
 
         return true
     }
@@ -39,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         conductor.checkIAAConnectionsEnterBackground()
     }
 
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         conductor.checkIAAConnectionsEnterForeground()
     }

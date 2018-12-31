@@ -16,6 +16,7 @@ extension Manager: EmbeddedViewsDelegate {
         if isOnTop {
             topContainerView.subviews.forEach { $0.removeFromSuperview() }
         } else {
+            guard conductor.device == .pad else { return }
             bottomContainerView.subviews.forEach { $0.removeFromSuperview() }
         }
 

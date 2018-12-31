@@ -41,6 +41,8 @@ class Conductor: S1Protocol {
 
     public var viewControllers: Set<UpdatableViewController> = []
     fileprivate var started = false
+    
+    let device = UIDevice.current.userInterfaceIdiom  
 
     func bind(_ control: S1Control,
               to parameter: S1Parameter,

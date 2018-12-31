@@ -8,7 +8,7 @@
 
 import AudioKit
 import UIKit
-import Disk
+import Disk 
 
 protocol EmbeddedViewsDelegate: AnyObject {
     func switchToChildPanel(_ newView: ChildPanel, isOnTop: Bool)

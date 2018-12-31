@@ -36,7 +36,7 @@ class AppSettings: Codable {
     var freezeReverb = false // true = don't modify current reverb parameters when preset changes
     var freezeArpSeq = false // true = don't modify current arp+seq parameters when preset changes
     var portamentoHalfTime = 0.1 // global portamento HALFTIME for dsp params that are smoothed
-    var bufferLengthRawValue = 7 // short
+    var bufferLengthRawValue = 9 // 512 // was 7 
 
     //Settings: "Save Tuning Panel w/Presets" -> saveTuningWithPreset = True/False
     //True means: "DO load preset's tuning (nil = reset current tuning to 12et) when preset is loaded.

@@ -66,6 +66,11 @@ extension Manager {
         }
 
         keyboardToggle.callback = { value in
+            
+            guard self.conductor.device != .phone else {
+                return
+            }
+            
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
 

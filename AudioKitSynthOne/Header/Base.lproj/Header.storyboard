@@ -369,50 +369,6 @@
                                     <action selector="homePressed:" destination="kFP-tD-Zjz" eventType="touchUpInside" id="yEk-Jw-qgc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geY-L5-dwi" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="573" y="2" width="39" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="PanicButton" label="MIDI Panic"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Panic">
-                                    <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <attributedString key="userComments">
-                                    <fragment content="MIDI Panic / All notes off (Keep short)">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="smallSystem"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPT-9M-vCO" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="526" y="2" width="39" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="AppsButton" label="Apps"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="More">
-                                    <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <attributedString key="userComments">
-                                    <fragment content="Apps button, keep short">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="smallSystem"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3x-Rm-dlK" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="-50" y="6" width="35" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -429,6 +385,30 @@
                                 <state key="selected">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hob-Ub-4zN" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="102" y="2" width="46" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="WebButton" label="Web">
+                                    <accessibilityTraits key="traits" button="YES" link="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Web">
+                                    <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <attributedString key="userComments">
+                                    <fragment content="Website button (keep short)">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkL-WW-TFo" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="-50" y="6" width="52" height="26"/>
@@ -455,7 +435,7 @@
                                 </attributedString>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbl-2s-GME" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="475" y="4" width="22" height="19"/>
+                                <rect key="frame" x="476" y="4" width="22" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Saves Preset." identifier="SaveButton" label="Save"/>
@@ -476,7 +456,7 @@
                                 </attributedString>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2Q-H6-JGj" userLabel="Random Button">
-                                <rect key="frame" x="156" y="0.0" width="30" height="28"/>
+                                <rect key="frame" x="158" y="1" width="27" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" hint="Selects Random Preset." identifier="RandomButton" label="Random"/>
@@ -487,54 +467,88 @@
                                     <action selector="randomPressed:" destination="kFP-tD-Zjz" eventType="touchUpInside" id="dnA-DG-vcy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJL-2V-twT" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="620" y="2" width="40" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="AboutButton" label="About"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="About">
-                                    <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <attributedString key="userComments">
-                                    <fragment content="About button (keep short)">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="smallSystem"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hob-Ub-4zN" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="102" y="2" width="46" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="WebButton" label="Web">
-                                    <accessibilityTraits key="traits" button="YES" link="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Web">
-                                    <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <attributedString key="userComments">
-                                    <fragment content="Website button (keep short)">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="smallSystem"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pwl-lZ-Q7p">
+                                <rect key="frame" x="528" y="2" width="131" height="22"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geY-L5-dwi" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="39" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="PanicButton" label="MIDI Panic"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Panic">
+                                            <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <attributedString key="userComments">
+                                            <fragment content="MIDI Panic / All notes off (Keep short)">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="smallSystem"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPT-9M-vCO" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="45" y="0.0" width="39" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="AppsButton" label="Apps"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="More">
+                                            <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <attributedString key="userComments">
+                                            <fragment content="Apps button, keep short">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="smallSystem"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJL-2V-twT" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="91" y="0.0" width="40" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="AboutButton" label="About"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="About">
+                                            <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <attributedString key="userComments">
+                                            <fragment content="About button (keep short)">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="smallSystem"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="Skt-da-4zB"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kFl-vc-E9w" firstAttribute="top" secondItem="Pwl-lZ-Q7p" secondAttribute="bottom" constant="2" id="6Sz-e3-7fd"/>
+                            <constraint firstItem="Pwl-lZ-Q7p" firstAttribute="top" secondItem="S13-Ww-SRM" secondAttribute="bottom" constant="2" id="Rjl-Ib-hxF"/>
+                            <constraint firstItem="wcA-ti-3El" firstAttribute="trailing" secondItem="Pwl-lZ-Q7p" secondAttribute="trailing" constant="8" id="sf6-IP-6sQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wcA-ti-3El"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>

@@ -20,7 +20,7 @@ public class Manager: UpdatableViewController {
     @IBOutlet weak var bottomContainerView: UIView!
 
     @IBOutlet weak var keyboardView: KeyboardView!
-    @IBOutlet weak var keyboardBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var keyboardTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var topPanelheight: NSLayoutConstraint!
 
     @IBOutlet weak var midiButton: SynthButton!
@@ -73,7 +73,9 @@ public class Manager: UpdatableViewController {
 
     lazy var generatorsPanel: GeneratorsPanelController = {
         let generatorsStoryboard = UIStoryboard(name: "Generators", bundle: Bundle.main)
-        return generatorsStoryboard.instantiateInitialViewController() as! GeneratorsPanelController
+        var vcName = ChildPanel.generators.identifier()
+        if conductor.device == .phone { vcName = "iPhone" + vcName }
+        return generatorsStoryboard.instantiateViewController(withIdentifier: vcName) as! GeneratorsPanelController
     }()
 
     lazy var devViewController: DevViewController = {

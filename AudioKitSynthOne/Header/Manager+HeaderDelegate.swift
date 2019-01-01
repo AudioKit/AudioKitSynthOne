@@ -41,7 +41,11 @@ extension Manager: HeaderDelegate {
             // Show Keyboard
             if keyboardView.isShown {
                 keyboardToggle.value = 1.0
-                keyboardBottomConstraint.constant = 0
+                if self.conductor.device == .phone {
+                    keyboardTopConstraint.constant = 257
+                } else {
+                    keyboardTopConstraint.constant = 337
+                }
                 keyboardToggle.setTitle("Hide", for: .normal)
             }
 

@@ -67,37 +67,50 @@ extension Manager {
 
         keyboardToggle.callback = { value in
             
-            guard self.conductor.device != .phone else {
-                return
-            }
-            
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
 
+                 if self.conductor.device == .pad {
 				// Tell VoiceOver to NOT read elements in bottomContainerView if hidden by keyboard.
 				self.bottomContainerView.accessibilityElementsHidden = true
+                }
 
             } else {
                 self.keyboardToggle.setTitle("Show", for: .normal)
 
-				// Tell VoiceOver to read elements in bottomContainerView as the keyboard is not hidden.
-				self.bottomContainerView.accessibilityElementsHidden = false
+                if self.conductor.device == .pad {
+                    // Tell VoiceOver to read elements in bottomContainerView as the keyboard is not hidden.
+                    self.bottomContainerView.accessibilityElementsHidden = false
 
-                // Add panel to bottom
-                if self.bottomChildPanel == self.topChildPanel {
-                    self.bottomChildPanel = self.bottomChildPanel?.rightPanel()
+                    
+                    // Add panel to bottom
+                    if self.bottomChildPanel == self.topChildPanel {
+                        self.bottomChildPanel = self.bottomChildPanel?.rightPanel()
+                    }
+                    guard let bottom = self.bottomChildPanel else { return }
+                    self.switchToChildPanel(bottom, isOnTop: false)
                 }
-                guard let bottom = self.bottomChildPanel else { return }
-                self.switchToChildPanel(bottom, isOnTop: false)
             }
 
             // Animate Keyboard
-            let newConstraintValue: CGFloat = (value == 1.0) ? 0 : -299
+            var newConstraintValue: CGFloat = (value == 1.0) ? 337 : 636
+            if self.conductor.device == .phone {
+                newConstraintValue = (value == 1.0) ? 180 : 257
+            }
+            
+            let keyboardLabelMode = self.keyboardView.labelMode
+            self.keyboardView.labelMode = 0
+            self.keyboardView.setNeedsDisplay()
+    
+            // Animate keyboard
             UIView.animate(withDuration: Double(0.4), animations: {
-                self.keyboardBottomConstraint.constant = newConstraintValue
+                self.keyboardTopConstraint.constant = newConstraintValue
                 self.view.layoutIfNeeded()
+            }, completion: { (finished: Bool) in
+                self.keyboardView.labelMode = keyboardLabelMode
+                self.keyboardView.setNeedsDisplay()
             })
-
+            
             self.appSettings.showKeyboard = self.keyboardToggle.value
             self.saveAppSettings()
         }

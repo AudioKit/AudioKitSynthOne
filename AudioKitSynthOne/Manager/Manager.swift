@@ -63,12 +63,11 @@ public class Manager: UpdatableViewController {
     var midiInput: ABMIDIReceiverPort?
 
     // MARK: - Define child view controllers
-
-    // swiftlint:disable force_cast
-
     lazy var envelopesPanel: EnvelopesPanelController = {
         let envelopesStoryboard = UIStoryboard(name: "Envelopes", bundle: Bundle.main)
-        return envelopesStoryboard.instantiateInitialViewController() as! EnvelopesPanelController
+        var vcName = ChildPanel.envelopes.identifier()
+        if conductor.device == .phone { vcName = "iPhone" + vcName }
+        return envelopesStoryboard.instantiateViewController(withIdentifier: vcName) as! EnvelopesPanelController
     }()
 
     lazy var generatorsPanel: GeneratorsPanelController = {
@@ -87,27 +86,37 @@ public class Manager: UpdatableViewController {
 
     lazy var touchPadPanel: TouchPadPanelController = {
         let touchPadStoryboard = UIStoryboard(name: "TouchPad", bundle: Bundle.main)
-        return touchPadStoryboard.instantiateInitialViewController() as! TouchPadPanelController
+        var vcName = ChildPanel.touchPad.identifier()
+        if conductor.device == .phone { vcName = "iPhone" + vcName }
+        return touchPadStoryboard.instantiateViewController(withIdentifier: vcName) as! TouchPadPanelController
     }()
 
     lazy var fxPanel: EffectsPanelController = {
         let effectsStoryboard = UIStoryboard(name: "Effects", bundle: Bundle.main)
-        return effectsStoryboard.instantiateInitialViewController() as! EffectsPanelController
+        var vcName = ChildPanel.effects.identifier()
+        //if conductor.device == .phone { vcName = "iPhone" + vcName }
+        return effectsStoryboard.instantiateViewController(withIdentifier: vcName) as! EffectsPanelController
     }()
 
     lazy var sequencerPanel: SequencerPanelController = {
         let sequencerStoryboard = UIStoryboard(name: "Sequencer", bundle: Bundle.main)
-        return sequencerStoryboard.instantiateInitialViewController() as! SequencerPanelController
+        var vcName = ChildPanel.sequencer.identifier()
+        //if conductor.device == .phone { vcName = "iPhone" + vcName }
+        return sequencerStoryboard.instantiateViewController(withIdentifier: vcName) as! SequencerPanelController
     }()
 
     lazy var tuningsPanel: TuningsPanelController = {
         let tuningsStoryboard = UIStoryboard(name: "Tunings", bundle: Bundle.main)
-        return tuningsStoryboard.instantiateInitialViewController() as! TuningsPanelController
+        var vcName = ChildPanel.tunings.identifier()
+        if conductor.device == .phone { vcName = "iPhone" + vcName }
+        return tuningsStoryboard.instantiateViewController(withIdentifier: vcName) as! TuningsPanelController
     }()
 
     lazy var presetsViewController: PresetsViewController = {
         let presetsStoryboard = UIStoryboard(name: "Presets", bundle: Bundle.main)
-        return presetsStoryboard.instantiateInitialViewController() as! PresetsViewController
+        var vcName = "Presets"
+        //if conductor.device == .phone { vcName = "iPhone" + vcName }
+        return presetsStoryboard.instantiateViewController(withIdentifier: vcName) as! PresetsViewController
     }()
 
     // swiftlint:enable force_cast
@@ -160,7 +169,10 @@ public class Manager: UpdatableViewController {
         switchToChildPanel(.effects, isOnTop: true)
         switchToChildPanel(.envelopes, isOnTop: true)
         switchToChildPanel(.generators, isOnTop: true)
+        switchToChildPanel(.touchPad, isOnTop: true)
         switchToChildPanel(.sequencer, isOnTop: false)
+        
+        switchToChildPanel(.tunings, isOnTop: true)
 
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)

@@ -101,7 +101,7 @@ public class Manager: UpdatableViewController {
     lazy var sequencerPanel: SequencerPanelController = {
         let sequencerStoryboard = UIStoryboard(name: "Sequencer", bundle: Bundle.main)
         var vcName = ChildPanel.sequencer.identifier()
-        //if conductor.device == .phone { vcName = "iPhone" + vcName }
+        if conductor.device == .phone { vcName = "iPhone" + vcName }
         return sequencerStoryboard.instantiateViewController(withIdentifier: vcName) as! SequencerPanelController
     }()
 
@@ -169,10 +169,9 @@ public class Manager: UpdatableViewController {
         switchToChildPanel(.effects, isOnTop: true)
         switchToChildPanel(.envelopes, isOnTop: true)
         switchToChildPanel(.generators, isOnTop: true)
-        switchToChildPanel(.touchPad, isOnTop: true)
-        switchToChildPanel(.sequencer, isOnTop: false)
+        switchToChildPanel(.sequencer, isOnTop: true)
         
-        switchToChildPanel(.tunings, isOnTop: true)
+        switchToChildPanel(.touchPad, isOnTop: true)
 
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)

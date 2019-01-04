@@ -190,9 +190,9 @@ class SequencerPanelController: PanelController {
 		]
 
 		for index in 0...15 {
-			view.accessibilityElements?.append(octBoostButtons[index])
-			view.accessibilityElements?.append(sliders[index])
-			view.accessibilityElements?.append(noteOnButtons[index])
+            view.accessibilityElements?.append(octBoostButtons[index])
+            view.accessibilityElements?.append(sliders[index])
+            view.accessibilityElements?.append(noteOnButtons[index])
 
 		}
 

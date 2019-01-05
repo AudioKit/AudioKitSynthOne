@@ -14,10 +14,13 @@
 void S1DSPKernel::resetDSP() {
     [heldNoteNumbers removeAllObjects];
     [heldNoteNumbersAE updateWithContentsOfArray:heldNoteNumbers];
+    previousHeldNoteNumbersAECount = 0;
     sequencerLastNotes.clear();
     sequencerNotes.clear();
     sequencerNotes2.clear();
     arpBeatCounter = 0;
+    arpSampleCounter = 0;
+    arpTime = 0;
     _setSynthParameter(arpIsOn, 0.f);
     monoNote->clear();
     for(int i =0; i < S1_MAX_POLYPHONY; i++)
@@ -41,6 +44,9 @@ void S1DSPKernel::reset() {
 }
 
 void S1DSPKernel::resetSequencer() {
+
+    // don't remove held notes
+
     arpBeatCounter = 0;
     arpSampleCounter = 0;
     arpTime = 0;

@@ -86,6 +86,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
         noteNumber->transpose = 0; // held notes transpose is unused
         return noteNumber;
     }];
+    previousHeldNoteNumbersAECount = 0;
     
     _rate.init();
 

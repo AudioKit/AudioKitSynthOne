@@ -37,6 +37,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="236" id="AUg-8D-3pO"/>
                                 </constraints>
+                                <connections>
+                                    <segue destination="cl1-uI-Igd" kind="embed" id="WBY-OZ-8as"/>
+                                </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZO-u3-H8d" userLabel="KeyboardContainer">
                                 <rect key="frame" x="0.0" y="257" width="667" height="118"/>
@@ -898,7 +901,7 @@
                 <viewControllerPlaceholder storyboardName="Presets" id="HVB-nG-S7N" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSH-qx-Po5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1025" y="-1062"/>
+            <point key="canvasLocation" x="-1002" y="-1031"/>
         </scene>
         <!--Wheel Settings View Controller-->
         <scene sceneID="2nO-a2-8tJ">
@@ -1388,13 +1391,21 @@
             </objects>
             <point key="canvasLocation" x="-1029" y="-634"/>
         </scene>
+        <!--iPhonePresets-->
+        <scene sceneID="hFZ-gj-4EN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Presets" referencedIdentifier="iPhonePresets" id="cl1-uI-Igd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K5d-bu-9wc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1096" y="-1331"/>
+        </scene>
         <!--iPhoneHeaderVC-->
         <scene sceneID="JOz-t8-Ok7">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="iPhoneHeaderVC" storyboardName="Header" referencedIdentifier="iPhoneHeaderVC" id="eky-JD-VtV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOg-qd-2Hd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1107" y="-1251"/>
+            <point key="canvasLocation" x="-1079" y="-1291"/>
         </scene>
         <!--Header-->
         <scene sceneID="GZ3-G8-AZd">

@@ -18,35 +18,49 @@ extension Manager: HeaderDelegate {
             keyboardToggle.callback(0.0)
             keyboardToggle.value = 0.0
 
-            // Save previous bottom panel
-            prevBottomChildPanel = bottomChildPanel
+            // Save previous panels
+            if self.conductor.device == .pad {
+                prevBottomChildPanel = bottomChildPanel
+            } else {
+                prevBottomChildPanel = topChildPanel
+            }
+        
 
-            // Animate
-            topPanelheight.constant = 0
-            view.layoutIfNeeded()
-            // Add Panel to Top
-            displayPresetsController()
-            guard let top = topChildPanel else { return }
-            switchToChildPanel(top, isOnTop: false)
-            topChildPanel = nil
+            if self.conductor.device == .pad {
+                // Animate
+                topPanelheight.constant = 0
+                view.layoutIfNeeded()
+                
+                // Add Presets Panel to Top
+                displayPresetsController()
+                
+                // Add current top panel to bottom panel
+                guard let top = topChildPanel else { return }
+                switchToChildPanel(top, isOnTop: false)
+                topChildPanel = nil
 
-            // Animate panel
-            UIView.animate(withDuration: Double(0.2), animations: {
-                self.topPanelheight.constant = 299
-                self.view.layoutIfNeeded()
-            })
+                // Animate panel
+                UIView.animate(withDuration: Double(0.2), animations: {
+                    self.topPanelheight.constant = 299
+                    self.view.layoutIfNeeded()
+                })
+            } else {
+                  displayPresetsController()
+            }
 
         } else {
 
             // Show Keyboard
             if keyboardView.isShown {
                 keyboardToggle.value = 1.0
-                if self.conductor.device == .phone {
-                    keyboardTopConstraint.constant = 257
-                } else {
+                if self.conductor.device == .pad {
                     keyboardTopConstraint.constant = 337
                 }
                 keyboardToggle.setTitle("Hide", for: .normal)
+            }
+            
+            if conductor.device == .phone {
+                switchToChildPanel(prevBottomChildPanel!, isOnTop: true)
             }
 
             // Add Panel to Top
@@ -58,6 +72,7 @@ extension Manager: HeaderDelegate {
             if prevBottomChildPanel == topChildPanel {
                 prevBottomChildPanel = prevBottomChildPanel?.rightPanel()
             }
+            
             guard let previousBottom = prevBottomChildPanel else { return }
             switchToChildPanel(previousBottom, isOnTop: false)
             isPresetsDisplayed = false

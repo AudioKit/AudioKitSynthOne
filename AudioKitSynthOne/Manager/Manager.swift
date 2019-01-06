@@ -115,7 +115,7 @@ public class Manager: UpdatableViewController {
     lazy var presetsViewController: PresetsViewController = {
         let presetsStoryboard = UIStoryboard(name: "Presets", bundle: Bundle.main)
         var vcName = "Presets"
-        //if conductor.device == .phone { vcName = "iPhone" + vcName }
+        if conductor.device == .phone { vcName = "iPhone" + vcName }
         return presetsStoryboard.instantiateViewController(withIdentifier: vcName) as! PresetsViewController
     }()
 
@@ -169,7 +169,7 @@ public class Manager: UpdatableViewController {
         switchToChildPanel(.effects, isOnTop: true)
         switchToChildPanel(.envelopes, isOnTop: true)
         switchToChildPanel(.generators, isOnTop: true)
-        switchToChildPanel(.sequencer, isOnTop: true)
+        switchToChildPanel(.sequencer, isOnTop: false)
         
         switchToChildPanel(.touchPad, isOnTop: true)
 

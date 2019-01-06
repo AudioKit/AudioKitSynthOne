@@ -18,7 +18,6 @@ class SequencerPanelController: PanelController {
     @IBOutlet weak var seqStepsStepper: Stepper!
     @IBOutlet weak var arpSeqTempoMultiplier: MIDIKnob!
 
-
     var octBoostButtons = [SliderTransposeButton]()
     var sliders = [VerticalSlider]()
     var noteOnButtons = [ArpButton]()
@@ -48,17 +47,17 @@ class SequencerPanelController: PanelController {
         conductor.bind(arpDirectionButton, to: .arpDirection)
         conductor.bind(sequencerToggle, to: .arpIsSequencer)
         conductor.bind(seqStepsStepper, to: .arpTotalSteps)
-        conductor.bind(arpSeqTempoMultiplier, to:.arpSeqTempoMultiplier)
 
         // dependent param needs custom callback
         arpSeqTempoMultiplier.range = 0...1
         arpSeqTempoMultiplier.taper = 1
         arpSeqTempoMultiplier.value = s.getDependentParameter(.arpSeqTempoMultiplier)
         arpSeqTempoMultiplier.callback = { value in
-            s.setDependentParameter(.arpSeqTempoMultiplier, value, self.conductor.arpSeqTempoMultiplierID)
+            let invertValue = value // 1 - value
+            s.setDependentParameter(.arpSeqTempoMultiplier, invertValue, self.conductor.arpSeqTempoMultiplierID)
             self.conductor.updateDisplayLabel(.arpSeqTempoMultiplier, value: s.getSynthParameter(.arpSeqTempoMultiplier))
+            AKLog("arpSeqTempoMultiplier (inverted) value: \(invertValue)")
         }
-
 
         // ARP/SEQ OCTAVE BOOST
         let sequencerOctBoostArray: [S1Parameter] = [.sequencerOctBoost00, .sequencerOctBoost01, .sequencerOctBoost02,
@@ -147,11 +146,20 @@ class SequencerPanelController: PanelController {
 
         // Update arpIsSequencer LED position
         switch parameter {
-
         case .arpIsSequencer, .arpIsOn:
             updateLED(beatCounter: 0, heldNotes: 0)
         default:
             _ = 0
+        }
+    }
+
+    func dependentParameterDidChange(_ dependentParameter: DependentParameter) {
+        if (dependentParameter.parameter == .arpSeqTempoMultiplier) {
+            if dependentParameter.payload == conductor.arpSeqTempoMultiplierID {
+                return
+            }
+            arpSeqTempoMultiplier.value = Double(dependentParameter.normalizedValue)
+            AKLog("arpSeqTempoMultiplier.value: \(arpSeqTempoMultiplier.value)")
         }
     }
 

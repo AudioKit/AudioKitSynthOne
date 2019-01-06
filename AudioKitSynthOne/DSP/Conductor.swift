@@ -187,6 +187,9 @@ class Conductor: S1Protocol {
 
     // called by DSP on main thread
     func dependentParameterDidChange(_ parameter: DependentParameter) {
+
+        // add panels with dependent parameters here
+
         let effectsPanel = self.viewControllers.first(where: { $0 is EffectsPanelController })
             as? EffectsPanelController
         effectsPanel?.dependentParameterDidChange(parameter)
@@ -194,6 +197,9 @@ class Conductor: S1Protocol {
         let touchPadPanel = self.viewControllers.first(where: { $0 is TouchPadPanelController })
             as? TouchPadPanelController
         touchPadPanel?.dependentParameterDidChange(parameter)
+
+        let sequencerPanel = self.viewControllers.first(where: { $0 is SequencerPanelController }) as? SequencerPanelController
+        sequencerPanel?.dependentParameterDidChange(parameter)
 
         let manager = self.viewControllers.first(where: { $0 is Manager }) as? Manager
         manager?.dependentParameterDidChange(parameter)

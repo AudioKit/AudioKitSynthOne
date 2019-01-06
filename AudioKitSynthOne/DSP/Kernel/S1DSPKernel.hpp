@@ -495,7 +495,10 @@ private:
 
         { arpSeqTempoMultiplier, bars_min, 0.25, bars_max, "arpSeqTempoMultiplier", "arpSeqTempoMultiplier", kAudioUnitParameterUnit_Generic, false, NULL},
 
-        { transpose, -24, 0, 24, "transpose", "transpose", kAudioUnitParameterUnit_Generic, false, NULL}
+        { transpose, -24, 0, 24, "transpose", "transpose", kAudioUnitParameterUnit_Generic, false, NULL},
+
+        { adsrPitchTracking, 0, 0, 1, "adsrPitchTracking", "adsrPitchTracking", kAudioUnitParameterUnit_Generic, true, NULL}
+
     };
 };
 #endif

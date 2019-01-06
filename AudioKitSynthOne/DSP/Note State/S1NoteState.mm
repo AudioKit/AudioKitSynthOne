@@ -298,7 +298,18 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     
     // osc amp adsr
     sp_adsr_compute(kernel->spp(), adsr, &internalGate, &amp);
-    
+
+    // adsr pitch tracking
+    const float pitch = log2(newFrequencyOsc1 > 0 ? newFrequencyOsc1 : 261.f);
+    const float ymin = 6.f;
+    const float ymax = 11.f;
+    const float kt0 = (pitch - ymin)/(ymax-ymin);
+    float kt1 = 1.f - clamp(kt0, 0.f, 1.f);
+    kt1 *= kt1;
+    const float ktfloor = 1.f - getParam(adsrPitchTracking); // ??
+    const float kt2 = ((1.f-ktfloor) * kt1) + ktfloor;
+    amp *= kt2;
+
     // filter cutoff adsr
     sp_adsr_compute(kernel->spp(), fadsr, &internalGate, &filter);
     

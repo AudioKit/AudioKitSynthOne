@@ -104,8 +104,9 @@ class Preset: Codable {
     var arpRate = 120.0
     var arpIsSequencer = false
     var arpTotalSteps = 8.0
-    var arpSeqTempoMultiplier = 1.0
+    var arpSeqTempoMultiplier = 0.25
     var transpose = 0
+    var adsrPitchTracking = 0.0
 
     // Author
     var author = ""
@@ -305,8 +306,9 @@ class Preset: Codable {
         arpRate = dictionary["arpRate"] as? Double ?? p(.arpRate)
         arpIsSequencer = dictionary["arpIsSequencer"] as? Bool ?? Bool(p(.arpIsSequencer) > 0 ? true : false)
         arpTotalSteps = dictionary["arpTotalSteps"] as? Double ?? p(.arpTotalSteps)
-        arpSeqTempoMultiplier = dictionary["arpSeqTempoMultiplier"] as? Double ?? 1.0
+        arpSeqTempoMultiplier = dictionary["arpSeqTempoMultiplier"] as? Double ?? 0.25
         transpose = dictionary["transpose"] as? Int ?? 0
+        adsrPitchTracking = dictionary["adsrPitchTracking"] as? Double ?? 0
         
         author = dictionary["author"] as? String ?? author
         category = dictionary["category"] as? Int ?? category

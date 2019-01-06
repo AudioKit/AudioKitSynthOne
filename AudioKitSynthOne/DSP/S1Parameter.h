@@ -164,6 +164,8 @@ typedef AK_ENUM(S1Parameter) {
 
     transpose = 148,
 
-    S1ParameterCount = 149
+    adsrPitchTracking = 149,
+
+    S1ParameterCount = 150
 } S1Parameter;
 

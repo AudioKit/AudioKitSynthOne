@@ -353,6 +353,8 @@ public class HeaderViewController: UpdatableViewController {
             let obe = s.getSynthParameter(.oscBandlimitEnable) > 0 ? "On" : "Off"
             displayLabel.text = "Anti-Aliasing: \(obe)"
 
+        case .adsrPitchTracking:
+            displayLabel.text = "ADSR Pitch Tracking: \(s.getSynthParameter(.adsrPitchTracking).decimalString)"
         default:
             _ = 0
             // do nothing

@@ -24,8 +24,7 @@ void S1DSPKernel::startNote(int noteNumber, int velocity) {
     if (noteNumber < 0 || noteNumber >= S1_NUM_MIDI_NOTES)
         return;
 
-    const float frequency = tuningTableNoteToHz(noteNumber + (int)p[transpose]);
-    startNote(noteNumber, velocity, frequency);
+    startNote(noteNumber, velocity, 1.f); // freq overridden
 }
 
 // NOTE ON
@@ -39,11 +38,14 @@ void S1DSPKernel::startNote(int noteNumber, int velocity, float frequency) {
     [heldNoteNumbers insertObject:nn atIndex:0];
     [heldNoteNumbersAE updateWithContentsOfArray:heldNoteNumbers];
 
+    // the tranpose feature leads to the override of the AKPolyphonicNode::startNote frequency
+    const float frequencyTranposeOverride = tuningTableNoteToHz(noteNumber + (int)p[transpose]);
+
     // ARP/SEQ
     if (p[arpIsOn] == 1.f) {
         return;
     } else {
-        turnOnKey(noteNumber, velocity, frequency);
+        turnOnKey(noteNumber, velocity, frequencyTranposeOverride);
     }
 }
 

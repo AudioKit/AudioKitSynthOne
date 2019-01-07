@@ -273,7 +273,9 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("Phaser Notch Width: \(value.decimalString)", comment: "Phaser Notch Width")
             displayLabel.text = message
         case .arpInterval:
-            let message = NSLocalizedString("Arpeggiator Interval: \(Int(value))", comment: "Arpeggiator Interval")
+            let npo = AKPolyphonicNode.tuningTable.npo
+            let npo1 = Int(Double(npo) * Double(value)/12.0)
+            let message = NSLocalizedString("Arpeggiator Interval: \(npo1) of \(npo)", comment: "Arpeggiator Interval")
             displayLabel.text = message
         case .transpose:
             //TODO: localize

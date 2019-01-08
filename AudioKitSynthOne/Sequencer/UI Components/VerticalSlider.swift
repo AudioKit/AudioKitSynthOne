@@ -28,8 +28,8 @@ class VerticalSlider: UIControl, S1Control {
     }
 
 	lazy var accessibilityChangeAmount: CGFloat = 1.0 / 24.0
-    let knobSize = CGSize(width: 40, height: 28)
-    let barMargin: CGFloat = 20.0
+    var knobSize = CGSize(width: 40, height: 28)
+    var barMargin: CGFloat = 20.0
     var knobRect: CGRect!
     var barLength: CGFloat = 132.0
     var isSliding = false
@@ -48,7 +48,6 @@ class VerticalSlider: UIControl, S1Control {
             currentValue = actualToInternalValue(newValue)
             setNeedsDisplay()
         }
-
     }
 
     override init(frame: CGRect) {
@@ -60,6 +59,7 @@ class VerticalSlider: UIControl, S1Control {
         super.init(coder: coder)
         self.isUserInteractionEnabled = true
         contentMode = .redraw
+       
     }
 
     class override var requiresConstraintBasedLayout: Bool {
@@ -75,12 +75,24 @@ extension VerticalSlider {
     }
 
     func setupView() {
+        if Conductor.sharedInstance.device == .phone {
+            knobSize = CGSize(width: 34, height: 17)
+        }
         knobRect = CGRect(x: 0, y: sliderY, width: knobSize.width, height: knobSize.height)
-        barLength = bounds.height - (barMargin * 2)
+      
+        if Conductor.sharedInstance.device == .phone {
+            barLength = bounds.height - 8
+            barMargin = -5
+        } else {
+            barLength = bounds.height - (barMargin * 2)
+        }
     }
 
     override func draw(_ rect: CGRect) {
-        SliderStyleKit.drawVerticalSlider(sliderY: sliderY)
+        SliderStyleKit.drawVerticalSlider(frame: CGRect(x: 0,
+                                                        y: 0,
+                                                        width: self.bounds.width,
+                                                        height: self.bounds.height), sliderY: sliderY)
     }
 
     override func prepareForInterfaceBuilder() {
@@ -118,9 +130,15 @@ extension VerticalSlider {
 // MARK: - Control Touch Handling
 extension VerticalSlider {
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        if knobRect.contains(touch.location(in: self)) {
+       // if knobRect.contains(touch.location(in: self)) {
             isSliding = true
-        }
+        //}
+        
+        let rawY = touch.location(in: self).y
+        currentValue = convertYToValue(rawY)
+        callback(Double(currentValue) )
+        self.setNeedsDisplay()
+        
         return true
     }
 

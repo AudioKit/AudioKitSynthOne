@@ -13,7 +13,7 @@ class TouchPoint: UIView {
 
     var x = 0.0
     var y = 0.0
-    var width = 61.0
+    var width = 63.0
 
     override func draw(_ rect: CGRect) {
          TouchPointStyleKit.drawTouchPoint(frame: CGRect(x: x, y: y, width: width, height: width) )

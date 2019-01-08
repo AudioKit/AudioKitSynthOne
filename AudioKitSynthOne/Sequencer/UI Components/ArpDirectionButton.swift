@@ -35,7 +35,10 @@ class ArpDirectionButton: UIView, S1Control {
 
     // Draw Button
     override func draw(_ rect: CGRect) {
-        ArpDirectionStyleKit.drawArpDirectionButton(directionSelected: CGFloat(value))
+        ArpDirectionStyleKit.drawArpDirectionButton(frame: CGRect(x: 0,
+                                                                  y: 0,
+                                                                  width: self.bounds.width,
+                                                                  height: self.bounds.height),directionSelected: CGFloat(value))
     }
 
     // MARK: - Handle Touches

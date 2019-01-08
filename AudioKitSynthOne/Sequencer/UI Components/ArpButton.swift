@@ -37,7 +37,11 @@ class ArpButton: UIView, S1Control {
     public var callback: (Double) -> Void = { _ in }
 
     override func draw(_ rect: CGRect) {
-        ArpButtonStyleKit.drawArpButton(isToggled: value > 0 ? true : false)
+        ArpButtonStyleKit.drawArpButton(frame: CGRect(x: 0,
+                                                      y: 0,
+                                                      width: self.bounds.width,
+                                                      height: self.bounds.height),
+                                        isToggled: value > 0 ? true : false)
     }
 
     // MARK: - Handle Touches

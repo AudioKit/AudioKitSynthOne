@@ -71,7 +71,11 @@ class Stepper: UIView, S1Control {
     // MARK: - Draw
 
     override func draw(_ rect: CGRect) {
-        StepperStyleKit.drawStepper(valuePressed: valuePressed, text: "\(Int(value))")
+        StepperStyleKit.drawStepper(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: self.bounds.width,
+                                                  height: self.bounds.height),
+                                    valuePressed: valuePressed, text: "\(Int(value))")
     }
 
     // MARK: - Handle Touches

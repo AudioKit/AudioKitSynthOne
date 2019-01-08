@@ -28,7 +28,11 @@ class ToggleButton: UIView, S1Control {
     }
 
     override func draw(_ rect: CGRect) {
-        ToggleButtonStyleKit.drawRoundButton(isToggled: isOn)
+        ToggleButtonStyleKit.drawRoundButton(frame: CGRect(x: 0,
+                                                           y: 0,
+                                                           width: self.bounds.width,
+                                                           height: self.bounds.height),
+                                             isToggled: isOn)
     }
 
     // MARK: - Handle Touches

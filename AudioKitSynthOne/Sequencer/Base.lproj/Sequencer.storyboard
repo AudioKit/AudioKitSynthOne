@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bvz-71-JLK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DmY-pP-oAv">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_arp" translatesAutoresizingMaskIntoConstraints="NO" id="WJE-oy-zRo">
@@ -714,14 +714,13 @@
         <!--Sequencer Panel Controller-->
         <scene sceneID="ALK-Wc-SFb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yu7-Mv-6Ke" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="iPhoneSequencerPanel" id="vpq-0X-DVf" customClass="SequencerPanelController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ENT-gi-6xH"/>
                         <viewControllerLayoutGuide type="bottom" id="KpM-6x-Koz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="a3L-bL-l7a">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interval" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="54w-sf-dP0">
@@ -1352,7 +1351,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6WO-Jr-wio" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="634" y="-1" width="60" height="151"/>
+                                <rect key="frame" x="629" y="0.0" width="42" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="PreviousFXPage" label="Previous FX Page">
@@ -1364,7 +1363,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5X8-Im-sVI" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="634" y="149" width="60" height="149"/>
+                                <rect key="frame" x="629" y="115" width="42" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="NextTuningsPage" label="Next Tunings Page">
@@ -1405,6 +1404,7 @@
                         <outlet property="sequencerToggle" destination="WV9-g4-xnm" id="LRs-6O-kFP"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yu7-Mv-6Ke" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-396" y="-1044"/>
         </scene>

@@ -115,7 +115,10 @@ public class TuningsPitchWheelView: UIView {
         let r = inset * (w < h ? w : h)
         let xp = x + 0.5 * w
         let yp = y + 0.5 * h
-        let fontSize: CGFloat = 16
+        var fontSize: CGFloat = 16
+        if Conductor.sharedInstance.device == .phone {
+            fontSize = 15
+        }
         let sdf = UIFont.systemFont(ofSize: fontSize)
         let bdf2 = UIFont.boldSystemFont(ofSize: 2 * fontSize)
         UIColor.black.setStroke()

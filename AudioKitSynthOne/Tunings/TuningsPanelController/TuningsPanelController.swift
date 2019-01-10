@@ -74,6 +74,7 @@ class TuningsPanelController: PanelController {
                     self.masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
                     self.selectRow()
                     self.resetTuningsButton.value = 0
+                    self.conductor.updateDisplayLabel("Tuning Reset: 12ET/440")
                 }
             }
             

@@ -167,11 +167,11 @@ public class Manager: UpdatableViewController {
 
         // Pre-load views and Set initial subviews
         switchToChildPanel(.effects, isOnTop: true)
-        switchToChildPanel(.envelopes, isOnTop: false)
         switchToChildPanel(.touchPad, isOnTop: true)
         switchToChildPanel(.sequencer, isOnTop: true)
         switchToChildPanel(.generators, isOnTop: true)
         switchToChildPanel(.effects, isOnTop: true)
+        switchToChildPanel(.envelopes, isOnTop: true)
         
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)

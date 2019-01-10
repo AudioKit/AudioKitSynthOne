@@ -32,7 +32,7 @@ extension Manager {
             popOverController.saveTuningWithPreset = appSettings.saveTuningWithPreset
             popOverController.velocitySensitive = appSettings.velocitySensitive
 
-            popOverController.preferredContentSize = CGSize(width: 300, height: 470)
+            popOverController.preferredContentSize = CGSize(width: 600, height: 378)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
                 presentation.sourceRect = midiButton.bounds

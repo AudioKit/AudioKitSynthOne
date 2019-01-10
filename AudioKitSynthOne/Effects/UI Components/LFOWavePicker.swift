@@ -30,7 +30,11 @@ class LFOWavePicker: UIView, S1Control {
 
     // Draw Button
     override func draw(_ rect: CGRect) {
-        LFOPickerStyleKit.drawLFOWaveformPicker(fraction: CGFloat(value / 3.0))
+        LFOPickerStyleKit.drawLFOWaveformPicker(frame: CGRect(x: 0,
+                                                              y: 0,
+                                                              width: self.bounds.width,
+                                                              height: self.bounds.height),
+                                                fraction: CGFloat(value / 3.0))
     }
 
     // MARK: - Handle Touches

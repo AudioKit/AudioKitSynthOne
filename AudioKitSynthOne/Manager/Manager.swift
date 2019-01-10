@@ -94,7 +94,7 @@ public class Manager: UpdatableViewController {
     lazy var fxPanel: EffectsPanelController = {
         let effectsStoryboard = UIStoryboard(name: "Effects", bundle: Bundle.main)
         var vcName = ChildPanel.effects.identifier()
-        //if conductor.device == .phone { vcName = "iPhone" + vcName }
+        if conductor.device == .phone { vcName = "iPhone" + vcName }
         return effectsStoryboard.instantiateViewController(withIdentifier: vcName) as! EffectsPanelController
     }()
 
@@ -171,6 +171,7 @@ public class Manager: UpdatableViewController {
         switchToChildPanel(.touchPad, isOnTop: true)
         switchToChildPanel(.sequencer, isOnTop: true)
         switchToChildPanel(.generators, isOnTop: true)
+        switchToChildPanel(.effects, isOnTop: true)
         
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)

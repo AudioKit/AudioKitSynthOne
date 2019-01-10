@@ -834,6 +834,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B491AB20C7D10200FD565A /* LFOWavePicker.swift */,
+				C4B491C120C7DF2A00FD565A /* LFOPickerStyleKit.swift */,
 				949D93B61F2C188B007E657B /* LFOButtonStyleKit.swift */,
 				949D93B51F2C188B007E657B /* LFOToggle.swift */,
 			);
@@ -1220,7 +1221,6 @@
 			children = (
 				94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */,
 				C4B491C020C7DF2A00FD565A /* MorphSelectorStyleKit.swift */,
-				C4B491C120C7DF2A00FD565A /* LFOPickerStyleKit.swift */,
 				9479F20421E4FB05003605B9 /* TopUIButtonStyleKit.swift */,
 			);
 			path = StyleKits;

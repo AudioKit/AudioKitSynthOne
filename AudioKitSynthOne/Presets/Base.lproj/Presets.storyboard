@@ -278,7 +278,7 @@
                     </state>
                 </button>
             </objects>
-            <point key="canvasLocation" x="-362" y="1"/>
+            <point key="canvasLocation" x="-366" y="43"/>
         </scene>
         <!--Presets Categories View Controller-->
         <scene sceneID="3MB-ly-1jK">
@@ -299,12 +299,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" id="00o-XX-d7Y" customClass="CategoryCell" customModule="AudioKitSynthOne" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="170" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="00o-XX-d7Y" id="abR-oz-Wbh">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="00o-XX-d7Y" id="abR-oz-Wbh">
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jut-wm-dt0">
-                                                    <rect key="frame" x="25" y="11" width="136" height="22"/>
+                                                    <rect key="frame" x="18" y="8" width="92" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="IYd-bZ-TD5"/>
                                                     </constraints>
@@ -313,7 +313,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XrX-Zk-mWi" userLabel="Share Button">
-                                                    <rect key="frame" x="193" y="14" width="18" height="17"/>
+                                                    <rect key="frame" x="142" y="11" width="18" height="17"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <accessibility key="accessibilityConfiguration" hint="Shares Preset." identifier="ShareButton" label="Share"/>
                                                     <constraints>
@@ -328,7 +328,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Net-gX-dJb">
-                                                    <rect key="frame" x="167" y="15" width="18" height="17"/>
+                                                    <rect key="frame" x="116" y="12" width="18" height="17"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="EditButton" label="Edit"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="18" id="GIf-0n-naM"/>
@@ -658,8 +658,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPhone_Preset" translatesAutoresizingMaskIntoConstraints="NO" id="1Bz-Sv-qcB">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="237"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hi-31-vps">
-                                <rect key="frame" x="526" y="2" width="133" height="24"/>
+                                <rect key="frame" x="524" y="2" width="133" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -681,7 +685,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Preset Description Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xui-d6-2ur">
                                 <rect key="frame" x="494" y="25" width="168" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="0.50486905810000005" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="0.75037419508630143" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -756,7 +760,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wGS-dv-2m9">
-                                <rect key="frame" x="182" y="3" width="304" height="219"/>
+                                <rect key="frame" x="183" y="3" width="304" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -925,6 +929,7 @@
         <image name="ak_fav" width="22" height="22"/>
         <image name="ak_share" width="22" height="22"/>
         <image name="au_presets" width="1024" height="299"/>
+        <image name="iPhone_Preset" width="1334" height="470"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bbd-Kw-ElO"/>

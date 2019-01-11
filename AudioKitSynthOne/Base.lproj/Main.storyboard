@@ -373,6 +373,8 @@
                         <outlet property="octaveStepper" destination="LyF-GB-awR" id="Fcb-D9-Z8z"/>
                         <outlet property="pitchBend" destination="kzH-H2-qmM" id="WES-lV-8c5"/>
                         <outlet property="topContainerView" destination="A4E-fM-RwT" id="gwL-d9-oBm"/>
+                        <segue destination="8P9-DY-HCH" kind="presentation" identifier="SegueToAbout" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="V8h-iZ-Ly2"/>
+                        <segue destination="M7f-x2-kSI" kind="presentation" identifier="SegueToMore" id="y4G-gB-dDe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkY-CW-6Da" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1491,6 +1493,14 @@
             </objects>
             <point key="canvasLocation" x="-1029" y="-634"/>
         </scene>
+        <!--iPhoneAbout-->
+        <scene sceneID="X3t-Ca-5If">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="iPhoneAbout" id="8P9-DY-HCH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AWM-iD-fgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1155" y="-1384"/>
+        </scene>
         <!--iPhonePresets-->
         <scene sceneID="hFZ-gj-4EN">
             <objects>
@@ -1506,6 +1516,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOg-qd-2Hd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1079" y="-1291"/>
+        </scene>
+        <!--iPhoneInfoView-->
+        <scene sceneID="bnA-4z-ea7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="iPhoneInfoView" id="M7f-x2-kSI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDA-nG-Rwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1155" y="-1427"/>
         </scene>
         <!--Header-->
         <scene sceneID="GZ3-G8-AZd">

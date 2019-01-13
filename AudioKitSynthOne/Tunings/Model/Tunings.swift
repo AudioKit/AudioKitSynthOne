@@ -167,7 +167,9 @@ class Tunings {
         }
     }
 
-    ///
+    /// saveTunings
+    /// Save for the cases where selectedTuningIndex changes
+    /// Need to extend TuningBanks from array to dictionary with selectedBankIndex value
     private func saveTunings() {
         DispatchQueue.global(qos: .userInitiated).async {
             do {
@@ -206,6 +208,8 @@ class Tunings {
 
         // IN-PLACE
         tuningBank.tunings = t
+
+        // No need to save reordering of tunings
     }
 
     /// adds tuning to user bank if it does not exist
@@ -277,6 +281,7 @@ class Tunings {
         let tuning = b.tunings[b.selectedTuningIndex]
         AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
         tuningsDelegate?.tuningDidChange()
+        saveTunings()
     }
 
     // Assumes tuning[0] is twelve et for all tuningBanks

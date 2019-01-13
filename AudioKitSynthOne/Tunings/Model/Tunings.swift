@@ -169,10 +169,12 @@ class Tunings {
 
     ///
     private func saveTunings() {
-        do {
-            try Disk.save(tuningBanks, to: .documents, as: tuningFilenameV1)
-        } catch {
-            AKLog("*** error saving tuning banks")
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                try Disk.save(self.tuningBanks, to: .documents, as: self.tuningFilenameV1)
+            } catch {
+                AKLog("*** error saving tuning banks")
+            }
         }
     }
 
@@ -241,7 +243,6 @@ class Tunings {
                         selectedBankIndex = bi
                         b.selectedTuningIndex = sortedIndices[0]
                         refreshDatasource = true
-                        saveTunings()
                     }
                 } else {
                     // New Tuning for a bundled bank.
@@ -253,6 +254,7 @@ class Tunings {
         // Update global tuning table no matter what
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: masterFrequencies)
         tuningsDelegate?.tuningDidChange()
+        saveTunings()
 
         return refreshDatasource
     }
@@ -264,6 +266,7 @@ class Tunings {
         let tuning = b.tunings[b.selectedTuningIndex]
         AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
         tuningsDelegate?.tuningDidChange()
+        saveTunings()
     }
 
     /// select the bank at row
@@ -286,6 +289,7 @@ class Tunings {
         let f = Conductor.sharedInstance.synth!.getDefault(.frequencyA4)
         Conductor.sharedInstance.synth!.setSynthParameter(.frequencyA4, f)
         tuningsDelegate?.tuningDidChange()
+        saveTunings()
     }
 
     public func randomTuning() {
@@ -294,6 +298,7 @@ class Tunings {
         let tuning = b.tunings[b.selectedTuningIndex]
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
         tuningsDelegate?.tuningDidChange()
+        saveTunings()
     }
 
     public func getTuning() -> (String, [Double]) {

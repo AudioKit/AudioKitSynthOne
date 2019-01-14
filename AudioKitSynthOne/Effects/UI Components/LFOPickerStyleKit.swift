@@ -19,7 +19,7 @@ public class LFOPickerStyleKit : NSObject {
 
     @objc dynamic public class func drawLFOWaveformPicker(frame: CGRect = CGRect(x: 0, y: 0, width: 215, height: 42), fraction: CGFloat = 0) {
         //// Color Declarations
-        let color = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
+        var color = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
         let selected = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)
         let unselected = UIColor(red: 0.533, green: 0.533, blue: 0.533, alpha: 1.000)
 
@@ -31,6 +31,9 @@ public class LFOPickerStyleKit : NSObject {
 
         //// background Drawing
         let backgroundPath = UIBezierPath(rect: CGRect(x: frame.minX, y: frame.minY, width: 215, height: 42))
+        if Conductor.sharedInstance.device == .phone {
+            color = #colorLiteral(red: 0.1254734099, green: 0.1255019307, blue: 0.1254696548, alpha: 0)
+        }
         color.setFill()
         backgroundPath.fill()
 

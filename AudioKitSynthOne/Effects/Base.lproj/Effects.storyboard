@@ -959,7 +959,6 @@
         <!--FX-->
         <scene sceneID="rYx-yZ-vhQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mhz-BK-Xbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="iPhoneEffectsPanel" id="beq-nP-gfV" userLabel="FX" customClass="EffectsPanelController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xmZ-kt-AzV"/>
@@ -969,6 +968,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPhone_FX" translatesAutoresizingMaskIntoConstraints="NO" id="S0F-nr-g2t">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="237"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDP-3y-PJ4" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="12" y="60" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1028,7 +1031,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LFO 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPq-pu-1xe">
                                 <rect key="frame" x="145" y="1" width="128" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
@@ -1064,7 +1067,7 @@
                                 </accessibility>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73s-04-3K0" customClass="LFOWavePicker" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="147" y="23" width="128" height="28"/>
+                                <rect key="frame" x="148" y="23" width="128" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFO2WaveFormPicker" label="L F O 2 WaveForm">
@@ -1111,7 +1114,7 @@
                                 </attributedString>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6JH-OX-nBC" customClass="iPhoneToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="291" y="18" width="58" height="34"/>
+                                <rect key="frame" x="291" y="19" width="58" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="TempoSyncButton" label="Tempo Sync">
@@ -1123,7 +1126,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqR-pn-gVt" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="367" y="165" width="40" height="40"/>
+                                <rect key="frame" x="341" y="166" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="AutoPanRateKnob" label="Auto Pan Rate">
@@ -1132,7 +1135,7 @@
                                 </accessibility>
                             </view>
                             <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ai1-If-rfq" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="572" y="33" width="40" height="40"/>
+                                <rect key="frame" x="574" y="32" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="ReverbMixKnob" label="Reverb Mix">
@@ -1141,7 +1144,7 @@
                                 </accessibility>
                             </view>
                             <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nzP-hX-3Kh" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="512" y="33" width="40" height="40"/>
+                                <rect key="frame" x="511" y="32" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="ReverbLowPassCutoffKnob" label="Reverb LowPass Cutoff">
@@ -1150,7 +1153,7 @@
                                 </accessibility>
                             </view>
                             <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HF7-k8-fPu" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="444" y="89" width="40" height="40"/>
+                                <rect key="frame" x="446" y="86" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="DelayTimeKnob" label="Delay Time in Milliseconds">
@@ -1159,7 +1162,7 @@
                                 </accessibility>
                             </view>
                             <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JyJ-c5-iWg" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="509" y="91" width="40" height="40"/>
+                                <rect key="frame" x="511" y="88" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="DelayFeedbackKnob" label="Delay Feedback">
@@ -1168,7 +1171,7 @@
                                 </accessibility>
                             </view>
                             <view tag="107" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8LT-6e-D56" userLabel="Knob" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="442" y="33" width="40" height="40"/>
+                                <rect key="frame" x="444" y="32" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="ReverbSizeKnob" label="Reverb Size">
@@ -1177,7 +1180,7 @@
                                 </accessibility>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhM-AQ-5uN" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="10" y="140" width="77" height="27"/>
+                                <rect key="frame" x="10" y="139" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFOCutoffSwipeToggle" label="LFO Cut Off">
@@ -1197,7 +1200,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1aE-h9-dgw" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="10" y="172" width="77" height="27"/>
+                                <rect key="frame" x="10" y="170" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFOResonanceSwipeToggle" label="LFO Resonance">
@@ -1217,7 +1220,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="taY-Qs-DjE" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="10" y="206" width="77" height="27"/>
+                                <rect key="frame" x="10" y="200" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFOOscillatorMixSwipeToggle" label="LFO Oscillator Mix">
@@ -1237,7 +1240,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHh-v1-cYG" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="100" y="140" width="77" height="27"/>
+                                <rect key="frame" x="91" y="139" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFOReverbSwipeToggle" label="LFO Reverb">
@@ -1249,7 +1252,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtG-yY-Gwb" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="100" y="172" width="77" height="27"/>
+                                <rect key="frame" x="91" y="170" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFODecay" label="LFO Decay">
@@ -1269,7 +1272,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7a-eU-Hwk" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="100" y="200" width="77" height="27"/>
+                                <rect key="frame" x="91" y="200" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFONoise" label="LFO Noise">
@@ -1281,7 +1284,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqh-9Q-Q8u" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="190" y="140" width="77" height="27"/>
+                                <rect key="frame" x="172" y="139" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFOFMModSwipeToggle" label="LFO FM Mod">
@@ -1301,7 +1304,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OIq-d4-D89" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="190" y="172" width="77" height="27"/>
+                                <rect key="frame" x="172" y="170" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFODetuneSwipeToggle" label="LFO Detune">
@@ -1313,7 +1316,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="507-gs-Udc" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="190" y="200" width="77" height="27"/>
+                                <rect key="frame" x="172" y="200" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFOFilterEnvelopeSwipeToggle" label="LFO Filter Envelope">
@@ -1333,7 +1336,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bN7-MI-9M4" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="279" y="140" width="77" height="27"/>
+                                <rect key="frame" x="253" y="139" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFOPitchSwipeToggle" label="LFO Pitch">
@@ -1353,7 +1356,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SMi-yy-p4r" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="279" y="172" width="77" height="27"/>
+                                <rect key="frame" x="253" y="170" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFOBitcrushSwipeToggle" label="LFO Bitcrush">
@@ -1373,7 +1376,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JLB-gm-tYp" customClass="LFOToggle" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="279" y="200" width="77" height="27"/>
+                                <rect key="frame" x="253" y="200" width="77" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="LFO Tremolo Swipe Toggle" label="LFO Tremolo">
@@ -1394,7 +1397,7 @@
                                 </accessibility>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5R3-pL-pZV" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="629" y="-1" width="42" height="120"/>
+                                <rect key="frame" x="629" y="-1" width="42" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="PreviousXPadPage" label="Previous XPad Page">
@@ -1406,7 +1409,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tt9-dN-24P" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="629" y="114" width="42" height="120"/>
+                                <rect key="frame" x="629" y="115" width="42" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="NextSequencerPage" label="Next Sequencer Page">
@@ -1432,7 +1435,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LFO 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8J-f3-jhb">
                                 <rect key="frame" x="4" y="1" width="136" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
@@ -1450,14 +1453,14 @@
                                 </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BitCrusher" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ew-yD-Uby">
-                                <rect key="frame" x="291" y="104" width="58" height="27"/>
+                                <rect key="frame" x="291" y="109" width="58" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jao-Od-c81">
-                                <rect key="frame" x="414" y="205" width="46" height="21"/>
+                                <rect key="frame" x="390" y="205" width="38" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1476,7 +1479,7 @@
                                 </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqC-Af-7EK" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="421" y="23" width="24" height="74"/>
+                                <rect key="frame" x="423" y="28" width="24" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1500,7 +1503,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bzv-o2-WbT" customClass="iPhoneToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="371" y="40" width="48" height="32"/>
+                                <rect key="frame" x="371" y="39" width="48" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="ReverbButton" label="Reverb">
@@ -1512,7 +1515,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTj-ey-DAg" customClass="iPhoneToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="371" y="93" width="48" height="32"/>
+                                <rect key="frame" x="371" y="90" width="48" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="DelayButton" label="Delay">
@@ -1524,7 +1527,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w51-vb-eic" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="547" y="186" width="40" height="40"/>
+                                <rect key="frame" x="535" y="166" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="PhaserFeedbackKnob" label="Phaser Feedback">
@@ -1533,7 +1536,7 @@
                                 </accessibility>
                             </view>
                             <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2l1-I1-bqN" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="596" y="133" width="40" height="40"/>
+                                <rect key="frame" x="488" y="166" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="PhaserMixKnob" label="Phaser Mix">
@@ -1542,7 +1545,7 @@
                                 </accessibility>
                             </view>
                             <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvD-MU-gsK" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="586" y="164" width="40" height="40"/>
+                                <rect key="frame" x="582" y="166" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="PhaserNotchFrequencyKnob" label="Phaser Notch Frequency">
@@ -1551,9 +1554,9 @@
                                 </accessibility>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phaser" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WX1-86-nbk">
-                                <rect key="frame" x="474" y="138" width="70" height="18"/>
+                                <rect key="frame" x="444" y="137" width="70" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
@@ -1563,7 +1566,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCs-y0-gjV" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="483" y="168" width="40" height="50"/>
+                                <rect key="frame" x="441" y="166" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="PhaserRateKnob" label="Phaser Rate">
@@ -1572,7 +1575,7 @@
                                 </accessibility>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQo-HD-Ejf">
-                                <rect key="frame" x="361" y="205" width="62" height="21"/>
+                                <rect key="frame" x="340" y="205" width="38" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1583,7 +1586,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Low Cut" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ffl-yg-ICy" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="470" y="24" width="58" height="65"/>
+                                <rect key="frame" x="478" y="21" width="46" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1607,7 +1610,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceD-JP-3id" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="421" y="89" width="24" height="66"/>
+                                <rect key="frame" x="423" y="83" width="24" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1631,7 +1634,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="onc-Lq-UKJ" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="470" y="79" width="58" height="67"/>
+                                <rect key="frame" x="472" y="76" width="58" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1655,7 +1658,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJT-wP-Pdc" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="457" y="159" width="38" height="74"/>
+                                <rect key="frame" x="440" y="205" width="38" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1666,12 +1669,12 @@
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rotation">
-                                        <integer key="value" value="270"/>
+                                        <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feedback" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gZ-VT-9vm" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="640" y="157" width="58" height="74"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gZ-VT-9vm" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="536" y="205" width="38" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1690,12 +1693,12 @@
                                 </attributedString>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rotation">
-                                        <integer key="value" value="270"/>
+                                        <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2UQ-T9-cyT" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="551" y="23" width="28" height="57"/>
+                                <rect key="frame" x="553" y="22" width="28" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1719,7 +1722,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TeF-4p-fic" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="551" y="84" width="27" height="64"/>
+                                <rect key="frame" x="553" y="80" width="27" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
                                 <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1739,7 +1742,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eEC-4s-p12" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="577" y="90" width="40" height="40"/>
+                                <rect key="frame" x="574" y="87" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="DelayMixKnob" label="Delay Mix">
@@ -1748,9 +1751,9 @@
                                 </accessibility>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Effects Rack" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67q-uW-SrG">
-                                <rect key="frame" x="364" y="0.0" width="337" height="22"/>
+                                <rect key="frame" x="369" y="1" width="236" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
@@ -1767,18 +1770,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AutoPan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tbz-AJ-glC">
-                                <rect key="frame" x="378" y="145" width="62" height="21"/>
+                                <rect key="frame" x="351" y="137" width="62" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
-                                <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nYi-hJ-kOz" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="416" y="165" width="40" height="40"/>
+                                <rect key="frame" x="389" y="166" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="AutoPan Amplitude Knob" label="AutoPan Amplitude">
@@ -1787,7 +1790,7 @@
                                 </accessibility>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0rl-zv-BXn" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="522" y="182" width="29" height="74"/>
+                                <rect key="frame" x="494" y="205" width="29" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1812,12 +1815,12 @@
                                 </attributedString>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rotation">
-                                        <integer key="value" value="270"/>
+                                        <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gfk-DT-aWM" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="552" y="136" width="62" height="28"/>
+                                <rect key="frame" x="579" y="205" width="47" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1886,11 +1889,13 @@
                         <outlet property="tremoloLFOToggle" destination="JLB-gm-tYp" id="TpZ-rG-myr"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mhz-BK-Xbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-581.25" y="-1105.46875"/>
+            <point key="canvasLocation" x="-581.25" y="-1106.25"/>
         </scene>
     </scenes>
     <resources>
         <image name="au_efx" width="1024" height="299"/>
+        <image name="iPhone_FX" width="1334" height="470"/>
     </resources>
 </document>

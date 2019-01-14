@@ -247,6 +247,14 @@ public class Manager: UpdatableViewController {
                 performSegue(withIdentifier: "SegueToApps", sender: nil) 
             }
             
+            // Check for Device Type, set buffer to 1024 for iPad 4s
+            if appSettings.presetsVersion < 1.25 {
+                if UIDevice.current.modelName == "iPad 4" {
+                    AKSettings.bufferLength = .veryLong
+                    try? AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
+                }
+            }
+            
             presetsViewController.upgradePresets()
             // Save appSettings
             appSettings.presetsVersion = currentPresetVersion
@@ -267,7 +275,7 @@ public class Manager: UpdatableViewController {
 
         // On four runs show dialog and request review
         if appSettings.launches == 5 && !appSettings.isPreRelease { reviewPopUp() }
-        if appSettings.launches % 21 == 0 && !appSettings.isPreRelease && appSettings.launches > 0 { requestReview() }
+        if appSettings.launches % 41 == 0 && !appSettings.isPreRelease && appSettings.launches > 0 { requestReview() }
 
         // Push Notifications request
         if appSettings.launches == 9 && !appSettings.pushNotifications { pushPopUp() }
@@ -285,6 +293,13 @@ public class Manager: UpdatableViewController {
             self.keyboardToggle.callback(self.appSettings.showKeyboard)
         }
 
+        // Check for Device Type
+        let modelName = UIDevice.current.modelName
+        if appSettings.firstRun && (conductor.device == .phone || modelName == "iPad 4") {
+            AKSettings.bufferLength = .veryLong
+            try? AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
+        }
+        
         // Increase number of launches
         appSettings.launches += 1
         saveAppSettingValues()

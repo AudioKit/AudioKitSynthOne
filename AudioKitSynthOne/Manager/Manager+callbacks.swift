@@ -110,7 +110,7 @@ extension Manager {
                 self.keyboardTopConstraint.constant = newConstraintValue
                 if isPhoneX {
                     self.keyboardLeftConstraint.constant = sideConstraintValue
-                    self.keyboardRightConstraint.constant = (sideConstraintValue)
+                    self.keyboardRightConstraint.constant = sideConstraintValue
                 }
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in

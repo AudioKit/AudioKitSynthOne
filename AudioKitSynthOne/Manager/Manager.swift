@@ -217,10 +217,10 @@ public class Manager: UpdatableViewController {
 			NSLocalizedString("Off", comment: "Off") :
 			NSLocalizedString("On", comment: "On")
         
-         let isPhoneX  = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) >= 812
+        let isPhoneX  = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) >= 812
         if isPhoneX {
-            self.keyboardLeftConstraint.constant = 42
-            self.keyboardRightConstraint.constant = 42
+            self.keyboardLeftConstraint.constant = 72.5
+            self.keyboardRightConstraint.constant = 72.5
         }
 
     }

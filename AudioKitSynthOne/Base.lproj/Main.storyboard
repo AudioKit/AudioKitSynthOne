@@ -58,17 +58,24 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rack-left" translatesAutoresizingMaskIntoConstraints="NO" id="nOC-fL-84F">
-                                <rect key="frame" x="52.5" y="0.0" width="20" height="375"/>
+                                <rect key="frame" x="48.5" y="0.0" width="20" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="JDk-kP-QZV"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rack-left" translatesAutoresizingMaskIntoConstraints="NO" id="8ZZ-vt-Xhv">
-                                <rect key="frame" x="739.5" y="0.0" width="20" height="375"/>
+                                <rect key="frame" x="743.5" y="0.0" width="20" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="ol6-kV-WCp"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJt-Cb-A4b">
+                                <rect key="frame" x="739.5" y="0.0" width="4" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="5Ec-m3-phk"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZO-u3-H8d" userLabel="KeyboardContainer">
                                 <rect key="frame" x="0.0" y="277" width="812" height="98"/>
                                 <subviews>
@@ -379,14 +386,18 @@
                             <constraint firstItem="Goc-E4-LLj" firstAttribute="top" secondItem="ONJ-nj-oqT" secondAttribute="top" id="3Cr-Pp-3sr"/>
                             <constraint firstItem="Snv-Cp-FiC" firstAttribute="top" secondItem="nOC-fL-84F" secondAttribute="bottom" id="4B8-7R-eAh"/>
                             <constraint firstItem="8ZZ-vt-Xhv" firstAttribute="top" secondItem="ONJ-nj-oqT" secondAttribute="top" id="CM5-2F-7na"/>
-                            <constraint firstItem="Goc-E4-LLj" firstAttribute="leading" secondItem="nOC-fL-84F" secondAttribute="trailing" id="HU9-Vy-2m6"/>
+                            <constraint firstItem="Goc-E4-LLj" firstAttribute="leading" secondItem="nOC-fL-84F" secondAttribute="trailing" constant="4" id="HU9-Vy-2m6"/>
                             <constraint firstItem="8ZO-u3-H8d" firstAttribute="top" secondItem="0vi-gB-nau" secondAttribute="bottom" constant="257" id="MUQ-y2-Ykb"/>
                             <constraint firstItem="Snv-Cp-FiC" firstAttribute="top" secondItem="8ZZ-vt-Xhv" secondAttribute="bottom" id="O0j-SR-wqW"/>
                             <constraint firstItem="Snv-Cp-FiC" firstAttribute="top" secondItem="8ZO-u3-H8d" secondAttribute="bottom" id="Rb6-Kv-Tpz"/>
                             <constraint firstAttribute="trailing" secondItem="8ZO-u3-H8d" secondAttribute="trailing" id="T5D-9b-3DD"/>
-                            <constraint firstItem="8ZZ-vt-Xhv" firstAttribute="leading" secondItem="Goc-E4-LLj" secondAttribute="trailing" id="ke6-8b-cCh"/>
+                            <constraint firstItem="rJt-Cb-A4b" firstAttribute="leading" secondItem="Goc-E4-LLj" secondAttribute="trailing" id="jNe-zd-o3l"/>
+                            <constraint firstItem="8ZZ-vt-Xhv" firstAttribute="leading" secondItem="Goc-E4-LLj" secondAttribute="trailing" constant="4" id="ke6-8b-cCh"/>
                             <constraint firstItem="Goc-E4-LLj" firstAttribute="centerX" secondItem="ONJ-nj-oqT" secondAttribute="centerX" id="rBP-2P-kem"/>
                             <constraint firstItem="Snv-Cp-FiC" firstAttribute="top" secondItem="Goc-E4-LLj" secondAttribute="bottom" id="uh6-sr-Io0"/>
+                            <constraint firstAttribute="bottom" secondItem="rJt-Cb-A4b" secondAttribute="bottom" id="x9v-1N-n4b"/>
+                            <constraint firstItem="rJt-Cb-A4b" firstAttribute="top" secondItem="ONJ-nj-oqT" secondAttribute="top" id="yGo-Rt-ib4"/>
+                            <constraint firstItem="8ZZ-vt-Xhv" firstAttribute="leading" secondItem="rJt-Cb-A4b" secondAttribute="trailing" id="zw0-WN-4bp"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="812" height="375"/>

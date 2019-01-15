@@ -20,7 +20,8 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var videoButton: SynthButton!
     @IBOutlet weak var reviewButton: SynthButton!
     @IBOutlet weak var githubButton: SynthButton!
-
+    @IBOutlet weak var mainTextView: UITextView!
+    
     weak var delegate: AboutDelegate?
 
     override func viewDidLoad() {
@@ -40,7 +41,9 @@ class AboutViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
+        self.mainTextView.setContentOffset(.zero, animated: false)
+       
         // Fade in About Box
         UIView.animate(withDuration: 2, animations: {
             self.parentView.alpha = 1.0

@@ -525,9 +525,8 @@ Red Sky Lullaby, Jakob Haq, Electronisounds, and more...</string>
                         <rect key="frame" x="0.0" y="0.0" width="667" height="475"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="hjs-OQ-bmd">
-                                <rect key="frame" x="0.0" y="0.0" width="800" height="474"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="hjs-OQ-bmd">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="475"/>
                                 <accessibility key="accessibilityConfiguration" label="Exit About">
                                     <accessibilityTraits key="traits" none="YES"/>
                                     <bool key="isElement" value="YES"/>
@@ -771,10 +770,18 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="TFZ-xG-ihW" firstAttribute="top" secondItem="SdH-b3-LNx" secondAttribute="bottom" id="7et-a5-mE3"/>
                             <constraint firstItem="TFZ-xG-ihW" firstAttribute="leading" secondItem="qYn-Gd-Zvv" secondAttribute="leading" id="8xP-Jz-hqX"/>
+                            <constraint firstItem="hjs-OQ-bmd" firstAttribute="leading" secondItem="qYn-Gd-Zvv" secondAttribute="leading" id="BGt-Da-Npv"/>
+                            <constraint firstItem="TFZ-xG-ihW" firstAttribute="trailing" secondItem="qYn-Gd-Zvv" secondAttribute="trailing" id="FUL-xW-7aw"/>
                             <constraint firstItem="W8p-W2-Zup" firstAttribute="top" secondItem="TFZ-xG-ihW" secondAttribute="bottom" id="HF9-tX-3QB"/>
+                            <constraint firstItem="TFZ-xG-ihW" firstAttribute="leading" secondItem="qYn-Gd-Zvv" secondAttribute="leading" id="NxZ-5H-b04"/>
+                            <constraint firstItem="hjs-OQ-bmd" firstAttribute="top" secondItem="SdH-b3-LNx" secondAttribute="bottom" id="XsA-6K-SsQ"/>
                             <constraint firstItem="TFZ-xG-ihW" firstAttribute="trailing" secondItem="qYn-Gd-Zvv" secondAttribute="trailing" id="fQh-gr-uOX"/>
                             <constraint firstItem="TFZ-xG-ihW" firstAttribute="top" secondItem="SdH-b3-LNx" secondAttribute="bottom" id="kmT-eJ-Sec"/>
+                            <constraint firstItem="W8p-W2-Zup" firstAttribute="top" secondItem="TFZ-xG-ihW" secondAttribute="bottom" id="pVG-XM-ajQ"/>
+                            <constraint firstItem="hjs-OQ-bmd" firstAttribute="trailing" secondItem="qYn-Gd-Zvv" secondAttribute="trailing" id="vUu-zN-oP7"/>
+                            <constraint firstItem="W8p-W2-Zup" firstAttribute="top" secondItem="hjs-OQ-bmd" secondAttribute="bottom" id="xEl-2C-uvT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qYn-Gd-Zvv"/>
                     </view>
@@ -783,6 +790,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                     <size key="freeformSize" width="667" height="475"/>
                     <connections>
                         <outlet property="githubButton" destination="nWo-4e-d1r" id="C43-KV-BgL"/>
+                        <outlet property="mainTextView" destination="DdO-X9-3dh" id="kqI-pz-VLp"/>
                         <outlet property="parentView" destination="TFZ-xG-ihW" id="VnX-KC-kgA"/>
                         <outlet property="reviewButton" destination="2nz-jF-6jg" id="cD6-Lc-h6x"/>
                         <outlet property="textContainer" destination="7q6-1Z-d77" id="4GD-xA-W5I"/>
@@ -791,7 +799,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oi4-Wu-2mB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2222" y="-591"/>
+            <point key="canvasLocation" x="-2223.1999999999998" y="-591.45427286356824"/>
         </scene>
         <!--More-->
         <scene sceneID="rcj-mj-PUe">

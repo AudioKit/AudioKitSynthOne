@@ -141,5 +141,6 @@ public extension UIDevice {
         default:                                        return identifier
         }
     }
-    
 }
+
+

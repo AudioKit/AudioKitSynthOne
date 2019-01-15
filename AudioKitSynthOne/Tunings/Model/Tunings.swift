@@ -13,6 +13,12 @@ import Disk
 /// Tuning Model
 class Tunings {
 
+    let conductor = Conductor.sharedInstance
+
+    // TuneUp BackButton
+    private var redirectHost: String?
+    private var redirectFriendlyName: String = "Back"
+
     enum TuningSortType {
         case npo
         case name
@@ -20,7 +26,6 @@ class Tunings {
         // eventually put tuning type here, i.e., mos, cps hexany, scala, unknown, etc.
     }
     private var tuningSortType = TuningSortType.npo
-
 
     public typealias S1TuningCallback = () -> [Double]
     public typealias Frequency = Double
@@ -65,7 +70,10 @@ class Tunings {
     internal static let hexanyTriadTuningsBankName = "Hexanies With Proportional Triads"
 
 
+    // MARK: INIT
     init() {}
+
+    // MARK: STORAGE
 
     ///
     func loadTunings(completionHandler: @escaping S1TuningLoadCallback) {
@@ -180,9 +188,10 @@ class Tunings {
         }
     }
 
+    // MARK: SORT, FILTER
+
     ///
     private func sortTunings(forBank tuningBank: TuningBank, sortType: TuningSortType) {
-
         var t = tuningBank.tunings
         let twelveET = Tuning()
         let insertTwelveET = tuningBank === tuningBanks[Tunings.bundleBankIndex] || tuningBank === tuningBanks[Tunings.userBankIndex]
@@ -263,6 +272,8 @@ class Tunings {
         return refreshDatasource
     }
 
+    // MARK: SELECTION (PERSISTENT)
+
     /// select the tuning at row for selected bank
     public func selectTuning(atRow row: Int) {
         let b = tuningBank
@@ -284,6 +295,8 @@ class Tunings {
         saveTunings()
     }
 
+    // MARK: STATE
+
     // Assumes tuning[0] is twelve et for all tuningBanks
     public func resetTuning() {
         selectedBankIndex = Tunings.bundleBankIndex
@@ -291,8 +304,8 @@ class Tunings {
         b.selectedTuningIndex = 0
         let tuning = b.tunings[b.selectedTuningIndex]
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        let f = Conductor.sharedInstance.synth!.getDefault(.frequencyA4)
-        Conductor.sharedInstance.synth!.setSynthParameter(.frequencyA4, f)
+        let f = conductor.synth!.getDefault(.frequencyA4)
+        conductor.synth!.setSynthParameter(.frequencyA4, f)
         tuningsDelegate?.tuningDidChange()
         saveTunings()
     }
@@ -310,5 +323,126 @@ class Tunings {
         let b = tuningBank
         let tuning = b.tunings[b.selectedTuningIndex]
         return (tuning.name, tuning.masterSet)
+    }
+
+
+    // MARK: TuneUp BackButton
+
+    public func tuneUpBackButton() {
+
+        // must have a host
+        if let redirect = redirectHost {
+
+            // open url
+            let urlStr = "\(redirect)://tuneup?redirect=synth1&redirectFriendlyName=\"Synth One\""
+            if let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                if let url = URL(string: urlStr) {
+
+                    // BackButton: Fast Switch to previous app
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+        } else {
+            AKLog("Can't redirect because no previous host was given")
+        }
+    }
+
+    public func openUrl(url: URL) -> Bool {
+        
+        // scala files
+        if url.isFileURL {
+            return openScala(atUrl: url)
+        }
+
+        // custom url
+        let urlStr = url.absoluteString
+        let host = URLComponents(string: urlStr)?.host
+
+        // TuneUp
+        if host == "tune" || host == "tuneup" {
+
+            ///TuneUp implementation
+            let queryItems = URLComponents(string: urlStr)?.queryItems
+            if let fArray = queryItems?.filter({$0.name == "f"}).map({ Double($0.value ?? "1.0") ?? 1.0 }) {
+
+                // only valid if non-zero length frequency array
+                if fArray.count > 0 {
+
+                    // set vc properties
+                    let tuningName = queryItems?.filter({$0.name == "tuningName"}).first?.value ?? ""
+                    _ = setTuning(name: tuningName, masterArray: fArray)
+
+                    // set synth properties
+                    if let frequencyMiddleCStr = queryItems?.filter({$0.name == "frequencyMiddleC"}).first?.value {
+                        if let frequencyMiddleC = Double(frequencyMiddleCStr) {
+                            if let s = conductor.synth {
+                                let frequencyA4 = frequencyMiddleC * exp2((69-60)/12)
+                                s.setSynthParameter(.frequencyA4, frequencyA4)
+                            } else {
+                                AKLog("TuneUp:can't set frequencyA4 because synth is not initialized")
+                            }
+                        }
+                    }
+                } else {
+
+                    // if you want to alert the user that the tuning is invalid this is the place
+                    AKLog("TuneUp: tuning is invalid")
+                }
+
+                // Store TuneUp BackButton properties even if there is an error
+                if let redirect = queryItems?.filter({$0.name == "redirect"}).first?.value {
+                    if redirect.count > 0 {
+
+                        // store redirect url and friendly name...for when user wants to fast-switch back
+                        redirectHost = redirect
+                        if let redirectName = queryItems?.filter({$0.name == "redirectFriendlyName"}).first?.value {
+                            if redirectName.count > 0 {
+                                redirectFriendlyName = redirectName
+                            } else {
+                                redirectFriendlyName = "Back"
+                            }
+                        }
+                    }
+                }
+            }
+            return true
+        } else if host == "open" {
+
+            // simply Open
+            return true
+        } else {
+
+            // can't handle this url scheme
+            AKLog("unsupported custom url scheme: \(url)")
+            return false
+        }
+    }
+
+    private func openScala(atUrl url: URL) -> Bool {
+        AKLog("opening scala file at full path:\(url.path)")
+
+        let tt = AKTuningTable()
+        guard tt.scalaFile(url.path) != nil else {
+            AKLog("Scala file is invalid")
+            return true // even if there is an error
+        }
+
+        let fArray = tt.masterSet
+        if fArray.count > 0 {
+            let tuningName = url.lastPathComponent
+            let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
+                as? TuningsPanelController
+            tuningsPanel?.setTuning(name: tuningName, masterArray: fArray)
+            if let s = conductor.synth {
+                let frequencyA4 = s.getDefault(.frequencyA4)
+                s.setSynthParameter(.frequencyA4, frequencyA4)
+            } else {
+                AKLog("ERROR:can't set frequencyA4 because synth is not initialized")
+            }
+        } else {
+            AKLog("Scala file is invalid: masterSet is zero-length")
+        }
+
+        return true
     }
 }

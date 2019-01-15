@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
 
+        AKLog("launchOptions:\(String(describing: launchOptions))")
+
         return true
     }
 
@@ -68,78 +70,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// f frequency
     /// frequencyMiddleC
     ///
-    /// query host = "open"
+    /// query host = "tune", "tuneup", "open", "redirect"
     /// no args
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        // scala files
-        if url.isFileURL {
-            return openScala(atUrl: url)
-        }
 
-        // custom url
-        let urlStr = url.absoluteString
-        let host = URLComponents(string: urlStr)?.host
-        if host == "tune" {
-            // parse shared tuning
-            let queryItems = URLComponents(string: urlStr)?.queryItems
-            if let fArray = queryItems?.filter({$0.name == "f"}).map({ Double($0.value ?? "1.0") ?? 1.0 }) {
-                // only valid if non-zero length frequency array
-                if fArray.count > 0 {
-                    let tuningName = queryItems?.filter({$0.name == "tuningName"}).first?.value ?? ""
-                    let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
-                        as? TuningsPanelController
-                    tuningsPanel?.setTuning(name: tuningName, masterArray: fArray)
-                    if let frequencyMiddleCStr = queryItems?.filter({$0.name == "frequencyMiddleC"}).first?.value {
-                        if let frequencyMiddleC = Double(frequencyMiddleCStr) {
-                            if let s = conductor.synth {
-                                let frequencyA4 = frequencyMiddleC * exp2((69-60)/12)
-                                s.setSynthParameter(.frequencyA4, frequencyA4)
-                            } else {
-                                AKLog("ERROR:can't set frequencyA4 because synth is not initialized")
-                            }
-                        }
-                    }
-                } else {
-                    // if you want to alert the user that the tuning is invalid this is the place
-                    AKLog("tuning not set because input frequency array is empty")
-                }
-            }
-            return true
-        } else if host == "open" {
-            // simply Open
-            return true
-        } else {
-            // can't handle this url scheme
-            AKLog("unsupported custom url scheme: \(url)")
-            return false
-        }
+        let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
+            as? TuningsPanelController
+        return tuningsPanel?.openUrl(url: url) ?? true
     }
 
-    private func openScala(atUrl url: URL) -> Bool {
-        AKLog("opening scala file at full path:\(url.path)")
-
-        let tt = AKTuningTable()
-        guard tt.scalaFile(url.path) != nil else {
-            AKLog("Scala file is invalid")
-            return true
-        }
-
-        let fArray = tt.masterSet
-        if fArray.count > 0 {
-            let tuningName = url.lastPathComponent
-            let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
-                as? TuningsPanelController
-            tuningsPanel?.setTuning(name: tuningName, masterArray: fArray)
-            if let s = conductor.synth {
-                let frequencyA4 = s.getDefault(.frequencyA4)
-                s.setSynthParameter(.frequencyA4, frequencyA4)
-            } else {
-                AKLog("ERROR:can't set frequencyA4 because synth is not initialized")
-            }
-        } else {
-            AKLog("Scala file is invalid: masterSet is zero-length")
-        }
-
-        return true
+    /// redirect to redirectURL provided by last TuneUp ( "back button" )
+    func tuneUpBackButton() {
+        let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
+            as? TuningsPanelController
+        tuningsPanel?.tuneUpBackButton()
     }
 }

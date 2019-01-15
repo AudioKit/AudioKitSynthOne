@@ -21,6 +21,8 @@ public class Manager: UpdatableViewController {
 
     @IBOutlet weak var keyboardView: KeyboardView!
     @IBOutlet weak var keyboardTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var keyboardLeftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var keyboardRightConstraint: NSLayoutConstraint!
     @IBOutlet weak var topPanelheight: NSLayoutConstraint!
 
     @IBOutlet weak var midiButton: SynthButton!
@@ -170,9 +172,9 @@ public class Manager: UpdatableViewController {
         switchToChildPanel(.touchPad, isOnTop: true)
         switchToChildPanel(.effects, isOnTop: true)
         switchToChildPanel(.envelopes, isOnTop: true)
-        switchToChildPanel(.generators, isOnTop: true)
         switchToChildPanel(.sequencer, isOnTop: false)
         switchToChildPanel(.effects, isOnTop: true)
+        switchToChildPanel(.generators, isOnTop: true)
         
         // Pre-load dev panel view
         add(asChildViewController: devViewController, isTopContainer: true)

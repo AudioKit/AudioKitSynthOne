@@ -246,16 +246,15 @@ public class Manager: UpdatableViewController {
             if appSettings.presetsVersion < 1.24 && !appSettings.firstRun {
                 performSegue(withIdentifier: "SegueToApps", sender: nil) 
             }
+            presetsViewController.upgradePresets()
             
-            // Check for Device Type, set buffer to 1024 for iPad 4s
+            // Check for Device Type, set buffer to 1024 for iPad 4
             if appSettings.presetsVersion < 1.25 {
                 if UIDevice.current.modelName == "iPad 4" {
                     AKSettings.bufferLength = .veryLong
                     try? AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
                 }
             }
-            
-            presetsViewController.upgradePresets()
             // Save appSettings
             appSettings.presetsVersion = currentPresetVersion
             saveAppSettings()

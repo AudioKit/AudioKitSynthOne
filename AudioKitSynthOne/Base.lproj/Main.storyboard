@@ -45,7 +45,7 @@
                                         </connections>
                                     </containerView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="375" id="191-8u-PZf"/>
                                     <constraint firstItem="A4E-fM-RwT" firstAttribute="leading" secondItem="Goc-E4-LLj" secondAttribute="leading" id="1y9-pG-kXq"/>
@@ -70,17 +70,17 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZO-u3-H8d" userLabel="KeyboardContainer">
-                                <rect key="frame" x="0.0" y="257" width="812" height="118"/>
+                                <rect key="frame" x="0.0" y="277" width="812" height="98"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyboard_top" translatesAutoresizingMaskIntoConstraints="NO" id="MqC-SA-Pyl">
-                                        <rect key="frame" x="0.0" y="0.0" width="812" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="812" height="41"/>
                                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="x92-2p-QMx"/>
+                                            <constraint firstAttribute="height" constant="41" id="x92-2p-QMx"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXT-sY-0sO">
-                                        <rect key="frame" x="6" y="41" width="107" height="77"/>
+                                        <rect key="frame" x="6" y="38" width="104" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pitch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FlR-na-B7K">
                                                 <rect key="frame" x="7" y="357" width="39" height="22"/>
@@ -97,7 +97,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aq-Yc-WNC" customClass="AKVerticalPad" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                                <rect key="frame" x="55" y="5" width="44" height="65"/>
+                                                <rect key="frame" x="53" y="5" width="44" height="48"/>
                                                 <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" label="Mod Wheel">
                                                     <accessibilityTraits key="traits" updatesFrequently="YES" allowsDirectInteraction="YES"/>
@@ -108,7 +108,7 @@
                                                 </constraints>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzH-H2-qmM" customClass="AKVerticalPad" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                                <rect key="frame" x="5" y="5" width="44" height="65"/>
+                                                <rect key="frame" x="4" y="5" width="44" height="48"/>
                                                 <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" label="Pitch Bend">
                                                     <accessibilityTraits key="traits" updatesFrequently="YES" allowsDirectInteraction="YES"/>
@@ -119,20 +119,19 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="3aq-Yc-WNC" firstAttribute="leading" secondItem="kzH-H2-qmM" secondAttribute="trailing" constant="6" id="15d-do-Pwf"/>
                                             <constraint firstItem="kzH-H2-qmM" firstAttribute="top" secondItem="kXT-sY-0sO" secondAttribute="top" constant="5" id="2aa-Lb-oGx"/>
-                                            <constraint firstAttribute="bottom" secondItem="3aq-Yc-WNC" secondAttribute="bottom" constant="7" id="H8D-XZ-NHm"/>
-                                            <constraint firstItem="3aq-Yc-WNC" firstAttribute="leading" secondItem="kzH-H2-qmM" secondAttribute="trailing" constant="6" id="Igx-2d-w7V"/>
-                                            <constraint firstAttribute="bottom" secondItem="kzH-H2-qmM" secondAttribute="bottom" constant="7" id="ZJD-XT-olC"/>
-                                            <constraint firstAttribute="width" constant="107" id="a0y-t2-7zA"/>
+                                            <constraint firstItem="3aq-Yc-WNC" firstAttribute="leading" secondItem="kzH-H2-qmM" secondAttribute="trailing" constant="5" id="Igx-2d-w7V"/>
+                                            <constraint firstAttribute="bottom" secondItem="kzH-H2-qmM" secondAttribute="bottom" constant="7" id="TqZ-SN-vqj"/>
+                                            <constraint firstAttribute="width" constant="104" id="a0y-t2-7zA"/>
+                                            <constraint firstAttribute="bottom" secondItem="3aq-Yc-WNC" secondAttribute="bottom" constant="7" id="bF4-b1-Kvz"/>
                                             <constraint firstItem="3aq-Yc-WNC" firstAttribute="top" secondItem="kXT-sY-0sO" secondAttribute="top" constant="5" id="hRf-ab-hot"/>
-                                            <constraint firstItem="kzH-H2-qmM" firstAttribute="leading" secondItem="kXT-sY-0sO" secondAttribute="leading" constant="5" id="y0E-fZ-2Qq"/>
+                                            <constraint firstItem="kzH-H2-qmM" firstAttribute="leading" secondItem="kXT-sY-0sO" secondAttribute="leading" constant="4" id="y0E-fZ-2Qq"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrU-09-D8c" customClass="KeyboardView" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="111" y="40" width="695" height="78"/>
+                                        <rect key="frame" x="111" y="39" width="694" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" updatesFrequently="YES" allowsDirectInteraction="YES"/>
@@ -360,14 +359,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="kXT-sY-0sO" firstAttribute="top" secondItem="8ZO-u3-H8d" secondAttribute="top" constant="41" id="1OX-Ek-zcG"/>
+                                    <constraint firstItem="kXT-sY-0sO" firstAttribute="top" secondItem="8ZO-u3-H8d" secondAttribute="top" constant="38" id="1OX-Ek-zcG"/>
                                     <constraint firstItem="mrU-09-D8c" firstAttribute="leading" secondItem="8ZO-u3-H8d" secondAttribute="leading" constant="111" id="4GH-Fc-lLU"/>
-                                    <constraint firstAttribute="bottom" secondItem="mrU-09-D8c" secondAttribute="bottom" id="5dc-Bj-Gnu"/>
+                                    <constraint firstAttribute="bottom" secondItem="mrU-09-D8c" secondAttribute="bottom" constant="-1" id="5dc-Bj-Gnu"/>
                                     <constraint firstAttribute="trailing" secondItem="MqC-SA-Pyl" secondAttribute="trailing" id="9ye-YD-rpH"/>
+                                    <constraint firstAttribute="bottom" secondItem="kXT-sY-0sO" secondAttribute="bottom" id="BYu-WO-jRn"/>
                                     <constraint firstItem="MqC-SA-Pyl" firstAttribute="leading" secondItem="8ZO-u3-H8d" secondAttribute="leading" id="Ifi-XA-pOS"/>
-                                    <constraint firstAttribute="bottom" secondItem="kXT-sY-0sO" secondAttribute="bottom" id="QU3-RG-bkl"/>
-                                    <constraint firstItem="mrU-09-D8c" firstAttribute="top" secondItem="8ZO-u3-H8d" secondAttribute="top" constant="40" id="dyP-bA-oOy"/>
-                                    <constraint firstAttribute="trailing" secondItem="mrU-09-D8c" secondAttribute="trailing" constant="6" id="guB-zf-lvX"/>
+                                    <constraint firstItem="mrU-09-D8c" firstAttribute="top" secondItem="8ZO-u3-H8d" secondAttribute="top" constant="39" id="dyP-bA-oOy"/>
+                                    <constraint firstAttribute="trailing" secondItem="mrU-09-D8c" secondAttribute="trailing" constant="7" id="guB-zf-lvX"/>
                                     <constraint firstItem="MqC-SA-Pyl" firstAttribute="top" secondItem="8ZO-u3-H8d" secondAttribute="top" id="tPn-S8-3BE"/>
                                     <constraint firstItem="kXT-sY-0sO" firstAttribute="leading" secondItem="8ZO-u3-H8d" secondAttribute="leading" constant="6" id="zFb-YH-28C"/>
                                 </constraints>
@@ -381,7 +380,7 @@
                             <constraint firstItem="Snv-Cp-FiC" firstAttribute="top" secondItem="nOC-fL-84F" secondAttribute="bottom" id="4B8-7R-eAh"/>
                             <constraint firstItem="8ZZ-vt-Xhv" firstAttribute="top" secondItem="ONJ-nj-oqT" secondAttribute="top" id="CM5-2F-7na"/>
                             <constraint firstItem="Goc-E4-LLj" firstAttribute="leading" secondItem="nOC-fL-84F" secondAttribute="trailing" id="HU9-Vy-2m6"/>
-                            <constraint firstItem="8ZO-u3-H8d" firstAttribute="top" secondItem="0vi-gB-nau" secondAttribute="bottom" constant="237" id="MUQ-y2-Ykb"/>
+                            <constraint firstItem="8ZO-u3-H8d" firstAttribute="top" secondItem="0vi-gB-nau" secondAttribute="bottom" constant="257" id="MUQ-y2-Ykb"/>
                             <constraint firstItem="Snv-Cp-FiC" firstAttribute="top" secondItem="8ZZ-vt-Xhv" secondAttribute="bottom" id="O0j-SR-wqW"/>
                             <constraint firstItem="Snv-Cp-FiC" firstAttribute="top" secondItem="8ZO-u3-H8d" secondAttribute="bottom" id="Rb6-Kv-Tpz"/>
                             <constraint firstAttribute="trailing" secondItem="8ZO-u3-H8d" secondAttribute="trailing" id="T5D-9b-3DD"/>

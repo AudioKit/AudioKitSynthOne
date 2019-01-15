@@ -11,6 +11,13 @@
 extension Manager: EmbeddedViewsDelegate {
 
     func switchToChildPanel(_ newView: ChildPanel, isOnTop: Bool = true) {
+        
+        if conductor.device == .phone {
+            if keyboardToggle.isOn {
+                keyboardToggle.callback(0.0)
+                keyboardToggle.value = 0.0
+            }
+        }
 
         // remove all child views
         if isOnTop {

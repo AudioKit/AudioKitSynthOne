@@ -216,6 +216,12 @@ public class Manager: UpdatableViewController {
 		monoButton.accessibilityValue = self.keyboardView.polyphonicMode ?
 			NSLocalizedString("Off", comment: "Off") :
 			NSLocalizedString("On", comment: "On")
+        
+         let isPhoneX  = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) >= 812
+        if isPhoneX {
+            self.keyboardLeftConstraint.constant = 42
+            self.keyboardRightConstraint.constant = 42
+        }
 
     }
 

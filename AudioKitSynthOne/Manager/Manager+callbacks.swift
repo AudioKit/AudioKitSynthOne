@@ -112,10 +112,16 @@ extension Manager {
                     self.keyboardLeftConstraint.constant = sideConstraintValue
                     self.keyboardRightConstraint.constant = (self.keyboardToggle.isOn) ? sideConstraintValue + 6 : sideConstraintValue
                 }
+                self.pitchBend.setVerticalValue01(self.pitchBend.value)
+                self.modWheelPad.setVerticalValue01(self.modWheelPad.value)
+                 self.pitchBend.setNeedsDisplay()
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
                 self.keyboardView.labelMode = keyboardLabelMode
                 self.keyboardView.setNeedsDisplay()
+                self.pitchBend.setVerticalValue01(self.pitchBend.value)
+                self.modWheelPad.setVerticalValue01(self.modWheelPad.value)
+ 
             })
             
             self.appSettings.showKeyboard = self.keyboardToggle.value

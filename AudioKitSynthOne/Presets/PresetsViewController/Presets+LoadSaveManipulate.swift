@@ -192,10 +192,8 @@ extension PresetsViewController {
     func upgradePresets() {
      
         // If the bankName is not in conductorBanks, add bank to conductor banks
-        print("*** GOT HERE**")
         for bankName in initBanks {
             if !conductor.banks.contains(where: { $0.name == bankName }) {
-                print ("*** ADDING \(bankName)")
                 // Add bank to conductor banks
                 let bank = Bank(name: bankName, position: conductor.banks.count)
                 conductor.banks.append(bank)

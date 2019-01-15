@@ -14,8 +14,8 @@ extension Manager: EmbeddedViewsDelegate {
         
         if conductor.device == .phone {
             if keyboardToggle.isOn {
-                keyboardToggle.callback(0.0)
                 keyboardToggle.value = 0.0
+                keyboardToggle.callback(0.0)
             }
         }
 

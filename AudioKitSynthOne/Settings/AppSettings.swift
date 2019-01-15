@@ -13,6 +13,7 @@ let initBanks = ["BankA",
                  "Brice Beasley",
                  "DJ Puzzle",
                  "Electronisounds",
+                 "Francis Preve",
                  "JEC",
                  "Red Sky Lullaby",
                  "Sound of Izrael",
@@ -48,7 +49,7 @@ class AppSettings: Codable {
     var launches = 0
 
     // Presets version
-    var presetsVersion = 1.24
+    var presetsVersion = 1.26
 
     // MIDI Learn Settings
 

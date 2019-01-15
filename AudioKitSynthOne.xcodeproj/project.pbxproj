@@ -28,6 +28,7 @@
 		949D93B71F2C188C007E657B /* LFOButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B61F2C188B007E657B /* LFOButtonStyleKit.swift */; };
 		949D93B91F2C188C007E657B /* LFOToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LFOToggle.swift */; };
 		94A5039D1FF2F6E30097D37C /* ChannelStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */; };
+		94D2AF2721EE57AA006E2312 /* Francis Preve.json in Resources */ = {isa = PBXBuildFile; fileRef = 94D2AF2621EE57AA006E2312 /* Francis Preve.json */; };
 		94D37DD420E06641002008A4 /* Sound of Izrael.json in Resources */ = {isa = PBXBuildFile; fileRef = 94D37DD320E06641002008A4 /* Sound of Izrael.json */; };
 		94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */; };
 		94D917AF1F550D28006ACB4E /* FlatToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */; };
@@ -325,6 +326,7 @@
 		94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStepper.swift; sourceTree = "<group>"; };
 		94A6F30B1F687F3E007B083C /* icon_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_64.png; sourceTree = "<group>"; };
 		94A6F30C1F687F3E007B083C /* icon_320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_320.png; sourceTree = "<group>"; };
+		94D2AF2621EE57AA006E2312 /* Francis Preve.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Francis Preve.json"; sourceTree = "<group>"; };
 		94D37DD320E06641002008A4 /* Sound of Izrael.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Sound of Izrael.json"; sourceTree = "<group>"; };
 		94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatToggleButtonStyleKit.swift; sourceTree = "<group>"; };
 		94D917AE1F550D28006ACB4E /* FlatToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatToggleButton.swift; sourceTree = "<group>"; };
@@ -878,6 +880,7 @@
 				C435C51820C52D1700DAECCD /* Bonus.json */,
 				C435C51720C52D1700DAECCD /* DJ Puzzle.json */,
 				94985FF220D8899300D71239 /* Electronisounds.json */,
+				94D2AF2621EE57AA006E2312 /* Francis Preve.json */,
 				94985FF420D8908500D71239 /* JEC.json */,
 				C435C51A20C52D1700DAECCD /* Red Sky Lullaby.json */,
 				94D37DD320E06641002008A4 /* Sound of Izrael.json */,
@@ -1542,6 +1545,7 @@
 				F482CC2D2123CDE70093ADC8 /* bandlimitedWaveformFrequencies.json in Resources */,
 				C435C52320C52D1700DAECCD /* Red Sky Lullaby.json in Resources */,
 				F482CC612123CDE70093ADC8 /* pwm_0042.json in Resources */,
+				94D2AF2721EE57AA006E2312 /* Francis Preve.json in Resources */,
 				F482CC392123CDE70093ADC8 /* pwm_0168.json in Resources */,
 				C435C52220C52D1700DAECCD /* User.json in Resources */,
 				F482CC342123CDE70093ADC8 /* sawtooth_2696.json in Resources */,

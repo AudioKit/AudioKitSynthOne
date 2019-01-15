@@ -254,6 +254,7 @@ public class Manager: UpdatableViewController {
             if appSettings.presetsVersion < 1.24 && !appSettings.firstRun {
                 performSegue(withIdentifier: "SegueToApps", sender: nil) 
             }
+          
             presetsViewController.upgradePresets()
             
             // Check for Device Type, set buffer to 1024 for iPad 4

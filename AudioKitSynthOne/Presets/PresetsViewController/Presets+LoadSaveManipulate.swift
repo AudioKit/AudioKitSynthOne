@@ -190,7 +190,19 @@ extension PresetsViewController {
     }
 
     func upgradePresets() {
-
+     
+        // If the bankName is not in conductorBanks, add bank to conductor banks
+        print("*** GOT HERE**")
+        for bankName in initBanks {
+            if !conductor.banks.contains(where: { $0.name == bankName }) {
+                print ("*** ADDING \(bankName)")
+                // Add bank to conductor banks
+                let bank = Bank(name: bankName, position: conductor.banks.count)
+                conductor.banks.append(bank)
+                presetsDelegate?.banksDidUpdate()
+            }
+        }
+        
         // Remove existing presets
         // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
         let banksToUpdate = [""]
@@ -215,18 +227,9 @@ extension PresetsViewController {
                 presets += newPresets
                 saveAllPresetsIn(bankName)
             }
-
         }
 
-        // If the bankName is not in conductorBanks, add bank to conductor banks
-        for bankName in initBanks {
-            if !conductor.banks.contains(where: { $0.name == bankName }) {
-                // Add bank to conductor banks
-                let bank = Bank(name: bankName, position: conductor.banks.count)
-                conductor.banks.append(bank)
-                presetsDelegate?.banksDidUpdate()
-            }
-        }
+     
     }
 
     func addBonusPresets() {

@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="z6F-Nz-YPD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Onv-Ss-vTM">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_efx" translatesAutoresizingMaskIntoConstraints="NO" id="xYA-cQ-DC8">
@@ -965,7 +965,7 @@
                         <viewControllerLayoutGuide type="bottom" id="EeF-A8-tvc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IZy-qr-MOx">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPhone_FX" translatesAutoresizingMaskIntoConstraints="NO" id="S0F-nr-g2t">
@@ -1397,7 +1397,7 @@
                                 </accessibility>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5R3-pL-pZV" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="629" y="-1" width="42" height="122"/>
+                                <rect key="frame" x="629" y="-3" width="42" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="PreviousXPadPage" label="Previous XPad Page">
@@ -1409,7 +1409,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tt9-dN-24P" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="629" y="115" width="42" height="122"/>
+                                <rect key="frame" x="629" y="114" width="42" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="NextSequencerPage" label="Next Sequencer Page">

@@ -768,7 +768,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="TFZ-xG-ihW" firstAttribute="top" secondItem="SdH-b3-LNx" secondAttribute="bottom" id="7et-a5-mE3"/>
                             <constraint firstItem="TFZ-xG-ihW" firstAttribute="leading" secondItem="qYn-Gd-Zvv" secondAttribute="leading" id="8xP-Jz-hqX"/>
@@ -825,7 +825,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eYM-cr-6r7">
-                                                <rect key="frame" x="16" y="24" width="454" height="93"/>
+                                                <rect key="frame" x="16" y="22" width="454" height="93"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <string key="text">Award-winning iPad Only Instrument inspired by the DX7 &amp; DX7II. 
@@ -835,7 +835,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FM PLAYER: CLASSIC DX – COMING SOON TO iPHONE!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhF-fD-UiV">
-                                                <rect key="frame" x="22" y="7" width="378" height="26"/>
+                                                <rect key="frame" x="22" y="5" width="378" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

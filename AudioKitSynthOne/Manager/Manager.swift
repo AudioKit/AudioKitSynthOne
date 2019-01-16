@@ -295,6 +295,7 @@ public class Manager: UpdatableViewController {
         }
 
         // Keyboard show or hide on launch
+        if appSettings.firstRun && conductor.device == .phone { appSettings.showKeyboard = 1.0 }
         keyboardToggle.value = appSettings.showKeyboard
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {

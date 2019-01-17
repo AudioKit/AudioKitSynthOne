@@ -59,6 +59,7 @@ public class Manager: UpdatableViewController {
     var midiKnobs = [MIDIKnob]()
     var signedMailingList = false
     let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    var isPhoneX = false
 
     // AudioBus
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
@@ -217,7 +218,7 @@ public class Manager: UpdatableViewController {
 			NSLocalizedString("Off", comment: "Off") :
 			NSLocalizedString("On", comment: "On")
         
-        let isPhoneX  = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) >= 812
+        isPhoneX = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) >= 812 && conductor.device == .phone
         if isPhoneX {
             self.keyboardLeftConstraint.constant = 72.5
             self.keyboardRightConstraint.constant = 72.5

@@ -599,7 +599,7 @@
                                         </attributedString>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ3-lz-BGf" customClass="Stepper" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="808" y="5" width="108" height="32"/>
+                                        <rect key="frame" x="808" y="6" width="108" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration" hint="Adjusts Keyboard Octave." identifier="KeyboardOctaveStepper" label="Octave Range">
@@ -1587,8 +1587,8 @@
         <image name="rack-left" width="200" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kIC-Kt-utx"/>
-        <segue reference="eFx-2G-dJI"/>
-        <segue reference="uQl-Oi-SV4"/>
+        <segue reference="P92-2d-IvO"/>
+        <segue reference="TVa-dv-w7i"/>
+        <segue reference="OFW-mz-IhX"/>
     </inferredMetricsTieBreakers>
 </document>

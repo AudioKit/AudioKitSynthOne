@@ -235,6 +235,7 @@ Adam Nemecek, Alex Buga, Andy Voelkel, Aurelius Prochazka, Brent Stabbs, Brice B
                     <size key="freeformSize" width="1024" height="768"/>
                     <connections>
                         <outlet property="githubButton" destination="dll-2U-dYG" id="UsO-9l-RNB"/>
+                        <outlet property="mainTextView" destination="1Nf-2H-Scf" id="qx6-wR-Nu1"/>
                         <outlet property="parentView" destination="YcU-Sg-lR2" id="HXJ-QM-yjR"/>
                         <outlet property="reviewButton" destination="VE1-2S-HqW" id="WdZ-Tb-fSr"/>
                         <outlet property="textContainer" destination="PTm-MK-dhI" id="2U8-iQ-yQr"/>

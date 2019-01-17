@@ -31,9 +31,8 @@ public class LFOPickerStyleKit : NSObject {
 
         //// background Drawing
         let backgroundPath = UIBezierPath(rect: CGRect(x: frame.minX, y: frame.minY, width: 215, height: 42))
-        if Conductor.sharedInstance.device == .phone {
-            color = #colorLiteral(red: 0.1254734099, green: 0.1255019307, blue: 0.1254696548, alpha: 0)
-        }
+       
+        color = #colorLiteral(red: 0.1254734099, green: 0.1255019307, blue: 0.1254696548, alpha: 0) // set color to clear
         color.setFill()
         backgroundPath.fill()
 

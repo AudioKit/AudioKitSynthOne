@@ -99,7 +99,6 @@ extension Manager {
             }
             
             let sideConstraintValue: CGFloat = (value == 1.0) ? 18 : 72.5 // 72.5
-            let isPhoneX  = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) >= 812
            
             let keyboardLabelMode = self.keyboardView.labelMode
             self.keyboardView.labelMode = 0
@@ -108,7 +107,7 @@ extension Manager {
             // Animate keyboard
             UIView.animate(withDuration: Double(0.4), animations: {
                 self.keyboardTopConstraint.constant = newConstraintValue
-                if isPhoneX {
+                if self.isPhoneX {
                     self.keyboardLeftConstraint.constant = sideConstraintValue
                     self.keyboardRightConstraint.constant = (self.keyboardToggle.isOn) ? sideConstraintValue + 6 : sideConstraintValue
                 }

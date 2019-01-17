@@ -22,6 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_tuning" translatesAutoresizingMaskIntoConstraints="NO" id="UBc-cA-exu">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kPv-DU-63Y" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="967" y="-1" width="59" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -49,10 +53,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_touchpad" translatesAutoresizingMaskIntoConstraints="NO" id="UBc-cA-exu">
-                                <rect key="frame" x="0.0" y="0.0" width="965" height="299"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PITCH" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipV-Bb-omK" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="408" y="76" width="138" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -434,7 +434,7 @@
     </scenes>
     <resources>
         <image name="D1_icon" width="152" height="152"/>
-        <image name="au_touchpad" width="1024" height="299"/>
+        <image name="au_tuning" width="1024" height="299"/>
         <image name="dice" width="19" height="18.5"/>
         <image name="iPhone_Tuning" width="1334" height="470"/>
     </resources>

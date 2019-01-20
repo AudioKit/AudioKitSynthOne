@@ -60,6 +60,7 @@ public class Manager: UpdatableViewController {
     var signedMailingList = false
     let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     var isPhoneX = false
+    var isLoaded = false
 
     // AudioBus
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
@@ -128,7 +129,7 @@ public class Manager: UpdatableViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Conductor start
         conductor.start()
         sustainer = SDSustainer(conductor.synth)
@@ -228,6 +229,9 @@ public class Manager: UpdatableViewController {
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        guard !isLoaded else { return }
+
         // Load App Settings
         if Disk.exists("settings.json", in: .documents) {
             loadSettingsFromDevice()
@@ -326,6 +330,8 @@ public class Manager: UpdatableViewController {
         appendMIDIKnobs(from: tuningsPanel)
 
         setupLinkStuff()
+        
+        isLoaded = true
     }
 
     // Make edge gestures more responsive

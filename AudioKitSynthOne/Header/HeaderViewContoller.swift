@@ -125,7 +125,7 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("FM Volume: \(value.percentageString)", comment: "FM Oscillator Volume")
             displayLabel.text = message
         case .fmAmount:
-            let message = NSLocalizedString("FM Mod: \(value.percentageString)", comment: "FM Modulation Amount")
+            let message = NSLocalizedString("FM Mod: \(value.decimalString)", comment: "FM Modulation Amount")
             displayLabel.text = message
         case .noiseVolume:
             let message = NSLocalizedString("Noise Volume: \((value * 4).percentageString)", comment: "Noise Volume")

@@ -309,8 +309,8 @@ public class Manager: UpdatableViewController {
             try? AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
         }
         
-        if appSettings.firstRun && (modelName == "iPhone SE" || modelName == "iPhone 5s" || modelName == "iPhone 8") {
-            displayAlertController("Important", message: "Synth One requires an iPhone 6 or above screen size for full functionality. However, you can still use this app to playback presets. Thank you. 🙏")
+        if appSettings.firstRun && (modelName == "iPhone SE" || modelName == "iPhone 5s" || modelName == "iPhone 5c") {
+            displayAlertController("Important", message: "Synth One requires an iPhone 6s or above for full functionality. It will not work properly on the SE, 5s, or below. However, you can still use this app to playback presets. Thank you. 🙏")
         }
         
         // Increase number of launches

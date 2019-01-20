@@ -279,7 +279,6 @@ public class Manager: UpdatableViewController {
         // Show email list if first run
         if appSettings.firstRun && !appSettings.signedMailingList && Private.MailChimpAPIKey != "***REMOVED***" {
             performSegue(withIdentifier: "SegueToMailingList", sender: self)
-            appSettings.firstRun = false
         }
 
         // On four runs show dialog and request review
@@ -310,8 +309,13 @@ public class Manager: UpdatableViewController {
             try? AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
         }
         
+        if appSettings.firstRun && (modelName == "iPhone SE" || modelName == "iPhone 5s" || modelName == "iPhone 8") {
+            displayAlertController("Important", message: "Synth One requires an iPhone 6 or above screen size for full functionality. However, you can still use this app to playback presets. Thank you. 🙏")
+        }
+        
         // Increase number of launches
         appSettings.launches += 1
+        appSettings.firstRun = false
         saveAppSettingValues()
 
         appendMIDIKnobs(from: generatorsPanel)

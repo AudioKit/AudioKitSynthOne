@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="z6F-Nz-YPD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Onv-Ss-vTM">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_efx" translatesAutoresizingMaskIntoConstraints="NO" id="xYA-cQ-DC8">
@@ -965,7 +965,7 @@
                         <viewControllerLayoutGuide type="bottom" id="EeF-A8-tvc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IZy-qr-MOx">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPhone_FX" translatesAutoresizingMaskIntoConstraints="NO" id="S0F-nr-g2t">
@@ -1424,7 +1424,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="110" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDS-d4-bLq" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="293" y="60" width="50" height="50"/>
+                                <rect key="frame" x="294" y="60" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="BitrateCrusherKnob" label="Bitrate Crusher">
@@ -1453,7 +1453,7 @@
                                 </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BitCrusher" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ew-yD-Uby">
-                                <rect key="frame" x="291" y="109" width="58" height="22"/>
+                                <rect key="frame" x="292" y="109" width="58" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

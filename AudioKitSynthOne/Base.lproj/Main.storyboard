@@ -421,11 +421,12 @@
                         <outlet property="topContainerView" destination="A4E-fM-RwT" id="gwL-d9-oBm"/>
                         <segue destination="8P9-DY-HCH" kind="presentation" identifier="SegueToAbout" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="V8h-iZ-Ly2"/>
                         <segue destination="M7f-x2-kSI" kind="presentation" identifier="SegueToMore" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="y4G-gB-dDe"/>
+                        <segue destination="mL0-tn-PDC" kind="presentation" identifier="SegueToWelcome" id="8ID-d8-Qnm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkY-CW-6Da" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1479.4921875" y="-1068.359375"/>
+            <point key="canvasLocation" x="-1574" y="-1069"/>
         </scene>
         <!--Synth One-->
         <scene sceneID="tne-QT-ifu">
@@ -1039,7 +1040,7 @@
                                             <bool key="isElement" value="YES"/>
                                         </accessibility>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pitch Bend range is saved/loaded with each preset." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZX-Ka-zjh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pitch Bend range is saved with each preset." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZX-Ka-zjh">
                                         <rect key="frame" x="4" y="187" width="293" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -1563,10 +1564,18 @@
             </objects>
             <point key="canvasLocation" x="-1079" y="-1291"/>
         </scene>
-        <!--iPhoneInfoView-->
+        <!--iPhoneWelcome-->
+        <scene sceneID="fdo-GQ-pZN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MailingList" referencedIdentifier="iPhoneWelcome" id="mL0-tn-PDC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgK-uX-EM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1213" y="-1531"/>
+        </scene>
+        <!--iPhoneMailingList-->
         <scene sceneID="bnA-4z-ea7">
             <objects>
-                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="iPhoneInfoView" id="M7f-x2-kSI" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="MailingList" referencedIdentifier="iPhoneMailingList" id="M7f-x2-kSI" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDA-nG-Rwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1155" y="-1427"/>
@@ -1587,8 +1596,8 @@
         <image name="rack-left" width="200" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="P92-2d-IvO"/>
-        <segue reference="TVa-dv-w7i"/>
+        <segue reference="kIC-Kt-utx"/>
+        <segue reference="eFx-2G-dJI"/>
         <segue reference="uQl-Oi-SV4"/>
     </inferredMetricsTieBreakers>
 </document>

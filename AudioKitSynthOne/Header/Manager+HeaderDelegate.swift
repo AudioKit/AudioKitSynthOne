@@ -121,13 +121,15 @@ extension Manager: HeaderDelegate {
     }
 
     func morePressed() {
-        guard Private.MailChimpAPIKey != "***REMOVED***" || appSettings.signedMailingList else {
+        guard Private.MailChimpAPIKey != "***REMOVED***" else {
            // Running source code with no mailchimp key
-           self.displayAlertController("Congrats! 🎉", message: "Bonus presets have been added to BankA. " +
-                "We are all volunteers who made this app for free. " +
-                "We hope you enjoy it & tell other musicians! 😎")
-           didSignMailingList(email: "test@audiokitpro.com")
+           displayBonusPresets()
            return
+        }
+        
+        if conductor.device == .phone && !appSettings.signedMailingList {
+            displayBonusPresets()
+            return
         }
 
         if signedMailingList {
@@ -135,6 +137,13 @@ extension Manager: HeaderDelegate {
         } else {
             performSegue(withIdentifier: "SegueToMailingList", sender: self)
         }
+    }
+    
+    func displayBonusPresets() {
+        self.displayAlertController("Congrats! 🎉", message: "Bonus presets have been added to BankA. " +
+            "We are all volunteers who made this app for free. " +
+            "We hope you enjoy it & tell other musicians! 😎")
+        didSignMailingList(email: "test@audiokitpro.com")
     }
 
     func panicPressed() {

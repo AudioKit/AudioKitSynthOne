@@ -283,10 +283,15 @@ public class Manager: UpdatableViewController {
         self.presetsViewController.didSelectPreset(index: self.appSettings.currentPresetIndex)
 
         // Show email list if first run
-        if appSettings.firstRun && !appSettings.signedMailingList && Private.MailChimpAPIKey != "***REMOVED***" {
+        if appSettings.firstRun && !appSettings.signedMailingList && Private.MailChimpAPIKey != "***REMOVED***" && conductor.device != .phone {
             performSegue(withIdentifier: "SegueToMailingList", sender: self)
         }
 
+        // iPhone show welcome screen
+        if appSettings.firstRun && conductor.device == .phone { 
+           performSegue(withIdentifier: "SegueToWelcome", sender: self)
+        }
+    
         // On four runs show dialog and request review
         if appSettings.launches == 5 && !appSettings.isPreRelease { reviewPopUp() }
         if appSettings.launches % 41 == 0 && !appSettings.isPreRelease && appSettings.launches > 0 { requestReview() }

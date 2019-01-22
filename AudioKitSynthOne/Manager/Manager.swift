@@ -82,10 +82,10 @@ public class Manager: UpdatableViewController {
     }()
 
     lazy var devViewController: DevViewController = {
+        let devStoryboard = UIStoryboard(name: "Dev", bundle: Bundle.main)
         var vcName = "Dev"
-        //if conductor.device == .phone { vcName = "iPhone" + vcName }
-        let devStoryboard = UIStoryboard(name: vcName, bundle: Bundle.main)
-        var viewController = devStoryboard.instantiateViewController(withIdentifier: vcName) as! DevViewController
+        if conductor.device == .phone { vcName = "iPhone" + vcName }
+        let viewController = devStoryboard.instantiateViewController(withIdentifier: vcName) as! DevViewController
         viewController.delegate = self
         return viewController
     }()

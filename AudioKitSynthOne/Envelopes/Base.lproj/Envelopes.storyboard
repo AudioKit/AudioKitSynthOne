@@ -370,7 +370,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPhone_adsr" translatesAutoresizingMaskIntoConstraints="NO" id="dpB-De-Wcn">
-                                <rect key="frame" x="0.0" y="-1" width="667" height="237"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="237"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oqn-m7-DZ9" customClass="AKADSRView" customModule="AudioKitUI">

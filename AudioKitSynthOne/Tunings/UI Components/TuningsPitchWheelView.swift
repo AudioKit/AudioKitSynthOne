@@ -36,6 +36,7 @@ public class TuningsPitchWheelView: UIView {
     var masterPitch: [Double]?
     var masterCents: [Double]?
     var pxy = [CGPoint]()
+    var px0 = CGPoint()
     var labelMode: TuningsPitchWheelViewLabelMode = .harmonic
 
 
@@ -120,7 +121,12 @@ public class TuningsPitchWheelView: UIView {
         let bdf2 = UIFont.boldSystemFont(ofSize: 2 * fontSize)
         UIColor.black.setStroke()
 
+        // Origin
+        let mspx0 = CGPoint(x: xp, y: yp)
+
+        // Array of pitches
         var mspxy = [CGPoint]()
+
         for p in masterSet {
             context.setLineWidth(1)
             let cfp = TuningsPitchWheelView.color(forPitch: p, brightness: 1, alpha: 0.65)
@@ -131,7 +137,7 @@ public class TuningsPitchWheelView: UIView {
             let r0: CGFloat = 0
             let r1f: CGFloat = 1 - 0.25 + 0.1
             let r1: CGFloat = r * r1f * 1.1
-            let r2: CGFloat = r * r1f * (0.75 - 0.05 - 0.05)
+            let r2: CGFloat = r * r1f * 0.65
             let p00: CGPoint = horagram01ToCartesian01(p: CGPoint(x: p, y: Double(0.5 * r0)))
             let p0 = CGPoint(x: p00.x + xp, y: p00.y + yp)
             let p11 = horagram01ToCartesian01(p: CGPoint(x: p, y: Double(0.5 * r1)))
@@ -152,6 +158,7 @@ public class TuningsPitchWheelView: UIView {
                                  width: bigR, height: bigR)
             context.fillEllipse(in: bigDotR)
 
+            // LABEL MODE
             var msd: String
             switch labelMode {
             case .frequency:
@@ -175,7 +182,9 @@ public class TuningsPitchWheelView: UIView {
         }
 
         pxy = mspxy
+        px0 = mspx0
         self.overlayView.pxy = pxy
+        self.overlayView.px0 = px0
 
         // draw NPO
         UIColor.darkGray.setStroke()
@@ -308,7 +317,23 @@ private extension String {
 ///transparent overlay for tuning view which displays amplitudes of playing notes
 public class TuningsPitchWheelOverlayView: UIView {
 
+// move/share
+    func generalLineP(_ context: CGContext, _ p0: CGPoint, _ p1: CGPoint) {
+        generalLine(context, p0.x, p0.y, p1.x, p1.y)
+    }
+
+    func generalLine(_ context: CGContext, _ x1: CGFloat, _ y1: CGFloat, _ x2: CGFloat, _ y2: CGFloat) {
+        context.beginPath()
+        context.move(to: CGPoint(x: x1, y: y1))
+        context.addLine(to: CGPoint(x: x2, y: y2))
+        context.strokePath()
+    }
+// move
+
+
+
     var pxy = [CGPoint]()
+    var px0 = CGPoint()
     var masterPitch = [Double]()
     var playingNotes: PlayingNotes?
 
@@ -325,17 +350,21 @@ public class TuningsPitchWheelOverlayView: UIView {
     }
 
     override public func draw(_ rect: CGRect) {
+
         guard let context = UIGraphicsGetCurrentContext() else { return }
         context.saveGState()
-        context.setLineWidth(1)
+
         let pxyCopy = pxy
+        let px0Copy = px0
         let npo = Int32(pxyCopy.count)
         if npo < 1 { return }
 
         if let pn = playingNotes {
+
             // must match S1_MAX_POLYPHONY
             let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2,
                       pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
+
             for playingNote in na where playingNote.noteNumber != -1 {
                 let v = 2 * playingNote.amplitude
                 if v > 0 {
@@ -348,10 +377,41 @@ public class TuningsPitchWheelOverlayView: UIView {
                     let bigR = CGFloat(v * 26)
                     let a = bigR < 36 ? bigR / 36 : 1
                     let pitch = masterPitch[Int(nn)]
+
+                    // LINE
+                    let vv = powf(playingNote.amplitude, 0.25)
+                    TuningsPitchWheelView.color(forPitch: pitch,
+                                                saturation: 0.36,
+                                                brightness: 1,
+                                                alpha: CGFloat(vv * 0.65)).setStroke()
+                    context.setLineWidth(CGFloat(v * 2 * 1.5))
+                    generalLineP(context, px0Copy, p)
+
+                    // BIG DOT CENTER
+                    let bfpc = TuningsPitchWheelView.color(forPitch: pitch, alpha: 0.5 * a)
+                    bfpc.setStroke()
+                    bfpc.setFill()
+                    //let bigDc: CGFloat = 12
+                    let bigDc: CGFloat = bigR * 0.25
+                    let bigDotDc = CGRect(x: px0Copy.x - bigDc / 2, y: px0Copy.y - bigDc / 2, width: bigDc, height: bigDc)
+                    //let bigDotDc = CGRect(x: px0Copy.x - bigR / 2, y: px0Copy.y - bigR / 2, width: bigR, height: bigR)
+                    context.fillEllipse(in: bigDotDc)
+
+
+                    // BIG DOT
+                    let bfp = TuningsPitchWheelView.color(forPitch: pitch, alpha: 1)
+                    bfp.setStroke()
+                    bfp.setFill()
+                    let bigD: CGFloat = 12
+                    let bigDotD = CGRect(x: p.x - bigD / 2, y: p.y - bigD / 2, width: bigD, height: bigD)
+                    context.fillEllipse(in: bigDotD)
+
+                    // BIG DOT OUTLINE
                     TuningsPitchWheelView.color(forPitch: pitch,
                                                 saturation: 0.36,
                                                 brightness: 1,
                                                 alpha: a).setStroke()
+                    context.setLineWidth(1)
                     let bigDotR = CGRect(x: p.x - bigR / 2, y: p.y - bigR / 2, width: bigR, height: bigR)
                     context.strokeEllipse(in: bigDotR)
                 }

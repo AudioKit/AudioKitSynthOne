@@ -202,6 +202,7 @@
         double currentTempo;
         if (self->_musicalContext) {
             if (self->_musicalContext( &currentTempo, NULL, NULL, NULL, NULL, NULL ) ) {
+                //TODO:AURE: midi clock
                 self->_kernel.handleTempoSetting(currentTempo);
             }
         }

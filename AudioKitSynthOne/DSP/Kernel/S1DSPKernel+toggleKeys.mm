@@ -91,11 +91,16 @@ void S1DSPKernel::turnOnKey(int noteNumber, int velocity, float frequency) {
 
 // turnOffKey is called by render thread in "process", so access note via AEArray
 void S1DSPKernel::turnOffKey(int noteNumber) {
+
     if (noteNumber < 0 || noteNumber >= S1_NUM_MIDI_NOTES)
         return;
     initializeNoteStates();
+
     if (p[isMono] > 0.f) {
+
+        // MONO:
         if (p[arpIsOn] == 1.f || heldNoteNumbersAE.count == 0) {
+
             // the case where this was the only held note and now it should be off, OR
             // the case where the sequencer turns off this key even though a note is held down
             if (monoNote->stage != S1NoteState::stageOff) {
@@ -103,6 +108,7 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
                 monoNote->internalGate = 0;
             }
         } else {
+
             // the case where you had more than one held note and released one (CACA): Keep note ON and set to freq of head
             AEArrayToken token = AEArrayGetToken(heldNoteNumbersAE);
             NoteNumber* nn = (NoteNumber*)AEArrayGetItem(token, 0);
@@ -128,9 +134,10 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
             monoNote->internalGate = 1;
         }
     } else {
-        // Poly:
+
+        // POLY:
         int index = -1;
-        for(int i=0; i<polyphony; i++) {
+        for(int i = 0; i < polyphony; i++) {
             if (noteStates[i].rootNoteNumber == noteNumber) {
                 index = i;
                 break;
@@ -138,14 +145,19 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
         }
 
         if (index != -1) {
+
             // put NoteState into release
             S1NoteState& note = noteStates[index];
-            note.stage = S1NoteState::stageRelease;
-            note.internalGate = 0;
+            if (note.stage != S1NoteState::stageOff) {
+                note.stage = S1NoteState::stageRelease;
+                note.internalGate = 0;
+            }
         } else {
+
             // the case where a note was stolen before the noteOff
         }
     }
+
     heldNotesDidChange();
     playingNotesDidChange();
 }

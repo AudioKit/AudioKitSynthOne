@@ -261,8 +261,6 @@ public class Manager: UpdatableViewController {
             if appSettings.presetsVersion < 1.24 && !appSettings.firstRun {
                 performSegue(withIdentifier: "SegueToApps", sender: nil) 
             }
-          
-            presetsViewController.upgradePresets()
             
             // Check for Device Type, set buffer to 1024 for iPad 4
             if appSettings.presetsVersion < 1.25 {
@@ -270,7 +268,15 @@ public class Manager: UpdatableViewController {
                     AKSettings.bufferLength = .veryLong
                     try? AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
                 }
+                
+                if conductor.device == .pad {
+                    displayAlertController("iPhone version! 🎉", message: "We've been working hard for you. Synth One is now available as a Universal app on the iPhone. Free & Open-source. Thank you. 🙏")
+                }
             }
+            
+            // upgrade presets
+            presetsViewController.upgradePresets()
+            
             // Save appSettings
             appSettings.presetsVersion = currentPresetVersion
             saveAppSettings()
@@ -285,6 +291,17 @@ public class Manager: UpdatableViewController {
         // Show email list if first run
         if appSettings.firstRun && !appSettings.signedMailingList && Private.MailChimpAPIKey != "***REMOVED***" && conductor.device != .phone {
             performSegue(withIdentifier: "SegueToMailingList", sender: self)
+        }
+        
+        // Check for Device Type
+        let modelName = UIDevice.current.modelName
+        if appSettings.firstRun && (conductor.device == .phone || modelName == "iPad 4") {
+            AKSettings.bufferLength = .veryLong
+            try? AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
+        }
+        
+        if appSettings.firstRun && (modelName == "iPhone SE" || modelName == "iPhone 5s" || modelName == "iPhone 5c") {
+            iPhoneRequirementWarning()
         }
 
         // iPhone show welcome screen
@@ -311,17 +328,6 @@ public class Manager: UpdatableViewController {
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
             self.keyboardToggle.callback(self.appSettings.showKeyboard)
-        }
-
-        // Check for Device Type
-        let modelName = UIDevice.current.modelName
-        if appSettings.firstRun && (conductor.device == .phone || modelName == "iPad 4") {
-            AKSettings.bufferLength = .veryLong
-            try? AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
-        }
-        
-        if appSettings.firstRun && (modelName == "iPhone SE" || modelName == "iPhone 5s" || modelName == "iPhone 5c") {
-            displayAlertController("Important", message: "Synth One requires an iPhone 6s or above for full functionality. It will not work properly on the SE, 5s, or below. However, you can still use this app to playback presets. Thank you. 🙏")
         }
         
         // Increase number of launches

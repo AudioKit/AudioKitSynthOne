@@ -203,7 +203,7 @@ extension PresetsViewController {
         
         // Remove existing presets
         // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = [""]
+        let banksToUpdate = ["JEC"]
         for bankName in banksToUpdate {
 
              if let filePath = Bundle.main.path(forResource: bankName, ofType: "json") {

@@ -39,7 +39,7 @@ extension Manager: PresetsDelegate {
             self.octaveStepper.value = Double(self.activePreset.octavePosition)
         }
 
-        // Save Current Preset
+        // Save App Settings
         saveAppSettingValues()
     }
 

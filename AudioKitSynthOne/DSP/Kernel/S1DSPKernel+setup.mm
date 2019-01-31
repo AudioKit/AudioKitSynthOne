@@ -37,6 +37,7 @@ void S1DSPKernel::initializeNoteStates() {
             state.stage = S1NoteState::stageOff;
             state.internalGate = 0;
             state.rootNoteNumber = -1;
+            state.transpose = 0;
         }
 
         // MONO INIT
@@ -45,5 +46,6 @@ void S1DSPKernel::initializeNoteStates() {
         monoNote->stage = S1NoteState::stageOff;
         monoNote->internalGate = 0;
         monoNote->rootNoteNumber = -1;
+        monoNote->transpose = 0;
     }
 }

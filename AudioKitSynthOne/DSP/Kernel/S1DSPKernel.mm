@@ -83,8 +83,10 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
         const int nn = [(NSNumber*)item intValue];
         NoteNumber* noteNumber = (NoteNumber*)malloc(sizeof(NoteNumber));
         noteNumber->noteNumber = nn;
+        noteNumber->transpose = 0; // held notes transpose is unused
         return noteNumber;
     }];
+    previousHeldNoteNumbersAECount = 0;
     
     _rate.init();
 
@@ -105,6 +107,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     _lfo2Rate = {S1Parameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};
     _autoPanRate = {S1Parameter::autoPanFrequency, getDependentParameter(autoPanFrequency), getSynthParameter(autoPanFrequency),0};
     _delayTime = {S1Parameter::delayTime, getDependentParameter(delayTime),getSynthParameter(delayTime),0};
+    _arpSeqTempoMultiplier = {S1Parameter::arpSeqTempoMultiplier, getDependentParameter(arpSeqTempoMultiplier), getSynthParameter(arpSeqTempoMultiplier)};
 
     previousProcessMonoPolyStatus = p[isMono];
     

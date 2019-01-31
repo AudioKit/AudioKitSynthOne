@@ -10,12 +10,13 @@ import UIKit
 
 class SequencerPanelController: PanelController {
 
-    @IBOutlet weak var seqStepsStepper: Stepper!
+    @IBOutlet weak var arpInterval: MIDIKnob!
     @IBOutlet weak var octaveStepper: Stepper!
     @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
     @IBOutlet weak var sequencerToggle: ToggleSwitch!
     @IBOutlet weak var arpToggle: ToggleButton!
-    @IBOutlet weak var arpInterval: MIDIKnob!
+    @IBOutlet weak var seqStepsStepper: Stepper!
+    @IBOutlet weak var arpSeqTempoMultiplier: MIDIKnob!
 
     var octBoostButtons = [SliderTransposeButton]()
     var sliders = [VerticalSlider]()
@@ -46,7 +47,17 @@ class SequencerPanelController: PanelController {
         conductor.bind(arpDirectionButton, to: .arpDirection)
         conductor.bind(sequencerToggle, to: .arpIsSequencer)
         conductor.bind(seqStepsStepper, to: .arpTotalSteps)
-		
+
+        // dependent param needs custom callback
+        arpSeqTempoMultiplier.range = 0...1
+        arpSeqTempoMultiplier.taper = 1
+        arpSeqTempoMultiplier.value = s.getDependentParameter(.arpSeqTempoMultiplier)
+        arpSeqTempoMultiplier.callback = { value in
+            let invertValue = value // 1 - value
+            s.setDependentParameter(.arpSeqTempoMultiplier, invertValue, self.conductor.arpSeqTempoMultiplierID)
+            self.conductor.updateDisplayLabel(.arpSeqTempoMultiplier, value: s.getSynthParameter(.arpSeqTempoMultiplier))
+            AKLog("arpSeqTempoMultiplier (inverted) value: \(invertValue)")
+        }
 
         // ARP/SEQ OCTAVE BOOST
         let sequencerOctBoostArray: [S1Parameter] = [.sequencerOctBoost00, .sequencerOctBoost01, .sequencerOctBoost02,
@@ -126,7 +137,6 @@ class SequencerPanelController: PanelController {
         }
 
 		setAccessibilityReadOrder()
-
     }
 
     override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {
@@ -136,14 +146,23 @@ class SequencerPanelController: PanelController {
 
         // Update arpIsSequencer LED position
         switch parameter {
-
         case .arpIsSequencer, .arpIsOn:
-             updateLED(beatCounter: 0, heldNotes: 0)
+            updateLED(beatCounter: 0, heldNotes: 0)
         default:
             _ = 0
         }
-
     }
+
+    func dependentParameterDidChange(_ dependentParameter: DependentParameter) {
+        if (dependentParameter.parameter == .arpSeqTempoMultiplier) {
+            if dependentParameter.payload == conductor.arpSeqTempoMultiplierID {
+                return
+            }
+            arpSeqTempoMultiplier.value = Double(dependentParameter.normalizedValue)
+            AKLog("arpSeqTempoMultiplier.value: \(arpSeqTempoMultiplier.value)")
+        }
+    }
+
 
     // MARK: - Helpers
 
@@ -198,7 +217,5 @@ class SequencerPanelController: PanelController {
 
 		view.accessibilityElements?.append(leftNavButton)
 		view.accessibilityElements?.append(rightNavButton)
-
 	}
-
 }

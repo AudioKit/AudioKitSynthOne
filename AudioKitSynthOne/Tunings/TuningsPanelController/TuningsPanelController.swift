@@ -27,7 +27,9 @@ class TuningsPanelController: PanelController {
     @IBOutlet weak var d1LaunchButton: SynthButton!
     @IBOutlet weak var diceButton: UIButton!
     @IBOutlet weak var importButton: SynthButton!
-    
+    @IBOutlet weak var tuneUpBackButtonButton: SynthButton!
+
+    ///Model
     let tuningModel = Tunings()
     var getStoreTuningWithPresetValue = false
 
@@ -92,6 +94,16 @@ class TuningsPanelController: PanelController {
             self.d1LaunchButton.value = 0
         }
 
+        // tuneUpBackButton
+        tuneUpBackButtonButton.callback = { value in
+            if let app = UIApplication.shared.delegate as? AppDelegate {
+                app.tuneUpBackButton()
+            } else {
+                AKLog("ERROR: can not assign callback to TuneUp BackButton")
+            }
+        }
+
+        // model
         tuningModel.tuningsDelegate = self
         tuningModel.loadTunings {
             // callback called on main thread
@@ -178,7 +190,20 @@ class TuningsPanelController: PanelController {
         guard tuningModel.isTuningReady else { return ("", [1]) }
         return tuningModel.getTuning()
     }
+
+    /// redirect to redirectURL provided by last TuneUp ( "back button" )
+    func tuneUpBackButton() {
+        tuningModel.tuneUpBackButton()
+    }
+
+    /// openURL
+    public func openUrl(url: URL) -> Bool {
+        return tuningModel.openUrl(url: url)
+    }
 }
+
+
+
 
 // MARK: - TuningsPitchWheelViewTuningDidChange
 

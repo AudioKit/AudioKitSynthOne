@@ -160,6 +160,12 @@ typedef AK_ENUM(S1Parameter) {
     oscBandlimitIndexOverride = 145,
     oscBandlimitEnable = 146,
 
-    S1ParameterCount = 147
+    arpSeqTempoMultiplier = 147,
+
+    transpose = 148,
+
+    adsrPitchTracking = 149,
+
+    S1ParameterCount = 150
 } S1Parameter;
 

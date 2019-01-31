@@ -102,6 +102,36 @@ public:
         return (AKSynthOneRate)x;
     }
 
+    float factorForRate(AKSynthOneRate rate) {
+        switch(rate) {
+            case eightBars:             return 8.f; break;
+            case sixBars:               return 6.f; break;
+            case fourBars:              return 4.f; break;
+            case threeBars:             return 3.f; break;
+            case twoBars:               return 2.f; break;
+            case bar:                   return 1.f; break;
+            case barTriplet:            return 1.f / 1.5f; break;
+            case half:                  return 1.f / 2.f; break;
+            case halfTriplet:           return 1.f / 2.f / 1.5f; break;
+            case quarter:               return 1.f / 4.f; break;
+            case quarterTriplet:        return 1.f / 4.f / 1.5f; break;
+            case eighth:                return 1.f / 8.f; break;
+            case eighthTriplet:         return 1.f / 8.f / 1.5f; break;
+            case sixteenth:             return 1.f / 16.f; break;
+            case sixteenthTriplet:      return 1.f / 16.f / 1.5f; break;
+            case thirtySecondth:        return 1.f / 32.f; break;
+            case thirtySecondthTriplet: return 1.f / 32.f / 1.5f; break;
+            case sixtyFourth:           return 1.f / 64.f; break;
+            case sixtyFourthTriplet:    return 1.f / 64.f / 1.5f; break;
+            default: return 1.f; break;
+        }
+    }
+
+    AKSynthOneRate rateFromFactor01(float inputValue01) {
+        const int x = eightBars + inputValue01 * (float)(AKSynthOneRate::AKSynthOneRateCount - 1.0f);
+        return (AKSynthOneRate)x;
+    }
+
     inline float frequency(float tempoBPM, AKSynthOneRate rate) {
         return 1.f / time(tempoBPM, rate);
     }

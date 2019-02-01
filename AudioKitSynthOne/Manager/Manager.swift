@@ -228,6 +228,10 @@ public class Manager: UpdatableViewController {
         }
 
     }
+    
+    override public var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

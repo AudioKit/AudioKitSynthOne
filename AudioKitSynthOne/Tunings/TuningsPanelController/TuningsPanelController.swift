@@ -85,6 +85,10 @@ class TuningsPanelController: PanelController {
                 documentPicker.delegate = self
                 self.present(documentPicker, animated: true, completion: nil)
             }
+
+            // TODO: Develop sharing of tuning banks
+            importButton.isHidden = true
+
         } else {
             AKLog("race condition: synth not yet created")
         }
@@ -99,8 +103,9 @@ class TuningsPanelController: PanelController {
             if let app = UIApplication.shared.delegate as? AppDelegate {
                 app.tuneUpBackButton()
             } else {
-                AKLog("ERROR: can not assign callback to TuneUp BackButton")
+                AKLog("ERROR: can not call callback for TuneUp BackButton")
             }
+            self.tuneUpBackButtonButton.value = 0
         }
 
         // model

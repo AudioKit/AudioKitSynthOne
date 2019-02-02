@@ -179,11 +179,12 @@ public class Manager: UpdatableViewController {
         AudioKit.midi.addListener(self)
 
         // Pre-load views and Set initial subviews
+        switchToChildPanel(.sequencer, isOnTop: true)
+        switchToChildPanel(.sequencer, isOnTop: false)
         switchToChildPanel(.effects, isOnTop: true)
         switchToChildPanel(.touchPad, isOnTop: true)
         switchToChildPanel(.effects, isOnTop: true)
         switchToChildPanel(.envelopes, isOnTop: true)
-        switchToChildPanel(.sequencer, isOnTop: true)
         switchToChildPanel(.effects, isOnTop: true)
         switchToChildPanel(.generators, isOnTop: true)
         

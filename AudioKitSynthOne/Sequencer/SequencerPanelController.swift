@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreGraphics
 
 class SequencerPanelController: PanelController {
 
@@ -39,6 +40,7 @@ class SequencerPanelController: PanelController {
         octaveStepper.minValue = s.getMinimum(.arpOctave)
         octaveStepper.maxValue = s.getMaximum(.arpOctave)
         arpInterval.range = s.getRange(.arpInterval)
+        arpSeqTempoMultiplier.range = 0...1
 
         // Bindings
         conductor.bind(arpToggle, to: .arpIsOn)
@@ -49,14 +51,12 @@ class SequencerPanelController: PanelController {
         conductor.bind(seqStepsStepper, to: .arpTotalSteps)
 
         // dependent param needs custom callback
-        arpSeqTempoMultiplier.range = 0...1
         arpSeqTempoMultiplier.taper = 1
         arpSeqTempoMultiplier.value = s.getDependentParameter(.arpSeqTempoMultiplier)
         arpSeqTempoMultiplier.callback = { value in
-            let invertValue = value // 1 - value
-            s.setDependentParameter(.arpSeqTempoMultiplier, invertValue, self.conductor.arpSeqTempoMultiplierID)
+            s.setDependentParameter(.arpSeqTempoMultiplier, value, self.conductor.arpSeqTempoMultiplierID)
             self.conductor.updateDisplayLabel(.arpSeqTempoMultiplier, value: s.getSynthParameter(.arpSeqTempoMultiplier))
-            AKLog("arpSeqTempoMultiplier (inverted) value: \(invertValue)")
+            AKLog("arpSeqTempoMultiplier callback: value: \(value), \(s.getSynthParameter(.arpSeqTempoMultiplier))")
         }
 
         // ARP/SEQ OCTAVE BOOST
@@ -159,7 +159,6 @@ class SequencerPanelController: PanelController {
                 return
             }
             arpSeqTempoMultiplier.value = Double(dependentParameter.normalizedValue)
-            AKLog("arpSeqTempoMultiplier.value: \(arpSeqTempoMultiplier.value)")
         }
     }
 

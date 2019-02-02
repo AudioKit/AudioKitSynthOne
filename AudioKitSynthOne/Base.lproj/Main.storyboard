@@ -157,76 +157,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgM-0f-PIM" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="360" y="6" width="50" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <accessibility key="accessibilityConfiguration" label="Hold"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Hold">
-                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <attributedString key="userComments">
-                                            <fragment content="Keyboard hold button (keep this text as short as possible)">
-                                                <attributes>
-                                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoL-gC-ltD" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="416" y="6" width="50" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <accessibility key="accessibilityConfiguration" label="Mono">
-                                            <accessibilityTraits key="traits" button="YES"/>
-                                        </accessibility>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Mono">
-                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <attributedString key="userComments">
-                                            <fragment content="Mono/Poly toggle button (keep this text as short as possible)">
-                                                <attributes>
-                                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aX-2m-9dq" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="473" y="6" width="76" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <accessibility key="accessibilityConfiguration" label="MIDI Learn"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="MIDI Learn">
-                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <attributedString key="userComments">
-                                            <fragment content="Midi Learn button (keep this text as short as possible)">
-                                                <attributes>
-                                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYt-Lq-EWA" customClass="AKBluetoothMIDIButton" customModule="AudioKit">
-                                        <rect key="frame" x="130" y="6" width="36" height="26"/>
+                                        <rect key="frame" x="118" y="6" width="36" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Bluetooth"/>
@@ -239,7 +171,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwe-sp-zlA" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="172" y="6" width="69" height="26"/>
+                                        <rect key="frame" x="163" y="6" width="45" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <accessibility key="accessibilityConfiguration" label="Wheel"/>
@@ -264,55 +196,6 @@
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sg0-Cu-xh3" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="247" y="6" width="50" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <accessibility key="accessibilityConfiguration" label="Keys"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Keys">
-                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <attributedString key="userComments">
-                                            <fragment content="Keyboard Keys settings  button (keep this text as short as possible)">
-                                                <attributes>
-                                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <connections>
-                                            <segue destination="9qI-Vs-eLW" kind="popoverPresentation" identifier="SegueToKeyboardSettings" popoverAnchorView="Sg0-Cu-xh3" id="uQl-Oi-SV4">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wO9-99-Ybd" customClass="AKLinkButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="304" y="6" width="50" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <accessibility key="accessibilityConfiguration" label="Link"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Link">
-                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <attributedString key="userComments">
-                                            <fragment content="Ableton Link button (keep this text as short as possible)">
-                                                <attributes>
-                                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTo-Qn-gdZ" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                         <rect key="frame" x="9" y="6" width="58" height="26"/>
@@ -342,7 +225,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKE-z6-srA" userLabel="Keyboard Toggle" customClass="KeyboardShowButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="73" y="6" width="48" height="26"/>
+                                        <rect key="frame" x="75" y="6" width="36" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.2001093477" green="0.20010487739999999" blue="0.20010755960000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
@@ -355,7 +238,7 @@
                                         </state>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LyF-GB-awR" customClass="Stepper" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="663" y="4" width="100" height="31"/>
+                                        <rect key="frame" x="568" y="4" width="100" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration" hint="Adjusts Keyboard Octave." identifier="KeyboardOctaveStepper" label="Octave Range">
@@ -364,7 +247,7 @@
                                         </accessibility>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yH0-mi-zfm" customClass="Stepper" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="555" y="4" width="100" height="31"/>
+                                        <rect key="frame" x="469" y="4" width="100" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration" hint="Adjusts Keyboard Octave." identifier="KeyboardOctaveStepper" label="Octave Range">
@@ -372,6 +255,123 @@
                                             <bool key="isElement" value="YES"/>
                                         </accessibility>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgM-0f-PIM" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="301" y="6" width="36" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <accessibility key="accessibilityConfiguration" label="Hold"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Hold">
+                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <attributedString key="userComments">
+                                            <fragment content="Keyboard hold button (keep this text as short as possible)">
+                                                <attributes>
+                                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoL-gC-ltD" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="348" y="6" width="40" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <accessibility key="accessibilityConfiguration" label="Mono">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                        </accessibility>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Mono">
+                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <attributedString key="userComments">
+                                            <fragment content="Mono/Poly toggle button (keep this text as short as possible)">
+                                                <attributes>
+                                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aX-2m-9dq" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="398" y="6" width="65" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <accessibility key="accessibilityConfiguration" label="MIDI Learn"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="MIDI Learn">
+                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <attributedString key="userComments">
+                                            <fragment content="Midi Learn button (keep this text as short as possible)">
+                                                <attributes>
+                                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sg0-Cu-xh3" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="217" y="6" width="33" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <accessibility key="accessibilityConfiguration" label="Keys"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Keys">
+                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <attributedString key="userComments">
+                                            <fragment content="Keyboard Keys settings  button (keep this text as short as possible)">
+                                                <attributes>
+                                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <connections>
+                                            <segue destination="9qI-Vs-eLW" kind="popoverPresentation" identifier="SegueToKeyboardSettings" popoverAnchorView="Sg0-Cu-xh3" id="uQl-Oi-SV4">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wO9-99-Ybd" customClass="AKLinkButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                        <rect key="frame" x="258" y="6" width="36" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <accessibility key="accessibilityConfiguration" label="Link"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Link">
+                                            <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <attributedString key="userComments">
+                                            <fragment content="Ableton Link button (keep this text as short as possible)">
+                                                <attributes>
+                                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -436,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkY-CW-6Da" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1574" y="-1069"/>
+            <point key="canvasLocation" x="-1574.4140625" y="-1069.140625"/>
         </scene>
         <!--Synth One-->
         <scene sceneID="tne-QT-ifu">

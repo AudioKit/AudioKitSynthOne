@@ -15,7 +15,6 @@ float S1DSPKernel::getDependentParameter(S1Parameter parameter) {
     }
 
     if (parameter == arpSeqTempoMultiplier) {
-        printf("getDependentParameter: normalizedValue: %f\n",_arpSeqTempoMultiplier.normalizedValue);
         return _arpSeqTempoMultiplier.normalizedValue;
     }
 
@@ -76,7 +75,8 @@ void S1DSPKernel::setDependentParameter(S1Parameter param, float inputValue01, i
 
         case arpSeqTempoMultiplier:
         {
-            AKSynthOneRate rate = _rate.rateFromFactor01(inputValue01);
+            const float valInvert = 1.f - inputValue01;
+            AKSynthOneRate rate = _rate.rateFromFactor01(valInvert);
             const float val = _rate.factorForRate(rate);
             _setSynthParameterHelper(arpSeqTempoMultiplier, val, notify, payload);
         }

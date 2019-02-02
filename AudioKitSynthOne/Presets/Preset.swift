@@ -13,13 +13,13 @@ import AudioKit
 
 class Preset: Codable {
 
+    // You MUST match these property names with the dictionary key used by init (below)
+    // or you will forever lose the original preset.
+
     var uid = UUID().uuidString
     var position = 0 // Preset #
     var name = "Init"
     var bank = "User"
-
-    // You MUST match these property names with the dictionary key used by init (below)
-    // or you will forever lose the original preset.
 
     // Synth VC
     var octavePosition = 0
@@ -306,9 +306,9 @@ class Preset: Codable {
         arpRate = dictionary["arpRate"] as? Double ?? p(.arpRate)
         arpIsSequencer = dictionary["arpIsSequencer"] as? Bool ?? Bool(p(.arpIsSequencer) > 0 ? true : false)
         arpTotalSteps = dictionary["arpTotalSteps"] as? Double ?? p(.arpTotalSteps)
-        arpSeqTempoMultiplier = dictionary["arpSeqTempoMultiplier"] as? Double ?? 0.25
-        transpose = dictionary["transpose"] as? Int ?? 0
-        adsrPitchTracking = dictionary["adsrPitchTracking"] as? Double ?? 0
+        arpSeqTempoMultiplier = dictionary["arpSeqTempoMultiplier"] as? Double ?? p(.arpSeqTempoMultiplier)
+        transpose = dictionary["transpose"] as? Int ?? Int(p(.transpose))
+        adsrPitchTracking = dictionary["adsrPitchTracking"] as? Double ?? p(.adsrPitchTracking)
         
         author = dictionary["author"] as? String ?? author
         category = dictionary["category"] as? Int ?? category

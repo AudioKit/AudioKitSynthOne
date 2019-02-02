@@ -183,7 +183,7 @@ public class Manager: UpdatableViewController {
         switchToChildPanel(.touchPad, isOnTop: true)
         switchToChildPanel(.effects, isOnTop: true)
         switchToChildPanel(.envelopes, isOnTop: true)
-        switchToChildPanel(.sequencer, isOnTop: true)
+        switchToChildPanel(.sequencer, isOnTop: false)
         switchToChildPanel(.effects, isOnTop: true)
         switchToChildPanel(.generators, isOnTop: true)
         

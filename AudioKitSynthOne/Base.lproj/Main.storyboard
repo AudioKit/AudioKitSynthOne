@@ -341,15 +341,6 @@
                                             </segue>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LyF-GB-awR" customClass="Stepper" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="561" y="5" width="100" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <accessibility key="accessibilityConfiguration" hint="Adjusts Keyboard Octave." identifier="KeyboardOctaveStepper" label="Octave Range">
-                                            <accessibilityTraits key="traits" adjustable="YES"/>
-                                            <bool key="isElement" value="YES"/>
-                                        </accessibility>
-                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKE-z6-srA" userLabel="Keyboard Toggle" customClass="KeyboardShowButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                         <rect key="frame" x="73" y="6" width="48" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -363,6 +354,24 @@
                                             <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LyF-GB-awR" customClass="Stepper" customModule="AudioKitSynthOne">
+                                        <rect key="frame" x="663" y="4" width="100" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Adjusts Keyboard Octave." identifier="KeyboardOctaveStepper" label="Octave Range">
+                                            <accessibilityTraits key="traits" adjustable="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yH0-mi-zfm" customClass="Stepper" customModule="AudioKitSynthOne">
+                                        <rect key="frame" x="555" y="4" width="100" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Adjusts Keyboard Octave." identifier="KeyboardOctaveStepper" label="Octave Range">
+                                            <accessibilityTraits key="traits" adjustable="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -419,6 +428,7 @@
                         <outlet property="octaveStepper" destination="LyF-GB-awR" id="Fcb-D9-Z8z"/>
                         <outlet property="pitchBend" destination="kzH-H2-qmM" id="WES-lV-8c5"/>
                         <outlet property="topContainerView" destination="A4E-fM-RwT" id="gwL-d9-oBm"/>
+                        <outlet property="transposeStepper" destination="yH0-mi-zfm" id="urH-Fj-jq3"/>
                         <segue destination="8P9-DY-HCH" kind="presentation" identifier="SegueToAbout" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="V8h-iZ-Ly2"/>
                         <segue destination="M7f-x2-kSI" kind="presentation" identifier="SegueToMore" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="y4G-gB-dDe"/>
                         <segue destination="mL0-tn-PDC" kind="presentation" identifier="SegueToWelcome" id="8ID-d8-Qnm"/>
@@ -600,7 +610,7 @@
                                         </attributedString>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ3-lz-BGf" customClass="Stepper" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="808" y="6" width="108" height="35"/>
+                                        <rect key="frame" x="819" y="6" width="108" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration" hint="Adjusts Keyboard Octave." identifier="KeyboardOctaveStepper" label="Octave Range">
@@ -609,7 +619,7 @@
                                         </accessibility>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Octave:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-Ri-7nN">
-                                        <rect key="frame" x="713" y="11" width="87" height="22"/>
+                                        <rect key="frame" x="770" y="11" width="47" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -747,6 +757,26 @@
                                             </fragment>
                                         </attributedString>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transpose:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EVT-5m-BTf">
+                                        <rect key="frame" x="589" y="11" width="62" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                        <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uep-y6-Gb1" customClass="Stepper" customModule="AudioKitSynthOne">
+                                        <rect key="frame" x="653" y="6" width="108" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Adjusts Keyboard Octave." identifier="KeyboardOctaveStepper" label="Octave Range">
+                                            <accessibilityTraits key="traits" adjustable="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -789,6 +819,7 @@
                         <outlet property="pitchBend" destination="RfU-sr-0bT" id="ZL5-ID-1hP"/>
                         <outlet property="topContainerView" destination="FVi-Ld-MF5" id="hUr-7n-IQP"/>
                         <outlet property="topPanelheight" destination="065-6c-Sa4" id="pwh-6g-OsJ"/>
+                        <outlet property="transposeStepper" destination="uep-y6-Gb1" id="MCZ-sf-KlE"/>
                         <segue destination="qsj-iI-Pz6" kind="popoverPresentation" identifier="SegueToMOD" popoverAnchorView="OxM-Pu-Zba" id="TVa-dv-w7i">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
@@ -803,7 +834,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1490" y="-541"/>
+            <point key="canvasLocation" x="-1490.0390625" y="-541.40625"/>
         </scene>
         <!--Keyboard Settings View Controller-->
         <scene sceneID="nVT-JB-zlP">

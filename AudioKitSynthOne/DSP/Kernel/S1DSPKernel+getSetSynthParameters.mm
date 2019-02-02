@@ -48,10 +48,10 @@ void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bool noti
 
     // arpSeqTempoMultiplier
     if (parameter == arpSeqTempoMultiplier) {
-        const float val = clampedValue(parameter, inputValue);
-        const float val01 = (val - minimum(arpSeqTempoMultiplier)) / (maximum(arpSeqTempoMultiplier) - minimum(arpSeqTempoMultiplier));
-        _arpSeqTempoMultiplier = {parameter, val01, val, payload};
-        _setSynthParameter(parameter, val);
+        const float value = clampedValue(parameter, inputValue);
+        S1RateArgs syncdValue = _rate.nearestFactor(value);
+        _setSynthParameter(parameter, syncdValue.value);
+        _arpSeqTempoMultiplier = {parameter, 1.f - syncdValue.value01, syncdValue.value, payload};
         if (notifyMainThread) {
             dependentParameterDidChange(_arpSeqTempoMultiplier);
         }
@@ -87,9 +87,8 @@ void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bool noti
             S1RateArgs syncdValue = _rate.nearestTime(value, p[arpRate], minimum(parameter), maximum(parameter));
             _setSynthParameter(parameter, syncdValue.value);
             _delayTime = {parameter, 1.f - syncdValue.value01, syncdValue.value, payload};
-            DependentParameter outputDP = _delayTime;
             if (notifyMainThread) {
-                dependentParameterDidChange(outputDP);
+                dependentParameterDidChange(_delayTime);
             }
         }
     } else {

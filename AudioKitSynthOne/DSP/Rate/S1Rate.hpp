@@ -92,6 +92,24 @@ public:
         return retVal;
     }
 
+    inline S1RateArgs nearestFactor(float inputFactor) {
+        int closestRate = sixtyFourthTriplet;
+        float closestFactor = factorForRate((AKSynthOneRate)closestRate);
+        float smallestDifference = 1000000000.f;
+        for(int i = sixtyFourthTriplet; i >= eightBars; i--) {
+            const float factor = factorForRate((AKSynthOneRate)i);
+            float difference = abs(factor - inputFactor);
+            if (difference < smallestDifference) {
+                smallestDifference = difference;
+                closestRate = i;
+                closestFactor = factor;
+            }
+        }
+        const float outputRate01 = (float)(closestRate - eightBars) / (float)(AKSynthOneRate::AKSynthOneRateCount - 1.f - eightBars);
+        S1RateArgs retVal = {(AKSynthOneRate)closestRate, closestFactor, outputRate01};
+        return retVal;
+    }
+
     AKSynthOneRate rateFromFrequency01(float inputValue01) {
         const int x = inputValue01 * (float)(AKSynthOneRate::AKSynthOneRateCount - 1.f);
         return (AKSynthOneRate)x;

@@ -56,7 +56,6 @@ class SequencerPanelController: PanelController {
         arpSeqTempoMultiplier.callback = { value in
             s.setDependentParameter(.arpSeqTempoMultiplier, value, self.conductor.arpSeqTempoMultiplierID)
             self.conductor.updateDisplayLabel(.arpSeqTempoMultiplier, value: s.getSynthParameter(.arpSeqTempoMultiplier))
-            AKLog("arpSeqTempoMultiplier callback: value: \(value), \(s.getSynthParameter(.arpSeqTempoMultiplier))")
         }
 
         // ARP/SEQ OCTAVE BOOST

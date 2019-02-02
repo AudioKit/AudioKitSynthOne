@@ -283,7 +283,7 @@ class Conductor: S1Protocol {
 
         iaaTimer.invalidate()
 
-        AKLog("disconnected with timer")
+        AKLog("deactivated session")
     }
 
 }

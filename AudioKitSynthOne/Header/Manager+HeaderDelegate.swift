@@ -124,6 +124,9 @@ extension Manager: HeaderDelegate {
         guard Private.MailChimpAPIKey != "***REMOVED***" else {
            // Running source code with no mailchimp key
            displayBonusPresets()
+            if let headerVC = self.children.first as? HeaderViewController {
+                   headerVC.morePresetsButton.isEnabled = false
+            }
            return
         }
         

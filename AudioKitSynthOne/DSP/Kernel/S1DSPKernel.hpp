@@ -378,7 +378,7 @@ private:
         { reverbMix,             0, 0, 1, "reverbMix", "reverbMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayOn,               0, 0, 1, "delayOn", "delayOn", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayFeedback,         0, 0.1, 0.9, "delayFeedback", "delayFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
-        { delayTime,             0.0003628117914, 0.25, 2.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, false, NULL},
+        { delayTime,             0.0003628117914, 0.25, 2.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
         { delayMix,              0, 0.125, 1, "delayMix", "delayMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo2Index,             0, 0, 3, "lfo2Index", "lfo2Index", kAudioUnitParameterUnit_Generic, false, NULL},
         { lfo2Amplitude,         0, 0, 1, "lfo2Amplitude", "lfo2Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},

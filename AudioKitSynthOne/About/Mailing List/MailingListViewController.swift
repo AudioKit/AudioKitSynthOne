@@ -41,6 +41,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
                                                object: nil)
 
         // MailChimp API Key
+        guard Private.MailChimpAPIKey != "***REMOVED***" else { return }
         ChimpKit.shared().apiKey = Private.MailChimpAPIKey
     }
 

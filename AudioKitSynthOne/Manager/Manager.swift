@@ -315,6 +315,12 @@ public class Manager: UpdatableViewController {
         if appSettings.firstRun && (modelName == "iPhone SE" || modelName == "iPhone 5s" || modelName == "iPhone 5c") {
             iPhoneRequirementWarning()
         }
+        
+        if modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "iPhone 8" || modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus" {
+            if UIScreen.main.nativeScale < UIScreen.main.scale {
+                iPhoneZoomWarning()
+            }
+        }
 
         // iPhone show welcome screen
         if appSettings.firstRun && conductor.device == .phone { 

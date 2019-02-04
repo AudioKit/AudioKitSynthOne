@@ -97,6 +97,11 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         // Remove dismiss for the hard sell
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func startPlaying(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
     @IBAction func signUpPressed(_ sender: UIButton) {
         signUpAction()

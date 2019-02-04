@@ -53,6 +53,17 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func iPhoneZoomWarning() {
+        let alertTitle = NSLocalizedString("Important", comment: "Alert Title: iPhone Zoom On")
+        let alertMessage = NSLocalizedString("It looks like you have 'Zoom' on in your iPhone 'Settings'. This will make the app look cropped. \n\nTo fix, go to your iPhone \n'Settings' > 'Display & Brightness' and change zoom to 'Standard'. Thank you. Then you should be good to go! 🎹👍", comment: "Alert Message: Synth One")
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        let submitAction = UIAlertAction(title: "Okay", style: .default) { (_) in
+            self.performSegue(withIdentifier: "SegueToWelcome", sender: self)
+        }
+        alert.addAction(submitAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 
     func requestReview() {
         if #available(iOS 10.3, *) {

@@ -12,24 +12,24 @@ class FilterTypeButton: UIButton, S1Control {
 
     var callback: (Double) -> Void = { _ in }
 
-	private var _value: Double = 0 {
-		didSet {
-			switch _value {
-			case 0:
-				// low pass
-				accessibilityValue = NSLocalizedString("Low Pass", comment: "Low Pass")
-			case 1:
-				// band pass
-				accessibilityValue = NSLocalizedString("Band Pass", comment: "Low Pass")
-			case 2:
-				// high pass
-				accessibilityValue = NSLocalizedString("High Pass", comment: "Low Pass")
-			default:
-				// low pass
-				accessibilityValue = NSLocalizedString("Low Pass", comment: "Low Pass")
-			}
-		}
-	}
+    private var _value: Double = 0 {
+        didSet {
+            switch _value {
+            case 0:
+                // low pass
+                accessibilityValue = NSLocalizedString("Low Pass", comment: "Low Pass")
+            case 1:
+                // band pass
+                accessibilityValue = NSLocalizedString("Band Pass", comment: "Low Pass")
+            case 2:
+                // high pass
+                accessibilityValue = NSLocalizedString("High Pass", comment: "Low Pass")
+            default:
+                // low pass
+                accessibilityValue = NSLocalizedString("Low Pass", comment: "Low Pass")
+            }
+      }
+    }
 
     var value: Double {
         get {

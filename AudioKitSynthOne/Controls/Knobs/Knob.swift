@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class Knob: UIView, S1Control {
+public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
 
     var onlyIntegers: Bool = false
 
@@ -83,6 +83,11 @@ public class Knob: UIView, S1Control {
         super.init(coder: coder)
         self.isUserInteractionEnabled = true
         contentMode = .redraw
+
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        doubleTapGesture.delegate = self
+        doubleTapGesture.numberOfTapsRequired = 2
+        addGestureRecognizer(doubleTapGesture)
     }
 
     override public func prepareForInterfaceBuilder() {
@@ -102,6 +107,10 @@ public class Knob: UIView, S1Control {
                                                width: self.bounds.width,
                                                height: self.bounds.height),
                                  knobValue: knobValue)
+    }
+
+    @objc public func handleTap(_ sender: Knob) {
+        defaultCallback()
     }
 
     // Helper

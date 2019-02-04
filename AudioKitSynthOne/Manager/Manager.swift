@@ -215,7 +215,7 @@ public class Manager: UpdatableViewController {
                                                  &callbackStruct,
                                                  UInt32(MemoryLayout<AudioOutputUnitMIDICallbacks>.size))
         if connectIAAMDI != 0 {
-            AKLog("Something bad happened")
+            AKLog("Cannot create outpoutAudioUnit of type: kAudioOutputUnitProperty_MIDICallbacks")
         }
 
         // Setup AudioBus MIDI Input

@@ -14,6 +14,7 @@ class ArpDirectionButton: UIView, S1Control {
     // MARK: - LFO Button
 
     public var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = {  }
 
     private var width: CGFloat = 35.0
 

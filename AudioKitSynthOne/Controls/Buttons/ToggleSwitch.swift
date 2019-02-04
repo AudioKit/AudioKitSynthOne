@@ -27,6 +27,7 @@ class ToggleSwitch: UIView, S1Control {
         }
     }
     public var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     override func draw(_ rect: CGRect) {
         ToggleSwitchStyleKit.drawToggleSwitch(isToggled: value == 0 ? false : true )

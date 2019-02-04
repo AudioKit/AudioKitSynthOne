@@ -11,6 +11,7 @@ import AudioKit
 protocol S1Control: class {
     var value: Double { get set }
     var callback: (Double) -> Void { get set }
+    var defaultCallback: () -> Void { get set }
 }
 
 typealias S1ControlCallback = (S1Parameter, S1Control?) -> ((_: Double) -> Void)

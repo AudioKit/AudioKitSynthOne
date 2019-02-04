@@ -35,6 +35,7 @@ class ArpButton: UIView, S1Control {
     }
 
     public var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     override func draw(_ rect: CGRect) {
         ArpButtonStyleKit.drawArpButton(frame: CGRect(x: 0,

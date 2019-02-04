@@ -14,6 +14,7 @@ public class Knob: UIView, S1Control {
     var onlyIntegers: Bool = false
 
     var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     public var taper: Double = 1.0 // Linear by default
 

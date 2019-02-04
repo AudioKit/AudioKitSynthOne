@@ -12,6 +12,7 @@ import UIKit
 class LFOToggle: UIView, S1Control {
 
     var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
     var value: Double = 0 {
         didSet {
             // Code for activating LFO state from Preset load

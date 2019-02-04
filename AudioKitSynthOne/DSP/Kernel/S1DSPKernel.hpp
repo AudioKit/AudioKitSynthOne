@@ -52,7 +52,7 @@ public:
     float getSynthParameter(S1Parameter param);
     void setSynthParameter(S1Parameter param, float value);
 
-    // lfo1Rate, lfo2Rate, autoPanRate, and delayTime; returns on [0,1]
+    // lfo1Rate, lfo2Rate, autoPanRate, delayTime, and arpSeqTempoMultiplier; returns on [0,1]
     float getDependentParameter(S1Parameter param);
     void setDependentParameter(S1Parameter param, float value, int payload);
 
@@ -213,6 +213,8 @@ private:
     DependentParameter _delayTime;
     
     DependentParameter _pitchbend;
+
+    DependentParameter _arpSeqTempoMultiplier;
     
     void dependentParameterDidChange(DependentParameter param);
 
@@ -305,7 +307,7 @@ private:
     float bitcrushValue = 0.f;
 
     // Arp/Seq
-    double sampleCounter = 0;
+    double processSampleCounter = 0;
     double arpSampleCounter = 0;
     double arpTime = 0;
     int notesPerOctave = 12;
@@ -321,13 +323,14 @@ private:
     // Array of midi note numbers of NoteState's which have had a noteOn event but not yet a noteOff event.
     NSMutableArray<NSNumber*>* heldNoteNumbers;
     AEArray* heldNoteNumbersAE;
-    
+    int previousHeldNoteNumbersAECount; // previous render loop held key count
+
     // These expressions come from Rate.swift which is used for beat sync
     const float minutesPerSecond = 1.f / 60.f;
     const float beatsPerBar = 4.f;
     const float bpm_min = 1.f;
     const float bpm_max = 200.f;
-    const float bars_min = 1.f / 64.f;
+    const float bars_min = 1.f / 64.f / 1.5f;
     const float bars_max = 8.f;
     const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) ); //  0.00052 8 bars at 1bpm
     const float rate_max = 1.f / ( (beatsPerBar * bars_min) / (bpm_max * minutesPerSecond) ); // 53.3333
@@ -488,7 +491,14 @@ private:
 
         /* -1 = no override, else = index into bandlimited wavetable */
         { oscBandlimitIndexOverride, -1, -1, (S1_NUM_BANDLIMITED_FTABLES-1), "oscBandlimitIndexOverride", "oscBandlimitIndexOverride", kAudioUnitParameterUnit_Generic, false, NULL },
-        { oscBandlimitEnable, 0, 0, 1, "oscBandlimitEnable", "oscBandlimitEnable", kAudioUnitParameterUnit_Generic, false, NULL}
+        { oscBandlimitEnable, 0, 0, 1, "oscBandlimitEnable", "oscBandlimitEnable", kAudioUnitParameterUnit_Generic, false, NULL},
+
+        { arpSeqTempoMultiplier, bars_min, 0.25, bars_max, "arpSeqTempoMultiplier", "arpSeqTempoMultiplier", kAudioUnitParameterUnit_Generic, false, NULL},
+
+        { transpose, -24, 0, 24, "transpose", "transpose", kAudioUnitParameterUnit_Generic, false, NULL},
+
+        { adsrPitchTracking, 0, 0, 1, "adsrPitchTracking", "adsrPitchTracking", kAudioUnitParameterUnit_Generic, true, NULL}
+
     };
 };
 #endif

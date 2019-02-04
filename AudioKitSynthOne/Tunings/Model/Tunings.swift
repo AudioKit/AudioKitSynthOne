@@ -13,6 +13,13 @@ import Disk
 /// Tuning Model
 class Tunings {
 
+    let conductor = Conductor.sharedInstance
+
+    // TuneUp, BackButton
+    internal var redirectHost: String?
+    internal var redirectFriendlyName: String = "TuneUp"
+    public weak var tuneUpDelegate: TuneUpDelegate?
+
     enum TuningSortType {
         case npo
         case name
@@ -21,13 +28,13 @@ class Tunings {
     }
     private var tuningSortType = TuningSortType.npo
 
-
     public typealias S1TuningCallback = () -> [Double]
     public typealias Frequency = Double
     public typealias S1TuningLoadCallback = () -> (Void)
 
     var isTuningReady = false
-    var tuningsDelegate: TuningsPitchWheelViewTuningDidChange?
+
+    var pitchWheelDelegate: TuningsPitchWheelViewTuningDidChange?
 
     internal static let bundleBankIndex = 0
     internal static let userBankIndex = 1
@@ -65,7 +72,10 @@ class Tunings {
     internal static let hexanyTriadTuningsBankName = "Hexanies With Proportional Triads"
 
 
+    // MARK: INIT
     init() {}
+
+    // MARK: STORAGE
 
     ///
     func loadTunings(completionHandler: @escaping S1TuningLoadCallback) {
@@ -106,7 +116,7 @@ class Tunings {
 
             // MODEL IS INITIALIZED
             self.isTuningReady = true
-            self.tuningsDelegate?.tuningDidChange()
+            self.pitchWheelDelegate?.tuningDidChange()
 
             // CALLBACK
             DispatchQueue.main.async {
@@ -167,18 +177,23 @@ class Tunings {
         }
     }
 
-    ///
+    /// saveTunings
+    /// Save for the cases where selectedTuningIndex changes
+    /// Need to extend TuningBanks from array to dictionary with selectedBankIndex value
     private func saveTunings() {
-        do {
-            try Disk.save(tuningBanks, to: .documents, as: tuningFilenameV1)
-        } catch {
-            AKLog("*** error saving tuning banks")
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                try Disk.save(self.tuningBanks, to: .documents, as: self.tuningFilenameV1)
+            } catch {
+                AKLog("*** error saving tuning banks")
+            }
         }
     }
 
+    // MARK: SORT, FILTER
+
     ///
     private func sortTunings(forBank tuningBank: TuningBank, sortType: TuningSortType) {
-
         var t = tuningBank.tunings
         let twelveET = Tuning()
         let insertTwelveET = tuningBank === tuningBanks[Tunings.bundleBankIndex] || tuningBank === tuningBanks[Tunings.userBankIndex]
@@ -204,6 +219,8 @@ class Tunings {
 
         // IN-PLACE
         tuningBank.tunings = t
+
+        // No need to save reordering of tunings
     }
 
     /// adds tuning to user bank if it does not exist
@@ -241,7 +258,6 @@ class Tunings {
                         selectedBankIndex = bi
                         b.selectedTuningIndex = sortedIndices[0]
                         refreshDatasource = true
-                        saveTunings()
                     }
                 } else {
                     // New Tuning for a bundled bank.
@@ -252,10 +268,13 @@ class Tunings {
 
         // Update global tuning table no matter what
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: masterFrequencies)
-        tuningsDelegate?.tuningDidChange()
+        pitchWheelDelegate?.tuningDidChange()
+        saveTunings()
 
         return refreshDatasource
     }
+
+    // MARK: SELECTION (PERSISTENT)
 
     /// select the tuning at row for selected bank
     public func selectTuning(atRow row: Int) {
@@ -263,7 +282,8 @@ class Tunings {
         b.selectedTuningIndex = Int((0 ... b.tunings.count).clamp(row))
         let tuning = b.tunings[b.selectedTuningIndex]
         AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        tuningsDelegate?.tuningDidChange()
+        pitchWheelDelegate?.tuningDidChange()
+        saveTunings()
     }
 
     /// select the bank at row
@@ -273,8 +293,11 @@ class Tunings {
         let b = tuningBank
         let tuning = b.tunings[b.selectedTuningIndex]
         AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        tuningsDelegate?.tuningDidChange()
+        pitchWheelDelegate?.tuningDidChange()
+        saveTunings()
     }
+
+    // MARK: STATE
 
     // Assumes tuning[0] is twelve et for all tuningBanks
     public func resetTuning() {
@@ -283,9 +306,10 @@ class Tunings {
         b.selectedTuningIndex = 0
         let tuning = b.tunings[b.selectedTuningIndex]
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        let f = Conductor.sharedInstance.synth!.getDefault(.frequencyA4)
-        Conductor.sharedInstance.synth!.setSynthParameter(.frequencyA4, f)
-        tuningsDelegate?.tuningDidChange()
+        let f = conductor.synth!.getDefault(.frequencyA4)
+        conductor.synth!.setSynthParameter(.frequencyA4, f)
+        pitchWheelDelegate?.tuningDidChange()
+        saveTunings()
     }
 
     public func randomTuning() {
@@ -293,7 +317,8 @@ class Tunings {
         b.selectedTuningIndex = Int(arc4random() % UInt32(b.tunings.count))
         let tuning = b.tunings[b.selectedTuningIndex]
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        tuningsDelegate?.tuningDidChange()
+        pitchWheelDelegate?.tuningDidChange()
+        saveTunings()
     }
 
     public func getTuning() -> (String, [Double]) {

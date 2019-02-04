@@ -161,14 +161,19 @@ extension PresetsViewController {
     }
 
     func createActivePreset() {
-        do {
-            try Disk.save(currentPreset, to: .caches, as: "currentPreset.json")
-            if let activePreset = try? Disk.retrieve("currentPreset.json", from: .caches, as: Preset.self) {
-                presetsDelegate?.presetDidChange(activePreset)
-            }
-        } catch {
-            AKLog("error saving")
-        }
+
+        let activePreset = currentPreset
+        presetsDelegate?.presetDidChange(activePreset)
+
+        //TODO: Matt, is there a reason to save the preset to disk on the main thread?
+//        do {
+//            try Disk.save(currentPreset, to: .caches, as: "currentPreset.json")
+//            if let activePreset = try? Disk.retrieve("currentPreset.json", from: .caches, as: Preset.self) {
+//                presetsDelegate?.presetDidChange(activePreset)
+//            }
+//        } catch {
+//            AKLog("error saving")
+//        }
     }
 
     func selectCurrentPreset() {

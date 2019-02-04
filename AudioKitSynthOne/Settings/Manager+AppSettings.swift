@@ -67,8 +67,6 @@ extension Manager {
         generatorsPanel.glideKnob.midiCC = MIDIByte(appSettings.glideKnobCC)
         generatorsPanel.cutoff.midiCC = MIDIByte(appSettings.cutoffCC)
         generatorsPanel.resonance.midiCC = MIDIByte(appSettings.resonanceCC)
-/*
-        sequencerPanel.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
 
         envelopesPanel.attackKnob.midiCC = MIDIByte(appSettings.attackKnobCC)
         envelopesPanel.decayKnob.midiCC = MIDIByte(appSettings.decayKnobCC)
@@ -96,8 +94,9 @@ extension Manager {
         fxPanel.phaserRateKnob.midiCC = MIDIByte(appSettings.phaserRateCC)
         fxPanel.phaserFeedbackKnob.midiCC = MIDIByte(appSettings.phaserFeedbackCC)
         fxPanel.phaserNotchWidthKnob.midiCC = MIDIByte(appSettings.phaserNotchWidthCC)
- 
- */
+
+        sequencerPanel.arpSeqTempoMultiplier.midiCC = MIDIByte(appSettings.arpSeqTempoMultiplierCC)
+        sequencerPanel.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
 
         // keyboard
         keyboardView.labelMode = appSettings.labelMode
@@ -140,6 +139,7 @@ extension Manager {
 
         /*
         appSettings.arpIntervalCC = Int(sequencerPanel.arpInterval.midiCC)
+        appSettings.arpSeqTempoMultiplierCC = Int(sequencerPanel.arpSeqTempoMultiplier.midiCC)
 
         appSettings.attackKnobCC = Int(envelopesPanel.attackKnob.midiCC)
         appSettings.decayKnobCC = Int(envelopesPanel.decayKnob.midiCC)

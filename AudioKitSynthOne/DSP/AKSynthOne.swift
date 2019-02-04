@@ -156,6 +156,7 @@ import AudioKit
 
     /// Initialize the synth with defaults
     public convenience override init() {
+
         let t0 = Date().timeIntervalSinceReferenceDate
         AKLog("initializing oscillators: \(t0)")
 
@@ -183,15 +184,21 @@ import AudioKit
             AKLog("Can't find bandlimitedWaveforms.json in bundle")
         }
 
+        //TODO: change this from json to code
+        
         // load wavetables
         let decoder = JSONDecoder()
         var finalArray = [AKTable]()
         for fn in finalFileNames {
             if let path = Bundle.main.path(forResource: fn, ofType: "json") {
                 do {
+                    let tt0 = Date.timeIntervalSinceReferenceDate
                     let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                     let jsonResult = try decoder.decode(AKTable.self, from: data)
                     finalArray.append(jsonResult)
+                    let tt1 = Date.timeIntervalSinceReferenceDate - tt0
+
+                    //AKLog("wavetable \(fn) loaded in \(tt1)s")
                 } catch let error as NSError {
                     // FATAL
                     AKLog("Can't read bandlimited waveform into AKTable: \(fn), error:\(error)")
@@ -222,6 +229,7 @@ import AudioKit
 
         let t1 = Date().timeIntervalSinceReferenceDate - t0
         AKLog("Initializing #\(finalFileNames.count) wavetables: COMPLETE IN SEC: \(t1)\n")
+
         self.init(waveformArray: finalArray, bandlimitArray: finalFrequencies)
     }
 

@@ -24,10 +24,11 @@ class TuningsPanelController: PanelController {
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
     @IBOutlet weak var masterTuningKnob: MIDIKnob!
     @IBOutlet weak var resetTuningsButton: SynthButton!
-    @IBOutlet weak var d1LaunchButton: SynthButton!
     @IBOutlet weak var diceButton: UIButton!
     @IBOutlet weak var importButton: SynthButton!
-    
+    @IBOutlet weak var tuneUpBackButtonButton: SynthButton!
+
+    ///Model
     let tuningModel = Tunings()
     var getStoreTuningWithPresetValue = false
 
@@ -40,7 +41,6 @@ class TuningsPanelController: PanelController {
             diceButton,
             resetTuningsButton,
             importButton,
-            d1LaunchButton,
             leftNavButton,
             rightNavButton
         ]
@@ -83,46 +83,32 @@ class TuningsPanelController: PanelController {
                 documentPicker.delegate = self
                 self.present(documentPicker, animated: true, completion: nil)
             }
+
+            // TODO: Develop sharing of tuning banks
+            importButton.isHidden = true
+
         } else {
             AKLog("race condition: synth not yet created")
         }
 
-        d1LaunchButton.callback = { value in
-            self.launchD1()
-            self.d1LaunchButton.value = 0
-        }
-
-        tuningModel.tuningsDelegate = self
+        // model
+        tuningModel.pitchWheelDelegate = self
+        tuningModel.tuneUpDelegate = self
         tuningModel.loadTunings {
             // callback called on main thread
             self.tuningBankTableView.reloadData()
             self.tuningTableView.reloadData()
             self.selectRow()
+            self.setTuneUpBackButton(enabled: false)
+            self.setTuneUpBackButtonLabel(text: self.tuningModel.tuneUpBackButtonDefaultText)
         }
-    }
 
-    func launchD1() {
-        let host = "digitald1://tune?"
-        let masterSet = tuningModel.masterSet
-        let npo = masterSet.count
-        let tuningName = tuningModel.tuningName
-        var urlStr = "\(host)tuningName=\(tuningName)&npo=\(npo)"
-        for f in masterSet {
-            urlStr += "&f=\(f)"
+        // tuneUpBackButton
+        tuneUpBackButtonButton.callback = { value in
+            self.tuningModel.tuneUpBackButton()
+            self.tuneUpBackButtonButton.value = 0
         }
-        if let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            if let url = URL(string: urlStr) {
-                // is D1 installed on device?
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                } else {
-                    // Redirect to app store
-                    if let appStoreURL = URL.init(string: "https://itunes.apple.com/us/app/audiokit-digital-d1-synth/id1436905540") {
-                        UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
-                    }
-                }
-            }
-        }
+
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -178,18 +164,60 @@ class TuningsPanelController: PanelController {
         guard tuningModel.isTuningReady else { return ("", [1]) }
         return tuningModel.getTuning()
     }
+
+    /// redirect to redirectURL provided by last TuneUp ( "back button" )
+    func tuneUpBackButton() {
+        tuningModel.tuneUpBackButton()
+    }
+
+    /// openURL
+    public func openUrl(url: URL) -> Bool {
+        return tuningModel.openUrl(url: url)
+    }
 }
+
 
 // MARK: - TuningsPitchWheelViewTuningDidChange
 
 extension TuningsPanelController: TuningsPitchWheelViewTuningDidChange {
+    
     func tuningDidChange() {
         tuningsPitchWheelView.updateFromGlobalTuningTable()
     }
 }
 
-// MARK: - Import Scala File
 
+// TODO: Move this to TuningModel
+
+extension TuningsPanelController {
+
+    // MARK: - launch D1
+    func launchD1() {
+        let host = "digitald1://tune?"
+        let masterSet = tuningModel.masterSet
+        let npo = masterSet.count
+        let tuningName = tuningModel.tuningName
+        var urlStr = "\(host)tuningName=\(tuningName)&npo=\(npo)"
+        for f in masterSet {
+            urlStr += "&f=\(f)"
+        }
+        if let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            if let url = URL(string: urlStr) {
+                // is D1 installed on device?
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    // Redirect to app store
+                    if let appStoreURL = URL.init(string: "https://itunes.apple.com/us/app/audiokit-digital-d1-synth/id1436905540") {
+                        UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        }
+    }
+}
+
+// MARK: import/export preset banks, tuning banks
 extension TuningsPanelController: UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
@@ -197,6 +225,7 @@ extension TuningsPanelController: UIDocumentPickerDelegate {
         
         let fileName = String(describing: url.lastPathComponent)
 
+        //TODO: Add import/saving/sharing of TuningBanks
         // Marcus: Run load procedure with "fileName" here
         
         // OR, add the logic right here

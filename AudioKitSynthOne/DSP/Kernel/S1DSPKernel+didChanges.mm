@@ -35,13 +35,13 @@ void S1DSPKernel::beatCounterDidChange() {
 void S1DSPKernel::playingNotesDidChange() {
     aePlayingNotes.polyphony = S1_MAX_POLYPHONY;
     if (p[isMono] > 0.f) {
-        aePlayingNotes.playingNotes[0] = {monoNote->rootNoteNumber, monoNote->amp};
+        aePlayingNotes.playingNotes[0] = {monoNote->rootNoteNumber, monoNote->transpose, monoNote->amp};
         for(int i = 1; i<S1_MAX_POLYPHONY; i++) {
-            aePlayingNotes.playingNotes[i] = {-1,-1};
+            aePlayingNotes.playingNotes[i] = {-1,-1,-1};
         }
     } else {
         for(int i=0; i<S1_MAX_POLYPHONY; i++) {
-            aePlayingNotes.playingNotes[i] = {noteStates[i].rootNoteNumber, noteStates[i].amp};
+            aePlayingNotes.playingNotes[i] = {noteStates[i].rootNoteNumber, noteStates[i].transpose, noteStates[i].amp};
         }
     }
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,

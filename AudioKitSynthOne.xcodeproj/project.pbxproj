@@ -186,6 +186,8 @@
 		EA388CFC210548460026C0C0 /* Dev.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA388CFE210548460026C0C0 /* Dev.storyboard */; };
 		EA388D1C21071BD50026C0C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA388D1A21071BD50026C0C0 /* InfoPlist.strings */; };
 		EA388D1F21071BD50026C0C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA388D1D21071BD50026C0C0 /* Localizable.strings */; };
+		F47C27E42207C12100CA7541 /* Tunings+TuneUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */; };
+		F47C27E62207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C27E52207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift */; };
 		F482CC2C2123CDE70093ADC8 /* triangle_0674.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CBF62123CDE70093ADC8 /* triangle_0674.json */; };
 		F482CC2D2123CDE70093ADC8 /* bandlimitedWaveformFrequencies.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CBF72123CDE70093ADC8 /* bandlimitedWaveformFrequencies.json */; };
 		F482CC2E2123CDE70093ADC8 /* pwm_0000.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CBF82123CDE70093ADC8 /* pwm_0000.json */; };
@@ -604,6 +606,8 @@
 		EA388D2221071C170026C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EA388D2721071C330026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F437E99E20EB22D00096FEAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+TuneUp.swift"; sourceTree = "<group>"; };
+		F47C27E52207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuningsPanel+TuneUpDelegate.swift"; sourceTree = "<group>"; };
 		F482CBF62123CDE70093ADC8 /* triangle_0674.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = triangle_0674.json; sourceTree = "<group>"; };
 		F482CBF72123CDE70093ADC8 /* bandlimitedWaveformFrequencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bandlimitedWaveformFrequencies.json; sourceTree = "<group>"; };
 		F482CBF82123CDE70093ADC8 /* pwm_0000.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pwm_0000.json; sourceTree = "<group>"; };
@@ -1096,6 +1100,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B4915720C7C70D00FD565A /* TuningsPanelController.swift */,
+				F47C27E52207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift */,
 				C4B4915620C7C70D00FD565A /* TuningsPanel+UITableViewDataSource.swift */,
 				C4B4915520C7C70D00FD565A /* TuningsPanel+UITableViewDelegate.swift */,
 			);
@@ -1394,13 +1399,14 @@
 		F4E4D00A21C87CC7005B2FAF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C435C52C20C52D4B00DAECCD /* Tuning.swift */,
+				F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */,
 				C435C52E20C52D4B00DAECCD /* Tunings.swift */,
-				F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */,
 				F4E4D00821C87B9F005B2FAF /* Tunings+DefaultTunings.swift */,
 				C435C52F20C52D4B00DAECCD /* Tunings+Harmonic.swift */,
 				C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */,
-				C435C52C20C52D4B00DAECCD /* Tuning.swift */,
-				F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */,
+				F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */,
+				F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */,
 				F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */,
 			);
 			path = Model;
@@ -1764,6 +1770,7 @@
 				C4B4917920C7C75500FD565A /* Manager+HeaderDelegate.swift in Sources */,
 				C4B490F320C6539200FD565A /* S1DSPKernel+process.mm in Sources */,
 				C4B4916E20C7C72A00FD565A /* Manager.swift in Sources */,
+				F47C27E42207C12100CA7541 /* Tunings+TuneUp.swift in Sources */,
 				C4B490E920C64AC600FD565A /* S1DSPKernel+MIDI.mm in Sources */,
 				C4B490E720C649D900FD565A /* S1DSPKernel+destroy.mm in Sources */,
 				F4E4D00421C5B9F2005B2FAF /* TuningBank.swift in Sources */,
@@ -1827,6 +1834,7 @@
 				C4B4917420C7C73B00FD565A /* DevViewController.swift in Sources */,
 				C4B4917A20C7C75500FD565A /* HeaderNavButton.swift in Sources */,
 				C4B4918C20C7C79C00FD565A /* Presets+UITableViewDelegate.swift in Sources */,
+				F47C27E62207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift in Sources */,
 				94DB3FE01FC8C0EA007F8081 /* PresetUIButton.swift in Sources */,
 				C4B4916720C7C72A00FD565A /* PanelController.swift in Sources */,
 				C4B491BE20C7DEB100FD565A /* ArpDirectionStyleKit.swift in Sources */,

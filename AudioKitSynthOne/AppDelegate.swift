@@ -89,10 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return tuningsPanel?.openUrl(url: url) ?? true
     }
 
-    /// redirect to redirectURL provided by last TuneUp ( "back button" )
-    func tuneUpBackButton() {
-        let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
-            as? TuningsPanelController
-        tuningsPanel?.tuneUpBackButton()
+    func canOpenURL(_ url: URL) -> Bool {
+        return true
     }
 }

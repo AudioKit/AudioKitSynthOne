@@ -15,9 +15,16 @@ extension Manager: AKMIDIListener {
         var newVelocity = velocity
         if !appSettings.velocitySensitive { newVelocity = 127 }
 
-        DispatchQueue.main.async {
-            self.keyboardView.pressAdded(noteNumber, velocity: newVelocity)
-            self.notesFromMIDI.insert(noteNumber)
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.keyboardView.pressAdded(noteNumber, velocity: newVelocity)
+                self.notesFromMIDI.insert(noteNumber)
+                AKLog("keybboard:pressAdded: noteNumber: \(noteNumber), velocity:\(velocity) ASYNC")
+            }
+        } else {
+            keyboardView.pressAdded(noteNumber, velocity: newVelocity)
+            notesFromMIDI.insert(noteNumber)
+            AKLog("keybboard:pressAdded: noteNumber: \(noteNumber), velocity:\(velocity) SYNC")
         }
     }
 
@@ -75,6 +82,7 @@ extension Manager: AKMIDIListener {
                 sustainer.sustain(down: false)
                 sustainMode = false
             }
+            AKLog("value:\(value), sustainMode:\(sustainMode)")
 
         default:
             break
@@ -135,8 +143,12 @@ extension Manager: AKMIDIListener {
     // After touch
     public func receivedMIDIAfterTouch(_ pressure: MIDIByte, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
+        // map to lfo targets
         //         self.conductor.tremolo.frequency = Double(pressure)/20.0
         // self.auMainController.tremoloKnob.setKnobValueFrom(midiValue: pressure)
+
+        //verbose logging
+        //AKLog("pressure: \(pressure), channel:\(channel)")
     }
 
     // MIDI Setup Change

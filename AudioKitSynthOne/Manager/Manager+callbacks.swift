@@ -16,6 +16,7 @@ extension Manager {
 
         octaveStepper.callback = { value in
             self.keyboardView.firstOctave = Int(value) + 2
+            self.updateDisplay("Keyboard Octave: \(Int(value))")
         }
 
         transposeStepper.callback = { value in

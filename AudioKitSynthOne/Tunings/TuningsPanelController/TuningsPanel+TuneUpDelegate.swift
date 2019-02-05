@@ -15,6 +15,7 @@ extension TuningsPanelController: TuneUpDelegate {
     }
 
     func setTuneUpBackButtonLabel(text: String) {
+        tuneUpBackButtonButton.isHidden = (text == tuningModel.tuneUpBackButtonDefaultText)
         tuneUpBackButtonButton.setTitle(text, for: .normal)
     }
 

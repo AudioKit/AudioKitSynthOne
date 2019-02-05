@@ -54,15 +54,15 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! Enter your Email Address below to receive 80+ Free presets  (all 300+ presets). Then press &quot;Get Presets!&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yhG-s7-4JE">
-                                                <rect key="frame" x="38" y="36" width="454" height="71"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! Enter your Email Address below to receive 80+ Free presets  (all 400+ presets). Then press &quot;Get Presets!&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yhG-s7-4JE">
+                                                <rect key="frame" x="38" y="35" width="454" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                                 </accessibility>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ak1-logo" translatesAutoresizingMaskIntoConstraints="NO" id="cnd-eH-Suz">
@@ -111,8 +111,8 @@
                                     <constraint firstAttribute="height" constant="90" id="S0C-cT-Elc"/>
                                     <constraint firstAttribute="width" constant="482" id="fBj-7J-LKe"/>
                                 </constraints>
-                                <string key="text">AudioKit Synth One is completely free &amp; open-source. It's a full-featured professional iOS synth app. Everyone working on this project volunteered their time to create this awesome app for you. :)</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">AudioKit Synth One is completely free &amp; open-source. Everyone working on this project volunteers their time to create this app for you. :)</string>
+                                <color key="textColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

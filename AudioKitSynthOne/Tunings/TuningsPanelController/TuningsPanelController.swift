@@ -108,7 +108,6 @@ class TuningsPanelController: PanelController {
             self.tuningModel.tuneUpBackButton()
             self.tuneUpBackButtonButton.value = 0
         }
-
     }
 
     public override func viewDidAppear(_ animated: Bool) {

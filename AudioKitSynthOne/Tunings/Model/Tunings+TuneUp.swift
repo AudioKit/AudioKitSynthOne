@@ -41,6 +41,7 @@ extension Tunings {
         }
     }
 
+    // can open file url's as Scala files, or scales via TuneUp
     public func openUrl(url: URL) -> Bool {
 
         // scala files

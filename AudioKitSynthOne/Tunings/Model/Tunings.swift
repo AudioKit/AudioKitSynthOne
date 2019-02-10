@@ -179,7 +179,7 @@ class Tunings {
 
     /// saveTunings
     /// Save for the cases where selectedTuningIndex changes
-    /// Need to extend TuningBanks from array to dictionary with selectedBankIndex value
+    /// TODO: Need to extend TuningBanks from array to dictionary with selectedBankIndex value
     private func saveTunings() {
         DispatchQueue.global(qos: .userInitiated).async {
             do {
@@ -190,7 +190,7 @@ class Tunings {
         }
     }
 
-    // MARK: SORT, FILTER
+    // MARK: SORT
 
     ///
     private func sortTunings(forBank tuningBank: TuningBank, sortType: TuningSortType) {
@@ -272,6 +272,24 @@ class Tunings {
         saveTunings()
 
         return refreshDatasource
+    }
+
+    public func removeUserTuning(atIndex index: Int) -> Bool {
+
+        // can only delete from user bank
+        guard selectedBankIndex == Tunings.userBankIndex else {return false}
+        let b = tuningBanks[Tunings.userBankIndex]
+        let t = b.tunings
+
+        // never empty; 12 ET is always item 0
+        guard t.count > 1 && index != 0 else {return false}
+
+        // remove and set new selected index
+        tuningBanks[Tunings.userBankIndex].tunings.remove(at: index)
+        let newIndex = b.selectedTuningIndex % t.count
+        selectTuning(atRow: newIndex) // saves tunings
+
+        return true
     }
 
     // MARK: SELECTION (PERSISTENT)

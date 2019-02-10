@@ -103,10 +103,12 @@ class MorphSelector: UIView, S1Control {
 
 	override func accessibilityIncrement() {
 		value += 0.01
+		callback(value)
 	}
 
 	override func accessibilityDecrement() {
 		value -= 0.01
+		callback(value)
 	}
 
 }

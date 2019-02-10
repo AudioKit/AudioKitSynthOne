@@ -124,14 +124,19 @@ class Stepper: UIView, S1Control {
 			value += 1
 			valuePressed = 2
 		}
-  }
-
-
+		let newValue = String(format: "%.00f", value)
+		accessibilityValue = newValue
+		self.callback(value)
+	}
+	
 	override func accessibilityDecrement() {
 		if value > minValue {
 			value -= 1
 			valuePressed = 1
-
+			
+			let newValue = String(format: "%.00f", value)
+			accessibilityValue = newValue
+			self.callback(value)
 		}
 	}
 }

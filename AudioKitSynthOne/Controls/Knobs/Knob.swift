@@ -121,10 +121,12 @@ public class Knob: UIView, S1Control {
 
 	override public func accessibilityIncrement() {
 		value += accessibilityChangeAmount
+		callback(value)
 	}
 
 	override public func accessibilityDecrement() {
 		value -= accessibilityChangeAmount
+		callback(value)
 	}
 
 }

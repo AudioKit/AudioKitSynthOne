@@ -42,7 +42,8 @@ class TuningsPanelController: PanelController {
             resetTuningsButton,
             importButton,
             leftNavButton,
-            rightNavButton
+            rightNavButton,
+            tuneUpBackButtonButton
         ]
 
         currentPanel = .tunings
@@ -103,13 +104,21 @@ class TuningsPanelController: PanelController {
             self.setTuneUpBackButton(enabled: false)
             self.setTuneUpBackButtonLabel(text: self.tuningModel.tuneUpBackButtonDefaultText)
 
-            // If application was launched by url process it on next main thread cycle
+            // If application was launched by url process it on next runloop
             DispatchQueue.main.async {
                 if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
                     if let url = appDelegate.applicationLaunchedWithURL() {
                         AKLog("launched with url:\(url)")
                         _ = self.openUrl(url: url)
                         appDelegate.clearLaunchOptions()
+
+                        // if url is a file in app Inbox remove it
+                        AKLog("removing temporary file at \(url)")
+                        do {
+                            try FileManager.default.removeItem(at: url)
+                        } catch let error as NSError {
+                            AKLog("error removing temporary file at \(url): \(error)")
+                        }
                     }
                 }
             }
@@ -183,7 +192,11 @@ class TuningsPanelController: PanelController {
 
     /// openURL
     public func openUrl(url: URL) -> Bool {
-        return tuningModel.openUrl(url: url)
+        let retVal = tuningModel.openUrl(url: url)
+        if retVal {
+            selectRow()
+        }
+        return retVal
     }
 }
 

@@ -227,7 +227,6 @@ class Tunings {
     public func setTuning(name: String?, masterArray master: [Double]?) -> Bool {
         guard let name = name, let masterFrequencies = master else { return false }
         if masterFrequencies.count == 0 { return false }
-        var refreshDatasource = false
 
         // NEW TUNING
         let t = Tuning()
@@ -246,7 +245,6 @@ class Tunings {
             if matchingIndices.count > 0 {
                 selectedBankIndex = bi
                 b.selectedTuningIndex = matchingIndices[0]
-                refreshDatasource = true
                 break
             } else {
                 // NEW TUNING FOR USER BANK: add to user bank, sort, save
@@ -257,7 +255,6 @@ class Tunings {
                     if sortedIndices.count > 0 {
                         selectedBankIndex = bi
                         b.selectedTuningIndex = sortedIndices[0]
-                        refreshDatasource = true
                     }
                 } else {
                     // New Tuning for a bundled bank.
@@ -271,7 +268,7 @@ class Tunings {
         pitchWheelDelegate?.tuningDidChange()
         saveTunings()
 
-        return refreshDatasource
+        return true
     }
 
     public func removeUserTuning(atIndex index: Int) -> Bool {

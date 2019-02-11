@@ -87,10 +87,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// no args
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 
+        // on launch tuningsPanel is not yet created -> fall back to tunings model initialization
+        guard let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
+            as? TuningsPanelController else {
+                return true
+        }
+
         // open url
-        let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
-            as? TuningsPanelController
-        let retVal = tuningsPanel?.openUrl(url: url) ?? true
+        _ = tuningsPanel.openUrl(url: url)
 
         // if url is a file in Inbox remove it
         AKLog("removing temporary file at \(url)")
@@ -100,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AKLog("error removing temporary file at \(url): \(error)")
         }
 
-        return retVal
+        return true
     }
 
     func canOpenURL(_ url: URL) -> Bool {

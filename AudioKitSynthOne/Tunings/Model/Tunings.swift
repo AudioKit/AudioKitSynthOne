@@ -32,7 +32,7 @@ class Tunings {
     public typealias Frequency = Double
     public typealias S1TuningLoadCallback = () -> (Void)
 
-    var isTuningReady = false
+    var isInitialized = false
 
     var pitchWheelDelegate: TuningsPitchWheelViewTuningDidChange?
 
@@ -115,7 +115,7 @@ class Tunings {
             }
 
             // MODEL IS INITIALIZED
-            self.isTuningReady = true
+            self.isInitialized = true
             self.pitchWheelDelegate?.tuningDidChange()
 
             // CALLBACK

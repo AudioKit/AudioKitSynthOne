@@ -26,6 +26,7 @@ class TuningsPanelController: PanelController {
     @IBOutlet weak var resetTuningsButton: SynthButton!
     @IBOutlet weak var diceButton: UIButton!
     @IBOutlet weak var importButton: SynthButton!
+    @IBOutlet weak var d1Button: SynthButton!
     @IBOutlet weak var tuneUpBackButtonButton: SynthButton!
 
     ///Model
@@ -129,6 +130,11 @@ class TuningsPanelController: PanelController {
             self.tuningModel.tuneUpBackButton()
             self.tuneUpBackButtonButton.value = 0
         }
+
+        d1Button.callback = { value in
+            self.tuningModel.launchD1()
+        }
+
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -145,7 +151,7 @@ class TuningsPanelController: PanelController {
     }
 
     @IBAction func randomPressed(_ sender: UIButton) {
-        guard tuningModel.isTuningReady else { return }
+        guard tuningModel.isInitialized else { return }
         tuningModel.randomTuning()
         selectRow()
         UIView.animate(withDuration: 0.4, animations: {
@@ -156,7 +162,7 @@ class TuningsPanelController: PanelController {
     }
 
     internal func selectRow() {
-        guard tuningModel.isTuningReady else { return }
+        guard tuningModel.isInitialized else { return }
 
         let bankPath = IndexPath(row: tuningModel.selectedBankIndex, section: 0)
         tableView(tuningBankTableView, didSelectRowAt: bankPath)
@@ -166,7 +172,7 @@ class TuningsPanelController: PanelController {
     }
 
     public func setTuning(name: String?, masterArray master: [Double]?) {
-        guard tuningModel.isTuningReady else { return }
+        guard tuningModel.isInitialized else { return }
         let reload = tuningModel.setTuning(name: name, masterArray: master)
         if reload {
             tuningTableView.reloadData()
@@ -175,13 +181,13 @@ class TuningsPanelController: PanelController {
     }
 
     public func setDefaultTuning() {
-        guard tuningModel.isTuningReady else { return }
+        guard tuningModel.isInitialized else { return }
         tuningModel.resetTuning()
         selectRow()
     }
 
     public func getTuning() -> (String, [Double]) {
-        guard tuningModel.isTuningReady else { return ("", [1]) }
+        guard tuningModel.isInitialized else { return ("", [1]) }
         return tuningModel.getTuning()
     }
 

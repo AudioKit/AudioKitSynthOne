@@ -20,8 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        //TODO: store launch options...tuning model should read url, then clear this url
-        print("launchOptions:\(String(describing: launchOptions))")
+        //print("launchOptions:\(String(describing: launchOptions))") // AKLog is not enabled at this point
         self.launchOptions = launchOptions
 
         // Never Sleep mode is false

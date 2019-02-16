@@ -316,8 +316,8 @@ public class Manager: UpdatableViewController {
             iPhoneRequirementWarning()
         }
         
-        if modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "iPhone 8" || modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus" {
-            if UIScreen.main.nativeScale < UIScreen.main.scale {
+        if appSettings.firstRun && (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "iPhone 8" || modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus") {
+            if UIScreen.main.nativeScale != UIScreen.main.scale {
                 iPhoneZoomWarning()
             }
         }

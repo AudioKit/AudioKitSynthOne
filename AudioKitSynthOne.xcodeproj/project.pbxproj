@@ -28,6 +28,7 @@
 		949D93B71F2C188C007E657B /* LFOButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B61F2C188B007E657B /* LFOButtonStyleKit.swift */; };
 		949D93B91F2C188C007E657B /* LFOToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LFOToggle.swift */; };
 		94A5039D1FF2F6E30097D37C /* ChannelStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */; };
+		94AA87962216293F005BE569 /* TuneUpPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA87952216293F005BE569 /* TuneUpPopUp.swift */; };
 		94D2AF2721EE57AA006E2312 /* Francis Preve.json in Resources */ = {isa = PBXBuildFile; fileRef = 94D2AF2621EE57AA006E2312 /* Francis Preve.json */; };
 		94D37DD420E06641002008A4 /* Sound of Izrael.json in Resources */ = {isa = PBXBuildFile; fileRef = 94D37DD320E06641002008A4 /* Sound of Izrael.json */; };
 		94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */; };
@@ -329,6 +330,7 @@
 		94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStepper.swift; sourceTree = "<group>"; };
 		94A6F30B1F687F3E007B083C /* icon_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_64.png; sourceTree = "<group>"; };
 		94A6F30C1F687F3E007B083C /* icon_320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_320.png; sourceTree = "<group>"; };
+		94AA87952216293F005BE569 /* TuneUpPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TuneUpPopUp.swift; path = AudioKitSynthOne/Tunings/TuneUpPopUp.swift; sourceTree = SOURCE_ROOT; };
 		94D2AF2621EE57AA006E2312 /* Francis Preve.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Francis Preve.json"; sourceTree = "<group>"; };
 		94D37DD320E06641002008A4 /* Sound of Izrael.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Sound of Izrael.json"; sourceTree = "<group>"; };
 		94D917AB1F550D0D006ACB4E /* FlatToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatToggleButtonStyleKit.swift; sourceTree = "<group>"; };
@@ -916,6 +918,7 @@
 			children = (
 				F4E4D00A21C87CC7005B2FAF /* Model */,
 				EA388CEC210498FD0026C0C0 /* Tunings.storyboard */,
+				94AA87952216293F005BE569 /* TuneUpPopUp.swift */,
 				C4B4915320C7C70D00FD565A /* TuningsPanelController */,
 				C432978A20C902290063F795 /* UI Components */,
 				C40CBA2A20CDEBDF00A8245F /* README.md */,
@@ -1801,6 +1804,7 @@
 				F4FF93D92210A52A00D09BAF /* Tunings+LaunchD1.swift in Sources */,
 				C435C57A20C530C900DAECCD /* SDSustainer.swift in Sources */,
 				C435C58020C530C900DAECCD /* AETime.m in Sources */,
+				94AA87962216293F005BE569 /* TuneUpPopUp.swift in Sources */,
 				C4B4915A20C7C70D00FD565A /* TuningsPanel+UITableViewDataSource.swift in Sources */,
 				C435C4FA20C5234900DAECCD /* TuningCell.swift in Sources */,
 				94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */,

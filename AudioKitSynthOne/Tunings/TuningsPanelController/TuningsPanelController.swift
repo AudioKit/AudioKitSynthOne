@@ -209,8 +209,27 @@ class TuningsPanelController: PanelController {
         }
         return retVal
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SegueToTuneUp" {
+            guard let popOverController = segue.destination as? TuneUpPopUp else { return }
+            popOverController.delegate = self
+        }
+    }
 }
 
+extension TuningsPanelController: TuneUpPopUpDelegate {
+    func wilsonicPressed() {
+        print("Wilsonic Pressed")
+    }
+    
+    func d1Pressed() {
+        print("D1 Pressed")
+    }
+    
+    
+}
 
 // MARK: - TuningsPitchWheelViewTuningDidChange
 

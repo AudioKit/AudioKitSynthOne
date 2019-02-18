@@ -102,12 +102,14 @@ class MorphSelector: UIView, S1Control {
         UIAccessibility.post(notification: .announcement, argument: nil)
     }
 
-    override func accessibilityIncrement() {
-        value += 0.01
-    }
+	override func accessibilityIncrement() {
+		value += 0.01
+		callback(value)
+	}
 
-    override func accessibilityDecrement() {
-        value -= 0.01
-    }
+	override func accessibilityDecrement() {
+		value -= 0.01
+		callback(value)
+	}
 
 }

@@ -544,6 +544,9 @@
                                                 <state key="normal" title="Button" image="D1_icon">
                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="d1Pressed:" destination="6ow-VM-gas" eventType="touchUpInside" id="A2h-TQ-dTO"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMS-yf-Nc5">
                                                 <rect key="frame" x="19" y="145" width="64" height="64"/>
@@ -551,6 +554,9 @@
                                                 <state key="normal" title="Button" image="Wilsonic_icon">
                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="wilsonicPressed:" destination="6ow-VM-gas" eventType="touchUpInside" id="DfA-Yc-XnT"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

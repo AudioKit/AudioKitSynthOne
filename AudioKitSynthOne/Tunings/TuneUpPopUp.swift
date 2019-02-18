@@ -9,9 +9,15 @@
 
 import UIKit
 
+protocol TuneUpPopUpDelegate: AnyObject {
+    func wilsonicPressed()
+    func d1Pressed()
+}
+
 class TuneUpPopUp: UIViewController {
     
     @IBOutlet weak var moreView: UIView!
+    var delegate: TuneUpPopUpDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +32,12 @@ class TuneUpPopUp: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func openURL(_ sender: Any) {
-        if let url = URL(string: "https://itunes.apple.com/us/app/audiokit-digital-d1-synth/id1436905540?ls=1&mt=8") {
-            UIApplication.shared.open(url)
-        }
+    @IBAction func wilsonicPressed(_ sender: Any) {
+        delegate?.wilsonicPressed()
     }
     
+    @IBAction func d1Pressed(_ sender: Any) {
+        delegate?.d1Pressed()
+    }
     
 }

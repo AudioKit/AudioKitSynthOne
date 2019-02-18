@@ -237,6 +237,7 @@ public class Manager: UpdatableViewController {
 
     }
     
+    // Hide home bar on newer iPhones/iPad
     override public var prefersHomeIndicatorAutoHidden: Bool {
         return true
     }

@@ -11,6 +11,7 @@ import UIKit
 class VerticalSlider: UIControl, S1Control {
 
     var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
     var minValue: CGFloat = 0.0
     var maxValue: CGFloat = 1.0
     var currentValue: CGFloat = 0.5 {

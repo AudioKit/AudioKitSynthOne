@@ -43,6 +43,7 @@ class SliderTransposeButton: UILabel, S1Control {
     }
 
     public var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     var isActive = false {
         didSet {

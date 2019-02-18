@@ -430,8 +430,9 @@
                         <outlet property="topContainerView" destination="A4E-fM-RwT" id="gwL-d9-oBm"/>
                         <outlet property="transposeStepper" destination="yH0-mi-zfm" id="urH-Fj-jq3"/>
                         <segue destination="8P9-DY-HCH" kind="presentation" identifier="SegueToAbout" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="V8h-iZ-Ly2"/>
-                        <segue destination="M7f-x2-kSI" kind="presentation" identifier="SegueToMore" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="y4G-gB-dDe"/>
+                        <segue destination="M7f-x2-kSI" kind="presentation" identifier="SegueToMailingList" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="y4G-gB-dDe"/>
                         <segue destination="mL0-tn-PDC" kind="presentation" identifier="SegueToWelcome" id="8ID-d8-Qnm"/>
+                        <segue destination="180-2e-dHd" kind="presentation" identifier="SegueToMore" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="3Wa-R3-dV5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkY-CW-6Da" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1595,6 +1596,14 @@
             </objects>
             <point key="canvasLocation" x="-1079" y="-1291"/>
         </scene>
+        <!--iPhoneMore-->
+        <scene sceneID="nhy-z7-Ytk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MailingList" referencedIdentifier="iPhoneMore" id="180-2e-dHd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="noM-hl-QX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1160" y="-1489"/>
+        </scene>
         <!--iPhoneWelcome-->
         <scene sceneID="fdo-GQ-pZN">
             <objects>
@@ -1609,7 +1618,7 @@
                 <viewControllerPlaceholder storyboardName="MailingList" referencedIdentifier="iPhoneMailingList" id="M7f-x2-kSI" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDA-nG-Rwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1155" y="-1427"/>
+            <point key="canvasLocation" x="-1143" y="-1435"/>
         </scene>
         <!--Header-->
         <scene sceneID="GZ3-G8-AZd">

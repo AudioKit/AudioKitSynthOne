@@ -18,6 +18,7 @@ class ToggleButton: UIView, S1Control {
     }
 
     var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     var value: Double = 0.0 {
         didSet {

@@ -11,6 +11,7 @@ import UIKit
 class SynthButton: UIButton, S1Control {
 
     var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     var isOn: Bool {
         return value == 1

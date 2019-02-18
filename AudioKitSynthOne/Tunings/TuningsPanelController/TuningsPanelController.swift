@@ -42,7 +42,8 @@ class TuningsPanelController: PanelController {
             resetTuningsButton,
             importButton,
             leftNavButton,
-            rightNavButton
+            rightNavButton,
+            tuneUpBackButtonButton
         ]
 
         currentPanel = .tunings
@@ -54,6 +55,7 @@ class TuningsPanelController: PanelController {
         tuningTableView.dataSource = self
         tuningTableView.delegate = self
         tuningTableView.accessibilityLabel = "Tunings Table"
+        tuningTableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
 
         tuningBankTableView.backgroundColor = UIColor.clear
         tuningBankTableView.isOpaque = true
@@ -62,6 +64,7 @@ class TuningsPanelController: PanelController {
         tuningBankTableView.dataSource = self
         tuningBankTableView.delegate = self
         tuningBankTableView.accessibilityLabel = "Tuning Banks Table"
+        tuningBankTableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
 
         if let synth = Conductor.sharedInstance.synth {
             masterTuningKnob.range = synth.getRange(.frequencyA4)
@@ -77,14 +80,13 @@ class TuningsPanelController: PanelController {
                     self.conductor.updateDisplayLabel("Tuning Reset: 12ET/440")
                 }
             }
-            
+
+            //TODO: implement sharing of tuning banks
             importButton.callback = { _ in
                 let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
                 documentPicker.delegate = self
                 self.present(documentPicker, animated: true, completion: nil)
             }
-
-            // TODO: Develop sharing of tuning banks
             importButton.isHidden = true
 
         } else {
@@ -101,6 +103,25 @@ class TuningsPanelController: PanelController {
             self.selectRow()
             self.setTuneUpBackButton(enabled: false)
             self.setTuneUpBackButtonLabel(text: self.tuningModel.tuneUpBackButtonDefaultText)
+
+            // If application was launched by url process it on next runloop
+            DispatchQueue.main.async {
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                    if let url = appDelegate.applicationLaunchedWithURL() {
+                        AKLog("launched with url:\(url)")
+                        _ = self.openUrl(url: url)
+                        appDelegate.clearLaunchOptions()
+
+                        // if url is a file in app Inbox remove it
+                        AKLog("removing temporary file at \(url)")
+                        do {
+                            try FileManager.default.removeItem(at: url)
+                        } catch let error as NSError {
+                            AKLog("error removing temporary file at \(url): \(error)")
+                        }
+                    }
+                }
+            }
         }
 
         // tuneUpBackButton
@@ -171,7 +192,11 @@ class TuningsPanelController: PanelController {
 
     /// openURL
     public func openUrl(url: URL) -> Bool {
-        return tuningModel.openUrl(url: url)
+        let retVal = tuningModel.openUrl(url: url)
+        if retVal {
+            selectRow()
+        }
+        return retVal
     }
 }
 
@@ -186,33 +211,12 @@ extension TuningsPanelController: TuningsPitchWheelViewTuningDidChange {
 }
 
 
-// TODO: Move this to TuningModel
 
 extension TuningsPanelController {
 
     // MARK: - launch D1
-    func launchD1() {
-        let host = "digitald1://tune?"
-        let masterSet = tuningModel.masterSet
-        let npo = masterSet.count
-        let tuningName = tuningModel.tuningName
-        var urlStr = "\(host)tuningName=\(tuningName)&npo=\(npo)"
-        for f in masterSet {
-            urlStr += "&f=\(f)"
-        }
-        if let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            if let url = URL(string: urlStr) {
-                // is D1 installed on device?
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                } else {
-                    // Redirect to app store
-                    if let appStoreURL = URL.init(string: "https://itunes.apple.com/us/app/audiokit-digital-d1-synth/id1436905540") {
-                        UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
-                    }
-                }
-            }
-        }
+    public func launchD1() {
+        tuningModel.launchD1()
     }
 }
 

@@ -53,6 +53,11 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
             self.moreView.alpha = 1.0
         })
     }
+    
+    // Hide home bar on newer iPhones/iPad
+    override public var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
@@ -61,6 +66,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func keyboardWasShown(notification: NSNotification) {
+        guard Conductor.sharedInstance.device == .pad else { return }
         UIView.animate(withDuration: 0.1, animations: { () -> Void in
             self.topConstraint.constant = 100
         })
@@ -88,8 +94,9 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
             self.dismiss(animated: true, completion: nil)
         }
 
-        alert.addAction(submitAction)
         alert.addAction(cancelAction)
+        alert.addAction(submitAction)
+    
 
         // Confirm they don't want to enter their email address
         // self.present(alert, animated: true, completion: nil)
@@ -151,8 +158,8 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         let cancelAction = UIAlertAction(title: "No", style: .default) { (_) in
         }
 
-        alert.addAction(submitAction)
         alert.addAction(cancelAction)
+        alert.addAction(submitAction)
 
         self.present(alert, animated: true, completion: nil)
     }
@@ -161,7 +168,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
         // Create and display alert box
         let title = NSLocalizedString("Congratulations! 🎉", comment: "Alert Title: Presets Added")
-        let message = NSLocalizedString("Bonus presets have been added to BankA. " +
+        let message = NSLocalizedString("Bonus presets have been added to BankA. \n\n" +
             "We are all volunteers who made this app for free. " +
             "We hope you enjoy it & tell other musicians! 😎", comment: "Alert Message: Presets Added")
         let alert = UIAlertController(title: title,

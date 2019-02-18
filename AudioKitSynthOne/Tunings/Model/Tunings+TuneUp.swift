@@ -41,6 +41,7 @@ extension Tunings {
         }
     }
 
+    // can open file url's as Scala files, or scales via TuneUp
     public func openUrl(url: URL) -> Bool {
 
         // scala files
@@ -121,27 +122,241 @@ extension Tunings {
         AKLog("opening scala file at full path:\(url.path)")
 
         let tt = AKTuningTable()
-        guard tt.scalaFile(url.path) != nil else {
+        guard tt.scalaFile2(url.path) != nil else {
             AKLog("Scala file is invalid")
-            return true // even if there is an error
+            return false
         }
 
         let fArray = tt.masterSet
         if fArray.count > 0 {
             let tuningName = url.lastPathComponent
-            let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
-                as? TuningsPanelController
-            tuningsPanel?.setTuning(name: tuningName, masterArray: fArray)
-            if let s = conductor.synth {
-                let frequencyA4 = s.getDefault(.frequencyA4)
-                s.setSynthParameter(.frequencyA4, frequencyA4)
-            } else {
-                AKLog("ERROR:can't set frequencyA4 because synth is not initialized")
+            if let tuningsPanel = conductor.viewControllers.first(where: { $0 is TuningsPanelController })
+                as? TuningsPanelController {
+                tuningsPanel.setTuning(name: tuningName, masterArray: fArray)
+                if let s = conductor.synth {
+                    let frequencyA4 = s.getDefault(.frequencyA4)
+                    s.setSynthParameter(.frequencyA4, frequencyA4)
+                } else {
+                    AKLog("ERROR:can't set frequencyA4 because synth is not initialized")
+                    return false
+                }
             }
         } else {
             AKLog("Scala file is invalid: masterSet is zero-length")
+            return false
         }
 
         return true
     }
+
+}
+
+//TODO: Below is duplicate version copied from AudioKit.  Why does AudioKit develop fail on scalaFile(filePath) ?
+extension AKTuningTable {
+    
+    /// Use a Scala file to write the tuning table. Returns notes per octave or nil when file couldn't be read.
+    public func scalaFile2(_ filePath: String) -> Int? {
+        guard
+            let contentData = FileManager.default.contents(atPath: filePath),
+            let contentStr = String(data: contentData, encoding: .utf8) else {
+                AKLog("can't read filePath: \(filePath)")
+                return nil
+        }
+
+        if let scalaFrequencies = frequencies2(fromScalaString: contentStr) {
+            let npo = tuningTable(fromFrequencies: scalaFrequencies)
+            return npo
+        }
+
+        // error
+        return nil
+    }
+
+    fileprivate func stringTrimmedForLeadingAndTrailingWhiteSpacesFromString2(_ inputString: String?) -> String? {
+        guard let string = inputString else {
+            return nil
+        }
+
+        let leadingTrailingWhiteSpacesPattern = "(?:^\\s+)|(?:\\s+$)"
+        let regex: NSRegularExpression
+
+        do {
+            try regex = NSRegularExpression(pattern: leadingTrailingWhiteSpacesPattern,
+                                            options: .caseInsensitive)
+        } catch let error as NSError {
+            AKLog("ERROR: create regex: \(error)")
+            return nil
+        }
+
+        let stringRange = NSRange(location: 0, length: string.count)
+        let trimmedString = regex.stringByReplacingMatches(in: string,
+                                                           options: .reportProgress,
+                                                           range: stringRange,
+                                                           withTemplate: "$1")
+
+        return trimmedString
+    }
+
+    /// Get frequencies from a Scala string
+    open func frequencies2(fromScalaString rawStr: String?) -> [Frequency]? {
+        guard let inputStr = rawStr else {
+            return nil
+        }
+
+        // default return value is [1.0]
+        var scalaFrequencies = [Frequency(1)]
+        var actualFrequencyCount = 1
+        var frequencyCount = 1
+
+        var parsedScala = true
+        var parsedFirstCommentLine = false
+        let values = inputStr.components(separatedBy: .newlines)
+        var parsedFirstNonCommentLine = false
+        var parsedAllFrequencies = false
+
+        // REGEX match for a cents or ratio
+        //              (RATIO      |CENTS                                  )
+        //              (  a   /  b |-   a   .  b |-   .  b |-   a   .|-   a )
+        let regexStr = "(\\d+\\/\\d+|-?\\d+\\.\\d+|-?\\.\\d+|-?\\d+\\.|-?\\d+)"
+        let regex: NSRegularExpression
+        do {
+            regex = try NSRegularExpression(pattern: regexStr,
+                                            options: .caseInsensitive)
+        } catch let error as NSError {
+            AKLog("ERROR: cannot parse scala file: \(error)")
+            return nil
+        }
+
+        for rawLineStr in values {
+            var lineStr = stringTrimmedForLeadingAndTrailingWhiteSpacesFromString2(rawLineStr) ?? rawLineStr
+
+            if lineStr.isEmpty { continue }
+
+            if lineStr.hasPrefix("!") {
+                if ❗️parsedFirstCommentLine {
+                    parsedFirstCommentLine = true
+                    #if false
+                    // currently not using the scala file name embedded in the file
+                    let components = lineStr.components(separatedBy: "!")
+                    if components.count > 1 {
+                        proposedScalaFilename = components[1]
+                    }
+                    #endif
+                }
+                continue
+            }
+
+            if ❗️parsedFirstNonCommentLine {
+                parsedFirstNonCommentLine = true
+                #if false
+                // currently not using the scala short description embedded in the file
+                scalaShortDescription = lineStr
+                #endif
+                continue
+            }
+
+            if parsedFirstNonCommentLine && !parsedAllFrequencies {
+                if let newFrequencyCount = Int(lineStr) {
+                    frequencyCount = newFrequencyCount
+                    if frequencyCount == 0 || frequencyCount > 127 {
+                        //#warning SPEC SAYS 0 notes is okay because 1/1 is implicit
+                        AKLog("ERROR: number of notes in scala file: \(frequencyCount)")
+                        parsedScala = false
+                        break
+                    } else {
+                        parsedAllFrequencies = true
+                        continue
+                    }
+                }
+            }
+
+            if actualFrequencyCount > frequencyCount {
+                AKLog("actual frequency cont: \(actualFrequencyCount) > frequency count: \(frequencyCount)")
+            }
+
+            /* The first note of 1/1 or 0.0 cents is implicit and not in the files.*/
+
+            // REGEX defined above this loop
+            let rangeOfFirstMatch = regex.rangeOfFirstMatch(
+                in: lineStr,
+                options: .anchored,
+                range: NSRange(location: 0, length: lineStr.count))
+
+            if ❗️NSEqualRanges(rangeOfFirstMatch, NSRange(location: NSNotFound, length: 0)) {
+                let nsLineStr = lineStr as NSString?
+                let substringForFirstMatch = nsLineStr?.substring(with: rangeOfFirstMatch) as NSString? ?? ""
+                if substringForFirstMatch.range(of: ".").length != 0 {
+                    if var scaleDegree = Frequency(lineStr) {
+                        // ignore 0.0...same as 1.0, 2.0, etc.
+                        if scaleDegree != 0 {
+                            scaleDegree = fabs(scaleDegree)
+                            // convert from cents to frequency
+                            scaleDegree /= 1_200
+                            scaleDegree = pow(2, scaleDegree)
+                            scalaFrequencies.append(scaleDegree)
+                            actualFrequencyCount += 1
+                            continue
+                        }
+                    }
+                } else {
+                    if substringForFirstMatch.range(of: "/").length != 0 {
+                        if substringForFirstMatch.range(of: "-").length != 0 {
+                            AKLog("ERROR: invalid ratio: \(substringForFirstMatch)")
+                            parsedScala = false
+                            break
+                        }
+                        // Parse rational numerator/denominator
+                        let slashPos = substringForFirstMatch.range(of: "/")
+                        let numeratorStr = substringForFirstMatch.substring(to: slashPos.location)
+                        let numerator = Int(numeratorStr) ?? 0
+                        let denominatorStr = substringForFirstMatch.substring(from: slashPos.location + 1)
+                        let denominator = Int(denominatorStr) ?? 0
+                        if denominator == 0 {
+                            AKLog("ERROR: invalid ratio: \(substringForFirstMatch)")
+                            parsedScala = false
+                            break
+                        } else {
+                            let mt = Frequency(numerator) / Frequency(denominator)
+                            if mt == 1.0 || mt == 2.0 {
+                                // skip 1/1, 2/1
+                                continue
+                            } else {
+                                scalaFrequencies.append(mt)
+                                actualFrequencyCount += 1
+                                continue
+                            }
+                        }
+                    } else {
+                        // a whole number, treated as a rational with a denominator of 1
+                        if let whole = Int(substringForFirstMatch as String) {
+                            if whole <= 0 {
+                                AKLog("ERROR: invalid ratio: \(substringForFirstMatch)")
+                                parsedScala = false
+                                break
+                            } else if whole == 1 || whole == 2 {
+                                // skip degrees of 1 or 2
+                                continue
+                            } else {
+                                scalaFrequencies.append(Frequency(whole))
+                                actualFrequencyCount += 1
+                                continue
+                            }
+                        }
+                    }
+                }
+            } else {
+                AKLog("ERROR: error parsing: \(lineStr)")
+                continue
+            }
+        }
+
+        if ❗️parsedScala {
+            AKLog("FATAL ERROR: cannot parse Scala file")
+            return nil
+        }
+
+        AKLog("frequencies: \(scalaFrequencies)")
+        return scalaFrequencies
+    }
+
 }

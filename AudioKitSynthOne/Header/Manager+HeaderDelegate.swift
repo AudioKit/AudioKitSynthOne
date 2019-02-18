@@ -129,11 +129,6 @@ extension Manager: HeaderDelegate {
             }
            return
         }
-        
-        if conductor.device == .phone && !appSettings.signedMailingList {
-            displayBonusPresets()
-            return
-        }
 
         if signedMailingList {
             performSegue(withIdentifier: "SegueToMore", sender: self)

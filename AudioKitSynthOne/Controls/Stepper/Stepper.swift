@@ -12,6 +12,7 @@ import UIKit
 class Stepper: UIView, S1Control {
 
     public var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     var minusPath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 2, width: 35, height: 32), cornerRadius: 1)
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)

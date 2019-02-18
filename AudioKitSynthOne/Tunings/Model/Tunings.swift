@@ -179,7 +179,7 @@ class Tunings {
 
     /// saveTunings
     /// Save for the cases where selectedTuningIndex changes
-    /// Need to extend TuningBanks from array to dictionary with selectedBankIndex value
+    /// TODO: Need to extend TuningBanks from array to dictionary with selectedBankIndex value
     private func saveTunings() {
         DispatchQueue.global(qos: .userInitiated).async {
             do {
@@ -190,7 +190,7 @@ class Tunings {
         }
     }
 
-    // MARK: SORT, FILTER
+    // MARK: SORT
 
     ///
     private func sortTunings(forBank tuningBank: TuningBank, sortType: TuningSortType) {
@@ -227,7 +227,6 @@ class Tunings {
     public func setTuning(name: String?, masterArray master: [Double]?) -> Bool {
         guard let name = name, let masterFrequencies = master else { return false }
         if masterFrequencies.count == 0 { return false }
-        var refreshDatasource = false
 
         // NEW TUNING
         let t = Tuning()
@@ -246,7 +245,6 @@ class Tunings {
             if matchingIndices.count > 0 {
                 selectedBankIndex = bi
                 b.selectedTuningIndex = matchingIndices[0]
-                refreshDatasource = true
                 break
             } else {
                 // NEW TUNING FOR USER BANK: add to user bank, sort, save
@@ -257,7 +255,6 @@ class Tunings {
                     if sortedIndices.count > 0 {
                         selectedBankIndex = bi
                         b.selectedTuningIndex = sortedIndices[0]
-                        refreshDatasource = true
                     }
                 } else {
                     // New Tuning for a bundled bank.
@@ -271,7 +268,25 @@ class Tunings {
         pitchWheelDelegate?.tuningDidChange()
         saveTunings()
 
-        return refreshDatasource
+        return true
+    }
+
+    public func removeUserTuning(atIndex index: Int) -> Bool {
+
+        // can only delete from user bank
+        guard selectedBankIndex == Tunings.userBankIndex else {return false}
+        let b = tuningBanks[Tunings.userBankIndex]
+        let t = b.tunings
+
+        // never empty; 12 ET is always item 0
+        guard t.count > 1 && index != 0 else {return false}
+
+        // remove and set new selected index
+        tuningBanks[Tunings.userBankIndex].tunings.remove(at: index)
+        let newIndex = b.selectedTuningIndex % t.count
+        selectTuning(atRow: newIndex) // saves tunings
+
+        return true
     }
 
     // MARK: SELECTION (PERSISTENT)

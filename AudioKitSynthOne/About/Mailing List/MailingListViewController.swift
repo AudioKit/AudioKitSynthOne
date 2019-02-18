@@ -88,8 +88,9 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
             self.dismiss(animated: true, completion: nil)
         }
 
-        alert.addAction(submitAction)
         alert.addAction(cancelAction)
+        alert.addAction(submitAction)
+    
 
         // Confirm they don't want to enter their email address
         // self.present(alert, animated: true, completion: nil)
@@ -151,8 +152,8 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         let cancelAction = UIAlertAction(title: "No", style: .default) { (_) in
         }
 
-        alert.addAction(submitAction)
         alert.addAction(cancelAction)
+        alert.addAction(submitAction)
 
         self.present(alert, animated: true, completion: nil)
     }

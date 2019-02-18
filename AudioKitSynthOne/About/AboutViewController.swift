@@ -21,6 +21,7 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var reviewButton: SynthButton!
     @IBOutlet weak var githubButton: SynthButton!
     @IBOutlet weak var mainTextView: UITextView!
+    @IBOutlet weak var webButton: SynthButton!
     
     weak var delegate: AboutDelegate?
     
@@ -74,6 +75,14 @@ class AboutViewController: UIViewController {
                 UIApplication.shared.open(url)
             }
         }
+        
+        webButton.callback = { _ in
+            self.webButton.value = 0
+            if let url = URL(string: "https://audiokitpro.com/synth") {
+                UIApplication.shared.open(url)
+            }
+        }
+        
         
         reviewButton.callback = { _ in
             self.reviewButton.value = 0

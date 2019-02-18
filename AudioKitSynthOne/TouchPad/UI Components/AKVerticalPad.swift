@@ -142,6 +142,13 @@ public class AKVerticalPad: UIView {
 
 // This is just to suppress warnings when passing AKVerticalPad as a payload to DSP setter
 extension AKVerticalPad: S1Control {
+    var defaultCallback: () -> Void {
+        get {
+            return { }
+        }
+        set { }
+    }
+
     var value: Double {
         get {
             return verticalValue

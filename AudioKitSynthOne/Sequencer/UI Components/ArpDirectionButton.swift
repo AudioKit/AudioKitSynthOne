@@ -14,24 +14,25 @@ class ArpDirectionButton: UIView, S1Control {
     // MARK: - LFO Button
 
     public var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = {  }
 
     private var width: CGFloat = 35.0
 
-	var value = 0.0 {
-		didSet {
-			setNeedsDisplay()
+    var value = 0.0 {
+        didSet {
+            setNeedsDisplay()
 
-			switch value {
-			case 0.0:
-				accessibilityValue = NSLocalizedString("Up", comment: "Up")
-			case 1.0:
-				accessibilityValue = NSLocalizedString("Up Down", comment: "Up Down")
-			default:
-				accessibilityValue = NSLocalizedString("Down", comment: "Down")
-			}
+            switch value {
+            case 0.0:
+                accessibilityValue = NSLocalizedString("Up", comment: "Up")
+            case 1.0:
+                accessibilityValue = NSLocalizedString("Up Down", comment: "Up Down")
+            default:
+                accessibilityValue = NSLocalizedString("Down", comment: "Down")
+            }
 
-		}
-	}
+        }
+    }
 
     // Draw Button
     override func draw(_ rect: CGRect) {
@@ -59,13 +60,13 @@ class ArpDirectionButton: UIView, S1Control {
         }
     }
 
-	override func accessibilityActivate() -> Bool {
-		//perform desired action
-		if value < 2.0 {
-			value += 1.0
-		} else {
-			value = 0.0
-		}
-		return true
-	}
+    override func accessibilityActivate() -> Bool {
+        //perform desired action
+        if value < 2.0 {
+            value += 1.0
+        } else {
+            value = 0.0
+        }
+        return true
+    }
 }

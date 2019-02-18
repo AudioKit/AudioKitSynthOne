@@ -86,7 +86,6 @@ any hints about what could be improved.
 Here's a few ideas for you to contribute to this historic project:
 
 * Ability to search presets
-* Double tap knobs to go to defaults
 * Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
 * Make TouchPads assignable 
 * Add an EQ Panel (8-band/16-band/etc)

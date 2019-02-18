@@ -218,11 +218,6 @@
                                 <state key="normal" title="TuneUp">
                                     <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
-                                <connections>
-                                    <segue destination="6ow-VM-gas" kind="popoverPresentation" popoverAnchorView="vxn-oN-RY7" id="nFL-R3-itG">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccd-nC-BSm" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="900" y="225" width="57" height="21"/>
@@ -250,9 +245,11 @@
                         <outlet property="resetTuningsButton" destination="JBk-V2-c4I" id="6fT-M8-JwU"/>
                         <outlet property="rightNavButton" destination="upj-l9-pQi" id="wUj-Gy-op2"/>
                         <outlet property="tuneUpBackButtonButton" destination="Ccd-nC-BSm" id="ACB-sA-g2T"/>
+                        <outlet property="tuneUpButton" destination="vxn-oN-RY7" id="cob-KK-6cL"/>
                         <outlet property="tuningBankTableView" destination="8Zu-lo-GJR" id="hsf-dI-HEQ"/>
                         <outlet property="tuningTableView" destination="udl-xc-8bP" id="Hcm-JB-FYX"/>
                         <outlet property="tuningsPitchWheelView" destination="Z3E-6g-Nsr" id="lPy-h4-Uuq"/>
+                        <segue destination="6ow-VM-gas" kind="presentation" identifier="SegueToTuneUp" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="ZUf-vA-C0U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4a3-Tz-o4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -320,7 +317,7 @@
                                 </accessibility>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9js-f2-QsW">
-                                <rect key="frame" x="332" y="193" width="23" height="27"/>
+                                <rect key="frame" x="328" y="193" width="23" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" hint="Selects Random Tuning" identifier="RandomTuningButton" label="Random Tuning"/>
                                 <state key="normal" image="dice"/>
@@ -328,8 +325,8 @@
                                     <action selector="randomPressed:" destination="eCY-hN-xMb" eventType="touchUpInside" id="f7q-qb-7w3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Master Tuning" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-ib-H9Q">
-                                <rect key="frame" x="508" y="196" width="71" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tuning" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-ib-H9Q">
+                                <rect key="frame" x="538" y="196" width="41" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -393,18 +390,18 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lls-ao-Ps1" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="433" y="195" width="61" height="21"/>
+                                <rect key="frame" x="417" y="195" width="50" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Resets Tuning to Equal temperament" identifier="ResetButton" label="Reset"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="TuneUp">
+                                <state key="normal" title="Back">
                                     <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLS-iF-u6P" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="372" y="195" width="47" height="21"/>
+                                <rect key="frame" x="359" y="195" width="50" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Resets Tuning to Equal temperament" identifier="ResetButton" label="Reset"/>
@@ -425,6 +422,17 @@
                                     <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzk-On-wpG" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="472" y="195" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" hint="Resets Tuning to Equal temperament" identifier="ResetButton" label="Reset"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="TuneUp">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="Etg-nd-WNR"/>
@@ -440,19 +448,21 @@
                         <outlet property="resetTuningsButton" destination="fLS-iF-u6P" id="RZS-9O-rfZ"/>
                         <outlet property="rightNavButton" destination="iE9-Ad-hlo" id="eQK-kA-Kd6"/>
                         <outlet property="tuneUpBackButtonButton" destination="lls-ao-Ps1" id="uP5-ln-N7g"/>
+                        <outlet property="tuneUpButton" destination="Zzk-On-wpG" id="vgx-W1-47b"/>
                         <outlet property="tuningBankTableView" destination="W8A-xB-V6p" id="Gdv-bf-sgx"/>
                         <outlet property="tuningTableView" destination="B2E-7f-Mx9" id="leZ-Yb-6SI"/>
                         <outlet property="tuningsPitchWheelView" destination="gbP-kl-Pb9" id="qhu-he-ert"/>
+                        <segue destination="6ow-VM-gas" kind="presentation" identifier="SegueToTuneUp" id="idO-du-xAP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvO-gx-wk4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="60.799999999999997" y="-574.36281859070471"/>
         </scene>
-        <!--MailingList-->
+        <!--TuneUp-->
         <scene sceneID="bTK-6m-hCm">
             <objects>
-                <viewController id="6ow-VM-gas" userLabel="MailingList" customClass="TuneUpPopUp" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6ow-VM-gas" userLabel="TuneUp" customClass="TuneUpPopUp" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="50K-3T-roV"/>
                         <viewControllerLayoutGuide type="bottom" id="pci-ln-6bl"/>
@@ -461,19 +471,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="637" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="lID-iW-Q3q">
-                                <rect key="frame" x="0.0" y="0.0" width="637" height="299"/>
-                            </imageView>
-                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eLK-9N-wXt">
-                                <rect key="frame" x="533" y="1012" width="324" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
-                            </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQO-Zo-Eag">
-                                <rect key="frame" x="10" y="10" width="600" height="284"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQO-Zo-Eag">
+                                <rect key="frame" x="18.5" y="7.5" width="600" height="284"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Shb-HO-hSO">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="51"/>
@@ -513,12 +512,12 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXP-04-wnJ">
-                                        <rect key="frame" x="185" y="249" width="190" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXP-04-wnJ">
+                                        <rect key="frame" x="185" y="250" width="190" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="8Rj-tH-si3"/>
-                                            <constraint firstAttribute="width" constant="190" id="Ove-nl-a7H"/>
+                                            <constraint firstAttribute="width" constant="190" id="45I-93-PbT"/>
+                                            <constraint firstAttribute="height" constant="34" id="hjE-4L-67b"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
                                         <state key="normal" title="Done">
@@ -529,48 +528,49 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="isc-dx-2fX">
-                                        <rect key="frame" x="498" y="51" width="102" height="225"/>
+                                        <rect key="frame" x="498" y="51" width="102" height="233"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose an app to TuneUp:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e34-qz-vOd">
-                                                <rect key="frame" x="-4" y="-10" width="110" height="79"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click on app to TuneUp:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e34-qz-vOd">
+                                                <rect key="frame" x="-1" y="0.0" width="103" height="64"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
                                                 <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iie-jZ-Jxb">
-                                                <rect key="frame" x="19" y="67" width="64" height="64"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ZL-mT-LbC">
+                                                <rect key="frame" x="19" y="66" width="64" height="64"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" image="D1_icon">
                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMS-yf-Nc5">
+                                                <rect key="frame" x="19" y="145" width="64" height="64"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button" image="Wilsonic_icon">
+                                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="284" id="28J-o2-2G0"/>
+                                    <constraint firstAttribute="trailing" secondItem="uXP-04-wnJ" secondAttribute="trailing" constant="225" id="2L0-of-U70"/>
+                                    <constraint firstItem="uXP-04-wnJ" firstAttribute="leading" secondItem="rQO-Zo-Eag" secondAttribute="leading" constant="185" id="5BM-vb-e3a"/>
+                                    <constraint firstItem="uXP-04-wnJ" firstAttribute="top" secondItem="rQO-Zo-Eag" secondAttribute="top" constant="250" id="CiA-Pv-Id4"/>
+                                    <constraint firstAttribute="width" constant="600" id="U4i-HF-Mom"/>
+                                    <constraint firstAttribute="bottom" secondItem="uXP-04-wnJ" secondAttribute="bottom" id="nej-CP-ZZd"/>
+                                </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12h-ml-8XU">
-                                <rect key="frame" x="495" y="408" width="158" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
-                                <state key="normal" title="Get Presets!">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpPressed:" destination="6ow-VM-gas" eventType="touchUpInside" id="txP-xQ-qWO"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="lID-iW-Q3q" secondAttribute="trailing" id="512-XQ-fBm"/>
-                            <constraint firstItem="lID-iW-Q3q" firstAttribute="leading" secondItem="Swx-Cr-RCt" secondAttribute="leading" id="5bH-oz-9mS"/>
-                            <constraint firstItem="lID-iW-Q3q" firstAttribute="top" secondItem="50K-3T-roV" secondAttribute="bottom" id="GOX-TC-LbP"/>
-                            <constraint firstAttribute="bottom" secondItem="lID-iW-Q3q" secondAttribute="bottom" id="iyP-d6-H3h"/>
+                            <constraint firstItem="rQO-Zo-Eag" firstAttribute="centerY" secondItem="Swx-Cr-RCt" secondAttribute="centerY" id="1PX-dn-BwG"/>
+                            <constraint firstItem="rQO-Zo-Eag" firstAttribute="centerX" secondItem="Swx-Cr-RCt" secondAttribute="centerX" id="OFH-bf-oTI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LC0-8T-PG1"/>
                     </view>
@@ -578,7 +578,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="637" height="299"/>
                     <connections>
-                        <outlet property="emailField" destination="eLK-9N-wXt" id="tLM-BQ-1sz"/>
                         <outlet property="moreView" destination="rQO-Zo-Eag" id="vTV-5c-gbF"/>
                     </connections>
                 </viewController>
@@ -589,11 +588,14 @@
     </scenes>
     <resources>
         <image name="D1_icon" width="152" height="152"/>
+        <image name="Wilsonic_icon" width="152" height="152"/>
         <image name="ak1-logo" width="188" height="14"/>
         <image name="au_tuning" width="1024" height="299"/>
-        <image name="background" width="1024" height="768"/>
         <image name="dice" width="19" height="18.5"/>
         <image name="iPhone_Tuning" width="1334" height="470"/>
         <image name="smile-icon" width="152" height="152"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZUf-vA-C0U"/>
+    </inferredMetricsTieBreakers>
 </document>

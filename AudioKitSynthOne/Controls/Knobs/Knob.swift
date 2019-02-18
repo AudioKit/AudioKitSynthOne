@@ -9,11 +9,12 @@
 import UIKit
 
 @IBDesignable
-public class Knob: UIView, S1Control {
+public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
 
     var onlyIntegers: Bool = false
 
     var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     public var taper: Double = 1.0 // Linear by default
 
@@ -82,6 +83,11 @@ public class Knob: UIView, S1Control {
         super.init(coder: coder)
         self.isUserInteractionEnabled = true
         contentMode = .redraw
+
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        doubleTapGesture.delegate = self
+        doubleTapGesture.numberOfTapsRequired = 2
+        addGestureRecognizer(doubleTapGesture)
     }
 
     override public func prepareForInterfaceBuilder() {
@@ -103,6 +109,10 @@ public class Knob: UIView, S1Control {
                                  knobValue: knobValue)
     }
 
+    @objc public func handleTap(_ sender: Knob) {
+        defaultCallback()
+    }
+
     // Helper
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
         // Knobs assume up or right is increasing, and down or left is decreasing
@@ -121,10 +131,12 @@ public class Knob: UIView, S1Control {
 
 	override public func accessibilityIncrement() {
 		value += accessibilityChangeAmount
+		callback(value)
 	}
 
 	override public func accessibilityDecrement() {
 		value -= accessibilityChangeAmount
+		callback(value)
 	}
 
 }

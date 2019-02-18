@@ -145,6 +145,7 @@ extension Manager {
         s.setSynthParameter(.adsrPitchTracking, activePreset.adsrPitchTracking)
 
         s.resetSequencer()
+        conductor.updateDefaultValues()
     }
 
     func saveValuesToPreset() {
@@ -281,5 +282,6 @@ extension Manager {
         activePreset.userText = presetsViewController.currentPreset.userText
 
         presetsViewController.savePreset(activePreset)
+        conductor.updateDefaultValues()
     }
 }

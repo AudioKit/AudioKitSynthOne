@@ -12,6 +12,7 @@ import UIKit
 class Stepper: UIView, S1Control {
 
     public var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     var minusPath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 2, width: 35, height: 32), cornerRadius: 1)
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)
@@ -124,14 +125,19 @@ class Stepper: UIView, S1Control {
 			value += 1
 			valuePressed = 2
 		}
-  }
-
-
+		let newValue = String(format: "%.00f", value)
+		accessibilityValue = newValue
+		self.callback(value)
+	}
+	
 	override func accessibilityDecrement() {
 		if value > minValue {
 			value -= 1
 			valuePressed = 1
-
+			
+			let newValue = String(format: "%.00f", value)
+			accessibilityValue = newValue
+			self.callback(value)
 		}
 	}
 }

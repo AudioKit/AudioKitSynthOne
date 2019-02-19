@@ -26,7 +26,6 @@ class TuningsPanelController: PanelController {
     @IBOutlet weak var resetTuningsButton: SynthButton!
     @IBOutlet weak var diceButton: UIButton!
     @IBOutlet weak var importButton: SynthButton!
-    @IBOutlet weak var d1Button: SynthButton!
     @IBOutlet weak var tuneUpBackButtonButton: SynthButton!
     @IBOutlet weak var tuneUpButton: SynthButton!
     
@@ -112,7 +111,6 @@ class TuningsPanelController: PanelController {
                     if let url = appDelegate.applicationLaunchedWithURL() {
                         AKLog("launched with url:\(url)")
                         _ = self.openUrl(url: url)
-                        appDelegate.clearLaunchOptions()
 
                         // if url is a file in app Inbox remove it
                         AKLog("removing temporary file at \(url)")
@@ -132,11 +130,6 @@ class TuningsPanelController: PanelController {
             self.tuneUpBackButtonButton.value = 0
         }
 
-        d1Button.callback = { value in
-            self.tuningModel.launchD1()
-        }
-
-        
         tuneUpButton.callback = { value in
             self.performSegue(withIdentifier: "SegueToTuneUp", sender: nil)
         }
@@ -221,14 +214,12 @@ class TuningsPanelController: PanelController {
 
 extension TuningsPanelController: TuneUpPopUpDelegate {
     func wilsonicPressed() {
-        print("Wilsonic Pressed")
+        launchWilsonic()
     }
     
     func d1Pressed() {
-        print("D1 Pressed")
+        launchD1()
     }
-    
-    
 }
 
 // MARK: - TuningsPitchWheelViewTuningDidChange
@@ -244,9 +235,14 @@ extension TuningsPanelController: TuningsPitchWheelViewTuningDidChange {
 
 extension TuningsPanelController {
 
-    // MARK: - launch D1
+    // MARK: - Launch applications that support TuneUp
+
     public func launchD1() {
         tuningModel.launchD1()
+    }
+
+    public func launchWilsonic() {
+        tuningModel.launchWilsonic()
     }
 }
 

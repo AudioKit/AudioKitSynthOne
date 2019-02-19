@@ -74,16 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         conductor.stopEngine()
     }
 
-    /// Handle opening scala files, or,
-    /// Custom URL Scheme for octave-based tunings
-    /// query host = "tune"
-    /// args are Strings
-    /// tuningName
-    /// f frequency
-    /// frequencyMiddleC
-    ///
-    /// query host = "tune", "tuneup", "open", "redirect"
-    /// no args
+    /// TuneUp
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 
         // on launch tuningsPanel is not yet created -> fall back to tunings model initialization
@@ -115,10 +106,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
 
     public func applicationLaunchedWithURL() -> URL? {
-        return self.launchOptions?[.url] as? URL
-    }
-
-    public func clearLaunchOptions() {
+        let launchUrl = self.launchOptions?[.url] as? URL
         self.launchOptions = nil
+        return launchUrl
     }
+    
 }

@@ -17,8 +17,11 @@ protocol TuneUpPopUpDelegate: AnyObject {
 class TuneUpPopUp: UIViewController {
     
     @IBOutlet weak var moreView: UIView!
-    var delegate: TuneUpPopUpDelegate?
+    @IBOutlet weak var d1Button: UIButton!
+    @IBOutlet weak var wilsonicButton: UIButton!
     
+    var delegate: TuneUpPopUpDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,11 +36,15 @@ class TuneUpPopUp: UIViewController {
     }
     
     @IBAction func wilsonicPressed(_ sender: Any) {
-        delegate?.wilsonicPressed()
+        dismiss(animated: true) {
+            self.delegate?.wilsonicPressed()
+        }
     }
     
     @IBAction func d1Pressed(_ sender: Any) {
-        delegate?.d1Pressed()
+        dismiss(animated: true) {
+            self.delegate?.d1Pressed()
+        }
     }
     
 }

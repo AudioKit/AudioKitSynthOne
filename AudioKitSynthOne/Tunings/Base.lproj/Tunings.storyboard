@@ -541,7 +541,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ZL-mT-LbC">
                                                 <rect key="frame" x="19" y="66" width="64" height="64"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="D1_icon">
+                                                <state key="normal" title="d1Button" image="D1_icon">
                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -551,7 +551,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMS-yf-Nc5">
                                                 <rect key="frame" x="19" y="145" width="64" height="64"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="Wilsonic_icon">
+                                                <state key="normal" title="wilsonicButton" image="Wilsonic_icon">
                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -584,7 +584,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="637" height="299"/>
                     <connections>
+                        <outlet property="d1Button" destination="5ZL-mT-LbC" id="i52-mk-0bU"/>
                         <outlet property="moreView" destination="rQO-Zo-Eag" id="vTV-5c-gbF"/>
+                        <outlet property="wilsonicButton" destination="mMS-yf-Nc5" id="GBl-an-ikt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIn-o8-8MK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -602,6 +604,6 @@
         <image name="smile-icon" width="152" height="152"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZUf-vA-C0U"/>
+        <segue reference="idO-du-xAP"/>
     </inferredMetricsTieBreakers>
 </document>

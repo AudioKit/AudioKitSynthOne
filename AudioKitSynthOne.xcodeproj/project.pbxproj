@@ -247,7 +247,6 @@
 		F4E4D00421C5B9F2005B2FAF /* TuningBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */; };
 		F4E4D00721C81E34005B2FAF /* tunings_v0_upgrade_path_test.json in Resources */ = {isa = PBXBuildFile; fileRef = F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */; };
 		F4E4D00921C87B9F005B2FAF /* Tunings+DefaultTunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4D00821C87B9F005B2FAF /* Tunings+DefaultTunings.swift */; };
-		F4FF93D92210A52A00D09BAF /* Tunings+LaunchD1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF93D82210A52A00D09BAF /* Tunings+LaunchD1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -670,7 +669,6 @@
 		F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningBank.swift; sourceTree = "<group>"; };
 		F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tunings_v0_upgrade_path_test.json; sourceTree = "<group>"; };
 		F4E4D00821C87B9F005B2FAF /* Tunings+DefaultTunings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+DefaultTunings.swift"; sourceTree = "<group>"; };
-		F4FF93D82210A52A00D09BAF /* Tunings+LaunchD1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+LaunchD1.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1411,7 +1409,6 @@
 				C435C52F20C52D4B00DAECCD /* Tunings+Harmonic.swift */,
 				C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */,
 				F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */,
-				F4FF93D82210A52A00D09BAF /* Tunings+LaunchD1.swift */,
 				F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */,
 				F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */,
 			);
@@ -1801,7 +1798,6 @@
 				C4B491BC20C7DEB100FD565A /* ArpButtonStyleKit.swift in Sources */,
 				C4B4919420C7C7C500FD565A /* PresetEditorViewController.swift in Sources */,
 				C4B4918620C7C79C00FD565A /* Presets+PresetCellDelegate.swift in Sources */,
-				F4FF93D92210A52A00D09BAF /* Tunings+LaunchD1.swift in Sources */,
 				C435C57A20C530C900DAECCD /* SDSustainer.swift in Sources */,
 				C435C58020C530C900DAECCD /* AETime.m in Sources */,
 				94AA87962216293F005BE569 /* TuneUpPopUp.swift in Sources */,

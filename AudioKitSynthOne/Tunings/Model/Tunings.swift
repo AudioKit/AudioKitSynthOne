@@ -19,6 +19,7 @@ class Tunings {
     internal var redirectHost: String?
     internal var redirectFriendlyName: String = "TuneUp"
     public weak var tuneUpDelegate: TuneUpDelegate?
+    static let tuneUpBackButtonUrlArgs = "&redirect=synth1&redirectFriendlyName=\"Synth One\""
 
     enum TuningSortType {
         case npo
@@ -63,7 +64,7 @@ class Tunings {
         }
     }
 
-    // exposed for sharing tunings with D1
+    // exposed for TuneUp
     var tuningName = Tuning.defaultName
     var masterSet = Tuning.defaultMasterSet
 
@@ -296,6 +297,8 @@ class Tunings {
         let b = tuningBank
         b.selectedTuningIndex = Int((0 ... b.tunings.count).clamp(row))
         let tuning = b.tunings[b.selectedTuningIndex]
+        tuningName = tuning.name
+        masterSet = tuning.masterSet
         AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
         pitchWheelDelegate?.tuningDidChange()
         saveTunings()
@@ -307,6 +310,8 @@ class Tunings {
         selectedBankIndex = Int((0 ... c).clamp(row))
         let b = tuningBank
         let tuning = b.tunings[b.selectedTuningIndex]
+        tuningName = tuning.name
+        masterSet = tuning.masterSet
         AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
         pitchWheelDelegate?.tuningDidChange()
         saveTunings()
@@ -320,6 +325,8 @@ class Tunings {
         let b = tuningBank
         b.selectedTuningIndex = 0
         let tuning = b.tunings[b.selectedTuningIndex]
+        tuningName = tuning.name
+        masterSet = tuning.masterSet
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
         let f = conductor.synth!.getDefault(.frequencyA4)
         conductor.synth!.setSynthParameter(.frequencyA4, f)
@@ -331,6 +338,8 @@ class Tunings {
         let b = tuningBanks[selectedBankIndex]
         b.selectedTuningIndex = Int(arc4random() % UInt32(b.tunings.count))
         let tuning = b.tunings[b.selectedTuningIndex]
+        tuningName = tuning.name
+        masterSet = tuning.masterSet
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
         pitchWheelDelegate?.tuningDidChange()
         saveTunings()

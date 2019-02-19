@@ -86,12 +86,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // open url
         _ = tuningsPanel.openUrl(url: url)
 
-        // if url is a file in Inbox remove it
-        AKLog("removing temporary file at \(url)")
-        do {
-            try FileManager.default.removeItem(at: url)
-        } catch let error as NSError {
-            AKLog("error removing temporary file at \(url): \(error)")
+        // if url is a file in Inbox remove it (i.e., Scala file)
+        if url.isFileURL {
+            AKLog("removing temporary file at \(url)")
+            do {
+                try FileManager.default.removeItem(at: url)
+            } catch let error as NSError {
+                AKLog("error removing temporary file at \(url): \(error)")
+            }
         }
 
         return true

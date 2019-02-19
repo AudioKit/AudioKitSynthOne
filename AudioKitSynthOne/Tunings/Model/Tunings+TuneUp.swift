@@ -84,15 +84,34 @@ extension Tunings {
             return openScala(atUrl: url)
         }
 
-        // custom url
         let urlStr = url.absoluteString
         let host = URLComponents(string: urlStr)?.host
+        let queryItems = URLComponents(string: urlStr)?.queryItems
+        var urlIsTuneUpBackButton = false
 
         // TuneUp
         if host == "tune" || host == "tuneup" {
 
+            // Store TuneUp BackButton properties even if there is an error
+            if let redirect = queryItems?.filter({$0.name == "redirect"}).first?.value {
+                if redirect.count > 0 {
+
+                    // store redirect url and friendly name...for when user wants to fast-switch back
+                    redirectHost = redirect
+                    if let redirectName = queryItems?.filter({$0.name == "redirectFriendlyName"}).first?.value {
+                        if redirectName.count > 0 {
+                            redirectFriendlyName = redirectName
+                        } else {
+                            redirectFriendlyName = self.tuneUpBackButtonDefaultText
+                        }
+                        tuneUpDelegate?.setTuneUpBackButtonLabel(text: redirectFriendlyName)
+                        tuneUpDelegate?.setTuneUpBackButton(enabled: true)
+                        urlIsTuneUpBackButton = true
+                    }
+                }
+            }
+
             ///TuneUp implementation
-            let queryItems = URLComponents(string: urlStr)?.queryItems
             if let fArray = queryItems?.filter({$0.name == "f"}).map({ Double($0.value ?? "1.0") ?? 1.0 }) {
 
                 // only valid if non-zero length frequency array
@@ -114,26 +133,9 @@ extension Tunings {
                         }
                     }
                 } else {
-
-                    // if you want to alert the user that the tuning is invalid this is the place
-                    AKLog("TuneUp: tuning is invalid")
-                }
-
-                // Store TuneUp BackButton properties even if there is an error
-                if let redirect = queryItems?.filter({$0.name == "redirect"}).first?.value {
-                    if redirect.count > 0 {
-
-                        // store redirect url and friendly name...for when user wants to fast-switch back
-                        redirectHost = redirect
-                        if let redirectName = queryItems?.filter({$0.name == "redirectFriendlyName"}).first?.value {
-                            if redirectName.count > 0 {
-                                redirectFriendlyName = redirectName
-                            } else {
-                                redirectFriendlyName = self.tuneUpBackButtonDefaultText
-                            }
-                            tuneUpDelegate?.setTuneUpBackButtonLabel(text: redirectFriendlyName)
-                            tuneUpDelegate?.setTuneUpBackButton(enabled: true)
-                        }
+                    if !urlIsTuneUpBackButton {
+                        // if you want to alert the user that the tuning is invalid this is the place
+                        AKLog("TuneUp: tuning is invalid")
                     }
                 }
             }

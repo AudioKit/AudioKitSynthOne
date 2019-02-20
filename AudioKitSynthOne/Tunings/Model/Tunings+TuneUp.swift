@@ -62,7 +62,7 @@ extension Tunings {
         if let redirect = redirectHost {
 
             // open url
-            let urlStr = "\(redirect)://tuneup?redirect=synth1&redirectFriendlyName=\"Synth One\""
+            let urlStr = "\(redirect)://tuneup?redirect=synth1&redirectFriendlyName=Synth One"
             if let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
                 if let url = URL(string: urlStr) {
 

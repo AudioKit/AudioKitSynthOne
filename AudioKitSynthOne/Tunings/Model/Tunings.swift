@@ -19,7 +19,7 @@ class Tunings {
     internal var redirectHost: String?
     internal var redirectFriendlyName: String = "TuneUp"
     public weak var tuneUpDelegate: TuneUpDelegate?
-    static let tuneUpBackButtonUrlArgs = "&redirect=synth1&redirectFriendlyName=\"Synth One\""
+    static let tuneUpBackButtonUrlArgs = "&redirect=synth1&redirectFriendlyName=Synth One"
 
     enum TuningSortType {
         case npo

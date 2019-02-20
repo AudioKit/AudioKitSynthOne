@@ -28,6 +28,7 @@ class TuningsPanelController: PanelController {
     @IBOutlet weak var importButton: SynthButton!
     @IBOutlet weak var tuneUpBackButtonButton: SynthButton!
     @IBOutlet weak var tuneUpButton: SynthButton!
+    @IBOutlet weak var tuneUpBackLabel: UILabel!
     
     ///Model
     let tuningModel = Tunings()
@@ -132,6 +133,7 @@ class TuningsPanelController: PanelController {
 
         tuneUpButton.callback = { value in
             self.performSegue(withIdentifier: "SegueToTuneUp", sender: nil)
+            self.tuneUpButton.value = 0
         }
     }
 

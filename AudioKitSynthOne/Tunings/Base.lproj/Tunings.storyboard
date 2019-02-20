@@ -87,7 +87,7 @@
                                 </accessibility>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOY-l3-Rd7">
-                                <rect key="frame" x="916" y="114" width="23" height="27"/>
+                                <rect key="frame" x="916" y="109" width="23" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" hint="Selects Random Tuning" identifier="RandomTuningButton" label="Random Tuning"/>
                                 <state key="normal" image="dice"/>
@@ -96,7 +96,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBk-V2-c4I" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="900" y="153" width="57" height="21"/>
+                                <rect key="frame" x="900" y="151" width="57" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Resets Tuning to Equal temperament" identifier="ResetButton" label="Reset"/>
@@ -197,8 +197,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd7-wT-cU5" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="900" y="195" width="57" height="21"/>
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd7-wT-cU5" customClass="SynthButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="900" y="176" width="57" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Resets Tuning to Equal temperament" identifier="ResetButton" label="Reset"/>
@@ -230,6 +230,13 @@
                                     <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSR-tM-rA5">
+                                <rect key="frame" x="918" y="205" width="23" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="B3S-PY-LDN"/>
@@ -245,6 +252,7 @@
                         <outlet property="resetTuningsButton" destination="JBk-V2-c4I" id="6fT-M8-JwU"/>
                         <outlet property="rightNavButton" destination="upj-l9-pQi" id="wUj-Gy-op2"/>
                         <outlet property="tuneUpBackButtonButton" destination="Ccd-nC-BSm" id="ACB-sA-g2T"/>
+                        <outlet property="tuneUpBackLabel" destination="VSR-tM-rA5" id="08o-qj-kgi"/>
                         <outlet property="tuneUpButton" destination="vxn-oN-RY7" id="cob-KK-6cL"/>
                         <outlet property="tuningBankTableView" destination="8Zu-lo-GJR" id="hsf-dI-HEQ"/>
                         <outlet property="tuningTableView" destination="udl-xc-8bP" id="Hcm-JB-FYX"/>
@@ -325,8 +333,8 @@
                                     <action selector="randomPressed:" destination="eCY-hN-xMb" eventType="touchUpInside" id="f7q-qb-7w3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tuning" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-ib-H9Q">
-                                <rect key="frame" x="538" y="196" width="41" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Master" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-ib-H9Q">
+                                <rect key="frame" x="539" y="196" width="41" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>

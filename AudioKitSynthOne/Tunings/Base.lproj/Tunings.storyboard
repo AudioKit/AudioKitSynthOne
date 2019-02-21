@@ -441,6 +441,13 @@
                                     <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVo-a4-f88">
+                                <rect key="frame" x="528" y="249" width="23" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="Etg-nd-WNR"/>
@@ -456,6 +463,7 @@
                         <outlet property="resetTuningsButton" destination="fLS-iF-u6P" id="RZS-9O-rfZ"/>
                         <outlet property="rightNavButton" destination="iE9-Ad-hlo" id="eQK-kA-Kd6"/>
                         <outlet property="tuneUpBackButtonButton" destination="lls-ao-Ps1" id="uP5-ln-N7g"/>
+                        <outlet property="tuneUpBackLabel" destination="kVo-a4-f88" id="vkC-8Y-c8y"/>
                         <outlet property="tuneUpButton" destination="Zzk-On-wpG" id="vgx-W1-47b"/>
                         <outlet property="tuningBankTableView" destination="W8A-xB-V6p" id="Gdv-bf-sgx"/>
                         <outlet property="tuningTableView" destination="B2E-7f-Mx9" id="leZ-Yb-6SI"/>

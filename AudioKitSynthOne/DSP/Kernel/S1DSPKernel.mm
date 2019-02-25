@@ -161,4 +161,5 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     AKPolyphonicNode.tuningTable.middleCFrequency = getSynthParameter(frequencyA4) * exp2((60.f - 69.f)/12.f);
     
     // initializeNoteStates() must be called AFTER init returns, BEFORE process, turnOnKey, and turnOffKey
+  initializedNoteStates = false;
 }

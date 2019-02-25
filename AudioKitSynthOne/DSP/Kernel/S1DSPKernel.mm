@@ -74,11 +74,6 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sp_delay_init(sp, widenDelay, 0.05f);
     widenDelay->feedback = 0.f;
 
-    restoreValues(std::nullopt);
-}
-
-void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
-    // copy default dsp values
     noteStates = (S1NoteState*)malloc(S1_MAX_POLYPHONY * sizeof(S1NoteState));
 
     monoNote = (S1NoteState*)malloc(sizeof(S1NoteState));
@@ -95,7 +90,11 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
 
     _rate.init();
 
-    // copy default dsp values
+    restoreValues(std::nullopt);
+}
+
+void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
+    // copy dsp values or initialize with default
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
         const float value = (params != std::nullopt) ? (*params)[i] : defaultValue((S1Parameter)i);
         if (s1p[i].usePortamento) {

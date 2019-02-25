@@ -176,6 +176,7 @@
     }
     _outputBusBuffer.allocateRenderResources(self.maximumFramesToRender);
     if (self.musicalContextBlock) { _musicalContext = self.musicalContextBlock; } else _musicalContext = nil;
+    _kernel.destroy();
     _kernel.init(self.outputBus.format.channelCount, self.outputBus.format.sampleRate);
     _kernel.reset();
     return YES;

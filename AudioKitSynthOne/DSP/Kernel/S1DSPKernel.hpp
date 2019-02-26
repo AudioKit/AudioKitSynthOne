@@ -36,6 +36,7 @@
 
 struct S1NoteState;
 using DSPParameters = std::array<float, S1Parameter::S1ParameterCount>;
+using NoteStateArray = std::array<S1NoteState, S1_MAX_POLYPHONY>;
 
 class S1DSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
 
@@ -264,10 +265,10 @@ private:
     };
     
     // array of struct S1NoteState of count MAX_POLYPHONY
-    S1NoteState* noteStates;
+    std::unique_ptr<NoteStateArray> noteStates;
     
     // monophonic: single instance of NoteState
-    S1NoteState* monoNote;
+    std::unique_ptr<S1NoteState> monoNote;
     
     bool initializedNoteStates = false;
     

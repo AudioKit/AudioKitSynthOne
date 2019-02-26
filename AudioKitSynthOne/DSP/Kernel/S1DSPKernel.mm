@@ -74,9 +74,9 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sp_delay_init(sp, widenDelay, 0.05f);
     widenDelay->feedback = 0.f;
 
-    noteStates = (S1NoteState*)malloc(S1_MAX_POLYPHONY * sizeof(S1NoteState));
+    noteStates = std::make_unique<NoteStateArray>();
 
-    monoNote = (S1NoteState*)malloc(sizeof(S1NoteState));
+    monoNote = std::make_unique<S1NoteState>();
 
     heldNoteNumbers = (NSMutableArray<NSNumber*>*)[NSMutableArray array];
     heldNoteNumbersAE = [[AEArray alloc] initWithCustomMapping:^void *(id item) {

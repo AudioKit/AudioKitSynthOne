@@ -42,8 +42,6 @@ void S1DSPKernel::destroy() {
     sp_compressor_destroy(&compressorReverbInputR);
     sp_compressor_destroy(&compressorReverbWetL);
     sp_compressor_destroy(&compressorReverbWetR);
-    free(noteStates);
-    free(monoNote);
 }
 
 

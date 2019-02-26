@@ -31,7 +31,7 @@ void S1DSPKernel::initializeNoteStates() {
         initializedNoteStates = true;
         // POLY INIT
         for (int i = 0; i < S1_MAX_POLYPHONY; i++) {
-            S1NoteState& state = noteStates[i];
+            S1NoteState& state = (*noteStates)[i];
             state.kernel = this;
             state.init();
             state.stage = S1NoteState::stageOff;

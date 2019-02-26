@@ -41,7 +41,8 @@ void S1DSPKernel::playingNotesDidChange() {
         }
     } else {
         for(int i=0; i<S1_MAX_POLYPHONY; i++) {
-            aePlayingNotes.playingNotes[i] = {noteStates[i].rootNoteNumber, noteStates[i].transpose, noteStates[i].amp};
+            const auto& note = (*noteStates)[i];
+            aePlayingNotes.playingNotes[i] = {note.rootNoteNumber, note.transpose, note.amp};
         }
     }
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,

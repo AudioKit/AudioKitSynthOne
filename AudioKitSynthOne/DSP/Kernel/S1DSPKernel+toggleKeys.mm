@@ -52,7 +52,7 @@ void S1DSPKernel::turnOnKey(int noteNumber, int velocity, float frequency) {
         // Note Stealing: Is noteNumber already playing?
         int index = -1;
         for(int i = 0 ; i < polyphony; i++) {
-            if (noteStates[i].rootNoteNumber == noteNumber) {
+            if ((*noteStates)[i].rootNoteNumber == noteNumber) {
                 index = i;
                 break;
             }
@@ -64,7 +64,7 @@ void S1DSPKernel::turnOnKey(int noteNumber, int velocity, float frequency) {
             // noteNumber is not playing: search for non-playing notes (-1) starting with current index
             for(int i = 0; i < polyphony; i++) {
                 const int modIndex = (playingNoteStatesIndex + i) % polyphony;
-                if (noteStates[modIndex].rootNoteNumber == -1) {
+                if ((*noteStates)[modIndex].rootNoteNumber == -1) {
                     index = modIndex;
                     break;
                 }
@@ -80,7 +80,7 @@ void S1DSPKernel::turnOnKey(int noteNumber, int velocity, float frequency) {
         }
 
         // POLY: INIT NoteState
-        S1NoteState& note = noteStates[playingNoteStatesIndex];
+        S1NoteState& note = (*noteStates)[playingNoteStatesIndex];
         note.startNoteHelper(noteNumber, velocity, frequency);
     }
 
@@ -137,7 +137,7 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
         // POLY:
         int index = -1;
         for(int i = 0; i < polyphony; i++) {
-            if (noteStates[i].rootNoteNumber == noteNumber) {
+            if ((*noteStates)[i].rootNoteNumber == noteNumber) {
                 index = i;
                 break;
             }
@@ -146,7 +146,7 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
         if (index != -1) {
 
             // put NoteState into release
-            S1NoteState& note = noteStates[index];
+            S1NoteState& note = (*noteStates)[index];
             if (note.stage != S1NoteState::stageOff) {
                 note.stage = S1NoteState::stageRelease;
                 note.internalGate = 0;

@@ -51,7 +51,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         }
     } else {
         for(int i=0; i<polyphony; i++) {
-            S1NoteState& note = noteStates[i];
+            auto& note = (*noteStates)[i];
             if (note.stage == S1NoteState::stageRelease && note.amp < S1_RELEASE_AMPLITUDE_THRESHOLD) {
                 note.clear();
             }
@@ -328,7 +328,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                 monoNote->run(frameIndex, outL, outR);
         } else {
             for(int i=0; i<polyphony; i++) {
-                S1NoteState& note = noteStates[i];
+                S1NoteState& note = (*noteStates)[i];
                 if (note.rootNoteNumber != -1 && note.stage != S1NoteState::stageOff)
                     note.run(frameIndex, outL, outR);
             }

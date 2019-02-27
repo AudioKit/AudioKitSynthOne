@@ -31,12 +31,13 @@ void S1DSPKernel::initializeNoteStates() {
         initializedNoteStates = true;
         // POLY INIT
         for (int i = 0; i < S1_MAX_POLYPHONY; i++) {
-            S1NoteState& state = noteStates[i];
+            S1NoteState& state = (*noteStates)[i];
             state.kernel = this;
             state.init();
             state.stage = S1NoteState::stageOff;
             state.internalGate = 0;
             state.rootNoteNumber = -1;
+            state.transpose = 0;
         }
 
         // MONO INIT
@@ -45,5 +46,6 @@ void S1DSPKernel::initializeNoteStates() {
         monoNote->stage = S1NoteState::stageOff;
         monoNote->internalGate = 0;
         monoNote->rootNoteNumber = -1;
+        monoNote->transpose = 0;
     }
 }

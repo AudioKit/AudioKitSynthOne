@@ -29,4 +29,5 @@ extension Manager: MailingListDelegate {
 
         presetsViewController.addBonusPresets()
     }
+    
 }

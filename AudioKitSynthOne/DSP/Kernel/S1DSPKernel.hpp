@@ -9,8 +9,10 @@
 
 #pragma once
 
+#import <array>
 #import <vector>
 #import <list>
+#import <optional>
 #import <string>
 #import "AudioKit/AKSoundpipeKernel.hpp"
 #import "S1AudioUnit.h"
@@ -33,6 +35,8 @@
 #ifdef __cplusplus
 
 struct S1NoteState;
+using DSPParameters = std::array<float, S1Parameter::S1ParameterCount>;
+using NoteStateArray = std::array<S1NoteState, S1_MAX_POLYPHONY>;
 
 class S1DSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
 
@@ -52,7 +56,7 @@ public:
     float getSynthParameter(S1Parameter param);
     void setSynthParameter(S1Parameter param, float value);
 
-    // lfo1Rate, lfo2Rate, autoPanRate, and delayTime; returns on [0,1]
+    // lfo1Rate, lfo2Rate, autoPanRate, delayTime, and arpSeqTempoMultiplier; returns on [0,1]
     float getDependentParameter(S1Parameter param);
     void setDependentParameter(S1Parameter param, float value, int payload);
 
@@ -106,6 +110,9 @@ public:
     virtual void handleMIDIEvent(AUMIDIEvent const& midiEvent) override;
     
     void init(int _channels, double _sampleRate) override;
+
+    // Restore Parameter Values to DSP
+    void restoreValues(std::optional<DSPParameters> params);
     
     void destroy();
     
@@ -171,7 +178,7 @@ public:
     int arpBeatCounter = 0;
     
     /// dsp params
-    float p[S1Parameter::S1ParameterCount];
+    DSPParameters p;
     
     // Portamento values
     float monoFrequency = 440.f * exp2((60.f - 69.f)/12.f);
@@ -213,6 +220,8 @@ private:
     DependentParameter _delayTime;
     
     DependentParameter _pitchbend;
+
+    DependentParameter _arpSeqTempoMultiplier;
     
     void dependentParameterDidChange(DependentParameter param);
 
@@ -256,10 +265,10 @@ private:
     };
     
     // array of struct S1NoteState of count MAX_POLYPHONY
-    S1NoteState* noteStates;
+    std::unique_ptr<NoteStateArray> noteStates;
     
     // monophonic: single instance of NoteState
-    S1NoteState* monoNote;
+    std::unique_ptr<S1NoteState> monoNote;
     
     bool initializedNoteStates = false;
     
@@ -305,7 +314,7 @@ private:
     float bitcrushValue = 0.f;
 
     // Arp/Seq
-    double sampleCounter = 0;
+    double processSampleCounter = 0;
     double arpSampleCounter = 0;
     double arpTime = 0;
     int notesPerOctave = 12;
@@ -321,13 +330,14 @@ private:
     // Array of midi note numbers of NoteState's which have had a noteOn event but not yet a noteOff event.
     NSMutableArray<NSNumber*>* heldNoteNumbers;
     AEArray* heldNoteNumbersAE;
-    
+    int previousHeldNoteNumbersAECount; // previous render loop held key count
+
     // These expressions come from Rate.swift which is used for beat sync
     const float minutesPerSecond = 1.f / 60.f;
     const float beatsPerBar = 4.f;
     const float bpm_min = 1.f;
     const float bpm_max = 200.f;
-    const float bars_min = 1.f / 64.f;
+    const float bars_min = 1.f / 64.f / 1.5f;
     const float bars_max = 8.f;
     const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) ); //  0.00052 8 bars at 1bpm
     const float rate_max = 1.f / ( (beatsPerBar * bars_min) / (bpm_max * minutesPerSecond) ); // 53.3333
@@ -375,7 +385,7 @@ private:
         { reverbMix,             0, 0, 1, "reverbMix", "reverbMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayOn,               0, 0, 1, "delayOn", "delayOn", kAudioUnitParameterUnit_Generic, true, NULL},
         { delayFeedback,         0, 0.1, 0.9, "delayFeedback", "delayFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
-        { delayTime,             0.0003628117914, 0.25, 2.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, false, NULL},
+        { delayTime,             0.0003628117914, 0.25, 2.5, "delayTime", "delayTime", kAudioUnitParameterUnit_Seconds, true, NULL},
         { delayMix,              0, 0.125, 1, "delayMix", "delayMix", kAudioUnitParameterUnit_Generic, true, NULL},
         { lfo2Index,             0, 0, 3, "lfo2Index", "lfo2Index", kAudioUnitParameterUnit_Generic, false, NULL},
         { lfo2Amplitude,         0, 0, 1, "lfo2Amplitude", "lfo2Amplitude", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -479,7 +489,7 @@ private:
         { delayInputResonance, 0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, false, NULL},
         { tempoSyncToArpRate, 0, 1, 1, "tempoSyncToArpRate", "tempoSyncToArpRate", kAudioUnitParameterUnit_Generic, false, NULL},
         
-        { pitchbend,              0, 8192, 16383, "pitchbend", "pitchbend", kAudioUnitParameterUnit_Generic, true, NULL},
+        { pitchbend,              0, 8192, 16383, "pitchbend", "pitchbend", kAudioUnitParameterUnit_Generic, false, NULL},
         { pitchbendMinSemitones,  -24, -12, 0, "pitchbendMinSemitones", "pitchbendMinSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         { pitchbendMaxSemitones,  0, 12, 24, "pitchbendMaxSemitones", "pitchbendMaxSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         
@@ -488,7 +498,14 @@ private:
 
         /* -1 = no override, else = index into bandlimited wavetable */
         { oscBandlimitIndexOverride, -1, -1, (S1_NUM_BANDLIMITED_FTABLES-1), "oscBandlimitIndexOverride", "oscBandlimitIndexOverride", kAudioUnitParameterUnit_Generic, false, NULL },
-        { oscBandlimitEnable, 0, 0, 1, "oscBandlimitEnable", "oscBandlimitEnable", kAudioUnitParameterUnit_Generic, false, NULL}
+        { oscBandlimitEnable, 0, 0, 1, "oscBandlimitEnable", "oscBandlimitEnable", kAudioUnitParameterUnit_Generic, false, NULL},
+
+        { arpSeqTempoMultiplier, bars_min, 0.25, bars_max, "arpSeqTempoMultiplier", "arpSeqTempoMultiplier", kAudioUnitParameterUnit_Generic, false, NULL},
+
+        { transpose, -24, 0, 24, "transpose", "transpose", kAudioUnitParameterUnit_Generic, false, NULL},
+
+        { adsrPitchTracking, 0, 0, 1, "adsrPitchTracking", "adsrPitchTracking", kAudioUnitParameterUnit_Generic, true, NULL}
+
     };
 };
 #endif

@@ -14,12 +14,16 @@ float S1DSPKernel::getDependentParameter(S1Parameter parameter) {
         return _pitchbend.value;
     }
 
+    if (parameter == arpSeqTempoMultiplier) {
+        return _arpSeqTempoMultiplier.normalizedValue;
+    }
+
     DependentParameter dp;
     switch(parameter) {
-        case lfo1Rate: dp = _lfo1Rate; break;
-        case lfo2Rate: dp = _lfo2Rate; break;
-        case autoPanFrequency: dp = _autoPanRate; break;
-        case delayTime: dp = _delayTime; break;
+        case lfo1Rate:              dp = _lfo1Rate;              break;
+        case lfo2Rate:              dp = _lfo2Rate;              break;
+        case autoPanFrequency:      dp = _autoPanRate;           break;
+        case delayTime:             dp = _delayTime;             break;
         default:printf("error\n");break;
     }
 
@@ -33,7 +37,9 @@ float S1DSPKernel::getDependentParameter(S1Parameter parameter) {
 // map normalized input to parameter range
 void S1DSPKernel::setDependentParameter(S1Parameter param, float inputValue01, int payload) {
     const bool notify = true;
+
     switch(param) {
+
         case lfo1Rate: case lfo2Rate: case autoPanFrequency:
             if (p[tempoSyncToArpRate] > 0.f) {
                 // tempo sync
@@ -49,6 +55,7 @@ void S1DSPKernel::setDependentParameter(S1Parameter param, float inputValue01, i
                 _setSynthParameterHelper(param, val, notify, payload);
             }
             break;
+
         case delayTime:
             if (p[tempoSyncToArpRate] > 0.f) {
                 // tempo sync
@@ -65,6 +72,16 @@ void S1DSPKernel::setDependentParameter(S1Parameter param, float inputValue01, i
                 _setSynthParameterHelper(delayTime, val, notify, payload);
             }
             break;
+
+        case arpSeqTempoMultiplier:
+        {
+            const float valInvert = 1.f - inputValue01;
+            AKSynthOneRate rate = _rate.rateFromFactor01(valInvert);
+            const float val = _rate.factorForRate(rate);
+            _setSynthParameterHelper(arpSeqTempoMultiplier, val, notify, payload);
+        }
+            break;
+            
         case pitchbend:
         {
             const float min = minimum(param);

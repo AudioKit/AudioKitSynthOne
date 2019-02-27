@@ -8,6 +8,7 @@
 
 import UIKit
 import ChimpKit
+import MessageUI
 
 protocol MailingListDelegate: AnyObject {
     func didSignMailingList(email: String)
@@ -40,6 +41,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
                                                object: nil)
 
         // MailChimp API Key
+        guard Private.MailChimpAPIKey != "***REMOVED***" else { return }
         ChimpKit.shared().apiKey = Private.MailChimpAPIKey
     }
 
@@ -51,6 +53,11 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
             self.moreView.alpha = 1.0
         })
     }
+    
+    // Hide home bar on newer iPhones/iPad
+    override public var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
@@ -59,10 +66,18 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func keyboardWasShown(notification: NSNotification) {
+        guard Conductor.sharedInstance.device == .pad else { return }
         UIView.animate(withDuration: 0.1, animations: { () -> Void in
             self.topConstraint.constant = 100
         })
     }
+    
+    @IBAction func videoPressed(_ sender: UIButton) {
+        if let url = URL(string: "http://youtu.be/hwDNgCYowYs") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
 
     @IBAction func closePressed(_ sender: UIButton) {
 
@@ -79,8 +94,9 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
             self.dismiss(animated: true, completion: nil)
         }
 
-        alert.addAction(submitAction)
         alert.addAction(cancelAction)
+        alert.addAction(submitAction)
+    
 
         // Confirm they don't want to enter their email address
         // self.present(alert, animated: true, completion: nil)
@@ -88,6 +104,11 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         // Remove dismiss for the hard sell
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func startPlaying(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
     @IBAction func signUpPressed(_ sender: UIButton) {
         signUpAction()
@@ -137,8 +158,8 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         let cancelAction = UIAlertAction(title: "No", style: .default) { (_) in
         }
 
-        alert.addAction(submitAction)
         alert.addAction(cancelAction)
+        alert.addAction(submitAction)
 
         self.present(alert, animated: true, completion: nil)
     }
@@ -147,7 +168,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
         // Create and display alert box
         let title = NSLocalizedString("Congratulations! 🎉", comment: "Alert Title: Presets Added")
-        let message = NSLocalizedString("Bonus presets have been added to BankA. " +
+        let message = NSLocalizedString("Bonus presets have been added to BankA. \n\n" +
             "We are all volunteers who made this app for free. " +
             "We hope you enjoy it & tell other musicians! 😎", comment: "Alert Message: Presets Added")
         let alert = UIAlertController(title: title,
@@ -169,6 +190,23 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
         if let url = URL(string: "https://audiokitpro.com/audiokit-synth-one/") {
             UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func emailPressed(_ sender: UIButton) {
+        
+        let receipients = ["matthew@audiokitpro.com"]
+        let subject = "From AudioKit App"
+        let messageBody = ""
+        
+        let configuredMailComposeViewController = configureMailComposeViewController(recepients: receipients,
+                                                                                     subject: subject,
+                                                                                     messageBody: messageBody)
+        
+        if canSendMail() {
+            self.present(configuredMailComposeViewController, animated: true, completion: nil)
+        } else {
+            showSendMailErrorAlert()
         }
     }
 
@@ -221,5 +259,46 @@ extension String {
         } catch {
             return false
         }
+    }
+}
+
+
+// MARK: - MFMailComposeViewController Delegate
+
+extension MailingListViewController: MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult,
+                               error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func canSendMail() -> Bool {
+        return MFMailComposeViewController.canSendMail()
+    }
+    
+    func configureMailComposeViewController(recepients: [String],
+                                            subject: String,
+                                            messageBody: String) -> MFMailComposeViewController {
+        
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients(recepients)
+        mailComposerVC.setSubject(subject)
+        mailComposerVC.setMessageBody(messageBody, isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email",
+                                                   message: "Your device could not send e-mail.  " +
+            "Please check e-mail configuration and try again.",
+                                                   preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        sendMailErrorAlert.addAction(cancelAction)
+        present(sendMailErrorAlert, animated: true, completion: nil)
     }
 }

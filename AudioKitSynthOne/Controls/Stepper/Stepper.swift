@@ -12,6 +12,7 @@ import UIKit
 class Stepper: UIView, S1Control {
 
     public var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     var minusPath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 2, width: 35, height: 32), cornerRadius: 1)
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)
@@ -71,7 +72,11 @@ class Stepper: UIView, S1Control {
     // MARK: - Draw
 
     override func draw(_ rect: CGRect) {
-        StepperStyleKit.drawStepper(valuePressed: valuePressed, text: "\(Int(value))")
+        StepperStyleKit.drawStepper(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: self.bounds.width,
+                                                  height: self.bounds.height),
+                                    valuePressed: valuePressed, text: "\(Int(value))")
     }
 
     // MARK: - Handle Touches
@@ -120,14 +125,19 @@ class Stepper: UIView, S1Control {
 			value += 1
 			valuePressed = 2
 		}
-  }
-
-
+		let newValue = String(format: "%.00f", value)
+		accessibilityValue = newValue
+		self.callback(value)
+	}
+	
 	override func accessibilityDecrement() {
 		if value > minValue {
 			value -= 1
 			valuePressed = 1
-
+			
+			let newValue = String(format: "%.00f", value)
+			accessibilityValue = newValue
+			self.callback(value)
 		}
 	}
 }

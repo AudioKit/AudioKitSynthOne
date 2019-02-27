@@ -12,9 +12,9 @@
 
 // Convert note number to [possibly] microtonal frequency.  12ET is the default.
 // Profiling shows that while this takes a special Swift lock it still resolves to ~0% of CPU on a device
-//TODO: make an instance method
 static inline double tuningTableNoteToHz(int noteNumber) {
-    return [AKPolyphonicNode.tuningTable frequencyForNoteNumber:noteNumber];
+    const int nn = clamp(noteNumber, 0, 127);
+    return [AKPolyphonicNode.tuningTable frequencyForNoteNumber:nn];
 }
 
 // NOTE ON
@@ -23,8 +23,7 @@ void S1DSPKernel::startNote(int noteNumber, int velocity) {
     if (noteNumber < 0 || noteNumber >= S1_NUM_MIDI_NOTES)
         return;
 
-    const float frequency = tuningTableNoteToHz(noteNumber);
-    startNote(noteNumber, velocity, frequency);
+    startNote(noteNumber, velocity, 1.f); // freq unused
 }
 
 // NOTE ON
@@ -38,11 +37,14 @@ void S1DSPKernel::startNote(int noteNumber, int velocity, float frequency) {
     [heldNoteNumbers insertObject:nn atIndex:0];
     [heldNoteNumbersAE updateWithContentsOfArray:heldNoteNumbers];
 
+    // the tranpose feature leads to the override the AKPolyphonicNode::startNote frequency
+    const float frequencyTranposeOverride = tuningTableNoteToHz(noteNumber + (int)p[transpose]);
+
     // ARP/SEQ
     if (p[arpIsOn] == 1.f) {
         return;
     } else {
-        turnOnKey(noteNumber, velocity, frequency);
+        turnOnKey(noteNumber, velocity, frequencyTranposeOverride);
     }
 }
 

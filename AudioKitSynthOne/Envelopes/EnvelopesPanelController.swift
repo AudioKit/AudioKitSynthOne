@@ -18,6 +18,7 @@ class EnvelopesPanelController: PanelController {
     @IBOutlet weak var decayKnob: MIDIKnob!
     @IBOutlet weak var sustainKnob: MIDIKnob!
     @IBOutlet weak var releaseKnob: MIDIKnob!
+    @IBOutlet weak var adsrPitchTrackingKnob: MIDIKnob!
     @IBOutlet weak var filterAttackKnob: MIDIKnob!
     @IBOutlet weak var filterDecayKnob: MIDIKnob!
     @IBOutlet weak var filterSustainKnob: MIDIKnob!
@@ -39,12 +40,13 @@ class EnvelopesPanelController: PanelController {
         decayKnob.range = s.getRange(.decayDuration)
         sustainKnob.range = s.getRange(.sustainLevel)
         releaseKnob.range = s.getRange(.releaseDuration)
+        adsrPitchTrackingKnob.range = s.getRange(.adsrPitchTracking)
+        adsrPitchTrackingKnob.taper = 3
 
         filterAttackKnob.range = s.getRange(.filterAttackDuration)
         filterDecayKnob.range = s.getRange(.filterDecayDuration)
         filterSustainKnob.range = s.getRange(.filterSustainLevel)
         filterReleaseKnob.range = s.getRange(.filterReleaseDuration)
-
         filterADSRMixKnob.range = s.getRange(.filterADSRMix)
 
         currentPanel = .envelopes
@@ -53,6 +55,8 @@ class EnvelopesPanelController: PanelController {
         conductor.bind(decayKnob, to: .decayDuration)
         conductor.bind(sustainKnob, to: .sustainLevel)
         conductor.bind(releaseKnob, to: .releaseDuration)
+        conductor.bind(adsrPitchTrackingKnob, to: .adsrPitchTracking)
+        
         conductor.bind(filterAttackKnob, to: .filterAttackDuration)
         conductor.bind(filterDecayKnob, to: .filterDecayDuration)
         conductor.bind(filterSustainKnob, to: .filterSustainLevel)
@@ -86,6 +90,7 @@ class EnvelopesPanelController: PanelController {
 			decayKnob,
 			sustainKnob,
 			releaseKnob,
+            adsrPitchTrackingKnob,
 			leftNavButton,
 			rightNavButton
 		]

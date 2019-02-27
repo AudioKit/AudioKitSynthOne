@@ -63,7 +63,7 @@ typedef struct {
 @implementation AEMessageQueue
 
 - (instancetype)init {
-    return [self initWithBufferCapacity:8192];
+    return [self initWithBufferCapacity:8192+8192+8192+8192];
 }
 
 - (instancetype)initWithBufferCapacity:(size_t)bufferCapacity {

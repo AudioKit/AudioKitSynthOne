@@ -2,7 +2,7 @@
 //  TuningsPanel+UITableViewDelegate.swift
 //  AudioKitSynthOne
 //
-//  Created by AudioKit Contributors on 6/3/18.
+//  Created by Marcus Hobbs on 6/3/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
@@ -10,18 +10,49 @@
 
 extension TuningsPanelController: UITableViewDelegate {
 
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if cell.isSelected {
-            cell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRow = (indexPath as NSIndexPath).row
+        if tableView == tuningTableView {
+            tuningModel.selectTuning(atRow: selectedRow)
+            tuningTableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+        } else if tableView == tuningBankTableView {
+            tuningModel.selectBank(atRow: selectedRow)
+            tuningBankTableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+            tuningTableView.reloadData()
+            let tuningPath = IndexPath(row: tuningModel.selectedTuningIndex, section: 0)
+            tuningTableView.selectRow(at: tuningPath, animated: true, scrollPosition: .middle)
+        } else {
+            AKLog("error: no such tableview")
         }
     }
 
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tuningIndex = (indexPath as NSIndexPath).row
-        tuningModel.selectTuning(atRow: tuningIndex)
-        if let selectedCell = tableView.cellForRow(at: indexPath) {
-            selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+    // Edit the table view
+    @objc(tableView:commitEditingStyle:forRowAtIndexPath:)
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+
+        guard tableView === tuningTableView && tuningModel.selectedBankIndex == Tunings.userBankIndex else {return}
+
+        if editingStyle == .delete {
+            if tuningModel.removeUserTuning(atIndex: indexPath.row) {
+                tuningTableView.reloadData()
+                let ip = IndexPath(row: tuningModel.selectedTuningIndex, section: 0)
+                tuningTableView.selectRow(at: ip, animated: true, scrollPosition: .middle)
+            }
         }
-        tuningDidChange()
     }
+
+    @objc(tableView:canFocusRowAtIndexPath:) func tableView(_ tableView: UITableView,
+                                                            canFocusRowAt indexPath: IndexPath) -> Bool {
+        // Only edit items in user bank
+        return tableView === tuningTableView && tuningModel.selectedBankIndex == Tunings.userBankIndex
+    }
+
+    @objc(tableView:canEditRowAtIndexPath:) func tableView(_ tableView: UITableView,
+                                                            canEditRowAt indexPath: IndexPath) -> Bool {
+        // Only edit items in user bank
+        return tableView === tuningTableView && tuningModel.selectedBankIndex == Tunings.userBankIndex
+    }
+
 }

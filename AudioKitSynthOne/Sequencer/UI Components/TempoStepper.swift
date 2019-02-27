@@ -61,7 +61,11 @@ class TempoStepper: Stepper {
     // MARK: - Draw
 
     override func draw(_ rect: CGRect) {
-        TempoStyleKit.drawTempoStepper(valuePressed: valuePressed, text: "\(Int(value)) bpm")
+        TempoStyleKit.drawTempoStepper(frame: CGRect(x: 0,
+                                                     y: 0,
+                                                     width: self.bounds.width,
+                                                     height: self.bounds.height),
+                                       valuePressed: valuePressed, text: "\(Int(value)) bpm")
     }
 
     // MARK: - Handle Touches

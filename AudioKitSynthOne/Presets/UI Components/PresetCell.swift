@@ -24,7 +24,8 @@ class PresetCell: UITableViewCell {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var duplicateButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
-
+    @IBOutlet weak var labelTrailingConstraint: NSLayoutConstraint!
+    
     weak var delegate: PresetCellDelegate?
     var currentPreset: Preset?
     let conductor = Conductor.sharedInstance
@@ -51,6 +52,7 @@ class PresetCell: UITableViewCell {
 
         // Configure the view for the selected state
         if selected {
+            labelTrailingConstraint?.constant = 132
             presetNameLabel.textColor = UIColor.white
             backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
 
@@ -60,6 +62,7 @@ class PresetCell: UITableViewCell {
             favoriteButton.isHidden = false
 
         } else {
+            labelTrailingConstraint?.constant = 5
             presetNameLabel.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
             backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0)
 
@@ -74,6 +77,10 @@ class PresetCell: UITableViewCell {
         currentPreset = preset
 
         guard let bank = conductor.banks.first(where: { $0.name == preset.bank }) else { return }
+        
+        if conductor.device == .phone {
+            presetNameLabel.font = UIFont(name: "Avenir Next", size: 14)
+        }
         
         if alpha {
             presetNameLabel.text = "\(preset.name) (#\(preset.position))"

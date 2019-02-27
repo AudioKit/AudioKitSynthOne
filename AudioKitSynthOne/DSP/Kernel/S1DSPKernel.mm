@@ -73,24 +73,30 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sp_delay_create(&widenDelay);
     sp_delay_init(sp, widenDelay, 0.05f);
     widenDelay->feedback = 0.f;
-    
-    noteStates = (S1NoteState*)malloc(S1_MAX_POLYPHONY * sizeof(S1NoteState));
-    
-    monoNote = (S1NoteState*)malloc(sizeof(S1NoteState));
-    
+
+    noteStates = std::make_unique<NoteStateArray>();
+
+    monoNote = std::make_unique<S1NoteState>();
+
     heldNoteNumbers = (NSMutableArray<NSNumber*>*)[NSMutableArray array];
     heldNoteNumbersAE = [[AEArray alloc] initWithCustomMapping:^void *(id item) {
         const int nn = [(NSNumber*)item intValue];
         NoteNumber* noteNumber = (NoteNumber*)malloc(sizeof(NoteNumber));
         noteNumber->noteNumber = nn;
+        noteNumber->transpose = 0; // held notes transpose is unused
         return noteNumber;
     }];
-    
+    previousHeldNoteNumbersAECount = 0;
+
     _rate.init();
 
-    // copy default dsp values
+    restoreValues(std::nullopt);
+}
+
+void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
+    // copy dsp values or initialize with default
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
-        const float value = defaultValue((S1Parameter)i);
+        const float value = (params != std::nullopt) ? (*params)[i] : defaultValue((S1Parameter)i);
         if (s1p[i].usePortamento) {
             s1p[i].portamentoTarget = value;
             sp_port_create(&s1p[i].portamento);
@@ -100,14 +106,13 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
         p[i] = value;
     }
     updatePortamento(p[portamentoHalfTime]);
-    
     _lfo1Rate = {S1Parameter::lfo1Rate, getDependentParameter(lfo1Rate), getSynthParameter(lfo1Rate),0};
     _lfo2Rate = {S1Parameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};
     _autoPanRate = {S1Parameter::autoPanFrequency, getDependentParameter(autoPanFrequency), getSynthParameter(autoPanFrequency),0};
     _delayTime = {S1Parameter::delayTime, getDependentParameter(delayTime),getSynthParameter(delayTime),0};
+    _arpSeqTempoMultiplier = {S1Parameter::arpSeqTempoMultiplier, getDependentParameter(arpSeqTempoMultiplier), getSynthParameter(arpSeqTempoMultiplier),0};
 
     previousProcessMonoPolyStatus = p[isMono];
-    
     *phaser0->MinNotch1Freq = 100;
     *phaser0->MaxNotch1Freq = 800;
     *phaser0->Notch_width = 1000;
@@ -152,10 +157,11 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sequencerNotes.reserve(maxSequencerNotes);
     sequencerNotes2.reserve(maxSequencerNotes);
     sequencerLastNotes.resize(maxSequencerNotes);
-    
+
+    initializedNoteStates = false;
     aePlayingNotes.polyphony = S1_MAX_POLYPHONY;
-    
+
     AKPolyphonicNode.tuningTable.middleCFrequency = getSynthParameter(frequencyA4) * exp2((60.f - 69.f)/12.f);
-    
+
     // initializeNoteStates() must be called AFTER init returns, BEFORE process, turnOnKey, and turnOffKey
 }

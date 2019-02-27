@@ -53,6 +53,7 @@ class WheelSettingsViewController: UIViewController {
             AKLog("PopUpMODController view state is invalid because synth is not instantiated")
             return
         }
+        
         pitchUpperRange.value = s.getSynthParameter(.pitchbendMaxSemitones)
         pitchLowerRange.value = s.getSynthParameter(.pitchbendMinSemitones)
     }

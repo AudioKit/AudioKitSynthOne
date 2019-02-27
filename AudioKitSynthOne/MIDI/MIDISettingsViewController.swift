@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 protocol MIDISettingsPopOverDelegate: AnyObject {
     func resetMIDILearn()
     func didSelectMIDIChannel(newChannel: Int)
@@ -16,6 +17,7 @@ protocol MIDISettingsPopOverDelegate: AnyObject {
     func didToggleBackgroundAudio(_ value: Bool)
     func didChangeMIDISources(_ midiSources: [MIDIInput])
     func didToggleNeverSleep()
+    func didSetBuffer()
 }
 
 class MIDISettingsViewController: UIViewController {
@@ -28,6 +30,7 @@ class MIDISettingsViewController: UIViewController {
     @IBOutlet weak var velocityToggle: ToggleSwitch!
     @IBOutlet weak var saveTuningToggle: ToggleSwitch!
     @IBOutlet weak var backgroundAudioToggle: ToggleSwitch!
+    @IBOutlet weak var bufferSizeSegmentedControl: UISegmentedControl!
 
     weak var delegate: MIDISettingsPopOverDelegate?
 
@@ -65,10 +68,16 @@ class MIDISettingsViewController: UIViewController {
         saveTuningToggle.value = saveTuningWithPreset ? 1 : 0
         backgroundAudioToggle.value = conductor.backgroundAudio ? 1 : 0
     }
+    override func viewWillAppear(_ animated: Bool) {
+        displayMIDIInputs()
+        
+        bufferSizeSegmentedControl.selectedSegmentIndex = AKSettings.bufferLength.rawValue - BufferLength.shortest.rawValue
+        bufferSizeSegmentedControl.setNeedsDisplay()
+    }
+
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        displayMIDIInputs()
 
     }
 
@@ -147,6 +156,44 @@ class MIDISettingsViewController: UIViewController {
     }
 
     // MARK: - Actions
+    
+    @IBAction func bufferSizeChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            conductor.updateDisplayLabel("Buffer Size: 32")
+            AKSettings.bufferLength = .shortest
+        case 1:
+            conductor.updateDisplayLabel("Buffer Size: 64")
+            AKSettings.bufferLength = .veryShort
+        case 2:
+            conductor.updateDisplayLabel("Buffer Size: 128")
+            AKSettings.bufferLength = .short
+        case 3:
+            conductor.updateDisplayLabel("Buffer Size: 256")
+            AKSettings.bufferLength = .medium
+        case 4:
+            conductor.updateDisplayLabel("Buffer Size: 512")
+            AKSettings.bufferLength = .long
+        case 5:
+            self.conductor.updateDisplayLabel("Buffer Size: 1024")
+            AKSettings.bufferLength = .veryLong
+        default:
+            break
+        }
+        
+        do {
+            try AKTry {
+                try AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
+            }
+        } catch let error as NSError {
+            AKLog("AKSettings Error: Cannot set Preferred IOBufferDuration to " +
+                "\(AKSettings.bufferLength.duration) ( = \(AKSettings.bufferLength.samplesCount) samples)")
+            AKLog("AKSettings Error: \(error))")
+        }
+        
+        // Save Settings
+        delegate?.didSetBuffer()
+    }
 
     @IBAction func closeButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)

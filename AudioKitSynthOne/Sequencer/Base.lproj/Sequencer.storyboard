@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="USV-bb-dhl">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="USV-bb-dhl">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,21 +26,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6IA-a5-fgi" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="163" y="2" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="ArpeggiatorIntervalKnob" label="Arpeggiator Interval">
-                                    <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
-                                    <bool key="isElement" value="YES"/>
-                                </accessibility>
-                            </view>
                             <view tag="400" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ibZ-yX-RdY" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="29" y="100" width="44" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step1IntervalSlider" label="Step 1 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -49,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step2IntervalSlider" label="Step 2 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -58,7 +49,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step3IntervalSlider" label="Step 3 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -67,7 +58,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step4IntervalSlider" label="Step 4 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -76,7 +67,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step5IntervalSlider" label="Step 5 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -85,7 +76,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step6IntervalSlider" label="Step 6 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -94,7 +85,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step7IntervalSlider" label="Step 7 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -103,7 +94,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step8IntervalSlider" label="Step 8 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -112,7 +103,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step9IntervalSlider" label="Step 9 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -121,7 +112,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step10IntervalSlider" label="Step 10 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -130,7 +121,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step11IntervalSlider" label="Step 11 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -139,7 +130,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step12IntervalSlider" label="Step 12 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -148,7 +139,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step13IntervalSlider" label="Step 13 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -157,7 +148,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step14IntervalSlider" label="Step 14 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -166,7 +157,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step15IntervalSlider" label="Step 15 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -175,12 +166,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step16IntervalSlider" label="Step 16 Interval">
-                                    <accessibilityTraits key="traits" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
                             <view tag="500" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9l-nr-fVg" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="32" y="259" width="35" height="25"/>
+                                <rect key="frame" x="34" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -189,7 +180,7 @@
                                 </accessibility>
                             </view>
                             <view tag="502" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rjD-wC-c2M" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="140" y="259" width="35" height="25"/>
+                                <rect key="frame" x="144" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -198,7 +189,7 @@
                                 </accessibility>
                             </view>
                             <view tag="503" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOb-cp-Dbv" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="195" y="259" width="35" height="25"/>
+                                <rect key="frame" x="199" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -207,7 +198,7 @@
                                 </accessibility>
                             </view>
                             <view tag="501" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GKl-hH-kQ4" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="86" y="259" width="35" height="25"/>
+                                <rect key="frame" x="90" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -216,7 +207,7 @@
                                 </accessibility>
                             </view>
                             <view tag="504" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3jV-gg-YCb" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="263" y="259" width="35" height="25"/>
+                                <rect key="frame" x="267" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -225,7 +216,7 @@
                                 </accessibility>
                             </view>
                             <view tag="506" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDH-4U-8GA" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="371" y="259" width="35" height="25"/>
+                                <rect key="frame" x="375" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -234,7 +225,7 @@
                                 </accessibility>
                             </view>
                             <view tag="507" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1dT-Ic-V3y" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="426" y="259" width="35" height="25"/>
+                                <rect key="frame" x="430" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -243,7 +234,7 @@
                                 </accessibility>
                             </view>
                             <view tag="505" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GRe-kw-kU5" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="317" y="259" width="35" height="25"/>
+                                <rect key="frame" x="321" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -252,7 +243,7 @@
                                 </accessibility>
                             </view>
                             <view tag="508" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tbk-OI-Ptg" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="494" y="259" width="35" height="25"/>
+                                <rect key="frame" x="497" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -261,7 +252,7 @@
                                 </accessibility>
                             </view>
                             <view tag="510" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Itw-lB-pni" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="605" y="259" width="35" height="25"/>
+                                <rect key="frame" x="609" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -270,7 +261,7 @@
                                 </accessibility>
                             </view>
                             <view tag="511" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYE-ED-ulL" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="662" y="259" width="35" height="25"/>
+                                <rect key="frame" x="663" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -279,7 +270,7 @@
                                 </accessibility>
                             </view>
                             <view tag="509" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ohp-y3-c1g" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="549" y="259" width="35" height="25"/>
+                                <rect key="frame" x="553" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -288,7 +279,7 @@
                                 </accessibility>
                             </view>
                             <view tag="512" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Kk-bL-GGh" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="731" y="259" width="35" height="25"/>
+                                <rect key="frame" x="734" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -297,7 +288,7 @@
                                 </accessibility>
                             </view>
                             <view tag="514" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xth-cd-4gj" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="844" y="259" width="35" height="25"/>
+                                <rect key="frame" x="847" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -306,7 +297,7 @@
                                 </accessibility>
                             </view>
                             <view tag="515" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SdN-gE-jMr" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="901" y="259" width="35" height="25"/>
+                                <rect key="frame" x="904" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -315,7 +306,7 @@
                                 </accessibility>
                             </view>
                             <view tag="513" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LyV-55-kGR" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="788" y="259" width="35" height="25"/>
+                                <rect key="frame" x="791" y="259" width="35" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
@@ -336,7 +327,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="551" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7D-Z3-yNc" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="84" y="73" width="41" height="21"/>
+                                <rect key="frame" x="87" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step2TransposeButton" label="Step 2 Transpose">
@@ -348,7 +339,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="552" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL2-Ai-3GG" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="137" y="73" width="41" height="21"/>
+                                <rect key="frame" x="140" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step3TransposeButton" label="Step 3 Transpose">
@@ -360,7 +351,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="553" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6g-lA-Pmi" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="192" y="73" width="41" height="21"/>
+                                <rect key="frame" x="195" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step4TransposeButton" label="Step 4 Transpose">
@@ -372,7 +363,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="554" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlc-ZL-pSj" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="260" y="73" width="41" height="21"/>
+                                <rect key="frame" x="263" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step5TransposeButton" label="Step 5 Transpose">
@@ -384,7 +375,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="555" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TS-So-8Ku" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="315" y="73" width="41" height="21"/>
+                                <rect key="frame" x="317" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step6TransposeButton" label="Step 6 Transpose">
@@ -396,7 +387,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="556" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ys-6F-5Ct" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="369" y="73" width="41" height="21"/>
+                                <rect key="frame" x="371" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step7TransposeButton" label="Step 7 Transpose">
@@ -408,7 +399,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="557" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USV-ak-yaz" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="423" y="73" width="41" height="21"/>
+                                <rect key="frame" x="426" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step8TransposeButton" label="Step 8 Transpose">
@@ -420,7 +411,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="558" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22z-fI-i6o" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="491" y="73" width="41" height="21"/>
+                                <rect key="frame" x="494" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step9TransposeButton" label="Step 9 Transpose">
@@ -432,7 +423,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="559" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJP-5X-i7T" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="546" y="73" width="41" height="21"/>
+                                <rect key="frame" x="550" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step10TransposeButton" label="Step 10 Transpose">
@@ -444,7 +435,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="560" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kh-G3-Dao" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="602" y="73" width="41" height="21"/>
+                                <rect key="frame" x="606" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step11TransposeButton" label="Step 11 Transpose">
@@ -456,7 +447,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="561" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ8-P1-5c9" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="660" y="73" width="41" height="21"/>
+                                <rect key="frame" x="663" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step12TransposeButton" label="Step 12 Transpose">
@@ -468,7 +459,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="562" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9q-rs-3Sq" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="728" y="73" width="41" height="21"/>
+                                <rect key="frame" x="732" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step13TransposeButton" label="Step 13 Transpose">
@@ -480,7 +471,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="563" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTm-h5-dGt" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="785" y="73" width="41" height="21"/>
+                                <rect key="frame" x="788" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step14TransposeButton" label="Step 14 Transpose">
@@ -492,7 +483,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHV-it-EtQ" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="840" y="73" width="41" height="21"/>
+                                <rect key="frame" x="844" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step15TransposeButton" label="Step 15 Transpose">
@@ -504,7 +495,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" tag="565" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPX-vI-eXD" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="898" y="73" width="41" height="21"/>
+                                <rect key="frame" x="901" y="73" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Step16TransposeButton" label="Step 16 Transpose">
@@ -516,7 +507,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Yj-U6-12K" customClass="Stepper" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="282" y="16" width="108" height="35"/>
+                                <rect key="frame" x="282" y="15" width="108" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="ArpeggiatorOctaveStepper" label="Octave">
@@ -525,7 +516,7 @@
                                 </accessibility>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJP-dg-ryJ" customClass="ArpDirectionButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="453" y="16" width="108" height="35"/>
+                                <rect key="frame" x="453" y="15" width="108" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="ArpeggiatorDirectionSelector" label="Arpeggiator Direction">
@@ -534,7 +525,7 @@
                                 </accessibility>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DHy-85-9HG" customClass="Stepper" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="816" y="16" width="108" height="35"/>
+                                <rect key="frame" x="763" y="15" width="108" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="SequenceStepper" label="Number of Steps">
@@ -552,7 +543,7 @@
                                 </accessibility>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d51-jY-Ud0" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="965" y="-1" width="60" height="151"/>
+                                <rect key="frame" x="967" y="-1" width="59" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="PreviousFXPage" label="Previous FX Page">
@@ -564,7 +555,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="woB-Jo-ByW" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="965" y="149" width="60" height="149"/>
+                                <rect key="frame" x="967" y="148" width="59" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="NextTuningsPage" label="Next Tunings Page">
@@ -578,8 +569,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qLD-Gy-55y" customClass="ToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="36" y="15" width="37" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SequencerToggle" label="Sequencer Toggle">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6IA-a5-fgi" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="163" y="2" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ArpeggiatorIntervalKnob" label="Arpeggiator Interval">
+                                    <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Steps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCo-Uv-ex2">
-                                <rect key="frame" x="736" y="13" width="82" height="40"/>
+                                <rect key="frame" x="729" y="20" width="33" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -594,7 +603,7 @@
                                 </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seq" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X6a-NW-xsn">
-                                <rect key="frame" x="674" y="20" width="46" height="24"/>
+                                <rect key="frame" x="674" y="20" width="30" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -632,7 +641,7 @@
                                 </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgM-Rm-Fpn">
-                                <rect key="frame" x="579" y="20" width="43" height="24"/>
+                                <rect key="frame" x="596" y="20" width="26" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -651,7 +660,7 @@
                                 </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Style" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2kx-k3-hsp">
-                                <rect key="frame" x="405" y="20" width="40" height="24"/>
+                                <rect key="frame" x="417" y="20" width="31" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -670,7 +679,7 @@
                                 </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Octave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Zf-zW-Iav">
-                                <rect key="frame" x="235" y="20" width="45" height="24"/>
+                                <rect key="frame" x="242" y="20" width="38" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -680,14 +689,25 @@
                                 <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qLD-Gy-55y" customClass="ToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="36" y="15" width="34" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Div" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ILY-wX-mLk">
+                                <rect key="frame" x="876" y="20" width="19" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="SequencerToggle" label="Sequencer Toggle">
-                                    <accessibilityTraits key="traits" button="YES"/>
-                                    <bool key="isElement" value="YES"/>
-                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Sequencer Steps">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aHW-CJ-8fs" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="897" y="3" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -699,6 +719,7 @@
                     <connections>
                         <outlet property="arpDirectionButton" destination="hJP-dg-ryJ" id="9eX-on-fbp"/>
                         <outlet property="arpInterval" destination="6IA-a5-fgi" id="iwu-V4-UbG"/>
+                        <outlet property="arpSeqTempoMultiplier" destination="aHW-CJ-8fs" id="hym-zJ-Rf9"/>
                         <outlet property="arpToggle" destination="qLD-Gy-55y" id="Rt8-7h-eOF"/>
                         <outlet property="leftNavButton" destination="d51-jY-Ud0" id="fG4-F6-sfC"/>
                         <outlet property="octaveStepper" destination="1Yj-U6-12K" id="qZN-kI-WMN"/>
@@ -709,10 +730,736 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rp7-N8-fXN" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-328" y="-615"/>
+            <point key="canvasLocation" x="-396.09375" y="-394.140625"/>
+        </scene>
+        <!--Sequencer Panel Controller-->
+        <scene sceneID="ALK-Wc-SFb">
+            <objects>
+                <viewController storyboardIdentifier="iPhoneSequencerPanel" id="vpq-0X-DVf" customClass="SequencerPanelController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ENT-gi-6xH"/>
+                        <viewControllerLayoutGuide type="bottom" id="KpM-6x-Koz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a3L-bL-l7a">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPhone_Arp" translatesAutoresizingMaskIntoConstraints="NO" id="ve8-q5-Hnx">
+                                <rect key="frame" x="0.0" y="0.0" width="637" height="237"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eBa-Kb-SZd" customClass="ToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="9" y="12" width="30" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SequencerToggle" label="Sequencer Toggle">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interval" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="54w-sf-dP0" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="41" y="16" width="46" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Arp Semitone Intervals">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rotation">
+                                        <integer key="value" value="270"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T8N-eY-i6n" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="74" y="5" width="38" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ArpeggiatorIntervalKnob" label="Arpeggiator Interval">
+                                    <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oct" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6hM-mM-vjw">
+                                <rect key="frame" x="124" y="12" width="39" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khx-Rk-lNE" customClass="Stepper" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="143" y="9" width="100" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ArpeggiatorOctaveStepper" label="Octave">
+                                    <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Style" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgI-10-1Ok">
+                                <rect key="frame" x="244" y="11" width="32" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Arp Kind (up/down)">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JiC-7m-MjZ" customClass="ArpDirectionButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="278" y="9" width="100" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ArpeggiatorDirectionSelector" label="Arpeggiator Direction">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pSk-Ey-Zjt">
+                                <rect key="frame" x="386" y="11" width="29" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="arpeggiator (keep short)">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WV9-g4-xnm" customClass="ToggleSwitch" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="408" y="9" width="50" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" hint="On for Arpeggiator, Off for Sequencer" identifier="ArpeggiatorSequencerToggle" label="Arpeggiator Sequencer Toggle">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seq" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3VF-Ja-hVr">
+                                <rect key="frame" x="456" y="12" width="30" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Sequencer (keep short)">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Kz-Yp-Xci" customClass="Stepper" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="491" y="9" width="82" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SequenceStepper" label="Number of Steps">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6WO-Jr-wio" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="629" y="-3" width="42" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="PreviousFXPage" label="Previous FX Page">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="PAD"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5X8-Im-sVI" customClass="NavButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="629" y="114" width="42" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="NextTuningsPage" label="Next Tunings Page">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="MAIN"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rotation">
+                                        <real key="value" value="180"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view tag="102" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SpJ-Ji-opB" customClass="MIDIKnob" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="592" y="5" width="38" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ArpeggiatorIntervalKnob" label="Arpeggiator Interval">
+                                    <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="400" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwy-Vu-jVy" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="6" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step1IntervalSlider" label="Step 1 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="401" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rz-Hp-1Rt" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="43" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step2IntervalSlider" label="Step 2 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="402" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gkC-XU-xwe" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="85" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step3IntervalSlider" label="Step 3 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="403" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eGp-Np-9cf" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="122" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step4IntervalSlider" label="Step 4 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="404" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hoc-1M-3xc" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="161" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step5IntervalSlider" label="Step 5 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="405" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KYs-BZ-X9Q" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="200" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step6IntervalSlider" label="Step 6 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="406" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bB9-9I-SUk" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="239" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step7IntervalSlider" label="Step 7 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="407" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WYw-R1-kmi" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="279" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step8IntervalSlider" label="Step 8 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="408" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJH-4F-j14" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="318" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step9IntervalSlider" label="Step 9 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="409" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1d-jc-dBC" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="357" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step10IntervalSlider" label="Step 10 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="410" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ztv-bi-bmu" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="396" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step11IntervalSlider" label="Step 11 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="411" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="80T-tt-MIg" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="435" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step12IntervalSlider" label="Step 12 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="412" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmF-BG-MgF" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="474" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step13IntervalSlider" label="Step 13 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="413" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wdx-Hd-Y36" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="513" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step14IntervalSlider" label="Step 14 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="414" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jqb-DR-eFo" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="551" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step15IntervalSlider" label="Step 15 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="415" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TLB-No-WUo" customClass="VerticalSlider" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="591" y="77" width="34" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step16IntervalSlider" label="Step 16 Interval">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="500" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ki2-DE-bKW" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="8" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="502" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Kt-KR-uEm" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="87" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="503" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FPi-d7-8hK" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="125" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="501" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8cO-pt-00w" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="46" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="504" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0iN-D6-bwQ" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="164" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="506" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9NP-IR-s57" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="242" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="507" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qaw-JA-lVo" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="282" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="511" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qf2-qF-1Wt" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="438" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="505" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4O0-zT-b32" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="203" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="508" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ax7-rD-Tyz" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="320" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="510" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aea-Jw-ydO" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="399" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="509" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRn-w6-Uvx" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="359" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="512" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JSu-75-1aC" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="477" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="514" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jp9-uD-mCE" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="555" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="515" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vbv-2J-95G" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="594" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <view tag="513" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OFI-tx-qlD" customClass="ArpButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="516" y="206" width="29" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="StepMuteButton" label="Step Mute">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </view>
+                            <label opaque="NO" tag="550" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYY-LH-C2m" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="6" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step1TransposeButton" label="Step 1 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="551" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyP-6D-Dor" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="44" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step2TransposeButton" label="Step 2 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="552" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a60-d1-lcy" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="85" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step3TransposeButton" label="Step 3 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="553" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w47-M3-Frt" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="123" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step4TransposeButton" label="Step 4 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="554" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-AA-71i" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="162" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step5TransposeButton" label="Step 5 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="555" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jp-tD-q69" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="201" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step6TransposeButton" label="Step 6 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="556" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65k-uA-c3d" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="240" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step7TransposeButton" label="Step 7 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="557" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6c-eV-CzP" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="279" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step8TransposeButton" label="Step 8 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="558" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fy-nL-0cb" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="318" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step9TransposeButton" label="Step 9 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="559" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWB-Pj-P2n" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="357" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step10TransposeButton" label="Step 10 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="560" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0y-7c-RtN" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="396" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step11TransposeButton" label="Step 11 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="561" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0L-ha-iAt" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="435" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step12TransposeButton" label="Step 12 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="562" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NU-iI-H6L" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="474" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step13TransposeButton" label="Step 13 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="563" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqd-V0-gG6" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="513" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step14TransposeButton" label="Step 14 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvh-wj-o69" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="552" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step15TransposeButton" label="Step 15 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" tag="565" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJR-Aw-jvC" customClass="SliderTransposeButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="591" y="53" width="34" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1450980392" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Step16TransposeButton" label="Step 16 Transpose">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dev" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qOa-Bh-V3u" customClass="RotatableLabel" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="571" y="18" width="28" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Arp Semitone Intervals">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rotation">
+                                        <integer key="value" value="270"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="YHW-3b-7YT"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="299"/>
+                    <connections>
+                        <outlet property="arpDirectionButton" destination="JiC-7m-MjZ" id="cCs-Bc-90C"/>
+                        <outlet property="arpInterval" destination="T8N-eY-i6n" id="c6F-AS-kg3"/>
+                        <outlet property="arpSeqTempoMultiplier" destination="SpJ-Ji-opB" id="BLS-BH-L8p"/>
+                        <outlet property="arpToggle" destination="eBa-Kb-SZd" id="BWs-xe-IUQ"/>
+                        <outlet property="leftNavButton" destination="6WO-Jr-wio" id="tnv-hh-cFe"/>
+                        <outlet property="octaveStepper" destination="khx-Rk-lNE" id="Md3-FF-UwB"/>
+                        <outlet property="rightNavButton" destination="5X8-Im-sVI" id="ZRR-ob-T5z"/>
+                        <outlet property="seqStepsStepper" destination="2Kz-Yp-Xci" id="nHv-2Z-90s"/>
+                        <outlet property="sequencerToggle" destination="WV9-g4-xnm" id="LRs-6O-kFP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yu7-Mv-6Ke" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-396.09375" y="-1044.921875"/>
         </scene>
     </scenes>
     <resources>
         <image name="au_arp" width="1024" height="299"/>
+        <image name="iPhone_Arp" width="1334" height="470"/>
     </resources>
 </document>

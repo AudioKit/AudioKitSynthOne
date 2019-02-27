@@ -18,6 +18,7 @@ class ToggleButton: UIView, S1Control {
     }
 
     var callback: (Double) -> Void = { _ in }
+    var defaultCallback: () -> Void = { }
 
     var value: Double = 0.0 {
         didSet {
@@ -28,7 +29,11 @@ class ToggleButton: UIView, S1Control {
     }
 
     override func draw(_ rect: CGRect) {
-        ToggleButtonStyleKit.drawRoundButton(isToggled: isOn)
+        ToggleButtonStyleKit.drawRoundButton(frame: CGRect(x: 0,
+                                                           y: 0,
+                                                           width: self.bounds.width,
+                                                           height: self.bounds.height),
+                                             isToggled: isOn)
     }
 
     // MARK: - Handle Touches

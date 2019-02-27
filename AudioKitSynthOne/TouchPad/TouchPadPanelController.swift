@@ -65,6 +65,7 @@ class TouchPadPanelController: PanelController {
 
         // super's updateAllUI call is causing race conditions in updating UI in this class
         //conductor.updateAllUI()
+       
     }
 
     // MARK: - Touch Pad Callbacks

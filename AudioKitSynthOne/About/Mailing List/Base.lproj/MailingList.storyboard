@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MF2-iC-XFU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MF2-iC-XFU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,12 +54,15 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! Enter your Email Address below to receive 80+ Free presets  (all 300+ presets). Then press &quot;Get Presets!&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yhG-s7-4JE">
-                                                <rect key="frame" x="38" y="36" width="454" height="71"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! Enter your Email Address below to receive 80+ Free presets  (all 400+ presets). Then press &quot;Get Presets!&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yhG-s7-4JE">
+                                                <rect key="frame" x="38" y="35" width="454" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                </accessibility>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ak1-logo" translatesAutoresizingMaskIntoConstraints="NO" id="cnd-eH-Suz">
@@ -98,10 +101,27 @@
                                     <action selector="closePressed:" destination="MF2-iC-XFU" eventType="touchUpInside" id="bQY-Jn-dxP"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-Ou-H1q">
+                                <rect key="frame" x="271" y="546" width="482" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="S0C-cT-Elc"/>
+                                    <constraint firstAttribute="width" constant="482" id="fBj-7J-LKe"/>
+                                </constraints>
+                                <string key="text">AudioKit Synth One is completely free &amp; open-source. Everyone working on this project volunteers their time to create this app for you. :)</string>
+                                <color key="textColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lmt-Ou-H1q" firstAttribute="centerX" secondItem="yEP-H1-nx6" secondAttribute="centerX" id="Rk4-ZT-7lj"/>
                             <constraint firstItem="qYr-dv-kc6" firstAttribute="top" secondItem="yNr-AC-XvA" secondAttribute="bottom" constant="214" id="gmf-9i-ipD"/>
+                            <constraint firstItem="lmt-Ou-H1q" firstAttribute="top" secondItem="qYr-dv-kc6" secondAttribute="bottom" constant="12" id="que-MP-rH9"/>
                             <constraint firstItem="qYr-dv-kc6" firstAttribute="centerX" secondItem="yEP-H1-nx6" secondAttribute="centerX" id="rie-y3-jDR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6kk-DW-nDG"/>
@@ -117,11 +137,429 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfp-77-Dp5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="747.0703125" y="-764.84375"/>
+            <point key="canvasLocation" x="710" y="-470"/>
+        </scene>
+        <!--iPhoneIntro-->
+        <scene sceneID="1Zn-lO-0Cv">
+            <objects>
+                <viewController storyboardIdentifier="iPhoneWelcome" id="8X2-We-x4J" userLabel="iPhoneIntro" customClass="MailingListViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XnM-ia-VhK"/>
+                        <viewControllerLayoutGuide type="bottom" id="L5W-dc-avB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ett-ze-yFE">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="yCK-gI-2Jb">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ryi-PO-lFJ">
+                                <rect key="frame" x="533" y="1012" width="324" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6B-mM-O3l">
+                                <rect key="frame" x="53.5" y="55.5" width="560" height="264"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8m-FM-Y4Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile-icon" translatesAutoresizingMaskIntoConstraints="NO" id="EdB-ky-30y">
+                                                <rect key="frame" x="196" y="7" width="42" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pe1-h0-tpP">
+                                                <rect key="frame" x="238" y="16" width="79" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                                <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W3w-64-cnU">
+                                        <rect key="frame" x="12" y="64" width="528" height="191"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x2Q-di-IOB">
+                                                <rect key="frame" x="23" y="27" width="482" height="84"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                </accessibility>
+                                                <string key="text">AudioKit Synth One is completely free &amp; open-source. It's a full-featured professional iOS synth app. Everyone working on this project volunteered their time to create this awesome app for you...</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ak1-logo" translatesAutoresizingMaskIntoConstraints="NO" id="QhW-VN-pj7">
+                                                <rect key="frame" x="152" y="0.0" width="224" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="754-hn-Evy">
+                                                <rect key="frame" x="63" y="136" width="190" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                                <state key="normal" title="Watch Intro Video">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="videoPressed:" destination="8X2-We-x4J" eventType="touchUpInside" id="hh8-3T-1nI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wg-ej-jWX">
+                                                <rect key="frame" x="274" y="136" width="190" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.76078431372549016" green="0.51372549020000002" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                                <state key="normal" title="Start Playing">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="startPlaying:" destination="8X2-We-x4J" eventType="touchUpInside" id="3v7-ot-bUV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="cGR-BS-4Fv"/>
+                                    <constraint firstAttribute="height" constant="264" id="tJf-N3-Yd0"/>
+                                </constraints>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bha-sc-gaB">
+                                <rect key="frame" x="495" y="408" width="158" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <state key="normal" title="Get Presets!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpPressed:" destination="8X2-We-x4J" eventType="touchUpInside" id="v5G-Ne-IRp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d6B-mM-O3l" firstAttribute="centerX" secondItem="Ett-ze-yFE" secondAttribute="centerX" id="8qY-PW-pvO"/>
+                            <constraint firstItem="d6B-mM-O3l" firstAttribute="centerY" secondItem="T9H-aG-Ejh" secondAttribute="centerY" id="Hjp-cI-Pkv"/>
+                            <constraint firstItem="yCK-gI-2Jb" firstAttribute="leading" secondItem="Ett-ze-yFE" secondAttribute="leading" id="KPX-pJ-PKX"/>
+                            <constraint firstAttribute="trailing" secondItem="yCK-gI-2Jb" secondAttribute="trailing" id="RPO-BX-Zac"/>
+                            <constraint firstItem="yCK-gI-2Jb" firstAttribute="top" secondItem="XnM-ia-VhK" secondAttribute="bottom" id="kHc-AH-ey1"/>
+                            <constraint firstAttribute="bottom" secondItem="yCK-gI-2Jb" secondAttribute="bottom" id="t5i-8O-Ult"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T9H-aG-Ejh"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="667" height="375"/>
+                    <connections>
+                        <outlet property="emailField" destination="ryi-PO-lFJ" id="vaE-QA-yy6"/>
+                        <outlet property="moreView" destination="d6B-mM-O3l" id="WzF-7a-gZ4"/>
+                        <outlet property="topConstraint" destination="tJf-N3-Yd0" id="uzS-Rz-hMg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XW0-qO-5YX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="175" y="-1170"/>
+        </scene>
+        <!--iPhoneMore-->
+        <scene sceneID="KRu-bB-M7d">
+            <objects>
+                <viewController storyboardIdentifier="iPhoneMore" id="vgw-Vh-K1C" userLabel="iPhoneMore" customClass="MailingListViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RUN-Cg-lqg"/>
+                        <viewControllerLayoutGuide type="bottom" id="XhF-e4-1bj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jFe-Am-a1J">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="8Rn-Tv-Aqh">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s4w-Pp-8G1">
+                                <rect key="frame" x="533" y="1012" width="324" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dxa-MW-yRN">
+                                <rect key="frame" x="53.5" y="45.5" width="560" height="284"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BgR-Pz-Kqm">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get Involved!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xI5-SW-d1l">
+                                                <rect key="frame" x="236" y="16" width="82" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                                <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gZY-2H-DZ2">
+                                                <rect key="frame" x="187" y="7" width="42" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kkA-T1-Jvo">
+                                        <rect key="frame" x="0.0" y="51" width="560" height="198"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UCo-Ig-YfL">
+                                                <rect key="frame" x="39" y="33" width="482" height="90"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">AudioKit changes lives for musicians. We're passionate volunteers who want to help. Are you a musician or sample producer? Get involved by recording or donating sounds for future apps...</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ak1-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ocL-mt-9VP">
+                                                <rect key="frame" x="168" y="8" width="224" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcs-Oa-fHe">
+                                                <rect key="frame" x="79" y="136" width="190" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                                <state key="normal" title="Watch Intro Video">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="videoPressed:" destination="vgw-Vh-K1C" eventType="touchUpInside" id="tl6-dg-aOm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMg-Iz-LGY">
+                                                <rect key="frame" x="290" y="136" width="190" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                                                <state key="normal" title="Email Us">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="emailPressed:" destination="vgw-Vh-K1C" eventType="touchUpInside" id="Wgn-NG-HaX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iyr-6o-9IS">
+                                        <rect key="frame" x="185" y="249" width="190" height="36"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="wcC-5X-sxt"/>
+                                            <constraint firstAttribute="width" constant="190" id="zKy-DU-d4e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="0.90196078430000004" green="0.53333333329999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closePressed:" destination="vgw-Vh-K1C" eventType="touchUpInside" id="4hE-lW-fFa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Iyr-6o-9IS" firstAttribute="centerX" secondItem="Dxa-MW-yRN" secondAttribute="centerX" id="TSg-GN-DmC"/>
+                                    <constraint firstAttribute="width" constant="560" id="WZ0-0i-q6P"/>
+                                    <constraint firstAttribute="height" constant="284" id="X6J-7I-M0y"/>
+                                    <constraint firstItem="Iyr-6o-9IS" firstAttribute="top" secondItem="Dxa-MW-yRN" secondAttribute="top" constant="249" id="xof-4b-kAC"/>
+                                </constraints>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywc-SB-WVP">
+                                <rect key="frame" x="495" y="408" width="158" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <state key="normal" title="Get Presets!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpPressed:" destination="vgw-Vh-K1C" eventType="touchUpInside" id="rsr-dp-khz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Rn-Tv-Aqh" firstAttribute="top" secondItem="RUN-Cg-lqg" secondAttribute="bottom" id="24Z-BH-A7j"/>
+                            <constraint firstItem="Dxa-MW-yRN" firstAttribute="centerX" secondItem="jFe-Am-a1J" secondAttribute="centerX" id="9Ru-vJ-36I"/>
+                            <constraint firstAttribute="bottom" secondItem="8Rn-Tv-Aqh" secondAttribute="bottom" id="M8s-YX-ptb"/>
+                            <constraint firstItem="8Rn-Tv-Aqh" firstAttribute="leading" secondItem="jFe-Am-a1J" secondAttribute="leading" id="RSR-4B-sFc"/>
+                            <constraint firstAttribute="trailing" secondItem="8Rn-Tv-Aqh" secondAttribute="trailing" id="oFt-We-2Ay"/>
+                            <constraint firstItem="Dxa-MW-yRN" firstAttribute="centerY" secondItem="AHg-4M-SAD" secondAttribute="centerY" id="yXH-Dv-xXv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AHg-4M-SAD"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="667" height="375"/>
+                    <connections>
+                        <outlet property="emailField" destination="s4w-Pp-8G1" id="tmD-ax-7yc"/>
+                        <outlet property="moreView" destination="Dxa-MW-yRN" id="aIt-M5-1u6"/>
+                        <outlet property="topConstraint" destination="X6J-7I-M0y" id="vxo-Yu-HqJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gFE-f0-K3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="-1171"/>
+        </scene>
+        <!--MailingList-->
+        <scene sceneID="Lt8-dg-n07">
+            <objects>
+                <viewController storyboardIdentifier="iPhoneMailingList" id="Is5-fP-w6W" userLabel="MailingList" customClass="MailingListViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5kK-o6-YYP"/>
+                        <viewControllerLayoutGuide type="bottom" id="DDf-ZH-WYH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bl5-zM-9Hp">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="dW7-au-8oT">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHC-rQ-fM2">
+                                <rect key="frame" x="53.5" y="8" width="560" height="284"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bd0-yq-UbS">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stay Informed!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W61-nl-tyr">
+                                                <rect key="frame" x="218" y="16" width="120" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                                <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile-icon" translatesAutoresizingMaskIntoConstraints="NO" id="TlT-us-uzO">
+                                                <rect key="frame" x="169" y="7" width="42" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7yU-xo-dq1">
+                                        <rect key="frame" x="0.0" y="51" width="560" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ak1-logo" translatesAutoresizingMaskIntoConstraints="NO" id="9z3-xX-7aV">
+                                                <rect key="frame" x="168" y="8" width="224" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! Enter your Email Address below to receive 80+ Free presets  (all 400+ presets). Then press &quot;Get Presets!&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KTd-K9-yFy">
+                                                <rect key="frame" x="39" y="33" width="482" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo8-DZ-R2F">
+                                                <rect key="frame" x="185" y="145" width="190" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                                                <state key="normal" title="Get Presets!">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signUpPressed:" destination="Is5-fP-w6W" eventType="touchUpInside" id="9jH-tF-JPJ"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q50-hj-Vxt">
+                                                <rect key="frame" x="118" y="100" width="324" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7q-h2-5lf">
+                                        <rect key="frame" x="185" y="250" width="190" height="34"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="190" id="Gii-th-jD6"/>
+                                            <constraint firstAttribute="height" constant="34" id="eus-2x-2Hy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closePressed:" destination="Is5-fP-w6W" eventType="touchUpInside" id="KaG-PT-cuR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="9Mk-Nj-VsE"/>
+                                    <constraint firstAttribute="height" constant="284" id="KZp-5c-EE1"/>
+                                    <constraint firstItem="R7q-h2-5lf" firstAttribute="centerX" secondItem="DHC-rQ-fM2" secondAttribute="centerX" id="pQa-GI-0Cs"/>
+                                    <constraint firstItem="R7q-h2-5lf" firstAttribute="top" secondItem="DHC-rQ-fM2" secondAttribute="top" constant="250" id="yz5-Ot-XlT"/>
+                                </constraints>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ND0-7m-BRn">
+                                <rect key="frame" x="495" y="408" width="158" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <state key="normal" title="Get Presets!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpPressed:" destination="Is5-fP-w6W" eventType="touchUpInside" id="WyN-bD-ghz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DHC-rQ-fM2" firstAttribute="centerX" secondItem="Bl5-zM-9Hp" secondAttribute="centerX" id="0gD-OB-Vs1"/>
+                            <constraint firstAttribute="bottom" secondItem="dW7-au-8oT" secondAttribute="bottom" id="AuQ-o9-9om"/>
+                            <constraint firstAttribute="trailing" secondItem="dW7-au-8oT" secondAttribute="trailing" id="FE1-0l-A1e"/>
+                            <constraint firstItem="dW7-au-8oT" firstAttribute="leading" secondItem="Bl5-zM-9Hp" secondAttribute="leading" id="Irt-ba-Iuj"/>
+                            <constraint firstItem="DHC-rQ-fM2" firstAttribute="top" secondItem="cyH-Vj-iaO" secondAttribute="top" constant="8" id="TMl-bR-cXG"/>
+                            <constraint firstItem="dW7-au-8oT" firstAttribute="top" secondItem="5kK-o6-YYP" secondAttribute="bottom" id="XUc-ee-AaV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cyH-Vj-iaO"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="667" height="375"/>
+                    <connections>
+                        <outlet property="emailField" destination="q50-hj-Vxt" id="QZw-Wn-qR1"/>
+                        <outlet property="moreView" destination="DHC-rQ-fM2" id="kgr-h2-Dd0"/>
+                        <outlet property="topConstraint" destination="KZp-5c-EE1" id="0nL-Oc-IwT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J3T-7c-38F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2504.8000000000002" y="-1172.5637181409297"/>
         </scene>
     </scenes>
     <resources>
         <image name="ak1-logo" width="188" height="14"/>
         <image name="background" width="1024" height="768"/>
+        <image name="smile-icon" width="152" height="152"/>
     </resources>
 </document>

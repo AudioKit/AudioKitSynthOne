@@ -7,8 +7,12 @@
 
 We've open-sourced the code for this synthesizer so that everyone is able to make changes to the code,
 introduce new features, fix bugs, improve efficiency, and keep the synthesizer up-to-date with all
-new capabilities of the base operating system.  
+new capabilities of the base operating system. Synth One is now Universal for iPhone/iPad!  
+ 
 ![Screenshot](http://audiokitpro.com/images/ak2.gif)
+
+**“AudioKit Synth One is a wonderful example of how iPad can change the way music is made.”**  
+– Apple, App Store Editorial Team
 
 If you're new to [AudioKit](https://audiokitpro.com/), you can learn more: [here](https://audiokitpro.com/audiokit/). This code and app is made possible by all the contributors to AudioKit. Many of the features of Synth One are availble as modules in AudioKit, allowing you easy access to oscillators, filters, reverbs, effects, and other DSP processing: [code here](https://github.com/AudioKit/AudioKit). 
 
@@ -32,6 +36,15 @@ You must install the pods that we depend on before you can compile the project. 
 * `pod install`
 
 You may uncomment the line in `Podfile` to switch to our cutting-edge staging (unstable) releases of AudioKit, as opposed to the stable releases in the mainstream CocoaPods specs.
+
+## Link Installation
+
+The repository builds and runs without modification, but the Link functionality will be missing.
+
+Because of the way Ableton distributes their Link SDK, we can not simply include the Link files here.  Instead, we include our Link wrapping files and expect you to do two things to get Link working on your machine:
+
+* Change ABLETON_ENABLED from 0 to 1 in the Build Settings
+* [Sign up for teh Ableton Link SDK](https://www.ableton.com/en/link/sdk/license-request/) and download the prebuilt binary LinkKit.zip.  Uncompress it and find the include and lib directories and place the folders under our "Link" directory.  There should be three files in include and one in lib.
 
 
 ## Requirements
@@ -73,27 +86,24 @@ any hints about what could be improved.
 Here's a few ideas for you to contribute to this historic project:
 
 * Ability to search presets
-* Double tap knobs to go to defaults
-*  Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
-* Create iPhone or Universal interface
+* Midi Learn Matrix. Create a view that will allow users to easily change the MIDI Learn assignments.
 * Make TouchPads assignable 
 * Add an EQ Panel (8-band/16-band/etc)
-* Improve Arp (Add Gate, Beat Divisions, etc)
-* Add a trance/rhythm gate panel
-* Add a side chain/volume ducking panel
 * Add the ability for Sequencer to modulate more parameters
 * Filter key tracking options & settings
 * Filter velocity settings
 * MIDI out
 * Sample & Hold
 
+✓ DONE: Create an iPhone/Universal version. Thanks to [Matthew Fecher](http://twitter.com/analogmatthew) for his contributions in creating the universal/iPhone version.  
+
 ✓ DONE: Add accessibility functionality to AudioKit Synth One. Thanks to Stanley Rosenbaum for making Synth One accessible all musicians. 
+
 
 If you have audio development experience and want to be involved with contributing to the app store version of Synth One, please email [hello@audiokitpro.com](mailto:hello@audiokitpro.com)
 
-There are a few major updates we intend for this synth:
+There are a few major updates we intend for this synth:  
 
-* Too much business logic is inside the "Manager" view controller.  We have done our best to separate out the functions of this view controller into well defined extensions, but more work could be done with this.
 * AUV3 Plugin support
 * MPE
 
@@ -112,7 +122,7 @@ If you make an app with this code, please let us know! We think you're awesome, 
 
 We have most of the cool stuff (Filters, Oscillators, Effects, etc) abstracted out into the main [AudioKit](https://audiokitpro.com/audiokit/) library. Use those building blocks to create your own app!  
 
-*IMPORTANT:* You must change the graphics if you upload this to the app store. 
+*SUPER IMPORTANT:* You must change the Graphics & UI if you upload this to the app store. Apple has a rule (4.1) about copycat apps in the app store. One developer has had his Developer account banned by Apple for taking advantage of this code (copying & pasting to make a Synth One clone). Don't let it happen to you. Synth One is a really popular app in the app store, and Apple has featured it in Retail Stores across the United States. If you have questions, feel free to email us at hello@audiokitpro.com, and we can give everyone a heads up that your app is okay (if it follows the rules). We don't want anyone to lose their developer account over this code. 🙏
 
 *IMPORTANT:* You must fill in your own private API keys for AudioBus and others in the Private.swift file to match your own project. The default placeholder values are not suitable for distribution.
 

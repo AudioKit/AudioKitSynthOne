@@ -17,7 +17,7 @@ public class NavButtonStyleKit: NSObject {
 
     @objc
     dynamic public class func drawNavButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 63, height: 156),
-                                            resizing: ResizingBehavior = .aspectFit,
+                                            resizing: ResizingBehavior = .aspectFill,
                                             isOn: CGFloat = 0,
                                             rotation: CGFloat = 180,
                                             text: String = "ADSR") {

@@ -11,6 +11,7 @@
 extension Manager: ModWheelDelegate {
 
     func didSelectRouting(newDestination: Int) {
+     
         activePreset.modWheelRouting = Double(newDestination)
        guard let s = conductor.synth else {
             AKLog("Mod Wheel routing state is invalid because synth is not instantiated")

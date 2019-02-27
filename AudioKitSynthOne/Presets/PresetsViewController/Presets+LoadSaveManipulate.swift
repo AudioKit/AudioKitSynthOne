@@ -161,14 +161,19 @@ extension PresetsViewController {
     }
 
     func createActivePreset() {
-        do {
-            try Disk.save(currentPreset, to: .caches, as: "currentPreset.json")
-            if let activePreset = try? Disk.retrieve("currentPreset.json", from: .caches, as: Preset.self) {
-                presetsDelegate?.presetDidChange(activePreset)
-            }
-        } catch {
-            AKLog("error saving")
-        }
+
+        let activePreset = currentPreset
+        presetsDelegate?.presetDidChange(activePreset)
+
+        //TODO: Matt, is there a reason to save the preset to disk on the main thread?
+//        do {
+//            try Disk.save(currentPreset, to: .caches, as: "currentPreset.json")
+//            if let activePreset = try? Disk.retrieve("currentPreset.json", from: .caches, as: Preset.self) {
+//                presetsDelegate?.presetDidChange(activePreset)
+//            }
+//        } catch {
+//            AKLog("error saving")
+//        }
     }
 
     func selectCurrentPreset() {
@@ -190,10 +195,20 @@ extension PresetsViewController {
     }
 
     func upgradePresets() {
-
+     
+        // If the bankName is not in conductorBanks, add bank to conductor banks
+        for bankName in initBanks {
+            if !conductor.banks.contains(where: { $0.name == bankName }) {
+                // Add bank to conductor banks
+                let bank = Bank(name: bankName, position: conductor.banks.count)
+                conductor.banks.append(bank)
+                presetsDelegate?.banksDidUpdate()
+            }
+        }
+        
         // Remove existing presets
         // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = ["Sound of Izrael"]
+        let banksToUpdate = ["JEC"]
         for bankName in banksToUpdate {
 
              if let filePath = Bundle.main.path(forResource: bankName, ofType: "json") {
@@ -215,18 +230,9 @@ extension PresetsViewController {
                 presets += newPresets
                 saveAllPresetsIn(bankName)
             }
-
         }
 
-        // If the bankName is not in conductorBanks, add bank to conductor banks
-        for bankName in initBanks {
-            if !conductor.banks.contains(where: { $0.name == bankName }) {
-                // Add bank to conductor banks
-                let bank = Bank(name: bankName, position: conductor.banks.count)
-                conductor.banks.append(bank)
-                presetsDelegate?.banksDidUpdate()
-            }
-        }
+     
     }
 
     func addBonusPresets() {

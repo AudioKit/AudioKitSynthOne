@@ -46,6 +46,19 @@ void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bool noti
         return;
     }
 
+    // arpSeqTempoMultiplier
+    if (parameter == arpSeqTempoMultiplier) {
+        const float value = clampedValue(parameter, inputValue);
+        S1RateArgs syncdValue = _rate.nearestFactor(value);
+        _setSynthParameter(parameter, syncdValue.value);
+        _arpSeqTempoMultiplier = {parameter, 1.f - syncdValue.value01, syncdValue.value, payload};
+        if (notifyMainThread) {
+            dependentParameterDidChange(_arpSeqTempoMultiplier);
+        }
+        return;
+    }
+
+    // lfo1Rate, lfo2Rate, autoPanFrequency
     if (p[tempoSyncToArpRate] > 0.f) {
         // tempo sync
         if (parameter == lfo1Rate || parameter == lfo2Rate || parameter == autoPanFrequency) {
@@ -74,9 +87,8 @@ void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bool noti
             S1RateArgs syncdValue = _rate.nearestTime(value, p[arpRate], minimum(parameter), maximum(parameter));
             _setSynthParameter(parameter, syncdValue.value);
             _delayTime = {parameter, 1.f - syncdValue.value01, syncdValue.value, payload};
-            DependentParameter outputDP = _delayTime;
             if (notifyMainThread) {
-                dependentParameterDidChange(outputDP);
+                dependentParameterDidChange(_delayTime);
             }
         }
     } else {
@@ -119,10 +131,13 @@ void S1DSPKernel::_setSynthParameterHelper(S1Parameter parameter, float inputVal
         _rateHelper(lfo2Rate, getSynthParameter(lfo2Rate), notifyMainThread, payload);
         _rateHelper(autoPanFrequency, getSynthParameter(autoPanFrequency), notifyMainThread, payload);
         _rateHelper(delayTime, getSynthParameter(delayTime), notifyMainThread, payload);
-    } else if (parameter == lfo1Rate || parameter == lfo2Rate || parameter == autoPanFrequency || parameter == delayTime) {
+    } else if (parameter == lfo1Rate ||
+               parameter == lfo2Rate ||
+               parameter == autoPanFrequency ||
+               parameter == delayTime ||
+               parameter == pitchbend ||
+               parameter == arpSeqTempoMultiplier) {
         // dependent params
-        _rateHelper(parameter, inputValue, notifyMainThread, payload);
-    } else if (parameter == pitchbend) {
         _rateHelper(parameter, inputValue, notifyMainThread, payload);
     } else {
         // special case for updating the tuning table based on frequency at A4.

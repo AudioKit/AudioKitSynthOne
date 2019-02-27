@@ -19,6 +19,7 @@
 // helper for midi/render thread communication: held+playing notes
 typedef struct NoteNumber {
     int noteNumber;
+    int transpose;
     float amplitude;
 } NoteNumber;
 

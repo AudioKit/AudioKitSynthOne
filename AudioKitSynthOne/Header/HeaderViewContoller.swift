@@ -19,6 +19,7 @@ protocol HeaderDelegate: AnyObject {
     func devPressed()
     func aboutPressed()
     func morePressed()
+    func appsPressed()
 }
 
 public class HeaderViewController: UpdatableViewController {
@@ -39,6 +40,7 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var hostAppIcon: UIImageView!
     @IBOutlet weak var morePresetsButton: PresetUIButton!
     @IBOutlet weak var webButton: PresetUIButton!
+    @IBOutlet weak var appsButton: PresetUIButton!
 
     weak var delegate: EmbeddedViewsDelegate?
     weak var headerDelegate: HeaderDelegate?
@@ -123,7 +125,7 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("FM Volume: \(value.percentageString)", comment: "FM Oscillator Volume")
             displayLabel.text = message
         case .fmAmount:
-            let message = NSLocalizedString("FM Mod: \(value.percentageString)", comment: "FM Modulation Amount")
+            let message = NSLocalizedString("FM Mod: \(value.decimalString)", comment: "FM Modulation Amount")
             displayLabel.text = message
         case .noiseVolume:
             let message = NSLocalizedString("Noise Volume: \((value * 4).percentageString)", comment: "Noise Volume")
@@ -176,13 +178,13 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("Delay Feedback/Taps: \(value.percentageString)", comment: "Delay Feedback")
             displayLabel.text = message
         case .delayTime:
-            let message = NSLocalizedString("Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s", comment: "Delay Time tempo-syncd")
-            let message2 = NSLocalizedString("Delay Time: \(value.decimalString) s", comment: "Delay Time")
             if s.getSynthParameter(.tempoSyncToArpRate) > 0 {
-                displayLabel.text = message
+                displayLabel.text = NSLocalizedString("Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s", comment: "Delay Time tempo-syncd")
             } else {
-               displayLabel.text = message2
+                displayLabel.text = NSLocalizedString("Delay Time: \(value.decimalString) s", comment: "Delay Time")
             }
+        case .arpSeqTempoMultiplier:
+            displayLabel.text = NSLocalizedString("Divisions: \(Rate.fromFactor(value))", comment: "Divisions")
         case .delayMix:
             let message = NSLocalizedString("Delay Mix: \(value.percentageString)", comment: "Delay Mix")
             displayLabel.text = message
@@ -271,7 +273,13 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("Phaser Notch Width: \(value.decimalString)", comment: "Phaser Notch Width")
             displayLabel.text = message
         case .arpInterval:
-            let message = NSLocalizedString("Arpeggiator Interval: \(Int(value))", comment: "Arpeggiator Interval")
+            let npo = AKPolyphonicNode.tuningTable.npo
+            let npo1 = Int(Double(npo) * Double(value)/12.0)
+            let message = NSLocalizedString("Arpeggiator Interval: \(npo1) of \(npo)", comment: "Arpeggiator Interval")
+            displayLabel.text = message
+        case .transpose:
+            //TODO: localize
+            let message = "Transpose: \(Int(value))"
             displayLabel.text = message
         case .arpIsOn:
             let message = NSLocalizedString("Arp/Sequencer On", comment: "Arpeggiator On")
@@ -347,6 +355,8 @@ public class HeaderViewController: UpdatableViewController {
             let obe = s.getSynthParameter(.oscBandlimitEnable) > 0 ? "On" : "Off"
             displayLabel.text = "Anti-Aliasing: \(obe)"
 
+        case .adsrPitchTracking:
+            displayLabel.text = "ADSR Pitch Tracking: \(s.getSynthParameter(.adsrPitchTracking).decimalString)"
         default:
             _ = 0
             // do nothing
@@ -406,6 +416,10 @@ public class HeaderViewController: UpdatableViewController {
         morePresetsButton.callback = { _ in
             self.headerDelegate?.morePressed()
         }
+        
+        appsButton.callback = { _ in
+            self.headerDelegate?.appsPressed()
+        }
 
         webButton.callback = { _ in
             if let url = URL(string: "http://audiokitpro.com/synth") {
@@ -436,7 +450,7 @@ public class HeaderViewController: UpdatableViewController {
     func updateMailingListButton(_ signedMailingList: Bool) {
         // Mailing List Button
         if signedMailingList {
-            morePresetsButton.setTitle("Apps", for: .normal)
+            morePresetsButton.setTitle("More", for: .normal)
             morePresetsButton.setTitleColor(#colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1), for: .normal)
             morePresetsButton.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
         } else {

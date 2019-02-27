@@ -22,7 +22,7 @@
 * The "pitch wheel" is a log2(frequency) modulo 1 representation of the frequencies of one octave of the tuning table with middle C (note number 60) as 12 o'clock
 * The "master tuning" control modifies middle C's frequency based on what an A in 12ET would be. i.e., assume 12 et, adjust middle C based on the "master tuning" of A, then apply that to the 0th degree of the scale as if that was middle C. The code looks like this:
 AKPolyphonicNode.tuningTable.middleCFrequency = getSynthParameter(frequencyA4) * exp2((60.f - 69.f)/12.f)
-* The Synth One tuning library is static for this first release, but under the hood the library is dynamic and will import new scales as they are shared via presets. As we add new presets with new scales, or add Scala file support, user's libraries will be updated. More work needs to be done here, but it has a rudimentary future-proofing.
+* The Synth One tuning library supports importing scala files via the document picker. As we add new presets with new scales, or add Scala file support, user's libraries will be updated. More work needs to be done here, but it has a rudimentary future-proofing.
 
 ### Common Microtonal Feature Requests
 * Add Scala support.  AudioKit does have Scala file support, but we have not implemented file import/management in Synth One.  Would love someone to implement this.

@@ -53,7 +53,6 @@ class KeyboardSettingsViewController: UIViewController {
     @IBAction func keyLabelDidChange(_ sender: UISegmentedControl) {
 
            labelMode = sender.selectedSegmentIndex
-
            delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
     }
 

@@ -2,11 +2,13 @@
 //  TuningsPanelController.swift
 //  AudioKitSynthOne
 //
-//  Created by AudioKit Contributors on 5/6/18.
+//  Created by Marcus Hobbs on 5/6/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit
+import CloudKit
+import MobileCoreServices
 
 public protocol TuningsPitchWheelViewTuningDidChange {
     func tuningDidChange()
@@ -18,59 +20,121 @@ public protocol TuningsPitchWheelViewTuningDidChange {
 class TuningsPanelController: PanelController {
 
     @IBOutlet weak var tuningTableView: UITableView!
+    @IBOutlet weak var tuningBankTableView: UITableView!
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
     @IBOutlet weak var masterTuningKnob: MIDIKnob!
     @IBOutlet weak var resetTuningsButton: SynthButton!
     @IBOutlet weak var diceButton: UIButton!
-
+    @IBOutlet weak var importButton: SynthButton!
+    @IBOutlet weak var tuneUpBackButtonButton: SynthButton!
+    @IBOutlet weak var tuneUpButton: SynthButton!
+    @IBOutlet weak var tuneUpBackLabel: UILabel!
+    
+    ///Model
     let tuningModel = Tunings()
     var getStoreTuningWithPresetValue = false
-    internal var tuningIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityElements = [
+            tuningBankTableView,
+            tuningTableView,
+            masterTuningKnob,
+            diceButton,
+            resetTuningsButton,
+            importButton,
+            leftNavButton,
+            rightNavButton,
+            tuneUpBackButtonButton
+        ]
 
-        guard let synth = Conductor.sharedInstance.synth else { return }
         currentPanel = .tunings
+
         tuningTableView.backgroundColor = UIColor.clear
-        tuningTableView.isOpaque = false
+        tuningTableView.isOpaque = true
         tuningTableView.allowsSelection = true
         tuningTableView.allowsMultipleSelection = false
         tuningTableView.dataSource = self
         tuningTableView.delegate = self
-        tuningModel.tuningsDelegate = self
+        tuningTableView.accessibilityLabel = "Tunings Table"
+        tuningTableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
 
-        masterTuningKnob.range = synth.getRange(.frequencyA4)
-        masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
-        Conductor.sharedInstance.bind(masterTuningKnob, to: .frequencyA4)
+        tuningBankTableView.backgroundColor = UIColor.clear
+        tuningBankTableView.isOpaque = true
+        tuningBankTableView.allowsSelection = true
+        tuningBankTableView.allowsMultipleSelection = false
+        tuningBankTableView.dataSource = self
+        tuningBankTableView.delegate = self
+        tuningBankTableView.accessibilityLabel = "Tuning Banks Table"
+        tuningBankTableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
 
-        resetTuningsButton.callback = { value in
-            if value == 1 {
-                let i = self.tuningModel.resetTuning()
-                self.masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
-                self.selectRow(i)
-                self.resetTuningsButton.value = 0
+        if let synth = Conductor.sharedInstance.synth {
+            masterTuningKnob.range = synth.getRange(.frequencyA4)
+            masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
+            Conductor.sharedInstance.bind(masterTuningKnob, to: .frequencyA4)
+
+            resetTuningsButton.callback = { value in
+                if value == 1 {
+                    self.tuningModel.resetTuning()
+                    self.masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
+                    self.selectRow()
+                    self.resetTuningsButton.value = 0
+                    self.conductor.updateDisplayLabel("Tuning Reset: 12ET/440")
+                }
+            }
+
+            //TODO: implement sharing of tuning banks
+            importButton.callback = { _ in
+                let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
+                documentPicker.delegate = self
+                self.present(documentPicker, animated: true, completion: nil)
+            }
+            importButton.isHidden = true
+
+        } else {
+            AKLog("race condition: synth not yet created")
+        }
+
+        // model
+        tuningModel.pitchWheelDelegate = self
+        tuningModel.tuneUpDelegate = self
+        tuningModel.loadTunings {
+            // callback called on main thread
+            self.tuningBankTableView.reloadData()
+            self.tuningTableView.reloadData()
+            self.selectRow()
+            self.setTuneUpBackButton(enabled: false)
+            self.setTuneUpBackButtonLabel(text: self.tuningModel.tuneUpBackButtonDefaultText)
+
+            // If application was launched by url process it on next runloop
+            DispatchQueue.main.async {
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                    if let url = appDelegate.applicationLaunchedWithURL() {
+                        AKLog("launched with url:\(url)")
+                        _ = self.openUrl(url: url)
+
+                        // if url is a file in app Inbox remove it
+                        AKLog("removing temporary file at \(url)")
+                        do {
+                            try FileManager.default.removeItem(at: url)
+                        } catch let error as NSError {
+                            AKLog("error removing temporary file at \(url): \(error)")
+                        }
+                    }
+                }
             }
         }
 
-        // callback called on main thread
-        tuningModel.loadTunings {
-            self.tuningTableView.reloadData()
-            self.selectRow(0)
-            self.tuningDidChange()
+        // tuneUpBackButton
+        tuneUpBackButtonButton.callback = { value in
+            self.tuningModel.tuneUpBackButton()
+            self.tuneUpBackButtonButton.value = 0
         }
 
-		tuningTableView.accessibilityLabel = "Tunings Table"
-
-		view.accessibilityElements = [
-			tuningTableView,
-			masterTuningKnob,
-			diceButton,
-			resetTuningsButton,
-			leftNavButton,
-			rightNavButton
-		]
-
+        tuneUpButton.callback = { value in
+            self.performSegue(withIdentifier: "SegueToTuneUp", sender: nil)
+            self.tuneUpButton.value = 0
+        }
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -87,10 +151,9 @@ class TuningsPanelController: PanelController {
     }
 
     @IBAction func randomPressed(_ sender: UIButton) {
-        guard tuningModel.isTuningReady else { return }
-        tuningIndex = tuningModel.randomTuning()
-        selectRow(tuningIndex)
-        tuningDidChange()
+        guard tuningModel.isInitialized else { return }
+        tuningModel.randomTuning()
+        selectRow()
         UIView.animate(withDuration: 0.4, animations: {
             for _ in 0 ... 1 {
                 self.diceButton.transform = self.diceButton.transform.rotated(by: CGFloat(Double.pi))
@@ -98,42 +161,112 @@ class TuningsPanelController: PanelController {
         })
     }
 
-    internal func selectRow(_ index: Int) {
-        guard tuningModel.isTuningReady else { return }
-        tuningIndex = index
-        let path = IndexPath(row: index, section: 0)
-        tuningTableView.selectRow(at: path, animated: true, scrollPosition: .middle)
-        tableView(tuningTableView, didSelectRowAt: path)
+    internal func selectRow() {
+        guard tuningModel.isInitialized else { return }
+
+        let bankPath = IndexPath(row: tuningModel.selectedBankIndex, section: 0)
+        tableView(tuningBankTableView, didSelectRowAt: bankPath)
+
+        let tuningPath = IndexPath(row: tuningModel.selectedTuningIndex, section: 0)
+        tableView(tuningTableView, didSelectRowAt: tuningPath)
     }
 
     public func setTuning(name: String?, masterArray master: [Double]?) {
-        guard tuningModel.isTuningReady else { return }
-        let i = tuningModel.setTuning(name: name, masterArray: master)
-        if i.1 {
+        guard tuningModel.isInitialized else { return }
+        let reload = tuningModel.setTuning(name: name, masterArray: master)
+        if reload {
             tuningTableView.reloadData()
         }
-        if let row = i.0 {
-            selectRow(row)
-        }
+        selectRow()
     }
 
     public func setDefaultTuning() {
-        guard tuningModel.isTuningReady else { return }
-        tuningIndex = tuningModel.resetTuning()
-        selectRow(tuningIndex)
+        guard tuningModel.isInitialized else { return }
+        tuningModel.resetTuning()
+        selectRow()
     }
 
     public func getTuning() -> (String, [Double]) {
-        guard tuningModel.isTuningReady else { return ("", [1]) }
-        let t = tuningModel.getTuning(index: tuningIndex)
-        return t
+        guard tuningModel.isInitialized else { return ("", [1]) }
+        return tuningModel.getTuning()
+    }
+
+    /// redirect to redirectURL provided by last TuneUp ( "back button" )
+    func tuneUpBackButton() {
+        tuningModel.tuneUpBackButton()
+    }
+
+    /// openURL
+    public func openUrl(url: URL) -> Bool {
+        let retVal = tuningModel.openUrl(url: url)
+        if retVal {
+            selectRow()
+        }
+        return retVal
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SegueToTuneUp" {
+            guard let popOverController = segue.destination as? TuneUpPopUp else { return }
+            popOverController.delegate = self
+        }
+    }
+}
+
+extension TuningsPanelController: TuneUpPopUpDelegate {
+    func wilsonicPressed() {
+        launchWilsonic()
+    }
+    
+    func d1Pressed() {
+        launchD1()
     }
 }
 
 // MARK: - TuningsPitchWheelViewTuningDidChange
 
 extension TuningsPanelController: TuningsPitchWheelViewTuningDidChange {
+    
     func tuningDidChange() {
         tuningsPitchWheelView.updateFromGlobalTuningTable()
     }
+}
+
+
+
+extension TuningsPanelController {
+
+    // MARK: - Launch applications that support TuneUp
+
+    public func launchD1() {
+        tuningModel.launchD1()
+    }
+
+    public func launchWilsonic() {
+        tuningModel.launchWilsonic()
+    }
+}
+
+// MARK: import/export preset banks, tuning banks
+extension TuningsPanelController: UIDocumentPickerDelegate {
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+        AKLog("**** url: \(url) ")
+        
+        let fileName = String(describing: url.lastPathComponent)
+
+        //TODO: Add import/saving/sharing of TuningBanks
+        // Marcus: Run load procedure with "fileName" here
+        
+        // OR, add the logic right here
+//        do {
+//            //
+//
+//        } catch {
+//            AKLog("*** error loading")
+//        }
+        
+    }
+    
 }

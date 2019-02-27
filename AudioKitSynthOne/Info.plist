@@ -39,6 +39,22 @@
 				<string>com.audiokitpro.AudioKitSynthOne.synth1</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>icon_320.png</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>AudioKit Synth1 Scala File</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.audiokitpro.AudioKitSynthOne.scl</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
@@ -51,7 +67,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.9.6</string>
+	<string>1.0.8</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -64,11 +80,28 @@
 				<string>Synth1-1.0.audiobus</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.audiokitpro.AudioKitSynthOne</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>synth1</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>0.9.6</string>
+	<string>1.0.8</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>digitald1</string>
+		<string>wilsonic</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<false/>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use.</string>
 	<key>UIBackgroundModes</key>
@@ -96,6 +129,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UISupportsDocumentBrowser</key>
+	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>UTExportedTypeDeclarations</key>
@@ -120,6 +155,27 @@
 				<array>
 					<string>synth1</string>
 				</array>
+				<key>public.mime-type</key>
+				<string>application/SynthOne</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.text</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>AudioKit Scala File</string>
+			<key>UTTypeIconFiles</key>
+			<array>
+				<string>icon_320.png</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.audiokitpro.AudioKitSynthOne.scl</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>scl</string>
 				<key>public.mime-type</key>
 				<string>application/SynthOne</string>
 			</dict>

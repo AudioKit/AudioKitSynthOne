@@ -13,6 +13,7 @@ let initBanks = ["BankA",
                  "Brice Beasley",
                  "DJ Puzzle",
                  "Electronisounds",
+                 "Francis Preve",
                  "JEC",
                  "Red Sky Lullaby",
                  "Sound of Izrael",
@@ -36,6 +37,7 @@ class AppSettings: Codable {
     var freezeReverb = false // true = don't modify current reverb parameters when preset changes
     var freezeArpSeq = false // true = don't modify current arp+seq parameters when preset changes
     var portamentoHalfTime = 0.1 // global portamento HALFTIME for dsp params that are smoothed
+    var bufferLengthRawValue = 9 // 512 // was 7 
 
     //Settings: "Save Tuning Panel w/Presets" -> saveTuningWithPreset = True/False
     //True means: "DO load preset's tuning (nil = reset current tuning to 12et) when preset is loaded.
@@ -47,7 +49,7 @@ class AppSettings: Codable {
     var launches = 0
 
     // Presets version
-    var presetsVersion = 1.23
+    var presetsVersion = 1.27
 
     // MIDI Learn Settings
 
@@ -100,6 +102,7 @@ class AppSettings: Codable {
     var phaserRateCC = 255
     var phaserFeedbackCC = 255
     var phaserNotchWidthCC = 255
+    var arpSeqTempoMultiplierCC = 255
 
     // Keyboard
     var labelMode = 1
@@ -127,6 +130,7 @@ class AppSettings: Codable {
         neverSleep = dictionary["neverSleep"] as? Bool ?? neverSleep
         midiChannel = dictionary["midiChannel"] as? Int ?? midiChannel
         omniMode = dictionary["omniMode"] as? Bool ?? omniMode
+        bufferLengthRawValue = dictionary["bufferLengthRawValue"] as? Int ?? bufferLengthRawValue
         midiSources = dictionary["midiSources"] as? [String] ?? midiSources
         plotFilled = dictionary["plotFilled"] as? Bool ?? plotFilled
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
@@ -169,6 +173,7 @@ class AppSettings: Codable {
 
         sampleRateCC = dictionary["sampleRateCC"] as? Int ?? sampleRateCC
         delayTimeCC = dictionary["delayTimeCC"] as? Int ?? delayTimeCC
+        arpSeqTempoMultiplierCC = dictionary["arpSeqTempoMultiplierCC"] as? Int ?? arpSeqTempoMultiplierCC
         delayFeedbackCC = dictionary["delayFeedbackCC"] as? Int ?? delayFeedbackCC
         delayMixCC = dictionary["delayMixCC"] as? Int ?? delayMixCC
         lfo1AmpCC = dictionary["lfo1AmpCC"] as? Int ?? lfo1AmpCC
@@ -192,7 +197,6 @@ class AppSettings: Codable {
         // State
         currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex
         currentPresetIndex = dictionary["currentPresetIndex"] as? Int ?? currentPresetIndex
-
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
     }
 }

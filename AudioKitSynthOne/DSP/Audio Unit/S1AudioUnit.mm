@@ -176,8 +176,11 @@
     }
     _outputBusBuffer.allocateRenderResources(self.maximumFramesToRender);
     if (self.musicalContextBlock) { _musicalContext = self.musicalContextBlock; } else _musicalContext = nil;
+    auto parameters = _kernel.p;
+    _kernel.destroy();
     _kernel.init(self.outputBus.format.channelCount, self.outputBus.format.sampleRate);
     _kernel.reset();
+    _kernel.restoreValues(parameters);
     return YES;
 }
 
@@ -202,6 +205,7 @@
         double currentTempo;
         if (self->_musicalContext) {
             if (self->_musicalContext( &currentTempo, NULL, NULL, NULL, NULL, NULL ) ) {
+                //TODO:AURE: midi clock
                 self->_kernel.handleTempoSetting(currentTempo);
             }
         }

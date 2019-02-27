@@ -12,7 +12,11 @@ import UIKit
 class FlatToggleButton: ToggleButton {
 
     override func draw(_ rect: CGRect) {
-        FlatToggleButtonStyleKit.drawRoundButton(isToggled: isOn)
+        FlatToggleButtonStyleKit.drawRoundButton(frame: CGRect(x: 0,
+                                                               y: 0,
+                                                               width: self.bounds.width,
+                                                               height: self.bounds.height),
+                                                               isToggled: isOn)
     }
 
 }

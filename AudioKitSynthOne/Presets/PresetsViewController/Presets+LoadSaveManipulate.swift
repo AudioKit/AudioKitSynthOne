@@ -162,10 +162,8 @@ extension PresetsViewController {
 
     func createActivePreset() {
 
-//        let activePreset = currentPreset
-//        presetsDelegate?.presetDidChange(activePreset)
-
-        // TODO: Marcus, if you want to 
+        // TODO: Marcus, or someone... if you want to replace this with deep copy code [copy(with:)]
+        // activePreset needs to be a unique instance and should not be passed by reference
         do {
             try Disk.save(currentPreset, to: .caches, as: "currentPreset.json")
             if let activePreset = try? Disk.retrieve("currentPreset.json", from: .caches, as: Preset.self) {

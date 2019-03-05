@@ -330,8 +330,15 @@ public class Manager: UpdatableViewController {
     
         // On four runs show dialog and request review
         if appSettings.launches == 5 && !appSettings.isPreRelease { reviewPopUp() }
-        if appSettings.launches % 41 == 0 && !appSettings.isPreRelease && appSettings.launches > 0 { requestReview() }
+        if appSettings.launches % 50 == 0 && !appSettings.isPreRelease && appSettings.launches > 0 { requestReview() }
 
+        // Sharing is Caring
+        if appSettings.launches % 4 == 0 && appSettings.launches > 0 {
+            if conductor.device == .phone {
+                performSegue(withIdentifier: "SegueToPhoneShare", sender: self)
+            }
+        }
+        
         // Push Notifications request
         if appSettings.launches == 9 && !appSettings.pushNotifications { pushPopUp() }
         if appSettings.launches % 75 == 0 &&

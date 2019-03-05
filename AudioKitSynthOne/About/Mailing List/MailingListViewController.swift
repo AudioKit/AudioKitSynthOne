@@ -113,6 +113,13 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signUpPressed(_ sender: UIButton) {
         signUpAction()
     }
+    
+    @IBAction func sharePressed(_ sender: Any) {
+        let items: [Any] = ["I love this Free Synth app. Made by volunteers & sound designers for Kanye, Rhianna, M83, and more.", URL(string: "https://audiokitpro.com/synth")!]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+    }
+    
 
     func signUpAction() {
         guard let emailAddress = emailField.text else { return }
@@ -261,7 +268,6 @@ extension String {
         }
     }
 }
-
 
 // MARK: - MFMailComposeViewController Delegate
 

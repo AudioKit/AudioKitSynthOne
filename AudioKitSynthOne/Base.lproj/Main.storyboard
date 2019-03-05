@@ -433,6 +433,7 @@
                         <segue destination="M7f-x2-kSI" kind="presentation" identifier="SegueToMailingList" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="y4G-gB-dDe"/>
                         <segue destination="mL0-tn-PDC" kind="presentation" identifier="SegueToWelcome" id="8ID-d8-Qnm"/>
                         <segue destination="180-2e-dHd" kind="presentation" identifier="SegueToMore" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="3Wa-R3-dV5"/>
+                        <segue destination="vaE-RL-nKW" kind="presentation" identifier="SegueToPhoneShare" id="NZS-gI-nAN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkY-CW-6Da" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1611,6 +1612,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgK-uX-EM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1213" y="-1531"/>
+        </scene>
+        <!--iPhoneShare-->
+        <scene sceneID="aE0-T7-Ac3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MailingList" referencedIdentifier="iPhoneShare" id="vaE-RL-nKW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l7K-5e-Zpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1143" y="-1459"/>
         </scene>
         <!--iPhoneMailingList-->
         <scene sceneID="bnA-4z-ea7">

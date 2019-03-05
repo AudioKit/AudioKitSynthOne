@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfp-77-Dp5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="-470"/>
+            <point key="canvasLocation" x="835" y="-322"/>
         </scene>
         <!--iPhoneIntro-->
         <scene sceneID="1Zn-lO-0Cv">
@@ -271,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XW0-qO-5YX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="-1170"/>
+            <point key="canvasLocation" x="127" y="-1329"/>
         </scene>
         <!--iPhoneMore-->
         <scene sceneID="KRu-bB-M7d">
@@ -321,20 +321,21 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UCo-Ig-YfL">
-                                                <rect key="frame" x="39" y="33" width="482" height="90"/>
+                                                <rect key="frame" x="39" y="38" width="482" height="91"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <string key="text">AudioKit changes lives for musicians. We're passionate volunteers who want to help. Are you a musician or sample producer? Get involved by recording or donating sounds for future apps...</string>
+                                                <string key="text">Thank you! AudioKit Synth One is made possible by people like you.
+ Are you a musician or sample producer? Get involved by recording or donating sounds for future apps...</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ak1-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ocL-mt-9VP">
-                                                <rect key="frame" x="168" y="8" width="224" height="35"/>
+                                                <rect key="frame" x="168" y="13" width="224" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcs-Oa-fHe">
-                                                <rect key="frame" x="79" y="136" width="190" height="36"/>
+                                                <rect key="frame" x="79" y="137" width="190" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
@@ -346,7 +347,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMg-Iz-LGY">
-                                                <rect key="frame" x="290" y="136" width="190" height="36"/>
+                                                <rect key="frame" x="290" y="137" width="190" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
@@ -419,7 +420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFE-f0-K3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="-1171"/>
+            <point key="canvasLocation" x="1309.5999999999999" y="-1147.3763118440781"/>
         </scene>
         <!--MailingList-->
         <scene sceneID="Lt8-dg-n07">
@@ -555,6 +556,155 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3T-7c-38F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2504.8000000000002" y="-1172.5637181409297"/>
+        </scene>
+        <!--Sharing is Caring-->
+        <scene sceneID="Qeh-hP-hcp">
+            <objects>
+                <viewController storyboardIdentifier="iPhoneShare" id="Amx-F7-6Y5" userLabel="Sharing is Caring" customClass="MailingListViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yz2-kM-fnj"/>
+                        <viewControllerLayoutGuide type="bottom" id="hsD-iI-V1U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hcB-4k-dJx">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="3GV-fh-Oli">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qQg-if-Cjl">
+                                <rect key="frame" x="533" y="1012" width="324" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6n-Jd-Khi">
+                                <rect key="frame" x="53.5" y="45.5" width="560" height="284"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ogw-aZ-JPz">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sharing is Caring!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnc-i5-TCv">
+                                                <rect key="frame" x="223" y="16" width="108" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                                <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile-icon" translatesAutoresizingMaskIntoConstraints="NO" id="PwE-T5-4Ts">
+                                                <rect key="frame" x="171" y="7" width="42" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWp-j3-NEQ">
+                                        <rect key="frame" x="0.0" y="51" width="560" height="198"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JzE-c0-Krb">
+                                                <rect key="frame" x="39" y="33" width="482" height="188.5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Thank you! AudioKit Synth One is made possible by people like you.
+Please spread the word: Tweet, Share, Instagram, Facebook, Youtube.  Email your friends. The more you share, the more musicians helped!</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ak1-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Sr8-DU-va9">
+                                                <rect key="frame" x="168" y="8" width="224" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bs-Jh-fnL">
+                                                <rect key="frame" x="79" y="136" width="190" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                                <state key="normal" title="Intro Video">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="videoPressed:" destination="Amx-F7-6Y5" eventType="touchUpInside" id="oXb-9B-m8J"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzF-9I-YlW">
+                                                <rect key="frame" x="290" y="136" width="190" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                                                <state key="normal" title="SHARE! 👍">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sharePressed:" destination="Amx-F7-6Y5" eventType="touchUpInside" id="k2R-4c-ei6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9P-EO-L6r">
+                                        <rect key="frame" x="185" y="249" width="190" height="36"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="RfN-rs-W2R"/>
+                                            <constraint firstAttribute="width" constant="190" id="eNI-WW-3pi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                                        <state key="normal" title="Start Playing">
+                                            <color key="titleColor" red="0.90196078430000004" green="0.53333333329999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closePressed:" destination="Amx-F7-6Y5" eventType="touchUpInside" id="6ls-Z3-tp8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="NdX-zd-fbo"/>
+                                    <constraint firstAttribute="height" constant="284" id="U3H-kN-Tcf"/>
+                                    <constraint firstItem="t9P-EO-L6r" firstAttribute="centerX" secondItem="M6n-Jd-Khi" secondAttribute="centerX" id="vXy-9s-0Hb"/>
+                                    <constraint firstItem="t9P-EO-L6r" firstAttribute="top" secondItem="M6n-Jd-Khi" secondAttribute="top" constant="249" id="xLb-5V-lnn"/>
+                                </constraints>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ci1-b5-JgF">
+                                <rect key="frame" x="495" y="408" width="158" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <state key="normal" title="Get Presets!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpPressed:" destination="Amx-F7-6Y5" eventType="touchUpInside" id="D3d-od-QJw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="3GV-fh-Oli" secondAttribute="bottom" id="TKh-66-i7q"/>
+                            <constraint firstItem="M6n-Jd-Khi" firstAttribute="centerX" secondItem="hcB-4k-dJx" secondAttribute="centerX" id="jOr-Ub-xkh"/>
+                            <constraint firstItem="3GV-fh-Oli" firstAttribute="top" secondItem="yz2-kM-fnj" secondAttribute="bottom" id="jgH-0n-C1e"/>
+                            <constraint firstItem="M6n-Jd-Khi" firstAttribute="centerY" secondItem="BQW-dl-dvZ" secondAttribute="centerY" id="l8Z-OQ-sJB"/>
+                            <constraint firstAttribute="trailing" secondItem="3GV-fh-Oli" secondAttribute="trailing" id="lkM-xI-nub"/>
+                            <constraint firstItem="3GV-fh-Oli" firstAttribute="leading" secondItem="hcB-4k-dJx" secondAttribute="leading" id="ofd-So-ORS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BQW-dl-dvZ"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="667" height="375"/>
+                    <connections>
+                        <outlet property="emailField" destination="qQg-if-Cjl" id="Eub-Rj-hxM"/>
+                        <outlet property="moreView" destination="M6n-Jd-Khi" id="ZBt-d8-vqi"/>
+                        <outlet property="topConstraint" destination="U3H-kN-Tcf" id="UhV-fn-ddv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="INA-zi-4xN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153" y="-934"/>
         </scene>
     </scenes>
     <resources>

@@ -132,7 +132,7 @@ extension PresetsViewController {
             // Remove currentPreset and replace it with activePreset
             if let position = presets.index(where: { $0.uid == currentPreset.uid }) {
                 presets.remove(at: position)
-                presets.insert(activePreset, at: activePreset.position + 1)
+                presets.insert(activePreset, at: activePreset.position)
             }
         } else {
             // create new preset
@@ -162,18 +162,18 @@ extension PresetsViewController {
 
     func createActivePreset() {
 
-        let activePreset = currentPreset
-        presetsDelegate?.presetDidChange(activePreset)
+//        let activePreset = currentPreset
+//        presetsDelegate?.presetDidChange(activePreset)
 
-        //TODO: Matt, is there a reason to save the preset to disk on the main thread?
-//        do {
-//            try Disk.save(currentPreset, to: .caches, as: "currentPreset.json")
-//            if let activePreset = try? Disk.retrieve("currentPreset.json", from: .caches, as: Preset.self) {
-//                presetsDelegate?.presetDidChange(activePreset)
-//            }
-//        } catch {
-//            AKLog("error saving")
-//        }
+        // TODO: Marcus, if you want to 
+        do {
+            try Disk.save(currentPreset, to: .caches, as: "currentPreset.json")
+            if let activePreset = try? Disk.retrieve("currentPreset.json", from: .caches, as: Preset.self) {
+                presetsDelegate?.presetDidChange(activePreset)
+            }
+        } catch {
+            AKLog("error saving")
+        }
     }
 
     func selectCurrentPreset() {

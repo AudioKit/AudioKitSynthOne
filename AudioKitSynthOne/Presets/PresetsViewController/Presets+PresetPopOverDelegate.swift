@@ -10,9 +10,10 @@
 
 extension PresetsViewController: PresetPopOverDelegate {
     func didFinishEditing(name: String, category: Int, newBank: String) {
-
+        
         // Check for bank change
         if currentPreset.bank != newBank {
+         
             // Check if preset name exists
             if  name == currentPreset.name {
                 // remove preset from its previous bank if preset not renamed

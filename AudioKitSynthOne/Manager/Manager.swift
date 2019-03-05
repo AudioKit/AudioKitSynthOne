@@ -333,9 +333,11 @@ public class Manager: UpdatableViewController {
         if appSettings.launches % 50 == 0 && !appSettings.isPreRelease && appSettings.launches > 0 { requestReview() }
 
         // Sharing is Caring
-        if appSettings.launches % 4 == 0 && appSettings.launches > 0 {
+        if appSettings.launches % 7 == 0 && appSettings.launches > 0 {
             if conductor.device == .phone {
                 performSegue(withIdentifier: "SegueToPhoneShare", sender: self)
+            } else {
+                performSegue(withIdentifier: "SegueToSharing", sender: self)
             }
         }
         

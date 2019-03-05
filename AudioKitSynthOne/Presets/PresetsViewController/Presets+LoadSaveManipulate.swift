@@ -29,6 +29,7 @@ extension PresetsViewController {
         }
 
         updateCategoryTable()
+        selectCurrentPreset()
     }
 
     func sortPresets() {

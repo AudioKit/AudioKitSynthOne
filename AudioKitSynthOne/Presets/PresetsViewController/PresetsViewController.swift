@@ -40,7 +40,6 @@ class PresetsViewController: UIViewController {
     var sortedPresets = [Preset]() {
         didSet {
             tableView.reloadData()
-            selectCurrentPreset()
         }
     }
 

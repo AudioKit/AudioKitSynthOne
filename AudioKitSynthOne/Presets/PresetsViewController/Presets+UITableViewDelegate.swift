@@ -47,6 +47,7 @@ extension PresetsViewController: UITableViewDelegate {
 
             // Save presets
             saveAllPresetsIn(currentPreset.bank)
+            selectCurrentPreset()
         }
     }
 

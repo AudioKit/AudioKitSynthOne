@@ -31,7 +31,7 @@ class EffectsPanelController: PanelController {
 
     @IBOutlet weak var sampleRateKnob: MIDIKnob!
 
-    @IBOutlet weak var autoPanAmountKnob: Knob!
+    @IBOutlet weak var autoPanAmountKnob: MIDIKnob!
     @IBOutlet weak var autoPanRateKnob: MIDIKnob!
 
     @IBOutlet weak var reverbSizeKnob: MIDIKnob!

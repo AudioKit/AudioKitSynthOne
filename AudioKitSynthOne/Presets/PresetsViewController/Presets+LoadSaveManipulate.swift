@@ -23,9 +23,8 @@ extension PresetsViewController {
                 loadPresetsFromDevice(fileName)
             } else {
                 loadFactoryPresets(bank.name)
+                saveAllPresetsIn(bank.name)
             }
-
-            saveAllPresetsIn(bank.name)
         }
 
         sortPresets()

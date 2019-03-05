@@ -175,15 +175,19 @@
         return NO;
     }
     _outputBusBuffer.allocateRenderResources(self.maximumFramesToRender);
-    if (self.musicalContextBlock) { _musicalContext = self.musicalContextBlock; } else _musicalContext = nil;
+    if (self.musicalContextBlock) { _musicalContext = self.musicalContextBlock; }
+    auto parameters = _kernel.p;
     _kernel.init(self.outputBus.format.channelCount, self.outputBus.format.sampleRate);
     _kernel.reset();
+    _kernel.restoreValues(parameters);
     return YES;
 }
 
 - (void)deallocateRenderResources {
     _outputBusBuffer.deallocateRenderResources();
     [super deallocateRenderResources];
+    _musicalContext = nil;
+    _kernel.destroy();
 }
 
 - (AUInternalRenderBlock)internalRenderBlock {

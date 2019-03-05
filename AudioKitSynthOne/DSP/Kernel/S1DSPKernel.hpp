@@ -9,8 +9,10 @@
 
 #pragma once
 
+#import <array>
 #import <vector>
 #import <list>
+#import <optional>
 #import <string>
 #import "AudioKit/AKSoundpipeKernel.hpp"
 #import "S1AudioUnit.h"
@@ -33,6 +35,8 @@
 #ifdef __cplusplus
 
 struct S1NoteState;
+using DSPParameters = std::array<float, S1Parameter::S1ParameterCount>;
+using NoteStateArray = std::array<S1NoteState, S1_MAX_POLYPHONY>;
 
 class S1DSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
 
@@ -106,6 +110,9 @@ public:
     virtual void handleMIDIEvent(AUMIDIEvent const& midiEvent) override;
     
     void init(int _channels, double _sampleRate) override;
+
+    // Restore Parameter Values to DSP
+    void restoreValues(std::optional<DSPParameters> params);
     
     void destroy();
     
@@ -171,7 +178,7 @@ public:
     int arpBeatCounter = 0;
     
     /// dsp params
-    float p[S1Parameter::S1ParameterCount];
+    DSPParameters p;
     
     // Portamento values
     float monoFrequency = 440.f * exp2((60.f - 69.f)/12.f);
@@ -258,10 +265,10 @@ private:
     };
     
     // array of struct S1NoteState of count MAX_POLYPHONY
-    S1NoteState* noteStates;
+    std::unique_ptr<NoteStateArray> noteStates;
     
     // monophonic: single instance of NoteState
-    S1NoteState* monoNote;
+    std::unique_ptr<S1NoteState> monoNote;
     
     bool initializedNoteStates = false;
     

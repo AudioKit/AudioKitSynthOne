@@ -15,6 +15,16 @@ void S1DSPKernel::setupWaveform(uint32_t tableIndex, uint32_t size) {
     sp_ftbl_create(sp, &ft_array[tableIndex], tbl_size);
 }
 
+
+void S1DSPKernel::updateWavetableIncrementValuesForCurrentSampleRate() {
+    
+    double currentSampleIncrement = 1.0 * SP_FT_MAXLEN / sp->sr;
+    for (unsigned int i = 0; i < S1_NUM_WAVEFORMS * S1_NUM_BANDLIMITED_FTABLES; i++) {
+        ft_array[i]->sicvt = currentSampleIncrement;
+    }
+    sine->sicvt = currentSampleIncrement;
+}
+
 /// tableIndex is on [0, S1_NUM_WAVEFORMS * S1_NUM_BANDLIMITED_FTABLES)
 /// sampleIndex is on [0, S1_FTABLE_SIZE)
 void S1DSPKernel::setWaveformValue(uint32_t tableIndex, uint32_t sampleIndex, float value) {

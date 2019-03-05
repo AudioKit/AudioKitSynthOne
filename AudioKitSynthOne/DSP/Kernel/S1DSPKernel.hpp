@@ -156,6 +156,8 @@ private:
     // moved the private functions to try to get rid of errors, I don't think we need to be that worried about privacy
 
 public:
+    
+    void updateWavetableIncrementValuesForCurrentSampleRate();
 
     void _setSynthParameter(S1Parameter param, float inputValue01);
 

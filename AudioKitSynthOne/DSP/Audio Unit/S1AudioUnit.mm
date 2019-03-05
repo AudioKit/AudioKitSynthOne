@@ -180,6 +180,8 @@
     _kernel.init(self.outputBus.format.channelCount, self.outputBus.format.sampleRate);
     _kernel.reset();
     _kernel.restoreValues(parameters);
+    _kernel.updateWavetableIncrementValuesForCurrentSampleRate();
+    
     return YES;
 }
 

@@ -26,8 +26,6 @@
 #define S1_NUM_WAVEFORMS (4)
 #define S1_NUM_BANDLIMITED_FTABLES (13)
 
-#define S1_SAMPLE_RATE (44100.f)
-
 #define S1_RELEASE_AMPLITUDE_THRESHOLD (0.01f)
 #define S1_PORTAMENTO_HALF_TIME (0.1f)
 #define S1_DEPENDENT_PARAM_TAPER (0.4f)
@@ -49,8 +47,11 @@ public:
     ~S1DSPKernel();
 
     // public accessor for protected sp
-    sp_data *spp() {
+    inline sp_data *spp() {
         return sp;
+    }
+    inline int sampleRate() {
+        return sp->sr;
     }
 
     float getSynthParameter(S1Parameter param);

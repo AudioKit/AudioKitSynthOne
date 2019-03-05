@@ -28,6 +28,7 @@ extension PresetsViewController {
             saveAllPresetsIn(bank.name)
         }
 
+        sortPresets()
         updateCategoryTable()
         selectCurrentPreset()
     }
@@ -100,7 +101,6 @@ extension PresetsViewController {
         guard let jsonArray = presetsJSON as? [Any] else { return }
 
         presets += Preset.parseDataToPresets(jsonArray: jsonArray)
-        sortPresets()
     }
 
     func saveAllPresetsIn(_ bank: String) {

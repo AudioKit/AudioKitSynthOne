@@ -6,7 +6,7 @@
 //  Copyright © 2019 AudioKit. All rights reserved.
 //
 
-enum struct ArpegiatorMode : int {
+enum struct ArpeggiatorMode : int {
     Up = 0,
     UpDown = 1,
     Down = 2

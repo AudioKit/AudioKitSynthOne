@@ -211,10 +211,11 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                             const int arpIntervalUp = p[arpInterval] * npof;
                             const int onOff = 1;
                             const int arpOctaves = (int)p[arpOctave] + 1;
+                            const auto arpMode = static_cast<ArpegiatorMode>(p[arpDirection]);
 
-                            if (p[arpDirection] == 0.f) {
+                            if (arpMode == ArpegiatorMode::Up) {
 
-                                // ARP Up
+                                // Up
                                 int index = 0;
                                 for (int octave = 0; octave < arpOctaves; octave++) {
                                     for (int i = 0; i < heldNotesCount; i++) {
@@ -227,9 +228,8 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                                         ++index;
                                     }
                                 }
-                            } else if (p[arpDirection] == 1.f) {
+                            } else if (arpMode == ArpegiatorMode::UpDown) {
 
-                                //ARP Up + Down
                                 //Up
                                 int index = 0;
                                 for (int octave = 0; octave < arpOctaves; octave++) {
@@ -259,7 +259,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                                         }
                                     }
                                 }
-                            } else if (p[arpDirection] == 2.f) {
+                            } else if (arpMode == ArpegiatorMode::Down) {
 
                                 // ARP Down
                                 int index = 0;

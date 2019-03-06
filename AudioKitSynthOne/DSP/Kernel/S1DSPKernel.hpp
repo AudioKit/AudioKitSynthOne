@@ -263,7 +263,14 @@ private:
         sp_port *portamento;
         float portamentoTarget;
     };
-    
+
+    // Arpegiator Modes
+    enum struct ArpegiatorMode : int {
+        Up = 0,
+        UpDown = 1,
+        Down = 2
+    };
+
     // array of struct S1NoteState of count MAX_POLYPHONY
     std::unique_ptr<NoteStateArray> noteStates;
     

@@ -12,6 +12,7 @@ extension PresetsViewController: CategoryDelegate {
 
     func categoryDidChange(_ newCategoryIndex: Int) {
         categoryIndex = newCategoryIndex
+        selectCurrentPreset()
     }
 
     func bankShare() {

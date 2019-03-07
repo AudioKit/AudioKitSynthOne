@@ -88,6 +88,9 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     }];
     previousHeldNoteNumbersAECount = 0;
 
+    for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
+        sp_port_create(&s1p[i].portamento);
+    }
     _rate.init();
 
     restoreValues(std::nullopt);
@@ -99,7 +102,6 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
         const float value = (params != std::nullopt) ? (*params)[i] : defaultValue((S1Parameter)i);
         if (s1p[i].usePortamento) {
             s1p[i].portamentoTarget = value;
-            sp_port_create(&s1p[i].portamento);
             sp_port_init(sp, s1p[i].portamento, value);
             s1p[i].portamento->htime = S1_PORTAMENTO_HALF_TIME;
         }

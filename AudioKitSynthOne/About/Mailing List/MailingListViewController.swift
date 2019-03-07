@@ -76,6 +76,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         if let url = URL(string: "http://youtu.be/hwDNgCYowYs") {
             UIApplication.shared.open(url)
         }
+        print("TOUCHED")
     }
     
 
@@ -113,6 +114,23 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signUpPressed(_ sender: UIButton) {
         signUpAction()
     }
+    
+    @IBAction func sharePressed(_ sender: Any) {
+       
+        // set up activity view controller
+        let items: [Any] = ["I love this Free Synth app. Made by volunteers & sound designers for Kanye, Rhianna, M83, and more.", URL(string: "https://audiokitpro.com/synth")!]
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop]
+  
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            activityViewController.popoverPresentationController?.sourceView = self.emailField
+            activityViewController.popoverPresentationController?.permittedArrowDirections = .down
+            activityViewController.popoverPresentationController?.sourceRect = self.emailField.bounds
+        }
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
 
     func signUpAction() {
         guard let emailAddress = emailField.text else { return }
@@ -261,7 +279,6 @@ extension String {
         }
     }
 }
-
 
 // MARK: - MFMailComposeViewController Delegate
 

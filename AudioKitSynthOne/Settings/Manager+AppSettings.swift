@@ -77,9 +77,11 @@ extension Manager {
         envelopesPanel.filterSustainKnob.midiCC = MIDIByte(appSettings.filterSustainKnobCC)
         envelopesPanel.filterReleaseKnob.midiCC = MIDIByte(appSettings.filterReleaseKnobCC)
         envelopesPanel.filterADSRMixKnob.midiCC = MIDIByte(appSettings.filterADSRMixKnobCC)
+        envelopesPanel.adsrPitchTrackingKnob.midiCC = MIDIByte(appSettings.adsrPitchTrackingKnobCC)
 
         fxPanel.sampleRateKnob.midiCC = MIDIByte(appSettings.sampleRateCC)
         fxPanel.autoPanRateKnob.midiCC = MIDIByte(appSettings.autoPanRateCC)
+        fxPanel.autoPanAmountKnob.midiCC = MIDIByte(appSettings.autoPanAmountCC)
         fxPanel.reverbSizeKnob.midiCC = MIDIByte(appSettings.reverbSizeCC)
         fxPanel.reverbLowCutKnob.midiCC = MIDIByte(appSettings.reverbLowCutCC)
         fxPanel.reverbMixKnob.midiCC = MIDIByte(appSettings.reverbMixCC)
@@ -136,8 +138,7 @@ extension Manager {
         appSettings.glideKnobCC = Int(generatorsPanel.glideKnob.midiCC)
         appSettings.cutoffCC = Int(generatorsPanel.cutoff.midiCC)
         appSettings.resonanceCC = Int(generatorsPanel.resonance.midiCC)
-
-        /*
+        
         appSettings.arpIntervalCC = Int(sequencerPanel.arpInterval.midiCC)
         appSettings.arpSeqTempoMultiplierCC = Int(sequencerPanel.arpSeqTempoMultiplier.midiCC)
 
@@ -150,9 +151,11 @@ extension Manager {
         appSettings.filterSustainKnobCC = Int(envelopesPanel.filterSustainKnob.midiCC)
         appSettings.filterReleaseKnobCC = Int(envelopesPanel.filterReleaseKnob.midiCC)
         appSettings.filterADSRMixKnobCC = Int(envelopesPanel.filterADSRMixKnob.midiCC)
+        appSettings.adsrPitchTrackingKnobCC = Int(envelopesPanel.adsrPitchTrackingKnob.midiCC)
 
         appSettings.sampleRateCC = Int(fxPanel.sampleRateKnob.midiCC)
         appSettings.autoPanRateCC = Int(fxPanel.autoPanRateKnob.midiCC)
+        appSettings.autoPanAmountCC = Int(fxPanel.autoPanAmountKnob.midiCC)
         appSettings.reverbSizeCC = Int(fxPanel.reverbSizeKnob.midiCC)
         appSettings.reverbLowCutCC = Int(fxPanel.reverbLowCutKnob.midiCC)
         appSettings.reverbMixCC = Int(fxPanel.reverbMixKnob.midiCC)
@@ -167,8 +170,6 @@ extension Manager {
         appSettings.phaserRateCC = Int(fxPanel.phaserRateKnob.midiCC)
         appSettings.phaserFeedbackCC = Int(fxPanel.phaserFeedbackKnob.midiCC)
         appSettings.phaserNotchWidthCC = Int(fxPanel.phaserNotchWidthKnob.midiCC)
- 
- */
 
         // keyboard
         appSettings.labelMode = keyboardView.labelMode

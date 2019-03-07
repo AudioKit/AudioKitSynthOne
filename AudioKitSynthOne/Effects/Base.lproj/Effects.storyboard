@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="z6F-Nz-YPD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Onv-Ss-vTM">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_efx" translatesAutoresizingMaskIntoConstraints="NO" id="xYA-cQ-DC8">
@@ -914,7 +914,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
-                        <outlet property="autoPanAmountKnob" destination="k4S-ur-jlN" id="iEq-9N-igj"/>
+                        <outlet property="autoPanAmountKnob" destination="k4S-ur-jlN" id="xEA-yp-pt5"/>
                         <outlet property="autoPanRateKnob" destination="kGH-ee-74q" id="ffM-qM-WSj"/>
                         <outlet property="bitcrushLFOToggle" destination="IwM-Ac-pY5" id="zh6-Yw-fLh"/>
                         <outlet property="cutoffLFOToggle" destination="ls3-dM-OJs" id="yzG-tG-ogs"/>
@@ -965,7 +965,7 @@
                         <viewControllerLayoutGuide type="bottom" id="EeF-A8-tvc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IZy-qr-MOx">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPhone_FX" translatesAutoresizingMaskIntoConstraints="NO" id="S0F-nr-g2t">
@@ -1851,7 +1851,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
-                        <outlet property="autoPanAmountKnob" destination="nYi-hJ-kOz" id="xP1-6S-pd5"/>
+                        <outlet property="autoPanAmountKnob" destination="nYi-hJ-kOz" id="2FV-K5-zgw"/>
                         <outlet property="autoPanRateKnob" destination="gqR-pn-gVt" id="AAF-WV-2wR"/>
                         <outlet property="bitcrushLFOToggle" destination="SMi-yy-p4r" id="Uu4-A9-y82"/>
                         <outlet property="cutoffLFOToggle" destination="nhM-AQ-5uN" id="S2b-cd-Kfg"/>

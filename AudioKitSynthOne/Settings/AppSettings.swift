@@ -84,10 +84,12 @@ class AppSettings: Codable {
     var filterSustainKnobCC = 255
     var filterReleaseKnobCC = 255
     var filterADSRMixKnobCC = 255
+    var adsrPitchTrackingKnobCC = 255
 
     // fxController
     var sampleRateCC = 255
     var autoPanRateCC = 255
+    var autoPanAmountCC = 255
     var reverbSizeCC = 255
     var reverbLowCutCC = 255
     var reverbMixCC = 255
@@ -168,8 +170,9 @@ class AppSettings: Codable {
         filterAttackKnobCC = dictionary["filterAttackKnobCC"] as? Int ?? filterAttackKnobCC
         filterDecayKnobCC = dictionary["filterDecayKnobCC"] as? Int ?? filterDecayKnobCC
         filterSustainKnobCC = dictionary["filterSustainKnobCC"] as? Int ?? filterSustainKnobCC
-        filterReleaseKnobCC = dictionary[" filterReleaseKnobCC"] as? Int ?? filterReleaseKnobCC
-        filterADSRMixKnobCC = dictionary[" filterADSRMixKnobCC"] as? Int ?? filterADSRMixKnobCC
+        filterReleaseKnobCC = dictionary["filterReleaseKnobCC"] as? Int ?? filterReleaseKnobCC
+        filterADSRMixKnobCC = dictionary["filterADSRMixKnobCC"] as? Int ?? filterADSRMixKnobCC
+        adsrPitchTrackingKnobCC = dictionary["adsrPitchTrackingKnobCC"] as? Int ?? adsrPitchTrackingKnobCC
 
         sampleRateCC = dictionary["sampleRateCC"] as? Int ?? sampleRateCC
         delayTimeCC = dictionary["delayTimeCC"] as? Int ?? delayTimeCC
@@ -187,7 +190,9 @@ class AppSettings: Codable {
         reverbSizeCC = dictionary["reverbSizeCC"] as? Int ?? reverbSizeCC
         reverbLowCutCC = dictionary["reverbLowCutCC"] as? Int ?? reverbLowCutCC
         reverbMixCC = dictionary["reverbMixCC"] as? Int ?? reverbMixCC
-
+        autoPanRateCC = dictionary["autoPanRateCC"] as? Int ?? autoPanRateCC
+        autoPanAmountCC = dictionary["autoPanAmountCC"] as? Int ?? autoPanAmountCC
+        
         // Keyboard
         labelMode = dictionary["labelMode"] as? Int ?? labelMode
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange

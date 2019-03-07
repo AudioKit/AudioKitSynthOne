@@ -352,7 +352,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
 
         ///BITCRUSH
         float bitCrushOut = synthOut;
-        bitcrushIncr = sampleRate() / bitcrushSrate; //TODO:use live sample rate, not hard-coded
+        bitcrushIncr = sampleRate() / bitcrushSrate;
         if (bitcrushIncr < 1.f) bitcrushIncr = 1.f; // for the case where the audio engine samplerate > 44100 (i.e., 48000)
         if (bitcrushIndex <= bitcrushSampleIndex) {
             bitCrushOut = bitcrushValue = synthOut;

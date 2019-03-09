@@ -62,6 +62,7 @@ struct S1NoteState {
     sp_crossfade *filterCrossFade;
     
     inline float getParam(S1Parameter param);
+    inline int sampleRate() const;
 
     void init();
 

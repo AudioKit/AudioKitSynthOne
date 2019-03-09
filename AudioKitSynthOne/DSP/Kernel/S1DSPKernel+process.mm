@@ -160,7 +160,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
             // Compare previous arpTime to current to see if we crossed a beat boundary
             const double secPerBeat = 60.f * p[arpSeqTempoMultiplier] / p[arpRate];
             const double r0 = fmod(arpTime, secPerBeat);
-            arpTime = arpSampleCounter/S1_SAMPLE_RATE;
+            arpTime = arpSampleCounter/sampleRate();
             const double r1 = fmod(arpTime, secPerBeat);
             arpSampleCounter += 1.f;
 
@@ -352,7 +352,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
 
         ///BITCRUSH
         float bitCrushOut = synthOut;
-        bitcrushIncr = S1_SAMPLE_RATE / bitcrushSrate; //TODO:use live sample rate, not hard-coded
+        bitcrushIncr = sampleRate() / bitcrushSrate;
         if (bitcrushIncr < 1.f) bitcrushIncr = 1.f; // for the case where the audio engine samplerate > 44100 (i.e., 48000)
         if (bitcrushIndex <= bitcrushSampleIndex) {
             bitCrushOut = bitcrushValue = synthOut;
@@ -467,7 +467,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         float reverbWetL = 0.f;
         float reverbWetR = 0.f;
         reverbCostello->feedback = p[reverbFeedback];
-        reverbCostello->lpfreq = 0.5f * S1_SAMPLE_RATE;
+        reverbCostello->lpfreq = 0.5f * sampleRate();
         sp_revsc_compute(sp, reverbCostello, &butCompressOutL, &butCompressOutR, &reverbWetL, &reverbWetR);
 
         // compressor for wet reverb; like X2, FM

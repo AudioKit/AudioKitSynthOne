@@ -26,6 +26,10 @@ inline float S1NoteState::getParam(S1Parameter param) {
     return kernel->p[param];
 }
 
+inline int S1NoteState::sampleRate() const{
+    return kernel->sampleRate();
+}
+
 void S1NoteState::init() {
     // OSC AMPLITUDE ENVELOPE
     sp_adsr_create(&adsr);
@@ -169,7 +173,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     newFrequencyOsc1 *= nnToHz((int)getParam(morph1SemitoneOffset));
     newFrequencyOsc1 *= getParam(detuningMultiplier) * pitchLFOCoefficient;
     newFrequencyOsc1 *= pitchbendCoefficient;
-    newFrequencyOsc1 = clamp(newFrequencyOsc1, 0.f, 0.5f*S1_SAMPLE_RATE);
+    newFrequencyOsc1 = clamp(newFrequencyOsc1, 0.f, 0.5f * sampleRate());
     oscmorph1->freq = newFrequencyOsc1;
     
     //OSC1: wavetable
@@ -194,7 +198,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
         newFrequencyOsc2 += lfo3_0_1 * getParam(morph2Detuning) * magicDetune;
     else
         newFrequencyOsc2 += getParam(morph2Detuning) * magicDetune;
-    newFrequencyOsc2 = clamp(newFrequencyOsc2, 0.f, 0.5f*S1_SAMPLE_RATE);
+    newFrequencyOsc2 = clamp(newFrequencyOsc2, 0.f, 0.5f * sampleRate());
     oscmorph2->freq = newFrequencyOsc2;
 
     //OSC2: wavetable
@@ -207,7 +211,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     float newFrequencySub = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencySub;
     newFrequencySub *= getParam(detuningMultiplier) / (2.f * (1.f + getParam(subOctaveDown))) * pitchLFOCoefficient;
     newFrequencySub *= pitchbendCoefficient;
-    newFrequencySub = clamp(newFrequencySub, 0.f, 0.5f * S1_SAMPLE_RATE);
+    newFrequencySub = clamp(newFrequencySub, 0.f, 0.5f * sampleRate());
     subOsc->freq = newFrequencySub;
     
     //FM OSC FREQ
@@ -215,7 +219,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     float newFrequencyFM = isMonoMode ?kernel->monoFrequencySmooth :cachedFrequencyFM;
     newFrequencyFM *= getParam(detuningMultiplier) * pitchLFOCoefficient;
     newFrequencyFM *= pitchbendCoefficient;
-    newFrequencyFM = clamp(newFrequencyFM, 0.f, 0.5f * S1_SAMPLE_RATE);
+    newFrequencyFM = clamp(newFrequencyFM, 0.f, 0.5f * sampleRate());
     fmOsc->freq = newFrequencyFM;
     
     //FM LFO
@@ -282,7 +286,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     } else if (getParam(filterType) == 1) {
         // bandpass bandwidth is a different unit than lopass resonance.
         // take advantage of the range of resonance [0,1].
-        const float bandwidth = 0.0625f * S1_SAMPLE_RATE * (-1.f + exp2( clamp(1.f - filterResonance, 0.f, 1.f) ) );
+        const float bandwidth = 0.0625f * sampleRate() * (-1.f + exp2( clamp(1.f - filterResonance, 0.f, 1.f) ) );
         bandPass->bw = bandwidth;
     }
     

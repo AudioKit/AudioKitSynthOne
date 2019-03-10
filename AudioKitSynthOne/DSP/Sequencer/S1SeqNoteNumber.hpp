@@ -9,14 +9,4 @@
 struct SeqNoteNumber {
     int noteNumber;
     int onOff;
-
-    void init() {
-        noteNumber = 60;
-        onOff = 1;
-    }
-
-    void init(int nn, int o) {
-        noteNumber = nn;
-        onOff = o;
-    }
 };

@@ -95,12 +95,11 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                         // SEQUENCER
                         const int numSteps = params[arpTotalSteps] > 16 ? 16 : (int)params[arpTotalSteps];
                         for(int i = 0; i < numSteps; i++) {
-                            const float onOff = params[(S1Parameter)(i + sequencerNoteOn00)];
+                            const int onOff = params[(S1Parameter)(i + sequencerNoteOn00)];
                             const int octBoost = params[(S1Parameter)(i + sequencerOctBoost00)];
                             const int nn = params[(S1Parameter)(i + sequencerPattern00)] * npof;
                             const int nnob = (nn < 0) ? (nn - octBoost * notesPerOctave) : (nn + octBoost * notesPerOctave);
-                            struct SeqNoteNumber snn;
-                            snn.init(nnob, onOff);
+                            SeqNoteNumber snn{nnob, onOff};
                             sequencerNotes.push_back(snn);
                         }
                     } else {

@@ -22,8 +22,7 @@ struct Arpeggiator {
             for (int i = 0; i < heldNotesCount; i++) {
                 NoteNumber& note = sequencerNotes2[i];
                 const int nn = note.noteNumber + (octave * interval);
-                struct SeqNoteNumber snn;
-                snn.init(nn, 1);
+                SeqNoteNumber snn{nn,1};
                 std::vector<SeqNoteNumber>::iterator it = sequencerNotes.begin() + index;
                 sequencerNotes.insert(it, snn);
                 ++index;
@@ -45,8 +44,7 @@ struct Arpeggiator {
 
                 NoteNumber& note = sequencerNotes2[i];
                 const int nn = note.noteNumber + (octave * interval);
-                struct SeqNoteNumber snn;
-                snn.init(nn, 1);
+                SeqNoteNumber snn{nn,1};
                 std::vector<SeqNoteNumber>::iterator it = sequencerNotes.begin() + index;
                 sequencerNotes.insert(it, snn);
                 ++index;

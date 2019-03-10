@@ -63,6 +63,15 @@ public class Manager: UpdatableViewController {
     var isPhoneX = false
     var isLoaded = false
 
+    // Python code to generate whiteKeysOnlyMap:
+    // middleC = [60,60,61,61,62,63,63,64,64,65,65,66]
+    // delta = [x - 60 for x in middleC]
+    // w = [((60+7*math.floor((x-60)/12)) + delta[(x-60)%12]) for x in range(0,128) ]
+    // retVal = ""
+    // for x in range(0,128):
+    //    retVal += str((60+7*math.floor((x-60)/12)) + delta[(x-60)%12])
+    //    retVal += ", "
+    // print(retVal) # use this in Swift array declaration
     let whiteKeysOnlyMap: [MIDINoteNumber] = [
         25, 25, 26, 26, 27, 28, 28, 29, 29, 30, 30, 31,
         32, 32, 33, 33, 34, 35, 35, 36, 36, 37, 37, 38,

@@ -196,8 +196,7 @@ import AudioKit
                     let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                     let jsonResult = try decoder.decode(AKTable.self, from: data)
                     finalArray.append(jsonResult)
-                    let tt1 = Date.timeIntervalSinceReferenceDate - tt0
-
+                    //let tt1 = Date.timeIntervalSinceReferenceDate - tt0
                     //AKLog("wavetable \(fn) loaded in \(tt1)s")
                 } catch let error as NSError {
                     // FATAL

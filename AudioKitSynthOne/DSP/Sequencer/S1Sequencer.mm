@@ -50,9 +50,9 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
         mStepCounter = 0;
 
         // Turn OFF previous beat's notes
-        for (std::list<int>::iterator arpLastNotesIterator = sequencerLastNotes.begin(); arpLastNotesIterator != sequencerLastNotes.end(); ++arpLastNotesIterator) {
-            mTurnOffKey(*arpLastNotesIterator);
-        }
+        std::for_each(sequencerLastNotes.begin(), sequencerLastNotes.end(), [&] (const auto &note) {
+            mTurnOffKey(note);
+        });
         sequencerLastNotes.clear();
         
         mBeatCounterDidChange();
@@ -71,9 +71,9 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
         if ( firstTimeAnyKeysHeld || r1 < r0 ) {
             
             // Turn off previous beat's notes even if arp is off
-            for (std::list<int>::iterator arpLastNotesIterator = sequencerLastNotes.begin(); arpLastNotesIterator != sequencerLastNotes.end(); ++arpLastNotesIterator) {
-                mTurnOffKey(*arpLastNotesIterator);
-            }
+            std::for_each(sequencerLastNotes.begin(), sequencerLastNotes.end(), [&] (const auto &note) {
+                mTurnOffKey(note);
+            });
             sequencerLastNotes.clear();
             
             // ARP/SEQ is ON

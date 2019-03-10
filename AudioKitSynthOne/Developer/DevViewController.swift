@@ -15,6 +15,7 @@ protocol DevViewDelegate: AnyObject {
     func freezeDelayChanged(_ value: Bool)
     func freezeArpSeqChanged(_ value: Bool)
     func portamentoChanged(_ value: Double)
+    func whiteKeysOnlyChanged(_ value: Bool)
 }
 
 class DevViewController: UpdatableViewController {
@@ -119,6 +120,8 @@ class DevViewController: UpdatableViewController {
         conductor.bind(delayInputFilterCutoffFreqTrackingRatio, to: .delayInputCutoffTrackingRatio)
         conductor.bind(delayInputFilterResonance, to: .delayInputResonance)
 
+        // This is musically useful when you have a tempo you like and want
+        // to keep it as you browse presets
         // freeze arp rate, i.e., ignore Preset updates
         #if ABLETON_ENABLED_1
             let freezeIt = freezeArpRateValue || ABLLinkManager.shared.isConnected || ABLLinkManager.shared.isEnabled
@@ -143,6 +146,8 @@ class DevViewController: UpdatableViewController {
             self.delegate?.freezeReverbChanged(value == 1 ? true : false)
         }
 
+        // This is musically useful when you have an arp that you like and want to hear it
+        // when you browse presets:
         // freeze arp+sequencer: ignore Preset updates for the following parameters:
         // arpIsOn
         // arpIsSequencer
@@ -165,9 +170,8 @@ class DevViewController: UpdatableViewController {
             self.delegate?.portamentoChanged(value)
         }
 
-        // TODO: flesh this out
         whiteKeysOnly.callback = { value in
-            AKLog("whiteKeysOnly")
+            self.delegate?.whiteKeysOnlyChanged(value == 1 ? true : false)
         }
 
         setupLinkStuff()

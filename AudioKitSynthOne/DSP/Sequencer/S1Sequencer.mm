@@ -20,7 +20,9 @@ S1Sequencer::S1Sequencer(KeyOnCallback keyOnCb,
     mTurnOnKey(keyOnCb),
     mTurnOffKey(keyOffCb),
     mBeatCounterDidChange(beatChangedCb)
-    {}
+    {
+        static_assert(decltype(mStepCounter)::is_always_lock_free, "StepCounter not lockfree!");
+    }
 
 void S1Sequencer::init() {
     previousHeldNoteNumbersAECount = 0;
@@ -45,7 +47,7 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
     if ( arpSeqIsOn && (firstTimeNoKeysHeld || firstTimeAnyKeysHeld) ) {
         
         mBeatTime = 0; // reset internal beattime
-        mBeatCounterUi = 0;
+        mStepCounter = 0;
 
         // Turn OFF previous beat's notes
         for (std::list<int>::iterator arpLastNotesIterator = sequencerLastNotes.begin(); arpLastNotesIterator != sequencerLastNotes.end(); ++arpLastNotesIterator) {
@@ -138,8 +140,8 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                     if ( sequencerNotes.size() > 0 ) {
                         
                         // Advance arp/seq beatCounter, notify delegates
-                        const int seqNotePosition = mBeatCounterUi % sequencerNotes.size();
-                        ++mBeatCounterUi;
+                        mStepCounter.store(static_cast<int>(mBeatTime / params[arpSeqTempoMultiplier]));
+                        const int seqNotePosition = mStepCounter.load() % sequencerNotes.size();
                         mBeatCounterDidChange();
                         
                         //MARK: ARP+SEQ: turn ON the note of the sequence
@@ -186,7 +188,7 @@ void S1Sequencer::reserveNotes() {
 // Getter and Setter
 
 int S1Sequencer::getArpBeatCount() {
-    return mBeatCounterUi;
+    return mStepCounter.load();
 }
 
 

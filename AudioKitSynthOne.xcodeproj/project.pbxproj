@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */; };
+		69982DAC2230543B00281051 /* Sequencer in Resources */ = {isa = PBXBuildFile; fileRef = 69982DAB2230543B00281051 /* Sequencer */; };
+		69982DAE223056DA00281051 /* S1Sequencer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 69982DAD223056DA00281051 /* S1Sequencer.mm */; };
 		941645CD20B3597300D62851 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941645CC20B3597300D62851 /* NotificationService.swift */; };
 		941645D120B3597300D62851 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		941752BA20E2BD2E0076D953 /* Starter Bank.json in Resources */ = {isa = PBXBuildFile; fileRef = 941752B920E2BD2E0076D953 /* Starter Bank.json */; };
@@ -278,6 +280,8 @@
 		45E1A7C3C54D27427C4A71B1 /* Pods_AKS1Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKS1Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		69982DAB2230543B00281051 /* Sequencer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sequencer; sourceTree = "<group>"; };
+		69982DAD223056DA00281051 /* S1Sequencer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = S1Sequencer.mm; path = AudioKitSynthOne/DSP/Sequencer/S1Sequencer.mm; sourceTree = "<group>"; };
 		90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.release.xcconfig"; sourceTree = "<group>"; };
 		9405503A210556C20039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		9405503B210556C80039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
@@ -932,6 +936,7 @@
 				C435C55120C530C900DAECCD /* Conductor.swift */,
 				C435C55320C530C900DAECCD /* S1Parameter.h */,
 				C435C55620C530C900DAECCD /* SDSustainer.swift */,
+				69982DAB2230543B00281051 /* Sequencer */,
 				F482CBF52123CDE70093ADC8 /* BandlimitedWavetables */,
 				C435C56E20C530C900DAECCD /* Audio Unit */,
 				C435C57520C530C900DAECCD /* Kernel */,
@@ -1240,6 +1245,7 @@
 		C4D193BB1F1187B500FF4FE4 = {
 			isa = PBXGroup;
 			children = (
+				69982DAD223056DA00281051 /* S1Sequencer.mm */,
 				EA143DF8210A86DC00543E17 /* Dev.strings */,
 				C435C4D620C511DB00DAECCD /* README.md */,
 				C4D193C61F1187B500FF4FE4 /* AudioKitSynthOne */,
@@ -1533,6 +1539,7 @@
 				F482CC3E2123CDE70093ADC8 /* square_0042.json in Resources */,
 				F482CC422123CDE70093ADC8 /* sawtooth_0674.json in Resources */,
 				F482CC402123CDE70093ADC8 /* sawtooth_0337.json in Resources */,
+				69982DAC2230543B00281051 /* Sequencer in Resources */,
 				F482CC4B2123CDE70093ADC8 /* square_0168.json in Resources */,
 				C435C51F20C52D1700DAECCD /* Brice Beasley.json in Resources */,
 				F482CC3F2123CDE70093ADC8 /* pwm_0084.json in Resources */,
@@ -1849,6 +1856,7 @@
 				C4B490F520C6542500FD565A /* S1DSPKernel+parameters.mm in Sources */,
 				C4B4912220C7C65000FD565A /* ModWheelStyleKit.swift in Sources */,
 				C45DF29C21016A0E000AB3FD /* LinkExtensions.swift in Sources */,
+				69982DAE223056DA00281051 /* S1Sequencer.mm in Sources */,
 				C4B4918E20C7C7A400FD565A /* Manager+PresetsDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

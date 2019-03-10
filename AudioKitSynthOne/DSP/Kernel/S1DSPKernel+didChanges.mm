@@ -21,7 +21,7 @@ void S1DSPKernel::dependentParameterDidChange(DependentParameter param) {
 
 //can be called from within the render loop
 void S1DSPKernel::beatCounterDidChange() {
-    S1ArpBeatCounter retVal = {arpBeatCounter, heldNoteNumbersAE.count};
+    S1ArpBeatCounter retVal = {sequencer.getArpBeatCount(), heldNoteNumbersAE.count};
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
                                               audioUnit,
                                               @selector(arpBeatCounterDidChange:),

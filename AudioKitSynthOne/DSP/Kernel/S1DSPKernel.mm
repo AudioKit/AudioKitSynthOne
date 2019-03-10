@@ -5,13 +5,21 @@
 //  Created by AudioKit Contributors on 1/27/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
+#include <functional>
 
 #import <AudioKit/AudioKit-swift.h>
+#import "../Sequencer/S1ArpModes.hpp"
 #import "S1DSPKernel.hpp"
 #import "AEArray.h"
 #import "S1NoteState.hpp"
 
-S1DSPKernel::S1DSPKernel() {}
+using namespace std::placeholders;
+
+S1DSPKernel::S1DSPKernel() :
+    sequencer(std::bind(std::mem_fn<void(int, int)>(&S1DSPKernel::turnOnKey), this, _1, _2),
+              std::bind(std::mem_fn<void(int)>(&S1DSPKernel::turnOffKey), this, _1),
+              std::bind(std::bind(&S1DSPKernel::beatCounterDidChange, this))) {
+}
 
 S1DSPKernel::~S1DSPKernel() = default;
 
@@ -86,7 +94,8 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
         noteNumber->transpose = 0; // held notes transpose is unused
         return noteNumber;
     }];
-    previousHeldNoteNumbersAECount = 0;
+    sequencer.setSampleRate(_sampleRate);
+    sequencer.init();
 
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
         sp_port_create(&s1p[i].portamento);
@@ -156,9 +165,7 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
     loPassInputDelayR->res = getSynthParameter(delayInputResonance);
 
     // Reserve arp note cache to reduce possibility of reallocation on audio thread.
-    sequencerNotes.reserve(maxSequencerNotes);
-    sequencerNotes2.reserve(maxSequencerNotes);
-    sequencerLastNotes.resize(maxSequencerNotes);
+    sequencer.init();
 
     initializedNoteStates = false;
     aePlayingNotes.polyphony = S1_MAX_POLYPHONY;

@@ -7,6 +7,7 @@
 //
 
 #import <AudioKit/AudioKit-swift.h>
+#import "../Sequencer/S1ArpModes.hpp"
 #import "S1DSPKernel.hpp"
 #import "AEArray.h"
 #import "S1NoteState.hpp"
@@ -88,7 +89,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         if (p[isMono] != previousProcessMonoPolyStatus ) {
             previousProcessMonoPolyStatus = p[isMono];
             reset(); // clears all mono and poly notes
-            sequencerLastNotes.clear();
+            sequencer.reset(true);
         }
 
         //MARK: LFO
@@ -132,190 +133,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
         lfo3_1_0 = 0.5f * (lfo1_1_0 + lfo2_1_0);
 
-        /// MARK: ARPEGGIATOR + SEQUENCER BEGIN
-        const int heldNoteNumbersAECount = heldNoteNumbersAE.count;
-        const BOOL arpSeqIsOn = (p[arpIsOn] == 1.f);
-        const BOOL firstTimeAnyKeysHeld = (previousHeldNoteNumbersAECount == 0 && heldNoteNumbersAECount > 0);
-        const BOOL firstTimeNoKeysHeld = (heldNoteNumbersAECount == 0 && previousHeldNoteNumbersAECount > 0);
-
-        // reset arp/seq when user goes from 0 to N, or N to 0 held keys
-        if ( arpSeqIsOn && (firstTimeNoKeysHeld || firstTimeAnyKeysHeld) ) {
-
-            arpTime = 0;
-            arpSampleCounter = 0;
-            arpBeatCounter = 0;
-
-            // Turn OFF previous beat's notes
-            for (std::list<int>::iterator arpLastNotesIterator = sequencerLastNotes.begin(); arpLastNotesIterator != sequencerLastNotes.end(); ++arpLastNotesIterator) {
-                turnOffKey(*arpLastNotesIterator);
-            }
-            sequencerLastNotes.clear();
-
-            beatCounterDidChange();
-        }
-
-        // If arp is ON, or if previous beat's notes need to be turned OFF
-        if ( arpSeqIsOn || sequencerLastNotes.size() > 0 ) {
-
-            // Compare previous arpTime to current to see if we crossed a beat boundary
-            const double secPerBeat = 60.f * p[arpSeqTempoMultiplier] / p[arpRate];
-            const double r0 = fmod(arpTime, secPerBeat);
-            arpTime = arpSampleCounter/sampleRate();
-            const double r1 = fmod(arpTime, secPerBeat);
-            arpSampleCounter += 1.f;
-
-            // If keys are now held, or if beat boundary was crossed
-            if ( firstTimeAnyKeysHeld || r1 < r0 ) {
-
-                // Turn off previous beat's notes even if arp is off
-                for (std::list<int>::iterator arpLastNotesIterator = sequencerLastNotes.begin(); arpLastNotesIterator != sequencerLastNotes.end(); ++arpLastNotesIterator) {
-                    turnOffKey(*arpLastNotesIterator);
-                }
-                sequencerLastNotes.clear();
-
-                // ARP/SEQ is ON
-                if (arpSeqIsOn) {
-
-                    // Held Notes
-                    if (heldNoteNumbersAECount > 0) {
-                        // Create Arp/Seq array based on held notes and/or sequence parameters
-                        sequencerNotes.clear();
-                        sequencerNotes2.clear();
-
-                        // Only update "notes per octave" when beat counter changes so sequencerNotes and sequencerLastNotes match
-                        notesPerOctave = (int)AKPolyphonicNode.tuningTable.npo;
-                        if (notesPerOctave <= 0) notesPerOctave = 12;
-                        const float npof = (float)notesPerOctave/12.f; // 12ET ==> npof = 1
-
-                        if ( p[arpIsSequencer] == 1.f ) {
-
-                            // SEQUENCER
-                            const int numSteps = p[arpTotalSteps] > 16 ? 16 : (int)p[arpTotalSteps];
-                            for(int i = 0; i < numSteps; i++) {
-                                const float onOff = p[(S1Parameter)(i + sequencerNoteOn00)];
-                                const int octBoost = p[(S1Parameter)(i + sequencerOctBoost00)];
-                                const int nn = p[(S1Parameter)(i + sequencerPattern00)] * npof;
-                                const int nnob = (nn < 0) ? (nn - octBoost * notesPerOctave) : (nn + octBoost * notesPerOctave);
-                                struct SeqNoteNumber snn;
-                                snn.init(nnob, onOff);
-                                sequencerNotes.push_back(snn);
-                            }
-                        } else {
-
-                            // ARPEGGIATOR
-                            AEArrayEnumeratePointers(heldNoteNumbersAE, NoteNumber *, note) {
-                                std::vector<NoteNumber>::iterator it = sequencerNotes2.begin();
-                                sequencerNotes2.insert(it, *note);
-                            }
-                            const int heldNotesCount = (int)sequencerNotes2.size();
-                            const int arpIntervalUp = p[arpInterval] * npof;
-                            const int onOff = 1;
-                            const int arpOctaves = (int)p[arpOctave] + 1;
-                            const auto arpMode = static_cast<ArpegiatorMode>(p[arpDirection]);
-
-                            if (arpMode == ArpegiatorMode::Up) {
-
-                                // Up
-                                int index = 0;
-                                for (int octave = 0; octave < arpOctaves; octave++) {
-                                    for (int i = 0; i < heldNotesCount; i++) {
-                                        NoteNumber& note = sequencerNotes2[i];
-                                        const int nn = note.noteNumber + (octave * arpIntervalUp);
-                                        struct SeqNoteNumber snn;
-                                        snn.init(nn, onOff);
-                                        std::vector<SeqNoteNumber>::iterator it = sequencerNotes.begin() + index;
-                                        sequencerNotes.insert(it, snn);
-                                        ++index;
-                                    }
-                                }
-                            } else if (arpMode == ArpegiatorMode::UpDown) {
-
-                                //Up
-                                int index = 0;
-                                for (int octave = 0; octave < arpOctaves; octave++) {
-                                    for (int i = 0; i < heldNotesCount; i++) {
-                                        NoteNumber& note = sequencerNotes2[i];
-                                        const int nn = note.noteNumber + (octave * arpIntervalUp);
-                                        struct SeqNoteNumber snn;
-                                        snn.init(nn, onOff);
-                                        std::vector<SeqNoteNumber>::iterator it = sequencerNotes.begin() + index;
-                                        sequencerNotes.insert(it, snn);
-                                        ++index;
-                                    }
-                                }
-                                //Down, minus head and tail
-                                for (int octave = arpOctaves - 1; octave >= 0; octave--) {
-                                    for (int i = heldNotesCount - 1; i >= 0; i--) {
-                                        const bool firstNote = (i == heldNotesCount - 1) && (octave == arpOctaves - 1);
-                                        const bool lastNote = (i == 0) && (octave == 0);
-                                        if (!firstNote && !lastNote) {
-                                            NoteNumber& note = sequencerNotes2[i];
-                                            const int nn = note.noteNumber + (octave * arpIntervalUp);
-                                            struct SeqNoteNumber snn;
-                                            snn.init(nn, onOff);
-                                            std::vector<SeqNoteNumber>::iterator it = sequencerNotes.begin() + index;
-                                            sequencerNotes.insert(it, snn);
-                                            ++index;
-                                        }
-                                    }
-                                }
-                            } else if (arpMode == ArpegiatorMode::Down) {
-
-                                // ARP Down
-                                int index = 0;
-                                for (int octave = arpOctaves - 1; octave >= 0; octave--) {
-                                    for (int i = heldNotesCount - 1; i >= 0; i--) {
-                                        NoteNumber& note = sequencerNotes2[i];
-                                        const int nn = note.noteNumber + (octave * arpIntervalUp);
-                                        struct SeqNoteNumber snn;
-                                        snn.init(nn, onOff);
-                                        std::vector<SeqNoteNumber>::iterator it = sequencerNotes.begin() + index;
-                                        sequencerNotes.insert(it, snn);
-                                        ++index;
-                                    }
-                                }
-                            }
-                        }
-
-                        // At least one key is held down, and a non-empty sequence has been created
-                        if ( sequencerNotes.size() > 0 ) {
-
-                            // Advance arp/seq beatCounter, notify delegates
-                            const int seqNotePosition = arpBeatCounter % sequencerNotes.size();
-                            ++arpBeatCounter;
-                            beatCounterDidChange();
-
-                            //MARK: ARP+SEQ: turn ON the note of the sequence
-                            SeqNoteNumber& snn = sequencerNotes[seqNotePosition];
-
-                            if (p[arpIsSequencer] == 1.f) {
-
-                                // SEQUENCER
-                                if (snn.onOff == 1) {
-                                    AEArrayEnumeratePointers(heldNoteNumbersAE, NoteNumber *, noteStruct) {
-                                        const int baseNote = noteStruct->noteNumber;
-                                        const int note = baseNote + snn.noteNumber;
-                                        if (note >= 0 && note < S1_NUM_MIDI_NOTES) {
-                                            turnOnKey(note, 127); //TODO: Add ARP/SEQ Velocity
-                                            sequencerLastNotes.push_back(note);
-                                        }
-                                    }
-                                }
-                            } else {
-
-                                // ARPEGGIATOR
-                                const int note = snn.noteNumber;
-                                if (note >= 0 && note < S1_NUM_MIDI_NOTES) {
-                                    turnOnKey(note, 127); //TODO: Add ARP/SEQ velocity
-                                    sequencerLastNotes.push_back(note);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        previousHeldNoteNumbersAECount = heldNoteNumbersAECount;
+        sequencer.process(p, heldNoteNumbersAE);
 
         /// MARK: ARPEGGIATOR + SEQUENCER END
 

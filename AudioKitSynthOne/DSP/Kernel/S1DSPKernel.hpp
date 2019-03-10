@@ -18,6 +18,7 @@
 #import "S1AudioUnit.h"
 #import "S1Parameter.h"
 #import "S1Rate.hpp"
+#import "../Sequencer/S1Sequencer.hpp"
 
 @class AEArray;
 @class AEMessageQueue;
@@ -33,6 +34,7 @@
 #ifdef __cplusplus
 
 struct S1NoteState;
+class S1Sequencer;
 using DSPParameters = std::array<float, S1Parameter::S1ParameterCount>;
 using NoteStateArray = std::array<S1NoteState, S1_MAX_POLYPHONY>;
 
@@ -154,6 +156,7 @@ public:
 
 private:
 
+    S1Sequencer sequencer;
     // moved the private functions to try to get rid of errors, I don't think we need to be that worried about privacy
 
 public:
@@ -267,13 +270,6 @@ private:
         float portamentoTarget;
     };
 
-    // Arpegiator Modes
-    enum struct ArpegiatorMode : int {
-        Up = 0,
-        UpDown = 1,
-        Down = 2
-    };
-
     // array of struct S1NoteState of count MAX_POLYPHONY
     std::unique_ptr<NoteStateArray> noteStates;
     
@@ -323,16 +319,8 @@ private:
     float bitcrushSampleIndex = 0.f;
     float bitcrushValue = 0.f;
 
-    // Arp/Seq
+    // Count samples to limit main thread notification
     double processSampleCounter = 0;
-    double arpSampleCounter = 0;
-    double arpTime = 0;
-    int notesPerOctave = 12;
-    
-    ///once init'd: sequencerNotes can be accessed and mutated only within process and resetDSP
-    std::vector<SeqNoteNumber> sequencerNotes;
-    std::vector<NoteNumber> sequencerNotes2;
-    const int maxSequencerNotes = 1024; // 128 midi note numbers * 4 arp octaves * up+down
     
     ///once init'd: sequencerLastNotes can be accessed and mutated only within process and resetDSP
     std::list<int> sequencerLastNotes;
@@ -340,7 +328,6 @@ private:
     // Array of midi note numbers of NoteState's which have had a noteOn event but not yet a noteOff event.
     NSMutableArray<NSNumber*>* heldNoteNumbers;
     AEArray* heldNoteNumbersAE;
-    int previousHeldNoteNumbersAECount; // previous render loop held key count
 
     // These expressions come from Rate.swift which is used for beat sync
     const float minutesPerSecond = 1.f / 60.f;

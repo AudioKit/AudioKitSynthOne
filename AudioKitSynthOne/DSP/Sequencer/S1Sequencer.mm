@@ -44,10 +44,9 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
     // reset arp/seq when user goes from 0 to N, or N to 0 held keys
     if ( arpSeqIsOn && (firstTimeNoKeysHeld || firstTimeAnyKeysHeld) ) {
         
-        arpTime = 0;
-        arpSampleCounter = 0;
-        arpBeatCounter = 0;
-        
+        mBeatTime = 0; // reset internal beattime
+        mBeatCounterUi = 0;
+
         // Turn OFF previous beat's notes
         for (std::list<int>::iterator arpLastNotesIterator = sequencerLastNotes.begin(); arpLastNotesIterator != sequencerLastNotes.end(); ++arpLastNotesIterator) {
             mTurnOffKey(*arpLastNotesIterator);
@@ -60,12 +59,11 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
     // If arp is ON, or if previous beat's notes need to be turned OFF
     if ( arpSeqIsOn || sequencerLastNotes.size() > 0 ) {
         
-        // Compare previous arpTime to current to see if we crossed a beat boundary
-        const double secPerBeat = 60.f * params[arpSeqTempoMultiplier] / params[arpRate];
-        const double r0 = fmod(arpTime, secPerBeat);
-        arpTime = arpSampleCounter/mSampleRate;
-        const double r1 = fmod(arpTime, secPerBeat);
-        arpSampleCounter += 1.f;
+        // Compare previous beatTime to current to see if we crossed a beat boundary
+        const auto newBeatTime = mBeatTime + (params[arpRate] / 60.f) / mSampleRate;
+        const double r0 = fmod(mBeatTime, params[arpSeqTempoMultiplier]);
+        mBeatTime = newBeatTime;
+        const double r1 = fmod(mBeatTime, params[arpSeqTempoMultiplier]);
         
         // If keys are now held, or if beat boundary was crossed
         if ( firstTimeAnyKeysHeld || r1 < r0 ) {
@@ -140,8 +138,8 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                     if ( sequencerNotes.size() > 0 ) {
                         
                         // Advance arp/seq beatCounter, notify delegates
-                        const int seqNotePosition = arpBeatCounter % sequencerNotes.size();
-                        ++arpBeatCounter;
+                        const int seqNotePosition = mBeatCounterUi % sequencerNotes.size();
+                        ++mBeatCounterUi;
                         mBeatCounterDidChange();
                         
                         //MARK: ARP+SEQ: turn ON the note of the sequence
@@ -188,7 +186,7 @@ void S1Sequencer::reserveNotes() {
 // Getter and Setter
 
 int S1Sequencer::getArpBeatCount() {
-    return arpBeatCounter;
+    return mBeatCounterUi;
 }
 
 

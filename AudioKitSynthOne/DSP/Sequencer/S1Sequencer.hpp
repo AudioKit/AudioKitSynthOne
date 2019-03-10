@@ -45,10 +45,9 @@ private:
     // Array of midi note numbers of NoteState's which have had a noteOn event but not yet a noteOff event.
     int previousHeldNoteNumbersAECount; // previous render loop held key count
 
-    // Arp Counter
-    double arpSampleCounter = 0;
-    double arpTime = 0;
-    int arpBeatCounter = 0;
+    // Beattime Counter
+    double mBeatTime = 0;
+    int mBeatCounterUi = 0;
 
     ///once init'd: sequencerNotes can be accessed and mutated only within process and resetDSP
     std::vector<SeqNoteNumber> sequencerNotes;

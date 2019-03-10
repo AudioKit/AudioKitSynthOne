@@ -116,17 +116,21 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
 
                         switch(arpMode) {
                             case ArpeggiatorMode::Up: {
-                                Arpeggiator::up(sequencerNotes, sequencerNotes2, heldNotesCount, arpOctaves, arpIntervalUp);
+                                Arpeggiator<decltype(sequencerNotes), decltype(sequencerNotes2)>::up(
+                                     sequencerNotes, sequencerNotes2, heldNotesCount, arpOctaves, arpIntervalUp);
                                 break;
                             }
                             case ArpeggiatorMode::UpDown: {
-                                int index = Arpeggiator::up(sequencerNotes, sequencerNotes2, heldNotesCount, arpOctaves, arpIntervalUp);
+                                int index = Arpeggiator<decltype(sequencerNotes), decltype(sequencerNotes2)>::up(
+                                    sequencerNotes, sequencerNotes2, heldNotesCount, arpOctaves, arpIntervalUp);
                                 const bool noTail = true;
-                                Arpeggiator::down(sequencerNotes, sequencerNotes2, heldNotesCount, arpOctaves, arpIntervalUp, noTail, index);
+                                Arpeggiator<decltype(sequencerNotes), decltype(sequencerNotes2)>::down(
+                                    sequencerNotes, sequencerNotes2, heldNotesCount, arpOctaves, arpIntervalUp, noTail, index);
                                 break;
                             }
                             case ArpeggiatorMode::Down: {
-                                Arpeggiator::down(sequencerNotes, sequencerNotes2, heldNotesCount, arpOctaves, arpIntervalUp, false);
+                                Arpeggiator<decltype(sequencerNotes), decltype(sequencerNotes2)>::down(
+                                    sequencerNotes, sequencerNotes2, heldNotesCount, arpOctaves, arpIntervalUp, false);
                                 break;
                             }
                         }

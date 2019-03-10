@@ -46,8 +46,8 @@ void S1NoteState::init() {
     oscmorph1->amp = 0;
     oscmorph1->wtpos = 0;
     oscmorph1->enableBandlimit = getParam(oscBandlimitEnable);
-    oscmorph1->bandlimitIndexOverride = getParam(oscBandlimitIndexOverride);
-    
+    oscmorph1->bandlimitIndexOverride = -1;
+
     // OSC2
     sp_oscmorph2d_create(&oscmorph2);
     sp_oscmorph2d_init(kernel->spp(), oscmorph2, kernel->ft_array, S1_NUM_WAVEFORMS, S1_NUM_BANDLIMITED_FTABLES, kernel->ft_frequencyBand, 0);
@@ -55,7 +55,7 @@ void S1NoteState::init() {
     oscmorph2->amp = 0;
     oscmorph2->wtpos = 0;
     oscmorph2->enableBandlimit = getParam(oscBandlimitEnable);
-    oscmorph2->bandlimitIndexOverride = getParam(oscBandlimitIndexOverride);
+    oscmorph2->bandlimitIndexOverride = -1;
 
     // CROSSFADE OSC1 and OSC2
     sp_crossfade_create(&morphCrossFade);
@@ -179,7 +179,6 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     //OSC1: wavetable
     oscmorph1->wtpos = getParam(index1);
     oscmorph1->enableBandlimit = getParam(oscBandlimitEnable);
-    oscmorph1->bandlimitIndexOverride = getParam(oscBandlimitIndexOverride);
 
     //OSC2 frequency
     const float cachedFrequencyOsc2 = oscmorph2->freq;
@@ -204,7 +203,6 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     //OSC2: wavetable
     oscmorph2->wtpos = getParam(index2);
     oscmorph2->enableBandlimit = getParam(oscBandlimitEnable);
-    oscmorph2->bandlimitIndexOverride = getParam(oscBandlimitIndexOverride);
 
     //SUB OSC FREQ
     const float cachedFrequencySub = subOsc->freq;

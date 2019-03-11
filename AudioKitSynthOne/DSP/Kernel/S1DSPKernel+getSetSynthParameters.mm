@@ -15,7 +15,7 @@ float S1DSPKernel::getSynthParameter(S1Parameter param) {
     if (s.usePortamento)
         return s.portamentoTarget;
     else
-        return p[param];
+        return parameters[param];
 }
 
 void S1DSPKernel::_setSynthParameter(S1Parameter param, float inputValue) {
@@ -24,7 +24,7 @@ void S1DSPKernel::_setSynthParameter(S1Parameter param, float inputValue) {
     if (s.usePortamento) {
         s.portamentoTarget = value;
     } else {
-        p[param] = value;
+        parameters[param] = value;
     }
 }
 
@@ -59,11 +59,11 @@ void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bool noti
     }
 
     // lfo1Rate, lfo2Rate, autoPanFrequency
-    if (p[tempoSyncToArpRate] > 0.f) {
+    if (parameters[tempoSyncToArpRate] > 0.f) {
         // tempo sync
         if (parameter == lfo1Rate || parameter == lfo2Rate || parameter == autoPanFrequency) {
             const float value = clampedValue(parameter, inputValue);
-            S1RateArgs syncdValue = _rate.nearestFrequency(value, p[arpRate], minimum(parameter), maximum(parameter));
+            S1RateArgs syncdValue = _rate.nearestFrequency(value, parameters[arpRate], minimum(parameter), maximum(parameter));
             _setSynthParameter(parameter, syncdValue.value);
             DependentParameter outputDP = {S1Parameter::S1ParameterCount, 0.f, 0.f, 0};
             switch(parameter) {
@@ -84,7 +84,7 @@ void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bool noti
             }
         } else if (parameter == delayTime) {
             const float value = clampedValue(parameter, inputValue);
-            S1RateArgs syncdValue = _rate.nearestTime(value, p[arpRate], minimum(parameter), maximum(parameter));
+            S1RateArgs syncdValue = _rate.nearestTime(value, parameters[arpRate], minimum(parameter), maximum(parameter));
             _setSynthParameter(parameter, syncdValue.value);
             _delayTime = {parameter, 1.f - syncdValue.value01, syncdValue.value, payload};
             if (notifyMainThread) {
@@ -94,7 +94,7 @@ void S1DSPKernel::_rateHelper(S1Parameter parameter, float inputValue, bool noti
     } else {
         // no tempo sync
         _setSynthParameter(parameter, inputValue);
-        const float val = p[parameter];
+        const float val = parameters[parameter];
         const float min = minimum(parameter);
         const float max = maximum(parameter);
         const float val01 = clamp((val - min) / (max - min), 0.f, 1.f);

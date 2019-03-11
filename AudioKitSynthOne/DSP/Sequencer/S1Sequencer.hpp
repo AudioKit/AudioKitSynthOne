@@ -47,7 +47,7 @@ private:
 
     // Beattime Counter
     double mBeatTime = 0;
-    int mBeatCounterUi = 0;
+    std::atomic<int> mStepCounter = 0;
 
     ///once init'd: sequencerNotes can be accessed and mutated only within process and resetDSP
     std::vector<SeqNoteNumber> sequencerNotes;

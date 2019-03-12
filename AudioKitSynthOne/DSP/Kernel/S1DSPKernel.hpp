@@ -44,8 +44,13 @@ class S1DSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
 
 public:
     
-    S1DSPKernel();
-    
+    S1DSPKernel(int _channels, double _sampleRate);
+
+    // Dont allow default construction, copying or moving of Kernel.
+    S1DSPKernel() = delete;
+    S1DSPKernel(S1DSPKernel&&) = delete;
+    S1DSPKernel(const S1DSPKernel&) = delete;
+
     ~S1DSPKernel();
 
     // public accessor for protected sp

@@ -15,16 +15,20 @@
 
 using namespace std::placeholders;
 
-S1DSPKernel::S1DSPKernel() :
+S1DSPKernel::S1DSPKernel(int _channels, double _sampleRate) :
     sequencer(std::bind(std::mem_fn<void(int, int)>(&S1DSPKernel::turnOnKey), this, _1, _2),
               std::bind(std::mem_fn<void(int)>(&S1DSPKernel::turnOffKey), this, _1),
-              std::bind(std::bind(&S1DSPKernel::beatCounterDidChange, this))) {
+              std::bind(std::bind(&S1DSPKernel::beatCounterDidChange, this))),
+    AKSoundpipeKernel(_channels, _sampleRate),
+{
+    init(_channels, _sampleRate);
 }
 
 S1DSPKernel::~S1DSPKernel() = default;
 
 void S1DSPKernel::init(int _channels, double _sampleRate) {
-    AKSoundpipeKernel::init(_channels, _sampleRate);
+    sp->sr = _sampleRate;
+    sp->nchan = _channels;
     sp_ftbl_create(sp, &sine, S1_FTABLE_SIZE);
     sp_gen_sine(sp, sine);
     sp_phasor_create(&lfo1Phasor);

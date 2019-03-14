@@ -192,7 +192,7 @@ import AudioKit
         for fn in finalFileNames {
             if let path = Bundle.main.path(forResource: fn, ofType: "json") {
                 do {
-                    let tt0 = Date.timeIntervalSinceReferenceDate
+                    //let tt0 = Date.timeIntervalSinceReferenceDate
                     let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                     let jsonResult = try decoder.decode(AKTable.self, from: data)
                     finalArray.append(jsonResult)

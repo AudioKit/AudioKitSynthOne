@@ -133,8 +133,8 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
         lfo3_1_0 = 0.5f * (lfo1_1_0 + lfo2_1_0);
 
+        /// MARK: ARPEGGIATOR + SEQUENCER BEGIN
         sequencer.process(p, heldNoteNumbersAE);
-
         /// MARK: ARPEGGIATOR + SEQUENCER END
 
         /// MONO

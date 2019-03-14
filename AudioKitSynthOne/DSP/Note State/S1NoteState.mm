@@ -111,12 +111,13 @@ void S1NoteState::clear() {
 }
 
 // helper...supports initialization of playing note for both mono and poly
-void S1NoteState::startNoteHelper(int noteNumber, int velocity, float frequency) {
+void S1NoteState::startNoteHelper(int noteNumber, int vel, float frequency) {
     oscmorph1->freq = frequency;
     oscmorph2->freq = frequency;
     subOsc->freq = frequency;
     fmOsc->freq = frequency;
-    
+
+    velocity = vel;
     const float amplitude = (float)pow2(velocity / 127.f);
     oscmorph1->amp = amplitude;
     oscmorph2->amp = amplitude;
@@ -299,18 +300,8 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     float finalOut = 0.f;
     
     // osc amp adsr
+    // amp was used to init the generators and is now be used for the adsr factor
     sp_adsr_compute(kernel->spp(), adsr, &internalGate, &amp);
-
-    // adsr pitch tracking
-    const float pitch = log2(newFrequencyOsc1 > 0 ? newFrequencyOsc1 : 261.f);
-    const float ymin = 6.f;
-    const float ymax = 11.f;
-    const float kt0 = (pitch - ymin)/(ymax-ymin);
-    float kt1 = 1.f - clamp(kt0, 0.f, 1.f);
-    kt1 *= kt1;
-    const float ktfloor = 1.f - getParam(adsrPitchTracking); // ??
-    const float kt2 = ((1.f-ktfloor) * kt1) + ktfloor;
-    amp *= kt2;
 
     // filter cutoff adsr
     sp_adsr_compute(kernel->spp(), fadsr, &internalGate, &filter);
@@ -377,9 +368,19 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
         noise_out *= lfo2_1_0;
     else if (getParam(noiseLFO) == 3.f)
         noise_out *= lfo3_1_0;
-    
+
+    // adsr pitch tracking
+    const float pitch = log2(newFrequencyOsc1 > 0 ? newFrequencyOsc1 : 261.f);
+    const float ymin = 6.f;
+    const float ymax = 11.f;
+    const float kt0 = (pitch - ymin)/(ymax-ymin);
+    float kt1 = 1.f - clamp(kt0, 0.f, 1.f);
+    kt1 *= kt1;
+    const float ktfloor = 1.f - getParam(adsrPitchTracking); // ??
+    const float kt2 = ((1.f-ktfloor) * kt1) + ktfloor;
+
     //synthOut
-    float synthOut = amp * (osc_morph_out + subOsc_out + fmOsc_out + noise_out);
+    float synthOut = amp * kt2 * (osc_morph_out + subOsc_out + fmOsc_out + noise_out);
 
     //filterOut:  Always calcuate all filters so when user switches the buffers are up-to-date.
     float moogOut;

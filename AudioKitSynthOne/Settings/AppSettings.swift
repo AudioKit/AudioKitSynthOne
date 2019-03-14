@@ -208,6 +208,5 @@ class AppSettings: Codable {
         // State
         currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex
         currentPresetIndex = dictionary["currentPresetIndex"] as? Int ?? currentPresetIndex
-        velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
     }
 }

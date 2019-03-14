@@ -37,6 +37,7 @@ void S1Sequencer::reset(bool resetNotes) {
 }
 
 void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
+    
     /// MARK: ARPEGGIATOR + SEQUENCER BEGIN
     const int heldNoteNumbersAECount = heldNoteNumbersAE.count;
     const BOOL arpSeqIsOn = (params[arpIsOn] == 1.f);
@@ -99,7 +100,9 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                             const int octBoost = params[(S1Parameter)(i + sequencerOctBoost00)];
                             const int nn = params[(S1Parameter)(i + sequencerPattern00)] * npof;
                             const int nnob = (nn < 0) ? (nn - octBoost * notesPerOctave) : (nn + octBoost * notesPerOctave);
-                            SeqNoteNumber snn{nnob, onOff};
+
+                            // sequencer note velocity is assigned below when constructed sequence is played
+                            SeqNoteNumber snn{nnob, onOff, 127};
                             sequencerNotes.push_back(snn);
                         }
                     } else {
@@ -154,8 +157,9 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                                 AEArrayEnumeratePointers(heldNoteNumbersAE, NoteNumber *, noteStruct) {
                                     const int baseNote = noteStruct->noteNumber;
                                     const int note = baseNote + snn.noteNumber;
+                                    const int velocity = noteStruct->velocity;
                                     if (note >= 0 && note < S1_NUM_MIDI_NOTES) {
-                                        mTurnOnKey(note, 127); //TODO: Add ARP/SEQ Velocity
+                                        mTurnOnKey(note, velocity);
                                         sequencerLastNotes.push_back(note);
                                     }
                                 }
@@ -164,8 +168,9 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                             
                             // ARPEGGIATOR
                             const int note = snn.noteNumber;
+                            const int velocity = snn.velocity;
                             if (note >= 0 && note < S1_NUM_MIDI_NOTES) {
-                                mTurnOnKey(note, 127); //TODO: Add ARP/SEQ velocity
+                                mTurnOnKey(note, velocity);
                                 sequencerLastNotes.push_back(note);
                             }
                         }

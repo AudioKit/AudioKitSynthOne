@@ -86,12 +86,12 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
 
     monoNote = std::make_unique<S1NoteState>();
 
-    heldNoteNumbers = (NSMutableArray<NSNumber*>*)[NSMutableArray array];
+    heldNoteNumbers = (NSMutableArray<NSValue*>*)[NSMutableArray array];
     heldNoteNumbersAE = [[AEArray alloc] initWithCustomMapping:^void *(id item) {
-        const int nn = [(NSNumber*)item intValue];
+        //TODO: Marcus: pretty sure this leaks
         NoteNumber* noteNumber = (NoteNumber*)malloc(sizeof(NoteNumber));
-        noteNumber->noteNumber = nn;
-        noteNumber->transpose = 0; // held notes transpose is unused
+        NSValue* value = (NSValue*)item;
+        [value getValue:noteNumber];
         return noteNumber;
     }];
     sequencer.setSampleRate(_sampleRate);

@@ -64,7 +64,7 @@
 - (NSArray<NSNumber*> *)parameters {
     NSMutableArray *temp = [NSMutableArray arrayWithCapacity:S1Parameter::S1ParameterCount];
     for (int i = 0; i < S1Parameter::S1ParameterCount; i++) {
-        [temp setObject:[NSNumber numberWithFloat:_kernel.p[i]] atIndexedSubscript:i];
+        [temp setObject:[NSNumber numberWithFloat:_kernel.parameters[i]] atIndexedSubscript:i];
     }
     return [NSArray arrayWithArray:temp];
 }
@@ -176,7 +176,7 @@
     }
     _outputBusBuffer.allocateRenderResources(self.maximumFramesToRender);
     if (self.musicalContextBlock) { _musicalContext = self.musicalContextBlock; }
-    auto parameters = _kernel.p;
+    auto parameters = _kernel.parameters;
     _kernel.init(self.outputBus.format.channelCount, self.outputBus.format.sampleRate);
     _kernel.reset();
     _kernel.restoreValues(parameters);

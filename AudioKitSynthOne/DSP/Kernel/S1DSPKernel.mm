@@ -114,16 +114,16 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
             sp_port_init(sp, s1p[i].portamento, value);
             s1p[i].portamento->htime = S1_PORTAMENTO_HALF_TIME;
         }
-        p[i] = value;
+        parameters[i] = value;
     }
-    updatePortamento(p[portamentoHalfTime]);
+    updatePortamento(parameters[portamentoHalfTime]);
     _lfo1Rate = {S1Parameter::lfo1Rate, getDependentParameter(lfo1Rate), getSynthParameter(lfo1Rate),0};
     _lfo2Rate = {S1Parameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};
     _autoPanRate = {S1Parameter::autoPanFrequency, getDependentParameter(autoPanFrequency), getSynthParameter(autoPanFrequency),0};
     _delayTime = {S1Parameter::delayTime, getDependentParameter(delayTime),getSynthParameter(delayTime),0};
     _arpSeqTempoMultiplier = {S1Parameter::arpSeqTempoMultiplier, getDependentParameter(arpSeqTempoMultiplier), getSynthParameter(arpSeqTempoMultiplier),0};
 
-    previousProcessMonoPolyStatus = p[isMono];
+    previousProcessMonoPolyStatus = parameters[isMono];
     *phaser0->MinNotch1Freq = 100;
     *phaser0->MaxNotch1Freq = 800;
     *phaser0->Notch_width = 1000;

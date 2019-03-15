@@ -20,6 +20,9 @@ S1DSPKernel::S1DSPKernel(int _channels, double _sampleRate) :
               std::bind(std::mem_fn<void(int)>(&S1DSPKernel::turnOffKey), this, _1),
               std::bind(std::bind(&S1DSPKernel::beatCounterDidChange, this))),
     AKSoundpipeKernel(_channels, _sampleRate),
+    mCompMaster(sp, &parameters),
+    mCompReverbWet(sp, &parameters),
+    mCompReverbIn(sp, &parameters)
 {
     init(_channels, _sampleRate);
 }
@@ -70,18 +73,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sp_crossfade_create(&revCrossfadeR);
     sp_crossfade_init(sp, revCrossfadeL);
     sp_crossfade_init(sp, revCrossfadeR);
-    sp_compressor_create(&compressorMasterL);
-    sp_compressor_init(sp, compressorMasterL);
-    sp_compressor_create(&compressorMasterR);
-    sp_compressor_init(sp, compressorMasterR);
-    sp_compressor_create(&compressorReverbInputL);
-    sp_compressor_init(sp, compressorReverbInputL);
-    sp_compressor_create(&compressorReverbInputR);
-    sp_compressor_init(sp, compressorReverbInputR);
-    sp_compressor_create(&compressorReverbWetL);
-    sp_compressor_init(sp, compressorReverbWetL);
-    sp_compressor_create(&compressorReverbWetR);
-    sp_compressor_init(sp, compressorReverbWetR);
+
     sp_delay_create(&widenDelay);
     sp_delay_init(sp, widenDelay, 0.05f);
     widenDelay->feedback = 0.f;
@@ -137,31 +129,6 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
     *phaser0->feedback_gain = 0;
     *phaser0->invert = 0;
     *phaser0->lfobpm = 30;
-
-    *compressorMasterL->ratio = getSynthParameter(compressorMasterRatio);
-    *compressorMasterR->ratio = getSynthParameter(compressorMasterRatio);
-    *compressorReverbInputL->ratio = getSynthParameter(compressorReverbInputRatio);
-    *compressorReverbInputR->ratio = getSynthParameter(compressorReverbInputRatio);
-    *compressorReverbWetL->ratio = getSynthParameter(compressorReverbWetRatio);
-    *compressorReverbWetR->ratio = getSynthParameter(compressorReverbWetRatio);
-    *compressorMasterL->thresh = getSynthParameter(compressorMasterThreshold);
-    *compressorMasterR->thresh = getSynthParameter(compressorMasterThreshold);
-    *compressorReverbInputL->thresh = getSynthParameter(compressorReverbInputThreshold);
-    *compressorReverbInputR->thresh = getSynthParameter(compressorReverbInputThreshold);
-    *compressorReverbWetL->thresh = getSynthParameter(compressorReverbWetThreshold);
-    *compressorReverbWetR->thresh = getSynthParameter(compressorReverbWetThreshold);
-    *compressorMasterL->atk = getSynthParameter(compressorMasterAttack);
-    *compressorMasterR->atk = getSynthParameter(compressorMasterAttack);
-    *compressorReverbInputL->atk = getSynthParameter(compressorReverbInputAttack);
-    *compressorReverbInputR->atk = getSynthParameter(compressorReverbInputAttack);
-    *compressorReverbWetL->atk = getSynthParameter(compressorReverbWetAttack);
-    *compressorReverbWetR->atk = getSynthParameter(compressorReverbWetAttack);
-    *compressorMasterL->rel = getSynthParameter(compressorMasterRelease);
-    *compressorMasterR->rel = getSynthParameter(compressorMasterRelease);
-    *compressorReverbInputL->rel = getSynthParameter(compressorReverbInputRelease);
-    *compressorReverbInputR->rel = getSynthParameter(compressorReverbInputRelease);
-    *compressorReverbWetL->rel = getSynthParameter(compressorReverbWetRelease);
-    *compressorReverbWetR->rel = getSynthParameter(compressorReverbWetRelease);
 
     loPassInputDelayL->freq = getSynthParameter(cutoff);
     loPassInputDelayL->res = getSynthParameter(delayInputResonance);

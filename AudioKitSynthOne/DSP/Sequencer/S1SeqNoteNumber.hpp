@@ -9,4 +9,5 @@
 struct SeqNoteNumber {
     int noteNumber;
     int onOff;
+    int velocity;
 };

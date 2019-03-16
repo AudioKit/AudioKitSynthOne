@@ -32,9 +32,19 @@ void S1DSPKernel::startNote(int noteNumber, int velocity, float frequency) {
     if (noteNumber < 0 || noteNumber >= S1_NUM_MIDI_NOTES)
         return;
 
-    NSNumber* nn = @(noteNumber);
-    [heldNoteNumbers removeObject:nn];
-    [heldNoteNumbers insertObject:nn atIndex:0];
+    NoteNumber existingNote;
+    for(int i = 0; i < heldNoteNumbers.count; i++) {
+        NSValue* value = heldNoteNumbers[i];
+        [value getValue:&existingNote];
+        if(existingNote.noteNumber == noteNumber) {
+            [heldNoteNumbers removeObjectAtIndex:i];
+            break;
+        }
+    }
+
+    NoteNumber note = {noteNumber, (int)parameters[transpose], velocity};
+    NSValue *value = [NSValue valueWithBytes:&note objCType:@encode(NoteNumber)];
+    [heldNoteNumbers insertObject:value atIndex:0];
     [heldNoteNumbersAE updateWithContentsOfArray:heldNoteNumbers];
 
     // the tranpose feature leads to the override the AKPolyphonicNode::startNote frequency
@@ -54,8 +64,19 @@ void S1DSPKernel::stopNote(int noteNumber) {
     if (noteNumber < 0 || noteNumber >= S1_NUM_MIDI_NOTES)
         return;
 
-    NSNumber* nn = @(noteNumber);
-    [heldNoteNumbers removeObject: nn];
+    NSInteger index = -1;
+    NoteNumber existingNote;
+    for(int i = 0; i < heldNoteNumbers.count; i++) {
+        NSValue* value = heldNoteNumbers[i];
+        [value getValue:&existingNote];
+        if(existingNote.noteNumber == noteNumber) {
+            index = i;
+            break;
+        }
+    }
+    if(index != -1)
+        [heldNoteNumbers removeObjectAtIndex:index];
+
     [heldNoteNumbersAE updateWithContentsOfArray: heldNoteNumbers];
 
     // ARP/SEQ

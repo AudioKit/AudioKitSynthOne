@@ -20,30 +20,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
     float* outR = (float*)outBufferListPtr->mBuffers[1].mData + bufferOffset;
 
     // currently UI is visible in DEV panel only so can't be portamento
-    *compressorMasterL->ratio = parameters[compressorMasterRatio];
-    *compressorMasterR->ratio = parameters[compressorMasterRatio];
-    *compressorReverbInputL->ratio = parameters[compressorReverbInputRatio];
-    *compressorReverbInputR->ratio = parameters[compressorReverbInputRatio];
-    *compressorReverbWetL->ratio = parameters[compressorReverbWetRatio];
-    *compressorReverbWetR->ratio = parameters[compressorReverbWetRatio];
-    *compressorMasterL->thresh = parameters[compressorMasterThreshold];
-    *compressorMasterR->thresh = parameters[compressorMasterThreshold];
-    *compressorReverbInputL->thresh = parameters[compressorReverbInputThreshold];
-    *compressorReverbInputR->thresh = parameters[compressorReverbInputThreshold];
-    *compressorReverbWetL->thresh = parameters[compressorReverbWetThreshold];
-    *compressorReverbWetR->thresh = parameters[compressorReverbWetThreshold];
-    *compressorMasterL->atk = parameters[compressorMasterAttack];
-    *compressorMasterR->atk = parameters[compressorMasterAttack];
-    *compressorReverbInputL->atk = parameters[compressorReverbInputAttack];
-    *compressorReverbInputR->atk = parameters[compressorReverbInputAttack];
-    *compressorReverbWetL->atk = parameters[compressorReverbWetAttack];
-    *compressorReverbWetR->atk = parameters[compressorReverbWetAttack];
-    *compressorMasterL->rel = parameters[compressorMasterRelease];
-    *compressorMasterR->rel = parameters[compressorMasterRelease];
-    *compressorReverbInputL->rel = parameters[compressorReverbInputRelease];
-    *compressorReverbInputR->rel = parameters[compressorReverbInputRelease];
-    *compressorReverbWetL->rel = parameters[compressorReverbWetRelease];
-    *compressorReverbWetR->rel = parameters[compressorReverbWetRelease];
+
 
     /// transition playing notes from release to off
     if (parameters[isMono] > 0.f) {
@@ -133,8 +110,8 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
         lfo3_1_0 = 0.5f * (lfo1_1_0 + lfo2_1_0);
 
+        /// MARK: ARPEGGIATOR + SEQUENCER BEGIN
         sequencer.process(parameters, heldNoteNumbersAE);
-
         /// MARK: ARPEGGIATOR + SEQUENCER END
 
         /// MONO
@@ -276,10 +253,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         butOutR *= 2.f;
         float butCompressOutL = 0.f;
         float butCompressOutR = 0.f;
-        sp_compressor_compute(sp, compressorReverbInputL, &butOutL, &butCompressOutL);
-        sp_compressor_compute(sp, compressorReverbInputR, &butOutR, &butCompressOutR);
-        butCompressOutL *= parameters[compressorReverbInputMakeupGain];
-        butCompressOutR *= parameters[compressorReverbInputMakeupGain];
+        mCompReverbIn.compute(butOutL, butOutR, butCompressOutL, butCompressOutR);
 
         // REVERB
         float reverbWetL = 0.f;
@@ -291,10 +265,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         // compressor for wet reverb; like X2, FM
         float wetReverbLimiterL = reverbWetL;
         float wetReverbLimiterR = reverbWetR;
-        sp_compressor_compute(sp, compressorReverbWetL, &reverbWetL, &wetReverbLimiterL);
-        sp_compressor_compute(sp, compressorReverbWetR, &reverbWetR, &wetReverbLimiterR);
-        wetReverbLimiterL *= parameters[compressorReverbWetMakeupGain];
-        wetReverbLimiterR *= parameters[compressorReverbWetMakeupGain];
+        mCompReverbWet.compute(reverbWetL, reverbWetR, wetReverbLimiterL, wetReverbLimiterR);
 
         // crossfade wet reverb with wet+dry delay
         float reverbCrossfadeOutL = 0.f;
@@ -319,12 +290,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         float compressorOutR = reverbCrossfadeOutR;
 
         // MASTER COMPRESSOR TOGGLE: 0 = no compressor, 1 = compressor
-        sp_compressor_compute(sp, compressorMasterL, &reverbCrossfadeOutL, &compressorOutL);
-        sp_compressor_compute(sp, compressorMasterR, &reverbCrossfadeOutR, &compressorOutR);
-
-        // Makeup Gain on Master Compressor
-        compressorOutL *= parameters[compressorMasterMakeupGain];
-        compressorOutR *= parameters[compressorMasterMakeupGain];
+        mCompMaster.compute(reverbCrossfadeOutL, reverbCrossfadeOutR, compressorOutL, compressorOutR);
 
         // WIDEN: constant delay with no filtering, so functionally equivalent to being inside master
         float widenOutR = 0.f;

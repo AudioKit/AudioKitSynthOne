@@ -369,7 +369,7 @@ public class TuningsPitchWheelOverlayView: UIView {
                       pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
 
             for playingNote in na where playingNote.noteNumber != -1 {
-                let v = 2 * playingNote.amplitude
+                let v = 2 * Double(playingNote.velocity)/127
                 if v > 0 {
                     var nn = playingNote.noteNumber + playingNote.transpose
                     nn -= Int32(AKPolyphonicNode.tuningTable.middleCNoteNumber)
@@ -382,7 +382,7 @@ public class TuningsPitchWheelOverlayView: UIView {
                     let pitch = masterPitch[Int(nn)]
 
                     // LINE
-                    let vv = powf(playingNote.amplitude, 0.25)
+                    let vv = powf(Float(playingNote.velocity)/127, 0.25)
                     TuningsPitchWheelView.color(forPitch: pitch,
                                                 saturation: 0.36,
                                                 brightness: 1,

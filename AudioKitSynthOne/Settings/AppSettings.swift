@@ -39,6 +39,10 @@ class AppSettings: Codable {
     var portamentoHalfTime = 0.1 // global portamento HALFTIME for dsp params that are smoothed
     var bufferLengthRawValue = 9 // 512 // was 7 
 
+    // This is musically useful when you:
+    // 1) don't want a preset to have a specific tuning
+    // 2) You want to hold the tuning constant while you browse presets.
+    //
     //Settings: "Save Tuning Panel w/Presets" -> saveTuningWithPreset = True/False
     //True means: "DO load preset's tuning (nil = reset current tuning to 12et) when preset is loaded.
     //DO save current tuning (12et = nil) when preset is saved"
@@ -111,6 +115,7 @@ class AppSettings: Codable {
     var octaveRange = 2
     var darkMode = false
     var showKeyboard = 1.0 // 1 show, 0 hide
+    var whiteKeysOnly = false
 
     // Save State
     var currentBankIndex = 0
@@ -198,10 +203,10 @@ class AppSettings: Codable {
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
         darkMode = dictionary["darkMode"] as? Bool ?? darkMode
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
+        whiteKeysOnly = dictionary["whiteKeysOnly"] as? Bool ?? false
 
         // State
         currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex
         currentPresetIndex = dictionary["currentPresetIndex"] as? Int ?? currentPresetIndex
-        velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
     }
 }

@@ -19,12 +19,12 @@ extension Manager: AKMIDIListener {
             DispatchQueue.main.async {
                 self.keyboardView.pressAdded(noteNumber, velocity: newVelocity)
                 self.notesFromMIDI.insert(noteNumber)
-                AKLog("keybboard:pressAdded: noteNumber: \(noteNumber), velocity:\(velocity) ASYNC")
+                //AKLog("keybboard:pressAdded: noteNumber: \(noteNumber), velocity:\(velocity) ASYNC")
             }
         } else {
             keyboardView.pressAdded(noteNumber, velocity: newVelocity)
             notesFromMIDI.insert(noteNumber)
-            AKLog("keybboard:pressAdded: noteNumber: \(noteNumber), velocity:\(velocity) SYNC")
+            //AKLog("keybboard:pressAdded: noteNumber: \(noteNumber), velocity:\(velocity) SYNC")
         }
     }
 
@@ -82,6 +82,7 @@ extension Manager: AKMIDIListener {
                 sustainer.sustain(down: false)
                 sustainMode = false
             }
+            // need to replace SDSustain with dsp sustain using this CC
             AKLog("value:\(value), sustainMode:\(sustainMode)")
 
         default:
@@ -165,7 +166,7 @@ extension Manager: AKMIDIListener {
 
             let newMIDI = MIDIInput(name: inputName, isOpen: true)
             midiInputs.append(newMIDI)
-            AudioKit.midi.openInput(inputName)
+            AudioKit.midi.openInput(name: inputName)
         }
     }
 

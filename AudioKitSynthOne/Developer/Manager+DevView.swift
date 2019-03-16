@@ -42,4 +42,9 @@ extension Manager: DevViewDelegate {
         appSettings.portamentoHalfTime = value
         Conductor.sharedInstance.updateDisplayLabel("dsp smoothing half time: \(value.decimalString)")
     }
+
+    func whiteKeysOnlyChanged(_ value: Bool) {
+        appSettings.whiteKeysOnly = value
+        Conductor.sharedInstance.updateDisplayLabel("White Keys Only: \(value == false ? "false" : "true")")
+    }
 }

@@ -27,7 +27,7 @@ float S1DSPKernel::getDependentParameter(S1Parameter parameter) {
         default:printf("error\n");break;
     }
 
-    if (p[tempoSyncToArpRate] > 0.f) {
+    if (parameters[tempoSyncToArpRate] > 0.f) {
         return dp.normalizedValue;
     } else {
         return taper01Inverse(dp.normalizedValue, S1_DEPENDENT_PARAM_TAPER);
@@ -41,7 +41,7 @@ void S1DSPKernel::setDependentParameter(S1Parameter param, float inputValue01, i
     switch(param) {
 
         case lfo1Rate: case lfo2Rate: case autoPanFrequency:
-            if (p[tempoSyncToArpRate] > 0.f) {
+            if (parameters[tempoSyncToArpRate] > 0.f) {
                 // tempo sync
                 AKSynthOneRate rate = _rate.rateFromFrequency01(inputValue01);
                 const float val = _rate.frequency(getSynthParameter(arpRate), rate);
@@ -57,11 +57,11 @@ void S1DSPKernel::setDependentParameter(S1Parameter param, float inputValue01, i
             break;
 
         case delayTime:
-            if (p[tempoSyncToArpRate] > 0.f) {
+            if (parameters[tempoSyncToArpRate] > 0.f) {
                 // tempo sync
                 const float valInvert = 1.f - inputValue01;
                 AKSynthOneRate rate = _rate.rateFromTime01(valInvert);
-                const float val = _rate.time(p[arpRate], rate);
+                const float val = _rate.time(parameters[arpRate], rate);
                 _setSynthParameterHelper(delayTime, val, notify, payload);
             } else {
                 // no tempo sync

@@ -23,7 +23,7 @@ static inline float nnToHz(float noteNumber) {
 // MARK: Member Functions
 
 inline float S1NoteState::getParam(S1Parameter param) {
-    return kernel->p[param];
+    return kernel->parameters[param];
 }
 
 inline int S1NoteState::sampleRate() const{

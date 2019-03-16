@@ -184,7 +184,7 @@ public:
     int arpBeatCounter = 0;
     
     /// dsp params
-    DSPParameters p;
+    DSPParameters parameters;
     
     // Portamento values
     float monoFrequency = 440.f * exp2((60.f - 69.f)/12.f);

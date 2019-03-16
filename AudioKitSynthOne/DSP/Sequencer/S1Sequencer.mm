@@ -100,7 +100,7 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                             const int nn = params[(S1Parameter)(i + sequencerPattern00)] * npof;
                             const int nnob = (nn < 0) ? (nn - octBoost * notesPerOctave) : (nn + octBoost * notesPerOctave);
                             SeqNoteNumber snn{nnob, onOff};
-                            sequencerNotes.push_back(snn);
+                            sequencerNotes.push_back(std::move(snn));
                         }
                     } else {
                         

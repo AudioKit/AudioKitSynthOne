@@ -20,7 +20,7 @@
 typedef struct NoteNumber {
     int noteNumber;
     int transpose;
-    float amplitude;
+    int velocity;
 } NoteNumber;
 
 // helper for render/main thread communication:

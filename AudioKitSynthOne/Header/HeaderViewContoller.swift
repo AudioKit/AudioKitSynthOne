@@ -344,13 +344,6 @@ public class HeaderViewController: UpdatableViewController {
             displayLabel.text = "Master Frequency at A4: \(s.getSynthParameter(.frequencyA4).decimalString)"
         case .portamentoHalfTime:
             displayLabel.text = "Portamento Half-time: \(s.getSynthParameter(.portamentoHalfTime).decimalString)"
-        case .oscBandlimitIndexOverride:
-            let oblio = s.getSynthParameter(.oscBandlimitIndexOverride)
-            if oblio == -1 {
-                displayLabel.text = "oscBandlimitIndexOverride: OFF"
-            } else {
-                displayLabel.text = "oscBandlimitIndexOverride: \(oblio)"
-            }
         case .oscBandlimitEnable:
             let obe = s.getSynthParameter(.oscBandlimitEnable) > 0 ? "On" : "Off"
             displayLabel.text = "Anti-Aliasing: \(obe)"

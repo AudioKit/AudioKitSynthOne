@@ -239,23 +239,6 @@ private:
     
     ///can be called from within the render loop
     void heldNotesDidChange();
-
-    // helper for arp/seq
-    struct SeqNoteNumber {
-
-        int noteNumber;
-        int onOff;
-
-        void init() {
-            noteNumber = 60;
-            onOff = 1;
-        }
-
-        void init(int nn, int o) {
-            noteNumber = nn;
-            onOff = o;
-        }
-    };
     
     struct S1ParameterInfo {
         S1Parameter parameter;
@@ -324,9 +307,10 @@ private:
     
     ///once init'd: sequencerLastNotes can be accessed and mutated only within process and resetDSP
     std::list<int> sequencerLastNotes;
+
     
     // Array of midi note numbers of NoteState's which have had a noteOn event but not yet a noteOff event.
-    NSMutableArray<NSNumber*>* heldNoteNumbers;
+    NSMutableArray<NSValue*>* heldNoteNumbers;
     AEArray* heldNoteNumbersAE;
 
     // These expressions come from Rate.swift which is used for beat sync
@@ -493,7 +477,7 @@ private:
         { frequencyA4,  410, 440, 470, "frequencyA4", "frequencyA4", kAudioUnitParameterUnit_Hertz, false, NULL},
         { portamentoHalfTime, 0.000001, 0.1, 0.99, "portamentoHalfTime", "portamentoHalfTime", kAudioUnitParameterUnit_Generic, false, NULL },
 
-        /* -1 = no override, else = index into bandlimited wavetable */
+        /* DEPRECATED -1 = no override, else = index into bandlimited wavetable */
         { oscBandlimitIndexOverride, -1, -1, (S1_NUM_BANDLIMITED_FTABLES-1), "oscBandlimitIndexOverride", "oscBandlimitIndexOverride", kAudioUnitParameterUnit_Generic, false, NULL },
         { oscBandlimitEnable, 0, 0, 1, "oscBandlimitEnable", "oscBandlimitEnable", kAudioUnitParameterUnit_Generic, false, NULL},
 

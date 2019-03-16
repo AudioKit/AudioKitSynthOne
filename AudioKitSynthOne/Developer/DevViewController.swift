@@ -15,6 +15,7 @@ protocol DevViewDelegate: AnyObject {
     func freezeDelayChanged(_ value: Bool)
     func freezeArpSeqChanged(_ value: Bool)
     func portamentoChanged(_ value: Double)
+    func whiteKeysOnlyChanged(_ value: Bool)
 }
 
 class DevViewController: UpdatableViewController {
@@ -55,11 +56,11 @@ class DevViewController: UpdatableViewController {
     @IBOutlet weak var freezeArpSeq: ToggleButton!
     var freezeArpSeqValue = false
 
+    @IBOutlet weak var whiteKeysOnly: ToggleButton!
+    var whiteKeysOnlyValue = false
+    
     @IBOutlet weak var portamento: Knob!
     var portamentoHalfTime = 0.1
-
-    @IBOutlet weak var oscBandlimitIndexOverrideKnob: Knob!
-    @IBOutlet weak var oscBandlimitEnable: ToggleButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,6 +120,8 @@ class DevViewController: UpdatableViewController {
         conductor.bind(delayInputFilterCutoffFreqTrackingRatio, to: .delayInputCutoffTrackingRatio)
         conductor.bind(delayInputFilterResonance, to: .delayInputResonance)
 
+        // This is musically useful when you have a tempo you like and want
+        // to keep it as you browse presets
         // freeze arp rate, i.e., ignore Preset updates
         #if ABLETON_ENABLED_1
             let freezeIt = freezeArpRateValue || ABLLinkManager.shared.isConnected || ABLLinkManager.shared.isEnabled
@@ -143,6 +146,8 @@ class DevViewController: UpdatableViewController {
             self.delegate?.freezeReverbChanged(value == 1 ? true : false)
         }
 
+        // This is musically useful when you have an arp that you like and want to hear it
+        // when you browse presets:
         // freeze arp+sequencer: ignore Preset updates for the following parameters:
         // arpIsOn
         // arpIsSequencer
@@ -165,10 +170,9 @@ class DevViewController: UpdatableViewController {
             self.delegate?.portamentoChanged(value)
         }
 
-        //
-        oscBandlimitIndexOverrideKnob.range = s.getRange(.oscBandlimitIndexOverride)
-        conductor.bind(oscBandlimitIndexOverrideKnob, to: .oscBandlimitIndexOverride)
-        conductor.bind(oscBandlimitEnable, to: .oscBandlimitEnable)
+        whiteKeysOnly.callback = { value in
+            self.delegate?.whiteKeysOnlyChanged(value == 1 ? true : false)
+        }
 
         setupLinkStuff()
     }

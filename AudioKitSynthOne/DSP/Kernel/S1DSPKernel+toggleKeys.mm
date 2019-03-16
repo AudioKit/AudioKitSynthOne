@@ -111,9 +111,17 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
             // the case where you had more than one held note and released one (CACA): Keep note ON and set to freq of head
             AEArrayToken token = AEArrayGetToken(heldNoteNumbersAE);
             NoteNumber* nn = (NoteNumber*)AEArrayGetItem(token, 0);
+
+            // This logic is in S1NoteState::startNoteHelper...need a common function
             const int headNN = nn->noteNumber;
             monoNote->rootNoteNumber = headNN;
             monoNote->transpose = (int)parameters[transpose];
+            monoNote->velocity = nn->velocity;
+            monoNote->amp = (float)pow2(nn->velocity / 127.f);
+            monoNote->oscmorph1->amp = monoNote->amp;
+            monoNote->oscmorph2->amp = monoNote->amp;
+            monoNote->subOsc->amp = monoNote->amp;
+            monoNote->fmOsc->amp = monoNote->amp;
             monoFrequency = tuningTableNoteToHz(headNN + (int)parameters[transpose]);
             monoNote->oscmorph1->freq = monoFrequency;
             monoNote->oscmorph2->freq = monoFrequency;

@@ -157,7 +157,7 @@ typedef AK_ENUM(S1Parameter) {
     frequencyA4 = 143,
     portamentoHalfTime = 144,
 
-    oscBandlimitIndexOverride = 145,
+    oscBandlimitIndexOverride = 145, // deprecated
     oscBandlimitEnable = 146,
 
     arpSeqTempoMultiplier = 147,

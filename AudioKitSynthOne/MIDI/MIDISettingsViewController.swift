@@ -258,9 +258,9 @@ extension MIDISettingsViewController: UITableViewDelegate {
 
         // Open / Close MIDI Input
         if midiInput.isOpen {
-            AudioKit.midi.openInput(midiInput.name)
+            AudioKit.midi.openInput(name: midiInput.name)
         } else {
-            AudioKit.midi.closeInput(midiInput.name)
+            AudioKit.midi.closeInput(name: midiInput.name)
         }
 
         delegate?.didChangeMIDISources(midiSources)

@@ -63,7 +63,7 @@ void S1DSPKernel::setParameter(AUParameterAddress address, AUValue value) {
 
 AUValue S1DSPKernel::getParameter(AUParameterAddress address) {
     const int i = (S1Parameter)address;
-    return p[i];
+    return parameters[i];
 }
 
 void S1DSPKernel::startRamp(AUParameterAddress address, AUValue value, AUAudioFrameCount duration) {}

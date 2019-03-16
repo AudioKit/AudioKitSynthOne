@@ -32,18 +32,15 @@ void S1DSPKernel::startNote(int noteNumber, int velocity, float frequency) {
     if (noteNumber < 0 || noteNumber >= S1_NUM_MIDI_NOTES)
         return;
 
-    NSInteger index = -1;
     NoteNumber existingNote;
     for(int i = 0; i < heldNoteNumbers.count; i++) {
         NSValue* value = heldNoteNumbers[i];
         [value getValue:&existingNote];
         if(existingNote.noteNumber == noteNumber) {
-            index = i;
+            [heldNoteNumbers removeObjectAtIndex:i];
             break;
         }
     }
-    if(index != -1)
-        [heldNoteNumbers removeObjectAtIndex:index];
 
     NoteNumber note = {noteNumber, (int)p[transpose], velocity};
     NSValue *value = [NSValue valueWithBytes:&note objCType:@encode(NoteNumber)];

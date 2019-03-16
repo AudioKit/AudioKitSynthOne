@@ -101,9 +101,8 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                             const int nn = params[(S1Parameter)(i + sequencerPattern00)] * npof;
                             const int nnob = (nn < 0) ? (nn - octBoost * notesPerOctave) : (nn + octBoost * notesPerOctave);
 
-                            // sequencer note velocity is assigned below when constructed sequence is played
-                            SeqNoteNumber snn{nnob, onOff, 127};
-                            sequencerNotes.push_back(snn);
+                            // sequencer note velocity is reassigned below when constructed sequence is played
+                            sequencerNotes.push_back({nnob, onOff, 127});
                         }
                     } else {
                         

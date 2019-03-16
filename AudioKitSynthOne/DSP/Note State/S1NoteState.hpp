@@ -29,10 +29,20 @@ struct S1NoteState {
     NoteStateStage stage = stageOff;
     
     float internalGate = 0;
+
+    // velocity stores the original velocity...not used in "process"
+    int velocity;
+
+    // amp is a transform of velocity and is used in "process"
     float amp = 0;
+
     float filter = 0;
-    int rootNoteNumber = 0; // -1 denotes an invalid note number
-    int transpose = 0; // used for frequency look up and UI
+
+    // -1 denotes an invalid note number
+    int rootNoteNumber = 0;
+
+    // used for frequency look up and UI
+    int transpose = 0;
     
     //Amplitude ADSR
     sp_adsr *adsr;

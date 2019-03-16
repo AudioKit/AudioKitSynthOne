@@ -239,23 +239,6 @@ private:
     
     ///can be called from within the render loop
     void heldNotesDidChange();
-
-    // helper for arp/seq
-    struct SeqNoteNumber {
-
-        int noteNumber;
-        int onOff;
-
-        void init() {
-            noteNumber = 60;
-            onOff = 1;
-        }
-
-        void init(int nn, int o) {
-            noteNumber = nn;
-            onOff = o;
-        }
-    };
     
     struct S1ParameterInfo {
         S1Parameter parameter;
@@ -324,9 +307,10 @@ private:
     
     ///once init'd: sequencerLastNotes can be accessed and mutated only within process and resetDSP
     std::list<int> sequencerLastNotes;
+
     
     // Array of midi note numbers of NoteState's which have had a noteOn event but not yet a noteOff event.
-    NSMutableArray<NSNumber*>* heldNoteNumbers;
+    NSMutableArray<NSValue*>* heldNoteNumbers;
     AEArray* heldNoteNumbersAE;
 
     // These expressions come from Rate.swift which is used for beat sync

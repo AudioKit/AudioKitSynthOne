@@ -19,6 +19,7 @@
 #import "S1Parameter.h"
 #import "S1Rate.hpp"
 #import "../Sequencer/S1Sequencer.hpp"
+#import "S1DSPCompressor.hpp"
 
 @class AEArray;
 @class AEMessageQueue;
@@ -44,8 +45,13 @@ class S1DSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
 
 public:
     
-    S1DSPKernel();
-    
+    S1DSPKernel(int _channels, double _sampleRate);
+
+    // Dont allow default construction, copying or moving of Kernel.
+    S1DSPKernel() = delete;
+    S1DSPKernel(S1DSPKernel&&) = delete;
+    S1DSPKernel(const S1DSPKernel&) = delete;
+
     ~S1DSPKernel();
 
     // public accessor for protected sp
@@ -287,8 +293,12 @@ private:
     sp_buthp *butterworthHipassR;
     sp_crossfade *revCrossfadeL;
     sp_crossfade *revCrossfadeR;
-    sp_compressor *compressorMasterL;
-    sp_compressor *compressorMasterR;
+    S1Compressor<compressorMasterRatio, compressorMasterThreshold,
+        compressorMasterAttack, compressorMasterRelease, compressorMasterMakeupGain> mCompMaster;
+    S1Compressor<compressorReverbInputRatio, compressorReverbInputThreshold,
+        compressorReverbInputAttack, compressorReverbInputRelease, compressorReverbInputMakeupGain> mCompReverbIn;
+    S1Compressor<compressorReverbWetRatio, compressorReverbWetThreshold,
+        compressorReverbWetAttack, compressorReverbWetRelease, compressorReverbWetMakeupGain> mCompReverbWet;
     sp_compressor *compressorReverbInputL;
     sp_compressor *compressorReverbInputR;
     sp_compressor *compressorReverbWetL;

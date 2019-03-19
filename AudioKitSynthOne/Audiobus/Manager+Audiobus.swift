@@ -18,7 +18,7 @@ extension Manager: ABAudiobusControllerStateIODelegate {
             for event in events {
                 guard let channel = event.channel, event.channel == self.midiChannelIn || self.omniMode else { return }
 
-                if event.status == AKMIDIStatus.noteOn {
+                if event.status?.type == AKMIDIStatusType.noteOn {
                     guard let noteNumber = event.noteNumber else { return }
                     if event.internalData[2] == 0 {
                         self.sustainer.stop(noteNumber: noteNumber)
@@ -35,23 +35,23 @@ extension Manager: ABAudiobusControllerStateIODelegate {
                     }
                 }
 
-                if event.status == AKMIDIStatus.noteOff {
+                if event.status?.type == AKMIDIStatusType.noteOff {
                     guard let noteNumber = event.noteNumber else { return }
                     self.sustainer.stop(noteNumber: noteNumber)
                 }
 
-                if event.status == AKMIDIStatus.pitchWheel {
+                if event.status?.type == AKMIDIStatusType.pitchWheel {
                     let x = MIDIWord(event.internalData[1])
                     let y = MIDIWord(event.internalData[2]) << 7
                     self.receivedMIDIPitchWheel(y + x, channel: channel)
                 }
 
-                if event.status == AKMIDIStatus.programChange {
-                    self.receivedMIDIProgramChange(event.data1, channel: channel)
+                if event.status?.type == AKMIDIStatusType.programChange {
+                    self.receivedMIDIProgramChange(event.internalData[1], channel: channel)
                 }
 
-                if event.status == AKMIDIStatus.controllerChange {
-                    self.receivedMIDIController(event.data1, value: event.data2, channel: channel)
+                if event.status?.type == AKMIDIStatusType.controllerChange {
+                    self.receivedMIDIController(event.internalData[2], value: event.internalData[2], channel: channel)
                 }
             }
         }

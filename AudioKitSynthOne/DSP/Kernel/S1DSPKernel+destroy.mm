@@ -34,12 +34,6 @@ void S1DSPKernel::destroy() {
     sp_buthp_destroy(&butterworthHipassR);
     sp_crossfade_destroy(&revCrossfadeL);
     sp_crossfade_destroy(&revCrossfadeR);
-    sp_compressor_destroy(&compressorMasterL);
-    sp_compressor_destroy(&compressorMasterR);
-    sp_compressor_destroy(&compressorReverbInputL);
-    sp_compressor_destroy(&compressorReverbInputR);
-    sp_compressor_destroy(&compressorReverbWetL);
-    sp_compressor_destroy(&compressorReverbWetR);
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  S1Arpegiator.mm
+//  S1Sequencer.mm
 //  AudioKitSynthOne
 //
 //  Created by AudioKit Contributors on 3/06/19.

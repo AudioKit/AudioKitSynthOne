@@ -44,7 +44,7 @@ The repository builds and runs without modification, but the Link functionality 
 Because of the way Ableton distributes their Link SDK, we can not simply include the Link files here.  Instead, we include our Link wrapping files and expect you to do two things to get Link working on your machine:
 
 * Change ABLETON_ENABLED from 0 to 1 in the Build Settings
-* [Sign up for teh Ableton Link SDK](https://www.ableton.com/en/link/sdk/license-request/) and download the prebuilt binary LinkKit.zip.  Uncompress it and find the include and lib directories and place the folders under our "Link" directory.  There should be three files in include and one in lib.
+* [Sign up for the Ableton Link SDK](https://www.ableton.com/en/link/sdk/license-request/) and download the prebuilt binary LinkKit.zip.  Uncompress it and find the include and lib directories and place the folders under our "Link" directory.  There should be three files in include and one in lib.
 
 
 ## Requirements

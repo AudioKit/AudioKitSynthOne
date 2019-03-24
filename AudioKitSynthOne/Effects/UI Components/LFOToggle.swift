@@ -111,6 +111,8 @@ class LFOToggle: UIView, S1Control {
 		if lfo2Active { newValue += 2 }
 
 		value = newValue
+
+		callback(value)
 	}
 
 	override func accessibilityDecrement() {
@@ -120,6 +122,8 @@ class LFOToggle: UIView, S1Control {
 		if lfo2Active { newValue += 2 }
 
 		value = newValue
+
+		callback(value)
 	}
 
 	func updateAccessibilityValue() {

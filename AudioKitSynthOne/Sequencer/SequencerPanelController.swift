@@ -11,30 +11,35 @@ import CoreGraphics
 
 class SequencerPanelController: PanelController {
 
+    @IBOutlet weak var arpToggle: MIDIToggleButton!
+
     @IBOutlet weak var arpInterval: MIDIKnob!
-    @IBOutlet weak var octaveStepper: Stepper!
-    @IBOutlet weak var arpDirectionButton: ArpDirectionButton!
-    @IBOutlet weak var sequencerToggle: ToggleSwitch!
-    @IBOutlet weak var arpToggle: ToggleButton!
-    @IBOutlet weak var seqStepsStepper: Stepper!
+
+    @IBOutlet weak var octaveStepper: MIDIStepper!
+
+    @IBOutlet weak var arpDirectionButton: MIDIArpDirectionButton!
+
+    @IBOutlet weak var sequencerToggle: MIDIToggleSwitch!
+
+    @IBOutlet weak var seqStepsStepper: MIDIStepper!
+    
     @IBOutlet weak var arpSeqTempoMultiplier: MIDIKnob!
 
     var octBoostButtons = [SliderTransposeButton]()
+
     var sliders = [VerticalSlider]()
+
     var noteOnButtons = [ArpButton]()
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         currentPanel = .sequencer
-
         guard let s = conductor.synth else {
             AKLog("SequencerPanel view state is invalid because synth is not instantiated")
             return
         }
-
         seqStepsStepper.minValue = s.getMinimum(.arpTotalSteps)
         seqStepsStepper.maxValue = s.getMaximum(.arpTotalSteps)
         octaveStepper.minValue = s.getMinimum(.arpOctave)
@@ -65,13 +70,11 @@ class SequencerPanelController: PanelController {
                                                      .sequencerOctBoost09, .sequencerOctBoost10, .sequencerOctBoost11,
                                                      .sequencerOctBoost12, .sequencerOctBoost13, .sequencerOctBoost14,
                                                      .sequencerOctBoost15]
-
         octBoostButtons.removeAll() // just in case we run this more than once
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {
             guard let sliderTransposeButton = view as? SliderTransposeButton else { continue }
             octBoostButtons.append(sliderTransposeButton)
         }
-
         for (notePosition, octBoostButton) in octBoostButtons.enumerated() {
             let sequencerOctBoostParameter = sequencerOctBoostArray[notePosition]
             conductor.bind(octBoostButton, to: sequencerOctBoostParameter) { _, _ in
@@ -89,13 +92,11 @@ class SequencerPanelController: PanelController {
                                                     .sequencerPattern09, .sequencerPattern10, .sequencerPattern11,
                                                     .sequencerPattern12, .sequencerPattern13, .sequencerPattern14,
                                                     .sequencerPattern15]
-
-        sliders.removeAll() // just in case we run this more than once
+        sliders.removeAll()
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {
             guard let verticalSlider = view as? VerticalSlider else { continue }
             sliders.append(verticalSlider)
         }
-
         for (notePosition, sequencerPatternSlider) in sliders.enumerated() {
             let sequencerPatternParameter = sequencerPatternArray[notePosition]
             conductor.bind(sequencerPatternSlider, to: sequencerPatternParameter) { _, control in
@@ -117,13 +118,11 @@ class SequencerPanelController: PanelController {
                                                    .sequencerNoteOn09, .sequencerNoteOn10, .sequencerNoteOn11,
                                                    .sequencerNoteOn12, .sequencerNoteOn13, .sequencerNoteOn14,
                                                    .sequencerNoteOn15]
-
-        noteOnButtons.removeAll() // just in case we run this more than once
+        noteOnButtons.removeAll()
         for view in view.subviews.sorted(by: { $0.tag < $1.tag }) {
             guard let arpButton = view as? ArpButton else { continue }
             noteOnButtons.append(arpButton)
         }
-
         for (notePosition, sequencerNoteOnButton) in noteOnButtons.enumerated() {
             let sequencerPatternParameter = sequencerNoteOnArray[notePosition]
             conductor.bind(sequencerNoteOnButton, to: sequencerPatternParameter) { _, control in
@@ -134,7 +133,6 @@ class SequencerPanelController: PanelController {
                 }
             }
         }
-
 		setAccessibilityReadOrder()
     }
 
@@ -205,14 +203,12 @@ class SequencerPanelController: PanelController {
 			sequencerToggle,
 			seqStepsStepper
 		]
-
 		for index in 0...15 {
             view.accessibilityElements?.append(octBoostButtons[index])
             view.accessibilityElements?.append(sliders[index])
             view.accessibilityElements?.append(noteOnButtons[index])
 
 		}
-
 		view.accessibilityElements?.append(leftNavButton)
 		view.accessibilityElements?.append(rightNavButton)
 	}

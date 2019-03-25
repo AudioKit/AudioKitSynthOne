@@ -76,7 +76,14 @@ class AppSettings: Codable {
     var glideKnobCC = 255
 
     // seq controller
+    var sequencerToggleCC = 255
     var arpIntervalCC = 255
+    var arpToggleCC = 255
+    var octaveStepperCC = 255
+    var arpDirectionButtonCC = 255
+    var seqStepsStepperCC = 255
+    var arpSeqTempoMultiplierCC = 255
+    var transposeStepperCC = 255 // on keyboard but I'm grouping with arp/seq
 
     // adsr
     var attackKnobCC = 255
@@ -108,7 +115,6 @@ class AppSettings: Codable {
     var phaserRateCC = 255
     var phaserFeedbackCC = 255
     var phaserNotchWidthCC = 255
-    var arpSeqTempoMultiplierCC = 255
 
     // Keyboard
     var labelMode = 1
@@ -148,6 +154,7 @@ class AppSettings: Codable {
         saveTuningWithPreset = dictionary["saveTuningWithPreset"] as? Bool ?? saveTuningWithPreset
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
 
+        // GENERATOR
         masterVolumeCC = dictionary["masterVolumeCC"] as? Int ?? masterVolumeCC
         morph1SelectorCC = dictionary["morph1SelectorCC"] as? Int ?? morph1SelectorCC
         morph2SelectorCC = dictionary["morph2SelectorCC"] as? Int ?? morph2SelectorCC
@@ -157,7 +164,6 @@ class AppSettings: Codable {
         morphBalanceCC = dictionary["morphBalanceCC"] as? Int ?? morphBalanceCC
         morph1VolumeCC = dictionary["morph1VolumeCC"] as? Int ?? morph1VolumeCC
         morph2VolumeCC = dictionary["morph2VolumeCC"] as? Int ?? morph2VolumeCC
-
         cutoffCC = dictionary["cutoffCC"] as? Int ?? cutoffCC
         resonanceCC = dictionary["resonanceCC"] as? Int ?? resonanceCC
         subVolumeCC = dictionary["subVolumeCC"] as? Int ?? subVolumeCC
@@ -166,8 +172,17 @@ class AppSettings: Codable {
         noiseVolumeCC = dictionary["noiseVolumeCC"] as? Int ?? noiseVolumeCC
         glideKnobCC = dictionary["glideKnobCC"] as? Int ?? glideKnobCC
 
+        // ARP/SEQ
+        sequencerToggleCC = dictionary["sequencerToggleCC"] as? Int ?? sequencerToggleCC
         arpIntervalCC = dictionary["arpIntervalCC"] as? Int ?? arpIntervalCC
+        arpToggleCC = dictionary["arpToggleCC"] as? Int ?? arpToggleCC
+        octaveStepperCC = dictionary["octaveStepperCC"] as? Int ?? octaveStepperCC
+        arpDirectionButtonCC = dictionary["arpDirectionButtonCC"] as? Int ?? arpDirectionButtonCC
+        seqStepsStepperCC = dictionary["seqStepsStepperCC"] as? Int ?? seqStepsStepperCC
+        arpSeqTempoMultiplierCC = dictionary["arpSeqTempoMultiplierCC"] as? Int ?? arpSeqTempoMultiplierCC
+        transposeStepperCC = dictionary["transposeStepperCC"] as? Int ?? transposeStepperCC
 
+        // ADSR
         attackKnobCC = dictionary["attackKnobCC"] as? Int ?? attackKnobCC
         decayKnobCC = dictionary["decayKnobCC"] as? Int ?? decayKnobCC
         sustainKnobCC = dictionary["sustainKnobCC"] as? Int ?? sustainKnobCC
@@ -179,6 +194,7 @@ class AppSettings: Codable {
         filterADSRMixKnobCC = dictionary["filterADSRMixKnobCC"] as? Int ?? filterADSRMixKnobCC
         adsrPitchTrackingKnobCC = dictionary["adsrPitchTrackingKnobCC"] as? Int ?? adsrPitchTrackingKnobCC
 
+        // EFX
         sampleRateCC = dictionary["sampleRateCC"] as? Int ?? sampleRateCC
         delayTimeCC = dictionary["delayTimeCC"] as? Int ?? delayTimeCC
         arpSeqTempoMultiplierCC = dictionary["arpSeqTempoMultiplierCC"] as? Int ?? arpSeqTempoMultiplierCC
@@ -198,14 +214,14 @@ class AppSettings: Codable {
         autoPanRateCC = dictionary["autoPanRateCC"] as? Int ?? autoPanRateCC
         autoPanAmountCC = dictionary["autoPanAmountCC"] as? Int ?? autoPanAmountCC
         
-        // Keyboard
+        // KEYBOARD
         labelMode = dictionary["labelMode"] as? Int ?? labelMode
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
         darkMode = dictionary["darkMode"] as? Bool ?? darkMode
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
         whiteKeysOnly = dictionary["whiteKeysOnly"] as? Bool ?? false
 
-        // State
+        // STATE
         currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex
         currentPresetIndex = dictionary["currentPresetIndex"] as? Int ?? currentPresetIndex
     }

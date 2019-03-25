@@ -506,7 +506,7 @@
                                 <color key="textColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Yj-U6-12K" customClass="Stepper" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Yj-U6-12K" customClass="MIDIStepper" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="282" y="15" width="108" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -515,7 +515,7 @@
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJP-dg-ryJ" customClass="ArpDirectionButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJP-dg-ryJ" customClass="MIDIArpDirectionButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="453" y="15" width="108" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -524,7 +524,7 @@
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DHy-85-9HG" customClass="Stepper" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DHy-85-9HG" customClass="MIDIStepper" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="763" y="15" width="108" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -533,7 +533,7 @@
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ib-Ci-hwt" customClass="ToggleSwitch" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ib-Ci-hwt" customClass="MIDIToggleSwitch" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="623" y="17" width="62" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -569,7 +569,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qLD-Gy-55y" customClass="ToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qLD-Gy-55y" customClass="MIDIToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="36" y="15" width="37" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -748,7 +748,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="637" height="237"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eBa-Kb-SZd" customClass="ToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eBa-Kb-SZd" customClass="MIDIToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="9" y="12" width="30" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -801,7 +801,7 @@
                                 <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khx-Rk-lNE" customClass="Stepper" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khx-Rk-lNE" customClass="MIDIStepper" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="143" y="9" width="100" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -829,7 +829,7 @@
                                     </fragment>
                                 </attributedString>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JiC-7m-MjZ" customClass="ArpDirectionButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JiC-7m-MjZ" customClass="MIDIArpDirectionButton" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="278" y="9" width="100" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -857,7 +857,7 @@
                                     </fragment>
                                 </attributedString>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WV9-g4-xnm" customClass="ToggleSwitch" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WV9-g4-xnm" customClass="MIDIToggleSwitch" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="408" y="9" width="50" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -885,7 +885,7 @@
                                     </fragment>
                                 </attributedString>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Kz-Yp-Xci" customClass="Stepper" customModule="AudioKitSynthOne" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Kz-Yp-Xci" customClass="MIDIStepper" customModule="AudioKitSynthOne" customModuleProvider="target">
                                 <rect key="frame" x="491" y="9" width="82" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

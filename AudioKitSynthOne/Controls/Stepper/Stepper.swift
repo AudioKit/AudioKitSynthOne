@@ -9,12 +9,14 @@
 import UIKit
 
 @IBDesignable
-class Stepper: UIView, S1Control {
+public class Stepper: UIView, S1Control {
 
     public var callback: (Double) -> Void = { _ in }
+
     var defaultCallback: () -> Void = { }
 
     var minusPath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 2, width: 35, height: 32), cornerRadius: 1)
+
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)
 	
     var minValue = 0.0 {
@@ -23,6 +25,7 @@ class Stepper: UIView, S1Control {
             internalValue = range.clamp(internalValue)
         }
     }
+
     var maxValue = 3.0 {
         didSet {
             range = (Double(minValue) ... Double(maxValue))
@@ -41,6 +44,7 @@ class Stepper: UIView, S1Control {
             return internalValue
         }
         set {
+            //TODO: bug?
             internalValue = round(internalValue)
             internalValue = range.clamp(newValue)
             setNeedsDisplay()
@@ -57,9 +61,7 @@ class Stepper: UIView, S1Control {
     // Init / Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-		
 		accessibilityTraits = UIAccessibilityTraits.adjustable
-		
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -71,7 +73,7 @@ class Stepper: UIView, S1Control {
 
     // MARK: - Draw
 
-    override func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         StepperStyleKit.drawStepper(frame: CGRect(x: 0,
                                                   y: 0,
                                                   width: self.bounds.width,
@@ -108,7 +110,7 @@ class Stepper: UIView, S1Control {
         }
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             valuePressed = 0
             self.setNeedsDisplay()
@@ -120,7 +122,7 @@ class Stepper: UIView, S1Control {
 	Accessibility Functions needed for Accessibile Adjustable Trait
 	*/
 
-	override func accessibilityIncrement() {
+    override public func accessibilityIncrement() {
 		if value < maxValue {
 			value += 1
 			valuePressed = 2
@@ -130,14 +132,14 @@ class Stepper: UIView, S1Control {
 		self.callback(value)
 	}
 	
-	override func accessibilityDecrement() {
+	override public func accessibilityDecrement() {
 		if value > minValue {
 			value -= 1
 			valuePressed = 1
-			
 			let newValue = String(format: "%.00f", value)
 			accessibilityValue = newValue
 			self.callback(value)
 		}
 	}
+
 }

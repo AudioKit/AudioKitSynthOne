@@ -67,7 +67,6 @@ extension Manager {
         generatorsPanel.glideKnob.midiCC = MIDIByte(appSettings.glideKnobCC)
         generatorsPanel.cutoff.midiCC = MIDIByte(appSettings.cutoffCC)
         generatorsPanel.resonance.midiCC = MIDIByte(appSettings.resonanceCC)
-
         envelopesPanel.attackKnob.midiCC = MIDIByte(appSettings.attackKnobCC)
         envelopesPanel.decayKnob.midiCC = MIDIByte(appSettings.decayKnobCC)
         envelopesPanel.sustainKnob.midiCC = MIDIByte(appSettings.sustainKnobCC)
@@ -78,7 +77,6 @@ extension Manager {
         envelopesPanel.filterReleaseKnob.midiCC = MIDIByte(appSettings.filterReleaseKnobCC)
         envelopesPanel.filterADSRMixKnob.midiCC = MIDIByte(appSettings.filterADSRMixKnobCC)
         envelopesPanel.adsrPitchTrackingKnob.midiCC = MIDIByte(appSettings.adsrPitchTrackingKnobCC)
-
         fxPanel.sampleRateKnob.midiCC = MIDIByte(appSettings.sampleRateCC)
         fxPanel.autoPanRateKnob.midiCC = MIDIByte(appSettings.autoPanRateCC)
         fxPanel.autoPanAmountKnob.midiCC = MIDIByte(appSettings.autoPanAmountCC)
@@ -96,9 +94,14 @@ extension Manager {
         fxPanel.phaserRateKnob.midiCC = MIDIByte(appSettings.phaserRateCC)
         fxPanel.phaserFeedbackKnob.midiCC = MIDIByte(appSettings.phaserFeedbackCC)
         fxPanel.phaserNotchWidthKnob.midiCC = MIDIByte(appSettings.phaserNotchWidthCC)
-
+        sequencerPanel.sequencerToggle.midiCC = MIDIByte(appSettings.sequencerToggleCC)
         sequencerPanel.arpSeqTempoMultiplier.midiCC = MIDIByte(appSettings.arpSeqTempoMultiplierCC)
         sequencerPanel.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
+        sequencerPanel.arpToggle.midiCC = MIDIByte(appSettings.arpToggleCC)
+        sequencerPanel.octaveStepper.midiCC = MIDIByte(appSettings.octaveStepperCC)
+        sequencerPanel.arpDirectionButton.midiCC = MIDIByte(appSettings.arpDirectionButtonCC)
+        sequencerPanel.seqStepsStepper.midiCC = MIDIByte(appSettings.seqStepsStepperCC)
+        self.transposeStepper.midiCC = MIDIByte(appSettings.transposeStepperCC)
 
         // keyboard
         keyboardView.labelMode = appSettings.labelMode

@@ -6,6 +6,7 @@
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
+
 import UIKit
 
 @IBDesignable
@@ -13,20 +14,29 @@ class ToggleButton: UIView, S1Control {
 
     // MARK: - ToggleButton
 
+    let range: ClosedRange<Double> = 0...1
+
+    internal var _internalValue: Double = 0
+
+    public internal(set) var value: Double {
+        get {
+            return _internalValue
+        }
+        set {
+            _internalValue = round(_internalValue)
+            _internalValue = range.clamp(newValue)
+            setNeedsDisplay()
+            accessibilityValue = isOn ? "On" : "Off"
+        }
+    }
+
     var isOn: Bool {
         return value == 1
     }
 
     var callback: (Double) -> Void = { _ in }
+    
     var defaultCallback: () -> Void = { }
-
-    var value: Double = 0.0 {
-        didSet {
-            setNeedsDisplay()
-
-			accessibilityValue = isOn ? "On" : "Off"
-        }
-    }
 
     override func draw(_ rect: CGRect) {
         ToggleButtonStyleKit.drawRoundButton(frame: CGRect(x: 0,

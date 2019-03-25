@@ -26,7 +26,9 @@ class ToggleSwitch: UIView, S1Control {
             setNeedsDisplay()
         }
     }
+
     public var callback: (Double) -> Void = { _ in }
+
     var defaultCallback: () -> Void = { }
 
     override func draw(_ rect: CGRect) {

@@ -14,7 +14,10 @@ class ArpDirectionButton: UIView, S1Control {
     // MARK: - LFO Button
 
     public var callback: (Double) -> Void = { _ in }
+
     var defaultCallback: () -> Void = {  }
+
+    let range: ClosedRange<Double> =  0...2
 
     private var width: CGFloat = 35.0
 
@@ -39,7 +42,8 @@ class ArpDirectionButton: UIView, S1Control {
         ArpDirectionStyleKit.drawArpDirectionButton(frame: CGRect(x: 0,
                                                                   y: 0,
                                                                   width: self.bounds.width,
-                                                                  height: self.bounds.height),directionSelected: CGFloat(value))
+                                                                  height: self.bounds.height),
+                                                    directionSelected: CGFloat(value))
     }
 
     // MARK: - Handle Touches
@@ -47,7 +51,6 @@ class ArpDirectionButton: UIView, S1Control {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let touchPoint = touch.location(in: self)
-
             switch touchPoint.x {
             case 0..<width:
                 value = 0
@@ -61,7 +64,6 @@ class ArpDirectionButton: UIView, S1Control {
     }
 
     override func accessibilityActivate() -> Bool {
-        //perform desired action
         if value < 2.0 {
             value += 1.0
         } else {

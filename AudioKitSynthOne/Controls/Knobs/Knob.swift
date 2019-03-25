@@ -14,6 +14,7 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
     var onlyIntegers: Bool = false
 
     var callback: (Double) -> Void = { _ in }
+
     var defaultCallback: () -> Void = { }
 
     public var taper: Double = 1.0 // Linear by default
@@ -26,13 +27,14 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
     }
 
     private var _value: Double = 0
+
 	lazy private var accessibilityChangeAmount: Double = {
 		let widthOfRange = range.upperBound - range.lowerBound
 
 		// We need Not to include 1.0
-		let increamentRange: Range = 1.1..<128.0
+		let incrementRange: Range = 1.1..<128.0
 
-		if increamentRange.contains(widthOfRange) && onlyIntegers {
+		if incrementRange.contains(widthOfRange) && onlyIntegers {
 			return 1.0
 		} else {
 			return widthOfRange * 0.01
@@ -49,7 +51,6 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
             _value = onlyIntegers ? round(newValue) : newValue
             _value = range.clamp(_value)
             knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
-
 			accessibilityValue = onlyIntegers ?
 				String(format: "%.0f", _value) :
 				String(format: "%.2f", _value)
@@ -62,16 +63,19 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
             self.setNeedsDisplay()
         }
     }
+
     var knobFill: CGFloat = 0
+
     var knobSensitivity: CGFloat = 0.005
+
     var lastX: CGFloat = 0
+
     var lastY: CGFloat = 0
 
     // Init / Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentMode = .redraw
-
 		accessibilityTraits = [
 			.adjustable,
 			.allowsDirectInteraction,
@@ -83,7 +87,6 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
         super.init(coder: coder)
         self.isUserInteractionEnabled = true
         contentMode = .redraw
-
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         doubleTapGesture.delegate = self
         doubleTapGesture.numberOfTapsRequired = 2
@@ -92,7 +95,6 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
 
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-
         contentMode = .scaleAspectFit
         clipsToBounds = true
     }
@@ -115,15 +117,12 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
 
     // Helper
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
-        // Knobs assume up or right is increasing, and down or left is decreasing
 
+        // Knobs assume up or right is increasing, and down or left is decreasing
         knobValue += (touchPoint.x - lastX) * knobSensitivity
         knobValue -= (touchPoint.y - lastY) * knobSensitivity
-
         knobValue = (0.0 ... 1.0).clamp(knobValue)
-
         value = Double(knobValue).denormalized(to: range, taper: taper)
-
         callback(value)
         lastX = touchPoint.x
         lastY = touchPoint.y
@@ -138,5 +137,4 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
 		value -= accessibilityChangeAmount
 		callback(value)
 	}
-
 }

@@ -13,8 +13,10 @@ import UIKit
 
 /// Delegate for keyboard events
 public protocol AKKeyboardDelegate: class {
+
     /// Note on evenets
     func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity)
+    
     /// Note off events
     func noteOff(note: MIDINoteNumber)
 }
@@ -59,9 +61,13 @@ public protocol AKKeyboardDelegate: class {
     open weak var delegate: AKKeyboardDelegate?
 
     var oneOctaveSize = CGSize.zero
+
     var xOffset: CGFloat = 1
+
     var onKeys = Set<MIDINoteNumber>()
+
     var topKeyWidthIncrease: CGFloat = 4
+
     var holdMode = false {
         didSet {
             if !holdMode {
@@ -90,8 +96,11 @@ public protocol AKKeyboardDelegate: class {
     }
 
     let naturalNotes = ["C", "D", "E", "F", "G", "A", "B"]
+
     let notesWithSharps = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+
     let topKeyNotes = [0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 11]
+
     let whiteKeyNotes = [0, 2, 4, 5, 7, 9, 11]
 
     func getNoteName(_ note: Int) -> String {
@@ -163,11 +172,9 @@ public protocol AKKeyboardDelegate: class {
         let height = Int(self.frame.height)
         oneOctaveSize = CGSize(width: Double(width / octaveCount - width / (octaveCount * octaveCount * 7)),
                                height: Double(height))
-
         for i in 0 ..< octaveCount {
             drawOctaveCanvas(i)
         }
-
         let tempWidth = CGFloat(width) - CGFloat((octaveCount * 7) - 1) * whiteKeySize.width - 1
         let backgroundPath = UIBezierPath(rect: CGRect(x: oneOctaveSize.width * CGFloat(octaveCount),
                                                        y: 0,
@@ -175,23 +182,19 @@ public protocol AKKeyboardDelegate: class {
                                                        height: oneOctaveSize.height))
         UIColor.black.setFill()
         backgroundPath.fill()
-
         let lastCRect = CGRect(x: whiteKeyX(0, octaveNumber: octaveCount),
                                y: 1,
                                width: tempWidth / 2,
                                height: whiteKeySize.height)
         let lastC = UIBezierPath(roundedRect: lastCRect, byRoundingCorners: [.bottomLeft, .bottomRight],
                                  cornerRadii: CGSize(width: 5, height: 5))
-
         whiteKeyColor(0, octaveNumber: octaveCount).setFill()
         lastC.fill()
-
         addLabels(i: 0, octaveNumber: octaveCount, whiteKeysRect: lastCRect)
     }
 
     /// Draw one octave
     func drawOctaveCanvas(_ octaveNumber: Int) {
-
         let width = Int(self.frame.width)
         let height = Int(self.frame.height)
         oneOctaveSize = CGSize(width: Double(width / octaveCount - width / (octaveCount * octaveCount * 7)),
@@ -204,11 +207,8 @@ public protocol AKKeyboardDelegate: class {
                                                        height: oneOctaveSize.height))
         UIColor.black.setFill()
         backgroundPath.fill()
-
         var whiteKeysPaths = [UIBezierPath]()
-
         for i in 0 ..< 7 {
-
             let whiteKeysRect = CGRect(x: whiteKeyX(i, octaveNumber: octaveNumber),
                                        y: 1,
                                        width: whiteKeySize.width - 1,
@@ -216,10 +216,8 @@ public protocol AKKeyboardDelegate: class {
             whiteKeysPaths.append(UIBezierPath(roundedRect: whiteKeysRect,
                                                byRoundingCorners: [.bottomLeft, .bottomRight],
                                                cornerRadii: CGSize(width: 5, height: 5)))
-
             whiteKeyColor(i, octaveNumber: octaveNumber).setFill()
             whiteKeysPaths[i].fill()
-
             addLabels(i: i, octaveNumber: octaveNumber, whiteKeysRect: whiteKeysRect)
         }
 
@@ -259,7 +257,6 @@ public protocol AKKeyboardDelegate: class {
                 NSAttributedString.Key.foregroundColor: textColor,
                 NSAttributedString.Key.paragraphStyle: whiteKeysStyle
                 ] as [NSAttributedString.Key: Any]
-
             let whiteKeysTextHeight: CGFloat = whiteKeysTextContent.boundingRect(
                 with: CGSize(width: whiteKeysRect.width,
                              height: CGFloat.infinity),
@@ -295,12 +292,9 @@ public protocol AKKeyboardDelegate: class {
         guard bounds.contains(location) else {
             return nil
         }
-
         let x = location.x - xOffset
         let y = location.y
-
         var note = 0
-
         if y > oneOctaveSize.height * topKeyHeightRatio {
             let octNum = Int(x / oneOctaveSize.width)
             let scaledX = x - CGFloat(octNum) * oneOctaveSize.width
@@ -315,13 +309,11 @@ public protocol AKKeyboardDelegate: class {
         } else {
             return nil
         }
-
     }
 
     /// Handle new touches
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let notes = notesFromTouches(touches)
-
         for note in notes {
             pressAdded(note)
         }
@@ -356,7 +348,6 @@ public protocol AKKeyboardDelegate: class {
                 pressAdded(key)
                 setNeedsDisplay()
             }
-
         }
         verifyTouches(event?.allTouches)
     }
@@ -369,7 +360,6 @@ public protocol AKKeyboardDelegate: class {
     // MARK: - Executing Key Presses
 
     func pressAdded(_ newNote: MIDINoteNumber, velocity: MIDIVelocity = 127) {
-
         var noteIsAlreadyOn = false
         if holdMode {
             for key in onKeys where key == newNote {
@@ -377,13 +367,11 @@ public protocol AKKeyboardDelegate: class {
                 pressRemoved(key)
             }
         }
-
         if ❗️polyphonicMode {
             for key in onKeys where key != newNote {
                 pressRemoved(key)
             }
         }
-
         if ❗️onKeys.contains(newNote) && !noteIsAlreadyOn {
             onKeys.insert(newNote)
             delegate?.noteOn(note: newNote, velocity: velocity)
@@ -395,13 +383,10 @@ public protocol AKKeyboardDelegate: class {
         guard onKeys.contains(note) else {
             return
         }
-
         onKeys.remove(note)
-
         if !isFromMIDI {
             delegate?.noteOff(note: note)
         }
-
         if ❗️polyphonicMode {
             // in mono mode, replace with note from highest remaining touch, if it exists
             var remainingNotes = notesFromTouches(touches ?? Set<UITouch>())
@@ -410,7 +395,6 @@ public protocol AKKeyboardDelegate: class {
                 pressAdded(highest)
             }
         }
-
         setNeedsDisplay()
     }
 
@@ -423,6 +407,7 @@ public protocol AKKeyboardDelegate: class {
     }
 
     private func verifyTouches(_ touches: Set<UITouch>?) {
+
         // check that current touches conforms to onKeys, remove stuck notes
         let notes = notesFromTouches(touches ?? Set<UITouch>() )
         let disjunct = onKeys.subtracting(notes)
@@ -480,6 +465,5 @@ public protocol AKKeyboardDelegate: class {
                 )  ? keyOnColor : blackKeyOff
         }
         return #colorLiteral(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.000)
-
     }
 }

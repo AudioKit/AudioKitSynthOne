@@ -40,6 +40,7 @@
 		94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F694C51F683D5D0061DA5E /* CallbackButton.swift */; };
 		94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */; };
 		A4B6DE5FB88EB0520C4F0937 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */; };
+		AF8CC7C0224815F200090F64 /* S1Sequencer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF8CC7BE224815F200090F64 /* S1Sequencer.mm */; };
 		C432979120CB2AA00063F795 /* Presets+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432979020CB2AA00063F795 /* Presets+UITextViewDelegate.swift */; };
 		C432979320CB2BB20063F795 /* Presets+LoadSaveManipulate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432979220CB2BB20063F795 /* Presets+LoadSaveManipulate.swift */; };
 		C432979520CB2D620063F795 /* Manager+callbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432979420CB2D620063F795 /* Manager+callbacks.swift */; };
@@ -278,6 +279,7 @@
 		45E1A7C3C54D27427C4A71B1 /* Pods_AKS1Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKS1Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		69E4E45622381DF90049F0EA /* S1DSPCompressor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1DSPCompressor.hpp; sourceTree = "<group>"; };
 		90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.release.xcconfig"; sourceTree = "<group>"; };
 		9405503A210556C20039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		9405503B210556C80039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
@@ -372,6 +374,11 @@
 		94F53E8C212F11A90012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "AudioKitSynthOne/Developer/zh-Hans.lproj/zh-Hans.lproj/Dev.strings"; sourceTree = SOURCE_ROOT; };
 		94F694C51F683D5D0061DA5E /* CallbackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackButton.swift; sourceTree = "<group>"; };
 		94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTransposeButton.swift; sourceTree = "<group>"; };
+		AF8CC7BB224815F100090F64 /* S1Sequencer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = S1Sequencer.hpp; sourceTree = "<group>"; };
+		AF8CC7BC224815F100090F64 /* S1Arpeggiator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = S1Arpeggiator.hpp; sourceTree = "<group>"; };
+		AF8CC7BD224815F200090F64 /* S1ArpModes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = S1ArpModes.hpp; sourceTree = "<group>"; };
+		AF8CC7BE224815F200090F64 /* S1Sequencer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = S1Sequencer.mm; sourceTree = "<group>"; };
+		AF8CC7BF224815F200090F64 /* S1SeqNoteNumber.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = S1SeqNoteNumber.hpp; sourceTree = "<group>"; };
 		BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioKitSynthOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40CBA2620CDE2B000A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C40CBA2720CDE72500A8245F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -769,6 +776,18 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		AF8CC7BA224815A600090F64 /* Sequencer */ = {
+			isa = PBXGroup;
+			children = (
+				AF8CC7BC224815F100090F64 /* S1Arpeggiator.hpp */,
+				AF8CC7BD224815F200090F64 /* S1ArpModes.hpp */,
+				AF8CC7BF224815F200090F64 /* S1SeqNoteNumber.hpp */,
+				AF8CC7BB224815F100090F64 /* S1Sequencer.hpp */,
+				AF8CC7BE224815F200090F64 /* S1Sequencer.mm */,
+			);
+			path = Sequencer;
+			sourceTree = "<group>";
+		};
 		C432978720C896250063F795 /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,6 +946,7 @@
 		C435C55020C530C900DAECCD /* DSP */ = {
 			isa = PBXGroup;
 			children = (
+				AF8CC7BA224815A600090F64 /* Sequencer */,
 				F437E99E20EB22D00096FEAC /* README.md */,
 				C435C55420C530C900DAECCD /* AKSynthOne.swift */,
 				C435C55120C530C900DAECCD /* Conductor.swift */,
@@ -988,6 +1008,7 @@
 		C435C57520C530C900DAECCD /* Kernel */ = {
 			isa = PBXGroup;
 			children = (
+				69E4E45622381DF90049F0EA /* S1DSPCompressor.hpp */,
 				C435C57720C530C900DAECCD /* S1DSPKernel.hpp */,
 				C435C57620C530C900DAECCD /* S1DSPKernel.mm */,
 				C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */,
@@ -1638,7 +1659,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChimpKit/ChimpKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 			);
@@ -1649,7 +1670,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4421AA920B81D0500BE9F12 /* ShellScript */ = {
@@ -1771,6 +1792,7 @@
 				94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */,
 				C4B4914820C7C6E300FD565A /* Audiobus.swift in Sources */,
 				C4B4917920C7C75500FD565A /* Manager+HeaderDelegate.swift in Sources */,
+				AF8CC7C0224815F200090F64 /* S1Sequencer.mm in Sources */,
 				C4B490F320C6539200FD565A /* S1DSPKernel+process.mm in Sources */,
 				C4B4916E20C7C72A00FD565A /* Manager.swift in Sources */,
 				F47C27E42207C12100CA7541 /* Tunings+TuneUp.swift in Sources */,

@@ -18,6 +18,8 @@
 #import "S1AudioUnit.h"
 #import "S1Parameter.h"
 #import "S1Rate.hpp"
+#import "../Sequencer/S1Sequencer.hpp"
+#import "S1DSPCompressor.hpp"
 
 @class AEArray;
 @class AEMessageQueue;
@@ -26,8 +28,6 @@
 #define S1_NUM_WAVEFORMS (4)
 #define S1_NUM_BANDLIMITED_FTABLES (13)
 
-#define S1_SAMPLE_RATE (44100.f)
-
 #define S1_RELEASE_AMPLITUDE_THRESHOLD (0.01f)
 #define S1_PORTAMENTO_HALF_TIME (0.1f)
 #define S1_DEPENDENT_PARAM_TAPER (0.4f)
@@ -35,6 +35,7 @@
 #ifdef __cplusplus
 
 struct S1NoteState;
+class S1Sequencer;
 using DSPParameters = std::array<float, S1Parameter::S1ParameterCount>;
 using NoteStateArray = std::array<S1NoteState, S1_MAX_POLYPHONY>;
 
@@ -44,13 +45,21 @@ class S1DSPKernel : public AKSoundpipeKernel, public AKOutputBuffered {
 
 public:
     
-    S1DSPKernel();
-    
+    S1DSPKernel(int _channels, double _sampleRate);
+
+    // Dont allow default construction, copying or moving of Kernel.
+    S1DSPKernel() = delete;
+    S1DSPKernel(S1DSPKernel&&) = delete;
+    S1DSPKernel(const S1DSPKernel&) = delete;
+
     ~S1DSPKernel();
 
     // public accessor for protected sp
-    sp_data *spp() {
+    inline sp_data *spp() {
         return sp;
+    }
+    inline int sampleRate() {
+        return sp->sr;
     }
 
     float getSynthParameter(S1Parameter param);
@@ -153,9 +162,12 @@ public:
 
 private:
 
+    S1Sequencer sequencer;
     // moved the private functions to try to get rid of errors, I don't think we need to be that worried about privacy
 
 public:
+    
+    void updateWavetableIncrementValuesForCurrentSampleRate();
 
     void _setSynthParameter(S1Parameter param, float inputValue01);
 
@@ -178,7 +190,7 @@ public:
     int arpBeatCounter = 0;
     
     /// dsp params
-    DSPParameters p;
+    DSPParameters parameters;
     
     // Portamento values
     float monoFrequency = 440.f * exp2((60.f - 69.f)/12.f);
@@ -233,23 +245,6 @@ private:
     
     ///can be called from within the render loop
     void heldNotesDidChange();
-
-    // helper for arp/seq
-    struct SeqNoteNumber {
-
-        int noteNumber;
-        int onOff;
-
-        void init() {
-            noteNumber = 60;
-            onOff = 1;
-        }
-
-        void init(int nn, int o) {
-            noteNumber = nn;
-            onOff = o;
-        }
-    };
     
     struct S1ParameterInfo {
         S1Parameter parameter;
@@ -263,7 +258,7 @@ private:
         sp_port *portamento;
         float portamentoTarget;
     };
-    
+
     // array of struct S1NoteState of count MAX_POLYPHONY
     std::unique_ptr<NoteStateArray> noteStates;
     
@@ -298,8 +293,12 @@ private:
     sp_buthp *butterworthHipassR;
     sp_crossfade *revCrossfadeL;
     sp_crossfade *revCrossfadeR;
-    sp_compressor *compressorMasterL;
-    sp_compressor *compressorMasterR;
+    S1Compressor<compressorMasterRatio, compressorMasterThreshold,
+        compressorMasterAttack, compressorMasterRelease, compressorMasterMakeupGain> mCompMaster;
+    S1Compressor<compressorReverbInputRatio, compressorReverbInputThreshold,
+        compressorReverbInputAttack, compressorReverbInputRelease, compressorReverbInputMakeupGain> mCompReverbIn;
+    S1Compressor<compressorReverbWetRatio, compressorReverbWetThreshold,
+        compressorReverbWetAttack, compressorReverbWetRelease, compressorReverbWetMakeupGain> mCompReverbWet;
     sp_compressor *compressorReverbInputL;
     sp_compressor *compressorReverbInputR;
     sp_compressor *compressorReverbWetL;
@@ -313,24 +312,16 @@ private:
     float bitcrushSampleIndex = 0.f;
     float bitcrushValue = 0.f;
 
-    // Arp/Seq
+    // Count samples to limit main thread notification
     double processSampleCounter = 0;
-    double arpSampleCounter = 0;
-    double arpTime = 0;
-    int notesPerOctave = 12;
-    
-    ///once init'd: sequencerNotes can be accessed and mutated only within process and resetDSP
-    std::vector<SeqNoteNumber> sequencerNotes;
-    std::vector<NoteNumber> sequencerNotes2;
-    const int maxSequencerNotes = 1024; // 128 midi note numbers * 4 arp octaves * up+down
     
     ///once init'd: sequencerLastNotes can be accessed and mutated only within process and resetDSP
     std::list<int> sequencerLastNotes;
+
     
     // Array of midi note numbers of NoteState's which have had a noteOn event but not yet a noteOff event.
-    NSMutableArray<NSNumber*>* heldNoteNumbers;
+    NSMutableArray<NSValue*>* heldNoteNumbers;
     AEArray* heldNoteNumbersAE;
-    int previousHeldNoteNumbersAECount; // previous render loop held key count
 
     // These expressions come from Rate.swift which is used for beat sync
     const float minutesPerSecond = 1.f / 60.f;
@@ -496,7 +487,7 @@ private:
         { frequencyA4,  410, 440, 470, "frequencyA4", "frequencyA4", kAudioUnitParameterUnit_Hertz, false, NULL},
         { portamentoHalfTime, 0.000001, 0.1, 0.99, "portamentoHalfTime", "portamentoHalfTime", kAudioUnitParameterUnit_Generic, false, NULL },
 
-        /* -1 = no override, else = index into bandlimited wavetable */
+        /* DEPRECATED -1 = no override, else = index into bandlimited wavetable */
         { oscBandlimitIndexOverride, -1, -1, (S1_NUM_BANDLIMITED_FTABLES-1), "oscBandlimitIndexOverride", "oscBandlimitIndexOverride", kAudioUnitParameterUnit_Generic, false, NULL },
         { oscBandlimitEnable, 0, 0, 1, "oscBandlimitEnable", "oscBandlimitEnable", kAudioUnitParameterUnit_Generic, false, NULL},
 

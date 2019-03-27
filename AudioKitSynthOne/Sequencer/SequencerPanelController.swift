@@ -174,7 +174,7 @@ class SequencerPanelController: PanelController {
 
         // if a non-trivial sequence is playing
         if arpIsOn && arpIsSequencer && seqTotalSteps > 0 {
-            let notePosition = (beatCounter + seqTotalSteps - 1) % seqTotalSteps
+            let notePosition = (beatCounter + seqTotalSteps) % seqTotalSteps
             if heldNotes != 0 {
                 // change the outline current notePosition
                 octBoostButtons[notePosition].isActive = true

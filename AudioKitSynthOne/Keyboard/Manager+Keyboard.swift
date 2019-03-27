@@ -33,11 +33,14 @@ extension Manager: AKKeyboardDelegate {
             displayAlertController(title, message: message)
             return
         }
-        sustainer.play(noteNumber: note, velocity: velocity)
+
+        let transformedNoteNumber = appSettings.whiteKeysOnly ? whiteKeysOnlyMap[Int(note)] : note
+        sustainer.play(noteNumber: transformedNoteNumber, velocity: velocity)
     }
 
     public func noteOff(note: MIDINoteNumber) {
         guard note < 128 else { return }
-        sustainer.stop(noteNumber: note)
+        let transformedNoteNumber = appSettings.whiteKeysOnly ? whiteKeysOnlyMap[Int(note)] : note
+        sustainer.stop(noteNumber: transformedNoteNumber)
     }
 }

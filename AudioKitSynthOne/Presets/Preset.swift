@@ -156,7 +156,6 @@ class Preset: Codable {
     var delayInputResonance = 0.0
 
     // bandlimiting
-    var oscBandlimitIndexOverride = -1.0
     var oscBandlimitEnable = 1.0
 
     // tuning
@@ -378,8 +377,6 @@ class Preset: Codable {
             as? Double ?? p(.delayInputCutoffTrackingRatio)
         delayInputResonance = dictionary["delayInputResonance"]
             as? Double ?? p(.delayInputResonance)
-        oscBandlimitIndexOverride = dictionary["oscBandlimitIndexOverride"]
-            as? Double ?? p(.oscBandlimitIndexOverride)
         oscBandlimitEnable = dictionary["oscBandlimitEnable"]
             as? Double ?? p(.oscBandlimitEnable)
 

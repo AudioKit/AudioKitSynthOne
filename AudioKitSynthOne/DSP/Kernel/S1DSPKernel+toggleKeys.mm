@@ -23,7 +23,7 @@ void S1DSPKernel::turnOnKey(int noteNumber, int velocity) {
     if (noteNumber < 0 || noteNumber >= S1_NUM_MIDI_NOTES)
         return;
 
-    const float frequency = tuningTableNoteToHz(noteNumber + (int)p[transpose]);
+    const float frequency = tuningTableNoteToHz(noteNumber + (int)parameters[transpose]);
     turnOnKey(noteNumber, velocity, frequency);
 }
 
@@ -33,12 +33,12 @@ void S1DSPKernel::turnOnKey(int noteNumber, int velocity, float frequency) {
         return;
     initializeNoteStates();
 
-    if (p[isMono] > 0.f) {
+    if (parameters[isMono] > 0.f) {
         S1NoteState& note = *monoNote;
         monoFrequency = frequency;
 
         // PORTAMENTO: set the ADSRs to release mode here, then into attack mode inside startNoteHelper
-        if (p[monoIsLegato] == 0) {
+        if (parameters[monoIsLegato] == 0) {
             note.internalGate = 0;
             note.stage = S1NoteState::stageRelease;
             sp_adsr_compute(sp, note.adsr, &note.internalGate, &note.amp);
@@ -95,10 +95,10 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
         return;
     initializeNoteStates();
 
-    if (p[isMono] > 0.f) {
+    if (parameters[isMono] > 0.f) {
 
         // MONO:
-        if (p[arpIsOn] == 1.f || heldNoteNumbersAE.count == 0) {
+        if (parameters[arpIsOn] == 1.f || heldNoteNumbersAE.count == 0) {
 
             // the case where this was the only held note and now it should be off, OR
             // the case where the sequencer turns off this key even though a note is held down
@@ -111,17 +111,25 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
             // the case where you had more than one held note and released one (CACA): Keep note ON and set to freq of head
             AEArrayToken token = AEArrayGetToken(heldNoteNumbersAE);
             NoteNumber* nn = (NoteNumber*)AEArrayGetItem(token, 0);
+
+            // This logic is in S1NoteState::startNoteHelper...need a common function
             const int headNN = nn->noteNumber;
             monoNote->rootNoteNumber = headNN;
-            monoNote->transpose = (int)p[transpose];
-            monoFrequency = tuningTableNoteToHz(headNN + (int)p[transpose]);
+            monoNote->transpose = (int)parameters[transpose];
+            monoNote->velocity = nn->velocity;
+            monoNote->amp = (float)pow2(nn->velocity / 127.f);
+            monoNote->oscmorph1->amp = monoNote->amp;
+            monoNote->oscmorph2->amp = monoNote->amp;
+            monoNote->subOsc->amp = monoNote->amp;
+            monoNote->fmOsc->amp = monoNote->amp;
+            monoFrequency = tuningTableNoteToHz(headNN + (int)parameters[transpose]);
             monoNote->oscmorph1->freq = monoFrequency;
             monoNote->oscmorph2->freq = monoFrequency;
             monoNote->subOsc->freq = monoFrequency;
             monoNote->fmOsc->freq = monoFrequency;
 
             // PORTAMENTO: reset the ADSR inside the render loop
-            if (p[monoIsLegato] == 0.f) {
+            if (parameters[monoIsLegato] == 0.f) {
                 monoNote->internalGate = 0;
                 monoNote->stage = S1NoteState::stageRelease;
                 sp_adsr_compute(sp, monoNote->adsr, &monoNote->internalGate, &monoNote->amp);

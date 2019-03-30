@@ -11,10 +11,23 @@ import UIKit
 @IBDesignable
 public class Stepper: UIView, S1Control {
 
+    // MARK: - S1Control
+    public internal(set) var value: Double {
+        get {
+            return internalValue
+        }
+        set {
+            internalValue = range.clamp(round(newValue))
+            setNeedsDisplay()
+        }
+    }
+
     public var callback: (Double) -> Void = { _ in }
 
     var defaultCallback: () -> Void = { }
 
+    // MARK: - Stepper
+    
     var minusPath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 2, width: 35, height: 32), cornerRadius: 1)
 
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)
@@ -38,18 +51,6 @@ public class Stepper: UIView, S1Control {
 			accessibilityValue = String(format: "%.0f", internalValue)
 		}
 	}
-
-    public internal(set) var value: Double {
-        get {
-            return internalValue
-        }
-        set {
-            //TODO: bug?
-            internalValue = round(internalValue)
-            internalValue = range.clamp(newValue)
-            setNeedsDisplay()
-        }
-    }
 
     var range: ClosedRange = 0.0...1.0
 
@@ -101,12 +102,6 @@ public class Stepper: UIView, S1Control {
             }
             self.callback(value)
             self.setNeedsDisplay()
-        }
-    }
-
-    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            _ = touch.location(in: self)
         }
     }
 

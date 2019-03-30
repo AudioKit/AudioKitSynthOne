@@ -276,6 +276,7 @@ public class HeaderViewController: UpdatableViewController {
             let npo = AKPolyphonicNode.tuningTable.npo
             let npo1 = Int(Double(npo) * Double(value)/12.0)
             let message = NSLocalizedString("Arpeggiator Interval: \(npo1) of \(npo)", comment: "Arpeggiator Interval")
+//            let message = NSLocalizedString("Interval: value:\(value.decimalString), npo1:\(npo1) of:\(npo)", comment: "Interval")
             displayLabel.text = message
         case .transpose:
             //TODO: localize

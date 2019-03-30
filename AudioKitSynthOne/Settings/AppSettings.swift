@@ -19,6 +19,7 @@ let initBanks = ["BankA",
                  "Sound of Izrael",
                  "Starter Bank"]
 
+// Do not rename any of these properties or you will break AppSettings read/write
 class AppSettings: Codable {
 
     var settingID = "main"
@@ -147,14 +148,17 @@ class AppSettings: Codable {
         midiSources = dictionary["midiSources"] as? [String] ?? midiSources
         plotFilled = dictionary["plotFilled"] as? Bool ?? plotFilled
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
+        presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
+        saveTuningWithPreset = dictionary["saveTuningWithPreset"] as? Bool ?? saveTuningWithPreset
+
+        // HAQ Panel
         freezeArpRate = dictionary["freezeArpRate"] as? Bool ?? freezeArpRate
         freezeDelay = dictionary["freezeDelay"] as? Bool ?? freezeDelay
         freezeReverb = dictionary["freezeReverb"] as? Bool ?? freezeReverb
         freezeArpSeq = dictionary["freezeArpSeq"] as? Bool ?? freezeArpSeq
-        saveTuningWithPreset = dictionary["saveTuningWithPreset"] as? Bool ?? saveTuningWithPreset
-        presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
+        whiteKeysOnly = dictionary["whiteKeysOnly"] as? Bool ?? whiteKeysOnly
 
-        // GENERATOR
+        // MIDI Learn GENERATOR
         masterVolumeCC = dictionary["masterVolumeCC"] as? Int ?? masterVolumeCC
         morph1SelectorCC = dictionary["morph1SelectorCC"] as? Int ?? morph1SelectorCC
         morph2SelectorCC = dictionary["morph2SelectorCC"] as? Int ?? morph2SelectorCC
@@ -172,7 +176,7 @@ class AppSettings: Codable {
         noiseVolumeCC = dictionary["noiseVolumeCC"] as? Int ?? noiseVolumeCC
         glideKnobCC = dictionary["glideKnobCC"] as? Int ?? glideKnobCC
 
-        // ARP/SEQ
+        // MIDI Learn ARP/SEQ
         sequencerToggleCC = dictionary["sequencerToggleCC"] as? Int ?? sequencerToggleCC
         arpIntervalCC = dictionary["arpIntervalCC"] as? Int ?? arpIntervalCC
         arpToggleCC = dictionary["arpToggleCC"] as? Int ?? arpToggleCC
@@ -180,9 +184,8 @@ class AppSettings: Codable {
         arpDirectionButtonCC = dictionary["arpDirectionButtonCC"] as? Int ?? arpDirectionButtonCC
         seqStepsStepperCC = dictionary["seqStepsStepperCC"] as? Int ?? seqStepsStepperCC
         arpSeqTempoMultiplierCC = dictionary["arpSeqTempoMultiplierCC"] as? Int ?? arpSeqTempoMultiplierCC
-        transposeStepperCC = dictionary["transposeStepperCC"] as? Int ?? transposeStepperCC
 
-        // ADSR
+        // MIDI Learn ADSR
         attackKnobCC = dictionary["attackKnobCC"] as? Int ?? attackKnobCC
         decayKnobCC = dictionary["decayKnobCC"] as? Int ?? decayKnobCC
         sustainKnobCC = dictionary["sustainKnobCC"] as? Int ?? sustainKnobCC
@@ -194,10 +197,9 @@ class AppSettings: Codable {
         filterADSRMixKnobCC = dictionary["filterADSRMixKnobCC"] as? Int ?? filterADSRMixKnobCC
         adsrPitchTrackingKnobCC = dictionary["adsrPitchTrackingKnobCC"] as? Int ?? adsrPitchTrackingKnobCC
 
-        // EFX
+        // MIDI Learn EFX
         sampleRateCC = dictionary["sampleRateCC"] as? Int ?? sampleRateCC
         delayTimeCC = dictionary["delayTimeCC"] as? Int ?? delayTimeCC
-        arpSeqTempoMultiplierCC = dictionary["arpSeqTempoMultiplierCC"] as? Int ?? arpSeqTempoMultiplierCC
         delayFeedbackCC = dictionary["delayFeedbackCC"] as? Int ?? delayFeedbackCC
         delayMixCC = dictionary["delayMixCC"] as? Int ?? delayMixCC
         lfo1AmpCC = dictionary["lfo1AmpCC"] as? Int ?? lfo1AmpCC
@@ -213,13 +215,15 @@ class AppSettings: Codable {
         reverbMixCC = dictionary["reverbMixCC"] as? Int ?? reverbMixCC
         autoPanRateCC = dictionary["autoPanRateCC"] as? Int ?? autoPanRateCC
         autoPanAmountCC = dictionary["autoPanAmountCC"] as? Int ?? autoPanAmountCC
-        
+
+        // MIDI Learn Keyboard
+        transposeStepperCC = dictionary["transposeStepperCC"] as? Int ?? transposeStepperCC
+
         // KEYBOARD
         labelMode = dictionary["labelMode"] as? Int ?? labelMode
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
         darkMode = dictionary["darkMode"] as? Bool ?? darkMode
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
-        whiteKeysOnly = dictionary["whiteKeysOnly"] as? Bool ?? false
 
         // STATE
         currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex

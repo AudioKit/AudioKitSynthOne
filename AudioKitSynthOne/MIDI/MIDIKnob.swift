@@ -8,10 +8,9 @@
 
 import AudioKit
 
+
 @IBDesignable
 public class MIDIKnob: Knob, MIDILearnable {
-    
-    var midiByteRange: ClosedRange<MIDIByte> = 0...127
 
     var timeSyncMode = false
 
@@ -24,13 +23,16 @@ public class MIDIKnob: Knob, MIDILearnable {
 
             // Update Display label
             let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
-            if isActive { conductor.updateDisplayLabel(message) }
+            if isActive {
+                conductor.updateDisplayLabel(message)
+            }
         }
 
     }
 
-    
-    ///MIDILearnable
+    //MARK: - MIDILearnable
+    var midiByteRange: ClosedRange<MIDIByte> = 0...127
+
     var hotspotView = UIView()
 
     var isActive = false {
@@ -80,14 +82,16 @@ public class MIDIKnob: Knob, MIDILearnable {
 
     // Linear Scale MIDI 0...127 to 0.0...1.0
     func setControlValueFrom(midiValue: MIDIByte) {
-        knobValue = CGFloat(Double(midiValue).normalized(from: 0...127))
-        let newValue = Double(knobValue).denormalized(to: range, taper: taper)
-        callback(newValue)
+        let min = Double(midiByteRange.lowerBound)
+        let max = Double(midiByteRange.upperBound)
+        knobValue = CGFloat(Double(midiValue).normalized(from: min...max))
+        self.value = Double(knobValue).denormalized(to: range, taper: taper)
+        callback(self.value)
     }
 
     func updateDisplayLabel() {
-        let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
         if isActive {
+            let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
             conductor.updateDisplayLabel(message)
         }
     }

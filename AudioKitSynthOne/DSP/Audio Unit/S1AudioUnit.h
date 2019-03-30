@@ -54,10 +54,15 @@ typedef struct S1ArpBeatCounter {
 
 
 @protocol S1Protocol
+
 -(void)dependentParameterDidChange:(DependentParameter)dependentParam;
+
 -(void)arpBeatCounterDidChange:(S1ArpBeatCounter)arpBeatCounter;
+
 -(void)heldNotesDidChange:(HeldNotes)heldNotes;
+
 -(void)playingNotesDidChange:(PlayingNotes)playingNotes;
+
 @end
 
 @interface S1AudioUnit : AKAudioUnit

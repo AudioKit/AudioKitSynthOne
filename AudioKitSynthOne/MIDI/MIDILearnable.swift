@@ -8,6 +8,7 @@
 
 import AudioKit
 
+
 protocol MIDILearnable: AnyObject {
 
     var midiByteRange:ClosedRange<MIDIByte> { get set }

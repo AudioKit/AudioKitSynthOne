@@ -29,11 +29,9 @@ extension Manager: AKKeyboardDelegate {
             let title = NSLocalizedString("Too High", comment: "Alert Title: Too High")
             let message = NSLocalizedString("MIDI Note > 127. G8 is the highest playable key. Take it down a notch 😉",
                                             comment: "Alert Message: Too High")
-
             displayAlertController(title, message: message)
             return
         }
-
         let transformedNoteNumber = appSettings.whiteKeysOnly ? whiteKeysOnlyMap[Int(note)] : note
         sustainer.play(noteNumber: transformedNoteNumber, velocity: velocity)
     }

@@ -26,8 +26,6 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
         }
     }
 
-    private var _value: Double = 0
-
 	lazy private var accessibilityChangeAmount: Double = {
 		let widthOfRange = range.upperBound - range.lowerBound
 
@@ -42,11 +40,12 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
 
 	}()
 
+    private var _value: Double = 0
+
     var value: Double {
         get {
             return _value
         }
-
         set(newValue) {
             _value = onlyIntegers ? round(newValue) : newValue
             _value = range.clamp(_value)
@@ -129,12 +128,16 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
     }
 
 	override public func accessibilityIncrement() {
-		value += accessibilityChangeAmount
-		callback(value)
+
+        //TODO
+//        value += accessibilityChangeAmount
+//        callback(value)
 	}
 
 	override public func accessibilityDecrement() {
-		value -= accessibilityChangeAmount
-		callback(value)
+
+        //TODO
+//        value -= accessibilityChangeAmount
+//        callback(value)
 	}
 }

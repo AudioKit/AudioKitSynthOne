@@ -79,10 +79,10 @@ class GeneratorsPanelController: PanelController {
         }
         morph1SemitoneOffset.onlyIntegers = true
         morph1SemitoneOffset.range = s.getRange(.morph1SemitoneOffset)
-        morph2SemitoneOffset.onlyIntegers = true
-        morph2SemitoneOffset.range = s.getRange(.morph2SemitoneOffset)
         morph1SemitoneOffset.knobSensitivity = 0.004
         morph2SemitoneOffset.knobSensitivity = 0.004
+        morph2SemitoneOffset.onlyIntegers = true
+        morph2SemitoneOffset.range = s.getRange(.morph2SemitoneOffset)
         morph2Detuning.range = s.getRange(.morph2Detuning)
         morphBalance.range = s.getRange(.morphBalance)
         morph1Volume.range = s.getRange(.morph1Volume)

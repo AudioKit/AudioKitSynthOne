@@ -13,6 +13,16 @@ class MIDIArpDirectionButton: ArpDirectionButton, MIDILearnable {
 
     let conductor = Conductor.sharedInstance
 
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        if midiLearnMode {
+            isActive = !isActive // Toggles knob to be active & ready to receive CC
+            updateDisplayLabel()
+        }
+    }
+
+    //MARK: - MIDILearnable
+
     var midiByteRange: ClosedRange<MIDIByte> = 0...127
 
     var hotspotView: UIView = UIView()
@@ -68,19 +78,9 @@ class MIDIArpDirectionButton: ArpDirectionButton, MIDILearnable {
     }
 
     func updateDisplayLabel() {
-        let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
         if isActive {
+            let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
             conductor.updateDisplayLabel(message)
         }
     }
-
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        if midiLearnMode {
-            isActive = !isActive // Toggles knob to be active & ready to receive CC
-            updateDisplayLabel()
-        }
-    }
-
-
 }

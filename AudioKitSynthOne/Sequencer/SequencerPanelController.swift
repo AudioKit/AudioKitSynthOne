@@ -9,6 +9,7 @@
 import UIKit
 import CoreGraphics
 
+
 class SequencerPanelController: PanelController {
 
     @IBOutlet weak var arpToggle: MIDIToggleButton!
@@ -40,22 +41,29 @@ class SequencerPanelController: PanelController {
             AKLog("SequencerPanel view state is invalid because synth is not instantiated")
             return
         }
-        seqStepsStepper.minValue = s.getMinimum(.arpTotalSteps)
-        seqStepsStepper.maxValue = s.getMaximum(.arpTotalSteps)
+        conductor.bind(arpToggle, to: .arpIsOn)
+
+
+        arpInterval.range = s.getRange(.arpInterval)
+        arpInterval.value = s.getSynthParameter(.arpInterval)
+//        arpInterval.callback = { value in
+//            s.setSynthParameter(.arpInterval, value)
+//            self.conductor.updateDisplayLabel(.arpInterval, value: s.getSynthParameter(.arpInterval))
+//        }
+        conductor.bind(arpInterval, to: .arpInterval)
+
+
         octaveStepper.minValue = s.getMinimum(.arpOctave)
         octaveStepper.maxValue = s.getMaximum(.arpOctave)
-        arpInterval.range = s.getRange(.arpInterval)
-        arpSeqTempoMultiplier.range = 0...1
-
-        // Bindings
-        conductor.bind(arpToggle, to: .arpIsOn)
-        conductor.bind(arpInterval, to: .arpInterval)
         conductor.bind(octaveStepper, to: .arpOctave)
         conductor.bind(arpDirectionButton, to: .arpDirection)
         conductor.bind(sequencerToggle, to: .arpIsSequencer)
+        seqStepsStepper.minValue = s.getMinimum(.arpTotalSteps)
+        seqStepsStepper.maxValue = s.getMaximum(.arpTotalSteps)
         conductor.bind(seqStepsStepper, to: .arpTotalSteps)
 
         // dependent param needs custom callback
+        arpSeqTempoMultiplier.range = 0...1
         arpSeqTempoMultiplier.taper = 1
         arpSeqTempoMultiplier.value = s.getDependentParameter(.arpSeqTempoMultiplier)
         arpSeqTempoMultiplier.callback = { value in
@@ -201,7 +209,8 @@ class SequencerPanelController: PanelController {
 			octaveStepper,
 			arpDirectionButton,
 			sequencerToggle,
-			seqStepsStepper
+			seqStepsStepper,
+            arpSeqTempoMultiplier
 		]
 		for index in 0...15 {
             view.accessibilityElements?.append(octBoostButtons[index])

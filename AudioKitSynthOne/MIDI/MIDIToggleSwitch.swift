@@ -8,13 +8,22 @@
 
 import Foundation
 
+
 class MIDIToggleSwitch: ToggleSwitch, MIDILearnable {
 
     let conductor = Conductor.sharedInstance
 
     let range: ClosedRange<Double> = 0...1
 
-    /// MARK: MIDILearnable
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        if midiLearnMode {
+            isActive = !isActive
+            updateDisplayLabel()
+        }
+    }
+
+    //MARK: - MIDILearnable
 
     var midiByteRange: ClosedRange<MIDIByte> = 0...127
 
@@ -66,23 +75,18 @@ class MIDIToggleSwitch: ToggleSwitch, MIDILearnable {
     }
 
     func setControlValueFrom(midiValue: MIDIByte) {
-        let v = (Double(midiValue) - Double(midiByteRange.lowerBound) ) / ( Double(midiByteRange.upperBound) - Double(midiByteRange.lowerBound) )
-        self.value = range.clamp( round( v * (range.upperBound - range.lowerBound) + range.lowerBound ) )
+        let min = Double(midiByteRange.lowerBound)
+        let max = Double(midiByteRange.upperBound)
+        let v = CGFloat(Double(midiValue).normalized(from: min...max))
+        self.value = Double(v).denormalized(to: range)
+        setNeedsDisplay()
+        callback(self.value)
     }
 
     func updateDisplayLabel() {
-        let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
         if isActive {
+            let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
             conductor.updateDisplayLabel(message)
-        }
-    }
-
-    ///
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        if midiLearnMode {
-            isActive = !isActive
-            updateDisplayLabel()
         }
     }
 }

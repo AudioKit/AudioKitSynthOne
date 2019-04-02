@@ -22,6 +22,8 @@ let initBanks = ["BankA",
 // Do not rename any of these properties or you will break AppSettings read/write
 class AppSettings: Codable {
 
+    // MARK: - Settings
+
     var settingID = "main"
     var firstRun = true
     var isPreRelease = false
@@ -56,7 +58,18 @@ class AppSettings: Codable {
     // Presets version
     var presetsVersion = 1.27
 
-    // MIDI Learn Settings
+    // Keyboard
+    var labelMode = 1
+    var octaveRange = 2
+    var darkMode = false
+    var showKeyboard = 1.0 // 1 show, 0 hide
+    var whiteKeysOnly = false
+
+    // Save State
+    var currentBankIndex = 0
+    var currentPresetIndex = 0
+
+    // MARK: - MIDI Learn Settings
 
     // mixer controller
     var masterVolumeCC = 255
@@ -118,20 +131,14 @@ class AppSettings: Codable {
     var phaserNotchWidthCC = 255
 
     // Keyboard
-    var labelMode = 1
-    var octaveRange = 2
-    var darkMode = false
-    var showKeyboard = 1.0 // 1 show, 0 hide
-    var whiteKeysOnly = false
+    var holdButtonCC = 255
+    var monoButtonCC = 255
 
-    // Save State
-    var currentBankIndex = 0
-    var currentPresetIndex = 0
+    // MARK: - Init
 
-    init() {
-    }
+    init() { }
 
-    // MARK: - JSON Parsing into object
+    // MARK: - INIT: JSON Parsing into object
 
     /// Initialization from Dictionary/JSON
     init(dictionary: [String: Any]) {
@@ -157,6 +164,16 @@ class AppSettings: Codable {
         freezeReverb = dictionary["freezeReverb"] as? Bool ?? freezeReverb
         freezeArpSeq = dictionary["freezeArpSeq"] as? Bool ?? freezeArpSeq
         whiteKeysOnly = dictionary["whiteKeysOnly"] as? Bool ?? whiteKeysOnly
+
+        // KEYBOARD
+        labelMode = dictionary["labelMode"] as? Int ?? labelMode
+        octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
+        darkMode = dictionary["darkMode"] as? Bool ?? darkMode
+        showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
+
+        // PRESET STATE
+        currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex
+        currentPresetIndex = dictionary["currentPresetIndex"] as? Int ?? currentPresetIndex
 
         // MIDI Learn GENERATOR
         masterVolumeCC = dictionary["masterVolumeCC"] as? Int ?? masterVolumeCC
@@ -218,15 +235,8 @@ class AppSettings: Codable {
 
         // MIDI Learn Keyboard
         transposeStepperCC = dictionary["transposeStepperCC"] as? Int ?? transposeStepperCC
-
-        // KEYBOARD
-        labelMode = dictionary["labelMode"] as? Int ?? labelMode
-        octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
-        darkMode = dictionary["darkMode"] as? Bool ?? darkMode
-        showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
-
-        // STATE
-        currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex
-        currentPresetIndex = dictionary["currentPresetIndex"] as? Int ?? currentPresetIndex
+        holdButtonCC = dictionary["holdButtonCC"] as? Int ?? holdButtonCC
+        monoButtonCC = dictionary["monoButtonCC"] as? Int ?? monoButtonCC
     }
+
 }

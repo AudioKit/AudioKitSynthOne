@@ -31,7 +31,7 @@ class SliderTransposeButton: UILabel, S1Control {
                 _value = 0
                 self.backgroundColor = #colorLiteral(red: 0.2156862745, green: 0.2156862745, blue: 0.2352941176, alpha: 1)
             }
-            setNeedsDisplay()
+            self.setNeedsDisplay()
         }
     }
 
@@ -73,13 +73,12 @@ class SliderTransposeButton: UILabel, S1Control {
         for _ in touches {
 
             // toggle
-            if value > 0 {
-                value = 0
+            if self.value > 0 {
+                self.value = 0
             } else {
-                value = 1
+                self.value = 1
             }
-
-            callback(value)
+            self.callback(value)
         }
     }
 

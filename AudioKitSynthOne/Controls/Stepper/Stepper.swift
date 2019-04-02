@@ -18,7 +18,7 @@ public class Stepper: UIView, S1Control {
         }
         set {
             internalValue = range.clamp(round(newValue))
-            setNeedsDisplay()
+            self.setNeedsDisplay()
         }
     }
 

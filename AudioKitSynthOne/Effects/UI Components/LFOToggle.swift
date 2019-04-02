@@ -29,8 +29,7 @@ class LFOToggle: UIView, S1Control {
             default:
                 break
             }
-            setNeedsDisplay()
-
+            self.setNeedsDisplay()
         }
     }
 
@@ -85,22 +84,17 @@ class LFOToggle: UIView, S1Control {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-
             let touchPoint = touch.location(in: self)
-
             if touchPoint.x < width / 2 {
                 lfo1Active = !lfo1Active
             } else {
                 lfo2Active = !lfo2Active
             }
-
             var newValue = 0.00
             if lfo1Active { newValue += 1 }
             if lfo2Active { newValue += 2 }
-
-            value = newValue
-
-            callback(value)
+            self.value = newValue
+            self.callback(value)
         }
     }
 
@@ -109,10 +103,8 @@ class LFOToggle: UIView, S1Control {
 		var newValue = 0.00
 		if lfo1Active { newValue += 1 }
 		if lfo2Active { newValue += 2 }
-
-		value = newValue
-
-		callback(value)
+		self.value = newValue
+		self.callback(value)
 	}
 
 	override func accessibilityDecrement() {
@@ -120,16 +112,14 @@ class LFOToggle: UIView, S1Control {
 		var newValue = 0.00
 		if lfo1Active { newValue += 1 }
 		if lfo2Active { newValue += 2 }
-
-		value = newValue
-
-		callback(value)
+		self.value = newValue
+		self.callback(self.value)
 	}
 
 	func updateAccessibilityValue() {
 		accessibilityValue = NSLocalizedString("L F O Toggle 1 ", comment: "L F O Toggle 1, (LFO) Low Frequency Oscillator") +
-			(lfo1Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off,")) +
+			(self.lfo1Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off,")) +
 			NSLocalizedString("L F O Toggle 2 ", comment: "L F O Toggle 1, (LFO) Low Frequency Oscillator") +
-			(lfo2Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off"))
+			(self.lfo2Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off"))
 	}
 }

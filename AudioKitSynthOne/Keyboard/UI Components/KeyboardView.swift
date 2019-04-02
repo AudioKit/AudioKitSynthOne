@@ -129,7 +129,7 @@ public protocol AKKeyboardDelegate: class {
         oneOctaveSize = CGSize(width: Double(width / octaveCount - width / (octaveCount * octaveCount * 7)),
                                height: Double(height))
         isMultipleTouchEnabled = true
-        setNeedsDisplay()
+        self.setNeedsDisplay()
     }
 
     /// Initialization within Interface Builder
@@ -318,7 +318,7 @@ public protocol AKKeyboardDelegate: class {
             pressAdded(note)
         }
         if !holdMode { verifyTouches(event?.allTouches) }
-        setNeedsDisplay()
+        self.setNeedsDisplay()
     }
 
     /// Handle touches completed
@@ -336,7 +336,7 @@ public protocol AKKeyboardDelegate: class {
             }
         }
         verifyTouches(event?.allTouches)
-        setNeedsDisplay()
+        self.setNeedsDisplay()
     }
 
     /// Handle moved touches
@@ -346,7 +346,7 @@ public protocol AKKeyboardDelegate: class {
             if let key = noteFromTouchLocation(touch.location(in: self)),
                 key != noteFromTouchLocation(touch.previousLocation(in: self)) {
                 pressAdded(key)
-                setNeedsDisplay()
+                self.setNeedsDisplay()
             }
         }
         verifyTouches(event?.allTouches)
@@ -376,7 +376,7 @@ public protocol AKKeyboardDelegate: class {
             onKeys.insert(newNote)
             delegate?.noteOn(note: newNote, velocity: velocity)
         }
-        setNeedsDisplay()
+        self.setNeedsDisplay()
     }
 
     func pressRemoved(_ note: MIDINoteNumber, touches: Set<UITouch>? = nil, isFromMIDI: Bool = false) {
@@ -395,7 +395,7 @@ public protocol AKKeyboardDelegate: class {
                 pressAdded(highest)
             }
         }
-        setNeedsDisplay()
+        self.setNeedsDisplay()
     }
 
     func allNotesOff() {
@@ -403,7 +403,7 @@ public protocol AKKeyboardDelegate: class {
             delegate?.noteOff(note: note)
         }
         onKeys.removeAll()
-        setNeedsDisplay()
+        self.setNeedsDisplay()
     }
 
     private func verifyTouches(_ touches: Set<UITouch>?) {

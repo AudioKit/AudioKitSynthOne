@@ -12,7 +12,7 @@ import Disk
 
 extension Manager {
 
-    // MARK: - Convert App Settings to Controls and vice-versa
+    // MARK: - Map App Settings to Controls
 
     func setDefaultsFromAppSettings() {
 
@@ -42,6 +42,11 @@ extension Manager {
         // DSP parameter stored in app settings
         conductor.synth.setSynthParameter(.portamentoHalfTime, appSettings.portamentoHalfTime)
         devViewController.portamento.value = conductor.synth.getSynthParameter(.portamentoHalfTime)
+
+        // keyboard
+        keyboardView.labelMode = appSettings.labelMode
+        keyboardView.octaveCount = appSettings.octaveRange
+        keyboardView.darkMode = appSettings.darkMode
 
         // MIDI Learn Generators
         generatorsPanel.masterVolume.midiCC = MIDIByte(appSettings.masterVolumeCC)
@@ -101,11 +106,8 @@ extension Manager {
 
         // MIDI Learn Keyboard
         self.transposeStepper.midiCC = MIDIByte(appSettings.transposeStepperCC)
-
-        // keyboard
-        keyboardView.labelMode = appSettings.labelMode
-        keyboardView.octaveCount = appSettings.octaveRange
-        keyboardView.darkMode = appSettings.darkMode
+        self.holdButton.midiCC = MIDIByte(appSettings.holdButtonCC)
+        self.monoButton.midiCC = MIDIByte(appSettings.monoButtonCC)
     }
 
     func saveAppSettingValues() {
@@ -261,7 +263,6 @@ extension Manager {
             let bank = Bank(name: bankName, position: i)
             conductor.banks.append(bank)
         }
-
         saveBankSettings()
     }
 

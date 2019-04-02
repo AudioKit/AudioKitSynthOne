@@ -6,9 +6,6 @@
 //  Copyright © 2019 AudioKit. All rights reserved.
 //
 
-import Foundation
-
-
 class MIDIToggleButton: ToggleButton, MIDILearnable {
 
     let conductor = Conductor.sharedInstance
@@ -16,7 +13,7 @@ class MIDIToggleButton: ToggleButton, MIDILearnable {
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         if midiLearnMode {
-            isActive = !isActive // Toggles knob to be active & ready to receive CC
+            isActive = !isActive
             updateDisplayLabel()
         }
     }
@@ -76,9 +73,9 @@ class MIDIToggleButton: ToggleButton, MIDILearnable {
         let min = Double(midiByteRange.lowerBound)
         let max = Double(midiByteRange.upperBound)
         let v = CGFloat(Double(midiValue).normalized(from: min...max))
-        self.value = Double(v).denormalized(to: range)
-        setNeedsDisplay()
-        callback(self.value)
+        self.value = Double(v).denormalized(to: range) < 0.5 ? 0 : 1
+        self.setNeedsDisplay()
+        self.callback(self.value)
     }
 
     func updateDisplayLabel() {
@@ -87,4 +84,5 @@ class MIDIToggleButton: ToggleButton, MIDILearnable {
             conductor.updateDisplayLabel(message)
         }
     }
+    
 }

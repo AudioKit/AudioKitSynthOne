@@ -30,4 +30,5 @@ protocol MIDILearnable: AnyObject {
     func setControlValueFrom(midiValue: MIDIByte)
     
     func updateDisplayLabel()
+    
 }

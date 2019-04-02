@@ -42,17 +42,9 @@ class SequencerPanelController: PanelController {
             return
         }
         conductor.bind(arpToggle, to: .arpIsOn)
-
-
         arpInterval.range = s.getRange(.arpInterval)
         arpInterval.value = s.getSynthParameter(.arpInterval)
-//        arpInterval.callback = { value in
-//            s.setSynthParameter(.arpInterval, value)
-//            self.conductor.updateDisplayLabel(.arpInterval, value: s.getSynthParameter(.arpInterval))
-//        }
         conductor.bind(arpInterval, to: .arpInterval)
-
-
         octaveStepper.minValue = s.getMinimum(.arpOctave)
         octaveStepper.maxValue = s.getMaximum(.arpOctave)
         conductor.bind(octaveStepper, to: .arpOctave)
@@ -221,4 +213,5 @@ class SequencerPanelController: PanelController {
 		view.accessibilityElements?.append(leftNavButton)
 		view.accessibilityElements?.append(rightNavButton)
 	}
+    
 }

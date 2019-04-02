@@ -250,6 +250,7 @@
 		F4C790142247025C003CFF28 /* MIDIStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C790132247025C003CFF28 /* MIDIStepper.swift */; };
 		F4C9D9A321D6B13200B7C4E5 /* Tunings+UpgradePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */; };
 		F4CA406D224EB2A70053F29E /* S1Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA406C224EB2A70053F29E /* S1Control.swift */; };
+		F4CA406F225192A60053F29E /* MIDISynthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA406E225192A60053F29E /* MIDISynthButton.swift */; };
 		F4E4D00421C5B9F2005B2FAF /* TuningBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */; };
 		F4E4D00721C81E34005B2FAF /* tunings_v0_upgrade_path_test.json in Resources */ = {isa = PBXBuildFile; fileRef = F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */; };
 		F4E4D00921C87B9F005B2FAF /* Tunings+DefaultTunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4D00821C87B9F005B2FAF /* Tunings+DefaultTunings.swift */; };
@@ -682,6 +683,7 @@
 		F4C790132247025C003CFF28 /* MIDIStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIStepper.swift; sourceTree = "<group>"; };
 		F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+UpgradePaths.swift"; sourceTree = "<group>"; };
 		F4CA406C224EB2A70053F29E /* S1Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S1Control.swift; sourceTree = "<group>"; };
+		F4CA406E225192A60053F29E /* MIDISynthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISynthButton.swift; sourceTree = "<group>"; };
 		F4CB749120EEE0AF00716B92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningBank.swift; sourceTree = "<group>"; };
 		F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tunings_v0_upgrade_path_test.json; sourceTree = "<group>"; };
@@ -938,6 +940,7 @@
 				C435C52820C52D2E00DAECCD /* MIDILearnable.swift */,
 				C4B4914D20C7C6FC00FD565A /* MIDISettingsViewController.swift */,
 				F4C790132247025C003CFF28 /* MIDIStepper.swift */,
+				F4CA406E225192A60053F29E /* MIDISynthButton.swift */,
 				F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */,
 				F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */,
 			);
@@ -1739,6 +1742,7 @@
 				C4B491A720C7C95A00FD565A /* GeneratorsPanelController.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4B491AF20C7D10200FD565A /* LFOWavePicker.swift in Sources */,
+				F4CA406F225192A60053F29E /* MIDISynthButton.swift in Sources */,
 				C4B490F720C654E600FD565A /* S1DSPKernel+reset.mm in Sources */,
 				C435C58420C530C900DAECCD /* S1NoteState.mm in Sources */,
 				C4B4915220C7C6FC00FD565A /* Manager+MIDISettingsPopOverDelegate.swift in Sources */,

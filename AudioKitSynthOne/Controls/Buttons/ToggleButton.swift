@@ -6,9 +6,6 @@
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-
-import UIKit
-
 @IBDesignable
 class ToggleButton: UIView, S1Control {
 
@@ -24,9 +21,9 @@ class ToggleButton: UIView, S1Control {
         }
         set {
             _internalValue = round(_internalValue)
-            _internalValue = range.clamp(newValue)
-            setNeedsDisplay()
-            accessibilityValue = isOn ? "On" : "Off"
+            _internalValue = self.range.clamp(newValue)
+            self.setNeedsDisplay()
+            self.accessibilityValue = isOn ? "On" : "Off"
         }
     }
 
@@ -43,16 +40,16 @@ class ToggleButton: UIView, S1Control {
                                                            y: 0,
                                                            width: self.bounds.width,
                                                            height: self.bounds.height),
-                                             isToggled: isOn)
+                                             isToggled: self.isOn)
     }
 
     // MARK: - Handle Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            value = isOn ? 0 : 1
-            setNeedsDisplay()
-            callback(value)
+            self.value = self.isOn ? 0 : 1
+            self.setNeedsDisplay()
+            self.callback(value)
         }
     }
 

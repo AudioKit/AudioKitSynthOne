@@ -127,17 +127,7 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
         lastY = touchPoint.y
     }
 
-	override public func accessibilityIncrement() {
+	override public func accessibilityIncrement() {}
 
-        //TODO
-//        value += accessibilityChangeAmount
-//        callback(value)
-	}
-
-	override public func accessibilityDecrement() {
-
-        //TODO
-//        value -= accessibilityChangeAmount
-//        callback(value)
-	}
+	override public func accessibilityDecrement() {}
 }

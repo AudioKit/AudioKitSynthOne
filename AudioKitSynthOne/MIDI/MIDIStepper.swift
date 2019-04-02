@@ -6,9 +6,6 @@
 //  Copyright © 2019 AudioKit. All rights reserved.
 //
 
-import AudioKit
-
-
 @IBDesignable
 public class MIDIStepper: Stepper, MIDILearnable {
 
@@ -78,8 +75,8 @@ public class MIDIStepper: Stepper, MIDILearnable {
         let mv = CGFloat(Double(midiValue).normalized(from: min...max))
         self.valuePressed = 0
         self.value = Double(mv).denormalized(to: range)
-        setNeedsDisplay()
-        callback(self.value)
+        self.setNeedsDisplay()
+        self.callback(self.value)
     }
 
     func updateDisplayLabel() {
@@ -88,4 +85,5 @@ public class MIDIStepper: Stepper, MIDILearnable {
             conductor.updateDisplayLabel(message)
         }
     }
+
 }

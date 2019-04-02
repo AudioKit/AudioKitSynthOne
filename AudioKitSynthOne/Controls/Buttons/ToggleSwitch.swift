@@ -6,8 +6,6 @@
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 
-import UIKit
-
 @IBDesignable
 class ToggleSwitch: UIView, S1Control {
 
@@ -15,15 +13,15 @@ class ToggleSwitch: UIView, S1Control {
 
     var isOn = false {
         didSet {
-            setNeedsDisplay()
-			accessibilityValue = isOn ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
+            self.setNeedsDisplay()
+			self.accessibilityValue = isOn ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
         }
     }
 
     var value: Double = 0 {
         didSet {
-            isOn = (value == 1)
-            setNeedsDisplay()
+            self.isOn = (value == 1)
+            self.setNeedsDisplay()
         }
     }
 
@@ -39,8 +37,9 @@ class ToggleSwitch: UIView, S1Control {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            value = 1 - value
-            callback(value)
+            self.value = 1 - value
+            self.callback(value)
         }
     }
+    
 }

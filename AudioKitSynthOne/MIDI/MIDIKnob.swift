@@ -86,11 +86,11 @@ public class MIDIKnob: Knob, MIDILearnable {
         let max = Double(midiByteRange.upperBound)
         knobValue = CGFloat(Double(midiValue).normalized(from: min...max))
         self.value = Double(knobValue).denormalized(to: range, taper: taper)
-        callback(self.value)
+        self.callback(self.value)
     }
 
     func updateDisplayLabel() {
-        if isActive {
+        if self.isActive {
             let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
             conductor.updateDisplayLabel(message)
         }

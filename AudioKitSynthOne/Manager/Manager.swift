@@ -35,9 +35,9 @@ public class Manager: UpdatableViewController {
 
     @IBOutlet weak var midiButton: SynthButton!
 
-    @IBOutlet weak var holdButton: SynthButton!
+    @IBOutlet weak var holdButton: MIDISynthButton!
 
-    @IBOutlet weak var monoButton: SynthButton!
+    @IBOutlet weak var monoButton: MIDISynthButton!
 
 	@IBOutlet weak var keyboardToggle: SynthButton!
 
@@ -426,6 +426,8 @@ public class Manager: UpdatableViewController {
         appendMIDIControls(fromViewController: devViewController)
         appendMIDIControls(fromViewController: tuningsPanel)
         appendMIDIControl(transposeStepper)
+        appendMIDIControl(holdButton)
+        appendMIDIControl(monoButton)
 
         setupLinkStuff()
         
@@ -467,7 +469,6 @@ public class Manager: UpdatableViewController {
         if isMono != monoButton.value {
             monoButton.value = isMono
             self.keyboardView.polyphonicMode = isMono > 0 ? false : true
-		
         }
         if parameter == .cutoff {
             if inputControl === modWheelPad || activePreset.modWheelRouting != 0 {

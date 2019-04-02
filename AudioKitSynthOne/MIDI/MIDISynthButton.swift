@@ -1,16 +1,14 @@
 //
-//  MIDIToggleSwitch.swift
+//  MIDISynthButton.swift
 //  AudioKitSynthOne
 //
-//  Created by Marcus W. Hobbs on 3/24/19.
+//  Created by Marcus W. Hobbs on 3/31/19.
 //  Copyright © 2019 AudioKit. All rights reserved.
 //
 
-class MIDIToggleSwitch: ToggleSwitch, MIDILearnable {
-
+class MIDISynthButton: SynthButton, MIDILearnable {
+    
     let conductor = Conductor.sharedInstance
-
-    let range: ClosedRange<Double> = 0...1
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -76,8 +74,8 @@ class MIDIToggleSwitch: ToggleSwitch, MIDILearnable {
         let max = Double(midiByteRange.upperBound)
         let v = CGFloat(Double(midiValue).normalized(from: min...max))
         self.value = Double(v).denormalized(to: range) < 0.5 ? 0 : 1
-        self.setNeedsDisplay()
         self.callback(self.value)
+        self.setNeedsDisplay()
     }
 
     func updateDisplayLabel() {

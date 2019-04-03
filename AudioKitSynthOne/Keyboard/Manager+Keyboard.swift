@@ -15,7 +15,6 @@ extension Manager: KeyboardPopOverDelegate {
         keyboardView.labelMode = labelMode
         keyboardView.darkMode = darkMode
         keyboardView.setNeedsDisplay()
-
         saveAppSettingValues()
     }
 }

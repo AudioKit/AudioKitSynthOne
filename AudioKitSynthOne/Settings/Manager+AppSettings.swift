@@ -154,6 +154,8 @@ extension Manager {
 
         // MIDI Learn Keyboard
         appSettings.transposeStepperCC = Int(self.transposeStepper.midiCC)
+        appSettings.holdButtonCC = Int(self.holdButton.midiCC)
+        appSettings.monoButtonCC = Int(self.monoButton.midiCC)
 
         // MIDI Learn ADSR
         appSettings.attackKnobCC = Int(envelopesPanel.attackKnob.midiCC)

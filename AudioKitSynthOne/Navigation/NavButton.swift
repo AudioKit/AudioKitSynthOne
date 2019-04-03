@@ -54,7 +54,7 @@ class NavButton: UIView {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            self.callback(value)
+            callback(value)
         }
     }
 

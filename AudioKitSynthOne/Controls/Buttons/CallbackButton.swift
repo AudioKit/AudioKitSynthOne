@@ -21,8 +21,8 @@ class CallbackButton: UIButton {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            self.valuePressed = 1
-            self.callback(valuePressed)
+            valuePressed = 1
+            callback(valuePressed)
         }
     }
     

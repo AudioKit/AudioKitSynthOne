@@ -15,7 +15,7 @@ class LFOWavePicker: UIView, S1Control {
     var defaultCallback: () -> Void = { }
     var value: Double = 0 {
         didSet {
-           self.setNeedsDisplay()
+           setNeedsDisplay()
 			switch value {
 			case 0:
 				accessibilityValue = NSLocalizedString("Sine Wave", comment: "Sine Wave")
@@ -56,8 +56,8 @@ class LFOWavePicker: UIView, S1Control {
                 value = 3
             }
 
-            self.setNeedsDisplay()
-            self.callback(value)
+            setNeedsDisplay()
+            callback(value)
         }
     }
 
@@ -84,7 +84,7 @@ class LFOWavePicker: UIView, S1Control {
 
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.isUserInteractionEnabled = true
+        isUserInteractionEnabled = true
         contentMode = .redraw
     }
 

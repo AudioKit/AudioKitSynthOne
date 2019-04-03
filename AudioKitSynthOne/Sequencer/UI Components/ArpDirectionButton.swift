@@ -52,7 +52,7 @@ class ArpDirectionButton: UIView, S1Control {
         for touch in touches {
             let touchPoint = touch.location(in: self)
             switch touchPoint.x {
-            case 0..<self.width:
+            case 0..<width:
                 value = 0
             case width...width * 2:
                 value = 1

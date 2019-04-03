@@ -18,7 +18,7 @@ public class RateKnob: MIDIKnob {
 
     override public var value: Double {
         get {
-            if self.timeSyncMode {
+            if timeSyncMode {
                 return rate.frequency
             } else {
                 return _value
@@ -28,7 +28,7 @@ public class RateKnob: MIDIKnob {
             _value = onlyIntegers ? round(newValue) : newValue
             _value = range.clamp(_value)
             if !timeSyncMode {
-                self.knobValue = CGFloat(_value.normalized(from: self.range, taper: self.taper))
+                knobValue = CGFloat(_value.normalized(from: range, taper: taper))
             }
         }
     }
@@ -41,23 +41,23 @@ public class RateKnob: MIDIKnob {
 
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.isUserInteractionEnabled = true
+        isUserInteractionEnabled = true
         contentMode = .redraw
     }
 
     override func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
 
         // Knobs assume up or right is increasing, and down or left is decreasing
-        self.knobValue += (touchPoint.x - self.lastX) * self.knobSensitivity
-        self.knobValue -= (touchPoint.y - self.lastY) * self.knobSensitivity
-        self.knobValue = (0.0 ... 1.0).clamp(self.knobValue)
+        knobValue += (touchPoint.x - lastX) * knobSensitivity
+        knobValue -= (touchPoint.y - lastY) * knobSensitivity
+        knobValue = (0.0 ... 1.0).clamp(knobValue)
         if timeSyncMode {
-            self.value = rate.frequency
+            value = rate.frequency
         } else {
-            self.value = Double(knobValue).denormalized(to: range, taper: taper)
+            value = Double(knobValue).denormalized(to: range, taper: taper)
         }
-        self.callback(value)
-        self.lastX = touchPoint.x
-        self.lastY = touchPoint.y
+        callback(value)
+        lastX = touchPoint.x
+        lastY = touchPoint.y
     }
 }

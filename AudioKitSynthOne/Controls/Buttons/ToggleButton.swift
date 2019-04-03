@@ -38,7 +38,7 @@ class ToggleButton: UIView, S1Control {
                                                            y: 0,
                                                            width: self.bounds.width,
                                                            height: self.bounds.height),
-                                             isToggled: self.isOn)
+                                             isToggled: isOn)
     }
 
     // MARK: - Handle Touches

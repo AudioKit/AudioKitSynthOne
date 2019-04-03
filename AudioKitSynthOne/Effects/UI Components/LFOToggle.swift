@@ -29,7 +29,7 @@ class LFOToggle: UIView, S1Control {
             default:
                 break
             }
-            self.setNeedsDisplay()
+            setNeedsDisplay()
         }
     }
 
@@ -51,7 +51,7 @@ class LFOToggle: UIView, S1Control {
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-        self.isUserInteractionEnabled = true
+        isUserInteractionEnabled = true
         contentMode = .redraw
 
 		accessibilityHint = NSLocalizedString(
@@ -93,8 +93,8 @@ class LFOToggle: UIView, S1Control {
             var newValue = 0.00
             if lfo1Active { newValue += 1 }
             if lfo2Active { newValue += 2 }
-            self.value = newValue
-            self.callback(value)
+            value = newValue
+            callback(value)
         }
     }
 
@@ -103,8 +103,8 @@ class LFOToggle: UIView, S1Control {
 		var newValue = 0.00
 		if lfo1Active { newValue += 1 }
 		if lfo2Active { newValue += 2 }
-		self.value = newValue
-		self.callback(value)
+		value = newValue
+		callback(value)
 	}
 
 	override func accessibilityDecrement() {
@@ -112,14 +112,14 @@ class LFOToggle: UIView, S1Control {
 		var newValue = 0.00
 		if lfo1Active { newValue += 1 }
 		if lfo2Active { newValue += 2 }
-		self.value = newValue
-		self.callback(self.value)
+		value = newValue
+		callback(value)
 	}
 
 	func updateAccessibilityValue() {
 		accessibilityValue = NSLocalizedString("L F O Toggle 1 ", comment: "L F O Toggle 1, (LFO) Low Frequency Oscillator") +
-			(self.lfo1Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off,")) +
+			(lfo1Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off,")) +
 			NSLocalizedString("L F O Toggle 2 ", comment: "L F O Toggle 1, (LFO) Low Frequency Oscillator") +
-			(self.lfo2Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off"))
+			(lfo2Active ? NSLocalizedString("On,", comment: "On") : NSLocalizedString("Off,", comment: "Off"))
 	}
 }

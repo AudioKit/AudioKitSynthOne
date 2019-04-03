@@ -69,7 +69,7 @@ public class MIDIKnob: Knob, MIDILearnable {
         hotspotView.layer.borderWidth = 2
         hotspotView.layer.cornerRadius = 10
         hotspotView.isHidden = true
-        self.addSubview(hotspotView)
+        addSubview(hotspotView)
     }
 
     func hideHotspot() {
@@ -80,13 +80,16 @@ public class MIDIKnob: Knob, MIDILearnable {
         hotspotView.isHidden = false
     }
 
-    // Linear Scale MIDI 0...127 to 0.0...1.0
     func setControlValueFrom(midiValue: MIDIByte) {
         let min = Double(midiByteRange.lowerBound)
         let max = Double(midiByteRange.upperBound)
         knobValue = CGFloat(Double(midiValue).normalized(from: min...max))
-        self.value = Double(knobValue).denormalized(to: range, taper: taper)
-        self.callback(self.value)
+        let previousValue = value
+        value = Double(knobValue).denormalized(to: range, taper: taper)
+        if previousValue != value {
+            callback(value)
+            setNeedsDisplay()
+        }
     }
 
     func updateDisplayLabel() {

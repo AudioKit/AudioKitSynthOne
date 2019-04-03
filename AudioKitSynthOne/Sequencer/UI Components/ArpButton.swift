@@ -30,7 +30,7 @@ class ArpButton: UIView, S1Control {
             } else {
                 _value = 0
             }
-            self.setNeedsDisplay()
+            setNeedsDisplay()
         }
     }
 
@@ -50,7 +50,7 @@ class ArpButton: UIView, S1Control {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             value = 1 - value
-            self.callback(value)
+            callback(value)
         }
     }
 

@@ -13,15 +13,15 @@ class ToggleSwitch: UIView, S1Control {
 
     var isOn = false {
         didSet {
-            self.setNeedsDisplay()
-			self.accessibilityValue = isOn ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
+            setNeedsDisplay()
+			accessibilityValue = isOn ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
         }
     }
 
     var value: Double = 0 {
         didSet {
-            self.isOn = (value == 1)
-            self.setNeedsDisplay()
+            isOn = (value == 1)
+            setNeedsDisplay()
         }
     }
 
@@ -37,8 +37,8 @@ class ToggleSwitch: UIView, S1Control {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            self.value = 1 - value
-            self.callback(value)
+            value = 1 - value
+            callback(value)
         }
     }
     

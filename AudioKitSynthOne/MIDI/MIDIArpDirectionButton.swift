@@ -61,7 +61,7 @@ class MIDIArpDirectionButton: ArpDirectionButton, MIDILearnable {
         hotspotView.layer.borderWidth = 2
         hotspotView.layer.cornerRadius = 10
         hotspotView.isHidden = true
-        self.addSubview(hotspotView)
+        addSubview(hotspotView)
     }
 
     func hideHotspot() {
@@ -74,7 +74,12 @@ class MIDIArpDirectionButton: ArpDirectionButton, MIDILearnable {
 
     func setControlValueFrom(midiValue: MIDIByte) {
         let v = (Double(midiValue) - Double(midiByteRange.lowerBound) ) / ( Double(midiByteRange.upperBound) - Double(midiByteRange.lowerBound) )
+        let previousValue = value
         value = range.clamp( round( v * (range.upperBound - range.lowerBound) + range.lowerBound ) )
+        if previousValue != value {
+            callback(value)
+            setNeedsDisplay()
+        }
     }
 
     func updateDisplayLabel() {

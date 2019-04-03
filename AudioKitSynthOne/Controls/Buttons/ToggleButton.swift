@@ -11,8 +11,6 @@ class ToggleButton: UIView, S1Control {
 
     // MARK: - ToggleButton
 
-    let range: ClosedRange<Double> = 0...1
-
     internal var _internalValue: Double = 0
 
     public internal(set) var value: Double {
@@ -21,9 +19,9 @@ class ToggleButton: UIView, S1Control {
         }
         set {
             _internalValue = round(_internalValue)
-            _internalValue = self.range.clamp(newValue)
-            self.setNeedsDisplay()
-            self.accessibilityValue = isOn ? "On" : "Off"
+            _internalValue = (0...1).clamp(newValue)
+            accessibilityValue = isOn ? "On" : "Off"
+            setNeedsDisplay()
         }
     }
 
@@ -47,9 +45,8 @@ class ToggleButton: UIView, S1Control {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            self.value = self.isOn ? 0 : 1
-            self.setNeedsDisplay()
-            self.callback(value)
+            value = isOn ? 0 : 1
+            callback(value)
         }
     }
 

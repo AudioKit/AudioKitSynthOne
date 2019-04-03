@@ -10,8 +10,6 @@ class MIDIToggleSwitch: ToggleSwitch, MIDILearnable {
 
     let conductor = Conductor.sharedInstance
 
-    let range: ClosedRange<Double> = 0...1
-
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         if midiLearnMode {
@@ -60,7 +58,7 @@ class MIDIToggleSwitch: ToggleSwitch, MIDILearnable {
         hotspotView.layer.borderWidth = 2
         hotspotView.layer.cornerRadius = 10
         hotspotView.isHidden = true
-        self.addSubview(hotspotView)
+        addSubview(hotspotView)
     }
 
     func hideHotspot() {
@@ -74,10 +72,13 @@ class MIDIToggleSwitch: ToggleSwitch, MIDILearnable {
     func setControlValueFrom(midiValue: MIDIByte) {
         let min = Double(midiByteRange.lowerBound)
         let max = Double(midiByteRange.upperBound)
-        let v = CGFloat(Double(midiValue).normalized(from: min...max))
-        self.value = Double(v).denormalized(to: range) < 0.5 ? 0 : 1
-        self.setNeedsDisplay()
-        self.callback(self.value)
+        let v = Double(midiValue).normalized(from: min...max)
+        let previousValue = value
+        value = v < 0.5 ? 0 : 1
+        if previousValue != value {
+            callback(value)
+            setNeedsDisplay()
+        }
     }
 
     func updateDisplayLabel() {

@@ -23,7 +23,7 @@ class ArpDirectionButton: UIView, S1Control {
 
     var value = 0.0 {
         didSet {
-            self.setNeedsDisplay()
+            setNeedsDisplay()
 
             switch value {
             case 0.0:
@@ -53,13 +53,13 @@ class ArpDirectionButton: UIView, S1Control {
             let touchPoint = touch.location(in: self)
             switch touchPoint.x {
             case 0..<self.width:
-                self.value = 0
+                value = 0
             case width...width * 2:
-                self.value = 1
+                value = 1
             default:
-                self.value = 2
+                value = 2
             }
-            self.callback(value)
+            callback(value)
         }
     }
 
@@ -71,4 +71,5 @@ class ArpDirectionButton: UIView, S1Control {
         }
         return true
     }
+    
 }

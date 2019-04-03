@@ -70,7 +70,7 @@ public class AKTouchPadView: UIView {
         touchPointView.width = width
         touchPointView.center = CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2)
         touchPointView.isOpaque = false
-        self.addSubview(touchPointView)
+        addSubview(touchPointView)
     }
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

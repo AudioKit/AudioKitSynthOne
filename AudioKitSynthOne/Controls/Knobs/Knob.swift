@@ -59,7 +59,7 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
     // Knob properties
     var knobValue: CGFloat = 0.0 {
         didSet {
-            self.setNeedsDisplay()
+            setNeedsDisplay()
         }
     }
 

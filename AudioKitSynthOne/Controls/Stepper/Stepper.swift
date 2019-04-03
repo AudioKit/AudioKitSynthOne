@@ -18,7 +18,7 @@ public class Stepper: UIView, S1Control {
         }
         set {
             internalValue = range.clamp(round(newValue))
-            self.setNeedsDisplay()
+            setNeedsDisplay()
         }
     }
 
@@ -100,15 +100,15 @@ public class Stepper: UIView, S1Control {
                     valuePressed = 2
                 }
             }
-            self.callback(value)
-            self.setNeedsDisplay()
+            callback(value)
+            setNeedsDisplay()
         }
     }
 
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             valuePressed = 0
-            self.setNeedsDisplay()
+            setNeedsDisplay()
         }
     }
 
@@ -124,7 +124,7 @@ public class Stepper: UIView, S1Control {
 		}
 		let newValue = String(format: "%.00f", value)
 		accessibilityValue = newValue
-		self.callback(value)
+		callback(value)
 	}
 	
 	override public func accessibilityDecrement() {
@@ -133,7 +133,7 @@ public class Stepper: UIView, S1Control {
 			valuePressed = 1
 			let newValue = String(format: "%.00f", value)
 			accessibilityValue = newValue
-			self.callback(value)
+			callback(value)
 		}
 	}
 

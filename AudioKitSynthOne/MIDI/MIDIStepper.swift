@@ -58,7 +58,7 @@ public class MIDIStepper: Stepper, MIDILearnable {
         hotspotView.layer.borderWidth = 2
         hotspotView.layer.cornerRadius = 10
         hotspotView.isHidden = true
-        self.addSubview(hotspotView)
+        addSubview(hotspotView)
     }
 
     func hideHotspot() {
@@ -72,11 +72,14 @@ public class MIDIStepper: Stepper, MIDILearnable {
     func setControlValueFrom(midiValue: MIDIByte) {
         let min = Double(midiByteRange.lowerBound)
         let max = Double(midiByteRange.upperBound)
-        let mv = CGFloat(Double(midiValue).normalized(from: min...max))
-        self.valuePressed = 0
-        self.value = Double(mv).denormalized(to: range)
-        self.setNeedsDisplay()
-        self.callback(self.value)
+        let mv = Double(midiValue).normalized(from: min...max)
+        valuePressed = 0
+        let previousValue = value
+        value = Double(mv).denormalized(to: range)
+        if previousValue != value {
+            callback(value)
+            setNeedsDisplay()
+        }
     }
 
     func updateDisplayLabel() {

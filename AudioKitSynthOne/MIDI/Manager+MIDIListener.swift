@@ -81,8 +81,8 @@ extension Manager: AKMIDIListener {
                 sustainMode = false
             }
 
-            // need to replace SDSustain with dsp sustain using this CC
-            AKLog("REPLACE value:\(value), sustainMode:\(sustainMode)")
+            // TODO: need to replace SDSustain with dsp sustain using this CC
+            //AKLog("REPLACE value:\(value), sustainMode:\(sustainMode)")
 
         // controllers
         default:

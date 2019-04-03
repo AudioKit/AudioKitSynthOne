@@ -56,7 +56,7 @@ public class AKVerticalPad: UIView {
         touchPointView = ModWheelTouchPoint(frame: CGRect(x: -200, y: -200, width: 58, height: 58))
         touchPointView.center = CGPoint(x: centerPointX, y: self.bounds.size.height / 2)
         touchPointView.isOpaque = false
-        self.addSubview(touchPointView)
+        addSubview(touchPointView)
     }
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -27,7 +27,7 @@ class TempoStepper: Stepper {
             range = Double(minValue) ... Double(maxValue)
             internalValue = range.clamp(internalValue)
             knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
-            self.setNeedsDisplay()
+            setNeedsDisplay()
 
 			accessibilityValue = String(format: "%.0f", value) + NSLocalizedString("B P M", comment: "BPM, Beats Per Minute")
         }
@@ -36,7 +36,7 @@ class TempoStepper: Stepper {
     // Knob properties
     var knobValue: CGFloat = 0.5 {
         didSet {
-            self.setNeedsDisplay()
+            setNeedsDisplay()
         }
     }
 
@@ -90,8 +90,8 @@ class TempoStepper: Stepper {
                 self.lastX = touchPoint.x
                 self.lastY = touchPoint.y
             }
-            self.callback(value)
-            self.setNeedsDisplay()
+            callback(value)
+            setNeedsDisplay()
         }
     }
 
@@ -99,7 +99,7 @@ class TempoStepper: Stepper {
         if self.valuePressed == 0 {
             for touch in touches {
                 let touchPoint = touch.location(in: self)
-                self.setPercentagesWithTouchPoint(touchPoint)
+                setPercentagesWithTouchPoint(touchPoint)
             }
         }
     }
@@ -108,27 +108,27 @@ class TempoStepper: Stepper {
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
 
         // Knobs assume up or right is increasing, and down or left is decreasing
-        self.knobValue += (touchPoint.x - lastX) * knobSensitivity
-        self.knobValue -= (touchPoint.y - lastY) * knobSensitivity
-        self.knobValue = (0.0 ... 1.0).clamp(knobValue)
-        self.value = Double(knobValue).denormalized(to: range, taper: taper)
-        self.callback(value)
-        self.lastX = touchPoint.x
-        self.lastY = touchPoint.y
+        knobValue += (touchPoint.x - lastX) * knobSensitivity
+        knobValue -= (touchPoint.y - lastY) * knobSensitivity
+        knobValue = (0.0 ... 1.0).clamp(knobValue)
+        value = Double(knobValue).denormalized(to: range, taper: taper)
+        callback(value)
+        lastX = touchPoint.x
+        lastY = touchPoint.y
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             valuePressed = 0
-            self.setNeedsDisplay()
+            setNeedsDisplay()
         }
     }
 
 	override func accessibilityIncrement() {
-		self.value += 1.0
+		value += 1.0
 	}
 
 	override func accessibilityDecrement() {
-		self.value -= 1.0
+		value -= 1.0
 	}
 }

@@ -47,7 +47,7 @@ class VerticalSlider: UIControl, S1Control {
         }
         set {
             currentValue = actualToInternalValue(newValue)
-            setNeedsDisplay()
+            self.setNeedsDisplay()
         }
     }
 
@@ -72,20 +72,20 @@ class VerticalSlider: UIControl, S1Control {
 extension VerticalSlider {
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupView()
+        self.setupView()
     }
 
     func setupView() {
         if Conductor.sharedInstance.device == .phone {
-            knobSize = CGSize(width: 34, height: 17)
+            self.knobSize = CGSize(width: 34, height: 17)
         }
-        knobRect = CGRect(x: 0, y: sliderY, width: knobSize.width, height: knobSize.height)
+        self.knobRect = CGRect(x: 0, y: self.sliderY, width: self.knobSize.width, height: self.knobSize.height)
       
         if Conductor.sharedInstance.device == .phone {
-            barLength = bounds.height - 8
-            barMargin = -5
+            self.barLength = self.bounds.height - 8
+            self.barMargin = -5
         } else {
-            barLength = bounds.height - (barMargin * 2)
+            self.barLength = self.bounds.height - (barMargin * 2)
         }
     }
 
@@ -98,21 +98,21 @@ extension VerticalSlider {
 
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        setupView()
+        self.setupView()
     }
 }
 
 // MARK: - Helpers
 extension VerticalSlider {
     func convertYToValue(_ y: CGFloat) -> CGFloat {
-        let offsetY = bounds.height - barMargin - y
-        let value = (offsetY * maxValue) / barLength
+        let offsetY = self.bounds.height - self.barMargin - y
+        let value = (offsetY * self.maxValue) / self.barLength
         return value
     }
 
     func convertValueToY(_ value: CGFloat) -> CGFloat {
-        let rawY = (value * barLength) / maxValue
-        let offsetY = bounds.height - barMargin - rawY
+        let rawY = (value * self.barLength) / self.maxValue
+        let offsetY = bounds.height - self.barMargin - rawY
         return offsetY
     }
 
@@ -131,13 +131,10 @@ extension VerticalSlider {
 // MARK: - Control Touch Handling
 extension VerticalSlider {
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-       // if knobRect.contains(touch.location(in: self)) {
-            isSliding = true
-        //}
-        
+        self.isSliding = true
         let rawY = touch.location(in: self).y
-        currentValue = convertYToValue(rawY)
-        callback(Double(currentValue) )
+        self.currentValue = convertYToValue(rawY)
+        self.callback(Double(currentValue) )
         self.setNeedsDisplay()
         
         return true
@@ -145,17 +142,16 @@ extension VerticalSlider {
 
     override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let rawY = touch.location(in: self).y
-
         if isSliding {
-            currentValue = convertYToValue(rawY)
-            callback( Double(currentValue) )
+            self.currentValue = convertYToValue(rawY)
+            self.callback( Double(currentValue) )
             self.setNeedsDisplay()
         }
         return true
     }
 
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-        isSliding = false
+        self.isSliding = false
 		UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: accessibilityValue)
     }
 
@@ -164,16 +160,16 @@ extension VerticalSlider {
 	Ac
 	*/
 	override func accessibilityIncrement() {
-		currentValue += accessibilityChangeAmount
-		callback( Double(currentValue) )
+		self.currentValue += self.accessibilityChangeAmount
+		self.callback( Double(self.currentValue) )
 		self.setNeedsDisplay()
 	}
 
 	/**
 	*/
 	override func accessibilityDecrement() {
-		currentValue -= accessibilityChangeAmount
-		callback( Double(currentValue) )
+		self.currentValue -= self.accessibilityChangeAmount
+		self.callback( Double(self.currentValue) )
 		self.setNeedsDisplay()
 	}
 }

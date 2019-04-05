@@ -8,42 +8,52 @@
 
 import AudioKit
 
-protocol S1Control: class {
-    var value: Double { get set }
-    var callback: (Double) -> Void { get set }
-    var defaultCallback: () -> Void { get set }
-}
-
-typealias S1ControlCallback = (S1Parameter, S1Control?) -> ((_: Double) -> Void)
-typealias S1ControlDefaultCallback = (S1Parameter, S1Control?) -> (() -> Void)
-
 class Conductor: S1Protocol {
+
     static var sharedInstance = Conductor()
+
     var neverSleep = false {
         didSet {
             UIApplication.shared.isIdleTimerDisabled = neverSleep
         }
     }
+
     var backgroundAudio = false
+
     var banks: [Bank] = []
+
     var synth: AKSynthOne!
+
     var bindings: [(S1Parameter, S1Control)] = []
+
     var defaultValues: [Double] = []
+
     var heldNoteCount: Int = 0
+
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
+
     let lfo1RateEffectsPanelID: Int32 = 1
+
     let lfo2RateEffectsPanelID: Int32 = 2
+
     let autoPanEffectsPanelID: Int32 = 3
+
     let delayTimeEffectsPanelID: Int32 = 4
+
     let lfo1RateTouchPadID: Int32 = 5
+
     let lfo1RateModWheelID: Int32 = 6
+
     let lfo2RateModWheelID: Int32 = 7
+
     let pitchBendID: Int32 = 8
+
     let arpSeqTempoMultiplierID: Int32 = 9
 
     var iaaTimer: Timer = Timer()
 
     public var viewControllers: Set<UpdatableViewController> = []
+
     fileprivate var started = false
     
     let device = UIDevice.current.userInterfaceIdiom  
@@ -68,10 +78,12 @@ class Conductor: S1Protocol {
         bindings.append(binding)
         let control = binding.1
         if let cb = closure {
+
             // custom closure
             control.callback = cb(parameter, control)
             control.defaultCallback = defaultParameter(parameter, control)
         } else {
+
             // default closure
             control.callback = changeParameter(parameter, control)
             control.defaultCallback = defaultParameter(parameter, control)
@@ -315,5 +327,4 @@ class Conductor: S1Protocol {
 
         AKLog("deactivated session")
     }
-
 }

@@ -70,7 +70,7 @@ public class AKTouchPadView: UIView {
         touchPointView.width = width
         touchPointView.center = CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2)
         touchPointView.isOpaque = false
-        self.addSubview(touchPointView)
+        addSubview(touchPointView)
     }
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -126,6 +126,8 @@ public class AKTouchPadView: UIView {
         touchPointView.center = CGPoint(x: centerPointX, y: centerPointY)
     }
 
+
+    //TODO: come back here
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint, began: Bool = false) {
         x = CGFloat((0.0 ... 1.0).clamp(touchPoint.x / self.bounds.size.width))
         y = CGFloat((0.0 ... 1.0).clamp(1 - touchPoint.y / self.bounds.size.height))

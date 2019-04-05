@@ -244,7 +244,13 @@
 		F482CC5F2123CDE70093ADC8 /* sawtooth_1348.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CC292123CDE70093ADC8 /* sawtooth_1348.json */; };
 		F482CC602123CDE70093ADC8 /* sawtooth_0021.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CC2A2123CDE70093ADC8 /* sawtooth_0021.json */; };
 		F482CC612123CDE70093ADC8 /* pwm_0042.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CC2B2123CDE70093ADC8 /* pwm_0042.json */; };
+		F4AD9EE022484EFA002B0E2E /* MIDIArpDirectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EDF22484EFA002B0E2E /* MIDIArpDirectionButton.swift */; };
+		F4AD9EE2224856C2002B0E2E /* MIDIToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */; };
+		F4AD9EE4224866BE002B0E2E /* MIDIToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */; };
+		F4C790142247025C003CFF28 /* MIDIStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C790132247025C003CFF28 /* MIDIStepper.swift */; };
 		F4C9D9A321D6B13200B7C4E5 /* Tunings+UpgradePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */; };
+		F4CA406D224EB2A70053F29E /* S1Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA406C224EB2A70053F29E /* S1Control.swift */; };
+		F4CA406F225192A60053F29E /* MIDISynthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA406E225192A60053F29E /* MIDISynthButton.swift */; };
 		F4E4D00421C5B9F2005B2FAF /* TuningBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */; };
 		F4E4D00721C81E34005B2FAF /* tunings_v0_upgrade_path_test.json in Resources */ = {isa = PBXBuildFile; fileRef = F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */; };
 		F4E4D00921C87B9F005B2FAF /* Tunings+DefaultTunings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4D00821C87B9F005B2FAF /* Tunings+DefaultTunings.swift */; };
@@ -671,7 +677,13 @@
 		F482CC292123CDE70093ADC8 /* sawtooth_1348.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sawtooth_1348.json; sourceTree = "<group>"; };
 		F482CC2A2123CDE70093ADC8 /* sawtooth_0021.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sawtooth_0021.json; sourceTree = "<group>"; };
 		F482CC2B2123CDE70093ADC8 /* pwm_0042.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pwm_0042.json; sourceTree = "<group>"; };
+		F4AD9EDF22484EFA002B0E2E /* MIDIArpDirectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIArpDirectionButton.swift; sourceTree = "<group>"; };
+		F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIToggleButton.swift; sourceTree = "<group>"; };
+		F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIToggleSwitch.swift; sourceTree = "<group>"; };
+		F4C790132247025C003CFF28 /* MIDIStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIStepper.swift; sourceTree = "<group>"; };
 		F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+UpgradePaths.swift"; sourceTree = "<group>"; };
+		F4CA406C224EB2A70053F29E /* S1Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S1Control.swift; sourceTree = "<group>"; };
+		F4CA406E225192A60053F29E /* MIDISynthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISynthButton.swift; sourceTree = "<group>"; };
 		F4CB749120EEE0AF00716B92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningBank.swift; sourceTree = "<group>"; };
 		F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tunings_v0_upgrade_path_test.json; sourceTree = "<group>"; };
@@ -919,13 +931,18 @@
 			isa = PBXGroup;
 			children = (
 				94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */,
+				C4B4914C20C7C6FC00FD565A /* Manager+MIDIListener.swift */,
+				C4B4914E20C7C6FC00FD565A /* Manager+MIDISettingsPopOverDelegate.swift */,
+				F4AD9EDF22484EFA002B0E2E /* MIDIArpDirectionButton.swift */,
 				C435C4F520C5234900DAECCD /* MIDICell.swift */,
 				C435C52720C52D2E00DAECCD /* MIDIInput.swift */,
 				C4B491B020C7D11500FD565A /* MIDIKnob.swift */,
 				C435C52820C52D2E00DAECCD /* MIDILearnable.swift */,
 				C4B4914D20C7C6FC00FD565A /* MIDISettingsViewController.swift */,
-				C4B4914C20C7C6FC00FD565A /* Manager+MIDIListener.swift */,
-				C4B4914E20C7C6FC00FD565A /* Manager+MIDISettingsPopOverDelegate.swift */,
+				F4C790132247025C003CFF28 /* MIDIStepper.swift */,
+				F4CA406E225192A60053F29E /* MIDISynthButton.swift */,
+				F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */,
+				F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */,
 			);
 			path = MIDI;
 			sourceTree = "<group>";
@@ -950,6 +967,7 @@
 				F437E99E20EB22D00096FEAC /* README.md */,
 				C435C55420C530C900DAECCD /* AKSynthOne.swift */,
 				C435C55120C530C900DAECCD /* Conductor.swift */,
+				F4CA406C224EB2A70053F29E /* S1Control.swift */,
 				C435C55320C530C900DAECCD /* S1Parameter.h */,
 				C435C55620C530C900DAECCD /* SDSustainer.swift */,
 				F482CBF52123CDE70093ADC8 /* BandlimitedWavetables */,
@@ -1659,7 +1677,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChimpKit/ChimpKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 			);
@@ -1670,7 +1688,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4421AA920B81D0500BE9F12 /* ShellScript */ = {
@@ -1724,6 +1742,7 @@
 				C4B491A720C7C95A00FD565A /* GeneratorsPanelController.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4B491AF20C7D10200FD565A /* LFOWavePicker.swift in Sources */,
+				F4CA406F225192A60053F29E /* MIDISynthButton.swift in Sources */,
 				C4B490F720C654E600FD565A /* S1DSPKernel+reset.mm in Sources */,
 				C435C58420C530C900DAECCD /* S1NoteState.mm in Sources */,
 				C4B4915220C7C6FC00FD565A /* Manager+MIDISettingsPopOverDelegate.swift in Sources */,
@@ -1756,6 +1775,7 @@
 				C4B491A120C7C91A00FD565A /* EnvelopesPanelController.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
 				C432979320CB2BB20063F795 /* Presets+LoadSaveManipulate.swift in Sources */,
+				F4CA406D224EB2A70053F29E /* S1Control.swift in Sources */,
 				C435C53020C52D4C00DAECCD /* Tuning.swift in Sources */,
 				C4B4910E20C7C5E500FD565A /* Manager+AppSettings.swift in Sources */,
 				C4B4918A20C7C79C00FD565A /* Presets+UIDocumentPickerDelegate.swift in Sources */,
@@ -1765,6 +1785,7 @@
 				C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */,
 				C435C57F20C530C900DAECCD /* AEUtilities.m in Sources */,
 				C435C57920C530C900DAECCD /* AKSynthOne.swift in Sources */,
+				F4AD9EE4224866BE002B0E2E /* MIDIToggleSwitch.swift in Sources */,
 				94189CB8219F27130004C28B /* MoreAppsController.swift in Sources */,
 				C4B4914020C7C6A000FD565A /* TouchPointStyleKit.swift in Sources */,
 				C435C4F820C5234900DAECCD /* CategoryCell.swift in Sources */,
@@ -1801,6 +1822,7 @@
 				F4E4D00421C5B9F2005B2FAF /* TuningBank.swift in Sources */,
 				949D93B91F2C188C007E657B /* LFOToggle.swift in Sources */,
 				C435C4FB20C5234900DAECCD /* PresetCell.swift in Sources */,
+				F4AD9EE022484EFA002B0E2E /* MIDIArpDirectionButton.swift in Sources */,
 				F4E4D00921C87B9F005B2FAF /* Tunings+DefaultTunings.swift in Sources */,
 				C4B4915B20C7C70D00FD565A /* TuningsPanelController.swift in Sources */,
 				C4B4917320C7C73B00FD565A /* Manager+DevView.swift in Sources */,
@@ -1817,6 +1839,7 @@
 				C4B491B120C7D11500FD565A /* MIDIKnob.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
 				946980572169258A007EAA5B /* String+CapitalizeFirst.swift in Sources */,
+				F4AD9EE2224856C2002B0E2E /* MIDIToggleButton.swift in Sources */,
 				C4B491BC20C7DEB100FD565A /* ArpButtonStyleKit.swift in Sources */,
 				C4B4919420C7C7C500FD565A /* PresetEditorViewController.swift in Sources */,
 				C4B4918620C7C79C00FD565A /* Presets+PresetCellDelegate.swift in Sources */,
@@ -1842,6 +1865,7 @@
 				C4B4911E20C7C62A00FD565A /* BlackKeyStyleKit.swift in Sources */,
 				C4B4910D20C7C5E500FD565A /* AppSettings.swift in Sources */,
 				C4B4913F20C7C6A000FD565A /* TouchPadPanelController.swift in Sources */,
+				F4C790142247025C003CFF28 /* MIDIStepper.swift in Sources */,
 				949D93B71F2C188C007E657B /* LFOButtonStyleKit.swift in Sources */,
 				C4B4910720C7C5C500FD565A /* ArpButton.swift in Sources */,
 				94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */,

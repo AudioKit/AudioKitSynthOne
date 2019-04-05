@@ -41,24 +41,21 @@ public class RateKnob: MIDIKnob {
 
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.isUserInteractionEnabled = true
+        isUserInteractionEnabled = true
         contentMode = .redraw
     }
 
     override func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
-        // Knobs assume up or right is increasing, and down or left is decreasing
 
+        // Knobs assume up or right is increasing, and down or left is decreasing
         knobValue += (touchPoint.x - lastX) * knobSensitivity
         knobValue -= (touchPoint.y - lastY) * knobSensitivity
-
         knobValue = (0.0 ... 1.0).clamp(knobValue)
-
         if timeSyncMode {
             value = rate.frequency
         } else {
             value = Double(knobValue).denormalized(to: range, taper: taper)
         }
-
         callback(value)
         lastX = touchPoint.x
         lastY = touchPoint.y

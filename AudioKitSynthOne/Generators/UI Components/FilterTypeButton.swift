@@ -69,9 +69,11 @@ class FilterTypeButton: UIButton, S1Control {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             value += 1
-            if value == 3 { value = 0 }
-            setNeedsDisplay()
+            if value == 3 {
+                value = 0
+            }
             callback(value)
+            setNeedsDisplay()
         }
     }
 }

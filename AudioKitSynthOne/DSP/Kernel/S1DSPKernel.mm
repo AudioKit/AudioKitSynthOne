@@ -73,13 +73,10 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sp_crossfade_create(&revCrossfadeR);
     sp_crossfade_init(sp, revCrossfadeL);
     sp_crossfade_init(sp, revCrossfadeR);
-
     sp_delay_create(&widenDelay);
     sp_delay_init(sp, widenDelay, 0.05f);
     widenDelay->feedback = 0.f;
-
     noteStates = std::make_unique<NoteStateArray>();
-
     monoNote = std::make_unique<S1NoteState>();
 
     heldNoteNumbers = (NSMutableArray<NSValue*>*)[NSMutableArray array];
@@ -102,6 +99,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
 }
 
 void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
+
     // copy dsp values or initialize with default
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
         const float value = (params != std::nullopt) ? (*params)[i] : defaultValue((S1Parameter)i);

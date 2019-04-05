@@ -56,7 +56,7 @@ class LFOWavePicker: UIView, S1Control {
                 value = 3
             }
 
-            self.setNeedsDisplay()
+            setNeedsDisplay()
             callback(value)
         }
     }
@@ -84,7 +84,7 @@ class LFOWavePicker: UIView, S1Control {
 
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.isUserInteractionEnabled = true
+        isUserInteractionEnabled = true
         contentMode = .redraw
     }
 

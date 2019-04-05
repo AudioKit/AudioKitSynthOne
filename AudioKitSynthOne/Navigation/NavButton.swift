@@ -54,16 +54,12 @@ class NavButton: UIView {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            //isOn = true
-            //self.setNeedsDisplay()
             callback(value)
         }
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            //isOn = false
-            //self.setNeedsDisplay()
         }
     }
 

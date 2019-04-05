@@ -10,26 +10,43 @@ import UIKit
 
 
 protocol MIDISettingsPopOverDelegate: AnyObject {
+
     func resetMIDILearn()
+
     func didSelectMIDIChannel(newChannel: Int)
+
     func didToggleVelocity()
+
     func storeTuningWithPresetDidChange(_ value: Bool)
+
     func didToggleBackgroundAudio(_ value: Bool)
+
     func didChangeMIDISources(_ midiSources: [MIDIInput])
+
     func didToggleNeverSleep()
+
     func didSetBuffer()
+
 }
 
 class MIDISettingsViewController: UIViewController {
 
     @IBOutlet weak var channelStepper: Stepper!
+
     @IBOutlet weak var channelLabel: UILabel!
+
     @IBOutlet weak var resetButton: SynthButton!
+
     @IBOutlet weak var inputTable: UITableView!
+
     @IBOutlet weak var sleepToggle: ToggleSwitch!
+
     @IBOutlet weak var velocityToggle: ToggleSwitch!
+
     @IBOutlet weak var saveTuningToggle: ToggleSwitch!
+
     @IBOutlet weak var backgroundAudioToggle: ToggleSwitch!
+
     @IBOutlet weak var bufferSizeSegmentedControl: UISegmentedControl!
 
     weak var delegate: MIDISettingsPopOverDelegate?
@@ -41,14 +58,15 @@ class MIDISettingsViewController: UIViewController {
     }
 
     var userChannelIn: Int = 1
+
     var velocitySensitive = true
+
     var saveTuningWithPreset = false
 
     let conductor = Conductor.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.layer.borderColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
         view.layer.borderWidth = 2
         inputTable.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
@@ -68,9 +86,9 @@ class MIDISettingsViewController: UIViewController {
         saveTuningToggle.value = saveTuningWithPreset ? 1 : 0
         backgroundAudioToggle.value = conductor.backgroundAudio ? 1 : 0
     }
+
     override func viewWillAppear(_ animated: Bool) {
         displayMIDIInputs()
-        
         bufferSizeSegmentedControl.selectedSegmentIndex = AKSettings.bufferLength.rawValue - BufferLength.shortest.rawValue
         bufferSizeSegmentedControl.setNeedsDisplay()
     }
@@ -91,13 +109,11 @@ class MIDISettingsViewController: UIViewController {
     // MARK: - Callbacks
 
     func setupCallbacks() {
-        // Setup Callback
         channelStepper.callback = { value in
             self.userChannelIn = Int(value)
             self.updateChannelLabel()
             self.delegate?.didSelectMIDIChannel(newChannel: self.userChannelIn - 1)
         }
-
         resetButton.callback = { value in
             self.delegate?.resetMIDILearn()
             self.resetButton.value = 0
@@ -106,9 +122,7 @@ class MIDISettingsViewController: UIViewController {
                                             comment: "Alert Message:  MIDI Learn Reset")
             self.displayAlertController(title, message: message)
         }
-
         sleepToggle.callback = { value in
-
             if value == 1 {
                 self.conductor.neverSleep = true
                 let title = NSLocalizedString("Don't Sleep Mode", comment: "Alert Title: Allows On Mode")
@@ -121,10 +135,8 @@ class MIDISettingsViewController: UIViewController {
             } else {
                 self.conductor.neverSleep = false
             }
-            
             self.delegate?.didToggleNeverSleep()
         }
-
         backgroundAudioToggle.callback = { value in
             if value == 1 {
                 let title = NSLocalizedString("Important", comment: "Alert Title: Background Audio")
@@ -136,7 +148,6 @@ class MIDISettingsViewController: UIViewController {
             self.conductor.backgroundAudio = value == 1
             self.delegate?.didToggleBackgroundAudio(value == 1 ? true : false)
         }
-
         velocityToggle.callback = { value in
             self.delegate?.didToggleVelocity()
         }
@@ -144,7 +155,6 @@ class MIDISettingsViewController: UIViewController {
         saveTuningToggle.callback = { value in
             self.delegate?.storeTuningWithPresetDidChange(value == 1 ? true : false)
         }
-
     }
 
     func updateChannelLabel() {

@@ -12,7 +12,7 @@ import Disk
 
 extension Manager {
 
-    // MARK: - Convert App Settings to Controls and vice-versa
+    // MARK: - Map App Settings to Controls
 
     func setDefaultsFromAppSettings() {
 
@@ -32,27 +32,23 @@ extension Manager {
                 "\(AKSettings.bufferLength.duration) ( = \(AKSettings.bufferLength.samplesCount) samples)")
             AKLog("AKSettings Error: \(error))")
         }
-        
-        // Open MIDI Sources from saved MIDI input checkboxes on settings Panel
-//        for input in AudioKit.midi.inputNames {
-//            if appSettings.midiSources.contains(input) {
-//                AudioKit.midi.openInput(input)
-//                if let currentInput = midiInputs.first(where: { $0.name == input }) {
-//                    currentInput.isOpen = true
-//                }
-//            }
-//        }
 
         // DEV PANEL
         devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
         devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
         devViewController.freezeReverb.value = (appSettings.freezeReverb == true ? 1 : 0)
+        devViewController.whiteKeysOnly.value = (appSettings.whiteKeysOnly == true ? 1 : 0)
 
         // DSP parameter stored in app settings
         conductor.synth.setSynthParameter(.portamentoHalfTime, appSettings.portamentoHalfTime)
         devViewController.portamento.value = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
-        // MIDI Learn
+        // keyboard
+        keyboardView.labelMode = appSettings.labelMode
+        keyboardView.octaveCount = appSettings.octaveRange
+        keyboardView.darkMode = appSettings.darkMode
+
+        // MIDI Learn Generators
         generatorsPanel.masterVolume.midiCC = MIDIByte(appSettings.masterVolumeCC)
         generatorsPanel.morph1SemitoneOffset.midiCC = MIDIByte(appSettings.morph1SemitoneOffsetCC)
         generatorsPanel.morph2SemitoneOffset.midiCC = MIDIByte(appSettings.morph2SemitoneOffsetCC)
@@ -68,6 +64,7 @@ extension Manager {
         generatorsPanel.cutoff.midiCC = MIDIByte(appSettings.cutoffCC)
         generatorsPanel.resonance.midiCC = MIDIByte(appSettings.resonanceCC)
 
+        // MIDI Learn ADSR
         envelopesPanel.attackKnob.midiCC = MIDIByte(appSettings.attackKnobCC)
         envelopesPanel.decayKnob.midiCC = MIDIByte(appSettings.decayKnobCC)
         envelopesPanel.sustainKnob.midiCC = MIDIByte(appSettings.sustainKnobCC)
@@ -79,6 +76,7 @@ extension Manager {
         envelopesPanel.filterADSRMixKnob.midiCC = MIDIByte(appSettings.filterADSRMixKnobCC)
         envelopesPanel.adsrPitchTrackingKnob.midiCC = MIDIByte(appSettings.adsrPitchTrackingKnobCC)
 
+        // MIDI Learn FX
         fxPanel.sampleRateKnob.midiCC = MIDIByte(appSettings.sampleRateCC)
         fxPanel.autoPanRateKnob.midiCC = MIDIByte(appSettings.autoPanRateCC)
         fxPanel.autoPanAmountKnob.midiCC = MIDIByte(appSettings.autoPanAmountCC)
@@ -97,13 +95,19 @@ extension Manager {
         fxPanel.phaserFeedbackKnob.midiCC = MIDIByte(appSettings.phaserFeedbackCC)
         fxPanel.phaserNotchWidthKnob.midiCC = MIDIByte(appSettings.phaserNotchWidthCC)
 
+        // MIDI Learn Arp/Seq
+        sequencerPanel.sequencerToggle.midiCC = MIDIByte(appSettings.sequencerToggleCC)
         sequencerPanel.arpSeqTempoMultiplier.midiCC = MIDIByte(appSettings.arpSeqTempoMultiplierCC)
         sequencerPanel.arpInterval.midiCC = MIDIByte(appSettings.arpIntervalCC)
+        sequencerPanel.arpToggle.midiCC = MIDIByte(appSettings.arpToggleCC)
+        sequencerPanel.octaveStepper.midiCC = MIDIByte(appSettings.octaveStepperCC)
+        sequencerPanel.arpDirectionButton.midiCC = MIDIByte(appSettings.arpDirectionButtonCC)
+        sequencerPanel.seqStepsStepper.midiCC = MIDIByte(appSettings.seqStepsStepperCC)
 
-        // keyboard
-        keyboardView.labelMode = appSettings.labelMode
-        keyboardView.octaveCount = appSettings.octaveRange
-        keyboardView.darkMode = appSettings.darkMode
+        // MIDI Learn Keyboard
+        self.transposeStepper.midiCC = MIDIByte(appSettings.transposeStepperCC)
+        self.holdButton.midiCC = MIDIByte(appSettings.holdButtonCC)
+        self.monoButton.midiCC = MIDIByte(appSettings.monoButtonCC)
     }
 
     func saveAppSettingValues() {
@@ -114,16 +118,16 @@ extension Manager {
         appSettings.midiChannel = Int(midiChannelIn)
         appSettings.omniMode = omniMode
         appSettings.bufferLengthRawValue = AKSettings.bufferLength.rawValue
-        
+        appSettings.midiSources = midiInputs.filter { $0.isOpen }.compactMap { $0.name }
+
+        // HAQ Panel
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
         appSettings.freezeDelay = (devViewController.freezeDelay.value == 1 ? true : false)
         appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)
-
-        appSettings.midiSources = midiInputs.filter { $0.isOpen }.compactMap { $0.name }
-
+        appSettings.whiteKeysOnly = (devViewController.whiteKeysOnly.value == 1 ? true : false)
         appSettings.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
-        // MIDI Learn
+        // MIDI Learn Generators
         appSettings.masterVolumeCC = Int(generatorsPanel.masterVolume.midiCC)
         appSettings.morph1SemitoneOffsetCC = Int(generatorsPanel.morph1SemitoneOffset.midiCC)
         appSettings.morph2SemitoneOffsetCC = Int(generatorsPanel.morph2SemitoneOffset.midiCC)
@@ -138,10 +142,22 @@ extension Manager {
         appSettings.glideKnobCC = Int(generatorsPanel.glideKnob.midiCC)
         appSettings.cutoffCC = Int(generatorsPanel.cutoff.midiCC)
         appSettings.resonanceCC = Int(generatorsPanel.resonance.midiCC)
-        
+
+        // MIDI Learn Sequencer
+        appSettings.arpToggleCC = Int(sequencerPanel.arpToggle.midiCC)
         appSettings.arpIntervalCC = Int(sequencerPanel.arpInterval.midiCC)
+        appSettings.octaveStepperCC = Int(sequencerPanel.octaveStepper.midiCC)
+        appSettings.arpDirectionButtonCC = Int(sequencerPanel.arpDirectionButton.midiCC)
+        appSettings.sequencerToggleCC = Int(sequencerPanel.sequencerToggle.midiCC)
+        appSettings.seqStepsStepperCC = Int(sequencerPanel.seqStepsStepper.midiCC)
         appSettings.arpSeqTempoMultiplierCC = Int(sequencerPanel.arpSeqTempoMultiplier.midiCC)
 
+        // MIDI Learn Keyboard
+        appSettings.transposeStepperCC = Int(self.transposeStepper.midiCC)
+        appSettings.holdButtonCC = Int(self.holdButton.midiCC)
+        appSettings.monoButtonCC = Int(self.monoButton.midiCC)
+
+        // MIDI Learn ADSR
         appSettings.attackKnobCC = Int(envelopesPanel.attackKnob.midiCC)
         appSettings.decayKnobCC = Int(envelopesPanel.decayKnob.midiCC)
         appSettings.sustainKnobCC = Int(envelopesPanel.sustainKnob.midiCC)
@@ -153,6 +169,7 @@ extension Manager {
         appSettings.filterADSRMixKnobCC = Int(envelopesPanel.filterADSRMixKnob.midiCC)
         appSettings.adsrPitchTrackingKnobCC = Int(envelopesPanel.adsrPitchTrackingKnob.midiCC)
 
+        // MIDI Learn FX
         appSettings.sampleRateCC = Int(fxPanel.sampleRateKnob.midiCC)
         appSettings.autoPanRateCC = Int(fxPanel.autoPanRateKnob.midiCC)
         appSettings.autoPanAmountCC = Int(fxPanel.autoPanAmountKnob.midiCC)
@@ -180,6 +197,8 @@ extension Manager {
         appSettings.currentBankIndex = presetsViewController.bankIndex
         appSettings.currentPresetIndex = activePreset.position
         appSettings.plotFilled = generatorsPanel.isAudioPlotFilled
+
+        // Save
         saveAppSettings()
     }
 
@@ -246,7 +265,6 @@ extension Manager {
             let bank = Bank(name: bankName, position: i)
             conductor.banks.append(bank)
         }
-
         saveBankSettings()
     }
 

@@ -351,6 +351,9 @@ public class HeaderViewController: UpdatableViewController {
 
         case .adsrPitchTracking:
             displayLabel.text = "ADSR Pitch Tracking: \(s.getSynthParameter(.adsrPitchTracking).decimalString)"
+        case .isMono:
+            displayLabel.text = "Hold: \(s.getSynthParameter(.isMono) == 0 ? "OFF" : "ON")"
+
         default:
             _ = 0
             // do nothing

@@ -19,13 +19,14 @@ extension Manager: AKMIDIListener {
             DispatchQueue.main.async {
                 self.keyboardView.pressAdded(noteNumber, velocity: newVelocity)
                 self.notesFromMIDI.insert(noteNumber)
-                //AKLog("keybboard:pressAdded: noteNumber: \(noteNumber), velocity:\(velocity) ASYNC")
+                //AKLog("noteNumber: \(noteNumber), velocity:\(velocity) ASYNC")
             }
         } else {
             keyboardView.pressAdded(noteNumber, velocity: newVelocity)
             notesFromMIDI.insert(noteNumber)
-            //AKLog("keybboard:pressAdded: noteNumber: \(noteNumber), velocity:\(velocity) SYNC")
+            //AKLog("noteNumber: \(noteNumber), velocity:\(velocity) SYNC")
         }
+        AKLog("noteNumber: \(noteNumber), newVelocity:\(newVelocity)")
     }
 
     public func receivedMIDINoteOff(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
@@ -81,12 +82,12 @@ extension Manager: AKMIDIListener {
                 sustainMode = false
             }
 
-            // TODO: need to replace SDSustain with dsp sustain using this CC
+            // TODO: replace SDSustain with dsp sustain using this CC
             //AKLog("REPLACE value:\(value), sustainMode:\(sustainMode)")
 
         // controllers
         default:
-            AKLog("controller:\(controller), value:\(value), sustainMode:\(sustainMode)")
+            AKLog("controller:\(controller), value:\(value), channel:\(channel)")
             break
         }
 
@@ -94,12 +95,11 @@ extension Manager: AKMIDIListener {
         if controller == 0 {
             guard channel == midiChannelIn || omniMode else { return }
             if Int(value) != self.presetsViewController.bankIndex {
-                AKLog ("DIFFERENT MSB")
+                AKLog ("DIFFERENT MSB/CC0: \(value)")
                 DispatchQueue.main.async {
                     self.presetsViewController.didSelectBank(index: Int(value))
                 }
             }
-
         }
 
         // Check for MIDI learn controls that match controller

@@ -21,7 +21,7 @@ class SliderTransposeButton: UILabel, S1Control {
         set {
             if newValue > 0 {
                 _value = 1
-                self.backgroundColor = #colorLiteral(red: 0.3725490196, green: 0.3725490196, blue: 0.3921568627, alpha: 1)
+                backgroundColor = #colorLiteral(red: 0.3725490196, green: 0.3725490196, blue: 0.3921568627, alpha: 1)
                 if transposeAmt >= 0 {
                     transposeAmt += 12
                 } else {
@@ -29,7 +29,7 @@ class SliderTransposeButton: UILabel, S1Control {
                 }
             } else {
                 _value = 0
-                self.backgroundColor = #colorLiteral(red: 0.2156862745, green: 0.2156862745, blue: 0.2352941176, alpha: 1)
+                backgroundColor = #colorLiteral(red: 0.2156862745, green: 0.2156862745, blue: 0.2352941176, alpha: 1)
             }
             setNeedsDisplay()
         }
@@ -37,14 +37,15 @@ class SliderTransposeButton: UILabel, S1Control {
 
     var transposeAmt = 0 {
         didSet {
-            self.text = String(transposeAmt)
-			accessibilityValue = self.text
+            text = String(transposeAmt)
+			accessibilityValue = text
         }
     }
 
     public var callback: (Double) -> Void = { _ in }
-    var defaultCallback: () -> Void = { }
 
+    var defaultCallback: () -> Void = { }
+    
     var isActive = false {
         didSet {
             if isActive {
@@ -60,7 +61,6 @@ class SliderTransposeButton: UILabel, S1Control {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
         clipsToBounds = true
         layer.cornerRadius = 2
         layer.borderWidth = 1
@@ -78,7 +78,6 @@ class SliderTransposeButton: UILabel, S1Control {
             } else {
                 value = 1
             }
-
             callback(value)
         }
     }
@@ -86,7 +85,6 @@ class SliderTransposeButton: UILabel, S1Control {
 
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-
         contentMode = .scaleAspectFit
         clipsToBounds = true
     }

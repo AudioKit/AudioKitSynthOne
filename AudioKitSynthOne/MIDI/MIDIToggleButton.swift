@@ -1,18 +1,12 @@
 //
-//  MIDIKnob.swift
+//  MIDIToggleButton.swift
 //  AudioKitSynthOne
 //
-//  Created by AudioKit Contributors on 10/18/17.
-//  Copyright © 2018 AudioKit. All rights reserved.
+//  Created by Marcus W. Hobbs on 3/24/19.
+//  Copyright © 2019 AudioKit. All rights reserved.
 //
 
-import AudioKit
-
-
-@IBDesignable
-public class MIDIKnob: Knob, MIDILearnable {
-
-    var timeSyncMode = false
+class MIDIToggleButton: ToggleButton, MIDILearnable {
 
     let conductor = Conductor.sharedInstance
 
@@ -20,17 +14,12 @@ public class MIDIKnob: Knob, MIDILearnable {
         super.touchesBegan(touches, with: event)
         if midiLearnMode {
             isActive = !isActive
-
-            // Update Display label
-            let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
-            if isActive {
-                conductor.updateDisplayLabel(message)
-            }
+            updateDisplayLabel()
         }
-
     }
 
     //MARK: - MIDILearnable
+
     var midiByteRange: ClosedRange<MIDIByte> = 0...127
 
     var hotspotView = UIView()
@@ -46,8 +35,8 @@ public class MIDIKnob: Knob, MIDILearnable {
     var midiCC: MIDIByte = 255 {
         didSet {
             
-           // toggle color of assigned knobs
-           hotspotView.backgroundColor = (midiCC == 255) ? #colorLiteral(red: 0.8705882353, green: 0.9098039216, blue: 0.9176470588, alpha: 0.1977002641) : #colorLiteral(red: 0.8705882353, green: 0.9098039216, blue: 0.9176470588, alpha: 0.5)
+            // toggle color of assigned knobs
+            hotspotView.backgroundColor = (midiCC == 255) ? #colorLiteral(red: 0.8705882353, green: 0.9098039216, blue: 0.9176470588, alpha: 0.1977002641) : #colorLiteral(red: 0.8705882353, green: 0.9098039216, blue: 0.9176470588, alpha: 0.5)
         }
     }
 
@@ -75,7 +64,7 @@ public class MIDIKnob: Knob, MIDILearnable {
     func hideHotspot() {
         hotspotView.isHidden = true
     }
-    
+
     func showHotspot() {
         hotspotView.isHidden = false
     }
@@ -83,9 +72,9 @@ public class MIDIKnob: Knob, MIDILearnable {
     func setControlValueFrom(midiValue: MIDIByte) {
         let min = Double(midiByteRange.lowerBound)
         let max = Double(midiByteRange.upperBound)
-        knobValue = CGFloat(Double(midiValue).normalized(from: min...max))
+        let v = Double(midiValue).normalized(from: min...max)
         let previousValue = value
-        value = Double(knobValue).denormalized(to: range, taper: taper)
+        value = v < 0.5 ? 0 : 1
         if previousValue != value {
             callback(value)
             setNeedsDisplay()
@@ -93,9 +82,10 @@ public class MIDIKnob: Knob, MIDILearnable {
     }
 
     func updateDisplayLabel() {
-        if self.isActive {
+        if isActive {
             let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
             conductor.updateDisplayLabel(message)
         }
     }
+    
 }

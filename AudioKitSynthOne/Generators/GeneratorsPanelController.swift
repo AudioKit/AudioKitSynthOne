@@ -13,25 +13,37 @@ import UIKit
 class GeneratorsPanelController: PanelController {
 
     @IBOutlet weak var morph1Selector: MorphSelector!
+
     @IBOutlet weak var morph2Selector: MorphSelector!
 
     @IBOutlet weak var morph1SemitoneOffset: MIDIKnob!
+
     @IBOutlet weak var morph2SemitoneOffset: MIDIKnob!
+
     @IBOutlet weak var morph2Detuning: MIDIKnob!
+
     @IBOutlet weak var morphBalance: MIDIKnob!
+
     @IBOutlet weak var morph1Volume: MIDIKnob!
+
     @IBOutlet weak var morph2Volume: MIDIKnob!
+
     @IBOutlet weak var glideKnob: MIDIKnob!
 
     @IBOutlet weak var cutoff: MIDIKnob!
+
     @IBOutlet weak var resonance: MIDIKnob!
 
     @IBOutlet weak var subVolume: MIDIKnob!
+
     @IBOutlet weak var subOctaveDown: ToggleButton!
+
     @IBOutlet weak var subIsSquare: ToggleButton!
+
     @IBOutlet weak var isMonoToggle: ToggleButton!
 
     @IBOutlet weak var fmVolume: MIDIKnob!
+
     @IBOutlet weak var fmAmount: MIDIKnob!
 
     @IBOutlet weak var noiseVolume: MIDIKnob!
@@ -39,22 +51,25 @@ class GeneratorsPanelController: PanelController {
     @IBOutlet weak var masterVolume: MIDIKnob!
 
     @IBOutlet weak var filterTypeToggle: FilterTypeButton!
+
     @IBOutlet weak var displayContainer: UIView!
 
     @IBOutlet weak var sequencerToggle: FlatToggleButton!
+
     @IBOutlet weak var tempoStepper: TempoStepper!
 
     @IBOutlet weak var legatoModeToggle: ToggleButton!
+
     @IBOutlet weak var widenToggle: FlatToggleButton!
+
     @IBOutlet weak var oscBandlimitEnable: ToggleButton!
     
     var audioPlot: AKNodeOutputPlot!
+
     var isAudioPlotFilled: Bool = false
-    var midiKnobs = [MIDIKnob]()
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-
         currentPanel = .generators
 
         // Defaults, limits
@@ -62,13 +77,12 @@ class GeneratorsPanelController: PanelController {
             AKLog("GeneratorsPanel view state is invalid because synth is not instantiated")
             return
         }
-
         morph1SemitoneOffset.onlyIntegers = true
         morph1SemitoneOffset.range = s.getRange(.morph1SemitoneOffset)
-        morph2SemitoneOffset.onlyIntegers = true
-        morph2SemitoneOffset.range = s.getRange(.morph2SemitoneOffset)
         morph1SemitoneOffset.knobSensitivity = 0.004
         morph2SemitoneOffset.knobSensitivity = 0.004
+        morph2SemitoneOffset.onlyIntegers = true
+        morph2SemitoneOffset.range = s.getRange(.morph2SemitoneOffset)
         morph2Detuning.range = s.getRange(.morph2Detuning)
         morphBalance.range = s.getRange(.morphBalance)
         morph1Volume.range = s.getRange(.morph1Volume)
@@ -85,7 +99,6 @@ class GeneratorsPanelController: PanelController {
         masterVolume.range = s.getRange(.masterVolume)
         tempoStepper.maxValue = s.getMaximum(.arpRate)
         tempoStepper.minValue = s.getMinimum(.arpRate)
-
         conductor.bind(morph1Selector, to: .index1)
         conductor.bind(morph2Selector, to: .index2)
         conductor.bind(morph1SemitoneOffset, to: .morph1SemitoneOffset)
@@ -114,7 +127,6 @@ class GeneratorsPanelController: PanelController {
 
         // Setup Audio Plot Display
         setupAudioPlot()
-
         setupLinkStuff()
 
 		// Sets the read order for VoiceOver
@@ -147,7 +159,6 @@ class GeneratorsPanelController: PanelController {
 			leftNavButton,
 			rightNavButton
 		]
-
     }
 
     func setupAudioPlot() {

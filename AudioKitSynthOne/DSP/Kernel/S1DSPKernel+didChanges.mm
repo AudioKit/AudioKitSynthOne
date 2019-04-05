@@ -34,14 +34,14 @@ void S1DSPKernel::beatCounterDidChange() {
 void S1DSPKernel::playingNotesDidChange() {
     aePlayingNotes.polyphony = S1_MAX_POLYPHONY;
     if (parameters[isMono] > 0.f) {
-        aePlayingNotes.playingNotes[0] = {monoNote->rootNoteNumber, monoNote->transpose, monoNote->velocity};
+        aePlayingNotes.playingNotes[0] = { monoNote->rootNoteNumber, monoNote->transpose, monoNote->velocity, monoNote->amp };
         for(int i = 1; i<S1_MAX_POLYPHONY; i++) {
-            aePlayingNotes.playingNotes[i] = {-1,-1,-1};
+            aePlayingNotes.playingNotes[i] = { -1, -1, -1, -1 };
         }
     } else {
         for(int i=0; i<S1_MAX_POLYPHONY; i++) {
             const auto& note = (*noteStates)[i];
-            aePlayingNotes.playingNotes[i] = {note.rootNoteNumber, note.transpose, note.velocity};
+            aePlayingNotes.playingNotes[i] = { note.rootNoteNumber, note.transpose, note.velocity, note.amp };
         }
     }
     AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,

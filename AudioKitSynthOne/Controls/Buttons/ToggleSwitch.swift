@@ -6,8 +6,6 @@
 //  Copyright © 2017 AudioKit. All rights reserved.
 //
 
-import UIKit
-
 @IBDesignable
 class ToggleSwitch: UIView, S1Control {
 
@@ -26,7 +24,9 @@ class ToggleSwitch: UIView, S1Control {
             setNeedsDisplay()
         }
     }
+
     public var callback: (Double) -> Void = { _ in }
+
     var defaultCallback: () -> Void = { }
 
     override func draw(_ rect: CGRect) {
@@ -41,4 +41,5 @@ class ToggleSwitch: UIView, S1Control {
             callback(value)
         }
     }
+    
 }

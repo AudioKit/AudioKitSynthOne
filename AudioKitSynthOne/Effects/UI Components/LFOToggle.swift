@@ -30,7 +30,6 @@ class LFOToggle: UIView, S1Control {
                 break
             }
             setNeedsDisplay()
-
         }
     }
 
@@ -52,7 +51,7 @@ class LFOToggle: UIView, S1Control {
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-        self.isUserInteractionEnabled = true
+        isUserInteractionEnabled = true
         contentMode = .redraw
 
 		accessibilityHint = NSLocalizedString(
@@ -85,21 +84,16 @@ class LFOToggle: UIView, S1Control {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-
             let touchPoint = touch.location(in: self)
-
             if touchPoint.x < width / 2 {
                 lfo1Active = !lfo1Active
             } else {
                 lfo2Active = !lfo2Active
             }
-
             var newValue = 0.00
             if lfo1Active { newValue += 1 }
             if lfo2Active { newValue += 2 }
-
             value = newValue
-
             callback(value)
         }
     }
@@ -109,9 +103,7 @@ class LFOToggle: UIView, S1Control {
 		var newValue = 0.00
 		if lfo1Active { newValue += 1 }
 		if lfo2Active { newValue += 2 }
-
 		value = newValue
-
 		callback(value)
 	}
 
@@ -120,9 +112,7 @@ class LFOToggle: UIView, S1Control {
 		var newValue = 0.00
 		if lfo1Active { newValue += 1 }
 		if lfo2Active { newValue += 2 }
-
 		value = newValue
-
 		callback(value)
 	}
 

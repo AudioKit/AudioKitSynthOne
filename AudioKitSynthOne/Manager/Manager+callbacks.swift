@@ -7,6 +7,7 @@
 //
 
 extension Manager {
+    
     func setupCallbacks() {
 
         guard let s = conductor.synth else {
@@ -42,7 +43,7 @@ extension Manager {
         midiLearnToggle.callback = { _ in
 
             // Toggle MIDI Learn Knobs in subview
-            for knob in self.midiKnobs { knob.midiLearnMode = self.midiLearnToggle.isSelected }
+            for control in self.midiControls { control.midiLearnMode = self.midiLearnToggle.isSelected }
 
             // Update display label
             if self.midiLearnToggle.isSelected {
@@ -77,6 +78,7 @@ extension Manager {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
 
                  if self.conductor.device == .pad {
+
 				// Tell VoiceOver to NOT read elements in bottomContainerView if hidden by keyboard.
 				self.bottomContainerView.accessibilityElementsHidden = true
                 }
@@ -85,6 +87,7 @@ extension Manager {
                 self.keyboardToggle.setTitle("Show", for: .normal)
 
                 if self.conductor.device == .pad {
+
                     // Tell VoiceOver to read elements in bottomContainerView as the keyboard is not hidden.
                     self.bottomContainerView.accessibilityElementsHidden = false
 
@@ -136,15 +139,18 @@ extension Manager {
         modWheelPad.callback = { value in
             switch self.activePreset.modWheelRouting {
             case 0:
+
                 // Cutoff
                 let newValue = 1 - value
                 let scaledValue = Double.scaleRangeLog2(newValue, rangeMin: 120, rangeMax: 7_600)
                 s.setSynthParameter(.cutoff, scaledValue * 3)
                 self.conductor.updateSingleUI(.cutoff, control: self.modWheelPad, value: s.getSynthParameter(.cutoff))
             case 1:
+
                 // LFO 1 Rate
                 s.setDependentParameter(.lfo1Rate, value, self.conductor.lfo1RateModWheelID)
             case 2:
+                
                 // LFO 2 Rate
                 s.setDependentParameter(.lfo2Rate, value, self.conductor.lfo2RateModWheelID)
             default:

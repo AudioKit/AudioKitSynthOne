@@ -10,57 +10,93 @@ import AudioKit
 import UIKit
 import Disk 
 
+
 protocol EmbeddedViewsDelegate: AnyObject {
+
     func switchToChildPanel(_ newView: ChildPanel, isOnTop: Bool)
+
 }
 
 public class Manager: UpdatableViewController {
 
     @IBOutlet weak var topContainerView: UIView!
+
     @IBOutlet weak var bottomContainerView: UIView!
 
     @IBOutlet weak var keyboardView: KeyboardView!
+
     @IBOutlet weak var keyboardTopConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var keyboardLeftConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var keyboardRightConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var topPanelheight: NSLayoutConstraint!
 
     @IBOutlet weak var midiButton: SynthButton!
-    @IBOutlet weak var holdButton: SynthButton!
-    @IBOutlet weak var monoButton: SynthButton!
+
+    @IBOutlet weak var holdButton: MIDISynthButton!
+
+    @IBOutlet weak var monoButton: MIDISynthButton!
+
 	@IBOutlet weak var keyboardToggle: SynthButton!
+
     @IBOutlet weak var octaveStepper: Stepper!
-    @IBOutlet weak var transposeStepper: Stepper!
+
+    @IBOutlet weak var transposeStepper: MIDIStepper!
+
     @IBOutlet weak var configKeyboardButton: SynthButton!
+
     @IBOutlet weak var bluetoothButton: AKBluetoothMIDIButton!
+
     @IBOutlet weak var modWheelSettings: SynthButton!
+
     @IBOutlet weak var midiLearnToggle: SynthButton!
+
     @IBOutlet weak var pitchBend: AKVerticalPad!
+
     @IBOutlet weak var modWheelPad: AKVerticalPad!
+    
     @IBOutlet weak var linkButton: AKLinkButton!
 
     weak var embeddedViewsDelegate: EmbeddedViewsDelegate?
 
     var topChildPanel: ChildPanel?
+
     var bottomChildPanel: ChildPanel?
+
     var prevBottomChildPanel: ChildPanel?
+
     var isPresetsDisplayed: Bool = false
+
     var activePreset = Preset()
 
     var midiChannelIn: MIDIChannel = 0
+
     var midiInputs = [MIDIInput]()
+
     var omniMode = true
+
     var notesFromMIDI = Set<MIDINoteNumber>()
+
     var appSettings = AppSettings()
+
     var isDevView = false
 
     var sustainMode = false
+
     var sustainer: SDSustainer!
+
     var pcJustTriggered = false
-    var midiKnobs = [MIDIKnob]()
+
+    var midiControls = [MIDILearnable]()
+
     var signedMailingList = false
+
     let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+
     var isPhoneX = false
+
     var isLoaded = false
 
     // Python code to generate whiteKeysOnlyMap:
@@ -85,8 +121,10 @@ public class Manager: UpdatableViewController {
         88, 88, 89, 89, 90, 91, 91, 92, 92, 93, 93, 94,
         95, 95, 96, 96, 97, 98, 98, 99
     ]
+
     // AudioBus
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
+
     var midiInput: ABMIDIReceiverPort?
 
     // MARK: - Define child view controllers
@@ -159,7 +197,6 @@ public class Manager: UpdatableViewController {
         conductor.start()
         let s = conductor.synth!
         sustainer = SDSustainer(s)
-
         keyboardView?.delegate = self
         keyboardView?.polyphonicMode = s.getSynthParameter(.isMono) < 1 ? true : false
 
@@ -265,7 +302,6 @@ public class Manager: UpdatableViewController {
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         guard !isLoaded else { return }
 
         // Load App Settings
@@ -302,7 +338,6 @@ public class Manager: UpdatableViewController {
                     AKSettings.bufferLength = .veryLong
                     try? AVAudioSession.sharedInstance().setPreferredIOBufferDuration(AKSettings.bufferLength.duration)
                 }
-                
                 if conductor.device == .pad {
                     displayAlertController("iPhone version! 🎉", message: "We've been working hard for you. Synth One is now available as a Universal app on the iPhone. Free & Open-source. Thank you. 🙏")
                 }
@@ -384,12 +419,15 @@ public class Manager: UpdatableViewController {
         appSettings.firstRun = false
         saveAppSettingValues()
 
-        appendMIDIKnobs(from: generatorsPanel)
-        appendMIDIKnobs(from: envelopesPanel)
-        appendMIDIKnobs(from: fxPanel)
-        appendMIDIKnobs(from: sequencerPanel)
-        appendMIDIKnobs(from: devViewController)
-        appendMIDIKnobs(from: tuningsPanel)
+        appendMIDIControls(fromViewController: generatorsPanel)
+        appendMIDIControls(fromViewController: envelopesPanel)
+        appendMIDIControls(fromViewController: fxPanel)
+        appendMIDIControls(fromViewController: sequencerPanel)
+        appendMIDIControls(fromViewController: devViewController)
+        appendMIDIControls(fromViewController: tuningsPanel)
+        appendMIDIControl(transposeStepper)
+        appendMIDIControl(holdButton)
+        appendMIDIControl(monoButton)
 
         setupLinkStuff()
         
@@ -401,13 +439,20 @@ public class Manager: UpdatableViewController {
         return UIRectEdge.all
     }
 
-    private func appendMIDIKnobs(from controller: UIViewController) {
+    private func appendMIDIControls(fromViewController controller: UIViewController) {
         for view in controller.view.subviews {
-            guard let midiKnob = view as? MIDIKnob else { continue }
-            midiKnob.addHotspot()
-            midiKnobs.append(midiKnob)
+            guard let midiControl = view as? MIDILearnable else { continue }
+            midiControl.addHotspot()
+            midiControls.append(midiControl)
         }
     }
+
+    private func appendMIDIControl(_ control: MIDILearnable) {
+        control.addHotspot()
+        midiControls.append(control)
+    }
+
+
     func stopAllNotes() {
         self.keyboardView.allNotesOff()
         conductor.synth.stopAllNotes()
@@ -420,15 +465,11 @@ public class Manager: UpdatableViewController {
             AKLog("ParentViewController can't update global UI because synth is not instantiated")
             return
         }
-
         let isMono = s.getSynthParameter(.isMono)
-
         if isMono != monoButton.value {
             monoButton.value = isMono
             self.keyboardView.polyphonicMode = isMono > 0 ? false : true
-		
         }
-
         if parameter == .cutoff {
             if inputControl === modWheelPad || activePreset.modWheelRouting != 0 {
                 return
@@ -438,7 +479,6 @@ public class Manager: UpdatableViewController {
             let scaledValue01 = (0...1).clamp(1 - ((log(value) - log(mmin)) / (log(mmax) - log(mmin))))
             modWheelPad.setVerticalValue01(scaledValue01)
         }
-
         if parameter == .transpose {
             transposeStepper.value = Double(activePreset.transpose)
         }

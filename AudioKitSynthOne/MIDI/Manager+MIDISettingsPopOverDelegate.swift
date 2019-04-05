@@ -11,7 +11,7 @@
 extension Manager: MIDISettingsPopOverDelegate {
 
     func resetMIDILearn() {
-        for knob in midiKnobs { knob.midiCC = 255 }
+        for control in midiControls { control.midiCC = 255 }
         saveAppSettingValues()
     }
 

@@ -162,11 +162,18 @@ public:
 
 private:
 
-    S1Sequencer sequencer;
     // moved the private functions to try to get rid of errors, I don't think we need to be that worried about privacy
+    S1Sequencer sequencer;
+
+    // phasor values
+    float lfo1Smooth = 0.f;
+    float lfo2Smooth = 0.f;
+    sp_port *lfo1Port;
+    sp_port *lfo2Port;
 
 public:
-    
+
+
     void updateWavetableIncrementValuesForCurrentSampleRate();
 
     void _setSynthParameter(S1Parameter param, float inputValue01);
@@ -194,11 +201,7 @@ public:
     
     // Portamento values
     float monoFrequency = 440.f * exp2((60.f - 69.f)/12.f);
-    
-    // phasor values
-    float lfo1 = 0.f;
-    float lfo2 = 0.f;
-    
+
     // midi
     bool notesHeld = false;
     

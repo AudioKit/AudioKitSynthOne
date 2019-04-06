@@ -42,6 +42,11 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sp_phaser_init(sp, phaser0);
     sp_port_create(&monoFrequencyPort);
     sp_port_init(sp, monoFrequencyPort, 0.05f);
+    sp_port_create(&lfo1Port);
+    const float lfoSmoothHalftime = 0.003125f; // empirical
+    sp_port_init(sp, lfo1Port, lfoSmoothHalftime);
+    sp_port_create(&lfo2Port);
+    sp_port_init(sp, lfo2Port, lfoSmoothHalftime);
     sp_osc_create(&panOscillator);
     sp_osc_init(sp, panOscillator, sine, 0.f);
     sp_pan2_create(&pan);

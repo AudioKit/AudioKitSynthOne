@@ -61,6 +61,7 @@ extension Manager {
             if value == 0.0 {
                 self.stopAllNotes()
             }
+            Conductor.sharedInstance.updateDisplayLabel("Hold: \(self.keyboardView.holdMode == false ? "OFF" : "ON")")
 			self.holdButton.accessibilityValue = self.keyboardView.holdMode ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
         }
 
@@ -69,6 +70,7 @@ extension Manager {
             self.keyboardView.polyphonicMode = !monoMode
             s.setSynthParameter(.isMono, value)
             self.conductor.updateSingleUI(.isMono, control: self.monoButton, value: value)
+            Conductor.sharedInstance.updateDisplayLabel("Mono: \(value > 0 ? "OFF" : "ON")")
 			self.monoButton.accessibilityValue = self.keyboardView.polyphonicMode ? NSLocalizedString("Off", comment: "Off") : NSLocalizedString("On", comment: "On")
         }
 

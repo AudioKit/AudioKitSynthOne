@@ -20,7 +20,7 @@ extension Manager: ABAudiobusControllerStateIODelegate {
 
                 if event.status?.type == AKMIDIStatusType.noteOn {
                     guard let noteNumber = event.noteNumber else { return }
-                    if event.internalData[2] == 0 {
+                    if event.data[2] == 0 {
                         self.sustainer.stop(noteNumber: noteNumber)
                     } else {
                         // Prevent multiple triggers from multiple MIDI inputs
@@ -31,7 +31,7 @@ extension Manager: ABAudiobusControllerStateIODelegate {
 //                            self.notesJustTriggered.remove(event.noteNumber!)
 //                        }
 
-                        self.sustainer.play(noteNumber: noteNumber, velocity: event.internalData[2])
+                        self.sustainer.play(noteNumber: noteNumber, velocity: event.data[2])
                     }
                 }
 
@@ -41,17 +41,17 @@ extension Manager: ABAudiobusControllerStateIODelegate {
                 }
 
                 if event.status?.type == AKMIDIStatusType.pitchWheel {
-                    let x = MIDIWord(event.internalData[1])
-                    let y = MIDIWord(event.internalData[2]) << 7
+                    let x = MIDIWord(event.data[1])
+                    let y = MIDIWord(event.data[2]) << 7
                     self.receivedMIDIPitchWheel(y + x, channel: channel)
                 }
 
                 if event.status?.type == AKMIDIStatusType.programChange {
-                    self.receivedMIDIProgramChange(event.internalData[1], channel: channel)
+                    self.receivedMIDIProgramChange(event.data[1], channel: channel)
                 }
 
                 if event.status?.type == AKMIDIStatusType.controllerChange {
-                    self.receivedMIDIController(event.internalData[2], value: event.internalData[2], channel: channel)
+                    self.receivedMIDIController(event.data[2], value: event.data[2], channel: channel)
                 }
             }
         }

@@ -6,7 +6,7 @@ use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
 
 def available_pods
-    pod 'AudioKit', '>= 4.6'
+    pod 'AudioKit', '>= 4.7'
     pod 'Disk', '~> 0.3.2'
     pod 'Audiobus'
     pod 'ChimpKit'
@@ -19,7 +19,7 @@ end
 
 target 'OneSignalNotificationServiceExtension' do
     pod 'OneSignal', '>= 2.6.2', '< 3.0'
-    pod 'AudioKit', '>= 4.6'
+    pod 'AudioKit', '>= 4.7'
 end
 
 

@@ -9,6 +9,8 @@
 #import "S1AudioUnit.h"
 #import "S1SeqNoteNumber.hpp"
 
+#include <vector>
+
 template<typename SeqNoteNumbers, typename NoteNumbers>
 struct Arpeggiator {
     Arpeggiator() = delete;

@@ -2360,7 +2360,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AudioKitSynthOne/Link/lib",
 				);
-				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fno-aligned-allocation",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"$(ABLETON_LIB_$(ABLETON_ENABLED))",
@@ -2398,7 +2401,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AudioKitSynthOne/Link/lib",
 				);
-				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fno-aligned-allocation",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"$(ABLETON_LIB_$(ABLETON_ENABLED))",

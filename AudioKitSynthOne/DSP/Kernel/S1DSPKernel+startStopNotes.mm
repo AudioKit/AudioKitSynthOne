@@ -6,7 +6,7 @@
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
-#import <AudioKit/AudioKit-swift.h>
+#import <AudioKit/AudioKit-Swift.h>
 #import "S1DSPKernel.hpp"
 #import "AEArray.h"
 

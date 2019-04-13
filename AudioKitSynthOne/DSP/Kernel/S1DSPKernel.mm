@@ -7,7 +7,7 @@
 //
 #include <functional>
 
-#import <AudioKit/AudioKit-swift.h>
+#import <AudioKit/AudioKit-Swift.h>
 #import "../Sequencer/S1ArpModes.hpp"
 #import "S1DSPKernel.hpp"
 #import "AEArray.h"

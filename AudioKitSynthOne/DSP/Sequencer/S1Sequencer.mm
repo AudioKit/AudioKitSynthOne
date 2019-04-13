@@ -6,7 +6,7 @@
 //  Copyright © 2019 AudioKit. All rights reserved.
 //
 
-#import <AudioKit/AudioKit-swift.h>
+#import <AudioKit/AudioKit-Swift.h>
 
 #include "S1Arpeggiator.hpp"
 #include "S1Sequencer.hpp"

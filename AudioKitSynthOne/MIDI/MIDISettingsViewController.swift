@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AudioKit
 
 protocol MIDISettingsPopOverDelegate: AnyObject {
 
@@ -89,7 +89,7 @@ class MIDISettingsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         displayMIDIInputs()
-        bufferSizeSegmentedControl.selectedSegmentIndex = AKSettings.bufferLength.rawValue - BufferLength.shortest.rawValue
+        bufferSizeSegmentedControl.selectedSegmentIndex = AKSettings.bufferLength.rawValue - AKSettings.BufferLength.shortest.rawValue
         bufferSizeSegmentedControl.setNeedsDisplay()
     }
 

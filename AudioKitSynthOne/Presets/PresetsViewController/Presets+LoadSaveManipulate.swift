@@ -130,7 +130,7 @@ extension PresetsViewController {
 
         if updateExistingPreset {
             // Remove currentPreset and replace it with activePreset
-            if let position = presets.index(where: { $0.uid == currentPreset.uid }) {
+            if let position = presets.firstIndex(where: { $0.uid == currentPreset.uid }) {
                 presets.remove(at: position)
                 presets.insert(activePreset, at: activePreset.position)
             }
@@ -176,7 +176,7 @@ extension PresetsViewController {
 
     func selectCurrentPreset() {
         // Find the preset in the current view
-        if let index = sortedPresets.index(where: { $0 === currentPreset }) {
+        if let index = sortedPresets.firstIndex(where: { $0 === currentPreset }) {
             tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
         } else {
             tableView.setContentOffset(CGPoint.zero, animated: false)
@@ -187,7 +187,7 @@ extension PresetsViewController {
     }
 
     func deselectCurrentRow() {
-        if let index = sortedPresets.index(where: { $0 === currentPreset }) {
+        if let index = sortedPresets.firstIndex(where: { $0 === currentPreset }) {
             tableView.deselectRow(at: IndexPath(row: index, section: 0), animated: false)
         }
     }

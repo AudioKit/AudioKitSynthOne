@@ -154,7 +154,7 @@ extension Manager: AKMIDIListener {
         for inputName in midiInputNames {
 
             // check to see if input exists
-            if let index = midiInputs.index(where: { $0.name == inputName }) {
+            if let index = midiInputs.firstIndex(where: { $0.name == inputName }) {
                 midiInputs.remove(at: index)
             }
             let newMIDI = MIDIInput(name: inputName, isOpen: true)

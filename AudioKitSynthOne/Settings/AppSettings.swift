@@ -17,6 +17,7 @@ let initBanks = ["BankA",
                  "JEC",
                  "Red Sky Lullaby",
                  "Sound of Izrael",
+                 "Sound of Izrael 2",
                  "Starter Bank"]
 
 // Do not rename any of these properties or you will break AppSettings read/write
@@ -56,7 +57,7 @@ class AppSettings: Codable {
     var launches = 0
 
     // Presets version
-    var presetsVersion = 1.27
+    var presetsVersion = 1.28
 
     // Keyboard
     var labelMode = 1

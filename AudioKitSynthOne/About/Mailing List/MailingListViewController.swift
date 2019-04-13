@@ -118,7 +118,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
     @IBAction func sharePressed(_ sender: Any) {
        
         // set up activity view controller
-        let items: [Any] = ["I love this Free Synth app. Made by volunteers & sound designers for Kanye, Rhianna, M83, and more.", URL(string: "https://audiokitpro.com/synth")!]
+        let items: [Any] = ["I love this app. AudioKit Synth One", URL(string: "https://audiokitpro.com/synth")!]
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop]
   

@@ -48,7 +48,7 @@ class PresetEditorViewController: UIViewController {
         // Setup Picker
         //conductor.banks = conductor.banks.sorted { $0.position < $1.position }
         pickerBankNames = conductor.banks.map { $0.name }
-        if let index = pickerBankNames.index(of: preset.bank) {
+        if let index = pickerBankNames.firstIndex(of: preset.bank) {
             bankPicker.selectRow(index, inComponent: 0, animated: true)
             bankSelected = preset.bank
         }

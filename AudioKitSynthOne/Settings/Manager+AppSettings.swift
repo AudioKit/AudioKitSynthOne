@@ -37,6 +37,7 @@ extension Manager {
         devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
         devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
         devViewController.freezeReverb.value = (appSettings.freezeReverb == true ? 1 : 0)
+        devViewController.freezeArpSeq.value = (appSettings.freezeArpSeq == true ? 1 : 0)
         devViewController.whiteKeysOnly.value = (appSettings.whiteKeysOnly == true ? 1 : 0)
 
         // DSP parameter stored in app settings

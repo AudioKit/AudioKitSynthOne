@@ -69,6 +69,7 @@ class AppSettings: Codable {
     // Save State
     var currentBankIndex = 0
     var currentPresetIndex = 0
+    var currentTuningBankIndex = 0
 
     // MARK: - MIDI Learn Settings
 
@@ -175,6 +176,7 @@ class AppSettings: Codable {
         // PRESET STATE
         currentBankIndex = dictionary["currentBankIndex"] as? Int ?? currentBankIndex
         currentPresetIndex = dictionary["currentPresetIndex"] as? Int ?? currentPresetIndex
+        currentTuningBankIndex = dictionary["currentTuningBankIndex"] as? Int ?? currentTuningBankIndex
 
         // MIDI Learn GENERATOR
         masterVolumeCC = dictionary["masterVolumeCC"] as? Int ?? masterVolumeCC
@@ -239,5 +241,4 @@ class AppSettings: Codable {
         holdButtonCC = dictionary["holdButtonCC"] as? Int ?? holdButtonCC
         monoButtonCC = dictionary["monoButtonCC"] as? Int ?? monoButtonCC
     }
-
 }

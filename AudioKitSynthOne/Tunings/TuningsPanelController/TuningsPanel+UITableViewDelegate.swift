@@ -17,6 +17,7 @@ extension TuningsPanelController: UITableViewDelegate {
             tuningTableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
         } else if tableView == tuningBankTableView {
             tuningModel.selectBank(atRow: selectedRow)
+            updateAppSettingsTuningsBank(for: tuningModel.selectedBankIndex)
             tuningBankTableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
             tuningTableView.reloadData()
             let tuningPath = IndexPath(row: tuningModel.selectedTuningIndex, section: 0)

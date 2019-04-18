@@ -55,8 +55,8 @@ class EffectsPanelController: PanelController {
     @IBOutlet weak var tempoSyncToggle: ToggleButton!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
 
+        super.viewDidLoad()
         currentPanel = .effects
         guard let s = conductor.synth else {
             AKLog("EffectsPanel view state is invalid because synth is not instantiated")
@@ -143,47 +143,43 @@ class EffectsPanelController: PanelController {
 
 
 		view.accessibilityElements = [
-			lfo1WavePicker,
-			lfo1RateKnob,
-			lfo1AmpKnob,
-			lfo2WavePicker,
-			lfo2RateKnob,
-			lfo2AmpKnob,
-			cutoffLFOToggle,
-			resonanceLFOToggle,
-			oscMixLFOToggle,
-			reverbMixLFOToggle,
-			decayLFOToggle,
-			noiseLFOToggle,
-			fmModLFOToggle,
-			detuneLFOToggle,
-			filterEnvLFOToggle,
-			pitchLFOToggle,
-			bitcrushLFOToggle,
-			tremoloLFOToggle,
-			tempoSyncToggle,
-			sampleRateKnob,
-			autoPanRateKnob,
-			autoPanAmountKnob,
-			reverbToggle,
-			reverbSizeKnob,
-			reverbLowCutKnob,
-			reverbMixKnob,
-			delayToggle,
-			delayTimeKnob,
-			delayFeedbackKnob,
-			delayMixKnob,
-			phaserRateKnob,
-			phaserNotchWidthKnob,
-			phaserFeedbackKnob,
-			phaserMixKnob,
-			leftNavButton,
-			rightNavButton
+			lfo1WavePicker as Any,
+			lfo1RateKnob as Any,
+			lfo1AmpKnob as Any,
+			lfo2WavePicker as Any,
+			lfo2RateKnob as Any,
+			lfo2AmpKnob as Any,
+			cutoffLFOToggle as Any,
+			resonanceLFOToggle as Any,
+			oscMixLFOToggle as Any,
+			reverbMixLFOToggle as Any,
+			decayLFOToggle as Any,
+			noiseLFOToggle as Any,
+			fmModLFOToggle as Any,
+			detuneLFOToggle as Any,
+			filterEnvLFOToggle as Any,
+			pitchLFOToggle as Any,
+			bitcrushLFOToggle as Any,
+			tremoloLFOToggle as Any,
+			tempoSyncToggle as Any,
+			sampleRateKnob as Any,
+			autoPanRateKnob as Any,
+			autoPanAmountKnob as Any,
+			reverbToggle as Any,
+			reverbSizeKnob as Any,
+			reverbLowCutKnob as Any,
+			reverbMixKnob as Any,
+			delayToggle as Any,
+			delayTimeKnob as Any,
+			delayFeedbackKnob as Any,
+			delayMixKnob as Any,
+			phaserRateKnob as Any,
+			phaserNotchWidthKnob as Any,
+			phaserFeedbackKnob as Any,
+			phaserMixKnob as Any,
+			leftNavButton as Any,
+			rightNavButton as Any
 		]
-
-
-
-
     }
 
     func dependentParameterDidChange(_ dependentParameter: DependentParameter) {

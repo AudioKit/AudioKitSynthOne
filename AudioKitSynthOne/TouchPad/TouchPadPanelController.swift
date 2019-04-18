@@ -52,11 +52,11 @@ class TouchPadPanelController: PanelController {
 
 		// Sets the read order for VoiceOver
 		view.accessibilityElements = [
-			touchPad1,
-			snapToggle,
-			touchPad2,
-			leftNavButton,
-			rightNavButton
+			touchPad1 as Any,
+			snapToggle as Any,
+			touchPad2 as Any,
+			leftNavButton as Any,
+			rightNavButton as Any
 		]
     }
 

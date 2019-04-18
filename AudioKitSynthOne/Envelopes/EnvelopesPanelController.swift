@@ -81,18 +81,18 @@ class EnvelopesPanelController: PanelController {
 
 		// Sets the read order for VoiceOver
 		view.accessibilityElements = [
-			filterAttackKnob,
-			filterDecayKnob,
-			filterSustainKnob,
-			filterReleaseKnob,
-			filterADSRMixKnob,
-			attackKnob,
-			decayKnob,
-			sustainKnob,
-			releaseKnob,
-            adsrPitchTrackingKnob,
-			leftNavButton,
-			rightNavButton
+			filterAttackKnob as Any,
+			filterDecayKnob as Any,
+			filterSustainKnob as Any,
+			filterReleaseKnob as Any,
+			filterADSRMixKnob as Any,
+			attackKnob as Any,
+			decayKnob as Any,
+			sustainKnob as Any,
+			releaseKnob as Any,
+            adsrPitchTrackingKnob as Any,
+			leftNavButton as Any,
+			rightNavButton as Any
 		]
     }
 

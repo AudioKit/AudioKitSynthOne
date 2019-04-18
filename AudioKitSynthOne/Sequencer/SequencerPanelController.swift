@@ -196,13 +196,13 @@ class SequencerPanelController: PanelController {
 
 		// Sets the read order for VoiceOver
 		view.accessibilityElements = [
-			arpToggle,
-			arpInterval,
-			octaveStepper,
-			arpDirectionButton,
-			sequencerToggle,
-			seqStepsStepper,
-            arpSeqTempoMultiplier
+			arpToggle as Any,
+			arpInterval as Any,
+			octaveStepper as Any,
+			arpDirectionButton as Any,
+			sequencerToggle as Any,
+			seqStepsStepper as Any,
+            arpSeqTempoMultiplier as Any
 		]
 		for index in 0...15 {
             view.accessibilityElements?.append(octBoostButtons[index])
@@ -210,8 +210,8 @@ class SequencerPanelController: PanelController {
             view.accessibilityElements?.append(noteOnButtons[index])
 
 		}
-		view.accessibilityElements?.append(leftNavButton)
-		view.accessibilityElements?.append(rightNavButton)
+		view.accessibilityElements?.append(leftNavButton as Any)
+		view.accessibilityElements?.append(rightNavButton as Any)
 	}
     
 }

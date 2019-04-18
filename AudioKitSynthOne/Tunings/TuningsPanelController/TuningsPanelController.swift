@@ -20,14 +20,23 @@ public protocol TuningsPitchWheelViewTuningDidChange {
 class TuningsPanelController: PanelController {
 
     @IBOutlet weak var tuningTableView: UITableView!
+
     @IBOutlet weak var tuningBankTableView: UITableView!
+
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
+
     @IBOutlet weak var masterTuningKnob: MIDIKnob!
+
     @IBOutlet weak var resetTuningsButton: SynthButton!
+
     @IBOutlet weak var diceButton: UIButton!
+
     @IBOutlet weak var importButton: SynthButton!
+
     @IBOutlet weak var tuneUpBackButtonButton: SynthButton!
+
     @IBOutlet weak var tuneUpButton: SynthButton!
+
     @IBOutlet weak var tuneUpBackLabel: UILabel!
     
     ///Model
@@ -35,17 +44,18 @@ class TuningsPanelController: PanelController {
     var getStoreTuningWithPresetValue = false
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
         view.accessibilityElements = [
-            tuningBankTableView,
-            tuningTableView,
-            masterTuningKnob,
-            diceButton,
-            resetTuningsButton,
-            importButton,
-            leftNavButton,
-            rightNavButton,
-            tuneUpBackButtonButton
+            tuningBankTableView as Any,
+            tuningTableView as Any,
+            masterTuningKnob as Any,
+            diceButton as Any,
+            resetTuningsButton as Any,
+            importButton as Any,
+            leftNavButton as Any,
+            rightNavButton as Any,
+            tuneUpBackButtonButton as Any
         ]
 
         currentPanel = .tunings
@@ -99,7 +109,11 @@ class TuningsPanelController: PanelController {
         tuningModel.pitchWheelDelegate = self
         tuningModel.tuneUpDelegate = self
         tuningModel.loadTunings {
+
             // callback called on main thread
+            if let bankIndex = self.getAppSettingsTuningsBank() {
+                self.tuningModel.selectBank(atRow: bankIndex)
+            }
             self.tuningBankTableView.reloadData()
             self.tuningTableView.reloadData()
             self.selectRow()
@@ -169,6 +183,19 @@ class TuningsPanelController: PanelController {
 
         let tuningPath = IndexPath(row: tuningModel.selectedTuningIndex, section: 0)
         tableView(tuningTableView, didSelectRowAt: tuningPath)
+    }
+
+    func updateAppSettingsTuningsBank(for index: Int) {
+        guard let manager = Conductor.sharedInstance.viewControllers.first(
+            where: { $0 is Manager }) as? Manager else { return }
+        manager.appSettings.currentTuningBankIndex = index
+        manager.saveAppSettingValues()
+    }
+
+    func getAppSettingsTuningsBank() -> Int? {
+        guard let manager = Conductor.sharedInstance.viewControllers.first(
+            where: { $0 is Manager }) as? Manager else { return nil}
+        return manager.appSettings.currentTuningBankIndex
     }
 
     public func setTuning(name: String?, masterArray master: [Double]?) {

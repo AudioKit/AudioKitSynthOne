@@ -11,11 +11,13 @@ import UIKit
 extension TuningsPanelController: UITableViewDataSource {
 
     public func numberOfSections(in tableView: UITableView) -> Int {
+
         return 1
     }
 
     @objc(tableView:heightForRowAtIndexPath:) public func tableView(_ tableView: UITableView,
                                                                     heightForRowAt indexPath: IndexPath) -> CGFloat {
+
         if tableView == tuningBankTableView {
             return 66
         } else {
@@ -24,6 +26,7 @@ extension TuningsPanelController: UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         if tableView == tuningBankTableView {
             return tuningModel.tuningBanks.count
         } else if tableView == tuningTableView {
@@ -33,6 +36,7 @@ extension TuningsPanelController: UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
         let row = (indexPath as NSIndexPath).row
 
@@ -50,12 +54,12 @@ extension TuningsPanelController: UITableViewDataSource {
             cell = TuningCell()
         }
         cell.configureCell()
+
         if tableView == tuningBankTableView {
             cell.textLabel?.numberOfLines = 3
         } else {
             cell.textLabel?.numberOfLines = 3
         }
-
 
         let title: String
         if tableView == tuningBankTableView {
@@ -67,7 +71,6 @@ extension TuningsPanelController: UITableViewDataSource {
         } else {
             title = "error"
         }
-
         cell.textLabel?.text = title
 
         return cell

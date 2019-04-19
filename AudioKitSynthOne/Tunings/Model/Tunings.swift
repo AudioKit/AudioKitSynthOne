@@ -72,7 +72,6 @@ class Tunings {
     internal let tuningFilenameV1 = "tunings_v1.json"
     internal static let hexanyTriadTuningsBankName = "Hexanies With Proportional Triads"
 
-
     // MARK: INIT
     init() {}
 
@@ -90,12 +89,15 @@ class Tunings {
 
             // LOAD PATH
             if Disk.exists(self.tuningFilenameV1, in: .documents) {
+
                 // tunings have been installed and/or upgraded
                 self.loadTuningsFromDevice()
             } else if Disk.exists(self.tuningFilenameV0, in: .documents) {
+
                 // tunings need to be upgraded
                 self.upgradeTuningsFromV0ToV1()
             } else {
+
                 // fresh install
                 self.loadTuningFactoryPresets()
             }

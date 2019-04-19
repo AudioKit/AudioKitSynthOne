@@ -1276,14 +1276,14 @@
                                 <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKC-fD-PQm">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="378"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Spu-aU-mjx">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MIDI / SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ksJ-GG-fPC">
-                                                <rect key="frame" x="17" y="13" width="175" height="24"/>
+                                                <rect key="frame" x="17" y="11" width="175" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -1293,7 +1293,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW8-Xt-97c">
-                                                <rect key="frame" x="516" y="7" width="77" height="36"/>
+                                                <rect key="frame" x="516" y="5" width="77" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="DoneButton"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
@@ -1308,7 +1308,7 @@
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JmX-eX-97E">
-                                        <rect key="frame" x="302" y="50" width="298" height="364"/>
+                                        <rect key="frame" x="302" y="44" width="298" height="364"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Buffer Size:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbD-NB-qaM">
@@ -1359,7 +1359,7 @@
                                         <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MIDI Input Channel: Omni" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pI1-4q-bLo">
-                                        <rect key="frame" x="19" y="66" width="268" height="24"/>
+                                        <rect key="frame" x="19" y="53" width="268" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -1369,7 +1369,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6L-yF-WkZ" customClass="ChannelStepper" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="97" y="92" width="108" height="35"/>
+                                        <rect key="frame" x="97" y="79" width="108" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration" identifier="MIDIInputStepper" label="MIDI Input Channel">
@@ -1378,7 +1378,7 @@
                                         </accessibility>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MIDI Learn Knobs:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VLa-3E-3Kt">
-                                        <rect key="frame" x="19" y="142" width="263" height="24"/>
+                                        <rect key="frame" x="19" y="122" width="263" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1389,7 +1389,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-Qa-FAj" customClass="SynthButton" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="36" y="169" width="235" height="34"/>
+                                        <rect key="frame" x="36" y="147" width="235" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.26693210010000001" green="0.26649737359999998" blue="0.28525885940000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <accessibility key="accessibilityConfiguration" identifier="ResetMIDILearnButton" label="Reset MIDI Learn Knobs"/>
@@ -1403,7 +1403,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Velocity Sensitive MIDI: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nzb-kU-xl1">
-                                        <rect key="frame" x="19" y="219" width="180" height="24"/>
+                                        <rect key="frame" x="17" y="202" width="180" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1422,7 +1422,7 @@
                                         </attributedString>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ciI-3c-py9" customClass="ToggleSwitch" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="204" y="214" width="49" height="36"/>
+                                        <rect key="frame" x="206" y="197" width="49" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" identifier="VelocitySensitiveToggle" label="Velocity Sensitive MIDI">
@@ -1431,20 +1431,11 @@
                                         </accessibility>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pp-Bd-T3Z">
-                                        <rect key="frame" x="2" y="252" width="300" height="41"/>
+                                        <rect key="frame" x="0.0" y="232" width="302" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qN-E6-I52" customClass="ToggleSwitch" customModule="AudioKitSynthOne">
-                                                <rect key="frame" x="204" y="5" width="49" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <accessibility key="accessibilityConfiguration" hint="App does not sleep." identifier="AlwaysOnToggle" label="App Always On">
-                                                    <accessibilityTraits key="traits" button="YES"/>
-                                                    <bool key="isElement" value="YES"/>
-                                                </accessibility>
-                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App Always on / Don't sleep:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UeB-Ec-gRc">
-                                                <rect key="frame" x="14" y="8" width="180" height="24"/>
+                                                <rect key="frame" x="15" y="6" width="181" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1462,11 +1453,20 @@
                                                     </fragment>
                                                 </attributedString>
                                             </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qN-E6-I52" customClass="ToggleSwitch" customModule="AudioKitSynthOne">
+                                                <rect key="frame" x="204" y="3" width="49" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <accessibility key="accessibilityConfiguration" hint="App does not sleep." identifier="AlwaysOnToggle" label="App Always On">
+                                                    <accessibilityTraits key="traits" button="YES"/>
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Background Audio Always On:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxO-Cg-8JK">
-                                        <rect key="frame" x="19" y="302" width="180" height="24"/>
+                                        <rect key="frame" x="16" y="275" width="180" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1476,21 +1476,12 @@
                                         <color key="textColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qK0-RZ-jCN" customClass="ToggleSwitch" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="204" y="296" width="49" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration" hint="Sets if apps plays in the background." identifier="BackgroundAudioToggle" label="Background Audio">
-                                            <accessibilityTraits key="traits" button="YES"/>
-                                            <bool key="isElement" value="YES"/>
-                                        </accessibility>
-                                    </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a3K-SY-hHt">
-                                        <rect key="frame" x="1" y="333" width="300" height="41"/>
+                                        <rect key="frame" x="0.0" y="305" width="302" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Save + Load Tuning With Preset:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MlE-O3-Ji5">
-                                                <rect key="frame" x="10" y="9" width="189" height="24"/>
+                                                <rect key="frame" x="8" y="6" width="189" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1501,7 +1492,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QvN-tN-KKa" customClass="ToggleSwitch" customModule="AudioKitSynthOne">
-                                                <rect key="frame" x="204" y="5" width="49" height="36"/>
+                                                <rect key="frame" x="206" y="3" width="49" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <accessibility key="accessibilityConfiguration" hint="Saves Tuning Panel with Preset" identifier="SaveTuningToggle" label="Save Tuning">
@@ -1513,7 +1504,7 @@
                                         <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cMA-Db-Y5l" customClass="ToggleSwitch" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="204" y="379" width="49" height="36"/>
+                                        <rect key="frame" x="207" y="345" width="49" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" hint="Sets if apps plays in the background." identifier="BackgroundAudioToggle" label="Background Audio">
@@ -1522,7 +1513,7 @@
                                         </accessibility>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Launch With Last Tuning:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAs-Es-4DF">
-                                        <rect key="frame" x="20" y="385" width="180" height="24"/>
+                                        <rect key="frame" x="17" y="348" width="180" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1532,10 +1523,19 @@
                                         <color key="textColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qK0-RZ-jCN" customClass="ToggleSwitch" customModule="AudioKitSynthOne">
+                                        <rect key="frame" x="206" y="272" width="49" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Sets if apps plays in the background." identifier="BackgroundAudioToggle" label="Background Audio">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="420" id="pcF-wM-383"/>
+                                    <constraint firstAttribute="height" constant="378" id="pcF-wM-383"/>
                                     <constraint firstAttribute="width" constant="600" id="v1M-fU-Z86"/>
                                 </constraints>
                             </view>

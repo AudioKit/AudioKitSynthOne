@@ -79,6 +79,7 @@ class Tunings {
 
     ///
     func loadTunings(completionHandler: @escaping S1TuningLoadCallback) {
+        
         DispatchQueue.global(qos: .userInitiated).async {
             // CLEAR
             self.tuningBanks.removeAll()
@@ -182,7 +183,6 @@ class Tunings {
 
     /// saveTunings
     /// Save for the cases where selectedTuningIndex changes
-    /// TODO: Need to extend TuningBanks from array to dictionary with selectedBankIndex value
     private func saveTunings() {
         DispatchQueue.global(qos: .userInitiated).async {
             do {
@@ -321,11 +321,13 @@ class Tunings {
 
     // MARK: STATE
 
-    // Assumes tuning[0] is twelve et for all tuningBanks
     public func resetTuning() {
+
+        // Assumes 12ET is bundled at index 0
         selectedBankIndex = Tunings.bundleBankIndex
+        selectBank(atRow: selectedBankIndex)
         let b = tuningBank
-        b.selectedTuningIndex = 0
+        selectTuning(atRow: 0)
         let tuning = b.tunings[b.selectedTuningIndex]
         tuningName = tuning.name
         masterSet = tuning.masterSet

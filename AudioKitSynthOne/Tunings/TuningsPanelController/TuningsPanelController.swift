@@ -110,7 +110,19 @@ class TuningsPanelController: PanelController {
         tuningModel.loadTunings {
 
             // callback called on main thread
-            self.tuningModel.selectBank(atRow: self.getAppSettingsTuningsBank())
+            guard let manager = Conductor.sharedInstance.viewControllers.first(
+                where: { $0 is Manager }) as? Manager else {
+                    self.tuningModel.resetTuning()
+                    return
+            }
+
+            let launchWithLastTuning = manager.appSettings.launchWithLastTuning
+            if launchWithLastTuning {
+                self.tuningModel.selectBank(atRow: self.getAppSettingsTuningsBank())
+            } else {
+                self.tuningModel.resetTuning()
+            }
+
             self.tuningBankTableView.reloadData()
             self.tuningTableView.reloadData()
             self.selectRow()

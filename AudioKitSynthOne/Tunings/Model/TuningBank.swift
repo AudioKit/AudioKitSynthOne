@@ -9,6 +9,7 @@
 import Foundation
 
 class TuningBank: Codable, CustomStringConvertible {
+    
     // conforming to Codable: don't change these property names
     var name = "Bundled"
     var isEditable = false

@@ -14,6 +14,11 @@ extension Manager: AKMIDIListener {
     public func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
         guard channel == midiChannelIn || omniMode else { return }
         var newVelocity = velocity
+        if (velocity == 0)
+        {
+          receivedMIDINoteOff(noteNumber: noteNumber, velocity: velocity, channel: channel)
+          return
+        }
         if !appSettings.velocitySensitive { newVelocity = 127 }
         if !Thread.isMainThread {
             DispatchQueue.main.async {

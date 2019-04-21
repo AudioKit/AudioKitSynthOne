@@ -17,8 +17,6 @@ protocol MIDISettingsPopOverDelegate: AnyObject {
 
     func didToggleVelocity()
 
-    func storeTuningWithPresetDidChange(_ value: Bool)
-
     func didToggleBackgroundAudio(_ value: Bool)
 
     func didChangeMIDISources(_ midiSources: [MIDIInput])
@@ -27,6 +25,9 @@ protocol MIDISettingsPopOverDelegate: AnyObject {
 
     func didSetBuffer()
 
+    func didToggleStoreTuningWithPreset(_ value: Bool)
+
+    func didToggleLaunchWithLastTuning(_ value: Bool)
 }
 
 class MIDISettingsViewController: UIViewController {
@@ -49,6 +50,8 @@ class MIDISettingsViewController: UIViewController {
 
     @IBOutlet weak var bufferSizeSegmentedControl: UISegmentedControl!
 
+    @IBOutlet weak var launchWithLastTuningToggle: ToggleSwitch!
+
     weak var delegate: MIDISettingsPopOverDelegate?
 
     var midiSources = [MIDIInput]() {
@@ -63,9 +66,12 @@ class MIDISettingsViewController: UIViewController {
 
     var saveTuningWithPreset = false
 
+    var launchWithLastTuning = false
+
     let conductor = Conductor.sharedInstance
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.layer.borderColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
         view.layer.borderWidth = 2
@@ -84,10 +90,12 @@ class MIDISettingsViewController: UIViewController {
         sleepToggle.value = conductor.neverSleep ? 1 : 0
         velocityToggle.value = velocitySensitive ? 1 : 0
         saveTuningToggle.value = saveTuningWithPreset ? 1 : 0
+        launchWithLastTuningToggle.value = launchWithLastTuning ? 1 : 0
         backgroundAudioToggle.value = conductor.backgroundAudio ? 1 : 0
     }
 
     override func viewWillAppear(_ animated: Bool) {
+
         displayMIDIInputs()
         bufferSizeSegmentedControl.selectedSegmentIndex = AKSettings.bufferLength.rawValue - AKSettings.BufferLength.shortest.rawValue
         bufferSizeSegmentedControl.setNeedsDisplay()
@@ -95,13 +103,13 @@ class MIDISettingsViewController: UIViewController {
 
 
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
 
+        super.viewDidAppear(animated)
     }
 
     func displayMIDIInputs() {
+
         if self.isViewLoaded && (self.view.window != nil) {
-            // viewController is visible
             inputTable.reloadData()
         }
     }
@@ -109,11 +117,13 @@ class MIDISettingsViewController: UIViewController {
     // MARK: - Callbacks
 
     func setupCallbacks() {
+
         channelStepper.callback = { value in
             self.userChannelIn = Int(value)
             self.updateChannelLabel()
             self.delegate?.didSelectMIDIChannel(newChannel: self.userChannelIn - 1)
         }
+
         resetButton.callback = { value in
             self.delegate?.resetMIDILearn()
             self.resetButton.value = 0
@@ -122,6 +132,7 @@ class MIDISettingsViewController: UIViewController {
                                             comment: "Alert Message:  MIDI Learn Reset")
             self.displayAlertController(title, message: message)
         }
+
         sleepToggle.callback = { value in
             if value == 1 {
                 self.conductor.neverSleep = true
@@ -137,6 +148,7 @@ class MIDISettingsViewController: UIViewController {
             }
             self.delegate?.didToggleNeverSleep()
         }
+
         backgroundAudioToggle.callback = { value in
             if value == 1 {
                 let title = NSLocalizedString("Important", comment: "Alert Title: Background Audio")
@@ -148,16 +160,22 @@ class MIDISettingsViewController: UIViewController {
             self.conductor.backgroundAudio = value == 1
             self.delegate?.didToggleBackgroundAudio(value == 1 ? true : false)
         }
+
         velocityToggle.callback = { value in
             self.delegate?.didToggleVelocity()
         }
 
         saveTuningToggle.callback = { value in
-            self.delegate?.storeTuningWithPresetDidChange(value == 1 ? true : false)
+            self.delegate?.didToggleStoreTuningWithPreset(value == 1 ? true : false)
+        }
+        
+        launchWithLastTuningToggle.callback = { value in
+            self.delegate?.didToggleLaunchWithLastTuning(value == 1 ? true : false)
         }
     }
 
     func updateChannelLabel() {
+
         if userChannelIn == 0 {
             self.channelLabel.text = "MIDI Channel In: Omni"
         } else {
@@ -168,6 +186,7 @@ class MIDISettingsViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func bufferSizeChanged(_ sender: UISegmentedControl) {
+
         switch sender.selectedSegmentIndex {
         case 0:
             conductor.updateDisplayLabel("Buffer Size: 32")
@@ -206,6 +225,7 @@ class MIDISettingsViewController: UIViewController {
     }
 
     @IBAction func closeButton(_ sender: UIButton) {
+
         dismiss(animated: true, completion: nil)
     }
 
@@ -216,6 +236,7 @@ class MIDISettingsViewController: UIViewController {
 extension MIDISettingsViewController: UITableViewDataSource {
 
     func numberOfSections(in categoryTableView: UITableView) -> Int {
+
         return 1
     }
 
@@ -225,6 +246,7 @@ extension MIDISettingsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         if midiSources.isEmpty {
             return 0
         } else {
@@ -256,8 +278,6 @@ extension MIDISettingsViewController: UITableViewDelegate {
 
         tableView.deselectRow(at: indexPath, animated: false)
 
-        // presetIndex = (indexPath as NSIndexPath).row
-
         // Get cell
         let cell = tableView.cellForRow(at: indexPath) as? MIDICell
         guard let midiInput = cell?.currentInput else { return }
@@ -272,7 +292,6 @@ extension MIDISettingsViewController: UITableViewDelegate {
         } else {
             AudioKit.midi.closeInput(name: midiInput.name)
         }
-
         delegate?.didChangeMIDISources(midiSources)
     }
 

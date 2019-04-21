@@ -55,8 +55,8 @@ class EffectsPanelController: PanelController {
     @IBOutlet weak var tempoSyncToggle: ToggleButton!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
 
+        super.viewDidLoad()
         currentPanel = .effects
         guard let s = conductor.synth else {
             AKLog("EffectsPanel view state is invalid because synth is not instantiated")
@@ -180,10 +180,6 @@ class EffectsPanelController: PanelController {
 			leftNavButton!,
 			rightNavButton!
 		]
-
-
-
-
     }
 
     func dependentParameterDidChange(_ dependentParameter: DependentParameter) {

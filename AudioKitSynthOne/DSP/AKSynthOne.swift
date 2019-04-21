@@ -157,9 +157,6 @@ import AudioKit
     /// Initialize the synth with defaults
     public convenience override init() {
 
-        let t0 = Date().timeIntervalSinceReferenceDate
-        AKLog("initializing oscillators: \(t0)")
-
         /// read list of bandlimited waveform filenames stored as an array of Strings
         var finalFileNames = [String]()
         if let path = Bundle.main.path(forResource: "bandlimitedWaveforms", ofType: "json") {
@@ -225,9 +222,6 @@ import AudioKit
             // FATAL ERROR
             AKLog("Can't locate bandlimited waveform frequencies in the bundle")
         }
-
-        let t1 = Date().timeIntervalSinceReferenceDate - t0
-        AKLog("Initializing #\(finalFileNames.count) wavetables: COMPLETE IN SEC: \(t1)\n")
 
         self.init(waveformArray: finalArray, bandlimitArray: finalFrequencies)
     }

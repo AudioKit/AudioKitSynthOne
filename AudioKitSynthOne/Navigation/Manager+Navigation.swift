@@ -8,7 +8,9 @@
 
 /// View Navigation/Embed Helper Methods
 extension Manager {
+    
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
         if segue.identifier == "SegueToKeyboardSettings" {
             guard let popOverController = segue.destination as? KeyboardSettingsViewController else { return }
             popOverController.delegate = self
@@ -30,6 +32,7 @@ extension Manager {
             popOverController.userChannelIn = userMIDIChannel
             popOverController.midiSources = midiInputs
             popOverController.saveTuningWithPreset = appSettings.saveTuningWithPreset
+            popOverController.launchWithLastTuning = appSettings.launchWithLastTuning
             popOverController.velocitySensitive = appSettings.velocitySensitive
 
             popOverController.preferredContentSize = CGSize(width: 600, height: 378)
@@ -62,6 +65,7 @@ extension Manager {
     }
 
     func add(asChildViewController viewController: UIViewController, isTopContainer: Bool = true) {
+
         // Add Child View Controller
         addChild(viewController)
 

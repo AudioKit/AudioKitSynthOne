@@ -9,22 +9,28 @@
 import UIKit
 
 protocol KeyboardPopOverDelegate: AnyObject {
+
     func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool)
 }
 
 class KeyboardSettingsViewController: UIViewController {
 
     @IBOutlet weak var octaveRangeSegment: UISegmentedControl!
+
     @IBOutlet weak var labelModeSegment: UISegmentedControl!
+
     @IBOutlet weak var keyboardModeSegment: UISegmentedControl!
 
     weak var delegate: KeyboardPopOverDelegate?
 
     var labelMode: Int = 1
+
     var octaveRange: Int = 2
+
     var darkMode: Bool = false
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
         // set currently selected scale picks
@@ -36,6 +42,7 @@ class KeyboardSettingsViewController: UIViewController {
 
     // Set fonts for UISegmentedControls
     override func viewDidLayoutSubviews() {
+
         guard let font = UIFont(name: "Avenir Next Condensed", size: 15.0) else { return }
         let attr = [NSAttributedString.Key.font: font]
         labelModeSegment.setTitleTextAttributes(attr, for: .normal)
@@ -46,7 +53,6 @@ class KeyboardSettingsViewController: UIViewController {
     @IBAction func octaveRangeDidChange(_ sender: UISegmentedControl) {
 
         octaveRange = sender.selectedSegmentIndex + 1
-
         delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
     }
 
@@ -63,14 +69,11 @@ class KeyboardSettingsViewController: UIViewController {
         } else {
             darkMode = false
         }
-
         delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
     }
 
     @IBAction func closeButton(_ sender: UIButton) {
-       // delegate?.didFinishSelecting(root: selectedRoot, scaleType: selectedScaleType)
         dismiss(animated: true, completion: nil)
-
     }
 }
 

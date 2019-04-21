@@ -11,10 +11,12 @@ import Foundation
 extension TuningsPanelController: TuneUpDelegate {
 
     var tuneUpBackButtonDefaultText: String {
+
         return tuningModel.tuneUpBackButtonDefaultText
     }
 
     func setTuneUpBackButtonLabel(text: String) {
+
         let isHidden = (text == tuningModel.tuneUpBackButtonDefaultText)
         tuneUpBackButtonButton.isHidden = isHidden
         tuneUpBackLabel.isHidden = isHidden
@@ -22,6 +24,7 @@ extension TuningsPanelController: TuneUpDelegate {
     }
 
     func setTuneUpBackButton(enabled: Bool) {
+        
         tuneUpBackButtonButton.isEnabled = enabled
     }
 

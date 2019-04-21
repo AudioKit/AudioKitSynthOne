@@ -1,5 +1,6 @@
 platform :ios, '10.0'
 use_frameworks!
+inhibit_all_warnings!
 
 # This enables the cutting-edge staging builds of AudioKit, comment this line to stick to stable releases
 source 'https://github.com/AudioKit/Specs.git'
@@ -26,6 +27,9 @@ end
 # Override Swift version for out of date pods
 post_install do |installer|
   installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+          config.build_settings['CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED'] = 'YES'
+      end
       if ['Disk'].include? target.name
           target.build_configurations.each do |config|
               config.build_settings['SWIFT_VERSION'] = '4.0'

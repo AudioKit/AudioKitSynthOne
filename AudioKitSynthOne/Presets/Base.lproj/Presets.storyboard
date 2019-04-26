@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ves-0y-a4J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ves-0y-a4J">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -278,7 +278,7 @@
                     </state>
                 </button>
             </objects>
-            <point key="canvasLocation" x="-366" y="43"/>
+            <point key="canvasLocation" x="888" y="-400"/>
         </scene>
         <!--Presets Categories View Controller-->
         <scene sceneID="3MB-ly-1jK">
@@ -289,18 +289,18 @@
                         <viewControllerLayoutGuide type="bottom" id="vN8-lW-feU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="E5Y-aw-7ZJ">
-                        <rect key="frame" x="0.0" y="0.0" width="170" height="160"/>
+                        <rect key="frame" x="0.0" y="0.0" width="228" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lPl-pl-iid">
-                                <rect key="frame" x="0.0" y="0.0" width="170" height="160"/>
+                                <rect key="frame" x="0.0" y="0.0" width="228" height="200"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" id="00o-XX-d7Y" customClass="CategoryCell" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="170" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="228" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="00o-XX-d7Y" id="abR-oz-Wbh">
-                                            <rect key="frame" x="0.0" y="0.0" width="170" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="228" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jut-wm-dt0">
@@ -382,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3q8-2h-7uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1430" y="489"/>
+            <point key="canvasLocation" x="-864" y="427"/>
         </scene>
         <!--Preset Editor View Controller-->
         <scene sceneID="xGi-4K-Uka">
@@ -541,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Mp-Ia-A8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-680" y="560"/>
+            <point key="canvasLocation" x="-136" y="527"/>
         </scene>
         <!--Bank Editor View Controller-->
         <scene sceneID="o0G-WK-SBk">
@@ -647,12 +647,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G33-IP-SNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="533"/>
+            <point key="canvasLocation" x="1077" y="511"/>
         </scene>
-        <!--Presets-->
+        <!--iPhonePresets-->
         <scene sceneID="M4n-W1-fVX">
             <objects>
-                <viewController storyboardIdentifier="iPhonePresets" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UCc-Xd-xwz" userLabel="Presets" customClass="PresetsViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="iPhonePresets" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UCc-Xd-xwz" userLabel="iPhonePresets" customClass="PresetsViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lHm-b7-kr4"/>
                         <viewControllerLayoutGuide type="bottom" id="Xg3-qN-H3q"/>
@@ -923,7 +923,7 @@
                     </state>
                 </button>
             </objects>
-            <point key="canvasLocation" x="-559.20000000000005" y="-291.00449775112446"/>
+            <point key="canvasLocation" x="-863" y="-399"/>
         </scene>
     </scenes>
     <resources>
@@ -932,11 +932,11 @@
         <image name="ak_fav" width="22" height="22"/>
         <image name="ak_share" width="22" height="22"/>
         <image name="au_presets" width="1024" height="299"/>
-        <image name="iPhone_Preset" width="1334" height="470"/>
+        <image name="iPhone_Preset" width="667" height="235"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bbd-Kw-ElO"/>
-        <segue reference="qdK-ZI-YdM"/>
-        <segue reference="yQc-ZV-PL2"/>
+        <segue reference="ntI-QD-kob"/>
+        <segue reference="Qqo-qV-zOf"/>
+        <segue reference="VhL-9T-ILb"/>
     </inferredMetricsTieBreakers>
 </document>

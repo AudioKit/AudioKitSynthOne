@@ -85,7 +85,6 @@ void S1DSPKernel::turnOnKey(int noteNumber, int velocity, float frequency) {
     }
 
     heldNotesDidChange();
-    playingNotesDidChange();
 }
 
 // turnOffKey is called by render thread in "process", so access note via AEArray
@@ -166,5 +165,4 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
     }
 
     heldNotesDidChange();
-    playingNotesDidChange();
 }

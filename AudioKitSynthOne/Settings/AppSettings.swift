@@ -52,6 +52,10 @@ class AppSettings: Codable {
     //DO save current tuning (12et = nil) when preset is saved"
     //False means: "DO NOT load preset's tuning when preset is loaded.  DO NOT save current tuning when preset is saved"
     var saveTuningWithPreset = true
+
+    // When false will launch in 12ET; when true in the last-used tuning
+    var launchWithLastTuning = false
+
     var pushNotifications = false
     var userEmail = ""
     var launches = 0
@@ -69,7 +73,7 @@ class AppSettings: Codable {
     // Save State
     var currentBankIndex = 0
     var currentPresetIndex = 0
-    var currentTuningBankIndex = 0
+    var currentTuningBankIndex = Tunings.bundleBankIndex
 
     // MARK: - MIDI Learn Settings
 
@@ -159,6 +163,7 @@ class AppSettings: Codable {
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
         saveTuningWithPreset = dictionary["saveTuningWithPreset"] as? Bool ?? saveTuningWithPreset
+        launchWithLastTuning = dictionary["launchWithLastTuning"] as? Bool ?? launchWithLastTuning
 
         // HAQ Panel
         freezeArpRate = dictionary["freezeArpRate"] as? Bool ?? freezeArpRate

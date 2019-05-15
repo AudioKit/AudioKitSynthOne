@@ -8,6 +8,9 @@
 
 import UIKit
 import OneSignal
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,7 +38,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                         settings: onesignalInitSettings)
 
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
-        
+
+        // Setup AppCenter for Crash Log Collection
+        if (Private.AppCenterAPIKey != "***REMOVED***") {
+            MSAppCenter.start(Private.AppCenterAPIKey, withServices:[
+                MSAnalytics.self,
+                MSCrashes.self
+                ])
+        }
+
         // Determine iPhone or iPad
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         if conductor.device == .pad {

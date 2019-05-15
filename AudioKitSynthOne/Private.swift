@@ -25,4 +25,7 @@ class Private {
 
     // App ID for OneSignal
     public static let OneSignalAppID = "***REMOVED***"
+
+    // API Key for AppCenter
+    public static let AppCenterAPIKey = "***REMOVED***"
 }

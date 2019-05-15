@@ -87,7 +87,15 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                     sequencerNotes2.clear();
                     
                     // Only update "notes per octave" when beat counter changes so sequencerNotes and sequencerLastNotes match
+
+
+
+                    //TODO: MARCUS make threadsafe
+                    // i.e., use kernel tuningTableNPO
                     notesPerOctave = (int)AKPolyphonicNode.tuningTable.npo;
+
+
+
                     if (notesPerOctave <= 0) notesPerOctave = 12;
                     const float npof = (float)notesPerOctave/12.f; // 12ET ==> npof = 1
                     

@@ -66,16 +66,19 @@ import AudioKit
     }
 
     open func getRange(_ parameter: S1Parameter) -> ClosedRange<Double> {
+        
         let min = Double(internalAU?.getMinimum(parameter) ?? 0)
         let max = Double(internalAU?.getMaximum(parameter) ?? 1)
         return min ... max
     }
 
     open func getDefault(_ parameter: S1Parameter) -> Double {
+
         return Double(internalAU?.getDefault(parameter) ?? 0)
     }
 
     open func getPattern(forIndex inputIndex: Int) -> Int {
+
         let index = (0...15).clamp(inputIndex)
         let aspi = Int32(Int(S1Parameter.sequencerPattern00.rawValue) + index)
         guard let aspp = S1Parameter(rawValue: aspi) else { return 0 }
@@ -83,6 +86,7 @@ import AudioKit
     }
 
     open func setPattern(forIndex inputIndex: Int, _ value: Int) {
+
         let index = Int32((0...15).clamp(inputIndex))
         let aspi = Int32(S1Parameter.sequencerPattern00.rawValue + index)
         guard let aspp = S1Parameter(rawValue: aspi) else { return }
@@ -90,6 +94,7 @@ import AudioKit
     }
 
     open func getOctaveBoost(forIndex inputIndex: Int) -> Bool {
+
         let index = (0...15).clamp(inputIndex)
         let asni = Int32(Int(S1Parameter.sequencerOctBoost00.rawValue) + index)
         guard let asnp = S1Parameter(rawValue: asni) else { return false }
@@ -97,6 +102,7 @@ import AudioKit
     }
 
     open func setOctaveBoost(forIndex inputIndex: Int, _ value: Double) {
+
         let index = Int32((0...15).clamp(inputIndex))
         let aspi = Int32(S1Parameter.sequencerOctBoost00.rawValue + index)
         guard let aspp = S1Parameter(rawValue: aspi) else { return }
@@ -104,6 +110,7 @@ import AudioKit
     }
 
     open func isNoteOn(forIndex inputIndex: Int) -> Bool {
+
         let index = (0...15).clamp(inputIndex)
         let asoi = Int32(Int(S1Parameter.sequencerNoteOn00.rawValue) + index)
         guard let asop = S1Parameter(rawValue: asoi) else { return false }
@@ -111,6 +118,7 @@ import AudioKit
     }
 
     open func setNoteOn(forIndex inputIndex: Int, _ value: Bool) {
+
         let index = Int32((0...15).clamp(inputIndex))
         let aspi = Int32(S1Parameter.sequencerNoteOn00.rawValue + index)
         guard let aspp = S1Parameter(rawValue: aspi) else { return }
@@ -119,6 +127,7 @@ import AudioKit
 
     /// "parameter[i]" syntax is inefficient...use getter/setters above
     open var parameters: [Double] {
+
         get {
             var result: [Double] = []
             if let floatParameters = internalAU?.parameters as? [NSNumber] {
@@ -147,6 +156,7 @@ import AudioKit
 
     /// Ramp Time represents the speed at which parameters are allowed to change
     @objc open dynamic var rampDuration: Double = 0.0 {
+
         willSet {
             internalAU?.rampDuration = newValue
         }
@@ -180,8 +190,6 @@ import AudioKit
             // FATAL
             AKLog("Can't find bandlimitedWaveforms.json in bundle")
         }
-
-        //TODO: change this from json to code
         
         // load wavetables
         let decoder = JSONDecoder()
@@ -274,11 +282,13 @@ import AudioKit
     @objc open weak var delegate: S1Protocol?
 
     internal func postNotification(_ parameter: S1Parameter, _ value: Double) {
+
         AKLog("unused")
     }
 
     /// stops all notes
     open func reset() {
+
         internalAU?.reset()
     }
 
@@ -286,29 +296,56 @@ import AudioKit
 
     // Function to start, play, or activate the node at frequency
     open override func play(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, frequency: Double, channel: MIDIChannel) {
+
         internalAU?.startNote(noteNumber, velocity: velocity, frequency: Float(frequency))
     }
 
     /// Function to stop or bypass the node, both are equivalent
     open override func stop(noteNumber: MIDINoteNumber) {
+
         internalAU?.stopNote(noteNumber)
     }
 
     // MARK: - Passthroughs for AKSynthOneProtocol called by DSP on main thread
 
     @objc public func dependentParameterDidChange(_ parameter: DependentParameter) {
+
         delegate?.dependentParameterDidChange(parameter)
     }
 
     @objc public func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {
+
         delegate?.arpBeatCounterDidChange(beat)
     }
 
     @objc public func heldNotesDidChange(_ heldNotes: HeldNotes) {
+
         delegate?.heldNotesDidChange(heldNotes)
     }
 
     @objc public func playingNotesDidChange(_ playingNotes: PlayingNotes) {
+
         delegate?.playingNotesDidChange(playingNotes)
     }
+
+}
+
+
+extension AKSynthOne: S1TuningTable {
+
+    public func setTuningTableNPO(_ npo: Int) {
+
+        internalAU?.setTuningTableNPO(Int32(npo))
+    }
+
+    public func setTuningTable(_ frequency: Double, index: Int) {
+
+        internalAU?.setTuningTable(Float(frequency), index: Int32(index))
+    }
+
+    public func getTuningTable(_ index: Int) -> Double {
+
+        return Double(internalAU?.getTuningTable(Int32(index)) ?? 440)
+    }
+
 }

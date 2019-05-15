@@ -125,6 +125,21 @@
 }
 
 
+
+// S1TuningTable protocol
+- (void)setTuningTable:(float)frequency index:(int)index {
+    _kernel->setTuningTable(frequency, index);
+}
+
+- (float)getTuningTable:(int)index {
+    return _kernel->getTuningTable(index);
+}
+
+- (void)setTuningTableNPO:(int)npo {
+    _kernel->setTuningTableNPO(npo);
+}
+
+
 - (void)createParameters {
 
     _messageQueue = [[AEMessageQueue alloc] init];

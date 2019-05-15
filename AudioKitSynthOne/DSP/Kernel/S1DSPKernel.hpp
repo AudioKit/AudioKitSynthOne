@@ -220,7 +220,18 @@ public:
     
     float monoFrequencySmooth = 261.6255653006f;
 
+    // S1TuningTable protocol
+    void setTuningTable(float value, int index);
+    float getTuningTable(int index);
+    void setTuningTableNPO(int npo);
+
 private:
+    std::array<std::atomic<float>, 128> tuningTable;
+    std::atomic<int> tuningTableNPO;
+
+    // private tuningTable lookup
+    double tuningTableNoteToHz(int noteNumber);
+
     S1Rate _rate;
     
     DependentParameter _lfo1Rate;

@@ -32,6 +32,8 @@ S1DSPKernel::~S1DSPKernel() = default;
 void S1DSPKernel::init(int _channels, double _sampleRate) {
     sp->sr = _sampleRate;
     sp->nchan = _channels;
+
+    //MONO
     sp_ftbl_create(sp, &sine, S1_FTABLE_SIZE);
     sp_gen_sine(sp, sine);
     sp_phasor_create(&lfo1Phasor);
@@ -46,7 +48,8 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sp_osc_init(sp, panOscillator, sine, 0.f);
     sp_pan2_create(&pan);
     sp_pan2_init(sp, pan);
-    
+
+    //STEREO
     sp_moogladder_create(&loPassInputDelayL);
     sp_moogladder_init(sp, loPassInputDelayL);
     sp_moogladder_create(&loPassInputDelayR);
@@ -81,7 +84,6 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
 
     heldNoteNumbers = (NSMutableArray<NSValue*>*)[NSMutableArray array];
     heldNoteNumbersAE = [[AEArray alloc] initWithCustomMapping:^void *(id item) {
-        //TODO: Marcus: pretty sure this leaks
         NoteNumber* noteNumber = (NoteNumber*)malloc(sizeof(NoteNumber));
         NSValue* value = (NSValue*)item;
         [value getValue:noteNumber];
@@ -95,6 +97,13 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     }
     _rate.init();
 
+    // intialize dsp tuning table with 12ET
+    for(int i = 0; i < 128; i++) {
+        tuningTable[i].store(440. * exp2((i - 69)/12.));
+    }
+    tuningTableNPO.store(12);
+
+    // restore values
     restoreValues(std::nullopt);
 }
 
@@ -139,7 +148,28 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
     initializedNoteStates = false;
     aePlayingNotes.polyphony = S1_MAX_POLYPHONY;
 
-    AKPolyphonicNode.tuningTable.middleCFrequency = getSynthParameter(frequencyA4) * exp2((60.f - 69.f)/12.f);
-
     // initializeNoteStates() must be called AFTER init returns, BEFORE process, turnOnKey, and turnOffKey
 }
+
+
+// private tuningTable lookup
+double S1DSPKernel::tuningTableNoteToHz(int noteNumber) {
+
+    const int nn = clamp(noteNumber, 0, 127);
+    return getTuningTable(nn);
+}
+
+// S1TuningTable protocol
+void S1DSPKernel::setTuningTable(float frequency, int index) {
+    tuningTable[index].store(frequency);
+}
+
+float S1DSPKernel::getTuningTable(int index) {
+    return tuningTable[index].load();
+}
+
+void S1DSPKernel::setTuningTableNPO(int npo) {
+    tuningTableNPO.store(npo);
+}
+
+

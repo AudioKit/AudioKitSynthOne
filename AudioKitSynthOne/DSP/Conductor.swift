@@ -328,3 +328,22 @@ class Conductor: S1Protocol {
         AKLog("deactivated session")
     }
 }
+
+
+extension Conductor: S1TuningTable {
+
+    func setTuningTableNPO(_ npo: Int) {
+        
+        synth.setTuningTableNPO(npo)
+    }
+
+    func setTuningTable(_ frequency: Double, index: Int) {
+
+        synth.setTuningTable(frequency, index: index)
+    }
+
+    func getTuningTable(_ index: Int) -> Double {
+
+        return Double( synth.getTuningTable(index) )
+    }
+}

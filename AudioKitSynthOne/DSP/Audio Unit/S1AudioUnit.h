@@ -74,10 +74,6 @@ typedef struct S1ArpBeatCounter {
 @property (nonatomic) NSArray *parameters;
 @property (nonatomic, weak) id<S1Protocol> s1Delegate;
 
-///auv3, not yet used
-- (void)setParameter:(AUParameterAddress)address value:(AUValue)value;
-- (AUValue)getParameter:(AUParameterAddress)address;
-- (void)createParameters;
 
 - (float)getSynthParameter:(S1Parameter)param;
 - (void)setSynthParameter:(S1Parameter)param value:(float)value;
@@ -100,6 +96,16 @@ typedef struct S1ArpBeatCounter {
 - (void)stopAllNotes;
 - (void)resetDSP;
 - (void)resetSequencer;
+
+// S1TuningTable protocol
+- (void)setTuningTable:(float)frequency index:(int)index;
+- (float)getTuningTable:(int)index;
+- (void)setTuningTableNPO:(int)npo;
+
+///auv3, not yet used
+- (void)setParameter:(AUParameterAddress)address value:(AUValue)value;
+- (AUValue)getParameter:(AUParameterAddress)address;
+- (void)createParameters;
 
 // protected passthroughs for S1Protocol called by DSP on main thread
 - (void)dependentParameterDidChange:(DependentParameter)param;

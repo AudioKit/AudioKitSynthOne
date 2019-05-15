@@ -144,8 +144,6 @@ void S1DSPKernel::_setSynthParameterHelper(S1Parameter parameter, float inputVal
         // see https://en.wikipedia.org/wiki/A440_(pitch_standard)
         if (parameter == frequencyA4) {
             _setSynthParameter(parameter, truncf(inputValue));
-            const float mca = getParameter(parameter); // must use getter value
-            AKPolyphonicNode.tuningTable.middleCFrequency = mca * exp2((60.f - 69.f)/12.f);
         } else if (parameter == portamentoHalfTime) {
             _setSynthParameter(parameter, inputValue);
             const float actualValue = getParameter(portamentoHalfTime);

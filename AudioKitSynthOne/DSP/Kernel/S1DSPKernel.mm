@@ -170,6 +170,7 @@ float S1DSPKernel::getTuningTable(int index) {
 
 void S1DSPKernel::setTuningTableNPO(int npo) {
     tuningTableNPO.store(npo);
+    sequencer.setNotesPerOctave(npo);
 }
 
 

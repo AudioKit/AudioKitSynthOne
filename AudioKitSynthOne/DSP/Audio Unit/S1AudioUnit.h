@@ -99,7 +99,7 @@ typedef struct S1ArpBeatCounter {
 
 // S1TuningTable protocol
 - (void)setTuningTable:(float)frequency index:(int)index;
-- (float)getTuningTable:(int)index;
+- (float)getTuningTableFrequency:(int)index;
 - (void)setTuningTableNPO:(int)npo;
 
 ///auv3, not yet used

@@ -342,8 +342,8 @@ extension Conductor: S1TuningTable {
         synth.setTuningTable(frequency, index: index)
     }
 
-    func getTuningTable(_ index: Int) -> Double {
+    func getTuningTableFrequency(_ index: Int) -> Double {
 
-        return Double( synth.getTuningTable(index) )
+        return Double( synth.getTuningTableFrequency(index) )
     }
 }

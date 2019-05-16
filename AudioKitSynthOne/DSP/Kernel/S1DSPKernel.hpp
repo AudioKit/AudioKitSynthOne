@@ -222,12 +222,12 @@ public:
 
     // S1TuningTable protocol
     void setTuningTable(float value, int index);
-    float getTuningTable(int index);
+    float getTuningTableFrequency(int index);
     void setTuningTableNPO(int npo);
 
 private:
     std::array<std::atomic<float>, 128> tuningTable;
-    std::atomic<int> tuningTableNPO;
+    std::atomic<int> tuningTableNPO{12};
 
     // private tuningTable lookup
     double tuningTableNoteToHz(int noteNumber);

@@ -131,8 +131,8 @@
     _kernel->setTuningTable(frequency, index);
 }
 
-- (float)getTuningTable:(int)index {
-    return _kernel->getTuningTable(index);
+- (float)getTuningTableFrequency:(int)index {
+    return _kernel->getTuningTableFrequency(index);
 }
 
 - (void)setTuningTableNPO:(int)npo {

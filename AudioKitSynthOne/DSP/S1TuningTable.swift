@@ -10,7 +10,7 @@ public protocol S1TuningTable {
 
     func setTuningTable(_ frequency: Double, index: Int)
 
-    func getTuningTable(_ index: Int) -> Double
+    func getTuningTableFrequency(_ index: Int) -> Double
 
     func setTuningTableNPO(_ npo: Int)
 }

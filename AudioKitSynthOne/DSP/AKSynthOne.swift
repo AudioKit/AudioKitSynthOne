@@ -343,9 +343,9 @@ extension AKSynthOne: S1TuningTable {
         internalAU?.setTuningTable(Float(frequency), index: Int32(index))
     }
 
-    public func getTuningTable(_ index: Int) -> Double {
+    public func getTuningTableFrequency(_ index: Int) -> Double {
 
-        return Double(internalAU?.getTuningTable(Int32(index)) ?? 440)
+        return Double(internalAU?.getTuningTableFrequency(Int32(index)) ?? 440)
     }
 
 }

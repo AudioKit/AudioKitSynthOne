@@ -101,7 +101,6 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     for(int i = 0; i < 128; i++) {
         tuningTable[i].store(440. * exp2((i - 69)/12.));
     }
-    tuningTableNPO.store(12);
 
     // restore values
     restoreValues(std::nullopt);
@@ -154,18 +153,19 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
 
 // private tuningTable lookup
 double S1DSPKernel::tuningTableNoteToHz(int noteNumber) {
-
     const int nn = clamp(noteNumber, 0, 127);
-    return getTuningTable(nn);
+    return getTuningTableFrequency(nn);
 }
 
 // S1TuningTable protocol
 void S1DSPKernel::setTuningTable(float frequency, int index) {
-    tuningTable[index].store(frequency);
+    const int i = clamp(index, 0, 127);
+    tuningTable[i].store(frequency);
 }
 
-float S1DSPKernel::getTuningTable(int index) {
-    return tuningTable[index].load();
+float S1DSPKernel::getTuningTableFrequency(int index) {
+    const int i = clamp(index, 0, 127);
+    return tuningTable[i].load();
 }
 
 void S1DSPKernel::setTuningTableNPO(int npo) {

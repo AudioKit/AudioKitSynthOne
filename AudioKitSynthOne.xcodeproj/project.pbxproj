@@ -247,6 +247,7 @@
 		F4AD9EE022484EFA002B0E2E /* MIDIArpDirectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EDF22484EFA002B0E2E /* MIDIArpDirectionButton.swift */; };
 		F4AD9EE2224856C2002B0E2E /* MIDIToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */; };
 		F4AD9EE4224866BE002B0E2E /* MIDIToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */; };
+		F4B1AD65228BDCEC009FA6BA /* S1TuningTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1AD64228BDCEC009FA6BA /* S1TuningTable.swift */; };
 		F4C790142247025C003CFF28 /* MIDIStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C790132247025C003CFF28 /* MIDIStepper.swift */; };
 		F4C9D9A321D6B13200B7C4E5 /* Tunings+UpgradePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */; };
 		F4CA406D224EB2A70053F29E /* S1Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA406C224EB2A70053F29E /* S1Control.swift */; };
@@ -680,6 +681,7 @@
 		F4AD9EDF22484EFA002B0E2E /* MIDIArpDirectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIArpDirectionButton.swift; sourceTree = "<group>"; };
 		F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIToggleButton.swift; sourceTree = "<group>"; };
 		F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIToggleSwitch.swift; sourceTree = "<group>"; };
+		F4B1AD64228BDCEC009FA6BA /* S1TuningTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S1TuningTable.swift; sourceTree = "<group>"; };
 		F4C790132247025C003CFF28 /* MIDIStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIStepper.swift; sourceTree = "<group>"; };
 		F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+UpgradePaths.swift"; sourceTree = "<group>"; };
 		F4CA406C224EB2A70053F29E /* S1Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S1Control.swift; sourceTree = "<group>"; };
@@ -967,6 +969,7 @@
 				F437E99E20EB22D00096FEAC /* README.md */,
 				C435C55420C530C900DAECCD /* AKSynthOne.swift */,
 				C435C55120C530C900DAECCD /* Conductor.swift */,
+				F4B1AD64228BDCEC009FA6BA /* S1TuningTable.swift */,
 				F4CA406C224EB2A70053F29E /* S1Control.swift */,
 				C435C55320C530C900DAECCD /* S1Parameter.h */,
 				C435C55620C530C900DAECCD /* SDSustainer.swift */,
@@ -1816,6 +1819,7 @@
 				AF8CC7C0224815F200090F64 /* S1Sequencer.mm in Sources */,
 				C4B490F320C6539200FD565A /* S1DSPKernel+process.mm in Sources */,
 				C4B4916E20C7C72A00FD565A /* Manager.swift in Sources */,
+				F4B1AD65228BDCEC009FA6BA /* S1TuningTable.swift in Sources */,
 				F47C27E42207C12100CA7541 /* Tunings+TuneUp.swift in Sources */,
 				C4B490E920C64AC600FD565A /* S1DSPKernel+MIDI.mm in Sources */,
 				C4B490E720C649D900FD565A /* S1DSPKernel+destroy.mm in Sources */,

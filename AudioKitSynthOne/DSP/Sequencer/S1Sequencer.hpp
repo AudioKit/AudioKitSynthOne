@@ -6,6 +6,7 @@
 //  Copyright © 2019 AudioKit. All rights reserved.
 //
 #include <array>
+#include <atomic>
 #include <functional>
 #include <list>
 #include <vector>
@@ -33,6 +34,7 @@ public:
     void setSampleRate(double sampleRate);
     void init();
     void reset(bool resetNotes);
+    void setNotesPerOctave(int notes);
 
     int getArpBeatCount();
     void process(DSPParameters &params, AEArray *heldNoteNumbersAE);
@@ -56,7 +58,7 @@ private:
     ///once init'd: sequencerLastNotes can be accessed and mutated only within process and resetDSP
     std::list<int> sequencerLastNotes;
 
-    int notesPerOctave = 12;
+    std::atomic<int> mNotesPerOctave{12};
 
     // Change notifications
     BeatCounterChangedCallback mBeatCounterDidChange;

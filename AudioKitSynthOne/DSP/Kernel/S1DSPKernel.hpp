@@ -220,7 +220,18 @@ public:
     
     float monoFrequencySmooth = 261.6255653006f;
 
+    // S1TuningTable protocol
+    void setTuningTable(float value, int index);
+    float getTuningTableFrequency(int index);
+    void setTuningTableNPO(int npo);
+
 private:
+    std::array<std::atomic<float>, 128> tuningTable;
+    std::atomic<int> tuningTableNPO{12};
+
+    // private tuningTable lookup
+    double tuningTableNoteToHz(int noteNumber);
+
     S1Rate _rate;
     
     DependentParameter _lfo1Rate;
@@ -368,7 +379,7 @@ private:
         { masterVolume,          0, 0.5, 2, "masterVolume", "masterVolume", kAudioUnitParameterUnit_Generic, true, NULL},
         { bitCrushDepth,         1, 24, 24, "bitCrushDepth", "bitCrushDepth", kAudioUnitParameterUnit_Generic, false, NULL},// UNUSED
         { bitCrushSampleRate,    2048, 48000, 48000, "bitCrushSampleRate", "bitCrushSampleRate", kAudioUnitParameterUnit_Hertz, true, NULL},
-        { autoPanAmount,         0, 0, 1, "autoPanAmount", "autoPanAmount", kAudioUnitParameterUnit_Generic, false, NULL},
+        { autoPanAmount,         0, 0, 1, "autoPanAmount", "autoPanAmount", kAudioUnitParameterUnit_Generic, true, NULL},
         { autoPanFrequency,      rate_min, 0.25, 10, "autoPanFrequency", "autoPanFrequency", kAudioUnitParameterUnit_Hertz, true, NULL},
         { reverbOn,              0, 1, 1, "reverbOn", "reverbOn", kAudioUnitParameterUnit_Generic, true, NULL},
         { reverbFeedback,        0, 0.5, 1, "reverbFeedback", "reverbFeedback", kAudioUnitParameterUnit_Generic, true, NULL},
@@ -480,12 +491,12 @@ private:
         { delayInputResonance, 0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, false, NULL},
         { tempoSyncToArpRate, 0, 1, 1, "tempoSyncToArpRate", "tempoSyncToArpRate", kAudioUnitParameterUnit_Generic, false, NULL},
         
-        { pitchbend,              0, 8192, 16383, "pitchbend", "pitchbend", kAudioUnitParameterUnit_Generic, false, NULL},
+        { pitchbend,              0, 8192, 16383, "pitchbend", "pitchbend", kAudioUnitParameterUnit_Generic, true, NULL},
         { pitchbendMinSemitones,  -24, -12, 0, "pitchbendMinSemitones", "pitchbendMinSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         { pitchbendMaxSemitones,  0, 12, 24, "pitchbendMaxSemitones", "pitchbendMaxSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         
-        { frequencyA4,  410, 440, 470, "frequencyA4", "frequencyA4", kAudioUnitParameterUnit_Hertz, false, NULL},
-        { portamentoHalfTime, 0.000001, 0.1, 0.99, "portamentoHalfTime", "portamentoHalfTime", kAudioUnitParameterUnit_Generic, false, NULL },
+        { frequencyA4,  410, 440, 470, "frequencyA4", "frequencyA4", kAudioUnitParameterUnit_Hertz, true, NULL},
+        { portamentoHalfTime, 0.000001, 0.1, 0.99, "portamentoHalfTime", "portamentoHalfTime", kAudioUnitParameterUnit_Generic, true, NULL },
 
         /* DEPRECATED -1 = no override, else = index into bandlimited wavetable */
         { oscBandlimitIndexOverride, -1, -1, (S1_NUM_BANDLIMITED_FTABLES-1), "oscBandlimitIndexOverride", "oscBandlimitIndexOverride", kAudioUnitParameterUnit_Generic, false, NULL },

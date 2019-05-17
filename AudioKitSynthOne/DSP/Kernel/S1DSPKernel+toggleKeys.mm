@@ -12,13 +12,6 @@
 #import "S1NoteState.hpp"
 
 
-// Convert note number to [possibly] microtonal frequency.  12ET is the default.
-// Profiling shows that while this takes a special Swift lock it still resolves to ~0% of CPU on a device
-static inline double tuningTableNoteToHz(int noteNumber) {
-    return [AKPolyphonicNode.tuningTable frequencyForNoteNumber:noteNumber];
-}
-
-
 void S1DSPKernel::turnOnKey(int noteNumber, int velocity) {
     if (noteNumber < 0 || noteNumber >= S1_NUM_MIDI_NOTES)
         return;

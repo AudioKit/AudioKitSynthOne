@@ -120,7 +120,7 @@ class Tunings {
 
             // MODEL IS INITIALIZED
             self.isInitialized = true
-            self.pitchWheelDelegate?.tuningDidChange()
+            self.tuningDidChange()
 
             // CALLBACK
             DispatchQueue.main.async {
@@ -132,6 +132,7 @@ class Tunings {
 
     /// reads array of banks, each of which has an array of tunings
     private func loadTuningsFromDevice() {
+
         do {
             let tuningBankData = try Disk.retrieve(tuningFilenameV1, from: .documents, as: Data.self)
             let jsonArray = try JSONDecoder().decode([TuningBank].self, from: tuningBankData)
@@ -143,6 +144,7 @@ class Tunings {
 
     /// Fresh Install
     internal func loadTuningFactoryPresets() {
+
         tuningBanks.removeAll()
         tuningBanks.append(TuningBank())
         tuningBanks.append(TuningBank())
@@ -197,6 +199,7 @@ class Tunings {
 
     ///
     private func sortTunings(forBank tuningBank: TuningBank, sortType: TuningSortType) {
+
         var t = tuningBank.tunings
         let twelveET = Tuning()
         let insertTwelveET = tuningBank === tuningBanks[Tunings.bundleBankIndex] || tuningBank === tuningBanks[Tunings.userBankIndex]
@@ -228,6 +231,7 @@ class Tunings {
 
     /// adds tuning to user bank if it does not exist
     public func setTuning(name: String?, masterArray master: [Double]?) -> Bool {
+
         guard let name = name, let masterFrequencies = master else { return false }
         if masterFrequencies.count == 0 { return false }
 
@@ -268,7 +272,7 @@ class Tunings {
 
         // Update global tuning table no matter what
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: masterFrequencies)
-        pitchWheelDelegate?.tuningDidChange()
+        tuningDidChange()
         saveTunings()
 
         return true
@@ -296,18 +300,20 @@ class Tunings {
 
     /// select the tuning at row for selected bank
     public func selectTuning(atRow row: Int) {
+
         let b = tuningBank
         b.selectedTuningIndex = Int((0 ... b.tunings.count).clamp(row))
         let tuning = b.tunings[b.selectedTuningIndex]
         tuningName = tuning.name
         masterSet = tuning.masterSet
         AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        pitchWheelDelegate?.tuningDidChange()
+        tuningDidChange()
         saveTunings()
     }
 
     /// select the bank at row
     public func selectBank(atRow row: Int) {
+
         let c = tuningBanks.count
         selectedBankIndex = Int((0 ... c).clamp(row))
         let b = tuningBank
@@ -315,7 +321,7 @@ class Tunings {
         tuningName = tuning.name
         masterSet = tuning.masterSet
         AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        pitchWheelDelegate?.tuningDidChange()
+        tuningDidChange()
         saveTunings()
     }
 
@@ -334,24 +340,38 @@ class Tunings {
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
         let f = conductor.synth!.getDefault(.frequencyA4)
         conductor.synth!.setSynthParameter(.frequencyA4, f)
-        pitchWheelDelegate?.tuningDidChange()
+        tuningDidChange()
         saveTunings()
     }
 
     public func randomTuning() {
+
         let b = tuningBanks[selectedBankIndex]
         b.selectedTuningIndex = Int(arc4random() % UInt32(b.tunings.count))
         let tuning = b.tunings[b.selectedTuningIndex]
         tuningName = tuning.name
         masterSet = tuning.masterSet
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-        pitchWheelDelegate?.tuningDidChange()
+         tuningDidChange()
         saveTunings()
     }
 
     public func getTuning() -> (String, [Double]) {
+
         let b = tuningBank
         let tuning = b.tunings[b.selectedTuningIndex]
         return (tuning.name, tuning.masterSet)
+    }
+
+    private func tuningDidChange() {
+
+        // udpate dsp with global tuning table
+        for i in 0..<127 {
+            let f = AKPolyphonicNode.tuningTable.frequency(forNoteNumber: MIDINoteNumber(i))
+            conductor.synth.setTuningTable(f, index: i)
+        }
+
+        //notify delegate
+        pitchWheelDelegate?.tuningDidChange()
     }
 }

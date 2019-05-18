@@ -36,7 +36,7 @@ void S1Sequencer::reset(bool resetNotes) {
     sequencerNotes2.clear();
 }
 
-void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
+void S1Sequencer::process(DSPParameters &params, __weak AEArray *heldNoteNumbersAE) {
     
     /// MARK: ARPEGGIATOR + SEQUENCER BEGIN
     const int heldNoteNumbersAECount = heldNoteNumbersAE.count;

@@ -347,6 +347,8 @@ extension PresetsViewController {
         guard let currentBank = conductor.banks.first(where: { $0.position == bankIndex }) else { return }
         let presetsInBank = presets.filter { $0.bank == currentBank.name }.sorted { $0.position < $1.position }
 
+        if (presetsInBank.count == 0) { return }
+
         // Smoothly cycle through presets if MIDI input is greater than preset count
         let currentPresetIndex = index % (presetsInBank.count)
 

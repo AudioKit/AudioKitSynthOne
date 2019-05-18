@@ -31,7 +31,7 @@ extension Manager: AKMIDIListener {
             notesFromMIDI.insert(noteNumber)
             //AKLog("noteNumber: \(noteNumber), velocity:\(velocity) SYNC")
         }
-        AKLog("noteNumber: \(noteNumber), newVelocity:\(newVelocity)")
+        //AKLog("noteNumber: \(noteNumber), newVelocity:\(newVelocity)")
     }
 
     public func receivedMIDINoteOff(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
@@ -92,7 +92,7 @@ extension Manager: AKMIDIListener {
 
         // controllers
         default:
-            AKLog("controller:\(controller), value:\(value), channel:\(channel)")
+            //AKLog("controller:\(controller), value:\(value), channel:\(channel)")
             break
         }
 

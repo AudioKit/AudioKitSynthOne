@@ -97,7 +97,7 @@ class GeneratorsPanelController: PanelController {
         fmAmount.range = s.getRange(.fmAmount)
         noiseVolume.range = s.getRange(.noiseVolume)
         masterVolume.range = s.getRange(.masterVolume)
-        masterVolume.taper = 5
+        masterVolume.taper = 2
         tempoStepper.maxValue = s.getMaximum(.arpRate)
         tempoStepper.minValue = s.getMinimum(.arpRate)
         conductor.bind(morph1Selector, to: .index1)

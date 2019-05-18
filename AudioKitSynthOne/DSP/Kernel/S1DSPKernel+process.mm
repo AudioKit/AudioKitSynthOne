@@ -90,7 +90,6 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
 
         // smooth lfo1 (for discontinous square, saw, reversed saw)
         sp_port_compute(sp, lfo1Port, &lfo1, &lfo1Smooth);
-//lfo1Smooth = lfo1;
         lfo1_0_1 = 0.5f * (1.f + lfo1Smooth) * parameters[lfo1Amplitude];
         lfo1_1_0 = 1.f - (0.5f * (1.f + -lfo1Smooth) * parameters[lfo1Amplitude]);
 
@@ -114,7 +113,6 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
 
         // smooth lfo1 (for discontinous square, saw, reversed saw)
         sp_port_compute(sp, lfo2Port, &lfo2, &lfo2Smooth);
-//lfo2Smooth = lfo2;
         lfo2_0_1 = 0.5f * (1.f + lfo2Smooth) * parameters[lfo2Amplitude];
         lfo2_1_0 = 1.f - (0.5f * (1.f + -lfo2Smooth) * parameters[lfo2Amplitude]);
 

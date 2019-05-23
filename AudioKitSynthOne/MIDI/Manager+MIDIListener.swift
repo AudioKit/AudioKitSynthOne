@@ -100,7 +100,6 @@ extension Manager: AKMIDIListener {
         if controller == 0 {
             guard channel == midiChannelIn || omniMode else { return }
             if Int(value) != self.presetsViewController.bankIndex {
-                AKLog ("DIFFERENT MSB/CC0: \(value)")
                 DispatchQueue.main.async {
                     self.presetsViewController.didSelectBank(index: Int(value))
                 }

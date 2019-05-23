@@ -91,7 +91,7 @@ extension Manager: AKMIDIListener {
 
         // controllers
         default:
-            AKLog("controller:\(controller), value:\(value), sustainMode:\(sustainMode)")
+            //AKLog("controller:\(controller), value:\(value), sustainMode:\(sustainMode)")
             break
         }
 
@@ -99,7 +99,7 @@ extension Manager: AKMIDIListener {
         if controller == 0 {
             guard channel == midiChannelIn || omniMode else { return }
             if Int(value) != self.presetsViewController.bankIndex {
-                AKLog ("DIFFERENT MSB")
+                //AKLog ("DIFFERENT MSB")
                 DispatchQueue.main.async {
                     self.presetsViewController.didSelectBank(index: Int(value))
                 }

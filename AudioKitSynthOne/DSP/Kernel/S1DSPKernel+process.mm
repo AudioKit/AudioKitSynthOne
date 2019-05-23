@@ -59,7 +59,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
                 sp_port_compute(sp, s1p[i].portamento, &s1p[i].portamentoTarget, &parameters[i]);
             }
         }
-        monoFrequencyPort->htime = parameters[glide];
+        monoFrequencyPort->htime = parameters[glide]; // mono freq port halftime set by UI
         sp_port_compute(sp, monoFrequencyPort, &monoFrequency, &monoFrequencySmooth);
 
         // Clear all notes when toggling Mono <==> Poly
@@ -71,6 +71,7 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
 
         //MARK: LFO
         ///LFO1 on [-1, 1]
+        float lfo1;
         lfo1Phasor->freq = parameters[lfo1Rate];
         sp_phasor_compute(sp, lfo1Phasor, nil, &lfo1); // sp_phasor_compute [0,1]
         if (parameters[lfo1Index] == 0) { // Sine
@@ -86,10 +87,14 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         } else if (parameters[lfo1Index] == 3) { // Reversed Saw
             lfo1 = (0.5f - lfo1) * 2.f;
         }
-        lfo1_0_1 = 0.5f * (1.f + lfo1) * parameters[lfo1Amplitude];
-        lfo1_1_0 = 1.f - (0.5f * (1.f + -lfo1) * parameters[lfo1Amplitude]);
+
+        // smooth lfo1 (for discontinous square, saw, reversed saw)
+        sp_port_compute(sp, lfo1Port, &lfo1, &lfo1Smooth);
+        lfo1_0_1 = 0.5f * (1.f + lfo1Smooth) * parameters[lfo1Amplitude];
+        lfo1_1_0 = 1.f - (0.5f * (1.f + -lfo1Smooth) * parameters[lfo1Amplitude]);
 
         //LFO2 on [-1, 1]
+        float lfo2;
         lfo2Phasor->freq = parameters[lfo2Rate];
         sp_phasor_compute(sp, lfo2Phasor, nil, &lfo2);  // sp_phasor_compute [0,1]
         if (parameters[lfo2Index] == 0) { // Sine
@@ -105,8 +110,13 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
         } else if (parameters[lfo2Index] == 3) { // Reversed Saw
             lfo2 = (0.5f - lfo2) * 2.f;
         }
-        lfo2_0_1 = 0.5f * (1.f + lfo2) * parameters[lfo2Amplitude];
-        lfo2_1_0 = 1.f - (0.5f * (1.f + -lfo2) * parameters[lfo2Amplitude]);
+
+        // smooth lfo1 (for discontinous square, saw, reversed saw)
+        sp_port_compute(sp, lfo2Port, &lfo2, &lfo2Smooth);
+        lfo2_0_1 = 0.5f * (1.f + lfo2Smooth) * parameters[lfo2Amplitude];
+        lfo2_1_0 = 1.f - (0.5f * (1.f + -lfo2Smooth) * parameters[lfo2Amplitude]);
+
+        // combinations of lfo1 and lfo2
         lfo3_0_1 = 0.5f * (lfo1_0_1 + lfo2_0_1);
         lfo3_1_0 = 0.5f * (lfo1_1_0 + lfo2_1_0);
 

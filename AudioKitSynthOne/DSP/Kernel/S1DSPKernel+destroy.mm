@@ -13,7 +13,8 @@ void S1DSPKernel::destroy() {
         sp_port_destroy(&s1p[i].portamento);
     }
     sp_port_destroy(&monoFrequencyPort);
-
+    sp_port_destroy(&lfo1Port);
+    sp_port_destroy(&lfo2Port);
     sp_ftbl_destroy(&sine);
     sp_phasor_destroy(&lfo1Phasor);
     sp_phasor_destroy(&lfo2Phasor);
@@ -35,5 +36,3 @@ void S1DSPKernel::destroy() {
     sp_crossfade_destroy(&revCrossfadeL);
     sp_crossfade_destroy(&revCrossfadeR);
 }
-
-

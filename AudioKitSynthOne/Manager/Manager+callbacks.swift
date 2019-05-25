@@ -15,32 +15,32 @@ extension Manager {
             return
         }
 
-        octaveStepper.callback = { value in
+        octaveStepper.setValueCallback = { value in
             self.keyboardView.firstOctave = Int(value) + 2
             self.updateDisplay("Keyboard Octave: \(Int(value))")
         }
 
-        transposeStepper.callback = { value in
+        transposeStepper.setValueCallback = { value in
             s.setSynthParameter(.transpose, value)
             self.conductor.updateDisplayLabel(.transpose, value: s.getSynthParameter(.transpose))
         }
 
-        configKeyboardButton.callback = { _ in
+        configKeyboardButton.setValueCallback = { _ in
             self.configKeyboardButton.value = 0
             self.performSegue(withIdentifier: "SegueToKeyboardSettings", sender: self)
         }
 
-        midiButton.callback = { _ in
+        midiButton.setValueCallback = { _ in
             self.midiButton.value = 0
             self.performSegue(withIdentifier: "SegueToMIDI", sender: self)
         }
 
-        modWheelSettings.callback = { _ in
+        modWheelSettings.setValueCallback = { _ in
             self.modWheelSettings.value = 0
             self.performSegue(withIdentifier: "SegueToMOD", sender: self)
         }
 
-        midiLearnToggle.callback = { _ in
+        midiLearnToggle.setValueCallback = { _ in
 
             // Toggle MIDI Learn Knobs in subview
             for control in self.midiControls { control.midiLearnMode = self.midiLearnToggle.isSelected }
@@ -56,7 +56,7 @@ extension Manager {
             }
         }
 
-        holdButton.callback = { value in
+        holdButton.setValueCallback = { value in
             self.keyboardView.holdMode = !self.keyboardView.holdMode
             if value == 0.0 {
                 self.stopAllNotes()
@@ -65,7 +65,7 @@ extension Manager {
 			self.holdButton.accessibilityValue = self.keyboardView.holdMode ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
         }
 
-        monoButton.callback = { value in
+        monoButton.setValueCallback = { value in
             let monoMode = value > 0 ? true : false
             self.keyboardView.polyphonicMode = !monoMode
             s.setSynthParameter(.isMono, value)
@@ -74,7 +74,7 @@ extension Manager {
 			self.monoButton.accessibilityValue = self.keyboardView.polyphonicMode ? NSLocalizedString("Off", comment: "Off") : NSLocalizedString("On", comment: "On")
         }
 
-        keyboardToggle.callback = { value in
+        keyboardToggle.setValueCallback = { value in
             
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)

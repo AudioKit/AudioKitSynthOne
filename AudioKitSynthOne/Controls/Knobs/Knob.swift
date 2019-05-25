@@ -13,9 +13,9 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
 
     var onlyIntegers: Bool = false
 
-    var callback: (Double) -> Void = { _ in }
+    var setValueCallback: (Double) -> Void = { _ in }
 
-    var defaultCallback: () -> Void = { }
+    var resetToDefaultCallback: () -> Void = { }
 
     public var taper: Double = 1.0 // Linear by default
 
@@ -111,7 +111,7 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
     }
 
     @objc public func handleTap(_ sender: Knob) {
-        defaultCallback()
+        resetToDefaultCallback()
     }
 
     // Helper
@@ -122,7 +122,7 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
         knobValue -= (touchPoint.y - lastY) * knobSensitivity
         knobValue = (0.0 ... 1.0).clamp(knobValue)
         value = Double(knobValue).denormalized(to: range, taper: taper)
-        callback(value)
+        setValueCallback(value)
         lastX = touchPoint.x
         lastY = touchPoint.y
     }

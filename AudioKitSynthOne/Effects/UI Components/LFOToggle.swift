@@ -11,8 +11,8 @@ import UIKit
 @IBDesignable
 class LFOToggle: UIView, S1Control {
 
-    var callback: (Double) -> Void = { _ in }
-    var defaultCallback: () -> Void = { }
+    var setValueCallback: (Double) -> Void = { _ in }
+    var resetToDefaultCallback: () -> Void = { }
     var value: Double = 0 {
         didSet {
             // Code for activating LFO state from Preset load
@@ -94,7 +94,7 @@ class LFOToggle: UIView, S1Control {
             if lfo1Active { newValue += 1 }
             if lfo2Active { newValue += 2 }
             value = newValue
-            callback(value)
+            setValueCallback(value)
         }
     }
 
@@ -104,7 +104,7 @@ class LFOToggle: UIView, S1Control {
 		if lfo1Active { newValue += 1 }
 		if lfo2Active { newValue += 2 }
 		value = newValue
-		callback(value)
+		setValueCallback(value)
 	}
 
 	override func accessibilityDecrement() {
@@ -113,7 +113,7 @@ class LFOToggle: UIView, S1Control {
 		if lfo1Active { newValue += 1 }
 		if lfo2Active { newValue += 2 }
 		value = newValue
-		callback(value)
+		setValueCallback(value)
 	}
 
 	func updateAccessibilityValue() {

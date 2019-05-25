@@ -87,7 +87,7 @@ public class MIDIKnob: Knob, MIDILearnable {
         let previousValue = value
         value = Double(knobValue).denormalized(to: range, taper: taper)
         if previousValue != value {
-            callback(value)
+            setValueCallback(value)
             setNeedsDisplay()
         }
     }

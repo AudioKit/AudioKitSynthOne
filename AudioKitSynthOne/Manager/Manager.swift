@@ -411,7 +411,7 @@ public class Manager: UpdatableViewController {
         keyboardToggle.value = appSettings.showKeyboard
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
-            self.keyboardToggle.callback(self.appSettings.showKeyboard)
+            self.keyboardToggle.setValueCallback(self.appSettings.showKeyboard)
         }
         
         // Increase number of launches

@@ -10,8 +10,8 @@ import UIKit
 
 class FilterTypeButton: UIButton, S1Control {
 
-    var callback: (Double) -> Void = { _ in }
-    var defaultCallback: () -> Void = { }
+    var setValueCallback: (Double) -> Void = { _ in }
+    var resetToDefaultCallback: () -> Void = { }
 
     private var _value: Double = 0 {
         didSet {
@@ -72,7 +72,7 @@ class FilterTypeButton: UIButton, S1Control {
             if value == 3 {
                 value = 0
             }
-            callback(value)
+            setValueCallback(value)
             setNeedsDisplay()
         }
     }

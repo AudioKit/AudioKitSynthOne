@@ -34,8 +34,8 @@ class ArpButton: UIView, S1Control {
         }
     }
 
-    public var callback: (Double) -> Void = { _ in }
-    var defaultCallback: () -> Void = { }
+    public var setValueCallback: (Double) -> Void = { _ in }
+    var resetToDefaultCallback: () -> Void = { }
 
     override func draw(_ rect: CGRect) {
         ArpButtonStyleKit.drawArpButton(frame: CGRect(x: 0,
@@ -50,7 +50,7 @@ class ArpButton: UIView, S1Control {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             value = 1 - value
-            callback(value)
+            setValueCallback(value)
         }
     }
 

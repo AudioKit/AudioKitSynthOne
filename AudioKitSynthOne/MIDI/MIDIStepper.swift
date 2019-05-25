@@ -77,7 +77,7 @@ public class MIDIStepper: Stepper, MIDILearnable {
         let previousValue = value
         value = Double(mv).denormalized(to: range)
         if previousValue != value {
-            callback(value)
+            setValueCallback(value)
             setNeedsDisplay()
         }
     }

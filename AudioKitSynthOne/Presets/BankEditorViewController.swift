@@ -39,16 +39,16 @@ class BankEditorViewController: UIViewController {
 
     func setupCallbacks() {
 
-        cancelButton.callback = { _ in
+        cancelButton.setValueCallback = { _ in
             self.dismiss(animated: true, completion: nil)
         }
 
-        saveButton.callback = { _ in
+        saveButton.setValueCallback = { _ in
             self.delegate?.didFinishEditing(oldName: self.bankName, newName: self.nameTextField.text ?? "Unnamed")
             self.dismiss(animated: true, completion: nil)
         }
 
-        deleteButton.callback = { _ in
+        deleteButton.setValueCallback = { _ in
             self.delegate?.didDeleteBank(bankName: self.bankName)
             self.dismiss(animated: true, completion: nil)
         }

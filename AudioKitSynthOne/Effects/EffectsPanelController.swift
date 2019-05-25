@@ -112,7 +112,7 @@ class EffectsPanelController: PanelController {
         lfo1RateKnob.range = 0...1
         lfo1RateKnob.taper = 1
         lfo1RateKnob.value = s.getDependentParameter(.lfo1Rate)
-        lfo1RateKnob.callback = { value in
+        lfo1RateKnob.setValueCallback = { value in
             s.setDependentParameter(.lfo1Rate, value, self.conductor.lfo1RateEffectsPanelID)
             self.conductor.updateDisplayLabel(.lfo1Rate, value: s.getSynthParameter(.lfo1Rate))
         }
@@ -120,7 +120,7 @@ class EffectsPanelController: PanelController {
         lfo2RateKnob.range = 0...1
         lfo2RateKnob.taper = 1
         lfo2RateKnob.value = s.getDependentParameter(.lfo2Rate)
-        lfo2RateKnob.callback = { value in
+        lfo2RateKnob.setValueCallback = { value in
             s.setDependentParameter(.lfo2Rate, value, self.conductor.lfo2RateEffectsPanelID)
             self.conductor.updateDisplayLabel(.lfo2Rate, value: s.getSynthParameter(.lfo2Rate))
         }
@@ -128,7 +128,7 @@ class EffectsPanelController: PanelController {
         autoPanRateKnob.range = 0...1
         autoPanRateKnob.taper = 1
         autoPanRateKnob.value = s.getDependentParameter(.autoPanFrequency)
-        autoPanRateKnob.callback = { value in
+        autoPanRateKnob.setValueCallback = { value in
             s.setDependentParameter(.autoPanFrequency, value, self.conductor.autoPanEffectsPanelID)
             self.conductor.updateDisplayLabel(.autoPanFrequency, value: s.getSynthParameter(.autoPanFrequency))
         }
@@ -136,7 +136,7 @@ class EffectsPanelController: PanelController {
         delayTimeKnob.range = 0...1
         delayTimeKnob.taper = 1
         delayTimeKnob.value = s.getDependentParameter(.delayTime)
-        delayTimeKnob.callback = { value in
+        delayTimeKnob.setValueCallback = { value in
             s.setDependentParameter(.delayTime, value, self.conductor.delayTimeEffectsPanelID)
             self.conductor.updateDisplayLabel(.delayTime, value: s.getSynthParameter(.delayTime))
         }

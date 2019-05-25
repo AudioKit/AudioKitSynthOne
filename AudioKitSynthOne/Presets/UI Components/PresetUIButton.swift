@@ -15,7 +15,7 @@ class PresetUIButton: SynthButton {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             self.setNeedsDisplay()
-            self.callback(value)
+            self.setValueCallback(value)
         }
     }
 }

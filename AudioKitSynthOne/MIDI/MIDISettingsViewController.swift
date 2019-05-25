@@ -118,13 +118,13 @@ class MIDISettingsViewController: UIViewController {
 
     func setupCallbacks() {
 
-        channelStepper.callback = { value in
+        channelStepper.setValueCallback = { value in
             self.userChannelIn = Int(value)
             self.updateChannelLabel()
             self.delegate?.didSelectMIDIChannel(newChannel: self.userChannelIn - 1)
         }
 
-        resetButton.callback = { value in
+        resetButton.setValueCallback = { value in
             self.delegate?.resetMIDILearn()
             self.resetButton.value = 0
             let title = NSLocalizedString("MIDI Learn Reset", comment: "Alert Title: MIDI Learn Reset")
@@ -133,7 +133,7 @@ class MIDISettingsViewController: UIViewController {
             self.displayAlertController(title, message: message)
         }
 
-        sleepToggle.callback = { value in
+        sleepToggle.setValueCallback = { value in
             if value == 1 {
                 self.conductor.neverSleep = true
                 let title = NSLocalizedString("Don't Sleep Mode", comment: "Alert Title: Allows On Mode")
@@ -149,7 +149,7 @@ class MIDISettingsViewController: UIViewController {
             self.delegate?.didToggleNeverSleep()
         }
 
-        backgroundAudioToggle.callback = { value in
+        backgroundAudioToggle.setValueCallback = { value in
             if value == 1 {
                 let title = NSLocalizedString("Important", comment: "Alert Title: Background Audio")
                 let message = NSLocalizedString(
@@ -161,15 +161,15 @@ class MIDISettingsViewController: UIViewController {
             self.delegate?.didToggleBackgroundAudio(value == 1 ? true : false)
         }
 
-        velocityToggle.callback = { value in
+        velocityToggle.setValueCallback = { value in
             self.delegate?.didToggleVelocity()
         }
 
-        saveTuningToggle.callback = { value in
+        saveTuningToggle.setValueCallback = { value in
             self.delegate?.didToggleStoreTuningWithPreset(value == 1 ? true : false)
         }
         
-        launchWithLastTuningToggle.callback = { value in
+        launchWithLastTuningToggle.setValueCallback = { value in
             self.delegate?.didToggleLaunchWithLastTuning(value == 1 ? true : false)
         }
     }

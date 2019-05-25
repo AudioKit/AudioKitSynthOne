@@ -9,7 +9,29 @@
 import AudioKit
 import UIKit
 
-public class AKVerticalPad: UIView {
+public class AKVerticalPad: UIView, S1Control {
+
+    // MARK - S1Control
+    var value: Double {
+        get {
+            return verticalValue
+        }
+        set(newValue) {
+            verticalValue = newValue
+        }
+    }
+
+    var setValueCallback: (Double) -> Void = { _ in }
+
+    var resetToDefaultCallback: () -> Void {
+        get {
+            return { }
+        }
+        set { }
+    }
+
+
+    // MARK -
 
     // touch properties
     var firstTouch: UITouch?
@@ -140,21 +162,3 @@ public class AKVerticalPad: UIView {
     }
 }
 
-// This is just to suppress warnings when passing AKVerticalPad as a payload to DSP setter
-extension AKVerticalPad: S1Control {
-    var defaultCallback: () -> Void {
-        get {
-            return { }
-        }
-        set { }
-    }
-
-    var value: Double {
-        get {
-            return verticalValue
-        }
-        set(newValue) {
-            verticalValue = newValue
-        }
-    }
-}

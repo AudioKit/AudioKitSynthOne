@@ -90,7 +90,7 @@ class TempoStepper: Stepper {
                 self.lastX = touchPoint.x
                 self.lastY = touchPoint.y
             }
-            callback(value)
+            setValueCallback(value)
             setNeedsDisplay()
         }
     }
@@ -112,7 +112,7 @@ class TempoStepper: Stepper {
         knobValue -= (touchPoint.y - lastY) * knobSensitivity
         knobValue = (0.0 ... 1.0).clamp(knobValue)
         value = Double(knobValue).denormalized(to: range, taper: taper)
-        callback(value)
+        setValueCallback(value)
         lastX = touchPoint.x
         lastY = touchPoint.y
     }

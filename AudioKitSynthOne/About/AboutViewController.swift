@@ -57,7 +57,7 @@ class AboutViewController: UIViewController {
     
     func setupCallbacks() {
         
-        githubButton.callback = { _ in
+        githubButton.setValueCallback = { _ in
             self.githubButton.value = 0
             
             if Conductor.sharedInstance.device == .phone {
@@ -69,14 +69,14 @@ class AboutViewController: UIViewController {
             }
         }
         
-        videoButton.callback = { _ in
+        videoButton.setValueCallback = { _ in
             self.videoButton.value = 0
             if let url = URL(string: "http://youtu.be/hwDNgCYowYs") {
                 UIApplication.shared.open(url)
             }
         }
         
-        webButton.callback = { _ in
+        webButton.setValueCallback = { _ in
             self.webButton.value = 0
             if let url = URL(string: "https://audiokitpro.com/synth") {
                 UIApplication.shared.open(url)
@@ -84,7 +84,7 @@ class AboutViewController: UIViewController {
         }
         
         
-        reviewButton.callback = { _ in
+        reviewButton.setValueCallback = { _ in
             self.reviewButton.value = 0
             self.requestReview()
             if let url = URL(string:

@@ -76,7 +76,7 @@ class MIDIToggleSwitch: ToggleSwitch, MIDILearnable {
         let previousValue = value
         value = v < 0.5 ? 0 : 1
         if previousValue != value {
-            callback(value)
+            setValueCallback(value)
             setNeedsDisplay()
         }
     }

@@ -394,31 +394,31 @@ public class HeaderViewController: UpdatableViewController {
 
     func setupCallbacks() {
 
-        panicButton.callback = { _ in
+        panicButton.setValueCallback = { _ in
             self.headerDelegate?.panicPressed()
         }
 
-        saveButton.callback = { _ in
+        saveButton.setValueCallback = { _ in
             self.headerDelegate?.savePresetPressed()
         }
 
-        devButton.callback = { _ in
+        devButton.setValueCallback = { _ in
             self.headerDelegate?.devPressed()
         }
 
-        aboutButton.callback = { _ in
+        aboutButton.setValueCallback = { _ in
             self.headerDelegate?.aboutPressed()
         }
 
-        morePresetsButton.callback = { _ in
+        morePresetsButton.setValueCallback = { _ in
             self.headerDelegate?.morePressed()
         }
         
-        appsButton.callback = { _ in
+        appsButton.setValueCallback = { _ in
             self.headerDelegate?.appsPressed()
         }
 
-        webButton.callback = { _ in
+        webButton.setValueCallback = { _ in
             if let url = URL(string: "http://audiokitpro.com/synth") {
                 UIApplication.shared.open(url)
             }

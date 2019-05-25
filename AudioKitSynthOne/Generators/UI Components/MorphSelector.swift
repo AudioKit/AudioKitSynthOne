@@ -12,8 +12,8 @@ import UIKit
 @IBDesignable
 class MorphSelector: UIView, S1Control {
 
-    var callback: (Double) -> Void = { _ in }
-    var defaultCallback: () -> Void = { }
+    var setValueCallback: (Double) -> Void = { _ in }
+    var resetToDefaultCallback: () -> Void = { }
 
     var value: Double = 0 {
         didSet {
@@ -83,7 +83,7 @@ class MorphSelector: UIView, S1Control {
         if let touch = touches.first {
             let touchLocation = touch.location(in: self)
             value = Double(touchLocation.x / self.frame.width)
-            callback(value)
+            setValueCallback(value)
         }
         setNeedsDisplay()
     }
@@ -92,8 +92,7 @@ class MorphSelector: UIView, S1Control {
         if let touch = touches.first {
             let touchLocation = touch.location(in: self)
             value = Double(touchLocation.x / self.frame.width)
-            callback(value)
-            //print("Morph \(value.decimalString)")
+            setValueCallback(value)
         }
         setNeedsDisplay()
     }
@@ -104,12 +103,12 @@ class MorphSelector: UIView, S1Control {
 
 	override func accessibilityIncrement() {
 		value += 0.01
-		callback(value)
+		setValueCallback(value)
 	}
 
 	override func accessibilityDecrement() {
 		value -= 0.01
-		callback(value)
+		setValueCallback(value)
 	}
 
 }

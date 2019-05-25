@@ -11,8 +11,8 @@ import UIKit
 @IBDesignable
 class LFOWavePicker: UIView, S1Control {
 
-    var callback: (Double) -> Void = { _ in }
-    var defaultCallback: () -> Void = { }
+    var setValueCallback: (Double) -> Void = { _ in }
+    var resetToDefaultCallback: () -> Void = { }
     var value: Double = 0 {
         didSet {
            setNeedsDisplay()
@@ -57,7 +57,7 @@ class LFOWavePicker: UIView, S1Control {
             }
 
             setNeedsDisplay()
-            callback(value)
+            setValueCallback(value)
         }
     }
 

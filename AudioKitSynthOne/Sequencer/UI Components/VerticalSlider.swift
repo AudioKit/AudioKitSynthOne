@@ -10,8 +10,8 @@ import UIKit
 @IBDesignable
 class VerticalSlider: UIControl, S1Control {
 
-    var callback: (Double) -> Void = { _ in }
-    var defaultCallback: () -> Void = { }
+    var setValueCallback: (Double) -> Void = { _ in }
+    var resetToDefaultCallback: () -> Void = { }
     var minValue: CGFloat = 0.0
     var maxValue: CGFloat = 1.0
     var currentValue: CGFloat = 0.5 {
@@ -134,7 +134,7 @@ extension VerticalSlider {
         self.isSliding = true
         let rawY = touch.location(in: self).y
         self.currentValue = convertYToValue(rawY)
-        self.callback(Double(currentValue) )
+        self.setValueCallback(Double(currentValue) )
         self.setNeedsDisplay()
         
         return true
@@ -144,7 +144,7 @@ extension VerticalSlider {
         let rawY = touch.location(in: self).y
         if isSliding {
             self.currentValue = convertYToValue(rawY)
-            self.callback( Double(currentValue) )
+            self.setValueCallback( Double(currentValue) )
             self.setNeedsDisplay()
         }
         return true
@@ -161,7 +161,7 @@ extension VerticalSlider {
 	*/
 	override func accessibilityIncrement() {
 		self.currentValue += self.accessibilityChangeAmount
-		self.callback( Double(self.currentValue) )
+		self.setValueCallback( Double(self.currentValue) )
 		self.setNeedsDisplay()
 	}
 
@@ -169,7 +169,7 @@ extension VerticalSlider {
 	*/
 	override func accessibilityDecrement() {
 		self.currentValue -= self.accessibilityChangeAmount
-		self.callback( Double(self.currentValue) )
+		self.setValueCallback( Double(self.currentValue) )
 		self.setNeedsDisplay()
 	}
 }

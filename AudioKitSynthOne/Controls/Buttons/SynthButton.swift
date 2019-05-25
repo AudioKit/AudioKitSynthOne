@@ -8,9 +8,9 @@
 
 class SynthButton: UIButton, S1Control {
 
-    var callback: (Double) -> Void = { _ in }
+    var setValueCallback: (Double) -> Void = { _ in }
 
-    var defaultCallback: () -> Void = { }
+    var resetToDefaultCallback: () -> Void = { }
 
     var isOn: Bool {
         return value == 1
@@ -42,7 +42,7 @@ class SynthButton: UIButton, S1Control {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             value = isOn ? 0 : 1
-            callback(value)
+            setValueCallback(value)
         }
     }
     

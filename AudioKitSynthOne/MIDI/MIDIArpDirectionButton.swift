@@ -77,7 +77,7 @@ class MIDIArpDirectionButton: ArpDirectionButton, MIDILearnable {
         let previousValue = value
         value = range.clamp( round( v * (range.upperBound - range.lowerBound) + range.lowerBound ) )
         if previousValue != value {
-            callback(value)
+            setValueCallback(value)
             setNeedsDisplay()
         }
     }

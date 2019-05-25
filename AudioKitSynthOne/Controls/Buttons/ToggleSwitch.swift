@@ -25,9 +25,9 @@ class ToggleSwitch: UIView, S1Control {
         }
     }
 
-    public var callback: (Double) -> Void = { _ in }
+    public var setValueCallback: (Double) -> Void = { _ in }
 
-    var defaultCallback: () -> Void = { }
+    var resetToDefaultCallback: () -> Void = { }
 
     override func draw(_ rect: CGRect) {
         ToggleSwitchStyleKit.drawToggleSwitch(isToggled: value == 0 ? false : true )
@@ -38,7 +38,7 @@ class ToggleSwitch: UIView, S1Control {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             value = 1 - value
-            callback(value)
+            setValueCallback(value)
         }
     }
     

@@ -42,9 +42,9 @@ class SliderTransposeButton: UILabel, S1Control {
         }
     }
 
-    public var callback: (Double) -> Void = { _ in }
+    public var setValueCallback: (Double) -> Void = { _ in }
 
-    var defaultCallback: () -> Void = { }
+    var resetToDefaultCallback: () -> Void = { }
     
     var isActive = false {
         didSet {
@@ -78,7 +78,7 @@ class SliderTransposeButton: UILabel, S1Control {
             } else {
                 value = 1
             }
-            callback(value)
+            setValueCallback(value)
         }
     }
 

@@ -22,9 +22,9 @@ public class Stepper: UIView, S1Control {
         }
     }
 
-    public var callback: (Double) -> Void = { _ in }
+    public var setValueCallback: (Double) -> Void = { _ in }
 
-    var defaultCallback: () -> Void = { }
+    var resetToDefaultCallback: () -> Void = { }
 
     // MARK: - Stepper
     
@@ -100,7 +100,7 @@ public class Stepper: UIView, S1Control {
                     valuePressed = 2
                 }
             }
-            callback(value)
+            setValueCallback(value)
             setNeedsDisplay()
         }
     }
@@ -124,7 +124,7 @@ public class Stepper: UIView, S1Control {
 		}
 		let newValue = String(format: "%.00f", value)
 		accessibilityValue = newValue
-		callback(value)
+		setValueCallback(value)
 	}
 	
 	override public func accessibilityDecrement() {
@@ -133,7 +133,7 @@ public class Stepper: UIView, S1Control {
 			valuePressed = 1
 			let newValue = String(format: "%.00f", value)
 			accessibilityValue = newValue
-			callback(value)
+			setValueCallback(value)
 		}
 	}
 

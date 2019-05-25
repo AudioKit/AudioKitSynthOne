@@ -13,9 +13,9 @@ class ArpDirectionButton: UIView, S1Control {
 
     // MARK: - LFO Button
 
-    public var callback: (Double) -> Void = { _ in }
+    public var setValueCallback: (Double) -> Void = { _ in }
 
-    var defaultCallback: () -> Void = {  }
+    var resetToDefaultCallback: () -> Void = {  }
 
     let range: ClosedRange<Double> =  0...2
 
@@ -59,7 +59,7 @@ class ArpDirectionButton: UIView, S1Control {
             default:
                 value = 2
             }
-            callback(value)
+            setValueCallback(value)
         }
     }
 

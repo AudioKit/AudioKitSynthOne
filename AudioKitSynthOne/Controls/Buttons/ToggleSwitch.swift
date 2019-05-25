@@ -9,7 +9,7 @@
 @IBDesignable
 class ToggleSwitch: UIView, S1Control {
 
-    // MARK: - ToggleButton
+    // MARK: - Properties
 
     var isOn = false {
         didSet {
@@ -18,28 +18,38 @@ class ToggleSwitch: UIView, S1Control {
         }
     }
 
+    // MARK: - S1Control
+
     var value: Double = 0 {
         didSet {
             isOn = (value == 1)
-            setNeedsDisplay()
         }
     }
 
-    public var setValueCallback: (Double) -> Void = { _ in }
+    var setValueCallback: (Double) -> Void = { _ in }
 
     var resetToDefaultCallback: () -> Void = { }
+
+    // MARK: - Draw
 
     override func draw(_ rect: CGRect) {
         ToggleSwitchStyleKit.drawToggleSwitch(isToggled: value == 0 ? false : true )
     }
 
-    // MARK: - Handle Touches
+    // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         for _ in touches {
             value = 1 - value
             setValueCallback(value)
         }
     }
-    
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        for _ in touches {
+            setValueCallback(value)
+        }
+    }
 }

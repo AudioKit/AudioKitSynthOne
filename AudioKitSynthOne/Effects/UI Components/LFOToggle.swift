@@ -11,8 +11,32 @@ import UIKit
 @IBDesignable
 class LFOToggle: UIView, S1Control {
 
-    var setValueCallback: (Double) -> Void = { _ in }
-    var resetToDefaultCallback: () -> Void = { }
+    // MARK: - Init
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        isUserInteractionEnabled = true
+        contentMode = .redraw
+
+        accessibilityHint = NSLocalizedString(
+            "Up for toggle 1, Down for toggle 2.",
+            comment: ("Up for toggle 1, Down for toggle 2." )
+        )
+    }
+
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+
+        contentMode = .scaleAspectFit
+        clipsToBounds = true
+    }
+
+    public class override var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+
+    // MARK: - S1Control
+
     var value: Double = 0 {
         didSet {
             // Code for activating LFO state from Preset load
@@ -33,6 +57,12 @@ class LFOToggle: UIView, S1Control {
         }
     }
 
+    var setValueCallback: (Double) -> Void = { _ in }
+
+    var resetToDefaultCallback: () -> Void = { }
+
+    // MARK: - Properties
+
 	var lfo1Active: Bool = false {
 		didSet {
 			updateAccessibilityValue()
@@ -46,32 +76,10 @@ class LFOToggle: UIView, S1Control {
 
     let width: CGFloat = 100
 
-    // Make Button Text Editable in IB
     @IBInspectable open var buttonText: String = "Hello"
 
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-        isUserInteractionEnabled = true
-        contentMode = .redraw
+    // MARK: - Draw
 
-		accessibilityHint = NSLocalizedString(
-			"Up for toggle 1, Down for toggle 2.",
-			comment: ("Up for toggle 1, Down for toggle 2." )
-		)
-	}
-
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-
-        contentMode = .scaleAspectFit
-        clipsToBounds = true
-    }
-
-    public class override var requiresConstraintBasedLayout: Bool {
-        return true
-    }
-
-    // Draw Button
     override func draw(_ rect: CGRect) {
         LFOButtonStyleKit.drawLFOButton(frame: CGRect(x: 0,
                                                       y: 0,
@@ -80,7 +88,7 @@ class LFOToggle: UIView, S1Control {
                                         lfoSelected: CGFloat(value), buttonText: buttonText)
     }
 
-    // MARK: - Handle Touches
+    // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
@@ -97,6 +105,15 @@ class LFOToggle: UIView, S1Control {
             setValueCallback(value)
         }
     }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        for _ in touches {
+            setValueCallback(value)
+        }
+    }
+
+    // MARK: - Accessibility
 
 	override func accessibilityIncrement() {
 		lfo1Active = !lfo1Active

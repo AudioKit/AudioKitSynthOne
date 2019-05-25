@@ -11,75 +11,16 @@ import UIKit
 @IBDesignable
 public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
 
-    var onlyIntegers: Bool = false
+    // MARK: - Init / Lifecycle
 
-    var setValueCallback: (Double) -> Void = { _ in }
-
-    var resetToDefaultCallback: () -> Void = { }
-
-    public var taper: Double = 1.0 // Linear by default
-
-    var range: ClosedRange = 0.0...1.0 {
-        didSet {
-            _value = range.clamp(_value)
-            knobValue = CGFloat(Double(knobValue).normalized(from: range, taper: taper))
-        }
-    }
-
-	lazy private var accessibilityChangeAmount: Double = {
-		let widthOfRange = range.upperBound - range.lowerBound
-
-		// We need Not to include 1.0
-		let incrementRange: Range = 1.1..<128.0
-
-		if incrementRange.contains(widthOfRange) && onlyIntegers {
-			return 1.0
-		} else {
-			return widthOfRange * 0.01
-		}
-
-	}()
-
-    private var _value: Double = 0
-
-    var value: Double {
-        get {
-            return _value
-        }
-        set(newValue) {
-            _value = onlyIntegers ? round(newValue) : newValue
-            _value = range.clamp(_value)
-            knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
-			accessibilityValue = onlyIntegers ?
-				String(format: "%.0f", _value) :
-				String(format: "%.2f", _value)
-        }
-    }
-
-    // Knob properties
-    var knobValue: CGFloat = 0.0 {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
-
-    var knobFill: CGFloat = 0
-
-    var knobSensitivity: CGFloat = 0.005
-
-    var lastX: CGFloat = 0
-
-    var lastY: CGFloat = 0
-
-    // Init / Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentMode = .redraw
-		accessibilityTraits = [
-			.adjustable,
-			.allowsDirectInteraction,
-			.updatesFrequently
-		]
+        accessibilityTraits = [
+            .adjustable,
+            .allowsDirectInteraction,
+            .updatesFrequently
+        ]
     }
 
     required public init?(coder: NSCoder) {
@@ -102,6 +43,71 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
         return true
     }
 
+    // MARK: - Properties
+
+    var onlyIntegers: Bool = false
+
+    public var taper: Double = 1.0 // Linear by default
+
+    var range: ClosedRange = 0.0...1.0 {
+        didSet {
+            _value = range.clamp(_value)
+            knobValue = CGFloat(Double(knobValue).normalized(from: range, taper: taper))
+        }
+    }
+
+    private var _value: Double = 0
+
+    var knobValue: CGFloat = 0.0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    var knobFill: CGFloat = 0
+
+    var knobSensitivity: CGFloat = 0.005
+
+    var lastX: CGFloat = 0
+
+    var lastY: CGFloat = 0
+
+    lazy private var accessibilityChangeAmount: Double = {
+        let widthOfRange = range.upperBound - range.lowerBound
+
+        // We need Not to include 1.0
+        let incrementRange: Range = 1.1..<128.0
+
+        if incrementRange.contains(widthOfRange) && onlyIntegers {
+            return 1.0
+        } else {
+            return widthOfRange * 0.01
+        }
+
+    }()
+
+    // MARK: - S1Control
+
+    var value: Double {
+        get {
+            return _value
+        }
+        set(newValue) {
+            _value = onlyIntegers ? round(newValue) : newValue
+            _value = range.clamp(_value)
+            knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
+            accessibilityValue = onlyIntegers ?
+                String(format: "%.0f", _value) :
+                String(format: "%.2f", _value)
+        }
+    }
+
+    var setValueCallback: (Double) -> Void = { _ in }
+
+    var resetToDefaultCallback: () -> Void = { }
+
+    // MARK: - Draw
+
     public override func draw(_ rect: CGRect) {
         KnobStyleKit.drawKnobOne(frame: CGRect(x: 0,
                                                y: 0,
@@ -110,11 +116,36 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
                                  knobValue: knobValue)
     }
 
+    // MARK: - Touches
+
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        for touch in touches {
+            let touchPoint = touch.location(in: self)
+            lastX = touchPoint.x
+            lastY = touchPoint.y
+        }
+    }
+
+    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        for touch in touches {
+            let touchPoint = touch.location(in: self)
+            setPercentagesWithTouchPoint(touchPoint)
+        }
+    }
+
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        for _ in touches {
+            setValueCallback(value)
+        }
+    }
+
     @objc public func handleTap(_ sender: Knob) {
         resetToDefaultCallback()
     }
 
-    // Helper
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
 
         // Knobs assume up or right is increasing, and down or left is decreasing
@@ -126,6 +157,8 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
         lastX = touchPoint.x
         lastY = touchPoint.y
     }
+
+    // MARK: - Accessibility
 
 	override public func accessibilityIncrement() {}
 

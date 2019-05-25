@@ -11,42 +11,45 @@ import UIKit
 
 public class AKVerticalPad: UIView, S1Control {
 
-    // MARK - S1Control
-    var value: Double {
-        get {
-            return verticalValue
-        }
-        set(newValue) {
-            verticalValue = newValue
-        }
+    // MARK: - Init
+
+    override init (frame: CGRect) {
+        super.init(frame: frame)
     }
 
-    var setValueCallback: (Double) -> Void = { _ in }
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        centerPointX = self.bounds.size.width / 2
 
-    var resetToDefaultCallback: () -> Void {
-        get {
-            return { }
-        }
-        set { }
+        // Setup Touch Visual Indicators
+        touchPointView = ModWheelTouchPoint(frame: CGRect(x: -200, y: -200, width: 58, height: 58))
+        touchPointView.center = CGPoint(x: centerPointX, y: self.bounds.size.height / 2)
+        touchPointView.isOpaque = false
+        addSubview(touchPointView)
     }
 
+    // MARK: - Properties
 
-    // MARK -
-
-    // touch properties
     var firstTouch: UITouch?
 
     public typealias AKVerticalPadCallback = (Double) -> Void
+    
     var callback: AKVerticalPadCallback = { _ in }
 
     public typealias AKVerticalPadCompletionHandler = (Double, Bool, Bool) -> Void
+
     var completionHandler: AKVerticalPadCompletionHandler = { _, _, _ in }
 
     private var x: CGFloat = 0
+
     private var y: CGFloat = 0
+
     private var lastX: CGFloat = 0
+
     private var lastY: CGFloat = 0
+
     private var centerPointX: CGFloat = 0
+
     private var yVisualAdjust: CGFloat = 6
 
     public var verticalTaper: Double = 1.0 // Linear by default
@@ -66,20 +69,27 @@ public class AKVerticalPad: UIView, S1Control {
 
     var touchPointView: ModWheelTouchPoint!
 
-    override init (frame: CGRect) {
-        super.init(frame: frame)
+    // MARK: - S1Control
+
+    var value: Double {
+        get {
+            return verticalValue
+        }
+        set(newValue) {
+            verticalValue = newValue
+        }
     }
 
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        centerPointX = self.bounds.size.width / 2
+    var setValueCallback: (Double) -> Void = { _ in }
 
-        // Setup Touch Visual Indicators
-        touchPointView = ModWheelTouchPoint(frame: CGRect(x: -200, y: -200, width: 58, height: 58))
-        touchPointView.center = CGPoint(x: centerPointX, y: self.bounds.size.height / 2)
-        touchPointView.isOpaque = false
-        addSubview(touchPointView)
+    var resetToDefaultCallback: () -> Void {
+        get {
+            return { }
+        }
+        set { }
     }
+
+    // MARK: - Touches
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
@@ -99,12 +109,10 @@ public class AKVerticalPad: UIView, S1Control {
         }
     }
 
-    // return indicator to center of view
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         completionHandler(verticalValue, true, false)
     }
 
-    // Linear Scale MIDI 0...127 to 0.0...1.0
     func setVerticalValueFrom(midiValue: MIDIByte) {
         verticalValue = Double(midiValue).normalized(from: 0...127)
         let verticalPos = self.bounds.height - (self.bounds.height * CGFloat(verticalValue))
@@ -112,7 +120,6 @@ public class AKVerticalPad: UIView, S1Control {
         callback(verticalValue)
     }
 
-    // Linear Scale from PitchWheel
     func setVerticalValueFromPitchWheel(midiValue: MIDIWord) {
         verticalValue = Double(midiValue).normalized(from: 0...16_383)
         let verticalPos = self.bounds.height - (self.bounds.height * CGFloat(verticalValue))

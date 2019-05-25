@@ -12,8 +12,30 @@ import UIKit
 @IBDesignable
 class MorphSelector: UIView, S1Control {
 
-    var setValueCallback: (Double) -> Void = { _ in }
-    var resetToDefaultCallback: () -> Void = { }
+    // MARK: - Init
+
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        accessibilityInit()
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        accessibilityInit()
+    }
+
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+
+        contentMode = .scaleAspectFill
+        clipsToBounds = true
+    }
+
+    open class override var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+
+    // MARK: - S1Control
 
     var value: Double = 0 {
         didSet {
@@ -38,40 +60,18 @@ class MorphSelector: UIView, S1Control {
         }
     }
 
-    //// Color Declarations
+    var setValueCallback: (Double) -> Void = { _ in }
+
+    var resetToDefaultCallback: () -> Void = { }
+
+    // MARK: - Properties
+    
     @IBInspectable open var color: UIColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
     @IBInspectable open var selected: UIColor = #colorLiteral(red: 0.9294117647, green: 0.5333333333, blue: 0, alpha: 1)
     @IBInspectable open var unselected: UIColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
     @IBInspectable open var selectedBG: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.18)
 
-    override open func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-
-        contentMode = .scaleAspectFill
-        clipsToBounds = true
-    }
-
-    open class override var requiresConstraintBasedLayout: Bool {
-        return true
-    }
-
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-		accessibilityInit()
-    }
-
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-		accessibilityInit()
-    }
-
-    func accessibilityInit() {
-        accessibilityTraits = [
-            .adjustable,
-            .allowsDirectInteraction,
-            .updatesFrequently
-        ]
-    }
+    // MARK: - Draw
 
     override open func draw(_ rect: CGRect) {
         MorphSelectorStyleKit.drawMorphSelector(value: CGFloat(value),
@@ -79,10 +79,15 @@ class MorphSelector: UIView, S1Control {
                                                 height: self.bounds.height)
     }
 
+    // MARK: - Touches
+
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let touchLocation = touch.location(in: self)
-            value = Double(touchLocation.x / self.frame.width)
+
+        for touch in touches {
+            if touch != touches.first {
+                let touchLocation = touch.location(in: self)
+                value = Double(touchLocation.x / self.frame.width)
+            }
             setValueCallback(value)
         }
         setNeedsDisplay()
@@ -99,6 +104,17 @@ class MorphSelector: UIView, S1Control {
 
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIAccessibility.post(notification: .announcement, argument: nil)
+        setValueCallback(value)
+    }
+
+    // MARK: - Accessibility
+
+    func accessibilityInit() {
+        accessibilityTraits = [
+            .adjustable,
+            .allowsDirectInteraction,
+            .updatesFrequently
+        ]
     }
 
 	override func accessibilityIncrement() {

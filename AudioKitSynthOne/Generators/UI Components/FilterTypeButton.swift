@@ -10,8 +10,7 @@ import UIKit
 
 class FilterTypeButton: UIButton, S1Control {
 
-    var setValueCallback: (Double) -> Void = { _ in }
-    var resetToDefaultCallback: () -> Void = { }
+    // MARK: - Properties
 
     private var _value: Double = 0 {
         didSet {
@@ -31,6 +30,8 @@ class FilterTypeButton: UIButton, S1Control {
             }
       }
     }
+
+    // MARK: - S1Control
 
     var value: Double {
         get {
@@ -61,10 +62,13 @@ class FilterTypeButton: UIButton, S1Control {
                 }
             }
         }
-
     }
 
-    // MARK: - Handle Touches
+    var setValueCallback: (Double) -> Void = { _ in }
+
+    var resetToDefaultCallback: () -> Void = { }
+
+    // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
@@ -76,4 +80,12 @@ class FilterTypeButton: UIButton, S1Control {
             setNeedsDisplay()
         }
     }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        for _ in touches {
+            setValueCallback(value)
+        }
+    }
+
 }

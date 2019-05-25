@@ -57,7 +57,8 @@ extension Manager {
         }
 
         holdButton.setValueCallback = { value in
-            self.keyboardView.holdMode = !self.keyboardView.holdMode
+            //self.keyboardView.holdMode = !self.keyboardView.holdMode
+            self.keyboardView.holdMode = (value == 1) ? true : false
             if value == 0.0 {
                 self.stopAllNotes()
             }
@@ -66,11 +67,11 @@ extension Manager {
         }
 
         monoButton.setValueCallback = { value in
-            let monoMode = value > 0 ? true : false
+            let monoMode = value == 1 ? true : false
             self.keyboardView.polyphonicMode = !monoMode
             s.setSynthParameter(.isMono, value)
             self.conductor.updateSingleUI(.isMono, control: self.monoButton, value: value)
-            Conductor.sharedInstance.updateDisplayLabel("Mono: \(value > 0 ? "OFF" : "ON")")
+            self.conductor.updateDisplayLabel(.isMono, value: s.getSynthParameter(.isMono))
 			self.monoButton.accessibilityValue = self.keyboardView.polyphonicMode ? NSLocalizedString("Off", comment: "Off") : NSLocalizedString("On", comment: "On")
         }
 

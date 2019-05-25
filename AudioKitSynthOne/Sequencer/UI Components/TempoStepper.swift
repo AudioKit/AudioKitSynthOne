@@ -66,7 +66,7 @@ class TempoStepper: Stepper {
                                        valuePressed: valuePressed, text: "\(Int(value)) bpm")
     }
 
-    // MARK: - Handle Touches
+    // MARK: - Touches
 
     /// Handle new touches
 

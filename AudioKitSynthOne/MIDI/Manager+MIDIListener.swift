@@ -52,10 +52,10 @@ extension Manager: AKMIDIListener {
 
     // Assign MIDI CC to active MIDI Learn Controls
     func assignMIDIControlToControls(cc: MIDIByte) {
-        let activeMIDILearnControls = midiControls.filter { $0.isActive }
+        let activeMIDILearnControls = midiControls.filter { $0.isMIDILearnActive }
         for control in activeMIDILearnControls {
             control.midiCC = cc
-            control.isActive = false
+            control.isMIDILearnActive = false
         }
     }
 

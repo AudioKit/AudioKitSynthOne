@@ -144,7 +144,7 @@ public class HeaderViewController: UpdatableViewController {
         case .bitCrushDepth: //unused
             displayLabel.text = "Bitcrush Depth: \(value.decimalString)"
         case .bitCrushSampleRate:
-            let message = NSLocalizedString("Sample Rate: \(Int(value)) Hz", comment: "Bitcrush Sample Rate")
+            let message = NSLocalizedString("Bitcrush Sample Rate: \(Int(value)) Hz", comment: "Bitcrush Sample Rate")
             displayLabel.text = message
         case .autoPanAmount:
             let message = NSLocalizedString("AutoPan Strength: \(value.percentageString)", comment: "AutoPan Amount/Strength")
@@ -352,7 +352,7 @@ public class HeaderViewController: UpdatableViewController {
         case .adsrPitchTracking:
             displayLabel.text = "ADSR Pitch Tracking: \(s.getSynthParameter(.adsrPitchTracking).decimalString)"
         case .isMono:
-            displayLabel.text = "Hold: \(s.getSynthParameter(.isMono) == 0 ? "OFF" : "ON")"
+            displayLabel.text = "Mono: \(s.getSynthParameter(.isMono) == 0 ? "OFF" : "ON")"
 
         default:
             _ = 0
@@ -392,6 +392,8 @@ public class HeaderViewController: UpdatableViewController {
         headerDelegate?.randomPresetPressed()
     }
 
+    // MARK: -
+
     func setupCallbacks() {
 
         panicButton.setValueCallback = { _ in
@@ -425,6 +427,8 @@ public class HeaderViewController: UpdatableViewController {
         }
     }
 
+    // MARK: -
+    
     @IBAction func openHostApp(_ sender: AnyObject) {
 
         var url: CFURL = CFURLCreateWithString(nil, "" as CFString?, nil)

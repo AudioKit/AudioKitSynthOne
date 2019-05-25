@@ -170,7 +170,6 @@
 		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
 		C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */; };
 		C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */; };
-		C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA81F2446960011B119 /* Knob+Touches.swift */; };
 		C4F7ECB61F244A510011B119 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA91F2446960011B119 /* Knob.swift */; };
 		C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */; };
 		C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECAB1F2446960011B119 /* ToggleButton.swift */; };
@@ -546,7 +545,6 @@
 		C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4D193D31F1187B500FF4FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonStyleKit.swift; sourceTree = "<group>"; };
-		C4F7ECA81F2446960011B119 /* Knob+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Knob+Touches.swift"; sourceTree = "<group>"; };
 		C4F7ECA91F2446960011B119 /* Knob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
 		C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobStyleKit.swift; sourceTree = "<group>"; };
 		C4F7ECAB1F2446960011B119 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
@@ -740,7 +738,6 @@
 			isa = PBXGroup;
 			children = (
 				C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */,
-				C4F7ECA81F2446960011B119 /* Knob+Touches.swift */,
 				C4F7ECA91F2446960011B119 /* Knob.swift */,
 			);
 			path = Knobs;
@@ -1833,7 +1830,6 @@
 				94DB18D21F37D879008368AE /* NavButton.swift in Sources */,
 				C4B4914120C7C6A000FD565A /* TouchPoint.swift in Sources */,
 				C4B4918920C7C79C00FD565A /* Presets+UITableViewDataSource.swift in Sources */,
-				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C4B490FB20C6560000FD565A /* S1DSPKernel+startStopNotes.mm in Sources */,
 				C435C57D20C530C900DAECCD /* AEManagedValue.m in Sources */,
 				C4B4913D20C7C6A000FD565A /* AKVerticalPad.swift in Sources */,

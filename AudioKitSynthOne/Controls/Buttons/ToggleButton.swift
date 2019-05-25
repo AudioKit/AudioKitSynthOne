@@ -11,28 +11,27 @@ class ToggleButton: UIView, S1Control {
 
     // MARK: - ToggleButton
 
-    internal var _internalValue: Double = 0
-
-    public internal(set) var value: Double {
-        get {
-            return _internalValue
-        }
-        set {
-            _internalValue = round(_internalValue)
-            _internalValue = (0...1).clamp(newValue)
-            accessibilityValue = isOn ? "On" : "Off"
+    var isOn = false {
+        didSet {
             setNeedsDisplay()
+            accessibilityValue = isOn ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
         }
     }
 
-    var isOn: Bool {
-        return value == 1
+    // MARK: - S1Control
+
+    var value: Double = 0 {
+        didSet {
+            isOn = (value == 1)
+        }
     }
 
     var setValueCallback: (Double) -> Void = { _ in }
     
     var resetToDefaultCallback: () -> Void = { }
 
+    // MARK: - Draw
+    
     override func draw(_ rect: CGRect) {
         ToggleButtonStyleKit.drawRoundButton(frame: CGRect(x: 0,
                                                            y: 0,
@@ -41,13 +40,19 @@ class ToggleButton: UIView, S1Control {
                                              isToggled: isOn)
     }
 
-    // MARK: - Handle Touches
+    // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
-            value = isOn ? 0 : 1
+            value = 1 - value
             setValueCallback(value)
         }
     }
 
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        for _ in touches {
+            setValueCallback(value)
+        }
+    }
 }

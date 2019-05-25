@@ -11,7 +11,22 @@ import UIKit
 @IBDesignable
 public class Stepper: UIView, S1Control {
 
+    // MARK: - Init
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        accessibilityTraits = UIAccessibilityTraits.adjustable
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        range = (Double(minValue) ... Double(maxValue))
+        internalValue = 1
+        text = "1"
+    }
+
     // MARK: - S1Control
+
     public internal(set) var value: Double {
         get {
             return internalValue
@@ -56,21 +71,7 @@ public class Stepper: UIView, S1Control {
 
     var valuePressed: CGFloat = 0
 
-    /// Text / label to display
     open var text = "0"
-
-    // Init / Lifecycle
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-		accessibilityTraits = UIAccessibilityTraits.adjustable
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        range = (Double(minValue) ... Double(maxValue))
-        internalValue = 1
-        text = "1"
-    }
 
     // MARK: - Draw
 
@@ -82,9 +83,8 @@ public class Stepper: UIView, S1Control {
                                     valuePressed: valuePressed, text: "\(Int(value))")
     }
 
-    // MARK: - Handle Touches
+    // MARK: - Touches
 
-    /// Handle new touches
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let touchLocation = touch.location(in: self)
@@ -108,15 +108,13 @@ public class Stepper: UIView, S1Control {
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             valuePressed = 0
+            setValueCallback(value)
             setNeedsDisplay()
         }
     }
 
-	
-	/**
-	Accessibility Functions needed for Accessibile Adjustable Trait
-	*/
-
+    // MARK: - Accessibility
+    
     override public func accessibilityIncrement() {
 		if value < maxValue {
 			value += 1
@@ -136,5 +134,4 @@ public class Stepper: UIView, S1Control {
 			setValueCallback(value)
 		}
 	}
-
 }

@@ -12,6 +12,8 @@ class Conductor: S1Protocol {
 
     static var sharedInstance = Conductor()
 
+    private init() {}
+    
     var neverSleep = false {
         didSet {
             UIApplication.shared.isIdleTimerDisabled = neverSleep

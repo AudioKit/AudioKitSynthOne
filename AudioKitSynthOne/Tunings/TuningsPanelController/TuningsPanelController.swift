@@ -20,9 +20,7 @@ public protocol TuningsPitchWheelViewTuningDidChange {
 /// Erv Wilson is the man [website](http://anaphoria.com/wilson.html)
 class TuningsPanelController: PanelController {
 
-    @IBOutlet weak var tuningTableView: UITableView!
-
-    @IBOutlet weak var tuningBankTableView: UITableView!
+    @IBOutlet weak var tuningContainerView: UIView!
 
     @IBOutlet weak var tuningsPitchWheelView: TuningsPitchWheelView!
 
@@ -39,17 +37,87 @@ class TuningsPanelController: PanelController {
     @IBOutlet weak var tuneUpButton: SynthButton!
 
     @IBOutlet weak var tuneUpBackLabel: UILabel!
+
+    var tuningNavController = UINavigationController()
+
+    var tuningBankTableView = UITableView()
+
+    var tuningBankViewController = TuningsViewController()
+
+    var tuningTableView = UITableView()
+
+    var tuningViewController = TuningsViewController()
+
+    var tuningTableEditButton: UIBarButtonItem?
     
-    ///Model
     let tuningModel = Tunings()
-    var getStoreTuningWithPresetValue = false
+
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+
+        super.init(nibName: nibNameOrNil,bundle: nibBundleOrNil)
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
+
+        currentPanel = .tunings
+
+        let bg0 = UIImageView(image: UIImage(named: "iPhone_TouchPad_bg"), highlightedImage: nil)
+        bg0.frame = tuningContainerView.bounds
+        let bg1 = UIImageView(image: UIImage(named: "iPhone_TouchPad_bg"), highlightedImage: nil)
+        bg1.frame = tuningContainerView.bounds
+
+        tuningTableEditButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
+
+        // delegate and datasource are set when tuning model completes initialization
+        tuningTableView.backgroundView = bg0
+        tuningTableView.isOpaque = true
+        tuningTableView.allowsSelection = true
+        tuningTableView.allowsMultipleSelection = false
+        tuningTableView.dataSource = self
+        tuningTableView.delegate = self
+        tuningTableView.accessibilityLabel = "Tunings"
+        tuningTableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
+        tuningTableView.frame = tuningContainerView.bounds
+        tuningViewController = TuningsViewController(tableView: tuningTableView)
+        tuningViewController.title = "Tunings"
+        tuningViewController.navigationItem.backBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 12)!], for: .normal)
+        tuningViewController.navigationItem.rightBarButtonItem = tuningTableEditButton
+
+        // delegate and datasource are set when tuning model completes initialization
+        tuningBankTableView.backgroundView = bg1
+        tuningBankTableView.isOpaque = true
+        tuningBankTableView.allowsSelection = true
+        tuningBankTableView.allowsMultipleSelection = false
+        tuningBankTableView.dataSource = self
+        tuningBankTableView.delegate = self
+        tuningBankTableView.accessibilityLabel = "Tuning Banks"
+        tuningBankTableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
+        tuningBankTableView.frame = tuningContainerView.bounds
+        tuningBankViewController = TuningsViewController(tableView: tuningBankTableView)
+        tuningBankViewController.title = "Banks"
+
+        tuningNavController = UINavigationController(rootViewController: tuningBankViewController)
+        tuningNavController.navigationBar.barStyle = .black
+        tuningNavController.navigationBar.isTranslucent = true
+        tuningNavController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 20)!]
+
+        let backChevronImage = UIImage(named: "left-arrow")
+        let barAppearance = UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self])
+        barAppearance.backIndicatorImage = backChevronImage
+        barAppearance.backIndicatorTransitionMaskImage = backChevronImage
+        barAppearance.tintColor = UIColor.white
+
+        tuningNavController.view.frame = tuningContainerView.bounds
+        tuningContainerView.addSubview(tuningNavController.view)
+
         view.accessibilityElements = [
-            tuningBankTableView as Any,
-            tuningTableView as Any,
             masterTuningKnob as Any,
             diceButton as Any,
             resetTuningsButton as Any,
@@ -58,26 +126,6 @@ class TuningsPanelController: PanelController {
             rightNavButton as Any,
             tuneUpBackButtonButton as Any
         ]
-
-        currentPanel = .tunings
-
-        tuningTableView.backgroundColor = UIColor.clear
-        tuningTableView.isOpaque = true
-        tuningTableView.allowsSelection = true
-        tuningTableView.allowsMultipleSelection = false
-        tuningTableView.dataSource = self
-        tuningTableView.delegate = self
-        tuningTableView.accessibilityLabel = "Tunings Table"
-        tuningTableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
-
-        tuningBankTableView.backgroundColor = UIColor.clear
-        tuningBankTableView.isOpaque = true
-        tuningBankTableView.allowsSelection = true
-        tuningBankTableView.allowsMultipleSelection = false
-        tuningBankTableView.dataSource = self
-        tuningBankTableView.delegate = self
-        tuningBankTableView.accessibilityLabel = "Tuning Banks Table"
-        tuningBankTableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
 
         if let synth = Conductor.sharedInstance.synth {
             masterTuningKnob.range = synth.getRange(.frequencyA4)
@@ -93,7 +141,7 @@ class TuningsPanelController: PanelController {
                 }
             }
 
-            //TODO: implement sharing of tuning banks
+            //TODO: implement sharing of tuning banks...see commented code at bottom of file
             importButton.setValueCallback = { _ in
                 let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
                 documentPicker.delegate = self
@@ -116,13 +164,16 @@ class TuningsPanelController: PanelController {
                     return
             }
 
-            let launchWithLastTuning = manager.appSettings.launchWithLastTuning
-            if launchWithLastTuning {
+            if manager.appSettings.launchWithLastTuning {
                 self.tuningModel.selectBank(atRow: self.getAppSettingsTuningsBank())
             } else {
                 self.tuningModel.resetTuning()
             }
 
+            self.tuningTableView.delegate = self
+            self.tuningTableView.dataSource = self
+            self.tuningBankTableView.delegate = self
+            self.tuningBankTableView.dataSource = self
             self.tuningBankTableView.reloadData()
             self.tuningTableView.reloadData()
             self.selectRow()
@@ -164,6 +215,24 @@ class TuningsPanelController: PanelController {
         super.viewDidAppear(animated)
     }
 
+    @objc func editTapped() {
+        
+        self.tuningTableView.isEditing = !self.tuningTableView.isEditing
+
+        UIView.animate(
+            withDuration: 0.125,
+            delay: 0.0,
+            options: UIView.AnimationOptions(),
+            animations: {
+                if self.tuningTableView.isEditing {
+                    self.tuningTableEditButton?.title = "Done"
+                } else {
+                    self.tuningTableEditButton?.title = "Edit"
+                }
+            }
+        )
+    }
+
     func dependentParameterDidChange(_ parameter: DependentParameter) {}
 
     /// Notification of a change in notes played
@@ -177,6 +246,7 @@ class TuningsPanelController: PanelController {
     @IBAction func randomPressed(_ sender: UIButton) {
 
         guard tuningModel.isInitialized else { return }
+
         tuningModel.randomTuning()
         selectRow()
         UIView.animate(withDuration: 0.4, animations: {
@@ -201,6 +271,7 @@ class TuningsPanelController: PanelController {
 
         guard let manager = Conductor.sharedInstance.viewControllers.first(
             where: { $0 is Manager }) as? Manager else { return }
+
         manager.appSettings.currentTuningBankIndex = index
         manager.saveAppSettingValues()
     }
@@ -209,16 +280,19 @@ class TuningsPanelController: PanelController {
 
         guard let manager = Conductor.sharedInstance.viewControllers.first(
             where: { $0 is Manager }) as? Manager else {
-                return Tunings.bundleBankIndex
+                return tuningModel.bundleBankIndex
         }
+
         let launchWithLastTuning = manager.appSettings.launchWithLastTuning
-        let bankIndex = launchWithLastTuning ? manager.appSettings.currentTuningBankIndex : Tunings.bundleBankIndex
+        let bankIndex = launchWithLastTuning ? manager.appSettings.currentTuningBankIndex : tuningModel.bundleBankIndex
+
         return bankIndex
     }
 
     public func setTuning(name: String?, masterArray master: [Double]?) {
 
         guard tuningModel.isInitialized else { return }
+
         let reload = tuningModel.setTuning(name: name, masterArray: master)
         if reload {
             tuningTableView.reloadData()
@@ -229,6 +303,7 @@ class TuningsPanelController: PanelController {
     public func setDefaultTuning() {
 
         guard tuningModel.isInitialized else { return }
+
         tuningModel.resetTuning()
         selectRow()
     }
@@ -236,6 +311,7 @@ class TuningsPanelController: PanelController {
     public func getTuning() -> (String, [Double]) {
 
         guard tuningModel.isInitialized else { return ("", [1]) }
+
         return tuningModel.getTuning()
     }
 
@@ -264,13 +340,17 @@ class TuningsPanelController: PanelController {
     }
 }
 
+// MARK: - TuneUpPopUpDelegate
+
 extension TuningsPanelController: TuneUpPopUpDelegate {
 
     func wilsonicPressed() {
+
         launchWilsonic()
     }
     
     func d1Pressed() {
+
         launchD1()
     }
 }
@@ -280,26 +360,29 @@ extension TuningsPanelController: TuneUpPopUpDelegate {
 extension TuningsPanelController: TuningsPitchWheelViewTuningDidChange {
     
     func tuningDidChange() {
+
         tuningsPitchWheelView.updateFromGlobalTuningTable()
     }
 }
 
 
 
+// MARK: - Launch applications that support TuneUp
+
 extension TuningsPanelController {
 
-    // MARK: - Launch applications that support TuneUp
-
     public func launchD1() {
+
         tuningModel.launchD1()
     }
 
     public func launchWilsonic() {
+
         tuningModel.launchWilsonic()
     }
 }
 
-// MARK: import/export preset banks, tuning banks
+// MARK: - import/export preset banks, tuning banks
 extension TuningsPanelController: UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {

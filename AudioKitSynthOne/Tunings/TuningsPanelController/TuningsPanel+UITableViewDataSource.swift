@@ -19,9 +19,9 @@ extension TuningsPanelController: UITableViewDataSource {
                                                                     heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         if tableView == tuningBankTableView {
-            return 66
+            return Conductor.sharedInstance.device == .pad ? 66 : 50
         } else {
-            return 44
+            return Conductor.sharedInstance.device == .pad ? 44 : 44
         }
     }
 
@@ -57,8 +57,13 @@ extension TuningsPanelController: UITableViewDataSource {
 
         if tableView == tuningBankTableView {
             cell.textLabel?.numberOfLines = 3
+            let bg0 = UIImageView(image: UIImage(named: "right-arrow"), highlightedImage: nil)
+            bg0.backgroundColor = .clear
+            cell.accessoryView = bg0
         } else {
             cell.textLabel?.numberOfLines = 3
+            cell.accessoryView = nil
+            cell.accessoryType = .none
         }
 
         let title: String

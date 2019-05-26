@@ -32,10 +32,12 @@ class TuningCell: UITableViewCell {
         isOpaque = false
         backgroundColor = UIColor.clear
         selectionStyle = .none
-        textLabel?.font = UIFont(name: "Avenir Next", size: 12)!
+        textLabel?.font = UIFont(name: "Avenir Next", size: 16)!
         textLabel?.isOpaque = false
         textLabel?.backgroundColor = UIColor.clear
         contentView.isOpaque = false
         contentView.backgroundColor = UIColor.clear
+        separatorInset = UIEdgeInsets.zero
+        layoutMargins = UIEdgeInsets.zero
     }
 }

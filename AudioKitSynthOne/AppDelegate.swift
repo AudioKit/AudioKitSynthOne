@@ -47,6 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 ])
         }
 
+        // Global appearance
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 14.0)!,
+                          NSAttributedString.Key.foregroundColor: UIColor.white]
+        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .normal)
+
         // Determine iPhone or iPad
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         if conductor.device == .pad {

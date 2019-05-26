@@ -69,7 +69,7 @@ extension Tunings {
             for t in tuningsV0 {
                 if v1BundledTuningEncodings[t.encoding] == nil {
                     // t is a v0 custom tuning not in v1 bundled tunings
-                    tuningBanks[Tunings.userBankIndex].tunings.append(t)
+                    tuningBanks[userBankIndex].tunings.append(t)
                 }
             }
 

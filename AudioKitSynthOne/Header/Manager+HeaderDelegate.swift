@@ -15,7 +15,7 @@ extension Manager: HeaderDelegate {
 
             // Hide Keyboard
             keyboardView.isShown = keyboardToggle.isOn
-            keyboardToggle.callback(0.0)
+            keyboardToggle.setValueCallback(0.0)
             keyboardToggle.value = 0.0
 
             // Save previous panels

@@ -83,7 +83,7 @@ class TuningsPanelController: PanelController {
             masterTuningKnob.range = synth.getRange(.frequencyA4)
             masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
             Conductor.sharedInstance.bind(masterTuningKnob, to: .frequencyA4)
-            resetTuningsButton.callback = { value in
+            resetTuningsButton.setValueCallback = { value in
                 if value == 1 {
                     self.tuningModel.resetTuning()
                     self.masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
@@ -94,7 +94,7 @@ class TuningsPanelController: PanelController {
             }
 
             //TODO: implement sharing of tuning banks
-            importButton.callback = { _ in
+            importButton.setValueCallback = { _ in
                 let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
                 documentPicker.delegate = self
                 self.present(documentPicker, animated: true, completion: nil)
@@ -148,12 +148,12 @@ class TuningsPanelController: PanelController {
             }
         }
 
-        tuneUpBackButtonButton.callback = { value in
+        tuneUpBackButtonButton.setValueCallback = { value in
             self.tuningModel.tuneUpBackButton()
             self.tuneUpBackButtonButton.value = 0
         }
 
-        tuneUpButton.callback = { value in
+        tuneUpButton.setValueCallback = { value in
             self.performSegue(withIdentifier: "SegueToTuneUp", sender: nil)
             self.tuneUpButton.value = 0
         }

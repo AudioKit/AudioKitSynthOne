@@ -10,8 +10,50 @@ import UIKit
 @IBDesignable
 class VerticalSlider: UIControl, S1Control {
 
-    var callback: (Double) -> Void = { _ in }
-    var defaultCallback: () -> Void = { }
+    // MARK: - Init
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentMode = .redraw
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.isUserInteractionEnabled = true
+        contentMode = .redraw
+
+    }
+
+    class override var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.setupView()
+    }
+
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        self.setupView()
+    }
+
+    func setupView() {
+        if Conductor.sharedInstance.device == .phone {
+            self.knobSize = CGSize(width: 34, height: 17)
+        }
+        self.knobRect = CGRect(x: 0, y: self.sliderY, width: self.knobSize.width, height: self.knobSize.height)
+
+        if Conductor.sharedInstance.device == .phone {
+            self.barLength = self.bounds.height - 8
+            self.barMargin = -5
+        } else {
+            self.barLength = self.bounds.height - (barMargin * 2)
+        }
+    }
+
+    // MARK: - Properties
+
     var minValue: CGFloat = 0.0
     var maxValue: CGFloat = 1.0
     var currentValue: CGFloat = 0.5 {
@@ -41,6 +83,8 @@ class VerticalSlider: UIControl, S1Control {
         }
     }
 
+    // MARK: - S1Control
+
     var value: Double {
         get {
             return currentToActualValue(currentValue)
@@ -51,44 +95,11 @@ class VerticalSlider: UIControl, S1Control {
         }
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        contentMode = .redraw
-    }
+    var setValueCallback: (Double) -> Void = { _ in }
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.isUserInteractionEnabled = true
-        contentMode = .redraw
-       
-    }
+    var resetToDefaultCallback: () -> Void = { }
 
-    class override var requiresConstraintBasedLayout: Bool {
-        return true
-    }
-}
-
-// MARK: - Lifecycle
-extension VerticalSlider {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.setupView()
-    }
-
-    func setupView() {
-        if Conductor.sharedInstance.device == .phone {
-            self.knobSize = CGSize(width: 34, height: 17)
-        }
-        self.knobRect = CGRect(x: 0, y: self.sliderY, width: self.knobSize.width, height: self.knobSize.height)
-      
-        if Conductor.sharedInstance.device == .phone {
-            self.barLength = self.bounds.height - 8
-            self.barMargin = -5
-        } else {
-            self.barLength = self.bounds.height - (barMargin * 2)
-        }
-    }
-
+    // MARK: - Draw
     override func draw(_ rect: CGRect) {
         SliderStyleKit.drawVerticalSlider(frame: CGRect(x: 0,
                                                         y: 0,
@@ -96,14 +107,8 @@ extension VerticalSlider {
                                                         height: self.bounds.height), sliderY: sliderY)
     }
 
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        self.setupView()
-    }
-}
+    // MARK: - Helpers
 
-// MARK: - Helpers
-extension VerticalSlider {
     func convertYToValue(_ y: CGFloat) -> CGFloat {
         let offsetY = self.bounds.height - self.barMargin - y
         let value = (offsetY * self.maxValue) / self.barLength
@@ -117,26 +122,24 @@ extension VerticalSlider {
     }
 
     func currentToActualValue(_ value: CGFloat) -> Double {
-		let temp = Double(value).normalized(from: -12...12)
+        let temp = Double(value).normalized(from: -12...12)
         return temp
     }
 
     func actualToInternalValue(_ actualValue: Double) -> CGFloat {
-		let temp = CGFloat(actualValue.normalized(from: -12...12))
+        let temp = CGFloat(actualValue.normalized(from: -12...12))
         return temp
     }
 
-}
+    // MARK: - Touches
 
-// MARK: - Control Touch Handling
-extension VerticalSlider {
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         self.isSliding = true
         let rawY = touch.location(in: self).y
         self.currentValue = convertYToValue(rawY)
-        self.callback(Double(currentValue) )
+        self.setValueCallback(Double(currentValue) )
         self.setNeedsDisplay()
-        
+
         return true
     }
 
@@ -144,7 +147,7 @@ extension VerticalSlider {
         let rawY = touch.location(in: self).y
         if isSliding {
             self.currentValue = convertYToValue(rawY)
-            self.callback( Double(currentValue) )
+            self.setValueCallback( Double(currentValue) )
             self.setNeedsDisplay()
         }
         return true
@@ -152,24 +155,22 @@ extension VerticalSlider {
 
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         self.isSliding = false
-		UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: accessibilityValue)
+        UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: accessibilityValue)
     }
 
+    // MARK: - Accessibility
 
-	/**
-	Ac
-	*/
-	override func accessibilityIncrement() {
-		self.currentValue += self.accessibilityChangeAmount
-		self.callback( Double(self.currentValue) )
-		self.setNeedsDisplay()
-	}
+    override func accessibilityIncrement() {
+        self.currentValue += self.accessibilityChangeAmount
+        self.setValueCallback( Double(self.currentValue) )
+        self.setNeedsDisplay()
+    }
 
-	/**
-	*/
-	override func accessibilityDecrement() {
-		self.currentValue -= self.accessibilityChangeAmount
-		self.callback( Double(self.currentValue) )
-		self.setNeedsDisplay()
-	}
+    override func accessibilityDecrement() {
+        self.currentValue -= self.accessibilityChangeAmount
+        self.setValueCallback( Double(self.currentValue) )
+        self.setNeedsDisplay()
+    }
 }
+
+

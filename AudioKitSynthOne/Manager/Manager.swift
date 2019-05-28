@@ -411,7 +411,7 @@ public class Manager: UpdatableViewController {
         keyboardToggle.value = appSettings.showKeyboard
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
-            self.keyboardToggle.callback(self.appSettings.showKeyboard)
+            self.keyboardToggle.setValueCallback(self.appSettings.showKeyboard)
         }
         
         // Increase number of launches
@@ -465,11 +465,13 @@ public class Manager: UpdatableViewController {
             AKLog("ParentViewController can't update global UI because synth is not instantiated")
             return
         }
+
         let isMono = s.getSynthParameter(.isMono)
         if isMono != monoButton.value {
             monoButton.value = isMono
-            self.keyboardView.polyphonicMode = isMono > 0 ? false : true
+            self.keyboardView.polyphonicMode = (isMono == 0) ? false : true
         }
+        
         if parameter == .cutoff {
             if inputControl === modWheelPad || activePreset.modWheelRouting != 0 {
                 return

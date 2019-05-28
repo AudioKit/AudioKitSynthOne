@@ -155,19 +155,19 @@ class DevViewController: UpdatableViewController {
 
         // freeze tempo: ignore Preset updates
         freezeArpRate.value = freezeIt ? 1 : 0
-        freezeArpRate.callback = { value in
+        freezeArpRate.setValueCallback = { value in
             self.delegate?.freezeArpRateChanged(value == 1 ? true : false)
         }
 
         // freeze delay time: ignore Preset updates
         freezeDelay.value = freezeDelayValue ? 1 : 0
-        freezeDelay.callback = { value in
+        freezeDelay.setValueCallback = { value in
             self.delegate?.freezeDelayChanged(value == 1 ? true : false)
         }
 
         // freeze reverb: ignore Preset updates
         freezeReverb.value = freezeReverbValue ? 1 : 0
-        freezeReverb.callback = { value in
+        freezeReverb.setValueCallback = { value in
             self.delegate?.freezeReverbChanged(value == 1 ? true : false)
         }
 
@@ -184,18 +184,18 @@ class DevViewController: UpdatableViewController {
         // sequencerOctBoost00, ..., sequencerOctBoost15
         // sequencerNoteOn00, ..., sequencerNoteOn15
         freezeArpSeq.value = freezeArpSeqValue ? 1 : 0
-        freezeArpSeq.callback = { value in
+        freezeArpSeq.setValueCallback = { value in
             self.delegate?.freezeArpSeqChanged(value == 1 ? true : false)
         }
 
         // portamentoHalfTime (dsp parameter stored in app settings not presets)
         portamento.range = s.getRange(.portamentoHalfTime)
         portamento.value = portamentoHalfTime
-        portamento.callback = { value in
+        portamento.setValueCallback = { value in
             self.delegate?.portamentoChanged(value)
         }
 
-        whiteKeysOnly.callback = { value in
+        whiteKeysOnly.setValueCallback = { value in
             self.delegate?.whiteKeysOnlyChanged(value == 1 ? true : false)
         }
 

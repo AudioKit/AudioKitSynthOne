@@ -10,9 +10,51 @@ import UIKit
 
 class SliderTransposeButton: UILabel, S1Control {
 
-    // MARK: - Make Label ToggleButton
+    // MARK: - Init
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        clipsToBounds = true
+        layer.cornerRadius = 2
+        layer.borderWidth = 1
+        layer.borderColor = #colorLiteral(red: 0.09411764706, green: 0.09411764706, blue: 0.09411764706, alpha: 1)
+    }
+
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        contentMode = .scaleAspectFit
+        clipsToBounds = true
+    }
+
+    public class override var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+
+    // MARK: - Properties
 
     private var _value: Double = 0
+
+    var transposeAmt = 0 {
+        didSet {
+            text = String(transposeAmt)
+            accessibilityValue = text
+        }
+    }
+
+    var isActive = false {
+        didSet {
+            if isActive {
+                layer.borderColor = #colorLiteral(red: 0.8812435269, green: 0.4256765842, blue: 0, alpha: 1)
+                layer.borderWidth = 2
+            } else {
+                layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                layer.borderWidth = 1
+            }
+        }
+    }
+
+
+    // MARK: - S1Control
 
     var value: Double {
         get {
@@ -35,39 +77,11 @@ class SliderTransposeButton: UILabel, S1Control {
         }
     }
 
-    var transposeAmt = 0 {
-        didSet {
-            text = String(transposeAmt)
-			accessibilityValue = text
-        }
-    }
+    public var setValueCallback: (Double) -> Void = { _ in }
 
-    public var callback: (Double) -> Void = { _ in }
+    var resetToDefaultCallback: () -> Void = { }
 
-    var defaultCallback: () -> Void = { }
-    
-    var isActive = false {
-        didSet {
-            if isActive {
-                layer.borderColor = #colorLiteral(red: 0.8812435269, green: 0.4256765842, blue: 0, alpha: 1)
-                layer.borderWidth = 2
-            } else {
-                layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-                layer.borderWidth = 1
-            }
-
-        }
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        clipsToBounds = true
-        layer.cornerRadius = 2
-        layer.borderWidth = 1
-        layer.borderColor = #colorLiteral(red: 0.09411764706, green: 0.09411764706, blue: 0.09411764706, alpha: 1)
-    }
-
-    // MARK: - Handle Touches
+    // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
@@ -78,19 +92,14 @@ class SliderTransposeButton: UILabel, S1Control {
             } else {
                 value = 1
             }
-            callback(value)
+            setValueCallback(value)
         }
     }
 
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        contentMode = .scaleAspectFit
-        clipsToBounds = true
+        for _ in touches {
+            setValueCallback(value)
+        }
     }
-
-    public class override var requiresConstraintBasedLayout: Bool {
-        return true
-    }
-
 }

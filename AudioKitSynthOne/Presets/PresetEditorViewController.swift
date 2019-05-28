@@ -83,11 +83,11 @@ class PresetEditorViewController: UIViewController {
 
     func setupCallbacks() {
 
-        cancelButton.callback = { _ in
+        cancelButton.setValueCallback = { _ in
             self.dismiss(animated: true, completion: nil)
         }
 
-        saveButton.callback = { _ in
+        saveButton.setValueCallback = { _ in
             self.delegate?.didFinishEditing(name: self.nameTextField.text ?? "Unnamed",
                                             category: self.categoryIndex,
                                             newBank: self.bankSelected)

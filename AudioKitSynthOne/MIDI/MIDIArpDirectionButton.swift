@@ -13,25 +13,29 @@ class MIDIArpDirectionButton: ArpDirectionButton, MIDILearnable {
 
     let conductor = Conductor.sharedInstance
 
+    // MARK: - Touches
+    
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
+
         if midiLearnMode {
-            isActive = !isActive // Toggles knob to be active & ready to receive CC
-            updateDisplayLabel()
+            isMIDILearnActive = !isMIDILearnActive
+            updateMIDILearnLabel()
+        } else {
+            super.touchesBegan(touches, with: event)
         }
     }
 
-    //MARK: - MIDILearnable
+    // MARK: - MIDILearnable
 
     var midiByteRange: ClosedRange<MIDIByte> = 0...127
 
     var hotspotView: UIView = UIView()
 
-    var isActive = false {
+    var isMIDILearnActive = false {
         didSet {
 
             // toggle the border color if a user touches knob
-            hotspotView.layer.borderColor = isActive ? #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.7254901961, alpha: 1) : #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
+            hotspotView.layer.borderColor = isMIDILearnActive ? #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.7254901961, alpha: 1) : #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 1)
         }
     }
 
@@ -49,7 +53,7 @@ class MIDIArpDirectionButton: ArpDirectionButton, MIDILearnable {
                 showHotspot()
             } else {
                 hideHotspot()
-                isActive = false
+                isMIDILearnActive = false
             }
         }
     }
@@ -77,13 +81,13 @@ class MIDIArpDirectionButton: ArpDirectionButton, MIDILearnable {
         let previousValue = value
         value = range.clamp( round( v * (range.upperBound - range.lowerBound) + range.lowerBound ) )
         if previousValue != value {
-            callback(value)
+            setValueCallback(value)
             setNeedsDisplay()
         }
     }
 
-    func updateDisplayLabel() {
-        if isActive {
+    func updateMIDILearnLabel() {
+        if isMIDILearnActive {
             let message = NSLocalizedString("Twist knob on your MIDI Controller", comment: "MIDI Learn Instructions")
             conductor.updateDisplayLabel(message)
         }

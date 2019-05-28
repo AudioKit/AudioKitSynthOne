@@ -144,7 +144,7 @@ public class HeaderViewController: UpdatableViewController {
         case .bitCrushDepth: //unused
             displayLabel.text = "Bitcrush Depth: \(value.decimalString)"
         case .bitCrushSampleRate:
-            let message = NSLocalizedString("Sample Rate: \(Int(value)) Hz", comment: "Bitcrush Sample Rate")
+            let message = NSLocalizedString("Bitcrush Sample Rate: \(Int(value)) Hz", comment: "Bitcrush Sample Rate")
             displayLabel.text = message
         case .autoPanAmount:
             let message = NSLocalizedString("AutoPan Strength: \(value.percentageString)", comment: "AutoPan Amount/Strength")
@@ -352,7 +352,7 @@ public class HeaderViewController: UpdatableViewController {
         case .adsrPitchTracking:
             displayLabel.text = "ADSR Pitch Tracking: \(s.getSynthParameter(.adsrPitchTracking).decimalString)"
         case .isMono:
-            displayLabel.text = "Hold: \(s.getSynthParameter(.isMono) == 0 ? "OFF" : "ON")"
+            displayLabel.text = "Mono: \(s.getSynthParameter(.isMono) == 0 ? "OFF" : "ON")"
 
         default:
             _ = 0
@@ -392,39 +392,43 @@ public class HeaderViewController: UpdatableViewController {
         headerDelegate?.randomPresetPressed()
     }
 
+    // MARK: -
+
     func setupCallbacks() {
 
-        panicButton.callback = { _ in
+        panicButton.setValueCallback = { _ in
             self.headerDelegate?.panicPressed()
         }
 
-        saveButton.callback = { _ in
+        saveButton.setValueCallback = { _ in
             self.headerDelegate?.savePresetPressed()
         }
 
-        devButton.callback = { _ in
+        devButton.setValueCallback = { _ in
             self.headerDelegate?.devPressed()
         }
 
-        aboutButton.callback = { _ in
+        aboutButton.setValueCallback = { _ in
             self.headerDelegate?.aboutPressed()
         }
 
-        morePresetsButton.callback = { _ in
+        morePresetsButton.setValueCallback = { _ in
             self.headerDelegate?.morePressed()
         }
         
-        appsButton.callback = { _ in
+        appsButton.setValueCallback = { _ in
             self.headerDelegate?.appsPressed()
         }
 
-        webButton.callback = { _ in
+        webButton.setValueCallback = { _ in
             if let url = URL(string: "http://audiokitpro.com/synth") {
                 UIApplication.shared.open(url)
             }
         }
     }
 
+    // MARK: -
+    
     @IBAction func openHostApp(_ sender: AnyObject) {
 
         var url: CFURL = CFURLCreateWithString(nil, "" as CFString?, nil)

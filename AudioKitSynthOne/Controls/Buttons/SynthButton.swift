@@ -8,9 +8,29 @@
 
 class SynthButton: UIButton, S1Control {
 
-    var callback: (Double) -> Void = { _ in }
+    // MARK: - Init
 
-    var defaultCallback: () -> Void = { }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        clipsToBounds = true
+        layer.cornerRadius = 2
+        layer.borderWidth = 1
+    }
+
+    // MARK: - S1Control
+
+    var value: Double = 0 {
+        didSet {
+            isSelected = value == 1
+            setNeedsDisplay()
+        }
+    }
+
+    var setValueCallback: (Double) -> Void = { _ in }
+
+    var resetToDefaultCallback: () -> Void = { }
+
+    // MARK: - Properties
 
     var isOn: Bool {
         return value == 1
@@ -25,25 +45,19 @@ class SynthButton: UIButton, S1Control {
         }
     }
 
-    var value: Double = 0 {
-        didSet {
-            isSelected = value == 1
-            setNeedsDisplay()
-        }
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        clipsToBounds = true
-        layer.cornerRadius = 2
-        layer.borderWidth = 1
-    }
-
+    // MARK: - Touches
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             value = isOn ? 0 : 1
-            callback(value)
+            setValueCallback(value)
         }
     }
-    
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        for _ in touches {
+            setValueCallback(value)
+        }
+    }
 }

@@ -17,7 +17,7 @@ class CallbackButton: UIButton {
         super.init(coder: coder)
     }
 
-    // MARK: - Handle Touches
+    // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {

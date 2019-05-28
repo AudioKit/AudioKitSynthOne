@@ -82,13 +82,13 @@ class Conductor: S1Protocol {
         if let cb = closure {
 
             // custom closure
-            control.callback = cb(parameter, control)
-            control.defaultCallback = defaultParameter(parameter, control)
+            control.setValueCallback = cb(parameter, control)
+            control.resetToDefaultCallback = defaultParameter(parameter, control)
         } else {
 
             // default closure
-            control.callback = changeParameter(parameter, control)
-            control.defaultCallback = defaultParameter(parameter, control)
+            control.setValueCallback = changeParameter(parameter, control)
+            control.resetToDefaultCallback = defaultParameter(parameter, control)
         }
     }
 

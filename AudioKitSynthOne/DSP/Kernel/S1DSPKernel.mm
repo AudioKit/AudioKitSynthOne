@@ -24,7 +24,11 @@ S1DSPKernel::S1DSPKernel(int _channels, double _sampleRate) :
     mCompReverbWet(sp, &parameters),
     mCompReverbIn(sp, &parameters)
 {
-    init(_channels, _sampleRate);
+    for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
+        sp_port_create(&s1p[i].portamento);
+    }
+
+    setupParameterTree(std::nullopt);
 }
 
 S1DSPKernel::~S1DSPKernel() = default;
@@ -92,9 +96,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sequencer.setSampleRate(_sampleRate);
     sequencer.init();
 
-    for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
-        sp_port_create(&s1p[i].portamento);
-    }
+
     _rate.init();
 
     // intialize dsp tuning table with 12ET
@@ -106,8 +108,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     restoreValues(std::nullopt);
 }
 
-void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
-
+void S1DSPKernel::setupParameterTree(std::optional<DSPParameters> params) {
     // copy dsp values or initialize with default
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
         const float value = (params != std::nullopt) ? (*params)[i] : defaultValue((S1Parameter)i);
@@ -118,6 +119,11 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
         }
         parameters[i] = value;
     }
+}
+
+void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
+
+    setupParameterTree(params);
     updatePortamento(parameters[portamentoHalfTime]);
     _lfo1Rate = {S1Parameter::lfo1Rate, getDependentParameter(lfo1Rate), getSynthParameter(lfo1Rate),0};
     _lfo2Rate = {S1Parameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};

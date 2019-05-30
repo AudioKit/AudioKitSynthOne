@@ -32,7 +32,7 @@ extension Manager {
 
 extension GeneratorsPanelController {
     override func setupLinkStuff() {
-        tempoStepper.callback = { value in
+        tempoStepper.setValueCallback = { value in
             ABLLinkManager.shared.bpm = value
             ABLLinkManager.shared.update()
         }

@@ -235,6 +235,9 @@ private:
     // private tuningTable lookup
     double tuningTableNoteToHz(int noteNumber);
 
+    // setup parameter tree with values or default
+    void setupParameterTree(std::optional<DSPParameters> params);
+
     S1Rate _rate;
     
     DependentParameter _lfo1Rate;

@@ -25,6 +25,7 @@
 		948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */; };
 		94985FF320D8899300D71239 /* Electronisounds.json in Resources */ = {isa = PBXBuildFile; fileRef = 94985FF220D8899300D71239 /* Electronisounds.json */; };
 		94985FF520D8908600D71239 /* JEC.json in Resources */ = {isa = PBXBuildFile; fileRef = 94985FF420D8908500D71239 /* JEC.json */; };
+		949907D9229F692800E3DE1B /* Sound of Izrael 2.json in Resources */ = {isa = PBXBuildFile; fileRef = 949907D8229F692800E3DE1B /* Sound of Izrael 2.json */; };
 		949D93B71F2C188C007E657B /* LFOButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B61F2C188B007E657B /* LFOButtonStyleKit.swift */; };
 		949D93B91F2C188C007E657B /* LFOToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LFOToggle.swift */; };
 		94A5039D1FF2F6E30097D37C /* ChannelStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */; };
@@ -332,6 +333,7 @@
 		948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeButton.swift; sourceTree = "<group>"; };
 		94985FF220D8899300D71239 /* Electronisounds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Electronisounds.json; sourceTree = "<group>"; };
 		94985FF420D8908500D71239 /* JEC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JEC.json; sourceTree = "<group>"; };
+		949907D8229F692800E3DE1B /* Sound of Izrael 2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Sound of Izrael 2.json"; sourceTree = "<group>"; };
 		949D93B51F2C188B007E657B /* LFOToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOToggle.swift; sourceTree = "<group>"; };
 		949D93B61F2C188B007E657B /* LFOButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOButtonStyleKit.swift; sourceTree = "<group>"; };
 		94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStepper.swift; sourceTree = "<group>"; };
@@ -920,6 +922,7 @@
 				94985FF420D8908500D71239 /* JEC.json */,
 				C435C51A20C52D1700DAECCD /* Red Sky Lullaby.json */,
 				94D37DD320E06641002008A4 /* Sound of Izrael.json */,
+				949907D8229F692800E3DE1B /* Sound of Izrael 2.json */,
 				941752B920E2BD2E0076D953 /* Starter Bank.json */,
 				C435C51920C52D1700DAECCD /* User.json */,
 			);
@@ -1581,6 +1584,7 @@
 				EA388D1C21071BD50026C0C0 /* InfoPlist.strings in Resources */,
 				EA388D1F21071BD50026C0C0 /* Localizable.strings in Resources */,
 				F482CC572123CDE70093ADC8 /* sawtooth_0000.json in Resources */,
+				949907D9229F692800E3DE1B /* Sound of Izrael 2.json in Resources */,
 				EA388CE1210498DD0026C0C0 /* Header.storyboard in Resources */,
 				F482CC442123CDE70093ADC8 /* triangle_0002.json in Resources */,
 				F482CC5C2123CDE70093ADC8 /* square_0010.json in Resources */,
@@ -1677,7 +1681,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChimpKit/ChimpKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 			);
@@ -1688,7 +1692,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4421AA920B81D0500BE9F12 /* ShellScript */ = {
@@ -2341,6 +2345,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */;
 			buildSettings = {
+				ABLETON_ENABLED = 0;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2382,6 +2387,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */;
 			buildSettings = {
+				ABLETON_ENABLED = 0;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

@@ -165,6 +165,9 @@ private:
     S1Sequencer sequencer;
     // moved the private functions to try to get rid of errors, I don't think we need to be that worried about privacy
 
+    // Keep track on when and when not to call destroy()
+    bool mIsInitialized = false;
+
 public:
     
     void updateWavetableIncrementValuesForCurrentSampleRate();

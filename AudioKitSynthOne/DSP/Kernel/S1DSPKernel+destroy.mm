@@ -34,6 +34,7 @@ void S1DSPKernel::destroy() {
     sp_buthp_destroy(&butterworthHipassR);
     sp_crossfade_destroy(&revCrossfadeL);
     sp_crossfade_destroy(&revCrossfadeR);
+    mIsInitialized = false;
 }
 
 

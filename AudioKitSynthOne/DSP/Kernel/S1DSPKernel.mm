@@ -24,18 +24,22 @@ S1DSPKernel::S1DSPKernel(int _channels, double _sampleRate) :
     mCompReverbWet(sp, &parameters),
     mCompReverbIn(sp, &parameters)
 {
-    for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
-        sp_port_create(&s1p[i].portamento);
-    }
-
-    setupParameterTree(std::nullopt);
+    init(_channels, _sampleRate);
 }
 
 S1DSPKernel::~S1DSPKernel() = default;
 
 void S1DSPKernel::init(int _channels, double _sampleRate) {
+    if (mIsInitialized) {
+      destroy();
+    }
     sp->sr = _sampleRate;
     sp->nchan = _channels;
+
+    for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
+      sp_port_create(&s1p[i].portamento);
+    }
+    setupParameterTree(std::nullopt);
 
     //MONO
     sp_ftbl_create(sp, &sine, S1_FTABLE_SIZE);
@@ -106,6 +110,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
 
     // restore values
     restoreValues(std::nullopt);
+    mIsInitialized = true;
 }
 
 void S1DSPKernel::setupParameterTree(std::optional<DSPParameters> params) {

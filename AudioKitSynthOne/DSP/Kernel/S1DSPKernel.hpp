@@ -171,6 +171,9 @@ private:
     sp_port *lfo1Port;
     sp_port *lfo2Port;
 
+    // Keep track on when and when not to call destroy()
+    bool mIsInitialized = false;
+
 public:
 
 

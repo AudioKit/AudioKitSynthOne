@@ -11,8 +11,27 @@ import UIKit
 @IBDesignable
 class LFOWavePicker: UIView, S1Control {
 
-    var callback: (Double) -> Void = { _ in }
-    var defaultCallback: () -> Void = { }
+    // MARK: - Init
+
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        isUserInteractionEnabled = true
+        contentMode = .redraw
+    }
+
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+
+        contentMode = .scaleAspectFit
+        clipsToBounds = true
+    }
+
+    public class override var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+
+    // MARK: - S1Control
+    
     var value: Double = 0 {
         didSet {
            setNeedsDisplay()
@@ -29,7 +48,12 @@ class LFOWavePicker: UIView, S1Control {
         }
     }
 
-    // Draw Button
+    var setValueCallback: (Double) -> Void = { _ in }
+
+    var resetToDefaultCallback: () -> Void = { }
+
+    // MARK: - Draw
+
     override func draw(_ rect: CGRect) {
         LFOPickerStyleKit.drawLFOWaveformPicker(frame: CGRect(x: 0,
                                                               y: 0,
@@ -38,7 +62,7 @@ class LFOWavePicker: UIView, S1Control {
                                                 fraction: CGFloat(value / 3.0))
     }
 
-    // MARK: - Handle Touches
+    // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
@@ -57,9 +81,18 @@ class LFOWavePicker: UIView, S1Control {
             }
 
             setNeedsDisplay()
-            callback(value)
+            setValueCallback(value)
         }
     }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        for _ in touches {
+            setValueCallback(value)
+        }
+    }
+
+    // MARK: - Accessibility
 
 	override func accessibilityActivate() -> Bool {
 		if value < 3 {
@@ -81,22 +114,4 @@ class LFOWavePicker: UIView, S1Control {
 			value -= 1
 		}
 	}
-
-    required public init?(coder: NSCoder) {
-        super.init(coder: coder)
-        isUserInteractionEnabled = true
-        contentMode = .redraw
-    }
-
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-
-        contentMode = .scaleAspectFit
-        clipsToBounds = true
-    }
-
-    public class override var requiresConstraintBasedLayout: Bool {
-        return true
-    }
-
 }

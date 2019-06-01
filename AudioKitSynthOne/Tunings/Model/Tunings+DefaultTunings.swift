@@ -119,13 +119,17 @@ extension Tunings {
 
         //H[n] = H[n-1] + H[n-7], seeds (2,2,2,1,1,1,1) 5: 1,19,5,3,15, 7: 1,75,19,5,47,3,15
         retVal.append( ("Hobbs Recurrence Relation 01", { let s: [Double] = [1, 19, 5, 3, 15]; return s }) )
+
         retVal.append( ("Hobbs Recurrence Relation 02", { let s: [Double] = [35, 74, 23, 51, 61]; return s }) )
         retVal.append( ("Hobbs Recurrence Relation 03", { let s: [Double] = [74, 150, 85, 106, 120, 61]; return s }) )
         retVal.append( ("Hobbs Recurrence Relation 04", { let s: [Double] = [1, 9, 5, 23, 48, 7]; return s }) )
         retVal.append( ("Hobbs Recurrence Relation 05", { let s: [Double] = [1, 9, 21, 3, 25, 15]; return s }) )
         retVal.append( ("Hobbs Recurrence Relation 06", { let s: [Double] = [1, 75, 19, 5, 3, 15]; return s }) )
         retVal.append( ("Hobbs Recurrence Relation 07", { let s: [Double] = [1, 17, 10, 47, 3, 13, 7]; return s }) )
+
+        //H[n] = H[n-1] + H[n-6] seeds () 7: 1,9,5,21,3,27,7
         retVal.append( ("Hobbs Recurrence Relation 08", { let s: [Double] = [1, 9, 5, 21, 3, 27, 7]; return s }) )
+        
         retVal.append( ("Hobbs Recurrence Relation 09", { let s: [Double] = [1, 9, 21, 3, 25, 15, 31]; return s }) )
         retVal.append( ("Hobbs Recurrence Relation 10", { let s: [Double] = [1, 75, 19, 5, 94, 3, 15]; return s }) )
         retVal.append( ("Hobbs Recurrence Relation 11", { let s: [Double] = [9, 40, 21, 25, 52, 15, 31]; return s }) )

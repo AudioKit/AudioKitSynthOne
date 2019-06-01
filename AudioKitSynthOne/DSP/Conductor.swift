@@ -12,6 +12,8 @@ class Conductor: S1Protocol {
 
     static var sharedInstance = Conductor()
 
+    private init() {}
+    
     var neverSleep = false {
         didSet {
             UIApplication.shared.isIdleTimerDisabled = neverSleep
@@ -80,13 +82,13 @@ class Conductor: S1Protocol {
         if let cb = closure {
 
             // custom closure
-            control.callback = cb(parameter, control)
-            control.defaultCallback = defaultParameter(parameter, control)
+            control.setValueCallback = cb(parameter, control)
+            control.resetToDefaultCallback = defaultParameter(parameter, control)
         } else {
 
             // default closure
-            control.callback = changeParameter(parameter, control)
-            control.defaultCallback = defaultParameter(parameter, control)
+            control.setValueCallback = changeParameter(parameter, control)
+            control.resetToDefaultCallback = defaultParameter(parameter, control)
         }
     }
 
@@ -326,5 +328,24 @@ class Conductor: S1Protocol {
         iaaTimer.invalidate()
 
         AKLog("deactivated session")
+    }
+}
+
+
+extension Conductor: S1TuningTable {
+
+    func setTuningTableNPO(_ npo: Int) {
+        
+        synth.setTuningTableNPO(npo)
+    }
+
+    func setTuningTable(_ frequency: Double, index: Int) {
+
+        synth.setTuningTable(frequency, index: index)
+    }
+
+    func getTuningTableFrequency(_ index: Int) -> Double {
+
+        return Double( synth.getTuningTableFrequency(index) )
     }
 }

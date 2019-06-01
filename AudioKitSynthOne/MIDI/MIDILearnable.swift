@@ -19,7 +19,7 @@ protocol MIDILearnable: AnyObject {
 
     var midiLearnMode: Bool { get set }
 
-    var isActive: Bool { get set }
+    var isMIDILearnActive: Bool { get set }
 
     func addHotspot()
 
@@ -29,6 +29,6 @@ protocol MIDILearnable: AnyObject {
 
     func setControlValueFrom(midiValue: MIDIByte)
     
-    func updateDisplayLabel()
+    func updateMIDILearnLabel()
     
 }

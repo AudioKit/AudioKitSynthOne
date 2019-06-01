@@ -25,6 +25,7 @@
 		948D33A91F4DFC08006E8276 /* FilterTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */; };
 		94985FF320D8899300D71239 /* Electronisounds.json in Resources */ = {isa = PBXBuildFile; fileRef = 94985FF220D8899300D71239 /* Electronisounds.json */; };
 		94985FF520D8908600D71239 /* JEC.json in Resources */ = {isa = PBXBuildFile; fileRef = 94985FF420D8908500D71239 /* JEC.json */; };
+		949907D9229F692800E3DE1B /* Sound of Izrael 2.json in Resources */ = {isa = PBXBuildFile; fileRef = 949907D8229F692800E3DE1B /* Sound of Izrael 2.json */; };
 		949D93B71F2C188C007E657B /* LFOButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B61F2C188B007E657B /* LFOButtonStyleKit.swift */; };
 		949D93B91F2C188C007E657B /* LFOToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D93B51F2C188B007E657B /* LFOToggle.swift */; };
 		94A5039D1FF2F6E30097D37C /* ChannelStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */; };
@@ -170,7 +171,6 @@
 		C4D193CD1F1187B500FF4FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CB1F1187B500FF4FE4 /* Main.storyboard */; };
 		C4D193CF1F1187B500FF4FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */; };
 		C4F7ECAF1F244A4B0011B119 /* ToggleButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */; };
-		C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA81F2446960011B119 /* Knob+Touches.swift */; };
 		C4F7ECB61F244A510011B119 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECA91F2446960011B119 /* Knob.swift */; };
 		C4F7ECB71F244A510011B119 /* KnobStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */; };
 		C4F7ECB81F244A510011B119 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7ECAB1F2446960011B119 /* ToggleButton.swift */; };
@@ -247,6 +247,7 @@
 		F4AD9EE022484EFA002B0E2E /* MIDIArpDirectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EDF22484EFA002B0E2E /* MIDIArpDirectionButton.swift */; };
 		F4AD9EE2224856C2002B0E2E /* MIDIToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */; };
 		F4AD9EE4224866BE002B0E2E /* MIDIToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */; };
+		F4B1AD65228BDCEC009FA6BA /* S1TuningTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1AD64228BDCEC009FA6BA /* S1TuningTable.swift */; };
 		F4C790142247025C003CFF28 /* MIDIStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C790132247025C003CFF28 /* MIDIStepper.swift */; };
 		F4C9D9A321D6B13200B7C4E5 /* Tunings+UpgradePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */; };
 		F4CA406D224EB2A70053F29E /* S1Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA406C224EB2A70053F29E /* S1Control.swift */; };
@@ -332,6 +333,7 @@
 		948D33A81F4DFC08006E8276 /* FilterTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeButton.swift; sourceTree = "<group>"; };
 		94985FF220D8899300D71239 /* Electronisounds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Electronisounds.json; sourceTree = "<group>"; };
 		94985FF420D8908500D71239 /* JEC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JEC.json; sourceTree = "<group>"; };
+		949907D8229F692800E3DE1B /* Sound of Izrael 2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Sound of Izrael 2.json"; sourceTree = "<group>"; };
 		949D93B51F2C188B007E657B /* LFOToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOToggle.swift; sourceTree = "<group>"; };
 		949D93B61F2C188B007E657B /* LFOButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFOButtonStyleKit.swift; sourceTree = "<group>"; };
 		94A5039C1FF2F6E30097D37C /* ChannelStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStepper.swift; sourceTree = "<group>"; };
@@ -545,7 +547,6 @@
 		C4D193CE1F1187B500FF4FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4D193D31F1187B500FF4FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonStyleKit.swift; sourceTree = "<group>"; };
-		C4F7ECA81F2446960011B119 /* Knob+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Knob+Touches.swift"; sourceTree = "<group>"; };
 		C4F7ECA91F2446960011B119 /* Knob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
 		C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobStyleKit.swift; sourceTree = "<group>"; };
 		C4F7ECAB1F2446960011B119 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
@@ -680,6 +681,7 @@
 		F4AD9EDF22484EFA002B0E2E /* MIDIArpDirectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIArpDirectionButton.swift; sourceTree = "<group>"; };
 		F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIToggleButton.swift; sourceTree = "<group>"; };
 		F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIToggleSwitch.swift; sourceTree = "<group>"; };
+		F4B1AD64228BDCEC009FA6BA /* S1TuningTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S1TuningTable.swift; sourceTree = "<group>"; };
 		F4C790132247025C003CFF28 /* MIDIStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIStepper.swift; sourceTree = "<group>"; };
 		F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+UpgradePaths.swift"; sourceTree = "<group>"; };
 		F4CA406C224EB2A70053F29E /* S1Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S1Control.swift; sourceTree = "<group>"; };
@@ -738,7 +740,6 @@
 			isa = PBXGroup;
 			children = (
 				C4F7ECAA1F2446960011B119 /* KnobStyleKit.swift */,
-				C4F7ECA81F2446960011B119 /* Knob+Touches.swift */,
 				C4F7ECA91F2446960011B119 /* Knob.swift */,
 			);
 			path = Knobs;
@@ -921,6 +922,7 @@
 				94985FF420D8908500D71239 /* JEC.json */,
 				C435C51A20C52D1700DAECCD /* Red Sky Lullaby.json */,
 				94D37DD320E06641002008A4 /* Sound of Izrael.json */,
+				949907D8229F692800E3DE1B /* Sound of Izrael 2.json */,
 				941752B920E2BD2E0076D953 /* Starter Bank.json */,
 				C435C51920C52D1700DAECCD /* User.json */,
 			);
@@ -967,6 +969,7 @@
 				F437E99E20EB22D00096FEAC /* README.md */,
 				C435C55420C530C900DAECCD /* AKSynthOne.swift */,
 				C435C55120C530C900DAECCD /* Conductor.swift */,
+				F4B1AD64228BDCEC009FA6BA /* S1TuningTable.swift */,
 				F4CA406C224EB2A70053F29E /* S1Control.swift */,
 				C435C55320C530C900DAECCD /* S1Parameter.h */,
 				C435C55620C530C900DAECCD /* SDSustainer.swift */,
@@ -1581,6 +1584,7 @@
 				EA388D1C21071BD50026C0C0 /* InfoPlist.strings in Resources */,
 				EA388D1F21071BD50026C0C0 /* Localizable.strings in Resources */,
 				F482CC572123CDE70093ADC8 /* sawtooth_0000.json in Resources */,
+				949907D9229F692800E3DE1B /* Sound of Izrael 2.json in Resources */,
 				EA388CE1210498DD0026C0C0 /* Header.storyboard in Resources */,
 				F482CC442123CDE70093ADC8 /* triangle_0002.json in Resources */,
 				F482CC5C2123CDE70093ADC8 /* square_0010.json in Resources */,
@@ -1677,7 +1681,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChimpKit/ChimpKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 			);
@@ -1688,7 +1692,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4421AA920B81D0500BE9F12 /* ShellScript */ = {
@@ -1816,6 +1820,7 @@
 				AF8CC7C0224815F200090F64 /* S1Sequencer.mm in Sources */,
 				C4B490F320C6539200FD565A /* S1DSPKernel+process.mm in Sources */,
 				C4B4916E20C7C72A00FD565A /* Manager.swift in Sources */,
+				F4B1AD65228BDCEC009FA6BA /* S1TuningTable.swift in Sources */,
 				F47C27E42207C12100CA7541 /* Tunings+TuneUp.swift in Sources */,
 				C4B490E920C64AC600FD565A /* S1DSPKernel+MIDI.mm in Sources */,
 				C4B490E720C649D900FD565A /* S1DSPKernel+destroy.mm in Sources */,
@@ -1829,7 +1834,6 @@
 				94DB18D21F37D879008368AE /* NavButton.swift in Sources */,
 				C4B4914120C7C6A000FD565A /* TouchPoint.swift in Sources */,
 				C4B4918920C7C79C00FD565A /* Presets+UITableViewDataSource.swift in Sources */,
-				C4F7ECB51F244A510011B119 /* Knob+Touches.swift in Sources */,
 				C4B490FB20C6560000FD565A /* S1DSPKernel+startStopNotes.mm in Sources */,
 				C435C57D20C530C900DAECCD /* AEManagedValue.m in Sources */,
 				C4B4913D20C7C6A000FD565A /* AKVerticalPad.swift in Sources */,
@@ -2341,6 +2345,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */;
 			buildSettings = {
+				ABLETON_ENABLED = 0;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2382,6 +2387,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */;
 			buildSettings = {
+				ABLETON_ENABLED = 0;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

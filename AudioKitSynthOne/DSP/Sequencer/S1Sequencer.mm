@@ -36,7 +36,7 @@ void S1Sequencer::reset(bool resetNotes) {
     sequencerNotes2.clear();
 }
 
-void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
+void S1Sequencer::process(DSPParameters &params, __weak AEArray *heldNoteNumbersAE) {
     
     /// MARK: ARPEGGIATOR + SEQUENCER BEGIN
     const int heldNoteNumbersAECount = heldNoteNumbersAE.count;
@@ -87,9 +87,9 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                     sequencerNotes2.clear();
                     
                     // Only update "notes per octave" when beat counter changes so sequencerNotes and sequencerLastNotes match
-                    notesPerOctave = (int)AKPolyphonicNode.tuningTable.npo;
-                    if (notesPerOctave <= 0) notesPerOctave = 12;
-                    const float npof = (float)notesPerOctave/12.f; // 12ET ==> npof = 1
+
+                    if (mNotesPerOctave.load() <= 0) mNotesPerOctave.store(12);
+                    const float npof = (float)mNotesPerOctave.load()/12.f; // 12ET ==> npof = 1
                     
                     if ( params[arpIsSequencer] == 1.f ) {
                         
@@ -99,7 +99,7 @@ void S1Sequencer::process(DSPParameters &params, AEArray *heldNoteNumbersAE) {
                             const int onOff = params[(S1Parameter)(i + sequencerNoteOn00)];
                             const int octBoost = params[(S1Parameter)(i + sequencerOctBoost00)];
                             const int nn = params[(S1Parameter)(i + sequencerPattern00)] * npof;
-                            const int nnob = (nn < 0) ? (nn - octBoost * notesPerOctave) : (nn + octBoost * notesPerOctave);
+                            const int nnob = (nn < 0) ? (nn - octBoost * mNotesPerOctave.load()) : (nn + octBoost * mNotesPerOctave.load());
 
                             // sequencer note velocity is reassigned below when constructed sequence is played
                             sequencerNotes.push_back({nnob, onOff, 127});
@@ -198,4 +198,9 @@ int S1Sequencer::getArpBeatCount() {
 
 void S1Sequencer::setSampleRate(double sampleRate) {
     mSampleRate = sampleRate;
+}
+
+void S1Sequencer::setNotesPerOctave(int notes)
+{
+  mNotesPerOctave.store(notes);
 }

@@ -10,12 +10,12 @@ import UIKit
 
 class PresetUIButton: SynthButton {
 
-    // MARK: - Handle Touches
+    // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             self.setNeedsDisplay()
-            self.callback(value)
+            self.setValueCallback(value)
         }
     }
 }

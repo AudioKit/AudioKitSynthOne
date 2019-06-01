@@ -58,7 +58,7 @@ class SequencerPanelController: PanelController {
         arpSeqTempoMultiplier.range = 0...1
         arpSeqTempoMultiplier.taper = 1
         arpSeqTempoMultiplier.value = s.getDependentParameter(.arpSeqTempoMultiplier)
-        arpSeqTempoMultiplier.callback = { value in
+        arpSeqTempoMultiplier.setValueCallback = { value in
             s.setDependentParameter(.arpSeqTempoMultiplier, value, self.conductor.arpSeqTempoMultiplierID)
             self.conductor.updateDisplayLabel(.arpSeqTempoMultiplier, value: s.getSynthParameter(.arpSeqTempoMultiplier))
         }

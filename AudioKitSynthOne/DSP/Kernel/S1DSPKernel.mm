@@ -30,8 +30,18 @@ S1DSPKernel::S1DSPKernel(int _channels, double _sampleRate) :
 S1DSPKernel::~S1DSPKernel() = default;
 
 void S1DSPKernel::init(int _channels, double _sampleRate) {
+    if (mIsInitialized) {
+      destroy();
+    }
     sp->sr = _sampleRate;
     sp->nchan = _channels;
+
+    for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
+      sp_port_create(&s1p[i].portamento);
+    }
+    setupParameterTree(std::nullopt);
+
+    //MONO
     sp_ftbl_create(sp, &sine, S1_FTABLE_SIZE);
     sp_gen_sine(sp, sine);
     sp_phasor_create(&lfo1Phasor);
@@ -42,11 +52,17 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sp_phaser_init(sp, phaser0);
     sp_port_create(&monoFrequencyPort);
     sp_port_init(sp, monoFrequencyPort, 0.05f);
+    sp_port_create(&lfo1Port);
+    static const float kLFOSmoothHalftime = 0.0053125f; // empirical
+    sp_port_init(sp, lfo1Port, kLFOSmoothHalftime);
+    sp_port_create(&lfo2Port);
+    sp_port_init(sp, lfo2Port, kLFOSmoothHalftime);
     sp_osc_create(&panOscillator);
     sp_osc_init(sp, panOscillator, sine, 0.f);
     sp_pan2_create(&pan);
     sp_pan2_init(sp, pan);
-    
+
+    //STEREO
     sp_moogladder_create(&loPassInputDelayL);
     sp_moogladder_init(sp, loPassInputDelayL);
     sp_moogladder_create(&loPassInputDelayR);
@@ -81,7 +97,6 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
 
     heldNoteNumbers = (NSMutableArray<NSValue*>*)[NSMutableArray array];
     heldNoteNumbersAE = [[AEArray alloc] initWithCustomMapping:^void *(id item) {
-        //TODO: Marcus: pretty sure this leaks
         NoteNumber* noteNumber = (NoteNumber*)malloc(sizeof(NoteNumber));
         NSValue* value = (NSValue*)item;
         [value getValue:noteNumber];
@@ -90,16 +105,20 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sequencer.setSampleRate(_sampleRate);
     sequencer.init();
 
-    for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
-        sp_port_create(&s1p[i].portamento);
-    }
+
     _rate.init();
 
+    // intialize dsp tuning table with 12ET
+    for(int i = 0; i < 128; i++) {
+        tuningTable[i].store(440. * exp2((i - 69)/12.));
+    }
+
+    // restore values
     restoreValues(std::nullopt);
+    mIsInitialized = true;
 }
 
-void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
-
+void S1DSPKernel::setupParameterTree(std::optional<DSPParameters> params) {
     // copy dsp values or initialize with default
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
         const float value = (params != std::nullopt) ? (*params)[i] : defaultValue((S1Parameter)i);
@@ -110,6 +129,11 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
         }
         parameters[i] = value;
     }
+}
+
+void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
+
+    setupParameterTree(params);
     updatePortamento(parameters[portamentoHalfTime]);
     _lfo1Rate = {S1Parameter::lfo1Rate, getDependentParameter(lfo1Rate), getSynthParameter(lfo1Rate),0};
     _lfo2Rate = {S1Parameter::lfo2Rate, getDependentParameter(lfo2Rate), getSynthParameter(lfo2Rate),0};
@@ -139,7 +163,30 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
     initializedNoteStates = false;
     aePlayingNotes.polyphony = S1_MAX_POLYPHONY;
 
-    AKPolyphonicNode.tuningTable.middleCFrequency = getSynthParameter(frequencyA4) * exp2((60.f - 69.f)/12.f);
-
     // initializeNoteStates() must be called AFTER init returns, BEFORE process, turnOnKey, and turnOffKey
 }
+
+
+// private tuningTable lookup
+double S1DSPKernel::tuningTableNoteToHz(int noteNumber) {
+    const int nn = clamp(noteNumber, 0, 127);
+    return getTuningTableFrequency(nn);
+}
+
+// S1TuningTable protocol
+void S1DSPKernel::setTuningTable(float frequency, int index) {
+    const int i = clamp(index, 0, 127);
+    tuningTable[i].store(frequency);
+}
+
+float S1DSPKernel::getTuningTableFrequency(int index) {
+    const int i = clamp(index, 0, 127);
+    return tuningTable[i].load();
+}
+
+void S1DSPKernel::setTuningTableNPO(int npo) {
+    tuningTableNPO.store(npo);
+    sequencer.setNotesPerOctave(npo);
+}
+
+

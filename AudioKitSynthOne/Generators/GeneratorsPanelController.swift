@@ -90,13 +90,14 @@ class GeneratorsPanelController: PanelController {
         glideKnob.range = s.getRange(.glide)
         glideKnob.taper = 2
         cutoff.range = s.getRange(.cutoff)
-        cutoff.taper = 3
+        cutoff.taper = 2
         resonance.range = s.getRange(.resonance)
         subVolume.range = s.getRange(.subVolume)
         fmVolume.range = s.getRange(.fmVolume)
         fmAmount.range = s.getRange(.fmAmount)
         noiseVolume.range = s.getRange(.noiseVolume)
         masterVolume.range = s.getRange(.masterVolume)
+        masterVolume.taper = 2
         tempoStepper.maxValue = s.getMaximum(.arpRate)
         tempoStepper.minValue = s.getMinimum(.arpRate)
         conductor.bind(morph1Selector, to: .index1)

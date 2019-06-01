@@ -56,7 +56,7 @@ public class RateKnob: MIDIKnob {
         } else {
             value = Double(knobValue).denormalized(to: range, taper: taper)
         }
-        callback(value)
+        setValueCallback(value)
         lastX = touchPoint.x
         lastY = touchPoint.y
     }

@@ -206,7 +206,7 @@ extension PresetsViewController {
         
         // Remove existing presets
         // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = ["JEC"]
+        let banksToUpdate = ["Sound of Izrael 2"]
         for bankName in banksToUpdate {
 
              if let filePath = Bundle.main.path(forResource: bankName, ofType: "json") {
@@ -243,7 +243,7 @@ extension PresetsViewController {
 
     func setupCallbacks() {
 
-        newButton.callback = { _ in
+        newButton.setValueCallback = { _ in
             let userBankCount = self.presets.filter { $0.bank == self.userBankName }.count
             let initPreset = Preset(position: userBankCount)
             self.presets.append(initPreset)
@@ -257,7 +257,7 @@ extension PresetsViewController {
             self.saveAllPresetsIn(self.currentPreset.bank)
         }
 
-        newBankButton.callback = { _ in
+        newBankButton.setValueCallback = { _ in
 
             // New Bank Name
             let newBankIndex = self.conductor.banks.count
@@ -273,19 +273,19 @@ extension PresetsViewController {
             self.addNewBank(newBankName: newBankName, newBankIndex: newBankIndex)
         }
 
-        importButton.callback = { _ in
+        importButton.setValueCallback = { _ in
             let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
             documentPicker.delegate = self
             self.present(documentPicker, animated: true, completion: nil)
         }
 
-        importBankButton.callback = { _ in
+        importBankButton.setValueCallback = { _ in
             let documentPicker = UIDocumentPickerViewController(documentTypes: [String(kUTTypeText)], in: .import)
             documentPicker.delegate = self
             self.present(documentPicker, animated: true, completion: nil)
         }
 
-        reorderButton.callback = { _ in
+        reorderButton.setValueCallback = { _ in
             self.tableView.isEditing = !self.tableView.isEditing
 
             // Set Categories table to a specific bank
@@ -346,6 +346,8 @@ extension PresetsViewController {
         // Get current Bank
         guard let currentBank = conductor.banks.first(where: { $0.position == bankIndex }) else { return }
         let presetsInBank = presets.filter { $0.bank == currentBank.name }.sorted { $0.position < $1.position }
+
+        if (presetsInBank.count == 0) { return }
 
         // Smoothly cycle through presets if MIDI input is greater than preset count
         let currentPresetIndex = index % (presetsInBank.count)

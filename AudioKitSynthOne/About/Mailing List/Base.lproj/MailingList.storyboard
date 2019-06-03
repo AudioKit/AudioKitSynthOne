@@ -54,7 +54,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! Enter your Email Address below to receive 80+ Free presets  (all 400+ presets). Then press &quot;Get Presets!&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yhG-s7-4JE">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Welcome! Enter your Email Address below to receive 80+ Free presets  (all 400+ presets). Then press &quot;Get Presets!&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yhG-s7-4JE">
                                                 <rect key="frame" x="38" y="35" width="454" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -101,7 +101,7 @@
                                     <action selector="closePressed:" destination="MF2-iC-XFU" eventType="touchUpInside" id="bQY-Jn-dxP"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-Ou-H1q">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-Ou-H1q">
                                 <rect key="frame" x="271" y="546" width="482" height="90"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -186,7 +186,7 @@
                                         <rect key="frame" x="12" y="64" width="528" height="191"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x2Q-di-IOB">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x2Q-di-IOB">
                                                 <rect key="frame" x="23" y="27" width="482" height="84"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -320,7 +320,7 @@
                                         <rect key="frame" x="0.0" y="51" width="560" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UCo-Ig-YfL">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UCo-Ig-YfL">
                                                 <rect key="frame" x="39" y="38" width="482" height="91"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -466,7 +466,7 @@
                                                 <rect key="frame" x="168" y="8" width="224" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome! Enter your Email Address below to receive 80+ Free presets  (all 400+ presets). Then press &quot;Get Presets!&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KTd-K9-yFy">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Welcome! Enter your Email Address below to receive 80+ Free presets  (all 400+ presets). Then press &quot;Get Presets!&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KTd-K9-yFy">
                                                 <rect key="frame" x="39" y="33" width="482" height="54"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

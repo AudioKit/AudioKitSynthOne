@@ -2345,7 +2345,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */;
 			buildSettings = {
-				ABLETON_ENABLED = 0;
+				ABLETON_ENABLED = 1;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2387,7 +2387,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */;
 			buildSettings = {
-				ABLETON_ENABLED = 0;
+				ABLETON_ENABLED = 1;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

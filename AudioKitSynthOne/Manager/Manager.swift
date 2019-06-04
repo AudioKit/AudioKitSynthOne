@@ -213,7 +213,6 @@ public class Manager: UpdatableViewController {
         /// transpose
         transposeStepper.minValue = s.getMinimum(.transpose)
         transposeStepper.maxValue = s.getMaximum(.transpose)
-        transposeStepper.value = s.getDefault(.transpose)
 
         // Make bluetooth button look pretty
         bluetoothButton.centerPopupIn(view: view)

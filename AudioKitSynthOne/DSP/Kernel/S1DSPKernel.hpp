@@ -500,7 +500,7 @@ private:
         { delayInputResonance, 0, 0.0, 0.98, "delayInputResonance", "delayInputResonance", kAudioUnitParameterUnit_Generic, false, NULL},
         { tempoSyncToArpRate, 0, 1, 1, "tempoSyncToArpRate", "tempoSyncToArpRate", kAudioUnitParameterUnit_Generic, false, NULL},
         
-        { pitchbend,              0, 8192, 16383, "pitchbend", "pitchbend", kAudioUnitParameterUnit_Generic, true, NULL},
+        { pitchbend,              0, 8192, 16383, "pitchbend", "pitchbend", kAudioUnitParameterUnit_Generic, false, NULL},
         { pitchbendMinSemitones,  -24, -12, 0, "pitchbendMinSemitones", "pitchbendMinSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         { pitchbendMaxSemitones,  0, 12, 24, "pitchbendMaxSemitones", "pitchbendMaxSemitones", kAudioUnitParameterUnit_Generic, false, NULL},
         

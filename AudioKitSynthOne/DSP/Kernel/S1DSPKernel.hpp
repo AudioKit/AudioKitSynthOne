@@ -20,6 +20,7 @@
 #import "S1Rate.hpp"
 #import "../Sequencer/S1Sequencer.hpp"
 #import "S1DSPCompressor.hpp"
+#import "S1DSPMoogLadder.hpp"
 
 @class AEArray;
 @class AEMessageQueue;
@@ -300,8 +301,8 @@ private:
     sp_osc *panOscillator;
     sp_phaser *phaser0;
     
-    sp_moogladder *loPassInputDelayL;
-    sp_moogladder *loPassInputDelayR;
+    S1DSPMoogLadder loPassInputDelayL;
+    S1DSPMoogLadder loPassInputDelayR;
     sp_vdelay *delayL;
     sp_vdelay *delayR;
     sp_vdelay *delayRR;

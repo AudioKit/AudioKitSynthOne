@@ -286,6 +286,7 @@
 		45E1A7C3C54D27427C4A71B1 /* Pods_AKS1Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKS1Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
 		5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		69A881EA22ABB21600217688 /* S1DSPMoogLadder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1DSPMoogLadder.hpp; sourceTree = "<group>"; };
 		69E4E45622381DF90049F0EA /* S1DSPCompressor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1DSPCompressor.hpp; sourceTree = "<group>"; };
 		90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.release.xcconfig"; sourceTree = "<group>"; };
 		9405503A210556C20039F101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -1030,6 +1031,7 @@
 			isa = PBXGroup;
 			children = (
 				69E4E45622381DF90049F0EA /* S1DSPCompressor.hpp */,
+				69A881EA22ABB21600217688 /* S1DSPMoogLadder.hpp */,
 				C435C57720C530C900DAECCD /* S1DSPKernel.hpp */,
 				C435C57620C530C900DAECCD /* S1DSPKernel.mm */,
 				C4B490E520C649D900FD565A /* S1DSPKernel+destroy.mm */,
@@ -1681,7 +1683,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChimpKit/ChimpKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 			);
@@ -1692,7 +1694,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4421AA920B81D0500BE9F12 /* ShellScript */ = {
@@ -2355,6 +2357,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9W69ZP8S5F;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AudioKitSynthOne/Info.plist;

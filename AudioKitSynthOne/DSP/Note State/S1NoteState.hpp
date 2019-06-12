@@ -14,6 +14,7 @@
 #import <string>
 #import "AudioKit/AKSoundpipeKernel.hpp"
 #import "S1AudioUnit.h"
+#import "S1DSPMoogLadder.hpp"
 #import "S1Parameter.h"
 #import "S1Rate.hpp"
 
@@ -66,7 +67,7 @@ struct S1NoteState {
     sp_noise *noise;
     
     //FILTERS
-    sp_moogladder *loPass;
+    S1DSPMoogLadder loPass;
     sp_buthp *hiPass;
     sp_butbp *bandPass;
     sp_crossfade *filterCrossFade;

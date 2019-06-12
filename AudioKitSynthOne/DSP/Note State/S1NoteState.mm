@@ -78,8 +78,7 @@ void S1NoteState::init() {
     sp_noise_init(kernel->spp(), noise);
     
     // FILTER
-    sp_moogladder_create(&loPass);
-    sp_moogladder_init(kernel->spp(), loPass);
+    loPass = S1DSPMoogLadder(kernel->sampleRate());
     sp_butbp_create(&bandPass);
     sp_butbp_init(kernel->spp(), bandPass);
     sp_buthp_create(&hiPass);
@@ -97,7 +96,6 @@ void S1NoteState::destroy() {
     sp_osc_destroy(&subOsc);
     sp_fosc_destroy(&fmOsc);
     sp_noise_destroy(&noise);
-    sp_moogladder_destroy(&loPass);
     sp_butbp_destroy(&bandPass);
     sp_buthp_destroy(&hiPass);
 }
@@ -284,7 +282,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
         filterResonance *= lfo3_1_0;
     filterResonance = kernel->clampedValue(resonance, filterResonance);
     if (getParam(filterType) == 0) {
-        loPass->res = filterResonance;
+        loPass.setResonance(filterResonance);
     } else if (getParam(filterType) == 1) {
         // bandpass bandwidth is a different unit than lopass resonance.
         // take advantage of the range of resonance [0,1].
@@ -330,7 +328,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     // filter frequency mixer
     filterCutoffFreq -= filterCutoffFreq * filterEnvLFOMix * (1.f - filter);
     filterCutoffFreq = kernel->clampedValue(cutoff, filterCutoffFreq);
-    loPass->freq = filterCutoffFreq;
+    loPass.setCutoff(filterCutoffFreq);
     bandPass->freq = filterCutoffFreq;
     hiPass->freq = filterCutoffFreq;
     
@@ -386,8 +384,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     float synthOut = amp * kt2 * (osc_morph_out + subOsc_out + fmOsc_out + noise_out);
 
     //filterOut:  Always calcuate all filters so when user switches the buffers are up-to-date.
-    float moogOut;
-    sp_moogladder_compute(kernel->spp(), loPass, &synthOut, &moogOut);
+    float moogOut = loPass.process(synthOut);
     float bandOut;
     sp_butbp_compute(kernel->spp(), bandPass, &synthOut, &bandOut);
     float hipassOut;

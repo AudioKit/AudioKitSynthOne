@@ -188,6 +188,7 @@
 		EA388CFC210548460026C0C0 /* Dev.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA388CFE210548460026C0C0 /* Dev.storyboard */; };
 		EA388D1C21071BD50026C0C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA388D1A21071BD50026C0C0 /* InfoPlist.strings */; };
 		EA388D1F21071BD50026C0C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA388D1D21071BD50026C0C0 /* Localizable.strings */; };
+		F473515722A0D63900869AFB /* TuningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F473515622A0D63900869AFB /* TuningsViewController.swift */; };
 		F47C27E42207C12100CA7541 /* Tunings+TuneUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */; };
 		F47C27E62207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C27E52207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift */; };
 		F482CC2C2123CDE70093ADC8 /* triangle_0674.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CBF62123CDE70093ADC8 /* triangle_0674.json */; };
@@ -623,6 +624,7 @@
 		EA388D2221071C170026C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EA388D2721071C330026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F437E99E20EB22D00096FEAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F473515622A0D63900869AFB /* TuningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsViewController.swift; sourceTree = "<group>"; };
 		F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+TuneUp.swift"; sourceTree = "<group>"; };
 		F47C27E52207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuningsPanel+TuneUpDelegate.swift"; sourceTree = "<group>"; };
 		F482CBF62123CDE70093ADC8 /* triangle_0674.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = triangle_0674.json; sourceTree = "<group>"; };
@@ -1147,6 +1149,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B4915720C7C70D00FD565A /* TuningsPanelController.swift */,
+				F473515622A0D63900869AFB /* TuningsViewController.swift */,
 				F47C27E52207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift */,
 				C4B4915620C7C70D00FD565A /* TuningsPanel+UITableViewDataSource.swift */,
 				C4B4915520C7C70D00FD565A /* TuningsPanel+UITableViewDelegate.swift */,
@@ -1900,6 +1903,7 @@
 				C435C57820C530C900DAECCD /* Conductor.swift in Sources */,
 				C4B490F520C6542500FD565A /* S1DSPKernel+parameters.mm in Sources */,
 				C4B4912220C7C65000FD565A /* ModWheelStyleKit.swift in Sources */,
+				F473515722A0D63900869AFB /* TuningsViewController.swift in Sources */,
 				C45DF29C21016A0E000AB3FD /* LinkExtensions.swift in Sources */,
 				C4B4918E20C7C7A400FD565A /* Manager+PresetsDelegate.swift in Sources */,
 			);

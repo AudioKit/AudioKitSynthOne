@@ -73,7 +73,7 @@ class AppSettings: Codable {
     // Save State
     var currentBankIndex = 0
     var currentPresetIndex = 0
-    var currentTuningBankIndex = Tunings.bundleBankIndex
+    var currentTuningBankIndex = 0
 
     // MARK: - MIDI Learn Settings
 

@@ -18,14 +18,17 @@ extension Tunings {
 
     // MARK: TuneUp D1 and Wilsonic
     public func launchD1() {
+
         redirect(to: "digitald1", appStoreUrl: "https://itunes.apple.com/us/app/audiokit-digital-d1-synth/id1436905540")
     }
 
     public func launchWilsonic() {
+
         redirect(to: "wilsonic", appStoreUrl: "https://itunes.apple.com/us/app/wilsonic/id848852071")
     }
 
     private func redirect(to host:String, appStoreUrl:String) {
+
         let npo = self.masterSet.count
         let tuneUpArgs = host + "://tune?"
         var urlStr = "\(tuneUpArgs)tuningName=\(tuningName)&npo=\(npo)"
@@ -54,7 +57,10 @@ extension Tunings {
 
     // MARK: TuneUp BackButton
 
-    public var tuneUpBackButtonDefaultText: String { return "TuneUp" }
+    public var tuneUpBackButtonDefaultText: String {
+        
+        return "TuneUp"
+    }
 
     public func tuneUpBackButton() {
 
@@ -153,6 +159,7 @@ extension Tunings {
     }
 
     private func openScala(atUrl url: URL) -> Bool {
+
         AKLog("opening scala file at full path:\(url.path)")
 
         let tt = AKTuningTable()
@@ -207,6 +214,7 @@ extension AKTuningTable {
     }
 
     fileprivate func stringTrimmedForLeadingAndTrailingWhiteSpacesFromString2(_ inputString: String?) -> String? {
+
         guard let string = inputString else {
             return nil
         }
@@ -233,6 +241,7 @@ extension AKTuningTable {
 
     /// Get frequencies from a Scala string
     open func frequencies2(fromScalaString rawStr: String?) -> [Frequency]? {
+
         guard let inputStr = rawStr else {
             return nil
         }
@@ -392,5 +401,4 @@ extension AKTuningTable {
         AKLog("frequencies: \(scalaFrequencies)")
         return scalaFrequencies
     }
-
 }

@@ -219,12 +219,12 @@ void S1DSPKernel::process(AUAudioFrameCount frameCount, AUAudioFrameCount buffer
             const float oscFilterResonance = 0.f; // constant
             float oscFilterFreqCutoff = pval1 * oscFilterFreqCutoffPercentage;
             oscFilterFreqCutoff = clampedValue(cutoff, oscFilterFreqCutoff);
-            loPassInputDelayL.setCutoff(oscFilterFreqCutoff);
-            loPassInputDelayL.setResonance(oscFilterResonance);
-            loPassInputDelayR.setCutoff(oscFilterFreqCutoff);
-            loPassInputDelayR.setResonance(oscFilterResonance);
-            delayInputLowPassOutL = loPassInputDelayL.process(phaserOutL);
-            delayInputLowPassOutR = loPassInputDelayR.process(phaserOutR);
+            loPassInputDelayL->freq = oscFilterFreqCutoff;
+            loPassInputDelayL->res = oscFilterResonance;
+            loPassInputDelayR->freq = oscFilterFreqCutoff;
+            loPassInputDelayR->res = oscFilterResonance;
+            sp_moogladder_compute(sp, loPassInputDelayL, &phaserOutL, &delayInputLowPassOutL);
+            sp_moogladder_compute(sp, loPassInputDelayR, &phaserOutR, &delayInputLowPassOutR);
         }
 
         // PING PONG DELAY

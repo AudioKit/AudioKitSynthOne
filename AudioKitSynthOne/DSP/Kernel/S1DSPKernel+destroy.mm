@@ -21,6 +21,8 @@ void S1DSPKernel::destroy() {
     sp_phaser_destroy(&phaser0);
     sp_osc_destroy(&panOscillator);
     sp_pan2_destroy(&pan);
+    sp_moogladder_destroy(&loPassInputDelayL);
+    sp_moogladder_destroy(&loPassInputDelayR);
     sp_vdelay_destroy(&delayL);
     sp_vdelay_destroy(&delayR);
     sp_vdelay_destroy(&delayRR);

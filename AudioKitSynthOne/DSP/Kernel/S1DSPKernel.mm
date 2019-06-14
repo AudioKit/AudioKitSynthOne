@@ -63,8 +63,10 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
     sp_pan2_init(sp, pan);
 
     //STEREO
-    loPassInputDelayL = S1DSPMoogLadder(_sampleRate);
-    loPassInputDelayR = S1DSPMoogLadder(_sampleRate);
+    sp_moogladder_create(&loPassInputDelayL);
+    sp_moogladder_init(sp, loPassInputDelayL);
+    sp_moogladder_create(&loPassInputDelayR);
+    sp_moogladder_init(sp, loPassInputDelayR);
     sp_vdelay_create(&delayL);
     sp_vdelay_create(&delayR);
     sp_vdelay_create(&delayRR);
@@ -150,10 +152,10 @@ void S1DSPKernel::restoreValues(std::optional<DSPParameters> params) {
     *phaser0->invert = 0;
     *phaser0->lfobpm = 30;
 
-    loPassInputDelayL.setCutoff(getSynthParameter(cutoff));
-    loPassInputDelayL.setResonance(getSynthParameter(delayInputResonance));
-    loPassInputDelayR.setCutoff(getSynthParameter(cutoff));
-    loPassInputDelayR.setResonance(getSynthParameter(delayInputResonance));
+    loPassInputDelayL->freq = getSynthParameter(cutoff);
+    loPassInputDelayL->res = getSynthParameter(delayInputResonance);
+    loPassInputDelayR->freq = getSynthParameter(cutoff);
+    loPassInputDelayR->res = getSynthParameter(delayInputResonance);
 
     // Reserve arp note cache to reduce possibility of reallocation on audio thread.
     sequencer.init();

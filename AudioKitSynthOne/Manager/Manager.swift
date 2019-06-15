@@ -213,7 +213,6 @@ public class Manager: UpdatableViewController {
         /// transpose
         transposeStepper.minValue = s.getMinimum(.transpose)
         transposeStepper.maxValue = s.getMaximum(.transpose)
-        transposeStepper.value = s.getDefault(.transpose)
 
         // Make bluetooth button look pretty
         bluetoothButton.centerPopupIn(view: view)
@@ -469,7 +468,7 @@ public class Manager: UpdatableViewController {
         let isMono = s.getSynthParameter(.isMono)
         if isMono != monoButton.value {
             monoButton.value = isMono
-            self.keyboardView.polyphonicMode = (isMono == 0) ? false : true
+            self.keyboardView.polyphonicMode = (isMono == 0) ? true : false
         }
         
         if parameter == .cutoff {

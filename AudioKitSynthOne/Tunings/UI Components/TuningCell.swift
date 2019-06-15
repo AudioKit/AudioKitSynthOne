@@ -28,14 +28,18 @@ class TuningCell: UITableViewCell {
 
     // MARK: - Configure Cell
 
-    func configureCell() {
+    func configureCell(fontSize: Int = 12) {
+
+        textLabel?.adjustsFontSizeToFitWidth = true
+        textLabel?.font = UIFont(name: "Avenir Next", size: CGFloat(fontSize))!
+        textLabel?.isOpaque = false
+        textLabel?.backgroundColor = UIColor.clear
         isOpaque = false
         backgroundColor = UIColor.clear
         selectionStyle = .none
-        textLabel?.font = UIFont(name: "Avenir Next", size: 12)!
-        textLabel?.isOpaque = false
-        textLabel?.backgroundColor = UIColor.clear
         contentView.isOpaque = false
         contentView.backgroundColor = UIColor.clear
+        separatorInset = UIEdgeInsets.zero
+        layoutMargins = UIEdgeInsets.zero
     }
 }

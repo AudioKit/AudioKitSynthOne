@@ -117,6 +117,9 @@ void S1NoteState::startNoteHelper(int noteNumber, int vel, float frequency) {
     subOsc->freq = frequency;
     fmOsc->freq = frequency;
 
+    sp_adsr_init(kernel->spp(), adsr);
+    sp_adsr_init(kernel->spp(), fadsr);
+
     velocity = vel;
     const float amplitude = (float)pow2(velocity / 127.f);
     oscmorph1->amp = amplitude;

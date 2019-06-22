@@ -29,10 +29,10 @@ extension TuningsPanelController: UITableViewDelegate {
             tuningBankTableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
 
             // don't push if tuningViewController is on the stack
-            let push = tuningNavController.viewControllers.contains { vc in
-                return vc === tuningViewController ? false : true
+            let tuningVCOnStack = tuningNavController.viewControllers.contains { vc in
+                return vc === tuningViewController ? true : false
             }
-            if push {
+            if !tuningVCOnStack {
                 tuningNavController.pushViewController(tuningViewController, animated: true)
             }
         } else {

@@ -350,7 +350,7 @@ final class Tunings {
         tuningName = tuning.name
         masterSet = tuning.masterSet
         _ = AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
-         tuningDidChange()
+        tuningDidChange()
         saveTunings()
     }
 

@@ -176,10 +176,20 @@ extension PresetsViewController {
 
     func selectCurrentPreset() {
         // Find the preset in the current view
-        if let index = sortedPresets.firstIndex(where: { $0 === currentPreset }) {
-            tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
-        } else {
-            tableView.setContentOffset(CGPoint.zero, animated: false)
+        if resultSearchController.isActive {
+            if let index = filteredTableData.firstIndex(where: { $0 === currentPreset }) {
+                tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
+            } else {
+                tableView.setContentOffset(CGPoint.zero, animated: false)
+            }
+        }
+        else
+        {
+            if let index = sortedPresets.firstIndex(where: { $0 === currentPreset }) {
+                tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
+            } else {
+                tableView.setContentOffset(CGPoint.zero, animated: false)
+            }
         }
 
         // Update all UI
@@ -354,6 +364,7 @@ extension PresetsViewController {
 
         currentPreset = presetsInBank[currentPresetIndex]
         selectCurrentPreset()
+        self.resultSearchController.dismiss(animated: true, completion: nil)
     }
 
     // Used for Selecting Bank from MIDI msb (cc0)
@@ -371,7 +382,7 @@ extension PresetsViewController {
         selectCategory(PresetCategory.bankStartingIndex + newBankIndex)
         categoryIndex = PresetCategory.bankStartingIndex + newBankIndex
     }
-
+    
     func randomPreset() {
         deselectCurrentRow()
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rcc-ic-tm2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rcc-ic-tm2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -245,7 +245,7 @@
                                 </attributedString>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPo-K7-EQJ" userLabel="Random Button">
-                                <rect key="frame" x="676" y="6" width="30" height="28"/>
+                                <rect key="frame" x="325" y="6" width="30" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" hint="Selects Random Preset." identifier="RandomButton" label="Random"/>
@@ -254,6 +254,18 @@
                                 </state>
                                 <connections>
                                     <action selector="randomPressed:" destination="rcc-ic-tm2" eventType="touchUpInside" id="M74-qj-fwK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kjf-qA-nep" userLabel="Search Button">
+                                <rect key="frame" x="674" y="6" width="30" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" hint="Search Presets." identifier="SearchButton" label="Search"/>
+                                <state key="normal" title="🔎">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchPressed:" destination="rcc-ic-tm2" eventType="touchUpInside" id="ZKY-s3-j4q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -279,6 +291,7 @@
                         <outlet property="morePresetsButton" destination="qXZ-Yq-KK5" id="vVl-of-twM"/>
                         <outlet property="panicButton" destination="l9q-RV-KkX" id="1WG-lh-maU"/>
                         <outlet property="saveButton" destination="NL0-Jf-tHi" id="cFS-m9-Sfs"/>
+                        <outlet property="searchtoolButton" destination="Kjf-qA-nep" id="1fg-r7-Rts"/>
                         <outlet property="webButton" destination="PpV-eX-q12" id="3vl-5y-pkd"/>
                     </connections>
                 </viewController>
@@ -432,8 +445,20 @@
                                     </fragment>
                                 </attributedString>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vad-td-h9g" userLabel="Search Button">
+                                <rect key="frame" x="460" y="5" width="30" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" hint="Search Presets." identifier="SearchButton" label="Search"/>
+                                <state key="normal" title="🔎">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchPressed:" destination="kFP-tD-Zjz" eventType="touchUpInside" id="Ppu-2e-JhB"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbl-2s-GME" customClass="PresetUIButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="478" y="4" width="21" height="18"/>
+                                <rect key="frame" x="499" y="4" width="21" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Saves Preset." identifier="SaveButton" label="Save"/>
@@ -574,6 +599,7 @@
                         <outlet property="morePresetsButton" destination="LPT-9M-vCO" id="m0n-cq-8Fc"/>
                         <outlet property="panicButton" destination="geY-L5-dwi" id="WBV-qy-Sj5"/>
                         <outlet property="saveButton" destination="dbl-2s-GME" id="gfK-HI-f1Y"/>
+                        <outlet property="searchtoolButton" destination="vad-td-h9g" id="4Mp-ps-Fdh"/>
                         <outlet property="webButton" destination="hob-Ub-4zN" id="mda-Do-ThY"/>
                     </connections>
                 </viewController>
@@ -588,7 +614,7 @@
         <image name="iPhoneheaderback" width="667" height="38"/>
         <image name="left-arrow" width="20" height="20"/>
         <image name="right-arrow" width="20" height="20"/>
-        <image name="s1_logo" width="196" height="28"/>
+        <image name="s1_logo" width="98" height="14"/>
         <image name="saveDisk" width="20" height="20"/>
     </resources>
 </document>

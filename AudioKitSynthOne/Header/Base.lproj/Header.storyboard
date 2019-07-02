@@ -299,10 +299,10 @@
             </objects>
             <point key="canvasLocation" x="-814.39999999999998" y="-1163.1184407796102"/>
         </scene>
-        <!--Header-->
+        <!--iPhone Header-->
         <scene sceneID="Tqo-cw-94I">
             <objects>
-                <viewController storyboardIdentifier="iPhoneHeaderVC" id="kFP-tD-Zjz" userLabel="Header" customClass="HeaderViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="iPhoneHeaderVC" id="kFP-tD-Zjz" userLabel="iPhone Header" customClass="HeaderViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S13-Ww-SRM"/>
                         <viewControllerLayoutGuide type="bottom" id="kFl-vc-E9w"/>

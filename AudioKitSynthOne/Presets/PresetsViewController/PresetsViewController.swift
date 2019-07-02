@@ -79,16 +79,12 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
     
     func showSearch() {
         if !resultSearchController.isActive {
-            resultSearchController.searchBar.isHidden = false
             resultSearchController.isActive = true
-            resultSearchController.show(self, sender: self.tableView)
         }
     }
     
     func dismissSearch(){
-        resultSearchController.dismiss(animated: true, completion: nil)
-        resultSearchController.searchBar.isHidden = true
-        tableView.setContentOffset(CGPoint.zero, animated: false)
+          resultSearchController.isActive = false
         selectCurrentPreset()
     }
 
@@ -153,6 +149,7 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
             controller.searchBar.keyboardAppearance = UIKeyboardAppearance.dark
             controller.searchBar.sizeToFit()
             searchBar = controller.searchBar
+            tableView.backgroundView = UIView() // removes white background when pulling down search at top of list
             tableView.tableHeaderView = searchBar
             return controller
         })()

@@ -182,6 +182,7 @@ extension PresetsViewController {
             } else {
                 tableView.setContentOffset(CGPoint.zero, animated: false)
             }
+            dismissSearch()
         }
         else
         {

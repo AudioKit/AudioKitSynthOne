@@ -397,8 +397,9 @@ public class HeaderViewController: UpdatableViewController {
     @IBAction func searchPressed(_ sender: UIButton) {
         // Animate Search
         UIView.animate(withDuration: 0.4, animations: {
-            for _ in 0 ... 2 {
-                self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 0.75, y: 0.75)
+            for _ in 0 ... 1 {
+                self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 0.5, y: 0.5)
+                self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 2, y: 2)
             }
         })
         

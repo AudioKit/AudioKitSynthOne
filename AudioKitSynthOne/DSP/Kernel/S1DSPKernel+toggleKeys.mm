@@ -150,6 +150,8 @@ void S1DSPKernel::turnOffKey(int noteNumber) {
             if (note.stage != S1NoteState::stageOff) {
                 note.stage = S1NoteState::stageRelease;
                 note.internalGate = 0;
+                sp_adsr_compute(sp, note.adsr, &note.internalGate, &note.amp);
+                sp_adsr_compute(sp, note.fadsr, &note.internalGate, &note.filter);
             }
         } else {
 

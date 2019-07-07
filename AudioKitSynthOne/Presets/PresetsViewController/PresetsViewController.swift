@@ -39,12 +39,14 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
     @IBOutlet weak var presetDescriptionField: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var doneEditingButton: UIButton!
+    @IBOutlet weak var searchtoolButton: SynthButton!
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.change(textFont: UIFont(name: "AvenirNext-Regular", size: UIFont.systemFontSize)!)
         }
     }
-    @IBOutlet weak var searchtoolButton: UIButton!
+    
+
     
     var presets = [Preset]() {
         didSet {
@@ -84,7 +86,7 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
     }
     
     func dismissSearch(){
-          resultSearchController.isActive = false
+        resultSearchController.isActive = false
         selectCurrentPreset()
     }
 

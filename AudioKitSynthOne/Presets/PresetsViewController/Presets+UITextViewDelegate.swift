@@ -22,6 +22,9 @@ extension PresetsViewController: UITextViewDelegate {
 
     func textViewDidEndEditing(_ textView: UITextView) {
         doneEditingButton.isHidden = true
+        if conductor.device == .pad {
+            searchtoolButton.isHidden = false
+        }
         if conductor.device == .phone {
             newButton.isHidden = false
             importBankButton.isHidden = false
@@ -30,6 +33,9 @@ extension PresetsViewController: UITextViewDelegate {
 
     func textViewDidBeginEditing(_ textView: UITextView) {
         doneEditingButton.isHidden = false
+        if conductor.device == .pad {
+            searchtoolButton.isHidden = true
+        }
         if conductor.device == .phone {
            newButton.isHidden = true
            importBankButton.isHidden = true

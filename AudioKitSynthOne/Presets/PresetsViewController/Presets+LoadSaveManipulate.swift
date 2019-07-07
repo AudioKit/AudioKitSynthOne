@@ -240,8 +240,6 @@ extension PresetsViewController {
                 saveAllPresetsIn(bankName)
             }
         }
-
-     
     }
 
     func addBonusPresets() {
@@ -269,7 +267,6 @@ extension PresetsViewController {
         }
 
         newBankButton.setValueCallback = { _ in
-
             // New Bank Name
             let newBankIndex = self.conductor.banks.count
             let newBankName = "Bank\(newBankIndex)"
@@ -320,19 +317,27 @@ extension PresetsViewController {
                 self.selectCurrentPreset()
             }
         }
+        
+        searchtoolButton.setValueCallback = { value in
+            if self.searchtoolButton.isSelected {
+                // Animate Search
+                UIView.animate(withDuration: 0.4, animations: {
+                    for _ in 0 ... 1 {
+                        self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 0.5, y: 0.5)
+                        self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 2, y: 2)
+                    }
+                })
+                
+                self.showSearch()
+            } else {
+                self.dismissSearch()
+            }
+        }
 
     }
     
     @IBAction func searchPressed(_ sender: UIButton) {
-        // Animate Search
-        UIView.animate(withDuration: 0.4, animations: {
-            for _ in 0 ... 1 {
-                self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 0.5, y: 0.5)
-                self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 2, y: 2)
-            }
-        })
-        
-        showSearch() 
+      
     }
 
     func nextPreset() {

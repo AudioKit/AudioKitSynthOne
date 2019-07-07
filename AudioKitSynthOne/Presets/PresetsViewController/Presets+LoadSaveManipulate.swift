@@ -335,10 +335,6 @@ extension PresetsViewController {
         }
 
     }
-    
-    @IBAction func searchPressed(_ sender: UIButton) {
-      
-    }
 
     func nextPreset() {
         let presetBank = presets.filter { $0.bank == currentPreset.bank }.sorted { $0.position < $1.position }

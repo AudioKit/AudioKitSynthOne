@@ -16,6 +16,7 @@ protocol PresetsDelegate: AnyObject {
     func saveEditedPreset(name: String, category: Int, bank: String)
     func banksDidUpdate()
 }
+
 extension UISearchBar {
     func change(textFont: UIFont!) {
         for view : UIView in (self.subviews[0]).subviews {
@@ -40,13 +41,12 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var doneEditingButton: UIButton!
     @IBOutlet weak var searchtoolButton: SynthButton!
-    @IBOutlet weak var searchBar: UISearchBar! {
+    
+    var searchBar: UISearchBar! {
         didSet {
             searchBar.change(textFont: UIFont(name: "AvenirNext-Regular", size: UIFont.systemFontSize)!)
         }
     }
-    
-
     
     var presets = [Preset]() {
         didSet {
@@ -82,11 +82,14 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
     func showSearch() {
         if !resultSearchController.isActive {
             resultSearchController.isActive = true
+            tableView.tableHeaderView = searchBar
         }
     }
     
     func dismissSearch(){
         resultSearchController.isActive = false
+        tableView.tableHeaderView = nil
+        searchtoolButton.value = 0
         selectCurrentPreset()
     }
 

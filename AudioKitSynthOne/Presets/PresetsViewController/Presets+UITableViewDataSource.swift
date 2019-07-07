@@ -21,27 +21,39 @@ extension PresetsViewController: UITableViewDataSource {
         if sortedPresets.isEmpty {
             return 0
         } else {
-            return sortedPresets.count
+            if  (resultSearchController.isActive) {
+                return filteredTableData.count
+            } else {
+                return sortedPresets.count
+            }
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         // Get current preset
-        let preset = sortedPresets[(indexPath as NSIndexPath).row]
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PresetCell") as? PresetCell {
 
-            cell.delegate = self
-            
             var alphabetical = false
             if categoryIndex == PresetCategory.categoryCount + 1 { alphabetical = true }
 
-            // Cell updated in PresetCell.swift
-            cell.configureCell(preset: preset, alpha: alphabetical)
+            if (resultSearchController.isActive) {
+                let preset = filteredTableData[(indexPath as NSIndexPath).row]
+                cell.delegate = self
+                // Cell updated in PresetCell.swift
+                cell.configureCell(preset: preset, alpha: alphabetical)
 
-            return cell
+                return cell
+            }
+            else {
+                let preset = sortedPresets[(indexPath as NSIndexPath).row]
+                cell.delegate = self
+                // Cell updated in PresetCell.swift
+                cell.configureCell(preset: preset, alpha: alphabetical)
 
+                return cell
+            }
         } else {
             return PresetCell()
         }

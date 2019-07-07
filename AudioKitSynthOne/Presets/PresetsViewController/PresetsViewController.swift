@@ -16,8 +16,18 @@ protocol PresetsDelegate: AnyObject {
     func saveEditedPreset(name: String, category: Int, bank: String)
     func banksDidUpdate()
 }
-
-class PresetsViewController: UIViewController {
+extension UISearchBar {
+    
+    func change(textFont : UIFont!) {
+        
+        for view : UIView in (self.subviews[0]).subviews {
+            
+            if let textField = view as? UITextField {
+                textField.font = textFont
+            }
+        }
+    } }
+class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var newButton: SynthButton!
     @IBOutlet weak var importButton: SynthButton!
@@ -30,6 +40,11 @@ class PresetsViewController: UIViewController {
     @IBOutlet weak var presetDescriptionField: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var doneEditingButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.change(textFont: UIFont(name: "AvenirNext-Regular", size: UIFont.systemFontSize)!)
+        }
+    }
 
     var presets = [Preset]() {
         didSet {
@@ -48,6 +63,50 @@ class PresetsViewController: UIViewController {
             createActivePreset()
             presetDescriptionField.text = currentPreset.userText
             categoryLabel.text = PresetCategory(rawValue: currentPreset.category)?.description()
+            if resultSearchController.isActive {
+                self.dismissSearch()
+            }
+        }
+    }
+
+    var filteredTableData = [Preset]()
+    var resultSearchController = UISearchController(searchResultsController: nil)
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // called when cancel button pressed
+        self.dismissSearch()
+    }
+    
+    func showSearch() {
+        if !resultSearchController.isActive {
+            resultSearchController.isActive = true
+        }
+    }
+    
+    func dismissSearch(){
+          resultSearchController.isActive = false
+        selectCurrentPreset()
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            if !searchText.isEmpty {
+                filteredTableData.removeAll()
+                let compareText = searchText.lowercased();
+                for index in 0..<sortedPresets.count {
+                    if sortedPresets[index].name.lowercased().contains(
+                        compareText) ||
+                        sortedPresets[index].userText.lowercased().contains(
+                            compareText) {
+                        filteredTableData.append(sortedPresets[index])
+                    }
+                }
+            }
+            else {
+                filteredTableData = sortedPresets
+            }
+            tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
 
@@ -73,10 +132,31 @@ class PresetsViewController: UIViewController {
 
     weak var presetsDelegate: PresetsDelegate?
 
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.searchBar.delegate = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.hidesNavigationBarDuringPresentation = false
+            controller.searchBar.barStyle = UIBarStyle.black
+            controller.searchBar.showsCancelButton = true
+            controller.searchBar.keyboardAppearance = UIKeyboardAppearance.dark
+            controller.searchBar.sizeToFit()
+            searchBar = controller.searchBar
+            tableView.backgroundView = UIView() // removes white background when pulling down search at top of list
+            tableView.tableHeaderView = searchBar
+            return controller
+        })()
+
+        definesPresentationContext = true
+        // Reload the table
+        tableView.reloadData()
 
         // Preset Description TextField
         presetDescriptionField.delegate = self

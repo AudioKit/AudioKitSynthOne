@@ -38,22 +38,19 @@ extension PresetsViewController: UITableViewDataSource {
             var alphabetical = false
             if categoryIndex == PresetCategory.categoryCount + 1 { alphabetical = true }
 
-            if (resultSearchController.isActive) {
-                let preset = filteredTableData[(indexPath as NSIndexPath).row]
-                cell.delegate = self
-                // Cell updated in PresetCell.swift
-                cell.configureCell(preset: preset, alpha: alphabetical)
-
-                return cell
+            var preset = Preset()
+            if resultSearchController.isActive {
+                preset = filteredTableData[(indexPath as NSIndexPath).row]
+            } else {
+                preset = sortedPresets[(indexPath as NSIndexPath).row]
             }
-            else {
-                let preset = sortedPresets[(indexPath as NSIndexPath).row]
-                cell.delegate = self
-                // Cell updated in PresetCell.swift
-                cell.configureCell(preset: preset, alpha: alphabetical)
-
-                return cell
-            }
+            
+            cell.delegate = self
+            
+            // Cell updated in PresetCell.swift
+            cell.configureCell(preset: preset, alpha: alphabetical)
+            
+            return cell
         } else {
             return PresetCell()
         }

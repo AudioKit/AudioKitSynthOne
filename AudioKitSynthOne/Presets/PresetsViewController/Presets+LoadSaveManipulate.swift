@@ -322,6 +322,18 @@ extension PresetsViewController {
         }
 
     }
+    
+    @IBAction func searchPressed(_ sender: UIButton) {
+        // Animate Search
+        UIView.animate(withDuration: 0.4, animations: {
+            for _ in 0 ... 1 {
+                self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 0.5, y: 0.5)
+                self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 2, y: 2)
+            }
+        })
+        
+        showSearch() 
+    }
 
     func nextPreset() {
         let presetBank = presets.filter { $0.bank == currentPreset.bank }.sorted { $0.position < $1.position }

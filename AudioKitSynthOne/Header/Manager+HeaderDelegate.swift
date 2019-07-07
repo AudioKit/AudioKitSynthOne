@@ -104,15 +104,6 @@ extension Manager: HeaderDelegate {
         presetsViewController.randomPreset()
     }
 
-    func searchPresetPressed() {
-
-        if !isPresetsDisplayed {
-            displayLabelTapped()
-        }
-       
-        presetsViewController.showSearch()
-    }
-
     func previousPresetPressed() {
         presetsViewController.previousPreset()
     }

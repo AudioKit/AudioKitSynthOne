@@ -17,16 +17,15 @@ protocol PresetsDelegate: AnyObject {
     func banksDidUpdate()
 }
 extension UISearchBar {
-    
-    func change(textFont : UIFont!) {
-        
+    func change(textFont: UIFont!) {
         for view : UIView in (self.subviews[0]).subviews {
-            
             if let textField = view as? UITextField {
                 textField.font = textFont
             }
         }
-    } }
+    }
+}
+
 class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var newButton: SynthButton!
@@ -45,7 +44,8 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
             searchBar.change(textFont: UIFont(name: "AvenirNext-Regular", size: UIFont.systemFontSize)!)
         }
     }
-
+    @IBOutlet weak var searchtoolButton: UIButton!
+    
     var presets = [Preset]() {
         didSet {
             randomizePresets()

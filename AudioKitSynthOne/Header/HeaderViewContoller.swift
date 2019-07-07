@@ -15,7 +15,6 @@ protocol HeaderDelegate: AnyObject {
     func nextPresetPressed()
     func savePresetPressed()
     func randomPresetPressed()
-    func searchPresetPressed()
     func panicPressed()
     func devPressed()
     func aboutPressed()
@@ -35,7 +34,6 @@ public class HeaderViewController: UpdatableViewController {
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var panicButton: PresetUIButton!
     @IBOutlet weak var diceButton: UIButton!
-    @IBOutlet weak var searchtoolButton: UIButton!
     @IBOutlet weak var saveButton: PresetUIButton!
     @IBOutlet weak var devButton: PresetUIButton!
     @IBOutlet weak var aboutButton: PresetUIButton!
@@ -392,18 +390,6 @@ public class HeaderViewController: UpdatableViewController {
         })
         
         headerDelegate?.randomPresetPressed()
-    }
-    
-    @IBAction func searchPressed(_ sender: UIButton) {
-        // Animate Search
-        UIView.animate(withDuration: 0.4, animations: {
-            for _ in 0 ... 1 {
-                self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 0.5, y: 0.5)
-                self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 2, y: 2)
-            }
-        })
-        
-        headerDelegate?.searchPresetPressed()
     }
     
     // MARK: -

@@ -327,7 +327,6 @@ extension PresetsViewController {
                         self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 2, y: 2)
                     }
                 })
-                
                 self.showSearch()
             } else {
                 self.dismissSearch()

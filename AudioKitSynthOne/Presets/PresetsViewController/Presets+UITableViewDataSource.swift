@@ -21,11 +21,7 @@ extension PresetsViewController: UITableViewDataSource {
         if sortedPresets.isEmpty {
             return 0
         } else {
-            if  (resultSearchController.isActive) {
-                return filteredTableData.count
-            } else {
-                return sortedPresets.count
-            }
+            return sortedPresets.count
         }
     }
 
@@ -38,13 +34,8 @@ extension PresetsViewController: UITableViewDataSource {
             var alphabetical = false
             if categoryIndex == PresetCategory.categoryCount + 1 { alphabetical = true }
 
-            var preset = Preset()
-            if resultSearchController.isActive {
-                preset = filteredTableData[(indexPath as NSIndexPath).row]
-            } else {
-                preset = sortedPresets[(indexPath as NSIndexPath).row]
-            }
-            
+            let preset = sortedPresets[(indexPath as NSIndexPath).row]
+           
             cell.delegate = self
             
             // Cell updated in PresetCell.swift

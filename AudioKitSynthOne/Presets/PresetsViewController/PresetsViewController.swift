@@ -17,17 +17,7 @@ protocol PresetsDelegate: AnyObject {
     func banksDidUpdate()
 }
 
-//extension UISearchBar {
-//    func change(textFont: UIFont!) {
-//        for view : UIView in (self.subviews[0]).subviews {
-//            if let textField = view as? UITextField {
-//                textField.font = textFont
-//            }
-//        }
-//    }
-//}
-
-class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResultsUpdating {
+class PresetsViewController: UIViewController {
 
     @IBOutlet weak var newButton: SynthButton!
     @IBOutlet weak var importButton: SynthButton!
@@ -41,15 +31,6 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var doneEditingButton: UIButton!
     @IBOutlet weak var searchtoolButton: SynthButton!
-    @IBOutlet weak var searchContainerView: UIView!
-    
-//    @IBOutlet weak var searchBar: UISearchBar! {
-//        didSet {
-//            searchBar.change(textFont: UIFont(name: "AvenirNext-Regular", size: UIFont.systemFontSize)!)
-//        }
-//    }
-    
-    var resultSearchController = UISearchController(searchResultsController: nil)
     
     var presets = [Preset]() {
         didSet {
@@ -68,9 +49,6 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
             createActivePreset()
             presetDescriptionField.text = currentPreset.userText
             categoryLabel.text = PresetCategory(rawValue: currentPreset.category)?.description()
-            if resultSearchController.isActive {
-                self.dismissSearch()
-            }
         }
     }
 
@@ -104,21 +82,6 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        resultSearchController.searchResultsUpdater = self
-        definesPresentationContext = false
-        extendedLayoutIncludesOpaqueBars = true
-    
-        resultSearchController.searchBar.delegate = self
-        resultSearchController.dimsBackgroundDuringPresentation = false
-        resultSearchController.hidesNavigationBarDuringPresentation = true
-        resultSearchController.searchBar.barStyle = UIBarStyle.black
-        resultSearchController.searchBar.showsCancelButton = true
-        resultSearchController.searchBar.keyboardAppearance = UIKeyboardAppearance.dark
-        searchContainerView.addSubview(resultSearchController.searchBar)
-        resultSearchController.searchBar.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        resultSearchController.searchBar.frame = searchContainerView.bounds
-        definesPresentationContext = true
-        
         // Reload the table
         tableView.reloadData()
 
@@ -167,50 +130,4 @@ class PresetsViewController: UIViewController, UISearchBarDelegate, UISearchResu
         }
     }
     
-    // MARK: - SearchBar Helpers
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        // called when cancel button pressed
-        self.dismissSearch()
-    }
-    
-    func showSearch() {
-        if !resultSearchController.isActive {
-            resultSearchController.isActive = true
-            //resultSearchController.searchBar.sizeToFit()
-            resultSearchController.searchBar.frame.size.width = searchContainerView.frame.size.width
-            resultSearchController.searchBar.frame.size.height = 44
-            resultSearchController.searchBar.setNeedsDisplay()
-
-            
-        }
-    }
-    
-    func dismissSearch(){
-        resultSearchController.isActive = false
-        searchtoolButton.value = 0
-        selectCurrentPreset()
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            if !searchText.isEmpty {
-                filteredTableData.removeAll()
-                let compareText = searchText.lowercased();
-                for index in 0..<sortedPresets.count {
-                    if sortedPresets[index].name.lowercased().contains(
-                        compareText) ||
-                        sortedPresets[index].userText.lowercased().contains(
-                            compareText) {
-                        filteredTableData.append(sortedPresets[index])
-                    }
-                }
-            }
-            else {
-                filteredTableData = sortedPresets
-            }
-            tableView.reloadData()
-            self.tableView.reloadData()
-        }
-    }
 }

@@ -176,23 +176,12 @@ extension PresetsViewController {
 
     func selectCurrentPreset() {
         // Find the preset in the current view
-        if resultSearchController.isActive {
-            if let index = filteredTableData.firstIndex(where: { $0 === currentPreset }) {
-                tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
-            } else {
-                tableView.setContentOffset(CGPoint.zero, animated: false)
-            }
-            dismissSearch()
+        if let index = sortedPresets.firstIndex(where: { $0 === currentPreset }) {
+            tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
+        } else {
+            tableView.setContentOffset(CGPoint.zero, animated: false)
         }
-        else
-        {
-            if let index = sortedPresets.firstIndex(where: { $0 === currentPreset }) {
-                tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
-            } else {
-                tableView.setContentOffset(CGPoint.zero, animated: false)
-            }
-        }
-
+      
         // Update all UI
         Conductor.sharedInstance.updateAllUI()
     }
@@ -317,22 +306,7 @@ extension PresetsViewController {
                 self.selectCurrentPreset()
             }
         }
-        
-        searchtoolButton.setValueCallback = { value in
-            if self.searchtoolButton.isSelected {
-                // Animate Search
-                UIView.animate(withDuration: 0.4, animations: {
-                    for _ in 0 ... 1 {
-                        self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 0.5, y: 0.5)
-                        self.searchtoolButton.transform = self.searchtoolButton.transform.scaledBy(x: 2, y: 2)
-                    }
-                })
-                self.showSearch()
-            } else {
-                self.dismissSearch()
-            }
-        }
-
+    
     }
 
     func nextPreset() {
@@ -377,7 +351,7 @@ extension PresetsViewController {
 
         currentPreset = presetsInBank[currentPresetIndex]
         selectCurrentPreset()
-        self.resultSearchController.dismiss(animated: true, completion: nil)
+    
     }
 
     // Used for Selecting Bank from MIDI msb (cc0)

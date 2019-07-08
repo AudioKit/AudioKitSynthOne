@@ -39,6 +39,8 @@
 		94DB3FE01FC8C0EA007F8081 /* PresetUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB3FDF1FC8C0EA007F8081 /* PresetUIButton.swift */; };
 		94E951351F3644E5009A8B00 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E951341F3644E5009A8B00 /* Rate.swift */; };
 		94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F694C51F683D5D0061DA5E /* CallbackButton.swift */; };
+		94F7846722D3FE8400C35702 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F7846622D3FE8400C35702 /* SearchViewController.swift */; };
+		94F7846922D403D000C35702 /* Presets+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F7846822D403D000C35702 /* Presets+SearchDelegate.swift */; };
 		94FEFEC91F3150D00064EC09 /* SliderTransposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */; };
 		A4B6DE5FB88EB0520C4F0937 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0076A913A8D9EB5B5A6C27 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		AF8CC7C0224815F200090F64 /* S1Sequencer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF8CC7BE224815F200090F64 /* S1Sequencer.mm */; };
@@ -382,6 +384,8 @@
 		94F53E8B212F11790012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		94F53E8C212F11A90012C0DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "AudioKitSynthOne/Developer/zh-Hans.lproj/zh-Hans.lproj/Dev.strings"; sourceTree = SOURCE_ROOT; };
 		94F694C51F683D5D0061DA5E /* CallbackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackButton.swift; sourceTree = "<group>"; };
+		94F7846622D3FE8400C35702 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		94F7846822D403D000C35702 /* Presets+SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presets+SearchDelegate.swift"; sourceTree = "<group>"; };
 		94FEFEC71F3150D00064EC09 /* SliderTransposeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTransposeButton.swift; sourceTree = "<group>"; };
 		AF8CC7BB224815F100090F64 /* S1Sequencer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = S1Sequencer.hpp; sourceTree = "<group>"; };
 		AF8CC7BC224815F100090F64 /* S1Arpeggiator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = S1Arpeggiator.hpp; sourceTree = "<group>"; };
@@ -905,6 +909,7 @@
 				C4B4919220C7C7C500FD565A /* PresetEditorViewController.swift */,
 				EA388CE9210498F20026C0C0 /* Presets.storyboard */,
 				C4B4919120C7C7C500FD565A /* PresetsCategoriesViewController.swift */,
+				94F7846622D3FE8400C35702 /* SearchViewController.swift */,
 				C435C51520C52D1700DAECCD /* Data */,
 				C4B4917C20C7C79C00FD565A /* PresetsViewController */,
 				C432978B20C902860063F795 /* UI Components */,
@@ -1209,6 +1214,7 @@
 				C4B4917F20C7C79C00FD565A /* Presets+CategoryDelegate.swift */,
 				C4B4917E20C7C79C00FD565A /* Presets+PresetCellDelegate.swift */,
 				C4B4918020C7C79C00FD565A /* Presets+PresetPopOverDelegate.swift */,
+				94F7846822D403D000C35702 /* Presets+SearchDelegate.swift */,
 				C4B4918220C7C79C00FD565A /* Presets+UIDocumentPickerDelegate.swift */,
 				C4B4918120C7C79C00FD565A /* Presets+UITableViewDataSource.swift */,
 				C4B4918420C7C79C00FD565A /* Presets+UITableViewDelegate.swift */,
@@ -1780,6 +1786,7 @@
 				C4B4912020C7C62A00FD565A /* WheelSettingsViewController.swift in Sources */,
 				9489EF631F3145ED00416F26 /* VerticalSlider.swift in Sources */,
 				C4B491A120C7C91A00FD565A /* EnvelopesPanelController.swift in Sources */,
+				94F7846722D3FE8400C35702 /* SearchViewController.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
 				C432979320CB2BB20063F795 /* Presets+LoadSaveManipulate.swift in Sources */,
 				F4CA406D224EB2A70053F29E /* S1Control.swift in Sources */,
@@ -1876,6 +1883,7 @@
 				949D93B71F2C188C007E657B /* LFOButtonStyleKit.swift in Sources */,
 				C4B4910720C7C5C500FD565A /* ArpButton.swift in Sources */,
 				94F694C61F683D5D0061DA5E /* CallbackButton.swift in Sources */,
+				94F7846922D403D000C35702 /* Presets+SearchDelegate.swift in Sources */,
 				C435C53220C52D4C00DAECCD /* Tunings.swift in Sources */,
 				C435C53320C52D4C00DAECCD /* Tunings+Harmonic.swift in Sources */,
 				C4B4916F20C7C72A00FD565A /* Manager+PushNotification.swift in Sources */,

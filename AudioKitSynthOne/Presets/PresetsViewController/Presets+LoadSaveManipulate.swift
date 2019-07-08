@@ -206,7 +206,7 @@ extension PresetsViewController {
         
         // Remove existing presets
         // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = ["Sound of Izrael 2"]
+        let banksToUpdate = [""]
         for bankName in banksToUpdate {
 
              if let filePath = Bundle.main.path(forResource: bankName, ofType: "json") {
@@ -305,6 +305,10 @@ extension PresetsViewController {
                 self.categoryEmbeddedView.isUserInteractionEnabled = true
                 self.selectCurrentPreset()
             }
+        }
+        
+        searchtoolButton.setValueCallback = { value in
+            self.performSegue(withIdentifier: "SegueToSearch", sender: nil)
         }
     
     }

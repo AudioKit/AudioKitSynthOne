@@ -52,8 +52,6 @@ class PresetsViewController: UIViewController {
         }
     }
 
-    var filteredTableData = [Preset]()
-
     var tempPreset = Preset()
 
     var categoryIndex: Int = 0 {
@@ -127,6 +125,12 @@ class PresetsViewController: UIViewController {
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
             }
+        }
+        
+        if segue.identifier == "SegueToSearch" {
+            guard let popOverController = segue.destination as? SearchViewController else { return }
+            popOverController.delegate = self
+            popOverController.presets = presets
         }
     }
     

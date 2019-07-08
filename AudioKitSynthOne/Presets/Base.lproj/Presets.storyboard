@@ -277,38 +277,14 @@
                         <outlet property="newButton" destination="4I7-1e-dMK" id="beb-8a-HrH"/>
                         <outlet property="presetDescriptionField" destination="8tM-pA-eD2" id="NVH-iX-UPD"/>
                         <outlet property="reorderButton" destination="v81-AR-cdF" id="D5E-Qb-UUN"/>
-                        <outlet property="searchDisplayController" destination="yMG-dU-MU2" id="6qo-5K-Kf7"/>
                         <outlet property="searchtoolButton" destination="u90-uj-CXn" id="xv7-rP-9fh"/>
                         <outlet property="tableView" destination="Ow9-gt-uKO" id="b2R-24-mMx"/>
                         <segue destination="gXk-U3-Nzm" kind="presentation" identifier="SegueToEdit" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Qqo-qV-zOf"/>
                         <segue destination="hRm-Jx-H1T" kind="presentation" identifier="SegueToBankEdit" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="ntI-QD-kob"/>
+                        <segue destination="SiT-Lq-E03" kind="presentation" identifier="SegueToSearch" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="GJb-kr-TAc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tD6-HI-J7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c61-bJ-zsz">
-                    <rect key="frame" x="0.0" y="0.0" width="111" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
-                    <state key="normal" title="DONE EDITING">
-                        <color key="titleColor" red="0.90196078430000004" green="0.53333333329999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </state>
-                </button>
-                <searchDisplayController id="Dyr-HW-Jcv">
-                    <connections>
-                        <outlet property="delegate" destination="ves-0y-a4J" id="eCP-iA-DIt"/>
-                        <outlet property="searchContentsController" destination="ves-0y-a4J" id="Az5-um-DdV"/>
-                        <outlet property="searchResultsDataSource" destination="ves-0y-a4J" id="0yD-x2-MaQ"/>
-                        <outlet property="searchResultsDelegate" destination="ves-0y-a4J" id="IMu-bl-zsi"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="yMG-dU-MU2">
-                    <connections>
-                        <outlet property="delegate" destination="ves-0y-a4J" id="Gbz-Gz-4kp"/>
-                        <outlet property="searchContentsController" destination="ves-0y-a4J" id="Djl-c1-VzT"/>
-                        <outlet property="searchResultsDataSource" destination="ves-0y-a4J" id="yCh-MF-mtP"/>
-                        <outlet property="searchResultsDelegate" destination="ves-0y-a4J" id="SMx-Bm-Zu8"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="667.20000000000005" y="-399.85007496251876"/>
         </scene>
@@ -414,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3q8-2h-7uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-864" y="427"/>
+            <point key="canvasLocation" x="-864" y="298"/>
         </scene>
         <!--Preset Editor View Controller-->
         <scene sceneID="xGi-4K-Uka">
@@ -971,6 +947,155 @@
                 </button>
             </objects>
             <point key="canvasLocation" x="-863.20000000000005" y="-399.85007496251876"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="x0G-Mm-xGT">
+            <objects>
+                <viewController id="SiT-Lq-E03" customClass="SearchViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N0f-KQ-RTX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kri-uU-txs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P1E-WU-iM2">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="299"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Op-lU-LJH">
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="299"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5GI-UA-L91">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search for a Preset:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kml-jI-pZ5">
+                                                <rect key="frame" x="16" y="10" width="115" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                                <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNJ-0L-M8H">
+                                                <rect key="frame" x="438" y="4" width="49" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                                                <state key="normal" title="Close">
+                                                    <color key="titleColor" red="0.4549019608" green="0.62352941179999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closeTapped:" destination="SiT-Lq-E03" eventType="touchUpInside" id="saV-56-Tv9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <viewLayoutGuide key="safeArea" id="F5a-Oi-hvU"/>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eMv-Gc-tZH">
+                                        <rect key="frame" x="0.0" y="45" width="499" height="254"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PresetCell" id="mny-Yc-Jun" customClass="PresetCell" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="499" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mny-Yc-Jun" id="umT-yX-ncm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="499" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preset Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-cU-rkY">
+                                                            <rect key="frame" x="19" y="13" width="296" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                                            <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cad-ou-V4t">
+                                                            <rect key="frame" x="453" y="7" width="34" height="32"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <accessibility key="accessibilityConfiguration" hint="Shares Preset." identifier="ShareButton" label="Share"/>
+                                                            <state key="normal" image="ak_share">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="sharePressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="NBU-ng-W35"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzL-vd-Dl2">
+                                                            <rect key="frame" x="410" y="7" width="34" height="32"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <accessibility key="accessibilityConfiguration" hint="Duplicates Preset" identifier="DuplicateButton" label="Duplicate"/>
+                                                            <state key="normal" image="ak_copy">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="duplicatePressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="E0b-gh-YA8"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-wb-img">
+                                                            <rect key="frame" x="324" y="6" width="34" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <accessibility key="accessibilityConfiguration" hint="Bookmarks Preset." identifier="BookmarkButton" label="Bookmark"/>
+                                                            <state key="normal" image="ak_fav">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="favoritePressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="MGv-x3-zgN"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQy-4Z-XKP">
+                                                            <rect key="frame" x="367" y="8" width="34" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <accessibility key="accessibilityConfiguration" hint="Renames Preset" identifier="RenameButton" label="Rename"/>
+                                                            <state key="normal" image="ak_edit">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="editPressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="y62-98-1xV"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="duplicateButton" destination="GzL-vd-Dl2" id="S0O-FO-vnl"/>
+                                                    <outlet property="favoriteButton" destination="bBy-wb-img" id="kSb-MB-GWY"/>
+                                                    <outlet property="presetNameLabel" destination="AMC-cU-rkY" id="AMO-lJ-kX4"/>
+                                                    <outlet property="renameButton" destination="EQy-4Z-XKP" id="Wln-Sm-3CI"/>
+                                                    <outlet property="shareButton" destination="cad-ou-V4t" id="Fsu-ef-Ip2"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="SiT-Lq-E03" id="UfV-pX-uQV"/>
+                                            <outlet property="delegate" destination="SiT-Lq-E03" id="P5f-Ak-EXC"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.18676948547363281" blue="0.186623215675354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="azc-U8-D5c"/>
+                                    <constraint firstAttribute="height" constant="299" id="ig1-Pt-s9T"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="2Op-lU-LJH" firstAttribute="centerY" secondItem="P1E-WU-iM2" secondAttribute="centerY" id="7wX-U8-bXi"/>
+                            <constraint firstItem="2Op-lU-LJH" firstAttribute="centerX" secondItem="P1E-WU-iM2" secondAttribute="centerX" id="f0G-xq-61M"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="P5r-QT-ckm"/>
+                    </view>
+                    <size key="freeformSize" width="500" height="299"/>
+                    <connections>
+                        <outlet property="popUpView" destination="2Op-lU-LJH" id="7zb-Iw-DcM"/>
+                        <outlet property="tableView" destination="eMv-Gc-tZH" id="2tg-mF-5hO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSM-vr-fJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1915" y="21"/>
         </scene>
     </scenes>
     <resources>

@@ -46,11 +46,11 @@ class AboutViewController: UIViewController {
         self.mainTextView.setContentOffset(.zero, animated: false)
         
         // Fade in About Box
-        UIView.animate(withDuration: 2, animations: {
+        UIView.animate(withDuration: 1, animations: {
             self.parentView.alpha = 1.0
         })
         
-        UIView.animate(withDuration: 4, animations: {
+        UIView.animate(withDuration: 1.5, animations: {
             self.textContainer.alpha = 1.0
         })
     }

@@ -723,7 +723,7 @@ we'll reach a Million musicians! You can help: Tweet, Share, Instagram, Facebook
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSe-mB-hEb">
-                                <rect key="frame" x="232" y="234" width="560" height="410"/>
+                                <rect key="frame" x="232" y="220" width="560" height="420"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cF7-xX-i8I">
                                         <rect key="frame" x="35" y="297" width="489" height="65.5"/>
@@ -818,7 +818,7 @@ You can help: Tweet, Share, Instagram, Facebook, Youtube. Email it to 1 friend. 
                                 <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="UdJ-na-h9Y"/>
-                                    <constraint firstAttribute="height" constant="410" id="fhU-0R-FsR"/>
+                                    <constraint firstAttribute="height" constant="420" id="fhU-0R-FsR"/>
                                 </constraints>
                             </view>
                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6aw-m8-Jqa">
@@ -843,7 +843,7 @@ You can help: Tweet, Share, Instagram, Facebook, Youtube. Email it to 1 friend. 
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GSe-mB-hEb" firstAttribute="top" secondItem="wB5-G0-464" secondAttribute="bottom" constant="214" id="RGa-pq-GVs"/>
+                            <constraint firstItem="GSe-mB-hEb" firstAttribute="top" secondItem="wB5-G0-464" secondAttribute="bottom" constant="200" id="RGa-pq-GVs"/>
                             <constraint firstItem="GSe-mB-hEb" firstAttribute="centerX" secondItem="DOf-DN-agJ" secondAttribute="centerX" id="v1J-1y-AIv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HWF-CC-LqN"/>

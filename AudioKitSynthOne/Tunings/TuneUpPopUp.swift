@@ -47,4 +47,11 @@ class TuneUpPopUp: UIViewController {
         }
     }
     
+    @IBAction func LearnMoreTapped(_ sender: UIButton) {
+        if let url = URL(string: "https://audiokitpro.com/tuneup/") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    
 }

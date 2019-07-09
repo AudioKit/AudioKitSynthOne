@@ -723,10 +723,10 @@ we'll reach a Million musicians! You can help: Tweet, Share, Instagram, Facebook
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSe-mB-hEb">
-                                <rect key="frame" x="232" y="234" width="560" height="400"/>
+                                <rect key="frame" x="232" y="234" width="560" height="410"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cF7-xX-i8I">
-                                        <rect key="frame" x="35" y="296" width="489" height="65.5"/>
+                                        <rect key="frame" x="35" y="297" width="489" height="65.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -768,7 +768,7 @@ we'll reach a Million musicians! You can help: Tweet, Share, Instagram, Facebook
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
-                                                <state key="normal" title="SHARE! 🚀">
+                                                <state key="normal" title="SHARE TO FRIEND(S)">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
@@ -788,7 +788,7 @@ we'll reach a Million musicians! You can help: Tweet, Share, Instagram, Facebook
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VAe-Vq-JaU">
-                                                <rect key="frame" x="24" y="33" width="512" height="139"/>
+                                                <rect key="frame" x="24" y="32" width="512" height="139"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <string key="text">Thank you! If every person using Synth One shares with just ONE person, 
@@ -803,11 +803,12 @@ You can help: Tweet, Share, Instagram, Facebook, Youtube. Email it to 1 friend. 
                                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q22-Uv-uyE">
-                                        <rect key="frame" x="205" y="355" width="149" height="40"/>
+                                        <rect key="frame" x="137" y="364" width="286" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.80239439010620117" green="0.49666857719421387" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
                                         <state key="normal" title="START PLAYING">
-                                            <color key="titleColor" red="0.82352941180000006" green="0.45098039220000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="closePressed:" destination="FJT-os-tfQ" eventType="touchUpInside" id="uj4-Mn-jI3"/>
@@ -817,7 +818,7 @@ You can help: Tweet, Share, Instagram, Facebook, Youtube. Email it to 1 friend. 
                                 <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="UdJ-na-h9Y"/>
-                                    <constraint firstAttribute="height" constant="400" id="fhU-0R-FsR"/>
+                                    <constraint firstAttribute="height" constant="410" id="fhU-0R-FsR"/>
                                 </constraints>
                             </view>
                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6aw-m8-Jqa">

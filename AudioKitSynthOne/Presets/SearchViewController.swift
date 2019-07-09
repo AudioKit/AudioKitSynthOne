@@ -25,6 +25,8 @@ class SearchViewController: UIViewController {
         }
     }
     
+    let resultSearchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,25 +35,67 @@ class SearchViewController: UIViewController {
         popUpView.layer.borderColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
         popUpView.layer.borderWidth = 4
         popUpView.layer.cornerRadius = 6
+        
+        // Configure Search Controller
+        resultSearchController.searchResultsUpdater = self
+        resultSearchController.searchBar.delegate = self
+        resultSearchController.dimsBackgroundDuringPresentation = false
+        resultSearchController.hidesNavigationBarDuringPresentation = false
+        resultSearchController.searchBar.barStyle = UIBarStyle.black
+        resultSearchController.searchBar.showsCancelButton = true
+        resultSearchController.searchBar.keyboardAppearance = UIKeyboardAppearance.dark
+        resultSearchController.searchBar.sizeToFit()
+        resultSearchController.definesPresentationContext = true
+        resultSearchController.isActive = true
+        view.addSubview(resultSearchController.searchBar)
+       
+        //tableView.backgroundView = UIView() // removes white background when pulling down search at top of list
+        //tableView.tableHeaderView = resultSearchController.searchBar
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Sort Presets Alphabetically and Display Them
         presets.forEach { $0.name.capitalizeFirstLetter() }
         presets.sort { $0.name < $1.name }
+        filteredPresets = presets
         tableView.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+}
+
+// MARK: - SearchBar Delegate
+
+extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
+  
+    func updateSearchResults(for searchController: UISearchController) {
         
+        // Filter Results by Name & Description
+        if let searchText = searchController.searchBar.text {
+            if !searchText.isEmpty {
+                filteredPresets.removeAll()
+                let compareText = searchText.lowercased();
+                for index in 0..<presets.count {
+                    if presets[index].name.lowercased().contains(
+                        compareText) ||
+                        presets[index].userText.lowercased().contains(
+                            compareText) {
+                        filteredPresets.append(presets[index])
+                    }
+                }
+            } else {
+                filteredPresets = presets
+            }
+          
+            filteredPresets.sort { $0.name < $1.name }
+            tableView.reloadData()
+        }
     }
     
-    @IBAction func closeTapped(_ sender: UIButton) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.dismiss(animated: true, completion: nil)
     }
-    
     
 }
 
@@ -69,10 +113,10 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if presets.isEmpty {
+        if filteredPresets.isEmpty {
             return 0
         } else {
-            return presets.count
+            return filteredPresets.count
         }
     }
     
@@ -82,7 +126,7 @@ extension SearchViewController: UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PresetCell") as? PresetCell {
             
-            let preset = presets[(indexPath as NSIndexPath).row]
+            let preset = filteredPresets[(indexPath as NSIndexPath).row]
            
             // Cell updated in PresetCell.swift
             cell.configureCell(preset: preset, alpha: true)
@@ -100,11 +144,13 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        resultSearchController.dismiss(animated: true, completion: nil)
         
         // Get cell
         let cell = tableView.cellForRow(at: indexPath) as? PresetCell
         guard let newPreset = cell?.currentPreset else { return }
         delegate?.didSelectPreset(newPreset)
+        
         dismiss(animated: true, completion: nil)
     }
 }

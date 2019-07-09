@@ -30,7 +30,7 @@ class PresetsViewController: UIViewController {
     @IBOutlet weak var presetDescriptionField: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var doneEditingButton: UIButton!
-    @IBOutlet weak var searchtoolButton: SynthButton!
+    @IBOutlet weak var searchtoolButton: PresetUIButton!
     
     var presets = [Preset]() {
         didSet {

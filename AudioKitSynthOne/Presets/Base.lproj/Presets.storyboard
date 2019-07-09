@@ -975,62 +975,79 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="500" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preset Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-cU-rkY">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preset Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-cU-rkY">
                                                             <rect key="frame" x="19" y="13" width="296" height="20"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                             <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cad-ou-V4t">
-                                                            <rect key="frame" x="453" y="7" width="34" height="32"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <accessibility key="accessibilityConfiguration" hint="Shares Preset." identifier="ShareButton" label="Share"/>
-                                                            <state key="normal" image="ak_share">
-                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="sharePressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="NBU-ng-W35"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzL-vd-Dl2">
-                                                            <rect key="frame" x="410" y="7" width="34" height="32"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <accessibility key="accessibilityConfiguration" hint="Duplicates Preset" identifier="DuplicateButton" label="Duplicate"/>
-                                                            <state key="normal" image="ak_copy">
-                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="duplicatePressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="E0b-gh-YA8"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-wb-img">
-                                                            <rect key="frame" x="324" y="6" width="34" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <accessibility key="accessibilityConfiguration" hint="Bookmarks Preset." identifier="BookmarkButton" label="Bookmark"/>
-                                                            <state key="normal" image="ak_fav">
-                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="favoritePressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="MGv-x3-zgN"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQy-4Z-XKP">
-                                                            <rect key="frame" x="367" y="8" width="34" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <accessibility key="accessibilityConfiguration" hint="Renames Preset" identifier="RenameButton" label="Rename"/>
-                                                            <state key="normal" image="ak_edit">
-                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="editPressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="y62-98-1xV"/>
-                                                            </connections>
-                                                        </button>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aR9-dA-Y5q">
+                                                            <rect key="frame" x="324" y="6" width="163" height="33"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-wb-img">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <accessibility key="accessibilityConfiguration" hint="Bookmarks Preset." identifier="BookmarkButton" label="Bookmark"/>
+                                                                    <state key="normal" image="ak_fav">
+                                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="favoritePressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="MGv-x3-zgN"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQy-4Z-XKP">
+                                                                    <rect key="frame" x="43" y="2" width="34" height="30"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <accessibility key="accessibilityConfiguration" hint="Renames Preset" identifier="RenameButton" label="Rename"/>
+                                                                    <state key="normal" image="ak_edit">
+                                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="editPressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="y62-98-1xV"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzL-vd-Dl2">
+                                                                    <rect key="frame" x="86" y="1" width="34" height="32"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <accessibility key="accessibilityConfiguration" hint="Duplicates Preset" identifier="DuplicateButton" label="Duplicate"/>
+                                                                    <state key="normal" image="ak_copy">
+                                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="duplicatePressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="E0b-gh-YA8"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cad-ou-V4t">
+                                                                    <rect key="frame" x="129" y="1" width="34" height="32"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <accessibility key="accessibilityConfiguration" hint="Shares Preset." identifier="ShareButton" label="Share"/>
+                                                                    <state key="normal" image="ak_share">
+                                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="sharePressed:" destination="mny-Yc-Jun" eventType="touchUpInside" id="NBU-ng-W35"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="33" id="Zxd-U1-jyW"/>
+                                                                <constraint firstAttribute="width" constant="163" id="isZ-kN-9en"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="AMC-cU-rkY" firstAttribute="bottom" secondItem="umT-yX-ncm" secondAttribute="bottomMargin" id="7fi-um-Axq"/>
+                                                        <constraint firstItem="aR9-dA-Y5q" firstAttribute="top" secondItem="umT-yX-ncm" secondAttribute="top" constant="6" id="Oju-Dq-q7x"/>
+                                                        <constraint firstItem="aR9-dA-Y5q" firstAttribute="leading" secondItem="AMC-cU-rkY" secondAttribute="trailing" constant="9" id="UPS-C4-wev"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aR9-dA-Y5q" secondAttribute="trailing" constant="13" id="ZAj-aP-2j6"/>
+                                                        <constraint firstItem="AMC-cU-rkY" firstAttribute="top" secondItem="umT-yX-ncm" secondAttribute="topMargin" constant="2" id="l6o-Pn-tQQ"/>
+                                                        <constraint firstItem="AMC-cU-rkY" firstAttribute="leading" secondItem="umT-yX-ncm" secondAttribute="leadingMargin" constant="4" id="tGK-2u-hqh"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="duplicateButton" destination="GzL-vd-Dl2" id="S0O-FO-vnl"/>

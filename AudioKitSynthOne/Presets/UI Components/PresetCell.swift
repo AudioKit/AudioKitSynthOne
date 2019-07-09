@@ -83,10 +83,10 @@ class PresetCell: UITableViewCell {
         }
         
         if alpha {
-            presetNameLabel.text = "\(preset.name) (#\(preset.position))"
+            presetNameLabel.text = "\(preset.name) (Bank \(bank.position) ‣ \(preset.position))"
         } else {
             if preset.bank != "BankA" {
-                presetNameLabel.text = "[\(bank.position)] \(preset.position): \(preset.name)"
+                presetNameLabel.text = "[\(bank.position)] ‣ \(preset.position): \(preset.name)"
             } else {
                 presetNameLabel.text = "\(preset.position): \(preset.name)"
             }

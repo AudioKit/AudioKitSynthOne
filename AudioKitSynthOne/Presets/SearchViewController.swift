@@ -57,8 +57,7 @@ class SearchViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // Sort Presets Alphabetically and Display Them
-        presets.forEach { $0.name.capitalizeFirstLetter() }
-        presets.sort { $0.name < $1.name }
+        presets =  presets.sorted { $0.name.lowercased() < $1.name.lowercased() }
         filteredPresets = presets
         tableView.reloadData()
     }
@@ -88,7 +87,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
                 filteredPresets = presets
             }
           
-            filteredPresets.sort { $0.name < $1.name }
+            filteredPresets.sort { $0.name.lowercased() < $1.name.lowercased() }
             tableView.reloadData()
         }
     }

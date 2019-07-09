@@ -297,18 +297,18 @@
                         <viewControllerLayoutGuide type="bottom" id="vN8-lW-feU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="E5Y-aw-7ZJ">
-                        <rect key="frame" x="0.0" y="0.0" width="170" height="160"/>
+                        <rect key="frame" x="0.0" y="0.0" width="228" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lPl-pl-iid">
-                                <rect key="frame" x="0.0" y="0.0" width="170" height="160"/>
+                                <rect key="frame" x="0.0" y="0.0" width="228" height="200"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" id="00o-XX-d7Y" customClass="CategoryCell" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="170" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="228" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="00o-XX-d7Y" id="abR-oz-Wbh">
-                                            <rect key="frame" x="0.0" y="0.0" width="170" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="228" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jut-wm-dt0">
@@ -1103,9 +1103,9 @@
         <image name="iPhone_Preset" width="667" height="235"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pMN-IQ-PbH"/>
-        <segue reference="Bbd-Kw-ElO"/>
-        <segue reference="qdK-ZI-YdM"/>
-        <segue reference="yQc-ZV-PL2"/>
+        <segue reference="GJb-kr-TAc"/>
+        <segue reference="ntI-QD-kob"/>
+        <segue reference="Qqo-qV-zOf"/>
+        <segue reference="VhL-9T-ILb"/>
     </inferredMetricsTieBreakers>
 </document>

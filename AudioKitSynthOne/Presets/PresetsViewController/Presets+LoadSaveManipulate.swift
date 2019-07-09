@@ -54,8 +54,7 @@ extension PresetsViewController {
             
         // Sort by Alphabetically
         case PresetCategory.categoryCount + 1:
-            presets.forEach { $0.name.capitalizeFirstLetter() }
-            sortedPresets = presets.sorted { $0.name < $1.name }
+            sortedPresets = presets.sorted { $0.name.lowercased() < $1.name.lowercased() }
             
         // Sort by Favorites
         case PresetCategory.categoryCount + 2:
@@ -107,6 +106,8 @@ extension PresetsViewController {
         for (i, preset) in presetsToSave.enumerated() {
             preset.position = i
         }
+        
+        presetsToSave.forEach { $0.name = $0.name.trimmingCharacters(in: .whitespacesAndNewlines) }
 
         do {
             try Disk.save(presetsToSave, to: .documents, as: bank + ".json")

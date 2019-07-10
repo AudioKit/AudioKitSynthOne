@@ -64,6 +64,10 @@ class GeneratorsPanelController: PanelController {
 
     @IBOutlet weak var oscBandlimitEnable: ToggleButton!
     
+    @IBOutlet weak var cutoffKnobLabel: UILabel!
+    
+    @IBOutlet weak var rezKnobLabel: UILabel!
+    
     var audioPlot: AKNodeOutputPlot!
 
     var isAudioPlotFilled: Bool = false
@@ -179,5 +183,29 @@ class GeneratorsPanelController: PanelController {
     @objc func audioPlotToggled() {
         isAudioPlotFilled = !isAudioPlotFilled
         audioPlot.shouldFill = isAudioPlotFilled
+    }
+    
+    override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {
+        switch parameter {
+        case .filterType:
+            switch value {
+            case 0:
+                // Low Pass
+                cutoffKnobLabel.text = "Frequency"
+                rezKnobLabel.text = "Resonance"
+            case 1:
+                // Band Pass
+                cutoffKnobLabel.text = "Center"
+                rezKnobLabel.text = "Width"
+            case 2:
+                // High Pass
+                cutoffKnobLabel.text = "Frequency"
+                rezKnobLabel.text = "Off"
+            default:
+                break
+            }
+        default:
+            _ = 0
+        }
     }
 }

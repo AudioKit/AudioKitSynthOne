@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kVw-5d-lJy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kVw-5d-lJy">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -724,6 +724,7 @@
                     <size key="freeformSize" width="1024" height="299"/>
                     <connections>
                         <outlet property="cutoff" destination="eiX-0Z-w4U" id="Hnm-m4-x4o"/>
+                        <outlet property="cutoffKnobLabel" destination="fhH-Ee-rSO" id="Ck7-fC-Gwk"/>
                         <outlet property="displayContainer" destination="ukx-7B-Kbe" id="f5Y-is-2ql"/>
                         <outlet property="filterTypeToggle" destination="ozs-aS-dKc" id="cS7-Ph-dlV"/>
                         <outlet property="fmAmount" destination="tA3-wy-1OS" id="jgw-zD-P80"/>
@@ -744,6 +745,7 @@
                         <outlet property="noiseVolume" destination="mSt-Bi-6iP" id="sAh-j8-7bA"/>
                         <outlet property="oscBandlimitEnable" destination="Wk5-0J-EoK" id="fvf-XA-7ML"/>
                         <outlet property="resonance" destination="DaV-1f-cRL" id="QRI-TQ-4Ep"/>
+                        <outlet property="rezKnobLabel" destination="KMe-b8-yaN" id="DQt-01-PqB"/>
                         <outlet property="rightNavButton" destination="AYK-pk-NN1" id="chh-Zd-5Ki"/>
                         <outlet property="sequencerToggle" destination="pfm-6q-c4F" id="MVS-w0-alR"/>
                         <outlet property="subIsSquare" destination="fuc-Qs-lnO" id="kJL-Ey-jv8"/>
@@ -1475,6 +1477,6 @@
     </scenes>
     <resources>
         <image name="au_main" width="1024" height="299"/>
-        <image name="iPhone_Generator" width="1334" height="470"/>
+        <image name="iPhone_Generator" width="667" height="235"/>
     </resources>
 </document>

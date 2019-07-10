@@ -154,16 +154,17 @@ extension Manager: AKMIDIListener {
     // MIDI Setup Change
     public func receivedMIDISetupChange() {
         AKLog("midi setup change, midi.inputNames: \(AudioKit.midi.inputNames)")
+        
         let midiInputNames = AudioKit.midi.inputNames
-        for inputName in midiInputNames {
-
-            // check to see if input exists
-            if let index = midiInputs.firstIndex(where: { $0.name == inputName }) {
-                midiInputs.remove(at: index)
+        midiInputNames.forEach { inputName in
+            
+            // check to see if input exists before adding it
+            if midiInputs.firstIndex(where: { $0.name == inputName }) == nil
+            {
+                let newMIDI = MIDIInput(name: inputName, isOpen: true)
+                midiInputs.append(newMIDI)
+                AudioKit.midi.openInput(name: inputName)
             }
-            let newMIDI = MIDIInput(name: inputName, isOpen: true)
-            midiInputs.append(newMIDI)
-            AudioKit.midi.openInput(name: inputName)
         }
     }
 

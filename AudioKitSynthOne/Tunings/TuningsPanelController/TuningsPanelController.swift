@@ -71,6 +71,10 @@ class TuningsPanelController: PanelController {
         super.viewDidLoad()
 
         currentPanel = .tunings
+        
+        importButton.value = 0
+        resetTuningsButton.value = 0
+        tuneUpButton.value = 0
 
         let bg0 = UIImageView(image: UIImage(named: "iPhone_TouchPad_bg"), highlightedImage: nil)
         bg0.frame = tuningContainerView.bounds
@@ -145,13 +149,13 @@ class TuningsPanelController: PanelController {
                 }
             }
 
-            //TODO: implement sharing of tuning banks...see commented code at bottom of file
             importButton.setValueCallback = { _ in
+                self.importButton.value = 0
                 let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
                 documentPicker.delegate = self
                 self.present(documentPicker, animated: true, completion: nil)
             }
-            importButton.isHidden = true
+
         } else {
             AKLog("race condition: synth not yet created")
         }
@@ -383,21 +387,11 @@ extension TuningsPanelController {
 extension TuningsPanelController: UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-        AKLog("**** url: \(url) ")
         
-        //let fileName = String(describing: url.lastPathComponent)
-
-        //TODO: Add import/saving/sharing of TuningBanks
-        // Marcus: Run load procedure with "fileName" here
-        
-        // OR, add the logic right here
-//        do {
-//            //
-//
-//        } catch {
-//            AKLog("*** error loading")
-//        }
-        
+        let fileName = String(describing: url.lastPathComponent)
+        if fileName.hasSuffix("scl") {
+            _ = openUrl(url: url)
+        }
     }
     
 }

@@ -723,20 +723,8 @@ we'll reach a Million musicians! You can help: Tweet, Share, Instagram, Facebook
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSe-mB-hEb">
-                                <rect key="frame" x="232" y="220" width="560" height="420"/>
+                                <rect key="frame" x="232" y="220" width="560" height="364"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cF7-xX-i8I">
-                                        <rect key="frame" x="35" y="297" width="489" height="65.5"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" notEnabled="YES"/>
-                                        </accessibility>
-                                        <string key="text">AudioKit Synth One is completely free &amp; open-source. Everyone working on this project volunteers their time to create this app. :)</string>
-                                        <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XkK-pB-4uP">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -756,7 +744,7 @@ we'll reach a Million musicians! You can help: Tweet, Share, Instagram, Facebook
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4eJ-Z5-DEV">
-                                        <rect key="frame" x="0.0" y="51" width="560" height="244"/>
+                                        <rect key="frame" x="0.0" y="51" width="560" height="235"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ak1-logo" translatesAutoresizingMaskIntoConstraints="NO" id="7dh-Se-bLH">
@@ -764,11 +752,11 @@ we'll reach a Million musicians! You can help: Tweet, Share, Instagram, Facebook
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ek-go-4fI">
-                                                <rect key="frame" x="289" y="183" width="190" height="36"/>
+                                                <rect key="frame" x="289" y="175" width="190" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
-                                                <state key="normal" title="SHARE TO FRIEND(S)">
+                                                <state key="normal" title="SHARE  👍">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
@@ -776,7 +764,7 @@ we'll reach a Million musicians! You can help: Tweet, Share, Instagram, Facebook
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZb-lB-Xcu">
-                                                <rect key="frame" x="80" y="183" width="190" height="36"/>
+                                                <rect key="frame" x="80" y="175" width="190" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.76078431369999999" green="0.51372549020000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
@@ -787,15 +775,24 @@ we'll reach a Million musicians! You can help: Tweet, Share, Instagram, Facebook
                                                     <action selector="videoPressed:" destination="FJT-os-tfQ" eventType="touchUpInside" id="d2T-GF-P9I"/>
                                                 </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VAe-Vq-JaU">
-                                                <rect key="frame" x="24" y="32" width="512" height="139"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P9V-ew-Oqn">
+                                                <rect key="frame" x="24" y="97" width="512" height="65.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <string key="text">Thank you! If every person using Synth One shares with just ONE person, 
-we'll reach a Million musicians!
-
-You can help: Tweet, Share, Instagram, Facebook, Youtube. Email it to 1 friend. Tag a producer/musician. It only takes one person. Change the world!</string>
+                                                <string key="text">You can help: Share, Tweet, Instagram, Facebook, Youtube. Email it to 1 friend. Tag a producer/musician. You can change the world!</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cF7-xX-i8I">
+                                                <rect key="frame" x="24" y="35" width="489" height="65.5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                </accessibility>
+                                                <string key="text">AudioKit Synth One is completely free &amp; open-source. Everyone working on this project volunteers their time to create this app.  :)</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -803,7 +800,7 @@ You can help: Tweet, Share, Instagram, Facebook, Youtube. Email it to 1 friend. 
                                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q22-Uv-uyE">
-                                        <rect key="frame" x="137" y="364" width="286" height="40"/>
+                                        <rect key="frame" x="137" y="305" width="286" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.80239439010620117" green="0.49666857719421387" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
@@ -815,10 +812,10 @@ You can help: Tweet, Share, Instagram, Facebook, Youtube. Email it to 1 friend. 
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="UdJ-na-h9Y"/>
-                                    <constraint firstAttribute="height" constant="420" id="fhU-0R-FsR"/>
+                                    <constraint firstAttribute="height" constant="364" id="fhU-0R-FsR"/>
                                 </constraints>
                             </view>
                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6aw-m8-Jqa">

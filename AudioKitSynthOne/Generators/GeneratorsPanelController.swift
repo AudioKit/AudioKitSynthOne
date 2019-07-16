@@ -12,6 +12,10 @@ import UIKit
 
 class GeneratorsPanelController: PanelController {
 
+    @IBOutlet weak var cutoffKnobLabel: UILabel!
+    
+    @IBOutlet weak var rezKnobLabel: UILabel!
+    
     @IBOutlet weak var morph1Selector: MorphSelector!
 
     @IBOutlet weak var morph2Selector: MorphSelector!
@@ -63,10 +67,6 @@ class GeneratorsPanelController: PanelController {
     @IBOutlet weak var widenToggle: FlatToggleButton!
 
     @IBOutlet weak var oscBandlimitEnable: ToggleButton!
-    
-    @IBOutlet weak var cutoffKnobLabel: UILabel!
-    
-    @IBOutlet weak var rezKnobLabel: UILabel!
     
     var audioPlot: AKNodeOutputPlot!
 
@@ -191,16 +191,28 @@ class GeneratorsPanelController: PanelController {
             switch value {
             case 0:
                 // Low Pass
-                cutoffKnobLabel.text = "Frequency"
-                rezKnobLabel.text = "Resonance"
+                if (cutoffKnobLabel != nil) {
+                    cutoffKnobLabel.text = "Frequency"
+                }
+                if (rezKnobLabel != nil) {
+                    rezKnobLabel.text = "Resonance"
+                }
             case 1:
                 // Band Pass
-                cutoffKnobLabel.text = "Center"
-                rezKnobLabel.text = "Width"
+                if (cutoffKnobLabel != nil) {
+                    cutoffKnobLabel.text = "Center"
+                }
+                if (rezKnobLabel != nil) {
+                    rezKnobLabel.text = "Width"
+                }
             case 2:
                 // High Pass
-                cutoffKnobLabel.text = "Frequency"
-                rezKnobLabel.text = "Off"
+                if (cutoffKnobLabel != nil) {
+                    cutoffKnobLabel.text = "Frequency"
+                }
+                if (rezKnobLabel != nil) {
+                    rezKnobLabel.text = "Off"
+                }
             default:
                 break
             }

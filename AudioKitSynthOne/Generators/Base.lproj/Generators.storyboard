@@ -1441,6 +1441,7 @@
                     <size key="freeformSize" width="767" height="299"/>
                     <connections>
                         <outlet property="cutoff" destination="T1O-Gq-oPb" id="Bys-Dq-aZE"/>
+                        <outlet property="cutoffKnobLabel" destination="fUo-Zo-mmr" id="7X5-Wm-cTT"/>
                         <outlet property="displayContainer" destination="Cuq-c8-Cld" id="5PL-8o-g8v"/>
                         <outlet property="filterTypeToggle" destination="Red-y3-cs4" id="FLx-4z-lzj"/>
                         <outlet property="fmAmount" destination="udF-kd-sC6" id="BON-ZL-M0c"/>
@@ -1461,6 +1462,7 @@
                         <outlet property="noiseVolume" destination="fSo-zL-cpO" id="e0o-YH-3P3"/>
                         <outlet property="oscBandlimitEnable" destination="ctB-rJ-gK6" id="nlf-qJ-IG7"/>
                         <outlet property="resonance" destination="g4A-Sb-QLZ" id="ud7-3Q-TAQ"/>
+                        <outlet property="rezKnobLabel" destination="cfR-KA-9J2" id="lGQ-H9-Sj2"/>
                         <outlet property="rightNavButton" destination="AmO-Uf-gAj" id="7r0-Zy-VO3"/>
                         <outlet property="sequencerToggle" destination="rzC-gO-HkX" id="0HI-pS-XwN"/>
                         <outlet property="subIsSquare" destination="CNL-M9-o6B" id="jdV-mX-jYQ"/>

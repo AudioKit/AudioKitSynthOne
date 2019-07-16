@@ -186,38 +186,28 @@ class GeneratorsPanelController: PanelController {
     }
     
     override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {
-        switch parameter {
-        case .filterType:
-            switch value {
-            case 0:
-                // Low Pass
-                if (cutoffKnobLabel != nil) {
+        if (cutoffKnobLabel != nil && rezKnobLabel != nil) {
+            switch parameter {
+            case .filterType:
+                switch value {
+                case 0:
+                    // Low Pass
                     cutoffKnobLabel.text = "Frequency"
-                }
-                if (rezKnobLabel != nil) {
                     rezKnobLabel.text = "Resonance"
-                }
-            case 1:
-                // Band Pass
-                if (cutoffKnobLabel != nil) {
+                case 1:
+                    // Band Pass
                     cutoffKnobLabel.text = "Center"
-                }
-                if (rezKnobLabel != nil) {
                     rezKnobLabel.text = "Width"
-                }
-            case 2:
-                // High Pass
-                if (cutoffKnobLabel != nil) {
+                case 2:
+                    // High Pass
                     cutoffKnobLabel.text = "Frequency"
-                }
-                if (rezKnobLabel != nil) {
                     rezKnobLabel.text = "Off"
+                default:
+                    break
                 }
             default:
-                break
+                _ = 0
             }
-        default:
-            _ = 0
         }
     }
 }

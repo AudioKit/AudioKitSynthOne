@@ -6,6 +6,7 @@
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
+
 extension Manager {
     
     func setupCallbacks() {
@@ -23,6 +24,7 @@ extension Manager {
         transposeStepper.setValueCallback = { value in
             s.setSynthParameter(.transpose, value)
             self.conductor.updateDisplayLabel(.transpose, value: s.getSynthParameter(.transpose))
+            self.keyboardView.transpose = Int(value)
         }
 
         configKeyboardButton.setValueCallback = { _ in

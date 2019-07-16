@@ -67,6 +67,7 @@ class AppSettings: Codable {
     var labelMode = 1
     var octaveRange = 2
     var darkMode = false
+    var tuningMode = false
     var showKeyboard = 1.0 // 1 show, 0 hide
     var whiteKeysOnly = false
 
@@ -176,6 +177,7 @@ class AppSettings: Codable {
         labelMode = dictionary["labelMode"] as? Int ?? labelMode
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
         darkMode = dictionary["darkMode"] as? Bool ?? darkMode
+        tuningMode = dictionary["tuningMode"] as? Bool ?? tuningMode
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard
 
         // PRESET STATE

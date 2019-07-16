@@ -10,6 +10,26 @@ import UIKit
 import AudioKit
 import Disk
 
+enum TuningScaleDegreeDescription: Int {
+    case frequency = 0
+    case pitch = 1
+    case cents = 2
+    case harmonic = 3
+    func simpleDescription() -> String {
+        switch self {
+        case .frequency:
+            return "Frequency"
+        case .pitch:
+            return "Pitch"
+        case .cents:
+            return "Cents"
+        case .harmonic:
+            return "Harmonic"
+        }
+    }
+}
+
+// MARK: -
 /// Tuning Model
 final class Tunings {
 
@@ -20,6 +40,8 @@ final class Tunings {
     public typealias S1TuningCallback = () -> [Double]
 
     public typealias Frequency = Double
+
+    public typealias Pitch = Double
 
     public typealias S1TuningLoadCallback = () -> (Void)
 
@@ -38,8 +60,6 @@ final class Tunings {
     private var tuningSortType = TuningSortType.userOrder
 
     var isInitialized = false
-
-    var pitchWheelDelegate: TuningsPitchWheelViewTuningDidChange?
 
     internal let bundleBankIndex = 0
 
@@ -76,12 +96,20 @@ final class Tunings {
     }
 
     var selectedBankTuningIsEditable: Bool {
+
         get {
             return selectedBankIndex == userBankIndex
         }
     }
 
-    // MARK: - TuneUp
+    var selectedBankName: String {
+
+        get {
+            return tuningBanks[selectedBankIndex].name
+        }
+    }
+
+    // MARK: - TuneUp Properties
 
     var tuningName = Tuning.defaultName
 
@@ -93,7 +121,7 @@ final class Tunings {
 
     internal static let hexanyTriadTuningsBankName = "Hexanies With Proportional Triads"
 
-    // MARK: - TuneUp BackButton
+    // MARK: - TuneUp BackButton Properties
 
     internal var redirectHost: String?
 
@@ -210,9 +238,9 @@ final class Tunings {
         }
     }
 
-    /// saveTunings
-    /// Save for the cases where selectedTuningIndex changes
+    /// saveTunings: For the cases where selectedTuningIndex changes
     private func saveTunings() {
+        
         DispatchQueue.global(qos: .userInitiated).async {
             do {
                 try Disk.save(self.tuningBanks, to: .documents, as: self.tuningFilenameV1)
@@ -313,12 +341,6 @@ final class Tunings {
         AKPolyphonicNode.tuningTable.tuningTable(fromFrequencies: tuning.masterSet)
         tuningDidChange()
         saveTunings()
-    }
-
-    var selectedBankName: String {
-        get {
-            return tuningBanks[selectedBankIndex].name
-        }
     }
 
     // MARK: - STATE
@@ -428,8 +450,13 @@ final class Tunings {
             let f = AKPolyphonicNode.tuningTable.frequency(forNoteNumber: MIDINoteNumber(i))
             conductor.synth.setTuningTable(f, index: i)
         }
-
-        //notify delegate
-        pitchWheelDelegate?.tuningDidChange()
+        NotificationCenter.default.post(name: .tuningDidChange, object: nil)
     }
+}
+
+// MARK: -
+
+extension Notification.Name {
+
+    static let tuningDidChange = Notification.Name("tuningDidChange")
 }

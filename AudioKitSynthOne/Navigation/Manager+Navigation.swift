@@ -7,6 +7,7 @@
 //
 
 /// View Navigation/Embed Helper Methods
+
 extension Manager {
     
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -17,8 +18,9 @@ extension Manager {
             popOverController.octaveRange = keyboardView.octaveCount
             popOverController.labelMode = keyboardView.labelMode
             popOverController.darkMode = keyboardView.darkMode
+            popOverController.tuningMode = keyboardView.tuningMode
 
-            popOverController.preferredContentSize = CGSize(width: 300, height: 240)
+            popOverController.preferredContentSize = CGSize(width: 300, height: 300)
             if let presentation = popOverController.popoverPresentationController {
                 presentation.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
                 presentation.sourceRect = configKeyboardButton.bounds

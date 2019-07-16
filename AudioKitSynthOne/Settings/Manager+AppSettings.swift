@@ -48,6 +48,7 @@ extension Manager {
         keyboardView.labelMode = appSettings.labelMode
         keyboardView.octaveCount = appSettings.octaveRange
         keyboardView.darkMode = appSettings.darkMode
+        keyboardView.tuningMode = appSettings.tuningMode
 
         // MIDI Learn Generators
         generatorsPanel.masterVolume.midiCC = MIDIByte(appSettings.masterVolumeCC)
@@ -193,6 +194,7 @@ extension Manager {
         appSettings.labelMode = keyboardView.labelMode
         appSettings.octaveRange = keyboardView.octaveCount
         appSettings.darkMode = keyboardView.darkMode
+        appSettings.tuningMode = keyboardView.tuningMode
 
         // State
         appSettings.currentBankIndex = presetsViewController.bankIndex

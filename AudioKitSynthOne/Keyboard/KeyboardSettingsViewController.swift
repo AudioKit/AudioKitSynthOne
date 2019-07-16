@@ -10,7 +10,7 @@ import UIKit
 
 protocol KeyboardPopOverDelegate: AnyObject {
 
-    func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool)
+    func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool, tuningMode: Bool)
 }
 
 class KeyboardSettingsViewController: UIViewController {
@@ -21,6 +21,8 @@ class KeyboardSettingsViewController: UIViewController {
 
     @IBOutlet weak var keyboardModeSegment: UISegmentedControl!
 
+    @IBOutlet weak var keyboardTuningModeSegment: UISegmentedControl!
+
     weak var delegate: KeyboardPopOverDelegate?
 
     var labelMode: Int = 1
@@ -28,6 +30,8 @@ class KeyboardSettingsViewController: UIViewController {
     var octaveRange: Int = 2
 
     var darkMode: Bool = false
+
+    var tuningMode: Bool = false
 
     override func viewDidLoad() {
 
@@ -37,7 +41,7 @@ class KeyboardSettingsViewController: UIViewController {
         octaveRangeSegment.selectedSegmentIndex = octaveRange - 1
         labelModeSegment.selectedSegmentIndex = labelMode
         keyboardModeSegment.selectedSegmentIndex = darkMode ? 1 : 0
-
+        keyboardTuningModeSegment.selectedSegmentIndex = tuningMode ? 1 : 0
     }
 
     // Set fonts for UISegmentedControls
@@ -48,31 +52,36 @@ class KeyboardSettingsViewController: UIViewController {
         labelModeSegment.setTitleTextAttributes(attr, for: .normal)
         keyboardModeSegment.setTitleTextAttributes(attr, for: .normal)
         octaveRangeSegment.setTitleTextAttributes(attr, for: .normal)
+        keyboardTuningModeSegment.setTitleTextAttributes(attr, for: .normal)
     }
 
     @IBAction func octaveRangeDidChange(_ sender: UISegmentedControl) {
 
         octaveRange = sender.selectedSegmentIndex + 1
-        delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
+        delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode, tuningMode: tuningMode)
     }
 
     @IBAction func keyLabelDidChange(_ sender: UISegmentedControl) {
 
            labelMode = sender.selectedSegmentIndex
-           delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
+           delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode, tuningMode: tuningMode)
     }
 
     @IBAction func keyboardModeDidChange(_ sender: UISegmentedControl) {
 
-        if sender.selectedSegmentIndex == 1 {
-            darkMode = true
-        } else {
-            darkMode = false
-        }
-        delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode)
+        darkMode = (sender.selectedSegmentIndex == 1)
+        delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode, tuningMode: tuningMode)
+    }
+
+    @IBAction func keyboardTuningModeDidChange(_ sender: UISegmentedControl) {
+
+        tuningMode = (sender.selectedSegmentIndex == 1)
+
+        delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode, tuningMode: tuningMode)
     }
 
     @IBAction func closeButton(_ sender: UIButton) {
+        
         dismiss(animated: true, completion: nil)
     }
 }
@@ -84,7 +93,7 @@ extension KeyboardSettingsViewController {
 	func setUpAccessibility() {
 
 		keyboardModeSegment.subviews[0].accessibilityLabel = NSLocalizedString("White", comment: "White")
-		keyboardModeSegment.subviews[2].accessibilityLabel = NSLocalizedString("Dark", comment: "Dark")
+		keyboardModeSegment.subviews[1].accessibilityLabel = NSLocalizedString("Dark", comment: "Dark")
 		
 		octaveRangeSegment.subviews[0].accessibilityLabel = NSLocalizedString("1", comment: "1")
 		octaveRangeSegment.subviews[1].accessibilityLabel = NSLocalizedString("2", comment: "2")
@@ -93,5 +102,8 @@ extension KeyboardSettingsViewController {
 		labelModeSegment.subviews[0].accessibilityLabel = NSLocalizedString("None", comment: "None")
 		labelModeSegment.subviews[1].accessibilityLabel = NSLocalizedString("C", comment: "C")
 		labelModeSegment.subviews[2].accessibilityLabel = NSLocalizedString("All", comment: "All")
+
+        keyboardTuningModeSegment.subviews[0].accessibilityLabel = NSLocalizedString("12ET", comment: "12ET")
+        keyboardTuningModeSegment.subviews[1].accessibilityLabel = NSLocalizedString("Microtonal", comment: "Microtonal")
 	}
 }

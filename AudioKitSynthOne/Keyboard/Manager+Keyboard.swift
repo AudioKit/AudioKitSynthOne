@@ -10,10 +10,11 @@
 
 extension Manager: KeyboardPopOverDelegate {
 
-    func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool) {
+    func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool, tuningMode: Bool) {
         keyboardView.octaveCount = octaveRange
         keyboardView.labelMode = labelMode
         keyboardView.darkMode = darkMode
+        keyboardView.tuningMode = tuningMode
         keyboardView.setNeedsDisplay()
         saveAppSettingValues()
     }

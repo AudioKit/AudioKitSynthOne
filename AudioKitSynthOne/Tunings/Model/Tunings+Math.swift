@@ -11,11 +11,23 @@ import AudioKit
 
 extension Tunings {
 
-    // MARK: - Helpers
+    class func horagram01ToCartesian01(p: CGPoint) -> CGPoint {
+
+        let thetaRadians = CGFloat(radians01(d01: Float(p.x)) - 0.5 * Double.pi) // clockwise
+        let x = p.y * cos(thetaRadians)
+        let y = p.y * sin(thetaRadians)
+        return CGPoint(x: x, y: y)
+    }
+
+    class func radians01(d01: Float) -> Float {
+
+        return Float(d01 * 2 * Double.pi)
+    }
 
     // Harmonic Series from n...2n
     class func harmonicSeries( _ root: Int ) -> [Frequency] {
-        var retVal: [Frequency] = [1] // octave-based tuning with default root 1/1
+
+        var retVal: [Frequency] = [1]
         if root < 1 { return retVal }
         let octave = 2 * root
         for n in root..<octave where n != root {
@@ -27,7 +39,8 @@ extension Tunings {
 
     // Subharmonic series from n...2n
     class func subHarmonicSeries( _ root: Int ) -> [Frequency] {
-        var retVal: [Frequency] = [1] // octave-based tuning with default root 1/1
+
+        var retVal: [Frequency] = [1]
         if root < 1 { return retVal }
         let octave = 2 * root
         for n in root..<octave where n != root {
@@ -39,7 +52,8 @@ extension Tunings {
 
     // Combine harmonic and subharmonic series from n...2n
     class func harmonicSubharmonicSeries( _ root: Int) -> [Frequency] {
-        var retVal: [Frequency] = [1] // octave-based tuning with default root 1/1
+
+        var retVal: [Frequency] = [1]
         if root < 1 { return retVal }
         let harmonic = harmonicSeries(root)
         let subHarmonic = subHarmonicSeries(root)
@@ -52,6 +66,7 @@ extension Tunings {
     // 4 choose 2
     // swiftlint:disable identifier_name
     class func hexany(_ masterSet: [Frequency]) -> [Frequency] {
+
         let A = masterSet[0]
         let B = masterSet[1]
         let C = masterSet[2]
@@ -61,6 +76,7 @@ extension Tunings {
 
     // 5 choose 2
     class func dekany(_ masterSet: [Frequency]) -> [Frequency] {
+
         let A = masterSet[0]
         let B = masterSet[1]
         let C = masterSet[2]
@@ -71,6 +87,7 @@ extension Tunings {
 
     // 6 choose 2
     class func pentadekany(_ masterSet: [Frequency]) -> [Frequency] {
+        
         let A = masterSet[0]
         let B = masterSet[1]
         let C = masterSet[2]

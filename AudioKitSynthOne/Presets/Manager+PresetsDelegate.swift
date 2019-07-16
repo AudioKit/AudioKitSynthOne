@@ -12,7 +12,6 @@ extension Manager: PresetsDelegate {
 
     func presetDidChange(_ newActivePreset: Preset) {
 
-        //TODO: Aure: You added this reset on 7/10/2018...it creates audio artifacts...was this intentional?
         conductor.synth.reset()
 
         activePreset = newActivePreset

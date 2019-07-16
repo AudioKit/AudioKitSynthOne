@@ -190,6 +190,10 @@
 		EA388CFC210548460026C0C0 /* Dev.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA388CFE210548460026C0C0 /* Dev.storyboard */; };
 		EA388D1C21071BD50026C0C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA388D1A21071BD50026C0C0 /* InfoPlist.strings */; };
 		EA388D1F21071BD50026C0C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA388D1D21071BD50026C0C0 /* Localizable.strings */; };
+		F40636FB22E3EA2300A422D3 /* String+Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40636FA22E3EA2300A422D3 /* String+Drawing.swift */; };
+		F40636FD22E3EACC00A422D3 /* TuningsPitchWheelOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40636FC22E3EACC00A422D3 /* TuningsPitchWheelOverlayView.swift */; };
+		F40636FF22E3EECB00A422D3 /* KeyboardView+Draw12ET.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40636FE22E3EECB00A422D3 /* KeyboardView+Draw12ET.swift */; };
+		F406370122E3EF7F00A422D3 /* KeyboardView+DrawMicrotonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406370022E3EF7F00A422D3 /* KeyboardView+DrawMicrotonal.swift */; };
 		F473515722A0D63900869AFB /* TuningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F473515622A0D63900869AFB /* TuningsViewController.swift */; };
 		F47C27E42207C12100CA7541 /* Tunings+TuneUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */; };
 		F47C27E62207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C27E52207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift */; };
@@ -247,6 +251,9 @@
 		F482CC5F2123CDE70093ADC8 /* sawtooth_1348.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CC292123CDE70093ADC8 /* sawtooth_1348.json */; };
 		F482CC602123CDE70093ADC8 /* sawtooth_0021.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CC2A2123CDE70093ADC8 /* sawtooth_0021.json */; };
 		F482CC612123CDE70093ADC8 /* pwm_0042.json in Resources */ = {isa = PBXBuildFile; fileRef = F482CC2B2123CDE70093ADC8 /* pwm_0042.json */; };
+		F491FC5422DF8BDF00CDB78E /* Tunings+Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491FC5322DF8BDF00CDB78E /* Tunings+Drawing.swift */; };
+		F491FC5622DF914300CDB78E /* KeyboardView+Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491FC5522DF914300CDB78E /* KeyboardView+Drawing.swift */; };
+		F491FC5822DF930100CDB78E /* KeyboardView+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491FC5722DF930100CDB78E /* KeyboardView+Touches.swift */; };
 		F4AD9EE022484EFA002B0E2E /* MIDIArpDirectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EDF22484EFA002B0E2E /* MIDIArpDirectionButton.swift */; };
 		F4AD9EE2224856C2002B0E2E /* MIDIToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */; };
 		F4AD9EE4224866BE002B0E2E /* MIDIToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */; };
@@ -626,6 +633,10 @@
 		EA388D1E21071BD50026C0C0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EA388D2221071C170026C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EA388D2721071C330026C0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F40636FA22E3EA2300A422D3 /* String+Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Drawing.swift"; sourceTree = "<group>"; };
+		F40636FC22E3EACC00A422D3 /* TuningsPitchWheelOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsPitchWheelOverlayView.swift; sourceTree = "<group>"; };
+		F40636FE22E3EECB00A422D3 /* KeyboardView+Draw12ET.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardView+Draw12ET.swift"; sourceTree = "<group>"; };
+		F406370022E3EF7F00A422D3 /* KeyboardView+DrawMicrotonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardView+DrawMicrotonal.swift"; sourceTree = "<group>"; };
 		F437E99E20EB22D00096FEAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F473515622A0D63900869AFB /* TuningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsViewController.swift; sourceTree = "<group>"; };
 		F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+TuneUp.swift"; sourceTree = "<group>"; };
@@ -684,6 +695,9 @@
 		F482CC292123CDE70093ADC8 /* sawtooth_1348.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sawtooth_1348.json; sourceTree = "<group>"; };
 		F482CC2A2123CDE70093ADC8 /* sawtooth_0021.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sawtooth_0021.json; sourceTree = "<group>"; };
 		F482CC2B2123CDE70093ADC8 /* pwm_0042.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pwm_0042.json; sourceTree = "<group>"; };
+		F491FC5322DF8BDF00CDB78E /* Tunings+Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+Drawing.swift"; sourceTree = "<group>"; };
+		F491FC5522DF914300CDB78E /* KeyboardView+Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardView+Drawing.swift"; sourceTree = "<group>"; };
+		F491FC5722DF930100CDB78E /* KeyboardView+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardView+Touches.swift"; sourceTree = "<group>"; };
 		F4AD9EDF22484EFA002B0E2E /* MIDIArpDirectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIArpDirectionButton.swift; sourceTree = "<group>"; };
 		F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIToggleButton.swift; sourceTree = "<group>"; };
 		F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIToggleSwitch.swift; sourceTree = "<group>"; };
@@ -850,6 +864,7 @@
 			children = (
 				C435C4F620C5234900DAECCD /* TuningCell.swift */,
 				C4B4915420C7C70D00FD565A /* TuningsPitchWheelView.swift */,
+				F40636FC22E3EACC00A422D3 /* TuningsPitchWheelOverlayView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -893,6 +908,10 @@
 				C4B4911920C7C62A00FD565A /* BlackKeyStyleKit.swift */,
 				94656AEC205F410900634B2C /* KeyboardShowButton.swift */,
 				C4B4911820C7C62A00FD565A /* KeyboardView.swift */,
+				F491FC5522DF914300CDB78E /* KeyboardView+Drawing.swift */,
+				F40636FE22E3EECB00A422D3 /* KeyboardView+Draw12ET.swift */,
+				F406370022E3EF7F00A422D3 /* KeyboardView+DrawMicrotonal.swift */,
+				F491FC5722DF930100CDB78E /* KeyboardView+Touches.swift */,
 				C4B4912120C7C65000FD565A /* ModWheelStyleKit.swift */,
 			);
 			path = "UI Components";
@@ -1457,11 +1476,13 @@
 				F4E4D00321C5B9F2005B2FAF /* TuningBank.swift */,
 				C435C52E20C52D4B00DAECCD /* Tunings.swift */,
 				F4E4D00821C87B9F005B2FAF /* Tunings+DefaultTunings.swift */,
+				F491FC5322DF8BDF00CDB78E /* Tunings+Drawing.swift */,
 				C435C52F20C52D4B00DAECCD /* Tunings+Harmonic.swift */,
 				C435C52D20C52D4B00DAECCD /* Tunings+Math.swift */,
 				F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */,
 				F4C9D9A221D6B13200B7C4E5 /* Tunings+UpgradePaths.swift */,
 				F4E4D00521C81DB4005B2FAF /* tunings_v0_upgrade_path_test.json */,
+				F40636FA22E3EA2300A422D3 /* String+Drawing.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1755,6 +1776,7 @@
 				C4B491A720C7C95A00FD565A /* GeneratorsPanelController.swift in Sources */,
 				947956AD1F329AB200FE5D9B /* StepperStyleKit.swift in Sources */,
 				C4B491AF20C7D10200FD565A /* LFOWavePicker.swift in Sources */,
+				F40636FD22E3EACC00A422D3 /* TuningsPitchWheelOverlayView.swift in Sources */,
 				F4CA406F225192A60053F29E /* MIDISynthButton.swift in Sources */,
 				C4B490F720C654E600FD565A /* S1DSPKernel+reset.mm in Sources */,
 				C435C58420C530C900DAECCD /* S1NoteState.mm in Sources */,
@@ -1788,7 +1810,9 @@
 				C4B491A120C7C91A00FD565A /* EnvelopesPanelController.swift in Sources */,
 				94F7846722D3FE8400C35702 /* SearchViewController.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
+				F40636FF22E3EECB00A422D3 /* KeyboardView+Draw12ET.swift in Sources */,
 				C432979320CB2BB20063F795 /* Presets+LoadSaveManipulate.swift in Sources */,
+				F491FC5422DF8BDF00CDB78E /* Tunings+Drawing.swift in Sources */,
 				F4CA406D224EB2A70053F29E /* S1Control.swift in Sources */,
 				C435C53020C52D4C00DAECCD /* Tuning.swift in Sources */,
 				C4B4910E20C7C5E500FD565A /* Manager+AppSettings.swift in Sources */,
@@ -1813,6 +1837,7 @@
 				C435C51E20C52D1700DAECCD /* Bank.swift in Sources */,
 				C435C52520C52D1700DAECCD /* Preset.swift in Sources */,
 				C4B4910920C7C5C500FD565A /* SequencerPanelController.swift in Sources */,
+				F491FC5622DF914300CDB78E /* KeyboardView+Drawing.swift in Sources */,
 				C4B4919820C7C81200FD565A /* Manager+MailingListDelegate.swift in Sources */,
 				C4B4919320C7C7C500FD565A /* PresetsCategoriesViewController.swift in Sources */,
 				C432979720CB2E090063F795 /* Manager+Navigation.swift in Sources */,
@@ -1863,6 +1888,7 @@
 				C4B4915A20C7C70D00FD565A /* TuningsPanel+UITableViewDataSource.swift in Sources */,
 				C435C4FA20C5234900DAECCD /* TuningCell.swift in Sources */,
 				94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */,
+				F406370122E3EF7F00A422D3 /* KeyboardView+DrawMicrotonal.swift in Sources */,
 				9479F20321E4F9CE003605B9 /* iPhoneToggleButton.swift in Sources */,
 				947956A91F329AB200FE5D9B /* Stepper.swift in Sources */,
 				9479F20521E4FB06003605B9 /* TopUIButtonStyleKit.swift in Sources */,
@@ -1893,6 +1919,7 @@
 				C4B4918B20C7C79C00FD565A /* Presets+BankPopOverDelegate.swift in Sources */,
 				C4B490FD20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm in Sources */,
 				948C54C31F3A57C600DA6081 /* SynthButton.swift in Sources */,
+				F491FC5822DF930100CDB78E /* KeyboardView+Touches.swift in Sources */,
 				C4F7ECB61F244A510011B119 /* Knob.swift in Sources */,
 				C4B491C220C7DF2A00FD565A /* MorphSelectorStyleKit.swift in Sources */,
 				C4B4914A20C7C6E300FD565A /* Audiobus+MIDI.swift in Sources */,
@@ -1904,6 +1931,7 @@
 				C4B4916720C7C72A00FD565A /* PanelController.swift in Sources */,
 				C4B491BE20C7DEB100FD565A /* ArpDirectionStyleKit.swift in Sources */,
 				C4B4916A20C7C72A00FD565A /* UpdatableViewController.swift in Sources */,
+				F40636FB22E3EA2300A422D3 /* String+Drawing.swift in Sources */,
 				C435C57C20C530C900DAECCD /* AEMessageQueue.m in Sources */,
 				C4B4910520C7C5C500FD565A /* ArpDirectionButton.swift in Sources */,
 				C435C57820C530C900DAECCD /* Conductor.swift in Sources */,

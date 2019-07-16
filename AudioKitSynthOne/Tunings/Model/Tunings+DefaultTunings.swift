@@ -11,8 +11,8 @@ import Foundation
 extension Tunings {
 
     internal static func defaultTunings() -> [(String, S1TuningCallback)] {
-        var retVal = [(String, S1TuningCallback)]()
 
+        var retVal = [(String, S1TuningCallback)]()
         retVal.append( ("Chain of pure fifths", { return [1, 3, 9, 27, 81, 243, 729, 2_187, 6_561, 19_683, 59_049, 177_147] }) )
 
         // See http://anaphoria.com/harm&Subharm.pdf
@@ -159,6 +159,7 @@ extension Tunings {
     }
 
     internal static func hexanyTriadTunings() -> [(String, S1TuningCallback)] {
+        
         var retVal = [(String, S1TuningCallback)]()
 
         // HEXANY:[1, 3, 5, 25] = [3, 5, 25, 15, 75, 125]

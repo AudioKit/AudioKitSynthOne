@@ -12,6 +12,7 @@ extension Tunings {
 
     // pitch is log2(frequency)
     public class func approximateHarmonicFromPitch(_ pitch: Double) -> String {
+        
         let harmonics = [
             "0.000": "1",
             "0.001": "1/1023",

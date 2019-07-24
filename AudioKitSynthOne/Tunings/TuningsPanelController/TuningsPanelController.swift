@@ -10,11 +10,6 @@ import UIKit
 import CloudKit
 import MobileCoreServices
 
-public protocol TuningsPitchWheelViewTuningDidChange {
-    
-    func tuningDidChange()
-}
-
 /// View controller for the Tunings Panel
 ///
 /// Erv Wilson is the man [website](http://anaphoria.com/wilson.html)
@@ -161,7 +156,6 @@ class TuningsPanelController: PanelController {
         }
 
         // model
-        tuningModel.pitchWheelDelegate = self
         tuningModel.tuneUpDelegate = self
         tuningModel.loadTunings {
 
@@ -171,7 +165,7 @@ class TuningsPanelController: PanelController {
                     self.tuningModel.resetTuning()
                     return
             }
-
+            
             if manager.appSettings.launchWithLastTuning {
                 self.tuningModel.selectBank(atRow: self.getAppSettingsTuningsBank())
             } else {
@@ -355,18 +349,6 @@ extension TuningsPanelController: TuneUpPopUpDelegate {
         launchD1()
     }
 }
-
-// MARK: - TuningsPitchWheelViewTuningDidChange
-
-extension TuningsPanelController: TuningsPitchWheelViewTuningDidChange {
-    
-    func tuningDidChange() {
-
-        tuningsPitchWheelView.updateFromGlobalTuningTable()
-    }
-}
-
-
 
 // MARK: - Launch applications that support TuneUp
 

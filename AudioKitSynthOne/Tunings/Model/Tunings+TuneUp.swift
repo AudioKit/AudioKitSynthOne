@@ -14,6 +14,8 @@ protocol TuneUpDelegate: AnyObject {
     func setTuneUpBackButton(enabled: Bool)
 }
 
+// MARK: -
+
 extension Tunings {
 
     // MARK: TuneUp D1 and Wilsonic
@@ -191,6 +193,8 @@ extension Tunings {
     }
 
 }
+
+// MARK: -
 
 //TODO: Below is duplicate version copied from AudioKit.  Why does AudioKit develop fail on scalaFile(filePath) ?
 extension AKTuningTable {

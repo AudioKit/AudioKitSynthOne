@@ -13,6 +13,7 @@ extension Tunings {
 
     // for testing...resets file system state with bundled+user v0 tunings
     private func testUpgradeV1Path() {
+
         // copy test v0 file from bundle to documents
         if let pathStr = Bundle.main.path(forResource: "tunings_v0_upgrade_path_test", ofType: "json") {
             let fromUrl = URL(fileURLWithPath: pathStr)
@@ -28,12 +29,14 @@ extension Tunings {
 
     // for testing...tests case new v1 user
     private func testFreshInstallV1Path() {
+
         try? Disk.remove(tuningFilenameV0, from: .documents)
         try? Disk.remove(tuningFilenameV1, from: .documents)
     }
 
     /// Upgrade path from Tunings v0 to v1
     internal func upgradeTuningsFromV0ToV1() {
+        
         // create bundled bank, and an empty user bank
         loadTuningFactoryPresets()
 

@@ -378,69 +378,68 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                         <viewControllerLayoutGuide type="bottom" id="vus-m8-a83"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PcJ-ci-MQs">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="580"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="580"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIg-I0-fRq">
-                                <rect key="frame" x="0.0" y="0.0" width="800" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1000" height="580"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="d1" translatesAutoresizingMaskIntoConstraints="NO" id="l18-Yh-Z4J">
                                         <rect key="frame" x="-3" y="35" width="510" height="342"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJk-d0-BDg">
-                                        <rect key="frame" x="-1" y="342" width="801" height="238"/>
+                                        <rect key="frame" x="-1" y="342" width="502" height="238"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScT-La-xVV">
-                                                <rect key="frame" x="38" y="165" width="202" height="40"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gA8-Ut-L7z">
+                                                <rect key="frame" x="19" y="144" width="213" height="78"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.41568627450000001" green="0.58431372550000005" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
-                                                <state key="normal" title="Learn More + Sound Demos">
-                                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="learnMorePressed:" destination="cNT-J6-CgK" eventType="touchUpInside" id="tRb-Mp-ai4"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qy-Eh-nYb">
-                                                <rect key="frame" x="267" y="165" width="207" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.41568627450000001" green="0.58431372550000005" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
-                                                <state key="normal" title="Get in App Store!">
-                                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="getDigitalD1:" destination="cNT-J6-CgK" eventType="touchUpInside" id="s60-j2-VGv"/>
-                                                </connections>
-                                            </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="100% of proceeds from Digital D1 go to support the AudioKit open-source project. And, make apps like this one possible 👍 " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LTy-pG-bJW">
-                                                <rect key="frame" x="40" y="9" width="454" height="68"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">"Fans of the D-50 &amp; Wavestation... Rejoice!" 
+- Music Radar</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="100% of proceeds from apps go to support the AudioKit open-source project. And, make apps like this one possible 👍 " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LTy-pG-bJW">
+                                                <rect key="frame" x="27" y="8" width="450" height="68"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="This app is completely optional if you want to support AudioKit. No obligation. And, we won't bother you again. Thanks!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d3V-mf-zCG">
-                                                <rect key="frame" x="40" y="76" width="434" height="68"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d3V-mf-zCG">
+                                                <rect key="frame" x="27" y="72" width="477" height="68"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">These apps are completely optional if you want to support AudioKit. No obligation. AudioKit Synth One will always be free. Thanks!</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qy-Eh-nYb">
+                                                <rect key="frame" x="230" y="153" width="237" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.41568627450000001" green="0.58431372550000005" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                                <state key="normal" title="Get D1 in App Store!">
+                                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="getDigitalD1:" destination="cNT-J6-CgK" eventType="touchUpInside" id="s60-j2-VGv"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.078431372550000003" green="0.078431372550000003" blue="0.090196078430000007" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9oH-r9-Ptv">
-                                        <rect key="frame" x="0.0" y="0.0" width="800" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEb-cE-8re">
-                                                <rect key="frame" x="743" y="6" width="49" height="36"/>
+                                                <rect key="frame" x="934" y="6" width="49" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
                                                 <state key="normal" title="DONE">
@@ -450,8 +449,8 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                                     <action selector="closePressed:" destination="cNT-J6-CgK" eventType="touchUpInside" id="zGr-t9-JVh"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FUNDRAISER APP: AUDIOKIT DIGITAL D1!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMf-TX-4hf">
-                                                <rect key="frame" x="279" y="12" width="244" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FUNDRAISER APPS: AUDIOKIT DIGITAL D1 &amp; FM PLAYER 2!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMf-TX-4hf">
+                                                <rect key="frame" x="328" y="12" width="344" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
                                                 <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -460,55 +459,69 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                         </subviews>
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RJW-vJ-MBG">
-                                        <rect key="frame" x="526" y="358" width="248" height="120"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fmplayer" translatesAutoresizingMaskIntoConstraints="NO" id="8zN-KQ-qeO">
+                                        <rect key="frame" x="499" y="41" width="510" height="342"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">FULLY LOADED w/ 400+ presets by Brice Beasley, Matthew Fecher, 
-Red Sky Lullaby, Jakob Haq, Electronisounds, and more...</string>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9N-Sg-tH2">
-                                        <rect key="frame" x="548" y="488" width="200" height="61"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="115-gL-WWQ">
+                                        <rect key="frame" x="150" y="280" width="200" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button" image="app-store"/>
                                         <connections>
-                                            <action selector="getDigitalD1:" destination="cNT-J6-CgK" eventType="touchUpInside" id="SJZ-OR-bFY"/>
+                                            <action selector="getDigitalD1:" destination="cNT-J6-CgK" eventType="touchUpInside" id="hIm-1V-nXP"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Featured By Apple in &quot;New Apps We Love!&quot; " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lma-id-Ofn">
-                                        <rect key="frame" x="551" y="71" width="194" height="66"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9N-Sg-tH2">
+                                        <rect key="frame" x="783" y="295" width="200" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button" image="app-store"/>
+                                        <connections>
+                                            <action selector="getFMPlayer:" destination="cNT-J6-CgK" eventType="touchUpInside" id="nvH-Ux-PsP"/>
+                                        </connections>
+                                    </button>
+                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Featured By Apple in &quot;New Apps We Love!&quot; " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lma-id-Ofn">
+                                        <rect key="frame" x="397" y="44" width="194" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Get the Award-winning FM Player 2 app being used by Grammy-winning producers for Jay-Z, Alicia Keys, Drake..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fp0-SB-lh2">
+                                        <rect key="frame" x="549" y="409" width="441" height="67"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="&quot;Amazing, Lush, and Epic – an 80s/90s Synth Dream&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AaO-R8-FWU">
-                                        <rect key="frame" x="540" y="148" width="217" height="72"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ntu-Cb-iNG">
+                                        <rect key="frame" x="549" y="494" width="207" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.41568627450000001" green="0.58431372550000005" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                        <state key="normal" title="Get in FM2 in App Store!">
+                                            <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getDigitalD1:" destination="cNT-J6-CgK" eventType="touchUpInside" id="UBZ-QQ-PwS"/>
+                                            <action selector="getFMPlayer:" destination="cNT-J6-CgK" eventType="touchUpInside" id="6Zv-Bj-BVf"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="&quot;Sounds authentically like the original DX7 Hardware&quot; - Electronic Musician" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FaU-1u-bYL">
+                                        <rect key="frame" x="780" y="480" width="184" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gA8-Ut-L7z">
-                                        <rect key="frame" x="534" y="225" width="228" height="95"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">"Fans of the D-50, JD-990, 01/W, &amp; Wavestation... Rejoice!" 
-- Music Radar</string>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="800" id="AVV-HZ-nMH"/>
+                                    <constraint firstAttribute="width" constant="1000" id="AVV-HZ-nMH"/>
                                     <constraint firstAttribute="height" constant="580" id="pxK-dL-IPn"/>
                                 </constraints>
                             </view>
@@ -522,14 +535,14 @@ Red Sky Lullaby, Jakob Haq, Electronisounds, and more...</string>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="1024" height="337"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="800" height="580"/>
+                    <size key="freeformSize" width="1000" height="580"/>
                     <connections>
                         <outlet property="moreView" destination="SIg-I0-fRq" id="2fm-fo-4Gt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSw-pK-NbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="-518"/>
+            <point key="canvasLocation" x="88" y="-533.43328335832086"/>
         </scene>
         <!--About-->
         <scene sceneID="htM-z6-QNn">

@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Snv-Cp-FiC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ONJ-nj-oqT">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Goc-E4-LLj">
@@ -1062,7 +1062,7 @@
                         <viewControllerLayoutGuide type="bottom" id="06P-ho-gDh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Fdp-uV-03z">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="290"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enB-JQ-PVy">
@@ -1252,7 +1252,7 @@
                         <viewControllerLayoutGuide type="bottom" id="LJL-6a-0Xy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IRU-OW-W2j">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nB9-I2-C9Z">

@@ -115,8 +115,16 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("Glide: \(value.decimalString)", comment: "Mono Glide Amount")
             displayLabel.text = message
         case .cutoff, .resonance:
-            let message = NSLocalizedString("Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, " +
+            var message = NSLocalizedString("Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, " +
                 "Resonance: \(s.getSynthParameter(.resonance).decimalString)", comment: "Filter Cutoff & Resonance")
+            switch s.getSynthParameter(.filterType) {
+            case 1.0:
+                message = NSLocalizedString("Center: \(s.getSynthParameter(.cutoff).decimalString) Hz, Width: \(s.getSynthParameter(.resonance).decimalString)", comment: "Filter Bandpass Center & Width")
+            case 2.0:
+                message = NSLocalizedString("Hi-Pass Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz", comment: "Filter Hi-pass Cutoff")
+            default:
+                break
+            }
             displayLabel.text = message
         case .subVolume:
             let message = NSLocalizedString("Sub Osc Volume: \(value.decimalString)", comment: "Sub Oscillator Volume")

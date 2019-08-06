@@ -46,7 +46,7 @@ class InfoViewController: UIViewController {
 
     @IBAction func getFMPlayerPressed(_ sender: Any) {
 
-         if let url = URL(string: "http://itunes.apple.com/us/app/fm-player-classic-dx-synths/id1307785646?ls=1&mt=8") {
+         if let url = URL(string: "https://itunes.apple.com/app/apple-store/id1307785646?mt=8") {
             UIApplication.shared.open(url)
          }
     }

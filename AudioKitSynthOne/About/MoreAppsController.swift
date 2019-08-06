@@ -37,4 +37,16 @@ class MoreAppsController: UIViewController {
         }
     }
     
+    @IBAction func learnMoreFMPressed(_ sender: Any) {
+        if let url = URL(string: "https://audiokitpro.com/fm-player-2/") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func getFMPlayer(_ sender: Any) {
+        if let url = URL(string: "https://itunes.apple.com/app/apple-store/id1307785646?mt=8") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
 }

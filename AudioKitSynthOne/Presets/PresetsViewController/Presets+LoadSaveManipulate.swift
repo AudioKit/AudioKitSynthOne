@@ -193,23 +193,11 @@ extension PresetsViewController {
         }
     }
 
-    func upgradePresets() {
-     
-        // If the bankName is not in conductorBanks, add bank to conductor banks
-        for bankName in initBanks {
-            if !conductor.banks.contains(where: { $0.name == bankName }) {
-                // Add bank to conductor banks
-                let bank = Bank(name: bankName, position: conductor.banks.count)
-                conductor.banks.append(bank)
-                presetsDelegate?.banksDidUpdate()
-            }
-        }
-        
+   func upgradePresets(banksToUpdate: [String] = [""]) {
         // Remove existing presets
         // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-        let banksToUpdate = [""]
-        for bankName in banksToUpdate {
 
+        for bankName in banksToUpdate {
              if let filePath = Bundle.main.path(forResource: bankName, ofType: "json") {
                 guard let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
                     else { return }
@@ -228,6 +216,16 @@ extension PresetsViewController {
 
                 presets += newPresets
                 saveAllPresetsIn(bankName)
+            }
+        }
+    
+        // If the bankName is not in conductorBanks, add bank to conductor banks
+        for bankName in initBanks {
+            if !conductor.banks.contains(where: { $0.name == bankName }) {
+                // Add bank to conductor banks
+                let bank = Bank(name: bankName, position: conductor.banks.count)
+                conductor.banks.append(bank)
+                presetsDelegate?.banksDidUpdate()
             }
         }
     }

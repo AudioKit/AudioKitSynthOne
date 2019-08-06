@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Snv-Cp-FiC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ONJ-nj-oqT">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Goc-E4-LLj">
@@ -835,6 +835,7 @@
                         <segue destination="0bp-Jd-82Y" kind="presentation" identifier="SegueToMore" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="1BH-Lq-qpz"/>
                         <segue destination="PKD-Zy-awT" kind="presentation" identifier="SegueToApps" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="NQT-0p-RfY"/>
                         <segue destination="JZQ-7S-Tum" kind="presentation" identifier="SegueToSharing" id="CsM-By-T1b"/>
+                        <segue destination="qyS-HD-ewE" kind="presentation" identifier="SegueToFM" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="LHr-Z9-rua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1061,7 +1062,7 @@
                         <viewControllerLayoutGuide type="bottom" id="06P-ho-gDh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Fdp-uV-03z">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="290"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enB-JQ-PVy">
@@ -1251,7 +1252,7 @@
                         <viewControllerLayoutGuide type="bottom" id="LJL-6a-0Xy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IRU-OW-W2j">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="640"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nB9-I2-C9Z">
@@ -1628,7 +1629,15 @@
                 <viewControllerPlaceholder storyboardName="About" referencedIdentifier="Apps" id="PKD-Zy-awT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahp-6b-fVQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1029" y="-634"/>
+            <point key="canvasLocation" x="-943" y="-631"/>
+        </scene>
+        <!--FMPlayer2-->
+        <scene sceneID="DSN-aZ-ygh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="FMPlayer2" id="qyS-HD-ewE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tcu-X0-N8s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-940" y="-561"/>
         </scene>
         <!--SharingIsCaring-->
         <scene sceneID="Miu-CI-d0u">
@@ -1710,8 +1719,8 @@
         <image name="rack-left" width="100" height="375"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="P92-2d-IvO"/>
-        <segue reference="TVa-dv-w7i"/>
-        <segue reference="OFW-mz-IhX"/>
+        <segue reference="kIC-Kt-utx"/>
+        <segue reference="eFx-2G-dJI"/>
+        <segue reference="uQl-Oi-SV4"/>
     </inferredMetricsTieBreakers>
 </document>

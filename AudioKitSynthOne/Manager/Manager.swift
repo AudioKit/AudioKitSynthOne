@@ -328,11 +328,13 @@ public class Manager: UpdatableViewController {
         // Check preset versions
         let currentPresetVersion = AppSettings().presetsVersion
         if appSettings.presetsVersion < currentPresetVersion {
-            if appSettings.presetsVersion < 1.24 && !appSettings.firstRun {
-                performSegue(withIdentifier: "SegueToApps", sender: nil) 
-            }
-            if appSettings.presetsVersion < 1.3 && !appSettings.firstRun {
-                performSegue(withIdentifier: "SegueToFM", sender: nil)
+            if conductor.device == .pad {
+                if appSettings.presetsVersion < 1.24 && !appSettings.firstRun {
+                    performSegue(withIdentifier: "SegueToApps", sender: nil) 
+                }
+                if appSettings.presetsVersion < 1.3 && !appSettings.firstRun {
+                    performSegue(withIdentifier: "SegueToFM", sender: nil)
+                }
             }
             
             // Check for Device Type, set buffer to 1024 for iPad 4

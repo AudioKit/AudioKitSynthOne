@@ -16,6 +16,7 @@ let initBanks = ["BankA",
                  "Francis Preve",
                  "JEC",
                  "Red Sky Lullaby",
+                 "Spidericemidas",
                  "Sound of Izrael",
                  "Sound of Izrael 2",
                  "Starter Bank"]
@@ -61,7 +62,7 @@ class AppSettings: Codable {
     var launches = 0
 
     // Presets version
-    var presetsVersion = 1.3
+    var presetsVersion = 1.6
 
     // Keyboard
     var labelMode = 1

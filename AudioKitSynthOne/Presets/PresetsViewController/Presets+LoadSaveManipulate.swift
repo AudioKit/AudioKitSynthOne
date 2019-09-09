@@ -196,28 +196,6 @@ extension PresetsViewController {
    func upgradePresets(banksToUpdate: [String] = [""]) {
         // Remove existing presets
         // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-
-        for bankName in banksToUpdate {
-             if let filePath = Bundle.main.path(forResource: bankName, ofType: "json") {
-                guard let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
-                    else { return }
-                let presetsJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-                guard let jsonArray = presetsJSON as? [Any] else { return }
-
-                let bundlePresets = Preset.parseDataToPresets(jsonArray: jsonArray)
-
-                var newPresets: [Preset] = []
-                bundlePresets.forEach { preset in
-                    // Check if preset name exists
-                    if !presets.contains(where: { $0.name == preset.name }) {
-                        newPresets.append(preset)
-                    }
-                }
-
-                presets += newPresets
-                saveAllPresetsIn(bankName)
-            }
-        }
     
         // If the bankName is not in conductorBanks, add bank to conductor banks
         for bankName in initBanks {
@@ -226,6 +204,28 @@ extension PresetsViewController {
                 let bank = Bank(name: bankName, position: conductor.banks.count)
                 conductor.banks.append(bank)
                 presetsDelegate?.banksDidUpdate()
+            }
+        }
+    
+        for bankName in banksToUpdate {
+            if let filePath = Bundle.main.path(forResource: bankName, ofType: "json") {
+                guard let data = try? NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached) as Data
+                    else { return }
+                let presetsJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                guard let jsonArray = presetsJSON as? [Any] else { return }
+                
+                let bundlePresets = Preset.parseDataToPresets(jsonArray: jsonArray)
+                
+                var newPresets: [Preset] = []
+                bundlePresets.forEach { preset in
+                    // Check if preset name exists
+                    if !presets.contains(where: { $0.name == preset.name }) {
+                        newPresets.append(preset)
+                    }
+                }
+                
+                presets += newPresets
+                saveAllPresetsIn(bankName)
             }
         }
     }

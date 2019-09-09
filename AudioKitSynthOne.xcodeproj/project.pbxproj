@@ -12,6 +12,7 @@
 		941645D120B3597300D62851 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 941645CA20B3597300D62851 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		941752BA20E2BD2E0076D953 /* Starter Bank.json in Resources */ = {isa = PBXBuildFile; fileRef = 941752B920E2BD2E0076D953 /* Starter Bank.json */; };
 		94189CB8219F27130004C28B /* MoreAppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94189CB7219F27130004C28B /* MoreAppsController.swift */; };
+		9425AAFE23269E4000C7581F /* Spidericemidas.json in Resources */ = {isa = PBXBuildFile; fileRef = 9425AAFD23269E4000C7581F /* Spidericemidas.json */; };
 		94656AED205F410900634B2C /* KeyboardShowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94656AEC205F410900634B2C /* KeyboardShowButton.swift */; };
 		946980572169258A007EAA5B /* String+CapitalizeFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946980562169258A007EAA5B /* String+CapitalizeFirst.swift */; };
 		947956A91F329AB200FE5D9B /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947956A81F329AB100FE5D9B /* Stepper.swift */; };
@@ -313,6 +314,7 @@
 		941645CE20B3597300D62851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941752B920E2BD2E0076D953 /* Starter Bank.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Starter Bank.json"; sourceTree = "<group>"; };
 		94189CB7219F27130004C28B /* MoreAppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsController.swift; sourceTree = "<group>"; };
+		9425AAFD23269E4000C7581F /* Spidericemidas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Spidericemidas.json; sourceTree = "<group>"; };
 		9441B83D2126618C003A5163 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Presets.strings; sourceTree = "<group>"; };
 		9441B83E2126618C003A5163 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9441B83F2126618C003A5163 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -827,8 +829,8 @@
 				EA388CE0210498AC0026C0C0 /* About.storyboard */,
 				C4B4916220C7C72900FD565A /* AboutViewController.swift */,
 				C4B4916120C7C72900FD565A /* InfoViewController.swift */,
-				C4B4919520C7C81200FD565A /* Mailing List */,
 				94189CB7219F27130004C28B /* MoreAppsController.swift */,
+				C4B4919520C7C81200FD565A /* Mailing List */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -949,6 +951,7 @@
 				C435C51A20C52D1700DAECCD /* Red Sky Lullaby.json */,
 				94D37DD320E06641002008A4 /* Sound of Izrael.json */,
 				949907D8229F692800E3DE1B /* Sound of Izrael 2.json */,
+				9425AAFD23269E4000C7581F /* Spidericemidas.json */,
 				941752B920E2BD2E0076D953 /* Starter Bank.json */,
 				C435C51920C52D1700DAECCD /* User.json */,
 			);
@@ -1645,6 +1648,7 @@
 				EA388CED210499070026C0C0 /* TouchPad.storyboard in Resources */,
 				F482CC512123CDE70093ADC8 /* triangle_1348.json in Resources */,
 				F482CC452123CDE70093ADC8 /* sawtooth_0005.json in Resources */,
+				9425AAFE23269E4000C7581F /* Spidericemidas.json in Resources */,
 				F482CC332123CDE70093ADC8 /* pwm_1348.json in Resources */,
 				EA388CEA210498FD0026C0C0 /* Tunings.storyboard in Resources */,
 				F482CC2F2123CDE70093ADC8 /* square_0674.json in Resources */,
@@ -2248,7 +2252,7 @@
 		C4D193D41F1187B500FF4FE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ABLETON_ENABLED = 0;
+				ABLETON_ENABLED = 1;
 				ABLETON_LIB_1 = "-lABLLink";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -2319,7 +2323,7 @@
 		C4D193D51F1187B500FF4FE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ABLETON_ENABLED = 0;
+				ABLETON_ENABLED = 1;
 				ABLETON_LIB_1 = "-lABLLink";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -2385,7 +2389,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */;
 			buildSettings = {
-				ABLETON_ENABLED = 0;
+				ABLETON_ENABLED = 1;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2427,7 +2431,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2883EE9358887836A57FE08 /* Pods-AudioKitSynthOne.release.xcconfig */;
 			buildSettings = {
-				ABLETON_ENABLED = 0;
+				ABLETON_ENABLED = 1;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

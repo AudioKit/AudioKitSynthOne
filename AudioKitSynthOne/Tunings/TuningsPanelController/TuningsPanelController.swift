@@ -10,6 +10,13 @@ import UIKit
 import CloudKit
 import MobileCoreServices
 
+// TODO: Needs proper fix. Quick hack to ensure that
+// we can change the UIBarButtonItem Attributes
+// in a scope restricted to the Tunings Nav Controller.
+// Otherwise any attempts get overriden by the global appearance.
+class UITuningNavigationController : UINavigationController
+{
+}
 /// View controller for the Tunings Panel
 ///
 /// Erv Wilson is the man [website](http://anaphoria.com/wilson.html)
@@ -106,7 +113,7 @@ class TuningsPanelController: PanelController {
         tuningBankViewController = TuningsViewController(tableView: tuningBankTableView)
         tuningBankViewController.title = "Banks"
 
-        tuningNavController = UINavigationController(rootViewController: tuningBankViewController)
+        tuningNavController = UITuningNavigationController(rootViewController: tuningBankViewController)
         tuningNavController.navigationBar.barStyle = .black
         tuningNavController.navigationBar.isTranslucent = true
         tuningNavController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 20)!]
@@ -117,7 +124,7 @@ class TuningsPanelController: PanelController {
         barAppearance.backIndicatorTransitionMaskImage = backChevronImage
         barAppearance.tintColor = UIColor.white
 
-        let barButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationController.self])
+        let barButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UITuningNavigationController.self])
         let attributes = [NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 14.0)!,
                           NSAttributedString.Key.foregroundColor: UIColor.white]
         barButtonAppearance.setTitleTextAttributes(attributes, for: .normal)

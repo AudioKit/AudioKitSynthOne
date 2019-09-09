@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Global appearance
         let attributes = [NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 14.0)!,
-                          NSAttributedString.Key.foregroundColor: UIColor.white]
+                          NSAttributedString.Key.foregroundColor: UIColor.blue]
         UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .normal)
 
         // Determine iPhone or iPad

@@ -117,6 +117,11 @@ class TuningsPanelController: PanelController {
         barAppearance.backIndicatorTransitionMaskImage = backChevronImage
         barAppearance.tintColor = UIColor.white
 
+        let barButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationController.self])
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 14.0)!,
+                          NSAttributedString.Key.foregroundColor: UIColor.white]
+        barButtonAppearance.setTitleTextAttributes(attributes, for: .normal)
+
         tuningNavController.view.frame = tuningContainerView.bounds
         tuningContainerView.addSubview(tuningNavController.view)
 

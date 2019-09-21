@@ -176,6 +176,11 @@ class AppSettings: Codable {
         // KEYBOARD
         labelMode = dictionary["labelMode"] as? Int ?? labelMode
         octaveRange = dictionary["octaveRange"] as? Int ?? octaveRange
+
+        // make dark-mode keyboard default on iOS 13
+        if #available(iOS 13.0, *) {
+          darkMode = 2
+        }
         darkMode = dictionary["darkMode"] as? Int ?? darkMode
         tuningMode = dictionary["tuningMode"] as? Bool ?? tuningMode
         showKeyboard = dictionary["showKeyboard"] as? Double ?? showKeyboard

@@ -47,7 +47,7 @@ extension Manager {
         // keyboard
         keyboardView.labelMode = appSettings.labelMode
         keyboardView.octaveCount = appSettings.octaveRange
-        keyboardView.darkMode = appSettings.darkMode
+        keyboardView.darkMode = KeyboardDarkMode(rawValue: appSettings.darkMode)!
         keyboardView.tuningMode = appSettings.tuningMode
 
         // MIDI Learn Generators
@@ -193,7 +193,7 @@ extension Manager {
         // keyboard
         appSettings.labelMode = keyboardView.labelMode
         appSettings.octaveRange = keyboardView.octaveCount
-        appSettings.darkMode = keyboardView.darkMode
+        appSettings.darkMode = keyboardView.darkMode.rawValue
         appSettings.tuningMode = keyboardView.tuningMode
 
         // State

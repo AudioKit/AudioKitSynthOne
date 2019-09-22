@@ -123,7 +123,7 @@ class MicrotonalBezierPath: UIBezierPath {
     var keyOnColor: UIColor = #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.7254901961, alpha: 1)
 
     /// 12ET: draw keys
-    @IBInspectable open var darkMode: Bool = false
+    var darkMode: KeyboardDarkMode = .light
 
     // 12ET
     internal var oneOctaveSize = CGSize.zero

@@ -87,7 +87,7 @@ extension KeyboardView {
     /// Text
     func addLabels(i: Int, octaveNumber: Int, whiteKeysRect: CGRect) {
 
-        let textColor: UIColor = darkMode ? #colorLiteral(red: 0.3176470588, green: 0.337254902, blue: 0.3647058824, alpha: 1) : #colorLiteral(red: 0.5098039216, green: 0.5098039216, blue: 0.5294117647, alpha: 1)
+        let textColor: UIColor = darkMode.isDarkMode(view: self) ? #colorLiteral(red: 0.3176470588, green: 0.337254902, blue: 0.3647058824, alpha: 1) : #colorLiteral(red: 0.5098039216, green: 0.5098039216, blue: 0.5294117647, alpha: 1)
 
         // labelMode == 1, Only C, labelMode == 2, All notes
         if labelMode == 1 && i == 0 || labelMode == 2 {
@@ -147,7 +147,7 @@ extension KeyboardView {
     func whiteKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
 
         let nn = MIDINoteNumber((firstOctave + octaveNumber) * 12 + whiteKeyNotes[n] + baseMIDINote )
-        if darkMode {
+        if darkMode.isDarkMode(view: self) {
             whiteKeyOff = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
             keyOnColor = keyOnUserColor
         } else {
@@ -161,7 +161,7 @@ extension KeyboardView {
     func topKeyColor(_ n: Int, octaveNumber: Int) -> UIColor {
 
         let nn = MIDINoteNumber((firstOctave + octaveNumber) * 12 + topKeyNotes[n] + baseMIDINote )
-        if darkMode {
+        if darkMode.isDarkMode(view: self) {
             blackKeyOff = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.2549019608, alpha: 1)
             keyOnColor = keyOnUserColor
         } else {

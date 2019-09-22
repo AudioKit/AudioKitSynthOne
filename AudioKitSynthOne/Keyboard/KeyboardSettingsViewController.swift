@@ -8,9 +8,30 @@
 
 import UIKit
 
+enum KeyboardDarkMode: Int {
+  case light = 0
+  case dark = 1
+  case system = 2
+
+  func isDarkMode(view: UIView) -> Bool {
+    switch self {
+    case .system:
+      if #available(iOS 12.0, *) {
+        return view.traitCollection.userInterfaceStyle == .dark
+      } else {
+        return false
+      }
+    case .light:
+      return false
+    case .dark:
+      return true
+    }
+  }
+}
+
 protocol KeyboardPopOverDelegate: AnyObject {
 
-    func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: Bool, tuningMode: Bool)
+    func didFinishSelecting(octaveRange: Int, labelMode: Int, darkMode: KeyboardDarkMode, tuningMode: Bool)
 }
 
 class KeyboardSettingsViewController: UIViewController {
@@ -29,7 +50,7 @@ class KeyboardSettingsViewController: UIViewController {
 
     var octaveRange: Int = 2
 
-    var darkMode: Bool = false
+    var darkMode: KeyboardDarkMode = .light
 
     var tuningMode: Bool = false
 
@@ -40,7 +61,11 @@ class KeyboardSettingsViewController: UIViewController {
         // set currently selected scale picks
         octaveRangeSegment.selectedSegmentIndex = octaveRange - 1
         labelModeSegment.selectedSegmentIndex = labelMode
-        keyboardModeSegment.selectedSegmentIndex = darkMode ? 1 : 0
+        keyboardModeSegment.selectedSegmentIndex = darkMode.rawValue
+        // Remove System-Settings Darkmode Segment for iOS < 13
+        if #available(iOS 13.0, *) {} else {
+            keyboardModeSegment.removeSegment(at: 2, animated: false)
+        }
         keyboardTuningModeSegment.selectedSegmentIndex = tuningMode ? 1 : 0
     }
 
@@ -69,7 +94,7 @@ class KeyboardSettingsViewController: UIViewController {
 
     @IBAction func keyboardModeDidChange(_ sender: UISegmentedControl) {
 
-        darkMode = (sender.selectedSegmentIndex == 1)
+        darkMode = KeyboardDarkMode(rawValue: sender.selectedSegmentIndex) ?? .light
         delegate?.didFinishSelecting(octaveRange: octaveRange, labelMode: labelMode, darkMode: darkMode, tuningMode: tuningMode)
     }
 

@@ -23,24 +23,24 @@ extension CGFloat {
 }
 
 extension Double {
-
+    
     // Return string formatted to 2 decimal places
     var decimalString: String {
         return String(format: "%.02f", self)
     }
-
+    
     // Return string shifted 3 decimal places to left
     var decimal1000String: String {
         let newValue = 1_000 * self
         return String(format: "%.02f", newValue)
     }
-
+    
     // Return ms 3 decimal places to left
     var msFormattedString: String {
         let newValue = 1_000 * self
         return String(format: NSLocalizedString("%.00f ms", comment: "Number of milliseconds"), newValue)
     }
-
+    
     // Formatted percentage string e.g. 0.55 -> 55%
     var percentageString: String {
         return NumberFormatter.localizedString(from: NSNumber(value: self), number: .percent)
@@ -71,13 +71,13 @@ extension Double {
         let scale = (log(rangeMax) - log(rangeMin))
         return exp(log(rangeMin) + (scale * (0...1).clamp(value)))
     }
-
+    
     // Logarithmically scale 0.0 to 1.0 to any range
     public static func scaleRangeLog2(_ value: Double, rangeMin: Double, rangeMax: Double) -> Double {
         let scale = (log2(rangeMax) - log2(rangeMin))
         return exp2(log2(rangeMin) + (scale * (0...1).clamp(value)))
     }
-
+    
 }
 
 public extension UIDevice {
@@ -118,6 +118,9 @@ public extension UIDevice {
         case "iPhone11,2":                              return "iPhone XS"
         case "iPhone11,4", "iPhone11,6":                return "iPhone XS Max"
         case "iPhone11,8":                              return "iPhone XR"
+        case "iPhone12,1":                              return "iPhone 11"
+        case "iPhone12,3":                              return "iPhone 11 Pro"
+        case "iPhone12,5":                              return "iPhone 11 Pro Max"
         case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":return "iPad 2"
         case "iPad3,1", "iPad3,2", "iPad3,3":           return "iPad 3"
         case "iPad3,4", "iPad3,5", "iPad3,6":           return "iPad 4"
@@ -125,12 +128,15 @@ public extension UIDevice {
         case "iPad5,3", "iPad5,4":                      return "iPad Air 2"
         case "iPad6,11", "iPad6,12":                    return "iPad 5"
         case "iPad7,5", "iPad7,6":                      return "iPad 6"
+        case "iPad7,11", "iPad7,12":                    return "iPad 7"
+        case "iPad11,4", "iPad11,5":                    return "iPad Air (3rd generation)"
         case "iPad2,5", "iPad2,6", "iPad2,7":           return "iPad Mini"
         case "iPad4,4", "iPad4,5", "iPad4,6":           return "iPad Mini 2"
         case "iPad4,7", "iPad4,8", "iPad4,9":           return "iPad Mini 3"
         case "iPad5,1", "iPad5,2":                      return "iPad Mini 4"
-        case "iPad6,3", "iPad6,4":                      return "iPad Pro 9.7 Inch"
-        case "iPad6,7", "iPad6,8":                      return "iPad Pro 12.9 Inch"
+        case "iPad11,1", "iPad11,2":                    return "iPad Mini 5"
+        case "iPad6,3", "iPad6,4":                      return "iPad Pro (9.7-inch)"
+        case "iPad6,7", "iPad6,8":                      return "iPad Pro (12.9-inch)"
         case "iPad7,1", "iPad7,2":                      return "iPad Pro (12.9-inch) (2nd generation)"
         case "iPad7,3", "iPad7,4":                      return "iPad Pro (10.5-inch)"
         case "iPad8,1", "iPad8,2", "iPad8,3", "iPad8,4":return "iPad Pro (11-inch)"

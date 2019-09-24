@@ -133,6 +133,8 @@
 	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Synth One needs access to Bluetooth to connect to wireless MIDI Devices.</string>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>

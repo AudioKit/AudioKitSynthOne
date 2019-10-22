@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -77,7 +75,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZO-u3-H8d" userLabel="KeyboardContainer">
-                                <rect key="frame" x="0.0" y="277" width="812" height="98"/>
+                                <rect key="frame" x="0.0" y="257" width="812" height="118"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyboard_top" translatesAutoresizingMaskIntoConstraints="NO" id="MqC-SA-Pyl">
                                         <rect key="frame" x="0.0" y="0.0" width="812" height="41"/>
@@ -87,7 +85,7 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXT-sY-0sO">
-                                        <rect key="frame" x="6" y="38" width="104" height="60"/>
+                                        <rect key="frame" x="6" y="38" width="104" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pitch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FlR-na-B7K">
                                                 <rect key="frame" x="7" y="357" width="39" height="22"/>
@@ -104,7 +102,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aq-Yc-WNC" customClass="AKVerticalPad" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                                <rect key="frame" x="53" y="5" width="44" height="48"/>
+                                                <rect key="frame" x="53" y="5" width="44" height="68"/>
                                                 <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" label="Mod Wheel">
                                                     <accessibilityTraits key="traits" updatesFrequently="YES" allowsDirectInteraction="YES"/>
@@ -115,7 +113,7 @@
                                                 </constraints>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzH-H2-qmM" customClass="AKVerticalPad" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                                <rect key="frame" x="4" y="5" width="44" height="48"/>
+                                                <rect key="frame" x="4" y="5" width="44" height="68"/>
                                                 <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" label="Pitch Bend">
                                                     <accessibilityTraits key="traits" updatesFrequently="YES" allowsDirectInteraction="YES"/>
@@ -138,7 +136,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrU-09-D8c" customClass="KeyboardView" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="111" y="39" width="694" height="60"/>
+                                        <rect key="frame" x="111" y="39" width="694" height="80"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" updatesFrequently="YES" allowsDirectInteraction="YES"/>
@@ -851,14 +849,14 @@
                         <viewControllerLayoutGuide type="bottom" id="nli-Me-Dhp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v2e-Sw-8cj">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="280"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0K-Tv-Y7T">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KEYBOARD SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUb-c8-F17">
-                                        <rect key="frame" x="11" y="13" width="183" height="24"/>
+                                        <rect key="frame" x="29" y="14" width="151" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -874,7 +872,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNP-KG-OgZ">
-                                <rect key="frame" x="202" y="7" width="87" height="36"/>
+                                <rect key="frame" x="209" y="8" width="87" height="36"/>
                                 <accessibility key="accessibilityConfiguration" identifier="DoneButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="7Hm-Ud-zay"/>
@@ -1024,8 +1022,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="hNP-KG-OgZ" firstAttribute="top" secondItem="v2e-Sw-8cj" secondAttribute="top" constant="7" id="1rj-Ep-tWK"/>
-                            <constraint firstAttribute="trailing" secondItem="hNP-KG-OgZ" secondAttribute="trailing" constant="11" id="GXt-Oa-y0w"/>
+                            <constraint firstItem="hNP-KG-OgZ" firstAttribute="top" secondItem="v2e-Sw-8cj" secondAttribute="top" constant="8" id="1rj-Ep-tWK"/>
+                            <constraint firstAttribute="trailing" secondItem="hNP-KG-OgZ" secondAttribute="trailing" constant="4" id="GXt-Oa-y0w"/>
                             <constraint firstItem="CcS-hz-gcx" firstAttribute="centerX" secondItem="v2e-Sw-8cj" secondAttribute="centerX" id="R76-63-wqH"/>
                             <constraint firstItem="R0K-Tv-Y7T" firstAttribute="leading" secondItem="v2e-Sw-8cj" secondAttribute="leading" id="cR7-F4-bvo"/>
                             <constraint firstItem="R0K-Tv-Y7T" firstAttribute="top" secondItem="v2e-Sw-8cj" secondAttribute="top" id="dvO-ky-p5T"/>
@@ -1063,7 +1061,7 @@
                         <viewControllerLayoutGuide type="bottom" id="06P-ho-gDh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Fdp-uV-03z">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="290"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="270"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enB-JQ-PVy">
@@ -1253,7 +1251,7 @@
                         <viewControllerLayoutGuide type="bottom" id="LJL-6a-0Xy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IRU-OW-W2j">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="640"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nB9-I2-C9Z">
@@ -1279,11 +1277,11 @@
                                                 <rect key="frame" x="0.0" y="28" width="258" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O5p-sy-YOD" id="ziz-EX-i8u">
-                                                    <rect key="frame" x="0.0" y="0.0" width="258" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="258" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MIDI Input" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUh-rB-ciV" userLabel="Preset Label">
-                                                            <rect key="frame" x="26" y="11.5" width="217" height="20.5"/>
+                                                            <rect key="frame" x="26" y="12" width="0.0" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                             <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1314,11 +1312,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="378"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Spu-aU-mjx">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="636" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MIDI / SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ksJ-GG-fPC">
-                                                <rect key="frame" x="17" y="11" width="175" height="24"/>
+                                                <rect key="frame" x="25" y="11" width="175" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -1328,7 +1326,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW8-Xt-97c">
-                                                <rect key="frame" x="516" y="5" width="77" height="36"/>
+                                                <rect key="frame" x="524" y="5" width="77" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="DoneButton"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
@@ -1343,7 +1341,7 @@
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JmX-eX-97E">
-                                        <rect key="frame" x="302" y="44" width="298" height="364"/>
+                                        <rect key="frame" x="308" y="44" width="343" height="364"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Buffer Size:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbD-NB-qaM">
@@ -1394,7 +1392,7 @@
                                         <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MIDI Input Channel: Omni" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pI1-4q-bLo">
-                                        <rect key="frame" x="19" y="53" width="268" height="24"/>
+                                        <rect key="frame" x="25" y="53" width="268" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -1404,7 +1402,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6L-yF-WkZ" customClass="ChannelStepper" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="97" y="79" width="108" height="35"/>
+                                        <rect key="frame" x="103" y="79" width="108" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration" identifier="MIDIInputStepper" label="MIDI Input Channel">
@@ -1413,7 +1411,7 @@
                                         </accessibility>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MIDI Learn Knobs:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VLa-3E-3Kt">
-                                        <rect key="frame" x="19" y="122" width="263" height="24"/>
+                                        <rect key="frame" x="25" y="122" width="263" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1424,7 +1422,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-Qa-FAj" customClass="SynthButton" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="36" y="147" width="235" height="34"/>
+                                        <rect key="frame" x="42" y="147" width="235" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.26693210010000001" green="0.26649737359999998" blue="0.28525885940000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <accessibility key="accessibilityConfiguration" identifier="ResetMIDILearnButton" label="Reset MIDI Learn Knobs"/>
@@ -1438,7 +1436,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Velocity Sensitive MIDI: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nzb-kU-xl1">
-                                        <rect key="frame" x="17" y="202" width="180" height="24"/>
+                                        <rect key="frame" x="23" y="202" width="180" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1457,7 +1455,7 @@
                                         </attributedString>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ciI-3c-py9" customClass="ToggleSwitch" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="206" y="197" width="49" height="36"/>
+                                        <rect key="frame" x="212" y="197" width="49" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" identifier="VelocitySensitiveToggle" label="Velocity Sensitive MIDI">
@@ -1466,7 +1464,7 @@
                                         </accessibility>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pp-Bd-T3Z">
-                                        <rect key="frame" x="0.0" y="232" width="302" height="35"/>
+                                        <rect key="frame" x="6" y="232" width="302" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App Always on / Don't sleep:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UeB-Ec-gRc">
@@ -1501,7 +1499,7 @@
                                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Background Audio Always On:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxO-Cg-8JK">
-                                        <rect key="frame" x="16" y="275" width="180" height="24"/>
+                                        <rect key="frame" x="22" y="275" width="180" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1512,7 +1510,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a3K-SY-hHt">
-                                        <rect key="frame" x="0.0" y="305" width="302" height="35"/>
+                                        <rect key="frame" x="6" y="305" width="302" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Save + Load Tuning With Preset:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MlE-O3-Ji5">
@@ -1539,7 +1537,7 @@
                                         <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cMA-Db-Y5l" customClass="ToggleSwitch" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="207" y="345" width="49" height="36"/>
+                                        <rect key="frame" x="213" y="345" width="49" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" hint="Sets if apps plays in the background." identifier="BackgroundAudioToggle" label="Background Audio">
@@ -1548,7 +1546,7 @@
                                         </accessibility>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Launch With Last Tuning:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAs-Es-4DF">
-                                        <rect key="frame" x="17" y="348" width="180" height="24"/>
+                                        <rect key="frame" x="23" y="348" width="180" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1559,7 +1557,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qK0-RZ-jCN" customClass="ToggleSwitch" customModule="AudioKitSynthOne">
-                                        <rect key="frame" x="206" y="272" width="49" height="36"/>
+                                        <rect key="frame" x="212" y="272" width="49" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" hint="Sets if apps plays in the background." identifier="BackgroundAudioToggle" label="Background Audio">
@@ -1575,7 +1573,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.20067340135574341" green="0.20070812106132507" blue="0.20066580176353455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tKC-fD-PQm" firstAttribute="centerX" secondItem="IRU-OW-W2j" secondAttribute="centerX" id="Itu-vL-vCW"/>
                             <constraint firstItem="tKC-fD-PQm" firstAttribute="top" secondItem="IRU-OW-W2j" secondAttribute="top" id="Qgf-gk-bmN"/>
@@ -1721,7 +1719,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kIC-Kt-utx"/>
-        <segue reference="eFx-2G-dJI"/>
+        <segue reference="TVa-dv-w7i"/>
         <segue reference="uQl-Oi-SV4"/>
     </inferredMetricsTieBreakers>
 </document>

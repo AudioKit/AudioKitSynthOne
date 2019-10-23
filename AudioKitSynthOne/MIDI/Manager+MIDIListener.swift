@@ -11,7 +11,8 @@
 
 extension Manager: AKMIDIListener {
 
-    public func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
+    public func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel, portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
+   
         guard channel == midiChannelIn || omniMode else { return }
         var newVelocity = velocity
         if (velocity == 0)
@@ -34,7 +35,8 @@ extension Manager: AKMIDIListener {
         //AKLog("noteNumber: \(noteNumber), newVelocity:\(newVelocity)")
     }
 
-    public func receivedMIDINoteOff(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
+    public func receivedMIDINoteOff(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel, portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
+ 
         guard (channel == midiChannelIn || omniMode) && !keyboardView.holdMode else { return }
         DispatchQueue.main.async {
             self.keyboardView.pressRemoved(noteNumber)
@@ -60,7 +62,8 @@ extension Manager: AKMIDIListener {
     }
 
     // MIDI Controller input
-    public func receivedMIDIController(_ controller: MIDIByte, value: MIDIByte, channel: MIDIChannel) {
+    public func receivedMIDIController(_ controller: MIDIByte, value: MIDIByte, channel: MIDIChannel, portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
+ 
         guard channel == midiChannelIn || omniMode else { return }
 
         // If any MIDI Learn controls are active, assign the CC
@@ -118,7 +121,7 @@ extension Manager: AKMIDIListener {
     }
 
     // MIDI Program/Patch Change
-    public func receivedMIDIProgramChange(_ program: MIDIByte, channel: MIDIChannel) {
+    public func receivedMIDIProgramChange(_ program: MIDIByte, channel: MIDIChannel, portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
         guard channel == midiChannelIn || omniMode else { return }
         guard !pcJustTriggered else { return }
         DispatchQueue.main.async {
@@ -133,7 +136,8 @@ extension Manager: AKMIDIListener {
     }
 
     // MIDI Pitch Wheel
-    public func receivedMIDIPitchWheel(_ pitchWheelValue: MIDIWord, channel: MIDIChannel) {
+    public func receivedMIDIPitchWheel(_ pitchWheelValue: MIDIWord, channel: MIDIChannel, portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
+   
         guard channel == midiChannelIn || omniMode else { return }
         guard let s = Conductor.sharedInstance.synth else {
             AKLog("Can't process MIDI pitch wheel because synth is not instantiated")
@@ -146,7 +150,7 @@ extension Manager: AKMIDIListener {
     }
 
     // After touch
-    public func receivedMIDIAfterTouch(_ pressure: MIDIByte, channel: MIDIChannel) {
+    public func receivedMIDIAftertouch(_ pressure: MIDIByte, channel: MIDIChannel, portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
         guard channel == midiChannelIn || omniMode else { return }
         //NOP
     }
@@ -168,7 +172,7 @@ extension Manager: AKMIDIListener {
         }
     }
 
-    public func receivedMIDISystemCommand(_ data: [MIDIByte]) {
+    public func receivedMIDISystemCommand(_ data: [MIDIByte], portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
         //NOP
     }
 }

@@ -102,6 +102,8 @@
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<false/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Synth One needs access to Bluetooth to connect to wireless MIDI Devices.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use.</string>
 	<key>UIBackgroundModes</key>
@@ -133,8 +135,6 @@
 	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Synth One needs access to Bluetooth to connect to wireless MIDI Devices.</string>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>

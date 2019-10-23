@@ -25,13 +25,13 @@ public class Manager: UpdatableViewController {
 
     @IBOutlet weak var keyboardView: KeyboardView!
 
-    @IBOutlet weak var keyboardTopConstraint: NSLayoutConstraint!
+    @IBOutlet var keyboardTopConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var keyboardLeftConstraint: NSLayoutConstraint!
+    @IBOutlet var keyboardLeftConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var keyboardRightConstraint: NSLayoutConstraint!
+    @IBOutlet var keyboardRightConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var topPanelheight: NSLayoutConstraint!
+    @IBOutlet var topPanelheight: NSLayoutConstraint!
 
     @IBOutlet weak var midiButton: SynthButton!
 
@@ -289,8 +289,8 @@ public class Manager: UpdatableViewController {
         
         isPhoneX = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) >= 812 && conductor.device == .phone
         if isPhoneX {
-            self.keyboardLeftConstraint.constant = 72.5
-            self.keyboardRightConstraint.constant = 72.5
+            self.keyboardLeftConstraint?.constant = 72.5
+            self.keyboardRightConstraint?.constant = 72.5
         }
 
     }

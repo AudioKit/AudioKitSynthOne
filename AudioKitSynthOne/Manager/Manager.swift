@@ -123,8 +123,6 @@ public class Manager: UpdatableViewController {
     // AudioBus
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
 
-    var midiInput: ABMIDIReceiverPort?
-
     // MARK: - Define child view controllers
     lazy var envelopesPanel: EnvelopesPanelController = {
         let envelopesStoryboard = UIStoryboard(name: "Envelopes", bundle: Bundle.main)
@@ -274,9 +272,6 @@ public class Manager: UpdatableViewController {
             AKLog("Cannot create outpoutAudioUnit of type: kAudioOutputUnitProperty_MIDICallbacks")
         }
 
-        // Setup AudioBus MIDI Input
-        setupAudioBusInput()
-
 		holdButton.accessibilityValue = self.keyboardView.holdMode ?
 			NSLocalizedString("On", comment: "On") :
 			NSLocalizedString("Off", comment: "Off")
@@ -291,6 +286,8 @@ public class Manager: UpdatableViewController {
        //     self.keyboardRightConstraint?.constant = 72.5
         }
 
+       Audiobus.client?.controller.stateIODelegate = self
+       conductor.audioBusMidiDelegate = self
     }
     
     // Hide home bar on newer iPhones/iPad

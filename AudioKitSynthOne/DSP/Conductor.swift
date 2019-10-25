@@ -28,6 +28,14 @@ class Conductor: S1Protocol {
 
     var sustainer: SDSustainer!
 
+    var midiInput: ABMIDIReceiverPort?
+
+    var audioBusMidiDelegate: AKMIDIListener?
+
+    var midiInChannel: MIDIChannel = MIDIChannel(0)
+
+    var isOmniMode: Bool = true
+
     var bindings: [(S1Parameter, S1Control)] = []
 
     var defaultValues: [Double] = []
@@ -220,6 +228,7 @@ class Conductor: S1Protocol {
             }
         }
         Audiobus.start()
+        setupAudioBusInput()
     }
 
     func updateDisplayLabel(_ message: String) {

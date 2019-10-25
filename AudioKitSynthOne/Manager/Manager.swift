@@ -193,6 +193,8 @@ public class Manager: UpdatableViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        let modelName = UIDevice.current.modelName
+        
         // Conductor start
         conductor.start()
         let s = conductor.synth!
@@ -287,10 +289,10 @@ public class Manager: UpdatableViewController {
 			NSLocalizedString("Off", comment: "Off") :
 			NSLocalizedString("On", comment: "On")
         
-        isPhoneX = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) >= 812 && conductor.device == .phone
+        isPhoneX = modelName == "iPhone X" || modelName == "iPhone XS" || modelName == "iPhone XS Max" || modelName == "iPhone XR" || modelName == "iPhone 11" || modelName == "iPhone 11 Pro" || modelName == "iPhone 11 Pro Max"
         if isPhoneX {
-            self.keyboardLeftConstraint?.constant = 72.5
-            self.keyboardRightConstraint?.constant = 72.5
+        //    self.keyboardLeftConstraint?.constant = 72.5
+       //     self.keyboardRightConstraint?.constant = 72.5
         }
 
     }

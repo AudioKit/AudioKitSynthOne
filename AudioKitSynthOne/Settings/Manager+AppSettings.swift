@@ -19,8 +19,8 @@ extension Manager {
         // MIDI
         conductor.backgroundAudio = appSettings.backgroundAudio
         conductor.neverSleep = appSettings.neverSleep 
-        midiChannelIn = MIDIByte(appSettings.midiChannel)
-        omniMode = appSettings.omniMode
+        conductor.midiInChannel = MIDIByte(appSettings.midiChannel)
+        conductor.isOmniMode = appSettings.omniMode
         AKSettings.bufferLength = AKSettings.BufferLength(rawValue:appSettings.bufferLengthRawValue) ?? .short
 
         do {
@@ -117,8 +117,8 @@ extension Manager {
         // MIDI
         appSettings.backgroundAudio = conductor.backgroundAudio
         appSettings.neverSleep = conductor.neverSleep
-        appSettings.midiChannel = Int(midiChannelIn)
-        appSettings.omniMode = omniMode
+        appSettings.midiChannel = Int(conductor.midiInChannel)
+        appSettings.omniMode = conductor.isOmniMode
         appSettings.bufferLengthRawValue = AKSettings.bufferLength.rawValue
         appSettings.midiSources = midiInputs.filter { $0.isOpen }.compactMap { $0.name }
 

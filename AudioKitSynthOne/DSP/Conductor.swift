@@ -7,6 +7,7 @@
 //
 
 import AudioKit
+import AudioKitUI
 
 class Conductor: S1Protocol {
 
@@ -25,6 +26,18 @@ class Conductor: S1Protocol {
     var banks: [Bank] = []
 
     var synth: AKSynthOne!
+
+    var audioPlotter: AKNodeOutputPlot!
+
+    var sustainer: SDSustainer!
+
+    var midiInput: ABMIDIReceiverPort?
+
+    var audioBusMidiDelegate: AKMIDIListener?
+
+    var midiInChannel: MIDIChannel = MIDIChannel(0)
+
+    var isOmniMode: Bool = true
 
     var bindings: [(S1Parameter, S1Control)] = []
 
@@ -189,6 +202,8 @@ class Conductor: S1Protocol {
         synth.rampDuration = 0.0 // Handle ramping internally instead of the ramper hack
 
         AudioKit.output = synth
+        sustainer = SDSustainer(synth)
+        audioPlotter = AKNodeOutputPlot(synth)
 
         do {
             try AudioKit.start()
@@ -217,6 +232,7 @@ class Conductor: S1Protocol {
             }
         }
         Audiobus.start()
+        setupAudioBusInput()
     }
 
     func updateDisplayLabel(_ message: String) {

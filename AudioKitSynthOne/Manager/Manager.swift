@@ -85,8 +85,6 @@ public class Manager: UpdatableViewController {
 
     var sustainMode = false
 
-    var sustainer: SDSustainer!
-
     var pcJustTriggered = false
 
     var midiControls = [MIDILearnable]()
@@ -124,8 +122,6 @@ public class Manager: UpdatableViewController {
 
     // AudioBus
     private var audioUnitPropertyListener: AudioUnitPropertyListener!
-
-    var midiInput: ABMIDIReceiverPort?
 
     // MARK: - Define child view controllers
     lazy var envelopesPanel: EnvelopesPanelController = {
@@ -196,9 +192,7 @@ public class Manager: UpdatableViewController {
         let modelName = UIDevice.current.modelName
         
         // Conductor start
-        conductor.start()
         let s = conductor.synth!
-        sustainer = SDSustainer(s)
         keyboardView?.delegate = self
         keyboardView?.polyphonicMode = s.getSynthParameter(.isMono) < 1 ? true : false
 
@@ -278,9 +272,6 @@ public class Manager: UpdatableViewController {
             AKLog("Cannot create outpoutAudioUnit of type: kAudioOutputUnitProperty_MIDICallbacks")
         }
 
-        // Setup AudioBus MIDI Input
-        setupAudioBusInput()
-
 		holdButton.accessibilityValue = self.keyboardView.holdMode ?
 			NSLocalizedString("On", comment: "On") :
 			NSLocalizedString("Off", comment: "Off")
@@ -291,10 +282,12 @@ public class Manager: UpdatableViewController {
         
         isPhoneX = modelName == "iPhone X" || modelName == "iPhone XS" || modelName == "iPhone XS Max" || modelName == "iPhone XR" || modelName == "iPhone 11" || modelName == "iPhone 11 Pro" || modelName == "iPhone 11 Pro Max"
         if isPhoneX {
-        //    self.keyboardLeftConstraint?.constant = 72.5
-       //     self.keyboardRightConstraint?.constant = 72.5
+            self.keyboardLeftConstraint?.constant = 72.5
+            self.keyboardRightConstraint?.constant = 72.5
         }
 
+       Audiobus.client?.controller.stateIODelegate = self
+       conductor.audioBusMidiDelegate = self
     }
     
     // Hide home bar on newer iPhones/iPad

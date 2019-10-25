@@ -83,10 +83,10 @@ extension Manager: AKMIDIListener {
         // Sustain Pedal
         case AKMIDIControl.damperOnOff.rawValue:
             if value > 0 && !sustainMode {
-                sustainer.sustain(down: true)
+                conductor.sustainer.sustain(down: true)
                 sustainMode = true
             } else if sustainMode {
-                sustainer.sustain(down: false)
+                conductor.sustainer.sustain(down: false)
                 sustainMode = false
             }
 

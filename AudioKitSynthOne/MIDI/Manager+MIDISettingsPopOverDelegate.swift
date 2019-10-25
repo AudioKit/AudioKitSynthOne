@@ -17,11 +17,11 @@ extension Manager: MIDISettingsPopOverDelegate {
 
     func didSelectMIDIChannel(newChannel: Int) {
         if newChannel > -1 {
-            midiChannelIn = MIDIByte(newChannel)
-            omniMode = false
+            conductor.midiInChannel = MIDIByte(newChannel)
+            conductor.isOmniMode = false
         } else {
-            midiChannelIn = 0
-            omniMode = true
+            conductor.midiInChannel = 0
+            conductor.isOmniMode = true
         }
         saveAppSettingValues()
     }

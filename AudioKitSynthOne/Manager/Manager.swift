@@ -196,7 +196,6 @@ public class Manager: UpdatableViewController {
         let modelName = UIDevice.current.modelName
         
         // Conductor start
-        conductor.start()
         let s = conductor.synth!
         sustainer = SDSustainer(s)
         keyboardView?.delegate = self

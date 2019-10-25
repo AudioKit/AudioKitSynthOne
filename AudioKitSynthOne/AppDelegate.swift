@@ -52,6 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                           NSAttributedString.Key.foregroundColor: UIColor.blue]
         UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .normal)
 
+        // Start Audio Engine
+        conductor.start()
+
         // Determine iPhone or iPad
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         if conductor.device == .pad {

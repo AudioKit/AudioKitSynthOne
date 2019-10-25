@@ -67,8 +67,6 @@ class GeneratorsPanelController: PanelController {
     @IBOutlet weak var cutoffKnobLabel: UILabel!
     
     @IBOutlet weak var rezKnobLabel: UILabel!
-    
-    var audioPlot: AKNodeOutputPlot!
 
     var isAudioPlotFilled: Bool = false
 
@@ -167,22 +165,22 @@ class GeneratorsPanelController: PanelController {
     }
 
     func setupAudioPlot() {
-        audioPlot = AKNodeOutputPlot(conductor.synth, frame: CGRect(x: 0, y: 0, width: 172, height: 93))
-        audioPlot.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 0)
-        audioPlot.color = #colorLiteral(red: 0.9611048102, green: 0.509832561, blue: 0, alpha: 1)
-        audioPlot.gain = 0.8
-        audioPlot.shouldFill = false
-        displayContainer.addSubview(audioPlot)
+        conductor.audioPlotter.frame = CGRect(x: 0, y: 0, width: 172, height: 93)
+        conductor.audioPlotter.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.2431372549, blue: 0.262745098, alpha: 0)
+        conductor.audioPlotter.color = #colorLiteral(red: 0.9611048102, green: 0.509832561, blue: 0, alpha: 1)
+        conductor.audioPlotter.gain = 0.8
+        conductor.audioPlotter.shouldFill = false
+        displayContainer.addSubview(conductor.audioPlotter)
 
         // Add Tap Gesture Recognizer to AudioPlot
         let audioPlotTap = UITapGestureRecognizer(target: self,
                                                   action: #selector(GeneratorsPanelController.audioPlotToggled))
-        audioPlot.addGestureRecognizer(audioPlotTap)
+        conductor.audioPlotter.addGestureRecognizer(audioPlotTap)
     }
 
     @objc func audioPlotToggled() {
         isAudioPlotFilled = !isAudioPlotFilled
-        audioPlot.shouldFill = isAudioPlotFilled
+        conductor.audioPlotter.shouldFill = isAudioPlotFilled
     }
     
     override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {

@@ -7,6 +7,7 @@
 //
 
 import AudioKit
+import AudioKitUI
 
 class Conductor: S1Protocol {
 
@@ -25,6 +26,8 @@ class Conductor: S1Protocol {
     var banks: [Bank] = []
 
     var synth: AKSynthOne!
+
+    var audioPlotter: AKNodeOutputPlot!
 
     var sustainer: SDSustainer!
 
@@ -200,6 +203,7 @@ class Conductor: S1Protocol {
 
         AudioKit.output = synth
         sustainer = SDSustainer(synth)
+        audioPlotter = AKNodeOutputPlot(synth)
 
         do {
             try AudioKit.start()

@@ -26,6 +26,8 @@ class Conductor: S1Protocol {
 
     var synth: AKSynthOne!
 
+    var sustainer: SDSustainer!
+
     var bindings: [(S1Parameter, S1Control)] = []
 
     var defaultValues: [Double] = []
@@ -189,6 +191,7 @@ class Conductor: S1Protocol {
         synth.rampDuration = 0.0 // Handle ramping internally instead of the ramper hack
 
         AudioKit.output = synth
+        sustainer = SDSustainer(synth)
 
         do {
             try AudioKit.start()

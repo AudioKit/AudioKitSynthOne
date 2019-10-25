@@ -85,8 +85,6 @@ public class Manager: UpdatableViewController {
 
     var sustainMode = false
 
-    var sustainer: SDSustainer!
-
     var pcJustTriggered = false
 
     var midiControls = [MIDILearnable]()
@@ -197,7 +195,6 @@ public class Manager: UpdatableViewController {
         
         // Conductor start
         let s = conductor.synth!
-        sustainer = SDSustainer(s)
         keyboardView?.delegate = self
         keyboardView?.polyphonicMode = s.getSynthParameter(.isMono) < 1 ? true : false
 

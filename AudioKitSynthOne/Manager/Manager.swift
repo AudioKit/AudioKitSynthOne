@@ -71,11 +71,7 @@ public class Manager: UpdatableViewController {
 
     var activePreset = Preset()
 
-    var midiChannelIn: MIDIChannel = 0
-
     var midiInputs = [MIDIInput]()
-
-    var omniMode = true
 
     var notesFromMIDI = Set<MIDINoteNumber>()
 

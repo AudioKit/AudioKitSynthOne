@@ -30,12 +30,12 @@ extension Manager {
         if segue.identifier == "SegueToMIDI" {
             guard let popOverController = segue.destination as? MIDISettingsViewController else { return }
             popOverController.delegate = self
-            let userMIDIChannel = omniMode ? -1 : Int(midiChannelIn)
-            popOverController.userChannelIn = userMIDIChannel
+            popOverController.userChannelIn = Int(conductor.midiInChannel)
             popOverController.midiSources = midiInputs
             popOverController.saveTuningWithPreset = appSettings.saveTuningWithPreset
             popOverController.launchWithLastTuning = appSettings.launchWithLastTuning
             popOverController.velocitySensitive = appSettings.velocitySensitive
+            popOverController.isOmniMode = conductor.isOmniMode
 
             popOverController.preferredContentSize = CGSize(width: 600, height: 382)
             if let presentation = popOverController.popoverPresentationController {

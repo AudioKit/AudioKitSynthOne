@@ -70,6 +70,8 @@ class MIDISettingsViewController: UIViewController {
 
     let conductor = Conductor.sharedInstance
 
+    var isOmniMode = true
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -79,7 +81,9 @@ class MIDISettingsViewController: UIViewController {
 
         // setup channel stepper
         channelStepper.maxValue = 16
-        userChannelIn += 1 // Internal MIDI Channels start at 0...15, Users see 1...16
+        if !isOmniMode {
+            userChannelIn += 1 // Internal MIDI Channels start at 0...15, Users see 1...16
+        }
         channelStepper.value = Double(userChannelIn)
         updateChannelLabel()
 
@@ -176,7 +180,7 @@ class MIDISettingsViewController: UIViewController {
 
     func updateChannelLabel() {
 
-        if userChannelIn == 0 {
+        if isOmniMode || userChannelIn == 0 {
             self.channelLabel.text = "MIDI Channel In: Omni"
         } else {
             self.channelLabel.text = "MIDI Channel In: \(userChannelIn)"

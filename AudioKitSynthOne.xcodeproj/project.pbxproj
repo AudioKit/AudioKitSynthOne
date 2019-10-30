@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */; };
 		69115F3E2363BBA100B144A5 /* Conductor+Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69115F3D2363BBA000B144A5 /* Conductor+Audiobus.swift */; };
+		6982467D236EDCE600407DF4 /* Conductor+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982467C236EDCE600407DF4 /* Conductor+Platform.swift */; };
 		69C11CF7236C96DA00833BF7 /* MailchimpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690F807A236B5B9D00FDC518 /* MailchimpService.swift */; };
 		69C11CF8236C96DC00833BF7 /* MD5Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C11CF3236C375B00833BF7 /* MD5Helpers.swift */; };
 		941645CD20B3597300D62851 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941645CC20B3597300D62851 /* NotificationService.swift */; };
@@ -302,6 +303,7 @@
 		5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		690F807A236B5B9D00FDC518 /* MailchimpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpService.swift; sourceTree = "<group>"; };
 		69115F3D2363BBA000B144A5 /* Conductor+Audiobus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Conductor+Audiobus.swift"; sourceTree = "<group>"; };
+		6982467C236EDCE600407DF4 /* Conductor+Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conductor+Platform.swift"; sourceTree = "<group>"; };
 		69C11CE4236C2F3700833BF7 /* AudioKit For iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AudioKit For iOS.xcodeproj"; path = "../AudioKit/AudioKit/iOS/AudioKit For iOS.xcodeproj"; sourceTree = "<group>"; };
 		69C11CF3236C375B00833BF7 /* MD5Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Helpers.swift; sourceTree = "<group>"; };
 		69E4E45622381DF90049F0EA /* S1DSPCompressor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1DSPCompressor.hpp; sourceTree = "<group>"; };
@@ -1005,6 +1007,7 @@
 				F437E99E20EB22D00096FEAC /* README.md */,
 				C435C55420C530C900DAECCD /* AKSynthOne.swift */,
 				C435C55120C530C900DAECCD /* Conductor.swift */,
+				6982467C236EDCE600407DF4 /* Conductor+Platform.swift */,
 				F4B1AD64228BDCEC009FA6BA /* S1TuningTable.swift */,
 				F4CA406C224EB2A70053F29E /* S1Control.swift */,
 				C435C55320C530C900DAECCD /* S1Parameter.h */,
@@ -1822,6 +1825,7 @@
 				C4B491A120C7C91A00FD565A /* EnvelopesPanelController.swift in Sources */,
 				94F7846722D3FE8400C35702 /* SearchViewController.swift in Sources */,
 				94D917AD1F550D0E006ACB4E /* FlatToggleButtonStyleKit.swift in Sources */,
+				6982467D236EDCE600407DF4 /* Conductor+Platform.swift in Sources */,
 				F40636FF22E3EECB00A422D3 /* KeyboardView+Draw12ET.swift in Sources */,
 				C432979320CB2BB20063F795 /* Presets+LoadSaveManipulate.swift in Sources */,
 				F491FC5422DF8BDF00CDB78E /* Tunings+Drawing.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import Foundation
 
+#if !targetEnvironment(macCatalyst)
 extension Conductor {
 
   func setupAudioBusInput() {
@@ -49,4 +50,10 @@ extension Conductor {
         }
         Audiobus.client?.controller.addMIDIReceiverPort(midiInput)
     }
+}
+#endif
+
+// Stubs for macOS Cataylst
+extension Conductor {
+    func setupAudioBusInput() { }
 }

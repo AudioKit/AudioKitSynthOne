@@ -7,7 +7,7 @@
 //
 
 // AudioBus MIDI Input & Preset Loading
-
+#if !targetEnvironment(macCatalyst)
 extension Manager: ABAudiobusControllerStateIODelegate {
 
     // MARK: - AudioBus Preset Delegate
@@ -27,3 +27,10 @@ extension Manager: ABAudiobusControllerStateIODelegate {
         }
     }
 }
+#endif
+
+// Stubs for MacOS Catalyst target
+
+#if targetEnvironment(macCatalyst)
+extension Manager: ABAudiobusControllerStateIODelegate { }
+#endif

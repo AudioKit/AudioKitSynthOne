@@ -442,6 +442,7 @@ public class HeaderViewController: UpdatableViewController {
         var url: CFURL = CFURLCreateWithString(nil, "" as CFString?, nil)
         var size = UInt32(MemoryLayout<CFURL>.size)
 
+        #if !targetEnvironment(macCatalyst)
         guard let outputAudioUnit = AudioKit.engine.outputNode.audioUnit else { return }
         let result = AudioUnitGetProperty(
             outputAudioUnit,
@@ -454,6 +455,7 @@ public class HeaderViewController: UpdatableViewController {
         if result == noErr {
             UIApplication.shared.open(url as URL)
         }
+        #endif
     }
 
     func updateMailingListButton(_ signedMailingList: Bool) {

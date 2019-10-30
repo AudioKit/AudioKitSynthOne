@@ -11,8 +11,9 @@
 #import "S1AudioUnit.h"
 #import "S1Parameter.h"
 #import "AKSynthOneRate.h"
+#if !TARGET_OS_MACCATALYST
 #import "Audiobus.h"
-
+#endif
 // Set the ABLETON_ENABLED user setting to 1 (at the project level) to enable Ableton Link support
 // Note: you will need the files from their SDK!
 #if ABLETON_ENABLED

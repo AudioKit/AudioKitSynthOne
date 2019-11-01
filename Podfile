@@ -11,7 +11,6 @@ def available_pods
     pod 'AudioKit', '= 4.9.2'
     pod 'Disk', '~> 0.3.2'
     pod 'Audiobus'
-    pod 'ChimpKit'
     pod 'OneSignal', '>= 2.6.2', '< 3.0'
 end
 

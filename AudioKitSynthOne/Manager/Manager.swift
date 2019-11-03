@@ -243,6 +243,7 @@ public class Manager: UpdatableViewController {
         devViewController.view.removeFromSuperview()
 
         // IAA MIDI
+        #if !targetEnvironment(macCatalyst)
         var callbackStruct = AudioOutputUnitMIDICallbacks(
             userData: nil,
             MIDIEventProc: { (_, status, data1, data2, _) in
@@ -267,7 +268,7 @@ public class Manager: UpdatableViewController {
         if connectIAAMDI != 0 {
             AKLog("Cannot create outpoutAudioUnit of type: kAudioOutputUnitProperty_MIDICallbacks")
         }
-
+        #endif
 		holdButton.accessibilityValue = self.keyboardView.holdMode ?
 			NSLocalizedString("On", comment: "On") :
 			NSLocalizedString("Off", comment: "Off")

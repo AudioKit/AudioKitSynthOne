@@ -12,6 +12,7 @@ import Foundation
 import AudioKit
 import CoreAudio
 
+#if !targetEnvironment(macCatalyst)
 class Audiobus {
 
     // MARK: Client
@@ -113,8 +114,9 @@ class Audiobus {
     }
 
     var isConnectedToInput: Bool {
-        return controller.isConnectedToAudiobus(portOfType: ABPortTypeAudioSender) ||
-            audioUnit.isConnectedToInterAppAudio(nodeOfType: kAudioUnitType_RemoteEffect)
+        var iaaConnected = false
+        iaaConnected = audioUnit.isConnectedToInterAppAudio(nodeOfType: kAudioUnitType_RemoteEffect)
+        return controller.isConnectedToAudiobus(portOfType: ABPortTypeAudioSender) || iaaConnected
     }
 
     // MARK: Connections
@@ -127,7 +129,6 @@ class Audiobus {
         audioUnitPropertyListener = AudioUnitPropertyListener { (_, _) in
             self.updateConnections()
         }
-
         try! audioUnit.add(listener: audioUnitPropertyListener, toProperty: kAudioUnitProperty_IsInterAppConnected)
     }
 
@@ -175,13 +176,30 @@ private extension ABAudiobusController {
 private extension AudioUnit {
 
     var isConnectedToInterAppAudio: Bool {
+        return false
         let value: UInt32 = try! getValue(forProperty: kAudioUnitProperty_IsInterAppConnected)
         return value != 0
     }
 
     func isConnectedToInterAppAudio(nodeOfType type: OSType) -> Bool {
+        return false
         let value: AudioComponentDescription = try! getValue(forProperty: kAudioOutputUnitProperty_NodeComponentDescription)
         return value.componentType == type
     }
 
 }
+#endif
+
+// Stubs for MacOS Cataylst target
+// Does nothing
+#if targetEnvironment(macCatalyst)
+protocol ABAudiobusControllerStateIODelegate {}
+class Audiobus {
+  class ABAudiobusController{
+    var stateIODelegate: ABAudiobusControllerStateIODelegate?
+  }
+
+  static var client: Audiobus?
+  var controller: ABAudiobusController!
+}
+#endif

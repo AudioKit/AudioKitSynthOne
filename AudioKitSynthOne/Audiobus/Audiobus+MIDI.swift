@@ -9,6 +9,7 @@
 import Foundation
 import AudioKit
 
+#if !targetEnvironment(macCatalyst)
 extension Audiobus {
 
     // MARK: - Preparations
@@ -67,3 +68,4 @@ extension Audiobus {
         ABMIDIPortSendPacketList(midiSendPort, UnsafePointer(packetListPointer))
     }
 }
+#endif

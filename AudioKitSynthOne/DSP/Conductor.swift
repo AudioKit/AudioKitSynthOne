@@ -31,7 +31,9 @@ class Conductor: S1Protocol {
 
     var sustainer: SDSustainer!
 
+  #if !targetEnvironment(macCatalyst)
     var midiInput: ABMIDIReceiverPort?
+  #endif
 
     var audioBusMidiDelegate: AKMIDIListener?
 
@@ -215,6 +217,7 @@ class Conductor: S1Protocol {
         }
         started = true
 
+        #if !targetEnvironment(macCatalyst)
         if let au = AudioKit.engine.outputNode.audioUnit {
             // IAA Host Icon
             audioUnitPropertyListener = AudioUnitPropertyListener { (_, _) in
@@ -233,6 +236,7 @@ class Conductor: S1Protocol {
         }
         Audiobus.start()
         setupAudioBusInput()
+        #endif
     }
 
     func updateDisplayLabel(_ message: String) {
@@ -307,28 +311,6 @@ class Conductor: S1Protocol {
 
     func stopEngine() {
         AudioKit.engine.pause()
-    }
-
-    @objc func checkIAAConnectionsEnterBackground() {
-
-        if let audiobusClient = Audiobus.client {
-
-            if !audiobusClient.isConnected && !audiobusClient.isConnectedToInput && !backgroundAudio {
-                deactivateSession()
-                AKLog("disconnected without timer")
-            } else {
-                iaaTimer.invalidate()
-                iaaTimer = Timer.scheduledTimer(timeInterval: 20 * 60,
-                                                target: self,
-                                                selector: #selector(self.checkIAAConnectionsEnterBackground),
-                                                userInfo: nil, repeats: true)
-            }
-        }
-    }
-
-    func checkIAAConnectionsEnterForeground() {
-        iaaTimer.invalidate()
-        startEngine()
     }
 
     func deactivateSession() {

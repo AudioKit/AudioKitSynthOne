@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */; };
 		69115F3E2363BBA100B144A5 /* Conductor+Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69115F3D2363BBA000B144A5 /* Conductor+Audiobus.swift */; };
+		692C04F82370C43A008CBDDA /* AppDelegate+PlatformServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69824682236EE83A00407DF4 /* AppDelegate+PlatformServices.swift */; };
 		6982467D236EDCE600407DF4 /* Conductor+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982467C236EDCE600407DF4 /* Conductor+Platform.swift */; };
 		69C11CF7236C96DA00833BF7 /* MailchimpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690F807A236B5B9D00FDC518 /* MailchimpService.swift */; };
 		69C11CF8236C96DC00833BF7 /* MD5Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C11CF3236C375B00833BF7 /* MD5Helpers.swift */; };
@@ -304,7 +305,7 @@
 		690F807A236B5B9D00FDC518 /* MailchimpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpService.swift; sourceTree = "<group>"; };
 		69115F3D2363BBA000B144A5 /* Conductor+Audiobus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Conductor+Audiobus.swift"; sourceTree = "<group>"; };
 		6982467C236EDCE600407DF4 /* Conductor+Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conductor+Platform.swift"; sourceTree = "<group>"; };
-		69C11CE4236C2F3700833BF7 /* AudioKit For iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AudioKit For iOS.xcodeproj"; path = "../AudioKit/AudioKit/iOS/AudioKit For iOS.xcodeproj"; sourceTree = "<group>"; };
+		69824682236EE83A00407DF4 /* AppDelegate+PlatformServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PlatformServices.swift"; sourceTree = "<group>"; };
 		69C11CF3236C375B00833BF7 /* MD5Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Helpers.swift; sourceTree = "<group>"; };
 		69E4E45622381DF90049F0EA /* S1DSPCompressor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1DSPCompressor.hpp; sourceTree = "<group>"; };
 		90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -1354,6 +1355,7 @@
 				EA388D1D21071BD50026C0C0 /* Localizable.strings */,
 				EA388D1A21071BD50026C0C0 /* InfoPlist.strings */,
 				C4D193C71F1187B500FF4FE4 /* AppDelegate.swift */,
+				69824682236EE83A00407DF4 /* AppDelegate+PlatformServices.swift */,
 				C435C50220C5286B00DAECCD /* Helpers.swift */,
 				EA090E4320F74B0A0012A8F7 /* Private.swift */,
 				C4D193CB1F1187B500FF4FE4 /* Main.storyboard */,
@@ -1895,6 +1897,7 @@
 				C4B491B120C7D11500FD565A /* MIDIKnob.swift in Sources */,
 				C47FB3C31F36694300EF2F01 /* RateKnob.swift in Sources */,
 				946980572169258A007EAA5B /* String+CapitalizeFirst.swift in Sources */,
+				692C04F82370C43A008CBDDA /* AppDelegate+PlatformServices.swift in Sources */,
 				F4AD9EE2224856C2002B0E2E /* MIDIToggleButton.swift in Sources */,
 				C4B491BC20C7DEB100FD565A /* ArpButtonStyleKit.swift in Sources */,
 				C4B4919420C7C7C500FD565A /* PresetEditorViewController.swift in Sources */,

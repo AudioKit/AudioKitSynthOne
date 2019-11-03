@@ -7,8 +7,9 @@
 //
 
 import Foundation
-import OneSignal
 
+#if !targetEnvironment(macCatalyst)
+import OneSignal
 extension Manager {
 
     func pushPopUp() {
@@ -37,3 +38,11 @@ extension Manager {
         self.present(alert, animated: true, completion: nil)
     }
 }
+#endif
+
+// MacOS Target, do nothing until we figure this out
+#if targetEnvironment(macCatalyst)
+extension Manager {
+    public func pushPopUp() {}
+}
+#endif

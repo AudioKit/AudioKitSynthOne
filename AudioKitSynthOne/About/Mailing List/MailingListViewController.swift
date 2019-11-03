@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ChimpKit
 import MessageUI
 
 protocol MailingListDelegate: AnyObject {
@@ -42,7 +41,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
         // MailChimp API Key
         guard Private.MailChimpAPIKey != "***REMOVED***" else { return }
-        ChimpKit.shared().apiKey = Private.MailChimpAPIKey
+        MailChimp.shared.apiKey = Private.MailChimpAPIKey
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -152,22 +151,15 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         let submitAction = UIAlertAction(title: "Yes 👍🏼", style: .default) { (_) in
 
-            // Send to MailChimp
-            let mailToSubscribe: [String: AnyObject] = ["email": emailAddress as AnyObject]
-            let params: [String: AnyObject] = ["id": Private.MailChimpID as AnyObject,
-                                               "email": mailToSubscribe as AnyObject,
-                                               "double_optin": false as AnyObject]
-            
-            // let userLanguage = NSLocale.current.languageCode
-            
-            ChimpKit.shared().callApiMethod("lists/subscribe", withParams: params) {(response, data, _) -> Void in
-                if let httpResponse = response as? HTTPURLResponse {
-                    NSLog("Reponse status code: %d", httpResponse.statusCode)
-                    if let actualData = data {
-                        let datastring = NSString(data: actualData, encoding: String.Encoding.utf8.rawValue)
-                        AKLog(datastring ?? "error with MailChimp response")
-                    }
-                }
+            let mailUser = MailChimpUser(
+                listId: Private.MailChimpID,
+                email_address: emailAddress
+            )
+
+            MailChimp.shared.addSubscriber(user: mailUser) { (data, response, error) in
+              if let httpResponse = response as? HTTPURLResponse {
+                AKLog("Reponse status code: %d", httpResponse.statusCode)
+              }
             }
             self.delegate?.didSignMailingList(email: emailAddress)
             self.emailSubmitted()

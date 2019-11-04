@@ -7,10 +7,6 @@
 //
 
 import UIKit
-import OneSignal
-import AppCenter
-import AppCenterAnalytics
-import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private var launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    var launchOptions: [UIApplication.LaunchOptionsKey: Any]?
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -29,23 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Never Sleep mode is false
         UIApplication.shared.isIdleTimerDisabled = false
 
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
-
-        // Set your OneSignal App ID in the Private.swift file.
-        OneSignal.initWithLaunchOptions(launchOptions,
-                                        appId: Private.OneSignalAppID,
-                                        handleNotificationAction: nil,
-                                        settings: onesignalInitSettings)
-
-        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
-
-        // Setup AppCenter for Crash Log Collection
-        if (Private.AppCenterAPIKey != "***REMOVED***") {
-            MSAppCenter.start(Private.AppCenterAPIKey, withServices:[
-                MSAnalytics.self,
-                MSCrashes.self
-                ])
-        }
+        // Initialize Services specific to iOS or Mac Platforms
+        initializePlatformServices()
 
         // Global appearance
         let attributes = [NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 14.0)!,

@@ -10,7 +10,7 @@ import AudioKit
 import AudioKitUI
 import UIKit
 
-class GeneratorsPanelController: PanelController {
+class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
 
     @IBOutlet weak var morph1Selector: MorphSelector!
 
@@ -67,6 +67,10 @@ class GeneratorsPanelController: PanelController {
     @IBOutlet weak var cutoffKnobLabel: UILabel!
     
     @IBOutlet weak var rezKnobLabel: UILabel!
+
+    @IBOutlet weak var recordButton: UIButton!
+
+    @IBOutlet weak var recordStatus: UILabel!
 
     var isAudioPlotFilled: Bool = false
 
@@ -131,6 +135,9 @@ class GeneratorsPanelController: PanelController {
         // Setup Audio Plot Display
         setupAudioPlot()
         setupLinkStuff()
+        conductor.audioRecorder?.viewDelegate = self
+
+        recordButton.addTarget(self, action: #selector(recordToggled), for: .touchUpInside)
 
 		// Sets the read order for VoiceOver
 		view.accessibilityElements = [
@@ -182,7 +189,19 @@ class GeneratorsPanelController: PanelController {
         isAudioPlotFilled = !isAudioPlotFilled
         conductor.audioPlotter.shouldFill = isAudioPlotFilled
     }
-    
+
+    @objc func recordToggled() {
+        conductor.audioRecorder?.toggleRecord()
+    }
+
+    func updateRecorderView(state: RecorderState, time: Double?) {
+        if state == .Idle {
+            recordStatus.text = "Record"
+        } else {
+            recordStatus.text = TimeInterval(time!).stringFromTimeInterval()
+        }
+    }
+
     override func updateUI(_ parameter: S1Parameter, control: S1Control?, value: Double) {
         switch parameter {
         case .filterType:
@@ -205,5 +224,16 @@ class GeneratorsPanelController: PanelController {
         default:
             _ = 0
         }
+    }
+}
+
+extension TimeInterval {
+    func stringFromTimeInterval() -> String {
+        let time = NSInteger(self)
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+        let hours = (time / 3600)
+
+        return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds)
     }
 }

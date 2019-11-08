@@ -31,6 +31,10 @@ class Conductor: S1Protocol {
 
     var sustainer: SDSustainer!
 
+    var audioRecorder: AudioRecorder?
+
+    var mixer: AKMixer?
+
   #if !targetEnvironment(macCatalyst)
     var midiInput: ABMIDIReceiverPort?
   #endif
@@ -202,9 +206,10 @@ class Conductor: S1Protocol {
         synth = AKSynthOne()
         synth.delegate = self
         synth.rampDuration = 0.0 // Handle ramping internally instead of the ramper hack
-
-        AudioKit.output = synth
+        mixer = AKMixer(synth)
+        AudioKit.output = mixer
         sustainer = SDSustainer(synth)
+        audioRecorder = AudioRecorder(node: mixer)
         audioPlotter = AKNodeOutputPlot(synth)
 
         do {

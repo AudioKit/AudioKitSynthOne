@@ -10,6 +10,7 @@
 		48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */; };
 		69115F3E2363BBA100B144A5 /* Conductor+Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69115F3D2363BBA000B144A5 /* Conductor+Audiobus.swift */; };
 		692C04F82370C43A008CBDDA /* AppDelegate+PlatformServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69824682236EE83A00407DF4 /* AppDelegate+PlatformServices.swift */; };
+		693709DD23760AEA00D3C321 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693709DC23760AEA00D3C321 /* AudioRecorder.swift */; };
 		6982467D236EDCE600407DF4 /* Conductor+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982467C236EDCE600407DF4 /* Conductor+Platform.swift */; };
 		69C11CF7236C96DA00833BF7 /* MailchimpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690F807A236B5B9D00FDC518 /* MailchimpService.swift */; };
 		69C11CF8236C96DC00833BF7 /* MD5Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C11CF3236C375B00833BF7 /* MD5Helpers.swift */; };
@@ -304,6 +305,7 @@
 		5FAA47B316A5F659F440DAC9 /* Pods-AKS1Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		690F807A236B5B9D00FDC518 /* MailchimpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpService.swift; sourceTree = "<group>"; };
 		69115F3D2363BBA000B144A5 /* Conductor+Audiobus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Conductor+Audiobus.swift"; sourceTree = "<group>"; };
+		693709DC23760AEA00D3C321 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		6982467C236EDCE600407DF4 /* Conductor+Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conductor+Platform.swift"; sourceTree = "<group>"; };
 		69824682236EE83A00407DF4 /* AppDelegate+PlatformServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PlatformServices.swift"; sourceTree = "<group>"; };
 		69C11CF3236C375B00833BF7 /* MD5Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Helpers.swift; sourceTree = "<group>"; };
@@ -1008,6 +1010,7 @@
 				F437E99E20EB22D00096FEAC /* README.md */,
 				C435C55420C530C900DAECCD /* AKSynthOne.swift */,
 				C435C55120C530C900DAECCD /* Conductor.swift */,
+				693709DC23760AEA00D3C321 /* AudioRecorder.swift */,
 				6982467C236EDCE600407DF4 /* Conductor+Platform.swift */,
 				F4B1AD64228BDCEC009FA6BA /* S1TuningTable.swift */,
 				F4CA406C224EB2A70053F29E /* S1Control.swift */,
@@ -1817,6 +1820,7 @@
 				C4B4913C20C7C6A000FD565A /* AKTouchPadView.swift in Sources */,
 				C435C58920C530C900DAECCD /* S1DSPKernel.mm in Sources */,
 				C4B4916C20C7C72A00FD565A /* AboutViewController.swift in Sources */,
+				693709DD23760AEA00D3C321 /* AudioRecorder.swift in Sources */,
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
 				C435C51D20C52D1700DAECCD /* PresetDataManager.swift in Sources */,
 				C435C52920C52D2F00DAECCD /* MIDIInput.swift in Sources */,

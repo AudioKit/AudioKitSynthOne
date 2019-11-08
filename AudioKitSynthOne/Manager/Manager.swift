@@ -17,7 +17,7 @@ protocol EmbeddedViewsDelegate: AnyObject {
 
 }
 
-public class Manager: UpdatableViewController {
+public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
 
     @IBOutlet weak var topContainerView: UIView!
 
@@ -427,7 +427,7 @@ public class Manager: UpdatableViewController {
         appendMIDIControl(monoButton)
 
         setupLinkStuff()
-        
+        conductor.audioRecorder?.fileDelegate = self
         isLoaded = true
     }
 
@@ -511,5 +511,21 @@ public class Manager: UpdatableViewController {
         default:
             _ = 0
         }
+    }
+
+    public func didFinishRecording(file: AKAudioFile) {
+        let fileURL = file.url
+        var filesToShare = [Any]()
+        filesToShare.append(fileURL)
+        let activityViewController = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
+
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            activityViewController.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+            activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.init(rawValue: 0)
+        }
+        activityViewController.excludedActivityTypes = [.assignToContact]
+
+        self.present(activityViewController, animated: false, completion: {})
     }
 }

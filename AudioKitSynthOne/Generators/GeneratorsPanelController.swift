@@ -68,7 +68,7 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
     
     @IBOutlet weak var rezKnobLabel: UILabel!
 
-    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var recordButton: MIDIToggleButton!
 
     @IBOutlet weak var recordStatus: UILabel!
 
@@ -137,7 +137,9 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
         setupLinkStuff()
         conductor.audioRecorder?.viewDelegate = self
 
-        recordButton.addTarget(self, action: #selector(recordToggled), for: .touchUpInside)
+        recordButton.setValueCallback = { value in
+            self.recordToggled(value: value)
+        }
 
 		// Sets the read order for VoiceOver
 		view.accessibilityElements = [
@@ -190,8 +192,8 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
         conductor.audioPlotter.shouldFill = isAudioPlotFilled
     }
 
-    @objc func recordToggled() {
-        conductor.audioRecorder?.toggleRecord()
+    @objc func recordToggled(value: Double) {
+        conductor.audioRecorder?.toggleRecord(value: value)
     }
 
     func updateRecorderView(state: RecorderState, time: Double?) {

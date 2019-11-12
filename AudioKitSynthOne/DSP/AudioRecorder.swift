@@ -48,9 +48,10 @@ class AudioRecorder {
         }
     }
   
-    public func toggleRecord() {
+    public func toggleRecord(value: Double) {
+        let shouldRecord = value == 1
         guard let recorder = nodeRecorder else { return }
-        if recorder.isRecording {
+        if recorder.isRecording && !shouldRecord {
             recorder.stop()
             AKLog("File at: ", recorder.audioFile)
             guard let recordingFile = recorder.audioFile else { return }

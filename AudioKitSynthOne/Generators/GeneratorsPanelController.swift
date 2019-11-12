@@ -195,8 +195,8 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
     }
 
     func updateRecorderView(state: RecorderState, time: Double?) {
-        if state == .Idle {
-            recordStatus.text = "Record"
+        if state == .Idle || state == .Exporting {
+            recordStatus.text = state == .Idle ? "Record" : "Exporting"
         } else {
             recordStatus.text = TimeInterval(time!).stringFromTimeInterval()
         }

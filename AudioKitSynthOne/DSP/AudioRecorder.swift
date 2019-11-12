@@ -12,6 +12,7 @@ import AudioKit
 enum RecorderState: Int {
     case Idle = 0
     case Recording = 1
+    case Exporting = 2
 }
 
 protocol AudioRecorderFileDelegate {
@@ -53,9 +54,20 @@ class AudioRecorder {
             recorder.stop()
             AKLog("File at: ", recorder.audioFile)
             guard let recordingFile = recorder.audioFile else { return }
-            fileDelegate?.didFinishRecording(file: recordingFile)
+            recordingFile.exportAsynchronously(
+                name: createDateFileName() + ".wav",
+                baseDir: .temp,
+                exportFormat: .wav,
+                callback: { exportedFile, error in
+                    if error != nil { return }
+                    guard let file = exportedFile else { return }
+                    DispatchQueue.main.async {
+                        self.fileDelegate?.didFinishRecording(file: file)
+                        self.updateView()
+                    }
+            })
             viewTimer?.invalidate()
-            updateView()
+            viewDelegate?.updateRecorderView(state: .Exporting, time: 0)
         } else {
             do {
                 try recorder.reset()
@@ -73,5 +85,12 @@ class AudioRecorder {
         guard let recorder = nodeRecorder else { return }
         let state: RecorderState = recorder.isRecording ? .Recording : .Idle
         viewDelegate?.updateRecorderView(state: state, time: recorder.recordedDuration)
+    }
+
+    // Use Date and Time as Filename
+    private func createDateFileName() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH-mm-ss"
+        return dateFormatter.string(from:Date())
     }
 }

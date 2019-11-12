@@ -198,7 +198,9 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
 
     func updateRecorderView(state: RecorderState, time: Double?) {
         if state == .Idle || state == .Exporting {
-            recordStatus.text = state == .Idle ? "Record" : "Exporting"
+            recordStatus.text = state == .Idle ?
+                NSLocalizedString("Record", comment: "Record Audio") :
+                NSLocalizedString("Exporting", comment: "Audio is exporting")
         } else {
             recordStatus.text = TimeInterval(time!).stringFromTimeInterval()
         }
@@ -236,6 +238,6 @@ extension TimeInterval {
         let minutes = (time / 60) % 60
         let hours = (time / 3600)
 
-        return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds)
+        return String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
     }
 }

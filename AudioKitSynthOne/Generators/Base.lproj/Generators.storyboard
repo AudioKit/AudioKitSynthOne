@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="tRb-ra-Sqk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="x6K-ix-1kX">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="299"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="au_main" translatesAutoresizingMaskIntoConstraints="NO" id="37i-O8-Wz8">
@@ -291,7 +291,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Amplification/Volume">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -428,7 +428,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Stereo Widen">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -446,7 +446,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Filter Resonance/Q ">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -464,7 +464,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Filter Frequency">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -502,7 +502,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Oscillator 1 / Digital Controlled Oscillator ">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -538,7 +538,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Frequency Modulation / FM Synthesis">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -663,7 +663,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="arpeggiator/Sequencer (Perhaps one Abbreviation or the other, please keep short)">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -697,7 +697,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Stereo Widen">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -723,11 +723,11 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZr-pB-ZAo" customClass="MIDIToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="544" y="14" width="37" height="38"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZr-pB-ZAo" customClass="MIDIToggleRecordButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="541" y="12" width="38" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="AntiAliasingButton" label="Anti-Aliasing">
+                                <accessibility key="accessibilityConfiguration" hint="Starts and stops the recording." identifier="recordToggleButton" label="Record Toggle">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
@@ -786,7 +786,7 @@
                         <viewControllerLayoutGuide type="bottom" id="uSM-x5-9Y6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lsB-fe-Ikk">
-                        <rect key="frame" x="0.0" y="0.0" width="767" height="299"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPhone_Generator" translatesAutoresizingMaskIntoConstraints="NO" id="Edt-tS-TO6">
@@ -1054,7 +1054,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Frequency Modulation / FM Synthesis">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -1231,7 +1231,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Filter Resonance/Q ">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -1249,7 +1249,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Filter Frequency">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -1394,7 +1394,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="Oscillator 1 / Digital Controlled Oscillator ">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -1412,7 +1412,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="arpeggiator/Sequencer (Perhaps one Abbreviation or the other, please keep short)">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -1462,17 +1462,17 @@
                                 <attributedString key="userComments">
                                     <fragment content="Filter Resonance/Q ">
                                         <attributes>
-                                            <font key="NSFont" metaFont="label" size="11"/>
+                                            <font key="NSFont" metaFont="message" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Es8-TO-Cuo" customClass="MIDIToggleButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="387" y="6" width="30" height="31"/>
+                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Es8-TO-Cuo" customClass="MIDIToggleRecordButton" customModule="AudioKitSynthOne" customModuleProvider="target">
+                                <rect key="frame" x="387" y="6" width="26" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="SequencerToggle" label="Sequencer Toggle">
+                                <accessibility key="accessibilityConfiguration" hint="Starts and stops the recording." identifier="recordToggleButton" label="Record Toggle">
                                     <accessibilityTraits key="traits" button="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>

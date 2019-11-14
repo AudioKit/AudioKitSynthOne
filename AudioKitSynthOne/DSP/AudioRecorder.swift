@@ -52,6 +52,8 @@ class AudioRecorder {
         let shouldRecord = value == 1
         guard let recorder = nodeRecorder else { return }
         if recorder.isRecording && !shouldRecord {
+            viewTimer?.invalidate()
+            viewDelegate?.updateRecorderView(state: .Exporting, time: 0)
             recorder.stop()
             AKLog("File at: ", recorder.audioFile)
             guard let recordingFile = recorder.audioFile else { return }
@@ -62,13 +64,12 @@ class AudioRecorder {
                 callback: { exportedFile, error in
                     if error != nil { return }
                     guard let file = exportedFile else { return }
-                    DispatchQueue.main.async {
-                        self.fileDelegate?.didFinishRecording(file: file)
+                    DispatchQueue.main.async { [unowned self] in
+                        guard let fileDelegate = self.fileDelegate else { return }
+                        fileDelegate.didFinishRecording(file: file)
                         self.updateView()
                     }
             })
-            viewTimer?.invalidate()
-            viewDelegate?.updateRecorderView(state: .Exporting, time: 0)
         } else {
             do {
                 try recorder.reset()

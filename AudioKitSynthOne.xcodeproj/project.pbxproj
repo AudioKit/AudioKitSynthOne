@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1760645F237D32AC00B7C668 /* ToggleRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760645E237D32AC00B7C668 /* ToggleRecordButton.swift */; };
+		17606463237D383200B7C668 /* MIDIToggleRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17606462237D383200B7C668 /* MIDIToggleRecordButton.swift */; };
+		17606465237D457200B7C668 /* ToggleRecordButtonStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17606464237D457200B7C668 /* ToggleRecordButtonStyleKit.swift */; };
 		48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */; };
 		69115F3E2363BBA100B144A5 /* Conductor+Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69115F3D2363BBA000B144A5 /* Conductor+Audiobus.swift */; };
 		692C04F82370C43A008CBDDA /* AppDelegate+PlatformServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69824682236EE83A00407DF4 /* AppDelegate+PlatformServices.swift */; };
@@ -299,6 +302,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1760645E237D32AC00B7C668 /* ToggleRecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleRecordButton.swift; sourceTree = "<group>"; };
+		17606462237D383200B7C668 /* MIDIToggleRecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIToggleRecordButton.swift; sourceTree = "<group>"; };
+		17606464237D457200B7C668 /* ToggleRecordButtonStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleRecordButtonStyleKit.swift; sourceTree = "<group>"; };
 		3A319653D44EC41DAFAEB963 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		45E1A7C3C54D27427C4A71B1 /* Pods_AKS1Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKS1Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
@@ -785,6 +791,8 @@
 				94F694C51F683D5D0061DA5E /* CallbackButton.swift */,
 				948C54C21F3A57C600DA6081 /* SynthButton.swift */,
 				C4F7ECAB1F2446960011B119 /* ToggleButton.swift */,
+				1760645E237D32AC00B7C668 /* ToggleRecordButton.swift */,
+				17606464237D457200B7C668 /* ToggleRecordButtonStyleKit.swift */,
 				C4F7ECA61F2446960011B119 /* ToggleButtonStyleKit.swift */,
 				947956B51F32A72400FE5D9B /* ToggleSwitch.swift */,
 				947956B21F32A70300FE5D9B /* ToggleSwitchStyleKit.swift */,
@@ -985,6 +993,7 @@
 				F4C790132247025C003CFF28 /* MIDIStepper.swift */,
 				F4CA406E225192A60053F29E /* MIDISynthButton.swift */,
 				F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */,
+				17606462237D383200B7C668 /* MIDIToggleRecordButton.swift */,
 				F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */,
 			);
 			path = MIDI;
@@ -1823,6 +1832,7 @@
 				693709DD23760AEA00D3C321 /* AudioRecorder.swift in Sources */,
 				94DB18CF1F37D7EE008368AE /* NavButtonStyleKit.swift in Sources */,
 				C435C51D20C52D1700DAECCD /* PresetDataManager.swift in Sources */,
+				1760645F237D32AC00B7C668 /* ToggleRecordButton.swift in Sources */,
 				C435C52920C52D2F00DAECCD /* MIDIInput.swift in Sources */,
 				C435C58120C530C900DAECCD /* AETypes.m in Sources */,
 				C4B4915020C7C6FC00FD565A /* Manager+MIDIListener.swift in Sources */,
@@ -1839,6 +1849,7 @@
 				C435C53020C52D4C00DAECCD /* Tuning.swift in Sources */,
 				C4B4910E20C7C5E500FD565A /* Manager+AppSettings.swift in Sources */,
 				C4B4918A20C7C79C00FD565A /* Presets+UIDocumentPickerDelegate.swift in Sources */,
+				17606463237D383200B7C668 /* MIDIToggleRecordButton.swift in Sources */,
 				C4B4916820C7C72A00FD565A /* UIViewController+DisplayAlert.swift in Sources */,
 				947956B61F32A72400FE5D9B /* ToggleSwitch.swift in Sources */,
 				C4B4916D20C7C72A00FD565A /* Manager+EmbeddedViewsDelegate.swift in Sources */,
@@ -1917,6 +1928,7 @@
 				947956A91F329AB200FE5D9B /* Stepper.swift in Sources */,
 				9479F20521E4FB06003605B9 /* TopUIButtonStyleKit.swift in Sources */,
 				C4B491A420C7C94E00FD565A /* EffectsPanelController.swift in Sources */,
+				17606465237D457200B7C668 /* ToggleRecordButtonStyleKit.swift in Sources */,
 				C432979120CB2AA00063F795 /* Presets+UITextViewDelegate.swift in Sources */,
 				C4B490F120C64ED300FD565A /* S1DSPKernel+tapers.mm in Sources */,
 				C4B4915920C7C70D00FD565A /* TuningsPanel+UITableViewDelegate.swift in Sources */,

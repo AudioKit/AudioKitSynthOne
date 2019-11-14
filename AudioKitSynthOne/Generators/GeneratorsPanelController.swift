@@ -68,7 +68,7 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
     
     @IBOutlet weak var rezKnobLabel: UILabel!
 
-    @IBOutlet weak var recordButton: MIDIToggleButton!
+    @IBOutlet weak var recordButton: MIDIToggleRecordButton!
 
     @IBOutlet weak var recordStatus: UILabel!
 
@@ -136,7 +136,8 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
         setupAudioPlot()
         setupLinkStuff()
         conductor.audioRecorder?.viewDelegate = self
-
+        
+        
         recordButton.setValueCallback = { value in
             self.recordToggled(value: value)
         }
@@ -201,8 +202,10 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
             recordStatus.text = state == .Idle ?
                 NSLocalizedString("Record", comment: "Record Audio") :
                 NSLocalizedString("Exporting", comment: "Audio is exporting")
+            recordStatus.textColor = UIColor(red: 153.0/255, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1.0)
         } else {
             recordStatus.text = TimeInterval(time!).stringFromTimeInterval()
+            recordStatus.textColor = .white
         }
     }
 

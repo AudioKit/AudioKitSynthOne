@@ -12,6 +12,7 @@
 		692C04F82370C43A008CBDDA /* AppDelegate+PlatformServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69824682236EE83A00407DF4 /* AppDelegate+PlatformServices.swift */; };
 		693709DD23760AEA00D3C321 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693709DC23760AEA00D3C321 /* AudioRecorder.swift */; };
 		6982467D236EDCE600407DF4 /* Conductor+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982467C236EDCE600407DF4 /* Conductor+Platform.swift */; };
+		69ACD757238E8CED0050AB38 /* MIDIRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ACD756238E8CED0050AB38 /* MIDIRecordButton.swift */; };
 		69C11CF7236C96DA00833BF7 /* MailchimpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690F807A236B5B9D00FDC518 /* MailchimpService.swift */; };
 		69C11CF8236C96DC00833BF7 /* MD5Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C11CF3236C375B00833BF7 /* MD5Helpers.swift */; };
 		941645CD20B3597300D62851 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941645CC20B3597300D62851 /* NotificationService.swift */; };
@@ -308,6 +309,7 @@
 		693709DC23760AEA00D3C321 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		6982467C236EDCE600407DF4 /* Conductor+Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conductor+Platform.swift"; sourceTree = "<group>"; };
 		69824682236EE83A00407DF4 /* AppDelegate+PlatformServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PlatformServices.swift"; sourceTree = "<group>"; };
+		69ACD756238E8CED0050AB38 /* MIDIRecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIRecordButton.swift; sourceTree = "<group>"; };
 		69C11CF3236C375B00833BF7 /* MD5Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Helpers.swift; sourceTree = "<group>"; };
 		69E4E45622381DF90049F0EA /* S1DSPCompressor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1DSPCompressor.hpp; sourceTree = "<group>"; };
 		90231BFB16779C7C2CD6CB3F /* Pods-AKS1Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKS1Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKS1Extension/Pods-AKS1Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -985,6 +987,7 @@
 				F4C790132247025C003CFF28 /* MIDIStepper.swift */,
 				F4CA406E225192A60053F29E /* MIDISynthButton.swift */,
 				F4AD9EE1224856C2002B0E2E /* MIDIToggleButton.swift */,
+				69ACD756238E8CED0050AB38 /* MIDIRecordButton.swift */,
 				F4AD9EE3224866BE002B0E2E /* MIDIToggleSwitch.swift */,
 			);
 			path = MIDI;
@@ -1854,6 +1857,7 @@
 				C435C58520C530C900DAECCD /* S1AudioUnit.mm in Sources */,
 				C4B4919020C7C7B200FD565A /* BankEditorViewController.swift in Sources */,
 				C4B4915120C7C6FC00FD565A /* MIDISettingsViewController.swift in Sources */,
+				69ACD757238E8CED0050AB38 /* MIDIRecordButton.swift in Sources */,
 				C435C57E20C530C900DAECCD /* AEArray.m in Sources */,
 				C4B4918820C7C79C00FD565A /* Presets+PresetPopOverDelegate.swift in Sources */,
 				C435C50320C5286C00DAECCD /* Helpers.swift in Sources */,

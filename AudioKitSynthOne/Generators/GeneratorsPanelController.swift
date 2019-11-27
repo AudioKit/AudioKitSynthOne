@@ -68,7 +68,7 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
     
     @IBOutlet weak var rezKnobLabel: UILabel!
 
-    @IBOutlet weak var recordButton: MIDIToggleButton!
+    @IBOutlet weak var recordButton: MIDIRecordButton!
 
     @IBOutlet weak var recordStatus: UILabel!
 

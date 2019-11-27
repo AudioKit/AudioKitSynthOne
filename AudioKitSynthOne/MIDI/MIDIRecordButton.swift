@@ -12,8 +12,9 @@ class MIDIRecordButton: MIDIToggleButton {
     var circleAnimator: UIViewPropertyAnimator?
 
     // Styling for the Circle
-    static var recordColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
-    static var recordingAltColor = #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.2, alpha: 1)
+    static var recordColor =  #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.2, alpha: 1)
+    static var recordingAltColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+
 
     override var isOn: Bool {
         didSet {

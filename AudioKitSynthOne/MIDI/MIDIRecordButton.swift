@@ -73,4 +73,11 @@ class MIDIRecordButton: MIDIToggleButton {
         self.addSubview(circleView)
         self.bringSubviewToFront(circleView)
     }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // NO OP
+        // TODO: We should fix this in ToggleButton.swift:52 because
+        // it will cause two callbacks (touchesBegan & touchesEnded)
+        // firing after each other
+    }
 }

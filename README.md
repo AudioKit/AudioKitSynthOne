@@ -14,7 +14,7 @@ new capabilities of the base operating system. Synth One is now Universal for iP
 **“AudioKit Synth One is a wonderful example of how iPad can change the way music is made.”**  
 – Apple, App Store Editorial Team
 
-If you're new to [AudioKit](https://audiokitpro.com/), you can learn more: [here](https://audiokitpro.com/audiokit/). This code and app is made possible by all the contributors to AudioKit. Many of the features of Synth One are availble as modules in AudioKit, allowing you easy access to oscillators, filters, reverbs, effects, and other DSP processing: [code here](https://github.com/AudioKit/AudioKit). 
+If you're new to [AudioKit](https://audiokitpro.com/), you can learn more: [here](https://audiokitpro.com/audiokit/). This code and app is made possible by all the contributors to AudioKit. Many of the features of Synth One are available as modules in AudioKit, allowing you easy access to oscillators, filters, reverbs, effects, and other DSP processing: [code here](https://github.com/AudioKit/AudioKit). 
 
 ## Features & App Store Location
 
@@ -43,7 +43,7 @@ The repository builds and runs without modification, but the Link functionality 
 
 Because of the way Ableton distributes their Link SDK, we can not simply include the Link files here.  Instead, we include our Link wrapping files and expect you to do two things to get Link working on your machine:
 
-* Change ABLETON_ENABLED from 0 to 1 in the Build Settings
+* Change `ABLETON_ENABLED` from 0 to 1 in the Build Settings
 * [Sign up for the Ableton Link SDK](https://www.ableton.com/en/link/sdk/license-request/) and download the prebuilt binary LinkKit.zip.  Uncompress it and find the include and lib directories and place the folders under our "Link" directory.  There should be three files in include and one in lib.
 
 
@@ -97,7 +97,7 @@ Here's a few ideas for you to contribute to this historic project:
 
 ✓ DONE: Create an iPhone/Universal version. Thanks to [Matthew Fecher](http://twitter.com/analogmatthew) for his contributions in creating the universal/iPhone version.  
 
-✓ DONE: Add accessibility functionality to AudioKit Synth One. Thanks to Stanley Rosenbaum for making Synth One accessible all musicians. 
+✓ DONE: Add accessibility functionality to AudioKit Synth One. Thanks to Stanley Rosenbaum for making Synth One accessible to all musicians. 
 
 
 If you have audio development experience and want to be involved with contributing to the app store version of Synth One, please email [hello@audiokitpro.com](mailto:hello@audiokitpro.com)

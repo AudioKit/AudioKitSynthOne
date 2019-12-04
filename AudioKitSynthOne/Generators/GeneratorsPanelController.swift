@@ -155,6 +155,7 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
 			morph2Volume!,
 			morphBalance!,
 			masterVolume!,
+			recordButton!,
 			fmVolume!,
 			fmAmount!,
 			filterTypeToggle!,

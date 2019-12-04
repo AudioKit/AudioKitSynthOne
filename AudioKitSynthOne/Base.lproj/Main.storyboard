@@ -3,7 +3,7 @@
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1718,8 +1718,8 @@
         <image name="rack-left" width="100" height="375"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="P92-2d-IvO"/>
-        <segue reference="TVa-dv-w7i"/>
-        <segue reference="OFW-mz-IhX"/>
+        <segue reference="kIC-Kt-utx"/>
+        <segue reference="eFx-2G-dJI"/>
+        <segue reference="uQl-Oi-SV4"/>
     </inferredMetricsTieBreakers>
 </document>

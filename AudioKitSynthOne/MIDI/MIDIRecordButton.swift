@@ -20,6 +20,7 @@ class MIDIRecordButton: MIDIToggleButton {
         didSet {
             setNeedsDisplay()
             accessibilityValue = isOn ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
+			accessibilityHint = isOn ? NSLocalizedString("Double tap to stop.", comment: "Double tap to stop.") : NSLocalizedString("Double tap to record.", comment: "Double tap to record.")
             animateCircle()
         }
     }

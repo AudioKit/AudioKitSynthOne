@@ -15,16 +15,13 @@ protocol TuneUpPopUpDelegate: AnyObject {
 }
 
 class TuneUpPopUp: UIViewController {
-    
     @IBOutlet weak var moreView: UIView!
     @IBOutlet weak var d1Button: UIButton!
     @IBOutlet weak var wilsonicButton: UIButton!
-    
     var delegate: TuneUpPopUpDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         moreView.layer.borderColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
         moreView.layer.borderWidth = 2
         moreView.layer.cornerRadius = 6
@@ -52,6 +49,4 @@ class TuneUpPopUp: UIViewController {
             UIApplication.shared.open(url)
         }
     }
-    
-    
 }

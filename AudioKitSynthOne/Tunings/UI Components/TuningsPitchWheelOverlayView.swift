@@ -9,24 +9,18 @@
 ///Transparent overlay for TuningsPitchWheelView which displays amplitudes of playing notes
 
 public class TuningsPitchWheelOverlayView: UIView {
-
     var pxy = [CGPoint]()
-
     var px0 = CGPoint()
-
     var masterPitch = [Double]()
-
     var playingNotes: PlayingNotes?
 
     required public override init(frame: CGRect) {
-
         super.init(frame: frame)
         self.isOpaque = false
         self.backgroundColor = UIColor.clear
     }
 
     required public init?(coder aDecoder: NSCoder) {
-
         super.init(coder: aDecoder)
         self.isOpaque = false
         self.backgroundColor = UIColor.clear
@@ -34,10 +28,8 @@ public class TuningsPitchWheelOverlayView: UIView {
 
     // Tightly-coupled to TuningsPitchWheelView draw
     override public func draw(_ rect: CGRect) {
-
         guard let context = UIGraphicsGetCurrentContext() else { return }
         context.saveGState()
-
         let pxyCopy = pxy
         let px0Copy = px0
         let npo = Int32(pxyCopy.count)
@@ -49,7 +41,6 @@ public class TuningsPitchWheelOverlayView: UIView {
             // must match S1_MAX_POLYPHONY
             let na = [pn.playingNotes.0, pn.playingNotes.1, pn.playingNotes.2,
                       pn.playingNotes.3, pn.playingNotes.4, pn.playingNotes.5]
-
             for playingNote in na where playingNote.noteNumber != -1 {
                 var v = Double(playingNote.amp)
                 v = pow(2 * v, 0.415926)
@@ -65,9 +56,6 @@ public class TuningsPitchWheelOverlayView: UIView {
                     let pitch = masterPitch[Int(nn)]
 
                     // LINE
-//                    let vv = powf(Float(playingNote.velocity)/127, 0.25)
-//                    let vv = powf(Float(playingNote.velocity)/127, 0.75)
-//                    let vv = powf(Float(playingNote.amp)/127, 0.175)
                     let vv = powf(Float(playingNote.velocity)/127, 0.175)
                     Tunings.color(forPitch: pitch,
                                   saturation: 0.36,
@@ -77,9 +65,7 @@ public class TuningsPitchWheelOverlayView: UIView {
                     Tunings.generalLineP(context, px0Copy, p)
 
                     // BIG DOT CENTER
-//                    let bfpc = Tunings.color(forPitch: pitch, alpha: 0.5 * a)
                     let bfpc = Tunings.color(forPitch: pitch, alpha: CGFloat(vv) )
-                    //let bfpc = Tunings.color(forPitch: pitch, alpha: vv)
                     bfpc.setStroke()
                     bfpc.setFill()
                     let bigDc: CGFloat = bigR * 0.25

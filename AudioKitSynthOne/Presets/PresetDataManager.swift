@@ -13,7 +13,6 @@ extension Manager {
     // MARK: - Preset Load/Save
 
     func loadPreset() {
-
         guard let s = conductor.synth else {
             print("ERROR:can't load preset if synth is not initialized")
             return
@@ -66,6 +65,7 @@ extension Manager {
             }
         }
 
+        s.setSynthParameter(.frequencyA4, activePreset.frequencyA4)
         if appSettings.saveTuningWithPreset {
             if let m = activePreset.tuningMasterSet {
                 tuningsPanel.setTuning(name: activePreset.tuningName, masterArray: m)
@@ -138,7 +138,6 @@ extension Manager {
         s.setSynthParameter(.compressorMasterMakeupGain, activePreset.compressorMasterMakeupGain)
         s.setSynthParameter(.pitchbendMinSemitones, activePreset.pitchbendMinSemitones)
         s.setSynthParameter(.pitchbendMaxSemitones, activePreset.pitchbendMaxSemitones)
-        s.setSynthParameter(.frequencyA4, activePreset.frequencyA4)
         s.setSynthParameter(.oscBandlimitEnable, activePreset.oscBandlimitEnable)
         s.setSynthParameter(.transpose, Double(activePreset.transpose))
         s.setSynthParameter(.adsrPitchTracking, activePreset.adsrPitchTracking)
@@ -152,7 +151,6 @@ extension Manager {
             AKLog("Could not save synth state to preset because synth is not instantiated")
             return
         }
-
         activePreset.arpRate = s.getSynthParameter(.arpRate)
         activePreset.delayToggled = s.getSynthParameter(.delayOn)
         activePreset.delayFeedback = s.getSynthParameter(.delayFeedback)
@@ -279,6 +277,7 @@ extension Manager {
         // metadata
         activePreset.userText = presetsViewController.currentPreset.userText
 
+        // save preset
         presetsViewController.savePreset(activePreset)
         conductor.updateDefaultValues()
     }

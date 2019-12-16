@@ -10,11 +10,11 @@ import UIKit
 import AudioKit
 import Disk
 
-enum TuningScaleDegreeDescription: Int {
-    case frequency = 0
-    case pitch = 1
-    case cents = 2
-    case harmonic = 3
+// MARK: - TuningScaleDegreeDescription
+
+public enum TuningScaleDegreeDescription {
+    case frequency, pitch, cents, harmonic
+    
     func simpleDescription() -> String {
         switch self {
         case .frequency:
@@ -29,12 +29,15 @@ enum TuningScaleDegreeDescription: Int {
     }
 }
 
-/// MARK: -
-/// Tuning Model
-final class Tunings {
-    let conductor = Conductor.sharedInstance
+// MARK: - Tunings
 
-    /// MARK: - Types
+final class Tunings {
+
+    // MARK: - INIT
+
+    init() {}
+
+    // MARK: - Types
 
     public typealias S1TuningCallback = () -> [Double]
     public typealias Frequency = Double
@@ -46,12 +49,9 @@ final class Tunings {
         case userOrder
     }
 
-    /// MARK: - INIT
+    // MARK: - Properties
 
-    init() {}
-
-    /// MARK: - Properties
-
+    let conductor = Conductor.sharedInstance
     private var tuningSortType = TuningSortType.userOrder
     var isInitialized = false
     internal let bundleBankIndex = 0
@@ -93,7 +93,7 @@ final class Tunings {
         }
     }
 
-    /// MARK: - TuneUp Properties
+    // MARK: - TuneUp Properties
 
     var tuningName = Tuning.defaultName
     var masterSet = Tuning.defaultMasterSet
@@ -101,14 +101,14 @@ final class Tunings {
     internal let tuningFilenameV1 = "tunings_v1.json"
     internal static let hexanyTriadTuningsBankName = "Hexanies With Proportional Triads"
 
-    /// MARK: - TuneUp BackButton Properties
+    // MARK: - TuneUp BackButton Properties
 
     internal var redirectHost: String?
     internal var redirectFriendlyName: String = "TuneUp"
     public weak var tuneUpDelegate: TuneUpDelegate?
     static let tuneUpBackButtonUrlArgs = "&redirect=synth1&redirectFriendlyName=Synth One"
 
-    /// MARK: - STORAGE
+    // MARK: - STORAGE
 
     func loadTunings(completionHandler: @escaping S1TuningLoadCallback) {
         DispatchQueue.global(qos: .userInitiated).async {
@@ -223,7 +223,7 @@ final class Tunings {
         }
     }
 
-    /// MARK: - SORT
+    // MARK: - SORT
 
     public func reorderUserBank(tuningFromIndex: Int, tuningToIndex: Int) -> Bool {
         let bank = tuningBanks[userBankIndex]
@@ -281,7 +281,7 @@ final class Tunings {
         tuningBank.tunings = t
     }
 
-    /// MARK: - SELECTION (PERSISTENT)
+    // MARK: - SELECTION (PERSISTENT)
 
     /// select the tuning at row for selected bank
     public func selectTuning(atRow row: Int) {
@@ -308,12 +308,21 @@ final class Tunings {
         saveTunings()
     }
 
-    /// MARK: - STATE
+    // MARK: - GLOBAL STATE
 
-    ///
+    public var frequencyA4: Double {
+        get {
+            return conductor.synth!.getSynthParameter(.frequencyA4)
+        }
+        set(frequency) {
+            conductor.synth!.setSynthParameter(.frequencyA4, frequency)
+            tuningDidChange()
+        }
+    }
+
     public func resetTuning() {
 
-        // Assumes 12ET is bundled at index 0
+        /// Assumes 12ET is bundled at index 0
         selectedBankIndex = bundleBankIndex
         selectBank(atRow: selectedBankIndex)
         let b = tuningBank
@@ -328,7 +337,6 @@ final class Tunings {
         saveTunings()
     }
 
-    ///
     public func randomTuning() {
         let b = tuningBanks[selectedBankIndex]
         b.selectedTuningIndex = Int(arc4random() % UInt32(b.tunings.count))
@@ -346,7 +354,7 @@ final class Tunings {
         return (tuning.name, tuning.masterSet)
     }
 
-    /// adds tuning to user bank if it does not exist
+    /// Add tuning to user bank if it does not exist
     public func setTuning(name: String?, masterArray master: [Double]?) -> Bool {
         guard let name = name, let masterFrequencies = master, masterFrequencies.count > 0 else { return false }
 
@@ -402,9 +410,14 @@ final class Tunings {
         return true
     }
 
+    // MARK: - Notification
+
     private func tuningDidChange() {
 
         /// udpate dsp with global tuning table
+        /// NOTE: There is NO need to block dsp while the update is happening from a non-realtime  thread
+        let a4 = conductor.synth!.getSynthParameter(.frequencyA4)
+        AKPolyphonicNode.tuningTable.middleCFrequency = a4 * exp2((60 - 69) / 12)
         for i in 0..<127 {
             let f = AKPolyphonicNode.tuningTable.frequency(forNoteNumber: MIDINoteNumber(i))
             conductor.synth.setTuningTable(f, index: i)
@@ -412,8 +425,6 @@ final class Tunings {
         NotificationCenter.default.post(name: .tuningDidChange, object: nil)
     }
 }
-
-/// MARK: -
 
 extension Notification.Name {
     static let tuningDidChange = Notification.Name("tuningDidChange")

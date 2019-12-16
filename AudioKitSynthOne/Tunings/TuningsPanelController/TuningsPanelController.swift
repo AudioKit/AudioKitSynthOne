@@ -39,6 +39,7 @@ class TuningsPanelController: PanelController {
     let tuningModel = Tunings()
     internal var swipeGestureStarted: Bool = false
     internal var selectedIndexPath: IndexPath?
+
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil,bundle: nibBundleOrNil)
     }
@@ -111,9 +112,15 @@ class TuningsPanelController: PanelController {
             tuneUpBackButtonButton as Any
         ]
         if let synth = Conductor.sharedInstance.synth {
+
+            /// frequency of A
             masterTuningKnob.range = synth.getRange(.frequencyA4)
             masterTuningKnob.value = synth.getSynthParameter(.frequencyA4)
-            Conductor.sharedInstance.bind(masterTuningKnob, to: .frequencyA4)
+            masterTuningKnob.setValueCallback = { value in
+                synth.setSynthParameter(.frequencyA4, value)
+                self.tuningModel.frequencyA4 = value
+                self.conductor.updateDisplayLabel(.frequencyA4, value: synth.getSynthParameter(.frequencyA4))
+            }
             resetTuningsButton.setValueCallback = { value in
                 if value == 1 {
                     self.tuningModel.resetTuning()

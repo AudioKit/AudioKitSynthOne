@@ -724,10 +724,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZr-pB-ZAo" customClass="MIDIRecordButton" customModule="AudioKitSynthOne" customModuleProvider="target">
-                                <rect key="frame" x="544" y="14" width="37" height="38"/>
+                                <rect key="frame" x="542" y="14" width="37" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="AntiAliasingButton" label="Anti-Aliasing">
+                                <accessibility key="accessibilityConfiguration" hint="Double tap to record." identifier="RecordButton" label="Record Audio">
+                                    <accessibilityTraits key="traits" button="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>

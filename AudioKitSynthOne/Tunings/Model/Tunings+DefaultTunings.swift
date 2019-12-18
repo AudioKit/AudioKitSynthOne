@@ -9,9 +9,7 @@
 import Foundation
 
 extension Tunings {
-
     internal static func defaultTunings() -> [(String, S1TuningCallback)] {
-
         var retVal = [(String, S1TuningCallback)]()
         retVal.append( ("Chain of pure fifths", { return [1, 3, 9, 27, 81, 243, 729, 2_187, 6_561, 19_683, 59_049, 177_147] }) )
 
@@ -404,7 +402,6 @@ extension Tunings {
         retVal.append( ( "Tetrany Major:[19, 23, 31, 61]", { return [19, 23, 31, 61] } ) )
         retVal.append( ( "Tetrany Minor:[19, 23, 31, 61]", { return [43493, 35929, 26657, 13547] } ) )
         retVal.append( ( "HEXANY:[19, 23, 31, 61]", { return [437, 589, 1159, 713, 1403, 1891] } ) )
-
         return retVal
     }
 }

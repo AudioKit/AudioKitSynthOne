@@ -348,7 +348,6 @@ public class HeaderViewController: UpdatableViewController {
         case .delayInputCutoffTrackingRatio:
             displayLabel.text = "Delay Input Cutoff Tracking Ratio: " +
                                 "\(s.getSynthParameter(.delayInputCutoffTrackingRatio).decimalString)"
-
         case .frequencyA4:
             displayLabel.text = "Master Frequency at A4: \(s.getSynthParameter(.frequencyA4).decimalString)"
         case .portamentoHalfTime:

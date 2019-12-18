@@ -14,7 +14,6 @@ extension Tunings {
 
     /// return tuple of ([master set of frequencies], [master set of pitches]) both arrays of length npo, normalized
     public static func masterFrequenciesFromGlobalTuningTable() -> ([Double], [Double], [Double]) {
-
         let mmm = AKPolyphonicNode.tuningTable.masterSet
         var mf: [Double] = [1]
         var mp: [Double] = [0]
@@ -43,11 +42,8 @@ extension Tunings {
 
 
     public static func color(forNoteNumber nn: MIDINoteNumber, isOn: Bool) -> UIColor {
-
         let pitch = Tunings.pitch(forNoteNumber: nn)
         let saturation = 0.65 * CGFloat(0.625)
-//        let brightness = CGFloat(isOn ? 1 : 0.45)
-//        let brightness = CGFloat(isOn ? 1 : 0.35)
         let brightness = CGFloat(isOn ? 1 : 0.25)
         let alpha = CGFloat(1)
         let color = Tunings.color(forPitch: pitch, saturation: saturation, brightness: brightness, alpha: alpha)
@@ -55,12 +51,9 @@ extension Tunings {
     }
 
     public static func pitch(forNoteNumber nn: MIDINoteNumber) -> Double {
-
         guard (0...127).contains(Int32(nn)) else { return 0 }
-
         let masterSet = AKPolyphonicNode.tuningTable.masterSet
         guard masterSet.count > 0 else { return 0 }
-
         let npo = Int32(masterSet.count)
         var nn = Int32(Int32(nn))
         nn -= Int32(AKPolyphonicNode.tuningTable.middleCNoteNumber)
@@ -69,12 +62,10 @@ extension Tunings {
         nn = nn % npo
         let frequency = masterSet[Int(nn)]
         guard frequency > 0 else { return 0 }
-
         return log2(frequency)
     }
 
     public static func text(forPitch pitch: Pitch, labelMode: TuningScaleDegreeDescription) -> String {
-
         var result = ""
         switch labelMode {
         case .frequency:
@@ -93,19 +84,16 @@ extension Tunings {
     }
 
     public static func text(forNoteNumber nn: MIDINoteNumber, labelMode: TuningScaleDegreeDescription) -> String {
-
         let pitch = Tunings.pitch(forNoteNumber: nn)
         let text = Tunings.text(forPitch: pitch, labelMode: labelMode)
         return text
     }
 
     public static func generalLineP(_ context: CGContext, _ p0: CGPoint, _ p1: CGPoint) {
-
         generalLine(context, p0.x, p0.y, p1.x, p1.y)
     }
 
     public static func generalLine(_ context: CGContext, _ x1: CGFloat, _ y1: CGFloat, _ x2: CGFloat, _ y2: CGFloat) {
-
         context.beginPath()
         context.move(to: CGPoint(x: x1, y: y1))
         context.addLine(to: CGPoint(x: x2, y: y2))

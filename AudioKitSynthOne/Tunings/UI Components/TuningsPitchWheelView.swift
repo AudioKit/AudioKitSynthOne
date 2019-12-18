@@ -14,38 +14,28 @@ import AudioKit
 public class TuningsPitchWheelView: UIView {
 
     var masterFrequency: [Double]?
-
     var masterPitch: [Double]?
-
     var masterCents: [Double]?
-
     var pxy = [CGPoint]()
-
     var px0 = CGPoint()
-
     var labelMode: TuningScaleDegreeDescription = .harmonic
-
     var overlayView: TuningsPitchWheelOverlayView
 
     // MARK: - INIT
 
     public required init?(coder aDecoder: NSCoder) {
-
         self.overlayView = TuningsPitchWheelOverlayView(frame: CGRect())
         super.init(coder: aDecoder)
         configure()
     }
 
     public override init(frame: CGRect) {
-
         self.overlayView = TuningsPitchWheelOverlayView(frame: frame)
         super.init(frame: frame)
-
         configure()
     }
 
     internal func configure() {
-        
         self.isOpaque = false
         self.backgroundColor = UIColor.clear
         overlayView.frame = self.bounds
@@ -61,21 +51,18 @@ public class TuningsPitchWheelView: UIView {
     }
 
     deinit {
-
         NotificationCenter.default.removeObserver(self, name: .tuningDidChange, object: nil)
     }
 
     // MARK: - Drawing
 
     @objc internal func updateFromGlobalTuningTable(notification: NSNotification) {
-
         DispatchQueue.global(qos: .userInteractive).async {
             let gtt = Tunings.masterFrequenciesFromGlobalTuningTable()
             self.masterFrequency = gtt.0
             self.masterPitch = gtt.1
             self.masterCents = gtt.2
             self.overlayView.masterPitch = gtt.1
-
             DispatchQueue.main.async {
                 self.setNeedsDisplay()
                 self.overlayView.setNeedsDisplay()
@@ -85,7 +72,6 @@ public class TuningsPitchWheelView: UIView {
 
     ///update overlay
     public func playingNotesDidChange(_ playingNotes: PlayingNotes) {
-        
         overlayView.playingNotes = playingNotes
         overlayView.setNeedsDisplay()
     }
@@ -93,7 +79,6 @@ public class TuningsPitchWheelView: UIView {
     ///draw the state of AKPolyphonicNode.tuningTable.masterSet as a PitchWheel
     ///This is tightly-coupled to TuningsPitchWheelOverlayView draw
     override public func draw(_ rect: CGRect) {
-
         guard let masterSet = masterPitch else { return }
         guard let context = UIGraphicsGetCurrentContext() else { return }
 
@@ -120,7 +105,6 @@ public class TuningsPitchWheelView: UIView {
         for p in masterSet {
             context.setLineWidth(1)
             let cfp = Tunings.color(forPitch: p, brightness: 1, alpha: 0.25)
-//            let cfp = Tunings.color(forPitch: p, brightness: 1, alpha: 0.65)
             cfp.setStroke()
             cfp.setFill()
 
@@ -141,7 +125,6 @@ public class TuningsPitchWheelView: UIView {
             Tunings.generalLineP(context, p0, p2)
 
             // BIG DOT
-//            let bfp = Tunings.color(forPitch: p, alpha: 1)
             let bfp = Tunings.color(forPitch: p, alpha: 0.618)
             bfp.setStroke()
             bfp.setFill()
@@ -185,7 +168,6 @@ public class TuningsPitchWheelView: UIView {
     // MARK: - Touches
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
         for _ in touches {
             switch labelMode {
             case .frequency:

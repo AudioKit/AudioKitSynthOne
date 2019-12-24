@@ -67,8 +67,7 @@ public:
                 closestFrequency = tempoAsFrequency;
             }
         }
-        S1RateArgs retVal = {(AKSynthOneRate)closestRate, closestFrequency, (float)closestRate/(float)(AKSynthOneRate::AKSynthOneRateCount-1.f)};
-        return retVal;
+        return {(AKSynthOneRate)closestRate, closestFrequency, (float)closestRate/(float)(AKSynthOneRate::AKSynthOneRateCount-1.f)};
     }
     
     // special case for delay excludes 8, 6, 4, 3 bar enums
@@ -88,8 +87,7 @@ public:
             }
         }
         const float outputRate01 = (float)(closestRate - twoBars) / (float)(AKSynthOneRate::AKSynthOneRateCount - 1.f - twoBars);
-        S1RateArgs retVal = {(AKSynthOneRate)closestRate, closestTime, outputRate01};
-        return retVal;
+        return {(AKSynthOneRate)closestRate, closestTime, outputRate01};
     }
 
     inline S1RateArgs nearestFactor(float inputFactor) {
@@ -106,8 +104,7 @@ public:
             }
         }
         const float outputRate01 = (float)(closestRate - eightBars) / (float)(AKSynthOneRate::AKSynthOneRateCount - 1.f - eightBars);
-        S1RateArgs retVal = {(AKSynthOneRate)closestRate, closestFactor, outputRate01};
-        return retVal;
+        return {(AKSynthOneRate)closestRate, closestFactor, outputRate01};
     }
 
     AKSynthOneRate rateFromFrequency01(float inputValue01) {

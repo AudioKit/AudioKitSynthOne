@@ -88,10 +88,21 @@ class AudioRecorder {
         viewDelegate?.updateRecorderView(state: state, time: recorder.recordedDuration)
     }
 
+
+
+    
     // Use Date and Time as Filename
     private func createDateFileName() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH-mm-ss"
-        return dateFormatter.string(from:Date())
+
+        // custom file format
+        if let manager = Conductor.sharedInstance.viewControllers.first(where: { $0 is Manager }) as? Manager {
+            return manager.tuningsPanel.tuningModel.tuningFileBaseName
+        } else {
+
+            // original filename format
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH-mm-ss"
+            return dateFormatter.string(from:Date())
+        }
     }
 }

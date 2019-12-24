@@ -7,56 +7,53 @@
 //
 
 extension Manager: AboutDelegate {
-
     func showDevView() {
         isDevView = false
         devPressed()
     }
 }
 
-// DevViewDelegate protocol functions
+// MARK: - DevViewDelegate protocol functions
 
 extension Manager: DevViewDelegate {
+    func useCustomRecordFileBasenameChanged(_ value: Bool) {
+        appSettings.useCustomRecordFileBasename = value
+        saveAppSettings()
+    }
 
     func freezeArpRateChanged(_ value: Bool) {
         appSettings.freezeArpRate = value
         saveAppSettings()
         Conductor.sharedInstance.updateDisplayLabel("Freeze Arp Rate: \(value == false ? "false" : "true")")
-        saveAppSettings()
     }
 
     func freezeReverbChanged(_ value: Bool) {
         appSettings.freezeReverb = value
         saveAppSettings()
         Conductor.sharedInstance.updateDisplayLabel("Freeze Reverb: \(value == false ? "false" : "true")")
-        saveAppSettings()
     }
 
     func freezeDelayChanged(_ value: Bool) {
         appSettings.freezeDelay = value
         saveAppSettings()
         Conductor.sharedInstance.updateDisplayLabel("Freeze Delay: \(value == false ? "false" : "true")")
-        saveAppSettings()
     }
 
     func freezeArpSeqChanged(_ value: Bool) {
         appSettings.freezeArpSeq = value
         saveAppSettings()
         Conductor.sharedInstance.updateDisplayLabel("Freeze Arp+Sequencer: \(value == false ? "false" : "true")")
-        saveAppSettings()
     }
 
     func portamentoChanged(_ value: Double) {
         appSettings.portamentoHalfTime = value
         saveAppSettings()
         Conductor.sharedInstance.updateDisplayLabel("dsp smoothing half time: \(value.decimalString)")
-        saveAppSettings()
     }
 
     func whiteKeysOnlyChanged(_ value: Bool) {
         appSettings.whiteKeysOnly = value
         saveAppSettings()
         Conductor.sharedInstance.updateDisplayLabel("White Keys Only: \(value == false ? "false" : "true")")
-        saveAppSettings()
     }
 }

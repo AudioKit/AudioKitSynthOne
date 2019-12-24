@@ -254,13 +254,25 @@ class Conductor: S1Protocol {
         headerVC?.updateDisplayLabel(parameter, value: value)
     }
 
+    var tuningName: String {
+        var name = Tuning().name
+        if let tuningsVC = self.viewControllers.first(where: { $0 is TuningsPanelController }) as? TuningsPanelController {
+            name = tuningsVC.tuningModel.tuningName
+        }
+        return name
+    }
+
+    var tuningFileBaseName: String {
+        var name = Tuning().name
+        if let tuningsVC = self.viewControllers.first(where: { $0 is TuningsPanelController }) as? TuningsPanelController {
+            name = tuningsVC.tuningModel.tuningFileBaseName
+        }
+        return name
+    }
+
     // MARK: - S1Protocol
 
-    // called by DSP on main thread
     func dependentParameterDidChange(_ parameter: DependentParameter) {
-
-        // add panels with dependent parameters here
-
         let effectsPanel = self.viewControllers.first(where: { $0 is EffectsPanelController })
             as? EffectsPanelController
         effectsPanel?.dependentParameterDidChange(parameter)

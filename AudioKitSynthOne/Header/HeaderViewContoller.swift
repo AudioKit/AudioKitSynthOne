@@ -258,14 +258,12 @@ public class HeaderViewController: UpdatableViewController {
             let message = NSLocalizedString("Low Pass", comment: "Low Pass Filter")
             let message2 = NSLocalizedString("Band Pass", comment: "Band Pass Filter")
             let message3 = NSLocalizedString("High Pass", comment: "High Pass Filter")
-            
             var ftype = message
             if value == 1 {
                 ftype = message2
             } else if value == 2 {
                 ftype = message3
             }
-            
             let message4 = NSLocalizedString("Filter Type: \(ftype)", comment: "Main Filter Type")
             displayLabel.text = message4
         case .phaserMix:
@@ -284,7 +282,6 @@ public class HeaderViewController: UpdatableViewController {
             let npo = AKPolyphonicNode.tuningTable.npo
             let npo1 = Int(Double(npo) * Double(value)/12.0)
             let message = NSLocalizedString("Arpeggiator Interval: \(npo1) of \(npo)", comment: "Arpeggiator Interval")
-//            let message = NSLocalizedString("Interval: value:\(value.decimalString), npo1:\(npo1) of:\(npo)", comment: "Interval")
             displayLabel.text = message
         case .transpose:
             //TODO: localize

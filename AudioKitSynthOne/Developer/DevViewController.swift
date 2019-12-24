@@ -10,95 +10,57 @@ import AudioKit
 import UIKit
 
 protocol DevViewDelegate: AnyObject {
-
     func freezeArpRateChanged(_ value: Bool)
-
     func freezeReverbChanged(_ value: Bool)
-
     func freezeDelayChanged(_ value: Bool)
-
     func freezeArpSeqChanged(_ value: Bool)
-
+    func useCustomRecordFileBasenameChanged(_ value: Bool)
     func portamentoChanged(_ value: Double)
-
     func whiteKeysOnlyChanged(_ value: Bool)
 }
 
 class DevViewController: UpdatableViewController {
-
     @IBOutlet weak var backgroundImage: UIImageView!
-
     weak var delegate: DevViewDelegate?
-
     @IBOutlet weak var masterVolume: Knob! // i.e., gain before compressorMaster
-
     @IBOutlet weak var compressorMasterRatio: Knob!
-
     @IBOutlet weak var compressorReverbInputRatio: Knob!
-
     @IBOutlet weak var compressorReverbWetRatio: Knob!
-
     @IBOutlet weak var compressorMasterThreshold: Knob!
-
     @IBOutlet weak var compressorReverbInputThreshold: Knob!
-
     @IBOutlet weak var compressorReverbWetThreshold: Knob!
-
     @IBOutlet weak var compressorMasterAttack: Knob!
-
     @IBOutlet weak var compressorReverbInputAttack: Knob!
-
     @IBOutlet weak var compressorReverbWetAttack: Knob!
-
     @IBOutlet weak var compressorMasterRelease: Knob!
-
     @IBOutlet weak var compressorReverbInputRelease: Knob!
-
     @IBOutlet weak var compressorReverbWetRelease: Knob!
-
     @IBOutlet weak var compressorMasterMakeupGain: Knob!
-
     @IBOutlet weak var compressorReverbInputMakeupGain: Knob!
-
     @IBOutlet weak var compressorReverbWetMakeupGain: Knob!
-
     @IBOutlet weak var delayInputFilterCutoffFreqTrackingRatio: Knob!
-
     @IBOutlet weak var delayInputFilterResonance: Knob!
-
     @IBOutlet weak var freezeArpRate: ToggleButton!
-
     var freezeArpRateValue = false
-
     @IBOutlet weak var freezeReverb: ToggleButton!
-
     var freezeReverbValue = false
-
     @IBOutlet weak var freezeDelay: ToggleButton!
-
     var freezeDelayValue = false
-
     @IBOutlet weak var freezeArpSeq: ToggleButton!
-
     var freezeArpSeqValue = false
-
     @IBOutlet weak var whiteKeysOnly: ToggleButton!
-
     var whiteKeysOnlyValue = false
-
+    @IBOutlet weak var useCustomRecordFileBasename: ToggleButton!
+    var useCustomRecordFileBasenameValue = false
     @IBOutlet weak var portamento: Knob!
-
     var portamentoHalfTime = 0.1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Defaults, limits
         guard let s = conductor.synth else {
-            AKLog("DevViewController view state is invalid because synth is not instantiated")
+            AKLog("ERROR: DevViewController view state is invalid because synth is not instantiated")
             return
         }
-
         backgroundImage.isHidden = false
         backgroundImage.alpha = 0.15
 
@@ -171,7 +133,13 @@ class DevViewController: UpdatableViewController {
             self.delegate?.freezeReverbChanged(value == 1 ? true : false)
         }
 
-        // This is musically useful when you have an arp that you like and want to hear it
+        // use custom file name for recordings
+        useCustomRecordFileBasename.value = useCustomRecordFileBasenameValue ? 1 : 0
+        useCustomRecordFileBasename.setValueCallback = { value in
+            self.delegate?.useCustomRecordFileBasenameChanged(value == 1 ? true : false)
+        }
+
+        // freezeArpSeq is musically useful when you have an arp that you like and want to hear it
         // when you browse presets:
         // freeze arp+sequencer: ignore Preset updates for the following parameters:
         // arpIsOn

@@ -96,6 +96,24 @@ final class Tunings {
     // MARK: - TuneUp Properties
 
     var tuningName = Tuning.defaultName
+    var tuningFileBaseName: String {
+        get {
+            // tuningName is always a valid String
+            let underScore = "_"
+            let convertToUnderscore = CharacterSet(charactersIn: " ()[],:=+/!@#$%^&*+")
+            var retVal = tuningName.components(separatedBy: convertToUnderscore).joined(separator: underScore)
+            retVal += underScore
+            let tempo = Conductor.sharedInstance.synth.getSynthParameter(.arpRate)
+            let tempoFormat = String(format: "%03d", Int32(tempo))
+            retVal += tempoFormat
+            retVal += underScore
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyyMMdd_HHmmss"
+            let dateSuffix = dateFormatter.string(from:Date())
+            retVal += dateSuffix
+            return retVal
+        }
+    }
     var masterSet = Tuning.defaultMasterSet
     internal let tuningFilenameV0 = "tunings.json"
     internal let tuningFilenameV1 = "tunings_v1.json"

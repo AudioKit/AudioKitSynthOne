@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Initial Banks
+
 let initBanks = ["BankA",
                  "User",
                  "Brice Beasley",
@@ -41,17 +43,21 @@ class AppSettings: Codable {
     var freezeDelay = false // true = don't modify current delay parameters when preset changes
     var freezeReverb = false // true = don't modify current reverb parameters when preset changes
     var freezeArpSeq = false // true = don't modify current arp+seq parameters when preset changes
+    var useCustomRecordFileBasename = false // true = the record button will create filenames in the format: <tuning name>_<tempo>_yyyyMMdd_HHmmss
     var portamentoHalfTime = 0.1 // global portamento HALFTIME for dsp params that are smoothed
     var bufferLengthRawValue = 9 // 512 // was 7 
 
     // This is musically useful when you:
-    // 1) don't want a preset to have a specific tuning
+    // 1) don't want a preset to have a specific tuning, and
     // 2) You want to hold the tuning constant while you browse presets.
     //
-    //Settings: "Save Tuning Panel w/Presets" -> saveTuningWithPreset = True/False
-    //True means: "DO load preset's tuning (nil = reset current tuning to 12et) when preset is loaded.
-    //DO save current tuning (12et = nil) when preset is saved"
-    //False means: "DO NOT load preset's tuning when preset is loaded.  DO NOT save current tuning when preset is saved"
+    // Settings: "Save Tuning Panel w/Presets" -> saveTuningWithPreset = True/False
+    // True means:
+    //   - DO load preset's tuning (nil = reset current tuning to 12et) when preset is loaded.
+    //   - DO save current tuning (12et = nil) when preset is saved
+    // False means:
+    //   - DO NOT load preset's tuning when preset is loaded.
+    //   - DO NOT save current tuning when preset is saved
     var saveTuningWithPreset = true
 
     // When false will launch in 12ET; when true in the last-used tuning
@@ -172,6 +178,7 @@ class AppSettings: Codable {
         freezeDelay = dictionary["freezeDelay"] as? Bool ?? freezeDelay
         freezeReverb = dictionary["freezeReverb"] as? Bool ?? freezeReverb
         freezeArpSeq = dictionary["freezeArpSeq"] as? Bool ?? freezeArpSeq
+        useCustomRecordFileBasename = dictionary["useCustomRecordFileBasename"] as? Bool ?? useCustomRecordFileBasename
         whiteKeysOnly = dictionary["whiteKeysOnly"] as? Bool ?? whiteKeysOnly
 
         // KEYBOARD

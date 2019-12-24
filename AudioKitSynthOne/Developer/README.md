@@ -20,13 +20,13 @@ DSPParamHalftime: Almost all dsp parameters are "smoothed" to reduce artifacts w
 
 Settings (stored in settings, not saved with presets):
 
-LockArpRate: OFF by default.  When enabled: loading a preset will ignore the preset's tempo.  This is great for when you want to jam at a constant tempo and blaze through presets.  When we add tempo sync (i.e., Ableton Link) we might have to change how this works.
+LockArpRate: OFF by default.  When enabled: loading a preset will ignore the preset's tempo.  This is great for when you want to jam at the current tempo while changing presets.  When we add tempo sync (i.e., Ableton Link) we might have to change how this works.
 
 LockReverb: OFF by default: When enabled: Loading a preset will ignore the preset's reverb parameters in favor of the current parameters.
 
 LockDelay: OFF by default: When enabled: Loading a preset will ignore the preset's delay parameters in favor of the current parameters.
 
-Lock Arp+Seq: OFF by default.  When enabled: Loading a preset will ignore the preset's following parameters:
+Lock Arp+Seq: OFF by default.  When enabled: The current arpeggiator+sequencer parameters will remain unchanged when loading a preset.  To be specific, the following parameters will be unchanged:
 arpIsOn
 arpIsSequencer
 arpDirection
@@ -36,4 +36,6 @@ arpTotalSteps
 sequencerPattern00, ..., sequencerPattern15
 sequencerOctBoost00, ..., sequencerOctBoost15
 sequencerNoteOn00, ..., sequencerNoteOn15
+
+Record Basename: OFF by default.  When OFF: the record button will create WAV files with the file basename in the format "yyyyMMdd_HHmmss".  When TRUE: the record button will create filenames in the format: "<tuning name>_<tempo>_yyyyMMdd_HHmmss"
 

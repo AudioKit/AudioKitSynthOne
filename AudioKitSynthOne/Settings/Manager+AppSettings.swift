@@ -12,7 +12,7 @@ import Disk
 
 extension Manager {
 
-    // MARK: - Map App Settings to Controls
+    // MARK: - Set Controls to App Settings
 
     func setDefaultsFromAppSettings() {
 
@@ -38,6 +38,7 @@ extension Manager {
         devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
         devViewController.freezeReverb.value = (appSettings.freezeReverb == true ? 1 : 0)
         devViewController.freezeArpSeq.value = (appSettings.freezeArpSeq == true ? 1 : 0)
+        devViewController.useCustomRecordFileBasename.value = (appSettings.useCustomRecordFileBasename == true ? 1 : 0)
         devViewController.whiteKeysOnly.value = (appSettings.whiteKeysOnly == true ? 1 : 0)
 
         // DSP parameter stored in app settings
@@ -126,6 +127,7 @@ extension Manager {
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
         appSettings.freezeDelay = (devViewController.freezeDelay.value == 1 ? true : false)
         appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)
+        appSettings.useCustomRecordFileBasename = (devViewController.useCustomRecordFileBasename.value == 1 ? true : false)
         appSettings.whiteKeysOnly = (devViewController.whiteKeysOnly.value == 1 ? true : false)
         appSettings.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
 

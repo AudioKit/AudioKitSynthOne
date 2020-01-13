@@ -56,7 +56,7 @@ class AudioRecorder {
             AKLog("File at: ", recorder.audioFile)
             guard let recordingFile = recorder.audioFile else { return }
             recordingFile.exportAsynchronously(
-                name: createDateFileName() + ".wav",
+                name: createRecordFileName(),
                 baseDir: .temp,
                 exportFormat: .wav,
                 callback: { exportedFile, error in
@@ -88,21 +88,19 @@ class AudioRecorder {
         viewDelegate?.updateRecorderView(state: state, time: recorder.recordedDuration)
     }
 
-
-
-    
-    // Use Date and Time as Filename
-    private func createDateFileName() -> String {
-
-        // custom file format
+    private func createRecordFileName() -> String {
+        var recordingFileName: String = createDefaultRecordFileBaseName()
         if let manager = Conductor.sharedInstance.viewControllers.first(where: { $0 is Manager }) as? Manager {
-            return manager.tuningsPanel.tuningModel.tuningFileBaseName
-        } else {
-
-            // original filename format
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH-mm-ss"
-            return dateFormatter.string(from:Date())
+            if manager.appSettings.useCustomRecordFileBasename {
+                recordingFileName = manager.tuningsPanel.tuningModel.tuningFileBaseName
+            }
         }
+        return recordingFileName + ".wav"
+    }
+
+    private func createDefaultRecordFileBaseName() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd_HH-mm-ss"
+        return dateFormatter.string(from:Date())
     }
 }

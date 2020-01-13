@@ -39,7 +39,7 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
 
     @IBOutlet weak var monoButton: MIDISynthButton!
 
-	@IBOutlet weak var keyboardToggle: SynthButton!
+    @IBOutlet weak var keyboardToggle: SynthButton!
 
     @IBOutlet weak var octaveStepper: Stepper!
 

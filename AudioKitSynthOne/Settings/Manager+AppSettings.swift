@@ -123,7 +123,7 @@ extension Manager {
         appSettings.bufferLengthRawValue = AKSettings.bufferLength.rawValue
         appSettings.midiSources = midiInputs.filter { $0.isOpen }.compactMap { $0.name }
 
-        // HAQ Panel
+        // HAQ (DEV) Panel
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
         appSettings.freezeDelay = (devViewController.freezeDelay.value == 1 ? true : false)
         appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)

@@ -324,8 +324,12 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
                 if appSettings.presetsVersion < 1.24 && !appSettings.firstRun {
                     performSegue(withIdentifier: "SegueToApps", sender: nil) 
                 }
-                if appSettings.presetsVersion < 1.3 && !appSettings.firstRun {
-                    performSegue(withIdentifier: "SegueToFM", sender: nil)
+                if appSettings.presetsVersion < 1.7 && !appSettings.firstRun {
+                    performSegue(withIdentifier: "SegueToHM", sender: nil)
+                }
+            } else {
+                if appSettings.presetsVersion < 1.7 && !appSettings.firstRun {
+                    performSegue(withIdentifier: "SegueToPhoneHM", sender: nil)
                 }
             }
             
@@ -386,7 +390,7 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
         if appSettings.launches % 50 == 0 && !appSettings.isPreRelease && appSettings.launches > 0 { requestReview() }
 
         // Sharing is Caring
-        if appSettings.launches % 7 == 0 && appSettings.launches > 0 {
+        if appSettings.launches % 15 == 0 && appSettings.launches > 0 {
             if conductor.device == .phone {
                 performSegue(withIdentifier: "SegueToPhoneShare", sender: self)
             } else {
@@ -429,6 +433,8 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
         setupLinkStuff()
         conductor.audioRecorder?.fileDelegate = self
         isLoaded = true
+
+        performSegue(withIdentifier: "SegueToPhoneHM", sender: nil)
     }
 
     // Make edge gestures more responsive
@@ -448,7 +454,6 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
         control.addHotspot()
         midiControls.append(control)
     }
-
 
     func stopAllNotes() {
         self.keyboardView.allNotesOff()

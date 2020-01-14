@@ -205,12 +205,13 @@ class Conductor: S1Protocol {
 
         synth = AKSynthOne()
         synth.delegate = self
-        synth.rampDuration = 0.0 // Handle ramping internally instead of the ramper hack
+        synth.rampDuration = 0.0
         mixer = AKMixer(synth)
         AudioKit.output = mixer
         sustainer = SDSustainer(synth)
-        audioRecorder = AudioRecorder(node: mixer)
         audioPlotter = AKNodeOutputPlot(synth)
+        audioRecorder = AudioRecorder(node: mixer)
+        audioRecorder?.clearCache()
 
         do {
             try AudioKit.start()

@@ -433,8 +433,6 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
         setupLinkStuff()
         conductor.audioRecorder?.fileDelegate = self
         isLoaded = true
-
-        performSegue(withIdentifier: "SegueToPhoneHM", sender: nil)
     }
 
     // Make edge gestures more responsive

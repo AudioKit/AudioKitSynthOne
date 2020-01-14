@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -433,6 +433,7 @@
                         <segue destination="mL0-tn-PDC" kind="presentation" identifier="SegueToWelcome" id="8ID-d8-Qnm"/>
                         <segue destination="180-2e-dHd" kind="presentation" identifier="SegueToMore" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="3Wa-R3-dV5"/>
                         <segue destination="vaE-RL-nKW" kind="presentation" identifier="SegueToPhoneShare" id="NZS-gI-nAN"/>
+                        <segue destination="BdM-aW-ags" kind="presentation" identifier="SegueToPhoneHM" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="DLK-Rj-Zke"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkY-CW-6Da" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -833,7 +834,7 @@
                         <segue destination="0bp-Jd-82Y" kind="presentation" identifier="SegueToMore" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="1BH-Lq-qpz"/>
                         <segue destination="PKD-Zy-awT" kind="presentation" identifier="SegueToApps" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="NQT-0p-RfY"/>
                         <segue destination="JZQ-7S-Tum" kind="presentation" identifier="SegueToSharing" id="CsM-By-T1b"/>
-                        <segue destination="qyS-HD-ewE" kind="presentation" identifier="SegueToFM" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="LHr-Z9-rua"/>
+                        <segue destination="jEX-gO-nR2" kind="presentation" identifier="SegueToHM" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="7GB-DS-rhc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1630,14 +1631,6 @@
             </objects>
             <point key="canvasLocation" x="-943" y="-631"/>
         </scene>
-        <!--FMPlayer2-->
-        <scene sceneID="DSN-aZ-ygh">
-            <objects>
-                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="FMPlayer2" id="qyS-HD-ewE" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tcu-X0-N8s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-940" y="-561"/>
-        </scene>
         <!--SharingIsCaring-->
         <scene sceneID="Miu-CI-d0u">
             <objects>
@@ -1645,6 +1638,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sk-EO-RLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1027" y="-503"/>
+        </scene>
+        <!--HeyMetronome-->
+        <scene sceneID="giM-C1-KUq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="HeyMetronome" id="jEX-gO-nR2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yiy-Yj-JZk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-973" y="-454"/>
         </scene>
         <!--iPhoneAbout-->
         <scene sceneID="X3t-Ca-5If">
@@ -1709,6 +1710,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lr0-Ph-Pc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1096" y="-1166"/>
+        </scene>
+        <!--iPhoneHeyMetronome-->
+        <scene sceneID="6kE-64-eTx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="iPhoneHeyMetronome" id="BdM-aW-ags" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aBr-CW-NKH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1079" y="-1238"/>
         </scene>
     </scenes>
     <resources>

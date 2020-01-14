@@ -89,18 +89,37 @@ class AudioRecorder {
     }
 
     private func createRecordFileName() -> String {
-        var recordingFileName: String = createDefaultRecordFileBaseName()
+
+        // default name
+        var recordingFileBaseName: String = createDefaultRecordFileBaseName()
+
+        // custom name
         if let manager = Conductor.sharedInstance.viewControllers.first(where: { $0 is Manager }) as? Manager {
             if manager.appSettings.useCustomRecordFileBasename {
-                recordingFileName = manager.tuningsPanel.tuningModel.tuningFileBaseName
+                recordingFileBaseName = manager.tuningsPanel.tuningModel.tuningFileBaseName
             }
         }
-        return recordingFileName + ".wav"
+        return recordingFileBaseName + ".wav"
     }
 
     private func createDefaultRecordFileBaseName() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd_HH-mm-ss"
         return dateFormatter.string(from:Date())
+    }
+
+    public func clearCache() {
+        DispatchQueue.global(qos: .userInteractive).async {
+            do {
+                let tmpDirURL = FileManager.default.temporaryDirectory
+                let tmpDirectory = try FileManager.default.contentsOfDirectory(atPath: tmpDirURL.path)
+                try tmpDirectory.forEach { file in
+                    let fileUrl = tmpDirURL.appendingPathComponent(file)
+                    try FileManager.default.removeItem(atPath: fileUrl.path)
+                }
+            } catch let error as NSError {
+                AKLog("ERROR: error deleting recordings in tmp directory: \(error)")
+            }
+        }
     }
 }

@@ -44,6 +44,7 @@ class PresetEditorViewController: UIViewController {
         popupView.layer.cornerRadius = 6
 
         nameTextField.text = preset.name
+        nameTextField.textColor = UIColor.black
 
         // Setup Picker
         //conductor.banks = conductor.banks.sorted { $0.position < $1.position }

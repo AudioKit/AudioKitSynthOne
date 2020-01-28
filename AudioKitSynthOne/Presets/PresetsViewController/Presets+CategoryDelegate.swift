@@ -16,6 +16,7 @@ extension PresetsViewController: CategoryDelegate {
     }
 
     func bankShare() {
+
         // Get Bank to Share
         guard let bank = conductor.banks.first(where: { $0.position == bankIndex }) else { return }
         let bankName = bank.name
@@ -41,7 +42,6 @@ extension PresetsViewController: CategoryDelegate {
                                                               width: 0, height: 0)
             popoverPresentationController.permittedArrowDirections = []
         }
-
         self.present(activityViewController, animated: true, completion: nil)
     }
 

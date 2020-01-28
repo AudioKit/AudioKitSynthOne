@@ -24,14 +24,18 @@ class PresetsViewController: UIViewController {
     @IBOutlet weak var reorderButton: SynthButton!
     @IBOutlet weak var importBankButton: PresetUIButton!
     @IBOutlet weak var newBankButton: PresetUIButton!
-
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryEmbeddedView: UIView!
     @IBOutlet weak var presetDescriptionField: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var doneEditingButton: UIButton!
     @IBOutlet weak var searchtoolButton: PresetUIButton!
-    
+    let conductor = Conductor.sharedInstance
+    let userBankIndex = PresetCategory.bankStartingIndex + 1
+    let userBankName = "User"
+    var randomNumbers: GKRandomDistribution!
+    weak var presetsDelegate: PresetsDelegate?
+
     var presets = [Preset]() {
         didSet {
             randomizePresets()
@@ -65,15 +69,6 @@ class PresetsViewController: UIViewController {
         if newIndex < 0 { newIndex = 0 }
         return newIndex
     }
-
-    let conductor = Conductor.sharedInstance
-    let userBankIndex = PresetCategory.bankStartingIndex + 1
-    let userBankName = "User"
-
-    var randomNumbers: GKRandomDistribution!
-
-    weak var presetsDelegate: PresetsDelegate?
-
 
     // MARK: - Lifecycle
 
@@ -133,5 +128,4 @@ class PresetsViewController: UIViewController {
             popOverController.presets = presets
         }
     }
-    
 }

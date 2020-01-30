@@ -36,9 +36,9 @@ class TuningsPanelController: PanelController {
     var tuningTableView = UITableView()
     var tuningViewController = TuningsViewController()
     var tuningTableEditButton: UIBarButtonItem?
-    let tuningModel = Tunings()
     internal var swipeGestureStarted: Bool = false
     internal var selectedIndexPath: IndexPath?
+    let tuningModel = Tunings()
 
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil,bundle: nibBundleOrNil)
@@ -121,6 +121,8 @@ class TuningsPanelController: PanelController {
                 self.tuningModel.frequencyA4 = value
                 self.conductor.updateDisplayLabel(.frequencyA4, value: synth.getSynthParameter(.frequencyA4))
             }
+
+            // reset tunings
             resetTuningsButton.setValueCallback = { value in
                 if value == 1 {
                     self.tuningModel.resetTuning()
@@ -130,6 +132,8 @@ class TuningsPanelController: PanelController {
                     self.conductor.updateDisplayLabel("Tuning Reset: 12ET/440")
                 }
             }
+
+            // import tunings (not yet implemented...UI element is not displayed)
             importButton.setValueCallback = { _ in
                 self.importButton.value = 0
                 let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeText as String)], in: .import)
@@ -137,7 +141,7 @@ class TuningsPanelController: PanelController {
                 self.present(documentPicker, animated: true, completion: nil)
             }
         } else {
-            AKLog("race condition: synth not yet created")
+            AKLog("ERROR: race condition: synth not yet created")
         }
 
         /// model

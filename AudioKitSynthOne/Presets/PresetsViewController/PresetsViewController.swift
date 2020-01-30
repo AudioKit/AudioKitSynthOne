@@ -18,7 +18,6 @@ protocol PresetsDelegate: AnyObject {
 }
 
 class PresetsViewController: UIViewController {
-
     @IBOutlet weak var newButton: SynthButton!
     @IBOutlet weak var importButton: SynthButton!
     @IBOutlet weak var reorderButton: SynthButton!
@@ -30,11 +29,12 @@ class PresetsViewController: UIViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var doneEditingButton: UIButton!
     @IBOutlet weak var searchtoolButton: PresetUIButton!
+    weak var presetsDelegate: PresetsDelegate?
+    var randomNumbers: GKRandomDistribution!
+    var tempPreset = Preset()
     let conductor = Conductor.sharedInstance
     let userBankIndex = PresetCategory.bankStartingIndex + 1
     let userBankName = "User"
-    var randomNumbers: GKRandomDistribution!
-    weak var presetsDelegate: PresetsDelegate?
 
     var presets = [Preset]() {
         didSet {
@@ -55,8 +55,6 @@ class PresetsViewController: UIViewController {
             categoryLabel.text = PresetCategory(rawValue: currentPreset.category)?.description()
         }
     }
-
-    var tempPreset = Preset()
 
     var categoryIndex: Int = 0 {
         didSet {
@@ -90,7 +88,6 @@ class PresetsViewController: UIViewController {
 
         // Setup button callbacks
         setupCallbacks()
-
     }
 
     override func viewDidDisappear(_ animated: Bool) {

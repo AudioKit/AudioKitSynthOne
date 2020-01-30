@@ -53,11 +53,4 @@ class SynthButton: UIButton, S1Control {
             setValueCallback(value)
         }
     }
-
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//
-//        for _ in touches {
-//            setValueCallback(value)
-//        }
-//    }
 }

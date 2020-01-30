@@ -15,8 +15,8 @@ extension PresetsViewController: PresetCellDelegate {
     }
 
     func duplicatePressed() {
-
         do {
+            
             // Make unique copy of preset
             try Disk.save(currentPreset, to: .caches, as: "tmp/presetcopy.json")
             guard let copy = try? Disk.retrieve("tmp/presetcopy.json", from: .caches, as: Preset.self) else { return }
@@ -46,13 +46,13 @@ extension PresetsViewController: PresetCellDelegate {
             selectCategory(userBankIndex)
             categoryIndex = userBankIndex
             selectCurrentPreset()
-
         } catch {
             AKLog("error duplicating")
         }
     }
 
     func favoritePressed() {
+
         // Toggle and save preset
         currentPreset.isFavorite = !currentPreset.isFavorite
         saveAllPresetsIn(currentPreset.bank)
@@ -75,7 +75,6 @@ extension PresetsViewController: PresetCellDelegate {
         activityViewController.excludedActivityTypes = [
             UIActivity.ActivityType.copyToPasteboard
         ]
-
         if let popoverPresentationController = activityViewController.popoverPresentationController {
             popoverPresentationController.sourceView = self.view
             popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.midX,
@@ -83,7 +82,6 @@ extension PresetsViewController: PresetCellDelegate {
                                                               width: 0, height: 0)
             popoverPresentationController.permittedArrowDirections = []
         }
-
         self.present(activityViewController, animated: true, completion: nil)
     }
 

@@ -52,7 +52,6 @@ extension PresetsViewController: BankPopOverDelegate {
 
         // Remove from AppSettings
         presetsDelegate?.banksDidUpdate()
-
         updateCategoryTable()
         selectCategory(PresetCategory.bankStartingIndex)
         categoryIndex = PresetCategory.bankStartingIndex
@@ -60,6 +59,5 @@ extension PresetsViewController: BankPopOverDelegate {
 
         // Delete bank json file
         try? Disk.remove(bankName + ".json", from: .documents)
-
     }
 }

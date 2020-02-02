@@ -14,7 +14,6 @@ class ArpDirectionButton: UIView, S1Control {
     // MARK: - LFO Button
 
     let range: ClosedRange<Double> =  0...2
-
     private var width: CGFloat = 35.0
 
     // MARK: - S1Control
@@ -22,7 +21,6 @@ class ArpDirectionButton: UIView, S1Control {
     var value = 0.0 {
         didSet {
             setNeedsDisplay()
-
             switch value {
             case 0.0:
                 accessibilityValue = NSLocalizedString("Up", comment: "Up")
@@ -36,7 +34,6 @@ class ArpDirectionButton: UIView, S1Control {
     }
 
     public var setValueCallback: (Double) -> Void = { _ in }
-
     var resetToDefaultCallback: () -> Void = {  }
 
     // MARK: - Draw
@@ -62,13 +59,6 @@ class ArpDirectionButton: UIView, S1Control {
             default:
                 value = 2
             }
-            setValueCallback(value)
-        }
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        for _ in touches {
             setValueCallback(value)
         }
     }

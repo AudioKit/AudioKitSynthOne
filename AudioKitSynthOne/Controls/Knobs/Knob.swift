@@ -46,8 +46,12 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
     // MARK: - Properties
 
     var onlyIntegers: Bool = false
-
+    private var _value: Double = 0
     public var taper: Double = 1.0 // Linear by default
+    var knobFill: CGFloat = 0
+    var knobSensitivity: CGFloat = 0.005
+    var lastX: CGFloat = 0
+    var lastY: CGFloat = 0
 
     var range: ClosedRange = 0.0...1.0 {
         didSet {
@@ -56,34 +60,20 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
         }
     }
 
-    private var _value: Double = 0
-
     var knobValue: CGFloat = 0.0 {
         didSet {
             setNeedsDisplay()
         }
     }
 
-    var knobFill: CGFloat = 0
-
-    var knobSensitivity: CGFloat = 0.005
-
-    var lastX: CGFloat = 0
-
-    var lastY: CGFloat = 0
-
     lazy private var accessibilityChangeAmount: Double = {
         let widthOfRange = range.upperBound - range.lowerBound
-
-        // We need Not to include 1.0
         let incrementRange: Range = 1.1..<128.0
-
         if incrementRange.contains(widthOfRange) && onlyIntegers {
             return 1.0
         } else {
             return widthOfRange * 0.01
         }
-
     }()
 
     // MARK: - S1Control
@@ -103,7 +93,6 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
     }
 
     var setValueCallback: (Double) -> Void = { _ in }
-
     var resetToDefaultCallback: () -> Void = { }
 
     // MARK: - Draw
@@ -119,7 +108,6 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
     // MARK: - Touches
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
         for touch in touches {
             let touchPoint = touch.location(in: self)
             lastX = touchPoint.x
@@ -128,17 +116,9 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
     }
 
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-
         for touch in touches {
             let touchPoint = touch.location(in: self)
             setPercentagesWithTouchPoint(touchPoint)
-        }
-    }
-
-    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        for _ in touches {
-            setValueCallback(value)
         }
     }
 
@@ -161,6 +141,5 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
     // MARK: - Accessibility
 
 	override public func accessibilityIncrement() {}
-
 	override public func accessibilityDecrement() {}
 }

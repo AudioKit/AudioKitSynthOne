@@ -10,12 +10,10 @@ import UIKit
 
 @IBDesignable
 class TempoStepper: Stepper {
-
     let tempoPath = UIBezierPath(roundedRect: CGRect(x: 3.5, y: 0.5, width: 75, height: 32), cornerRadius: 1)
     var knobSensitivity: CGFloat = 0.005
     var lastX: CGFloat = 0
     var lastY: CGFloat = 0
-
     public var taper: Double = 1.0 // Linear by default
 
     public override var value: Double {
@@ -28,7 +26,6 @@ class TempoStepper: Stepper {
             internalValue = range.clamp(internalValue)
             knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
             setNeedsDisplay()
-
 			accessibilityValue = String(format: "%.0f", value) + NSLocalizedString("B P M", comment: "BPM, Beats Per Minute")
         }
     }
@@ -104,6 +101,13 @@ class TempoStepper: Stepper {
         }
     }
 
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for _ in touches {
+            valuePressed = 0
+            setNeedsDisplay()
+        }
+    }
+
     // Helper
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
 
@@ -115,13 +119,6 @@ class TempoStepper: Stepper {
         setValueCallback(value)
         lastX = touchPoint.x
         lastY = touchPoint.y
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for _ in touches {
-            valuePressed = 0
-            setNeedsDisplay()
-        }
     }
 
 	override func accessibilityIncrement() {

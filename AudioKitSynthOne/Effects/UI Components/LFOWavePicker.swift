@@ -21,7 +21,6 @@ class LFOWavePicker: UIView, S1Control {
 
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-
         contentMode = .scaleAspectFit
         clipsToBounds = true
     }
@@ -49,7 +48,6 @@ class LFOWavePicker: UIView, S1Control {
     }
 
     var setValueCallback: (Double) -> Void = { _ in }
-
     var resetToDefaultCallback: () -> Void = { }
 
     // MARK: - Draw
@@ -81,13 +79,6 @@ class LFOWavePicker: UIView, S1Control {
             }
 
             setNeedsDisplay()
-            setValueCallback(value)
-        }
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        for _ in touches {
             setValueCallback(value)
         }
     }

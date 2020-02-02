@@ -21,7 +21,6 @@ class ArpButton: UIView, S1Control {
 
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-
         contentMode = .scaleAspectFit
         clipsToBounds = true
     }
@@ -55,7 +54,6 @@ class ArpButton: UIView, S1Control {
     }
 
     public var setValueCallback: (Double) -> Void = { _ in }
-
     var resetToDefaultCallback: () -> Void = { }
 
     // MARK: - Draw
@@ -71,18 +69,9 @@ class ArpButton: UIView, S1Control {
     // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         for _ in touches {
             value = 1 - value
             setValueCallback(value)
         }
     }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        for _ in touches {
-            setValueCallback(value)
-        }
-    }
-
 }

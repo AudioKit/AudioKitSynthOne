@@ -10,11 +10,11 @@ import UIKit
 
 public class RateKnob: MIDIKnob {
 
+    private var _value: Double = 0
+    
     var rate: Rate {
         return Rate(rawValue: Int(knobValue * CGFloat(Rate.count))) ?? Rate.sixtyFourth
     }
-
-    private var _value: Double = 0
 
     override public var value: Double {
         get {

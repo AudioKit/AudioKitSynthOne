@@ -38,13 +38,11 @@ public class Stepper: UIView, S1Control {
     }
 
     public var setValueCallback: (Double) -> Void = { _ in }
-
     var resetToDefaultCallback: () -> Void = { }
 
     // MARK: - Stepper
     
     var minusPath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 2, width: 35, height: 32), cornerRadius: 1)
-
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)
 	
     var minValue = 0.0 {
@@ -68,9 +66,7 @@ public class Stepper: UIView, S1Control {
 	}
 
     var range: ClosedRange = 0.0...1.0
-
     var valuePressed: CGFloat = 0
-
     open var text = "0"
 
     // MARK: - Draw

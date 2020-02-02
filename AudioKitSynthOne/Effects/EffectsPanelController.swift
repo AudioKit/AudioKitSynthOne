@@ -9,7 +9,6 @@
 import UIKit
 
 class EffectsPanelController: PanelController {
-
     @IBOutlet weak var cutoffLFOToggle: LFOToggle!
     @IBOutlet weak var resonanceLFOToggle: LFOToggle!
     @IBOutlet weak var oscMixLFOToggle: LFOToggle!
@@ -22,40 +21,30 @@ class EffectsPanelController: PanelController {
     @IBOutlet weak var pitchLFOToggle: LFOToggle!
     @IBOutlet weak var bitcrushLFOToggle: LFOToggle!
     @IBOutlet weak var tremoloLFOToggle: LFOToggle!
-
     @IBOutlet weak var lfo1AmpKnob: MIDIKnob!
     @IBOutlet weak var lfo1RateKnob: MIDIKnob!
-
     @IBOutlet weak var lfo2AmpKnob: MIDIKnob!
     @IBOutlet weak var lfo2RateKnob: MIDIKnob!
-
     @IBOutlet weak var sampleRateKnob: MIDIKnob!
-
     @IBOutlet weak var autoPanAmountKnob: MIDIKnob!
     @IBOutlet weak var autoPanRateKnob: MIDIKnob!
-
     @IBOutlet weak var reverbSizeKnob: MIDIKnob!
     @IBOutlet weak var reverbLowCutKnob: MIDIKnob!
     @IBOutlet weak var reverbMixKnob: MIDIKnob!
     @IBOutlet weak var reverbToggle: ToggleButton!
-
     @IBOutlet weak var delayTimeKnob: MIDIKnob!
     @IBOutlet weak var delayFeedbackKnob: MIDIKnob!
     @IBOutlet weak var delayMixKnob: MIDIKnob!
     @IBOutlet weak var delayToggle: ToggleButton!
-
     @IBOutlet weak var phaserMixKnob: MIDIKnob!
     @IBOutlet weak var phaserRateKnob: MIDIKnob!
     @IBOutlet weak var phaserFeedbackKnob: MIDIKnob!
     @IBOutlet weak var phaserNotchWidthKnob: MIDIKnob!
-
     @IBOutlet weak var lfo1WavePicker: LFOWavePicker!
     @IBOutlet weak var lfo2WavePicker: LFOWavePicker!
-
     @IBOutlet weak var tempoSyncToggle: ToggleButton!
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
         currentPanel = .effects
         guard let s = conductor.synth else {
@@ -63,23 +52,28 @@ class EffectsPanelController: PanelController {
             return
         }
 
+        // bit crush
         sampleRateKnob.range = s.getRange(.bitCrushSampleRate)
         sampleRateKnob.taper = 4.6
         conductor.bind(sampleRateKnob, to: .bitCrushSampleRate)
 
+        // reverb cutoff
         reverbLowCutKnob.range = s.getRange(.reverbHighPass)
         reverbLowCutKnob.taper = 1
         conductor.bind(reverbLowCutKnob, to: .reverbHighPass)
 
+        // delay feedback
         delayFeedbackKnob.range = s.getRange(.delayFeedback)
         conductor.bind(delayFeedbackKnob, to: .delayFeedback)
 
+        // phaser
         phaserMixKnob.range = s.getRange(.phaserMix)
         phaserRateKnob.range = s.getRange(.phaserRate)
         phaserRateKnob.taper = 2
         phaserFeedbackKnob.range = s.getRange(.phaserFeedback)
         phaserNotchWidthKnob.range = s.getRange(.phaserNotchWidth)
 
+        // lfo amount knobs and toggles
         conductor.bind(autoPanAmountKnob, to: .autoPanAmount)
         conductor.bind(reverbSizeKnob, to: .reverbFeedback)
         conductor.bind(reverbMixKnob, to: .reverbMix)
@@ -116,7 +110,6 @@ class EffectsPanelController: PanelController {
             s.setDependentParameter(.lfo1Rate, value, self.conductor.lfo1RateEffectsPanelID)
             self.conductor.updateDisplayLabel(.lfo1Rate, value: s.getSynthParameter(.lfo1Rate))
         }
-
         lfo2RateKnob.range = 0...1
         lfo2RateKnob.taper = 1
         lfo2RateKnob.value = s.getDependentParameter(.lfo2Rate)
@@ -124,7 +117,6 @@ class EffectsPanelController: PanelController {
             s.setDependentParameter(.lfo2Rate, value, self.conductor.lfo2RateEffectsPanelID)
             self.conductor.updateDisplayLabel(.lfo2Rate, value: s.getSynthParameter(.lfo2Rate))
         }
-
         autoPanRateKnob.range = 0...1
         autoPanRateKnob.taper = 1
         autoPanRateKnob.value = s.getDependentParameter(.autoPanFrequency)
@@ -132,7 +124,6 @@ class EffectsPanelController: PanelController {
             s.setDependentParameter(.autoPanFrequency, value, self.conductor.autoPanEffectsPanelID)
             self.conductor.updateDisplayLabel(.autoPanFrequency, value: s.getSynthParameter(.autoPanFrequency))
         }
-
         delayTimeKnob.range = 0...1
         delayTimeKnob.taper = 1
         delayTimeKnob.value = s.getDependentParameter(.delayTime)
@@ -141,7 +132,7 @@ class EffectsPanelController: PanelController {
             self.conductor.updateDisplayLabel(.delayTime, value: s.getSynthParameter(.delayTime))
         }
 
-
+        // accessibility
 		view.accessibilityElements = [
 			lfo1WavePicker!,
 			lfo1RateKnob!,

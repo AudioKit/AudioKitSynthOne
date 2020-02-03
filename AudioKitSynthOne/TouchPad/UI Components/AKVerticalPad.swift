@@ -128,7 +128,6 @@ public class AKVerticalPad: UIView, S1Control {
 
     func resetToPosition(_ newPercentX: Double = 0.5, _ newPercentY: Double) {
         let centerPointY = self.bounds.size.height * CGFloat((1 - newPercentY))
-
         UIView.animate(
             withDuration: 0.05,
             delay: 0.0,
@@ -139,7 +138,6 @@ public class AKVerticalPad: UIView, S1Control {
             completion: { _ in
                 self.x = CGFloat(newPercentX)
                 self.y = CGFloat(newPercentY)
-
                 self.verticalValue = Double(self.y).denormalized(to: self.verticalRange, taper: self.verticalTaper)
                 self.completionHandler(self.verticalValue, true, true)
             }

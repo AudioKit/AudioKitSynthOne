@@ -78,10 +78,8 @@ extension Manager {
         }
 
         keyboardToggle.setValueCallback = { value in
-            
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
-
                  if self.conductor.device == .pad {
 
 				// Tell VoiceOver to NOT read elements in bottomContainerView if hidden by keyboard.
@@ -90,13 +88,11 @@ extension Manager {
 
             } else {
                 self.keyboardToggle.setTitle("Show", for: .normal)
-
                 if self.conductor.device == .pad {
 
                     // Tell VoiceOver to read elements in bottomContainerView as the keyboard is not hidden.
                     self.bottomContainerView.accessibilityElementsHidden = false
 
-                    
                     // Add panel to bottom
                     if self.bottomChildPanel == self.topChildPanel {
                         self.bottomChildPanel = self.bottomChildPanel?.rightPanel()
@@ -111,9 +107,7 @@ extension Manager {
             if self.conductor.device == .phone {
                 newConstraintValue = (value == 1.0) ? 175 : 257
             }
-            
             let sideConstraintValue: CGFloat = (value == 1.0) ? 18 : 72.5 // 72.5
-           
             let keyboardLabelMode = self.keyboardView.labelMode
             self.keyboardView.labelMode = 0
             self.keyboardView.setNeedsDisplay()

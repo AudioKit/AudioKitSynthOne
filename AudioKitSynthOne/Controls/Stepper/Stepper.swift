@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 public class Stepper: UIView, S1Control {
 
-    // MARK: - Init
+    //MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ public class Stepper: UIView, S1Control {
         text = "1"
     }
 
-    // MARK: - S1Control
+    //MARK: - S1Control
 
     public internal(set) var value: Double {
         get {
@@ -40,7 +40,7 @@ public class Stepper: UIView, S1Control {
     public var setValueCallback: (Double) -> Void = { _ in }
     var resetToDefaultCallback: () -> Void = { }
 
-    // MARK: - Stepper
+    //MARK: - Stepper
     
     var minusPath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 2, width: 35, height: 32), cornerRadius: 1)
     var plusPath = UIBezierPath(roundedRect: CGRect(x: 70.5, y: 2, width: 35, height: 32), cornerRadius: 1)
@@ -69,7 +69,7 @@ public class Stepper: UIView, S1Control {
     var valuePressed: CGFloat = 0
     open var text = "0"
 
-    // MARK: - Draw
+    //MARK: - Draw
 
     override public func draw(_ rect: CGRect) {
         StepperStyleKit.drawStepper(frame: CGRect(x: 0,
@@ -79,7 +79,7 @@ public class Stepper: UIView, S1Control {
                                     valuePressed: valuePressed, text: "\(Int(value))")
     }
 
-    // MARK: - Touches
+    //MARK: - Touches
 
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
@@ -109,7 +109,7 @@ public class Stepper: UIView, S1Control {
         }
     }
 
-    // MARK: - Accessibility
+    //MARK: - Accessibility
     
     override public func accessibilityIncrement() {
 		if value < maxValue {

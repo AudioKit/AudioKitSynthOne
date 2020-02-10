@@ -12,15 +12,18 @@
 extension Manager: AKMIDIListener {
 
     public func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel, portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
-   
         guard channel == conductor.midiInChannel || conductor.isOmniMode else { return }
         var newVelocity = velocity
-        if (velocity == 0)
-        {
-          receivedMIDINoteOff(noteNumber: noteNumber, velocity: velocity, channel: channel)
+        if (newVelocity == 0) {
+          receivedMIDINoteOff(noteNumber: noteNumber, velocity: newVelocity, channel: channel)
           return
         }
-        if !appSettings.velocitySensitive { newVelocity = 127 }
+        if !appSettings.velocitySensitive {
+            newVelocity = 127
+        } else {
+            let velocitySensitivity = appSettings.velocitySensitivity
+            newVelocity = MIDIVelocity( 127 * pow( Double(newVelocity) / 127, pow(2, -velocitySensitivity) ) )
+        }
         if !Thread.isMainThread {
             DispatchQueue.main.async {
                 self.keyboardView.pressAdded(noteNumber, velocity: newVelocity)
@@ -36,7 +39,6 @@ extension Manager: AKMIDIListener {
     }
 
     public func receivedMIDINoteOff(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel, portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
- 
         guard (channel == conductor.midiInChannel || conductor.isOmniMode) && !keyboardView.holdMode else { return }
         DispatchQueue.main.async {
             self.keyboardView.pressRemoved(noteNumber)
@@ -63,7 +65,6 @@ extension Manager: AKMIDIListener {
 
     // MIDI Controller input
     public func receivedMIDIController(_ controller: MIDIByte, value: MIDIByte, channel: MIDIChannel, portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
- 
         guard channel == conductor.midiInChannel || conductor.isOmniMode else { return }
 
         // If any MIDI Learn controls are active, assign the CC
@@ -137,7 +138,6 @@ extension Manager: AKMIDIListener {
 
     // MIDI Pitch Wheel
     public func receivedMIDIPitchWheel(_ pitchWheelValue: MIDIWord, channel: MIDIChannel, portID: MIDIUniqueID? = nil, offset: MIDITimeStamp = 0) {
-   
         guard channel == conductor.midiInChannel || conductor.isOmniMode else { return }
         guard let s = Conductor.sharedInstance.synth else {
             AKLog("Can't process MIDI pitch wheel because synth is not instantiated")
@@ -158,13 +158,11 @@ extension Manager: AKMIDIListener {
     // MIDI Setup Change
     public func receivedMIDISetupChange() {
         AKLog("midi setup change, midi.inputNames: \(AudioKit.midi.inputNames)")
-        
         let midiInputNames = AudioKit.midi.inputNames
         midiInputNames.forEach { inputName in
             
             // check to see if input exists before adding it
-            if midiInputs.firstIndex(where: { $0.name == inputName }) == nil
-            {
+            if midiInputs.firstIndex(where: { $0.name == inputName }) == nil {
                 let newMIDI = MIDIInput(name: inputName, isOpen: true)
                 midiInputs.append(newMIDI)
                 AudioKit.midi.openInput(name: inputName)

@@ -10,15 +10,17 @@ import UIKit
 import AudioKit
 
 protocol MIDISettingsPopOverDelegate: AnyObject {
-    func resetMIDILearn()
-    func didSelectMIDIChannel(newChannel: Int)
-    func didToggleVelocity()
-    func didToggleBackgroundAudio(_ value: Bool)
     func didChangeMIDISources(_ midiSources: [MIDIInput])
+    func didSelectMIDIChannel(newChannel: Int)
+    func resetMIDILearn()
+    func didToggleVelocitySensitiveMIDI()
+    func velocitySensitiveMIDISettingValue() -> Bool
+    func didChangeVelocitySensitiveMIDISensitivity(_ value: Double)
+    func didToggleBackgroundAudio(_ value: Bool)
     func didToggleNeverSleep()
-    func didSetBuffer()
     func didToggleStoreTuningWithPreset(_ value: Bool)
     func didToggleLaunchWithLastTuning(_ value: Bool)
+    func didSetBuffer()
 }
 
 class MIDISettingsViewController: UIViewController {
@@ -27,7 +29,8 @@ class MIDISettingsViewController: UIViewController {
     @IBOutlet weak var resetButton: SynthButton!
     @IBOutlet weak var inputTable: UITableView!
     @IBOutlet weak var sleepToggle: ToggleSwitch!
-    @IBOutlet weak var velocityToggle: ToggleSwitch!
+    @IBOutlet weak var velocitySensitiveToggle: ToggleSwitch!
+    @IBOutlet weak var velocitySensitivityKnob: Knob!
     @IBOutlet weak var saveTuningToggle: ToggleSwitch!
     @IBOutlet weak var backgroundAudioToggle: ToggleSwitch!
     @IBOutlet weak var bufferSizeSegmentedControl: UISegmentedControl!
@@ -35,6 +38,7 @@ class MIDISettingsViewController: UIViewController {
     weak var delegate: MIDISettingsPopOverDelegate?
     var userChannelIn: Int = 1
     var velocitySensitive = true
+    var velocitySensitivity = 0.0
     var saveTuningWithPreset = false
     var launchWithLastTuning = false
     let conductor = Conductor.sharedInstance
@@ -67,7 +71,10 @@ class MIDISettingsViewController: UIViewController {
 
         // Toggles
         sleepToggle.value = conductor.neverSleep ? 1 : 0
-        velocityToggle.value = velocitySensitive ? 1 : 0
+        velocitySensitiveToggle.value = velocitySensitive ? 1 : 0
+        velocitySensitivityKnob.range = -2 ... 2
+        velocitySensitivityKnob.value = velocitySensitivity
+        velocitySensitivityKnob.alpha = 0
         saveTuningToggle.value = saveTuningWithPreset ? 1 : 0
         launchWithLastTuningToggle.value = launchWithLastTuning ? 1 : 0
         backgroundAudioToggle.value = conductor.backgroundAudio ? 1 : 0
@@ -77,6 +84,7 @@ class MIDISettingsViewController: UIViewController {
         displayMIDIInputs()
         bufferSizeSegmentedControl.selectedSegmentIndex = AKSettings.bufferLength.rawValue - AKSettings.BufferLength.shortest.rawValue
         bufferSizeSegmentedControl.setNeedsDisplay()
+        updateVelocitySensitivityKnob()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -140,9 +148,15 @@ class MIDISettingsViewController: UIViewController {
             self.delegate?.didToggleBackgroundAudio(value == 1 ? true : false)
         }
 
-        // velocity-sensitive midi
-        velocityToggle.setValueCallback = { value in
-            self.delegate?.didToggleVelocity()
+        // either velocity is max 127, or is midi velocity
+        velocitySensitiveToggle.setValueCallback = { _ in
+            self.delegate?.didToggleVelocitySensitiveMIDI()
+            self.updateVelocitySensitivityKnob()
+        }
+
+        // midi velocity sensitivity value
+        velocitySensitivityKnob.setValueCallback = { value in
+            self.delegate?.didChangeVelocitySensitiveMIDISensitivity(value)
         }
 
         // save/restore tuning with preset
@@ -207,6 +221,22 @@ class MIDISettingsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    private func updateVelocitySensitivityKnob() {
+        let animationDuration = 0.5
+        if let setting = delegate?.velocitySensitiveMIDISettingValue() {
+            if setting == true {
+                velocitySensitivityKnob.isUserInteractionEnabled = true
+                UIView.animate(withDuration: animationDuration, animations: {
+                    self.velocitySensitivityKnob.alpha = 1
+                })
+            } else {
+                velocitySensitivityKnob.isUserInteractionEnabled = false
+                UIView.animate(withDuration: animationDuration, animations: {
+                    self.velocitySensitivityKnob.alpha = 0
+                })
+            }
+        }
+    }
 }
 
 // MARK: - TableViewDataSource
@@ -217,8 +247,7 @@ extension MIDISettingsViewController: UITableViewDataSource {
         return 1
     }
 
-    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView,
-                                                             heightForRowAt indexPath: IndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
 
@@ -246,7 +275,6 @@ extension MIDISettingsViewController: UITableViewDataSource {
 extension MIDISettingsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         tableView.deselectRow(at: indexPath, animated: false)
 
         // Get cell

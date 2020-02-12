@@ -39,6 +39,7 @@ class AppSettings: Codable {
     var omniMode = true
     var plotFilled = true
     var velocitySensitive = false
+    var velocitySensitivity = 0.0 // default: linear
     var freezeArpRate = false // true = don't modify when preset changes
     var freezeDelay = false // true = don't modify current delay parameters when preset changes
     var freezeReverb = false // true = don't modify current reverb parameters when preset changes
@@ -63,6 +64,7 @@ class AppSettings: Codable {
     // When false will launch in 12ET; when true in the last-used tuning
     var launchWithLastTuning = false
 
+    // email
     var pushNotifications = false
     var userEmail = ""
     var launches = 0
@@ -169,6 +171,7 @@ class AppSettings: Codable {
         midiSources = dictionary["midiSources"] as? [String] ?? midiSources
         plotFilled = dictionary["plotFilled"] as? Bool ?? plotFilled
         velocitySensitive = dictionary["velocitySensitive"] as? Bool ?? velocitySensitive
+        velocitySensitivity = dictionary["velocitySensitivity"] as? Double ?? velocitySensitivity
         presetsVersion = dictionary["presetsVersion"] as? Double ?? presetsVersion
         saveTuningWithPreset = dictionary["saveTuningWithPreset"] as? Bool ?? saveTuningWithPreset
         launchWithLastTuning = dictionary["launchWithLastTuning"] as? Bool ?? launchWithLastTuning

@@ -62,12 +62,18 @@ typedef struct {
 
 @implementation AEMessageQueue
 
+#pragma mark - Modified
+
 - (instancetype)init {
-    return [self initWithBufferCapacity:8192+8192+8192+8192];
+    return [self initWithBufferCapacity:4096*1024];
 }
 
+#pragma mark - resume
+
 - (instancetype)initWithBufferCapacity:(size_t)bufferCapacity {
-    if ( !(self = [super init]) ) return nil;
+    if ( !(self = [super init]) ) {
+        return nil;
+    }
     
     // Create main thread endpoint
     self.mainThreadEndpoint = [[AEMainThreadEndpoint alloc] initWithHandler:^(void * _Nullable data, size_t length) {
@@ -107,14 +113,13 @@ typedef struct {
                 [invocation setArgument:(void*)(arg->isValue ? data : &data) atIndex:i];
                 arguments += sizeof(main_thread_message_arg_t) + arg->length;
             }
-            
             [invocation invokeWithTarget:target];
             
         } else if ( *type == AEMessageQueueAudioThreadMessage ) {
+
             // Clean up audio thread message, and possibly call completion block
             const audio_thread_message_t * message = (const audio_thread_message_t *)data;
             CFBridgingRelease((__bridge CFTypeRef)(message->block));
-            
             if ( message->completionBlock ) {
                 message->completionBlock();
                 CFBridgingRelease((__bridge CFTypeRef)(message->completionBlock));
@@ -125,6 +130,7 @@ typedef struct {
     // Create audio thread endpoint
     AEMainThreadEndpoint * mainThread = _mainThreadEndpoint;
     self.audioThreadEndpoint = [[AEAudioThreadEndpoint alloc] initWithHandler:^(const void * _Nullable data, size_t length) {
+
         // Call block
         const audio_thread_message_t * message = (const audio_thread_message_t *)data;
         message->block();
@@ -132,7 +138,6 @@ typedef struct {
         // Enqueue response on main thread, to clean up and possibly call completion block
         AEMainThreadEndpointSend(mainThread, data, length);
     } bufferCapacity:bufferCapacity];
-    
     return self;
 }
 
@@ -141,6 +146,7 @@ typedef struct {
 }
 
 - (void)performBlockOnAudioThread:(AEMessageQueueBlock)block completionBlock:(AEMessageQueueBlock)completionBlock {
+
     // Prepare message
     audio_thread_message_t message = {
         .type = AEMessageQueueAudioThreadMessage,
@@ -156,6 +162,7 @@ BOOL AEMessageQueuePerformSelectorOnMainThread(__unsafe_unretained AEMessageQueu
                                                __unsafe_unretained id target,
                                                SEL selector,
                                                AEArgument arguments, ...) {
+
     // Prepare message buffer: determine size of message
     const char * selectorString = sel_getName(selector);
     int selectorLength = (int)strlen(selectorString) + 1;
@@ -167,7 +174,9 @@ BOOL AEMessageQueuePerformSelectorOnMainThread(__unsafe_unretained AEMessageQueu
         AEArgument argument;
         while ( 1 ) {
             argument = va_arg(args, AEArgument);
-            if ( argument.length == 0 ) break;
+            if ( argument.length == 0 ) {
+                break;
+            }
             messageSize += sizeof(main_thread_message_arg_t) + argument.length;
         }
         va_end(args);
@@ -175,7 +184,9 @@ BOOL AEMessageQueuePerformSelectorOnMainThread(__unsafe_unretained AEMessageQueu
     
     // Create message
     void * message = AEMainThreadEndpointCreateMessage(THIS->_mainThreadEndpoint, messageSize);
-    if ( !message ) return NO;
+    if ( !message ) {
+        return NO;
+    }
     
     // Write header
     main_thread_message_t * header = message;
@@ -189,6 +200,7 @@ BOOL AEMessageQueuePerformSelectorOnMainThread(__unsafe_unretained AEMessageQueu
     // Copy in arguments
     void * argumentPtr = message + sizeof(main_thread_message_t) + selectorLength;
     if ( arguments.length > 0 ) {
+
         // Copy first argument
         main_thread_message_arg_t * arg = argumentPtr;
         arg->isValue = arguments.isValue;
@@ -202,8 +214,9 @@ BOOL AEMessageQueuePerformSelectorOnMainThread(__unsafe_unretained AEMessageQueu
         AEArgument argument;
         while ( 1 ) {
             argument = va_arg(args, AEArgument);
-            if ( argument.length == 0 ) break;
-            
+            if ( argument.length == 0 ) {
+                break;
+            }
             main_thread_message_arg_t * arg = argumentPtr;
             arg->isValue = argument.isValue;
             arg->length = argument.length;
@@ -215,7 +228,6 @@ BOOL AEMessageQueuePerformSelectorOnMainThread(__unsafe_unretained AEMessageQueu
     
     // Dispatch
     AEMainThreadEndpointDispatchMessage(THIS->_mainThreadEndpoint);
-    
     return YES;
 }
 

@@ -10,16 +10,11 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     let conductor = Conductor.sharedInstance
-
     var window: UIWindow?
-
     var launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
         self.launchOptions = launchOptions
 
         // Never Sleep mode is false
@@ -44,18 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              window?.rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "iPhoneParentVC")
         }
         window?.makeKeyAndVisible()
-
         return true
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-
         conductor.checkIAAConnectionsEnterBackground()
     }
 
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-
         conductor.checkIAAConnectionsEnterForeground()
     }
 
@@ -66,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
             UIApplication.shared.isIdleTimerDisabled = false
         }
-        
         UIApplication.shared.isIdleTimerDisabled = conductor.neverSleep
     }
 
@@ -77,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         conductor.stopEngine()
     }
 
-    /// TuneUp
+    /// Handles TuneUp
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 
         // on launch tuningsPanel is not yet created -> fall back to tunings model initialization
@@ -98,12 +89,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 AKLog("error removing temporary file at \(url): \(error)")
             }
         }
-
         return true
     }
 
     func canOpenURL(_ url: URL) -> Bool {
-        
         return true
     }
 }
@@ -111,7 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
 
     public func applicationLaunchedWithURL() -> URL? {
-
         let launchUrl = self.launchOptions?[.url] as? URL
         self.launchOptions = nil
         return launchUrl

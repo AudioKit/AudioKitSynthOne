@@ -9,26 +9,20 @@
 import UIKit
 
 class TouchPadPanelController: PanelController {
-
     @IBOutlet weak var touchPad1: AKTouchPadView!
     @IBOutlet weak var touchPad2: AKTouchPadView!
-
     @IBOutlet weak var touchPad1Label: UILabel!
     @IBOutlet weak var snapToggle: SynthButton!
-
-    let particleEmitter1 = CAEmitterLayer()
-    let particleEmitter2 = CAEmitterLayer()
-
     var cutoff: Double = 0.0
     var rez: Double = 0.0
     var lfoRate: Double = 0.0
     var lfoAmp: Double = 0.0
+    let particleEmitter1 = CAEmitterLayer()
+    let particleEmitter2 = CAEmitterLayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         guard let s = conductor.synth else { return }
-
         currentPanel = .touchPad
         snapToggle.value = 1
 
@@ -45,8 +39,10 @@ class TouchPadPanelController: PanelController {
         rez = s.getSynthParameter(.resonance)
         let pad2X = cutoff.normalized(from: touchPad2.horizontalRange, taper: touchPad2.horizontalTaper)
 
+        // callbacks
         setupCallbacks()
 
+        // touchpad
         touchPad1.resetToPosition(lfoRate, lfoAmp)
         touchPad2.resetToPosition(pad2X, rez)
 
@@ -65,20 +61,22 @@ class TouchPadPanelController: PanelController {
 
         // super's updateAllUI call is causing race conditions in updating UI in this class
         //conductor.updateAllUI()
-       
     }
 
     // MARK: - Touch Pad Callbacks
 
     func setupCallbacks() {
+
+        // state
         let c = conductor
         guard let s = c.synth else { return }
 
+        // touchpad 1
         touchPad1.callback = { horizontal, vertical, touchesBegan in
             self.particleEmitter1.emitterPosition = CGPoint(x: (self.touchPad1.bounds.width / 2),
                                                             y: self.touchPad1.bounds.height / 2)
-
             if touchesBegan {
+
                 // record values before touched
                 self.lfoRate = s.getDependentParameter(.lfo1Rate)
                 self.lfoAmp = s.getSynthParameter(.lfo1Amplitude)
@@ -86,12 +84,12 @@ class TouchPadPanelController: PanelController {
                 // start particles
                 self.particleEmitter1.birthRate = 1
             }
-
             s.setDependentParameter(.lfo1Rate, horizontal, c.lfo1RateTouchPadID)
             s.setSynthParameter(.lfo1Amplitude, vertical)
             c.updateSingleUI(.lfo1Amplitude, control: nil, value: vertical)
         }
 
+        // touchpad 2
         touchPad1.completionHandler = { horizontal, vertical, touchesEnded, reset in
             if touchesEnded {
                 self.particleEmitter1.birthRate = 0
@@ -103,6 +101,7 @@ class TouchPadPanelController: PanelController {
             c.updateSingleUI(.lfo1Amplitude, control: nil, value: s.getSynthParameter(.lfo1Amplitude))
         }
 
+        // touchpad 2
         touchPad2.callback = { horizontal, vertical, touchesBegan in
             self.particleEmitter2.emitterPosition = CGPoint(x: (self.touchPad2.bounds.width / 2),
                                                             y: self.touchPad2.bounds.height / 2)
@@ -115,30 +114,29 @@ class TouchPadPanelController: PanelController {
                 self.particleEmitter2.birthRate = 1
             }
 
+            // Affect parameters based on touch position
             let minimumResonance = self.conductor.synth.getMinimum(.resonance)
             let maximumResonance = self.conductor.synth.getMaximum(.resonance)
             let scaledVertical = vertical.denormalized(to: minimumResonance...maximumResonance)
-
-            // Affect parameters based on touch position
             s.setSynthParameter(.cutoff, horizontal)
             c.updateSingleUI(.cutoff, control: nil, value: horizontal)
             s.setSynthParameter(.resonance, scaledVertical )
             c.updateSingleUI(.resonance, control: nil, value: scaledVertical)
         }
 
+        // touchpad 2
         touchPad2.completionHandler = { horizontal, vertical, touchesEnded, reset in
             if touchesEnded {
                 self.particleEmitter2.birthRate = 0
             }
-
             if self.snapToggle.isOn && touchesEnded && !reset {
                self.resetTouchPad2()
             }
-
             c.updateSingleUI(.cutoff, control: nil, value: s.getSynthParameter(.cutoff))
             c.updateSingleUI(.resonance, control: nil, value: s.getSynthParameter(.resonance))
         }
 
+        // particles
         createParticles()
     }
 
@@ -163,20 +161,16 @@ class TouchPadPanelController: PanelController {
 
         // Update TouchPad positions if corresponding knobs are turned
         switch parameter {
-
         case .lfo1Amplitude:
             touchPad1.updateTouchPoint(Double(conductor.synth.getDependentParameter(.lfo1Rate)), value)
-
         case .cutoff:
             let x = value.normalized(from: touchPad2.horizontalRange, taper: touchPad2.horizontalTaper)
             touchPad2.updateTouchPoint(x, Double(touchPad2.y))
-
         case .resonance:
             let minimumResonance = self.conductor.synth.getMinimum(.resonance)
             let maximumResonance = self.conductor.synth.getMaximum(.resonance)
             let scaledY = value.normalized(from: minimumResonance...maximumResonance)
             touchPad2.updateTouchPoint(Double(touchPad2.x), scaledY)
-
         default:
             _ = 0
         }
@@ -201,13 +195,10 @@ class TouchPadPanelController: PanelController {
         particleEmitter1.frame = touchPad1.bounds
         particleEmitter1.renderMode = CAEmitterLayerRenderMode.additive
         particleEmitter1.emitterPosition = CGPoint(x: -400, y: -400)
-
         particleEmitter2.frame = touchPad2.bounds
         particleEmitter2.renderMode = CAEmitterLayerRenderMode.additive
         particleEmitter2.emitterPosition = CGPoint(x: -400, y: -400)
-
         let particleCell = makeEmitterCellWithColor(#colorLiteral(red: 0.9019607843, green: 0.5333333333, blue: 0.007843137255, alpha: 1))
-
         particleEmitter1.emitterCells = [particleCell]
         particleEmitter2.emitterCells = [particleCell]
         touchPad1.layer.addSublayer(particleEmitter1)
@@ -229,7 +220,6 @@ class TouchPadPanelController: PanelController {
         cell.scale = 0.05
         cell.scaleRange = 0.1
         cell.scaleSpeed = 0.15
-
         cell.contents = #imageLiteral(resourceName: "spark").cgImage
         return cell
     }

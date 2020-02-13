@@ -66,7 +66,6 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                     importedPreset.isFavorite = false
                     importedPreset.isUser = true
                     presets.append(importedPreset)
-
                     currentPreset = importedPreset
                     currentPreset.bank = userBankName
                     saveAllPresetsIn(currentPreset.bank)
@@ -75,13 +74,11 @@ extension PresetsViewController: UIDocumentPickerDelegate {
                     selectCategory(userBankIndex)
                     categoryIndex = userBankIndex
                     selectCurrentPreset()
-
-                    AKLog("*** preset loaded")
+                    //AKLog("*** preset loaded")
                 }
             } else {
                 AKLog("*** error parsing presets")
             }
-
         } catch {
             AKLog("*** error loading")
         }

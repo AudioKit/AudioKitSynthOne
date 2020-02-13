@@ -7,14 +7,10 @@
 //
 
 protocol S1Control: class {
-
     var value: Double { get set }
-
     var setValueCallback: (Double) -> Void { get set }
-
     var resetToDefaultCallback: () -> Void { get set }
 }
 
 typealias S1ControlCallback = (S1Parameter, S1Control?) -> ((_: Double) -> Void)
-
 typealias S1ControlDefaultCallback = (S1Parameter, S1Control?) -> (() -> Void)

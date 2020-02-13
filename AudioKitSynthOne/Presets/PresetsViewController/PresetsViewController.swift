@@ -18,20 +18,24 @@ protocol PresetsDelegate: AnyObject {
 }
 
 class PresetsViewController: UIViewController {
-
     @IBOutlet weak var newButton: SynthButton!
     @IBOutlet weak var importButton: SynthButton!
     @IBOutlet weak var reorderButton: SynthButton!
     @IBOutlet weak var importBankButton: PresetUIButton!
     @IBOutlet weak var newBankButton: PresetUIButton!
-
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryEmbeddedView: UIView!
     @IBOutlet weak var presetDescriptionField: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var doneEditingButton: UIButton!
     @IBOutlet weak var searchtoolButton: PresetUIButton!
-    
+    weak var presetsDelegate: PresetsDelegate?
+    var randomNumbers: GKRandomDistribution!
+    var tempPreset = Preset()
+    let conductor = Conductor.sharedInstance
+    let userBankIndex = PresetCategory.bankStartingIndex + 1
+    let userBankName = "User"
+
     var presets = [Preset]() {
         didSet {
             randomizePresets()
@@ -52,8 +56,6 @@ class PresetsViewController: UIViewController {
         }
     }
 
-    var tempPreset = Preset()
-
     var categoryIndex: Int = 0 {
         didSet {
             sortPresets()
@@ -65,15 +67,6 @@ class PresetsViewController: UIViewController {
         if newIndex < 0 { newIndex = 0 }
         return newIndex
     }
-
-    let conductor = Conductor.sharedInstance
-    let userBankIndex = PresetCategory.bankStartingIndex + 1
-    let userBankName = "User"
-
-    var randomNumbers: GKRandomDistribution!
-
-    weak var presetsDelegate: PresetsDelegate?
-
 
     // MARK: - Lifecycle
 
@@ -95,7 +88,6 @@ class PresetsViewController: UIViewController {
 
         // Setup button callbacks
         setupCallbacks()
-
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -133,5 +125,4 @@ class PresetsViewController: UIViewController {
             popOverController.presets = presets
         }
     }
-    
 }

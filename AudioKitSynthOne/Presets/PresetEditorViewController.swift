@@ -19,17 +19,14 @@ class PresetEditorViewController: UIViewController {
     @IBOutlet weak var bankPicker: UIPickerView!
     @IBOutlet weak var saveButton: SynthButton!
     @IBOutlet weak var cancelButton: SynthButton!
-
     weak var delegate: PresetPopOverDelegate?
-
     var preset = Preset()
     var categories = [""]
-    let cellReuseIdentifier = "PopUpCell"
     var categoryIndex = 0
-
-    let conductor = Conductor.sharedInstance
     var pickerBankNames = [String]()
     var bankSelected = "BankA"
+    let cellReuseIdentifier = "PopUpCell"
+    let conductor = Conductor.sharedInstance
 
     // MARK: - Lifecycle
 
@@ -39,11 +36,14 @@ class PresetEditorViewController: UIViewController {
         // Register the table view cell class and its reuse id
         categoryTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 
+        // popup
         popupView.layer.borderColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
         popupView.layer.borderWidth = 4
         popupView.layer.cornerRadius = 6
 
+        // name
         nameTextField.text = preset.name
+        nameTextField.textColor = UIColor.black
 
         // Setup Picker
         //conductor.banks = conductor.banks.sorted { $0.position < $1.position }
@@ -59,21 +59,20 @@ class PresetEditorViewController: UIViewController {
             categories.append((PresetCategory(rawValue: i)?.description())!)
         }
 
+        // callbacks
         setupCallbacks()
-		
+
+        // category
 		categoryTableView.accessibilityLabel = NSLocalizedString("Categories", comment: "Categories")
 		categoryTableView.accessibilityHint = NSLocalizedString("Sets catagory for a preset.", comment: "Sets catagory for a preset.")
-		
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         categoryTableView.reloadData()
 
         // Populate Preset current values
         categoryIndex = preset.category
-        
         let indexPath = IndexPath(row: categoryIndex, section: 0)
         guard preset.category >= 0 && preset.category < PresetCategory.categoryCount else { return }
         categoryTableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
@@ -82,20 +81,16 @@ class PresetEditorViewController: UIViewController {
     // MARK: - IBActions
 
     func setupCallbacks() {
-
         cancelButton.setValueCallback = { _ in
             self.dismiss(animated: true, completion: nil)
         }
-
         saveButton.setValueCallback = { _ in
             self.delegate?.didFinishEditing(name: self.nameTextField.text ?? "Unnamed",
                                             category: self.categoryIndex,
                                             newBank: self.bankSelected)
             self.dismiss(animated: true, completion: nil)
         }
-
     }
-
 }
 
 // MARK: - TableViewDataSource

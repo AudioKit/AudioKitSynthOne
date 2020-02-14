@@ -13,6 +13,7 @@
 #import <AudioKit/AudioKit-swift.h>
 
 @implementation S1AudioUnit {
+
     // C++ members need to be ivars; they would be copied on access if they were properties.
     std::unique_ptr<S1DSPKernel> _kernel;
     BufferedOutputBus _outputBusBuffer;
@@ -124,7 +125,7 @@
     _kernel->resetDSP();
 }
 
-
+#pragma mark - S1TuningTable Protocol
 
 // S1TuningTable protocol
 - (void)setTuningTable:(float)frequency index:(int)index {
@@ -139,14 +140,15 @@
     _kernel->setTuningTableNPO(npo);
 }
 
+#pragma mark - Parameters
 
 - (void)createParameters {
-
-    _messageQueue = [[AEMessageQueue alloc] init];
-
+    _messageQueueDependentParameter = [[AEMessageQueue alloc] init];
+    _messageQueueBeatCounter = [[AEMessageQueue alloc] init];
+    _messageQueuePlayingNotes = [[AEMessageQueue alloc] init];
+    _messageQueueHeldNotes = [[AEMessageQueue alloc] init];
     self.rampDuration = AKSettings.rampDuration;
-    self.defaultFormat = [[AVAudioFormat alloc] initStandardFormatWithSampleRate:AKSettings.sampleRate
-                                                                        channels:AKSettings.channelCount];
+    self.defaultFormat = [[AVAudioFormat alloc] initStandardFormatWithSampleRate:AKSettings.sampleRate channels:AKSettings.channelCount];
     _kernel = std::make_unique<S1DSPKernel>(self.defaultFormat.channelCount, self.defaultFormat.sampleRate);
     _outputBusBuffer.init(self.defaultFormat, 2);
     self.outputBus = _outputBusBuffer.bus;
@@ -169,12 +171,9 @@
         NSString* keyName = [NSString stringWithCString:_kernel->presetKey(p).c_str() encoding:[NSString defaultCStringEncoding]];
         AUParameter *param = [AUParameterTree createParameterWithIdentifier:keyName name:friendlyName address:p min:minValue max:maxValue unit:unit unitName:nil flags:flags valueStrings:nil dependentParameters:nil];
         param.value = defaultValue;
-        //_kernel->setSynthParameter(p, defaultValue);
         [tree addObject:param];
     }
-    
     _parameterTree = [AUParameterTree createTreeWithChildren:tree];
-    
     _parameterTree.implementorValueObserver = ^(AUParameter *param, AUValue value) {
         const S1Parameter p = (S1Parameter)param.address;
         blockKernel->setSynthParameter(p, value);
@@ -231,6 +230,7 @@
     };
 }
 
+#pragma mark - DSP to Main Thread
 
 // passthroughs for S1Protocol called by DSP on main thread
 - (void)dependentParameterDidChange:(DependentParameter)param {

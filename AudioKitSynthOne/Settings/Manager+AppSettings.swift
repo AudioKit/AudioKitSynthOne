@@ -41,9 +41,14 @@ extension Manager {
         devViewController.useCustomRecordFileBasename.value = (appSettings.useCustomRecordFileBasename == true ? 1 : 0)
         devViewController.whiteKeysOnly.value = (appSettings.whiteKeysOnly == true ? 1 : 0)
 
-        // DSP parameter stored in app settings
+        // DSP parameters stored in app settings
         conductor.synth.setSynthParameter(.portamentoHalfTime, appSettings.portamentoHalfTime)
         devViewController.portamento.value = conductor.synth.getSynthParameter(.portamentoHalfTime)
+        if appSettings.freezeArpRate {
+            let tempo = appSettings.frozenArpRateValue
+            conductor.synth.setSynthParameter(.arpRate, tempo)
+            generatorsPanel.tempoStepper.value = tempo
+        }
 
         // keyboard
         keyboardView.labelMode = appSettings.labelMode
@@ -125,6 +130,9 @@ extension Manager {
 
         // HAQ (DEV) Panel
         appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
+        if appSettings.freezeArpRate {
+            appSettings.frozenArpRateValue = conductor.synth.getSynthParameter(.arpRate)
+        }
         appSettings.freezeDelay = (devViewController.freezeDelay.value == 1 ? true : false)
         appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)
         appSettings.useCustomRecordFileBasename = (devViewController.useCustomRecordFileBasename.value == 1 ? true : false)
@@ -214,15 +222,12 @@ extension Manager {
         do {
             let retrievedSettingData = try Disk.retrieve("settings.json", from: .documents, as: Data.self)
             let settingsJSON = try? JSONSerialization.jsonObject(with: retrievedSettingData, options: [])
-
             if let settingDictionary = settingsJSON as? [String: Any] {
                 appSettings = AppSettings(dictionary: settingDictionary)
             }
-
             setDefaultsFromAppSettings()
-
         } catch {
-            AKLog("*** error loading")
+            AKLog("*** error loading app settings")
         }
     }
 
@@ -230,7 +235,7 @@ extension Manager {
         do {
             try Disk.save(appSettings, to: .documents, as: "settings.json")
         } catch {
-            AKLog("error saving")
+            AKLog("error saving app settings")
         }
     }
 
@@ -240,7 +245,7 @@ extension Manager {
         do {
             try Disk.save(conductor.banks, to: .documents, as: "banks.json")
         } catch {
-            AKLog("error saving")
+            AKLog("error saving banks")
         }
     }
 
@@ -248,7 +253,6 @@ extension Manager {
         do {
             let retrievedSettingData = try Disk.retrieve("banks.json", from: .documents, as: Data.self)
             let banksJSON = try? JSONSerialization.jsonObject(with: retrievedSettingData, options: [])
-
             guard let jsonArray = banksJSON as? [Any] else { return }
             var banks = [Bank]()
             for bankJSON in jsonArray {
@@ -258,14 +262,12 @@ extension Manager {
                 }
             }
             conductor.banks = banks
-
         } catch {
-            AKLog("*** error loading")
+            AKLog("*** error loading banks")
         }
     }
 
     func createInitBanks() {
-
         for (i, bankName) in initBanks.enumerated() {
             let bank = Bank(name: bankName, position: i)
             conductor.banks.append(bank)

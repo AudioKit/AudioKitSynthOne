@@ -41,7 +41,7 @@ class DevViewController: UpdatableViewController {
     @IBOutlet weak var delayInputFilterCutoffFreqTrackingRatio: Knob!
     @IBOutlet weak var delayInputFilterResonance: Knob!
     @IBOutlet weak var freezeArpRate: ToggleButton!
-    var freezeArpRateValue = false
+    let freezeArpRateValue = false
     @IBOutlet weak var freezeReverb: ToggleButton!
     var freezeReverbValue = false
     @IBOutlet weak var freezeDelay: ToggleButton!
@@ -163,10 +163,12 @@ class DevViewController: UpdatableViewController {
             self.delegate?.portamentoChanged(value)
         }
 
+        // white keys only...TRUE = map white keys to continuous MIDI note numbers
         whiteKeysOnly.setValueCallback = { value in
             self.delegate?.whiteKeysOnlyChanged(value == 1 ? true : false)
         }
 
+        // order is important
         setupLinkStuff()
     }
 }

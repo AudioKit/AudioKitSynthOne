@@ -11,7 +11,6 @@ import AudioKitUI
 import UIKit
 
 class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
-
     @IBOutlet weak var morph1Selector: MorphSelector!
     @IBOutlet weak var morph2Selector: MorphSelector!
     @IBOutlet weak var morph1SemitoneOffset: MIDIKnob!
@@ -74,8 +73,18 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
         noiseVolume.range = s.getRange(.noiseVolume)
         masterVolume.range = s.getRange(.masterVolume)
         masterVolume.taper = 2
+
+
+
+
         tempoStepper.maxValue = s.getMaximum(.arpRate)
         tempoStepper.minValue = s.getMinimum(.arpRate)
+        tempoStepper.setValueCallback = { value in
+            // TODO LEFT OFF HERE
+        }
+        conductor.bind(tempoStepper, to: .arpRate)
+
+
         conductor.bind(morph1Selector, to: .index1)
         conductor.bind(morph2Selector, to: .index2)
         conductor.bind(morph1SemitoneOffset, to: .morph1SemitoneOffset)
@@ -99,7 +108,6 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
         conductor.bind(legatoModeToggle, to: .monoIsLegato)
         conductor.bind(widenToggle, to: .widen)
         conductor.bind(sequencerToggle, to: .arpIsOn)
-        conductor.bind(tempoStepper, to: .arpRate)
         conductor.bind(oscBandlimitEnable, to: .oscBandlimitEnable)
 
         // Setup Audio Plot Display
@@ -207,6 +215,7 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
 }
 
 extension TimeInterval {
+    
     func stringFromTimeInterval() -> String {
         let time = NSInteger(self)
         let seconds = time % 60

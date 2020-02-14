@@ -11,9 +11,7 @@
 extension Manager: MailingListDelegate {
   
     func didSignMailingList(email: String) {
-
         signedMailingList = true
-
         DispatchQueue.main.async {
             if let headerVC = self.children.first as? HeaderViewController {
                 headerVC.updateMailingListButton(self.signedMailingList)
@@ -26,8 +24,6 @@ extension Manager: MailingListDelegate {
         appSettings.signedMailingList = true
         appSettings.userEmail = email
         saveAppSettingValues()
-
         presetsViewController.addBonusPresets()
     }
-    
 }

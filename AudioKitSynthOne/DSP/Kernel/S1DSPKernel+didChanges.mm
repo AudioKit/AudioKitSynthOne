@@ -12,7 +12,7 @@
 #import "S1NoteState.hpp"
 
 void S1DSPKernel::dependentParameterDidChange(DependentParameter param) {
-    AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
+    AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueueDependentParameter,
                                               audioUnit,
                                               @selector(dependentParameterDidChange:),
                                               AEArgumentStruct(param),
@@ -22,7 +22,7 @@ void S1DSPKernel::dependentParameterDidChange(DependentParameter param) {
 //can be called from within the render loop
 void S1DSPKernel::beatCounterDidChange() {
     S1ArpBeatCounter beatCounter = {sequencer.getArpBeatCount(), heldNoteNumbersAE.count};
-    AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
+    AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueueBeatCounter,
                                               audioUnit,
                                               @selector(arpBeatCounterDidChange:),
                                               AEArgumentStruct(beatCounter),
@@ -44,7 +44,7 @@ void S1DSPKernel::playingNotesDidChange() {
             aePlayingNotes.playingNotes[i] = { note.rootNoteNumber, note.transpose, note.velocity, note.amp };
         }
     }
-    AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
+    AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueuePlayingNotes,
                                               audioUnit,
                                               @selector(playingNotesDidChange:),
                                               AEArgumentStruct(aePlayingNotes),
@@ -62,7 +62,7 @@ void S1DSPKernel::heldNotesDidChange() {
         ++count;
     }
     aeHeldNotes.heldNotesCount = count;
-    AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueue,
+    AEMessageQueuePerformSelectorOnMainThread(audioUnit->_messageQueueHeldNotes,
                                               audioUnit,
                                               @selector(heldNotesDidChange:),
                                               AEArgumentStruct(aeHeldNotes),

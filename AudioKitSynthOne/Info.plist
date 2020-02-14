@@ -106,6 +106,10 @@
 	<string>Synth One needs access to Bluetooth to connect to wireless MIDI Devices.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>SynthOne does not use your location, but Apple requires this message</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>SynthOne does not use your location, but Apple requires this disclaimer</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

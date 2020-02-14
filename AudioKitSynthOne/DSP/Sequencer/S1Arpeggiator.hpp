@@ -36,13 +36,12 @@ struct Arpeggiator {
                           const int heldNotesCount, const int arpOctaves, const int interval, const bool noTail, int index = 0)
     {
         for (int octave = arpOctaves - 1; octave >= 0; octave--) {
-            for (int i = heldNotesCount - 1; i >= 0; i--) {
+            for (int i = 0; i < heldNotesCount; i++) {
                 const bool firstNote = (i == heldNotesCount - 1) && (octave == arpOctaves - 1);
                 const bool lastNote = (i == 0) && (octave == 0);
                 if ((firstNote || lastNote) && noTail) {
                     continue;
                 }
-
                 NoteNumber& note = sequencerNotes2[i];
                 const int nn = note.noteNumber + (octave * interval);
                 const int velocity = note.velocity;

@@ -202,6 +202,7 @@
 		F40636FD22E3EACC00A422D3 /* TuningsPitchWheelOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40636FC22E3EACC00A422D3 /* TuningsPitchWheelOverlayView.swift */; };
 		F40636FF22E3EECB00A422D3 /* KeyboardView+Draw12ET.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40636FE22E3EECB00A422D3 /* KeyboardView+Draw12ET.swift */; };
 		F406370122E3EF7F00A422D3 /* KeyboardView+DrawMicrotonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406370022E3EF7F00A422D3 /* KeyboardView+DrawMicrotonal.swift */; };
+		F4658CA623F7C00900C1AB62 /* S1MessageQueues.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4658CA523F7C00900C1AB62 /* S1MessageQueues.mm */; };
 		F473515722A0D63900869AFB /* TuningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F473515622A0D63900869AFB /* TuningsViewController.swift */; };
 		F47C27E42207C12100CA7541 /* Tunings+TuneUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */; };
 		F47C27E62207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C27E52207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift */; };
@@ -654,6 +655,8 @@
 		F40636FE22E3EECB00A422D3 /* KeyboardView+Draw12ET.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardView+Draw12ET.swift"; sourceTree = "<group>"; };
 		F406370022E3EF7F00A422D3 /* KeyboardView+DrawMicrotonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardView+DrawMicrotonal.swift"; sourceTree = "<group>"; };
 		F437E99E20EB22D00096FEAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F4658CA423F7BACD00C1AB62 /* S1MessageQueues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S1MessageQueues.h; sourceTree = "<group>"; };
+		F4658CA523F7C00900C1AB62 /* S1MessageQueues.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = S1MessageQueues.mm; sourceTree = "<group>"; };
 		F473515622A0D63900869AFB /* TuningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningsViewController.swift; sourceTree = "<group>"; };
 		F47C27E32207C12100CA7541 /* Tunings+TuneUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunings+TuneUp.swift"; sourceTree = "<group>"; };
 		F47C27E52207C74000CA7541 /* TuningsPanel+TuneUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuningsPanel+TuneUpDelegate.swift"; sourceTree = "<group>"; };
@@ -1068,6 +1071,8 @@
 			children = (
 				C435C56F20C530C900DAECCD /* S1AudioUnit.h */,
 				C435C57020C530C900DAECCD /* S1AudioUnit.mm */,
+				F4658CA423F7BACD00C1AB62 /* S1MessageQueues.h */,
+				F4658CA523F7C00900C1AB62 /* S1MessageQueues.mm */,
 			);
 			path = "Audio Unit";
 			sourceTree = "<group>";
@@ -1960,6 +1965,7 @@
 				C4B4916720C7C72A00FD565A /* PanelController.swift in Sources */,
 				C4B491BE20C7DEB100FD565A /* ArpDirectionStyleKit.swift in Sources */,
 				C4B4916A20C7C72A00FD565A /* UpdatableViewController.swift in Sources */,
+				F4658CA623F7C00900C1AB62 /* S1MessageQueues.mm in Sources */,
 				F40636FB22E3EA2300A422D3 /* String+Drawing.swift in Sources */,
 				C435C57C20C530C900DAECCD /* AEMessageQueue.m in Sources */,
 				C4B4910520C7C5C500FD565A /* ArpDirectionButton.swift in Sources */,

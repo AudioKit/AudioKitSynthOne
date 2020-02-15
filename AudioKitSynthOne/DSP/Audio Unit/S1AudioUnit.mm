@@ -143,10 +143,10 @@
 #pragma mark - Parameters
 
 - (void)createParameters {
-    _messageQueueDependentParameter = [[AEMessageQueue alloc] init];
-    _messageQueueBeatCounter = [[AEMessageQueue alloc] init];
-    _messageQueuePlayingNotes = [[AEMessageQueue alloc] init];
-    _messageQueueHeldNotes = [[AEMessageQueue alloc] init];
+    _messageQueueDependentParameter = [[AEMessageQueueDependentParameter alloc] init];
+    _messageQueueBeatCounter = [[AEMessageQueueBeatCounter alloc] init];
+    _messageQueuePlayingNotes = [[AEMessageQueuePlayingNotes alloc] init];
+    _messageQueueHeldNotes = [[AEMessageQueueHeldNotes alloc] init];
     self.rampDuration = AKSettings.rampDuration;
     self.defaultFormat = [[AVAudioFormat alloc] initStandardFormatWithSampleRate:AKSettings.sampleRate channels:AKSettings.channelCount];
     _kernel = std::make_unique<S1DSPKernel>(self.defaultFormat.channelCount, self.defaultFormat.sampleRate);

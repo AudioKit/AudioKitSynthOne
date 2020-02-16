@@ -26,7 +26,6 @@ class MorphSelector: UIView, S1Control {
 
     override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-
         contentMode = .scaleAspectFill
         clipsToBounds = true
     }
@@ -39,12 +38,9 @@ class MorphSelector: UIView, S1Control {
 
     var value: Double = 0 {
         didSet {
-            if value < 0.0 { value = 0.0 }
-            if value > 1.0 { value = 1.0 }
+            value = (0.0 ... 1.0).clamp(value)
             setNeedsDisplay()
-
             let valueAsString = String(format: "%.2f", value)
-
             switch valueAsString {
                 case "0.00":
                     accessibilityValue = valueAsString + NSLocalizedString(", Pure Triangle Wave", comment: ", Pure Triangle Wave")
@@ -61,7 +57,6 @@ class MorphSelector: UIView, S1Control {
     }
 
     var setValueCallback: (Double) -> Void = { _ in }
-
     var resetToDefaultCallback: () -> Void = { }
 
     // MARK: - Properties
@@ -82,7 +77,6 @@ class MorphSelector: UIView, S1Control {
     // MARK: - Touches
 
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
         for touch in touches {
             if touch != touches.first {
                 let touchLocation = touch.location(in: self)
@@ -104,7 +98,6 @@ class MorphSelector: UIView, S1Control {
 
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIAccessibility.post(notification: .announcement, argument: nil)
-        setValueCallback(value)
     }
 
     // MARK: - Accessibility
@@ -126,5 +119,4 @@ class MorphSelector: UIView, S1Control {
 		value -= 0.01
 		setValueCallback(value)
 	}
-
 }

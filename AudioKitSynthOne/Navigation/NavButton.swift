@@ -13,13 +13,17 @@ class NavButton: UIView {
 
     // MARK: - ToggleButton
 
+    public var callback: (Double) -> Void = { _ in }
+    @IBInspectable open var buttonText: String = "Hello"
+    @IBInspectable open var rotation: CGFloat = 0
     private var isOn = false
+
     var value: Double {
         get {
             return isOn ? 1 : 0
         }
         set {
-            isOn = value == 1.0
+            isOn = (newValue == 1.0)
         }
     }
 
@@ -34,12 +38,6 @@ class NavButton: UIView {
         }
     }
 
-    public var callback: (Double) -> Void = { _ in }
-
-    // Make Button Text Editable in IB
-    @IBInspectable open var buttonText: String = "Hello"
-    @IBInspectable open var rotation: CGFloat = 0
-
     override func draw(_ rect: CGRect) {
         NavButtonStyleKit.drawNavButton(frame: CGRect(x: 0,
                                                       y: 0,
@@ -53,8 +51,9 @@ class NavButton: UIView {
     // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for _ in touches {
-            callback(value)
+        guard let _ = touches.first else {
+            return
         }
+        callback(value)
     }
 }

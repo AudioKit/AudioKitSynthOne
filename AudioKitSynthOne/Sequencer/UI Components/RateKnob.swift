@@ -9,8 +9,7 @@
 import UIKit
 
 public class RateKnob: MIDIKnob {
-
-    private var _value: Double = 0
+    private var internalValue: Double = 0
     
     var rate: Rate {
         return Rate(rawValue: Int(knobValue * CGFloat(Rate.count))) ?? Rate.sixtyFourth
@@ -21,14 +20,14 @@ public class RateKnob: MIDIKnob {
             if timeSyncMode {
                 return rate.frequency
             } else {
-                return _value
+                return internalValue
             }
         }
         set(newValue) {
-            _value = onlyIntegers ? round(newValue) : newValue
-            _value = range.clamp(_value)
+            internalValue = onlyIntegers ? round(newValue) : newValue
+            internalValue = range.clamp(internalValue)
             if !timeSyncMode {
-                knobValue = CGFloat(_value.normalized(from: range, taper: taper))
+                knobValue = CGFloat(internalValue.normalized(from: range, taper: taper))
             }
         }
     }

@@ -9,21 +9,15 @@
 import UIKit
 
 public class AKTouchPadView: UIView {
-
-    // touch properties
     var firstTouch: UITouch?
-
     public typealias AKTouchPadCallback = (Double, Double, Bool) -> Void
     var callback: AKTouchPadCallback = { _, _, _ in }
-
     public typealias AKTouchPadCompletionHandler = (Double, Double, Bool, Bool) -> Void
     var completionHandler: AKTouchPadCompletionHandler = { _, _, _, _ in }
-
     var x: CGFloat = 0
     var y: CGFloat = 0
     private var lastX: CGFloat = 0
     private var lastY: CGFloat = 0
-
     public var horizontalTaper: Double = 1.0 // Linear by default
 
     public var horizontalRange: ClosedRange = 0.0...1.0 {
@@ -40,7 +34,6 @@ public class AKTouchPadView: UIView {
     }
 
     public var verticalTaper: Double = 1.0 // Linear by default
-
     public var verticalRange: ClosedRange = 0.0...1.0 {
         didSet {
             y = CGFloat(verticalValue.normalized(from: verticalRange, taper: verticalTaper))
@@ -55,7 +48,6 @@ public class AKTouchPadView: UIView {
     }
 
     var touchPointView: TouchPoint!
-
     override init (frame: CGRect) {
         super.init(frame: frame)
     }
@@ -111,8 +103,7 @@ public class AKTouchPadView: UIView {
             completion: { _ in
                 self.x = CGFloat(newPercentX)
                 self.y = CGFloat(newPercentY)
-                self.horizontalValue = Double(self.x).denormalized(to: self.horizontalRange,
-                                                                   taper: self.horizontalTaper)
+                self.horizontalValue = Double(self.x).denormalized(to: self.horizontalRange, taper: self.horizontalTaper)
                 self.verticalValue = Double(self.y).denormalized(to: self.verticalRange, taper: self.verticalTaper)
                 self.completionHandler(self.horizontalValue, self.verticalValue, true, true)
             })
@@ -126,8 +117,6 @@ public class AKTouchPadView: UIView {
         touchPointView.center = CGPoint(x: centerPointX, y: centerPointY)
     }
 
-
-    //TODO: come back here
     func setPercentagesWithTouchPoint(_ touchPoint: CGPoint, began: Bool = false) {
         x = CGFloat((0.0 ... 1.0).clamp(touchPoint.x / self.bounds.size.width))
         y = CGFloat((0.0 ... 1.0).clamp(1 - touchPoint.y / self.bounds.size.height))

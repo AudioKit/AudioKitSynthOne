@@ -17,7 +17,7 @@ class HeaderNavButton: UIButton {
             return isSelected ? 1 : 0
         }
         set {
-            isSelected = value == 1.0
+            isSelected = (newValue == 1.0)
         }
     }
 
@@ -48,7 +48,6 @@ class HeaderNavButton: UIButton {
     // Init / Lifecycle
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-
         backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.2, alpha: 1)
         layer.cornerRadius = 4
         layer.borderWidth = 1
@@ -58,10 +57,11 @@ class HeaderNavButton: UIButton {
     // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for _ in touches {
-            isSelected = !isSelected
-            self.setNeedsDisplay()
-            callback(value)
+        guard let _ = touches.first else {
+            return
         }
+        isSelected = !isSelected
+        self.setNeedsDisplay()
+        callback(value)
     }
 }

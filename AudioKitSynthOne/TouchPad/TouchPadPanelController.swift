@@ -58,9 +58,6 @@ class TouchPadPanelController: PanelController {
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        // super's updateAllUI call is causing race conditions in updating UI in this class
-        //conductor.updateAllUI()
     }
 
     // MARK: - Touch Pad Callbacks
@@ -94,7 +91,6 @@ class TouchPadPanelController: PanelController {
             if touchesEnded {
                 self.particleEmitter1.birthRate = 0
             }
-
             if self.snapToggle.isOn && touchesEnded && !reset {
                 self.resetTouchPad1()
             }

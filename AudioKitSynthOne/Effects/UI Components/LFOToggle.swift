@@ -17,7 +17,6 @@ class LFOToggle: UIView, S1Control {
         super.init(coder: aDecoder)
         isUserInteractionEnabled = true
         contentMode = .redraw
-
         accessibilityHint = NSLocalizedString(
             "Up for toggle 1, Down for toggle 2.",
             comment: ("Up for toggle 1, Down for toggle 2." )
@@ -26,7 +25,6 @@ class LFOToggle: UIView, S1Control {
 
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-
         contentMode = .scaleAspectFit
         clipsToBounds = true
     }
@@ -58,7 +56,6 @@ class LFOToggle: UIView, S1Control {
     }
 
     var setValueCallback: (Double) -> Void = { _ in }
-
     var resetToDefaultCallback: () -> Void = { }
 
     // MARK: - Properties
@@ -68,6 +65,7 @@ class LFOToggle: UIView, S1Control {
 			updateAccessibilityValue()
 		}
 	}
+
 	var lfo2Active: Bool = false {
 		didSet {
 			updateAccessibilityValue()
@@ -75,7 +73,6 @@ class LFOToggle: UIView, S1Control {
 	}
 
     let width: CGFloat = 100
-
     @IBInspectable open var buttonText: String = "Hello"
 
     // MARK: - Draw
@@ -102,13 +99,6 @@ class LFOToggle: UIView, S1Control {
             if lfo1Active { newValue += 1 }
             if lfo2Active { newValue += 2 }
             value = newValue
-            setValueCallback(value)
-        }
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        for _ in touches {
             setValueCallback(value)
         }
     }

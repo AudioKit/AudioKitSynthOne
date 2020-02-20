@@ -11,11 +11,12 @@ import UIKit
 @IBDesignable
 class TempoStepper: Stepper {
 
+    //MARK: - Properties
+
     let tempoPath = UIBezierPath(roundedRect: CGRect(x: 3.5, y: 0.5, width: 75, height: 32), cornerRadius: 1)
     var knobSensitivity: CGFloat = 0.005
     var lastX: CGFloat = 0
     var lastY: CGFloat = 0
-
     public var taper: Double = 1.0 // Linear by default
 
     public override var value: Double {
@@ -28,7 +29,6 @@ class TempoStepper: Stepper {
             internalValue = range.clamp(internalValue)
             knobValue = CGFloat(newValue.normalized(from: range, taper: taper))
             setNeedsDisplay()
-
 			accessibilityValue = String(format: "%.0f", value) + NSLocalizedString("B P M", comment: "BPM, Beats Per Minute")
         }
     }
@@ -40,7 +40,8 @@ class TempoStepper: Stepper {
         }
     }
 
-    // Init / Lifecycle
+    //MARK: - Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -67,8 +68,6 @@ class TempoStepper: Stepper {
     }
 
     // MARK: - Touches
-
-    /// Handle new touches
 
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
@@ -97,11 +96,13 @@ class TempoStepper: Stepper {
 
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.valuePressed == 0 {
-            for touch in touches {
-                let touchPoint = touch.location(in: self)
-                setPercentagesWithTouchPoint(touchPoint)
-            }
+            touches.forEach { setPercentagesWithTouchPoint($0.location(in: self)) }
         }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        valuePressed = 0
+        setNeedsDisplay()
     }
 
     // Helper
@@ -117,12 +118,7 @@ class TempoStepper: Stepper {
         lastY = touchPoint.y
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for _ in touches {
-            valuePressed = 0
-            setNeedsDisplay()
-        }
-    }
+    //MARK: - Accessibility
 
 	override func accessibilityIncrement() {
 		value += 1.0

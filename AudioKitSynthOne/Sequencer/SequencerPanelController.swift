@@ -13,23 +13,14 @@ import CoreGraphics
 class SequencerPanelController: PanelController {
 
     @IBOutlet weak var arpToggle: MIDIToggleButton!
-
     @IBOutlet weak var arpInterval: MIDIKnob!
-
     @IBOutlet weak var octaveStepper: MIDIStepper!
-
     @IBOutlet weak var arpDirectionButton: MIDIArpDirectionButton!
-
     @IBOutlet weak var sequencerToggle: MIDIToggleSwitch!
-
     @IBOutlet weak var seqStepsStepper: MIDIStepper!
-    
     @IBOutlet weak var arpSeqTempoMultiplier: MIDIKnob!
-
     var octBoostButtons = [SliderTransposeButton]()
-
     var sliders = [VerticalSlider]()
-
     var noteOnButtons = [ArpButton]()
 
     // MARK: - Lifecycle

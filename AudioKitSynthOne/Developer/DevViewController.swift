@@ -41,19 +41,68 @@ class DevViewController: UpdatableViewController {
     @IBOutlet weak var delayInputFilterCutoffFreqTrackingRatio: Knob!
     @IBOutlet weak var delayInputFilterResonance: Knob!
     @IBOutlet weak var freezeArpRate: ToggleButton!
-    let freezeArpRateValue = false
+    var freezeArpRateValue: Bool {
+        get {
+            return freezeArpRate.value == 1 ? true : false
+        }
+        set {
+            freezeArpRate.value = newValue ? 1 : 0
+        }
+    }
     @IBOutlet weak var freezeReverb: ToggleButton!
-    var freezeReverbValue = false
+    var freezeReverbValue: Bool {
+        get {
+            return freezeReverb.value == 1 ? true : false
+        }
+        set {
+            freezeReverb.value = newValue ? 1 : 0
+        }
+    }
     @IBOutlet weak var freezeDelay: ToggleButton!
-    var freezeDelayValue = false
+    var freezeDelayValue: Bool {
+        get {
+            return freezeDelay.value == 1 ? true : false
+        }
+        set {
+            freezeDelay.value = newValue ? 1 : 0
+        }
+    }
     @IBOutlet weak var freezeArpSeq: ToggleButton!
-    var freezeArpSeqValue = false
+    var freezeArpSeqValue: Bool {
+        get {
+            return freezeArpSeq.value == 1 ? true : false
+        }
+        set {
+            freezeArpSeq.value = newValue ? 1 : 0
+        }
+    }
     @IBOutlet weak var whiteKeysOnly: ToggleButton!
-    var whiteKeysOnlyValue = false
+    var whiteKeysOnlyValue: Bool {
+        get {
+            return whiteKeysOnly.value == 1 ? true : false
+        }
+        set {
+            whiteKeysOnly.value = newValue ? 1 : 0
+        }
+    }
     @IBOutlet weak var useCustomRecordFileBasename: ToggleButton!
-    var useCustomRecordFileBasenameValue = false
+    var useCustomRecordFileBasenameValue: Bool {
+        get {
+            return useCustomRecordFileBasename.value == 1 ? true : false
+        }
+        set {
+            useCustomRecordFileBasename.value = newValue ? 1 : 0
+        }
+    }
     @IBOutlet weak var portamento: Knob!
-    var portamentoHalfTime = 0.1
+    var portamentoHalfTime: Double {
+        get {
+            return portamento.value
+        }
+        set {
+            portamento.value = newValue
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

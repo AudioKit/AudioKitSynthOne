@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+extension Manager {
+
+    func registerForNotifications() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appBackgroundedOrTerminated), name: UIApplication.willResignActiveNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(appBackgroundedOrTerminated), name: UIApplication.willTerminateNotification, object: nil)
+    }
+
+    func unregisterForNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func appBackgroundedOrTerminated() {
+        saveAppSettingValues()
+    }
+}

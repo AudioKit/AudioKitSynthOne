@@ -34,16 +34,16 @@ extension Manager {
         }
 
         // DEV PANEL
-        devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
-        devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
-        devViewController.freezeReverb.value = (appSettings.freezeReverb == true ? 1 : 0)
-        devViewController.freezeArpSeq.value = (appSettings.freezeArpSeq == true ? 1 : 0)
-        devViewController.useCustomRecordFileBasename.value = (appSettings.useCustomRecordFileBasename == true ? 1 : 0)
-        devViewController.whiteKeysOnly.value = (appSettings.whiteKeysOnly == true ? 1 : 0)
+        devViewController.freezeArpRateValue = appSettings.freezeArpRate
+        devViewController.freezeDelayValue = appSettings.freezeDelay
+        devViewController.freezeReverbValue = appSettings.freezeReverb
+        devViewController.freezeArpSeqValue = appSettings.freezeArpSeq
+        devViewController.useCustomRecordFileBasenameValue = appSettings.useCustomRecordFileBasename
+        devViewController.whiteKeysOnlyValue = appSettings.whiteKeysOnly
 
         // DSP parameters stored in app settings
         conductor.synth.setSynthParameter(.portamentoHalfTime, appSettings.portamentoHalfTime)
-        devViewController.portamento.value = conductor.synth.getSynthParameter(.portamentoHalfTime)
+        devViewController.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
         if appSettings.freezeArpRate {
             let tempo = appSettings.frozenArpRateValue
             conductor.synth.setSynthParameter(.arpRate, tempo)
@@ -129,14 +129,12 @@ extension Manager {
         appSettings.midiSources = midiInputs.filter { $0.isOpen }.compactMap { $0.name }
 
         // HAQ (DEV) Panel
-        appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
-        if appSettings.freezeArpRate {
-            appSettings.frozenArpRateValue = conductor.synth.getSynthParameter(.arpRate)
-        }
-        appSettings.freezeDelay = (devViewController.freezeDelay.value == 1 ? true : false)
-        appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)
-        appSettings.useCustomRecordFileBasename = (devViewController.useCustomRecordFileBasename.value == 1 ? true : false)
-        appSettings.whiteKeysOnly = (devViewController.whiteKeysOnly.value == 1 ? true : false)
+        appSettings.freezeArpRate = devViewController.freezeArpRateValue
+        appSettings.frozenArpRateValue = conductor.synth.getSynthParameter(.arpRate)
+        appSettings.freezeDelay = devViewController.freezeDelayValue
+        appSettings.freezeReverb = devViewController.freezeReverbValue
+        appSettings.useCustomRecordFileBasename = devViewController.useCustomRecordFileBasenameValue
+        appSettings.whiteKeysOnly = devViewController.whiteKeysOnlyValue
         appSettings.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
         // MIDI Learn Generators

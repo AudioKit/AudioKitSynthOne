@@ -230,20 +230,25 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
             AKLog("Cannot create outpoutAudioUnit of type: kAudioOutputUnitProperty_MIDICallbacks")
         }
         #endif
-		holdButton.accessibilityValue = self.keyboardView.holdMode ?
-			NSLocalizedString("On", comment: "On") :
-			NSLocalizedString("Off", comment: "Off")
-		monoButton.accessibilityValue = self.keyboardView.polyphonicMode ?
-			NSLocalizedString("Off", comment: "Off") :
-			NSLocalizedString("On", comment: "On")
+        holdButton.accessibilityValue = self.keyboardView.holdMode ?
+            NSLocalizedString("On", comment: "On") :
+            NSLocalizedString("Off", comment: "Off")
+        monoButton.accessibilityValue = self.keyboardView.polyphonicMode ?
+            NSLocalizedString("Off", comment: "Off") :
+            NSLocalizedString("On", comment: "On")
         isPhoneX = modelName == "iPhone X" || modelName == "iPhone XS" || modelName == "iPhone XS Max" || modelName == "iPhone XR" || modelName == "iPhone 11" || modelName == "iPhone 11 Pro" || modelName == "iPhone 11 Pro Max"
         if isPhoneX {
             self.keyboardLeftConstraint?.constant = 72.5
             self.keyboardRightConstraint?.constant = 72.5
         }
-       Audiobus.client?.controller.stateIODelegate = self
-       conductor.audioBusMidiDelegate = self
+        Audiobus.client?.controller.stateIODelegate = self
+        conductor.audioBusMidiDelegate = self
+
+        // notifications
+        registerForNotifications()
     }
+
+
     
     // Hide home bar on newer iPhones/iPad
     override public var prefersHomeIndicatorAutoHidden: Bool {

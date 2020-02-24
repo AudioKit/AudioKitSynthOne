@@ -140,6 +140,13 @@ public class Knob: UIView, UIGestureRecognizerDelegate, S1Control {
 
     // MARK: - Accessibility
 
-	override public func accessibilityIncrement() {}
-	override public func accessibilityDecrement() {}
+	override public func accessibilityIncrement() {
+		value += accessibilityChangeAmount
+		setValueCallback(value)
+	}
+
+	override public func accessibilityDecrement() {
+		value -= accessibilityChangeAmount
+		setValueCallback(value)
+	}
 }

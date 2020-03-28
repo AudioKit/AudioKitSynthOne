@@ -352,7 +352,6 @@ public class HeaderViewController: UpdatableViewController {
         case .oscBandlimitEnable:
             let obe = s.getSynthParameter(.oscBandlimitEnable) > 0 ? "On" : "Off"
             displayLabel.text = "Anti-Aliasing: \(obe)"
-
         case .adsrPitchTracking:
             displayLabel.text = "ADSR Pitch Tracking: \(s.getSynthParameter(.adsrPitchTracking).decimalString)"
         case .isMono:
@@ -382,10 +381,10 @@ public class HeaderViewController: UpdatableViewController {
     }
 
     @IBAction func morePressed(_ sender: UIButton) {
-
     }
 
     @IBAction func randomPressed(_ sender: UIButton) {
+
         // Animate Dice
         UIView.animate(withDuration: 0.4, animations: {
             for _ in 0 ... 1 {

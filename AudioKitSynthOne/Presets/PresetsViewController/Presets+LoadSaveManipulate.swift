@@ -191,8 +191,7 @@ extension PresetsViewController {
    func upgradePresets(banksToUpdate: [String] = [""]) {
 
         // Remove existing presets
-        // let banksToUpdate = ["Brice Beasley", "DJ Puzzle", "Red Sky Lullaby"]
-    
+
         // If the bankName is not in conductorBanks, add bank to conductor banks
         for bankName in initBanks {
             if !conductor.banks.contains(where: { $0.name == bankName }) {
@@ -225,16 +224,14 @@ extension PresetsViewController {
     }
 
     func addBonusPresets() {
-        let bankName = "BankA"
 
-        // presets = presets.filter { $0.bank != bankName } // This replaces smaller BankA with Bonus.json file
         // Adds presets in Bonus.json to BankA
+        let bankName = "BankA"
         loadFactoryPresets("Bonus")
         saveAllPresetsIn(bankName)
     }
 
     func setupCallbacks() {
-
         newButton.setValueCallback = { _ in
             let userBankCount = self.presets.filter { $0.bank == self.userBankName }.count
             let initPreset = Preset(position: userBankCount)
@@ -286,8 +283,10 @@ extension PresetsViewController {
                 self.categoryIndex = PresetCategory.bankStartingIndex
             }
 
-            self.selectCategory(self.categoryIndex) // select category in category table
+            // select category in category table
+            self.selectCategory(self.categoryIndex)
 
+            // handle editing
             if self.tableView.isEditing {
                 self.reorderButton.setTitle("I'M DONE!", for: UIControl.State())
                 self.reorderButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
@@ -365,7 +364,9 @@ extension PresetsViewController {
 
         // Pick random Preset
         var newIndex = randomNumbers.nextInt()
-        if newIndex == currentPreset.position { newIndex = randomNumbers.nextInt() }
+        if newIndex == currentPreset.position {
+            newIndex = randomNumbers.nextInt()
+        }
         currentPreset = presets[newIndex]
         selectCurrentPreset()
     }

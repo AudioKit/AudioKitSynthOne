@@ -255,6 +255,8 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
         return true
     }
 
+    // MARK: - viewDidAppear
+    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard !isLoaded else { return }
@@ -424,6 +426,8 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
         conductor.synth.stopAllNotes()
     }
 
+    // MARK: - updateUI
+
     override func updateUI(_ parameter: S1Parameter, control inputControl: S1Control?, value: Double) {
 
         // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
@@ -449,6 +453,8 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
             transposeStepper.value = Double(activePreset.transpose)
         }
     }
+
+    // MARK: - state
 
     func dependentParameterDidChange(_ dependentParameter: DependentParameter) {
         switch dependentParameter.parameter {

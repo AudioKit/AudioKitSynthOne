@@ -41,6 +41,7 @@ class AppSettings: Codable {
     var velocitySensitive = false
     var velocitySensitivity = 0.0 // default: linear
     var freezeArpRate = false // true = don't modify when preset changes
+    var frozenArpRateValue = 120.0 // when freezeArpRate is true use this setting for tempo
     var freezeDelay = false // true = don't modify current delay parameters when preset changes
     var freezeReverb = false // true = don't modify current reverb parameters when preset changes
     var freezeArpSeq = false // true = don't modify current arp+seq parameters when preset changes
@@ -178,6 +179,7 @@ class AppSettings: Codable {
 
         // HAQ Panel
         freezeArpRate = dictionary["freezeArpRate"] as? Bool ?? freezeArpRate
+        frozenArpRateValue = dictionary["frozenArpRateValue"] as? Double ?? Conductor.sharedInstance.synth.getDefault(.arpRate)
         freezeDelay = dictionary["freezeDelay"] as? Bool ?? freezeDelay
         freezeReverb = dictionary["freezeReverb"] as? Bool ?? freezeReverb
         freezeArpSeq = dictionary["freezeArpSeq"] as? Bool ?? freezeArpSeq

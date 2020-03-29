@@ -86,7 +86,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
             } else {
                 filteredPresets = presets
             }
-          
             filteredPresets.sort { $0.name.lowercased() < $1.name.lowercased() }
             tableView.reloadData()
         }
@@ -122,14 +121,9 @@ extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Get current preset
-        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PresetCell") as? PresetCell {
-            
             let preset = filteredPresets[(indexPath as NSIndexPath).row]
-           
-            // Cell updated in PresetCell.swift
             cell.configureCell(preset: preset, alpha: true)
-            
             return cell
         } else {
             return PresetCell()
@@ -144,12 +138,9 @@ extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         resultSearchController.dismiss(animated: true, completion: nil)
-        
-        // Get cell
         let cell = tableView.cellForRow(at: indexPath) as? PresetCell
         guard let newPreset = cell?.currentPreset else { return }
         delegate?.didSelectPreset(newPreset)
-        
         dismiss(animated: true, completion: nil)
     }
 }

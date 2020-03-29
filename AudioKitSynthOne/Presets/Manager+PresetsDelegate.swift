@@ -19,6 +19,8 @@ extension Manager: PresetsDelegate {
 
         // Set parameters from preset
         self.loadPreset()
+
+        // udpate ui
         DispatchQueue.main.async {
             self.conductor.updateAllUI()
         }

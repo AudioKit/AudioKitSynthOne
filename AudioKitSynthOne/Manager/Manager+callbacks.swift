@@ -21,6 +21,7 @@ extension Manager {
         transposeStepper.setValueCallback = { value in
             s.setSynthParameter(.transpose, value)
             self.conductor.updateDisplayLabel(.transpose, value: s.getSynthParameter(.transpose))
+            self.activePreset.transpose = Int(value)
             self.keyboardView.transpose = Int(value)
         }
         configKeyboardButton.setValueCallback = { _ in

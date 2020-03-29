@@ -12,6 +12,8 @@ import GameplayKit
 
 extension PresetsViewController {
 
+    // MARK: - LOAD/SAVE
+
     func loadBanks() {
         presets.removeAll()
         for bank in conductor.banks {
@@ -28,51 +30,6 @@ extension PresetsViewController {
         sortPresets()
         updateCategoryTable()
         selectCurrentPreset()
-    }
-
-    func sortPresets() {
-        switch categoryIndex {
-
-        // Display Categories
-        case 0:
-            // All Presets, by Bank
-            sortedPresets.removeAll()
-            for bank in conductor.banks {
-                sortedPresets += presets.filter { $0.bank == bank.name }.sorted { $0.position < $1.position }
-            }
-
-        // Sort by Categories
-        case 1...PresetCategory.categoryCount:
-            sortedPresets.removeAll()
-            let categoryPresets = presets.filter { $0.category == categoryIndex }
-            for bank in conductor.banks {
-                sortedPresets += categoryPresets.filter { $0.bank == bank.name }.sorted { $0.position < $1.position }
-            }
-            
-        // Sort by Alphabetically
-        case PresetCategory.categoryCount + 1:
-            sortedPresets = presets.sorted { $0.name.lowercased() < $1.name.lowercased() }
-            
-        // Sort by Favorites
-        case PresetCategory.categoryCount + 2:
-            sortedPresets = presets.filter { $0.isFavorite }
-
-        // Display Banks
-        case PresetCategory.bankStartingIndex ... PresetCategory.bankStartingIndex + conductor.banks.count:
-            guard let bank = conductor.banks.first(where: { $0.position == bankIndex }) else { return }
-            sortedPresets = presets.filter { $0.bank == bank.name }
-                .sorted { $0.position < $1.position }
-
-        default:
-            // Display BankA
-            sortedPresets = presets.filter { $0.bank == "BankA" }.sorted { $0.position < $1.position }
-        }
-    }
-
-    func randomizePresets() {
-
-        // Generate random presets 🎲
-        randomNumbers = GKShuffledDistribution(lowestValue: 0, highestValue: presets.count - 1)
     }
 
     func loadPresetsFromDevice(_ fileName: String) {
@@ -98,6 +55,7 @@ extension PresetsViewController {
         presets += Preset.parseDataToPresets(jsonArray: jsonArray)
     }
 
+    // Save bank
     func saveAllPresetsIn(_ bank: String) {
         let presetsToSave = presets.filter { $0.bank == bank }.sorted { $0.position < $1.position }
         for (i, preset) in presetsToSave.enumerated() {
@@ -143,6 +101,52 @@ extension PresetsViewController {
         createActivePreset()
     }
 
+    // MARK: - SORT/RANDOM
+
+    func sortPresets() {
+        switch categoryIndex {
+
+            // All Presets, by Bank
+            case 0:
+                sortedPresets.removeAll()
+                for bank in conductor.banks {
+                    sortedPresets += presets.filter { $0.bank == bank.name }.sorted { $0.position < $1.position }
+            }
+
+            // Sort by Categories
+            case 1...PresetCategory.categoryCount:
+                sortedPresets.removeAll()
+                let categoryPresets = presets.filter { $0.category == categoryIndex }
+                for bank in conductor.banks {
+                    sortedPresets += categoryPresets.filter { $0.bank == bank.name }.sorted { $0.position < $1.position }
+            }
+
+            // Sort by Alphabetically
+            case PresetCategory.categoryCount + 1:
+                sortedPresets = presets.sorted { $0.name.lowercased() < $1.name.lowercased() }
+
+            // Sort by Favorites
+            case PresetCategory.categoryCount + 2:
+                sortedPresets = presets.filter { $0.isFavorite }
+
+            // Display Banks
+            case PresetCategory.bankStartingIndex ... PresetCategory.bankStartingIndex + conductor.banks.count:
+                guard let bank = conductor.banks.first(where: { $0.position == bankIndex }) else { return }
+                sortedPresets = presets.filter { $0.bank == bank.name }
+                    .sorted { $0.position < $1.position }
+
+            default:
+                // Display BankA
+                sortedPresets = presets.filter { $0.bank == "BankA" }.sorted { $0.position < $1.position }
+        }
+    }
+
+    func randomizePresets() {
+
+        // Generate random presets 🎲
+        randomNumbers = GKShuffledDistribution(lowestValue: 0, highestValue: sortedPresets.count - 1)
+    }
+
     func selectCategory(_ newIndex: Int) {
         guard let categoriesVC = self.children.first as? PresetsCategoriesViewController else { return }
         categoriesVC.categoryTableView.selectRow(at: IndexPath(row: newIndex, section: 0),
@@ -156,9 +160,6 @@ extension PresetsViewController {
     }
 
     func createActivePreset() {
-
-        // TODO: Marcus, or someone... if you want to replace this with deep copy code [copy(with:)]
-        // activePreset needs to be a unique instance and should not be passed by reference
         do {
             try Disk.save(currentPreset, to: .caches, as: "currentPreset.json")
             if let activePreset = try? Disk.retrieve("currentPreset.json", from: .caches, as: Preset.self) {
@@ -367,7 +368,7 @@ extension PresetsViewController {
         if newIndex == currentPreset.position {
             newIndex = randomNumbers.nextInt()
         }
-        currentPreset = presets[newIndex]
+        currentPreset = sortedPresets[newIndex]
         selectCurrentPreset()
     }
 

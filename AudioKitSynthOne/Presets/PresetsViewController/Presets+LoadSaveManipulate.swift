@@ -361,14 +361,21 @@ extension PresetsViewController {
     }
     
     func randomPreset() {
+        if sortedPresets.isEmpty {
+            return
+        }
         deselectCurrentRow()
 
-        // Pick random Preset
-        var newIndex = randomNumbers.nextInt()
-        if newIndex == currentPreset.position {
+        // Iterate through random indices
+        var maxIterationCount = 0
+        var newIndex = currentPreset.position
+        repeat {
             newIndex = randomNumbers.nextInt()
-        }
+            maxIterationCount += 1
+        } while newIndex == currentPreset.position && maxIterationCount < sortedPresets.count - 1
         currentPreset = sortedPresets[newIndex]
+
+        // select the resulting preset
         selectCurrentPreset()
     }
 

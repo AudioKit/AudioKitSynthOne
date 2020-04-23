@@ -187,9 +187,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Arpeggiator Interval: \(Int(value))</source>
         <note>Arpeggiator Interval</note>
         <target state="translated">Intervallo arpeggiatore: \(Int(value))</target>
-        <alt-trans>
-          <target>Intervallo arpeggiatore: \ (Int (valore))</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Arpeggiator Mode">
         <source>Arpeggiator Mode</source>
@@ -200,25 +197,16 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>AutoPan Rate tempo-syncd</note>
         <target state="translated">AutoPan Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
-        <alt-trans>
-          <target>AutoPan Rate: \ (Rate.fromFrequency (valore)), \ (value.decimalString) Hz</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="AutoPan Rate: \(value.decimalString) Hz">
         <source>AutoPan Rate: \(value.decimalString) Hz</source>
         <note>AutoPan Rate</note>
         <target state="translated">AutoPan Rate: \(value.decimalString) Hz</target>
-        <alt-trans>
-          <target>AutoPan Rate: \ (value.decimalString) Hz</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="AutoPan Strength: \(value.percentageString)">
         <source>AutoPan Strength: \(value.percentageString)</source>
         <note>AutoPan Amount/Strength</note>
         <target state="translated">Forza AutoPan: \(value.percentageString)</target>
-        <alt-trans>
-          <target>Forza AutoPan: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Background audio will drain the battery faster. Please turn off when not in use.">
         <source>Background audio will drain the battery faster. Please turn off when not in use.</source>
@@ -259,100 +247,61 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Cutoff LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Cutoff</note>
         <target state="translated">Cutoff LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>Cutoff LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)">
         <source>Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</source>
         <note>Filter Cutoff &amp; Resonance</note>
         <target state="translated">Cutoff: \(s.getSynthParameter(.cutoff).decimalString) Hz, Resonance: \(s.getSynthParameter(.resonance).decimalString)</target>
-        <alt-trans>
-          <target>Cutoff: \ (s.getSynthParameter (.cutoff) .decimalString) Hz, Resonance: \ (s.getSynthParameter (.resonance) .decimalString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 1 Morph: \(value.decimalString)">
         <source>DCO 1 Morph: \(value.decimalString)</source>
         <note>Oscillator 1 Waveform Morph Index</note>
         <target state="translated">DCO 1 Morph: \(value.decimalString)</target>
-        <alt-trans>
-          <target>DCO 1 Morph: \ (value.decimalString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 1 Volume: \(value.percentageString)">
         <source>DCO 1 Volume: \(value.percentageString)</source>
         <note>Oscillator 1 Volume</note>
         <target state="translated">Volume DCO 1: \(value.percentageString)</target>
-        <alt-trans>
-          <target>Volume DCO 1: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 1: \(Int(value)) semitones">
         <source>DCO 1: \(Int(value)) semitones</source>
         <note>Oscillator 1 semitone offset</note>
         <target state="translated">DCO 1: \(Int(value)) semitoni</target>
-        <alt-trans>
-          <target>DCO 1: \ (Int (valore)) semitoni</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 2 Morph: \(value.decimalString)">
         <source>DCO 2 Morph: \(value.decimalString)</source>
         <note>Oscillator 2 Waveform Morph Index</note>
         <target state="translated">DCO 2 Morph: \(value.decimalString)</target>
-        <alt-trans>
-          <target>DCO 2 Morph: \ (value.decimalString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 2 Volume: \(value.percentageString)">
         <source>DCO 2 Volume: \(value.percentageString)</source>
         <note>Oscillator 2 Volume</note>
         <target state="translated">Volume DCO 2: \(value.percentageString)</target>
-        <alt-trans>
-          <target>Volume DCO 2: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) detune">
         <source>DCO 2: \(Int(value)) detune</source>
         <note>Oscillator 2 detune</note>
         <target state="translated">DCO 2: \(Int(value)) detune</target>
-        <alt-trans>
-          <target>DCO 2: \ (Int (valore)) detune</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO 2: \(Int(value)) semitones">
         <source>DCO 2: \(Int(value)) semitones</source>
         <note>Oscillator 2 semitone offset</note>
         <target state="translated">DCO 2: \(Int(value)) semitoni</target>
-        <alt-trans>
-          <target>DCO 2: \ (Int (valore)) semitoni</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value))">
         <source>DCO Mix: \(Int(value))</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
         <target state="translated">DCO Mix: \(Int(value))</target>
-        <alt-trans>
-          <target>DCO Mix: \ (Int (valore))</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="DCO Mix: \(Int(value)) detune">
         <source>DCO Mix: \(Int(value)) detune</source>
         <note>Oscillator 1 &amp; 2 Mix</note>
         <target state="translated">DCO Mix: \(Int(value)) detune</target>
-        <alt-trans>
-          <target>DCO Mix: \(Int (value)) detune</target>
-        </alt-trans>
-        <alt-trans>
-          <target>DCO Mix: \ (Int (valore)) detune</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Decay LFO ‣ \(lfoSource!)">
         <source>Decay LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Decay</note>
         <target state="translated">Decay LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>Decay LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay  Off">
         <source>Delay  Off</source>
@@ -363,17 +312,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Delay Feedback/Taps: \(value.percentageString)</source>
         <note>Delay Feedback</note>
         <target state="translated">Ritardo Commenti / Tocchi: \(value.percentageString)</target>
-        <alt-trans>
-          <target>Ritardo Commenti / Tocchi: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay Mix: \(value.percentageString)">
         <source>Delay Mix: \(value.percentageString)</source>
         <note>Delay Mix</note>
         <target state="translated">Delay Mix: \(value.percentageString)</target>
-        <alt-trans>
-          <target>Delay Mix: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay On">
         <source>Delay On</source>
@@ -384,25 +327,16 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Delay Time: \(Rate.fromTime(value)), \(value.decimalString)s</source>
         <note>Delay Time tempo-syncd</note>
         <target state="translated">Tempo di ritardo: \(Rate.fromTime (valore)), \(value.decimalString) s</target>
-        <alt-trans>
-          <target>Tempo di ritardo: \ (Rate.fromTime (valore)), \ (value.decimalString) s</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Delay Time: \(value.decimalString) s">
         <source>Delay Time: \(value.decimalString) s</source>
         <note>Delay Time</note>
         <target state="translated">Tempo di ritardo: \(value.decimalString) s</target>
-        <alt-trans>
-          <target>Tempo di ritardo: \ (value.decimalString) s</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Detune LFO ‣ \(lfoSource!)">
         <source>Detune LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Detune</note>
         <target state="translated">Detune LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>Detune LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Don't Sleep Mode">
         <source>Don't Sleep Mode</source>
@@ -418,25 +352,16 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>FM LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] FM Modulation</note>
         <target state="translated">FM LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>FM LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="FM Mod: \(value.percentageString)">
         <source>FM Mod: \(value.percentageString)</source>
         <note>FM Modulation Amount</note>
         <target state="translated">FM Mod: \(value.percentageString)</target>
-        <alt-trans>
-          <target>FM Mod: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="FM Volume: \(value.percentageString)">
         <source>FM Volume: \(value.percentageString)</source>
         <note>FM Oscillator Volume</note>
         <target state="translated">Volume FM: \(value.percentageString)</target>
-        <alt-trans>
-          <target>Volume FM: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="FX">
         <source>FX</source>
@@ -447,17 +372,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Filter Env LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Filter Envelope</note>
         <target state="translated">Filtro Env LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>Filtro Env LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Filter Envelope: \(value.percentageString)">
         <source>Filter Envelope: \(value.percentageString)</source>
         <note>Filter Envelope Amount</note>
         <target state="translated">Filter Envelope: \(value.percentageString)</target>
-        <alt-trans>
-          <target>Filter Envelope: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Filter Type: \(ftype)">
         <source>Filter Type: \(ftype)</source>
@@ -468,9 +387,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Glide: \(value.decimalString)</source>
         <note>Mono Glide Amount</note>
         <target state="translated">Glide: \(value.decimalString)</target>
-        <alt-trans>
-          <target>Glide: \ (value.decimalString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="High Pass">
         <source>High Pass</source>
@@ -486,41 +402,26 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>LFO 2 Amp: \(value.percentageString)</source>
         <note>LFO 2 [low frequency oscillator] Amplitude</note>
         <target state="translated">LFO 2 Amp: \(value.percentageString)</target>
-        <alt-trans>
-          <target>LFO 2 Amp: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
         <target state="translated">LFO 2 Rate: \(Rate.fromFrequency(value)), \(value.decimalString) Hz</target>
-        <alt-trans>
-          <target>LFO 2 Rate: \ (Rate.fromFrequency (valore)), \ (value.decimalString) Hz</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="LFO 2 Rate: \(value.decimalString) Hz">
         <source>LFO 2 Rate: \(value.decimalString) Hz</source>
         <note>LFO 2 [low frequency oscillator] Rate tempo-syncd</note>
         <target state="translated">LFO 2 Rate: \(value.decimalString) Hz</target>
-        <alt-trans>
-          <target>LFO 2 Rate: \ (value.decimalString) Hz</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate tempo-syncd</note>
         <target state="translated">Velocità LFO1: \(Rate.fromFrequency(s.getSynthParameter(.lfo1Rate))), LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
-        <alt-trans>
-          <target>Velocità LFO1: \ (Rate.fromFrequency (s.getSynthParameter (.lfo1Rate))), LFO1 Amp: \ (s.getSynthParameter (.lfo1Amplitude) .percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)">
         <source>LFO1 Rate: \(s.getSynthParameter(.lfo1Rate).decimalString)Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</source>
         <note>LFO [low frequency oscillator] Amplitude &amp; Rate</note>
         <target state="translated">Velocità LFO1: \(s.getSynthParameter(.lfo1Rate).decimalString) Hz, LFO1 Amp: \(s.getSynthParameter(.lfo1Amplitude).percentageString)</target>
-        <alt-trans>
-          <target>Velocità LFO1: \ (s.getSynthParameter (.lfo1Rate) .decimalString) Hz, LFO1 Amp: \ (s.getSynthParameter (.lfo1Amplitude) .percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Low Pass">
         <source>Low Pass</source>
@@ -556,9 +457,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Master Volume: \(value.percentageString)</source>
         <note>Master Volume</note>
         <target state="translated">Volume principale: \(value.percentageString)</target>
-        <alt-trans>
-          <target>Volume principale: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Midi Panic">
         <source>Midi Panic</source>
@@ -569,17 +467,11 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Noise LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Noise</note>
         <target state="translated">Noise LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>Noise LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Noise Volume: \((value * 4).percentageString)">
         <source>Noise Volume: \((value * 4).percentageString)</source>
         <note>Noise Volume</note>
         <target state="translated">Volume rumore: \((value * 4).percentageString)</target>
-        <alt-trans>
-          <target>Volume rumore: \ ((valore * 4) .percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Notice">
         <source>Notice</source>
@@ -595,9 +487,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Osc Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Oscillator Mix</note>
         <target state="translated">Osc Mix LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>Osc Mix LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="PAD">
         <source>PAD</source>
@@ -608,73 +497,46 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Phaser Feedback: \(value.decimalString)</source>
         <note>Phaser Feedback</note>
         <target state="translated">Feedback Phaser: \(value.decimalString)</target>
-        <alt-trans>
-          <target>Feedback Phaser: \ (value.decimalString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Mix: \(value.decimalString)">
         <source>Phaser Mix: \(value.decimalString)</source>
         <note>Phaser Mix</note>
         <target state="translated">Phaser Mix: \(value.decimalString)</target>
-        <alt-trans>
-          <target>Phaser Mix: \ (value.decimalString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Notch Width: \(value.decimalString)">
         <source>Phaser Notch Width: \(value.decimalString)</source>
         <note>Phaser Notch Width</note>
         <target state="translated">Larghezza Phaser Notch: \(value.decimalString)</target>
-        <alt-trans>
-          <target>Larghezza Phaser Notch: \ (value.decimalString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Phaser Rate: \(value.decimalString)">
         <source>Phaser Rate: \(value.decimalString)</source>
         <note>Phaser Rate</note>
         <target state="translated">Phaser Rate: \(value.decimalString)</target>
-        <alt-trans>
-          <target>Phaser Rate: \ (value.decimalString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Pitch LFO ‣ \(lfoSource!)">
         <source>Pitch LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Pitch</note>
         <target state="translated">Pitch LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>Pitch LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Resonance LFO ‣ \(lfoSource!)">
         <source>Resonance LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Resonance</note>
         <target state="translated">Risonanza LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>Risonanza LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Low-cut: \(value.decimalString) Hz">
         <source>Reverb Low-cut: \(value.decimalString) Hz</source>
         <note>Reverb Low-cut/Highpass</note>
         <target state="translated">Reverb Low-cut: \(value.decimalString) Hz</target>
-        <alt-trans>
-          <target>Reverb Low-cut: \ (value.decimalString) Hz</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Mix LFO ‣ \(lfoSource!)">
         <source>Reverb Mix LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Reverb Mix</note>
         <target state="translated">Reverb Mix LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>Reverb Mix LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Mix: \(value.percentageString)">
         <source>Reverb Mix: \(value.percentageString)</source>
         <note>Reverb Mix</note>
         <target state="translated">Reverb Mix: \(value.percentageString)</target>
-        <alt-trans>
-          <target>Reverb Mix: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Reverb Off">
         <source>Reverb Off</source>
@@ -690,9 +552,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Reverb Size: \(value.percentageString)</source>
         <note>Reverb Size</note>
         <target state="translated">Reverb Size: \(value.percentageString)</target>
-        <alt-trans>
-          <target>Reverb Size: \ (value.percentageString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="SEQ">
         <source>SEQ</source>
@@ -703,9 +562,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Sample Rate: \(Int(value)) Hz</source>
         <note>Bitcrush Sample Rate</note>
         <target state="translated">Frequenza di campionamento: \(Int(value)) Hz</target>
-        <alt-trans>
-          <target>Frequenza di campionamento: \ (Int (valore)) Hz</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Sequencer Mode">
         <source>Sequencer Mode</source>
@@ -721,9 +577,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Sub Osc Volume: \(value.decimalString)</source>
         <note>Sub Oscillator Volume</note>
         <target state="translated">Volume Osc secondario: \(value.decimalString)</target>
-        <alt-trans>
-          <target>Volume Osc secondario: \ (value.decimalString)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="TUNE">
         <source>TUNE</source>
@@ -764,9 +617,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Tremolo LFO ‣ \(lfoSource!)</source>
         <note>LFO [low frequency oscillator] Tremolo</note>
         <target state="translated">Tremolo LFO ‣ \(lfoSource!)</target>
-        <alt-trans>
-          <target>Tremolo LFO ‣ \ (lfoSource!)</target>
-        </alt-trans>
       </trans-unit>
       <trans-unit id="Twist knob on your MIDI Controller">
         <source>Twist knob on your MIDI Controller</source>
@@ -782,9 +632,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <source>Widen: \(value.decimalString)</source>
         <note>Stereo Widen</note>
         <target state="translated">Widen: \(value.decimalString)</target>
-        <alt-trans>
-          <target>Widen: \ (value.decimalString)</target>
-        </alt-trans>
       </trans-unit>
     </body>
   </file>
@@ -1257,7 +1104,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="CFBundleName" approved="yes">
         <source>$(PRODUCT_NAME)</source>
         <note>Bundle name</note>
-        <target state="translated">$(PRODUCT_NAME)</target>
+        <target state="final">$(PRODUCT_NAME)</target>
       </trans-unit>
       <trans-unit id="NSCameraUsageDescription">
         <source>$(PRODUCT_NAME) camera use.</source>
@@ -1833,7 +1680,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="CFBundleName" approved="yes">
         <source>$(PRODUCT_NAME)</source>
         <note>Bundle name</note>
-        <target state="translated">$(PRODUCT_NAME)</target>
+        <target state="final">$(PRODUCT_NAME)</target>
       </trans-unit>
     </body>
   </file>

@@ -43,6 +43,25 @@ class MoreAppsController: UIViewController {
         }
     }
     
+    @IBAction func appDropButtonPressed(_ sender: UIButton) {
+        if let url = URL(string: "https://audiokitpro.com/appdrops/") {
+            UIApplication.shared.open(url)
+        }
+    }
+
+    @IBAction func retroPianoPressed(_ sender: UIButton) {
+        if let url = URL(string: "https://audiokitpro.com/retropiano/") {
+            UIApplication.shared.open(url)
+        }
+    }
+
+
+    @IBAction func audiokitAppsPressed(_ sender: UIButton) {
+        if let url = URL(string: "https://apps.apple.com/us/developer/audiokit-pro/id1307785645") {
+            UIApplication.shared.open(url)
+        }
+    }
+
     @IBAction func getFMPlayer(_ sender: Any) {
         if let url = URL(string: "https://itunes.apple.com/app/apple-store/id1307785646?mt=8") {
             UIApplication.shared.open(url)

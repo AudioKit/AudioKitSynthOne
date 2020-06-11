@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -172,7 +172,7 @@
                                         <attributedString key="userComments">
                                             <fragment content="Settings button (keep this text as short as possible)">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                    <font key="NSFont" metaFont="message" size="11"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -569,7 +569,7 @@
                                         <attributedString key="userComments">
                                             <fragment content="Settings button (keep this text as short as possible)">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                    <font key="NSFont" metaFont="message" size="11"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -915,7 +915,7 @@
                                         <attributedString key="userComments">
                                             <fragment content="Color for keyboard keys (black or white)">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                    <font key="NSFont" metaFont="message" size="11"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -946,7 +946,7 @@
                                         <attributedString key="userComments">
                                             <fragment content="Note labels on keyboard keys">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                    <font key="NSFont" metaFont="message" size="11"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -977,7 +977,7 @@
                                         <attributedString key="userComments">
                                             <fragment content="Octaves displayed in keyboard">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                    <font key="NSFont" metaFont="message" size="11"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -1007,7 +1007,7 @@
                                         <attributedString key="userComments">
                                             <fragment content="Note labels on keyboard keys">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                    <font key="NSFont" metaFont="message" size="11"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -1093,7 +1093,7 @@
                                         <attributedString key="userComments">
                                             <fragment content="Routing for Mod Wheel">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                    <font key="NSFont" metaFont="message" size="11"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -1131,7 +1131,7 @@
                                         <attributedString key="userComments">
                                             <fragment content="Pitch Bend Wheel maximum ">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                    <font key="NSFont" metaFont="message" size="11"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -1246,7 +1246,6 @@
         <!--Settings View Controller-->
         <scene sceneID="fqU-aQ-kCC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tKD-rW-qhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MIDISettingsViewController" id="wQW-DI-keW" customClass="MIDISettingsViewController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fBZ-Yb-aLt"/>
@@ -1283,7 +1282,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MIDI Input" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUh-rB-ciV" userLabel="Preset Label">
-                                                            <rect key="frame" x="26" y="12" width="0.0" height="20.5"/>
+                                                            <rect key="frame" x="26" y="12" width="217" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                             <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1450,7 +1449,7 @@
                                         <attributedString key="userComments">
                                             <fragment content="MIDI input velocity sensitive">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                    <font key="NSFont" metaFont="message" size="11"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -1482,7 +1481,7 @@
                                                 <attributedString key="userComments">
                                                     <fragment content="App will not go into background mode toggle">
                                                         <attributes>
-                                                            <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                            <font key="NSFont" metaFont="message" size="11"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -1602,6 +1601,7 @@
                         <outlet property="velocitySensitivityKnob" destination="XZp-Da-jSk" id="keS-UW-K2w"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tKD-rW-qhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1564.453125" y="177.34375"/>
         </scene>
@@ -1645,10 +1645,10 @@
             </objects>
             <point key="canvasLocation" x="-1027" y="-503"/>
         </scene>
-        <!--HeyMetronome-->
+        <!--RetroPiano-->
         <scene sceneID="giM-C1-KUq">
             <objects>
-                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="HeyMetronome" id="jEX-gO-nR2" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="RetroPiano" id="jEX-gO-nR2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yiy-Yj-JZk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-973" y="-454"/>
@@ -1717,24 +1717,24 @@
             </objects>
             <point key="canvasLocation" x="-1096" y="-1166"/>
         </scene>
-        <!--iPhoneHeyMetronome-->
+        <!--iPhoneRetroPiano-->
         <scene sceneID="6kE-64-eTx">
             <objects>
-                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="iPhoneHeyMetronome" id="BdM-aW-ags" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="About" referencedIdentifier="iPhoneRetroPiano" id="BdM-aW-ags" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBr-CW-NKH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1079" y="-1238"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kIC-Kt-utx"/>
+        <segue reference="eFx-2G-dJI"/>
+        <segue reference="uQl-Oi-SV4"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bluetooth" width="13.5" height="18"/>
         <image name="circuit" width="857" height="527.5"/>
         <image name="keyboard_top" width="1023" height="47"/>
         <image name="rack-left" width="100" height="375"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="kIC-Kt-utx"/>
-        <segue reference="eFx-2G-dJI"/>
-        <segue reference="uQl-Oi-SV4"/>
-    </inferredMetricsTieBreakers>
 </document>

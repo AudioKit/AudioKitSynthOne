@@ -16,15 +16,19 @@ class FilterTypeButton: UIButton, S1Control {
         didSet {
             switch _value {
             case 0:
+
                 // low pass
                 accessibilityValue = NSLocalizedString("Low Pass", comment: "Low Pass")
             case 1:
+
                 // band pass
                 accessibilityValue = NSLocalizedString("Band Pass", comment: "Low Pass")
             case 2:
+
                 // high pass
                 accessibilityValue = NSLocalizedString("High Pass", comment: "Low Pass")
             default:
+
                 // low pass
                 accessibilityValue = NSLocalizedString("Low Pass", comment: "Low Pass")
             }
@@ -37,25 +41,29 @@ class FilterTypeButton: UIButton, S1Control {
         get {
             return _value
         }
-
         set {
             _value = (0 ... 3).clamp(newValue)
             DispatchQueue.main.async {
                 switch self._value {
                 case 0:
+
                     // low pass
                     self.setTitle("Low Pass", for: .normal)
                 case 1:
+
                     // band pass
                     self.setTitle("Band Pass", for: .normal)
                 case 2:
+
                     // high pass
                     self.setTitle("High Pass", for: .normal)
                 case 3:
+
                     // reset to low pass
                     // swiftlint:disable fallthrough
                     fallthrough
                 default:
+                    
                     // low pass
                     self._value = 0
                     self.setTitle("Low Pass", for: .normal)
@@ -65,7 +73,6 @@ class FilterTypeButton: UIButton, S1Control {
     }
 
     var setValueCallback: (Double) -> Void = { _ in }
-
     var resetToDefaultCallback: () -> Void = { }
 
     // MARK: - Touches
@@ -80,12 +87,4 @@ class FilterTypeButton: UIButton, S1Control {
             setNeedsDisplay()
         }
     }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        for _ in touches {
-            setValueCallback(value)
-        }
-    }
-
 }

@@ -22,12 +22,15 @@
 class S1DSPKernel;
 
 struct S1NoteState {
-    
+
+    // kernel
     S1DSPKernel* kernel;
-    
+
+    // stage
     enum NoteStateStage { stageOff, stageOn, stageRelease };
     NoteStateStage stage = stageOff;
-    
+
+    // gate
     float internalGate = 0;
 
     // velocity stores the original velocity...not used in "process"
@@ -36,6 +39,7 @@ struct S1NoteState {
     // amp is a transform of velocity and is used in "process"
     float amp = 0;
 
+    // filter envelope value
     float filter = 0;
 
     // -1 denotes an invalid note number
@@ -54,6 +58,7 @@ struct S1NoteState {
     sp_oscmorph2d *oscmorph1;
     sp_oscmorph2d *oscmorph2;
 
+    // osc crossfade
     sp_crossfade *morphCrossFade;
     
     //Subwoofer OSC
@@ -70,18 +75,14 @@ struct S1NoteState {
     sp_buthp *hiPass;
     sp_butbp *bandPass;
     sp_crossfade *filterCrossFade;
-    
+
+    // methods
     inline float getParam(S1Parameter param);
     inline int sampleRate() const;
-
-    void init();
-
-    void destroy();
-    
-    void clear();
-
     void startNoteHelper(int noteNumber, int velocity, float frequency);
-
+    void init();
+    void destroy();
+    void clear();
     void run(int frameIndex, float *outL, float *outR);
 };
 

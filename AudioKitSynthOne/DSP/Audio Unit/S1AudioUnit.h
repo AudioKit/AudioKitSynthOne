@@ -10,11 +10,11 @@
 
 #import <AudioKit/AKAudioUnit.h>
 #import "S1Parameter.h"
+#import "S1MessageQueues.h"
 
 #define S1_MAX_POLYPHONY (6)
 #define S1_NUM_MIDI_NOTES (128)
 
-@class AEMessageQueue;
 
 // helper for midi/render thread communication: held+playing notes
 typedef struct NoteNumber {
@@ -63,10 +63,10 @@ typedef struct S1ArpBeatCounter {
 @interface S1AudioUnit : AKAudioUnit
 {
     @public
-    AEMessageQueue* _messageQueueDependentParameter;
-    AEMessageQueue* _messageQueueBeatCounter;
-    AEMessageQueue* _messageQueuePlayingNotes;
-    AEMessageQueue* _messageQueueHeldNotes;
+    AEMessageQueueDependentParameter* _messageQueueDependentParameter;
+    AEMessageQueueBeatCounter* _messageQueueBeatCounter;
+    AEMessageQueuePlayingNotes* _messageQueuePlayingNotes;
+    AEMessageQueueHeldNotes* _messageQueueHeldNotes;
 }
 @property (nonatomic) NSArray *parameters;
 @property (nonatomic, weak) id<S1Protocol> s1Delegate;

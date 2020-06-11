@@ -34,16 +34,21 @@ extension Manager {
         }
 
         // DEV PANEL
-        devViewController.freezeArpRate.value = (appSettings.freezeArpRate == true ? 1 : 0)
-        devViewController.freezeDelay.value = (appSettings.freezeDelay == true ? 1 : 0)
-        devViewController.freezeReverb.value = (appSettings.freezeReverb == true ? 1 : 0)
-        devViewController.freezeArpSeq.value = (appSettings.freezeArpSeq == true ? 1 : 0)
-        devViewController.useCustomRecordFileBasename.value = (appSettings.useCustomRecordFileBasename == true ? 1 : 0)
-        devViewController.whiteKeysOnly.value = (appSettings.whiteKeysOnly == true ? 1 : 0)
+        devViewController.freezeArpRateValue = appSettings.freezeArpRate
+        devViewController.freezeDelayValue = appSettings.freezeDelay
+        devViewController.freezeReverbValue = appSettings.freezeReverb
+        devViewController.freezeArpSeqValue = appSettings.freezeArpSeq
+        devViewController.useCustomRecordFileBasenameValue = appSettings.useCustomRecordFileBasename
+        devViewController.whiteKeysOnlyValue = appSettings.whiteKeysOnly
 
-        // DSP parameter stored in app settings
+        // DSP parameters stored in app settings
         conductor.synth.setSynthParameter(.portamentoHalfTime, appSettings.portamentoHalfTime)
-        devViewController.portamento.value = conductor.synth.getSynthParameter(.portamentoHalfTime)
+        devViewController.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
+        if appSettings.freezeArpRate {
+            let tempo = appSettings.frozenArpRateValue
+            conductor.synth.setSynthParameter(.arpRate, tempo)
+            generatorsPanel.tempoStepper.value = tempo
+        }
 
         // keyboard
         keyboardView.labelMode = appSettings.labelMode
@@ -124,11 +129,12 @@ extension Manager {
         appSettings.midiSources = midiInputs.filter { $0.isOpen }.compactMap { $0.name }
 
         // HAQ (DEV) Panel
-        appSettings.freezeArpRate = (devViewController.freezeArpRate.value == 1 ? true : false)
-        appSettings.freezeDelay = (devViewController.freezeDelay.value == 1 ? true : false)
-        appSettings.freezeReverb = (devViewController.freezeReverb.value == 1 ? true : false)
-        appSettings.useCustomRecordFileBasename = (devViewController.useCustomRecordFileBasename.value == 1 ? true : false)
-        appSettings.whiteKeysOnly = (devViewController.whiteKeysOnly.value == 1 ? true : false)
+        appSettings.freezeArpRate = devViewController.freezeArpRateValue
+        appSettings.frozenArpRateValue = conductor.synth.getSynthParameter(.arpRate)
+        appSettings.freezeDelay = devViewController.freezeDelayValue
+        appSettings.freezeReverb = devViewController.freezeReverbValue
+        appSettings.useCustomRecordFileBasename = devViewController.useCustomRecordFileBasenameValue
+        appSettings.whiteKeysOnly = devViewController.whiteKeysOnlyValue
         appSettings.portamentoHalfTime = conductor.synth.getSynthParameter(.portamentoHalfTime)
 
         // MIDI Learn Generators
@@ -214,15 +220,12 @@ extension Manager {
         do {
             let retrievedSettingData = try Disk.retrieve("settings.json", from: .documents, as: Data.self)
             let settingsJSON = try? JSONSerialization.jsonObject(with: retrievedSettingData, options: [])
-
             if let settingDictionary = settingsJSON as? [String: Any] {
                 appSettings = AppSettings(dictionary: settingDictionary)
             }
-
             setDefaultsFromAppSettings()
-
         } catch {
-            AKLog("*** error loading")
+            AKLog("*** error loading app settings")
         }
     }
 
@@ -230,7 +233,7 @@ extension Manager {
         do {
             try Disk.save(appSettings, to: .documents, as: "settings.json")
         } catch {
-            AKLog("error saving")
+            AKLog("error saving app settings")
         }
     }
 
@@ -240,7 +243,7 @@ extension Manager {
         do {
             try Disk.save(conductor.banks, to: .documents, as: "banks.json")
         } catch {
-            AKLog("error saving")
+            AKLog("error saving banks")
         }
     }
 
@@ -248,7 +251,6 @@ extension Manager {
         do {
             let retrievedSettingData = try Disk.retrieve("banks.json", from: .documents, as: Data.self)
             let banksJSON = try? JSONSerialization.jsonObject(with: retrievedSettingData, options: [])
-
             guard let jsonArray = banksJSON as? [Any] else { return }
             var banks = [Bank]()
             for bankJSON in jsonArray {
@@ -258,14 +260,12 @@ extension Manager {
                 }
             }
             conductor.banks = banks
-
         } catch {
-            AKLog("*** error loading")
+            AKLog("*** error loading banks")
         }
     }
 
     func createInitBanks() {
-
         for (i, bankName) in initBanks.enumerated() {
             let bank = Bank(name: bankName, position: i)
             conductor.banks.append(bank)

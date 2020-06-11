@@ -10,38 +10,32 @@
 extension Manager {
     
     func setupCallbacks() {
-
         guard let s = conductor.synth else {
             AKLog("Manager view state is invalid because synth is not instantiated")
             return
         }
-
         octaveStepper.setValueCallback = { value in
             self.keyboardView.firstOctave = Int(value) + 2
             self.updateDisplay("Keyboard Octave: \(Int(value))")
         }
-
         transposeStepper.setValueCallback = { value in
             s.setSynthParameter(.transpose, value)
             self.conductor.updateDisplayLabel(.transpose, value: s.getSynthParameter(.transpose))
+            self.activePreset.transpose = Int(value)
             self.keyboardView.transpose = Int(value)
         }
-
         configKeyboardButton.setValueCallback = { _ in
             self.configKeyboardButton.value = 0
             self.performSegue(withIdentifier: "SegueToKeyboardSettings", sender: self)
         }
-
         midiButton.setValueCallback = { _ in
             self.midiButton.value = 0
             self.performSegue(withIdentifier: "SegueToMIDI", sender: self)
         }
-
         modWheelSettings.setValueCallback = { _ in
             self.modWheelSettings.value = 0
             self.performSegue(withIdentifier: "SegueToMOD", sender: self)
         }
-
         midiLearnToggle.setValueCallback = { _ in
 
             // Toggle MIDI Learn Knobs in subview
@@ -57,46 +51,37 @@ extension Manager {
                 self.saveAppSettingValues()
             }
         }
-
         holdButton.setValueCallback = { value in
-            //self.keyboardView.holdMode = !self.keyboardView.holdMode
             self.keyboardView.holdMode = (value == 1) ? true : false
             if value == 0.0 {
                 self.stopAllNotes()
             }
             Conductor.sharedInstance.updateDisplayLabel("Hold: \(self.keyboardView.holdMode == false ? "OFF" : "ON")")
-			self.holdButton.accessibilityValue = self.keyboardView.holdMode ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
+            self.holdButton.accessibilityValue = self.keyboardView.holdMode ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
         }
-
         monoButton.setValueCallback = { value in
             let monoMode = value == 1 ? true : false
             self.keyboardView.polyphonicMode = !monoMode
             s.setSynthParameter(.isMono, value)
             self.conductor.updateSingleUI(.isMono, control: self.monoButton, value: value)
             self.conductor.updateDisplayLabel(.isMono, value: s.getSynthParameter(.isMono))
-			self.monoButton.accessibilityValue = self.keyboardView.polyphonicMode ? NSLocalizedString("Off", comment: "Off") : NSLocalizedString("On", comment: "On")
+            self.monoButton.accessibilityValue = self.keyboardView.polyphonicMode ? NSLocalizedString("Off", comment: "Off") : NSLocalizedString("On", comment: "On")
         }
-
         keyboardToggle.setValueCallback = { value in
-            
             if value == 1 {
                 self.keyboardToggle.setTitle("Hide", for: .normal)
+                if self.conductor.device == .pad {
 
-                 if self.conductor.device == .pad {
-
-				// Tell VoiceOver to NOT read elements in bottomContainerView if hidden by keyboard.
-				self.bottomContainerView.accessibilityElementsHidden = true
+                    // Tell VoiceOver to NOT read elements in bottomContainerView if hidden by keyboard.
+                    self.bottomContainerView.accessibilityElementsHidden = true
                 }
-
             } else {
                 self.keyboardToggle.setTitle("Show", for: .normal)
-
                 if self.conductor.device == .pad {
 
                     // Tell VoiceOver to read elements in bottomContainerView as the keyboard is not hidden.
                     self.bottomContainerView.accessibilityElementsHidden = false
 
-                    
                     // Add panel to bottom
                     if self.bottomChildPanel == self.topChildPanel {
                         self.bottomChildPanel = self.bottomChildPanel?.rightPanel()
@@ -111,13 +96,11 @@ extension Manager {
             if self.conductor.device == .phone {
                 newConstraintValue = (value == 1.0) ? 175 : 257
             }
-            
             let sideConstraintValue: CGFloat = (value == 1.0) ? 18 : 72.5 // 72.5
-           
             let keyboardLabelMode = self.keyboardView.labelMode
             self.keyboardView.labelMode = 0
             self.keyboardView.setNeedsDisplay()
-    
+
             // Animate keyboard
             UIView.animate(withDuration: Double(0.4), animations: {
                 self.keyboardTopConstraint.constant = newConstraintValue
@@ -127,20 +110,17 @@ extension Manager {
                 }
                 self.pitchBend.setVerticalValue01(self.pitchBend.value)
                 self.modWheelPad.setVerticalValue01(self.modWheelPad.value)
-                 self.pitchBend.setNeedsDisplay()
+                self.pitchBend.setNeedsDisplay()
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
                 self.keyboardView.labelMode = keyboardLabelMode
                 self.keyboardView.setNeedsDisplay()
                 self.pitchBend.setVerticalValue01(self.pitchBend.value)
                 self.modWheelPad.setVerticalValue01(self.modWheelPad.value)
- 
             })
-            
             self.appSettings.showKeyboard = self.keyboardToggle.value
             self.saveAppSettings()
         }
-
         modWheelPad.callback = { value in
             switch self.activePreset.modWheelRouting {
             case 0:
@@ -162,11 +142,9 @@ extension Manager {
                 break
             }
         }
-
         pitchBend.callback = { value01 in
             s.setDependentParameter(.pitchbend, value01, Conductor.sharedInstance.pitchBendID)
         }
-
         pitchBend.completionHandler = {  _, touchesEnded, reset in
             if touchesEnded && !reset {
                 self.pitchBend.resetToCenter()

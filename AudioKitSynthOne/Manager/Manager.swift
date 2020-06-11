@@ -230,26 +230,33 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
             AKLog("Cannot create outpoutAudioUnit of type: kAudioOutputUnitProperty_MIDICallbacks")
         }
         #endif
-		holdButton.accessibilityValue = self.keyboardView.holdMode ?
-			NSLocalizedString("On", comment: "On") :
-			NSLocalizedString("Off", comment: "Off")
-		monoButton.accessibilityValue = self.keyboardView.polyphonicMode ?
-			NSLocalizedString("Off", comment: "Off") :
-			NSLocalizedString("On", comment: "On")
+        holdButton.accessibilityValue = self.keyboardView.holdMode ?
+            NSLocalizedString("On", comment: "On") :
+            NSLocalizedString("Off", comment: "Off")
+        monoButton.accessibilityValue = self.keyboardView.polyphonicMode ?
+            NSLocalizedString("Off", comment: "Off") :
+            NSLocalizedString("On", comment: "On")
         isPhoneX = modelName == "iPhone X" || modelName == "iPhone XS" || modelName == "iPhone XS Max" || modelName == "iPhone XR" || modelName == "iPhone 11" || modelName == "iPhone 11 Pro" || modelName == "iPhone 11 Pro Max"
         if isPhoneX {
             self.keyboardLeftConstraint?.constant = 72.5
             self.keyboardRightConstraint?.constant = 72.5
         }
-       Audiobus.client?.controller.stateIODelegate = self
-       conductor.audioBusMidiDelegate = self
+        Audiobus.client?.controller.stateIODelegate = self
+        conductor.audioBusMidiDelegate = self
+
+        // notifications
+        registerForNotifications()
     }
+
+
     
     // Hide home bar on newer iPhones/iPad
     override public var prefersHomeIndicatorAutoHidden: Bool {
         return true
     }
 
+    // MARK: - viewDidAppear
+    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard !isLoaded else { return }
@@ -419,6 +426,8 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
         conductor.synth.stopAllNotes()
     }
 
+    // MARK: - updateUI
+
     override func updateUI(_ parameter: S1Parameter, control inputControl: S1Control?, value: Double) {
 
         // Even though isMono is a dsp parameter it needs special treatment because this vc's state depends on it
@@ -444,6 +453,8 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
             transposeStepper.value = Double(activePreset.transpose)
         }
     }
+
+    // MARK: - state
 
     func dependentParameterDidChange(_ dependentParameter: DependentParameter) {
         switch dependentParameter.parameter {

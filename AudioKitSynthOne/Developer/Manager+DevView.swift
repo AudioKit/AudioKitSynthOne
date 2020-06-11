@@ -23,6 +23,9 @@ extension Manager: DevViewDelegate {
 
     func freezeArpRateChanged(_ value: Bool) {
         appSettings.freezeArpRate = value
+        if appSettings.freezeArpRate {
+            appSettings.frozenArpRateValue = Conductor.sharedInstance.synth.getSynthParameter(.arpRate)
+        }
         saveAppSettings()
         Conductor.sharedInstance.updateDisplayLabel("Freeze Arp Rate: \(value == false ? "false" : "true")")
     }

@@ -27,7 +27,6 @@ class ToggleButton: UIView, S1Control {
     }
 
     var setValueCallback: (Double) -> Void = { _ in }
-    
     var resetToDefaultCallback: () -> Void = { }
 
     // MARK: - Draw
@@ -43,9 +42,10 @@ class ToggleButton: UIView, S1Control {
     // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for _ in touches {
-            value = 1 - value
-            setValueCallback(value)
+        guard let _ = touches.first else {
+            return
         }
+        value = 1 - value
+        setValueCallback(value)
     }
 }

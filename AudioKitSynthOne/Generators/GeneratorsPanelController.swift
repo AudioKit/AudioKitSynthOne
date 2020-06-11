@@ -11,67 +11,36 @@ import AudioKitUI
 import UIKit
 
 class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
-
     @IBOutlet weak var morph1Selector: MorphSelector!
-
     @IBOutlet weak var morph2Selector: MorphSelector!
-
     @IBOutlet weak var morph1SemitoneOffset: MIDIKnob!
-
     @IBOutlet weak var morph2SemitoneOffset: MIDIKnob!
-
     @IBOutlet weak var morph2Detuning: MIDIKnob!
-
     @IBOutlet weak var morphBalance: MIDIKnob!
-
     @IBOutlet weak var morph1Volume: MIDIKnob!
-
     @IBOutlet weak var morph2Volume: MIDIKnob!
-
     @IBOutlet weak var glideKnob: MIDIKnob!
-
     @IBOutlet weak var cutoff: MIDIKnob!
-
     @IBOutlet weak var resonance: MIDIKnob!
-
     @IBOutlet weak var subVolume: MIDIKnob!
-
     @IBOutlet weak var subOctaveDown: ToggleButton!
-
     @IBOutlet weak var subIsSquare: ToggleButton!
-
     @IBOutlet weak var isMonoToggle: ToggleButton!
-
     @IBOutlet weak var fmVolume: MIDIKnob!
-
     @IBOutlet weak var fmAmount: MIDIKnob!
-
     @IBOutlet weak var noiseVolume: MIDIKnob!
-
     @IBOutlet weak var masterVolume: MIDIKnob!
-
     @IBOutlet weak var filterTypeToggle: FilterTypeButton!
-
     @IBOutlet weak var displayContainer: UIView!
-
     @IBOutlet weak var sequencerToggle: FlatToggleButton!
-
     @IBOutlet weak var tempoStepper: TempoStepper!
-
     @IBOutlet weak var legatoModeToggle: ToggleButton!
-
     @IBOutlet weak var widenToggle: FlatToggleButton!
-
     @IBOutlet weak var oscBandlimitEnable: ToggleButton!
-    
     @IBOutlet weak var cutoffKnobLabel: UILabel!
-    
     @IBOutlet weak var rezKnobLabel: UILabel!
-
     @IBOutlet weak var recordButton: MIDIRecordButton!
-
     @IBOutlet weak var recordStatus: UILabel!
-
     var isAudioPlotFilled: Bool = false
 
     public override func viewDidLoad() {
@@ -104,8 +73,18 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
         noiseVolume.range = s.getRange(.noiseVolume)
         masterVolume.range = s.getRange(.masterVolume)
         masterVolume.taper = 2
+
+
+
+
         tempoStepper.maxValue = s.getMaximum(.arpRate)
         tempoStepper.minValue = s.getMinimum(.arpRate)
+        tempoStepper.setValueCallback = { value in
+            // TODO LEFT OFF HERE
+        }
+        conductor.bind(tempoStepper, to: .arpRate)
+
+
         conductor.bind(morph1Selector, to: .index1)
         conductor.bind(morph2Selector, to: .index2)
         conductor.bind(morph1SemitoneOffset, to: .morph1SemitoneOffset)
@@ -129,7 +108,6 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
         conductor.bind(legatoModeToggle, to: .monoIsLegato)
         conductor.bind(widenToggle, to: .widen)
         conductor.bind(sequencerToggle, to: .arpIsOn)
-        conductor.bind(tempoStepper, to: .arpRate)
         conductor.bind(oscBandlimitEnable, to: .oscBandlimitEnable)
 
         // Setup Audio Plot Display
@@ -137,6 +115,7 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
         setupLinkStuff()
         conductor.audioRecorder?.viewDelegate = self
 
+        // record
         recordButton.setValueCallback = { value in
             self.recordToggled(value: value)
         }
@@ -212,14 +191,17 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
         case .filterType:
             switch value {
             case 0:
+
                 // Low Pass
                 cutoffKnobLabel.text = "Frequency"
                 rezKnobLabel.text = "Resonance"
             case 1:
+
                 // Band Pass
                 cutoffKnobLabel.text = "Center"
                 rezKnobLabel.text = "Width"
             case 2:
+
                 // High Pass
                 cutoffKnobLabel.text = "Frequency"
                 rezKnobLabel.text = "Off"
@@ -233,12 +215,12 @@ class GeneratorsPanelController: PanelController, AudioRecorderViewDelegate {
 }
 
 extension TimeInterval {
+    
     func stringFromTimeInterval() -> String {
         let time = NSInteger(self)
         let seconds = time % 60
         let minutes = (time / 60) % 60
         let hours = (time / 3600)
-
         return String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
     }
 }

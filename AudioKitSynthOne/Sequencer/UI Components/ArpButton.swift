@@ -21,7 +21,6 @@ class ArpButton: UIView, S1Control {
 
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-
         contentMode = .scaleAspectFit
         clipsToBounds = true
     }
@@ -30,9 +29,9 @@ class ArpButton: UIView, S1Control {
         return true
     }
 
-    private var _value: Double = 0 {
+    private var internalValue: Double = 0 {
         didSet {
-            accessibilityValue = (_value == 1.0) ?
+            accessibilityValue = (internalValue == 1.0) ?
                 NSLocalizedString("On", comment: "On") :
                 NSLocalizedString("Off", comment: "Off")
         }
@@ -42,20 +41,19 @@ class ArpButton: UIView, S1Control {
 
     var value: Double {
         get {
-            return _value
+            return internalValue
         }
         set {
             if newValue > 0 {
-                _value = 1
+                internalValue = 1
             } else {
-                _value = 0
+                internalValue = 0
             }
             setNeedsDisplay()
         }
     }
 
     public var setValueCallback: (Double) -> Void = { _ in }
-
     var resetToDefaultCallback: () -> Void = { }
 
     // MARK: - Draw
@@ -71,18 +69,10 @@ class ArpButton: UIView, S1Control {
     // MARK: - Touches
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        for _ in touches {
-            value = 1 - value
-            setValueCallback(value)
+        guard let _ = touches.first else {
+            return
         }
+        value = 1 - value
+        setValueCallback(value)
     }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        for _ in touches {
-            setValueCallback(value)
-        }
-    }
-
 }

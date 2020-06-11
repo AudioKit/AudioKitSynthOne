@@ -28,19 +28,14 @@ extension PresetsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         // Get current preset
-
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PresetCell") as? PresetCell {
-
             var alphabetical = false
             if categoryIndex == PresetCategory.categoryCount + 1 { alphabetical = true }
-
             let preset = sortedPresets[(indexPath as NSIndexPath).row]
-           
             cell.delegate = self
             
             // Cell updated in PresetCell.swift
             cell.configureCell(preset: preset, alpha: alphabetical)
-            
             return cell
         } else {
             return PresetCell()

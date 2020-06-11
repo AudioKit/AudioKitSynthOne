@@ -31,28 +31,19 @@ public class AKVerticalPad: UIView, S1Control {
     // MARK: - Properties
 
     var firstTouch: UITouch?
-
     public typealias AKVerticalPadCallback = (Double) -> Void
-    
     var callback: AKVerticalPadCallback = { _ in }
-
     public typealias AKVerticalPadCompletionHandler = (Double, Bool, Bool) -> Void
-
     var completionHandler: AKVerticalPadCompletionHandler = { _, _, _ in }
-
     private var x: CGFloat = 0
-
     private var y: CGFloat = 0
-
     private var lastX: CGFloat = 0
-
     private var lastY: CGFloat = 0
-
     private var centerPointX: CGFloat = 0
-
     private var yVisualAdjust: CGFloat = 6
-
-    public var verticalTaper: Double = 1.0 // Linear by default
+    public var verticalTaper: Double = 1.0
+    var touchPointView: ModWheelTouchPoint!
+    var setValueCallback: (Double) -> Void = { _ in }
 
     public var verticalRange: ClosedRange = 0.0...1.0 {
         didSet {
@@ -67,7 +58,6 @@ public class AKVerticalPad: UIView, S1Control {
         }
     }
 
-    var touchPointView: ModWheelTouchPoint!
 
     // MARK: - S1Control
 
@@ -79,8 +69,6 @@ public class AKVerticalPad: UIView, S1Control {
             verticalValue = newValue
         }
     }
-
-    var setValueCallback: (Double) -> Void = { _ in }
 
     var resetToDefaultCallback: () -> Void {
         get {
@@ -96,7 +84,7 @@ public class AKVerticalPad: UIView, S1Control {
             let touchPoint = touch.location(in: self)
             lastX = touchPoint.x
             lastY = touchPoint.y
-            setPercentagesWithTouchPoint(touchPoint, began: true)
+            setPercentagesWithTouchPoint(touchPoint)
         }
     }
 
@@ -104,7 +92,7 @@ public class AKVerticalPad: UIView, S1Control {
         for touch in touches {
             let touchPoint = touch.location(in: self)
             if touchPoint.y > (self.bounds.minY + 0) && touchPoint.y < (self.bounds.maxY) {
-                setPercentagesWithTouchPoint(touchPoint, began: false)
+                setPercentagesWithTouchPoint(touchPoint)
             }
         }
     }
@@ -140,7 +128,6 @@ public class AKVerticalPad: UIView, S1Control {
 
     func resetToPosition(_ newPercentX: Double = 0.5, _ newPercentY: Double) {
         let centerPointY = self.bounds.size.height * CGFloat((1 - newPercentY))
-
         UIView.animate(
             withDuration: 0.05,
             delay: 0.0,
@@ -151,14 +138,13 @@ public class AKVerticalPad: UIView, S1Control {
             completion: { _ in
                 self.x = CGFloat(newPercentX)
                 self.y = CGFloat(newPercentY)
-
                 self.verticalValue = Double(self.y).denormalized(to: self.verticalRange, taper: self.verticalTaper)
                 self.completionHandler(self.verticalValue, true, true)
             }
         )
     }
 
-    func setPercentagesWithTouchPoint(_ touchPoint: CGPoint, began: Bool = false) {
+    func setPercentagesWithTouchPoint(_ touchPoint: CGPoint) {
         y = CGFloat((0.0 ... 1.0).clamp(1 - touchPoint.y / self.bounds.size.height))
         let hx: CGFloat = 1.1
         let hc: CGFloat = -(hx-1)/2

@@ -18,7 +18,7 @@ extension Manager {
             return
         }
 
-        // The DEV panel has toggles (stored in settings) that impact loading of subsets of parameters of a Preset
+        // The DEV panel has toggles (stored in app settings) that impact loading of subsets of parameters of a Preset
 
         if !appSettings.freezeDelay {
             s.setSynthParameter(.delayOn, activePreset.delayToggled)
@@ -46,7 +46,13 @@ extension Manager {
             s.setSynthParameter(.compressorReverbWetMakeupGain, activePreset.compressorReverbWetMakeupGain)
         }
 
-        if !appSettings.freezeArpRate {
+        if appSettings.freezeArpRate {
+
+            // use app settings tempo
+            s.setSynthParameter(.arpRate, appSettings.frozenArpRateValue)
+        } else {
+
+            // use preset's tempo
             s.setSynthParameter(.arpRate, activePreset.arpRate)
         }
 

@@ -31,6 +31,7 @@ inline int S1NoteState::sampleRate() const{
 }
 
 void S1NoteState::init() {
+
     // OSC AMPLITUDE ENVELOPE
     sp_adsr_create(&adsr);
     sp_adsr_init(kernel->spp(), adsr);
@@ -91,7 +92,6 @@ void S1NoteState::destroy() {
     sp_adsr_destroy(&fadsr);
     sp_oscmorph2d_destroy(&oscmorph1);
     sp_oscmorph2d_destroy(&oscmorph2);
-
     sp_crossfade_destroy(&morphCrossFade);
     sp_crossfade_destroy(&filterCrossFade);
     sp_osc_destroy(&subOsc);
@@ -116,10 +116,6 @@ void S1NoteState::startNoteHelper(int noteNumber, int vel, float frequency) {
     oscmorph2->freq = frequency;
     subOsc->freq = frequency;
     fmOsc->freq = frequency;
-
-//    sp_adsr_init(kernel->spp(), adsr);
-//    sp_adsr_init(kernel->spp(), fadsr);
-
     velocity = vel;
     const float amplitude = (float)pow2(velocity / 127.f);
     oscmorph1->amp = amplitude;
@@ -127,7 +123,6 @@ void S1NoteState::startNoteHelper(int noteNumber, int vel, float frequency) {
     subOsc->amp = amplitude;
     fmOsc->amp = amplitude;
     noise->amp = amplitude;
-    
     stage = S1NoteState::stageOn;
     internalGate = 1;
     rootNoteNumber = noteNumber;
@@ -311,21 +306,23 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     
     // filter frequency cutoff calculation
     float filterCutoffFreq = getParam(cutoff);
-    if (getParam(cutoffLFO) == 1.f)
+    if (getParam(cutoffLFO) == 1.f) {
         filterCutoffFreq *= lfo1_1_0;
-    else if (getParam(cutoffLFO) == 2.f)
+    } else if (getParam(cutoffLFO) == 2.f) {
         filterCutoffFreq *= lfo2_1_0;
-    else if (getParam(cutoffLFO) == 3.f)
+    } else if (getParam(cutoffLFO) == 3.f) {
         filterCutoffFreq *= lfo3_1_0;
+    }
     
     // filter frequency env lfo crossfade
     float filterEnvLFOMix = getParam(filterADSRMix);
-    if (getParam(filterEnvLFO) == 1.f)
+    if (getParam(filterEnvLFO) == 1.f) {
         filterEnvLFOMix *= lfo1_1_0;
-    else if (getParam(filterEnvLFO) == 2.f)
+    } else if (getParam(filterEnvLFO) == 2.f) {
         filterEnvLFOMix *= lfo2_1_0;
-    else if (getParam(filterEnvLFO) == 3.f)
+    } else if (getParam(filterEnvLFO) == 3.f) {
         filterEnvLFOMix *= lfo3_1_0;
+    }
     
     // filter frequency mixer
     filterCutoffFreq -= filterCutoffFreq * filterEnvLFOMix * (1.f - filter);
@@ -354,6 +351,7 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
             subOsc_out = -getParam(subVolume);
         }
     } else {
+
         // make sine louder
         subOsc_out *= getParam(subVolume) * 3.f;
     }
@@ -392,12 +390,13 @@ void S1NoteState::run(int frameIndex, float *outL, float *outR) {
     sp_butbp_compute(kernel->spp(), bandPass, &synthOut, &bandOut);
     float hipassOut;
     sp_buthp_compute(kernel->spp(), hiPass, &synthOut, &hipassOut);
-    if (getParam(filterType) == 0.f)
+    if (getParam(filterType) == 0.f) {
         filterOut = moogOut;
-    else if (getParam(filterType) == 1.f)
+    } else if (getParam(filterType) == 1.f) {
         filterOut = bandOut;
-    else if (getParam(filterType) == 2.f)
+    } else if (getParam(filterType) == 2.f) {
         filterOut = hipassOut;
+    }
 
     // filter crossfade
     sp_crossfade_compute(kernel->spp(), filterCrossFade, &synthOut, &filterOut, &finalOut);

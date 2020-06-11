@@ -35,15 +35,11 @@ class PresetsViewController: UIViewController {
     let conductor = Conductor.sharedInstance
     let userBankIndex = PresetCategory.bankStartingIndex + 1
     let userBankName = "User"
-
-    var presets = [Preset]() {
-        didSet {
-            randomizePresets()
-        }
-    }
+    var presets = [Preset]()
 
     var sortedPresets = [Preset]() {
         didSet {
+            randomizePresets()
             tableView.reloadData()
         }
     }

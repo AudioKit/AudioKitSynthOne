@@ -11,11 +11,8 @@
 extension Manager: PresetsDelegate {
 
     func presetDidChange(_ newActivePreset: Preset) {
-
         conductor.synth.reset()
-
         activePreset = newActivePreset
-
         if let headerVC = self.children.first as? HeaderViewController {
             headerVC.activePreset = activePreset
         }
@@ -23,6 +20,7 @@ extension Manager: PresetsDelegate {
         // Set parameters from preset
         self.loadPreset()
 
+        // udpate ui
         DispatchQueue.main.async {
             self.conductor.updateAllUI()
         }
@@ -35,6 +33,7 @@ extension Manager: PresetsDelegate {
 
         // UI Updates for non-bound controls
         DispatchQueue.main.async {
+            
             // Octave position
             self.keyboardView.firstOctave = self.activePreset.octavePosition + 2
             self.octaveStepper.value = Double(self.activePreset.octavePosition)
@@ -54,7 +53,6 @@ extension Manager: PresetsDelegate {
         activePreset.name = name
         activePreset.category = category
         activePreset.bank = bank
-        // activePreset.isUser = true
         saveValuesToPreset()
     }
 

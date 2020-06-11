@@ -956,7 +956,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <!--More-->
         <scene sceneID="kUK-dO-zQn">
             <objects>
-                <viewController storyboardIdentifier="HeyMetronome" id="Fji-9y-xII" userLabel="More" customClass="MoreAppsController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RetroPiano" id="Fji-9y-xII" userLabel="More" customClass="MoreAppsController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iQH-2J-elm"/>
                         <viewControllerLayoutGuide type="bottom" id="GwC-WX-LbC"/>
@@ -1005,8 +1005,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                                     <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="appDropButtonPressed:" destination="Fji-9y-xII" eventType="touchUpInside" id="54W-Cb-xBb"/>
-                                                    <action selector="getHeyMetronome:" destination="Fji-9y-xII" eventType="touchUpInside" id="dlL-lO-oFN"/>
+                                                    <action selector="appDropButtonPressed:" destination="Fji-9y-xII" eventType="touchUpInside" id="hW1-rO-Fgt"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="940-mf-DT7">
@@ -1015,7 +1014,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button" image="app-store"/>
                                                 <connections>
-                                                    <action selector="audiokitAppsPressed:" destination="Fji-9y-xII" eventType="touchUpInside" id="ZHG-Hb-4ML"/>
+                                                    <action selector="audiokitAppsPressed:" destination="Fji-9y-xII" eventType="touchUpInside" id="O1H-2v-6RC"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1032,9 +1031,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                                 <state key="normal" title="DONE">
                                                     <color key="titleColor" red="0.4549019608" green="0.62352941179999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="closePressed:" destination="Fji-9y-xII" eventType="touchUpInside" id="2Fd-0E-pae"/>
-                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NEW APPS: LIMITED EDITION!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGP-Ya-cTJ">
                                                 <rect key="frame" x="214" y="12" width="375" height="24"/>
@@ -1063,9 +1059,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                             <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="appDropButtonPressed:" destination="Fji-9y-xII" eventType="touchUpInside" id="94G-2J-kO8"/>
-                                            <action selector="getHeyMetronome:" destination="Fji-9y-xII" eventType="touchUpInside" id="ybb-0G-3Id"/>
-                                            <action selector="retroPianoPressed:" destination="Fji-9y-xII" eventType="touchUpInside" id="2go-Zz-5S5"/>
+                                            <action selector="retroPianoPressed:" destination="Fji-9y-xII" eventType="touchUpInside" id="hs0-c3-8nm"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="We’ve been working on a series of 10 Limited Edition Bonus apps... " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qOV-Yq-TTm">
@@ -1109,7 +1103,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         <!--More-->
         <scene sceneID="aeq-tQ-NE9">
             <objects>
-                <viewController storyboardIdentifier="iPhoneHeyMetronome" id="OR3-8i-Zqi" userLabel="More" customClass="MoreAppsController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="iPhoneRetroPiano" id="OR3-8i-Zqi" userLabel="More" customClass="MoreAppsController" customModule="AudioKitSynthOne" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jzy-sb-5Z2"/>
                         <viewControllerLayoutGuide type="bottom" id="mWV-Cg-iOM"/>
@@ -1156,7 +1150,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button" image="app-store"/>
                                         <connections>
-                                            <action selector="getHeyMetronome:" destination="Fji-9y-xII" eventType="touchUpInside" id="Gd3-Sn-ISh"/>
+                                            <action selector="audiokitAppsPressed:" destination="OR3-8i-Zqi" eventType="touchUpInside" id="qD4-8e-WzD"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="We’ve been working on a series of 10 Limited Edition Bonus apps... " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="i4C-im-Q6M">
@@ -1191,6 +1185,9 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                         <state key="normal" title="GET RETRO PIANO">
                                             <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="retroPianoPressed:" destination="OR3-8i-Zqi" eventType="touchUpInside" id="ewj-BW-42T"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
@@ -1265,7 +1262,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.41568627450000001" green="0.58431372550000005" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
-                                                <state key="normal" title="Get Digital D1 in App Store!">
+                                                <state key="normal" title="Get Digital D1 Now!">
                                                     <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
@@ -1298,8 +1295,8 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                                     <action selector="closePressed:" destination="dYI-DY-6w6" eventType="touchUpInside" id="U6Z-q8-d3t"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FUNDRAISER APPS: DIGITAL D1, FM PLAYER 2, HEY METRONOME!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ui3-qF-i3B">
-                                                <rect key="frame" x="276" y="12" width="449" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FUNDRAISER &amp; SPECIAL APPS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ui3-qF-i3B">
+                                                <rect key="frame" x="276" y="11" width="449" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
                                                 <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1308,8 +1305,87 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                         </subviews>
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1x-wW-Z4e">
+                                        <rect key="frame" x="475" y="44" width="525" height="289"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RetroPiano_iPhone11_Max" translatesAutoresizingMaskIntoConstraints="NO" id="7h3-mx-WVM">
+                                                <rect key="frame" x="206" y="8" width="301" height="183"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="RETRO PIANO - FREE!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DYz-aH-kao">
+                                                <rect key="frame" x="18" y="37" width="172" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="We’ve been working on a series of 10 Limited Edition apps for you... " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ip6-Ft-CuT">
+                                                <rect key="frame" x="0.0" y="71" width="208" height="94"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYV-ti-5dy">
+                                                <rect key="frame" x="263" y="199" width="236" height="56"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.41568627450000001" green="0.58431372550000005" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
+                                                <state key="normal" title="RETRO PIANO">
+                                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="retroPianoPressed:" destination="dYI-DY-6w6" eventType="touchUpInside" id="Qkl-6J-375"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmf-J0-GuJ">
+                                                <rect key="frame" x="14" y="199" width="236" height="56"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.41568627450000001" green="0.58431372550000005" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
+                                                <state key="normal" title="MORE AUDIOKIT APPS?!">
+                                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="audiokitAppsPressed:" destination="dYI-DY-6w6" eventType="touchUpInside" id="SBp-bC-ENZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.086274509803921567" green="0.086274509803921567" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="clf-D8-vAr">
+                                        <rect key="frame" x="475" y="329" width="526" height="251"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AudioTune" translatesAutoresizingMaskIntoConstraints="NO" id="0h8-f0-Bo9">
+                                                <rect key="frame" x="50" y="32" width="427" height="178"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-0s-XWP">
+                                                <rect key="frame" x="159" y="176" width="208" height="59"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button" image="app-store"/>
+                                                <connections>
+                                                    <action selector="audiokitAppsPressed:" destination="dYI-DY-6w6" eventType="touchUpInside" id="wFJ-vJ-2AO"/>
+                                                </connections>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="AUDIOTUNE - FUN PITCH CORRECTION!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AWe-YL-MNo">
+                                                <rect key="frame" x="103" y="13" width="320" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="19"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTo-ze-CQ0">
-                                        <rect key="frame" x="152" y="272" width="200" height="61"/>
+                                        <rect key="frame" x="143" y="270" width="214" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button" image="app-store"/>
@@ -1317,103 +1393,6 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
                                             <action selector="getDigitalD1:" destination="dYI-DY-6w6" eventType="touchUpInside" id="S7h-7m-M0z"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1x-wW-Z4e">
-                                        <rect key="frame" x="475" y="44" width="525" height="297"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYV-ti-5dy">
-                                                <rect key="frame" x="14" y="230" width="502" height="56"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.41568627450000001" green="0.58431372550000005" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
-                                                <state key="normal" title="Get FM Player 2 in App Store!">
-                                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="getDigitalD1:" destination="dYI-DY-6w6" eventType="touchUpInside" id="OoI-aK-xae"/>
-                                                    <action selector="getFMPlayer:" destination="dYI-DY-6w6" eventType="touchUpInside" id="M6H-B3-VIm"/>
-                                                </connections>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fmplayer" translatesAutoresizingMaskIntoConstraints="NO" id="7h3-mx-WVM">
-                                                <rect key="frame" x="222" y="13" width="303" height="208"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-0s-XWP">
-                                                <rect key="frame" x="314" y="147" width="203" height="56"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button" image="app-store"/>
-                                                <connections>
-                                                    <action selector="getFMPlayer:" destination="dYI-DY-6w6" eventType="touchUpInside" id="Srd-nz-sof"/>
-                                                </connections>
-                                            </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="&quot;Sounds authentically like the original DX7 Hardware&quot; – Electronic Musician" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="unh-p4-Agq">
-                                                <rect key="frame" x="8" y="121" width="190" height="92"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FM Player 2 used by Grammy-winning producers (Jay-Z, Alicia Keys, Drake)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0QK-eu-S8O">
-                                                <rect key="frame" x="15" y="22" width="213" height="94"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.086274509803921567" green="0.086274509803921567" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="clf-D8-vAr">
-                                        <rect key="frame" x="475" y="342" width="526" height="238"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heyMetronomePhone" translatesAutoresizingMaskIntoConstraints="NO" id="vvU-Wf-h5g">
-                                                <rect key="frame" x="0.0" y="0.0" width="290" height="239"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="HEY METRONOME!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-ls-LYn">
-                                                <rect key="frame" x="305" y="17" width="206" height="41"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="VOICE-ACTIVATED Fun &amp; Friendly!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2yv-dK-7J2">
-                                                <rect key="frame" x="331" y="66" width="154" height="68"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXA-p1-Eyg">
-                                                <rect key="frame" x="308" y="155" width="201" height="56"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.4549019608" green="0.62352941179999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
-                                                <state key="normal" title="Get in App Store!">
-                                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="getHeyMetronome:" destination="OR3-8i-Zqi" eventType="touchUpInside" id="F1t-fi-Qjc"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5j-Cq-nDg">
-                                                <rect key="frame" x="25" y="162" width="200" height="61"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button" image="app-store"/>
-                                                <connections>
-                                                    <action selector="getHeyMetronome:" destination="Fji-9y-xII" eventType="touchUpInside" id="yW8-wP-1lF"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.086274509803921567" green="0.086274509803921567" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1442,12 +1421,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
         </scene>
     </scenes>
     <resources>
+        <image name="AudioTune" width="500" height="252"/>
         <image name="RetroPiano_iPhone11_Max" width="400" height="209.5"/>
         <image name="ak1-logo" width="188" height="14"/>
         <image name="app-store" width="214.5" height="66.5"/>
         <image name="background" width="1024" height="768"/>
         <image name="d1" width="512" height="384"/>
         <image name="fmplayer" width="512" height="384"/>
-        <image name="heyMetronomePhone" width="450" height="300"/>
     </resources>
 </document>

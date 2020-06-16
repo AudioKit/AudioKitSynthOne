@@ -9,7 +9,7 @@
 import Foundation
 import AudioKit
 
-open class AKSynthOne: AKPolyphonicNode, AKComponent, S1Protocol {
+@objc open class AKSynthOne: AKPolyphonicNode, AKComponent, S1Protocol {
 
     static let SFTABLESIZE = 4_096
     static let SNUMWAVEFORMS = 4

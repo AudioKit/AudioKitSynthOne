@@ -8,7 +8,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 def available_pods
     pod 'AppCenter'
-    pod 'AudioKit', '= 4.9.2'
+    pod 'AudioKit', '= 4.10.1'
     pod 'Disk', '~> 0.3.2'
     pod 'Audiobus'
     pod 'OneSignal', '>= 2.6.2', '< 3.0'
@@ -20,7 +20,7 @@ end
 
 target 'OneSignalNotificationServiceExtension' do
     pod 'OneSignal', '>= 2.6.2', '< 3.0'
-    pod 'AudioKit', '= 4.9.2'
+    pod 'AudioKit', '= 4.10.1'
 end
 
 

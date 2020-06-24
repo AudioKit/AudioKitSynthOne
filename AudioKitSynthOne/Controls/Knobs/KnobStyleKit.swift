@@ -15,7 +15,7 @@ public class KnobStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawKnobOne(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 124, height: 124),
+    dynamic public class func drawKnobOne(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 124, height: 124),
                                                 resizing: ResizingBehavior = .aspectFit,
                                                 knobValue: CGFloat = 0.396) {
         //// General Declarations
@@ -141,7 +141,6 @@ public class KnobStyleKit: NSObject {
 
     }
 
-    @objc(KnobStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.

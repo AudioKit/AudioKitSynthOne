@@ -17,7 +17,7 @@ public class TopUIButtonStyleKit : NSObject {
     
     //// Drawing Methods
     
-    @objc dynamic public class func drawUIButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 70, height: 34), resizing: ResizingBehavior = .aspectFit, isOn: Bool = false, text: String = "AudioKit", textSize: CGFloat = 13, onColor: UIColor = UIColor(red: 0.341, green: 0.349, blue: 0.345, alpha: 1.000)) {
+    dynamic public class func drawUIButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 70, height: 34), resizing: ResizingBehavior = .aspectFit, isOn: Bool = false, text: String = "AudioKit", textSize: CGFloat = 13, onColor: UIColor = UIColor(red: 0.341, green: 0.349, blue: 0.345, alpha: 1.000)) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
@@ -65,10 +65,7 @@ public class TopUIButtonStyleKit : NSObject {
         
     }
     
-    
-    
-    
-    @objc(UIButtonStyleKitResizingBehavior)
+
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.

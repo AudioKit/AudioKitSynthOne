@@ -433,7 +433,7 @@ public class ABLLinkManager: NSObject {
     }
 
     // Route change
-    @objc internal func handleRouteChange() {
+    internal func handleRouteChange() {
         guard var linkData = linkData else {
             AKLog("ABL: Error accesing LinkData during route change")
             return
@@ -534,7 +534,7 @@ class AKLinkButton: SynthButton {
         // Do nothing to avoid changing selected state
     }
 
-    @objc public func doneAction() {
+    public func doneAction() {
         controller?.dismiss(animated: true, completion: nil)
         value = ABLLinkManager.shared.isEnabled ? 1 : 0
     }

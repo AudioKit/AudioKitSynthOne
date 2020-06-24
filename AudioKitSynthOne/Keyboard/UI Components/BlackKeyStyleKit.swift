@@ -15,7 +15,7 @@ public class BlackKeyStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawBlackKeyCanvas2(frame: CGRect = CGRect(x: 0, y: 31, width: 36, height: 112)) {
+    dynamic public class func drawBlackKeyCanvas2(frame: CGRect = CGRect(x: 0, y: 31, width: 36, height: 112)) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         // This non-generic function dramatically improves compilation times of complex expressions.

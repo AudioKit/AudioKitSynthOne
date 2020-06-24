@@ -153,7 +153,7 @@ class SequencerPanelController: PanelController {
 
     // MARK: - Helpers
 
-    @objc public func updateLED(beatCounter: Int, heldNotes: Int = 128) {
+    public func updateLED(beatCounter: Int, heldNotes: Int = 128) {
         let arpIsOn = conductor.synth.getSynthParameter(.arpIsOn) > 0 ? true : false
         let arpIsSequencer = conductor.synth.getSynthParameter(.arpIsSequencer) > 0 ? true : false
         let seqTotalSteps = Int(conductor.synth.getSynthParameter(.arpTotalSteps))

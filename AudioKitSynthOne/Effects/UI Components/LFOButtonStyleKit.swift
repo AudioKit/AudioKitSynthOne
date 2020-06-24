@@ -15,7 +15,6 @@ public class LFOButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc
     dynamic public class func drawLFOButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 106, height: 38),
                                             resizing: ResizingBehavior  = .aspectFit,
                                             lfoSelected: CGFloat = 5,
@@ -145,7 +144,6 @@ public class LFOButtonStyleKit: NSObject {
 
     }
 
-    @objc(LFOButtonStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.

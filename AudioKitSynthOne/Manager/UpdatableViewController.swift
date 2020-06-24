@@ -31,7 +31,7 @@ protocol AffectedByLink {
 }
 
 extension UpdatableViewController: AffectedByLink {
-    @objc func setupLinkStuff() {
+    func setupLinkStuff() {
         // Do nothing by default
     }
 }

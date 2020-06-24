@@ -15,7 +15,7 @@ public class ArpDirectionStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawArpDirectionButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 109, height: 37), resizing: ResizingBehavior = .aspectFit, directionSelected: CGFloat = 2) {
+    dynamic public class func drawArpDirectionButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 109, height: 37), resizing: ResizingBehavior = .aspectFit, directionSelected: CGFloat = 2) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -120,7 +120,6 @@ public class ArpDirectionStyleKit: NSObject {
 
     }
 
-    @objc(ArpDirectionStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.

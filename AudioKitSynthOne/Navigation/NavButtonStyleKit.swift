@@ -15,7 +15,6 @@ public class NavButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc
     dynamic public class func drawNavButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 63, height: 156),
                                             resizing: ResizingBehavior = .aspectFill,
                                             isOn: CGFloat = 0,
@@ -89,7 +88,6 @@ public class NavButtonStyleKit: NSObject {
 
     }
 
-    @objc(NavButtonStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.

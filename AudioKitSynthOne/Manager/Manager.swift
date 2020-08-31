@@ -287,14 +287,14 @@ public class Manager: UpdatableViewController, AudioRecorderFileDelegate {
         if appSettings.presetsVersion < currentPresetVersion {
             if conductor.device == .pad {
                 if appSettings.presetsVersion < 1.24 && !appSettings.firstRun {
-                    performSegue(withIdentifier: "SegueToApps", sender: nil) 
+               //     performSegue(withIdentifier: "SegueToApps", sender: nil) 
                 }
                 if appSettings.presetsVersion < 1.8 && !appSettings.firstRun {
-                    performSegue(withIdentifier: "SegueToHM", sender: nil)
+                //    performSegue(withIdentifier: "SegueToHM", sender: nil)
                 }
             } else {
                 if appSettings.presetsVersion < 1.8 && !appSettings.firstRun {
-                    performSegue(withIdentifier: "SegueToPhoneHM", sender: nil)
+                //    performSegue(withIdentifier: "SegueToPhoneHM", sender: nil)
                 }
             }
             

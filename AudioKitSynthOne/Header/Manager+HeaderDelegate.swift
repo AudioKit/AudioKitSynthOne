@@ -118,7 +118,10 @@ extension Manager: HeaderDelegate {
     
     func appsPressed() {
         if self.conductor.device == .pad {
-         performSegue(withIdentifier: "SegueToApps", sender: self)
+        // performSegue(withIdentifier: "SegueToApps", sender: self)
+            if let url = URL(string: "https://apps.apple.com/us/developer/audiokit-pro/id1307785645") {
+                UIApplication.shared.open(url)
+            }
         } else {
             if let url = URL(string: "https://apps.apple.com/us/developer/audiokit-pro/id1307785645") {
                 UIApplication.shared.open(url)

@@ -117,16 +117,7 @@ extension Manager: HeaderDelegate {
     }
     
     func appsPressed() {
-        if self.conductor.device == .pad {
-        // performSegue(withIdentifier: "SegueToApps", sender: self)
-            if let url = URL(string: "https://audiokitpro.com/ipadapps") {
-                UIApplication.shared.open(url)
-            }
-        } else { // iPhone
-            if let url = URL(string: "https://audiokitpro.com/iphoneapps/") {
-                UIApplication.shared.open(url)
-            }
-        }
+        showMoreAppsPage()
     }
 
     func morePressed() {
@@ -140,11 +131,22 @@ extension Manager: HeaderDelegate {
         }
 
         if signedMailingList {
-            if let url = URL(string: "https://apps.apple.com/us/developer/audiokit-pro/id1307785645") {
-                UIApplication.shared.open(url)
-            }
+            showMoreAppsPage()
         } else {
             performSegue(withIdentifier: "SegueToMailingList", sender: self)
+        }
+    }
+    
+    func showMoreAppsPage() {
+        if self.conductor.device == .pad {
+            // performSegue(withIdentifier: "SegueToApps", sender: self)
+            if let url = URL(string: "https://audiokitpro.com/ipadapps") {
+                UIApplication.shared.open(url)
+            }
+        } else { // iPhone
+            if let url = URL(string: "https://audiokitpro.com/iphoneapps/") {
+                UIApplication.shared.open(url)
+            }
         }
     }
     

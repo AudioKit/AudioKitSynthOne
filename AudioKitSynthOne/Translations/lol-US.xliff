@@ -52,18 +52,17 @@ Adam Kitty, Alex Kitty, Andy Kitty, Aurelius Kitty, Brent Kitty, Brice Kitty, Ce
         <source>Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
 Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </source>
         <note>Class = "UITextView"; text = "Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. \nPerfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. "; ObjectID = "IAn-lv-O7m";</note>
-        <target state="needs-translation">Award-winning Free iPad Instrument inspired by the DX7 &amp; DX7II. 
-Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electric Pianos, Bells, Basses, Keys and 80s sounds. </target>
+        <target state="translated">AWARD-WINNIN FREE IPAD INSTRUMENT INSPIRD BY TEH DX7 &amp; DX7II. PERFIK WIF MIDI KEYBOARD. SRSLY BEAUTIFUL SOUNDIN MULIT-LAYERED SAMPLES OV ELECTRIC PIANOS, BELLS, BASSES, KEYZ AN 80S SOUNDZ. </target>
       </trans-unit>
       <trans-unit id="M92-zU-EUI.text">
         <source>REVIEW</source>
         <note>Class = "UILabel"; text = "REVIEW"; ObjectID = "M92-zU-EUI";</note>
-        <target state="needs-translation">REVIEW</target>
+        <target state="translated">REVIEW</target>
       </trans-unit>
       <trans-unit id="SJq-it-GbF.text">
         <source>PLEASE send BUG REPORTS:</source>
         <note>Class = "UILabel"; text = "PLEASE send BUG REPORTS:"; ObjectID = "SJq-it-GbF";</note>
-        <target state="needs-translation">PLEASE send BUG REPORTS:</target>
+        <target state="translated">PLZ send BUG REPORTZ:</target>
       </trans-unit>
       <trans-unit id="VE1-2S-HqW.normalTitle">
         <source>Be kind 👍🏼 Review this app!  </source>
@@ -78,12 +77,12 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       <trans-unit id="dll-2U-dYG.normalTitle">
         <source>AudioKit Github</source>
         <note>Class = "UIButton"; normalTitle = "AudioKit Github"; ObjectID = "dll-2U-dYG";</note>
-        <target state="needs-translation">AudioKit Github</target>
+        <target state="translated">AudioKit Github</target>
       </trans-unit>
       <trans-unit id="etI-kL-v1E.normalTitle">
         <source>hello@audiokitpro.com</source>
         <note>Class = "UIButton"; normalTitle = "hello@audiokitpro.com"; ObjectID = "etI-kL-v1E";</note>
-        <target state="needs-translation">hello@audiokitpro.com</target>
+        <target state="translated">hello@audiokitpro.com</target>
       </trans-unit>
       <trans-unit id="g34-af-uEZ.text">
         <source>FM PLAYER: CLASSIC DX</source>

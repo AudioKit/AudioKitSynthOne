@@ -19,6 +19,7 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var videoButton: SynthButton!
     @IBOutlet weak var reviewButton: SynthButton!
     @IBOutlet weak var githubButton: SynthButton!
+    @IBOutlet weak var bookButton: SynthButton!
     @IBOutlet weak var mainTextView: UITextView!
     @IBOutlet weak var webButton: SynthButton!
     weak var delegate: AboutDelegate?
@@ -60,7 +61,7 @@ class AboutViewController: UIViewController {
         githubButton.setValueCallback = { _ in
             self.githubButton.value = 0
             if Conductor.sharedInstance.device == .phone {
-                self.emailSend()
+                return
             } else {
                 if let url = URL(string: "https://github.com/AudioKit/") {
                     UIApplication.shared.open(url)
@@ -83,6 +84,14 @@ class AboutViewController: UIViewController {
                 UIApplication.shared.open(url)
             }
         }
+        
+        // iBook
+            bookButton.setValueCallback = { _ in
+                self.bookButton.value = 0
+                if let url = URL(string: "https://books.apple.com/us/book/audiokit-synth-one-the-ultimate-guide/id1544368523") {
+                    UIApplication.shared.open(url)
+                }
+            }
 
         // reviews
         reviewButton.setValueCallback = { _ in

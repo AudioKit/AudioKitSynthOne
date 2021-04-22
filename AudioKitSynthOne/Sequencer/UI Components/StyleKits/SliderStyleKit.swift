@@ -15,7 +15,7 @@ public class SliderStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawVerticalSlider(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 42, height: 160), resizing: ResizingBehavior = .aspectFit, sliderY: CGFloat = 70, minY: CGFloat = 0, maxY: CGFloat = 132) {
+    dynamic public class func drawVerticalSlider(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 42, height: 160), resizing: ResizingBehavior = .aspectFit, sliderY: CGFloat = 70, minY: CGFloat = 0, maxY: CGFloat = 132) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -165,7 +165,6 @@ public class SliderStyleKit: NSObject {
 
     }
 
-    @objc(SliderStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.

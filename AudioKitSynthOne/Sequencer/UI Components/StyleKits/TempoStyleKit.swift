@@ -15,7 +15,7 @@ public class TempoStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawTempoStepper(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 82, height: 77), resizing: ResizingBehavior = .aspectFit, valuePressed: CGFloat = 0, text: String = "120 bpm") {
+    dynamic public class func drawTempoStepper(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 82, height: 77), resizing: ResizingBehavior = .aspectFit, valuePressed: CGFloat = 0, text: String = "120 bpm") {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -113,7 +113,6 @@ public class TempoStyleKit: NSObject {
 
     }
 
-    @objc(TempoStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.

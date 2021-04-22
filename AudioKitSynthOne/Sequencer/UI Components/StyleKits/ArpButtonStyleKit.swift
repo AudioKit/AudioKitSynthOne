@@ -15,7 +15,7 @@ public class ArpButtonStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawArpButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 35, height: 25),
+    dynamic public class func drawArpButton(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 35, height: 25),
                                                   resizing: ResizingBehavior = .aspectFit,
                                                   isToggled: Bool = false) {
         //// General Declarations
@@ -97,7 +97,6 @@ public class ArpButtonStyleKit: NSObject {
 
     }
 
-    @objc(ArpButtonStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.

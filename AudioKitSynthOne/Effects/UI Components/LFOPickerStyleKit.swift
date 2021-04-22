@@ -17,7 +17,7 @@ public class LFOPickerStyleKit : NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawLFOWaveformPicker(frame: CGRect = CGRect(x: 0, y: 0, width: 215, height: 42), fraction: CGFloat = 0) {
+    dynamic public class func drawLFOWaveformPicker(frame: CGRect = CGRect(x: 0, y: 0, width: 215, height: 42), fraction: CGFloat = 0) {
         //// Color Declarations
         var color = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1.000)
         let selected = UIColor(red: 0.902, green: 0.533, blue: 0.008, alpha: 1.000)

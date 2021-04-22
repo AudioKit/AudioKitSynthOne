@@ -9,7 +9,7 @@
 import Foundation
 import AudioKit
 
-@objc open class AKSynthOne: AKPolyphonicNode, AKComponent, S1Protocol {
+open class AKSynthOne: AKPolyphonicNode, AKComponent, S1Protocol {
 
     static let SFTABLESIZE = 4_096
     static let SNUMWAVEFORMS = 4
@@ -155,8 +155,7 @@ import AudioKit
     }
 
     /// Ramp Time represents the speed at which parameters are allowed to change
-    @objc open dynamic var rampDuration: Double = 0.0 {
-
+    open dynamic var rampDuration: Double = 0.0 {
         willSet {
             internalAU?.rampDuration = newValue
         }
@@ -279,7 +278,7 @@ import AudioKit
         internalAU?.s1Delegate = self
     }
 
-    @objc open weak var delegate: S1Protocol?
+    open weak var delegate: S1Protocol?
 
     internal func postNotification(_ parameter: S1Parameter, _ value: Double) {
 
@@ -308,22 +307,22 @@ import AudioKit
 
     // MARK: - Passthroughs for AKSynthOneProtocol called by DSP on main thread
 
-    @objc public func dependentParameterDidChange(_ parameter: DependentParameter) {
+    public func dependentParameterDidChange(_ parameter: DependentParameter) {
 
         delegate?.dependentParameterDidChange(parameter)
     }
 
-    @objc public func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {
+    public func arpBeatCounterDidChange(_ beat: S1ArpBeatCounter) {
 
         delegate?.arpBeatCounterDidChange(beat)
     }
 
-    @objc public func heldNotesDidChange(_ heldNotes: HeldNotes) {
+    public func heldNotesDidChange(_ heldNotes: HeldNotes) {
 
         delegate?.heldNotesDidChange(heldNotes)
     }
 
-    @objc public func playingNotesDidChange(_ playingNotes: PlayingNotes) {
+    public func playingNotesDidChange(_ playingNotes: PlayingNotes) {
 
         delegate?.playingNotesDidChange(playingNotes)
     }

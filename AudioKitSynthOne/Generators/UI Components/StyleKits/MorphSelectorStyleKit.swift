@@ -15,7 +15,7 @@ public class MorphSelectorStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawMorphSelector(value: CGFloat = 1, width: CGFloat = 240, height: CGFloat = 53) {
+    dynamic public class func drawMorphSelector(value: CGFloat = 1, width: CGFloat = 240, height: CGFloat = 53) {
         //// Color Declarations
         let selected = UIColor(red: 0.929, green: 0.533, blue: 0.000, alpha: 1.000)
         let unselected = UIColor(red: 0.533, green: 0.533, blue: 0.533, alpha: 1.000)

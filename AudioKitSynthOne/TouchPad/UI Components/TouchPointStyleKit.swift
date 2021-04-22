@@ -15,7 +15,7 @@ public class TouchPointStyleKit: NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawTouchPoint(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 61, height: 61), resizing: ResizingBehavior = .aspectFit) {
+    dynamic public class func drawTouchPoint(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 61, height: 61), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -69,7 +69,6 @@ public class TouchPointStyleKit: NSObject {
 
     }
 
-    @objc(TouchPointStyleKitResizingBehavior)
     public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.

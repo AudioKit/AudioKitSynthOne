@@ -73,8 +73,15 @@ void S1DSPKernel::updatePortamento(float halfTime) {
     for(int i = 0; i< S1Parameter::S1ParameterCount; i++) {
         if (s1p[i].usePortamento) {
             s1p[i].portamento->htime = ht;
+            updatePortamentoInternalValues(s1p[i].portamento);
         }
     }
+}
+
+void S1DSPKernel::updatePortamentoInternalValues(sp_port* port) {
+    port->c2 = pow(0.5, port->onedsr / port->htime);
+    port->c1 = 1.0 - port->c2;
+    port->prvhtim = port->htime;
 }
 
 //TODO:set s1 param arpRate

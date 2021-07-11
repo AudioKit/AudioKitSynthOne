@@ -20,6 +20,7 @@
 #import "S1Rate.hpp"
 #import "../Sequencer/S1Sequencer.hpp"
 #import "S1DSPCompressor.hpp"
+#import "S1DSPHorizon.hpp"
 
 @class AEArray;
 @class AEMessageQueue;
@@ -126,7 +127,9 @@ public:
     void destroy();
     
     void updatePortamento(float halfTime);
-
+    
+    static void updatePortamentoInternalValues(sp_port* port);
+    
     // initializeNoteStates() must be called AFTER init returns
     void initializeNoteStates();
     
@@ -335,6 +338,17 @@ private:
     // Count samples to limit main thread notification
     double processSampleCounter = 0;
     
+    // Count consecutive silence samples to reduce power consumption. These variables must be unsigned.
+    unsigned int bitcrushSilenceSampleCount = 0;
+    unsigned int panSilenceSampleCount = 0;
+    unsigned int phaserSilenceSampleCount = 0;
+    unsigned int delaySilenceSampleCount = 0;
+    unsigned int reverbSilenceSampleCount = 0;
+    unsigned int masterSilenceSampleCount = 0;
+    
+    // Horizons to reduce power consumption
+    std::unique_ptr<S1DSPHorizon> horizon;
+    
     ///once init'd: sequencerLastNotes can be accessed and mutated only within process and resetDSP
     std::list<int> sequencerLastNotes;
 
@@ -352,6 +366,10 @@ private:
     const float bars_max = 8.f;
     const float rate_min = 1.f / ( (beatsPerBar * bars_max) / (bpm_min * minutesPerSecond) ); //  0.00052 8 bars at 1bpm
     const float rate_max = 1.f / ( (beatsPerBar * bars_min) / (bpm_max * minutesPerSecond) ); // 53.3333
+    
+    // Cache the indexes of the parameters that use portamento, to speed up the process function.
+    std::vector<int> portamentoParameterIndexes;
+    
     S1ParameterInfo s1p[S1Parameter::S1ParameterCount] = {
         { index1,                0, 1, 1, "index1", "Index 1", kAudioUnitParameterUnit_Generic, true, NULL},
         { index2,                0, 1, 1, "index2", "Index 2", kAudioUnitParameterUnit_Generic, true, NULL},

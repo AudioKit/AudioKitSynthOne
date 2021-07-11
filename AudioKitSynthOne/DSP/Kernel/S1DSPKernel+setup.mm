@@ -23,6 +23,8 @@ void S1DSPKernel::updateWavetableIncrementValuesForCurrentSampleRate() {
         ft_array[i]->sicvt = currentSampleIncrement;
     }
     sine->sicvt = currentSampleIncrement;
+    
+    horizon->updateSampleRate(sp->sr);
 }
 
 /// tableIndex is on [0, S1_NUM_WAVEFORMS * S1_NUM_BANDLIMITED_FTABLES)

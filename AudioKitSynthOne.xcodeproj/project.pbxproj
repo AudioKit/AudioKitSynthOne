@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07D60A51269B90F700FB0778 /* S1DSPHorizon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D60A50269B90F700FB0778 /* S1DSPHorizon.mm */; };
 		48C3EE7437FA1B1E7916844E /* Pods_AudioKitSynthOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27CDAC229BF66A1C649B42 /* Pods_AudioKitSynthOne.framework */; };
 		69115F3E2363BBA100B144A5 /* Conductor+Audiobus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69115F3D2363BBA000B144A5 /* Conductor+Audiobus.swift */; };
 		692C04F82370C43A008CBDDA /* AppDelegate+PlatformServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69824682236EE83A00407DF4 /* AppDelegate+PlatformServices.swift */; };
@@ -303,6 +304,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		07D60A4F269B90F600FB0778 /* S1DSPHorizon.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = S1DSPHorizon.hpp; sourceTree = "<group>"; };
+		07D60A50269B90F700FB0778 /* S1DSPHorizon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = S1DSPHorizon.mm; sourceTree = "<group>"; };
 		3A319653D44EC41DAFAEB963 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		45E1A7C3C54D27427C4A71B1 /* Pods_AKS1Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKS1Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC225D22B5EE94B01AA474 /* Pods-AudioKitSynthOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioKitSynthOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioKitSynthOne/Pods-AudioKitSynthOne.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1100,6 +1103,8 @@
 				C4B490FA20C6560000FD565A /* S1DSPKernel+startStopNotes.mm */,
 				C4B490F020C64ED200FD565A /* S1DSPKernel+tapers.mm */,
 				C4B490FC20C6564D00FD565A /* S1DSPKernel+toggleKeys.mm */,
+				07D60A4F269B90F600FB0778 /* S1DSPHorizon.hpp */,
+				07D60A50269B90F700FB0778 /* S1DSPHorizon.mm */,
 			);
 			path = Kernel;
 			sourceTree = "<group>";
@@ -1920,6 +1925,7 @@
 				946980572169258A007EAA5B /* String+CapitalizeFirst.swift in Sources */,
 				692C04F82370C43A008CBDDA /* AppDelegate+PlatformServices.swift in Sources */,
 				F4AD9EE2224856C2002B0E2E /* MIDIToggleButton.swift in Sources */,
+				07D60A51269B90F700FB0778 /* S1DSPHorizon.mm in Sources */,
 				C4B491BC20C7DEB100FD565A /* ArpButtonStyleKit.swift in Sources */,
 				C4B4919420C7C7C500FD565A /* PresetEditorViewController.swift in Sources */,
 				C4B4918620C7C79C00FD565A /* Presets+PresetCellDelegate.swift in Sources */,

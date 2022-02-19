@@ -79,7 +79,7 @@ class PresetsViewController: UIViewController {
         // set color for lines between rows
         tableView.separatorColor = #colorLiteral(red: 0.368627451, green: 0.368627451, blue: 0.3882352941, alpha: 1)
 
-        // Set Initial Cateogry & Preset
+        // Set Initial Category & Preset
         selectCategory(0)
 
         // Setup button callbacks

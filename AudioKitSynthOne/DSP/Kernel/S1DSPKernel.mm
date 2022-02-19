@@ -108,7 +108,7 @@ void S1DSPKernel::init(int _channels, double _sampleRate) {
 
     _rate.init();
 
-    // intialize dsp tuning table with 12ET
+    // initialize dsp tuning table with 12ET
     for(int i = 0; i < 128; i++) {
         tuningTable[i].store(440. * exp2((i - 69)/12.));
     }

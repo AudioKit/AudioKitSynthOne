@@ -20,7 +20,7 @@ extension Manager: PresetsDelegate {
         // Set parameters from preset
         self.loadPreset()
 
-        // udpate ui
+        // update ui
         DispatchQueue.main.async {
             self.conductor.updateAllUI()
         }

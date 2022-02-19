@@ -125,10 +125,10 @@ class AboutViewController: UIViewController {
     }
     
     func emailSend() {
-        let receipients = ["hello@audiokitpro.com"]
+        let recipients = ["hello@audiokitpro.com"]
         let subject = "From AudioKit Synth App"
         let messageBody = ""
-        let configuredMailComposeViewController = configureMailComposeViewController(recepients: receipients,
+        let configuredMailComposeViewController = configureMailComposeViewController(recipients: recipients,
                                                                                      subject: subject,
                                                                                      messageBody: messageBody)
         if canSendMail() {
@@ -153,12 +153,12 @@ extension AboutViewController: MFMailComposeViewControllerDelegate {
         return MFMailComposeViewController.canSendMail()
     }
     
-    func configureMailComposeViewController(recepients: [String],
+    func configureMailComposeViewController(recipients: [String],
                                             subject: String,
                                             messageBody: String) -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
-        mailComposerVC.setToRecipients(recepients)
+        mailComposerVC.setToRecipients(recipients)
         mailComposerVC.setSubject(subject)
         mailComposerVC.setMessageBody(messageBody, isHTML: false)
         return mailComposerVC

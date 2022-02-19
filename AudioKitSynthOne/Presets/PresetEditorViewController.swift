@@ -64,7 +64,7 @@ class PresetEditorViewController: UIViewController {
 
         // category
 		categoryTableView.accessibilityLabel = NSLocalizedString("Categories", comment: "Categories")
-		categoryTableView.accessibilityHint = NSLocalizedString("Sets catagory for a preset.", comment: "Sets catagory for a preset.")
+		categoryTableView.accessibilityHint = NSLocalizedString("Sets category for a preset.", comment: "Sets category for a preset.")
     }
 
     override func viewDidAppear(_ animated: Bool) {

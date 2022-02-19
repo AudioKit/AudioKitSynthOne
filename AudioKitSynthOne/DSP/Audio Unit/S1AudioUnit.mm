@@ -84,7 +84,7 @@
 }
 
 - (BOOL)isSetUp {
-    return _kernel->resetted;
+    return _kernel->reset;
 }
 
 - (void)stopNote:(uint8_t)note {

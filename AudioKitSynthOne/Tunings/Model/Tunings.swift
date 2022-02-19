@@ -432,7 +432,7 @@ final class Tunings {
 
     private func tuningDidChange() {
 
-        /// udpate dsp with global tuning table
+        /// update dsp with global tuning table
         /// NOTE: There is NO need to block dsp while the update is happening from a non-realtime  thread
         let a4 = conductor.synth!.getSynthParameter(.frequencyA4)
         AKPolyphonicNode.tuningTable.middleCFrequency = a4 * exp2((60 - 69) / 12)

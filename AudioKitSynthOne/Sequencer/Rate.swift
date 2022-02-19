@@ -81,7 +81,7 @@ public enum Rate: Int, CustomStringConvertible {
     }
 
     var frequency: Double {
-        // code to caculate Freq Tempo
+        // code to calculate Freq Tempo
         return 1.0 / time
     }
 

@@ -13,7 +13,7 @@ import MobileCoreServices
 /// TODO: Needs proper fix. Quick hack to ensure that
 /// we can change the UIBarButtonItem Attributes
 /// in a scope restricted to the Tunings Nav Controller.
-/// Otherwise any attempts get overriden by the global appearance.
+/// Otherwise any attempts get overridden by the global appearance.
 class UITuningNavigationController : UINavigationController
 {
 }

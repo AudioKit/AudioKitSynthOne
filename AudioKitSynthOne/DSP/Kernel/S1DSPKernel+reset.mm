@@ -31,7 +31,7 @@ void S1DSPKernel::reset() {
     for (int i = 0; i<S1_MAX_POLYPHONY; i++)
         (*noteStates)[i].clear();
     monoNote->clear();
-    resetted = true;
+    reset = true;
     sp_vdelay_reset(sp, delayL);
     sp_vdelay_reset(sp, delayR);
     sp_vdelay_reset(sp, delayRR);

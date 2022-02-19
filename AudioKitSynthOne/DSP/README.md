@@ -17,7 +17,7 @@ Enums for every kernel parameter are defined here, and exposed to Swift, ObjC, a
 
 S1AudioUnit owns the AudioUnit instance of the kernel and facilitates communication between the Swift UI layer and the C++ DSP kernel.
 It defines several structs used for communication between the render thread and the main/ui thread.
-It depends on a 3rd party SDK to faciliate messaging between the main thread and the render thread.
+It depends on a 3rd party SDK to facilitate messaging between the main thread and the render thread.
 
 
 * Kernel

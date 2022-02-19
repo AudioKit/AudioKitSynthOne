@@ -46,7 +46,7 @@ typedef struct HeldNotes {
     bool heldNotes[S1_NUM_MIDI_NOTES];
 } HeldNotes;
 
-// helper for main+render thread communcation: arp beat counter, and number of held notes
+// helper for main+render thread communication: arp beat counter, and number of held notes
 typedef struct S1ArpBeatCounter {
     int beatCounter;
     int heldNotesCount;

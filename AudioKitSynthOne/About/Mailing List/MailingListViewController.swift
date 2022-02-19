@@ -158,7 +158,7 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
 
             MailChimp.shared.addSubscriber(user: mailUser) { (data, response, error) in
               if let httpResponse = response as? HTTPURLResponse {
-                AKLog("Reponse status code: %d", httpResponse.statusCode)
+                AKLog("Response status code: %d", httpResponse.statusCode)
               }
             }
             self.delegate?.didSignMailingList(email: emailAddress)
@@ -205,11 +205,11 @@ class MailingListViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func emailPressed(_ sender: UIButton) {
         
-        let receipients = ["matthew@audiokitpro.com"]
+        let recipients = ["matthew@audiokitpro.com"]
         let subject = "From AudioKit App"
         let messageBody = ""
         
-        let configuredMailComposeViewController = configureMailComposeViewController(recepients: receipients,
+        let configuredMailComposeViewController = configureMailComposeViewController(recipients: recipients,
                                                                                      subject: subject,
                                                                                      messageBody: messageBody)
         
@@ -286,14 +286,14 @@ extension MailingListViewController: MFMailComposeViewControllerDelegate {
         return MFMailComposeViewController.canSendMail()
     }
     
-    func configureMailComposeViewController(recepients: [String],
+    func configureMailComposeViewController(recipients: [String],
                                             subject: String,
                                             messageBody: String) -> MFMailComposeViewController {
         
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         
-        mailComposerVC.setToRecipients(recepients)
+        mailComposerVC.setToRecipients(recipients)
         mailComposerVC.setSubject(subject)
         mailComposerVC.setMessageBody(messageBody, isHTML: false)
         

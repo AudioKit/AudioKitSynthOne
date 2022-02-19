@@ -43,7 +43,7 @@ public struct ABLLinkData {
     public var secondsToHostTime: Float64
     /// Shared between threads. Written by the main thread and only read by the audio thread when doing so will not block.
     public var sharedEngineData: ABLEngineData
-    /// Copy of sharedEngineData Aowned by audio thread.
+    /// Copy of sharedEngineData owned by audio thread.
     public var localEngineData: ABLEngineData
     /// Owned by audio thread
     public var timeAtLastClick: UInt64
@@ -136,7 +136,7 @@ public class ABLLinkManager: NSObject {
         return linkData?.linkRef
     }
 
-    /// Detemines if Link is connected or not.
+    /// Determines if Link is connected or not.
     public var isConnected: Bool {
         guard let ref = linkData?.linkRef else { return false }
         return ABLLinkIsConnected(ref)
@@ -148,7 +148,7 @@ public class ABLLinkManager: NSObject {
         return ABLLinkIsEnabled(linkRef)
     }
 
-    /// Detemines if Link is playing or not.
+    /// Determines if Link is playing or not.
     public private(set) var isPlaying: Bool {
         get {
             guard let linkRef = linkRef,
@@ -217,7 +217,7 @@ public class ABLLinkManager: NSObject {
         }
     }
 
-    /// Returns Link settings view controller initilized with Link reference.
+    /// Returns Link settings view controller initialized with Link reference.
     public var settingsViewController: ABLLinkSettingsViewController? {
         guard let linkData = linkData else {
             AKLog("ABL: Error casting ABL vc as UIViewController")
@@ -226,7 +226,7 @@ public class ABLLinkManager: NSObject {
         return ABLLinkSettingsViewController.instance(linkData.linkRef)
     }
 
-    /// Initilizes Link with tempo and quantum.
+    /// Initializes Link with tempo and quantum.
     ///
     /// - Parameters:
     ///   - bpm: Tempo.
@@ -405,7 +405,7 @@ public class ABLLinkManager: NSObject {
         let selfAsURP = UnsafeRawPointer(Unmanaged.passUnretained(self).toOpaque())
         let selfAsUMRP = UnsafeMutableRawPointer(mutating: selfAsURP)
 
-        // Add listerner to detect tempo changes from other devices
+        // Add listener to detect tempo changes from other devices
 
         ABLLinkSetSessionTempoCallback(ref, { sessionTempo, context in
             if let context = context {
@@ -435,7 +435,7 @@ public class ABLLinkManager: NSObject {
     // Route change
     @objc internal func handleRouteChange() {
         guard var linkData = linkData else {
-            AKLog("ABL: Error accesing LinkData during route change")
+            AKLog("ABL: Error accessing LinkData during route change")
             return
         }
 
@@ -474,7 +474,7 @@ public class ABLLinkManager: NSObject {
         }
     }
 
-    // Connection Status from ther devices changed
+    // Connection Status from other devices changed
     private func onConnectionStatusChanged(isConnected: Bool, context: Optional<UnsafeMutableRawPointer>) -> () {
         AKLog("ABL: onConnectionStatusChanged: isConnected = ", isConnected)
 

@@ -10,7 +10,7 @@ import Foundation
 import CommonCrypto
 
 // Helper function to create MD5 Hash
-// Needed for adressing endpoints in MailChimp API v3
+// Needed for addressing endpoints in MailChimp API v3
 
 // Defines types of hash string outputs available
 public enum HashOutputType {

@@ -195,7 +195,7 @@ public:
 
     __weak S1AudioUnit* audioUnit;
     
-    bool resetted = false;
+    bool reset = false;
     
     int arpBeatCounter = 0;
     

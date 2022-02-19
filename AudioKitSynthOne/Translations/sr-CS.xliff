@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
-  <file original="AudioKitSynthOne/About/Base.lproj/About.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/About/Base.lproj/About.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -117,7 +117,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/About/Mailing List/Base.lproj/MailingList.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/About/Mailing List/Base.lproj/MailingList.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -149,7 +149,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Base.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/Base.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -636,7 +636,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Base.lproj/Main.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/Base.lproj/Main.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -868,7 +868,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Developer/Base.lproj/Base.lproj/Dev.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/Developer/Base.lproj/Base.lproj/Dev.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -960,7 +960,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Effects/Base.lproj/Effects.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/Effects/Base.lproj/Effects.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -1092,7 +1092,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -1114,7 +1114,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Envelopes/Base.lproj/Envelopes.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/Envelopes/Base.lproj/Envelopes.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -1176,7 +1176,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Generators/Base.lproj/Generators.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/Generators/Base.lproj/Generators.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -1328,7 +1328,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Header/Base.lproj/Header.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/Header/Base.lproj/Header.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -1370,7 +1370,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Presets/Base.lproj/Presets.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/Presets/Base.lproj/Presets.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -1492,7 +1492,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Sequencer/Base.lproj/Sequencer.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/Sequencer/Base.lproj/Sequencer.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -1609,7 +1609,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/TouchPad/Base.lproj/TouchPad.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/TouchPad/Base.lproj/TouchPad.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -1641,7 +1641,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="AudioKitSynthOne/Tunings/Base.lproj/Tunings.storyboard" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="AudioKitSynthOne/Tunings/Base.lproj/Tunings.storyboard" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
@@ -1668,7 +1668,7 @@ Perfect with a MIDI Keyboard. Beautiful sounding multi-layered samples of Electr
       </trans-unit>
     </body>
   </file>
-  <file original="OneSignalNotificationServiceExtension/Base.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="sr-CS">
+  <file original="OneSignalNotificationServiceExtension/Base.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="sr-Latn">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.4.1" build-num="9F2000"/>
     </header>
